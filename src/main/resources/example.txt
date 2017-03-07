@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="Description" text="Page is used for test connection in my app." />
+    <meta name="Author" text="Dominik Symonowicz" />
+    <link rel="stylesheet" href="./css/pro.css" type="text/css"/>
+  </head>
+  <body>
+
+    <div class="all">
+        <p class="headline">
+          <strong>DOM'S DIAGNOSTIC TOOLS</strong> test network site<br/>
+
+            IT SEEMS ,THAT YOUR NETWORK CONNECTION WORKS :)<br/>
+                (what you see is html file used to display page in web browser)
+
+        </p>
+    </div>
+  </body>
+</html>

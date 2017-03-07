@@ -1,0 +1,48 @@
+package dms.pastor.tasks.manipulatedataapplication;
+
+import dms.pastor.utils.RandomDataGenerator;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.rules.ExpectedException;
+
+import static dms.pastor.TestConfig.PATH;
+import static org.hamcrest.CoreMatchers.is;
+
+/**
+ * Author Dominik Symonowicz
+ * WWW:	http://pastor.ovh.org
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
+ */
+public class AnswerGeneratorTest {
+    @Rule
+    public final ExpectedException exception = ExpectedException.none();
+
+    private AnswerGenerator answers;
+
+    @Before
+    public void setUp() throws Exception {
+        answers = new AnswerGenerator(PATH + "manipulate-data.txt");
+    }
+
+    @Test
+    public void acceptanceCriteria() throws Exception {
+        String result = "Number of male: 5 Average age of people is: 27Jeff Briton is 29 day(s) older than Tom Sawyer";
+
+        final String answerGenerated = answers.generate();
+        Assert.assertThat(answerGenerated, is(result));
+    }
+
+    @Test
+    public void shouldThrowExceptionIfPersonNotFound() throws Exception {
+        // except
+        exception.expect(Exception.class);
+
+        // when
+        answers.getPerson(RandomDataGenerator.generateString());
+    }
+
+}

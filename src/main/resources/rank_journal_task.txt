@@ -1,0 +1,17 @@
+Scenario1: Rank journals
+ Create list of journals for 2010. Done
+ Test journals by display them. Done
+ Test and add score comparator for journal in journal test.Done  
+ Test rank journal by score for year viewer. Done
+
+
+Scenario2: Rank journals with a shared rank. Done.
+ Create list of journals for 2009. Done
+ Run tests. Done
+ Modify Score Comparator to meet new requirment .Done
+
+Scenario3: Rank journals excluding review journals. Done.
+ Modify journal by add (review attribute)
+ Create list of journals for 2008. Done
+ Run All tests. Done
+

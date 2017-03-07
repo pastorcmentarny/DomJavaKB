@@ -1,0 +1,8 @@
+# IntelliJ
+.idea/
+/build/
+/out/
+.idea_modules/
+
+/todo/
+.gradle/
