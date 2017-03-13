@@ -1,9 +1,15 @@
 package dms.pastor.tools.lotto;
 
+import dms.pastor.utils.CollectionsUtils;
 import org.apache.log4j.Logger;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
+import static dms.pastor.utils.CollectionsUtils.convertListToIntArray;
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+import static dms.pastor.utils.StringUtils.NEW_LINE;
 
 /**
  * Author Dominik Symonowicz
@@ -14,20 +20,20 @@ import java.util.Optional;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 class HotPicksAnalyser {
-    private static final int[] EMPTY_INTEGER_ARRAY = new int[0];
     private static final Logger LOG = Logger.getLogger(HotPicksAnalyser.class);
     private static final int MINIMUM_BALL_VALUE = 1;
     private static final int MAXIMUM_BALL_VALUE = 59;
     private static final String SEPARATOR = ",";
     private final List<HotPickDraw> hotPickDrawList;
+
     private final int[] ballDrawnCounter = new int[MAXIMUM_BALL_VALUE + 1];
 
-    public HotPicksAnalyser(List<HotPickDraw> hotPickDrawList) {
+    HotPicksAnalyser(List<HotPickDraw> hotPickDrawList) {
         this.hotPickDrawList = hotPickDrawList;
     }
 
 
-    public String countBallDrawn() {
+    String countBallDrawn() {
         if (hotPickDrawList == null || hotPickDrawList.isEmpty()) {
             return "We successfully gather no result :)";
         }
@@ -44,10 +50,10 @@ class HotPicksAnalyser {
     }
 
     private String displayBallDrawnCounterAsString() {
-        StringBuilder counter = new StringBuilder("");
+        StringBuilder counter = new StringBuilder(EMPTY_STRING);
         for (int i = 1; i <= MAXIMUM_BALL_VALUE; i++) {
             if (ballDrawnCounter[i] > 0) {
-                counter.append(i).append(": ").append(ballDrawnCounter[i]).append('\n');
+                counter.append(i).append(": ").append(ballDrawnCounter[i]).append(NEW_LINE);
             }
         }
         return counter.toString();
@@ -60,7 +66,7 @@ class HotPicksAnalyser {
         ballDrawnCounter[ball] = ballDrawnCounter[ball] + 1;
     }
 
-    public int findMostDrawnNumber() {
+    int findMostDrawnNumber() {
         int maxNumber = 0;
         for (int i = 1; i < ballDrawnCounter.length; i++) {
             if (ballDrawnCounter[i] > maxNumber) {
@@ -70,8 +76,8 @@ class HotPicksAnalyser {
         return maxNumber;
     }
 
-    public String findBallsThatWasDrawnTimes(int times) {
-        StringBuilder stringBuilder = new StringBuilder("");
+    String findBallsThatWasDrawnTimes(int times) {
+        StringBuilder stringBuilder = new StringBuilder(EMPTY_STRING);
         for (int i = 1; i < ballDrawnCounter.length; i++) {
             if (ballDrawnCounter[i] == times) {
                 stringBuilder.append(i).append(SEPARATOR);
@@ -81,7 +87,7 @@ class HotPicksAnalyser {
     }
 
 
-    public int findLeastDrawnNumber() {
+    int findLeastDrawnNumber() {
         int minNumber = Integer.MAX_VALUE;
         for (int i = 1; i < ballDrawnCounter.length; i++) {
             if (minNumber > ballDrawnCounter[i]) {
@@ -92,7 +98,7 @@ class HotPicksAnalyser {
     }
 
     //should be varargs up to 6 numbers
-    public Optional<HotPickDraw> find2TheSameNumberInRow(int number1, int number2) {
+    Optional<HotPickDraw> find2TheSameNumberInRow(int number1, int number2) {
         validateBall(number1, number2);
         for (HotPickDraw draw : hotPickDrawList) {
             if (draw.containsBalls(number1, number2)) {
@@ -105,9 +111,13 @@ class HotPicksAnalyser {
     private String getResultWithoutLastSeparator(StringBuilder stringBuilder) {
         String result = stringBuilder.toString();
         if (result.contains(SEPARATOR)) {
-            result = result.substring(0, result.length() - 1);
+            result = result.substring(0, getLastElement(result));
         }
         return result;
+    }
+
+    private int getLastElement(String string) {
+        return string.length() - 1;
     }
 
     private void validateBall(int... balls) {
@@ -118,12 +128,46 @@ class HotPicksAnalyser {
         }
     }
 
-/*    //TODO implement it
-    public int[] getNumbersThatHaveNotBeenPlayTimes(int times) {
-        if (times <= 0) {
-            LOG.error(String.format("numbers of games should be a positive number but was : %d", times));
-            return EMPTY_INTEGER_ARRAY;
+    List<BallCount> getBallsCountList() {
+        final List<BallCount> ballCountList = generateBallCountList();
+        for (HotPickDraw hotPickDraw : hotPickDrawList) {
+            ballCountList.get(hotPickDraw.getBall1() - 1).addCount();
+            ballCountList.get(hotPickDraw.getBall2() - 1).addCount();
+            ballCountList.get(hotPickDraw.getBall3() - 1).addCount();
+            ballCountList.get(hotPickDraw.getBall4() - 1).addCount();
+            ballCountList.get(hotPickDraw.getBall5() - 1).addCount();
+            ballCountList.get(hotPickDraw.getBall6() - 1).addCount();
         }
-        throw new NotImplementYetException();
-    }*/
+        return ballCountList;
+    }
+
+    private List<BallCount> generateBallCountList() {
+        return IntStream.rangeClosed(1, 59)
+                .mapToObj(BallCount::createForNumber)
+                .collect(Collectors.toList());
+    }
+
+    int[] removeNumbersFromGames(int howMany) {
+        Set<Integer> numbers = new HashSet<>();
+        for (int i = 0; i < howMany; i++) {
+            for (int numberToAdd : hotPickDrawList.get(i).getAllBalls()) {
+                numbers.add(numberToAdd);
+            }
+        }
+        return CollectionsUtils.convertSetToIntArray(numbers);
+    }
+    public Set<Couple> findAllCouplesThatContainsThisBalls(Set<Couple> remainingCouples, BallCount[] top2PlayedBalls) {
+        Set<Couple> couplesWithMatchedBalls = new HashSet<>();
+        List<Integer> balls = new ArrayList<>();
+        for (BallCount ballCount : top2PlayedBalls) {
+            balls.addAll(ballCount.getBallNumbers());
+        }
+
+        for (Couple couple : remainingCouples) {
+            if (couple.contains(convertListToIntArray(balls))){
+                couplesWithMatchedBalls.add(couple);
+            }
+        }
+        return couplesWithMatchedBalls;
+    }
 }

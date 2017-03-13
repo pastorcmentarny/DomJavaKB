@@ -39,39 +39,39 @@ class HotPickDraw {
         return drawDate;
     }
 
-    public int getBall1() {
+    int getBall1() {
         return ball1;
     }
 
-    public int getBall2() {
+     int getBall2() {
         return ball2;
     }
 
-    public int getBall3() {
+     int getBall3() {
         return ball3;
     }
 
-    public int getBall4() {
+     int getBall4() {
         return ball4;
     }
 
-    public int getBall5() {
+     int getBall5() {
         return ball5;
     }
 
-    public int getBall6() {
+     int getBall6() {
         return ball6;
     }
 
-    public int getBallSet() {
+     int getBallSet() {
         return ballSet;
     }
 
-    public String getMachine() {
+     String getMachine() {
         return machine;
     }
 
-    public int getDrawNumber() {
+     int getDrawNumber() {
         return drawNumber;
     }
 
@@ -81,7 +81,7 @@ class HotPickDraw {
     }
 
     //TODO improve it
-    public boolean containsBalls(int... numbers) {
+     boolean containsBalls(int... numbers) {
         for (int number : numbers) {
             if (notContain(number)) {
                 return false;
@@ -92,5 +92,9 @@ class HotPickDraw {
 
     private boolean notContain(int number) {
         return !(ball1 == number || ball2 == number || ball3 == number || ball4 == number || ball5 == number || ball6 == number);
+    }
+
+    int[] getAllBalls() {
+        return new int[]{ball1, ball2, ball3, ball4, ball5, ball6};
     }
 }

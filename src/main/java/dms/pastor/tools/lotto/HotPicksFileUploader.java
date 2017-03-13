@@ -25,6 +25,7 @@ import static java.lang.String.format;
  */
 class HotPicksFileUploader {
     private static final Logger LOG = Logger.getLogger(HotPicksFileUploader.class);
+    public static final String DASH = "-";
     private final List<HotPickDraw> hotPickDrawList;
 
     HotPicksFileUploader() {
@@ -89,26 +90,23 @@ class HotPicksFileUploader {
 
     LocalDate parseLocalDate(String drawDate) {
         validateDate(drawDate);
-        final String[] date = drawDate.split("-");
+        final String[] date = drawDate.split(DASH);
         return LocalDate.of(Integer.parseInt(date[2]), DateUtils.getMonthNumberFromShortedName(date[1]), Integer.parseInt(date[0]));
     }
 
     private void validateDate(String drawDate) {
 
-        if (drawDate == null || drawDate.isEmpty() || drawDate.split("-").length != 3) {
+        if (drawDate == null || drawDate.isEmpty() || drawDate.split(DASH).length != 3) {
             throw new IllegalArgumentException(format("Date format is not valid.It should be dd-MMM-YYYY (for example 01-JAN-2016) but it was %s", drawDate));
         }
-        final String[] date = drawDate.split("-");
+        final String[] date = drawDate.split(DASH);
         try {
             LocalDate.of(Integer.parseInt(date[2]), DateUtils.getMonthNumberFromShortedName(date[1]), Integer.parseInt(date[0]));
         } catch (Exception e) {
             LOG.warn(format("validation failed due %s", e.getMessage()), e);
             throw new IllegalArgumentException(e);
         }
-
-
     }
-
 
     private int validateBall(String ball) {
         final int ballNumber;
@@ -137,6 +135,5 @@ class HotPicksFileUploader {
     private boolean fileDoesNotExist(String filePath) {
         return !(new File(filePath).exists() && new File(filePath).isFile());
     }
-
 
 }
