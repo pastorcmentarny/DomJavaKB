@@ -17,11 +17,11 @@ public class AnalyserLauncher {
 
     public static void main(String[] args) {
 
-        String path = new AnalyserLauncher().getPath(args);
+        String path = AnalyserLauncher.getPath(args);
         analyser.analyse(path);
     }
 
-    String getPath(String[] args) {
+    static String getPath(String[] args) {
         if (args == null || args.length != 1 || args[0] == null) {
             return THIS_PROJECT_PATH;
         }

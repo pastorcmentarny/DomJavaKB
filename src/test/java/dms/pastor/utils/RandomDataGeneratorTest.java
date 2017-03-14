@@ -1,7 +1,6 @@
 package dms.pastor.utils;
 
 import dms.pastor.domain.Country;
-import org.assertj.core.api.Java6Assertions;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
@@ -30,7 +29,7 @@ public class RandomDataGeneratorTest {
     private final Random random = new Random();
 
     @Rule
-    public ExpectedException expect = ExpectedException.none();
+    public ExpectedException expectedException = ExpectedException.none();
 
     @Test
     public void testGenerateRandomIntValues() throws Exception {
@@ -84,8 +83,8 @@ public class RandomDataGeneratorTest {
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenMinValueIsHigherThanMinForGenerateStringTest() throws Exception {
         // except
-        expect.expect(IllegalArgumentException.class);
-        expect.expectMessage("Value must be higher than zero and min value must be smaller is larger than max value");
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Value must be higher than zero and min value must be smaller is larger than max value");
 
         // when
 
@@ -134,8 +133,8 @@ public class RandomDataGeneratorTest {
     @Test //TODO FIX IT
     public void shouldThrowIllegalArgumentExceptionForNegativeMinValueTest() throws Exception {
         // except
-        expect.expect(IllegalArgumentException.class);
-        expect.expectMessage("Value must be higher than zero and min value must be smaller is larger than max value");
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Value must be higher than zero and min value must be smaller is larger than max value");
 
         // when
         final int negativeNumber = new BigDecimal(random.nextInt(RANDOM_STRING_LENGTH)).negate().intValue();
@@ -145,8 +144,8 @@ public class RandomDataGeneratorTest {
     @Test
     public void shouldThrowIllegalArgumentExceptionForNegativeMaxValueTest() throws Exception {
         // except
-        expect.expect(IllegalArgumentException.class);
-        expect.expectMessage("Value must be higher than zero and min value must be smaller is larger than max value");
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Value must be higher than zero and min value must be smaller is larger than max value");
 
         // when
         final int negativeNumber = new BigDecimal(random.nextInt(RANDOM_STRING_LENGTH)).negate().intValue();
@@ -167,15 +166,29 @@ public class RandomDataGeneratorTest {
         }
     }
 
-    @Test //TODO improve it this rubbish
+    @Test
     public void shouldThrowIllegalArgumentExceptionForNegativeSizeTest() throws Exception {
         // except
-        expect.expect(IllegalArgumentException.class);
-        expect.expectMessage("Size must be bigger than zero!");
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Size must be bigger than zero!");
 
         // when
         generateStringList(-1);
+    }
 
+    @Test
+    public void generateStringStringShouldReturnStringList() throws Exception {
+        // given
+        final int arraySize = 10;
+
+        // when
+        final List<String> stringList = generateStringList(arraySize);
+
+        // then
+        assertThat(stringList).hasSize(arraySize);
+        for(String string : stringList){
+            assertThat(string).isNotEmpty();
+        }
     }
 
     @Test //TODO improve it this rubbish
@@ -204,19 +217,33 @@ public class RandomDataGeneratorTest {
     @Test
     public void generateStringArrayShouldThrowIllegalArgumentExceptionForNegativeTest() throws Exception {
         // except
-        expect.expect(IllegalArgumentException.class);
-        expect.expectMessage("Size must be zero or higher in order to create an array.");
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Size must be zero or higher in order to create an array.");
 
         // when
         generateArray(-1);
+    }
 
+    @Test
+    public void generateStringArrayShouldReturnStringArray() throws Exception {
+        // given
+        final int arraySize = 10;
+
+        // when
+        final String[] strings = generateArray(arraySize);
+
+        // then
+        assertThat(strings).hasSize(arraySize);
+        for(String string : strings){
+            assertThat(string).isNotEmpty();
+        }
     }
 
     @Test
     public void shouldThrowIllegalArgumentExceptionIfSizeIsBelowZeroTest() throws Exception {
         // except
-        expect.expect(IllegalArgumentException.class);
-        expect.expectMessage("Size of string must be greater than zero");
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Size of string must be greater than zero");
 
         // when
         generateNonAlphanumericString(-1);
@@ -226,8 +253,8 @@ public class RandomDataGeneratorTest {
     @Test
     public void shouldThrowIllegalArgumentExceptionIfSizeIsZeroTest() throws Exception {
         // except
-        expect.expect(IllegalArgumentException.class);
-        expect.expectMessage("Size of string must be greater than zero");
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Size of string must be greater than zero");
 
         // when
         generateNonAlphanumericString(0);
@@ -237,8 +264,8 @@ public class RandomDataGeneratorTest {
     @Test
     public void shouldReturnStringWithNonAlphanumericCharactersTest() throws Exception {
         // except
-        expect.expect(IllegalArgumentException.class);
-        expect.expectMessage("Size of string must be greater than zero");
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Size of string must be greater than zero");
 
         // when
         final String string = generateNonAlphanumericString(-1);
@@ -297,7 +324,7 @@ public class RandomDataGeneratorTest {
         final String result = generateFirstName();
 
         // then
-        Java6Assertions.assertThat(result).isNotEmpty();
+        assertThat(result).isNotEmpty();
     }
 
     @Test
@@ -306,7 +333,76 @@ public class RandomDataGeneratorTest {
         final String result = generateSurname();
 
         // then
-        Java6Assertions.assertThat(result).isNotEmpty();
+        assertThat(result).isNotEmpty();
     }
 
+    @Test
+    public void randomIntegerExcludingShouldReturnUniqueNumber() throws Exception {
+        // given
+
+        // when
+
+        // then
+
+    }
+
+    @Test
+    public void randomIntegerWithMinAndMaxValueShouldThrowExceptionWhenMinValueIsHigherThanMaxValue() throws Exception {
+        // given
+        int maxValue = randomInteger(MAX_SMALL_VALUE);
+        int minValue = maxValue + randomInteger(1,MAX_SMALL_VALUE);
+
+        // expect
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("MinValue ("+minValue+") must be lower than MaxValue("+ maxValue+")");
+
+        // when
+        randomInteger(minValue,maxValue);
+    }
+
+    @Test
+    public void randomIntegerWithMinAndMaxValueShouldReturnValueInRange() throws Exception {
+        // given
+        int minValue = randomInteger(MAX_SMALL_VALUE);
+        int maxValue = minValue + randomInteger(1,1+MAX_SMALL_VALUE);
+
+        // when
+        final int number = randomInteger(minValue, maxValue);
+
+        // then
+        assertThat(number).isBetween(minValue,maxValue);
+    }
+
+    @Test
+    public void randomIntegerWithEqualMinAndMaxValueShouldReturnThatValue() throws Exception {
+        // given
+        int value = randomInteger(MAX_SMALL_VALUE);
+
+        // when
+        final int number = randomInteger(value, value);
+
+        // then
+        assertThat(number).isEqualTo(value);
+    }
+
+    @Test
+    public void randomNegativeIntegerShouldReturnNegativeInteger() throws Exception {
+
+        // when
+        final int negativeInteger = randomNegativeInteger();
+
+        // then
+        assertThat(negativeInteger).isNegative();
+
+    }
+
+    @Test
+    public void generateNonAlphanumericStringShouldGenerateString() throws Exception {
+        // given
+
+        // when
+        final String nonAlphanumericString = generateNonAlphanumericString(10);
+        // then
+
+    }
 }

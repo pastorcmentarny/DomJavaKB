@@ -21,16 +21,17 @@ public final class StringUtils {
     static final String NON_ALPHANUMERIC = "~#&@£$^'`\".,:;*–+=(){}[]<>?!\\|/";
     private static final String ALPHABET_BOTH_CASE = ALPHABET + ALPHABET.toUpperCase();
     private static final char COMMA = ',';
-    private static final String EMPTY_STRING = "";
+    public static final String EMPTY_STRING = "";
     private static final String ALPHANUMERIC = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"; //TODO replace it with RandomDataGenerator
     private static final String ALPHANUMERIC_REGEX = "[^a-zA-Z0-9]";
     private static final String WHITESPACE = " ";
+    public static final char NEW_LINE = '\n';
 
     private StringUtils() {
     }
 
     private static Map<Character, Integer> getAlphabetAsMap() {
-        HashMap<Character, Integer> alphabetMap = new HashMap<>();
+        Map<Character, Integer> alphabetMap = new HashMap<>();
         for (char letter : ALPHABET.toCharArray()) {
             alphabetMap.put(letter, 0);
         }
@@ -58,7 +59,7 @@ public final class StringUtils {
      */
     public static boolean isPalindromeOfAnyPermutationString(String word) {
         char[] chars = word.toCharArray();
-        HashMap<Character, Integer> hm = new HashMap<>();
+        Map<Character, Integer> hm = new HashMap<>();
         for (char ch : chars) {
             if (hm.containsKey(ch)) {
                 Integer x = hm.get(ch);

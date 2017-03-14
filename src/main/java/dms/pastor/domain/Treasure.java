@@ -1,7 +1,8 @@
 package dms.pastor.domain;
 
+import dms.pastor.utils.RandomDataGenerator;
+
 import static dms.pastor.utils.RandomDataGenerator.generateString;
-import static dms.pastor.utils.RandomDataGenerator.randomInteger;
 
 /**
  * Author Dominik Symonowicz
@@ -23,7 +24,7 @@ public class Treasure {
     }
 
     public static Treasure getRandomTreasure() {
-        return new Treasure(generateString(8), generateString(24), randomInteger());
+        return new Treasure(generateString(8), generateString(24), RandomDataGenerator.randomPositiveInteger());
     }
 
     public String getName() {

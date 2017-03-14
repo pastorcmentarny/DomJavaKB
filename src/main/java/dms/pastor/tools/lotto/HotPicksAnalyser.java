@@ -3,11 +3,13 @@ package dms.pastor.tools.lotto;
 import dms.pastor.utils.CollectionsUtils;
 import org.apache.log4j.Logger;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import static dms.pastor.utils.CollectionsUtils.convertListToIntArray;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.StringUtils.NEW_LINE;
 
@@ -155,19 +157,5 @@ class HotPicksAnalyser {
             }
         }
         return CollectionsUtils.convertSetToIntArray(numbers);
-    }
-    public Set<Couple> findAllCouplesThatContainsThisBalls(Set<Couple> remainingCouples, BallCount[] top2PlayedBalls) {
-        Set<Couple> couplesWithMatchedBalls = new HashSet<>();
-        List<Integer> balls = new ArrayList<>();
-        for (BallCount ballCount : top2PlayedBalls) {
-            balls.addAll(ballCount.getBallNumbers());
-        }
-
-        for (Couple couple : remainingCouples) {
-            if (couple.contains(convertListToIntArray(balls))){
-                couplesWithMatchedBalls.add(couple);
-            }
-        }
-        return couplesWithMatchedBalls;
     }
 }

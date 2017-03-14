@@ -83,14 +83,14 @@ class HotPickDraw {
     //TODO improve it
      boolean containsBalls(int... numbers) {
         for (int number : numbers) {
-            if (notContain(number)) {
+            if (isNotContains(number)) {
                 return false;
             }
         }
         return true;
     }
 
-    private boolean notContain(int number) {
+    private boolean isNotContains(int number) {
         return !(ball1 == number || ball2 == number || ball3 == number || ball4 == number || ball5 == number || ball6 == number);
     }
 

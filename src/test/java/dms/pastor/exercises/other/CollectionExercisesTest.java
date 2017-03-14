@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import static dms.pastor.exercises.other.CollectionExercises.convertListToMapUsingJava8;
@@ -34,7 +35,7 @@ public class CollectionExercisesTest {
     @Test
     public void shouldReturnMapWith3ElementsForListWith3ElementsTest() throws Exception {
         // given
-        ArrayList<String> stringArrayList = new ArrayList<>();
+        List<String> stringArrayList = new ArrayList<>();
         final String stringOne = generateString(MAX_STRING_SIZE);
         final String stringTwo = generateString(MAX_STRING_SIZE);
         final String stringThree = generateString(MAX_STRING_SIZE);

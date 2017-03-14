@@ -11,7 +11,7 @@ import java.util.TreeMap;
 public class FindFirstNonRepeatedCharacter {
 
     public Optional<Character> findFirstNonRepeatedCharacter(String text) {
-        TreeMap<Character, Integer> charList = new TreeMap<>();
+        Map<Character, Integer> charList = new TreeMap<>();
 
         validateInput(text);
 
@@ -25,7 +25,7 @@ public class FindFirstNonRepeatedCharacter {
         return Optional.empty();
     }
 
-    private void convertTextIntoCharacterMap(String text, TreeMap<Character, Integer> charList) {
+    private void convertTextIntoCharacterMap(String text, Map<Character, Integer> charList) {
         char[] stringAsChar = text.toCharArray();
         for (char ch : stringAsChar) {
             if (charList.get(ch) == null) {

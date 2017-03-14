@@ -15,9 +15,6 @@ import java.util.stream.Collectors;
  */
 public class DateUtils {
 
-    public static final int HOUR = 3600;
-    public static final int MINUTE = 60;
-
     private DateUtils() {
         //Utility class
     }
@@ -27,24 +24,24 @@ public class DateUtils {
         return allTimeZones.stream().collect(Collectors.joining());
     }
 
-    private static boolean inRange(int value, int max) {
+    private static boolean isInRange(int value, int max) {
         return value >= 0 && value <= max;
     }
 
     public static boolean inHoursRange(int value) {
-        return inRange(value, 24);
+        return isInRange(value, 24);
     }
 
-    public static boolean inMinutesRange(int value) {
-        return in0to59Range(value);
+    public static boolean isInMinutesRange(int value) {
+        return isIn0to59Range(value);
     }
 
-    public static boolean inSecondsRange(int value) {
-        return in0to59Range(value);
+    public static boolean isInSecondsRange(int value) {
+        return isIn0to59Range(value);
     }
 
-    private static boolean in0to59Range(int value) {
-        return inRange(value, 59);
+    private static boolean isIn0to59Range(int value) {
+        return isInRange(value, 59);
     }
 
     public static int getMonthNumberFromShortedName(String month) {

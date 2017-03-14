@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
 
@@ -33,8 +34,8 @@ public class CodeForBlogConverterTest {
         System.out.println("Output:\n\n" + convertedSource);
     }*/
 
-    private static ArrayList<String> generateSourceData() {
-        ArrayList<String> data = new ArrayList<>();
+    private static List<String> generateSourceData() {
+        List<String> data = new ArrayList<>();
         data.add("package dms.pastor.tools.codeToHTMLConverter;");
         data.add("");
         data.add("import org.junit.Before;");
@@ -61,7 +62,7 @@ public class CodeForBlogConverterTest {
 
     @Test
     public void shouldConvertCodeToHTMLTest() {
-        ArrayList<String> source = generateSourceData();
+        List<String> source = generateSourceData();
         String answer = getResult();
         final String result = converter.convert(source);
         Assert.assertThat(result, is(answer));

@@ -3,6 +3,9 @@ package dms.pastor.utils;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
+import java.math.BigDecimal;
+
+import static java.lang.String.format;
 
 /**
  * Author Dominik Symonowicz
@@ -54,4 +57,36 @@ public class ValidatorUtils {
         return true;
     }
 
+    public static void validatePositiveBigDecimal(BigDecimal value) {
+        validateIfNotNull(value);
+        if(value.compareTo(BigDecimal.ZERO) < 0){
+            throw new IllegalArgumentException("Value cannot be negative");
+        }
+    }
+
+    public static void validateNegativeBigDecimal(BigDecimal value) {
+        validateIfNotNull(value);
+        if(value.compareTo(BigDecimal.ZERO) > 0){
+            throw new IllegalArgumentException("Value cannot be positive");
+        }
+    }
+
+    public static void validateIfNotNull(Object value) {
+        if(value == null){
+            throw new IllegalArgumentException("Value cannot be null");
+        }
+    }
+
+
+    public static void validateTwoIntsNotEqual(int int1, int int2) {
+        if(int1 == int2){
+            throw new IllegalArgumentException("Both numbers cannot be equals, but both numbers are " + int1 + " and " + int2 + ".");
+        }
+    }
+
+    public static void validateMinValueIsSmallerThanMaxValue(int minValue, int maxValue) {
+        if (minValue > maxValue){
+            throw new IllegalArgumentException(format("MinValue (%d) must be lower than MaxValue(%d)",minValue,maxValue));
+        }
+    }
 }

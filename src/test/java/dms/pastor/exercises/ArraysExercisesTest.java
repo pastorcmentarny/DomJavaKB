@@ -28,17 +28,17 @@ public class ArraysExercisesTest {
 
     @Test
     public void shouldReplaceWithLargerNumber() throws Exception {
-        Assert.assertThat(exercise.isMaximumValue(10, 12), is(12));
-        Assert.assertThat(exercise.isMaximumValue(-2, 12), is(12));
-        Assert.assertThat(exercise.isMaximumValue(-10, -2), is(-2));
+        Assert.assertThat(ArraysExercises.isMaximumValue(10, 12), is(12));
+        Assert.assertThat(ArraysExercises.isMaximumValue(-2, 12), is(12));
+        Assert.assertThat(ArraysExercises.isMaximumValue(-10, -2), is(-2));
 
     }
 
     @Test
     public void shouldNotReplaceWithNotLargerNumber() throws Exception {
-        Assert.assertThat(exercise.isMaximumValue(12, 10), is(12));
-        Assert.assertThat(exercise.isMaximumValue(12, -2), is(12));
-        Assert.assertThat(exercise.isMaximumValue(-2, -10), is(-2));
+        Assert.assertThat(ArraysExercises.isMaximumValue(12, 10), is(12));
+        Assert.assertThat(ArraysExercises.isMaximumValue(12, -2), is(12));
+        Assert.assertThat(ArraysExercises.isMaximumValue(-2, -10), is(-2));
     }
 
     @Test

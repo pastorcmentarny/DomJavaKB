@@ -36,10 +36,7 @@ public class BallCount {
     }
 
     public static boolean isDummyBall(BallCount ballCount) {
-        if (ballCount.getBallNumbers().get(0) == 0 && (ballCount.getCount() == Integer.MAX_VALUE - 1 || ballCount.getCount() == Integer.MIN_VALUE + 1)) {
-            return true;
-        }
-        return false;
+        return ballCount.getBallNumbers().get(0) == 0 && (ballCount.getCount() == Integer.MAX_VALUE - 1 || ballCount.getCount() == Integer.MIN_VALUE + 1);
     }
 
     void addCount() {

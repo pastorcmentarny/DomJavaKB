@@ -46,14 +46,14 @@ public class Grid {
     }
 
     public int getScore(int x, int y) {
-        if (inRange(x, y)) {
+        if (isInRange(x, y)) {
             return grid[x][y];
         } else {
             return 0;
         }
     }
 
-    public boolean inRange(int x, int y) {
+    public boolean isInRange(int x, int y) {
         return !(x < 0 || x >= gridSize) && !(y < 0 || y >= gridSize);
     }
 }

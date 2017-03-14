@@ -62,7 +62,7 @@ public class GridTest {
         int x = 1;
         int y = 1;
         boolean expResult = true;
-        boolean result = instance.inRange(x, y);
+        boolean result = instance.isInRange(x, y);
         Assert.assertThat(result, is(expResult));
     }
 
@@ -77,7 +77,7 @@ public class GridTest {
         int x = 10;
         int y = 10;
         boolean expResult = false;
-        boolean result = instance.inRange(x, y);
+        boolean result = instance.isInRange(x, y);
         Assert.assertThat(result, is(expResult));
     }
 

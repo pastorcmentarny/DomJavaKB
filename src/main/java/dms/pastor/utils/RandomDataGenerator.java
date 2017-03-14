@@ -10,6 +10,8 @@ import java.util.Random;
 import java.util.stream.IntStream;
 
 import static dms.pastor.utils.PrintOutUtils.printIntArray;
+import static dms.pastor.utils.ValidatorUtils.validateMinValueIsSmallerThanMaxValue;
+import static java.lang.Integer.MAX_VALUE;
 
 
 /**
@@ -27,12 +29,11 @@ public class RandomDataGenerator {
     private static final String ALPHABET_WITH_LOWER_UPPER_CASES_AND_NUMBERS = ALPHABET_WITH_LOWER_AND_UPPER + "0123456789";
     private static final String NON_ALPHANUMERIC = "~#&@£$^'`\".,:;*–+=(){}[]<>?!\\|/";
     private static final int NOT_SPECIFIED = -1;
-    private static final int MAX_SMALL_VALUE = 10;
+    public static final int MAX_SMALL_VALUE = 10;
     private static final int MAX_LARGE_VALUE = 4096;
-
     private static final List<String> firstName;
-    private static final List<String> surname;
 
+    private static final List<String> surname;
     private static final Random random = new Random();
 
     static {
@@ -72,7 +73,7 @@ public class RandomDataGenerator {
     public static int[] generateRandomIntValues(int qty) {
         int[] values = new int[qty];
         for (int i = 0; i < values.length; i++) {
-            values[i] = random.nextInt(Integer.MAX_VALUE - 1);
+            values[i] = random.nextInt(MAX_VALUE - 1);
         }
         return values;
     }
@@ -163,16 +164,38 @@ public class RandomDataGenerator {
     }
 
     //TODO how to write test for this ?
-    public static int randomInteger() {
-        return randomInteger(Integer.MAX_VALUE);
+    public static int randomPositiveInteger() {
+        return randomInteger(MAX_VALUE);
     }
 
-    private static int randomInteger(int maxValue) {
+    // TODO FIX IT
+/*    public static int randomIntegerExcluding(int min,int max,int... numbers) {
+        int randomNumber = randomInteger(min,max);
+        boolean repeat = true;
+        while (repeat) {
+            repeat = false;
+            for (int number : numbers) {
+                if (randomNumber == number) {
+                    repeat = true;
+                    break;
+                }
+            }
+        }
+        return randomNumber;
+    }*/
+
+    public static int randomInteger(int maxValue) {
         return random.nextInt(maxValue);
     }
 
+    public static int randomInteger(int minValue,int maxValue) {
+        validateMinValueIsSmallerThanMaxValue(minValue,maxValue);
+        final int randomInteger = random.nextInt(maxValue+1);
+        return randomInteger < minValue?minValue:randomInteger;
+    }
+
     public static int randomNegativeInteger() {
-        return new BigDecimal(randomInteger()).negate().intValue();
+        return new BigDecimal(randomPositiveInteger()).negate().intValue();
     }
 
     public static List<String> generateStringList() {

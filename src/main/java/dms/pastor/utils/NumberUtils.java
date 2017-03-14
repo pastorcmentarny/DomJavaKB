@@ -12,6 +12,8 @@ import java.util.List;
  */
 public class NumberUtils {
 
+    private NumberUtils(){}
+
     /**
      * *VERSION:        2
      * *LAST UPDAtED:   07.04.2013
@@ -42,7 +44,7 @@ public class NumberUtils {
         return result;
     }
 
-    public static float getMaxValue(float currentValue, float maxValue) {
+    static float getMaxValue(float currentValue, float maxValue) {
 
         int i1 = Float.compare(currentValue, maxValue);
 
@@ -57,7 +59,7 @@ public class NumberUtils {
         return total;
     }
 
-    public static float getMinValue(float currentValue, float minValue) {
+    static float getMinValue(float currentValue, float minValue) {
 
         int i1 = Float.compare(minValue, currentValue);
 
@@ -65,7 +67,7 @@ public class NumberUtils {
 
     }
 
-    public static int factorial(int a) {
+    static int factorial(int a) {
         if (a > 19 || a < -19) {
             throw new IllegalArgumentException("Number too big/small for integer");
         }

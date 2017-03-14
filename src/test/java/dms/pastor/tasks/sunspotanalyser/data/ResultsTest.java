@@ -2,6 +2,7 @@ package dms.pastor.tasks.sunspotanalyser.data;
 
 
 import dms.pastor.domain.Result;
+import dms.pastor.utils.RandomDataGenerator;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -134,7 +135,7 @@ public class ResultsTest {
 
         final int size = 6;
         for (int i = 0; i < size; i++) {
-            results.addScore(new Score(randomInteger(), randomInteger(), randomInteger()));
+            results.addScore(new Score(RandomDataGenerator.randomPositiveInteger(), RandomDataGenerator.randomPositiveInteger(), RandomDataGenerator.randomPositiveInteger()));
         }
 
         // when

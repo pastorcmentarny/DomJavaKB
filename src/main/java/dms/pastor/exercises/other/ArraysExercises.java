@@ -21,7 +21,7 @@ public class ArraysExercises {
         return "Min:" + min + " Max:" + max;
     }
 
-    public int isMaximumValue(int number, int max) {
+    public static int isMaximumValue(int number, int max) {
         return number > max ? number : max;
     }
 

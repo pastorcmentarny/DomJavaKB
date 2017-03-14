@@ -26,7 +26,7 @@ public class AnalyserLauncherTest {
         AnalyserLauncher analyserLauncher = new AnalyserLauncher();
 
         // when
-        final String path = analyserLauncher.getPath(null);
+        final String path = AnalyserLauncher.getPath(null);
 
         // then
         assertThat(THIS_PROJECT_PATH).isEqualTo(path);
@@ -39,7 +39,7 @@ public class AnalyserLauncherTest {
         AnalyserLauncher analyserLauncher = new AnalyserLauncher();
 
         // when
-        final String path = analyserLauncher.getPath(new String[0]);
+        final String path = AnalyserLauncher.getPath(new String[0]);
 
         // then
         assertThat(THIS_PROJECT_PATH).isEqualTo(path);
@@ -52,7 +52,7 @@ public class AnalyserLauncherTest {
 
         // when
         final String emptyString = "";
-        final String path = analyserLauncher.getPath(new String[]{emptyString});
+        final String path = AnalyserLauncher.getPath(new String[]{emptyString});
 
         // then
         assertThat(emptyString).isEqualTo(path);
@@ -65,7 +65,7 @@ public class AnalyserLauncherTest {
 
         // when
         final String randomPath = RandomDataGenerator.generateString();
-        final String path = analyserLauncher.getPath(new String[]{randomPath});
+        final String path = AnalyserLauncher.getPath(new String[]{randomPath});
 
         // then
         assertThat(randomPath).isEqualTo(path);

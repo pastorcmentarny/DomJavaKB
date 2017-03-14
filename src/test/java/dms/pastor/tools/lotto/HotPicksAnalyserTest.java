@@ -1,5 +1,6 @@
 package dms.pastor.tools.lotto;
 
+import dms.pastor.utils.RandomDataGenerator;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -8,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import static dms.pastor.tools.lotto.BallCount.createForSingleNumberWithCount;
+import static dms.pastor.tools.lotto.HotPickDrawBuilder.hotPickDrawBuilder;
 import static dms.pastor.utils.RandomDataGenerator.generateString;
 import static dms.pastor.utils.RandomDataGenerator.randomInteger;
 import static java.time.LocalDate.now;
@@ -22,6 +25,16 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public class HotPicksAnalyserTest {
+
+    private static final HotPickDraw HOT_PICK_DRAW_1 = hotPickDrawBuilder()
+            .ball1(1)
+            .ball2(2)
+            .ball3(3)
+            .ball4(4)
+            .ball5(5)
+            .ball6(6)
+            .build();
+
 
     @Rule
     public ExpectedException exception = ExpectedException.none();
@@ -59,10 +72,10 @@ public class HotPicksAnalyserTest {
         // given
         final int tooHighValueBall = -1;
         List<HotPickDraw> hotPickDrawList = new ArrayList<>();
-        hotPickDrawList.add(new HotPickDraw(now(), tooHighValueBall, 2, 3, 4, 5, 6, randomInteger(), generateString(), randomInteger()));
+        hotPickDrawList.add(new HotPickDraw(now(), tooHighValueBall, 2, 3, 4, 5, 6, RandomDataGenerator.randomPositiveInteger(), generateString(), RandomDataGenerator.randomPositiveInteger()));
         hotPicksAnalyser = new HotPicksAnalyser(hotPickDrawList);
 
-        // expect
+        // expectedException
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(tooHighValueBall + " is not in range");
 
@@ -78,10 +91,10 @@ public class HotPicksAnalyserTest {
         // given
         final int tooHighValueBall = 60;
         List<HotPickDraw> hotPickDrawList = new ArrayList<>();
-        hotPickDrawList.add(new HotPickDraw(now(), tooHighValueBall, 2, 3, 4, 5, 6, randomInteger(), generateString(), randomInteger()));
+        hotPickDrawList.add(new HotPickDraw(now(), tooHighValueBall, 2, 3, 4, 5, 6, RandomDataGenerator.randomPositiveInteger(), generateString(), RandomDataGenerator.randomPositiveInteger()));
         hotPicksAnalyser = new HotPicksAnalyser(hotPickDrawList);
 
-        // expect
+        // expectedException
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(tooHighValueBall + " is not in range");
 
@@ -96,7 +109,7 @@ public class HotPicksAnalyserTest {
     public void shouldReturn1ForEachNumberDrawnTest() throws Exception {
         // given
         List<HotPickDraw> hotPickDrawList = new ArrayList<>();
-        hotPickDrawList.add(new HotPickDraw(now(), 1, 2, 3, 4, 5, 6, randomInteger(), generateString(), randomInteger()));
+        hotPickDrawList.add(HOT_PICK_DRAW_1);
         String expectedResult = "1: 1\n2: 1\n3: 1\n4: 1\n5: 1\n6: 1\n";
         hotPicksAnalyser = new HotPicksAnalyser(hotPickDrawList);
 
@@ -111,7 +124,7 @@ public class HotPicksAnalyserTest {
     public void shouldReturn3ForMostCommonDrawnNumberTest() throws Exception {
         // given
         List<HotPickDraw> hotPickDrawList = new ArrayList<>();
-        hotPickDrawList.add(new HotPickDraw(now(), 1, 2, 3, 3, 3, 4, randomInteger(), generateString(), randomInteger()));
+        hotPickDrawList.add(new HotPickDraw(now(), 1, 2, 3, 3, 3, 4, RandomDataGenerator.randomPositiveInteger(), generateString(), RandomDataGenerator.randomPositiveInteger()));
         int expectedResult = 3;
         hotPicksAnalyser = new HotPicksAnalyser(hotPickDrawList);
         hotPicksAnalyser.countBallDrawn();
@@ -127,7 +140,7 @@ public class HotPicksAnalyserTest {
     public void shouldFind2And3AsBallsThatWasDrown2TimesTest() throws Exception {
         // given
         List<HotPickDraw> hotPickDrawList = new ArrayList<>();
-        hotPickDrawList.add(new HotPickDraw(now(), 1, 2, 2, 3, 4, 4, randomInteger(), generateString(), randomInteger()));
+        hotPickDrawList.add(new HotPickDraw(now(), 1, 2, 2, 3, 4, 4, RandomDataGenerator.randomPositiveInteger(), generateString(), RandomDataGenerator.randomPositiveInteger()));
         String expectedResult = "2,4";
         hotPicksAnalyser = new HotPicksAnalyser(hotPickDrawList);
         hotPicksAnalyser.countBallDrawn();
@@ -144,17 +157,17 @@ public class HotPicksAnalyserTest {
     public void shouldFind2And3AsBallsThatWasDrawn1TimesTest() throws Exception {
         // given
         List<HotPickDraw> hotPickDrawList = new ArrayList<>();
-        hotPickDrawList.add(new HotPickDraw(now(), 1, 2, 3, 4, 5, 6, randomInteger(), generateString(), randomInteger()));
-        hotPickDrawList.add(new HotPickDraw(now(), 9, 10, 11, 12, 13, 14, randomInteger(), generateString(), randomInteger()));
-        hotPickDrawList.add(new HotPickDraw(now(), 11, 12, 13, 14, 15, 16, randomInteger(), generateString(), randomInteger()));
-        hotPickDrawList.add(new HotPickDraw(now(), 21, 22, 23, 24, 25, 26, randomInteger(), generateString(), randomInteger()));
-        hotPickDrawList.add(new HotPickDraw(now(), 17, 18, 19, 20, 27, 28, randomInteger(), generateString(), randomInteger()));
-        hotPickDrawList.add(new HotPickDraw(now(), 31, 32, 33, 34, 35, 36, randomInteger(), generateString(), randomInteger()));
-        hotPickDrawList.add(new HotPickDraw(now(), 29, 38, 39, 40, 37, 47, randomInteger(), generateString(), randomInteger()));
-        hotPickDrawList.add(new HotPickDraw(now(), 48, 49, 50, 48, 49, 50, randomInteger(), generateString(), randomInteger()));
-        hotPickDrawList.add(new HotPickDraw(now(), 41, 42, 43, 44, 45, 46, randomInteger(), generateString(), randomInteger()));
-        hotPickDrawList.add(new HotPickDraw(now(), 51, 52, 53, 54, 55, 56, randomInteger(), generateString(), randomInteger()));
-        hotPickDrawList.add(new HotPickDraw(now(), 30, 57, 58, 58, 59, 59, randomInteger(), generateString(), randomInteger()));
+        hotPickDrawList.add(HOT_PICK_DRAW_1);
+        hotPickDrawList.add(new HotPickDraw(now(), 9, 10, 11, 12, 13, 14, RandomDataGenerator.randomPositiveInteger(), generateString(), RandomDataGenerator.randomPositiveInteger()));
+        hotPickDrawList.add(new HotPickDraw(now(), 11, 12, 13, 14, 15, 16, RandomDataGenerator.randomPositiveInteger(), generateString(), RandomDataGenerator.randomPositiveInteger()));
+        hotPickDrawList.add(new HotPickDraw(now(), 21, 22, 23, 24, 25, 26, RandomDataGenerator.randomPositiveInteger(), generateString(), RandomDataGenerator.randomPositiveInteger()));
+        hotPickDrawList.add(new HotPickDraw(now(), 17, 18, 19, 20, 27, 28, RandomDataGenerator.randomPositiveInteger(), generateString(), RandomDataGenerator.randomPositiveInteger()));
+        hotPickDrawList.add(new HotPickDraw(now(), 31, 32, 33, 34, 35, 36, RandomDataGenerator.randomPositiveInteger(), generateString(), RandomDataGenerator.randomPositiveInteger()));
+        hotPickDrawList.add(new HotPickDraw(now(), 29, 38, 39, 40, 37, 47, RandomDataGenerator.randomPositiveInteger(), generateString(), RandomDataGenerator.randomPositiveInteger()));
+        hotPickDrawList.add(new HotPickDraw(now(), 48, 49, 50, 48, 49, 50, RandomDataGenerator.randomPositiveInteger(), generateString(), RandomDataGenerator.randomPositiveInteger()));
+        hotPickDrawList.add(new HotPickDraw(now(), 41, 42, 43, 44, 45, 46, RandomDataGenerator.randomPositiveInteger(), generateString(), RandomDataGenerator.randomPositiveInteger()));
+        hotPickDrawList.add(new HotPickDraw(now(), 51, 52, 53, 54, 55, 56, RandomDataGenerator.randomPositiveInteger(), generateString(), RandomDataGenerator.randomPositiveInteger()));
+        hotPickDrawList.add(new HotPickDraw(now(), 30, 57, 58, 58, 59, 59, RandomDataGenerator.randomPositiveInteger(), generateString(), RandomDataGenerator.randomPositiveInteger()));
         String expectedResult = "7,8";
         hotPicksAnalyser = new HotPicksAnalyser(hotPickDrawList);
         hotPicksAnalyser.countBallDrawn();
@@ -171,7 +184,7 @@ public class HotPicksAnalyserTest {
     public void shouldReturnTrueWhenTwoNumbersWasFoundInTheSameDraw() throws Exception {
         // given
         List<HotPickDraw> hotPickDrawList = new ArrayList<>();
-        final HotPickDraw hotPickDraw = new HotPickDraw(now(), 1, 2, 3, 3, 3, 4, randomInteger(), generateString(), randomInteger());
+        final HotPickDraw hotPickDraw = new HotPickDraw(now(), 1, 2, 3, 3, 3, 4, RandomDataGenerator.randomPositiveInteger(), generateString(), RandomDataGenerator.randomPositiveInteger());
         hotPickDrawList.add(hotPickDraw);
         hotPicksAnalyser = new HotPicksAnalyser(hotPickDrawList);
 
@@ -187,7 +200,7 @@ public class HotPicksAnalyserTest {
     public void shouldReturnFalseWhenOnlyOneNumbersWasFoundInTheSameDraw() throws Exception {
         // given
         List<HotPickDraw> hotPickDrawList = new ArrayList<>();
-        final HotPickDraw hotPickDraw = new HotPickDraw(now(), 1, 2, 3, 3, 3, 4, randomInteger(), generateString(), randomInteger());
+        final HotPickDraw hotPickDraw = new HotPickDraw(now(), 1, 2, 3, 3, 3, 4, RandomDataGenerator.randomPositiveInteger(), generateString(), RandomDataGenerator.randomPositiveInteger());
         hotPickDrawList.add(hotPickDraw);
         hotPicksAnalyser = new HotPicksAnalyser(hotPickDrawList);
 
@@ -202,8 +215,8 @@ public class HotPicksAnalyserTest {
     public void shouldReturnFalseWhenTwoNumbersAreFoundButNotInTheSameDraw() throws Exception {
         // given
         List<HotPickDraw> hotPickDrawList = new ArrayList<>();
-        final HotPickDraw hotPickDraw = new HotPickDraw(now(), 1, 2, 3, 4, 5, 6, randomInteger(), generateString(), randomInteger());
-        final HotPickDraw hotPickDraw2 = new HotPickDraw(now(), 7, 8, 9, 10, 11, 12, randomInteger(), generateString(), randomInteger());
+        final HotPickDraw hotPickDraw = new HotPickDraw(now(), 1, 2, 3, 4, 5, 6, RandomDataGenerator.randomPositiveInteger(), generateString(), RandomDataGenerator.randomPositiveInteger());
+        final HotPickDraw hotPickDraw2 = new HotPickDraw(now(), 7, 8, 9, 10, 11, 12, RandomDataGenerator.randomPositiveInteger(), generateString(), RandomDataGenerator.randomPositiveInteger());
         hotPickDrawList.add(hotPickDraw);
         hotPickDrawList.add(hotPickDraw2);
         hotPicksAnalyser = new HotPicksAnalyser(hotPickDrawList);
@@ -214,6 +227,48 @@ public class HotPicksAnalyserTest {
         // then
         assertThat(result.isPresent()).isFalse();
     }
+
+    @Test
+    public void getBallsCountListShouldReturnListOfCountedBalls() throws Exception {
+        // given
+        List<HotPickDraw> hotPickDrawList = new ArrayList<>();
+
+        final HotPickDraw hotPickDraw2 = hotPickDrawBuilder()
+                .ball1(1)
+                .ball2(7)
+                .ball3(8)
+                .ball4(9)
+                .ball5(10)
+                .ball6(11)
+                .build();
+
+        final HotPickDraw hotPickDraw3 = hotPickDrawBuilder()
+                .ball1(1)
+                .ball2(2)
+                .ball3(9)
+                .ball4(24)
+                .ball5(25)
+                .ball6(26)
+                .build();
+        hotPickDrawList.add(HOT_PICK_DRAW_1);
+        hotPickDrawList.add(hotPickDraw2);
+        hotPickDrawList.add(hotPickDraw3);
+        hotPicksAnalyser = new HotPicksAnalyser(hotPickDrawList);
+
+        // when
+        List<BallCount> ballCountList = hotPicksAnalyser.getBallsCountList();
+
+        // then
+        assertThat(ballCountList).contains(createForSingleNumberWithCount(1,3));
+        assertThat(ballCountList).contains(createForSingleNumberWithCount(9,2));
+        assertThat(ballCountList).contains(createForSingleNumberWithCount(26,1));
+        assertThat(ballCountList).contains(createForSingleNumberWithCount(59,0));
+
+    }
+
+
+
+
 
 /*    @Test //TODO complete It
     public void shouldReturnEmptyListIfNumberOfTimesIsNegativeTest() throws Exception {

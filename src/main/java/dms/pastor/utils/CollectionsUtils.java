@@ -10,7 +10,7 @@ import java.util.*;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
-class CollectionsUtils {
+public class CollectionsUtils {
 
     private CollectionsUtils() {
     }
@@ -19,6 +19,15 @@ class CollectionsUtils {
         int[] intArray = new int[integersList.size()];
         int i = 0;
         for (Integer n : integersList) {
+            intArray[i++] = n;
+        }
+        return intArray;
+    }
+
+    public static int[] convertSetToIntArray(Set<Integer> integersSet) {
+        int[] intArray = new int[integersSet.size()];
+        int i = 0;
+        for (Integer n : integersSet) {
             intArray[i++] = n;
         }
         return intArray;
@@ -37,7 +46,6 @@ class CollectionsUtils {
         return new HashSet<>(Arrays.asList(stringArray));
     }
 
-
     public static List<String> emptyArrayList() {
         return new ArrayList<>(0);
     }
@@ -54,9 +62,4 @@ class CollectionsUtils {
         return list != null && list.size() > 0;
     }
 
-    //?
-    public static List<String> get(String t) {
-        //returns a modifiable list of just the topmost foo.
-        return new ArrayList<>(Collections.singleton(t));
-    }
 }

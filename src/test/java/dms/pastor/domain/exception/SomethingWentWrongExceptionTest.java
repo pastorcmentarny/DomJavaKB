@@ -4,6 +4,9 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import static dms.pastor.utils.RandomDataGenerator.generateString;
+import static java.lang.String.format;
+
 /**
  * Author Dominik Symonowicz
  * Created 24/02/2017
@@ -25,6 +28,21 @@ public class SomethingWentWrongExceptionTest {
 
         // when
         throw new SomethingWentWrongException();
+
+    }
+
+    @Test
+    public void shouldThrowNotImplementYetExceptionWithMessageTest() throws Exception {
+
+        // given
+        final String whatWentWrongMessage = generateString();
+
+        // expect
+        exception.expect(SomethingWentWrongException.class);
+        exception.expectMessage(format("Whoops! Something went wrong. %s. I apologize for any inconvenience caused by your mistake.",whatWentWrongMessage));
+
+        // when
+        throw new SomethingWentWrongException(whatWentWrongMessage);
 
     }
 }

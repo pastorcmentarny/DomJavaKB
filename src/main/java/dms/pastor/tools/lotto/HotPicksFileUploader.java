@@ -25,7 +25,7 @@ import static java.lang.String.format;
  */
 class HotPicksFileUploader {
     private static final Logger LOG = Logger.getLogger(HotPicksFileUploader.class);
-    public static final String DASH = "-";
+    private static final String DASH = "-";
     private final List<HotPickDraw> hotPickDrawList;
 
     HotPicksFileUploader() {
@@ -123,7 +123,7 @@ class HotPicksFileUploader {
             throw new IllegalArgumentException("Path shouldn't be null or empty");
         }
 
-        if (fileDoesNotExist(filePath)) {
+        if (isFileDoesNotExist(filePath)) {
             throw new IllegalArgumentException("Path is invalid or is not a file");
         }
 
@@ -132,7 +132,7 @@ class HotPicksFileUploader {
         }
     }
 
-    private boolean fileDoesNotExist(String filePath) {
+    private boolean isFileDoesNotExist(String filePath) {
         return !(new File(filePath).exists() && new File(filePath).isFile());
     }
 

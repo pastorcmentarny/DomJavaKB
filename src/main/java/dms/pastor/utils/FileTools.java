@@ -35,6 +35,7 @@ public class FileTools {
         return true;
     }
 
+    @SuppressWarnings("BooleanMethodNameMustStartWithQuestion")
     static boolean saveListToFile(List<String> content, String file) {
         StringBuilder list = new StringBuilder();
         for (String line : content) {
@@ -52,11 +53,13 @@ public class FileTools {
         return true;
     }
 
+    @SuppressWarnings("BooleanMethodNameMustStartWithQuestion")
     public static boolean saveListToFile(String[] content, String file) {
         return saveListToFile(Arrays.asList(content), file);
     }
 
     //TODO replace with better method or find other that do the same job
+    @SuppressWarnings("BooleanMethodNameMustStartWithQuestion")
     public static boolean saveTextToFile(String text, String path2file) {
         LOGGER.debug("Saving text to file: " + path2file);
         file = new File(path2file);

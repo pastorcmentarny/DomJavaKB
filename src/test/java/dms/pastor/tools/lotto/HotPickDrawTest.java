@@ -96,4 +96,24 @@ public class HotPickDrawTest {
         assertThat(result).isEqualTo(expectedResult);
     }
 
+    @Test
+    public void getAllBallsShouldReturnBallsForDraw() throws Exception {
+        // given
+        HotPickDraw draw = hotPickDrawBuilder()
+                .ball1(1)
+                .ball2(2)
+                .ball3(3)
+                .ball4(4)
+                .ball5(5)
+                .ball6(6)
+                .build();
+        int[] expectedBalls = new int[]{1, 2, 3, 4, 5, 6};
+
+        // when
+        final int[] allBalls = draw.getAllBalls();
+
+        // then
+        assertThat(allBalls).hasSize(6);
+        assertThat(allBalls).isEqualTo(expectedBalls);
+    }
 }

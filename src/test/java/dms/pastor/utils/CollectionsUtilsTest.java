@@ -7,10 +7,13 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static dms.pastor.TestConfig.MAX_RANDOM_SIZE;
 import static dms.pastor.utils.CollectionsUtils.*;
 import static dms.pastor.utils.RandomDataGenerator.generateArray;
+import static dms.pastor.utils.RandomDataGenerator.generateString;
 import static dms.pastor.utils.StringUtils.isStringBlank;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
@@ -105,6 +108,36 @@ public class CollectionsUtilsTest {
 
         // then
         assertThat(result).isFalse();
+    }
+
+    @Test
+    public void convertSetToIntArrayShouldReturnIntArray() throws Exception {
+        // given
+        final Set<Integer> integerSet = Stream.of(1,2,3).collect(Collectors.toSet());
+        int[] expectedIntArray = new int[]{1,2,3};
+
+        // when
+        final int[] ints = convertSetToIntArray(integerSet);
+
+        // then
+        assertThat(ints).isEqualTo(expectedIntArray);
+    }
+
+    @Test
+    public void convertStringArrayToSetShouldReturnStringSet() throws Exception {
+        // given
+        final String stringOne = generateString();
+        final String stringTwo = generateString();
+        final String[] stringArray = {stringOne, stringTwo};
+        Set<String> expectedStringSet = new HashSet<>();
+        expectedStringSet.add(stringOne);
+        expectedStringSet.add(stringTwo);
+
+        // when
+        final Set<String> stringSet = convertStringArrayToSet(stringArray);
+
+        // then
+        assertThat(stringSet).isEqualTo(expectedStringSet);
     }
 
 }

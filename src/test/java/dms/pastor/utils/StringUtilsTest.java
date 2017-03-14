@@ -391,7 +391,7 @@ public class StringUtilsTest {
     @SuppressWarnings("ConstantConditions") // part of the test
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenStringIsEmptyForSwapCharactersTest() throws Exception {
-        // expect
+        // expectedException
         exception.expect(IllegalArgumentException.class);
 
         // when
@@ -515,7 +515,7 @@ public class StringUtilsTest {
     @Test
     public void isStartWithUpperCaseShouldReturnFalseWhenIsTextStartsWithNumber() throws Exception {
         // given
-        final String string = String.valueOf(randomInteger());
+        final String string = String.valueOf(randomPositiveInteger());
         // when
         boolean result = StringUtils.startsWithUpperCase(string);
         // then
