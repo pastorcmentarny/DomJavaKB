@@ -12,6 +12,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.TimeZone;
 import java.util.stream.Collectors;
 
@@ -26,6 +27,8 @@ import java.util.stream.Collectors;
 public class Utils {
     public static final long DAY_FROM_MILLISECONDS = 1000L * 60L * 60L * 24L;
     private static final Logger LOGGER = Logger.getLogger(Utils.class);
+    private static final String WHITESPACES = "\\s";
+    private static final String EMPTY_STRING = "";
 
     private Utils() {
     }
@@ -34,9 +37,9 @@ public class Utils {
     public static long setDate(String date) {
         String[] aDate = date.split("/");
         final Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
-        cal.set(Calendar.DAY_OF_MONTH, Integer.valueOf(aDate[0].replaceAll("\\s", "")));
-        cal.set(Calendar.MONTH, Integer.valueOf(aDate[1].replaceAll("\\s", "")));
-        cal.set(Calendar.YEAR, Integer.valueOf(aDate[2].replaceAll("\\s", "")));
+        cal.set(Calendar.DAY_OF_MONTH, Integer.valueOf(aDate[0].replaceAll(WHITESPACES, EMPTY_STRING)));
+        cal.set(Calendar.MONTH, Integer.valueOf(aDate[1].replaceAll(WHITESPACES, EMPTY_STRING)));
+        cal.set(Calendar.YEAR, Integer.valueOf(aDate[2].replaceAll(WHITESPACES, EMPTY_STRING)));
         return cal.getTimeInMillis();
     }
 
@@ -49,8 +52,8 @@ public class Utils {
     }
 
     //TODO improve this!
-    public static ArrayList<Person> loadPeople(String filename) throws IOException {
-        ArrayList<Person> people = new ArrayList<>();
+    public static List<Person> loadPeople(String filename) throws IOException {
+        List<Person> people = new ArrayList<>();
         File file = new File(filename);
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
             String line;
@@ -72,10 +75,10 @@ public class Utils {
 
     private static Person addPerson(String line) {
         String[] columns = line.split(",");
-        return new Person(columns[0], Genre.fromString(columns[1]), Integer.valueOf(columns[2].replaceAll("\\s", "")), columns[3]);
+        return new Person(columns[0], Genre.fromString(columns[1]), Integer.valueOf(columns[2].replaceAll(WHITESPACES, EMPTY_STRING)), columns[3]);
     }
 
-    private static boolean isNotExists(Person person, ArrayList<Person> people) {
+    private static boolean isNotExists(Person person, List<Person> people) {
         for (Person p : people)
             if (p.equals(person)) {
                 return false;
@@ -84,7 +87,7 @@ public class Utils {
 
     }
 
-    public static ArrayList<String> loadFileToArrayOfStrings(String filePath) throws IOException {
+    public static List<String> loadFileToArrayOfStrings(String filePath) throws IOException {
         return new ArrayList<>(Files.lines(Paths.get(filePath)).collect(Collectors.toList()));
     }
 }

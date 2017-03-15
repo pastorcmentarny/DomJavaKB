@@ -140,7 +140,7 @@ public class RandomDataGenerator {
         if (size < 0) {
             throw new IllegalArgumentException("Size must be bigger than zero!");
         }
-        ArrayList<String> randomStrings = new ArrayList<>();
+        List<String> randomStrings = new ArrayList<>();
         for (int i = 0; i < size; i++) {
             randomStrings.add(generateString(10));
         }
@@ -199,7 +199,7 @@ public class RandomDataGenerator {
     }
 
     public static List<String> generateStringList() {
-        ArrayList<String> randomStrings = new ArrayList<>();
+        List<String> randomStrings = new ArrayList<>();
         int size = random.nextInt(MAX_SMALL_VALUE) + 4;
         for (int i = 0; i < size; i++) {
             randomStrings.add(generateString(MAX_SMALL_VALUE));

@@ -3,7 +3,7 @@ package dms.pastor.tasks.manipulatedataapplication.questions;
 import dms.pastor.tasks.manipulatedataapplication.data.Person;
 import dms.pastor.tasks.manipulatedataapplication.utls.Utils;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * User: Dominik Symonowicz
@@ -16,7 +16,7 @@ public class QuestionThree extends Question {
     private final Person second;
     private long timeDiff;
 
-    public QuestionThree(ArrayList<Person> people, Person first, Person second) {
+    public QuestionThree(List<Person> people, Person first, Person second) {
         super(people);
         this.first = first;
         this.second = second;
@@ -24,8 +24,8 @@ public class QuestionThree extends Question {
 
     @Override
     public void processQuestion() {
-        long firstPerson = Utils.setDate(first.getDOB());
-        long secondPerson = Utils.setDate(second.getDOB());
+        long firstPerson = Utils.setDate(first.getDob());
+        long secondPerson = Utils.setDate(second.getDob());
         timeDiff = firstPerson - secondPerson;
 
     }

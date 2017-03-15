@@ -7,7 +7,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import static dms.pastor.utils.RandomDataGenerator.generateString;
-import static dms.pastor.utils.RandomDataGenerator.randomInteger;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 

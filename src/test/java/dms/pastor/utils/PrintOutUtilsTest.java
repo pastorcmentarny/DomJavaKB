@@ -12,7 +12,6 @@ import java.util.HashMap;
 import static dms.pastor.utils.PrintOutUtils.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.containsString;
-import static org.hamcrest.CoreMatchers.is;
 
 /**
  * Author Dominik Symonowicz
@@ -48,7 +47,7 @@ public class PrintOutUtilsTest {
     public void shouldThrowIllegalArgumentExceptionWhenMinimumValueIsHigherThanMaximumTest() throws Exception {
         // except
         exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Minimum number is higher than maximum number");
+        exception.expectMessage("MinValue (10) must be lower than MaxValue(7)");
 
         // when
         displayOddNumbers(10, 7);
@@ -72,7 +71,7 @@ public class PrintOutUtilsTest {
         printArray(new byte[]{1, 2, 3});
 
         // then
-        Assert.assertThat(outputStream.toString(), is(expected));
+        assertThat(outputStream.toString()).isEqualTo(expected);
     }
 
     @Test
@@ -93,7 +92,7 @@ public class PrintOutUtilsTest {
         final String result = printArray(stringArray);
 
         // then
-        assertThat(result).isEqualTo("[ garlic , cheesecake , armour ]");
+        assertThat(result).isEqualTo("[garlic,cheesecake,armour]");
     }
 
     @Test
@@ -117,6 +116,19 @@ public class PrintOutUtilsTest {
         outputStream.reset();
         // when
         displayOddNumbers(1, 10);
+
+        // then
+        assertThat(outputStream.toString()).isEqualTo(expected);
+    }
+
+    @Test
+    public void printIntArrayShouldPrintIntegers() throws Exception {
+        // given
+        Integer[] integers = new Integer[]{1,2,3,null};
+        final String expected = "[ 1 2 3 null ]\r\n";
+
+        // when
+        printIntArray(integers);
 
         // then
         assertThat(outputStream.toString()).isEqualTo(expected);

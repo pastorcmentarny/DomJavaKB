@@ -1,8 +1,8 @@
 package dms.pastor.models;
 
 
-import dms.pastor.tasks.rankjournal.rankjournals.interfaces.ScoreComparator;
-import dms.pastor.tasks.rankjournal.rankjournals.models.Journal;
+import dms.pastor.tasks.rankjournals.interfaces.ScoreComparator;
+import dms.pastor.tasks.rankjournals.models.Journal;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;

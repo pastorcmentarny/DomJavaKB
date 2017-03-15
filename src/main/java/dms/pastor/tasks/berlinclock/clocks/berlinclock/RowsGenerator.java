@@ -44,7 +44,7 @@ class RowsGenerator {
     }
 
     private String fourthRow() {
-        return rowMaker(time.getMinutes() / 5, YELLOW, RED, 11);
+        return rowMaker(time.getMinutes() / 5, RED, 11);
     }
 
     private String fifthRow() {
@@ -59,13 +59,13 @@ class RowsGenerator {
         return generateRow(lightsOn, howMany, row);
     }
 
-    private String rowMaker(int lightsOn, Light minute, Light quarter, int howMany) {
+    private String rowMaker(int lightsOn, int howMany) {
         StringBuilder row = new StringBuilder(EMPTY);
         for (int i = 1; i <= lightsOn; i++) {
             if (i % 3 == 0) {
-                row.append(quarter.getColor());
+                row.append(RED.getColor());
             } else {
-                row.append(minute.getColor());
+                row.append(YELLOW.getColor());
             }
         }
         return generateRow(lightsOn, howMany, row);

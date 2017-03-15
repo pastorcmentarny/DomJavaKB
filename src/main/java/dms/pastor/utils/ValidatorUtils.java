@@ -47,7 +47,6 @@ public class ValidatorUtils {
     }
 
     public static boolean validateThatObjectCanBeSerialized(Object object) {
-
         try (OutputStream sink = new ByteArrayOutputStream();
              ObjectOutputStream stream = new ObjectOutputStream(sink)) {
             stream.writeObject(object);
@@ -76,7 +75,6 @@ public class ValidatorUtils {
             throw new IllegalArgumentException("Value cannot be null");
         }
     }
-
 
     public static void validateTwoIntsNotEqual(int int1, int int2) {
         if(int1 == int2){

@@ -7,9 +7,11 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import static dms.pastor.TestConfig.BASE_PATH;
 import static dms.pastor.tasks.manipulatedataapplication.utls.Utils.calculateAverageAge;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 
 /**
@@ -22,8 +24,8 @@ import static org.hamcrest.CoreMatchers.is;
  */
 public class UtilsTest {
 
-    private static ArrayList<String> getTextAsStringArray() {
-        final ArrayList<String> text = new ArrayList<>();
+    private static List<String> getTextAsStringArray() {
+        final List<String> text = new ArrayList<>();
         text.add("First line");
         text.add("Second line");
         text.add("Third line");
@@ -35,18 +37,18 @@ public class UtilsTest {
     @Test
     public void shouldLoadFileIntoArrayListOfStrings() throws IOException {
         String path = BASE_PATH + "5LinesOfCodeTest.txt";
-        final ArrayList<String> sourceAsArray = Utils.loadFileToArrayOfStrings(path);
+        final List<String> sourceAsArray = Utils.loadFileToArrayOfStrings(path);
         PrintOutUtils.printArray(sourceAsArray);
-        ArrayList<String> result = getTextAsStringArray();
+        List<String> result = getTextAsStringArray();
         Assert.assertThat(sourceAsArray, is(result));
     }
 
     @Test
-    public void shouldReturnZeroForCalculateAverageAge() {
+    public void shouldReturnZeroForCalculateAverageAgeTest() {
         // when
         final int result = calculateAverageAge(0, -1);
 
         // then
-        Assert.assertThat(result, is(0));
+        assertThat(result).isZero();
     }
 }

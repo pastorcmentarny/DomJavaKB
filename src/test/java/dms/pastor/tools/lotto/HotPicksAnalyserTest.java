@@ -12,7 +12,6 @@ import java.util.Optional;
 import static dms.pastor.tools.lotto.BallCount.createForSingleNumberWithCount;
 import static dms.pastor.tools.lotto.HotPickDrawBuilder.hotPickDrawBuilder;
 import static dms.pastor.utils.RandomDataGenerator.generateString;
-import static dms.pastor.utils.RandomDataGenerator.randomInteger;
 import static java.time.LocalDate.now;
 import static org.assertj.core.api.Java6Assertions.assertThat;
 

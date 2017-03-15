@@ -1,9 +1,10 @@
 package dms.pastor.tasks.manipulatedataapplication.questions;
 
 import dms.pastor.tasks.manipulatedataapplication.data.Person;
-import dms.pastor.tasks.manipulatedataapplication.utls.Utils;
 
-import java.util.ArrayList;
+import java.util.List;
+
+import static dms.pastor.tasks.manipulatedataapplication.utls.Utils.calculateAverageAge;
 
 /**
  * User: Pastor
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 public class QuestionTwo extends Question {
     private int totalAge = 0;
 
-    public QuestionTwo(ArrayList<Person> people) {
+    public QuestionTwo(List<Person> people) {
         super(people);
     }
 
@@ -26,6 +27,6 @@ public class QuestionTwo extends Question {
 
     @Override
     public String printAnswer() {
-        return " Average age of people is: " + Utils.calculateAverageAge(totalAge, people.size());
+        return " Average age of people is: " + calculateAverageAge(totalAge, people.size());
     }
 }

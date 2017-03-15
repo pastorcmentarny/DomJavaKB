@@ -38,9 +38,7 @@ class HotPickLeastPlayedCoupleFinder {
 
     //get all combination from last X games
     Set<Couple> generateCouplesFromDraw(HotPickDraw draw) {
-        Set<Couple> coupleSet = new HashSet<>();
-        coupleSet.addAll(generateAllUniqueCombinationFor(draw.getAllBalls()));
-        return coupleSet;
+        return new HashSet<>(generateAllUniqueCombinationFor(draw.getAllBalls()));
     }
 
     // check how many of them played

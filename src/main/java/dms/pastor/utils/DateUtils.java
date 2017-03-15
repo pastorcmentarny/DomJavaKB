@@ -28,7 +28,7 @@ public class DateUtils {
         return value >= 0 && value <= max;
     }
 
-    public static boolean inHoursRange(int value) {
+    public static boolean isInHoursRange(int value) {
         return isInRange(value, 24);
     }
 

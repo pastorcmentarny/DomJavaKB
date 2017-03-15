@@ -265,7 +265,7 @@ public final class StringUtils {
     }
 
 
-    static boolean verifyThatAllKeywordsExists(List<String> keywords, String text) {
+    static boolean isTextContainsAllKeywordsExists(List<String> keywords, String text) {
         if (keywords == null || keywords.isEmpty() || text == null || text.isEmpty()) {
             throw new IllegalArgumentException("Keywords or text cannot be null or empty");
         }

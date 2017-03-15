@@ -1,4 +1,4 @@
-package dms.pastor.tasks.rankjournal.rankjournals;
+package dms.pastor.tasks.rankjournals;
 
 /**
  * @author Pastor

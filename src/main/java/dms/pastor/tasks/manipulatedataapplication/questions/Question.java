@@ -3,7 +3,7 @@ package dms.pastor.tasks.manipulatedataapplication.questions;
 import dms.pastor.tasks.manipulatedataapplication.data.Person;
 import dms.pastor.tasks.manipulatedataapplication.data.QAInterface;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * User: Dominik Symonowicz
@@ -11,9 +11,9 @@ import java.util.ArrayList;
  * Time: 21:33
  */
 public abstract class Question implements QAInterface {
-    final ArrayList<Person> people;
+    final List<Person> people;
 
-    Question(ArrayList<Person> people) {
+    Question(List<Person> people) {
         this.people = people;
     }
 }

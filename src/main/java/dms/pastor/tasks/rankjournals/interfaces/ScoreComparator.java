@@ -1,6 +1,6 @@
-package dms.pastor.tasks.rankjournal.rankjournals.interfaces;
+package dms.pastor.tasks.rankjournals.interfaces;
 
-import dms.pastor.tasks.rankjournal.rankjournals.models.Journal;
+import dms.pastor.tasks.rankjournals.models.Journal;
 
 import java.util.Comparator;
 

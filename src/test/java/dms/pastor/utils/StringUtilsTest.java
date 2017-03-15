@@ -14,7 +14,6 @@ import java.util.List;
 
 import static dms.pastor.domain.Message.INPUT_CANNOT_BE_EMPTY;
 import static dms.pastor.utils.RandomDataGenerator.*;
-import static dms.pastor.utils.StringUtils.NON_ALPHANUMERIC;
 import static dms.pastor.utils.StringUtils.*;
 import static dms.pastor.utils.StringUtils.getRandomText;
 import static java.lang.Character.isLetter;
@@ -32,7 +31,7 @@ import static org.hamcrest.CoreMatchers.is;
  */
 public class StringUtilsTest {
 
-    protected static final String STRINGNON_ALPHABETICAL_STRING = "&07";
+    protected static final String NON_ALPHABETICAL_STRING = "&07";
     private static final String EMPTY_STRING = "";
     private static final String PALINDROME = "abcdcba";
     private static final String NOT_PALINDROME = "abcdef";
@@ -342,7 +341,7 @@ public class StringUtilsTest {
         exception.expect(IllegalArgumentException.class);
 
         // when
-        verifyThatAllKeywordsExists(null, RandomDataGenerator.generateString());
+        isTextContainsAllKeywordsExists(null, RandomDataGenerator.generateString());
 
     }
 
@@ -352,7 +351,7 @@ public class StringUtilsTest {
         exception.expect(IllegalArgumentException.class);
 
         // when
-        verifyThatAllKeywordsExists(generateStringList(), null);
+        isTextContainsAllKeywordsExists(generateStringList(), null);
     }
 
     @SuppressWarnings("unchecked")
@@ -362,7 +361,7 @@ public class StringUtilsTest {
         exception.expect(IllegalArgumentException.class);
 
         // when
-        verifyThatAllKeywordsExists(EMPTY_LIST, RandomDataGenerator.generateString());
+        isTextContainsAllKeywordsExists(EMPTY_LIST, RandomDataGenerator.generateString());
 
     }
 
@@ -372,7 +371,7 @@ public class StringUtilsTest {
         exception.expect(IllegalArgumentException.class);
 
         // when
-        verifyThatAllKeywordsExists(generateStringList(), EMPTY_STRING);
+        isTextContainsAllKeywordsExists(generateStringList(), EMPTY_STRING);
     }
 
     @Test
@@ -382,7 +381,7 @@ public class StringUtilsTest {
         final String text = "The quick brown fox jumps over a lazy dog.";
 
         //when
-        final boolean exists = verifyThatAllKeywordsExists(keywords, text);
+        final boolean exists = isTextContainsAllKeywordsExists(keywords, text);
 
         // then
         assertThat(exists).isTrue();
@@ -578,7 +577,7 @@ public class StringUtilsTest {
     @Test
     public void shouldReturnTrueWhenTextHasNonAlphabetCharactersOnly() throws Exception {
         // when
-        final boolean result = StringUtils.hasNonAlphabetCharactersOnly(STRINGNON_ALPHABETICAL_STRING);
+        final boolean result = StringUtils.hasNonAlphabetCharactersOnly(NON_ALPHABETICAL_STRING);
 
         // then
         assertThat(result).isTrue();
@@ -588,7 +587,7 @@ public class StringUtilsTest {
     public void hasNonAlphabetCharactersOnlyShouldReturnFalseIfStringContainAlphabetCharacter() throws Exception {
 
         // when
-        final boolean result = StringUtils.hasNonAlphabetCharactersOnly(STRINGNON_ALPHABETICAL_STRING);
+        final boolean result = StringUtils.hasNonAlphabetCharactersOnly(NON_ALPHABETICAL_STRING);
 
         // then
         assertThat(result).isTrue();

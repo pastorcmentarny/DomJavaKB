@@ -64,7 +64,7 @@ public class BerlinClock implements ClockInterface {
         h = Integer.parseInt(hh);
         m = Integer.parseInt(mm);
         s = Integer.parseInt(ss);
-        if (!(DateUtils.inHoursRange(h) && DateUtils.isInMinutesRange(m) && DateUtils.isInSecondsRange(s))) {
+        if (!(DateUtils.isInHoursRange(h) && DateUtils.isInMinutesRange(m) && DateUtils.isInSecondsRange(s))) {
             throw new IllegalArgumentException(invalidInput);
         }
         return new Time(h, m, s);

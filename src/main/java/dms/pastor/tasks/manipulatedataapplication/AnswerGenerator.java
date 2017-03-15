@@ -7,7 +7,7 @@ import dms.pastor.tasks.manipulatedataapplication.questions.QuestionThree;
 import dms.pastor.tasks.manipulatedataapplication.questions.QuestionTwo;
 import dms.pastor.tasks.manipulatedataapplication.utls.Utils;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * User: Dominik Symonowicz
@@ -15,7 +15,7 @@ import java.util.ArrayList;
  * Time: 21:01
  */
 class AnswerGenerator {
-    private final ArrayList<Person> people;
+    private final List<Person> people;
 
     AnswerGenerator(String fileName) throws Exception {
         people = Utils.loadPeople(fileName);

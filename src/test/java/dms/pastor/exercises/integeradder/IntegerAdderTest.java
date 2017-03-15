@@ -21,9 +21,9 @@ import static org.hamcrest.CoreMatchers.is;
  */
 public class IntegerAdderTest {
     private final static String PATH = BASE_PATH + "adder" + separator;
-    private final String demoFile1 = PATH + "test1.txt";
-    private final String demoFile2 = PATH + "test2.txt";
-    private final String demoFile3 = PATH + "test3.txt";
+    private static final String demoFile1 = PATH + "test1.txt";
+    private static final String demoFile2 = PATH + "test2.txt";
+    private static final String demoFile3 = PATH + "test3.txt";
 
     @Rule
     public ExpectedException exception = ExpectedException.none();

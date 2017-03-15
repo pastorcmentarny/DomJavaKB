@@ -14,7 +14,10 @@ public enum Genre {
     MALE,
     FEMALE;
 
+    private static final String SPECIAL_CHARACTERS = "\\s";
+    private static final String EMPTY_STRING = "";
+
     public static Genre fromString(String genre) {
-        return valueOf(genre.toUpperCase().replaceAll("\\s", ""));
+        return valueOf(genre.toUpperCase().replaceAll(SPECIAL_CHARACTERS, EMPTY_STRING));
     }
 }

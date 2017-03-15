@@ -1,6 +1,8 @@
-package dms.pastor.tasks.rankjournal.rankjournals.models;
+package dms.pastor.tasks.rankjournals.models;
 
-import dms.pastor.tasks.rankjournal.rankjournals.JournalType;
+import dms.pastor.tasks.rankjournals.JournalType;
+
+import static dms.pastor.tasks.rankjournals.JournalType.NORMAL;
 
 /**
  * @author Pastor
@@ -10,7 +12,7 @@ public class Journal {
     private final String name;
     private final double score;
     private final int year;
-    private JournalType type = JournalType.NORMAL;
+    private JournalType type = NORMAL;
 
 
     public Journal(String name, double score, int year) {

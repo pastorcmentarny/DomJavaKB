@@ -9,7 +9,8 @@ import org.junit.rules.ExpectedException;
 import java.io.IOException;
 
 import static dms.pastor.tools.HTMLReader.download;
-import static dms.pastor.tools.HTMLReader.saveToFile;
+import static dms.pastor.utils.FileTools.saveTextToFile;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 
 /**
@@ -27,9 +28,14 @@ public class HTMLReaderTest {
     @Test
     @Ignore //as I move to new site
     public void acceptanceCriteria() throws Exception {
+        // given
         final String content = download("http://pastor.ovh.org/ok.html");
         System.out.println(content);
-        Assert.assertThat(saveToFile(content, "example.txt"), is(true));
+
+        // when
+        final boolean fileSaved = saveTextToFile(content, "example.txt");
+
+        assertThat(fileSaved).isTrue();
     }
 
     @Test

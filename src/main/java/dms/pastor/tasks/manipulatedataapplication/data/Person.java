@@ -11,13 +11,13 @@ public class Person {
     private final String fullName;
     private final Genre genre;
     private final int Age;
-    private final String DOB;
+    private final String dob;
 
-    public Person(String fullName, Genre genre, int age, String DOB) {
+    public Person(String fullName, Genre genre, int age, String dob) {
         this.fullName = fullName;
         this.genre = genre;
         Age = age;
-        this.DOB = DOB;
+        this.dob = dob;
     }
 
     public String getFullName() {
@@ -32,8 +32,8 @@ public class Person {
         return Age;
     }
 
-    public String getDOB() {
-        return DOB;
+    public String getDob() {
+        return dob;
     }
 
     @Override
@@ -41,6 +41,6 @@ public class Person {
         return "Person: " + fullName + '\n' +
                 "\ngenre: " + genre +
                 "\nage: " + Age +
-                "\nDOB: '" + DOB + "\n\n";
+                "\ndob: '" + dob + "\n\n";
     }
 }

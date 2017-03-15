@@ -3,7 +3,7 @@ package dms.pastor.tasks.manipulatedataapplication.questions;
 import dms.pastor.tasks.manipulatedataapplication.data.Genre;
 import dms.pastor.tasks.manipulatedataapplication.data.Person;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * User: Dominik Symonowicz
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class QuestionOne extends Question {
     private int counter = 0;
 
-    public QuestionOne(ArrayList<Person> people) {
+    public QuestionOne(List<Person> people) {
         super(people);
     }
 

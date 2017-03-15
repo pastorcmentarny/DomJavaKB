@@ -3,6 +3,7 @@ package dms.pastor.utils;
 import java.util.*;
 import java.util.stream.IntStream;
 
+import static dms.pastor.utils.ValidatorUtils.validateMinValueIsSmallerThanMaxValue;
 import static java.lang.String.valueOf;
 import static java.lang.System.out;
 
@@ -16,6 +17,7 @@ import static java.lang.System.out;
  */
 public class PrintOutUtils {
 
+    private static final String COMMA = ",";
     private static final char SPACE = ' ';
     private static final String OPEN_ARRAY = "[";
     private static final String OPEN_ARRAY_WITH_SPACE = OPEN_ARRAY + SPACE;
@@ -48,7 +50,7 @@ public class PrintOutUtils {
     }
 
     public static void displayOddNumbers(int min, int max) {
-        throwExceptionWhenMinIsGreaterThanMax(min, max);
+        validateMinValueIsSmallerThanMaxValue(min,max);
 
         for (int i = min; i <= max; i++) {
             String text;
@@ -60,12 +62,12 @@ public class PrintOutUtils {
     }
 
     public static String printArray(String[] array) {
-        final StringBuilder stringBuilder = new StringBuilder(OPEN_ARRAY_WITH_SPACE);
+        final StringBuilder stringBuilder = new StringBuilder(OPEN_ARRAY);
         for (String string : array) {
-            stringBuilder.append(string).append(" , ");
+            stringBuilder.append(string).append(COMMA);
         }
         stringBuilder.trimToSize();
-        stringBuilder.delete(stringBuilder.length() - 2, stringBuilder.length());
+        stringBuilder.delete(stringBuilder.length() - 1, stringBuilder.length());
         stringBuilder.append(CLOSE_ARRAY);
         return stringBuilder.toString();
     }
@@ -84,7 +86,7 @@ public class PrintOutUtils {
             throw new IllegalArgumentException("byte array is empty");
         }
         for (byte aByte : bytes) {
-            stringBuilder.append(aByte).append(',');
+            stringBuilder.append(aByte).append(COMMA);
         }
         final String result = stringBuilder.toString();
         final String substring = result.substring(0, result.length() - 1);
@@ -92,10 +94,5 @@ public class PrintOutUtils {
         out.print(substring + CLOSE_ARRAY);
     }
 
-    private static void throwExceptionWhenMinIsGreaterThanMax(int min, int max) {
-        if (min > max) {
-            throw new IllegalArgumentException("Minimum number is higher than maximum number");
-        }
-    }
 }
 

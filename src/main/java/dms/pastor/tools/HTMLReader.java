@@ -1,6 +1,5 @@
 package dms.pastor.tools;
 
-import dms.pastor.utils.FileTools;
 import org.apache.log4j.Logger;
 
 import java.io.BufferedReader;
@@ -25,7 +24,7 @@ class HTMLReader {
 
     private final static Logger LOGGER = getLogger(HTMLReader.class);
 
-    public static String download(String urlStr) throws IOException {
+    static String download(String urlStr) throws IOException {
         final String notHtmlType = "WOOPS!\n\tIt is not a html file.Unable to read non-html file.";
         String type;
         String content;
@@ -68,10 +67,6 @@ class HTMLReader {
         if (isStringBlank(urlStr)) {
             throw new IllegalArgumentException("It must be valid url");
         }
-    }
-
-    static boolean saveToFile(String content, String pathFile) {
-        return FileTools.saveTextToFile(content, pathFile);
     }
 
 }
