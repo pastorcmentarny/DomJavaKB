@@ -1,4 +1,4 @@
-package dms.pastor.tools;
+package dms.pastor.tools.html;
 
 import org.apache.log4j.Logger;
 
@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 
-import static dms.pastor.utils.StringUtils.isStringBlank;
+import static dms.pastor.tools.html.HTMLValidator.validateUrl;
 import static org.apache.log4j.Logger.getLogger;
 
 /**
@@ -20,12 +20,11 @@ import static org.apache.log4j.Logger.getLogger;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
-class HTMLReader {
+class HTMLDownloader {
 
-    private final static Logger LOGGER = getLogger(HTMLReader.class);
+    private final static Logger LOGGER = getLogger(HTMLDownloader.class);
 
     static String download(String urlStr) throws IOException {
-        final String notHtmlType = "WOOPS!\n\tIt is not a html file.Unable to read non-html file.";
         String type;
         String content;
 
@@ -37,7 +36,7 @@ class HTMLReader {
         try (InputStream urlStream = url.openStream();
              BufferedReader html = new BufferedReader(new InputStreamReader(urlStream))) {
             type = urlConnection.getContentType();
-            validateContentType(notHtmlType, type);
+            HTMLValidator.validateContentType(type);
             content = loadHtml(html);
         }
         LOGGER.info("Read html page is finished.");
@@ -54,19 +53,6 @@ class HTMLReader {
         return content.toString();
     }
 
-    private static void validateContentType(String notHtmlType, String type) {
-        if (type == null) {
-            throw new NullPointerException("Problem with type");
-        } else if (type.compareTo("text/html") != 0) {
-            LOGGER.error(notHtmlType);
-            throw new IllegalArgumentException(notHtmlType);             // only html are here
-        }//TODO if(type.compareTo("application/json") )
-    }
 
-    private static void validateUrl(String urlStr) {
-        if (isStringBlank(urlStr)) {
-            throw new IllegalArgumentException("It must be valid url");
-        }
-    }
 
 }

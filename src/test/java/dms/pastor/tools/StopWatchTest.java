@@ -1,11 +1,14 @@
 package dms.pastor.tools;
 
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
+import java.util.concurrent.CountDownLatch;
+
+import static java.util.concurrent.TimeUnit.MILLISECONDS;
+import static java.util.concurrent.TimeUnit.SECONDS;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Author Dominik Symonowicz
@@ -16,6 +19,7 @@ import static org.hamcrest.CoreMatchers.is;
  */
 public class StopWatchTest {
     private StopWatch stopWatch;
+    private final CountDownLatch latch = new CountDownLatch(1);
 
     @Before
     public void setUp() throws Exception {
@@ -27,24 +31,79 @@ public class StopWatchTest {
         stopWatch.resetTimer();
     }
 
+    /*
+     * I used Thread.wait(1000) in the past,but it some flaky test method seems caused
+     * This test is experiment is this approach is better.
+     */
+    @Test
+    public void shouldStartStopwatch() throws Exception {
+        // when
+        stopWatch.start();
+        latch.await(1, SECONDS);
+        final long time = stopWatch.calcCurrentTime();
+
+        // then
+        assertThat(time).isGreaterThan(0);
+    }
+
+    @Test
+    public void shouldStopStopwatch() throws Exception {
+        // given
+        stopWatch.start();
+        latch.await(250, MILLISECONDS);
+
+        // when
+        stopWatch.stop();
+
+        // then
+        assertThat(stopWatch.calcTotalTime()).isGreaterThan(250);
+
+        // when
+        latch.await(100, MILLISECONDS);
+
+        // then
+        assertThat(stopWatch.calcTotalTime()).isLessThan(400);
+
+
+    }
+
+
     @Test
     public void testCalcTotalTime() throws Exception {
+        // given
         stopWatch.setStart(200);
         stopWatch.setFinish(400);
-        Assert.assertThat(stopWatch.calcTotalTime(), is(200L));
+
+        // when
+        final long time = stopWatch.calcTotalTime();
+
+        // then
+        assertThat(time).isEqualTo(200L);
     }
 
     @Test
     public void testDisplayTime() throws Exception {
+        // given
         stopWatch.setStart(1000);
         stopWatch.setFinish(4000);
-        Assert.assertThat(stopWatch.displayTime(), is("Time needed: 0 days, 0 hours, 0 minutes and 3 seconds."));
+
+        // when
+        final String time = stopWatch.displayTime();
+
+        // then
+        assertThat(time).isEqualTo("Time needed: 0 days, 0 hours, 0 minutes and 3 seconds.");
     }
 
     @Test
     public void testGetResultTimeString() throws Exception {
+        // given
         stopWatch.setStart(2000);
         stopWatch.setFinish(5000);
-        Assert.assertThat(stopWatch.getResultTimeString(), is("3.0s."));
+
+        // when
+        final String timeString = stopWatch.getResultTimeString();
+
+        // then
+        assertThat(timeString).isEqualTo("3.0s.");
     }
 }

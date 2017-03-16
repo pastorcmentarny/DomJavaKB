@@ -1,6 +1,5 @@
 package dms.pastor.tools.lotto;
 
-import dms.pastor.utils.CollectionsUtils;
 import org.apache.log4j.Logger;
 
 import java.util.HashSet;
@@ -10,6 +9,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import static dms.pastor.utils.CollectionsUtils.convertSetToIntArray;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.StringUtils.NEW_LINE;
 
@@ -156,6 +156,6 @@ class HotPicksAnalyser {
                 numbers.add(numberToAdd);
             }
         }
-        return CollectionsUtils.convertSetToIntArray(numbers);
+        return convertSetToIntArray(numbers);
     }
 }

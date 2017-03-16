@@ -262,9 +262,43 @@ public class HotPicksAnalyserTest {
         assertThat(ballCountList).contains(createForSingleNumberWithCount(9,2));
         assertThat(ballCountList).contains(createForSingleNumberWithCount(26,1));
         assertThat(ballCountList).contains(createForSingleNumberWithCount(59,0));
-
     }
 
+    @Test
+    public void removeNumbersFromGamesShouldContains10NumbersToRemove() throws Exception {
+
+        // given
+        List<HotPickDraw> hotPickDrawList = new ArrayList<>(2);
+        final HotPickDraw hotPickDraw1 = hotPickDrawBuilder()
+                .ball1(1)
+                .ball2(2)
+                .ball3(3)
+                .ball4(4)
+                .ball5(5)
+                .ball6(6)
+                .build();
+        final HotPickDraw hotPickDraw2 = hotPickDrawBuilder()
+                .ball1(1)
+                .ball2(12)
+                .ball3(13)
+                .ball4(14)
+                .ball5(15)
+                .ball6(6)
+                .build();
+
+        hotPickDrawList.add(hotPickDraw1);
+        hotPickDrawList.add(hotPickDraw2);
+
+        final int[] expectedInts = new int[]{1,2,3,4,5,6,12,13,14,15};
+
+        // when
+        final int[] ints = new HotPicksAnalyser(hotPickDrawList).removeNumbersFromGames(2);
+
+        // then
+        assertThat(ints).isEqualTo(expectedInts);
+
+
+    }
 
 
 

@@ -4,7 +4,7 @@ import java.util.Calendar;
 
 /**
  * Author: Pastor cmentarny
- * #Created:        16.11.2012 16/11/12
+ * #Created:        16.11.2012
  * #WWW:			http://pastor.ovh.org
  * #Github:		https://github.com/pastorcmentarny
  * #Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
@@ -15,7 +15,6 @@ class StopWatch {
     private long start;
     private long finish;
 
-
     public void setStart(long start) {
         this.start = start;
     }
@@ -24,35 +23,19 @@ class StopWatch {
         this.finish = finish;
     }
 
-    /**
-     * starts stopwatch for backup task
-     */
     public void start() {
         finish = 0;
         start = Calendar.getInstance().getTimeInMillis();
     }
 
-    /**
-     * calculates total time spent on backup
-     *
-     * @return time
-     */
     public long calcTotalTime() {
         return finish - start;
     }
 
-    /**
-     * calculates current time elapsed
-     *
-     * @return time
-     */
     public long calcCurrentTime() {
         return Calendar.getInstance().getTimeInMillis() - start;
     }
 
-    /**
-     * stops stopwatch for backup task
-     */
     public void stop() {
         finish = Calendar.getInstance().getTimeInMillis();
     }
@@ -62,11 +45,6 @@ class StopWatch {
         finish = 0;
     }
 
-    /**
-     * Displays results
-     *
-     * @return results text
-     */
     public String displayTime() {
         int days;
         int hours;
@@ -88,13 +66,10 @@ class StopWatch {
         return result.toString();
     }
 
-
     public String getResultTimeString() {
         int sec = (int) calcTotalTime() / 1000;
         int dot = (int) calcTotalTime() % 1000;
         return String.valueOf(sec) + '.' + String.valueOf(dot) + "s.";
     }
 
-
 }
-

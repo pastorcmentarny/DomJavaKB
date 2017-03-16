@@ -1,4 +1,4 @@
-package dms.pastor.tools;
+package dms.pastor.tools.html;
 
 import org.junit.Assert;
 import org.junit.Ignore;
@@ -8,7 +8,7 @@ import org.junit.rules.ExpectedException;
 
 import java.io.IOException;
 
-import static dms.pastor.tools.HTMLReader.download;
+import static dms.pastor.tools.html.HTMLDownloader.download;
 import static dms.pastor.utils.FileTools.saveTextToFile;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
@@ -20,7 +20,7 @@ import static org.hamcrest.CoreMatchers.is;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
-public class HTMLReaderTest {
+public class HTMLDownloaderTest {
 
     @Rule
     public ExpectedException exception = ExpectedException.none();
