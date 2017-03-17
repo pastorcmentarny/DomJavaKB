@@ -23,6 +23,15 @@ class StopWatch {
         this.finish = finish;
     }
 
+
+    public long getStart() {
+        return start;
+    }
+
+    public long getFinish() {
+        return finish;
+    }
+
     public void start() {
         finish = 0;
         start = Calendar.getInstance().getTimeInMillis();
@@ -66,7 +75,7 @@ class StopWatch {
         return result.toString();
     }
 
-    public String getResultTimeString() {
+    public String getResultTimeAsString() {
         int sec = (int) calcTotalTime() / 1000;
         int dot = (int) calcTotalTime() % 1000;
         return String.valueOf(sec) + '.' + String.valueOf(dot) + "s.";

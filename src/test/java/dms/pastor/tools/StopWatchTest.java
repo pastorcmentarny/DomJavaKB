@@ -1,6 +1,5 @@
 package dms.pastor.tools;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,6 +15,8 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
+ *
+ * tag-thread-wait tag-countDownLatch
  */
 public class StopWatchTest {
     private StopWatch stopWatch;
@@ -26,14 +27,9 @@ public class StopWatchTest {
         stopWatch = new StopWatch();
     }
 
-    @After
-    public void tearDown() throws Exception {
-        stopWatch.resetTimer();
-    }
-
     /*
-     * I used Thread.wait(1000) in the past,but it some flaky test method seems caused
-     * This test is experiment is this approach is better.
+     * I used Thread.wait(1000) in the past,but it produce some flaky test method seems caused
+     *  This test is experiment is this approach is better.
      */
     @Test
     public void shouldStartStopwatch() throws Exception {
@@ -63,13 +59,10 @@ public class StopWatchTest {
 
         // then
         assertThat(stopWatch.calcTotalTime()).isLessThan(400);
-
-
     }
 
-
     @Test
-    public void testCalcTotalTime() throws Exception {
+    public void calcTotalTimeShouldReturnCalculatedTime() throws Exception {
         // given
         stopWatch.setStart(200);
         stopWatch.setFinish(400);
@@ -82,7 +75,7 @@ public class StopWatchTest {
     }
 
     @Test
-    public void testDisplayTime() throws Exception {
+    public void shouldDisplayTime() throws Exception {
         // given
         stopWatch.setStart(1000);
         stopWatch.setFinish(4000);
@@ -95,15 +88,29 @@ public class StopWatchTest {
     }
 
     @Test
-    public void testGetResultTimeString() throws Exception {
+    public void shouldResultTimeAsString() throws Exception {
         // given
         stopWatch.setStart(2000);
         stopWatch.setFinish(5000);
 
         // when
-        final String timeString = stopWatch.getResultTimeString();
+        final String timeString = stopWatch.getResultTimeAsString();
 
         // then
         assertThat(timeString).isEqualTo("3.0s.");
+    }
+
+    @Test
+    public void shouldResetTimer() throws Exception {
+        // given
+        stopWatch.setStart(2000);
+        stopWatch.setFinish(5000);
+
+        // when
+        stopWatch.resetTimer();
+
+        // then
+        assertThat(stopWatch.getStart()).isZero();
+        assertThat(stopWatch.getFinish()).isZero();
     }
 }
