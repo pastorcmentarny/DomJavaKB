@@ -39,11 +39,11 @@ public class CoupleOperationsTest {
                 .largerNumber(8)
                 .build();
 
-        final Set<Couple> coupleSet = new HashSet<>(asList(couple1,couple2,couple3,couple4));
+        final Set<Couple> coupleSet = new HashSet<>(asList(couple1, couple2, couple3, couple4));
 
-        final Set<Couple> coupleToDeleteSet = new HashSet<>(asList(couple3,couple4));
+        final Set<Couple> coupleToDeleteSet = new HashSet<>(asList(couple3, couple4));
 
-        Set<Couple> expectedCoupleSet = new HashSet<>(asList(couple1,couple2));
+        Set<Couple> expectedCoupleSet = new HashSet<>(asList(couple1, couple2));
 
         // when
         final Set<Couple> resultCouplesSet = CoupleOperations.deleteDiscardedCouples(coupleSet, coupleToDeleteSet);

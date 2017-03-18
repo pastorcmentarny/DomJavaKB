@@ -80,7 +80,6 @@ class HotPickDraw {
         return String.format("HotPickDraw{drawDate=%s, balls: (%d, %d, %d, %d, %d, %d). ballSet:%d machine:'%s' drawNumber:%d}", drawDate, ball1, ball2, ball3, ball4, ball5, ball6, ballSet, machine, drawNumber);
     }
 
-    //TODO improve it
      boolean containsBalls(int... numbers) {
         for (int number : numbers) {
             if (isNotContains(number)) {

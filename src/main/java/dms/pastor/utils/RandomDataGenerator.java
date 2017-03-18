@@ -198,6 +198,14 @@ public class RandomDataGenerator {
         return new BigDecimal(randomPositiveInteger()).negate().intValue();
     }
 
+    public static BigDecimal randomNegativeBigDecimal() {
+        return randomPositiveBigDecimal().negate();
+    }
+
+    public static BigDecimal randomPositiveBigDecimal() {
+        return new BigDecimal(random.nextInt(Integer.MAX_VALUE));
+    }
+
     public static List<String> generateStringList() {
         List<String> randomStrings = new ArrayList<>();
         int size = random.nextInt(MAX_SMALL_VALUE) + 4;

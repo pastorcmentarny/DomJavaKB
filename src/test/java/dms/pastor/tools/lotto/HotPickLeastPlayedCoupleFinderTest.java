@@ -2,7 +2,10 @@ package dms.pastor.tools.lotto;
 
 import org.junit.Test;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.stream.IntStream;
 
 import static dms.pastor.tools.lotto.HotPickDrawBuilder.hotPickDrawBuilder;
@@ -132,7 +135,7 @@ public class HotPickLeastPlayedCoupleFinderTest {
         final List<Couple> leastPlayedCouple = leastPlayedCoupleFinder.getLeastPlayedCouple(hotPickDraws, IntStream.rangeClosed(1, 10).toArray());
 
         // then
-        for(Couple couple : leastPlayedCouple){
+        for (Couple couple : leastPlayedCouple) {
             System.out.println(couple.toString());
         }
     }

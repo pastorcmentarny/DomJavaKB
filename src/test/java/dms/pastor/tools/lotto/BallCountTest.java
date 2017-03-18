@@ -21,7 +21,7 @@ public class BallCountTest {
     @Test
     public void createForNumberShouldBallCountWithNumber1AndCount0() throws Exception {
         // given
-        final BallCount expectedBallCount = new BallCount(singletonList(1),0);
+        final BallCount expectedBallCount = new BallCount(singletonList(1), 0);
 
         // when
         final BallCount ballCount = BallCount.createForNumber(1);

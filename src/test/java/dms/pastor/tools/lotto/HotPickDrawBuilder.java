@@ -91,7 +91,7 @@ public class HotPickDrawBuilder {
         return this;
     }
 
-    HotPickDrawBuilder allBalls(int ball1,int ball2,int ball3, int ball4, int ball5, int ball6){
+    HotPickDrawBuilder allBalls(int ball1, int ball2, int ball3, int ball4, int ball5, int ball6) {
         this.ball1 = ball1;
         this.ball2 = ball2;
         this.ball3 = ball3;

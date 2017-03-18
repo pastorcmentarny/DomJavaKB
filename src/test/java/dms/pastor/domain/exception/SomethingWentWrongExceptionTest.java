@@ -39,7 +39,7 @@ public class SomethingWentWrongExceptionTest {
 
         // expect
         exception.expect(SomethingWentWrongException.class);
-        exception.expectMessage(format("Whoops! Something went wrong. %s. I apologize for any inconvenience caused by your mistake.",whatWentWrongMessage));
+        exception.expectMessage(format("Whoops! Something went wrong. %s. I apologize for any inconvenience caused by your mistake.", whatWentWrongMessage));
 
         // when
         throw new SomethingWentWrongException(whatWentWrongMessage);

@@ -6,13 +6,14 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import java.lang.Character;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Random;
 
 import static dms.pastor.utils.RandomDataGenerator.*;
 import static dms.pastor.utils.StringUtils.hasNonAlphabetCharactersOnly;
-import static java.lang.Character.isLetter;
+import static java.lang.Character.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
@@ -186,7 +187,7 @@ public class RandomDataGeneratorTest {
 
         // then
         assertThat(stringList).hasSize(arraySize);
-        for(String string : stringList){
+        for (String string : stringList) {
             assertThat(string).isNotEmpty();
         }
     }
@@ -234,7 +235,7 @@ public class RandomDataGeneratorTest {
 
         // then
         assertThat(strings).hasSize(arraySize);
-        for(String string : strings){
+        for (String string : strings) {
             assertThat(string).isNotEmpty();
         }
     }
@@ -350,27 +351,27 @@ public class RandomDataGeneratorTest {
     public void randomIntegerWithMinAndMaxValueShouldThrowExceptionWhenMinValueIsHigherThanMaxValue() throws Exception {
         // given
         int maxValue = randomInteger(MAX_SMALL_VALUE);
-        int minValue = maxValue + randomInteger(1,MAX_SMALL_VALUE);
+        int minValue = maxValue + randomInteger(1, MAX_SMALL_VALUE);
 
         // expect
         expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("MinValue ("+minValue+") must be lower than MaxValue("+ maxValue+")");
+        expectedException.expectMessage("MinValue (" + minValue + ") must be lower than MaxValue(" + maxValue + ")");
 
         // when
-        randomInteger(minValue,maxValue);
+        randomInteger(minValue, maxValue);
     }
 
     @Test
     public void randomIntegerWithMinAndMaxValueShouldReturnValueInRange() throws Exception {
         // given
         int minValue = randomInteger(MAX_SMALL_VALUE);
-        int maxValue = minValue + randomInteger(1,1+MAX_SMALL_VALUE);
+        int maxValue = minValue + randomInteger(1, 1 + MAX_SMALL_VALUE);
 
         // when
         final int number = randomInteger(minValue, maxValue);
 
         // then
-        assertThat(number).isBetween(minValue,maxValue);
+        assertThat(number).isBetween(minValue, maxValue);
     }
 
     @Test
@@ -398,11 +399,32 @@ public class RandomDataGeneratorTest {
 
     @Test
     public void generateNonAlphanumericStringShouldGenerateString() throws Exception {
-        // given
-
         // when
-        final String nonAlphanumericString = generateNonAlphanumericString(10);
-        // then
+        final String nonAlphanumericString = generateNonAlphanumericString(2);
 
+        // then
+        final char[] chars = nonAlphanumericString.toCharArray();
+        assertThat(isAlphabetic(chars[0])).isFalse();
+        assertThat(isAlphabetic(chars[1])).isFalse();
+        assertThat(isDigit(chars[0])).isFalse();
+        assertThat(isDigit(chars[1])).isFalse();
+    }
+
+    @Test
+    public void shouldGetRandomPositiveBigDecimal() throws Exception {
+        // when
+        final BigDecimal positiveBigDecimal = RandomDataGenerator.randomPositiveBigDecimal();
+
+        // then
+        assertThat(positiveBigDecimal).isPositive();
+    }
+
+    @Test
+    public void shouldGetRandomNegativeBigDecimal() throws Exception {
+        // when
+        final BigDecimal negativeBigDecimal = RandomDataGenerator.randomNegativeBigDecimal();
+
+        // then
+        assertThat(negativeBigDecimal).isNegative();
     }
 }

@@ -113,8 +113,8 @@ public class CollectionsUtilsTest {
     @Test
     public void convertSetToIntArrayShouldReturnIntArray() throws Exception {
         // given
-        final Set<Integer> integerSet = Stream.of(1,2,3).collect(Collectors.toSet());
-        int[] expectedIntArray = new int[]{1,2,3};
+        final Set<Integer> integerSet = Stream.of(1, 2, 3).collect(Collectors.toSet());
+        int[] expectedIntArray = new int[]{1, 2, 3};
 
         // when
         final int[] ints = convertSetToIntArray(integerSet);

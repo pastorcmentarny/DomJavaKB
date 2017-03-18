@@ -124,7 +124,7 @@ public class PrintOutUtilsTest {
     @Test
     public void printIntArrayShouldPrintIntegers() throws Exception {
         // given
-        Integer[] integers = new Integer[]{1,2,3,null};
+        Integer[] integers = new Integer[]{1, 2, 3, null};
         final String expected = "[ 1 2 3 null ]\r\n";
 
         // when

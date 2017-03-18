@@ -8,6 +8,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 
 /**
@@ -19,6 +20,7 @@ import static org.hamcrest.CoreMatchers.is;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public class CodeForBlogConverterTest {
+    public static final String THREE_WHITESPACES = "   ";
     private CodeForBlogConverter converter;
 
 /*     //TODO
@@ -33,26 +35,6 @@ public class CodeForBlogConverterTest {
         final String convertedSource = converter.convert(source);
         System.out.println("Output:\n\n" + convertedSource);
     }*/
-
-    private static List<String> generateSourceData() {
-        List<String> data = new ArrayList<>();
-        data.add("package dms.pastor.tools.codeToHTMLConverter;");
-        data.add("");
-        data.add("import org.junit.Before;");
-        data.add("import org.junit.Test;");
-        data.add("import java.util.ArrayList;");
-        data.add("");
-        data.add("import static org.junit.Assert.assertEquals;");
-        data.add("/**");
-        data.add(" * Author Dominik Symonowicz");
-        data.add(" */");
-        data.add("public class CodeForBlogConverterTest {");
-        data.add("    public static void main(String[] args) {");
-        data.add("        System.out.println(\"I AM HUNGRY\");");
-        data.add("    }");
-        data.add("}");
-        return data;
-    }
 
     @Before
     public void setUp() throws Exception {
@@ -78,10 +60,11 @@ public class CodeForBlogConverterTest {
 
     @Test
     public void shouldNotConvert3SpacesToNbsp() {
-        String line = "   ";
-        String result = "   ";
-        String convertedLine = converter.convertEach4SpacesToNsbpOnBeginningOfTheLine(line);
-        Assert.assertThat(convertedLine, is(result));
+        // when
+        String convertedLine = converter.convertEach4SpacesToNsbpOnBeginningOfTheLine(THREE_WHITESPACES);
+
+        // then
+        assertThat(convertedLine).isEqualTo(THREE_WHITESPACES);
     }
 
     @Test
@@ -113,7 +96,7 @@ public class CodeForBlogConverterTest {
         Assert.assertThat(convertedLine, is(line));
     }
 
-    private String getResult() {
+    private static String getResult() {
         return "<blockquote>\n" +
                 "<code>\n" + "package dms.pastor.tools.codeToHTMLConverter;<br/>" + '\n' +
                 "<br/>" + '\n' +
@@ -135,5 +118,25 @@ public class CodeForBlogConverterTest {
                 "}<br/>\n" +
                 "</code>\n" +
                 "</blockquote>\n";
+    }
+
+    private static List<String> generateSourceData() {
+        List<String> data = new ArrayList<>();
+        data.add("package dms.pastor.tools.codeToHTMLConverter;");
+        data.add("");
+        data.add("import org.junit.Before;");
+        data.add("import org.junit.Test;");
+        data.add("import java.util.ArrayList;");
+        data.add("");
+        data.add("import static org.junit.Assert.assertEquals;");
+        data.add("/**");
+        data.add(" * Author Dominik Symonowicz");
+        data.add(" */");
+        data.add("public class CodeForBlogConverterTest {");
+        data.add("    public static void main(String[] args) {");
+        data.add("        System.out.println(\"I AM HUNGRY\");");
+        data.add("    }");
+        data.add("}");
+        return data;
     }
 }

@@ -1,7 +1,8 @@
 package dms.pastor.tools.lotto;
 
 import static dms.pastor.tools.lotto.Couple.createWithOrderedNumbers;
-import static dms.pastor.utils.RandomDataGenerator.*;
+import static dms.pastor.utils.RandomDataGenerator.MAX_SMALL_VALUE;
+import static dms.pastor.utils.RandomDataGenerator.randomInteger;
 
 /**
  * Author Dominik Symonowicz
@@ -15,13 +16,14 @@ public class CoupleBuilder {
     private int smallerNumber = randomInteger(MAX_SMALL_VALUE);
     private int largerNumber = 11;
 
-    private CoupleBuilder(){}
+    private CoupleBuilder() {
+    }
 
-    public static CoupleBuilder coupleBuilder(){
+    public static CoupleBuilder coupleBuilder() {
         return new CoupleBuilder();
     }
 
-    public Couple build(){
+    public Couple build() {
         return createWithOrderedNumbers(smallerNumber, largerNumber);
     }
 

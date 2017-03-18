@@ -226,7 +226,7 @@ public class ValidatorUtilsTest {
         expectedException.expectMessage("Value cannot be positive");
 
         // given
-        BigDecimal value = new BigDecimal(1+new Random().nextInt(MAX_SMALL_VALUE));
+        BigDecimal value = new BigDecimal(1 + new Random().nextInt(MAX_SMALL_VALUE));
 
         // when
         validateNegativeBigDecimal(value);
@@ -236,7 +236,7 @@ public class ValidatorUtilsTest {
     @Test
     public void validateNegativeBigDecimalShouldPassWithoutExceptionForNegativeValue() throws Exception {
         // given
-        final BigDecimal value = new BigDecimal(1+new Random().nextInt(MAX_SMALL_VALUE)).negate();
+        final BigDecimal value = new BigDecimal(1 + new Random().nextInt(MAX_SMALL_VALUE)).negate();
 
         // when
         validateNegativeBigDecimal(value);
@@ -261,7 +261,7 @@ public class ValidatorUtilsTest {
         expectedException.expectMessage("Value cannot be negative");
 
         // given
-        BigDecimal value = new BigDecimal(1+new Random().nextInt(MAX_SMALL_VALUE)).negate();
+        BigDecimal value = new BigDecimal(1 + new Random().nextInt(MAX_SMALL_VALUE)).negate();
 
         // when
         validatePositiveBigDecimal(value);
@@ -271,7 +271,7 @@ public class ValidatorUtilsTest {
     @Test
     public void validatePositiveBigDecimalShouldPassWithoutExceptionForPositiveValue() throws Exception {
         // given
-        final BigDecimal value = new BigDecimal(1+new Random().nextInt(MAX_SMALL_VALUE));
+        final BigDecimal value = new BigDecimal(1 + new Random().nextInt(MAX_SMALL_VALUE));
 
         // when
         validatePositiveBigDecimal(value);

@@ -88,6 +88,7 @@ public final class StringUtils {
         return true;
     }
 
+
     //A palindrome is a word, phrase, number, or other sequence of symbols or elements that reads the same forward or reversed,
     static boolean isPalindromeString(String word) {
         return word.equalsIgnoreCase(reverseString(word));

@@ -16,8 +16,10 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
+ * <p>
+ * Example of test of System.out
+ * tag-system.out-test
  */
-@SuppressWarnings("resource") // not need to use try with resources for this test
 public class MessageTest {
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private final PrintStream original = System.err;

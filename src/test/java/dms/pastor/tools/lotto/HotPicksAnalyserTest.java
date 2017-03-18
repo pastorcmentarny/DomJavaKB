@@ -258,10 +258,10 @@ public class HotPicksAnalyserTest {
         List<BallCount> ballCountList = hotPicksAnalyser.getBallsCountList();
 
         // then
-        assertThat(ballCountList).contains(createForSingleNumberWithCount(1,3));
-        assertThat(ballCountList).contains(createForSingleNumberWithCount(9,2));
-        assertThat(ballCountList).contains(createForSingleNumberWithCount(26,1));
-        assertThat(ballCountList).contains(createForSingleNumberWithCount(59,0));
+        assertThat(ballCountList).contains(createForSingleNumberWithCount(1, 3));
+        assertThat(ballCountList).contains(createForSingleNumberWithCount(9, 2));
+        assertThat(ballCountList).contains(createForSingleNumberWithCount(26, 1));
+        assertThat(ballCountList).contains(createForSingleNumberWithCount(59, 0));
     }
 
     @Test
@@ -289,7 +289,7 @@ public class HotPicksAnalyserTest {
         hotPickDrawList.add(hotPickDraw1);
         hotPickDrawList.add(hotPickDraw2);
 
-        final int[] expectedInts = new int[]{1,2,3,4,5,6,12,13,14,15};
+        final int[] expectedInts = new int[]{1, 2, 3, 4, 5, 6, 12, 13, 14, 15};
 
         // when
         final int[] ints = new HotPicksAnalyser(hotPickDrawList).removeNumbersFromGames(2);

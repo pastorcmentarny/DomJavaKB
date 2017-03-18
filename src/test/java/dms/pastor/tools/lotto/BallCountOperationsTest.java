@@ -7,9 +7,7 @@ import java.util.List;
 
 import static dms.pastor.tools.lotto.BallCount.createForSingleNumberWithCount;
 import static dms.pastor.tools.lotto.BallCountBuilder.ballCountBuilder;
-import static dms.pastor.tools.lotto.BallCountOperations.getLeast2PlayedBalls;
-import static dms.pastor.tools.lotto.BallCountOperations.getNumbersFromBallsCount;
-import static dms.pastor.tools.lotto.BallCountOperations.getTop2PlayedBalls;
+import static dms.pastor.tools.lotto.BallCountOperations.*;
 import static java.util.Arrays.asList;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -27,10 +25,10 @@ public class BallCountOperationsTest {
     public void getTopPlayedBallsShould3Balls() throws Exception {
         // given
         List<BallCount> ballCountList = new ArrayList<>();
-        ballCountList.add(createForSingleNumberWithCount(1,5));
-        ballCountList.add(createForSingleNumberWithCount(3,6));
-        ballCountList.add(createForSingleNumberWithCount(4,1));
-        ballCountList.add(createForSingleNumberWithCount(5,6));
+        ballCountList.add(createForSingleNumberWithCount(1, 5));
+        ballCountList.add(createForSingleNumberWithCount(3, 6));
+        ballCountList.add(createForSingleNumberWithCount(4, 1));
+        ballCountList.add(createForSingleNumberWithCount(5, 6));
 
         // when
         final BallCount[] top2PlayedBalls = getTop2PlayedBalls(ballCountList);
@@ -47,12 +45,12 @@ public class BallCountOperationsTest {
     public void getLeastPlayedBallsShould3Balls() throws Exception {
         // given
         List<BallCount> ballCountList = new ArrayList<>();
-        ballCountList.add(createForSingleNumberWithCount(1,5));
-        ballCountList.add(createForSingleNumberWithCount(2,0));
-        ballCountList.add(createForSingleNumberWithCount(3,6));
-        ballCountList.add(createForSingleNumberWithCount(4,1));
-        ballCountList.add(createForSingleNumberWithCount(5,6));
-        ballCountList.add(createForSingleNumberWithCount(6,0));
+        ballCountList.add(createForSingleNumberWithCount(1, 5));
+        ballCountList.add(createForSingleNumberWithCount(2, 0));
+        ballCountList.add(createForSingleNumberWithCount(3, 6));
+        ballCountList.add(createForSingleNumberWithCount(4, 1));
+        ballCountList.add(createForSingleNumberWithCount(5, 6));
+        ballCountList.add(createForSingleNumberWithCount(6, 0));
 
         // when
         final BallCount[] top2PlayedBalls = getLeast2PlayedBalls(ballCountList);
@@ -70,8 +68,8 @@ public class BallCountOperationsTest {
         // given
         final BallCount ballCount1 = ballCountBuilder().ballNumbers(asList(1, 3, 7)).build();
         final BallCount ballCount2 = ballCountBuilder().ballNumbers(asList(3, 4, 5)).build();
-        final BallCount[] ballCountArray = new BallCount[]{ballCount1,ballCount2};
-        int[] expected = new int[]{1,3,4,5,7};
+        final BallCount[] ballCountArray = new BallCount[]{ballCount1, ballCount2};
+        int[] expected = new int[]{1, 3, 4, 5, 7};
 
         // when
         final int[] numbersFromBallsCount = getNumbersFromBallsCount(ballCountArray);

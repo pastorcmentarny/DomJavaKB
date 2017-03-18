@@ -21,9 +21,9 @@ import static org.hamcrest.CoreMatchers.is;
  */
 public class IntegerAdderTest {
     private final static String PATH = BASE_PATH + "adder" + separator;
-    private static final String demoFile1 = PATH + "test1.txt";
-    private static final String demoFile2 = PATH + "test2.txt";
-    private static final String demoFile3 = PATH + "test3.txt";
+    private static final String DEMO_FILE_1 = PATH + "test1.txt";
+    private static final String DEMO_FILE_2 = PATH + "test2.txt";
+    private static final String DEMO_FILE_3 = PATH + "test3.txt";
 
     @Rule
     public ExpectedException exception = ExpectedException.none();
@@ -36,13 +36,13 @@ public class IntegerAdderTest {
 
     @Test
     public void testAdd() throws Exception {
-        final int result = adder.add(demoFile1);
+        final int result = adder.add(DEMO_FILE_1);
         Assert.assertThat(result, is(36));
     }
 
     @Test
     public void testCalculateTotalSum() throws Exception {
-        String[] paths = new String[]{demoFile1};
+        String[] paths = new String[]{DEMO_FILE_1};
         int sum = adder.calculateTotalSum(paths);
         Assert.assertThat(sum, is(36));
     }
@@ -59,7 +59,7 @@ public class IntegerAdderTest {
 
     @Test
     public void basicTest() throws IOException {
-        String[] paths = new String[]{demoFile1, demoFile2, demoFile3};
+        String[] paths = new String[]{DEMO_FILE_1, DEMO_FILE_2, DEMO_FILE_3};
         int sum = adder.calculateTotalSum(paths);
         Assert.assertThat(sum, is(47));
     }
@@ -75,5 +75,4 @@ public class IntegerAdderTest {
     }
 
     //TODO test for too large int and negative
-
 }
