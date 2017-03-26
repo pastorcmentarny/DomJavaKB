@@ -18,6 +18,8 @@ import static java.lang.String.format;
  */
 public class ValidatorUtils {
 
+    public static final String ERROR_MESSAGE_VALUE_CANNOT_BE_NEGATIVE = "Value cannot be negative";
+
     private ValidatorUtils() {
     }
 
@@ -56,10 +58,17 @@ public class ValidatorUtils {
         return true;
     }
 
-    public static void validatePositiveBigDecimal(BigDecimal value) {
-        validateIfNotNull(value);
-        if(value.compareTo(BigDecimal.ZERO) < 0){
-            throw new IllegalArgumentException("Value cannot be negative");
+    public static void validateIfPositiveNumber(int number) {
+        if(number < 0){
+            throw new IllegalArgumentException(ERROR_MESSAGE_VALUE_CANNOT_BE_NEGATIVE);
+        }
+
+    }
+
+    public static void validateIfPositiveNumber(BigDecimal number) {
+        validateIfNotNull(number);
+        if(number.compareTo(BigDecimal.ZERO) < 0){
+            throw new IllegalArgumentException(ERROR_MESSAGE_VALUE_CANNOT_BE_NEGATIVE);
         }
     }
 

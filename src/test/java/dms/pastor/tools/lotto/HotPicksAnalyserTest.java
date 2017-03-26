@@ -74,7 +74,7 @@ public class HotPicksAnalyserTest {
         hotPickDrawList.add(new HotPickDraw(now(), tooHighValueBall, 2, 3, 4, 5, 6, RandomDataGenerator.randomPositiveInteger(), generateString(), RandomDataGenerator.randomPositiveInteger()));
         hotPicksAnalyser = new HotPicksAnalyser(hotPickDrawList);
 
-        // expectedException
+        // exception
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(tooHighValueBall + " is not in range");
 
@@ -93,7 +93,7 @@ public class HotPicksAnalyserTest {
         hotPickDrawList.add(new HotPickDraw(now(), tooHighValueBall, 2, 3, 4, 5, 6, RandomDataGenerator.randomPositiveInteger(), generateString(), RandomDataGenerator.randomPositiveInteger()));
         hotPicksAnalyser = new HotPicksAnalyser(hotPickDrawList);
 
-        // expectedException
+        // exception
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(tooHighValueBall + " is not in range");
 

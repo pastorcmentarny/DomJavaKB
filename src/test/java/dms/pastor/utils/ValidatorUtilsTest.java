@@ -135,7 +135,7 @@ public class ValidatorUtilsTest {
         int number1 = 1;
         int number2 = 1;
 
-        // expectedException
+        // exception
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Both numbers cannot be equals, but both numbers are 1 and 1.");
 
@@ -166,7 +166,7 @@ public class ValidatorUtilsTest {
         int maxValue = randomInteger(MAX_SMALL_VALUE);
         int minValue = MAX_SMALL_VALUE + randomInteger(MAX_SMALL_VALUE);
 
-        // expectedException
+        // exception
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("MinValue (" + minValue + ") must be lower than MaxValue(" + maxValue + ")");
 
@@ -251,7 +251,7 @@ public class ValidatorUtilsTest {
         expectedException.expectMessage("Value cannot be null");
 
         // when
-        validatePositiveBigDecimal(null);
+        ValidatorUtils.validateIfPositiveNumber(null);
     }
 
     @Test
@@ -264,7 +264,7 @@ public class ValidatorUtilsTest {
         BigDecimal value = new BigDecimal(1 + new Random().nextInt(MAX_SMALL_VALUE)).negate();
 
         // when
-        validatePositiveBigDecimal(value);
+        ValidatorUtils.validateIfPositiveNumber(value);
 
     }
 
@@ -274,7 +274,32 @@ public class ValidatorUtilsTest {
         final BigDecimal value = new BigDecimal(1 + new Random().nextInt(MAX_SMALL_VALUE));
 
         // when
-        validatePositiveBigDecimal(value);
+        ValidatorUtils.validateIfPositiveNumber(value);
+
+        // then nothing happen, which means value are valid
+    }
+
+    @Test
+    public void validateIfPositiveNumberShouldThrowExceptionIfIntegerValueIsNegative() throws Exception {
+        // expect
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Value cannot be negative");
+
+        // given
+        final int negativeInteger = -1;
+
+        // when
+        ValidatorUtils.validateIfPositiveNumber(negativeInteger);
+
+    }
+
+    @Test
+    public void vvalidateIfPositiveNumberShouldPassWithoutExceptionForPositiveIntegerValue() throws Exception {
+        // given
+        final int positiveInteger = new Random().nextInt(100);
+
+        // when
+        ValidatorUtils.validateIfPositiveNumber(positiveInteger);
 
         // then nothing happen, which means value are valid
     }

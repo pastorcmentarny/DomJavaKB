@@ -15,6 +15,11 @@ import java.util.stream.Collectors;
  */
 public class DateUtils {
 
+    private static final int SECOND = 1;
+    public static final int MINUTE = 60 * SECOND;
+    public static final int HOUR = 60 * MINUTE;
+
+
     private DateUtils() {
         //Utility class
     }

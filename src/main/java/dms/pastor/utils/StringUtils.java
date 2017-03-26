@@ -20,11 +20,11 @@ public final class StringUtils {
     static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
     static final String NON_ALPHANUMERIC = "~#&@£$^'`\".,:;*–+=(){}[]<>?!\\|/";
     private static final String ALPHABET_BOTH_CASE = ALPHABET + ALPHABET.toUpperCase();
-    private static final char COMMA = ',';
+    public static final char COMMA = ',';
     public static final String EMPTY_STRING = "";
     private static final String ALPHANUMERIC = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"; //TODO replace it with RandomDataGenerator
     private static final String ALPHANUMERIC_REGEX = "[^a-zA-Z0-9]";
-    private static final String WHITESPACE = " ";
+    public static final String WHITESPACE = " ";
     public static final char NEW_LINE = '\n';
 
     private StringUtils() {
@@ -215,11 +215,11 @@ public final class StringUtils {
         return string == null || string.isEmpty();
     }
 
-    static boolean isStringNotEmpty(String string) {
+    public static boolean isStringNotEmpty(String string) {
         return !isStringBlank(string);
     }
 
-    static String[] splitContentIntoWords(String content) {
+    public static String[] splitContentIntoWords(String content) {
         if (isStringBlank(content)) {
             throw new IllegalArgumentException(INPUT_CANNOT_BE_EMPTY);
         }
@@ -227,7 +227,7 @@ public final class StringUtils {
 
     }
 
-    static boolean isContainSpace(String word) {
+    public static boolean isContainSpace(String word) {
         if (isStringEmpty(word)) {
             return false;
         }
@@ -241,7 +241,7 @@ public final class StringUtils {
         return true;
     }
 
-    static boolean hasNonAlphanumericCharactersOnly(String string) {
+    public static boolean hasNonAlphanumericCharactersOnly(String string) {
         char[] charArray = string.toCharArray();
         for (char character : charArray) {
             for (char letterOrNumber : ALPHANUMERIC.toCharArray()) {

@@ -2,6 +2,7 @@ package dms.pastor.utils;
 
 
 import dms.pastor.domain.Country;
+import org.apache.log4j.Logger;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -10,6 +11,7 @@ import java.util.Random;
 import java.util.stream.IntStream;
 
 import static dms.pastor.utils.PrintOutUtils.printIntArray;
+import static dms.pastor.utils.ValidatorUtils.validateIfPositiveNumber;
 import static dms.pastor.utils.ValidatorUtils.validateMinValueIsSmallerThanMaxValue;
 import static java.lang.Integer.MAX_VALUE;
 
@@ -24,6 +26,7 @@ import static java.lang.Integer.MAX_VALUE;
  * Generate random data for personal use
  */
 public class RandomDataGenerator {
+    private static final Logger LOGGER = Logger.getLogger(RandomDataGenerator.class);
     private static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
     private static final String ALPHABET_WITH_LOWER_AND_UPPER = ALPHABET.toUpperCase() + ALPHABET;
     private static final String ALPHABET_WITH_LOWER_UPPER_CASES_AND_NUMBERS = ALPHABET_WITH_LOWER_AND_UPPER + "0123456789";
@@ -35,6 +38,8 @@ public class RandomDataGenerator {
 
     private static final List<String> surname;
     private static final Random random = new Random();
+    public static final String EMPTY_STRING = "";
+    public static final String SPACE = " ";
 
     static {
         firstName = new ArrayList<>();
@@ -54,7 +59,7 @@ public class RandomDataGenerator {
         if (length == NOT_SPECIFIED) {
             length = MAX_LARGE_VALUE;
         }
-        StringBuilder text = new StringBuilder("");
+        StringBuilder text = new StringBuilder(EMPTY_STRING);
         for (int i = 0; i < random.nextInt(length); i++) {
             addRandomCharacterToStringBuilder(text);
         }
@@ -88,7 +93,7 @@ public class RandomDataGenerator {
 
 
     public static String generateRandomParagraph() {
-        StringBuilder stringBuilder = new StringBuilder("");
+        StringBuilder stringBuilder = new StringBuilder(EMPTY_STRING);
 
         IntStream.range(10, random.nextInt(100) + 10).forEach(s -> stringBuilder.append(getRandomText(12)).append(' '));
 
@@ -129,7 +134,7 @@ public class RandomDataGenerator {
             throw new IllegalArgumentException("Value must be higher than zero and min value must be smaller is larger than max value");
         }
         int sizeOfString = min + random.nextInt(max - min);
-        StringBuilder stringBuilder = new StringBuilder("");
+        StringBuilder stringBuilder = new StringBuilder(EMPTY_STRING);
         for (int i = 0; i <= sizeOfString; i++) {
             stringBuilder.append(getRandomCharacterFromAlphabet());
         }
@@ -147,13 +152,28 @@ public class RandomDataGenerator {
         return randomStrings;
     }
 
+    public static String generateWords(int size){
+        validateIfPositiveNumber(size);
+        if(size == 0){
+            return EMPTY_STRING;
+        }
+        LOGGER.debug("Generate "+ size + "  word(s).");
+        StringBuilder stringBuilder = new StringBuilder(EMPTY_STRING);
+        for (int i = 1; i <= size ; i++) {
+            stringBuilder.append(generateString(MAX_SMALL_VALUE)).append(SPACE);
+        }
+        final String words = stringBuilder.substring(0,stringBuilder.length()-1);
+        LOGGER.debug("Generated output: " + words);
+        return words;
+    }
+
     public static String generateEmail() {
         return generateString(16) + '@' + generateString(16) + '.' + getRandomCountry().code().toLowerCase();
     }
 
     //TODO how to write test for this ?
     public static String generateNonAlphanumericString(int maxRandomSize) {
-        StringBuilder stringBuilder = new StringBuilder("");
+        StringBuilder stringBuilder = new StringBuilder(EMPTY_STRING);
         if (maxRandomSize <= 0) {
             throw new IllegalArgumentException("Size of string must be greater than zero");
         }
@@ -166,6 +186,10 @@ public class RandomDataGenerator {
     //TODO how to write test for this ?
     public static int randomPositiveInteger() {
         return randomInteger(MAX_VALUE);
+    }
+
+    public static int randomPositiveInteger(int maxValue) {
+        return randomInteger(maxValue);
     }
 
     // TODO FIX IT
@@ -183,6 +207,14 @@ public class RandomDataGenerator {
         }
         return randomNumber;
     }*/
+
+    public static int randomInteger() {
+        if(random.nextBoolean()){
+            return randomPositiveInteger();
+        }else {
+            return randomNegativeInteger();
+        }
+    }
 
     public static int randomInteger(int maxValue) {
         return random.nextInt(maxValue);

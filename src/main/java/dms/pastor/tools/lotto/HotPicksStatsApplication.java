@@ -29,4 +29,3 @@ public class HotPicksStatsApplication {
         System.out.println("Application ends his life peacefully. Until next time!");
     }
 }
-

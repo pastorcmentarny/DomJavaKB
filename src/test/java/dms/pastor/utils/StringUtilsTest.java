@@ -391,7 +391,7 @@ public class StringUtilsTest {
     @SuppressWarnings("ConstantConditions") // part of the test
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenStringIsEmptyForSwapCharactersTest() throws Exception {
-        // expectedException
+        // exception
         exception.expect(IllegalArgumentException.class);
 
         // when
