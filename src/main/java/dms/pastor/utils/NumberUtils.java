@@ -4,13 +4,15 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-
 /**
- * User: Pastor
- * Date: 07.04.13
- * Time: 12:01
+ * Author Dominik Symonowicz
+ * Created 2013-04-07 12.01
+ * WWW:	http://pastor.ovh.org
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
-public class NumberUtils {
+public final class NumberUtils {
 
     private NumberUtils(){}
 

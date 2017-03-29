@@ -25,7 +25,7 @@ import static java.lang.Integer.MAX_VALUE;
  * <p>
  * Generate random data for personal use
  */
-public class RandomDataGenerator {
+public final class RandomDataGenerator {
     private static final Logger LOGGER = Logger.getLogger(RandomDataGenerator.class);
     private static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
     private static final String ALPHABET_WITH_LOWER_AND_UPPER = ALPHABET.toUpperCase() + ALPHABET;

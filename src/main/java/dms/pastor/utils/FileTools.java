@@ -14,9 +14,13 @@ import java.util.List;
 import static java.lang.Runtime.getRuntime;
 
 /**
- * @author Dominik Symonowicz
+ * Author Dominik Symonowicz
+ * WWW:	http://pastor.ovh.org
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
-public class FileTools {
+public final class FileTools {
     private static final char NEW_LINE = '\n';
     private static final Logger LOGGER = Logger.getLogger(FileTools.class);
     private static FileChannel channel;

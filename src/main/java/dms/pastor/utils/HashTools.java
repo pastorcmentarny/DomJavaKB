@@ -4,16 +4,14 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 /**
- * version 20141011
- * author: Pastor cmentarny
- * #WWW:			http://pastor.ovh.org
- * #Github:		https://github.com/pastorcmentarny
- * #Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * #LinkedIn: 		uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
- * #Email: 		email can be found on my website
- * #Created Oct 4, 2014 at 7:05:29 PM
+ * Author Dominik Symonowicz
+ * Created 2014-10-04 19.05
+ * WWW:	http://pastor.ovh.org
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
-class HashTools {
+final class HashTools {
 
     private HashTools() {
     }

@@ -16,7 +16,7 @@ import static java.lang.String.format;
  * <p>
  * Some utils to help you validate data
  */
-public class ValidatorUtils {
+public abstract class ValidatorUtils {
 
     private static final String ERROR_MESSAGE_VALUE_CANNOT_BE_NEGATIVE = "Value cannot be negative";
 
