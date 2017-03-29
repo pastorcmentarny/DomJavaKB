@@ -37,7 +37,7 @@ public class ValidatorUtilsTest {
     @Test
     public void shouldValidateNotNullProperties() {
         // when
-        final boolean actual = validateNotNullProperties(anObject.getADouble(), anObject.getInteger());
+        final boolean actual = isAnyOfPropertiesContainsNull(anObject.getADouble(), anObject.getInteger());
 
         // then
         assertThat(actual).isTrue();
@@ -46,7 +46,7 @@ public class ValidatorUtilsTest {
     @Test
     public void validateNotNullPropertiesShouldNotValidateIfHasNullProperties() {
         // when
-        final boolean actual = validateNotNullProperties(anObject.getADouble(), null, anObject.getInteger());
+        final boolean actual = isAnyOfPropertiesContainsNull(anObject.getADouble(), null, anObject.getInteger());
 
         // then
         assertThat(actual).isFalse();

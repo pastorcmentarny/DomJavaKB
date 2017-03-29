@@ -20,7 +20,7 @@ public final class StringUtils {
     static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
     static final String NON_ALPHANUMERIC = "~#&@£$^'`\".,:;*–+=(){}[]<>?!\\|/";
     private static final String ALPHABET_BOTH_CASE = ALPHABET + ALPHABET.toUpperCase();
-    public static final char COMMA = ',';
+    private static final char COMMA = ',';
     public static final String EMPTY_STRING = "";
     private static final String ALPHANUMERIC = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"; //TODO replace it with RandomDataGenerator
     private static final String ALPHANUMERIC_REGEX = "[^a-zA-Z0-9]";

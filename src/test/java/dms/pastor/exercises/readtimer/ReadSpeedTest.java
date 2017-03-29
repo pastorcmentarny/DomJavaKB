@@ -1,8 +1,10 @@
 package dms.pastor.exercises.readtimer;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
-import static dms.pastor.exercises.readtimer.ReadSpeed.ADULT_AVERAGE;
+import static dms.pastor.exercises.readtimer.ReadSpeed.ADULT_SLOW;
 import static dms.pastor.exercises.readtimer.ReadSpeed.getSpeedAsStringFor;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -16,15 +18,30 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class ReadSpeedTest {
 
+    @Rule
+    public ExpectedException exception = ExpectedException.none();
+
     @Test
     public void shouldReturnSpeedAsString() throws Exception {
         // given
-        final String expectedSpeedAsString = "250";
+        final String expectedSpeedAsString = "130";
 
         // when
-        final String speed = getSpeedAsStringFor(ADULT_AVERAGE);
+        final String speed = getSpeedAsStringFor(ADULT_SLOW);
 
         // then
         assertThat(speed).isEqualTo(expectedSpeedAsString);
     }
+
+    @Test
+    public void getSpeedAsStringForShouldReturnAdultAverageIfValueNull() throws Exception {
+
+        // when
+        final String defaultSpeed = getSpeedAsStringFor(null);
+
+        // then
+        assertThat(defaultSpeed).isEqualTo("250");
+
+    }
+
 }

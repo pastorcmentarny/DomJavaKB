@@ -9,7 +9,9 @@ package dms.pastor.exercises.readtimer;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public enum ReadSpeed {
-    ADULT_AVERAGE(250);
+    ADULT_SLOW(130),
+    ADULT_AVERAGE(250),
+    ADULT_FAST(325);
 
     private final int speed;
 
@@ -22,6 +24,9 @@ public enum ReadSpeed {
     }
 
     public static String getSpeedAsStringFor(ReadSpeed readSpeed) {
+        if(readSpeed == null){
+            return String.valueOf(ADULT_AVERAGE.speed());
+        }
         return String.valueOf(readSpeed.speed());
     }
 }

@@ -4,6 +4,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import static dms.pastor.exercises.readtimer.TimeToReadApplicationInputValidator.validateInputArgs;
 import static dms.pastor.utils.RandomDataGenerator.*;
 
 /**
@@ -66,7 +67,6 @@ public class TimeToReadApplicationInputValidatorTest {
 
         // when
         TimeToReadApplication.main(args);
-
     }
 
     @Test
@@ -79,6 +79,18 @@ public class TimeToReadApplicationInputValidatorTest {
 
         // when
         TimeToReadApplication.main(args);
+
+    }
+
+    @Test
+    public void getReadSpeedShouldThrowIllegalArgumentException() throws Exception {
+        // expect
+        exception.expect(IllegalArgumentException.class);
+
+        // when
+        final String text = generateString();
+        final String invalidSpeed = generateString();
+        validateInputArgs(new String[]{text, invalidSpeed});
 
     }
 }

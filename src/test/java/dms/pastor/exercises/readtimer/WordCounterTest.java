@@ -41,9 +41,7 @@ public class WordCounterTest {
 
         // when
         WordCounter.countFullWords(new String[0]);
-
     }
-
 
     @Test
     public void fullWordsShouldReturn1ForCollectionOfSingleWordTest() throws Exception {

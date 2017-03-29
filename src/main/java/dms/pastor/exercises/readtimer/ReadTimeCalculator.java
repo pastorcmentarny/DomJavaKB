@@ -31,8 +31,8 @@ class ReadTimeCalculator {
 
     String displayTimeNeededToRead() {
         int time = calculateTimeNeedToReadFor();
-
         int timeLeft = time;
+
         if (time <= 0) {
             return "Unable to calculate time due invalid time given.";
         } else if (time == 1) {

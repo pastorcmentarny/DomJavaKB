@@ -21,7 +21,6 @@ public class TimeToReadApplication {
 
     public static void main(String[] args) {
         LOGGER.info("Starting application.. at " + LocalDateTime.now().toString());
-        runDemoIfArgsAreNull(args);
 
         validateInputArgs(args);
 
@@ -29,15 +28,5 @@ public class TimeToReadApplication {
         readTimeCalculator.displayTimeNeededToRead();
 
         LOGGER.info("RIP .. at " + LocalDateTime.now().toString());
-
     }
-
-    private static void runDemoIfArgsAreNull(String[] inputArguments) {
-        if (inputArguments == null) {
-            //ReadTimer readTimer = new ReadTimer();
-            //TODO readTimer.displayTimeNeededToRead(calculateTimeNeedToReadFor(text, readSpeed));
-        }
-    }
-
-
 }

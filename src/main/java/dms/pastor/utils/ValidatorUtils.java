@@ -18,12 +18,12 @@ import static java.lang.String.format;
  */
 public class ValidatorUtils {
 
-    public static final String ERROR_MESSAGE_VALUE_CANNOT_BE_NEGATIVE = "Value cannot be negative";
+    private static final String ERROR_MESSAGE_VALUE_CANNOT_BE_NEGATIVE = "Value cannot be negative";
 
     private ValidatorUtils() {
     }
 
-    static boolean validateNotNullProperties(Object... properties) {
+    static boolean isAnyOfPropertiesContainsNull(Object... properties) {
         for (Object property : properties) {
             if (property == null) {
                 return false;

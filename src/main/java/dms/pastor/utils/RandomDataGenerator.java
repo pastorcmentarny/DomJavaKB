@@ -38,8 +38,8 @@ public class RandomDataGenerator {
 
     private static final List<String> surname;
     private static final Random random = new Random();
-    public static final String EMPTY_STRING = "";
-    public static final String SPACE = " ";
+    private static final String EMPTY_STRING = "";
+    private static final String SPACE = " ";
 
     static {
         firstName = new ArrayList<>();
