@@ -13,7 +13,7 @@ import static dms.pastor.utils.RandomDataGenerator.generateString;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
-public class HotPickDrawBuilder {
+class HotPickDrawBuilder {
     private final Random random = new Random();
     private LocalDate drawDate = LocalDate.now();
     private int ball1 = randomHotPickNumber();

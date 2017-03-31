@@ -1,7 +1,5 @@
 package dms.pastor.tools.lotto;
 
-import org.apache.log4j.Logger;
-
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
@@ -22,7 +20,6 @@ import static dms.pastor.utils.StringUtils.NEW_LINE;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 class HotPicksAnalyser {
-    private static final Logger LOG = Logger.getLogger(HotPicksAnalyser.class);
     private static final int MINIMUM_BALL_VALUE = 1;
     private static final int MAXIMUM_BALL_VALUE = 59;
     private static final String SEPARATOR = ",";

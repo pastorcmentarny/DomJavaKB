@@ -20,18 +20,16 @@ import static org.assertj.core.api.Assertions.assertThat;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public class HotPickLeastPlayedCoupleFinderTest {
-    public static final int[] HOT_PICK_NUMBERS = IntStream.rangeClosed(1, 59).toArray();
-    public static final int BALLS_IN_HOT_PICK = 6;
-    public static final int FIRST_BALL = 1;
-    HotPickLeastPlayedCoupleFinder leastPlayedCoupleFinder = new HotPickLeastPlayedCoupleFinder();
+    private static final int[] HOT_PICK_NUMBERS = IntStream.rangeClosed(1, 59).toArray();
+    private final HotPickLeastPlayedCoupleFinder leastPlayedCoupleFinder = new HotPickLeastPlayedCoupleFinder();
 
     @Test
     public void generateAllCombinationForRange1To10() throws Exception {
         // given
-        int[] numberRange = IntStream.rangeClosed(1, 10).toArray();
+        final int[] numberRange = IntStream.rangeClosed(1, 10).toArray();
 
         // when
-        Set<Couple> numberCouple = leastPlayedCoupleFinder.generateAllUniqueCombinationFor(numberRange);
+        final Set<Couple> numberCouple = leastPlayedCoupleFinder.generateAllUniqueCombinationFor(numberRange);
 
         // then
         System.out.println(numberCouple.size());
@@ -42,7 +40,7 @@ public class HotPickLeastPlayedCoupleFinderTest {
     public void generateAllCombinationForRange1To59() throws Exception {
 
         // when
-        Set<Couple> numberCouple = leastPlayedCoupleFinder.generateAllUniqueCombinationFor(HOT_PICK_NUMBERS);
+        final Set<Couple> numberCouple = leastPlayedCoupleFinder.generateAllUniqueCombinationFor(HOT_PICK_NUMBERS);
 
         // then
         numberCouple.forEach(System.out::println);
@@ -97,9 +95,9 @@ public class HotPickLeastPlayedCoupleFinderTest {
                 .ball5(25)
                 .ball6(26)
                 .build());
-        Couple couple12 = Couple.createWithOrderedNumbers(1, 2);
-        Couple couple13 = Couple.createWithOrderedNumbers(1, 3);
-        Couple couple123 = Couple.createWithOrderedNumbers(1, 23);
+        final Couple couple12 = Couple.createWithOrderedNumbers(1, 2);
+        final Couple couple13 = Couple.createWithOrderedNumbers(1, 3);
+        final Couple couple123 = Couple.createWithOrderedNumbers(1, 23);
 
         // when
         final Map<Couple, Integer> coupleIntegerMap = leastPlayedCoupleFinder.countCouplesInAllDraws(hotPickDraws, HOT_PICK_NUMBERS);
@@ -112,7 +110,6 @@ public class HotPickLeastPlayedCoupleFinderTest {
 
     @Test
     public void getLeastPlayedCoupleShouldReturnSomething() throws Exception {
-        // given
         // given
         final ArrayList<HotPickDraw> hotPickDraws = new ArrayList<>();
         hotPickDraws.add(hotPickDrawBuilder()

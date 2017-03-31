@@ -114,7 +114,7 @@ public class ValidatorUtilsTest {
     public void shouldReturnTrueWhenObjectCanBeSerializedTest() throws Exception {
 
         // when
-        final boolean result = validateThatObjectCanBeSerialized(new SomethingWentTerribleWrongError(""));
+        final boolean result = isObjectCanBeSerialized(new SomethingWentTerribleWrongError(""));
 
         // then
         assertThat(result).isFalse();
@@ -123,7 +123,7 @@ public class ValidatorUtilsTest {
     @Test
     public void shouldReturnFalseWhenObjectCannotBeSerializedTest() throws Exception {
         // when
-        final boolean result = validateThatObjectCanBeSerialized(new Exception());
+        final boolean result = isObjectCanBeSerialized(new Exception());
 
         // then
         assertThat(result).isTrue();
@@ -294,7 +294,7 @@ public class ValidatorUtilsTest {
     }
 
     @Test
-    public void vvalidateIfPositiveNumberShouldPassWithoutExceptionForPositiveIntegerValue() throws Exception {
+    public void validateIfPositiveNumberShouldPassWithoutExceptionForPositiveIntegerValue() throws Exception {
         // given
         final int positiveInteger = new Random().nextInt(100);
 

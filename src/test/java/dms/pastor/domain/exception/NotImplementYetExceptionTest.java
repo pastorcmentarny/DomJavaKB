@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 
-import static dms.pastor.utils.ValidatorUtils.validateThatObjectCanBeSerialized;
+import static dms.pastor.utils.ValidatorUtils.isObjectCanBeSerialized;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -48,7 +48,7 @@ public class NotImplementYetExceptionTest {
         NotImplementYetException notImplementYetException = new NotImplementYetException();
 
         // when
-        final boolean result = validateThatObjectCanBeSerialized(notImplementYetException);
+        final boolean result = isObjectCanBeSerialized(notImplementYetException);
 
         // then
         assertThat(result).isFalse();

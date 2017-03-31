@@ -32,7 +32,7 @@ import static org.hamcrest.CoreMatchers.is;
  */
 public class StringUtilsTest {
 
-    protected static final String NON_ALPHABETICAL_STRING = "&07";
+    private static final String NON_ALPHABETICAL_STRING = "&07";
     private static final String EMPTY_STRING = "";
     private static final String PALINDROME = "abcdcba";
     private static final String NOT_PALINDROME = "abcdef";

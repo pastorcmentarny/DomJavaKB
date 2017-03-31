@@ -18,7 +18,7 @@ import static dms.pastor.utils.RandomDataGenerator.generateString;
  */
 public class HTMLValidatorTest {
 
-    public static final String ERROR_MESSAGE = "WOOPS!\n\tIt is not a html file.Unable to read non-html file.";
+    private static final String ERROR_MESSAGE = "WOOPS!\n\tIt is not a html file.Unable to read non-html file.";
     @Rule
     public ExpectedException exception = ExpectedException.none();
 

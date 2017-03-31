@@ -24,8 +24,8 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class NumberUtilsTest {
 
-    protected static final int MIN_VALUE = 5;
-    protected static final int MAX_VALUE = 20;
+    private static final int MIN_VALUE = 5;
+    private static final int MAX_VALUE = 20;
     private final Random random = new Random();
     @Rule
     public ExpectedException exception = ExpectedException.none();

@@ -20,7 +20,7 @@ import static org.hamcrest.CoreMatchers.is;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public class CodeForBlogConverterTest {
-    public static final String THREE_WHITESPACES = "   ";
+    private static final String THREE_WHITESPACES = "   ";
     private CodeForBlogConverter converter;
 
 /*     //TODO

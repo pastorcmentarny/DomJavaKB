@@ -24,9 +24,9 @@ import static org.junit.Assert.fail;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public class HotPicksFileUploaderTest {
-    protected static final String USER_DIRECTORY = "user.dir";
-    protected static final int DRAW_NUMBER = 2164;
-    protected static final String MACHINE_NAME = "Merlin";
+    private static final String USER_DIRECTORY = "user.dir";
+    private static final int DRAW_NUMBER = 2164;
+    private static final String MACHINE_NAME = "Merlin";
     private static final String EMPTY_CSV_FILE = System.getProperty(USER_DIRECTORY) + "\\src\\main\\resources\\lotto.csv";
     private static final String EMPTY_TEXT_FILE = System.getProperty(USER_DIRECTORY) + "lotto.txt";
     private static final String CSV_SEPARATOR = ",";

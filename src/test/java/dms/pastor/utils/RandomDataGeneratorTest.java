@@ -27,7 +27,7 @@ import static org.hamcrest.CoreMatchers.notNullValue;
  */
 public class RandomDataGeneratorTest {
     private static final int RANDOM_STRING_LENGTH = 1024;
-    public static final String SPACE = " ";
+    private static final String SPACE = " ";
     private final Random random = new Random();
 
     @Rule
@@ -338,15 +338,9 @@ public class RandomDataGeneratorTest {
         assertThat(result).isNotEmpty();
     }
 
-    @Test
-    public void randomIntegerExcludingShouldReturnUniqueNumber() throws Exception {
-        // given
 
-        // when
+    //TODO @Test public void randomIntegerExcludingShouldReturnUniqueNumber() throws Exception {
 
-        // then
-
-    }
 
     @Test
     public void randomIntegerWithMinAndMaxValueShouldThrowExceptionWhenMinValueIsHigherThanMaxValue() throws Exception {

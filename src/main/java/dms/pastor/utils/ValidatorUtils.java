@@ -48,7 +48,7 @@ public abstract class ValidatorUtils {
         }
     }
 
-    public static boolean validateThatObjectCanBeSerialized(Object object) {
+    public static boolean isObjectCanBeSerialized(Object object) {
         try (OutputStream sink = new ByteArrayOutputStream();
              ObjectOutputStream stream = new ObjectOutputStream(sink)) {
             stream.writeObject(object);

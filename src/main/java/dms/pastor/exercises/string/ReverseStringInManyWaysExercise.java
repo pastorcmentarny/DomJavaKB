@@ -41,7 +41,7 @@ class ReverseStringInManyWaysExercise {
         return new String(charArray);
     }
 
-    //todo check
+    //TODO check
     public static String reverseStringWithoutLibraries(String originalString) {
         validateInput(originalString);
         if (originalString.equalsIgnoreCase("") || originalString.length() == 1) {
