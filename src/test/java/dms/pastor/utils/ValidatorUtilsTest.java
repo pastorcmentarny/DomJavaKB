@@ -258,7 +258,7 @@ public class ValidatorUtilsTest {
     public void validatePositiveBigDecimalShouldThrowExceptionIfValueIsNegative() throws Exception {
         // expect
         expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Value cannot be negative");
+        expectedException.expectMessage("Value cannot be negative.");
 
         // given
         BigDecimal value = new BigDecimal(1 + new Random().nextInt(MAX_SMALL_VALUE)).negate();
@@ -283,7 +283,7 @@ public class ValidatorUtilsTest {
     public void validateIfPositiveNumberShouldThrowExceptionIfIntegerValueIsNegative() throws Exception {
         // expect
         expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Value cannot be negative");
+        expectedException.expectMessage("Value cannot be negative.");
 
         // given
         final int negativeInteger = -1;
@@ -303,4 +303,30 @@ public class ValidatorUtilsTest {
 
         // then nothing happen, which means value are valid
     }
+
+    @Test
+    public void validateIfPositiveNumberShouldThrowExceptionIfIntegerValueWithCustomValueNameIsNegative() throws Exception {
+        // expect
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("CustomValueName cannot be negative.");
+
+        // given
+        final int negativeInteger = -1;
+        final String customName = "CustomValueName";
+
+        // when
+        ValidatorUtils.validateIfPositiveNumber(negativeInteger, customName);
+    }
+
+    @Test
+    public void validateIfPositiveNumberWithCustomValueNameShouldPassWithoutExceptionForPositiveIntegerValue() throws Exception {
+        // given
+        final int positiveInteger = new Random().nextInt(100);
+
+        // when
+        ValidatorUtils.validateIfPositiveNumber(positiveInteger,generateString());
+
+        // then nothing happen, which means value are valid
+    }
+
 }

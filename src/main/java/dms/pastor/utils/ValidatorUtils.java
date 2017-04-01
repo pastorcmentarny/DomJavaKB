@@ -18,7 +18,8 @@ import static java.lang.String.format;
  */
 public abstract class ValidatorUtils {
 
-    private static final String ERROR_MESSAGE_VALUE_CANNOT_BE_NEGATIVE = "Value cannot be negative";
+    private static final String ERROR_MESSAGE_VALUE_CANNOT_BE_NEGATIVE = " cannot be negative.";
+    private static final String DEFAULT_VALUE_NAME = "Value";
 
     private ValidatorUtils() {
     }
@@ -59,41 +60,47 @@ public abstract class ValidatorUtils {
     }
 
     public static void validateIfPositiveNumber(int number) {
-        if(number < 0){
-            throw new IllegalArgumentException(ERROR_MESSAGE_VALUE_CANNOT_BE_NEGATIVE);
-        }
+        validateIfPositiveNumber(number, DEFAULT_VALUE_NAME);
+    }
 
+    public static void validateIfPositiveNumber(int number, String valueName) {
+        if (number < 0) {
+            throw new IllegalArgumentException(valueName + ERROR_MESSAGE_VALUE_CANNOT_BE_NEGATIVE);
+        }
     }
 
     public static void validateIfPositiveNumber(BigDecimal number) {
         validateIfNotNull(number);
-        if(number.compareTo(BigDecimal.ZERO) < 0){
-            throw new IllegalArgumentException(ERROR_MESSAGE_VALUE_CANNOT_BE_NEGATIVE);
+        if (number.compareTo(BigDecimal.ZERO) < 0) {
+            throw new IllegalArgumentException(DEFAULT_VALUE_NAME + ERROR_MESSAGE_VALUE_CANNOT_BE_NEGATIVE);
         }
     }
 
     public static void validateNegativeBigDecimal(BigDecimal value) {
         validateIfNotNull(value);
-        if(value.compareTo(BigDecimal.ZERO) > 0){
+        if (value.compareTo(BigDecimal.ZERO) > 0) {
             throw new IllegalArgumentException("Value cannot be positive");
         }
     }
 
     public static void validateIfNotNull(Object value) {
-        if(value == null){
-            throw new IllegalArgumentException("Value cannot be null");
+        validateIfNotNull(value,"Value");    }
+
+    public static void validateIfNotNull(Object value,String valueName) {
+        if (value == null) {
+            throw new IllegalArgumentException(valueName + " cannot be null.");
         }
     }
 
     public static void validateTwoIntsNotEqual(int int1, int int2) {
-        if(int1 == int2){
+        if (int1 == int2) {
             throw new IllegalArgumentException("Both numbers cannot be equals, but both numbers are " + int1 + " and " + int2 + ".");
         }
     }
 
     public static void validateMinValueIsSmallerThanMaxValue(int minValue, int maxValue) {
-        if (minValue > maxValue){
-            throw new IllegalArgumentException(format("MinValue (%d) must be lower than MaxValue(%d)",minValue,maxValue));
+        if (minValue > maxValue) {
+            throw new IllegalArgumentException(format("MinValue (%d) must be lower than MaxValue(%d)", minValue, maxValue));
         }
     }
 }

@@ -307,7 +307,7 @@ public class RandomDataGeneratorTest {
         Assert.assertThat(country, notNullValue());
     }
 
-    @Test
+    @Test //TODO investigate as length was 6 that is not greater than 10
     public void shouldReturnParagraph() throws Exception {
 
         // when
