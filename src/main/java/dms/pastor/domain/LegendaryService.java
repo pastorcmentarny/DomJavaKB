@@ -11,7 +11,7 @@ import static java.lang.String.format;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
-public class LegendaryService {
+class LegendaryService {
 
     public void create(UUID id, Treasure treasure) {
         System.out.println(format("Created treasure %s with id: %s", treasure.getName(), id.toString()));

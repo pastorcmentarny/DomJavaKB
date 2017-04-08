@@ -2,8 +2,7 @@ package dms.pastor.utils;
 
 import org.junit.Test;
 
-import static dms.pastor.utils.EnglishUtils.isLetterConsonant;
-import static dms.pastor.utils.EnglishUtils.isLetterVowel;
+import static dms.pastor.utils.EnglishUtils.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -22,7 +21,7 @@ public class EnglishUtilsTest {
         final char vowel = 'a';
 
         // when
-        final boolean result = isLetterVowel(vowel);
+        final boolean result = isLetterVowelIncludingY(vowel);
         // then
         assertThat(result).isTrue();
     }
@@ -33,7 +32,7 @@ public class EnglishUtilsTest {
         final char vowel = 'b';
 
         // when
-        final boolean result = isLetterVowel(vowel);
+        final boolean result = isLetterVowelIncludingY(vowel);
         // then
         assertThat(result).isFalse();
     }
@@ -44,7 +43,7 @@ public class EnglishUtilsTest {
         final char vowel = 'C';
 
         // when
-        final boolean result = isLetterVowel(vowel);
+        final boolean result = isLetterVowelIncludingY(vowel);
         // then
         assertThat(result).isFalse();
     }
@@ -55,7 +54,7 @@ public class EnglishUtilsTest {
         final char vowel = 'E';
 
         // when
-        final boolean result = isLetterVowel(vowel);
+        final boolean result = isLetterVowelIncludingY(vowel);
         // then
         assertThat(result).isTrue();
     }
@@ -66,7 +65,7 @@ public class EnglishUtilsTest {
         final char vowel = '3';
 
         // when
-        final boolean result = isLetterVowel(vowel);
+        final boolean result = isLetterVowelIncludingY(vowel);
 
         // then
         assertThat(result).isFalse();
@@ -78,11 +77,34 @@ public class EnglishUtilsTest {
         final char vowel = '"';
 
         // when
-        final boolean result = isLetterVowel(vowel);
+        final boolean result = isLetterVowelIncludingY(vowel);
 
         // then
         assertThat(result).isFalse();
     }
+
+    @Test
+    public void isLetterVowelExcludingYReturnTrueForA() throws Exception {
+        // given
+        final char vowel = 'a';
+
+        // when
+        final boolean result = isLetterVowelExcludingY(vowel);
+        // then
+        assertThat(result).isTrue();
+    }
+
+    @Test
+    public void isLetterVowelExcludingYReturnFalseForY() throws Exception {
+        // given
+        final char vowel = 'y';
+
+        // when
+        final boolean result = isLetterVowelExcludingY(vowel);
+        // then
+        assertThat(result).isFalse();
+    }
+
 
     @Test
     public void isLetterConsonantReturnTrueForT() throws Exception {

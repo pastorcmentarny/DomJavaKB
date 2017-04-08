@@ -605,4 +605,19 @@ public class StringUtilsTest {
         // then
         assertThat(result).isEqualTo("Garlic,Coriander,Cheese");
     }
+
+    @Test
+    public void appendCharToCharArrayShouldReturnCharArrayWithAddedCharacter() throws Exception {
+        // given
+        char character = 'z';
+        char[] charArray = new char[]{'a', 'b', 'c'};
+        char[] expectedResult = new char[]{'a', 'b', 'c', 'z'};
+
+        // when
+        final char[] result = StringUtils.addCharToCharArray(character, charArray);
+
+        // then
+        assertThat(result).isEqualTo(expectedResult);
+
+    }
 }

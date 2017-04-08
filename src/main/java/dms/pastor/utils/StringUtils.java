@@ -322,4 +322,9 @@ public final class StringUtils {
         return !isWhitespace(character);
     }
 
+    static char[] addCharToCharArray(char character, char[] charArray) {
+        String newCharArray = new String(charArray);
+        newCharArray += character;
+        return newCharArray.toCharArray();
+    }
 }

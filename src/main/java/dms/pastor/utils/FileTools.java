@@ -57,7 +57,6 @@ public final class FileTools {
         return true;
     }
 
-    @SuppressWarnings("BooleanMethodNameMustStartWithQuestion")
     public static boolean saveListToFile(String[] content, String file) {
         return saveListToFile(Arrays.asList(content), file);
     }

@@ -10,7 +10,7 @@ import java.util.UUID;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
-public class AwesomeRequest {
+class AwesomeRequest {
 
     private final UUID id;
     private final String data;
