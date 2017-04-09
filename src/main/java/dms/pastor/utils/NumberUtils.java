@@ -4,6 +4,9 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+import static dms.pastor.utils.ValidatorUtils.validateIfPositiveNumber;
+
 /**
  * Author Dominik Symonowicz
  * Created 2013-04-07 12.01
@@ -147,7 +150,10 @@ public final class NumberUtils {
         return reversedNumber == number;
     }
 
+    //Since Java8, I use IntStream for that, but I left here for nostalgic reasons :)
     public static int[] generateNaturalSequenceIntArray(int size) {
+        validateIfPositiveNumber(size);
+
         int[] array = new int[size];
         for (int i = 1; i <= size; i++) {
             array[i - 1] = i;
@@ -156,7 +162,7 @@ public final class NumberUtils {
     }
 
     //done as part of learning of basic of sorting in 2011
-    public static List<Integer> sortIntegersCollection(ArrayList<Integer> numbers) {
+    static List<Integer> sortIntegersCollection(ArrayList<Integer> numbers) {
         if (numbers != null) {
             for (int i = 0; i < numbers.size() / 2; i++) {
                 boolean swapped = false;
@@ -183,8 +189,8 @@ public final class NumberUtils {
     }
 
     //done as part of learning of basic of TDD in 2012
-    public static String getShortAs8BitRepresentation(int number) {
-        String eightBit = "";
+    static String getShortAs8BitRepresentation(int number) {
+        String eightBit = EMPTY_STRING;
         int divider = 128;
 
         if (number > 255 || number < 0) {

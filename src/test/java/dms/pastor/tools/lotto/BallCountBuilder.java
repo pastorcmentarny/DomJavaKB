@@ -13,6 +13,7 @@ import static java.util.Collections.singletonList;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
+@SuppressWarnings("unused") // because builders methods can be used later
 public class BallCountBuilder {
     private List<Integer> ballNumbers = singletonList(randomInteger(1, 59));
     private int count = randomInteger(10);
@@ -20,7 +21,7 @@ public class BallCountBuilder {
     private BallCountBuilder() {
     }
 
-    public static BallCountBuilder ballCountBuilder() {
+    static BallCountBuilder ballCountBuilder() {
         return new BallCountBuilder();
     }
 
@@ -33,7 +34,7 @@ public class BallCountBuilder {
         return this;
     }
 
-    public BallCountBuilder ballNumbers(List<Integer> ballNumbers) {
+    BallCountBuilder ballNumbers(List<Integer> ballNumbers) {
         this.ballNumbers = ballNumbers;
         return this;
     }

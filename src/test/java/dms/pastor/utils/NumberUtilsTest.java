@@ -1,5 +1,6 @@
 package dms.pastor.utils;
 
+import org.apache.log4j.Logger;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -11,6 +12,8 @@ import java.util.Random;
 
 import static dms.pastor.TestConfig.EMPTY_INTEGER_ARRAY;
 import static dms.pastor.utils.NumberUtils.*;
+import static dms.pastor.utils.RandomDataGenerator.randomNegativeInteger;
+import static dms.pastor.utils.RandomDataGenerator.randomPositiveInteger;
 import static dms.pastor.utils.StringUtils.containsOnly;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -23,6 +26,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public class NumberUtilsTest {
+    private static final Logger LOGGER = Logger.getLogger(NumberUtilsTest.class);
 
     private static final int MIN_VALUE = 5;
     private static final int MAX_VALUE = 20;
@@ -162,7 +166,6 @@ public class NumberUtilsTest {
         final int result = factorial(5);
         assertThat(result).isEqualTo(120);
     }
-
 
     @Test
     public void testShouldThrowExceptionFor20() throws Exception {
@@ -555,6 +558,32 @@ public class NumberUtilsTest {
         final boolean result = isBigDecimalAValidInteger(BigDecimal.TEN);
         // then
         assertThat(result).isTrue();
-
     }
+
+    @Test
+    public void generateNaturalSequenceIntArrayShouldReturnIllegalArgumentExceptionIfValueIsNegative() throws Exception {
+        // expect
+        exception.expect(IllegalArgumentException.class);
+        // given
+        final int negativeValue = randomNegativeInteger();
+
+        // when
+        generateNaturalSequenceIntArray(negativeValue);
+
+        // debug info
+        LOGGER.debug("Value used in test:" + negativeValue);
+    }
+
+    @Test
+    public void generateNaturalSequenceIntArrayShouldReturnIntArrayForSpecificSize() throws Exception {
+        // given
+        final int positiveInteger = randomPositiveInteger(10);
+
+        // when
+        generateNaturalSequenceIntArray(positiveInteger);
+
+        // debug
+        LOGGER.debug("Value used in test:" + positiveInteger);
+    }
+
 }

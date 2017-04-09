@@ -2,12 +2,16 @@ package dms.pastor.utils;
 
 
 import org.junit.Assert;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import java.util.HashMap;
 import java.util.HashSet;
 
 import static dms.pastor.utils.HashTools.stringToCharacterMap;
+import static dms.pastor.utils.HashTools.stringToCharacterSet;
+import static dms.pastor.utils.RandomDataGenerator.generateString;
 import static dms.pastor.utils.StringUtils.ALPHABET;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.CoreMatchers.sameInstance;
@@ -21,6 +25,9 @@ import static org.hamcrest.CoreMatchers.sameInstance;
  */
 public class HashToolsTest {
 
+    @Rule
+    public ExpectedException exception = ExpectedException.none();
+
     @Test
     public void shouldConvertStringToCharacterMapTest() throws Exception {
         // when
@@ -32,11 +39,43 @@ public class HashToolsTest {
 
     }
 
+    @Test
+    public void stringToCharacterSetThrowIllegalArgumentExceptionIfNull() throws Exception {
+        // expect
+        exception.expect(IllegalArgumentException.class);
+
+        // when
+        stringToCharacterSet(null);
+    }
+
+    @Test
+    public void stringToCharacterSetThrowIllegalArgumentExceptionIfEmpty() throws Exception {
+        // expect
+        exception.expect(IllegalArgumentException.class);
+
+        // when
+        stringToCharacterSet("");
+    }
+
+    @Test
+    public void stringToCharacterSetShold() throws Exception {
+        // given
+        final String string = generateString(10);
+
+        // when
+        final HashSet<Character> result = stringToCharacterSet(string);
+
+        // then
+        for (int i = 0; i < string.length(); i++) {
+            result.contains(string.charAt(i));
+        }
+    }
+
 
     @Test
     public void shouldConvertStringToCharacterSetTest() throws Exception {
         // when
-        final HashSet<Character> characters = HashTools.stringToCharacterSet(ALPHABET);
+        final HashSet<Character> characters = stringToCharacterSet(ALPHABET);
 
         // then
         Assert.assertThat(characters, notNullValue());

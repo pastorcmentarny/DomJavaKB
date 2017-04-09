@@ -1,9 +1,14 @@
 package dms.pastor.tasks.exercises.string;
 
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+import static dms.pastor.utils.ValidatorUtils.validateIfNotNull;
+
 class RemoveCharacterFromString {
 
     static String removeCharacterFromStringUsingIterative(String text, char character) {
-        StringBuilder sb = new StringBuilder("");
+        validateIfNotNull(text);
+
+        StringBuilder sb = new StringBuilder(EMPTY_STRING);
         char[] chars = text.toLowerCase().toCharArray();
         for (char ch : chars) {
             if (ch != character) {

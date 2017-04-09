@@ -146,9 +146,10 @@ public class FileToolsTest {
         final String[] stringList = new String[]{"1", "2", "3"};
 
         // when
-        saveListToFile(stringList, TEST_FILE);
+        final boolean isFileSaved = saveListToFile(stringList, TEST_FILE);
 
         // then
+        assertThat(isFileSaved).isTrue();
         final File file = new File(TEST_FILE);
         assertThat(file.exists()).isTrue();
 

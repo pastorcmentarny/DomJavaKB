@@ -11,9 +11,12 @@ public final class EnglishUtils {
     private static final char[] vowels = {'a', 'e', 'i', 'o', 'u'};
     private static final char[] consonants = {'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'};
 
+    private EnglishUtils() {
+    }
+
     public static boolean isLetterVowelIncludingY(char letter) {
         char[] vowelsWithY = StringUtils.addCharToCharArray('y', vowels);
-        for (char vowel : vowels) {
+        for (char vowel : vowelsWithY) {
             if (Character.toLowerCase(letter) == vowel) {
                 return true;
             }

@@ -4,6 +4,7 @@ import dms.pastor.tasks.other.ArraysExercises;
 import org.junit.Assert;
 import org.junit.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 
 /**
@@ -24,6 +25,20 @@ public class ArraysExercisesTest {
     public void testLargestAndSmallest() throws Exception {
         String answer = "Min:" + MIN_ANSWER + " Max:" + MAX_ANSWER;
         Assert.assertThat(exercise.findLargestAndSmallest(numbers), is(answer));
+    }
+
+    @Test
+    public void findLargestAndSmallestShouldReturnTheSameNumberIfArrayContainsOneNumber() throws Exception {
+        // given
+        final int answerNumber = 6;
+        final int[] oneNumberArray = new int[]{answerNumber};
+        final String expectedAnswer = "Min:" + answerNumber + " Max:" + answerNumber;
+
+        // when
+        final String answer = exercise.findLargestAndSmallest(oneNumberArray);
+
+        // then
+        assertThat(answer).isEqualTo(expectedAnswer);
     }
 
     @Test

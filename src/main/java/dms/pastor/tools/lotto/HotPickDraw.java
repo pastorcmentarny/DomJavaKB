@@ -35,10 +35,6 @@ class HotPickDraw {
         this.drawNumber = drawNumber;
     }
 
-    public LocalDate getDrawDate() {
-        return drawDate;
-    }
-
     int getBall1() {
         return ball1;
     }

@@ -27,7 +27,7 @@ public enum PseudoPinyinType {
         return false;
     }
 
-    public static boolean notContains(String type) {
+    public static boolean isNotContain(String type) {
         return !contains(type);
     }
 
@@ -38,10 +38,6 @@ public enum PseudoPinyinType {
         }
 
         return StringUtils.toString(types);
-    }
-
-    private static int lastElement(ArrayList<String> types) {
-        return types.size() - 1;
     }
 
     public static Converter getConverterFor(String converterName) {

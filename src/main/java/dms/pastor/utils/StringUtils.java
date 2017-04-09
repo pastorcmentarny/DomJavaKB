@@ -43,6 +43,9 @@ public final class StringUtils {
     }
 
     public static String getRandomText(int size) {
+        if (size <= 0) {
+            return EMPTY_STRING;
+        }
         StringBuilder text = new StringBuilder(EMPTY_STRING);
         for (int i = 0; i < 2 + size; i++) {
             RandomDataGenerator.addRandomCharacterToStringBuilder(text);

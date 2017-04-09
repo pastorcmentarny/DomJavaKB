@@ -45,7 +45,7 @@ public class PseudoPinyinTypeTest {
         String type = PseudoPinyinType.CHARACTER.name();
 
         // when
-        final boolean result = PseudoPinyinType.notContains(type);
+        final boolean result = PseudoPinyinType.isNotContain(type);
 
         // then
         assertThat(result).isFalse();
@@ -57,7 +57,7 @@ public class PseudoPinyinTypeTest {
         String type = generateString();
 
         // when
-        final boolean result = PseudoPinyinType.notContains(type);
+        final boolean result = PseudoPinyinType.isNotContain(type);
 
         // then
         assertThat(result).isTrue();

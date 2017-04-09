@@ -5,6 +5,8 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import static dms.pastor.tasks.exercises.string.ReverseStringInManyWaysExercise.*;
+import static dms.pastor.utils.RandomDataGenerator.getRandomCharacterAsString;
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -18,6 +20,7 @@ public class ReverseStringInManyWaysExerciseTest {
 
     private static final String TEST_STRING = "top";
     private static final String REVERSED_TEST_STRING = "pot";
+
     @Rule
     public ExpectedException exception = ExpectedException.none();
 
@@ -66,6 +69,36 @@ public class ReverseStringInManyWaysExerciseTest {
 
         // when
         reverseStringWithoutLibraries(null);
+    }
+
+    @Test
+    public void reverseStringWithoutLibrariesShouldReturnEmptyStringIfInputIsEmpty() throws Exception {
+        // when
+        final String result = reverseStringWithoutLibraries(EMPTY_STRING);
+
+        // then
+        assertThat(result).isEmpty();
+    }
+
+    @Test
+    public void reverseStringWithoutLibrariesShouldReturnSameStringIfLengthIsOne() throws Exception {
+        // given
+        final String oneCharacterString = getRandomCharacterAsString();
+
+        // when
+        final String result = reverseStringWithoutLibraries(oneCharacterString);
+
+        // then
+        assertThat(result).isEqualTo(oneCharacterString);
+    }
+
+    @Test
+    public void reverseStringWithoutLibrariesShouldReturnPotIfInputIsTop() throws Exception {
+        // when
+        final String result = reverseStringWithoutLibraries(TEST_STRING);
+
+        // then
+        assertThat(result).isEqualTo(REVERSED_TEST_STRING);
     }
 
     @Test

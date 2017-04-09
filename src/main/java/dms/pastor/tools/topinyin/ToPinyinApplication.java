@@ -31,7 +31,7 @@ public class ToPinyinApplication {
             throw new IllegalArgumentException("It should contains 2 arguments (type of pinyin (" + displaySupportedType() + ") and text.");
         }
 
-        if (PseudoPinyinType.notContains(inputArguments[0])) {
+        if (PseudoPinyinType.isNotContain(inputArguments[0])) {
             throw new SomethingWentWrongException("Invalid conversation type(can be: " + displaySupportedType() + ')');
         }
 

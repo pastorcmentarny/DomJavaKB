@@ -1,7 +1,10 @@
 package dms.pastor.tasks.exercises.string;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
+import static dms.pastor.tasks.exercises.string.RemoveCharacterFromString.removeCharacterFromStringUsingIterative;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -15,6 +18,9 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Info: Happy path only
  */
 public class RemoveCharacterFromStringTest {
+    @Rule
+    public ExpectedException exception = ExpectedException.none();
+
     private static final String TEST = "Test";
     private static final char CHARACTER_T = 't';
     private static final String EXPECTED_RESULT = "es";
@@ -22,10 +28,19 @@ public class RemoveCharacterFromStringTest {
     @Test
     public void shouldRemoveCharacterFromStringUsingIterativeTest() throws Exception {
         // when
-        final String result = RemoveCharacterFromString.removeCharacterFromStringUsingIterative(TEST, CHARACTER_T);
+        final String result = removeCharacterFromStringUsingIterative(TEST, CHARACTER_T);
 
         // then
         assertThat(result).isEqualTo(EXPECTED_RESULT);
+    }
+
+    @Test
+    public void removeCharacterFromStringUsingIterativeShouldThrowExceptionWhenTextIsNullTest() throws Exception {
+        // expect
+        exception.expect(IllegalArgumentException.class);
+
+        // when
+        removeCharacterFromStringUsingIterative(null, CHARACTER_T);
     }
 
     @Test

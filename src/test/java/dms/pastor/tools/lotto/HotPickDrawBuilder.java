@@ -13,6 +13,8 @@ import static dms.pastor.utils.RandomDataGenerator.generateString;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
+@SuppressWarnings("unused")
+        // because builders methods can be used later
 class HotPickDrawBuilder {
     private final Random random = new Random();
     private LocalDate drawDate = LocalDate.now();
@@ -41,7 +43,7 @@ class HotPickDrawBuilder {
         return random.nextInt(59) + 1;
     }
 
-    public HotPickDrawBuilder drawDate(LocalDate drawDate) {
+    HotPickDrawBuilder drawDate(LocalDate drawDate) {
         this.drawDate = drawDate;
         return this;
     }

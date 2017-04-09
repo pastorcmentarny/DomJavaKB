@@ -3,6 +3,7 @@ package dms.pastor.tasks.rankjournals.models;
 import dms.pastor.tasks.rankjournals.JournalType;
 
 import static dms.pastor.tasks.rankjournals.JournalType.NORMAL;
+import static dms.pastor.tasks.rankjournals.JournalType.REVIEW;
 
 /**
  * @author Pastor
@@ -21,11 +22,10 @@ public class Journal {
         this.year = year;
     }
 
-    public Journal(String name, double score, int year, JournalType type) {
-        this.name = name;
-        this.score = score;
-        this.year = year;
-        this.type = type;
+    public static Journal createReview(String name, double score, int year) {
+        Journal reviewJournal = new Journal(name, score, year);
+        reviewJournal.type = REVIEW;
+        return reviewJournal;
     }
 
     public String getName() {

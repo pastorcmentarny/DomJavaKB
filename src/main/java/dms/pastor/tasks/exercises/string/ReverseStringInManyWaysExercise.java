@@ -1,5 +1,7 @@
 package dms.pastor.tasks.exercises.string;
 
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+
 /**
  * Author Dominik Symonowicz
  * Created 2015-10-31
@@ -44,7 +46,7 @@ class ReverseStringInManyWaysExercise {
     //TODO check
     public static String reverseStringWithoutLibraries(String originalString) {
         validateInput(originalString);
-        if (originalString.equalsIgnoreCase("") || originalString.length() == 1) {
+        if (originalString.equalsIgnoreCase(EMPTY_STRING) || originalString.length() == 1) {
             return originalString;
         }
 

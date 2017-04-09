@@ -11,6 +11,7 @@ import java.util.Collections;
 
 import static dms.pastor.tasks.rankjournals.JournalType.REVIEW;
 import static dms.pastor.tasks.rankjournals.RankJournalViewer.*;
+import static dms.pastor.tasks.rankjournals.models.Journal.createReview;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -41,13 +42,13 @@ public class RankJournalViewerTest extends TestCase {
         journals.add(journal);
         journal = new Journal("Journal C", 3.1, 2010);
         journals.add(journal);
-        journal = new Journal("Journal A", 2.2, 2009, REVIEW);
+        journal = createReview("Journal A", 2.2, 2009);
         journals.add(journal);
         journal = new Journal("Journal B", 6.2, 2009);
         journals.add(journal);
-        journal = new Journal("Journal C", 6.2, 2009, REVIEW);
+        journal = createReview("Journal C", 6.2, 2009);
         journals.add(journal);
-        journal = new Journal("Journal A", 5.6, 2008, REVIEW);
+        journal = createReview("Journal A", 5.6, 2008);
         journals.add(journal);
         journal = new Journal("Journal B", 2.4, 2008);
         journals.add(journal);

@@ -3,10 +3,7 @@ package dms.pastor.utils;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -15,6 +12,7 @@ import static dms.pastor.utils.CollectionsUtils.*;
 import static dms.pastor.utils.RandomDataGenerator.generateArray;
 import static dms.pastor.utils.RandomDataGenerator.generateString;
 import static dms.pastor.utils.StringUtils.isStringBlank;
+import static java.util.Collections.emptyList;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 
@@ -99,7 +97,6 @@ public class CollectionsUtilsTest {
         }
     }
 
-    @SuppressWarnings("ConstantConditions") //because this is purpose of test
     @Test
     public void shouldReturnFalseIfListIsNullTest() throws Exception {
 
@@ -108,6 +105,28 @@ public class CollectionsUtilsTest {
 
         // then
         assertThat(result).isFalse();
+    }
+
+    @Test
+    public void shouldReturnFalseIfListIsEmpty() throws Exception {
+
+        // when
+        final boolean result = isListNotEmpty(emptyList());
+
+        // then
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    public void shouldReturnTrueIfListContainsElements() throws Exception {
+        // given
+        final List<String> stringList = Arrays.asList("Dom", "is", "hungry");
+
+        // when
+        final boolean result = isListNotEmpty(stringList);
+
+        // then
+        assertThat(result).isTrue();
     }
 
     @Test

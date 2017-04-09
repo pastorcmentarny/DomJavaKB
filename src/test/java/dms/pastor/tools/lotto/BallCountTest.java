@@ -5,6 +5,7 @@ import org.junit.Test;
 import static dms.pastor.tools.lotto.BallCount.dummyBall;
 import static dms.pastor.tools.lotto.BallCount.isDummyBall;
 import static dms.pastor.tools.lotto.BallCountBuilder.ballCountBuilder;
+import static dms.pastor.utils.RandomDataGenerator.randomPositiveInteger;
 import static java.util.Collections.singletonList;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -19,12 +20,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class BallCountTest {
 
     @Test
-    public void createForNumberShouldBallCountWithNumber1AndCount0() throws Exception {
+    public void createForNumberShoudBallCountWithNumberAndCount0() throws Exception {
         // given
-        final BallCount expectedBallCount = new BallCount(singletonList(1), 0);
+        final int number = randomPositiveInteger(59);
+        final BallCount expectedBallCount = new BallCount(singletonList(number), 0);
 
         // when
-        final BallCount ballCount = BallCount.createForNumber(1);
+        final BallCount ballCount = BallCount.createForNumber(number);
 
         // then
         assertThat(ballCount).isEqualTo(expectedBallCount);

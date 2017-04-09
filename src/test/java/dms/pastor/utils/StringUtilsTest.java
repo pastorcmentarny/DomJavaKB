@@ -18,7 +18,7 @@ import static dms.pastor.utils.StringUtils.NON_ALPHANUMERIC;
 import static dms.pastor.utils.StringUtils.*;
 import static dms.pastor.utils.StringUtils.getRandomText;
 import static java.lang.Character.isLetter;
-import static java.util.Collections.EMPTY_LIST;
+import static java.util.Collections.emptyList;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 
@@ -39,6 +39,7 @@ public class StringUtilsTest {
     private static final String PALINDROME_AFTER_PERMUTATION = "abcdabcd";
     private static final String SPACE_CHARACTER = " ";
     private static final String WHITESPACES_ONLY_STRING = "                    ";
+
     @Rule
     public ExpectedException exception = ExpectedException.none();
 
@@ -342,7 +343,7 @@ public class StringUtilsTest {
         exception.expect(IllegalArgumentException.class);
 
         // when
-        isTextContainsAllKeywordsExists(null, RandomDataGenerator.generateString());
+        isTextContainsAllKeywordsExists(null, generateString());
 
     }
 
@@ -355,14 +356,13 @@ public class StringUtilsTest {
         isTextContainsAllKeywordsExists(generateStringList(), null);
     }
 
-    @SuppressWarnings("unchecked")
     @Test
     public void shouldThrowIllegalArgumentExceptionIfKeywordIsEmptyTest() throws Exception {
         // except
         exception.expect(IllegalArgumentException.class);
 
         // when
-        isTextContainsAllKeywordsExists(EMPTY_LIST, RandomDataGenerator.generateString());
+        isTextContainsAllKeywordsExists(emptyList(), generateString());
 
     }
 
@@ -440,6 +440,17 @@ public class StringUtilsTest {
 
         // then
         assertThat(randomText).isNotEmpty();
+    }
+
+
+    @Test
+    public void getRandomTextShouldReturnEmptyStringForZeroSize() throws Exception {
+        // when
+        final String randomText = getRandomText(0);
+        System.out.println(randomText);
+
+        // then
+        assertThat(randomText).isEmpty();
     }
 
     @Test

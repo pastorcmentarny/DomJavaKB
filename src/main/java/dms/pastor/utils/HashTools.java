@@ -51,8 +51,9 @@ final class HashTools {
 }
     */
 
-    public static HashSet<Character> stringToCharacterSet(String aString) {
-        char[] chars = aString.toCharArray();
+    public static HashSet<Character> stringToCharacterSet(String string) {
+        ValidatorUtils.validateIfNotEmpty(string);
+        char[] chars = string.toCharArray();
         HashSet<Character> charsSet = new HashSet<>();
         for (char ch : chars) {
             charsSet.add(ch);

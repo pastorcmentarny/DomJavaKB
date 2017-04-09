@@ -324,9 +324,37 @@ public class ValidatorUtilsTest {
         final int positiveInteger = new Random().nextInt(100);
 
         // when
-        ValidatorUtils.validateIfPositiveNumber(positiveInteger,generateString());
+        ValidatorUtils.validateIfPositiveNumber(positiveInteger, generateString());
 
         // then nothing happen, which means value are valid
     }
 
+    @Test
+    public void validateIfNotEmptyShouldThrowIllegalArgumentExceptionIfNull() throws Exception {
+        // expect
+        expectedException.expect(IllegalArgumentException.class);
+
+        // when
+        validateIfNotEmpty(null);
+    }
+
+    @Test
+    public void validateIfNotEmptyShouldThrowIllegalArgumentExceptionIfEmpty() throws Exception {
+        // expect
+        expectedException.expect(IllegalArgumentException.class);
+
+        // when
+        validateIfNotEmpty("");
+    }
+
+    @Test
+    public void validateIfNotEmptyShouldValidateForNonEmptyInput() throws Exception {
+        // given
+        final String text = generateString();
+
+        // when
+        validateIfNotEmpty(text);
+
+        // then nothing happen, which means value are valid
+    }
 }

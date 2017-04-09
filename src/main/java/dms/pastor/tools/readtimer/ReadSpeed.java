@@ -10,8 +10,7 @@ package dms.pastor.tools.readtimer;
  */
 public enum ReadSpeed {
     ADULT_SLOW(130),
-    ADULT_AVERAGE(250),
-    ADULT_FAST(325);
+    ADULT_AVERAGE(250);
 
     private final int speed;
 

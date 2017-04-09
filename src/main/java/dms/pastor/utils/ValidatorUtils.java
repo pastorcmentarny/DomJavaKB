@@ -84,9 +84,10 @@ public abstract class ValidatorUtils {
     }
 
     public static void validateIfNotNull(Object value) {
-        validateIfNotNull(value,"Value");    }
+        validateIfNotNull(value, "Value");
+    }
 
-    public static void validateIfNotNull(Object value,String valueName) {
+    public static void validateIfNotNull(Object value, String valueName) {
         if (value == null) {
             throw new IllegalArgumentException(valueName + " cannot be null.");
         }
@@ -101,6 +102,12 @@ public abstract class ValidatorUtils {
     public static void validateMinValueIsSmallerThanMaxValue(int minValue, int maxValue) {
         if (minValue > maxValue) {
             throw new IllegalArgumentException(format("MinValue (%d) must be lower than MaxValue(%d)", minValue, maxValue));
+        }
+    }
+
+    public static void validateIfNotEmpty(String string) {
+        if (string == null || string.isEmpty()) {
+            throw new IllegalArgumentException("Value cannot be null or empty");
         }
     }
 }
