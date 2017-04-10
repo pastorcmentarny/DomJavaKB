@@ -11,7 +11,7 @@ import java.util.Calendar;
  * #LinkedIn: 		uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  * #Email: 		email can be found on my website
  */
-class StopWatch {
+public class StopWatch {
     private long start;
     private long finish;
 
