@@ -1,6 +1,7 @@
 package dms.pastor.tools.lotto;
 
 import dms.pastor.utils.FileTools;
+import dms.pastor.utils.ValidatorUtils;
 import org.junit.After;
 import org.junit.Rule;
 import org.junit.Test;
@@ -79,6 +80,20 @@ public class HotPicksFileUploaderTest {
         // when
         hotPicksFileUploader.loadHotPicksDrawHistoryFile(System.getProperty(USER_DIRECTORY));
     }
+
+    @Test
+    public void shouldThrowIllegalArgumentExceptionWhenFileTypeIsNull() throws Exception {
+        // expect
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("Path cannot be null.");
+
+        // given
+        generateFile(null);
+
+        // when
+        hotPicksFileUploader.loadHotPicksDrawHistoryFile(null);
+    }
+
 
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenFileTypeIsNotACsvFile() throws Exception {
@@ -404,6 +419,7 @@ java.lang.IllegalArgumentException: Path is invalid or is not a file
     }
 
     private void generateFile(String path, String[] lines) throws IOException {
+        ValidatorUtils.validateIfNotNull(path, "Path");
         File file = new File(path);
         if (lines != null) {
             FileTools.saveListToFile(lines, path);

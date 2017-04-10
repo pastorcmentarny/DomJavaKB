@@ -50,8 +50,23 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void testShouldReturnUnknownStringWhenStringIsNull() throws Exception {
-        Assert.assertEquals("Should get Unknown for null string", "Unknown", getUnknownWhenNullString(null));
+    public void getUnknownWhenNullStringShouldReturnUnknownIfStringIsNull() throws Exception {
+        // when
+        final String result = getUnknownWhenNullString(null);
+
+        // then
+        assertThat(result).isEqualTo("Unknown");
+    }
+
+    @Test
+    public void getUnknownWhenNullStringShouldReturnStringIfStringIsNotNull() throws Exception {
+        // given
+        final String string = generateString();
+        // when
+        final String result = getUnknownWhenNullString(string);
+
+        // then
+        assertThat(result).isEqualTo(string);
     }
 
     @Test

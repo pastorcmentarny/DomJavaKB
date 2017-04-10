@@ -47,7 +47,7 @@ class RankJournalViewer {
     static String displaySortJournalsWithExclusionFilter(int year, List<Journal> journalList, List<JournalType> excluded) {
         List<Journal> filteredList = new ArrayList<>();
         for (Journal journal : journalList) {
-            boolean isNotExcluded = excludeJournals(excluded, journal);
+            boolean isNotExcluded = isJournalNotExcluded(excluded, journal);
 
             addJournalToFilterListIfNotExcluded(filteredList, journal, isNotExcluded);
         }
@@ -64,7 +64,7 @@ class RankJournalViewer {
                 .append('\n');
     }
 
-    private static boolean excludeJournals(List<JournalType> excluded, Journal journal) {
+    private static boolean isJournalNotExcluded(List<JournalType> excluded, Journal journal) {
         boolean isNotExcluded = true;
         for (JournalType type : excluded) {
             if (journal.getType() == type) {
