@@ -1,6 +1,8 @@
 package dms.pastor.tools.readtimer;
 
-import org.apache.log4j.Logger;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Author Dominik Symonowicz
@@ -11,7 +13,7 @@ import org.apache.log4j.Logger;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 class TimeToReadApplicationInputValidator {
-    private static final Logger LOGGER = Logger.getLogger(TimeToReadApplication.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(TimeToReadApplication.class);
     private static final String ERROR_MESSAGE = "You can run this application without arguments,so it will run in demo mode or you need specified 2 arguments:\n\tfirst one is a text,\n\tsecond is a speed of reading";
 
     static void validateInputArgs(String[] args) {

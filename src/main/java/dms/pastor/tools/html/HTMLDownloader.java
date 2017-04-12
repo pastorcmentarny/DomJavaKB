@@ -1,6 +1,7 @@
 package dms.pastor.tools.html;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,7 +11,6 @@ import java.net.URL;
 import java.net.URLConnection;
 
 import static dms.pastor.tools.html.HTMLValidator.validateUrl;
-import static org.apache.log4j.Logger.getLogger;
 
 /**
  * Author Dominik Symonowicz
@@ -22,7 +22,7 @@ import static org.apache.log4j.Logger.getLogger;
  */
 class HTMLDownloader {
 
-    private final static Logger LOGGER = getLogger(HTMLDownloader.class);
+    private final static Logger LOGGER = LoggerFactory.getLogger(HTMLDownloader.class);
 
     static String download(String urlStr) throws IOException {
         String type;

@@ -1,6 +1,8 @@
 package dms.pastor.tools.lotto;
 
-import org.apache.log4j.Logger;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
@@ -15,7 +17,7 @@ import static java.lang.String.format;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public class HotPicksStatsApplication {
-    private static final Logger LOGGER = Logger.getLogger(HotPicksStatsApplication.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(HotPicksStatsApplication.class);
 
     public static void main(String[] args) {
         LOGGER.info("Running application: " + HotPicksStatsApplication.class.getName());

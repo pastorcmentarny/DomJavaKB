@@ -1,6 +1,7 @@
 package dms.pastor.tools.bmpMaker;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -22,7 +23,7 @@ import static dms.pastor.utils.ValidatorUtils.validateIfPositiveNumber;
  * I used this to generate random background for one of my Android games.
  */
 class RandomBmpGenerator {
-    private static final Logger LOGGER = Logger.getLogger(RandomBmpGenerator.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(RandomBmpGenerator.class);
     private static final Random random = new Random();
     private final int imageWidth;
     private final int imageHeight;

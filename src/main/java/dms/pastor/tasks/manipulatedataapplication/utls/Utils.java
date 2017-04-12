@@ -2,7 +2,8 @@ package dms.pastor.tasks.manipulatedataapplication.utls;
 
 import dms.pastor.tasks.manipulatedataapplication.data.Genre;
 import dms.pastor.tasks.manipulatedataapplication.data.Person;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -26,7 +27,8 @@ import java.util.stream.Collectors;
  */
 public class Utils {
     public static final long DAY_FROM_MILLISECONDS = 1000L * 60L * 60L * 24L;
-    private static final Logger LOGGER = Logger.getLogger(Utils.class);
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(Utils.class);
     private static final String WHITESPACES = "\\s";
     private static final String EMPTY_STRING = "";
 

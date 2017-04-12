@@ -2,8 +2,9 @@ package dms.pastor.tasks.exercises.numbers;
 
 import dms.pastor.tools.StopWatch;
 import dms.pastor.utils.ArrayUtils;
-import org.apache.log4j.Logger;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -16,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public class ThreeSumTest {
-    private static final Logger LOGGER = Logger.getLogger(ThreeSumTest.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ThreeSumTest.class);
     private ThreeSum threeSum = new ThreeSum();
     private int[] testValues = {30, -40, -20, -10, 40, 0, 10, 5};
 

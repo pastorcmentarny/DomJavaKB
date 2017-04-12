@@ -2,7 +2,8 @@ package dms.pastor.utils;
 
 
 import dms.pastor.domain.Country;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ import static java.lang.Integer.MAX_VALUE;
  * Generate random data for personal use
  */
 public final class RandomDataGenerator {
-    private static final Logger LOGGER = Logger.getLogger(RandomDataGenerator.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(RandomDataGenerator.class);
     private static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
     private static final String ALPHABET_WITH_LOWER_AND_UPPER = ALPHABET.toUpperCase() + ALPHABET;
     private static final String ALPHABET_WITH_LOWER_UPPER_CASES_AND_NUMBERS = ALPHABET_WITH_LOWER_AND_UPPER + "0123456789";

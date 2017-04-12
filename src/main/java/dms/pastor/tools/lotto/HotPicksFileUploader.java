@@ -1,7 +1,8 @@
 package dms.pastor.tools.lotto;
 
 import dms.pastor.utils.DateUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,7 +25,7 @@ import static java.lang.String.format;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 class HotPicksFileUploader {
-    private static final Logger LOG = Logger.getLogger(HotPicksFileUploader.class);
+    private static final Logger LOG = LoggerFactory.getLogger(HotPicksFileUploader.class);
     private static final String DASH = "-";
     private final List<HotPickDraw> hotPickDrawList;
 

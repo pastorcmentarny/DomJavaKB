@@ -2,7 +2,8 @@ package dms.pastor.utils;
 
 import dms.pastor.domain.ShutdownHook;
 import dms.pastor.domain.exception.SomethingWentTerribleWrongError;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.nio.channels.FileChannel;
@@ -21,8 +22,8 @@ import static java.lang.Runtime.getRuntime;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public final class FileTools {
+    private static final Logger LOGGER = LoggerFactory.getLogger(FileTools.class);
     private static final char NEW_LINE = '\n';
-    private static final Logger LOGGER = Logger.getLogger(FileTools.class);
     private static FileChannel channel;
     private static FileLock lockFile;
     private static File file;

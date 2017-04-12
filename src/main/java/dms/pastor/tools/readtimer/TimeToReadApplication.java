@@ -1,11 +1,11 @@
 package dms.pastor.tools.readtimer;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.LocalDateTime;
 
 import static dms.pastor.tools.readtimer.TimeToReadApplicationInputValidator.validateInputArgs;
-
 
 /**
  * Author Dominik Symonowicz
@@ -17,7 +17,7 @@ import static dms.pastor.tools.readtimer.TimeToReadApplicationInputValidator.val
  */
 public class TimeToReadApplication {
 
-    private static final Logger LOGGER = Logger.getLogger(TimeToReadApplication.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(TimeToReadApplication.class);
 
     public static void main(String[] args) {
         LOGGER.info("Starting application.. at " + LocalDateTime.now().toString());

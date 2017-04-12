@@ -1,7 +1,8 @@
 package dms.pastor.tools.removeDuplicatedLineInTextFile;
 
 import dms.pastor.utils.StringUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -20,7 +21,7 @@ import static java.lang.String.format;
  */
 class DuplicateRemover {
 
-    private static final Logger LOGGER = Logger.getLogger(DuplicateRemover.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(DuplicateRemover.class);
 
     void performTask(String filePath) {
         LOGGER.debug("Task started.");

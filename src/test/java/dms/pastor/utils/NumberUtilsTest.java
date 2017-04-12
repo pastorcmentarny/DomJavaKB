@@ -1,9 +1,10 @@
 package dms.pastor.utils;
 
-import org.apache.log4j.Logger;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -26,11 +27,12 @@ import static org.assertj.core.api.Assertions.assertThat;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public class NumberUtilsTest {
-    private static final Logger LOGGER = Logger.getLogger(NumberUtilsTest.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(NumberUtilsTest.class);
 
     private static final int MIN_VALUE = 5;
     private static final int MAX_VALUE = 20;
     private final Random random = new Random();
+
     @Rule
     public ExpectedException exception = ExpectedException.none();
 
@@ -173,7 +175,7 @@ public class NumberUtilsTest {
         exception.expect(IllegalArgumentException.class);
 
         // when
-        final int factorial = factorial(20);
+        factorial(20);
     }
 
     @Test
@@ -571,7 +573,7 @@ public class NumberUtilsTest {
         generateNaturalSequenceIntArray(negativeValue);
 
         // debug info
-        LOGGER.debug("Value used in test:" + negativeValue);
+        LOGGER.warn("Value used in test:" + negativeValue);
     }
 
     @Test
