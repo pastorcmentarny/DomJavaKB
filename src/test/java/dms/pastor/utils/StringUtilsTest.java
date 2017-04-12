@@ -646,4 +646,42 @@ public class StringUtilsTest {
         assertThat(result).isEqualTo(expectedResult);
 
     }
+
+    @Test
+    public void everythingIsEmptyShouldReturnTrueIfAllStringsAreEmptyAcceptanceTest() throws Exception {
+        // given
+        final String string1 = generateString(10);
+        final String string2 = generateString(10);
+        final String string3 = generateString(10);
+
+        // when
+        final boolean result = everythingIsEmpty(string1, string2, string3);
+
+        // then
+        assertThat(result).isTrue();
+    }
+
+    @Test
+    public void everythingIsEmptyShouldReturnFalseIfAnyOfStringsIsNotEmptyAcceptanceTest() throws Exception {
+        // given
+        final String string1 = generateString(10);
+        final String string2 = generateString(10);
+
+        // when
+        final boolean result = everythingIsEmpty(string1, string2, EMPTY_STRING);
+
+        // then
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    public void everythingIsEmptyShouldReturnTrueIfNoArgumentProvided() throws Exception {
+
+        // when
+        final boolean result = everythingIsEmpty();
+
+        // then
+        assertThat(result).isTrue();
+    }
+
 }

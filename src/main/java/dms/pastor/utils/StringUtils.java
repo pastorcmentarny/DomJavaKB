@@ -296,6 +296,16 @@ public final class StringUtils {
         return stringBuilder.toString();
     }
 
+
+    public static boolean everythingIsEmpty(String... values) {
+        for (String value : values) {
+            if (value.equals(EMPTY_STRING)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     static String removeAllNonAlphaNumericCharactersFromString(String string) {
         if (isStringEmpty(string)) {
             return string;
