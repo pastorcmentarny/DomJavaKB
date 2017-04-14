@@ -655,7 +655,7 @@ public class StringUtilsTest {
         final String string3 = generateString(10);
 
         // when
-        final boolean result = everythingIsEmpty(string1, string2, string3);
+        final boolean result = isAllStringsAreNotEmpty(string1, string2, string3);
 
         // then
         assertThat(result).isTrue();
@@ -668,7 +668,7 @@ public class StringUtilsTest {
         final String string2 = generateString(10);
 
         // when
-        final boolean result = everythingIsEmpty(string1, string2, EMPTY_STRING);
+        final boolean result = isAllStringsAreNotEmpty(string1, string2, EMPTY_STRING);
 
         // then
         assertThat(result).isFalse();
@@ -678,7 +678,7 @@ public class StringUtilsTest {
     public void everythingIsEmptyShouldReturnTrueIfNoArgumentProvided() throws Exception {
 
         // when
-        final boolean result = everythingIsEmpty();
+        final boolean result = isAllStringsAreNotEmpty();
 
         // then
         assertThat(result).isTrue();

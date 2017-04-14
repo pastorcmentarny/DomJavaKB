@@ -297,7 +297,7 @@ public final class StringUtils {
     }
 
 
-    public static boolean everythingIsEmpty(String... values) {
+    public static boolean isAllStringsAreNotEmpty(String... values) {
         for (String value : values) {
             if (value.equals(EMPTY_STRING)) {
                 return false;
