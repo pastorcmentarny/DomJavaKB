@@ -1,5 +1,6 @@
 package dms.pastor.utils;
 
+import dms.pastor.utils.randoms.RandomDataGenerator;
 import org.assertj.core.api.AssertionsForClassTypes;
 import org.junit.Assert;
 import org.junit.Rule;
@@ -13,10 +14,10 @@ import java.util.LinkedHashSet;
 import java.util.List;
 
 import static dms.pastor.domain.Message.INPUT_CANNOT_BE_EMPTY;
-import static dms.pastor.utils.RandomDataGenerator.*;
 import static dms.pastor.utils.StringUtils.NON_ALPHANUMERIC;
 import static dms.pastor.utils.StringUtils.*;
 import static dms.pastor.utils.StringUtils.getRandomText;
+import static dms.pastor.utils.randoms.RandomDataGenerator.*;
 import static java.lang.Character.isLetter;
 import static java.util.Collections.emptyList;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 import static dms.pastor.TestConfig.BASE_PATH;
 import static dms.pastor.utils.FileTools.saveListToFile;
-import static dms.pastor.utils.RandomDataGenerator.generateString;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.Java6Assertions.assertThat;
 
 /**

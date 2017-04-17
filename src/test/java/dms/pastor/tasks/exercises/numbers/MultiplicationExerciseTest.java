@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import static dms.pastor.tasks.exercises.numbers.MultiplicationExercise.generateMultiplicationSquareTable;
-import static dms.pastor.utils.RandomDataGenerator.randomNegativeInteger;
+import static dms.pastor.utils.randoms.RandomDataGenerator.randomNegativeInteger;
 import static org.hamcrest.CoreMatchers.is;
 
 /**

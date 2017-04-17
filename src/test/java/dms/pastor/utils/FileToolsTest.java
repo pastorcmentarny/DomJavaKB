@@ -11,7 +11,7 @@ import java.io.File;
 import static dms.pastor.TestConfig.EMPTY_STRING_ARRAY;
 import static dms.pastor.TestConfig.PATH;
 import static dms.pastor.utils.FileTools.*;
-import static dms.pastor.utils.RandomDataGenerator.generateString;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**

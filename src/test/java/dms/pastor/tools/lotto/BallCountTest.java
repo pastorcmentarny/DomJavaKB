@@ -5,7 +5,7 @@ import org.junit.Test;
 import static dms.pastor.tools.lotto.BallCount.dummyBall;
 import static dms.pastor.tools.lotto.BallCount.isDummyBall;
 import static dms.pastor.tools.lotto.BallCountBuilder.ballCountBuilder;
-import static dms.pastor.utils.RandomDataGenerator.randomPositiveInteger;
+import static dms.pastor.utils.randoms.RandomDataGenerator.randomPositiveInteger;
 import static java.util.Collections.singletonList;
 import static org.assertj.core.api.Assertions.assertThat;
 

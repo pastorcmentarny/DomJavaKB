@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import static dms.pastor.tasks.other.CollectionExercises.convertListToMapUsingJava8;
-import static dms.pastor.utils.RandomDataGenerator.generateString;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 

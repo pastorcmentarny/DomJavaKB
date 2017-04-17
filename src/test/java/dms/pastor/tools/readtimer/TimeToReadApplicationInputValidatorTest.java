@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import static dms.pastor.tools.readtimer.TimeToReadApplicationInputValidator.validateInputArgs;
-import static dms.pastor.utils.RandomDataGenerator.*;
+import static dms.pastor.utils.randoms.RandomDataGenerator.*;
 
 /**
  * Author Dominik Symonowicz

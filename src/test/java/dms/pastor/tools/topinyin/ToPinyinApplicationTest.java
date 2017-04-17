@@ -1,7 +1,7 @@
 package dms.pastor.tools.topinyin;
 
 import dms.pastor.domain.exception.SomethingWentWrongException;
-import dms.pastor.utils.RandomDataGenerator;
+import dms.pastor.utils.randoms.RandomDataGenerator;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
@@ -13,8 +13,8 @@ import java.io.IOException;
 import java.io.PrintStream;
 
 import static dms.pastor.tools.topinyin.ToPinyinApplication.main;
-import static dms.pastor.utils.RandomDataGenerator.generateString;
-import static dms.pastor.utils.RandomDataGenerator.randomInteger;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
+import static dms.pastor.utils.randoms.RandomDataGenerator.randomInteger;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**

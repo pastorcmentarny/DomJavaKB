@@ -1,6 +1,6 @@
 package dms.pastor.tasks.manipulatedataapplication;
 
-import dms.pastor.utils.RandomDataGenerator;
+import dms.pastor.utils.randoms.RandomDataGenerator;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;

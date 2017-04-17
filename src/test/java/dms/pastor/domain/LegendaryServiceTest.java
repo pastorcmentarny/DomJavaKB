@@ -1,7 +1,5 @@
 package dms.pastor.domain;
 
-import dms.pastor.domain.LegendaryService;
-import dms.pastor.domain.Treasure;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,7 +9,7 @@ import java.io.PrintStream;
 import java.util.UUID;
 
 import static dms.pastor.domain.Treasure.getRandomTreasure;
-import static dms.pastor.utils.RandomDataGenerator.generateString;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static java.util.UUID.randomUUID;
 import static org.assertj.core.api.Assertions.assertThat;
 

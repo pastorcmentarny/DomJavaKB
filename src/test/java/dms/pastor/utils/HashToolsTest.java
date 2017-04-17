@@ -11,8 +11,8 @@ import java.util.HashSet;
 
 import static dms.pastor.utils.HashTools.stringToCharacterMap;
 import static dms.pastor.utils.HashTools.stringToCharacterSet;
-import static dms.pastor.utils.RandomDataGenerator.generateString;
 import static dms.pastor.utils.StringUtils.ALPHABET;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.CoreMatchers.sameInstance;
 

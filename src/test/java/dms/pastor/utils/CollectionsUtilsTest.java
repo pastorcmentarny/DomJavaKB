@@ -9,9 +9,9 @@ import java.util.stream.Stream;
 
 import static dms.pastor.TestConfig.MAX_RANDOM_SIZE;
 import static dms.pastor.utils.CollectionsUtils.*;
-import static dms.pastor.utils.RandomDataGenerator.generateArray;
-import static dms.pastor.utils.RandomDataGenerator.generateString;
 import static dms.pastor.utils.StringUtils.isStringBlank;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateArray;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static java.util.Collections.emptyList;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;

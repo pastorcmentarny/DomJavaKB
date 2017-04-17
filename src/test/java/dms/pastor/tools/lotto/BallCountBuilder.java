@@ -2,7 +2,7 @@ package dms.pastor.tools.lotto;
 
 import java.util.List;
 
-import static dms.pastor.utils.RandomDataGenerator.randomInteger;
+import static dms.pastor.utils.randoms.RandomDataGenerator.randomInteger;
 import static java.util.Collections.singletonList;
 
 /**

@@ -1,6 +1,6 @@
 package dms.pastor.tasks.exercises.string.characterfinder;
 
-import static dms.pastor.utils.RandomDataGenerator.getRandomCharacterAsString;
+import static dms.pastor.utils.randoms.RandomDataGenerator.getRandomCharacterAsString;
 
 /**
  * Author Dominik Symonowicz

@@ -2,8 +2,8 @@ package dms.pastor.tools.readtimer;
 
 import org.junit.Test;
 
-import static dms.pastor.utils.RandomDataGenerator.generateString;
-import static dms.pastor.utils.RandomDataGenerator.randomPositiveInteger;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
+import static dms.pastor.utils.randoms.RandomDataGenerator.randomPositiveInteger;
 
 /**
  * Author Dominik Symonowicz

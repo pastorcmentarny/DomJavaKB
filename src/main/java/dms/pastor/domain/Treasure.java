@@ -1,8 +1,8 @@
 package dms.pastor.domain;
 
-import dms.pastor.utils.RandomDataGenerator;
+import dms.pastor.utils.randoms.RandomDataGenerator;
 
-import static dms.pastor.utils.RandomDataGenerator.generateString;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 
 /**
  * Author Dominik Symonowicz

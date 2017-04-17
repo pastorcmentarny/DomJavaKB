@@ -1,6 +1,6 @@
 package dms.pastor.tasks.fifinder;
 
-import static dms.pastor.utils.RandomDataGenerator.generateString;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 
 /**
  * Author Dominik Symonowicz

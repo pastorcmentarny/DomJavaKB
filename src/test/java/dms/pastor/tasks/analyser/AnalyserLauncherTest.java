@@ -1,6 +1,6 @@
 package dms.pastor.tasks.analyser;
 
-import dms.pastor.utils.RandomDataGenerator;
+import dms.pastor.utils.randoms.RandomDataGenerator;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;

@@ -10,8 +10,8 @@ import org.junit.rules.ExpectedException;
 import java.math.BigDecimal;
 import java.util.Random;
 
-import static dms.pastor.utils.RandomDataGenerator.*;
 import static dms.pastor.utils.ValidatorUtils.*;
+import static dms.pastor.utils.randoms.RandomDataGenerator.*;
 import static java.math.BigDecimal.ZERO;
 import static org.assertj.core.api.Assertions.assertThat;
 

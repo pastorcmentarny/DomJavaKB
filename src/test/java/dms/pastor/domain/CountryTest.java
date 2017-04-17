@@ -6,7 +6,7 @@ import org.junit.rules.ExpectedException;
 
 import static dms.pastor.domain.Country.UNITED_KINGDOM;
 import static dms.pastor.domain.Country.getName;
-import static dms.pastor.utils.RandomDataGenerator.generateString;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.Java6Assertions.assertThat;
 
 /**

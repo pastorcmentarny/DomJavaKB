@@ -1,6 +1,6 @@
 package dms.pastor.utils;
 
-import dms.pastor.domain.Country;
+import dms.pastor.utils.randoms.RandomDataGenerator;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
@@ -11,12 +11,11 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Random;
 
-import static dms.pastor.utils.RandomDataGenerator.*;
 import static dms.pastor.utils.StringUtils.hasNonAlphabetCharactersOnly;
+import static dms.pastor.utils.randoms.RandomDataGenerator.*;
 import static java.lang.Character.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.notNullValue;
 
 /**
  * Author Dominik Symonowicz
@@ -203,18 +202,6 @@ public class RandomDataGeneratorTest {
         Assert.assertThat(stringList.isEmpty(), is(true));
     }
 
-    @Test
-    public void shouldGenerateRandomEmailTest() throws Exception {
-        // given
-
-        // when
-        final String email = generateEmail();
-
-        // then
-        assertThat(email).isNotEmpty();
-        assertThat(email).contains("@");
-        assertThat(email).contains(".");
-    }
 
     @Test
     public void generateStringArrayShouldThrowIllegalArgumentExceptionForNegativeTest() throws Exception {
@@ -298,14 +285,6 @@ public class RandomDataGeneratorTest {
         assertThat(stringList.size()).isGreaterThanOrEqualTo(4);
     }
 
-    @Test
-    public void shouldReturnRandomCountryTest() throws Exception {
-        // when
-        Country country = getRandomCountry();
-
-        // then
-        Assert.assertThat(country, notNullValue());
-    }
 
     @Test //TODO investigate as length was 6 that is not greater than 10
     public void shouldReturnParagraph() throws Exception {
@@ -320,23 +299,6 @@ public class RandomDataGeneratorTest {
 
     }
 
-    @Test
-    public void shouldGenerateFirstNameAcceptanceTest() throws Exception {
-        // when
-        final String result = generateFirstName();
-
-        // then
-        assertThat(result).isNotEmpty();
-    }
-
-    @Test
-    public void shouldGenerateSurnameAcceptanceTest() throws Exception {
-        // when
-        final String result = generateSurname();
-
-        // then
-        assertThat(result).isNotEmpty();
-    }
 
 
     //TODO @Test public void randomIntegerExcludingShouldReturnUniqueNumber() throws Exception {

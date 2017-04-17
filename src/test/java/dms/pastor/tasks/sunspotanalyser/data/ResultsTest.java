@@ -2,11 +2,11 @@ package dms.pastor.tasks.sunspotanalyser.data;
 
 
 import dms.pastor.domain.Result;
-import dms.pastor.utils.RandomDataGenerator;
+import dms.pastor.utils.randoms.RandomDataGenerator;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static dms.pastor.utils.RandomDataGenerator.generateString;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 

@@ -8,8 +8,8 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
-import static dms.pastor.utils.RandomDataGenerator.randomNegativeInteger;
-import static dms.pastor.utils.RandomDataGenerator.randomPositiveInteger;
+import static dms.pastor.utils.randoms.RandomDataGenerator.randomNegativeInteger;
+import static dms.pastor.utils.randoms.RandomDataGenerator.randomPositiveInteger;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**

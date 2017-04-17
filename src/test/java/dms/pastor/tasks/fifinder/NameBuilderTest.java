@@ -3,7 +3,7 @@ package dms.pastor.tasks.fifinder;
 import org.junit.Test;
 
 import static dms.pastor.tasks.fifinder.NameBuilder.nameBuilder;
-import static dms.pastor.utils.RandomDataGenerator.generateString;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**

@@ -1,8 +1,8 @@
 package dms.pastor.tools.lotto;
 
 import static dms.pastor.tools.lotto.Couple.createWithOrderedNumbers;
-import static dms.pastor.utils.RandomDataGenerator.MAX_SMALL_VALUE;
-import static dms.pastor.utils.RandomDataGenerator.randomInteger;
+import static dms.pastor.utils.randoms.RandomDataGenerator.MAX_SMALL_VALUE;
+import static dms.pastor.utils.randoms.RandomDataGenerator.randomInteger;
 
 /**
  * Author Dominik Symonowicz

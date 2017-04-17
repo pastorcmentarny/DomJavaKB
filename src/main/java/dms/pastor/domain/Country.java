@@ -12,6 +12,7 @@ import static java.lang.Character.toUpperCase;
  */
 public enum Country {
     CHINA("China"),
+    GERMANY("Germany"),
     POLAND("Poland"),
     UNITED_KINGDOM("UK");
 

@@ -13,9 +13,9 @@ import java.util.Random;
 
 import static dms.pastor.TestConfig.EMPTY_INTEGER_ARRAY;
 import static dms.pastor.utils.NumberUtils.*;
-import static dms.pastor.utils.RandomDataGenerator.randomNegativeInteger;
-import static dms.pastor.utils.RandomDataGenerator.randomPositiveInteger;
 import static dms.pastor.utils.StringUtils.containsOnly;
+import static dms.pastor.utils.randoms.RandomDataGenerator.randomNegativeInteger;
+import static dms.pastor.utils.randoms.RandomDataGenerator.randomPositiveInteger;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**

@@ -5,8 +5,8 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import static dms.pastor.tasks.exercises.string.ReverseStringInManyWaysExercise.*;
-import static dms.pastor.utils.RandomDataGenerator.getRandomCharacterAsString;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+import static dms.pastor.utils.randoms.RandomDataGenerator.getRandomCharacterAsString;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**

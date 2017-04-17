@@ -1,7 +1,6 @@
-package dms.pastor.utils;
+package dms.pastor.utils.randoms;
 
 
-import dms.pastor.domain.Country;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,23 +34,9 @@ public final class RandomDataGenerator {
     private static final int NOT_SPECIFIED = -1;
     public static final int MAX_SMALL_VALUE = 10;
     private static final int MAX_LARGE_VALUE = 4096;
-    private static final List<String> firstName;
-
-    private static final List<String> surname;
     private static final Random random = new Random();
     private static final String EMPTY_STRING = "";
     private static final String SPACE = " ";
-
-    static {
-        firstName = new ArrayList<>();
-        firstName.add("William");
-        firstName.add("Richard");
-        surname = new ArrayList<>();
-        surname.add("Cabbage");
-        surname.add("Winterbottom");
-        surname.add("Sunshine");
-        surname.add("Rusty");
-    }
 
     private RandomDataGenerator() {
     }
@@ -101,7 +86,7 @@ public final class RandomDataGenerator {
         return '\t' + getRandomCharacterAsString().toUpperCase() + getRandomText(12) + ' ' + stringBuilder.toString() + ".\n";
     }
 
-    static int[] generateIntArray(int size, int numberRange) {
+    public static int[] generateIntArray(int size, int numberRange) {
         Random random = new Random();
         int[] intArray = new int[size];
         for (int i = 0; i < size; i++) {
@@ -168,9 +153,6 @@ public final class RandomDataGenerator {
         return words;
     }
 
-    public static String generateEmail() {
-        return generateString(16) + '@' + generateString(16) + '.' + getRandomCountry().code().toLowerCase();
-    }
 
     //TODO how to write test for this ?
     public static String generateNonAlphanumericString(int maxRandomSize) {
@@ -248,15 +230,4 @@ public final class RandomDataGenerator {
         return randomStrings;
     }
 
-    public static String generateFirstName() {
-        return firstName.get(random.nextInt(firstName.size()));
-    }
-
-    public static String generateSurname() {
-        return surname.get(random.nextInt(surname.size()));
-    }
-
-    static Country getRandomCountry() {
-        return Country.values()[random.nextInt(Country.values().length)];
-    }
 }

@@ -6,7 +6,7 @@ import org.junit.rules.ExpectedException;
 
 import static dms.pastor.tools.html.HTMLValidator.validateContentType;
 import static dms.pastor.tools.html.HTMLValidator.validateUrl;
-import static dms.pastor.utils.RandomDataGenerator.generateString;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 
 /**
  * Author Dominik Symonowicz

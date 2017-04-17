@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import static dms.pastor.TestConfig.MAX_RANDOM_SIZE;
-import static dms.pastor.utils.RandomDataGenerator.*;
+import static dms.pastor.utils.randoms.RandomDataGenerator.*;
 import static java.lang.String.valueOf;
 import static org.assertj.core.api.Assertions.assertThat;
 

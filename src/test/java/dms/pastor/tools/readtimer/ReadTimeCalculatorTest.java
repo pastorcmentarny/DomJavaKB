@@ -2,7 +2,7 @@ package dms.pastor.tools.readtimer;
 
 import dms.pastor.test.rules.Repeat;
 import dms.pastor.test.rules.RepeaterRule;
-import dms.pastor.utils.RandomDataGenerator;
+import dms.pastor.utils.randoms.RandomDataGenerator;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -13,7 +13,7 @@ import java.util.Random;
 import static dms.pastor.tools.readtimer.ReadSpeed.ADULT_AVERAGE;
 import static dms.pastor.utils.DateUtils.HOUR;
 import static dms.pastor.utils.DateUtils.MINUTE;
-import static dms.pastor.utils.RandomDataGenerator.*;
+import static dms.pastor.utils.randoms.RandomDataGenerator.*;
 import static java.lang.Integer.MAX_VALUE;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
