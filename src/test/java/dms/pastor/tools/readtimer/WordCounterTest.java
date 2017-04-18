@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import static dms.pastor.TestConfig.MAX_RANDOM_SIZE;
+import static dms.pastor.tools.readtimer.WordCounter.countFullWords;
 import static dms.pastor.utils.randoms.RandomDataGenerator.*;
 import static java.lang.String.valueOf;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -29,7 +30,7 @@ public class WordCounterTest {
         exception.expectMessage("Input can not be null or empty.");
 
         // when
-        WordCounter.countFullWords(null);
+        countFullWords(null);
 
     }
 
@@ -40,7 +41,7 @@ public class WordCounterTest {
         exception.expectMessage("Input can not be null or empty.");
 
         // when
-        WordCounter.countFullWords(new String[0]);
+        countFullWords(new String[0]);
     }
 
     @Test
@@ -49,7 +50,7 @@ public class WordCounterTest {
         String[] oneWord = new String[]{"Test"};
 
         // when
-        final int counter = WordCounter.countFullWords(oneWord);
+        final int counter = countFullWords(oneWord);
 
         // then
         assertThat(counter).isEqualTo(1);
@@ -62,7 +63,7 @@ public class WordCounterTest {
         String[] tenWords = generateArray(size);
 
         // when
-        final int counter = WordCounter.countFullWords(tenWords);
+        final int counter = countFullWords(tenWords);
 
         // then
         assertThat(counter).isEqualTo(size);
@@ -74,7 +75,7 @@ public class WordCounterTest {
         String[] twoWordsOneSpace = new String[]{"Test", " ", "Test2"};
 
         // when
-        final int counter = WordCounter.countFullWords(twoWordsOneSpace);
+        final int counter = countFullWords(twoWordsOneSpace);
 
         // then
         assertThat(counter).isEqualTo(2);
@@ -86,7 +87,7 @@ public class WordCounterTest {
         String[] twoWordsOneNull = new String[]{"Test", null, "Test2"};
 
         // when
-        final int counter = WordCounter.countFullWords(twoWordsOneNull);
+        final int counter = countFullWords(twoWordsOneNull);
 
         // then
         assertThat(counter).isEqualTo(2);
@@ -99,7 +100,7 @@ public class WordCounterTest {
         String[] twoWordsOneNumber = new String[]{"Test", valueOf(randomPositiveInteger(MAX_RANDOM_SIZE)), "Test2"};
 
         // when
-        final int counter = WordCounter.countFullWords(twoWordsOneNumber);
+        final int counter = countFullWords(twoWordsOneNumber);
 
         // then
         assertThat(counter).isEqualTo(3);
@@ -111,7 +112,7 @@ public class WordCounterTest {
         String[] twoWordsOneNonAlphanumericWord = new String[]{"Test", generateNonAlphanumericString(MAX_RANDOM_SIZE), "Test2"};
 
         // when
-        final int counter = WordCounter.countFullWords(twoWordsOneNonAlphanumericWord);
+        final int counter = countFullWords(twoWordsOneNonAlphanumericWord);
 
         // then
         assertThat(counter).isEqualTo(2);
@@ -124,9 +125,21 @@ public class WordCounterTest {
         String[] manyWord = generateArray(MAX_RANDOM_SIZE);
 
         // when
-        final int counter = WordCounter.countFullWords(manyWord);
+        final int counter = countFullWords(manyWord);
 
         // then
         assertThat(counter).isEqualTo(manyWord.length);
+    }
+
+    @Test
+    public void countFullWordShouldNotCountStopWords() throws Exception {
+        // given
+        final String[] words = {"Dominik", "is", "awesome"};
+
+        // when
+        final int counter = countFullWords(words);
+
+        // then
+        assertThat(counter).isEqualTo(2);
     }
 }

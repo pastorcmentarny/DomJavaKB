@@ -1,5 +1,7 @@
 package dms.pastor.utils;
 
+import static dms.pastor.utils.StringUtils.isStringBlank;
+
 /**
  * Author Dominik Symonowicz
  * WWW:	http://pastor.ovh.org
@@ -10,6 +12,7 @@ package dms.pastor.utils;
 public final class EnglishUtils {
     private static final char[] vowels = {'a', 'e', 'i', 'o', 'u'};
     private static final char[] consonants = {'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'};
+    private static final String[] STOP_WORDS = new String[]{"a", "an", "and", "are", "as", "at", "be", "but", "by", "for", "if", "in", "into", "is", "it", "no", "not", "of", "on", "or", "such", "that", "the", "their", "then", "there", "these", "they", "this", "to", "was", "will", "with"};
 
     private EnglishUtils() {
     }
@@ -43,6 +46,23 @@ public final class EnglishUtils {
         }
         return false;
     }
+
+    public static boolean isStopWord(String word) {
+        if (isStringBlank(word)) {
+            return false;
+        }
+        for (String stopWord : STOP_WORDS) {
+            if (word.equalsIgnoreCase(stopWord)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean isNotStopWord(String word) {
+        return !isStopWord(word);
+    }
+
 
 
 }

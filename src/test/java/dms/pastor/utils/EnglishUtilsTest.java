@@ -178,4 +178,74 @@ public class EnglishUtilsTest {
         assertThat(result).isFalse();
     }
 
+    @Test
+    public void isStopWordShouldReturnTrueForIs() throws Exception {
+        // given
+        final String stopWord = "is";
+
+        // when
+        final boolean word = isStopWord(stopWord);
+
+        // then
+        assertThat(word).isTrue();
+    }
+
+    @Test
+    public void isStopWordShouldReturnFalseForDominik() throws Exception {
+        // given
+        final String notAStopWord = "Dominik";
+
+        // when
+        final boolean word = isStopWord(notAStopWord);
+
+        // then
+        assertThat(word).isFalse();
+    }
+
+    @Test
+    public void isStopWordShouldReturnFalseForNull() throws Exception {
+
+        // when
+        final boolean word = isStopWord(null);
+
+        // then
+        assertThat(word).isFalse();
+    }
+
+    @Test
+    public void isStopWordShouldReturnFalseForEmptyString() throws Exception {
+        // given
+        final String notAStopWord = "";
+
+        // when
+        final boolean word = isStopWord(notAStopWord);
+
+        // then
+        assertThat(word).isFalse();
+    }
+
+    @Test
+    public void isNotStopWordShouldReturnFalseForAre() throws Exception {
+        // given
+        final String stopWord = "are";
+
+        // when
+        final boolean word = isNotStopWord(stopWord);
+
+        // then
+        assertThat(word).isFalse();
+    }
+
+    @Test
+    public void isNotStopWordShouldReturnTrueForCheesecake() throws Exception {
+        // given
+        final String notAStopWord = "Cheesecake";
+
+        // when
+        final boolean word = isNotStopWord(notAStopWord);
+
+        // then
+        assertThat(word).isTrue();
+    }
+
 }
