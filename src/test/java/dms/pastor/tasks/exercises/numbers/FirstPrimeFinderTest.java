@@ -19,7 +19,7 @@ public class FirstPrimeFinderTest {
     @Rule
     public ExpectedException exception = ExpectedException.none();
 
-    private FirstPrimeFinder firstPrimeFinder = new FirstPrimeFinder();
+    private final FirstPrimeFinder firstPrimeFinder = new FirstPrimeFinder();
 
     @Test
     public void findShouldReturnPrimeNumberIfInputWithPrimeNumberAcceptanceCriteria() throws Exception {

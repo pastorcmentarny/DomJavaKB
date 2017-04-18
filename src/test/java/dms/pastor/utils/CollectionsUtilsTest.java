@@ -97,6 +97,7 @@ public class CollectionsUtilsTest {
         }
     }
 
+    @SuppressWarnings("ConstantConditions") //as it is part of test
     @Test
     public void shouldReturnFalseIfListIsNullTest() throws Exception {
 

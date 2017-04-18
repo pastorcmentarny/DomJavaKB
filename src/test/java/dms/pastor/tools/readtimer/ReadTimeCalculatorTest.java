@@ -104,14 +104,14 @@ public class ReadTimeCalculatorTest {
     @Test
     public void itShouldTake6SecondToRead60WordsWithSpeed1WordPerSecondTest() throws Exception {
         // given
-        String sentence = "This is an test example sentence.";
+        String sentence = "one two three four five six.";
         readTimeCalculator = new ReadTimeCalculator(sentence, 60);
 
         // when
         final int wordPerMinute = readTimeCalculator.calculateTimeNeedToReadFor();
 
         // then
-        assertThat(wordPerMinute, is(6));
+        assertThat(wordPerMinute).isEqualTo(6);
     }
 
     @Test

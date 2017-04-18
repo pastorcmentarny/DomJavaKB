@@ -1,3 +1,4 @@
+<!--suppress XmlUnboundNsPrefix, XmlUnboundNsPrefix -->
 <configuration>
     <property name="CONSOLE_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss:SSS} [%thread] %-5level %logger{39} - %msg%n"/>
 

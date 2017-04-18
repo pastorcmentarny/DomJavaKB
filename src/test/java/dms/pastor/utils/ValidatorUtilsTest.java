@@ -329,6 +329,7 @@ public class ValidatorUtilsTest {
         // then nothing happen, which means value are valid
     }
 
+    @SuppressWarnings("ConstantConditions") //as it is part of test
     @Test
     public void validateIfNotEmptyShouldThrowIllegalArgumentExceptionIfNull() throws Exception {
         // expect

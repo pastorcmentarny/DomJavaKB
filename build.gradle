@@ -6,8 +6,12 @@ apply plugin: 'java'
 apply plugin: 'idea'
 
 compileJava.options.encoding = 'UTF-8'
-sourceCompatibility = JavaVersion.VERSION_1_8
+
+//noinspection GroovyUnusedAssignment
 targetCompatibility = JavaVersion.VERSION_1_8
+
+//noinspection GroovyUnusedAssignment
+sourceCompatibility = JavaVersion.VERSION_1_8
 
 allprojects {
     repositories {

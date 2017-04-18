@@ -11,6 +11,7 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Random;
 
+import static dms.pastor.utils.EnglishUtils.isStopWord;
 import static dms.pastor.utils.StringUtils.hasNonAlphabetCharactersOnly;
 import static dms.pastor.utils.randoms.RandomDataGenerator.*;
 import static java.lang.Character.*;
@@ -299,10 +300,7 @@ public class RandomDataGeneratorTest {
 
     }
 
-
-
     //TODO @Test public void randomIntegerExcludingShouldReturnUniqueNumber() throws Exception {
-
 
     @Test
     public void randomIntegerWithMinAndMaxValueShouldThrowExceptionWhenMinValueIsHigherThanMaxValue() throws Exception {
@@ -438,5 +436,16 @@ public class RandomDataGeneratorTest {
         assertThat(result).isNotEmpty();
         assertThat(result).contains(SPACE);
         assertThat(result).doesNotEndWith(SPACE);
+    }
+
+    @Test
+    public void generateWordWithoutStopWordShouldReturnPseudoWordThatIsNotStopWord() throws Exception {
+
+        // when
+        final String word = generateWordWithoutStopWord(MAX_SMALL_VALUE);
+
+        // then
+        assertThat(word).isNotEmpty();
+        assertThat(isStopWord(word)).isFalse();
     }
 }

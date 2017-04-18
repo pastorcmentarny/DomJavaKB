@@ -1,6 +1,7 @@
 package dms.pastor.utils.randoms;
 
 
+import dms.pastor.domain.exception.SomethingWentWrongException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -10,6 +11,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.IntStream;
 
+import static dms.pastor.utils.EnglishUtils.isNotStopWord;
 import static dms.pastor.utils.PrintOutUtils.printIntArray;
 import static dms.pastor.utils.ValidatorUtils.validateIfPositiveNumber;
 import static dms.pastor.utils.ValidatorUtils.validateMinValueIsSmallerThanMaxValue;
@@ -81,7 +83,7 @@ public final class RandomDataGenerator {
     public static String generateRandomParagraph() {
         StringBuilder stringBuilder = new StringBuilder(EMPTY_STRING);
 
-        IntStream.range(10, random.nextInt(100) + 10).forEach(s -> stringBuilder.append(getRandomText(12)).append(' '));
+        IntStream.range(10, random.nextInt(100) + 20).forEach(s -> stringBuilder.append(getRandomText(12)).append(' '));
 
         return '\t' + getRandomCharacterAsString().toUpperCase() + getRandomText(12) + ' ' + stringBuilder.toString() + ".\n";
     }
@@ -138,21 +140,33 @@ public final class RandomDataGenerator {
         return randomStrings;
     }
 
-    public static String generateWords(int size){
+    public static String generateWords(int size) {
         validateIfPositiveNumber(size);
-        if(size == 0){
+        if (size == 0) {
             return EMPTY_STRING;
         }
-        LOGGER.debug("Generate "+ size + "  word(s).");
+        LOGGER.debug("Generate " + size + "  word(s).");
         StringBuilder stringBuilder = new StringBuilder(EMPTY_STRING);
-        for (int i = 1; i <= size ; i++) {
-            stringBuilder.append(generateString(MAX_SMALL_VALUE)).append(SPACE);
+        for (int i = 1; i <= size; i++) {
+            stringBuilder.append(generateWordWithoutStopWord(MAX_SMALL_VALUE)).append(SPACE);
         }
-        final String words = stringBuilder.substring(0,stringBuilder.length()-1);
+        final String words = stringBuilder.substring(0, stringBuilder.length() - 1);
         LOGGER.debug("Generated output: " + words);
         return words;
     }
 
+
+    public static String generateWordWithoutStopWord(int size) {
+        validateIfPositiveNumber(size);
+        final int maxAttemptsToCreate = 512;
+        for (int i = 0; i < maxAttemptsToCreate; i++) {
+            final String generatedString = generateString(MAX_SMALL_VALUE);
+            if (isNotStopWord(generatedString)) {
+                return generatedString;
+            }
+        }
+        throw new SomethingWentWrongException("Tried to generate word " + maxAttemptsToCreate + " times ,but I failed, because somebody screw up something {Size of word" + size + "}");
+    }
 
     //TODO how to write test for this ?
     public static String generateNonAlphanumericString(int maxRandomSize) {
@@ -192,9 +206,9 @@ public final class RandomDataGenerator {
     }*/
 
     public static int randomInteger() {
-        if(random.nextBoolean()){
+        if (random.nextBoolean()) {
             return randomPositiveInteger();
-        }else {
+        } else {
             return randomNegativeInteger();
         }
     }
@@ -203,10 +217,10 @@ public final class RandomDataGenerator {
         return random.nextInt(maxValue);
     }
 
-    public static int randomInteger(int minValue,int maxValue) {
-        validateMinValueIsSmallerThanMaxValue(minValue,maxValue);
-        final int randomInteger = random.nextInt(maxValue+1);
-        return randomInteger < minValue?minValue:randomInteger;
+    public static int randomInteger(int minValue, int maxValue) {
+        validateMinValueIsSmallerThanMaxValue(minValue, maxValue);
+        final int randomInteger = random.nextInt(maxValue + 1);
+        return randomInteger < minValue ? minValue : randomInteger;
     }
 
     public static int randomNegativeInteger() {
