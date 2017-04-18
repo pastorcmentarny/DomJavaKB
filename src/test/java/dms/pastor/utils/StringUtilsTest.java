@@ -685,4 +685,77 @@ public class StringUtilsTest {
         assertThat(result).isTrue();
     }
 
+    @Test
+    public void countOccurrenceOfShouldReturn0ForOccurrenceThatIsNull() throws Exception {
+        // when
+        int result = StringUtils.countOccurrenceOf(null, generateString());
+
+        // then
+        assertThat(result).isZero();
+    }
+
+    @Test
+    public void countOccurrenceOfShouldReturn0ForWordThatIsNull() throws Exception {
+        // when
+        int result = StringUtils.countOccurrenceOf(generateString(), null);
+
+        // then
+        assertThat(result).isZero();
+    }
+
+    @Test
+    public void countOccurrenceOfShouldReturn0ForOccurrenceThatIsEmpty() throws Exception {
+        // when
+        int result = StringUtils.countOccurrenceOf(EMPTY_STRING, generateString());
+
+        // then
+        assertThat(result).isZero();
+    }
+
+    @Test
+    public void countOccurrenceOfShouldReturn0ForWordThatIsEmpty() throws Exception {
+        // when
+        int result = StringUtils.countOccurrenceOf(generateString(), EMPTY_STRING);
+
+        // then
+        assertThat(result).isZero();
+    }
+
+    @Test
+    public void countOccurrenceOfShouldReturn0IfOccurrenceWordIsLongerThanTextItself() throws Exception {
+        // given
+        final String text = "text";
+        // when
+        int result = StringUtils.countOccurrenceOf(text + text, text);
+
+        // then
+        assertThat(result).isZero();
+    }
+
+    @Test
+    public void countOccurrenceOfShouldReturn2ForOccurrenceOfLabInLablab() throws Exception {
+        // given
+        final String text = "Lablab";
+        final String occurrence = "lab";
+
+        // when
+        int result = StringUtils.countOccurrenceOf(occurrence, text);
+
+        // then
+        assertThat(result).isEqualTo(2);
+    }
+
+    @Test
+    public void countOccurrenceOfShouldReturn5ForOccurrenceOfSixInSentence() throws Exception {
+        // given
+        final String text = "sixty-four sixty-five sixty-six sixty-seven";
+        final String occurrence = "six";
+
+        // when
+        int result = StringUtils.countOccurrenceOf(occurrence, text);
+
+        // then
+        assertThat(result).isEqualTo(5);
+    }
+
 }

@@ -4,6 +4,8 @@ import dms.pastor.utils.randoms.RandomDataGenerator;
 
 import java.lang.Character;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static dms.pastor.domain.Message.INPUT_CANNOT_BE_EMPTY;
 import static java.lang.Character.*;
@@ -342,4 +344,24 @@ public final class StringUtils {
         newCharArray += character;
         return newCharArray.toCharArray();
     }
+
+    public static int countOccurrenceOf(String occurrence, String string) {
+        if (isStringBlank(occurrence) || isStringBlank(string)) {
+            return 0;
+        }
+
+        if (occurrence.length() > occurrence.length()) {
+            return 0;
+        }
+
+        Pattern pattern = Pattern.compile(occurrence.toLowerCase());
+        Matcher matcher = pattern.matcher(string.toLowerCase());
+
+        int counter = 0;
+        while (matcher.find()) {
+            counter++;
+        }
+        return counter >= 0 ? counter : 0;
+    }
+
 }
