@@ -21,11 +21,3 @@ I use this project to store various code snippet that I used or I would like to 
   
 Enjoy your time here and if you fancy in contact with me feel free do so.
 
-
-
-
- 
-
-
-
-

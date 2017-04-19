@@ -16,7 +16,7 @@ import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
-public class PersonalDataGenerator {
+class PersonalDataGenerator {
     private static final List<String> firstName;
     private static final List<String> surname;
     private static final Random random = new Random();

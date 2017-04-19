@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.stream.Collectors;
 
+import static java.time.temporal.ChronoUnit.DAYS;
+
 /**
  * Author Dominik Symonowicz
  * Created 2015-10-31
@@ -65,6 +67,12 @@ public final class DateUtils {
     public static LocalDate toJavaDate(org.joda.time.LocalDate jodaDate) {
         return LocalDate.of(jodaDate.getYear(), jodaDate.getMonthOfYear(), jodaDate.getDayOfMonth());
     }
+
+    public static long getDayOfTheYearFor(LocalDate localDate) {
+        ValidatorUtils.validateIfNotNull(localDate, "Date");
+        return DAYS.between(LocalDate.of(localDate.getYear(), 1, 1), localDate) + 1;
+    }
+
 
     /*
 

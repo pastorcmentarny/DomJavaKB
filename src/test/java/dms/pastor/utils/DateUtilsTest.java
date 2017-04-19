@@ -9,7 +9,9 @@ import org.junit.rules.ExpectedException;
 import java.util.Date;
 
 import static dms.pastor.utils.DateUtils.displayTimeZoneList;
-import static org.assertj.core.api.Java6Assertions.assertThat;
+import static dms.pastor.utils.DateUtils.getDayOfTheYearFor;
+import static java.time.LocalDate.of;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 
 /**
@@ -86,7 +88,59 @@ public class DateUtilsTest {
         final java.time.LocalDate localDate = DateUtils.convertDateToLocalDate(date);
 
         // then
+        assertThat(localDate).isNotNull();
         System.out.println("java.util.Date: " + date);
         System.out.println("java.time.LocalDate: " + localDate);
     }
+
+    @Test
+    public void getDayOfTheYearShouldThrowIllegalArgumentExceptionForNull() throws Exception {
+        // expect
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("Date cannot be null.");
+        // when
+        final long days = getDayOfTheYearFor(null);
+
+        // then
+        assertThat(days).isEqualTo(1);
+    }
+
+    @Test
+    public void getDayOfTheYearForShouldGetOneForFirstJanuary() throws Exception {
+        // when
+        final long days = getDayOfTheYearFor(of(2017, 1, 1));
+
+        // then
+        assertThat(days).isEqualTo(1);
+    }
+
+    @Test
+    public void getDayOfTheYearForShouldGetOneForFirstFebruary() throws Exception {
+        // when
+        final long days = getDayOfTheYearFor(of(2017, 2, 1));
+
+        // then
+        assertThat(days).isEqualTo(32);
+    }
+
+    @Test
+    public void getDayOfTheYearForShouldGet365ForLeapYear() throws Exception {
+        // when
+        final long days = getDayOfTheYearFor(of(2017, 12, 31));
+
+        // then
+        assertThat(days).isEqualTo(365);
+    }
+
+    @Test
+    public void getDayOfTheYearForShouldGet366ForLeapYear() throws Exception {
+        // given
+
+        // when
+        final long days = getDayOfTheYearFor(of(2016, 12, 31));
+
+        // then
+        assertThat(days).isEqualTo(366);
+    }
+
 }
