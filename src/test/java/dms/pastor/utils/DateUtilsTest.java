@@ -8,8 +8,8 @@ import org.junit.rules.ExpectedException;
 
 import java.util.Date;
 
-import static dms.pastor.utils.DateUtils.displayTimeZoneList;
-import static dms.pastor.utils.DateUtils.getDayOfTheYearFor;
+import static dms.pastor.utils.DateUtils.*;
+import static java.time.LocalDate.now;
 import static java.time.LocalDate.of;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
@@ -141,6 +141,77 @@ public class DateUtilsTest {
 
         // then
         assertThat(days).isEqualTo(366);
+    }
+
+    @Test
+    public void countLeapYearBetweenShouldIllegalArgumentExceptionIfStartDateIsNull() throws Exception {
+        // expect
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("Start date cannot be null.");
+
+        // when
+        countLeapYearBetween(null, now());
+    }
+
+    @Test
+    public void countLeapYearBetweenShouldIllegalArgumentExceptionIfEndDateIsNull() throws Exception {
+        // expect
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("End date cannot be null.");
+
+        // when
+        countLeapYearBetween(now(), null);
+    }
+
+    @Test
+    public void countLeapYearBetweenShouldThrowIllegalArgumentExceptionWhenEndDateIsBeforeStartDate() throws Exception {
+        // expect
+        exception.expect(IllegalArgumentException.class);
+
+        // given
+        final java.time.LocalDate start = java.time.LocalDate.of(2017, 12, 31);
+        final java.time.LocalDate end = java.time.LocalDate.of(2015, 1, 1);
+
+        // when
+        countLeapYearBetween(start, end);
+    }
+
+    @Test
+    public void countLeapYearBetweenShouldReturn1ForYearsBetween2016And2016() throws Exception {
+        // given
+        final java.time.LocalDate leapYear = java.time.LocalDate.of(2016, 1, 1);
+
+        // when
+        final long leapYearsCounter = countLeapYearBetween(leapYear, leapYear);
+
+        // then
+        assertThat(leapYearsCounter).isEqualTo(1);
+    }
+
+    @Test
+    public void countLeapYearBetweenShouldReturn1ForYearsBetween2015And2017() throws Exception {
+        // given
+        final java.time.LocalDate start = java.time.LocalDate.of(2015, 1, 1);
+        final java.time.LocalDate end = java.time.LocalDate.of(2017, 12, 31);
+
+        // when
+        final long leapYearsCounter = countLeapYearBetween(start, end);
+
+        // then
+        assertThat(leapYearsCounter).isEqualTo(1);
+    }
+
+    @Test
+    public void countLeapYearBetweenShouldReturn5ForYearsBetween2000And2016() throws Exception {
+        // given
+        final java.time.LocalDate start = java.time.LocalDate.of(2000, 1, 1);
+        final java.time.LocalDate end = java.time.LocalDate.of(2016, 12, 31);
+
+        // when
+        final long leapYearsCounter = countLeapYearBetween(start, end);
+
+        // then
+        assertThat(leapYearsCounter).isEqualTo(5);
     }
 
 }

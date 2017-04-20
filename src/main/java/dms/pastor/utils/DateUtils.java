@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.stream.Collectors;
 
+import static dms.pastor.utils.ValidatorUtils.validateIfNotNull;
+import static dms.pastor.utils.ValidatorUtils.validateMinValueIsSmallerThanMaxValue;
 import static java.time.temporal.ChronoUnit.DAYS;
 
 /**
@@ -68,9 +70,23 @@ public final class DateUtils {
         return LocalDate.of(jodaDate.getYear(), jodaDate.getMonthOfYear(), jodaDate.getDayOfMonth());
     }
 
-    public static long getDayOfTheYearFor(LocalDate localDate) {
-        ValidatorUtils.validateIfNotNull(localDate, "Date");
+    static long getDayOfTheYearFor(LocalDate localDate) {
+        validateIfNotNull(localDate, "Date");
         return DAYS.between(LocalDate.of(localDate.getYear(), 1, 1), localDate) + 1;
+    }
+
+    static long countLeapYearBetween(LocalDate start, LocalDate end) {
+        validateIfNotNull(start, "Start date");
+        validateIfNotNull(end, "End date");
+        validateMinValueIsSmallerThanMaxValue(start.getYear(), end.getYear());
+
+        int counter = 0;
+        for (int i = start.getYear(); i <= end.getYear(); i++) {
+            if (LocalDate.of(i, 1, 1).isLeapYear()) {
+                counter++;
+            }
+        }
+        return counter;
     }
 
 
