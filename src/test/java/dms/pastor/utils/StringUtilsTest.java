@@ -6,6 +6,8 @@ import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -32,6 +34,8 @@ import static org.hamcrest.CoreMatchers.is;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public class StringUtilsTest {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(StringUtilsTest.class);
 
     private static final String NON_ALPHABETICAL_STRING = "&07";
     private static final String EMPTY_STRING = "";
@@ -758,4 +762,15 @@ public class StringUtilsTest {
         assertThat(result).isEqualTo(5);
     }
 
+    @Test
+    public void printCountryListShouldDisplayListOfCountries() throws Exception {
+        // when
+        final List<String> countryList = getCountryList();
+
+        // then
+        assertThat(countryList).isNotEmpty();
+
+        //debug info
+        LOGGER.debug(countryList.toString());
+    }
 }

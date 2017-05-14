@@ -28,13 +28,14 @@ import static java.lang.Integer.MAX_VALUE;
  * Generate random data for personal use
  */
 public final class RandomDataGenerator {
+    public static final int MAX_SMALL_VALUE = 10;
+
     private static final Logger LOGGER = LoggerFactory.getLogger(RandomDataGenerator.class);
     private static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
     private static final String ALPHABET_WITH_LOWER_AND_UPPER = ALPHABET.toUpperCase() + ALPHABET;
     private static final String ALPHABET_WITH_LOWER_UPPER_CASES_AND_NUMBERS = ALPHABET_WITH_LOWER_AND_UPPER + "0123456789";
     private static final String NON_ALPHANUMERIC = "~#&@£$^'`\".,:;*–+=(){}[]<>?!\\|/";
     private static final int NOT_SPECIFIED = -1;
-    public static final int MAX_SMALL_VALUE = 10;
     private static final int MAX_LARGE_VALUE = 4096;
     private static final Random random = new Random();
     private static final String EMPTY_STRING = "";

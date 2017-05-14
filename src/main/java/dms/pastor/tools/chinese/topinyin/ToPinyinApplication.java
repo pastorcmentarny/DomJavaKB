@@ -1,8 +1,8 @@
-package dms.pastor.tools.topinyin;
+package dms.pastor.tools.chinese.topinyin;
 
 import dms.pastor.domain.exception.SomethingWentWrongException;
 
-import static dms.pastor.tools.topinyin.PseudoPinyinType.displaySupportedType;
+import static dms.pastor.tools.chinese.topinyin.PseudoPinyinType.displaySupportedType;
 
 /**
  * Author Dominik Symonowicz

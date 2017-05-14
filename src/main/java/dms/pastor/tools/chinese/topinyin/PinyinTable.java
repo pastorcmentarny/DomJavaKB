@@ -1,4 +1,4 @@
-package dms.pastor.tools.topinyin;
+package dms.pastor.tools.chinese.topinyin;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 

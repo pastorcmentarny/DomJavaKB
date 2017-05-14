@@ -9,6 +9,7 @@ import java.util.regex.Pattern;
 
 import static dms.pastor.domain.Message.INPUT_CANNOT_BE_EMPTY;
 import static java.lang.Character.*;
+import static java.util.stream.Collectors.toList;
 
 /**
  * Author Dominik Symonowicz
@@ -260,7 +261,7 @@ public final class StringUtils {
         return true;
     }
 
-    static boolean hasNonAlphabetCharactersOnly(String string) {
+    public static boolean hasNonAlphabetCharactersOnly(String string) {
         char[] charArray = string.toCharArray();
         for (char character : charArray) {
             for (char letterOrNumber : ALPHABET_BOTH_CASE.toCharArray()) {
@@ -362,6 +363,12 @@ public final class StringUtils {
             counter++;
         }
         return counter >= 0 ? counter : 0;
+    }
+
+    static List<String> getCountryList() {
+        return Arrays.stream(Locale.getISOCountries())
+                .map(countryCode -> new Locale("", countryCode).getDisplayCountry())
+                .collect(toList());
     }
 
 }

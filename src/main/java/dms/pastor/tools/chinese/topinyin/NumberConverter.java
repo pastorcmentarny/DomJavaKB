@@ -1,6 +1,6 @@
-package dms.pastor.tools.topinyin;
+package dms.pastor.tools.chinese.topinyin;
 
-import static dms.pastor.tools.topinyin.PinyinTransformer.transformToPinyin;
+import static dms.pastor.tools.chinese.topinyin.PinyinTransformer.transformToPinyin;
 import static dms.pastor.utils.StringUtils.isStringBlank;
 import static dms.pastor.utils.StringUtils.isStringNotEmpty;
 

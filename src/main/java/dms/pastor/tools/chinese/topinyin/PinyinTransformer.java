@@ -1,4 +1,4 @@
-package dms.pastor.tools.topinyin;
+package dms.pastor.tools.chinese.topinyin;
 
 import static dms.pastor.utils.EnglishUtils.isLetterVowelExcludingY;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
@@ -11,7 +11,7 @@ import static dms.pastor.utils.StringUtils.EMPTY_STRING;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
-class PinyinTransformer {
+public class PinyinTransformer {
 
     public static String transformToPinyin(CharacterWithTone word) {
         StringBuilder stringBuilder = new StringBuilder(EMPTY_STRING);

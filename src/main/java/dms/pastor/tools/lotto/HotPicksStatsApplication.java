@@ -27,7 +27,6 @@ public class HotPicksStatsApplication {
         } catch (IOException e) {
             LOGGER.error(format("Application crashes because: %s", e.getMessage()),e);
         }
-        //TODO replace with LOGGER.info("Application ends his life peacefully. Until next time!");
-        System.out.println("Application ends his life peacefully. Until next time!");
+        LOGGER.info("Application ends his life peacefully. Until next time!");
     }
 }

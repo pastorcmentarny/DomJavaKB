@@ -1,10 +1,11 @@
-package dms.pastor.utils;
+package dms.pastor.utils.randoms;
 
-import dms.pastor.utils.randoms.RandomDataGenerator;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.lang.Character;
 import java.math.BigDecimal;
@@ -26,6 +27,8 @@ import static org.hamcrest.CoreMatchers.is;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public class RandomDataGeneratorTest {
+    private static final Logger LOGGER = LoggerFactory.getLogger(RandomDataGenerator.class);
+
     private static final int RANDOM_STRING_LENGTH = 1024;
     private static final String SPACE = " ";
     private final Random random = new Random();
@@ -383,11 +386,16 @@ public class RandomDataGeneratorTest {
         assertThat(negativeBigDecimal).isNegative();
     }
 
-    @Test // TODO how to test it ?
+    @Test
     public void shouldReturnRandomInteger() throws Exception {
 
         // when
         final int integer = RandomDataGenerator.randomInteger();
+
+        // then it should generate valid integer
+
+        // debug info
+        LOGGER.info(String.valueOf(integer));
     }
 
     @Test

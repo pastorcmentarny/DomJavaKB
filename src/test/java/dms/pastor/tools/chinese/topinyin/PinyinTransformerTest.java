@@ -1,8 +1,8 @@
-package dms.pastor.tools.topinyin;
+package dms.pastor.tools.chinese.topinyin;
 
 import org.junit.Test;
 
-import static dms.pastor.tools.topinyin.PinyinTransformer.transformToPinyin;
+import static dms.pastor.tools.chinese.topinyin.PinyinTransformer.transformToPinyin;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.Assertions.assertThat;
 

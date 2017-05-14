@@ -50,7 +50,7 @@ public final class PrintOutUtils {
     }
 
     public static void displayOddNumbers(int min, int max) {
-        validateMinValueIsSmallerThanMaxValue(min,max);
+        validateMinValueIsSmallerThanMaxValue(min, max);
 
         for (int i = min; i <= max; i++) {
             String text;
@@ -94,5 +94,5 @@ public final class PrintOutUtils {
         out.print(substring + CLOSE_ARRAY);
     }
 
-}
 
+}

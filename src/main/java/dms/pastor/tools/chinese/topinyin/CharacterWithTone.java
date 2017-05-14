@@ -1,4 +1,4 @@
-package dms.pastor.tools.topinyin;
+package dms.pastor.tools.chinese.topinyin;
 
 import java.util.Objects;
 import java.util.regex.Pattern;
@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
-class CharacterWithTone {
+public class CharacterWithTone {
     private final String word;
     private final int tone;
 
@@ -28,7 +28,7 @@ class CharacterWithTone {
         return tone;
     }
 
-    static CharacterWithTone fromString(String string) {
+    public static CharacterWithTone fromString(String string) {
         final String[] wordAndTone = string.split(Pattern.quote("("));
         if (wordAndTone.length == 1) {
             return new CharacterWithTone(wordAndTone[0], 0);

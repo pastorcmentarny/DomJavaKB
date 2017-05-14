@@ -5,7 +5,10 @@ import dms.pastor.domain.Country;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
+import static dms.pastor.utils.ValidatorUtils.validateIfNotNull;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 
 /**
@@ -42,6 +45,7 @@ class PersonalDataGenerator {
         surname.add("Tattersall");
         surname.add("Thornton");
         surname.add("Rusty");
+        surname.add("Wheaton");
         surname.add("Winterbottom");
         surname.add("Wordsworth");
     }
@@ -63,4 +67,33 @@ class PersonalDataGenerator {
         return generateString(16) + '@' + generateString(8) + '.' + getRandomCountry().code().toLowerCase();
     }
 
+    public static String generatePhoneNumberForPattern(String pattern) {
+        validatePatternForPhone(pattern);
+
+        StringBuilder result = new StringBuilder("");
+        final char[] chars = pattern.toCharArray();
+        for (char character : chars) {
+            if (character == 'X') {
+                result.append(new Random().nextInt(10));
+                continue;
+            }
+            result.append(character);
+        }
+        return result.toString();
+    }
+
+    private static void validatePatternForPhone(String pattern) {
+        validateIfNotNull(pattern);
+        Pattern regex = Pattern.compile("[0-9()-+X]");
+        Matcher matcher = regex.matcher(pattern);
+
+        //TODO improve it
+        if (pattern.isEmpty()) {
+            return;
+        }
+
+        if (!matcher.find()) {
+            throw new IllegalArgumentException("Pattern for phone contains illegal character(s). Pattern provided: " + pattern);
+        }
+    }
 }

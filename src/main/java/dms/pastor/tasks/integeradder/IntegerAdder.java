@@ -5,22 +5,21 @@ import com.sun.istack.internal.NotNull;
 import java.io.*;
 
 /**
- * @author Pastor cmentarny
- *         #WWW:			http://pastor.ovh.org
- *         #Github:		https://github.com/pastorcmentarny
- *         #Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- *         #LinkedIn: 		uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
- *         #Email: 		email can be found on my website
- *         <p>
- *         This is an example of using args from main(String[] args) method.
- *         <p>
- *         <p>
- *         About program:
- *         It will take arguments and each argument is a path to file.
- *         Each file can have any number of lines from 1 to N.
- *         Each line can contain only one integer.
- *         All of the numbers from all of the files should be added to the final result.
- *         The result is just one number and it will be displayed usingS System.out.println() method
+ * Author Dominik Symonowicz
+ * WWW:	http://pastor.ovh.org
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
+ * <p>
+ * This is an example of using args from main(String[] args) method.
+ * <p>
+ * <p>
+ * About program:
+ * It will take arguments and each argument is a path to file.
+ * Each file can have any number of lines from 1 to N.
+ * Each line can contain only one integer.
+ * All of the numbers from all of the files should be added to the final result.
+ * The result is just one number and it will be displayed usingS System.out.println() method
  */
 
 class IntegerAdder {
@@ -50,7 +49,7 @@ class IntegerAdder {
         }
     }
 
-    public int calculateTotalSum(String[] paths) throws IOException {
+    int calculateTotalSum(String[] paths) throws IOException {
         int sum = 0;
         if (paths != null) {
             for (String integer : paths) {
