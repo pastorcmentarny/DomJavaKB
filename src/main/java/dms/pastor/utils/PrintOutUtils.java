@@ -94,5 +94,4 @@ public final class PrintOutUtils {
         out.print(substring + CLOSE_ARRAY);
     }
 
-
 }

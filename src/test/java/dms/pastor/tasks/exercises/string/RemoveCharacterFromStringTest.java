@@ -28,7 +28,7 @@ public class RemoveCharacterFromStringTest {
     @Test
     public void shouldRemoveCharacterFromStringUsingIterativeTest() throws Exception {
         // when
-        final String result = removeCharacterFromStringUsingIterative(TEST, CHARACTER_T);
+        final String result = removeCharacterFromStringUsingIterative(TEST);
 
         // then
         assertThat(result).isEqualTo(EXPECTED_RESULT);
@@ -40,7 +40,7 @@ public class RemoveCharacterFromStringTest {
         exception.expect(IllegalArgumentException.class);
 
         // when
-        removeCharacterFromStringUsingIterative(null, CHARACTER_T);
+        removeCharacterFromStringUsingIterative(null);
     }
 
     @Test

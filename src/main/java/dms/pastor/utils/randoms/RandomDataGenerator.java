@@ -156,7 +156,6 @@ public final class RandomDataGenerator {
         return words;
     }
 
-
     public static String generateWordWithoutStopWord(int size) {
         validateIfPositiveNumber(size);
         final int maxAttemptsToCreate = 512;
