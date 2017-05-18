@@ -58,7 +58,7 @@ public class HashToolsTest {
     }
 
     @Test
-    public void stringToCharacterSetShold() throws Exception {
+    public void stringToCharacterSetShouldConvertTextToListOfCharacters() throws Exception {
         // given
         final String string = generateString(10);
 

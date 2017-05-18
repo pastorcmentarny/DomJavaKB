@@ -20,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class BallCountTest {
 
     @Test
-    public void createForNumberShoudBallCountWithNumberAndCount0() throws Exception {
+    public void createForNumberShouldBallCountWithNumberAndCount0() throws Exception {
         // given
         final int number = randomPositiveInteger(59);
         final BallCount expectedBallCount = new BallCount(singletonList(number), 0);
