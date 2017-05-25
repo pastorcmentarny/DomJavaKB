@@ -22,7 +22,7 @@ import static dms.pastor.tools.html.HTMLValidator.validateUrl;
  */
 class HTMLDownloader {
 
-    private final static Logger LOGGER = LoggerFactory.getLogger(HTMLDownloader.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(HTMLDownloader.class);
 
     static String download(String urlStr) throws IOException {
         String type;

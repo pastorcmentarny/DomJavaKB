@@ -64,9 +64,7 @@ class BallCountOperations {
     static int[] getNumbersFromBallsCount(BallCount[] topBalls) {
         Set<Integer> integers = new HashSet<>();
         for(BallCount ballCount: topBalls){
-            for(int number : ballCount.getBallNumbers()){
-                integers.add(number);
-            }
+            integers.addAll(ballCount.getBallNumbers());
         }
         return convertSetToIntArray(integers);
     }

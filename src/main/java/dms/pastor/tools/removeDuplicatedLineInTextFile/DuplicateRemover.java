@@ -38,7 +38,7 @@ class DuplicateRemover {
         LOGGER.info("File " + (result ? "" : "NOT") + " saved.");
     }
 
-    private String removeDuplicateLinesFromFile(String filePath) throws IllegalArgumentException, FileNotFoundException {
+    private String removeDuplicateLinesFromFile(String filePath) throws FileNotFoundException {
         validateFilePath(filePath);
         LOGGER.info(format("Reading and removing duplicated line from file...%s", filePath));
         LinkedHashSet<String> lines = new LinkedHashSet<>();

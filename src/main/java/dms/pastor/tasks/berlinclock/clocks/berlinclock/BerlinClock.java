@@ -3,6 +3,8 @@ package dms.pastor.tasks.berlinclock.clocks.berlinclock;
 import dms.pastor.tasks.berlinclock.data.Time;
 import dms.pastor.utils.DateUtils;
 
+import static java.lang.String.valueOf;
+
 /**
  * Author Dominik Symonowicz
  * Created 2013-07-24
@@ -12,6 +14,9 @@ import dms.pastor.utils.DateUtils;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public class BerlinClock implements ClockInterface {
+
+    private static final String HOUR_SEPARATOR = "::";
+    private static final char MINUTES_SEPARATOR = ':';
 
     @Override
     public String showTime(String givenTime) {
@@ -33,7 +38,7 @@ public class BerlinClock implements ClockInterface {
      * @return array of hours,minutes and second .//TODO use TIME object that
      * will contains hh,mm,ss
      */
-    public Time validateTime(String time) throws IllegalArgumentException {
+    public Time validateTime(String time) {
         String invalidInput = "Input is invalid. Please check your input, correct it and try again";
         if (time == null || time.isEmpty()) {
             throw new IllegalArgumentException(invalidInput);
@@ -43,17 +48,17 @@ public class BerlinClock implements ClockInterface {
         String[] tmpHours;
         String[] tmpMinutesAndSeconds;
         try {
-            tmpHours = time.split("::");
-            tmpMinutesAndSeconds = tmpHours[1].split(":");
+            tmpHours = time.split(HOUR_SEPARATOR);
+            tmpMinutesAndSeconds = tmpHours[1].split(valueOf(MINUTES_SEPARATOR));
         } catch (ArrayIndexOutOfBoundsException e) {
-            throw new IllegalArgumentException(invalidInput);
+            throw new IllegalArgumentException(invalidInput, e);
         }
 
         if (tmpHours.length != 2 && tmpMinutesAndSeconds.length != 2) {
             throw new IllegalArgumentException(invalidInput);
         } else {
             for (char character : time.toCharArray()) {
-                if (!(Character.isDigit(character) || character == ':')) {
+                if (!(Character.isDigit(character) || character == MINUTES_SEPARATOR)) {
                     throw new IllegalArgumentException(invalidInput);
                 }
             }
@@ -71,12 +76,12 @@ public class BerlinClock implements ClockInterface {
     }
 
     public String getTimeAsString(int hour, int minutes, int seconds) {
-        String time = asDoubleDigit(hour) + "::" + asDoubleDigit(minutes) + ':' + asDoubleDigit(seconds);
+        String time = asDoubleDigit(hour) + HOUR_SEPARATOR + asDoubleDigit(minutes) + MINUTES_SEPARATOR + asDoubleDigit(seconds);
         validateTime(time);
         return time;
     }
 
     private String asDoubleDigit(int value) {
-        return value > 10 ? String.valueOf(value) : "0" + value;
+        return value > 10 ? valueOf(value) : "0" + value;
     }
 }

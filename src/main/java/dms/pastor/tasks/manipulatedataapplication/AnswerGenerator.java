@@ -7,6 +7,7 @@ import dms.pastor.tasks.manipulatedataapplication.questions.QuestionThree;
 import dms.pastor.tasks.manipulatedataapplication.questions.QuestionTwo;
 import dms.pastor.tasks.manipulatedataapplication.utls.Utils;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -17,11 +18,12 @@ import java.util.List;
 class AnswerGenerator {
     private final List<Person> people;
 
-    AnswerGenerator(String fileName) throws Exception {
+    AnswerGenerator(String fileName) throws IOException {
         people = Utils.loadPeople(fileName);
         displayPeople();
     }
 
+    //TODO improve it
     Person getPerson(String personName) throws Exception {
         for (Person person : people) {
             if (person.getFullName().equalsIgnoreCase(personName)) {

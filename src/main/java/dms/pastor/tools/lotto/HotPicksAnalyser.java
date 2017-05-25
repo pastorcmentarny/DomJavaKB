@@ -141,18 +141,27 @@ class HotPicksAnalyser {
     }
 
     private List<BallCount> generateBallCountList() {
-        return IntStream.rangeClosed(1, 59)
+        return IntStream.rangeClosed(MINIMUM_BALL_VALUE, MAXIMUM_BALL_VALUE)
                 .mapToObj(BallCount::createForNumber)
                 .collect(Collectors.toList());
     }
 
-    int[] removeNumbersFromGames(int howMany) {
+    int[] removeNumbersFromGames(int previousGamesNumber) {
+        previousGamesNumber = setMaximumGameNumber(previousGamesNumber);
+
         Set<Integer> numbers = new HashSet<>();
-        for (int i = 0; i < howMany; i++) {
+        for (int i = 0; i < previousGamesNumber; i++) {
             for (int numberToAdd : hotPickDrawList.get(i).getAllBalls()) {
                 numbers.add(numberToAdd);
             }
         }
         return convertSetToIntArray(numbers);
+    }
+
+    private int setMaximumGameNumber(int howMany) {
+        if (howMany > hotPickDrawList.size()) {
+            howMany = hotPickDrawList.size();
+        }
+        return howMany;
     }
 }

@@ -1,7 +1,7 @@
 package dms.pastor.domain;
 
 /**
- * User: Pastor Cmentarny
+ * User: Dominik Symonowicz
  * Created: 24.06.12 , 16:41
  * Last update  2013-06-21
  */

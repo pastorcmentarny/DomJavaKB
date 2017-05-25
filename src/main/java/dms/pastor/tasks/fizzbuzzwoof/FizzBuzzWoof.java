@@ -48,12 +48,13 @@ class FizzBuzzWoof {
     }
 
     private static String addIfNumberMatch(int by, int number, String result, String word) {
+        StringBuilder resultBuilder = new StringBuilder(result);
         for (char character : String.valueOf(number).toCharArray()) {
             if (String.valueOf(character).contains(String.valueOf(by))) {
-                result += word;
+                resultBuilder.append(word);
             }
         }
-        return result;
+        return resultBuilder.toString();
     }
 
 }

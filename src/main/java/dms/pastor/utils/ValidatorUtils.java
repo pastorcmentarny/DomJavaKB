@@ -4,6 +4,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.math.BigDecimal;
+import java.util.List;
 
 import static java.lang.String.format;
 
@@ -107,7 +108,20 @@ public abstract class ValidatorUtils {
 
     public static void validateIfNotEmpty(String string) {
         if (string == null || string.isEmpty()) {
-            throw new IllegalArgumentException("Value cannot be null or empty");
+            throw new IllegalArgumentException("Value cannot be null or empty.");
         }
     }
+
+    public static void validateIfNotEmpty(String string, String objectName) {
+        if (string == null || string.isEmpty()) {
+            throw new IllegalArgumentException(objectName + " cannot be null or empty.");
+        }
+    }
+
+    public static void validateIfListIsNotEmpty(List<String> stringList, String listName) {
+        if (stringList == null || stringList.isEmpty()) {
+            throw new IllegalArgumentException(listName + " cannot be null or empty.");
+        }
+    }
+
 }

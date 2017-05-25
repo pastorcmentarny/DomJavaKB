@@ -2,8 +2,10 @@ package dms.pastor.tools;
 
 import java.util.Calendar;
 
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+
 /**
- * Author: Pastor cmentarny
+ * Author: Dominik Symonowicz
  * #Created:        16.11.2012
  * #WWW:			http://pastor.ovh.org
  * #Github:		https://github.com/pastorcmentarny
@@ -12,6 +14,12 @@ import java.util.Calendar;
  * #Email: 		email can be found on my website
  */
 public class StopWatch {
+
+    private static final long MINUTE = 60L;
+    private static final long HOUR = 60L * MINUTE;
+    private static final long DAY = 24 * HOUR * MINUTE;
+    private static final int SECOND_IN_MILISECONDS = 1000;
+
     private long start;
     private long finish;
 
@@ -59,15 +67,15 @@ public class StopWatch {
         int hours;
         int minutes;
         int seconds;
-        StringBuilder result = new StringBuilder("");
+        StringBuilder result = new StringBuilder(EMPTY_STRING);
         long time = calcTotalTime();
-        time /= 1000L;
-        days = (int) (time / 86400L);
-        time -= (days * 86400L);
-        hours = (int) (time / 3600L);
-        time -= (hours * 3600L);
-        minutes = (int) (time / 60L);
-        time -= (minutes * 60L);
+        time /= SECOND_IN_MILISECONDS;
+        days = (int) (time / DAY);
+        time -= (days * DAY);
+        hours = (int) (time / HOUR);
+        time -= (hours * HOUR);
+        minutes = (int) (time / MINUTE);
+        time -= (minutes * MINUTE);
         seconds = (int) time;
         result.append("Time needed: ").append(days).append(" days, ");
         result.append(hours).append(" hours, ").append(minutes);
@@ -76,8 +84,8 @@ public class StopWatch {
     }
 
     public String getResultTimeAsString() {
-        int sec = (int) calcTotalTime() / 1000;
-        int dot = (int) calcTotalTime() % 1000;
+        int sec = (int) calcTotalTime() / SECOND_IN_MILISECONDS;
+        int dot = (int) calcTotalTime() % SECOND_IN_MILISECONDS;
         return String.valueOf(sec) + '.' + String.valueOf(dot) + "s.";
     }
 

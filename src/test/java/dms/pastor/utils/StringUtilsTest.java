@@ -16,7 +16,6 @@ import java.util.LinkedHashSet;
 import java.util.List;
 
 import static dms.pastor.domain.Message.INPUT_CANNOT_BE_EMPTY;
-import static dms.pastor.utils.StringUtils.NON_ALPHANUMERIC;
 import static dms.pastor.utils.StringUtils.*;
 import static dms.pastor.utils.StringUtils.getRandomText;
 import static dms.pastor.utils.randoms.RandomDataGenerator.*;
@@ -134,9 +133,9 @@ public class StringUtilsTest {
 
     //it is purpose of test
     @Test
-    public void testToStringArrayReturnNullPointerException() throws Exception {
+    public void testToStringArrayReturnIllegalArgumentException() throws Exception {
         // except
-        exception.expect(NullPointerException.class);
+        exception.expect(IllegalArgumentException.class);
 
         //when
         toStringArray(null);
@@ -655,9 +654,9 @@ public class StringUtilsTest {
     @Test
     public void everythingIsEmptyShouldReturnTrueIfAllStringsAreEmptyAcceptanceTest() throws Exception {
         // given
-        final String string1 = generateString(10);
-        final String string2 = generateString(10);
-        final String string3 = generateString(10);
+        final String string1 = generateString(MAX_SMALL_VALUE);
+        final String string2 = generateString(MAX_SMALL_VALUE);
+        final String string3 = generateString(MAX_SMALL_VALUE);
 
         // when
         final boolean result = isAllStringsAreNotEmpty(string1, string2, string3);
@@ -669,8 +668,8 @@ public class StringUtilsTest {
     @Test
     public void everythingIsEmptyShouldReturnFalseIfAnyOfStringsIsNotEmptyAcceptanceTest() throws Exception {
         // given
-        final String string1 = generateString(10);
-        final String string2 = generateString(10);
+        final String string1 = generateString(MAX_SMALL_VALUE);
+        final String string2 = generateString(MAX_SMALL_VALUE);
 
         // when
         final boolean result = isAllStringsAreNotEmpty(string1, string2, EMPTY_STRING);

@@ -1,10 +1,9 @@
 package dms.pastor.tasks.exercises.string;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Author Dominik Symonowicz
@@ -23,33 +22,33 @@ public class CharacterExercisesTest {
 
     @Test
     public void testShouldFound1DInDominik() throws Exception {
-        Assert.assertThat(exercise.countCharacterInString('D', "Dominik"), is(1));
+        assertThat(exercise.countCharacterInString('D', "Dominik")).isEqualTo(1);
     }
 
     @Test
     public void testShouldFound10LInLlanfairpwll() throws Exception {
-        Assert.assertThat(exercise.countCharacterInString('L', "Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch"), is(11));
+        assertThat(exercise.countCharacterInString('L', "Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch")).isEqualTo(11);
     }
 
     @Test
     public void runCountCharInStringExercise() {
         char charToCount = 'l';
         String word = "Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch";
-        Assert.assertThat(exercise.countCharacterInStringIgnoringCase(charToCount, word), is(11));
+        assertThat(exercise.countCharacterInStringIgnoringCase(charToCount, word)).isEqualTo(11);
     }
 
     @SuppressWarnings("SpellCheckingInspection")
     @Test
     public void testAlternatingCharacters() throws Exception {
         String good = "ABABA";
-        Assert.assertThat(exercise.alternatingCharacters(good), is(0));
+        assertThat(exercise.alternatingCharacters(good)).isEqualTo(0);
     }
 
     //because there is one duplicate of the same letter bb
     @Test
     public void testAlternatingCharactersWillReturn1() throws Exception {
         String one = "BABB";
-        Assert.assertThat(exercise.alternatingCharacters(one), is(1));
+        assertThat(exercise.alternatingCharacters(one)).isEqualTo(1);
     }
 
     //because there are 3 the same character one after another so is 2
@@ -57,6 +56,6 @@ public class CharacterExercisesTest {
     @Test
     public void testAlteringCharactersWillReturn2() throws Exception {
         String two = "ABBBA";
-        Assert.assertThat(exercise.alternatingCharacters(two), is(2));
+        assertThat(exercise.alternatingCharacters(two)).isEqualTo(2);
     }
 }

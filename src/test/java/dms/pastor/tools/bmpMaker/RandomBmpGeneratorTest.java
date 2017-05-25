@@ -8,6 +8,7 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
+import static dms.pastor.TestConfig.PATH;
 import static dms.pastor.utils.randoms.RandomDataGenerator.randomNegativeInteger;
 import static dms.pastor.utils.randoms.RandomDataGenerator.randomPositiveInteger;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -23,6 +24,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class RandomBmpGeneratorTest {
 
     private static final String UNUSED_PATH = null;
+    private static final String BITMAP_EXTENSION = "bmp";
     @Rule
     public ExpectedException exception = ExpectedException.none();
 
@@ -70,19 +72,21 @@ public class RandomBmpGeneratorTest {
         // given
         final int width = 400;
         final int height = 300;
-        final String filepath = "D:\\result.bmp";
-        RandomBmpGenerator randomBmpGenerator = new RandomBmpGenerator(width,height,filepath);
+        final String filePath = PATH + "result." + BITMAP_EXTENSION;
+        RandomBmpGenerator randomBmpGenerator = new RandomBmpGenerator(width, height, filePath);
 
         // when
         randomBmpGenerator.generateImageFile();
 
         // then
-        final File file = new File(filepath);
+        final File file = new File(filePath);
         assertThat(file).exists();
-        assertThat(file).hasExtension("bmp");
+        assertThat(file).hasExtension(BITMAP_EXTENSION);
 
         final BufferedImage bufferedImage = ImageIO.read(file);
         assertThat(bufferedImage.getWidth()).isEqualTo(width);
         assertThat(bufferedImage.getHeight()).isEqualTo(height);
+
+        file.deleteOnExit();
     }
 }

@@ -35,7 +35,7 @@ public class HashToolsTest {
 
         // then
         Assert.assertEquals(ALPHABET.length(), characterIntegerHashMap.size());
-        characterIntegerHashMap.entrySet().forEach(entry -> Assert.assertThat(entry.getValue(), sameInstance(2)));
+        characterIntegerHashMap.forEach((key, value) -> Assert.assertThat(value, sameInstance(2)));
 
     }
 

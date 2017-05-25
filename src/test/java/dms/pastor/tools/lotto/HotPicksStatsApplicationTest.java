@@ -2,11 +2,14 @@ package dms.pastor.tools.lotto;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
+import static dms.pastor.TestConfig.PATH;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -18,6 +21,10 @@ import static org.assertj.core.api.Assertions.assertThat;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public class HotPicksStatsApplicationTest {
+
+    @Rule
+    public ExpectedException exception = ExpectedException.none();
+
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private PrintStream printStream;
 
@@ -35,10 +42,22 @@ public class HotPicksStatsApplicationTest {
     @Test
     public void shouldGenerateWiningNumbers() throws Exception {
         // when
-        HotPicksStatsApplication.main(null);
+        HotPicksStatsApplication.main(new String[]{PATH + "lotto-hotpicks-draw-history.csv"});
 
         // then
         assertThat(outputStream.toString()).contains("Application ends his life peacefully. Until next time!");
     }
+
+    @Test
+    public void shouldThrowExceptionIfProgramStartsWithoutGivenPathToFile() {
+        // expect
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("Path not provided. Please add path to file as argument when you run this program.");
+
+        // when
+        HotPicksStatsApplication.main(null);
+
+    }
+
 
 }

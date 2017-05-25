@@ -28,11 +28,7 @@ public class FindFirstNonRepeatedCharacter {
     private void convertTextIntoCharacterMap(String text, Map<Character, Integer> charList) {
         char[] stringAsChar = text.toCharArray();
         for (char ch : stringAsChar) {
-            if (charList.get(ch) == null) {
-                charList.put(ch, 1);
-            } else {
-                charList.put(ch, charList.get(ch) + 1);
-            }
+            charList.merge(ch, 1, (a, b) -> a + b);
         }
     }
 

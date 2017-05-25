@@ -8,6 +8,7 @@ import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.ValidatorUtils.validateIfNotNull;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 
@@ -70,7 +71,7 @@ class PersonalDataGenerator {
     public static String generatePhoneNumberForPattern(String pattern) {
         validatePatternForPhone(pattern);
 
-        StringBuilder result = new StringBuilder("");
+        StringBuilder result = new StringBuilder(EMPTY_STRING);
         final char[] chars = pattern.toCharArray();
         for (char character : chars) {
             if (character == 'X') {

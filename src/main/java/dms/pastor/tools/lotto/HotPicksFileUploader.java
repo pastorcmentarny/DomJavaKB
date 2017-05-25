@@ -25,7 +25,8 @@ import static java.lang.String.format;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 class HotPicksFileUploader {
-    private static final Logger LOG = LoggerFactory.getLogger(HotPicksFileUploader.class);
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(HotPicksFileUploader.class);
     private static final String DASH = "-";
     private final List<HotPickDraw> hotPickDrawList;
 
@@ -56,7 +57,7 @@ class HotPicksFileUploader {
         final int rowLength = 10;
         if (row.length != rowLength) {
             //TODO how to test logs ?
-            LOG.warn(format("Row is invalid due wrong number of elements. Should be %d but was %d", rowLength, row.length));
+            LOGGER.warn(format("Row is invalid due wrong number of elements. Should be %d but was %d", rowLength, row.length));
             return Optional.empty();
         }
         LocalDate drawDate;
@@ -82,7 +83,7 @@ class HotPicksFileUploader {
             machine = row[8];
             drawNumber = Integer.parseInt(row[9]);
         } catch (IllegalArgumentException iae) {
-            LOG.warn("validation failed due " + iae.getMessage());
+            LOGGER.warn("validation failed due " + iae.getMessage());
             return Optional.empty();
         }
 
@@ -104,7 +105,7 @@ class HotPicksFileUploader {
         try {
             LocalDate.of(Integer.parseInt(date[2]), DateUtils.getMonthNumberFromShortedName(date[1]), Integer.parseInt(date[0]));
         } catch (Exception e) {
-            LOG.warn(format("validation failed due %s", e.getMessage()), e);
+            LOGGER.warn(format("validation failed due %s", e.getMessage()), e);
             throw new IllegalArgumentException(e);
         }
     }
@@ -114,7 +115,7 @@ class HotPicksFileUploader {
         try {
             ballNumber = Integer.parseInt(ball);
         } catch (Exception e) {
-            throw new IllegalArgumentException("Data is corrupted .Ball is not a valid number  " + ball);
+            throw new IllegalArgumentException("Data is corrupted .Ball is not a valid number  " + ball, e);
         }
         return ballNumber;
     }

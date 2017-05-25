@@ -1,5 +1,7 @@
 package dms.pastor.tasks.analyser;
 
+import dms.pastor.utils.ValidatorUtils;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -105,7 +107,8 @@ class ProjectAnalyser {
     }
 
     private void validate(String path) {
-        if (path == null || path.isEmpty() || !new File(path).exists() || !new File(path).isDirectory()) {
+        ValidatorUtils.validateIfNotEmpty(path, "Path");
+        if (!new File(path).exists() || !new File(path).isDirectory()) {
             throw new IllegalArgumentException("Path to directory doesn't exist or is invalid");
         }
     }

@@ -13,7 +13,8 @@ import org.slf4j.LoggerFactory;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 class TimeToReadApplicationInputValidator {
-    private static final Logger LOGGER = LoggerFactory.getLogger(TimeToReadApplication.class);
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(TimeToReadApplicationInputValidator.class);
     private static final String ERROR_MESSAGE = "You can run this application without arguments,so it will run in demo mode or you need specified 2 arguments:\n\tfirst one is a text,\n\tsecond is a speed of reading";
 
     static void validateInputArgs(String[] args) {

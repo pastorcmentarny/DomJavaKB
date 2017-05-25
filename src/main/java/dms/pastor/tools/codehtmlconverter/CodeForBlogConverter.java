@@ -18,11 +18,12 @@ import java.util.stream.Stream;
 class CodeForBlogConverter {
     private static final String BR_TAG = "<br/>";
     private static final int NUMBER_OF_SPACES = 4;
+    private static final String EMPTY_STRING = "";
 
     private StringBuilder codeGenerator;
 
     String convert(List<String> source) {
-        codeGenerator = new StringBuilder("");
+        codeGenerator = new StringBuilder(EMPTY_STRING);
         insertTagsToStartDisplayCode();
         generateCodeAsHtml(source);
         insertTagsToEndDisplayCode();
@@ -32,7 +33,7 @@ class CodeForBlogConverter {
     String convertEach4SpacesToNsbpOnBeginningOfTheLine(String line) {
         int replaceCounter = count4SpacesInLineToReplace(line);
 
-        StringBuilder newLine = new StringBuilder("");
+        StringBuilder newLine = new StringBuilder(EMPTY_STRING);
         String nsbp = StringUtils.getNbsp(NUMBER_OF_SPACES);
         for (int i = 0; i < replaceCounter; i++) {
             newLine.append(nsbp);
@@ -77,7 +78,7 @@ class CodeForBlogConverter {
         int replaceCounter = 0;
         for (int i = 0; i < line.length(); i += NUMBER_OF_SPACES) {
             if (i + NUMBER_OF_SPACES <= line.length()) {
-                if (charArray[i] == ' ' && charArray[i + 1] == ' ' && charArray[i + 2] == ' ' && charArray[i + 3] == ' ') {
+                if (contains4spaces(charArray, i)) {
                     replaceCounter++;
                 } else {
                     break;
@@ -85,6 +86,15 @@ class CodeForBlogConverter {
             }
         }
         return replaceCounter;
+    }
+
+    private static boolean contains4spaces(char[] charArray, int i) {
+        for (int position = i; position <= i + 3; position++) {
+            if (charArray[position] != ' ') {
+                return false;
+            }
+        }
+        return true;
     }
 
 }

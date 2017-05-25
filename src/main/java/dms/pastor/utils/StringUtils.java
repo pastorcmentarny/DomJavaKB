@@ -2,13 +2,25 @@ package dms.pastor.utils;
 
 import dms.pastor.utils.randoms.RandomDataGenerator;
 
-import java.lang.Character;
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static dms.pastor.domain.Message.INPUT_CANNOT_BE_EMPTY;
-import static java.lang.Character.*;
+import static dms.pastor.utils.ValidatorUtils.validateIfListIsNotEmpty;
+import static dms.pastor.utils.ValidatorUtils.validateIfNotEmpty;
+import static java.lang.Character.isLowerCase;
+import static java.lang.Character.isUpperCase;
+import static java.lang.Character.isWhitespace;
+import static java.lang.Character.toLowerCase;
+import static java.lang.Character.toUpperCase;
 import static java.util.stream.Collectors.toList;
 
 /**
@@ -96,8 +108,6 @@ public final class StringUtils {
         return true;
     }
 
-
-    //A palindrome is a word, phrase, number, or other sequence of symbols or elements that reads the same forward or reversed,
     static boolean isPalindromeString(String word) {
         return word.equalsIgnoreCase(reverseString(word));
     }
@@ -125,7 +135,9 @@ public final class StringUtils {
         return sb.toString();
     }
 
-    //     * A panagram is a holoalphabetic sentence for a given ALPHABET is a sentence using every letter of the ALPHABET at least once.
+    /*
+        A panagram is a holoalphabetic sentence for a given ALPHABET is a sentence using every letter of the ALPHABET at least once.
+     */
     static boolean isPangrams(String sentence) {
         Map<Character, Integer> alphabet = StringUtils.getAlphabetAsMap();
         char[] array = sentence.toLowerCase().toCharArray();
@@ -159,7 +171,7 @@ public final class StringUtils {
     }
 
     static String[] toStringArray(List<String> list) {
-        validateInput(list);
+        ValidatorUtils.validateIfNotNull(list);
         String[] stringArray = new String[list.size()];
         int counter = 0;
         for (String string : list) {
@@ -173,12 +185,6 @@ public final class StringUtils {
         final StringBuilder stringBuilder = new StringBuilder(EMPTY_STRING);
         stringList.forEach(element -> stringBuilder.append(element).append(COMMA));
         return stringBuilder.toString().substring(0, stringBuilder.length() - 1);
-    }
-
-    private static void validateInput(List<String> arrayList) {
-        if (arrayList == null) {
-            throw new NullPointerException("list is null");
-        }
     }
 
     //TODO move TextUtils
@@ -273,11 +279,9 @@ public final class StringUtils {
         return true;
     }
 
-
     static boolean isTextContainsAllKeywordsExists(List<String> keywords, String text) {
-        if (keywords == null || keywords.isEmpty() || text == null || text.isEmpty()) {
-            throw new IllegalArgumentException("Keywords or text cannot be null or empty");
-        }
+        validateIfListIsNotEmpty(keywords, "Keywords");
+        validateIfNotEmpty(text, "text");
         return keywords.stream().anyMatch(text::contains);
     }
 
@@ -300,7 +304,6 @@ public final class StringUtils {
         }
         return stringBuilder.toString();
     }
-
 
     public static boolean isAllStringsAreNotEmpty(String... values) {
         for (String value : values) {

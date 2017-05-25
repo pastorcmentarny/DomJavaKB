@@ -20,7 +20,8 @@ import static org.hamcrest.CoreMatchers.is;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public class IntegerAdderTest {
-    private final static String PATH = BASE_PATH + "adder" + separator;
+
+    private static final String PATH = BASE_PATH + "adder" + separator;
     private static final String DEMO_FILE_1 = PATH + "test1.txt";
     private static final String DEMO_FILE_2 = PATH + "test2.txt";
     private static final String DEMO_FILE_3 = PATH + "test3.txt";

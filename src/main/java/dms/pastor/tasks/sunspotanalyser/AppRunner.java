@@ -9,7 +9,7 @@ import java.io.File;
 import static dms.pastor.utils.FileTools.isFileValid;
 
 /**
- * author: Pastor cmentarny
+ * author: Dominik Symonowicz
  * WWW: http://pastor.ovh.org
  * Github: https://github.com/pastorcmentarny
  * Google Play:

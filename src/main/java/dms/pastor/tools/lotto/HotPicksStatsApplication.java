@@ -18,12 +18,17 @@ import static java.lang.String.format;
  */
 public class HotPicksStatsApplication {
     private static final Logger LOGGER = LoggerFactory.getLogger(HotPicksStatsApplication.class);
+    private static final String NO_PATH_ERROR_MESSAGE = "Path not provided. Please add path to file as argument when you run this program.";
 
     public static void main(String[] args) {
         LOGGER.info("Running application: " + HotPicksStatsApplication.class.getName());
+        if (args == null || args.length != 1) {
+            LOGGER.error(NO_PATH_ERROR_MESSAGE);
+            throw new IllegalArgumentException(NO_PATH_ERROR_MESSAGE);
+        }
 
         try {
-            new HotPicksStatsGenerator().generateNumbersToPlay();
+            new HotPicksStatsGenerator(args[0]).generateNumbersToPlay();
         } catch (IOException e) {
             LOGGER.error(format("Application crashes because: %s", e.getMessage()),e);
         }

@@ -25,7 +25,7 @@ public class BerlinClockTest {
     }
 
     @Test
-    public void berlinClockTask() throws IllegalArgumentException {
+    public void berlinClockTask() throws Exception {
         System.out.println("Running a Berlin clock... ");
         BerlinClock clock = new BerlinClock();
         Date date = new Date();   // given date

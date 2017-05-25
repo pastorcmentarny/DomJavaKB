@@ -21,7 +21,12 @@ import static dms.pastor.utils.CollectionsUtils.convertListToIntArray;
 class HotPicksStatsGenerator {
 
     private static final int[] HOT_PICK_NUMBER_RANGE = IntStream.rangeClosed(1, 59).toArray();
-    private static final String FILE_PATH = "C:\\lotto-hotpicks-draw-history.csv";
+    private static final int NUMBER_OF_PREVIOUS_GAMES = 8;
+    private final String filePath;
+
+    HotPicksStatsGenerator(String filePath) {
+        this.filePath = filePath;
+    }
 
     void generateNumbersToPlay() throws IOException {
         final List<HotPickDraw> hotPickDrawList = loadData();
@@ -46,7 +51,7 @@ class HotPicksStatsGenerator {
         remainingCouples = deleteDiscardedCouples(remainingCouples, couplesWithMatchedBalls);
 
         // remove all couples that contains least 2 played numbers
-        couplesWithMatchedBalls = findAllCouplesThatContainsThisBalls(remainingCouples, analyser.removeNumbersFromGames(8));
+        couplesWithMatchedBalls = findAllCouplesThatContainsThisBalls(remainingCouples, analyser.removeNumbersFromGames(NUMBER_OF_PREVIOUS_GAMES));
         remainingCouples = deleteDiscardedCouples(remainingCouples, couplesWithMatchedBalls);
 
         //get final numbers to use to play
@@ -95,7 +100,7 @@ class HotPicksStatsGenerator {
 
     private List<HotPickDraw> loadData() throws IOException {
         HotPicksFileUploader hotPicksFileUploader = new HotPicksFileUploader();
-        return hotPicksFileUploader.loadHotPicksDrawHistoryFile(FILE_PATH);
+        return hotPicksFileUploader.loadHotPicksDrawHistoryFile(filePath);
     }
 
     private static void addOrUpdateValue(Map<Integer, Integer> topNumbers, Integer key) {

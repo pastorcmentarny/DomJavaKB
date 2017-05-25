@@ -8,10 +8,25 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
-import static dms.pastor.utils.ValidatorUtils.*;
-import static dms.pastor.utils.randoms.RandomDataGenerator.*;
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+import static dms.pastor.utils.ValidatorUtils.isAnyOfPropertiesContainsNull;
+import static dms.pastor.utils.ValidatorUtils.isObjectCanBeSerialized;
+import static dms.pastor.utils.ValidatorUtils.validateIfListIsNotEmpty;
+import static dms.pastor.utils.ValidatorUtils.validateIfNotEmpty;
+import static dms.pastor.utils.ValidatorUtils.validateIfNotNull;
+import static dms.pastor.utils.ValidatorUtils.validateMinValueIsSmallerThanMaxValue;
+import static dms.pastor.utils.ValidatorUtils.validateNegativeBigDecimal;
+import static dms.pastor.utils.ValidatorUtils.validateNotNullPropertiesWithCustomMessage;
+import static dms.pastor.utils.ValidatorUtils.validateNotNullPropertiesWithCustomMessagesPerProperty;
+import static dms.pastor.utils.ValidatorUtils.validateTwoIntsNotEqual;
+import static dms.pastor.utils.randoms.RandomDataGenerator.MAX_SMALL_VALUE;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
+import static dms.pastor.utils.randoms.RandomDataGenerator.randomInteger;
+import static dms.pastor.utils.randoms.RandomDataGenerator.randomPositiveInteger;
 import static java.math.BigDecimal.ZERO;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -24,6 +39,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class ValidatorUtilsTest {
 
+    private static final String UNUSED_OBJECT_NAME = null;
     @Rule
     public ExpectedException expectedException = ExpectedException.none();
 
@@ -355,6 +371,82 @@ public class ValidatorUtilsTest {
 
         // when
         validateIfNotEmpty(text);
+
+        // then nothing happen, which means value are valid
+    }
+
+    @Test
+    public void validateIfNotEmptyShouldThrowIllegalArgumentExceptionIfNullWithCustomObjectName() throws Exception {
+        // given
+        final String objectName = generateString(MAX_SMALL_VALUE);
+
+        // expect
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage(objectName + " cannot be null or empty.");
+
+        // when
+        validateIfNotEmpty(null, objectName);
+    }
+
+    @Test
+    public void validateIfNotEmptyShouldThrowIllegalArgumentExceptionIfEmptyWithCustomObjectName() throws Exception {
+        // given
+        final String objectName = generateString(MAX_SMALL_VALUE);
+
+        // expect
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage(objectName + " cannot be null or empty.");
+        // when
+        validateIfNotEmpty(EMPTY_STRING, objectName);
+    }
+
+    @Test
+    public void validateIfNotEmptyShouldValidateForNonEmptyInputWithCustomObjectName() throws Exception {
+        // given
+        final String text = generateString();
+
+        // when
+        validateIfNotEmpty(text, UNUSED_OBJECT_NAME);
+
+        // then nothing happen, which means value are valid
+    }
+
+    @Test
+    public void validateIfListIsNotEmptyShouldThrowIllegalArgumentExceptionIfNullWithCustomObjectName() throws Exception {
+        // given
+        final String objectName = generateString(MAX_SMALL_VALUE);
+
+        // expect
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage(objectName + " cannot be null or empty.");
+
+        // when
+        validateIfListIsNotEmpty(null, objectName);
+    }
+
+    @Test
+    public void validateIfListIsNotEmptyShouldThrowIllegalArgumentExceptionIfEmptyWithCustomObjectName() throws Exception {
+        // given
+        final String objectName = generateString(MAX_SMALL_VALUE);
+        List<String> list = new ArrayList<>();
+        list.clear();
+
+        // expect
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage(objectName + " cannot be null or empty.");
+
+        // when
+        validateIfListIsNotEmpty(list, objectName);
+    }
+
+    @Test
+    public void validateIfListIsNotEmptyShouldValidateForNonEmptyInputWithCustomObjectName() throws Exception {
+        // given
+        List<String> list = new ArrayList<>();
+        list.add(generateString(MAX_SMALL_VALUE));
+
+        // when
+        validateIfListIsNotEmpty(list, UNUSED_OBJECT_NAME);
 
         // then nothing happen, which means value are valid
     }

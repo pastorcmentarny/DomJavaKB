@@ -63,7 +63,7 @@ public class Utils {
                 try {
                     Person tmp = addPerson(line);
 
-                    if (tmp != null && isNotExists(tmp, people)) {
+                    if (isNotExists(tmp, people)) {
                         people.add(tmp);
                     }
 

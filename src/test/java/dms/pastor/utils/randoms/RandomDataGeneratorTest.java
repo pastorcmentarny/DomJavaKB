@@ -27,7 +27,8 @@ import static org.hamcrest.CoreMatchers.is;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public class RandomDataGeneratorTest {
-    private static final Logger LOGGER = LoggerFactory.getLogger(RandomDataGenerator.class);
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(RandomDataGeneratorTest.class);
 
     private static final int RANDOM_STRING_LENGTH = 1024;
     private static final String SPACE = " ";
