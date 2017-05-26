@@ -17,7 +17,6 @@ import org.junit.runners.model.Statement;
  * Inspired by Frank Appel(https://gist.github.com/fappel)
  */
 public class RepeaterRule implements TestRule {
-    //return instance of RepeaterRule
     public static RepeaterRule use() {
         return new RepeaterRule();
     }

@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Random;
 
+import static dms.pastor.tools.lotto.LottoConstants.HOT_PICK_BALL_MAXIMUM_VALUE;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.fail;
@@ -433,6 +434,6 @@ java.lang.IllegalArgumentException: Path is invalid or is not a file
     }
 
     private int getRandomBallNumber() {
-        return random.nextInt(59) + 1;
+        return random.nextInt(HOT_PICK_BALL_MAXIMUM_VALUE) + 1;
     }
 }

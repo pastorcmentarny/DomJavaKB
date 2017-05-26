@@ -15,7 +15,7 @@ public class Grid {
     private Integer grid[][];
     private int gridSize;
 
-    public Grid(String[] data) {
+    Grid(String[] data) {
         populateGrid(data);
     }
 
@@ -31,8 +31,8 @@ public class Grid {
         }
     }
 
-    //used for debug mode
-    public void displayGrid() {
+    //used for debug mode // TODO improve it
+    void displayGrid() {
         for (int row = 0; row < gridSize; row++) {
             for (int column = 0; column < gridSize; column++) {
                 System.out.print(" " + grid[row][column]);
@@ -54,6 +54,10 @@ public class Grid {
     }
 
     public boolean isInRange(int x, int y) {
-        return !(x < 0 || x >= gridSize) && !(y < 0 || y >= gridSize);
+        return isInRangeFor(x) && isInRangeFor(y);
+    }
+
+    private boolean isInRangeFor(int coordinate) {
+        return !(coordinate < 0 || coordinate >= gridSize);
     }
 }

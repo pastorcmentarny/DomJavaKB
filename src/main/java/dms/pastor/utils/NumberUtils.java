@@ -17,6 +17,12 @@ import static dms.pastor.utils.ValidatorUtils.validateIfPositiveNumber;
  */
 public final class NumberUtils {
 
+    private static final int FACTORIAL_MAXIMUM_VALUE = 19;
+    private static final int FACTORIAL_NEGATIVE_MAXIMUM_VALUE = -FACTORIAL_MAXIMUM_VALUE;
+    private static final String BINARY_DIGIT_ONE = "1";
+    private static final String BINARY_DIGIT_ZERO = "0";
+    private static final String ERROR_MESSAGE_MUST_BE_INTEGER_ARRAY = "Invalid input. It must be integer array";
+
     private NumberUtils(){}
 
     /**
@@ -73,7 +79,7 @@ public final class NumberUtils {
     }
 
     static int factorial(int a) {
-        if (a > 19 || a < -19) {
+        if (a > FACTORIAL_MAXIMUM_VALUE || a < FACTORIAL_NEGATIVE_MAXIMUM_VALUE) {
             throw new IllegalArgumentException("Number too big/small for integer");
         }
         int fact = 1;
@@ -85,7 +91,7 @@ public final class NumberUtils {
 
     public static int getSmallestInt(int[] values) {
         if (values == null || values.length == 0) {
-            throw new IllegalArgumentException("Invalid input. It must be integer array");
+            throw new IllegalArgumentException(ERROR_MESSAGE_MUST_BE_INTEGER_ARRAY);
         }
         int smallestInt = Integer.MAX_VALUE;
         for (int i : values) {
@@ -98,7 +104,7 @@ public final class NumberUtils {
 
     public static int getLargestInt(int[] values) {
         if (values == null || values.length == 0) {
-            throw new IllegalArgumentException("Invalid input. It must be integer array");
+            throw new IllegalArgumentException(ERROR_MESSAGE_MUST_BE_INTEGER_ARRAY);
         }
         int largestInt = Integer.MIN_VALUE;
         for (int i : values) {
@@ -113,18 +119,16 @@ public final class NumberUtils {
         return n <= 1 ? n : getFibonacciNumberFor(n - 1) + getFibonacciNumberFor(n - 2);
     }
 
-    public static int reverseANumber(int question) {
-        int answer = 0, remainder;
+    public static int reverseANumber(int number) {
+        int reversedNumber = 0, remainder;
         do {
-            remainder = question % 10;
-            answer = answer * 10 + remainder;
-            question = question / 10;
+            remainder = number % 10;
+            reversedNumber = reversedNumber * 10 + remainder;
+            number = number / 10;
 
-        } while (question > 0);
-        return answer;
+        } while (number > 0);
+        return reversedNumber;
     }
-
-    //12345 -> 54321;
 
     public static boolean isPrime(int number) {
         if (number <= 1) { //it includes all negatives because  By the usual definition of prime for integers, negative integers can not be prime.
@@ -207,16 +211,16 @@ public final class NumberUtils {
 
         eightBit = bitMaker.getEightBit();
         if (bitMaker.getLeftOver() == 1) {
-            eightBit += "1";
+            eightBit += BINARY_DIGIT_ONE;
         } else {
-            eightBit += "0";
+            eightBit += BINARY_DIGIT_ZERO;
         }
 
         return eightBit;
 
     }
 
-    public static boolean isBigDecimalAValidInteger(BigDecimal bigDecimal) {
+    static boolean isBigDecimalAValidInteger(BigDecimal bigDecimal) {
         return bigDecimal != null && bigDecimal.scale() == 0;
     }
 
@@ -234,25 +238,25 @@ public final class NumberUtils {
         private String eightBit;
         private int leftOver;
 
-        public BitMaker(String eightBit, int leftOver) {
+        BitMaker(String eightBit, int leftOver) {
             this.eightBit = eightBit;
             this.leftOver = leftOver;
         }
 
-        public String getEightBit() {
+        String getEightBit() {
             return eightBit;
         }
 
-        public int getLeftOver() {
+        int getLeftOver() {
             return leftOver;
         }
 
-        public BitMaker invoke(int divider) {
+        BitMaker invoke(int divider) {
             if (leftOver >= divider) {
-                eightBit += "1";
+                eightBit += BINARY_DIGIT_ONE;
                 leftOver -= divider;
             } else {
-                eightBit += "0";
+                eightBit += BINARY_DIGIT_ZERO;
             }
             return this;
         }

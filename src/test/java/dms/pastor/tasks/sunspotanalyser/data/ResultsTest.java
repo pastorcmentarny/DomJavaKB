@@ -109,7 +109,7 @@ public class ResultsTest {
                 "\n}";
 
         // when
-        final Result result = new Result(false);
+        result = new Result(false);
         result.setSuccess();
         result.setMessage(null);
 

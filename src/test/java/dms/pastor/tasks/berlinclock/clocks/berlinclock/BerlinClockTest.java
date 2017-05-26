@@ -2,7 +2,9 @@ package dms.pastor.tasks.berlinclock.clocks.berlinclock;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -19,6 +21,9 @@ import static org.hamcrest.CoreMatchers.is;
 public class BerlinClockTest {
     private ClockInterface clock;
 
+    @Rule
+    public ExpectedException exception = ExpectedException.none();
+
     @Before
     public void setUp() throws Exception {
         clock = new BerlinClock();
@@ -27,19 +32,18 @@ public class BerlinClockTest {
     @Test
     public void berlinClockTask() throws Exception {
         System.out.println("Running a Berlin clock... ");
-        BerlinClock clock = new BerlinClock();
+        BerlinClock berlinClock = new BerlinClock();
         Date date = new Date();   // given date
         Calendar calendar = Calendar.getInstance(); // creates a new calendar instance
         calendar.setTime(date);   // assigns calendar to given date
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
         int minutes = calendar.get(Calendar.MINUTE);
         int seconds = calendar.get(Calendar.SECOND);
-        System.out.println(clock.showTime(clock.getTimeAsString(hour, minutes, seconds)));
+        System.out.println(berlinClock.showTime(berlinClock.getTimeAsString(hour, minutes, seconds)));
 
         System.out.println("End of program.\nGoodbye ! ");
 
     }
-
 
     @Test
     public void testShowTime() throws Exception {
@@ -96,4 +100,63 @@ public class BerlinClockTest {
         clock.validateTime("");
     }
 
+    @Test
+    public void convertToHourShouldThrowIllegalArgumentExceptionIfHourHasInvalidHourSeparatorFormat() {
+        // expect
+        exception.expect(IllegalArgumentException.class);
+
+        // given
+        final String timeWithInvalidHour = "AA--00:11";
+
+        // when
+        clock.validateTime(timeWithInvalidHour);
+    }
+
+    @Test
+    public void convertToHourShouldThrowIllegalArgumentExceptionIfHourIsNotInRangeFormat() {
+        // expect
+        exception.expect(IllegalArgumentException.class);
+
+        // given
+        final String timeWithInvalidHour = "99::00:11";
+
+        // when
+        clock.validateTime(timeWithInvalidHour);
+    }
+
+    @Test
+    public void convertToHourShouldThrowIllegalArgumentExceptionIfMinuteIsNotInRangeFormat() {
+        // expect
+        exception.expect(IllegalArgumentException.class);
+
+        // given
+        final String timeWithInvalidHour = "10::99:11";
+
+        // when
+        clock.validateTime(timeWithInvalidHour);
+    }
+
+    @Test
+    public void convertToHourShouldThrowIllegalArgumentExceptionIfSecondIsNotInRangeFormat() {
+        // expect
+        exception.expect(IllegalArgumentException.class);
+
+        // given
+        final String timeWithInvalidHour = "11::00:99";
+
+        // when
+        clock.validateTime(timeWithInvalidHour);
+    }
+
+    @Test
+    public void convertToHourShouldThrowIllegalArgumentExceptionIfHourHasInvalidMinuteFormat() {
+        // expect
+        exception.expect(IllegalArgumentException.class);
+
+        // given
+        final String timeWithInvalidHour = "AA::00::11";
+
+        // when
+        clock.validateTime(timeWithInvalidHour);
+    }
 }

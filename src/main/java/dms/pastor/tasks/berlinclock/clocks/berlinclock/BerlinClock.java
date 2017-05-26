@@ -3,7 +3,8 @@ package dms.pastor.tasks.berlinclock.clocks.berlinclock;
 import dms.pastor.tasks.berlinclock.data.Time;
 import dms.pastor.utils.DateUtils;
 
-import static java.lang.String.valueOf;
+import static dms.pastor.utils.ValidatorUtils.validateIfNotEmpty;
+import static java.lang.Integer.parseInt;
 
 /**
  * Author Dominik Symonowicz
@@ -15,16 +16,18 @@ import static java.lang.String.valueOf;
  */
 public class BerlinClock implements ClockInterface {
 
+    private static final String INVALID_INPUT = "Input is invalid. Please check your input, correct it and try again";
     private static final String HOUR_SEPARATOR = "::";
     private static final char MINUTES_SEPARATOR = ':';
 
     @Override
     public String showTime(String givenTime) {
         StringBuilder timeBuilder = new StringBuilder("");
-        Time time = validateTime(givenTime);
+        Time time = getTimeFromString(givenTime);
         RowsGenerator rowsGenerator = new RowsGenerator(time);
-        timeBuilder.append(time.toString()).append('\n');
-        timeBuilder.append(rowsGenerator.generateRows());
+        timeBuilder.append(time.toString())
+                .append('\n')
+                .append(rowsGenerator.generateRows());
         return timeBuilder.toString();
     }
 
@@ -39,40 +42,33 @@ public class BerlinClock implements ClockInterface {
      * will contains hh,mm,ss
      */
     public Time validateTime(String time) {
-        String invalidInput = "Input is invalid. Please check your input, correct it and try again";
-        if (time == null || time.isEmpty()) {
-            throw new IllegalArgumentException(invalidInput);
-        }
+        validateIfNotEmpty(time);
+
         String hh, mm, ss;
-        int h, m, s;
-        String[] tmpHours;
-        String[] tmpMinutesAndSeconds;
-        try {
-            tmpHours = time.split(HOUR_SEPARATOR);
-            tmpMinutesAndSeconds = tmpHours[1].split(valueOf(MINUTES_SEPARATOR));
-        } catch (ArrayIndexOutOfBoundsException e) {
-            throw new IllegalArgumentException(invalidInput, e);
-        }
+
+        String[] tmpHours = time.split(HOUR_SEPARATOR);
+        String[] tmpMinutesAndSeconds = convertToMinutesAndSecond(tmpHours);
 
         if (tmpHours.length != 2 && tmpMinutesAndSeconds.length != 2) {
-            throw new IllegalArgumentException(invalidInput);
+            throw new IllegalArgumentException(INVALID_INPUT);
         } else {
             for (char character : time.toCharArray()) {
                 if (!(Character.isDigit(character) || character == MINUTES_SEPARATOR)) {
-                    throw new IllegalArgumentException(invalidInput);
+                    throw new IllegalArgumentException(INVALID_INPUT);
                 }
             }
         }
         hh = tmpHours[0];
         mm = tmpMinutesAndSeconds[0];
         ss = tmpMinutesAndSeconds[1];
-        h = Integer.parseInt(hh);
-        m = Integer.parseInt(mm);
-        s = Integer.parseInt(ss);
+        validateIfTimeIsInRange(parseInt(hh), parseInt(mm), parseInt(ss));
+        return new Time(parseInt(hh), parseInt(mm), parseInt(ss));
+    }
+
+    private void validateIfTimeIsInRange(int h, int m, int s) {
         if (!(DateUtils.isInHoursRange(h) && DateUtils.isInMinutesRange(m) && DateUtils.isInSecondsRange(s))) {
-            throw new IllegalArgumentException(invalidInput);
+            throw new IllegalArgumentException(INVALID_INPUT);
         }
-        return new Time(h, m, s);
     }
 
     public String getTimeAsString(int hour, int minutes, int seconds) {
@@ -81,7 +77,22 @@ public class BerlinClock implements ClockInterface {
         return time;
     }
 
+    private String[] convertToMinutesAndSecond(String[] tmpHours) {
+        String[] tmpMinutesAndSeconds;
+        try {
+            tmpMinutesAndSeconds = tmpHours[1].split(String.valueOf(MINUTES_SEPARATOR));
+
+        } catch (ArrayIndexOutOfBoundsException e) {
+            throw new IllegalArgumentException(INVALID_INPUT, e);
+        }
+        return tmpMinutesAndSeconds;
+    }
+
+    private Time getTimeFromString(String time) {
+        return validateTime(time);
+    }
+
     private String asDoubleDigit(int value) {
-        return value > 10 ? valueOf(value) : "0" + value;
+        return value > 10 ? String.valueOf(value) : "0" + value;
     }
 }

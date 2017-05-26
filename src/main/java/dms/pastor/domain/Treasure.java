@@ -2,6 +2,8 @@ package dms.pastor.domain;
 
 import dms.pastor.utils.randoms.RandomDataGenerator;
 
+import static dms.pastor.utils.randoms.RandomDataGenerator.MAX_SMALL_VALUE;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateRandomParagraph;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 
 /**
@@ -24,7 +26,7 @@ public class Treasure {
     }
 
     public static Treasure getRandomTreasure() {
-        return new Treasure(generateString(8), generateString(24), RandomDataGenerator.randomPositiveInteger());
+        return new Treasure(generateString(MAX_SMALL_VALUE), generateRandomParagraph(), RandomDataGenerator.randomPositiveInteger());
     }
 
     public String getName() {

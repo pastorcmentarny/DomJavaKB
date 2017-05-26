@@ -45,6 +45,7 @@ public class BallCountTest {
     public void isDummyBallShouldReturnFalseForNonDummyBall() throws Exception {
         // given
         final BallCount ballCount = ballCountBuilder().build();
+
         // when
         final boolean notDummy = isDummyBall(ballCount);
 

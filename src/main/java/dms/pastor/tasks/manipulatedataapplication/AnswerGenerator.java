@@ -23,14 +23,13 @@ class AnswerGenerator {
         displayPeople();
     }
 
-    //TODO improve it
-    Person getPerson(String personName) throws Exception {
+    Person getPerson(String personName) {
         for (Person person : people) {
             if (person.getFullName().equalsIgnoreCase(personName)) {
                 return person;
             }
         }
-        throw new Exception("dms.pastor.domain.Person not found!");
+        throw new PersonNotFoundException(personName);
     }
 
     private void displayPeople() {

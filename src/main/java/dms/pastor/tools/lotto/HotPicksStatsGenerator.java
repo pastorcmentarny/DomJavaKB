@@ -8,6 +8,8 @@ import java.util.stream.IntStream;
 
 import static dms.pastor.tools.lotto.BallCountOperations.*;
 import static dms.pastor.tools.lotto.CoupleOperations.deleteDiscardedCouples;
+import static dms.pastor.tools.lotto.LottoConstants.HOT_PICK_BALL_MAXIMUM_VALUE;
+import static dms.pastor.tools.lotto.LottoConstants.HOT_PICK_BALL_MINIMUM_VALUE;
 import static dms.pastor.utils.CollectionsUtils.convertListToIntArray;
 
 /**
@@ -20,7 +22,7 @@ import static dms.pastor.utils.CollectionsUtils.convertListToIntArray;
  */
 class HotPicksStatsGenerator {
 
-    private static final int[] HOT_PICK_NUMBER_RANGE = IntStream.rangeClosed(1, 59).toArray();
+    private static final int[] HOT_PICK_NUMBER_RANGE = IntStream.rangeClosed(HOT_PICK_BALL_MINIMUM_VALUE, HOT_PICK_BALL_MAXIMUM_VALUE).toArray();
     private static final int NUMBER_OF_PREVIOUS_GAMES = 8;
     private final String filePath;
 

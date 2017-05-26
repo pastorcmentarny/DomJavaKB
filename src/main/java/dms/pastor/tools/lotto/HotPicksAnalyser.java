@@ -7,6 +7,8 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import static dms.pastor.tools.lotto.LottoConstants.HOT_PICK_BALL_MAXIMUM_VALUE;
+import static dms.pastor.tools.lotto.LottoConstants.HOT_PICK_BALL_MINIMUM_VALUE;
 import static dms.pastor.utils.CollectionsUtils.convertSetToIntArray;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.StringUtils.NEW_LINE;
@@ -20,12 +22,11 @@ import static dms.pastor.utils.StringUtils.NEW_LINE;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 class HotPicksAnalyser {
-    private static final int MINIMUM_BALL_VALUE = 1;
-    private static final int MAXIMUM_BALL_VALUE = 59;
+
     private static final String SEPARATOR = ",";
     private final List<HotPickDraw> hotPickDrawList;
 
-    private final int[] ballDrawnCounter = new int[MAXIMUM_BALL_VALUE + 1];
+    private final int[] ballDrawnCounter = new int[HOT_PICK_BALL_MAXIMUM_VALUE + 1];
 
     HotPicksAnalyser(List<HotPickDraw> hotPickDrawList) {
         this.hotPickDrawList = hotPickDrawList;
@@ -50,7 +51,7 @@ class HotPicksAnalyser {
 
     private String displayBallDrawnCounterAsString() {
         StringBuilder counter = new StringBuilder(EMPTY_STRING);
-        for (int i = 1; i <= MAXIMUM_BALL_VALUE; i++) {
+        for (int i = 1; i <= HOT_PICK_BALL_MAXIMUM_VALUE; i++) {
             if (ballDrawnCounter[i] > 0) {
                 counter.append(i).append(": ").append(ballDrawnCounter[i]).append(NEW_LINE);
             }
@@ -121,8 +122,8 @@ class HotPicksAnalyser {
 
     private void validateBall(int... balls) {
         for (int ball : balls) {
-            if (ball > MAXIMUM_BALL_VALUE || ball < MINIMUM_BALL_VALUE) {
-                throw new IllegalArgumentException("Data is corrupted. Number " + ball + " is not in range (" + MINIMUM_BALL_VALUE + '=' + MAXIMUM_BALL_VALUE + ')');
+            if (ball > HOT_PICK_BALL_MAXIMUM_VALUE || ball < HOT_PICK_BALL_MINIMUM_VALUE) {
+                throw new IllegalArgumentException("Data is corrupted. Number " + ball + " is not in range (" + HOT_PICK_BALL_MINIMUM_VALUE + '=' + HOT_PICK_BALL_MAXIMUM_VALUE + ')');
             }
         }
     }
@@ -141,7 +142,7 @@ class HotPicksAnalyser {
     }
 
     private List<BallCount> generateBallCountList() {
-        return IntStream.rangeClosed(MINIMUM_BALL_VALUE, MAXIMUM_BALL_VALUE)
+        return IntStream.rangeClosed(HOT_PICK_BALL_MINIMUM_VALUE, HOT_PICK_BALL_MAXIMUM_VALUE)
                 .mapToObj(BallCount::createForNumber)
                 .collect(Collectors.toList());
     }

@@ -10,6 +10,7 @@ import static java.io.File.separator;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 class AnalyserLauncher {
+
     @SuppressWarnings("AccessOfSystemProperties")
     static final String THIS_PROJECT_PATH = System.getProperty("user.dir") +
             separator + "src" + separator;

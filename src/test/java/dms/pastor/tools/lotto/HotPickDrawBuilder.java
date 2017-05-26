@@ -3,6 +3,7 @@ package dms.pastor.tools.lotto;
 import java.time.LocalDate;
 import java.util.Random;
 
+import static dms.pastor.tools.lotto.LottoConstants.HOT_PICK_BALL_MAXIMUM_VALUE;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 
 /**
@@ -40,7 +41,7 @@ class HotPickDrawBuilder {
     }
 
     private int randomHotPickNumber() {
-        return random.nextInt(59) + 1;
+        return random.nextInt(HOT_PICK_BALL_MAXIMUM_VALUE) + 1;
     }
 
     HotPickDrawBuilder drawDate(LocalDate drawDate) {

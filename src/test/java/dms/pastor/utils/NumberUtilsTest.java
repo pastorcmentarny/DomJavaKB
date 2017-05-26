@@ -26,6 +26,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
+@SuppressWarnings("MagicNumber") // because there are specific numbers
 public class NumberUtilsTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(NumberUtilsTest.class);
 

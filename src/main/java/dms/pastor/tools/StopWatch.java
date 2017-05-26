@@ -18,7 +18,7 @@ public class StopWatch {
     private static final long MINUTE = 60L;
     private static final long HOUR = 60L * MINUTE;
     private static final long DAY = 24 * HOUR * MINUTE;
-    private static final int SECOND_IN_MILISECONDS = 1000;
+    private static final int SECOND_IN_MILLISECONDS = 1000;
 
     private long start;
     private long finish;
@@ -69,7 +69,7 @@ public class StopWatch {
         int seconds;
         StringBuilder result = new StringBuilder(EMPTY_STRING);
         long time = calcTotalTime();
-        time /= SECOND_IN_MILISECONDS;
+        time /= SECOND_IN_MILLISECONDS;
         days = (int) (time / DAY);
         time -= (days * DAY);
         hours = (int) (time / HOUR);
@@ -84,8 +84,8 @@ public class StopWatch {
     }
 
     public String getResultTimeAsString() {
-        int sec = (int) calcTotalTime() / SECOND_IN_MILISECONDS;
-        int dot = (int) calcTotalTime() % SECOND_IN_MILISECONDS;
+        int sec = (int) calcTotalTime() / SECOND_IN_MILLISECONDS;
+        int dot = (int) calcTotalTime() % SECOND_IN_MILLISECONDS;
         return String.valueOf(sec) + '.' + String.valueOf(dot) + "s.";
     }
 

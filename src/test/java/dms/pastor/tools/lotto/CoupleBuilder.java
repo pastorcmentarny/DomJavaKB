@@ -14,7 +14,7 @@ import static dms.pastor.utils.randoms.RandomDataGenerator.randomInteger;
  */
 public class CoupleBuilder {
     private int smallerNumber = randomInteger(MAX_SMALL_VALUE);
-    private int largerNumber = 11;
+    private int largerNumber = MAX_SMALL_VALUE + 1;
 
     private CoupleBuilder() {
     }

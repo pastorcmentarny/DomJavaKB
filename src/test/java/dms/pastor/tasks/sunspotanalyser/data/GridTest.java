@@ -3,6 +3,7 @@ package dms.pastor.tasks.sunspotanalyser.data;
 import org.junit.Assert;
 import org.junit.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 
 /**
@@ -51,34 +52,34 @@ public class GridTest {
         Assert.assertThat(result, is(expResult));
     }
 
-    /**
-     * Test of inRange method, of class Grid.
-     */
     @Test
-    public void testInRange() {
-        System.out.println("inRange");
+    public void isInRangeShouldReturnTrueIfPointIsInRange() {
+        // given
         String[] testData = {"3", "4", "2", "3", "2", "1", "4", "4", "2", "0", "3", "4", "1", "1", "2", "3", "4", "4"};
         Grid instance = new Grid(testData);
         int x = 1;
         int y = 1;
-        boolean expResult = true;
+
+        // when
         boolean result = instance.isInRange(x, y);
-        Assert.assertThat(result, is(expResult));
+
+        // then
+        assertThat(result).isTrue();
     }
 
-    /**
-     * Test of inRange method, of class Grid.
-     */
     @Test
-    public void testOutOfRange() {
-        System.out.println("inRange");
+    public void isInRangeShouldReturnFalseIfPointIsOutOfRange() {
+        // given
         String[] testData = {"3", "4", "2", "3", "2", "1", "4", "4", "2", "0", "3", "4", "1", "1", "2", "3", "4", "4"};
         Grid instance = new Grid(testData);
-        int x = 10;
-        int y = 10;
-        boolean expResult = false;
+        final int x = 10;
+        final int y = 10;
+
+        // when
         boolean result = instance.isInRange(x, y);
-        Assert.assertThat(result, is(expResult));
+
+        // then
+        assertThat(result).isFalse();
     }
 
 
