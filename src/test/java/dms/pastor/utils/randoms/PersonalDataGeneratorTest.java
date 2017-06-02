@@ -113,7 +113,9 @@ public class PersonalDataGeneratorTest {
         exception.expect(IllegalArgumentException.class);
 
         // when
-        generatePhoneNumberForPattern("3s100");
+        final String output = generatePhoneNumberForPattern("3s100");
+
+        System.out.println(output);
     }
 
     @Test

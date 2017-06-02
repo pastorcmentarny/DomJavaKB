@@ -87,6 +87,6 @@ public class DuplicateRemoverTest {
 
     }
 
-    //                System.err.println("WOOPS!\n\n\tI am not \"your brain waves\" reader(anyway how i can read from empty brain ?),so you need give me a bloody path to existing file or run program with path ,to do my job.\n\tFor example:\n\t java -jar \"C:\\dsSTUFF\\soft\\dev\\nanoBackup\\dist\\nanoBackup.jar\"  C:\\myAwesomeFile.txt");
+    //                System.err.println("WHOOPS!\n\n\tI am not \"your brain waves\" reader(anyway how i can read from empty brain ?),so you need give me a bloody path to existing file or run program with path ,to do my job.\n\tFor example:\n\t java -jar \"C:\\dsSTUFF\\soft\\dev\\nanoBackup\\dist\\nanoBackup.jar\"  C:\\myAwesomeFile.txt");
 
 }

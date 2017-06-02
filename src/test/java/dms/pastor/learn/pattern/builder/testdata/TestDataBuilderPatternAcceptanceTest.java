@@ -53,13 +53,13 @@ public class TestDataBuilderPatternAcceptanceTest {
 
         // when
         final Unit result = UnitBuilder.unitBuilder()
-                .setName(name)
-                .setArmor(armor)
-                .setHealthPoints(healthPoints)
-                .setId(id)
-                .setMinimumDamage(minimumDamage)
+                .name(name)
+                .armor(armor)
+                .healthPoints(healthPoints)
+                .id(id)
+                .minimumDamage(minimumDamage)
                 .setMaximumDamage(maximumDamage)
-                .setSkills(skills)
+                .skills(skills)
                 .build();
 
         // then

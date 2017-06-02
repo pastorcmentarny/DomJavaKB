@@ -85,7 +85,7 @@ class PersonalDataGenerator {
 
     private static void validatePatternForPhone(String pattern) {
         validateIfNotNull(pattern);
-        Pattern regex = Pattern.compile("[0-9()-+X]");
+        Pattern regex = Pattern.compile("[0-9()-+xX]+$");
         Matcher matcher = regex.matcher(pattern);
 
         //TODO improve it

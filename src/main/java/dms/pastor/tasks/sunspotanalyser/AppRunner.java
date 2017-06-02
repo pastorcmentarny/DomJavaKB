@@ -76,7 +76,7 @@ class AppRunner {
     }
 
     private static void error(String what) {
-        throw new IllegalArgumentException("\tWoops!\nSomething went terrible terrible wrong\n" + what);
+        throw new IllegalArgumentException("\tWhoops!\nSomething went terrible terrible wrong\n" + what);
     }
 
 }

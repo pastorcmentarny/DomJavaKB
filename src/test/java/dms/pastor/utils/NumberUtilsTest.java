@@ -406,8 +406,8 @@ public class NumberUtilsTest {
     //FIXME assertion part is done wrong. I think Uncle Bob will excommunicate me as developer for this test
     @Test //done as part of learning of basic of TDD in 2012
     public void getShortAs8BitRepresentationForRandomNumberBetween0And255() {
-        final int random = new Random().nextInt(255);
-        final String bitRepresentation = getShortAs8BitRepresentation(random);
+        final int randomValue = random.nextInt(255);
+        final String bitRepresentation = getShortAs8BitRepresentation(randomValue);
         assertThat(bitRepresentation != null ? bitRepresentation.length() : 0).isEqualTo(8);
         assertThat(bitRepresentation).isNotNull();
         assertThat(containsOnly(bitRepresentation, new char[]{'0', '1'})).isTrue();

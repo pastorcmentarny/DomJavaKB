@@ -35,27 +35,27 @@ public final class UnitBuilder {
         return new Unit(name, id, skills, heathPoints, minimumDamage, maximumDamage, armor);
     }
 
-    public UnitBuilder setName(String name) {
+    public UnitBuilder name(String name) {
         this.name = name;
         return this;
     }
 
-    public UnitBuilder setId(UUID id) {
+    public UnitBuilder id(UUID id) {
         this.id = id;
         return this;
     }
 
-    public UnitBuilder setSkills(Skills skills) {
+    public UnitBuilder skills(Skills skills) {
         this.skills = skills;
         return this;
     }
 
-    public UnitBuilder setHealthPoints(int heathPoints) {
+    public UnitBuilder healthPoints(int heathPoints) {
         this.heathPoints = heathPoints;
         return this;
     }
 
-    public UnitBuilder setMinimumDamage(int minimumDamage) {
+    public UnitBuilder minimumDamage(int minimumDamage) {
         this.minimumDamage = minimumDamage;
         return this;
     }
@@ -65,7 +65,7 @@ public final class UnitBuilder {
         return this;
     }
 
-    public UnitBuilder setArmor(int armor) {
+    public UnitBuilder armor(int armor) {
         this.armor = armor;
         return this;
     }
