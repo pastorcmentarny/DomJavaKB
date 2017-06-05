@@ -177,38 +177,56 @@ public class Elements {
         for (int i = 1; i <= numberOfElements; i++) {
             switch (random.nextInt(6)) {
                 case 0:
-                    if (air > 0) {
-                        air--;
-                    }
+                    reduceAirElement();
                     break;
                 case 1:
-                    if (earth > 0) {
-                        earth--;
-                    }
+                    reduceEarthElement();
                     break;
                 case 2:
-                    if (fire > 0) {
-                        fire--;
-                    }
+                    reduceFireElement();
                     break;
                 case 3:
-                    if (water > 0) {
-                        water--;
-                    }
+                    reduceWaterElement();
                     break;
                 case 4:
-                    if (life > 0) {
-                        life--;
-                    }
+                    reduceLifeElement();
                     break;
                 case 5:
-                    if (death > 0) {
-                        death--;
-                    }
+                    reduceDeathElement();
                     break;
                 default:
-                    System.out.println("bug in addRandomElements");
+                    LOGGER.warn("bug in addRandomElements");
             }
+        }
+    }
+
+    private void reduceDeathElement() {
+        if (death > 0) {
+            death--;
+        }
+    }
+
+    private void reduceLifeElement() {
+        if (life > 0) {
+            life--;
+        }
+    }
+
+    private void reduceWaterElement() {
+        if (water > 0) {
+            water--;
+        }
+    }
+
+    private void reduceFireElement() {
+        if (fire > 0) {
+            fire--;
+        }
+    }
+
+    private void reduceEarthElement() {
+        if (earth > 0) {
+            earth--;
         }
     }
 
@@ -265,4 +283,11 @@ public class Elements {
     int countElements() {
         return air + earth + fire + water + life + death;
     }
+
+    private void reduceAirElement() {
+        if (air > 0) {
+            air--;
+        }
+    }
+
 }

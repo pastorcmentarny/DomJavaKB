@@ -1,5 +1,7 @@
 package dms.pastor.game.dcs.conditions;
 
+import dms.pastor.game.dcs.utils.random.InGameRandomiserUtils;
+import dms.pastor.game.dcs.utils.random.RandomiserUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -8,6 +10,14 @@ import java.util.Iterator;
 import java.util.Random;
 
 import static dms.pastor.game.dcs.Config.DEFAULT_CONDITION_DURATION;
+import static dms.pastor.game.dcs.conditions.ConditionType.AIR_IMMUNE;
+import static dms.pastor.game.dcs.conditions.ConditionType.AIR_RESISTANT;
+import static dms.pastor.game.dcs.conditions.ConditionType.EARTH_IMMUNE;
+import static dms.pastor.game.dcs.conditions.ConditionType.EARTH_RESISTANT;
+import static dms.pastor.game.dcs.conditions.ConditionType.FIRE_IMMUNE;
+import static dms.pastor.game.dcs.conditions.ConditionType.FIRE_RESISTANT;
+import static dms.pastor.game.dcs.conditions.ConditionType.WATER_IMMUNE;
+import static dms.pastor.game.dcs.conditions.ConditionType.WATER_RESISTANT;
 
 /**
  * Author Dominik Symonowicz
@@ -18,6 +28,9 @@ import static dms.pastor.game.dcs.Config.DEFAULT_CONDITION_DURATION;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public class Condition {
+
+    static final int IMMUNITY_PERCENTAGE = 50;
+    private RandomiserUtils randomiserUtils = new InGameRandomiserUtils();
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Condition.class);
     private final Random random = new Random();
@@ -114,43 +127,21 @@ public class Condition {
     public boolean isImmuneTo(ElementType type) {
         switch (type) {
             case AIR:
-                if (has(ConditionType.AIR_IMMUNE)) {
-                    return true;
-                }
-                if (has(ConditionType.AIR_RESISTANT)) {
-                    return random.nextInt(100) > 50;
-                }
-                return false;
+                return isImmuneTo(AIR_IMMUNE, AIR_RESISTANT);
             case EARTH:
-                if (has(ConditionType.EARTH_IMMUNE)) {
-                    return true;
-                }
-                if (has(ConditionType.EARTH_RESISTANT)) {
-                    return random.nextInt(100) > 50;
-                }
-                return false;
+                return isImmuneTo(EARTH_IMMUNE, EARTH_RESISTANT);
             case FIRE:
-                if (has(ConditionType.FIRE_IMMUNE)) {
-                    return true;
-                }
-                if (has(ConditionType.FIRE_RESISTANT)) {
-                    return random.nextInt(100) > 50;
-                } else {
-                    return false;
-                }
+                return isImmuneTo(FIRE_IMMUNE, FIRE_RESISTANT);
             case WATER:
-                if (has(ConditionType.WATER_IMMUNE)) {
-                    return true;
-                }
-                if (has(ConditionType.WATER_RESISTANT)) {
-                    return random.nextInt(100) > 50;
-                } else {
-                    return false;
-                }
+                return isImmuneTo(WATER_IMMUNE, WATER_RESISTANT);
             default:
-                System.out.println("Default: No immune for" + type.name());
+                LOGGER.warn("Default: No immune for" + type.name());
                 return false;
         }
+    }
+
+    public boolean isImmuneTo(ConditionType airImmune, ConditionType airResistant) {
+        return has(airImmune) || has(airResistant) && randomiserUtils.isWillHappenWithProbabilityOf(IMMUNITY_PERCENTAGE);
     }
 
 }

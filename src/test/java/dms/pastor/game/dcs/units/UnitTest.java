@@ -1,7 +1,15 @@
 package dms.pastor.game.dcs.units;
 
+import dms.pastor.game.dcs.ElementsBuilder;
 import org.junit.Test;
 
+import static dms.pastor.game.dcs.ElementsBuilder.elementsBuilder;
+import static dms.pastor.game.dcs.ElementsType.AIR;
+import static dms.pastor.game.dcs.ElementsType.DEATH;
+import static dms.pastor.game.dcs.ElementsType.EARTH;
+import static dms.pastor.game.dcs.ElementsType.FIRE;
+import static dms.pastor.game.dcs.ElementsType.LIFE;
+import static dms.pastor.game.dcs.ElementsType.WATER;
 import static dms.pastor.game.dcs.units.Unit.DEFAULT_SHIELD_POINTS;
 import static dms.pastor.game.dcs.units.UnitBuilder.unitBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -15,6 +23,8 @@ import static org.assertj.core.api.Assertions.assertThat;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public class UnitTest {
+
+    static final int DEFAULT_NUMBER_OF_ELEMENTS = 10;
 
     @Test
     public void recreateShieldShouldCreateShield() throws Exception {
@@ -67,7 +77,6 @@ public class UnitTest {
         assertThat(unit.getHp()).isEqualTo(initialHp);
     }
 
-
     @Test
     public void createShieldShouldEmableShieldAndSetInitialSPValue() throws Exception {
         // given
@@ -90,7 +99,7 @@ public class UnitTest {
     public void increaseShieldByShouldIncreaseSpBy5() throws Exception {
         // given
         final Unit unit = unitBuilder()
-                .sp(10)
+                .sp(DEFAULT_NUMBER_OF_ELEMENTS)
                 .build();
 
         // when
@@ -99,5 +108,224 @@ public class UnitTest {
         // then
         assertThat(unit.getSp()).isEqualTo(15);
 
+    }
+
+    @Test
+    public void getElementForShouldReturnAirElementsForAirType() {
+        // given
+        final int airElements = DEFAULT_NUMBER_OF_ELEMENTS;
+        final Unit unit = unitBuilder()
+                .elements(elementsBuilder()
+                        .setToOneForAllElements()
+                        .air(airElements)
+                        .build())
+                .build();
+
+        // when
+        final int elements = unit.getElementsFor(AIR);
+
+        // then
+        assertThat(elements).isEqualTo(airElements);
+    }
+
+    @Test
+    public void getElementForShouldReturnEarthElementsForEarthType() {
+        // given
+        final int earthElements = DEFAULT_NUMBER_OF_ELEMENTS;
+        final Unit unit = unitBuilder()
+                .elements(elementsBuilder()
+                        .setToOneForAllElements()
+                        .earth(earthElements)
+                        .build())
+                .build();
+
+        // when
+        final int elements = unit.getElementsFor(EARTH);
+
+        // then
+        assertThat(elements).isEqualTo(earthElements);
+    }
+
+    @Test
+    public void getElementForShouldReturnFireElementsForFireType() {
+        // given
+        final int fireElements = DEFAULT_NUMBER_OF_ELEMENTS;
+        final Unit unit = unitBuilder()
+                .elements(elementsBuilder()
+                        .setToOneForAllElements()
+                        .fire(fireElements)
+                        .build())
+                .build();
+
+        // when
+        final int elements = unit.getElementsFor(FIRE);
+
+        // then
+        assertThat(elements).isEqualTo(fireElements);
+    }
+
+    @Test
+    public void getElementForShouldReturnWaterElementsForWaterType() {
+        // given
+        final int waterElements = DEFAULT_NUMBER_OF_ELEMENTS;
+        final Unit unit = unitBuilder()
+                .elements(elementsBuilder()
+                        .setToOneForAllElements()
+                        .water(waterElements)
+                        .build())
+                .build();
+
+        // when
+        final int elements = unit.getElementsFor(WATER);
+
+        // then
+        assertThat(elements).isEqualTo(waterElements);
+    }
+
+    @Test
+    public void getElementForShouldReturnLifeElementsForLifeType() {
+        // given
+        final int lifeElements = DEFAULT_NUMBER_OF_ELEMENTS;
+        final Unit unit = unitBuilder()
+                .elements(elementsBuilder()
+                        .setToOneForAllElements()
+                        .life(lifeElements)
+                        .build())
+                .build();
+
+        // when
+        final int elements = unit.getElementsFor(LIFE);
+
+        // then
+        assertThat(elements).isEqualTo(lifeElements);
+    }
+
+    @Test
+    public void getElementForShouldReturnDeathElementsForDeathType() {
+        // given
+        final int deathElements = DEFAULT_NUMBER_OF_ELEMENTS;
+        final Unit unit = unitBuilder()
+                .elements(elementsBuilder()
+                        .setToOneForAllElements()
+                        .death(deathElements)
+                        .build())
+                .build();
+
+        // when
+        final int elements = unit.getElementsFor(DEATH);
+
+        // then
+        assertThat(elements).isEqualTo(deathElements);
+    }
+
+    @Test
+    public void getElementForShouldReturnZeroForNull() {
+        // given
+        final Unit unit = unitBuilder()
+                .elements(ElementsBuilder.elementsBuilder().setToOneForAllElements().build())
+                .build();
+
+        // when
+        final int elements = unit.getElementsFor(null);
+
+        // then
+        assertThat(elements).isEqualTo(0);
+        //TODO test log too
+    }
+
+    @Test
+    public void setElementForShouldSetAirElementsForAirType() {
+        // given
+        final Unit unit = unitBuilder()
+                .elements(elementsBuilder()
+                        .setToOneForAllElements()
+                        .build())
+                .build();
+
+        // when
+        unit.setElementsFor(AIR, DEFAULT_NUMBER_OF_ELEMENTS);
+
+        // then
+        assertThat(unit.getElements().getAir()).isEqualTo(DEFAULT_NUMBER_OF_ELEMENTS);
+    }
+
+    @Test
+    public void setElementForShouldReturnEarthElementsForEarthType() {
+        // given
+        final Unit unit = unitBuilder()
+                .elements(elementsBuilder()
+                        .setToOneForAllElements()
+                        .build())
+                .build();
+
+        // when
+        unit.setElementsFor(EARTH, DEFAULT_NUMBER_OF_ELEMENTS);
+
+        // then
+        assertThat(unit.getElements().getEarth()).isEqualTo(DEFAULT_NUMBER_OF_ELEMENTS);
+    }
+
+    @Test
+    public void setElementForShouldReturnFireElementsForFireType() {
+        // given
+        final Unit unit = unitBuilder()
+                .elements(elementsBuilder()
+                        .setToOneForAllElements()
+                        .build())
+                .build();
+
+        // when
+        unit.setElementsFor(FIRE, DEFAULT_NUMBER_OF_ELEMENTS);
+
+        // then
+        assertThat(unit.getElements().getFire()).isEqualTo(DEFAULT_NUMBER_OF_ELEMENTS);
+    }
+
+    @Test
+    public void setElementForShouldReturnWaterElementsForWaterType() {
+        // given
+        final Unit unit = unitBuilder()
+                .elements(elementsBuilder()
+                        .setToOneForAllElements()
+                        .build())
+                .build();
+
+        // when
+        unit.setElementsFor(WATER, DEFAULT_NUMBER_OF_ELEMENTS);
+
+        // then
+        assertThat(unit.getElements().getWater()).isEqualTo(DEFAULT_NUMBER_OF_ELEMENTS);
+    }
+
+    @Test
+    public void setElementForShouldReturnLifeElementsForLifeType() {
+        // given
+        final Unit unit = unitBuilder()
+                .elements(elementsBuilder()
+                        .setToOneForAllElements()
+                        .build())
+                .build();
+
+        // when
+        unit.setElementsFor(LIFE, DEFAULT_NUMBER_OF_ELEMENTS);
+
+        // then
+        assertThat(unit.getElements().getLife()).isEqualTo(DEFAULT_NUMBER_OF_ELEMENTS);
+    }
+
+    @Test
+    public void setElementForShouldReturnDeathElementsForDeathType() {
+        // given
+        final Unit unit = unitBuilder()
+                .elements(elementsBuilder()
+                        .setToOneForAllElements()
+                        .build())
+                .build();
+
+        // when
+        unit.setElementsFor(DEATH, DEFAULT_NUMBER_OF_ELEMENTS);
+
+        // then
+        assertThat(unit.getElements().getDeath()).isEqualTo(DEFAULT_NUMBER_OF_ELEMENTS);
     }
 }

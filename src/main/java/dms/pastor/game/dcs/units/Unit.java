@@ -1,9 +1,13 @@
 package dms.pastor.game.dcs.units;
 
+import com.sun.istack.internal.NotNull;
 import dms.pastor.game.dcs.Elements;
+import dms.pastor.game.dcs.ElementsType;
 import dms.pastor.game.dcs.cards.Card;
 import dms.pastor.game.dcs.conditions.Condition;
 import dms.pastor.game.dcs.utils.CLI;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 
@@ -20,6 +24,8 @@ import static java.lang.String.format;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public class Unit {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(Unit.class);
 
     static final int DEFAULT_SHIELD_POINTS = 24;
     public static final int DEFAULT_HEALTH_POINTS = 24;
@@ -243,5 +249,56 @@ public class Unit {
     @Override
     public String toString() {
         return format("Unit{name='%s'\n, description='%s'\n, hp=%d, maxHp=%d\n, shielded=%s\n, sp=%d\n, arm=%d\n, elements=%s\n, cards=%s\n, player=%s\n, condition=%s}", name, description, hp, maxHp, shielded, sp, arm, elements, cards, player, condition);
+    }
+
+    public int getElementsFor(@NotNull ElementsType elementsType) {
+        if (elementsType == null) {
+            LOGGER.warn("getElementsFor method was passed with null.");
+            return 0;
+        }
+
+        switch (elementsType) {
+            case AIR:
+                return elements.getAir();
+            case EARTH:
+                return elements.getEarth();
+            case FIRE:
+                return elements.getFire();
+            case WATER:
+                return elements.getWater();
+            case LIFE:
+                return elements.getLife();
+            case DEATH:
+                return elements.getDeath();
+            default:
+                LOGGER.warn("getElementsFor method is not implemented for " + elementsType);
+                return 0;
+        }
+    }
+
+    public void setElementsFor(ElementsType elementsType, int number) {
+        switch (elementsType) {
+            case AIR:
+                elements.setAir(number);
+                break;
+            case EARTH:
+                elements.setEarth(number);
+                break;
+            case FIRE:
+                elements.setFire(number);
+                break;
+            case WATER:
+                elements.setWater(number);
+                break;
+            case LIFE:
+                elements.setLife(number);
+                break;
+            case DEATH:
+                elements.setDeath(number);
+                break;
+            default:
+                LOGGER.warn("getElementsFor method is not implemented for " + elementsType + " with number of elements equals to " + number);
+                break;
+        }
     }
 }

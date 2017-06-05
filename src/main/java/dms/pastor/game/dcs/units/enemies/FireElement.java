@@ -1,9 +1,15 @@
 package dms.pastor.game.dcs.units.enemies;
 
 import dms.pastor.game.dcs.Elements;
+import dms.pastor.game.dcs.ElementsType;
 import dms.pastor.game.dcs.spells.AntiShieldPiercingSpell;
 import dms.pastor.game.dcs.spells.FireBall;
 import dms.pastor.game.dcs.units.Unit;
+
+import static dms.pastor.game.dcs.ElementsType.AIR;
+import static dms.pastor.game.dcs.ElementsType.DEATH;
+import static dms.pastor.game.dcs.ElementsType.EARTH;
+import static dms.pastor.game.dcs.ElementsType.LIFE;
 
 /**
  * Author Dominik Symonowicz
@@ -50,28 +56,22 @@ public class FireElement extends Unit {
             getElements().setFire(getElements().getFire() - 1); // Fireball takes only half
         }
 
-        if (getElements().getEarth() >= 3) {
-            int fireAdd = getElements().getEarth() / 3;
-            System.out.println("Morphing earth elements into " + fireAdd + " fire elements.");
-            getElements().setEarth(getElements().getEarth() % 3);
-        }
+        convertToFireElementsFromOtherElements();
 
-        if (getElements().getAir() >= 3) {
-            int airAdd = getElements().getAir() / 3;
-            System.out.println("Morphing air elements into " + airAdd + " air elements.");
-            getElements().setEarth(getElements().getEarth() % 3);
-        }
+    }
 
-        if (getElements().getLife() >= 3) {
-            int fireAdd = getElements().getLife() / 3;
-            System.out.println("Morphing life elements into " + fireAdd + " fire elements.");
-            getElements().setEarth(getElements().getLife() % 3);
-        }
+    private void convertToFireElementsFromOtherElements() {
+        convertToFireElementFrom(EARTH);
+        convertToFireElementFrom(AIR);
+        convertToFireElementFrom(LIFE);
+        convertToFireElementFrom(DEATH);
+    }
 
-        if (getElements().getDeath() >= 3) {
-            int fireAdd = getElements().getDeath() / 3;
-            System.out.println("Morphing death elements into " + fireAdd + " fire elements.");
-            getElements().setEarth(getElements().getDeath() % 3);
+    private void convertToFireElementFrom(ElementsType type) {
+        if (getElementsFor(type) >= 3) {
+            int elementToAdd = getElementsFor(type) / 3;
+            System.out.println("Morphing " + type.name().toLowerCase() + " elements into " + elementToAdd + " fire elements.");
+            setElementsFor(type, getElementsFor(type) % 3);
         }
     }
 }
