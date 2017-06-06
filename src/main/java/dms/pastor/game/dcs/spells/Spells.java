@@ -58,6 +58,6 @@ public class Spells {
             }
         }
         System.out.println("Spell not found!");
-        return null;
+        return NoSpell.getInstance();
     }
 }

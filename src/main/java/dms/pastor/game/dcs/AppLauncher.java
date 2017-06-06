@@ -4,7 +4,6 @@ import dms.pastor.domain.exception.SomethingWentTerribleWrongError;
 import dms.pastor.game.dcs.game.Campaign;
 import dms.pastor.game.dcs.units.Player;
 import dms.pastor.game.dcs.utils.FakeInputReader;
-import dms.pastor.game.dcs.utils.UserInputReader;
 import dms.pastor.game.dcs.utils.UserKeyboardReader;
 import dms.pastor.utils.ValidatorUtils;
 import org.slf4j.Logger;
@@ -14,11 +13,7 @@ public class AppLauncher {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AppLauncher.class);
 
-    private AppLauncher() {
-    }
-
-    AppLauncher(UserInputReader userInputReader) {
-        UserInputReader userInputReader1 = userInputReader;
+    AppLauncher() {
     }
 
     public static void main(String[] args) {
@@ -34,7 +29,6 @@ public class AppLauncher {
             throw new SomethingWentTerribleWrongError();
         }
         new AppLauncher().newGame(player, new Campaign());
-
     }
 
     void newGame(Player player, Campaign campaign) {

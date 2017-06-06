@@ -1,11 +1,17 @@
 package dms.pastor.game.dcs.units.enemies;
 
-import dms.pastor.game.dcs.ElementsType;
-import dms.pastor.game.dcs.spells.*;
+import dms.pastor.game.dcs.spells.FireBall;
+import dms.pastor.game.dcs.spells.HealSpell;
+import dms.pastor.game.dcs.spells.MagicStone;
+import dms.pastor.game.dcs.spells.MeteorStrike;
+import dms.pastor.game.dcs.spells.Spell;
 import dms.pastor.game.dcs.units.Unit;
 import dms.pastor.game.dcs.units.enemies.actions.CureAction;
+import dms.pastor.game.dcs.utils.random.InGameRandomiserUtils;
+import dms.pastor.game.dcs.utils.random.RandomiserUtils;
 
-import java.util.Random;
+import static dms.pastor.game.dcs.ElementsType.EARTH;
+import static dms.pastor.game.dcs.ElementsType.FIRE;
 
 /**
  * Author Dominik Symonowicz
@@ -16,7 +22,8 @@ import java.util.Random;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public class Troll extends Unit {
-    private final Random random = new Random();
+
+    private RandomiserUtils randoms = new InGameRandomiserUtils();
 
     public Troll() {
         super();
@@ -51,7 +58,6 @@ public class Troll extends Unit {
             getElements().useElements(spell.getElements());
         }
 
-
         spell = new MagicStone();
         spell.castSpell(this, enemy);
         while (spell.hasEnoughElementsToCovertToSpell(getElements())) {
@@ -59,7 +65,7 @@ public class Troll extends Unit {
 
             spell.castSpell(this, enemy);
             spell.castSpell(this, enemy);
-            while (random.nextInt(100) > 50) {
+            while (randoms.isWillHappenWithProbabilityOf(50)) {
                 System.out.println("Lucky extra magic stone");
                 spell.castSpell(this, enemy);
             }
@@ -68,8 +74,8 @@ public class Troll extends Unit {
 
         System.out.println(getName() + " regenerate 1 hp ");
         addHP(1);
-        getElements().addElement(ElementsType.EARTH);
-        getElements().addElement(ElementsType.FIRE);
+        getElements().addElement(EARTH);
+        getElements().addElement(FIRE);
     }
 
 }

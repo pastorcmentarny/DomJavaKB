@@ -29,12 +29,11 @@ public class FireElement extends Unit {
         setSp(24);
     }
 
-
     @Override
     public void turn(Unit unit) {
         if (getElements().getWater() > 0) {
             int dmg = getElements().getWater() * 2;
-            doesDamage(dmg, unit);
+            doesDamage(dmg, this);
             System.out.println("Water elements  cause " + dmg);
             if (isDead()) {
                 return;
@@ -68,10 +67,11 @@ public class FireElement extends Unit {
     }
 
     private void convertToFireElementFrom(ElementsType type) {
-        if (getElementsFor(type) >= 3) {
-            int elementToAdd = getElementsFor(type) / 3;
+        final int elementsNeeded = 3;
+        if (getElementsFor(type) >= elementsNeeded) {
+            int elementToAdd = getElementsFor(type) / elementsNeeded;
             System.out.println("Morphing " + type.name().toLowerCase() + " elements into " + elementToAdd + " fire elements.");
-            setElementsFor(type, getElementsFor(type) % 3);
+            setElementsFor(type, getElementsFor(type) % elementsNeeded);
         }
     }
 }

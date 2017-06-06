@@ -19,6 +19,9 @@ import static org.assertj.core.api.Assertions.assertThat;
  * tag-thread-wait tag-countDownLatch
  */
 public class StopWatchTest {
+
+    private static final int TW0_SECOND = 2000;
+    private static final int FIVE_SECONDS = 5000;
     private StopWatch stopWatch;
     private final CountDownLatch latch = new CountDownLatch(1);
 
@@ -77,8 +80,8 @@ public class StopWatchTest {
     @Test
     public void shouldDisplayTime() throws Exception {
         // given
-        stopWatch.setStart(1000);
-        stopWatch.setFinish(4000);
+        stopWatch.setStart(TW0_SECOND);
+        stopWatch.setFinish(FIVE_SECONDS);
 
         // when
         final String time = stopWatch.displayTime();
@@ -90,8 +93,8 @@ public class StopWatchTest {
     @Test
     public void shouldResultTimeAsString() throws Exception {
         // given
-        stopWatch.setStart(2000);
-        stopWatch.setFinish(5000);
+        stopWatch.setStart(TW0_SECOND);
+        stopWatch.setFinish(FIVE_SECONDS);
 
         // when
         final String timeString = stopWatch.getResultTimeAsString();
@@ -103,8 +106,8 @@ public class StopWatchTest {
     @Test
     public void shouldResetTimer() throws Exception {
         // given
-        stopWatch.setStart(2000);
-        stopWatch.setFinish(5000);
+        stopWatch.setStart(TW0_SECOND);
+        stopWatch.setFinish(FIVE_SECONDS);
 
         // when
         stopWatch.resetTimer();

@@ -21,6 +21,7 @@ import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 class PersonalDataGenerator {
+
     private static final List<String> firstName;
     private static final List<String> surname;
     private static final Random random = new Random();
@@ -78,8 +79,13 @@ class PersonalDataGenerator {
                 result.append(new Random().nextInt(10));
                 continue;
             }
+            //TODO provide proper implementation
+            if (!"0123456789()-+xX".contains(String.valueOf(character))) {
+                throw new IllegalArgumentException("Pattern for phone contains illegal character(s). Pattern provided: " + pattern);
+            }
             result.append(character);
         }
+
         return result.toString();
     }
 

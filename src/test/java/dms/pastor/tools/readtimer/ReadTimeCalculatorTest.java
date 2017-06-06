@@ -13,7 +13,11 @@ import java.util.Random;
 import static dms.pastor.tools.readtimer.ReadSpeed.ADULT_AVERAGE;
 import static dms.pastor.utils.DateUtils.HOUR;
 import static dms.pastor.utils.DateUtils.MINUTE;
-import static dms.pastor.utils.randoms.RandomDataGenerator.*;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateRandomParagraph;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateWords;
+import static dms.pastor.utils.randoms.RandomDataGenerator.randomInteger;
+import static dms.pastor.utils.randoms.RandomDataGenerator.randomNegativeInteger;
 import static java.lang.Integer.MAX_VALUE;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
@@ -30,6 +34,8 @@ import static org.junit.Assert.assertThat;
 public class ReadTimeCalculatorTest {
 
     private static final int REPEAT_TEST_TIMES = 10;
+    static final int ONE_WORD_PER_SECOND = 60;
+    static final String ERROR_READING_SPEED_EQUAL_OR_HIGHER = "Speed of reading must be equal or higher than 60  words per minute";
     private final Random random = new Random();
 
     @Rule
@@ -77,7 +83,7 @@ public class ReadTimeCalculatorTest {
 
         // except
         exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Speed of reading must be equal or higher than 60  words per minute");
+        exception.expectMessage(ERROR_READING_SPEED_EQUAL_OR_HIGHER);
 
         // when
         readTimeCalculator.calculateTimeNeedToReadFor();
@@ -94,7 +100,7 @@ public class ReadTimeCalculatorTest {
 
         // except
         exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Speed of reading must be equal or higher than 60  words per minute");
+        exception.expectMessage(ERROR_READING_SPEED_EQUAL_OR_HIGHER);
 
         // when
         readTimeCalculator.calculateTimeNeedToReadFor();
@@ -105,7 +111,7 @@ public class ReadTimeCalculatorTest {
     public void itShouldTake6SecondToRead60WordsWithSpeed1WordPerSecondTest() throws Exception {
         // given
         String sentence = "one two three four five six.";
-        readTimeCalculator = new ReadTimeCalculator(sentence, 60);
+        readTimeCalculator = new ReadTimeCalculator(sentence, ONE_WORD_PER_SECOND);
 
         // when
         final int wordPerMinute = readTimeCalculator.calculateTimeNeedToReadFor();
@@ -122,13 +128,13 @@ public class ReadTimeCalculatorTest {
             stringBuilder.append("Word").append(i + 1).append(' ');
         }
         String sentence = stringBuilder.append('.').toString();
-        readTimeCalculator = new ReadTimeCalculator(sentence, 60);
+        readTimeCalculator = new ReadTimeCalculator(sentence, ONE_WORD_PER_SECOND);
 
         // when
         final int wordPerMinute = readTimeCalculator.calculateTimeNeedToReadFor();
 
         // then
-        assertThat(wordPerMinute, is(60));
+        assertThat(wordPerMinute, is(ONE_WORD_PER_SECOND));
     }
 
 
@@ -138,7 +144,7 @@ public class ReadTimeCalculatorTest {
     public void shouldDisplayEmptyStringForDisplayTimeNeededToReadWhenTimeIsInvalidTest() throws Exception {
         // expect
         exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Speed of reading must be equal or higher than 60  words per minute");
+        exception.expectMessage(ERROR_READING_SPEED_EQUAL_OR_HIGHER);
 
         // given
         readTimeCalculator = new ReadTimeCalculator(generateRandomParagraph(), RandomDataGenerator.randomNegativeInteger());

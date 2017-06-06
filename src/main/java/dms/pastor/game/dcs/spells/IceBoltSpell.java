@@ -20,7 +20,6 @@ public class IceBoltSpell extends Spell {
         setElements(new Elements(0, 0, 0, 3, 0, 0));
     }
 
-
     @Override
     public void castSpell(Unit attacker, Unit defender) {
         System.out.println(attacker.getName() + " casting ice bolt.. " + defender.getName());
