@@ -12,13 +12,13 @@ public final class DeathRaySpellTest {
     public void castDeathRayShouldDoesDirectDamageToUnit() {
         // given
         DeathRaySpell deathRaySpell = new DeathRaySpell();
-        final Unit unit = UnitBuilder.unitBuilder().sp(10).hp(15).build();
+        final Unit unit = UnitBuilder.unitBuilder().sp(10).hp(20).build();
 
         // when
         deathRaySpell.castSpell(unit, unit);
 
         // then
         assertThat(unit.isShielded()).isTrue();
-        assertThat(unit.getHp()).isEqualTo(3);
+        assertThat(unit.getHp()).isEqualTo(2);
     }
 }

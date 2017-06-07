@@ -30,10 +30,10 @@ public class InfernoStrike extends Spell {
             int r = random.nextInt(100);
             if (r >= 60) {
                 System.out.println("It hits " + defender.getName());
-                defender.doesDamage(Config.INFERNO_STRIKE__DMG, attacker);
+                defender.doesDamage(Config.INFERNO_STRIKE_DMG, attacker);
             } else {
                 System.out.println("IT hit" + attacker.getName());
-                attacker.doesDamage(Config.INFERNO_STRIKE__DMG, attacker);
+                attacker.doesDamage(Config.INFERNO_STRIKE_DMG, attacker);
             }
         }
     }

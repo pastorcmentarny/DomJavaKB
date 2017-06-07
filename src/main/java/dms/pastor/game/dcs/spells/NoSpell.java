@@ -38,7 +38,7 @@ public class NoSpell extends Spell implements Serializable {
 
     @Override
     void setElements(Elements elements) {
-        setElements(Elements.noElements());
+        super.setElements(Elements.noElements());
     }
 
     @Override
@@ -53,6 +53,7 @@ public class NoSpell extends Spell implements Serializable {
         static final NoSpell INSTANCE = new NoSpell();
     }
 
+    @SuppressWarnings("SameReturnValue") // part of Singleton
     static NoSpell getInstance() {
         return NoSpellHolder.INSTANCE;
     }

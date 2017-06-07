@@ -33,6 +33,7 @@ class Battle {
         System.out.println(player2.getDescription());
     }
 
+    //TODO improve it
     boolean isInFight() {
         System.out.println("Battle starting..");
         setup();
