@@ -7,9 +7,7 @@ import org.junit.rules.ExpectedException;
 
 import java.util.Date;
 
-import static dms.pastor.utils.DateUtils.countLeapYearBetween;
-import static dms.pastor.utils.DateUtils.displayTimeZoneList;
-import static dms.pastor.utils.DateUtils.getDayOfTheYearFor;
+import static dms.pastor.utils.DateUtils.*;
 import static java.time.LocalDate.now;
 import static java.time.LocalDate.of;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -17,7 +15,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  * Author Dominik Symonowicz
  * Created 19/06/2016
- * WWW:	http://pastor.ovh.org
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/

@@ -16,31 +16,9 @@ import java.util.LinkedHashSet;
 import java.util.List;
 
 import static dms.pastor.domain.Message.INPUT_CANNOT_BE_EMPTY;
-import static dms.pastor.utils.StringUtils.NON_ALPHANUMERIC;
-import static dms.pastor.utils.StringUtils.containsOnly;
-import static dms.pastor.utils.StringUtils.getCountryList;
-import static dms.pastor.utils.StringUtils.getNbsp;
-import static dms.pastor.utils.StringUtils.getNullSafeString;
-import static dms.pastor.utils.StringUtils.getRandomCharacter;
+import static dms.pastor.utils.StringUtils.*;
 import static dms.pastor.utils.StringUtils.getRandomText;
-import static dms.pastor.utils.StringUtils.getUnknownWhenNullString;
-import static dms.pastor.utils.StringUtils.hasNonAlphanumericCharactersOnly;
-import static dms.pastor.utils.StringUtils.isAllStringsAreNotEmpty;
-import static dms.pastor.utils.StringUtils.isAlpha;
-import static dms.pastor.utils.StringUtils.isContainSpace;
-import static dms.pastor.utils.StringUtils.isPalindromeOfAnyPermutationString;
-import static dms.pastor.utils.StringUtils.isPalindromeString;
-import static dms.pastor.utils.StringUtils.isStringBlank;
-import static dms.pastor.utils.StringUtils.isTextContainsAllKeywordsExists;
-import static dms.pastor.utils.StringUtils.splitContentIntoWords;
-import static dms.pastor.utils.StringUtils.swapCaseLettersInString;
-import static dms.pastor.utils.StringUtils.toStringArray;
-import static dms.pastor.utils.StringUtils.trimAllWhiteSpaces;
-import static dms.pastor.utils.randoms.RandomDataGenerator.MAX_SMALL_VALUE;
-import static dms.pastor.utils.randoms.RandomDataGenerator.generateNonAlphanumericString;
-import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
-import static dms.pastor.utils.randoms.RandomDataGenerator.generateStringList;
-import static dms.pastor.utils.randoms.RandomDataGenerator.randomPositiveInteger;
+import static dms.pastor.utils.randoms.RandomDataGenerator.*;
 import static java.lang.Character.isLetter;
 import static java.util.Collections.emptyList;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
@@ -49,7 +27,8 @@ import static org.hamcrest.CoreMatchers.is;
 /**
  * Author Dominik Symonowicz
  * Created 2015-10-31
- * WWW:	http://pastor.ovh.org
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/

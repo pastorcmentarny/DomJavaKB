@@ -1,10 +1,6 @@
 package dms.pastor.game.dcs.units.enemies;
 
-import dms.pastor.game.dcs.spells.FireBall;
-import dms.pastor.game.dcs.spells.HealSpell;
-import dms.pastor.game.dcs.spells.MagicStone;
-import dms.pastor.game.dcs.spells.MeteorStrike;
-import dms.pastor.game.dcs.spells.Spell;
+import dms.pastor.game.dcs.spells.*;
 import dms.pastor.game.dcs.units.Unit;
 import dms.pastor.game.dcs.units.enemies.actions.CureAction;
 import dms.pastor.game.dcs.utils.random.InGameRandomiserUtils;
@@ -16,7 +12,8 @@ import static dms.pastor.game.dcs.ElementsType.FIRE;
 /**
  * Author Dominik Symonowicz
  * Created 2015-08-02
- * WWW:	http://pastor.ovh.org
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/

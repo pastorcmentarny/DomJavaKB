@@ -7,7 +7,6 @@ import org.junit.rules.ExpectedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.lang.Character;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Random;
@@ -21,7 +20,8 @@ import static org.hamcrest.CoreMatchers.is;
 
 /**
  * Author Dominik Symonowicz
- * WWW:	http://pastor.ovh.org
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/

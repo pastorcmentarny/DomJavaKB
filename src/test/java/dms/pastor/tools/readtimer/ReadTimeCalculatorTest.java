@@ -13,11 +13,7 @@ import java.util.Random;
 import static dms.pastor.tools.readtimer.ReadSpeed.ADULT_AVERAGE;
 import static dms.pastor.utils.DateUtils.HOUR;
 import static dms.pastor.utils.DateUtils.MINUTE;
-import static dms.pastor.utils.randoms.RandomDataGenerator.generateRandomParagraph;
-import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
-import static dms.pastor.utils.randoms.RandomDataGenerator.generateWords;
-import static dms.pastor.utils.randoms.RandomDataGenerator.randomInteger;
-import static dms.pastor.utils.randoms.RandomDataGenerator.randomNegativeInteger;
+import static dms.pastor.utils.randoms.RandomDataGenerator.*;
 import static java.lang.Integer.MAX_VALUE;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
@@ -26,7 +22,8 @@ import static org.junit.Assert.assertThat;
 /**
  * Author Dominik Symonowicz
  * Created 06/04/2016
- * WWW:	http://pastor.ovh.org
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/

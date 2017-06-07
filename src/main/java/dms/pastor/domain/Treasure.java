@@ -2,14 +2,13 @@ package dms.pastor.domain;
 
 import dms.pastor.utils.randoms.RandomDataGenerator;
 
-import static dms.pastor.utils.randoms.RandomDataGenerator.MAX_SMALL_VALUE;
-import static dms.pastor.utils.randoms.RandomDataGenerator.generateRandomParagraph;
-import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
+import static dms.pastor.utils.randoms.RandomDataGenerator.*;
 
 /**
  * Author Dominik Symonowicz
  * Created 04/09/2016
- * WWW:	http://pastor.ovh.org
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/

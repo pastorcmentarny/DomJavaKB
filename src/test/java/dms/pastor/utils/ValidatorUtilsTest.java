@@ -13,26 +13,15 @@ import java.util.List;
 import java.util.Random;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
-import static dms.pastor.utils.ValidatorUtils.isAnyOfPropertiesContainsNull;
-import static dms.pastor.utils.ValidatorUtils.isObjectCanBeSerialized;
-import static dms.pastor.utils.ValidatorUtils.validateIfListIsNotEmpty;
-import static dms.pastor.utils.ValidatorUtils.validateIfNotEmpty;
-import static dms.pastor.utils.ValidatorUtils.validateIfNotNull;
-import static dms.pastor.utils.ValidatorUtils.validateMinValueIsSmallerThanMaxValue;
-import static dms.pastor.utils.ValidatorUtils.validateNegativeBigDecimal;
-import static dms.pastor.utils.ValidatorUtils.validateNotNullPropertiesWithCustomMessage;
-import static dms.pastor.utils.ValidatorUtils.validateNotNullPropertiesWithCustomMessagesPerProperty;
-import static dms.pastor.utils.ValidatorUtils.validateTwoIntsNotEqual;
-import static dms.pastor.utils.randoms.RandomDataGenerator.MAX_SMALL_VALUE;
-import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
-import static dms.pastor.utils.randoms.RandomDataGenerator.randomInteger;
-import static dms.pastor.utils.randoms.RandomDataGenerator.randomPositiveInteger;
+import static dms.pastor.utils.ValidatorUtils.*;
+import static dms.pastor.utils.randoms.RandomDataGenerator.*;
 import static java.math.BigDecimal.ZERO;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Author Dominik Symonowicz
- * WWW:	http://pastor.ovh.org
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/

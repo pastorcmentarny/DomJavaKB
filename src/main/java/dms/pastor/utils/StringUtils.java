@@ -2,30 +2,20 @@ package dms.pastor.utils;
 
 import dms.pastor.utils.randoms.RandomDataGenerator;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static dms.pastor.domain.Message.INPUT_CANNOT_BE_EMPTY;
 import static dms.pastor.utils.ValidatorUtils.validateIfListIsNotEmpty;
 import static dms.pastor.utils.ValidatorUtils.validateIfNotEmpty;
-import static java.lang.Character.isLowerCase;
-import static java.lang.Character.isUpperCase;
-import static java.lang.Character.isWhitespace;
-import static java.lang.Character.toLowerCase;
-import static java.lang.Character.toUpperCase;
+import static java.lang.Character.*;
 import static java.util.stream.Collectors.toList;
 
 /**
  * Author Dominik Symonowicz
- * WWW:	http://pastor.ovh.org
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/

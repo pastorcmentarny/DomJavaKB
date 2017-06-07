@@ -8,21 +8,15 @@ import java.util.HashSet;
 
 import static dms.pastor.game.dcs.Config.DEFAULT_CONDITION_DURATION;
 import static dms.pastor.game.dcs.conditions.ConditionEntryBuilder.conditionEntryBuilder;
-import static dms.pastor.game.dcs.conditions.ConditionType.AIR_IMMUNE;
-import static dms.pastor.game.dcs.conditions.ConditionType.AIR_SENSITIVE;
-import static dms.pastor.game.dcs.conditions.ConditionType.EARTH_IMMUNE;
-import static dms.pastor.game.dcs.conditions.ConditionType.FIRE_IMMUNE;
-import static dms.pastor.game.dcs.conditions.ConditionType.FIRE_SENSITIVE;
-import static dms.pastor.game.dcs.conditions.ConditionType.POISONED;
-import static dms.pastor.game.dcs.conditions.ConditionType.STUNNED;
-import static dms.pastor.game.dcs.conditions.ConditionType.WATER_IMMUNE;
+import static dms.pastor.game.dcs.conditions.ConditionType.*;
 import static dms.pastor.game.dcs.conditions.ElementType.AIR;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Author Dominik Symonowicz
  * Created 2015-07-27
- * WWW:	http://pastor.ovh.org
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/

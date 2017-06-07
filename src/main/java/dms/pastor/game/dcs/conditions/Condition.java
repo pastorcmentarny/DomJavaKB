@@ -10,19 +10,13 @@ import java.util.Iterator;
 import java.util.Random;
 
 import static dms.pastor.game.dcs.Config.DEFAULT_CONDITION_DURATION;
-import static dms.pastor.game.dcs.conditions.ConditionType.AIR_IMMUNE;
-import static dms.pastor.game.dcs.conditions.ConditionType.AIR_RESISTANT;
-import static dms.pastor.game.dcs.conditions.ConditionType.EARTH_IMMUNE;
-import static dms.pastor.game.dcs.conditions.ConditionType.EARTH_RESISTANT;
-import static dms.pastor.game.dcs.conditions.ConditionType.FIRE_IMMUNE;
-import static dms.pastor.game.dcs.conditions.ConditionType.FIRE_RESISTANT;
-import static dms.pastor.game.dcs.conditions.ConditionType.WATER_IMMUNE;
-import static dms.pastor.game.dcs.conditions.ConditionType.WATER_RESISTANT;
+import static dms.pastor.game.dcs.conditions.ConditionType.*;
 
 /**
  * Author Dominik Symonowicz
  * Created 2015-07-27
- * WWW:	http://pastor.ovh.org
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/

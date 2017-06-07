@@ -6,15 +6,13 @@ import dms.pastor.game.dcs.spells.AntiShieldPiercingSpell;
 import dms.pastor.game.dcs.spells.FireBall;
 import dms.pastor.game.dcs.units.Unit;
 
-import static dms.pastor.game.dcs.ElementsType.AIR;
-import static dms.pastor.game.dcs.ElementsType.DEATH;
-import static dms.pastor.game.dcs.ElementsType.EARTH;
-import static dms.pastor.game.dcs.ElementsType.LIFE;
+import static dms.pastor.game.dcs.ElementsType.*;
 
 /**
  * Author Dominik Symonowicz
  * Created 2015-07-24
- * WWW:	http://pastor.ovh.org
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
