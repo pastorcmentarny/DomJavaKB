@@ -31,6 +31,6 @@ public class BloodlustTest {
 
 
         // then
-        assertThat(unit.getCondition().has(BLOODLUST)).isTrue();
+        assertThat(unit.getConditions().has(BLOODLUST)).isTrue();
     }
 }

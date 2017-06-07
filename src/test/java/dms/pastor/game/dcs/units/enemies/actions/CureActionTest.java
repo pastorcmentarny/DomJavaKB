@@ -27,7 +27,7 @@ public final class CureActionTest {
         cureAction.perform(unit, unit);
 
         // then
-        assertThat(unit.getCondition().getConditions().isEmpty()).isTrue();
+        assertThat(unit.getConditions().getConditions().isEmpty()).isTrue();
 
     }
 }

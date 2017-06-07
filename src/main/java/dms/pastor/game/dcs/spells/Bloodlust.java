@@ -25,6 +25,6 @@ public class Bloodlust extends Spell {
     @Override
     public void castSpell(Unit attacker, Unit defender) {
         System.out.println(attacker.getName() + " casting " + name + " spell");
-        attacker.getCondition().add(BLOODLUST, BLOODLUST_TURNS);
+        attacker.getConditions().add(BLOODLUST, BLOODLUST_TURNS);
     }
 }

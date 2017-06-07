@@ -23,7 +23,7 @@ public class FireBall extends Spell {
     @Override
     public void castSpell(Unit attacker, Unit defender) {
         System.out.println(attacker.getName() + " casting fireball.. " + defender.getName());
-        if (defender.getCondition().isNotImmuneTo(ElementType.FIRE)) {
+        if (defender.getConditions().isNotImmuneTo(ElementType.FIRE)) {
             defender.doesDamage(Config.FIREBALL_DMG, attacker);
         } else {
             System.out.println(defender + " resists spell");

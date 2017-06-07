@@ -25,7 +25,7 @@ public class WeaknessSpell extends Spell {
     public void castSpell(Unit attacker, Unit defender) {
         System.out.println(attacker.getName() + " casting weakness.. " + defender.getName());
         if (new Random().nextInt(100) > 50) {
-            defender.getCondition().add(ConditionType.WEAKNESS, 2);
+            defender.getConditions().add(ConditionType.WEAKNESS, 2);
         } else {
             System.out.println(defender.getName() + " resits.");
         }

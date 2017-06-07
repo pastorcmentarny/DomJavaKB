@@ -7,7 +7,7 @@ import dms.pastor.game.dcs.units.Unit;
 public class CureAction implements Action {
 
     public void perform(Unit caster, Unit target) {
-        if (target.getCondition().has(ConditionType.BLIND) || target.getCondition().has(ConditionType.POISONED) || target.getCondition().has(ConditionType.WEAKNESS)) {
+        if (target.getConditions().has(ConditionType.BLIND) || target.getConditions().has(ConditionType.POISONED) || target.getConditions().has(ConditionType.WEAKNESS)) {
             CureSpell cureSpell = new CureSpell();
             if (cureSpell.hasEnoughElementsToCovertToSpell(caster.getElements())) {
                 cureSpell.castSpell(caster, target);

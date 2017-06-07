@@ -44,14 +44,14 @@ public class Unit {
     private Elements elements = elements = new Elements(5);
     private ArrayList<Card> cards = new ArrayList<>();
     private boolean player = false;
-    private Condition condition = new Condition();
+    private Condition conditions = new Condition();
 
     protected Unit() {
         //TODO  fix it
         elements = new Elements(5);
     }
 
-    public Unit(boolean shielded, int sp, Elements elements, int hp, ArrayList<Card> cards, boolean player, String name, int maxHp, int arm, Condition condition, String description) {
+    public Unit(boolean shielded, int sp, Elements elements, int hp, ArrayList<Card> cards, boolean player, String name, int maxHp, int arm, Condition conditions, String description) {
         this.shielded = shielded;
         this.sp = sp;
         this.elements = elements;
@@ -61,7 +61,7 @@ public class Unit {
         this.name = name;
         this.maxHp = maxHp;
         this.arm = arm;
-        this.condition = condition;
+        this.conditions = conditions;
         this.description = description;
     }
 
@@ -82,10 +82,10 @@ public class Unit {
     }
 
     public int doesDamage(int dmg, Unit defender) {
-        if (condition.has(WEAKNESS)) {
+        if (conditions.has(WEAKNESS)) {
             dmg /= 2;
         }
-        if (condition.has(BLOODLUST)) {
+        if (conditions.has(BLOODLUST)) {
             System.out.println("BLOODLUST ... double damage!");
             dmg *= 2;
         }
@@ -134,8 +134,8 @@ public class Unit {
         this.elements = elements;
     }
 
-    public Condition getCondition() {
-        return condition;
+    public Condition getConditions() {
+        return conditions;
     }
 
     public boolean hasMagicShield() {
@@ -248,7 +248,7 @@ public class Unit {
 
     @Override
     public String toString() {
-        return format("Unit{name='%s'\n, description='%s'\n, hp=%d, maxHp=%d\n, shielded=%s\n, sp=%d\n, arm=%d\n, elements=%s\n, cards=%s\n, player=%s\n, condition=%s}", name, description, hp, maxHp, shielded, sp, arm, elements, cards, player, condition);
+        return format("Unit{name='%s'\n, description='%s'\n, hp=%d, maxHp=%d\n, shielded=%s\n, sp=%d\n, arm=%d\n, elements=%s\n, cards=%s\n, player=%s\n, conditions=%s}", name, description, hp, maxHp, shielded, sp, arm, elements, cards, player, conditions);
     }
 
     public int getElementsFor(@NotNull ElementsType elementsType) {

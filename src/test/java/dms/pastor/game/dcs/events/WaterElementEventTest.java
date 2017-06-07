@@ -32,7 +32,7 @@ public final class WaterElementEventTest {
         System.out.println(result);
 
         // then
-        assertThat(unit.getCondition().has(FROZEN)).isTrue();
+        assertThat(unit.getConditions().has(FROZEN)).isTrue();
     }
 
     @Test

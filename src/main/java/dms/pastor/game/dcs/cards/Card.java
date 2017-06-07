@@ -1,7 +1,7 @@
 package dms.pastor.game.dcs.cards;
 
-
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Author Dominik Symonowicz
@@ -16,16 +16,20 @@ public abstract class Card {
     private String description = "No description";
     private CardType cardType;
 
-    public static ArrayList<Card> getAllCardsFor(CardType type, ArrayList<Card> cards) {
-        ArrayList<Card> result = new ArrayList<>();
-        if (cards != null && !cards.isEmpty()) {
+    public static List<Card> getAllCardsFor(CardType type, List<Card> cards) {
+        List<Card> result = new ArrayList<>();
+        if (isCardListNotEmpty(cards)) {
             for (Card card : cards) {
-                if (card.cardType.name().equalsIgnoreCase(type.name())) {
+                if (card.getCardType().name().equalsIgnoreCase(type.name())) {
                     result.add(card);
                 }
             }
         }
         return result;
+    }
+
+    private static boolean isCardListNotEmpty(List<Card> cards) {
+        return cards != null && !cards.isEmpty();
     }
 
     public String getName() {

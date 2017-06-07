@@ -23,6 +23,6 @@ public class RegenSpell extends Spell {
     @Override
     public void castSpell(Unit attacker, Unit defender) {
         System.out.println(attacker.getName() + " casting regeneration spell");
-        attacker.getCondition().add(ConditionType.REGENERATION, Config.REGEN_TURNS);
+        attacker.getConditions().add(ConditionType.REGENERATION, Config.REGEN_TURNS);
     }
 }

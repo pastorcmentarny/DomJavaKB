@@ -1,6 +1,8 @@
 package dms.pastor.game.dcs.events;
 
 import dms.pastor.game.dcs.units.Unit;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -14,6 +16,8 @@ import java.util.Random;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public class EventGenerator {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(EventGenerator.class);
 
     private static final ArrayList<Event> events = new ArrayList<>();
     private static final Random random = new Random();
@@ -40,6 +44,7 @@ public class EventGenerator {
     }
 
     public static void event(Unit player1, Unit player2) {
+        LOGGER.debug("Generating random event..");
         if (random.nextInt(100) > 40) {
             Event event = getRandomEvent();
             System.out.println("EVENT:" + event.makeItHappen(player1, player2));

@@ -29,7 +29,7 @@ public class LightingBolt extends Spell {
         Random random = new Random();
         if (50 >= random.nextInt(100)) {
             System.out.println(defender.getName() + "  is stunned after being hit by lighting.");
-            defender.getCondition().add(ConditionType.STUNNED, 2);
+            defender.getConditions().add(ConditionType.STUNNED, 2);
         }
     }
 }

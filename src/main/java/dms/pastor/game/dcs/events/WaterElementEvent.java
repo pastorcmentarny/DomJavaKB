@@ -23,7 +23,7 @@ public class WaterElementEvent extends Event {
 
     @Override
     boolean canHaveEvent(Unit unit) {
-        return unit.getCondition().hasNot(WATER_SENSITIVE);
+        return unit.getConditions().hasNot(WATER_SENSITIVE);
     }
 
     //TODO refactor this with better name
@@ -32,7 +32,7 @@ public class WaterElementEvent extends Event {
             unit.getElements().addElement(WATER);
             return unit.getName() + " found " + WATER.name().toLowerCase();
         } else {
-            unit.getCondition().add(FROZEN, 1);
+            unit.getConditions().add(FROZEN, 1);
             return unit.getName() + " is frozen.";
         }
     }

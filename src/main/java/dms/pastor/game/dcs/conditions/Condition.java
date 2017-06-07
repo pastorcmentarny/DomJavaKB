@@ -144,4 +144,7 @@ public class Condition {
         return has(airImmune) || has(airResistant) && randomiserUtils.isWillHappenWithProbabilityOf(IMMUNITY_PERCENTAGE);
     }
 
+    public int size() {
+        return conditions.size();
+    }
 }

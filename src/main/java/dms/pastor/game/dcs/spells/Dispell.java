@@ -19,6 +19,6 @@ public class Dispell extends Spell {
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        attacker.getCondition().removeAll();
+        attacker.getConditions().removeAll();
     }
 }

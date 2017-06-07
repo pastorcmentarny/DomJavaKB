@@ -28,10 +28,10 @@ public class CometStrike extends Spell {
         System.out.println(attacker.getName() + " casting comet strike spell on.. " + defender.getName());
         attacker.doesDamage(Config.COMMENT_DAMAGE, defender);
         if (new Random().nextInt(100) > 66) {
-            defender.getCondition().add(ConditionType.FROZEN, Config.FREEZING_TURNS);
+            defender.getConditions().add(ConditionType.FROZEN, Config.FREEZING_TURNS);
         }
         if (new Random().nextInt(100) > 50) {
-            defender.getCondition().add(ConditionType.POISONED, Config.FREEZING_TURNS);
+            defender.getConditions().add(ConditionType.POISONED, Config.FREEZING_TURNS);
         }
     }
 }

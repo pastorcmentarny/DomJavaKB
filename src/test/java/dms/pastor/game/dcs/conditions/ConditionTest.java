@@ -8,7 +8,14 @@ import java.util.HashSet;
 
 import static dms.pastor.game.dcs.Config.DEFAULT_CONDITION_DURATION;
 import static dms.pastor.game.dcs.conditions.ConditionEntryBuilder.conditionEntryBuilder;
-import static dms.pastor.game.dcs.conditions.ConditionType.*;
+import static dms.pastor.game.dcs.conditions.ConditionType.AIR_IMMUNE;
+import static dms.pastor.game.dcs.conditions.ConditionType.AIR_SENSITIVE;
+import static dms.pastor.game.dcs.conditions.ConditionType.EARTH_IMMUNE;
+import static dms.pastor.game.dcs.conditions.ConditionType.FIRE_IMMUNE;
+import static dms.pastor.game.dcs.conditions.ConditionType.FIRE_SENSITIVE;
+import static dms.pastor.game.dcs.conditions.ConditionType.POISONED;
+import static dms.pastor.game.dcs.conditions.ConditionType.STUNNED;
+import static dms.pastor.game.dcs.conditions.ConditionType.WATER_IMMUNE;
 import static dms.pastor.game.dcs.conditions.ElementType.AIR;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -336,5 +343,18 @@ public class ConditionTest {
 
         // then
         assertThat(result).isTrue();
+    }
+
+    @Test
+    public void sizeShouldReturn2For2Conditions() {
+        // given
+        conditions.add(FIRE_SENSITIVE);
+        conditions.add(AIR_SENSITIVE);
+        // when
+        final int size = conditions.size();
+
+        // then
+        assertThat(size).isEqualTo(2);
+
     }
 }

@@ -23,7 +23,7 @@ public class IceBoltSpell extends Spell {
     @Override
     public void castSpell(Unit attacker, Unit defender) {
         System.out.println(attacker.getName() + " casting ice bolt.. " + defender.getName());
-        if (defender.getCondition().isNotImmuneTo(ElementType.WATER)) {
+        if (defender.getConditions().isNotImmuneTo(ElementType.WATER)) {
             defender.doesDamage(Config.ICE_BOLT_DMG, attacker);
         } else {
             System.out.println(defender + " resists spell");

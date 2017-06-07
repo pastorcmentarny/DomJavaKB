@@ -45,7 +45,6 @@ public class Spells {
         spells.add(new WeaknessSpell());
         spells.add(new VampireDrainSpell());
         spells.add(new CreateShieldSpell());
-        spells.add(new MagicDeathScythe());
         spells.add(new CursedEventSpell());
     }
 

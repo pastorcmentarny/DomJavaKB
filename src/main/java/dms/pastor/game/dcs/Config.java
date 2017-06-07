@@ -45,7 +45,7 @@ public class Config {
     public static final int ASTEROID_STORM_MAX_ASTEROIDS = 4;
     public static final int POISON_DAMAGE = 1;
     public static final int REGEN_SP_PER_TURN = 1;
-    public static final int DEATH_RAY_DMG = 9;
+    public static final int DEATH_RAY_DMG = 12;
     public static final int DEFAULT_CONDITION_DURATION = 3;
     public static final int EXHAUSTION_START_ROUND = 25;
 

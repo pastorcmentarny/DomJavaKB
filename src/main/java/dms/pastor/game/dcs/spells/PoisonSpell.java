@@ -23,6 +23,6 @@ public class PoisonSpell extends Spell {
     @Override
     public void castSpell(Unit attacker, Unit defender) {
         System.out.println(attacker.getName() + " casting poison spell.");
-        attacker.getCondition().add(ConditionType.POISONED, Config.POISON_TURNS);
+        attacker.getConditions().add(ConditionType.POISONED, Config.POISON_TURNS);
     }
 }

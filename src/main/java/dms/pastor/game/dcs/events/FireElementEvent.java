@@ -22,7 +22,7 @@ public class FireElementEvent extends Event {
 
     @Override
     boolean canHaveEvent(Unit unit) {
-        return unit.getCondition().hasNot(FIRE_SENSITIVE);
+        return unit.getConditions().hasNot(FIRE_SENSITIVE);
     }
 
     private String performFireEvent(Unit player) {

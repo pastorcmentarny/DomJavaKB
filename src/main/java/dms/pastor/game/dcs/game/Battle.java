@@ -61,16 +61,16 @@ class Battle {
         player1.displayStats();
         player1.getElements().displayElements();
         player2.getElements().addRandomElements(Config.ADD_CARD_PER_TURN);
-        if (player1.getCondition().has(ConditionType.REGENERATION)) {
+        if (player1.getConditions().has(ConditionType.REGENERATION)) {
             player1.addHP(Config.REGEN_RATE);
         }
-        if (player2.getCondition().has(ConditionType.REGENERATION)) {
+        if (player2.getConditions().has(ConditionType.REGENERATION)) {
             player2.addHP(Config.REGEN_RATE);
         }
-        if (player1.getCondition().has(ConditionType.POISONED)) {
+        if (player1.getConditions().has(ConditionType.POISONED)) {
             player1.doesDirectDamage(Config.POISON_DAMAGE);
         }
-        if (player2.getCondition().has(ConditionType.POISONED)) {
+        if (player2.getConditions().has(ConditionType.POISONED)) {
             player2.doesDirectDamage(Config.POISON_DAMAGE);
         }
         LOGGER.debug("Pre round stage completed.");
@@ -82,14 +82,14 @@ class Battle {
 
     private void round() {
         System.out.println("Round: " + ++round);
-        if (player1.getCondition().has(ConditionType.STUNNED)) {
+        if (player1.getConditions().has(ConditionType.STUNNED)) {
             displayUnitIsStunnedMessageFor(player1.getName());
         } else {
             player1.turn(player2);
         }
 
         if (player2.isAlive()) {
-            if (player2.getCondition().has(ConditionType.STUNNED)) {
+            if (player2.getConditions().has(ConditionType.STUNNED)) {
                 displayUnitIsStunnedMessageFor(player2.getName());
             } else {
                 player2.turn(player1);
@@ -109,8 +109,8 @@ class Battle {
 
             player1.shieldRegen(Config.REGEN_SP_PER_TURN);
             player2.shieldRegen(Config.REGEN_SP_PER_TURN);
-            player1.getCondition().reduceByOneTurn();
-            player2.getCondition().reduceByOneTurn();
+            player1.getConditions().reduceByOneTurn();
+            player2.getConditions().reduceByOneTurn();
         } else {
             resolveWhoWonBattle();
         }

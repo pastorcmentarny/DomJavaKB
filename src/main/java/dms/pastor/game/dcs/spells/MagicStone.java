@@ -33,7 +33,7 @@ public class MagicStone extends Spell {
                 System.out.println("StrongShield  protect " + defender.getName() + " from being stunned.");
             } else {
                 System.out.println(defender.getName() + "  is stunned after being hit by stone.");
-                defender.getCondition().add(ConditionType.STUNNED, 1);
+                defender.getConditions().add(ConditionType.STUNNED, 1);
             }
 
         }

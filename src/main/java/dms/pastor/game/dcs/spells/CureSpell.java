@@ -26,8 +26,8 @@ public class CureSpell extends Spell {
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        attacker.getCondition().removeByConditionName(ConditionType.POISONED);
-        attacker.getCondition().removeByConditionName(ConditionType.WEAKNESS);
-        attacker.getCondition().removeByConditionName(ConditionType.BLIND);
+        attacker.getConditions().removeByConditionName(ConditionType.POISONED);
+        attacker.getConditions().removeByConditionName(ConditionType.WEAKNESS);
+        attacker.getConditions().removeByConditionName(ConditionType.BLIND);
     }
 }
