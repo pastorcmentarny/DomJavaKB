@@ -40,12 +40,12 @@ public class AsteroidStormSpell extends Spell {
         for (int i = 1; i <= asteroids; i++) {
             int r = random.nextInt(100);
             if (r >= Config.ASTEROID_STORM_CHANCE_TO_HIT) {
-                LOGGER.info("Asteroid hit " + defender.getName());
+                System.out.println("Asteroid hit " + defender.getName());
                 if (defender.getConditions().isNotImmuneTo(EARTH)) {
                     defender.doesDamage(dmg, attacker);
                 }
             } else {
-                LOGGER.info("Meteor missed.");
+                System.out.println("Meteor missed.");
             }
         }
     }
