@@ -1,9 +1,11 @@
 package dms.pastor.game.dcs.spells;
 
-import dms.pastor.game.dcs.Config;
 import dms.pastor.game.dcs.Elements;
-import dms.pastor.game.dcs.conditions.ConditionType;
 import dms.pastor.game.dcs.units.Unit;
+
+import static dms.pastor.game.dcs.Config.POISON_TURNS;
+import static dms.pastor.game.dcs.conditions.ConditionType.POISONED;
+import static dms.pastor.game.dcs.conditions.ConditionType.POISON_IMMUNITY;
 
 /**
  * Author Dominik Symonowicz
@@ -24,6 +26,11 @@ public class PoisonSpell extends Spell {
     @Override
     public void castSpell(Unit attacker, Unit defender) {
         System.out.println(attacker.getName() + " casting poison spell.");
-        attacker.getConditions().add(ConditionType.POISONED, Config.POISON_TURNS);
+        if (defender.getConditions().hasNot(POISON_IMMUNITY)) {
+            defender.getConditions().add(POISONED, POISON_TURNS);
+            System.out.println(defender.getName() + " got poisoned for " + POISON_TURNS + " turns.");
+        } else {
+            System.out.println(defender.getName() + " resists against poison.");
+        }
     }
 }
