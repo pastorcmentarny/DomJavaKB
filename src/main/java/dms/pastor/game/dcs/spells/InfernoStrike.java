@@ -16,6 +16,7 @@ import java.util.Random;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public class InfernoStrike extends Spell {
+    public static final String HIT_MESSAGE = "It hits ";
     private final Random random = new Random();
 
     public InfernoStrike() {
@@ -30,10 +31,10 @@ public class InfernoStrike extends Spell {
         for (int i = 1; i <= Config.INFERNO_STRIKE_NO; i++) {
             int r = random.nextInt(100);
             if (r >= 60) {
-                System.out.println("It hits " + defender.getName());
-                defender.doesDamage(Config.INFERNO_STRIKE_DMG, attacker);
+                System.out.println(HIT_MESSAGE + defender.getName());
+                attacker.doesDamage(Config.INFERNO_STRIKE_DMG, defender);
             } else {
-                System.out.println("IT hit" + attacker.getName());
+                System.out.println(HIT_MESSAGE + attacker.getName());
                 attacker.doesDamage(Config.INFERNO_STRIKE_DMG, attacker);
             }
         }
