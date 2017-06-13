@@ -42,14 +42,13 @@ public class Unit {
 
     private int arm = 0;
 
-    private Elements elements = elements = new Elements(5);
+    private Elements elements = new Elements(5);
     private ArrayList<Card> cards = new ArrayList<>();
     private boolean player = false;
     private Condition conditions = new Condition();
 
     protected Unit() {
-        //TODO  fix it
-        elements = new Elements(5);
+
     }
 
     public Unit(boolean shielded, int sp, Elements elements, int hp, ArrayList<Card> cards, boolean player, String name, int maxHp, int arm, Condition conditions, String description) {
@@ -218,7 +217,7 @@ public class Unit {
             shielded = true;
             sp = initialShieldPoints;
         } else {
-            System.out.println(name + " has shield");
+            System.out.println(name + " has shield already.");
         }
     }
 

@@ -1,10 +1,11 @@
 package dms.pastor.game.dcs.spells;
 
 import dms.pastor.game.dcs.Elements;
-import dms.pastor.game.dcs.conditions.ConditionType;
 import dms.pastor.game.dcs.units.Unit;
 
 import java.util.Random;
+
+import static dms.pastor.game.dcs.conditions.ConditionType.WEAKNESS;
 
 /**
  * Author Dominik Symonowicz
@@ -25,11 +26,12 @@ public class WeaknessSpell extends Spell {
     @Override
     public void castSpell(Unit attacker, Unit defender) {
         System.out.println(attacker.getName() + " casting weakness.. " + defender.getName());
-        if (new Random().nextInt(100) > 50) {
-            defender.getConditions().add(ConditionType.WEAKNESS, 2);
+        if (new Random().nextInt(100) > 75) {
+            final int turns = 2;
+            defender.getConditions().add(WEAKNESS, turns);
+            System.out.println(defender.getName() + " is weak for " + turns + " turns.");
         } else {
             System.out.println(defender.getName() + " resits.");
         }
-
     }
 }

@@ -34,7 +34,7 @@ public class MeteorStrike extends Spell {
             if (r >= 50) {
                 System.out.println("Meteor hit " + defender.getName());
                 if (defender.getConditions().isNotImmuneTo(ElementType.FIRE)) {
-                    defender.doesDamage(Config.METEOR_STRIKE_DMG, attacker);
+                    attacker.doesDamage(Config.METEOR_STRIKE_DMG, defender);
                 }
             } else if (r >= 5) {
                 System.out.println("Meteor missed.");

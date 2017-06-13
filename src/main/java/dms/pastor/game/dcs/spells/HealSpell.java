@@ -1,8 +1,9 @@
 package dms.pastor.game.dcs.spells;
 
-import dms.pastor.game.dcs.Config;
 import dms.pastor.game.dcs.Elements;
 import dms.pastor.game.dcs.units.Unit;
+
+import static dms.pastor.game.dcs.Config.HEAL;
 
 /**
  * Author Dominik Symonowicz
@@ -24,7 +25,7 @@ public class HealSpell extends Spell {
     @Override
     public void castSpell(Unit attacker, Unit defender) {
         System.out.println("Casting heal.. on " + attacker.getName());
-        attacker.addHP(Config.HEAL);
+        attacker.addHP(HEAL);
     }
 
 }

@@ -18,7 +18,7 @@ public class AntiShieldPiercingSpell extends Spell {
     public AntiShieldPiercingSpell() {
         super();
         name = "Anti shield piercing spell";
-        setElements(new Elements(1, 0, 1, 0, 0, 2));
+        setElements(new Elements(1, 1, 1, 1, 0, 0));
     }
 
 

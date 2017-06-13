@@ -3,8 +3,17 @@ package dms.pastor.game.dcs.units;
 import dms.pastor.game.dcs.ElementsBuilder;
 import org.junit.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
+import static dms.pastor.game.dcs.Config.INITIAL_SHIELD_POINTS;
 import static dms.pastor.game.dcs.ElementsBuilder.elementsBuilder;
-import static dms.pastor.game.dcs.ElementsType.*;
+import static dms.pastor.game.dcs.ElementsType.AIR;
+import static dms.pastor.game.dcs.ElementsType.DEATH;
+import static dms.pastor.game.dcs.ElementsType.EARTH;
+import static dms.pastor.game.dcs.ElementsType.FIRE;
+import static dms.pastor.game.dcs.ElementsType.LIFE;
+import static dms.pastor.game.dcs.ElementsType.WATER;
 import static dms.pastor.game.dcs.units.Unit.DEFAULT_SHIELD_POINTS;
 import static dms.pastor.game.dcs.units.UnitBuilder.unitBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -21,6 +30,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class UnitTest {
 
     static final int DEFAULT_NUMBER_OF_ELEMENTS = 10;
+    private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    private final PrintStream original = System.out;
 
     @Test
     public void recreateShieldShouldCreateShield() throws Exception {
@@ -74,7 +85,7 @@ public class UnitTest {
     }
 
     @Test
-    public void createShieldShouldEmableShieldAndSetInitialSPValue() throws Exception {
+    public void createShieldShouldEnableShieldAndSetInitialSPValue() throws Exception {
         // given
         final Unit unit = unitBuilder()
                 .shielded(false)
@@ -89,6 +100,28 @@ public class UnitTest {
         assertThat(unit.isShielded()).isTrue();
         assertThat(unit.getSp()).isEqualTo(initialShieldPoints);
 
+    }
+
+    @Test
+    public void createShieldShouldDoNothingIfUnitIsShieldedAlready() throws Exception {
+        // given
+        System.setOut(new PrintStream(outputStream));
+        final int initialSp = 10;
+        final Unit unit = unitBuilder()
+                .shielded(true)
+                .sp(initialSp)
+                .build();
+
+        // when
+        unit.createShield(INITIAL_SHIELD_POINTS);
+
+        // then
+        assertThat(unit.isShielded()).isTrue();
+        assertThat(unit.getSp()).isEqualTo(initialSp);
+        assertThat(outputStream.toString()).contains("Name has shield already.");
+
+        outputStream.close();
+        System.setOut(original);
     }
 
     @Test

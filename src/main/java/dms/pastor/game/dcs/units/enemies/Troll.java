@@ -1,6 +1,10 @@
 package dms.pastor.game.dcs.units.enemies;
 
-import dms.pastor.game.dcs.spells.*;
+import dms.pastor.game.dcs.spells.FireBall;
+import dms.pastor.game.dcs.spells.HealSpell;
+import dms.pastor.game.dcs.spells.MagicStone;
+import dms.pastor.game.dcs.spells.MeteorStrike;
+import dms.pastor.game.dcs.spells.Spell;
 import dms.pastor.game.dcs.units.Unit;
 import dms.pastor.game.dcs.units.enemies.actions.CureAction;
 import dms.pastor.game.dcs.utils.random.InGameRandomiserUtils;
@@ -25,6 +29,7 @@ public class Troll extends Unit {
     public Troll() {
         super();
         setName("Troll");
+        setHp(50);
     }
 
     @Override
