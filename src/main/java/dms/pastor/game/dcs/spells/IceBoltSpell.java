@@ -1,9 +1,10 @@
 package dms.pastor.game.dcs.spells;
 
-import dms.pastor.game.dcs.Config;
 import dms.pastor.game.dcs.Elements;
-import dms.pastor.game.dcs.conditions.ElementType;
 import dms.pastor.game.dcs.units.Unit;
+
+import static dms.pastor.game.dcs.Config.ICE_BOLT_DMG;
+import static dms.pastor.game.dcs.conditions.ElementType.WATER;
 
 /**
  * Author Dominik Symonowicz
@@ -24,8 +25,8 @@ public class IceBoltSpell extends Spell {
     @Override
     public void castSpell(Unit attacker, Unit defender) {
         System.out.println(attacker.getName() + " casting ice bolt.. " + defender.getName());
-        if (defender.getConditions().isNotImmuneTo(ElementType.WATER)) {
-            defender.doesDamage(Config.ICE_BOLT_DMG, attacker);
+        if (defender.getConditions().isNotImmuneTo(WATER)) {
+            defender.doesDamage(ICE_BOLT_DMG, attacker);
         } else {
             System.out.println(defender + " resists spell");
         }

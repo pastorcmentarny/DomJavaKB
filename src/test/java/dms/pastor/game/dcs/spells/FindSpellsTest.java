@@ -25,7 +25,7 @@ public class FindSpellsTest {
 
     @Test
     public void testFindAntiShieldPiercingSpell() throws Exception {
-        Elements elements = new Elements(1, 0, 1, 0, 0, 2);
+        Elements elements = new Elements(1, 1, 1, 1, 0, 0);
         assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new AntiShieldPiercingSpell().getName()));
     }
 
@@ -68,7 +68,7 @@ public class FindSpellsTest {
     @Test
     public void testFindInfo() throws Exception {
         Elements elements = new Elements(1, 0, 0, 0, 0, 0);
-        assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new Info().getName()));
+        assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new InfoSpell().getName()));
     }
 
     @Test

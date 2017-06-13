@@ -3,8 +3,11 @@ package dms.pastor.game.dcs.units;
 import dms.pastor.game.dcs.Elements;
 import dms.pastor.game.dcs.cards.Card;
 import dms.pastor.game.dcs.conditions.Condition;
+import dms.pastor.game.dcs.conditions.ConditionType;
 
 import java.util.ArrayList;
+
+import static dms.pastor.game.dcs.conditions.ConditionEntryBuilder.conditionEntryBuilder;
 
 /**
  * Author Dominik Symonowicz
@@ -99,6 +102,13 @@ public class UnitBuilder {
 
     public UnitBuilder condition(Condition condition) {
         this.condition = condition;
+        return this;
+    }
+
+    public UnitBuilder withSingleCondtion(ConditionType type) {
+        final Condition singleCondition = new Condition();
+        singleCondition.add(conditionEntryBuilder().condition(type).build());
+        this.condition = singleCondition;
         return this;
     }
 

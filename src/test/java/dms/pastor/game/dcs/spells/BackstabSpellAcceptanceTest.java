@@ -32,7 +32,7 @@ public class BackstabSpellAcceptanceTest {
         // when
         backstabSpell.castSpell(unit, unit2);
         // then
-        assertThat(unit2.getHp()).isEqualTo(initialHp - Config.BACKSTAB_DMG);
+        assertThat(unit2.getHp()).isEqualTo(initialHp - Config.BACKSTABBING_DMG);
     }
 
     @Test
@@ -50,6 +50,6 @@ public class BackstabSpellAcceptanceTest {
         // when
         backstabSpell.castSpell(unit, unit2);
         // then
-        assertThat(unit2.getHp()).isEqualTo(initialHp - Config.BACKSTAB_DMG);
+        assertThat(unit2.getHp()).isEqualTo(initialHp - Config.BACKSTABBING_DMG);
     }
 }

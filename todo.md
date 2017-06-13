@@ -33,3 +33,8 @@ Enemies
 26. Red Dragon
 27. Blue Dragon
 28. Black Green
+
+
+Location
+where you get bonus for using specific elements
+or some events happen (for example lighting bolt every 2-3 runds

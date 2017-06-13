@@ -33,7 +33,7 @@ public class Config {
     public static final int ASP_DMG = 10;
     public static final int SHIELD_HEAL = 3;
     public static final int INITIAL_SHIELD_POINTS = 24;
-    public static final int BACKSTAB_DMG = 2;
+    public static final int BACKSTABBING_DMG = 2;
     public static final int REMOVE_RANDOM_ELEMENTS_NUMBER = 3;
     public static final int POISON_TURNS = 3;
     public static final int FREEZING_DAMAGE = 2;
