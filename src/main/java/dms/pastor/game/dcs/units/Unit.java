@@ -81,7 +81,7 @@ public class Unit {
         //Nothing
     }
 
-    public int doesDamage(int dmg, Unit defender) {
+    public int doesDamageTo(Unit defender, int dmg) {
         if (conditions.has(WEAKNESS)) {
             dmg /= 2;
         }

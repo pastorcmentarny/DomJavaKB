@@ -35,12 +35,20 @@ public class AsteroidStormSpell extends Spell {
         System.out.println(attacker.getName() + " casting .. " + name + " on " + defender.getName());
         int dmg = ASTEROID_STORM_MIN_DAMAGE + random.nextInt(ASTEROID_STORM_MAX_DAMAGE - ASTEROID_STORM_MIN_DAMAGE);
         int asteroids = ASTEROID_STORM_MIN_ASTEROIDS + random.nextInt(ASTEROID_STORM_MAX_ASTEROIDS - ASTEROID_STORM_MIN_ASTEROIDS);
+        LOGGER.debug(asteroids + " asteroid(s) will do " + dmg + " dmg each that will hit.");
         for (int i = 1; i <= asteroids; i++) {
             int r = random.nextInt(100);
             if (r >= Config.ASTEROID_STORM_CHANCE_TO_HIT) {
-                System.out.println("Asteroid hit " + defender.getName());
-                if (defender.getConditions().isNotImmuneTo(EARTH)) {
-                    defender.doesDamage(dmg, attacker);
+                if (random.nextInt(100) > 66) {
+                    System.out.println("Asteroid hit " + defender.getName());
+                    if (defender.getConditions().isNotImmuneTo(EARTH)) {
+                        attacker.doesDamageTo(defender, dmg);
+                    }
+                } else {
+                    System.out.println("Asteroid hit " + attacker.getName());
+                    if (attacker.getConditions().isNotImmuneTo(EARTH)) {
+                        attacker.doesDamageTo(attacker, dmg);
+                    }
                 }
             } else {
                 System.out.println("Meteor missed.");

@@ -26,7 +26,7 @@ public class LightingBolt extends Spell {
     @Override
     public void castSpell(Unit attacker, Unit defender) {
         System.out.println(attacker.getName() + " casting magic stone.. " + defender.getName());
-        defender.doesDamage(Config.LIGHTING_BOLT_DAMAGE, attacker);
+        defender.doesDamageTo(attacker, Config.LIGHTING_BOLT_DAMAGE);
         Random random = new Random();
         if (50 >= random.nextInt(100)) {
             System.out.println(defender.getName() + "  is stunned after being hit by lighting.");

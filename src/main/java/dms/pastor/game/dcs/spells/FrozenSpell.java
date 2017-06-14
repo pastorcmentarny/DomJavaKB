@@ -27,7 +27,7 @@ public class FrozenSpell extends Spell {
     @Override
     public void castSpell(Unit attacker, Unit defender) {
         System.out.println(attacker.getName() + " casting freezing spell on.. " + defender.getName());
-        defender.doesDamage(Config.FREEZING_DAMAGE, attacker);
+        defender.doesDamageTo(attacker, Config.FREEZING_DAMAGE);
         if (defender.getConditions().isNotImmuneTo(ElementType.WATER)) {
             defender.getConditions().add(ConditionType.FROZEN, Config.FREEZING_TURNS);
         } else {

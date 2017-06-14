@@ -31,7 +31,7 @@ public class FireElement extends Unit {
     public void turn(Unit unit) {
         if (getElements().getWater() > 0) {
             int dmg = getElements().getWater() * 2;
-            doesDamage(dmg, this);
+            doesDamageTo(this, dmg);
             System.out.println("Water elements  cause " + dmg);
             if (isDead()) {
                 return;

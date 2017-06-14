@@ -27,7 +27,7 @@ public class CometStrike extends Spell {
     @Override
     public void castSpell(Unit attacker, Unit defender) {
         System.out.println(attacker.getName() + " casting comet strike spell on.. " + defender.getName());
-        attacker.doesDamage(Config.COMMENT_DAMAGE, defender);
+        attacker.doesDamageTo(defender, Config.COMMENT_DAMAGE);
         if (new Random().nextInt(100) > 66) {
             defender.getConditions().add(ConditionType.FROZEN, Config.FREEZING_TURNS);
         }

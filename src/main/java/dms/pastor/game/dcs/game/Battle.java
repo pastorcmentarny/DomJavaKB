@@ -55,8 +55,8 @@ class Battle {
         if (round > Config.EXHAUSTION_START_ROUND) {
             int dmg = getDamageForExhaustion();
             System.out.println("Exhaustion damage .." + dmg + " dmg.");
-            player1.doesDamage(dmg, player1);
-            player2.doesDamage(dmg, player2);
+            player1.doesDamageTo(player1, dmg);
+            player2.doesDamageTo(player2, dmg);
         }
         EventGenerator.event(player1, player2);
         player1.getElements().addRandomElements(Config.ADD_CARD_PER_TURN);

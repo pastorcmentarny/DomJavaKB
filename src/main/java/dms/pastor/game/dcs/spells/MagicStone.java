@@ -27,7 +27,7 @@ public class MagicStone extends Spell {
     @Override
     public void castSpell(Unit attacker, Unit defender) {
         System.out.println(attacker.getName() + " casting magic stone.. " + defender.getName());
-        defender.doesDamage(Config.MAGIC_STONE_DMG, attacker);
+        defender.doesDamageTo(attacker, Config.MAGIC_STONE_DMG);
         Random random = new Random();
         if (15 >= random.nextInt(100)) {
             if (defender.isStrongShield()) {
