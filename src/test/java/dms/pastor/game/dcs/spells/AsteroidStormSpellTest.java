@@ -58,15 +58,17 @@ public class AsteroidStormSpellTest {
         assertThat(unit.getHp()).isLessThan(initHp);
     }
 
-    @Test
+    @Test //TODO improve this test as it does too much
     public void castAsteroidStormShouldHitAtLeastOnceUnitOneUnitTwoAndMissOnce() throws Exception {
         // given
         final int initHp = 1000;
         final Unit unit1 = unitBuilder()
+                .name("Unit1")
                 .withoutShield()
                 .hp(initHp)
                 .build();
         final Unit unit2 = unitBuilder()
+                .name("Unit2")
                 .withoutShield()
                 .hp(initHp)
                 .build();
@@ -80,8 +82,8 @@ public class AsteroidStormSpellTest {
         assertThat(unit1.getHp()).isLessThan(initHp);
         assertThat(unit2.getHp()).isLessThan(initHp);
         String output = outputStream.toString();
-        assertThat(output).contains("Asteroid hit Unit1.");
-        assertThat(output).contains("Asteroid hit Unit2.");
+        assertThat(output).contains("Asteroid hits Unit1!");
+        assertThat(output).contains("Asteroid hits Unit2!");
         assertThat(output).contains("Asteroid missed.");
     }
 

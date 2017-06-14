@@ -40,18 +40,18 @@ public class AsteroidStormSpell extends Spell {
             int r = random.nextInt(100);
             if (r >= Config.ASTEROID_STORM_CHANCE_TO_HIT) {
                 if (random.nextInt(100) > 66) {
-                    System.out.println("Asteroid hit " + defender.getName());
+                    System.out.println("Asteroid hits " + defender.getName() + "!");
                     if (defender.getConditions().isNotImmuneTo(EARTH)) {
                         attacker.doesDamageTo(defender, dmg);
                     }
                 } else {
-                    System.out.println("Asteroid hit " + attacker.getName());
+                    System.out.println("Asteroid hits " + attacker.getName() + "!");
                     if (attacker.getConditions().isNotImmuneTo(EARTH)) {
                         attacker.doesDamageTo(attacker, dmg);
                     }
                 }
             } else {
-                System.out.println("Meteor missed.");
+                System.out.println("Asteroid missed.");
             }
         }
     }
