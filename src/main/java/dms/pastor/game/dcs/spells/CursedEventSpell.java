@@ -17,7 +17,7 @@ public class CursedEventSpell extends Spell {
     public CursedEventSpell() {
         super();
         name = "Draw an event";
-        setElements(new Elements(2, 0, 2, 0, 0, 1));
+        setElements(new Elements(2, 0, 2, 0));
     }
 
     @Override

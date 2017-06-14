@@ -18,7 +18,7 @@ public class RegenSpell extends Spell {
     public RegenSpell() {
         super();
         name = "Regeneration";
-        setElements(new Elements(1, 0, 0, 1, 3, 0));
+        setElements(new Elements(1, 0, 0, 1));
     }
 
     @Override

@@ -8,7 +8,10 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import static dms.pastor.game.dcs.ElementsBuilder.elementsBuilder;
-import static dms.pastor.game.dcs.ElementsType.*;
+import static dms.pastor.game.dcs.ElementsType.AIR;
+import static dms.pastor.game.dcs.ElementsType.EARTH;
+import static dms.pastor.game.dcs.ElementsType.FIRE;
+import static dms.pastor.game.dcs.ElementsType.WATER;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -42,7 +45,7 @@ public class ElementsTest {
         final Elements elements = elementsBuilder().setToOneForAllElements().build();
 
         // then
-        assertThat(elements.countElements()).isEqualTo(6);
+        assertThat(elements.countElements()).isEqualTo(4);
     }
 
     @Test
@@ -54,7 +57,7 @@ public class ElementsTest {
         elements.displayElements();
 
         // then
-        assertThat(outputStream.toString()).contains(String.format(" Air:%d Earth:%d Fire:%d Water:%d Life:%d Death:%d", 1, 1, 1, 1, 1, 1));
+        assertThat(outputStream.toString()).contains(String.format(" Air:%d Earth:%d Fire:%d Water:%d", 1, 1, 1, 1));
     }
 
     @Test
@@ -105,30 +108,6 @@ public class ElementsTest {
         assertThat(elements.getWater()).isEqualTo(2);
     }
 
-    @Test
-    public void addElementWithLifeShouldLifeElementToElements() {
-        // given
-        final Elements elements = elementsBuilder().setToOneForAllElements().build();
-
-        // when
-        elements.addElement(LIFE);
-
-        // then
-        assertThat(elements.getLife()).isEqualTo(2);
-    }
-
-    @Test
-    public void addElementWithDeathShouldDeathElementToElements() {
-        // given
-        final Elements elements = elementsBuilder().setToOneForAllElements().build();
-
-        // when
-        elements.addElement(DEATH);
-
-        // then
-        assertThat(elements.getDeath()).isEqualTo(2);
-    }
-
     @Test //TODO IMPROVE IT
     public void addElementWithULLShouldDisplayWarningInLogs() {
         // given
@@ -139,7 +118,7 @@ public class ElementsTest {
 
         // then
         elements.displayElements();
-        assertThat(outputStream.toString()).contains(String.format(" Air:%d Earth:%d Fire:%d Water:%d Life:%d Death:%d", 1, 1, 1, 1, 1, 1));
+        assertThat(outputStream.toString()).contains(String.format(" Air:%d Earth:%d Fire:%d Water:%d", 1, 1, 1, 1));
 
     }
 
@@ -152,6 +131,6 @@ public class ElementsTest {
         elements.removeRandomElements(1);
 
         // then
-        assertThat(elements.countElements()).isEqualTo(5);
+        assertThat(elements.countElements()).isEqualTo(3);
     }
 }

@@ -17,7 +17,7 @@ public class CureSpell extends Spell {
     public CureSpell() {
         super();
         name = "Draw an event";
-        setElements(new Elements(0, 1, 0, 1, 2, 0));
+        setElements(new Elements(0, 1, 0, 1));
     }
 
     @Override

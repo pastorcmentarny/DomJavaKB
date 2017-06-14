@@ -20,7 +20,7 @@ public class CometStrike extends Spell {
     public CometStrike() {
         super();
         name = "Comet Spell";
-        setElements(new Elements(0, 3, 0, 1, 0, 1));
+        setElements(new Elements(0, 3, 0, 1));
     }
 
 

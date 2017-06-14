@@ -116,6 +116,8 @@ class Battle {
         } else {
             resolveWhoWonBattle();
         }
+        LOGGER.debug(player1.toString());
+        LOGGER.debug(player2.toString());
         LOGGER.debug("Pre round stage completed.");
     }
 

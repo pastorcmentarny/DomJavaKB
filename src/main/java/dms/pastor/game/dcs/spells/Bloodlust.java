@@ -20,7 +20,7 @@ public class Bloodlust extends Spell {
     public Bloodlust() {
         super();
         name = "Bloodlust";
-        setElements(new Elements(0, 0, 0, 4, 0, 0));
+        setElements(new Elements(0, 0, 0, 4));
     }
 
     @Override

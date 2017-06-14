@@ -27,7 +27,7 @@ public class AsteroidStormSpell extends Spell {
     public AsteroidStormSpell() {
         super();
         name = "Asteroid Storm";
-        setElements(new Elements(1, 4, 0, 0, 0, 0));
+        setElements(new Elements(1, 4, 0, 0));
     }
 
     @Override

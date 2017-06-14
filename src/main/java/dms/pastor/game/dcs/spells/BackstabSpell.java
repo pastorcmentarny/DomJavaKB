@@ -21,7 +21,7 @@ public class BackstabSpell extends Spell {
     public BackstabSpell() {
         super();
         name = "Backstab spell";
-        setElements(new Elements(0, 2, 0, 0, 0, 1));
+        setElements(new Elements(0, 2, 0, 0));
     }
 
     @Override

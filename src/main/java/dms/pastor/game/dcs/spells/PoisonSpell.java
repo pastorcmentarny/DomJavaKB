@@ -20,7 +20,7 @@ public class PoisonSpell extends Spell {
     public PoisonSpell() {
         super();
         name = "Poison";
-        setElements(new Elements(0, 1, 0, 1, 0, 2));
+        setElements(new Elements(0, 2, 0, 1));
     }
 
     @Override

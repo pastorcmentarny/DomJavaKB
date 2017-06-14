@@ -17,7 +17,7 @@ public class VampireDrainSpell extends Spell {
     public VampireDrainSpell() {
         super();
         name = "Vampire Drain";
-        setElements(new Elements(1, 0, 0, 0, 1, 1));
+        setElements(new Elements(1, 1, 1, 0));
     }
 
 

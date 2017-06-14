@@ -22,7 +22,7 @@ public class MeteorStrike extends Spell {
     public MeteorStrike() {
         super();
         name = "Meteor Strike";
-        setElements(new Elements(0, 2, 3, 0, 0, 0));
+        setElements(new Elements(0, 2, 3, 0));
     }
 
 

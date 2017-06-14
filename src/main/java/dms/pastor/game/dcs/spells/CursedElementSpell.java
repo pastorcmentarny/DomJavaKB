@@ -18,7 +18,7 @@ public class CursedElementSpell extends Spell {
     public CursedElementSpell() {
         super();
         name = "Cursed Element Missile";
-        setElements(new Elements(0, 0, 0, 1, 0, 2));
+        setElements(new Elements(0, 0, 0, 1));
     }
 
 

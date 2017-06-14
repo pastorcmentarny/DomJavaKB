@@ -7,6 +7,7 @@ import dms.pastor.game.dcs.conditions.ConditionType;
 
 import java.util.ArrayList;
 
+import static dms.pastor.game.dcs.Config.INITIAL_SHIELD_POINTS;
 import static dms.pastor.game.dcs.conditions.ConditionEntryBuilder.conditionEntryBuilder;
 
 /**
@@ -82,6 +83,13 @@ public class UnitBuilder {
 
     public UnitBuilder shielded(boolean shielded) {
         this.shielded = shielded;
+        if(shielded){
+            if(sp  == 0){
+                sp = INITIAL_SHIELD_POINTS;
+            }
+        }else{
+            sp = 0;
+        }
         return this;
     }
 

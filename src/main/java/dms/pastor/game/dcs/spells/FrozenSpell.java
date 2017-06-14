@@ -20,7 +20,7 @@ public class FrozenSpell extends Spell {
     public FrozenSpell() {
         super();
         name = "Freezing Spell";
-        setElements(new Elements(1, 0, 0, 2, 0, 0));
+        setElements(new Elements(1, 0, 0, 2));
     }
 
 

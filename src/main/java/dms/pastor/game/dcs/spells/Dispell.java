@@ -15,7 +15,7 @@ import dms.pastor.game.dcs.units.Unit;
 public class Dispell extends Spell {
     public Dispell() {
         name = "Dispell";
-        setElements(new Elements(2, 0, 1, 0, 1, 1));
+        setElements(new Elements(2, 0, 1, 0));
     }
 
     @Override

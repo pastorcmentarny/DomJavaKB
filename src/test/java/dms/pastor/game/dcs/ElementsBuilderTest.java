@@ -19,7 +19,7 @@ public class ElementsBuilderTest {
     @Test
     public void buildWithoutSetCustomVariablesShouldReturnElementsWithZerosVariables() throws Exception {
         // given
-        final Elements expectedElements = new Elements(0, 0, 0, 0, 0, 0);
+        final Elements expectedElements = new Elements(0, 0, 0, 0);
 
         // when
         final Elements elements = elementsBuilder().build();
@@ -37,7 +37,7 @@ public class ElementsBuilderTest {
         final int water = 4;
         final int life = 5;
         final int death = 6;
-        final Elements expectedElements = new Elements(air, earth, fire, water, life, death);
+        final Elements expectedElements = new Elements(air, earth, fire, water);
 
         // when
         final Elements elements = elementsBuilder()
@@ -61,7 +61,7 @@ public class ElementsBuilderTest {
                 .setToOneForAllElements()
                 .build();
         // then
-        assertThat(elements.hasEnough(new Elements(1, 1, 1, 1, 1, 1)));
+        assertThat(elements.hasEnough(new Elements(1, 1, 1, 1)));
     }
 
 }

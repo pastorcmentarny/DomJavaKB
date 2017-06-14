@@ -8,7 +8,10 @@ import java.io.PrintStream;
 
 import static dms.pastor.game.dcs.Config.INITIAL_SHIELD_POINTS;
 import static dms.pastor.game.dcs.ElementsBuilder.elementsBuilder;
-import static dms.pastor.game.dcs.ElementsType.*;
+import static dms.pastor.game.dcs.ElementsType.AIR;
+import static dms.pastor.game.dcs.ElementsType.EARTH;
+import static dms.pastor.game.dcs.ElementsType.FIRE;
+import static dms.pastor.game.dcs.ElementsType.WATER;
 import static dms.pastor.game.dcs.units.Unit.DEFAULT_SHIELD_POINTS;
 import static dms.pastor.game.dcs.units.UnitBuilder.unitBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -104,7 +107,6 @@ public class UnitTest {
         final int initialSp = 10;
         final Unit unit = unitBuilder()
                 .shielded(true)
-                .sp(initialSp)
                 .build();
 
         // when
@@ -112,7 +114,7 @@ public class UnitTest {
 
         // then
         assertThat(unit.isShielded()).isTrue();
-        assertThat(unit.getSp()).isEqualTo(initialSp);
+        assertThat(unit.getSp()).isEqualTo(INITIAL_SHIELD_POINTS);
         assertThat(outputStream.toString()).contains("Name has shield already.");
 
         outputStream.close();
@@ -127,9 +129,10 @@ public class UnitTest {
                 .build();
 
         // when
-        unit.increaseShieldBy(5);
+        final boolean wasIncreased = unit.increaseShieldBy(5);
 
         // then
+        assertThat(wasIncreased).isTrue();
         assertThat(unit.getSp()).isEqualTo(15);
 
     }
@@ -204,42 +207,6 @@ public class UnitTest {
 
         // then
         assertThat(elements).isEqualTo(waterElements);
-    }
-
-    @Test
-    public void getElementForShouldReturnLifeElementsForLifeType() {
-        // given
-        final int lifeElements = DEFAULT_NUMBER_OF_ELEMENTS;
-        final Unit unit = unitBuilder()
-                .elements(elementsBuilder()
-                        .setToOneForAllElements()
-                        .life(lifeElements)
-                        .build())
-                .build();
-
-        // when
-        final int elements = unit.getElementsFor(LIFE);
-
-        // then
-        assertThat(elements).isEqualTo(lifeElements);
-    }
-
-    @Test
-    public void getElementForShouldReturnDeathElementsForDeathType() {
-        // given
-        final int deathElements = DEFAULT_NUMBER_OF_ELEMENTS;
-        final Unit unit = unitBuilder()
-                .elements(elementsBuilder()
-                        .setToOneForAllElements()
-                        .death(deathElements)
-                        .build())
-                .build();
-
-        // when
-        final int elements = unit.getElementsFor(DEATH);
-
-        // then
-        assertThat(elements).isEqualTo(deathElements);
     }
 
     @Test
@@ -322,34 +289,31 @@ public class UnitTest {
     }
 
     @Test
-    public void setElementForShouldReturnLifeElementsForLifeType() {
+    public void isNotShieldedShouldReturnTrueIfUnitDoNotHaveShield() {
         // given
         final Unit unit = unitBuilder()
-                .elements(elementsBuilder()
-                        .setToOneForAllElements()
-                        .build())
+                .shielded(false)
                 .build();
 
         // when
-        unit.setElementsFor(LIFE, DEFAULT_NUMBER_OF_ELEMENTS);
+        final boolean isNotShielded = unit.isNotShielded();
 
         // then
-        assertThat(unit.getElements().getLife()).isEqualTo(DEFAULT_NUMBER_OF_ELEMENTS);
+        assertThat(isNotShielded).isTrue();
     }
 
     @Test
-    public void setElementForShouldReturnDeathElementsForDeathType() {
+    public void isNotShieldedShouldReturnFalseIfUnitDoHaveShield() {
         // given
         final Unit unit = unitBuilder()
-                .elements(elementsBuilder()
-                        .setToOneForAllElements()
-                        .build())
+                .shielded(true)
                 .build();
 
         // when
-        unit.setElementsFor(DEATH, DEFAULT_NUMBER_OF_ELEMENTS);
+        final boolean isNotShielded = unit.isNotShielded();
 
         // then
-        assertThat(unit.getElements().getDeath()).isEqualTo(DEFAULT_NUMBER_OF_ELEMENTS);
+        assertThat(isNotShielded).isFalse();
     }
+
 }

@@ -26,8 +26,8 @@ public class UnitBuilderTest {
                 .build();
 
         // then
-        assertThat(unit.isShielded()).isTrue();
-        assertThat(unit.getSp()).isGreaterThan(0);
+        assertThat(unit.isShielded()).isFalse();
+        assertThat(unit.getSp()).isZero();
     }
 
     @Test

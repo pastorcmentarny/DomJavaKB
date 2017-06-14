@@ -24,7 +24,7 @@ public class FireElement extends Unit {
         setName("Fire element");
         setShielded(true);
         setElements(new Elements(10));
-        setSp(24);
+        setSp(36);
     }
 
     @Override
@@ -38,12 +38,11 @@ public class FireElement extends Unit {
             }
         }
 
-        if (unit.getSp() > 0 && (getElements().getAir() >= 1 && getElements().getFire() >= 1 && getElements().getDeath() >= 2)) {
+        if (unit.getSp() > 0 && (getElements().getAir() >= 1 && getElements().getFire() >= 1)) {
             AntiShieldPiercingSpell spell = new AntiShieldPiercingSpell();
             spell.castSpell(this, unit);
             getElements().setFire(getElements().getAir() - 1);
             getElements().setFire(getElements().getFire() - 1);
-            getElements().setFire(getElements().getDeath() - 2);
         }
 
         while (getElements().getFire() >= 1) {
@@ -60,8 +59,6 @@ public class FireElement extends Unit {
     private void convertToFireElementsFromOtherElements() {
         convertToFireElementFrom(EARTH);
         convertToFireElementFrom(AIR);
-        convertToFireElementFrom(LIFE);
-        convertToFireElementFrom(DEATH);
     }
 
     private void convertToFireElementFrom(ElementsType type) {

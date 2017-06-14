@@ -19,7 +19,7 @@ public class IceBoltSpell extends Spell {
     public IceBoltSpell() {
         super();
         name = "Ice Bolt";
-        setElements(new Elements(0, 0, 0, 3, 0, 0));
+        setElements(new Elements(0, 0, 0, 3));
     }
 
     @Override
@@ -28,7 +28,7 @@ public class IceBoltSpell extends Spell {
         if (defender.getConditions().isNotImmuneTo(WATER)) {
             defender.doesDamageTo(attacker, ICE_BOLT_DMG);
         } else {
-            System.out.println(defender + " resists spell");
+            System.out.println(defender + " resists spell.");
         }
     }
 }

@@ -10,5 +10,5 @@ package dms.pastor.game.dcs.conditions;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public enum ElementType {
-    AIR, EARTH, FIRE, WATER, LIFE, DEATH
+    AIR, EARTH, FIRE, WATER
 }

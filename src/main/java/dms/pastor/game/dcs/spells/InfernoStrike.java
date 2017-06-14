@@ -22,7 +22,7 @@ public class InfernoStrike extends Spell {
     public InfernoStrike() {
         super();
         name = "Inferno Strike";
-        setElements(new Elements(1, 2, 2, 0, 0, 0));
+        setElements(new Elements(1, 2, 2, 0));
     }
 
     @Override

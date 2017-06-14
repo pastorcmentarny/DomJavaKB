@@ -10,5 +10,5 @@ package dms.pastor.game.dcs;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public enum ElementsType {
-    AIR, EARTH, FIRE, WATER, LIFE, DEATH
+    AIR, EARTH, FIRE, WATER
 }

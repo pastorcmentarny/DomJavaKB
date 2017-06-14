@@ -138,10 +138,6 @@ public class Unit {
         return conditions;
     }
 
-    public boolean hasMagicShield() {
-        return shielded;
-    }
-
     public int getHp() {
         return hp;
     }
@@ -176,6 +172,10 @@ public class Unit {
 
     public boolean isShielded() {
         return shielded;
+    }
+
+    public boolean isNotShielded() {
+        return !shielded;
     }
 
     protected void setShielded(boolean shielded) {
@@ -266,10 +266,6 @@ public class Unit {
                 return elements.getFire();
             case WATER:
                 return elements.getWater();
-            case LIFE:
-                return elements.getLife();
-            case DEATH:
-                return elements.getDeath();
             default:
                 LOGGER.warn("getElementsFor method is not implemented for " + elementsType);
                 return 0;
@@ -290,15 +286,10 @@ public class Unit {
             case WATER:
                 elements.setWater(number);
                 break;
-            case LIFE:
-                elements.setLife(number);
-                break;
-            case DEATH:
-                elements.setDeath(number);
-                break;
             default:
                 LOGGER.warn("getElementsFor method is not implemented for " + elementsType + " with number of elements equals to " + number);
                 break;
         }
     }
+
 }

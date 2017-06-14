@@ -86,9 +86,7 @@ public class Player extends Unit {
             int e = Integer.parseInt(input[1]);
             int f = Integer.parseInt(input[2]);
             int w = Integer.parseInt(input[3]);
-            int l = Integer.parseInt(input[4]);
-            int d = Integer.parseInt(input[5]);
-            spellElements = new Elements(a, e, f, w, l, d);
+            spellElements = new Elements(a, e, f, w);
         } catch (Exception e) {
             LOGGER.info("Whoops! " + e.getMessage());
             spellElements = Elements.noElements();

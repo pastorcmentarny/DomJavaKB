@@ -38,3 +38,9 @@ Enemies
 Location
 where you get bonus for using specific elements
 or some events happen (for example lighting bolt every 2-3 runds
+
+dual magic
+air - life
+earth - life
+fire - death
+water - death

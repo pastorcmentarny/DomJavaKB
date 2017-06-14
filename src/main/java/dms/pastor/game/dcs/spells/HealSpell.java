@@ -19,7 +19,7 @@ public class HealSpell extends Spell {
     public HealSpell() {
         super();
         name = "Heal";
-        setElements(new Elements(0, 0, 0, 0, 3, 0));
+        setElements(new Elements(2, 0, 0, 1));
     }
 
     @Override

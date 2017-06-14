@@ -18,14 +18,14 @@ public class AntiShieldPiercingSpell extends Spell {
     public AntiShieldPiercingSpell() {
         super();
         name = "Anti shield piercing spell";
-        setElements(new Elements(1, 1, 1, 1, 0, 0));
+        setElements(new Elements(1, 1, 1, 1));
     }
 
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
         System.out.println(attacker.getName() + " casting  " + name + " on" + defender.getName());
-        if (defender.hasMagicShield()) {
+        if (defender.isNotShielded()) {
             defender.doesShieldDamage(Config.ASP_DMG);
         } else {
             System.out.println("magic bounced from " + defender.getName() + " and hit" + attacker.getName());

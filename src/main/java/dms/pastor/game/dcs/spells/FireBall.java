@@ -18,7 +18,7 @@ public class FireBall extends Spell {
     public FireBall() {
         super();
         name = "Fireball";
-        setElements(new Elements(0, 0, 3, 0, 0, 0));
+        setElements(new Elements(0, 0, 3, 0));
     }
 
     @Override

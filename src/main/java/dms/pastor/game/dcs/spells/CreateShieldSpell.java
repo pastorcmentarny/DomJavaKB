@@ -1,8 +1,9 @@
 package dms.pastor.game.dcs.spells;
 
-import dms.pastor.game.dcs.Config;
 import dms.pastor.game.dcs.Elements;
 import dms.pastor.game.dcs.units.Unit;
+
+import static dms.pastor.game.dcs.Config.INITIAL_SHIELD_POINTS;
 
 /**
  * Author Dominik Symonowicz
@@ -17,16 +18,16 @@ public class CreateShieldSpell extends Spell {
     public CreateShieldSpell() {
         super();
         name = "Create a shield";
-        setElements(new Elements(0, 1, 0, 1, 3, 0));
+        setElements(new Elements(0, 2, 0, 2));
     }
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
         System.out.println(attacker.getName() + " casting " + name);
-        if (attacker.hasMagicShield()) {
+        if (attacker.isShielded()) {
             System.out.println("You are  have to magic shield");
         } else {
-            attacker.createShield(Config.INITIAL_SHIELD_POINTS);
+            attacker.createShield(INITIAL_SHIELD_POINTS);
         }
     }
 }

@@ -21,7 +21,7 @@ public class MagicStone extends Spell {
     public MagicStone() {
         super();
         name = "Magic Stone";
-        setElements(new Elements(1, 1, 0, 0, 0, 0));
+        setElements(new Elements(1, 1, 0, 0));
     }
 
     @Override

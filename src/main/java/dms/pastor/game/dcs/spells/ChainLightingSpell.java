@@ -16,7 +16,7 @@ public class ChainLightingSpell extends Spell {
     public ChainLightingSpell() {
         super();
         name = "Chain Lighting";
-        setElements(new Elements(3, 0, 1, 0, 0, 0));
+        setElements(new Elements(3, 0, 1, 0));
     }
 
     @Override

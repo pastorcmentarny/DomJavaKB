@@ -32,11 +32,11 @@ public class Troll extends Unit {
     public void turn(Unit enemy) {
 
         if (enemy.getHp() > 2 && enemy.getHp() < 10) {
-            while (getElements().getLife() >= 3) {
+            while (getElements().getAir() >= 3) {
                 System.out.println(getName() + " casting heal!");
                 HealSpell spell = new HealSpell();
                 spell.castSpell(this, enemy);
-                getElements().setLife(getElements().getLife() - 3);
+                getElements().setAir(getElements().getAir() - 3);
             }
         }
 

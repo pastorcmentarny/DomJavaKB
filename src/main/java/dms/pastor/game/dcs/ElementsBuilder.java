@@ -25,7 +25,7 @@ public class ElementsBuilder {
     }
 
     public Elements build() {
-        return new Elements(air, earth, fire, water, life, death);
+        return new Elements(air, earth, fire, water);
     }
 
     public ElementsBuilder fire(int fire) {

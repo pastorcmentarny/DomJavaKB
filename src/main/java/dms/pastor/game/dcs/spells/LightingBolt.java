@@ -20,7 +20,7 @@ public class LightingBolt extends Spell {
     public LightingBolt() {
         super();
         name = "Lighting Bolt";
-        setElements(new Elements(4, 0, 0, 0, 0, 0));
+        setElements(new Elements(4, 0, 0, 0));
     }
 
     @Override

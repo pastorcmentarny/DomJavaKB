@@ -20,7 +20,7 @@ public class WeaknessSpell extends Spell {
     public WeaknessSpell() {
         super();
         name = "Weakness Spell";
-        setElements(new Elements(0, 1, 0, 0, 0, 1));
+        setElements(new Elements(0, 1, 0, 0));
     }
 
     @Override
