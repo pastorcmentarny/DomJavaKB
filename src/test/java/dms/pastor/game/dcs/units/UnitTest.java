@@ -8,12 +8,7 @@ import java.io.PrintStream;
 
 import static dms.pastor.game.dcs.Config.INITIAL_SHIELD_POINTS;
 import static dms.pastor.game.dcs.ElementsBuilder.elementsBuilder;
-import static dms.pastor.game.dcs.ElementsType.AIR;
-import static dms.pastor.game.dcs.ElementsType.DEATH;
-import static dms.pastor.game.dcs.ElementsType.EARTH;
-import static dms.pastor.game.dcs.ElementsType.FIRE;
-import static dms.pastor.game.dcs.ElementsType.LIFE;
-import static dms.pastor.game.dcs.ElementsType.WATER;
+import static dms.pastor.game.dcs.ElementsType.*;
 import static dms.pastor.game.dcs.units.Unit.DEFAULT_SHIELD_POINTS;
 import static dms.pastor.game.dcs.units.UnitBuilder.unitBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -25,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class UnitTest {
 

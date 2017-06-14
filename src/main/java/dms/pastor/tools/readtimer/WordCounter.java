@@ -17,7 +17,7 @@ import static java.util.Arrays.asList;
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 class WordCounter {
     private static final Logger LOGGER = LoggerFactory.getLogger(WordCounter.class);

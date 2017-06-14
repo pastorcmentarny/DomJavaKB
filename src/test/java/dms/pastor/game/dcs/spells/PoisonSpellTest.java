@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * WWW:	http://pastor.ovh.org
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class PoisonSpellTest {
 

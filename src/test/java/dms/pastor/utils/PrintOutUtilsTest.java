@@ -1,10 +1,6 @@
 package dms.pastor.utils;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.rules.ExpectedException;
 
 import java.io.ByteArrayOutputStream;
@@ -13,10 +9,7 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import static dms.pastor.utils.PrintOutUtils.displayOddNumbers;
-import static dms.pastor.utils.PrintOutUtils.printArray;
-import static dms.pastor.utils.PrintOutUtils.printCharacterIntegerHashMap;
-import static dms.pastor.utils.PrintOutUtils.printIntArray;
+import static dms.pastor.utils.PrintOutUtils.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.containsString;
 
@@ -27,7 +20,7 @@ import static org.hamcrest.CoreMatchers.containsString;
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class PrintOutUtilsTest {
 
