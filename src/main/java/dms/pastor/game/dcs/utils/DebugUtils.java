@@ -36,7 +36,7 @@ public class DebugUtils {
                 System.out.print(s + " ");
             }
         } else {
-            LOGGER.warn("No input typed");
+            LOGGER.warn("No input typed.");
         }
     }
 }

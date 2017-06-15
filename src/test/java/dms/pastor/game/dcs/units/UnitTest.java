@@ -12,7 +12,6 @@ import static dms.pastor.game.dcs.ElementsType.AIR;
 import static dms.pastor.game.dcs.ElementsType.EARTH;
 import static dms.pastor.game.dcs.ElementsType.FIRE;
 import static dms.pastor.game.dcs.ElementsType.WATER;
-import static dms.pastor.game.dcs.units.Unit.DEFAULT_SHIELD_POINTS;
 import static dms.pastor.game.dcs.units.UnitBuilder.unitBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -27,9 +26,40 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class UnitTest {
 
-    static final int DEFAULT_NUMBER_OF_ELEMENTS = 10;
+    private static final int DEFAULT_NUMBER_OF_ELEMENTS = 10;
+    private static final int LARGE_SHIELD_POINTS = 256;
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private final PrintStream original = System.out;
+
+    @Test
+    public void recreateShieldShouldSetSpToInitialSpIfCurrentSpIsHigher() throws Exception {
+        // given
+        final Unit unit = unitBuilder()
+                .shielded(true)
+                .sp(LARGE_SHIELD_POINTS)
+                .build();
+        // when
+        unit.recreateShield();
+
+        // then
+        assertThat(unit.isShielded());
+        assertThat(unit.getSp()).isEqualTo(INITIAL_SHIELD_POINTS);
+    }
+
+    @Test
+    public void recreateShieldShouldDoNotChangeIfCurrentSpIsLower() throws Exception {
+        // given
+        final Unit unit = unitBuilder()
+                .shielded(true)
+                .sp(1)
+                .build();
+        // when
+        unit.recreateShield();
+
+        // then
+        assertThat(unit.isShielded());
+        assertThat(unit.getSp()).isEqualTo(1);
+    }
 
     @Test
     public void recreateShieldShouldCreateShield() throws Exception {
@@ -43,8 +73,7 @@ public class UnitTest {
 
         // then
         assertThat(unit.isShielded());
-        assertThat(unit.getSp()).isEqualTo(DEFAULT_SHIELD_POINTS);
-
+        assertThat(unit.getSp()).isEqualTo(INITIAL_SHIELD_POINTS);
     }
 
     @Test
@@ -314,6 +343,25 @@ public class UnitTest {
 
         // then
         assertThat(isNotShielded).isFalse();
+    }
+
+    @Test
+    public void setShieldToFalseShouldSetSpValueToZero() {
+        // given
+        final Unit unit = unitBuilder()
+                .shielded(true)
+                .sp(LARGE_SHIELD_POINTS)
+                .build();
+
+        // when
+        unit.setShielded(false);
+
+        // then
+        assertThat(unit.isShielded()).isFalse();
+        assertThat(unit.isStrongShield()).isFalse();
+        assertThat(unit.getSp()).isZero();
+
+
     }
 
 }

@@ -2,6 +2,7 @@ package dms.pastor.utils;
 
 import dms.pastor.domain.ShutdownHook;
 import dms.pastor.domain.exception.SomethingWentTerribleWrongError;
+import dms.pastor.domain.exception.SomethingWentWrongException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -110,7 +111,7 @@ public final class FileTools {
             lockFile = channel.tryLock();
             if (lockFile == null) {
                 channel.close();
-                throw new RuntimeException("Two instance cant run at a time.");
+                throw new SomethingWentWrongException("Two instance cant run at a time.");
             }
             ShutdownHook shutdownHook = new ShutdownHook();
             getRuntime().addShutdownHook(shutdownHook);
@@ -119,7 +120,7 @@ public final class FileTools {
         } catch (IOException e) {
             final String message = "Could not start process.";
             LOGGER.error(message, e);
-            throw new RuntimeException(message, e);
+            throw new SomethingWentWrongException(message, e);
         }
     }
 

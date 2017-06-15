@@ -3,8 +3,8 @@ package dms.pastor.game.dcs.units.enemies;
 import dms.pastor.game.dcs.spells.*;
 import dms.pastor.game.dcs.units.Unit;
 import dms.pastor.game.dcs.units.enemies.actions.CureAction;
-import dms.pastor.game.dcs.utils.random.InGameRandomiserUtils;
-import dms.pastor.game.dcs.utils.random.RandomiserUtils;
+import dms.pastor.game.dcs.utils.random.InGameRandomiseUtils;
+import dms.pastor.game.dcs.utils.random.RandomiseUtils;
 
 import static dms.pastor.game.dcs.ElementsType.EARTH;
 import static dms.pastor.game.dcs.ElementsType.FIRE;
@@ -20,7 +20,7 @@ import static dms.pastor.game.dcs.ElementsType.FIRE;
  */
 public class Troll extends Unit {
 
-    private RandomiserUtils randoms = new InGameRandomiserUtils();
+    private RandomiseUtils randoms = new InGameRandomiseUtils();
 
     public Troll() {
         super();

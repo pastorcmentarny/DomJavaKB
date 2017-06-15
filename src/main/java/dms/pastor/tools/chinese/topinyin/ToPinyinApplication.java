@@ -13,7 +13,7 @@ import static dms.pastor.tools.chinese.topinyin.PseudoPinyinType.displaySupporte
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class ToPinyinApplication {
+class ToPinyinApplication {
 
     public static void main(String[] args) {
         validateInputArgs(args);

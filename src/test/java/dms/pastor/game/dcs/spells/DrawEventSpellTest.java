@@ -13,8 +13,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public final class DrawEventSpellTest {
 
-    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-    PrintStream printStream;
+    private ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+    private PrintStream printStream;
 
     @Before
     public void setUp() throws Exception {

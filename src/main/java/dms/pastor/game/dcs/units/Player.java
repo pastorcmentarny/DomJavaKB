@@ -40,8 +40,7 @@ public class Player extends Unit {
     public Player(String name, UserInputReader userInputReader) {
         setName(name);
         setPlayer(true);
-        setShielded(true);
-        setSp(24);
+        setShielded(false);
         this.userInputReader = userInputReader;
     }
 

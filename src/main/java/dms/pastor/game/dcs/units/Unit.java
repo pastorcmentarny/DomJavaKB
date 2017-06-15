@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 
+import static dms.pastor.game.dcs.Config.INITIAL_SHIELD_POINTS;
 import static dms.pastor.game.dcs.conditions.ConditionType.BLOODLUST;
 import static dms.pastor.game.dcs.conditions.ConditionType.WEAKNESS;
 import static java.lang.String.format;
@@ -28,7 +29,7 @@ public class Unit {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Unit.class);
 
-    static final int DEFAULT_SHIELD_POINTS = 24;
+
     public static final int DEFAULT_HEALTH_POINTS = 24;
 
     private String name = "Name";
@@ -38,7 +39,7 @@ public class Unit {
     private int maxHp = 32;
 
     private boolean shielded = false;
-    private int sp = DEFAULT_SHIELD_POINTS;
+    private int sp = INITIAL_SHIELD_POINTS;
 
     private int arm = 0;
 
@@ -179,7 +180,14 @@ public class Unit {
     }
 
     protected void setShielded(boolean shielded) {
+        setSpToZeroIfUnitIsNotShielded(shielded);
         this.shielded = shielded;
+    }
+
+    private void setSpToZeroIfUnitIsNotShielded(boolean shielded) {
+        if(!shielded){
+            setSp(0);
+        }
     }
 
     public int doesShieldDamage(int dmg) {
@@ -238,10 +246,10 @@ public class Unit {
     public void recreateShield() {
         if (!shielded) {
             shielded = true;
-            sp = DEFAULT_SHIELD_POINTS;
+            sp = INITIAL_SHIELD_POINTS;
         } else {
-            if (sp > maxHp / 2) {
-                sp = maxHp / 2;
+            if (sp > INITIAL_SHIELD_POINTS) {
+                sp = INITIAL_SHIELD_POINTS;
             }
         }
     }

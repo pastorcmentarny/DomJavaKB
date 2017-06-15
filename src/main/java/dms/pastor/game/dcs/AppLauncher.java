@@ -9,7 +9,7 @@ import dms.pastor.utils.ValidatorUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class AppLauncher {
+class AppLauncher {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AppLauncher.class);
 

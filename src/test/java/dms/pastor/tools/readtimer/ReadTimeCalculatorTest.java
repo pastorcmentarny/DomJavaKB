@@ -31,8 +31,8 @@ import static org.junit.Assert.assertThat;
 public class ReadTimeCalculatorTest {
 
     private static final int REPEAT_TEST_TIMES = 10;
-    static final int ONE_WORD_PER_SECOND = 60;
-    static final String ERROR_READING_SPEED_EQUAL_OR_HIGHER = "Speed of reading must be equal or higher than 60  words per minute";
+    private static final int ONE_WORD_PER_SECOND = 60;
+    private static final String ERROR_READING_SPEED_EQUAL_OR_HIGHER = "Speed of reading must be equal or higher than 60  words per minute";
     private final Random random = new Random();
 
     @Rule

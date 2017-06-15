@@ -68,10 +68,12 @@ public class Elements {
         }
     }
 
+    @SuppressWarnings("OverlyComplexBooleanExpression") //it has 4 elements
     public boolean hasEnough(Elements elements) {
         return (elements.getAir() >= air) && (elements.getEarth() >= earth) && (elements.getFire() >= fire) && (elements.getWater() >= water);
     }
 
+    @SuppressWarnings("OverlyComplexBooleanExpression") //it has 4 elements
     public boolean hasExactly(Elements elements) {
         return (elements.getAir() == air) && (elements.getEarth() == earth) && (elements.getFire() == fire) && (elements.getWater() == water);
     }
@@ -141,7 +143,7 @@ public class Elements {
 
     public void removeRandomElements(int numberOfElements) {
         for (int i = 1; i <= numberOfElements; i++) {
-            switch (random.nextInt(6)) {
+            switch (random.nextInt(ElementType.values().length)) {
                 case 0:
                     reduceAirElement();
                     break;

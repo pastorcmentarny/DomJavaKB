@@ -76,4 +76,24 @@ public final class DebugUtilsTest {
 
         LOGGER.debug("Card Name:" + card);
     }
+
+    @Test
+    public void displayInputShouldDisplayNoInputTypedMessageWhenInputIsNull() {
+        // when
+        DebugUtils.displayInput(null);
+
+        // then
+        assertThat(outputStream.toString()).contains("No input typed.");
+    }
+
+    @Test
+    public void displayInputShouldDisplayInputTypedForGivenInput() {
+        // when
+        final String input1 = generateString();
+        final String input2 = generateString();
+        DebugUtils.displayInput(new String[]{input1, input2});
+
+        // then
+        assertThat(outputStream.toString()).contains(input1 + " " + input2);
+    }
 }

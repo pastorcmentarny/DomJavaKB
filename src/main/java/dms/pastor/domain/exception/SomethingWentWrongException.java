@@ -29,6 +29,9 @@ public class SomethingWentWrongException extends RuntimeException {
         super(format(ERROR, whatWentWrongMessage));
     }
 
+    public SomethingWentWrongException(String whatWentWrongMessage, Throwable cause) {
+        super(format(ERROR, whatWentWrongMessage), cause);
+    }
 
     //https://www.owasp.org/index.php/Deserialization_Cheat_Sheet
     @SuppressWarnings("FinalPrivateMethod")

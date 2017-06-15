@@ -9,6 +9,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public final class WeaknessSpellTest {
 
+    private static final int MAX_ATTEMPT_TO_GET_WEAKNESS = 25;
+
     @Test
     public void castWeaknessSpellShouldAddWeaknessCondition() {
         // given
@@ -16,7 +18,7 @@ public final class WeaknessSpellTest {
         final Unit unit = UnitBuilder.unitBuilder().build();
 
         // when
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < MAX_ATTEMPT_TO_GET_WEAKNESS; i++) {
             weaknessSpell.castSpell(unit, unit);
             if (unit.getConditions().has(WEAKNESS)) {
                 break;

@@ -1,6 +1,6 @@
 package dms.pastor.game.dcs.utils.random;
 
-public interface RandomiserUtils {
+public interface RandomiseUtils {
 
     boolean isWillHappenWithProbabilityOf(int percentage);
 }

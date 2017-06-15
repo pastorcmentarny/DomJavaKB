@@ -14,8 +14,6 @@ public class ElementsBuilder {
     private int water = 0;
     private int earth = 0;
     private int air = 0;
-    private int life = 0;
-    private int death = 0;
 
     private ElementsBuilder() {
     }
@@ -48,23 +46,11 @@ public class ElementsBuilder {
         return this;
     }
 
-    public ElementsBuilder life(int life) {
-        this.life = life;
-        return this;
-    }
-
-    public ElementsBuilder death(int death) {
-        this.death = death;
-        return this;
-    }
-
     public ElementsBuilder setToOneForAllElements() {
         air = 1;
         earth = 1;
         fire = 1;
         water = 1;
-        life = 1;
-        death = 1;
         return this;
     }
 }

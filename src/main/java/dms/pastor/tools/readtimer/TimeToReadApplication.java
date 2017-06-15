@@ -16,7 +16,7 @@ import static dms.pastor.tools.readtimer.TimeToReadApplicationInputValidator.val
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class TimeToReadApplication {
+class TimeToReadApplication {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TimeToReadApplication.class);
 

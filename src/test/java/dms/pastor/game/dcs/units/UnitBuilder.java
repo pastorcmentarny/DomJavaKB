@@ -113,7 +113,7 @@ public class UnitBuilder {
         return this;
     }
 
-    public UnitBuilder withSingleCondtion(ConditionType type) {
+    public UnitBuilder withSingleCondition(ConditionType type) {
         final Condition singleCondition = new Condition();
         singleCondition.add(conditionEntryBuilder().condition(type).build());
         this.condition = singleCondition;

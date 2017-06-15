@@ -49,7 +49,7 @@ public abstract class Card {
         this.description = description;
     }
 
-    public CardType getCardType() {
+    protected CardType getCardType() {
         return cardType;
     }
 

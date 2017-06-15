@@ -6,9 +6,9 @@ import static dms.pastor.utils.randoms.RandomDataGenerator.randomNegativeInteger
 import static dms.pastor.utils.randoms.RandomDataGenerator.randomPositiveInteger;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public final class InGameRandomiserUtilsTest {
+public final class InGameRandomiseUtilsTest {
 
-    private InGameRandomiserUtils inGameRandomiserUtils = new InGameRandomiserUtils();
+    private InGameRandomiseUtils inGameRandomiserUtils = new InGameRandomiseUtils();
 
     @Test
     public void isWillHappenWithProbabilityOfShouldReturnTrueIfPercentageIsAbove100() {

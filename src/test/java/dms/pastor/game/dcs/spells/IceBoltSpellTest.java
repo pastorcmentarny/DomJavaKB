@@ -54,7 +54,7 @@ public final class IceBoltSpellTest {
         final Unit unit = unitBuilder()
                 .hp(initHp)
                 .withoutShield()
-                .withSingleCondtion(WATER_IMMUNE)
+                .withSingleCondition(WATER_IMMUNE)
                 .build();
         // when
         iceBoltSpell.castSpell(unit, unit);

@@ -1,7 +1,7 @@
 package dms.pastor.game.dcs.conditions;
 
-import dms.pastor.game.dcs.utils.random.InGameRandomiserUtils;
-import dms.pastor.game.dcs.utils.random.RandomiserUtils;
+import dms.pastor.game.dcs.utils.random.InGameRandomiseUtils;
+import dms.pastor.game.dcs.utils.random.RandomiseUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,8 +23,8 @@ import static dms.pastor.game.dcs.conditions.ConditionType.*;
  */
 public class Condition {
 
-    static final int IMMUNITY_PERCENTAGE = 50;
-    private RandomiserUtils randomiserUtils = new InGameRandomiserUtils();
+    private static final int IMMUNITY_PERCENTAGE = 50;
+    private RandomiseUtils randomiseUtils = new InGameRandomiseUtils();
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Condition.class);
     private final Random random = new Random();
@@ -134,8 +134,8 @@ public class Condition {
         }
     }
 
-    public boolean isImmuneTo(ConditionType airImmune, ConditionType airResistant) {
-        return has(airImmune) || has(airResistant) && randomiserUtils.isWillHappenWithProbabilityOf(IMMUNITY_PERCENTAGE);
+    private boolean isImmuneTo(ConditionType conditionType, ConditionType resistCondition) {
+        return has(conditionType) || has(resistCondition) && randomiseUtils.isWillHappenWithProbabilityOf(IMMUNITY_PERCENTAGE);
     }
 
     public int size() {

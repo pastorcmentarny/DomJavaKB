@@ -23,7 +23,6 @@ public class Campaign {
     private final List<Unit> enemies = Enemies.getAllEnemies();
 
     public void campaign(Player player) {
-        Unit player1 = player;
         LOGGER.info("Starting campaign ..");
         Battle battle;
         for (int i = 0; i < enemies.size(); i++) {
@@ -32,13 +31,13 @@ public class Campaign {
                 return;
             }
             LOGGER.info("Battle no." + (i + 1));
-            battle = new Battle(player1, enemies.get(i));
+            battle = new Battle(player, enemies.get(i));
             battle.isInFight();
-            if (player1.isAlive()) {
+            if (player.isAlive()) {
                 LOGGER.info("You won");
-                player1.addHP(5);
-                player1.getElements().addRandomElements(5);
-                player1.recreateShield();
+                player.addHP(5);
+                player.getElements().addRandomElements(5);
+                player.recreateShield();
             } else {
                 gameOver("You died at level:" + (i + 1));
                 return;

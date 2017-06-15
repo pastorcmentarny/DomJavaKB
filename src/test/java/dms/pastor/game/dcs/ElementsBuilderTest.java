@@ -35,8 +35,6 @@ public class ElementsBuilderTest {
         final int earth = 2;
         final int fire = 3;
         final int water = 4;
-        final int life = 5;
-        final int death = 6;
         final Elements expectedElements = new Elements(air, earth, fire, water);
 
         // when
@@ -45,8 +43,6 @@ public class ElementsBuilderTest {
                 .earth(earth)
                 .fire(fire)
                 .water(water)
-                .life(life)
-                .death(death)
                 .build();
 
         // then

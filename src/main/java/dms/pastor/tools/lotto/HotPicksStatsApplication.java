@@ -17,7 +17,7 @@ import static java.lang.String.format;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class HotPicksStatsApplication {
+class HotPicksStatsApplication {
     private static final Logger LOGGER = LoggerFactory.getLogger(HotPicksStatsApplication.class);
     private static final String NO_PATH_ERROR_MESSAGE = "Path not provided. Please add path to file as argument when you run this program.";
 
