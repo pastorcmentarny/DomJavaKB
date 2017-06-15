@@ -2,7 +2,6 @@ Spells:
 1. MagicDeathScythe
 2. ImplosionSpell
 
-
 Enemies
 1. Basilisk
 2. Centaur
