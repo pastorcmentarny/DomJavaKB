@@ -2,10 +2,12 @@ package dms.pastor.game.dcs.game;
 
 import dms.pastor.game.dcs.units.enemies.Dummy;
 import dms.pastor.game.dcs.units.enemies.FireElement;
+import dms.pastor.game.dcs.units.enemies.Golem;
 import dms.pastor.game.dcs.units.enemies.Troll;
 import dms.pastor.game.dcs.units.enemies.Vampire;
 import org.junit.Test;
 
+//TODO generator for all possible 1 vs 1
 public final class UnitVsUnitBattleSimulationTest {
 
     @Test
@@ -25,6 +27,17 @@ public final class UnitVsUnitBattleSimulationTest {
         Dummy dummy = new Dummy("Dummy");
         Troll troll = new Troll();
         Battle battle = new Battle(dummy, troll);
+
+        // battle
+        battle.isInFight();
+    }
+
+    @Test
+    public void dummyVsGolemBattleSimulationTest() {
+        // setup
+        Dummy dummy = new Dummy("Dummy");
+        Golem golem = new Golem();
+        Battle battle = new Battle(dummy, golem);
 
         // battle
         battle.isInFight();
@@ -64,11 +77,33 @@ public final class UnitVsUnitBattleSimulationTest {
     }
 
     @Test
+    public void fireElementVsGolemBattleSimulationTest() {
+        // setup
+        FireElement fireElement = new FireElement();
+        Golem golem = new Golem();
+        Battle battle = new Battle(fireElement, golem);
+
+        // battle
+        battle.isInFight();
+    }
+
+    @Test
     public void trollVsVampireBattleSimulationTest() {
         // setup
         Troll troll = new Troll();
         Vampire vampire = new Vampire();
         Battle battle = new Battle(troll, vampire);
+
+        // battle
+        battle.isInFight();
+    }
+
+    @Test
+    public void trollVsGolemBattleSimulationTest() {
+        // setup
+        Troll troll = new Troll();
+        Golem golem = new Golem();
+        Battle battle = new Battle(troll, golem);
 
         // battle
         battle.isInFight();

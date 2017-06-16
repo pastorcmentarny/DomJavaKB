@@ -27,7 +27,7 @@ public class SpellsCastTest {
 
     @Test
     public void testFireball() throws Exception {
-        final Spell spell = new FireBall();
+        final Spell spell = new FireBallSpell();
         spell.castSpell(player1, player2);
     }
 

@@ -15,20 +15,20 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class LightingBoltTest {
+public class LightingBoltSpellTest {
 
 
     @Test
     public void castLightBoltSpellShouldCauseDamageToUnit() throws Exception {
         // given
-        LightingBolt lightingBolt = new LightingBolt();
+        LightingBoltSpell lightingBoltSpell = new LightingBoltSpell();
 
         // when
         final Unit unit = UnitBuilder.unitBuilder()
                 .withoutShield()
                 .hp(10)
                 .build();
-        lightingBolt.castSpell(unit, unit);
+        lightingBoltSpell.castSpell(unit, unit);
 
         // then
         assertThat(unit.getHp()).isEqualTo(4);

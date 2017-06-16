@@ -3,10 +3,11 @@ package dms.pastor.game.dcs.units.enemies;
 import dms.pastor.game.dcs.Elements;
 import dms.pastor.game.dcs.ElementsType;
 import dms.pastor.game.dcs.spells.AntiShieldPiercingSpell;
-import dms.pastor.game.dcs.spells.FireBall;
+import dms.pastor.game.dcs.spells.FireBallSpell;
 import dms.pastor.game.dcs.units.Unit;
 
-import static dms.pastor.game.dcs.ElementsType.*;
+import static dms.pastor.game.dcs.ElementsType.AIR;
+import static dms.pastor.game.dcs.ElementsType.EARTH;
 
 /**
  * Author Dominik Symonowicz
@@ -47,8 +48,8 @@ public class FireElement extends Unit {
 
         while (getElements().getFire() >= 1) {
             System.out.println(getName() + " will attack!");
-            FireBall fireBall = new FireBall();
-            fireBall.castSpell(this, unit);
+            FireBallSpell fireBallSpell = new FireBallSpell();
+            fireBallSpell.castSpell(this, unit);
             getElements().setFire(getElements().getFire() - 1); // Fireball takes only half
         }
 

@@ -23,7 +23,7 @@ public class VampireDrainSpell extends Spell {
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        System.out.println(attacker.getName() + " casting .. " + name + " on " + defender.getName());
+        castSpellMessage(attacker.getName(), name, defender.getName());
         int dmg = attacker.doesDamageTo(defender, Config.VAMPIRE_DRAIN_DMG);
         if (dmg >= 3) {
             attacker.addHP(Config.VAMPIRE_DRAIN_HEAL_HP);

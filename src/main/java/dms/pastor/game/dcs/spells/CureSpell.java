@@ -1,8 +1,11 @@
 package dms.pastor.game.dcs.spells;
 
 import dms.pastor.game.dcs.Elements;
-import dms.pastor.game.dcs.conditions.ConditionType;
 import dms.pastor.game.dcs.units.Unit;
+
+import static dms.pastor.game.dcs.conditions.ConditionType.BLIND;
+import static dms.pastor.game.dcs.conditions.ConditionType.POISONED;
+import static dms.pastor.game.dcs.conditions.ConditionType.WEAKNESS;
 
 /**
  * Author Dominik Symonowicz
@@ -27,8 +30,9 @@ public class CureSpell extends Spell {
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        attacker.getConditions().removeByConditionName(ConditionType.POISONED);
-        attacker.getConditions().removeByConditionName(ConditionType.WEAKNESS);
-        attacker.getConditions().removeByConditionName(ConditionType.BLIND);
+        castSpellMessage(attacker.getName(), name, defender.getName());
+        attacker.getConditions().removeByConditionName(POISONED);
+        attacker.getConditions().removeByConditionName(WEAKNESS);
+        attacker.getConditions().removeByConditionName(BLIND);
     }
 }

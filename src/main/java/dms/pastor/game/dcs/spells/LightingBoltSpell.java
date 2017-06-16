@@ -9,30 +9,29 @@ import java.util.Random;
 
 /**
  * Author Dominik Symonowicz
- * Created 2015-08-02
+ * Created 2015-07-27
  * WWW:	https://dominiksymonowicz.com/welcome
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class CometStrike extends Spell {
-    public CometStrike() {
-        super();
-        name = "Comet Spell";
-        setElements(new Elements(0, 3, 0, 1));
-    }
+public class LightingBoltSpell extends Spell {
 
+    public LightingBoltSpell() {
+        super();
+        name = "Lighting Bolt";
+        setElements(new Elements(4, 0, 0, 0));
+    }
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        System.out.println(attacker.getName() + " casting comet strike spell on.. " + defender.getName());
-        attacker.doesDamageTo(defender, Config.COMMENT_DAMAGE);
-        if (new Random().nextInt(100) > 66) {
-            defender.getConditions().add(ConditionType.FROZEN, Config.FREEZING_TURNS);
-        }
-        if (new Random().nextInt(100) > 50) {
-            defender.getConditions().add(ConditionType.POISONED, Config.FREEZING_TURNS);
+        castSpellMessage(attacker.getName(), name, defender.getName());
+        defender.doesDamageTo(attacker, Config.LIGHTING_BOLT_DAMAGE);
+        Random random = new Random();
+        if (50 >= random.nextInt(100)) {
+            System.out.println(defender.getName() + "  is stunned after being hit by lighting.");
+            defender.getConditions().add(ConditionType.STUNNED, 2);
         }
     }
 }

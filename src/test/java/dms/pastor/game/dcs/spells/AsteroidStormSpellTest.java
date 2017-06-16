@@ -23,6 +23,8 @@ import static org.assertj.core.api.Assertions.assertThat;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public class AsteroidStormSpellTest {
+
+    private static final int NUMBER_OF_TIMES_TO_CAST_SPELL = 25;
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private final PrintStream original = System.out;
     private final AsteroidStormSpell asteroidStormSpell = new AsteroidStormSpell();
@@ -31,12 +33,12 @@ public class AsteroidStormSpellTest {
     public ExpectedException exception = ExpectedException.none();
 
     @Before
-    public void setUpStreams() {
+    public void setUp() {
         System.setOut(new PrintStream(outputStream));
     }
 
     @After
-    public void cleanUpStreams() throws IOException {
+    public void cleanUp() throws IOException {
         outputStream.close();
         System.setOut(original);
     }
@@ -74,7 +76,7 @@ public class AsteroidStormSpellTest {
                 .build();
 
         // when
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < NUMBER_OF_TIMES_TO_CAST_SPELL; i++) {
             asteroidStormSpell.castSpell(unit1, unit2);
         }
 

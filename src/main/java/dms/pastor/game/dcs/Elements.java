@@ -226,7 +226,7 @@ public class Elements {
         return String.format("Elements{fire=%d, water=%d, earth=%d, air=%d}", fire, water, earth, air);
     }
 
-    int countElements() {
+    public int countElements() {
         return air + earth + fire + water;
     }
 

@@ -24,7 +24,7 @@ public class HealSpell extends Spell {
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        System.out.println("Casting heal.. on " + attacker.getName());
+        castSpellMessage(attacker.getName(), name, defender.getName());
         attacker.addHP(HEAL);
     }
 

@@ -32,7 +32,7 @@ public class ChainLightingSpellAcceptanceTest {
         spell.castSpell(unit, enemy);
 
         // then
-        assertThat(enemy.getHp()).isEqualTo(3);
+        assertThat(enemy.getHp()).isEqualTo(2);
     }
 
     @Test
@@ -50,7 +50,8 @@ public class ChainLightingSpellAcceptanceTest {
         spell.castSpell(unit, enemy);
 
         // then
-        assertThat(enemy.getHp()).isEqualTo(6);
+        assertThat(enemy.getHp()).isEqualTo(5);
+        //TODO check attacker hp
     }
 
 }

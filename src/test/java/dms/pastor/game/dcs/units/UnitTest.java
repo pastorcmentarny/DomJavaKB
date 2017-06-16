@@ -360,8 +360,68 @@ public class UnitTest {
         assertThat(unit.isShielded()).isFalse();
         assertThat(unit.isStrongShield()).isFalse();
         assertThat(unit.getSp()).isZero();
+    }
 
+    @Test
+    public void increaseHpPerTurnShouldIncreaseHpIfIsBelowMaxHp() {
+        // given
+        final int regenHpRate = 2;
+
+        final Unit unit = unitBuilder()
+                .hp(1)
+                .hpRegenPerTurn(regenHpRate)
+                .shielded(false)
+                .build();
+
+        // when
+        final int increase = unit.increaseHpPerTurn();
+
+        // then
+        assertThat(increase).isEqualTo(regenHpRate);
+        assertThat(unit.getHp()).isEqualTo(3);
 
     }
 
+    @Test
+    public void increaseHpPerTurnShouldIncreaseHpIfToMaxHp() {
+        // given
+        final int maxHp = 10;
+        final int regenHpRate = 2;
+
+        final Unit unit = unitBuilder()
+                .hp(9)
+                .maxHp(maxHp)
+                .hpRegenPerTurn(regenHpRate)
+                .shielded(false)
+                .build();
+
+        // when
+        final int increase = unit.increaseHpPerTurn();
+
+        // then
+        assertThat(increase).isEqualTo(1);
+        assertThat(unit.getHp()).isEqualTo(maxHp);
+    }
+
+    @Test
+    public void increaseHpPerTurnShouldNotIncreaseHpIfMaxHpIsLowerThanHp() {
+        // given
+        final int maxHp = 10;
+        final int regenHpRate = 2;
+        final int currentHp = 11;
+
+        final Unit unit = unitBuilder()
+                .hp(currentHp)
+                .maxHp(maxHp)
+                .hpRegenPerTurn(regenHpRate)
+                .shielded(false)
+                .build();
+
+        // when
+        final int increase = unit.increaseHpPerTurn();
+
+        // then
+        assertThat(increase).isEqualTo(0);
+        assertThat(unit.getHp()).isEqualTo(currentHp);
+    }
 }

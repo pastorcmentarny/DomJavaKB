@@ -22,7 +22,7 @@ public class DeathRaySpell extends Spell {
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        System.out.println(attacker.getName() + " casting death's touch.. " + defender.getName());
+        castSpellMessage(attacker.getName(), name, defender.getName());
         defender.doesDirectDamage(Config.DEATH_RAY_DMG);
         System.out.println(name + " does " + Config.DEATH_RAY_DMG + " dmg.");
     }

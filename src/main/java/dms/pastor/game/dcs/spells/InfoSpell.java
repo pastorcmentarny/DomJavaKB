@@ -22,7 +22,7 @@ public class InfoSpell extends Spell {
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        System.out.println("display info about " + defender.getName());
+        castSpellMessage(attacker.getName(), name, defender.getName());
         defender.displayStats();
     }
 }

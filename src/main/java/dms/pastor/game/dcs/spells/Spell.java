@@ -15,8 +15,12 @@ import dms.pastor.game.dcs.units.Unit;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public abstract class Spell extends Card {
-    private Elements elements;
     private final CardType cardType = CardType.SPELL;
+    private Elements elements;
+
+    public static void castSpellMessage(String attackerName, String spellName, String defenderName) {
+        System.out.println(attackerName + " casting " + spellName + " on " + defenderName);
+    }
 
     public CardType getCardType() {
         return cardType;
@@ -28,12 +32,12 @@ public abstract class Spell extends Card {
 
     public abstract void castSpell(Unit attacker, Unit defender);
 
-    void setElements(Elements elements) {
-        this.elements = elements;
-    }
-
     public Elements getElements() {
         return elements;
+    }
+
+    void setElements(Elements elements) {
+        this.elements = elements;
     }
 
     public boolean isASpell(Elements elements) {

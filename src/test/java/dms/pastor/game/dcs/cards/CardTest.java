@@ -1,7 +1,7 @@
 package dms.pastor.game.dcs.cards;
 
 import dms.pastor.game.dcs.events.AirElementEvent;
-import dms.pastor.game.dcs.spells.LightingBolt;
+import dms.pastor.game.dcs.spells.LightingBoltSpell;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ public final class CardTest {
         final AirElementEvent event = new AirElementEvent();
 
         List<Card> cards = new ArrayList<>();
-        cards.add(new LightingBolt());
+        cards.add(new LightingBoltSpell());
         cards.add(event);
 
         // when

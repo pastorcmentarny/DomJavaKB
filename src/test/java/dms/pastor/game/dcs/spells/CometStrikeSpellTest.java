@@ -19,15 +19,15 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz-9817065a/
  */
-public final class CometStrikeTest {
+public final class CometStrikeSpellTest {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(CometStrikeTest.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CometStrikeSpellTest.class);
     private static final int MAX_ATTEMPTS = 50;
 
     @Test
     public void castSpellShouldDoesDamage() {
         // given
-        CometStrike cometStrike = new CometStrike();
+        CometStrikeSpell cometStrikeSpell = new CometStrikeSpell();
 
         final int initHp = 25;
         final Unit unit = unitBuilder()
@@ -36,7 +36,7 @@ public final class CometStrikeTest {
                 .build();
 
         // when
-        cometStrike.castSpell(unit, unit);
+        cometStrikeSpell.castSpell(unit, unit);
 
         // then
         assertThat(unit.getHp()).isLessThan(initHp);
@@ -48,7 +48,7 @@ public final class CometStrikeTest {
     @Test
     public void castSpellShouldDoesDamageAndFrozeAndPoison() {
         // given
-        CometStrike cometStrike = new CometStrike();
+        CometStrikeSpell cometStrikeSpell = new CometStrikeSpell();
         final Unit unit = unitBuilder()
                 .hp(2500)
                 .withoutShield()
@@ -60,7 +60,7 @@ public final class CometStrikeTest {
         // when
         for (int round = 1; round < MAX_ATTEMPTS; round++) {
 
-            cometStrike.castSpell(unit, unit);
+            cometStrikeSpell.castSpell(unit, unit);
             if (unit.getConditions().has(POISONED)) {
                 wasPoisonAtLeastOnce = true;
             }

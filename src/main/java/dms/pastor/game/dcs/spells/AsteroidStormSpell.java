@@ -8,7 +8,10 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Random;
 
-import static dms.pastor.game.dcs.Config.*;
+import static dms.pastor.game.dcs.Config.ASTEROID_STORM_MAX_ASTEROIDS;
+import static dms.pastor.game.dcs.Config.ASTEROID_STORM_MAX_DAMAGE;
+import static dms.pastor.game.dcs.Config.ASTEROID_STORM_MIN_ASTEROIDS;
+import static dms.pastor.game.dcs.Config.ASTEROID_STORM_MIN_DAMAGE;
 import static dms.pastor.game.dcs.conditions.ElementType.EARTH;
 
 /**
@@ -21,6 +24,7 @@ import static dms.pastor.game.dcs.conditions.ElementType.EARTH;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class AsteroidStormSpell extends Spell {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(AsteroidStormSpell.class);
     private final Random random = new Random();
 
@@ -32,7 +36,7 @@ public class AsteroidStormSpell extends Spell {
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        System.out.println(attacker.getName() + " casting .. " + name + " on " + defender.getName());
+        castSpellMessage(attacker.getName(), name, defender.getName());
         int dmg = ASTEROID_STORM_MIN_DAMAGE + random.nextInt(ASTEROID_STORM_MAX_DAMAGE - ASTEROID_STORM_MIN_DAMAGE);
         int asteroids = ASTEROID_STORM_MIN_ASTEROIDS + random.nextInt(ASTEROID_STORM_MAX_ASTEROIDS - ASTEROID_STORM_MIN_ASTEROIDS);
         LOGGER.debug(asteroids + " asteroid(s) will do " + dmg + " dmg each that will hit.");

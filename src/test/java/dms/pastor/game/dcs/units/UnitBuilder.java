@@ -1,5 +1,6 @@
 package dms.pastor.game.dcs.units;
 
+import dms.pastor.game.dcs.Config;
 import dms.pastor.game.dcs.Elements;
 import dms.pastor.game.dcs.cards.Card;
 import dms.pastor.game.dcs.conditions.Condition;
@@ -31,6 +32,7 @@ public class UnitBuilder {
     private String name = "Name";
     private int maxHp = 32;
     private int arm = 0;
+    private int hpRegenRate = Config.REGEN_HP_PER_TURN;
 
     private UnitBuilder() {
     }
@@ -46,7 +48,7 @@ public class UnitBuilder {
         } else {
             shielded = true;
         }
-        return new Unit(shielded,
+        final Unit unit = new Unit(shielded,
                 sp,
                 elements,
                 hp,
@@ -57,6 +59,8 @@ public class UnitBuilder {
                 arm,
                 condition,
                 description);
+        unit.setHpRegenRate(hpRegenRate);
+        return unit;
     }
 
     public Unit buildDeathUnit() {
@@ -138,6 +142,11 @@ public class UnitBuilder {
     public UnitBuilder withoutShield() {
         this.shielded(false);
         this.sp = 0;
+        return this;
+    }
+
+    public UnitBuilder hpRegenPerTurn(int regenHpRate) {
+        this.hpRegenRate = regenHpRate;
         return this;
     }
 }

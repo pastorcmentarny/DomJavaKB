@@ -21,9 +21,9 @@ public class ChainLightingSpell extends Spell {
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        System.out.println(attacker.getName() + " casting " + name);
-        attacker.doesDamageTo(defender, 4);
+        castSpellMessage(attacker.getName(), name, defender.getName());
+        attacker.doesDamageTo(defender, 6);
+        attacker.doesDamageTo(attacker, 3);
         attacker.doesDamageTo(defender, 2);
-        attacker.doesDamageTo(defender, 1);
     }
 }

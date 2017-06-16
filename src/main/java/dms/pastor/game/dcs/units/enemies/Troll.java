@@ -1,6 +1,10 @@
 package dms.pastor.game.dcs.units.enemies;
 
-import dms.pastor.game.dcs.spells.*;
+import dms.pastor.game.dcs.spells.FireBallSpell;
+import dms.pastor.game.dcs.spells.HealSpell;
+import dms.pastor.game.dcs.spells.MagicStoneSpell;
+import dms.pastor.game.dcs.spells.MeteorStrikeSpell;
+import dms.pastor.game.dcs.spells.Spell;
 import dms.pastor.game.dcs.units.Unit;
 import dms.pastor.game.dcs.units.enemies.actions.CureAction;
 import dms.pastor.game.dcs.utils.random.InGameRandomiseUtils;
@@ -42,21 +46,21 @@ public class Troll extends Unit {
 
         new CureAction().perform(this, this);
 
-        Spell spell = new MeteorStrike();
+        Spell spell = new MeteorStrikeSpell();
         while (spell.hasEnoughElementsToCovertToSpell(getElements())) {
             System.out.println(getName() + " will cast " + spell.getName());
             spell.castSpell(this, enemy);
             getElements().useElements(spell.getElements());
         }
 
-        spell = new FireBall();
+        spell = new FireBallSpell();
         while (spell.hasEnoughElementsToCovertToSpell(getElements())) {
             System.out.println(getName() + " will cast " + spell.getName());
             spell.castSpell(this, enemy);
             getElements().useElements(spell.getElements());
         }
 
-        spell = new MagicStone();
+        spell = new MagicStoneSpell();
         spell.castSpell(this, enemy);
         while (spell.hasEnoughElementsToCovertToSpell(getElements())) {
             System.out.println(getName() + " will cast double magic stone!");

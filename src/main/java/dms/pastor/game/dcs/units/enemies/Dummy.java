@@ -1,8 +1,8 @@
 package dms.pastor.game.dcs.units.enemies;
 
-import dms.pastor.game.dcs.spells.FireBall;
+import dms.pastor.game.dcs.spells.FireBallSpell;
 import dms.pastor.game.dcs.spells.HealSpell;
-import dms.pastor.game.dcs.spells.MagicStone;
+import dms.pastor.game.dcs.spells.MagicStoneSpell;
 import dms.pastor.game.dcs.spells.Spell;
 import dms.pastor.game.dcs.units.Unit;
 
@@ -42,7 +42,7 @@ public class Dummy extends Unit {
             }
         }
 
-        spell = new FireBall();
+        spell = new FireBallSpell();
         if (spell.hasEnoughElementsToCovertToSpell(getElements())) {
             System.out.println(getName() + " casting fireball!");
             if (spell.hasEnoughElementsToCovertToSpell(getElements())) {
@@ -51,7 +51,7 @@ public class Dummy extends Unit {
             }
         }
 
-        spell = new MagicStone();
+        spell = new MagicStoneSpell();
         while (spell.hasEnoughElementsToCovertToSpell(getElements())) {
             System.out.println(getName() + " will cast magic stone!");
             if (spell.hasEnoughElementsToCovertToSpell(getElements())) {

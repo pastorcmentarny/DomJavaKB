@@ -16,19 +16,19 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class BloodlustTest {
+public class BloodlustSpellTest {
 
     private static final Unit UNUSED_UNIT = null;
 
     @Test
     public void castBloodlustShouldAddBloodlustToPlayer() throws Exception {
         // given
-        final Bloodlust bloodlust = new Bloodlust();
+        final BloodlustSpell bloodlustSpell = new BloodlustSpell();
         final Unit unit = unitBuilder()
                 .build();
 
         // when
-        bloodlust.castSpell(unit, UNUSED_UNIT);
+        bloodlustSpell.castSpell(unit, UNUSED_UNIT);
 
 
         // then

@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 
 import static dms.pastor.game.dcs.Config.INITIAL_SHIELD_POINTS;
+import static dms.pastor.game.dcs.Config.REGEN_HP_PER_TURN;
 import static dms.pastor.game.dcs.conditions.ConditionType.BLOODLUST;
 import static dms.pastor.game.dcs.conditions.ConditionType.WEAKNESS;
 import static java.lang.String.format;
@@ -27,11 +28,8 @@ import static java.lang.String.format;
  */
 public class Unit {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(Unit.class);
-
-
     public static final int DEFAULT_HEALTH_POINTS = 24;
-
+    private static final Logger LOGGER = LoggerFactory.getLogger(Unit.class);
     private String name = "Name";
     private String description = "Description";
 
@@ -47,6 +45,7 @@ public class Unit {
     private ArrayList<Card> cards = new ArrayList<>();
     private boolean player = false;
     private Condition conditions = new Condition();
+    private int hpRegenRate = REGEN_HP_PER_TURN;
 
     protected Unit() {
 
@@ -175,13 +174,13 @@ public class Unit {
         return shielded;
     }
 
-    public boolean isNotShielded() {
-        return !shielded;
-    }
-
     protected void setShielded(boolean shielded) {
         setSpToZeroIfUnitIsNotShielded(shielded);
         this.shielded = shielded;
+    }
+
+    public boolean isNotShielded() {
+        return !shielded;
     }
 
     private void setSpToZeroIfUnitIsNotShielded(boolean shielded) {
@@ -300,4 +299,20 @@ public class Unit {
         }
     }
 
+    public int increaseHpPerTurn() {
+        if (hp > maxHp) {
+            return 0;
+        }
+        int beforeHp = getHp();
+        setHp(getHp() + hpRegenRate);
+        if (hp > maxHp) {
+            setHp(maxHp);
+
+        }
+        return getHp() - beforeHp;
+    }
+
+    public void setHpRegenRate(int hpRegenRate) {
+        this.hpRegenRate = hpRegenRate;
+    }
 }

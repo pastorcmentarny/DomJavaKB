@@ -15,9 +15,9 @@ import static dms.pastor.game.dcs.conditions.ConditionType.BLOODLUST;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class Bloodlust extends Spell {
+public class BloodlustSpell extends Spell {
 
-    public Bloodlust() {
+    public BloodlustSpell() {
         super();
         name = "Bloodlust";
         setElements(new Elements(0, 0, 0, 4));
@@ -25,7 +25,7 @@ public class Bloodlust extends Spell {
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        System.out.println(attacker.getName() + " casting " + name + " spell");
+        castSpellMessage(attacker.getName(), name, attacker.getName());
         attacker.getConditions().add(BLOODLUST, BLOODLUST_TURNS);
     }
 }

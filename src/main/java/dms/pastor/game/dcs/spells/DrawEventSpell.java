@@ -22,7 +22,7 @@ public class DrawEventSpell extends Spell {
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        System.out.println("Casting " + name + " spell.");
+        castSpellMessage(attacker.getName(), name, defender.getName());
         EventGenerator.event(attacker, attacker);
         EventGenerator.event(attacker, attacker);
         EventGenerator.event(attacker, attacker);

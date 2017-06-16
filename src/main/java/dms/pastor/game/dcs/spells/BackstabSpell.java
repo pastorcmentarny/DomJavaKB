@@ -21,12 +21,12 @@ public class BackstabSpell extends Spell {
     public BackstabSpell() {
         super();
         name = "Backstab spell";
-        setElements(new Elements(0, 2, 0, 0));
+        setElements(new Elements(1, 2, 0, 0));
     }
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        LOGGER.debug(attacker.getName() + " casting " + name + " on " + defender.getName());
+        castSpellMessage(attacker.getName(), name, defender.getName());
         defender.doesDirectDamage(Config.BACKSTABBING_DMG);
     }
 }

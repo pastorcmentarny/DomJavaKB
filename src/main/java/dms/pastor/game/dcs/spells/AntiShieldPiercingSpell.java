@@ -24,7 +24,7 @@ public class AntiShieldPiercingSpell extends Spell {
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        System.out.println(attacker.getName() + " casting  " + name + " on" + defender.getName());
+        castSpellMessage(attacker.getName(), name, defender.getName());
         if (defender.isNotShielded()) {
             defender.doesShieldDamage(Config.ASP_DMG);
         } else {

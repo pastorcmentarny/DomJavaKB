@@ -16,10 +16,10 @@ import java.util.Random;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class MeteorStrike extends Spell {
+public class MeteorStrikeSpell extends Spell {
     private final Random random = new Random();
 
-    public MeteorStrike() {
+    public MeteorStrikeSpell() {
         super();
         name = "Meteor Strike";
         setElements(new Elements(0, 2, 3, 0));
@@ -28,7 +28,7 @@ public class MeteorStrike extends Spell {
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        System.out.println(attacker.getName() + " casting meteor strike.. " + defender.getName());
+        castSpellMessage(attacker.getName(), name, defender.getName());
         for (int i = 1; i <= Config.METEOR_STRIKE_NO; i++) {
             int r = random.nextInt(100);
             if (r >= 50) {

@@ -23,9 +23,9 @@ public class CreateShieldSpell extends Spell {
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        System.out.println(attacker.getName() + " casting " + name);
+        castSpellMessage(attacker.getName(), name, attacker.getName());
         if (attacker.isShielded()) {
-            System.out.println("You are  have to magic shield");
+            System.out.println("You have magic shield already.");
         } else {
             attacker.createShield(INITIAL_SHIELD_POINTS);
         }

@@ -22,7 +22,7 @@ public class ShieldRecoverySpell extends Spell {
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        System.out.println(attacker.getName() + " casting " + name);
+        castSpellMessage(attacker.getName(), name, defender.getName());
         if (attacker.isShielded()) {
             attacker.increaseShieldBy(Config.SHIELD_HEAL);
             System.out.println("Shield increased by" + Config.SHIELD_HEAL);

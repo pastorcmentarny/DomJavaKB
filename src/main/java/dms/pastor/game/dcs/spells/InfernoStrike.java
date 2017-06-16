@@ -27,7 +27,7 @@ public class InfernoStrike extends Spell {
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        System.out.println(attacker.getName() + " casting meteor strike.. " + defender.getName());
+        castSpellMessage(attacker.getName(), name, defender.getName());
         for (int i = 1; i <= Config.INFERNO_STRIKE_NO; i++) {
             int r = random.nextInt(100);
             if (r >= 60) {

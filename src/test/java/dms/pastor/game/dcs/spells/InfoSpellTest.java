@@ -39,7 +39,7 @@ public final class InfoSpellTest {
 
         // then
 
-        assertThat(outputStream.toString()).contains("display info about Name");
+        assertThat(outputStream.toString()).contains("Name casting Show Info on Name");
         assertThat(outputStream.toString()).contains("Name HP: 24/32| SP: 24");
     }
 }

@@ -24,7 +24,7 @@ public class CursedElementSpell extends Spell {
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        System.out.println(attacker.getName() + " casting .. " + name + " on " + defender.getName());
+        castSpellMessage(attacker.getName(), name, defender.getName());
         defender.getElements().getAndUseRandomElements();
         defender.doesDamageTo(attacker, FIREBALL_DMG);
     }

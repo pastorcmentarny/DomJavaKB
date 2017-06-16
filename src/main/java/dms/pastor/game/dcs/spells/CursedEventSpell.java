@@ -22,6 +22,7 @@ public class CursedEventSpell extends Spell {
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
+        castSpellMessage(attacker.getName(), name, defender.getName());
         EventGenerator.badEvent(defender);
     }
 }

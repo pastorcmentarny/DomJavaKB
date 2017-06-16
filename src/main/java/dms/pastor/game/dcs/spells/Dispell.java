@@ -20,6 +20,7 @@ public class Dispell extends Spell {
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
+        castSpellMessage(attacker.getName(), name, defender.getName());
         attacker.getConditions().removeAll();
     }
 }
