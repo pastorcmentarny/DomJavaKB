@@ -1,8 +1,10 @@
 package dms.pastor.game.dcs.spells;
 
-import dms.pastor.game.dcs.Config;
 import dms.pastor.game.dcs.Elements;
 import dms.pastor.game.dcs.units.Unit;
+
+import static dms.pastor.game.dcs.Config.VAMPIRE_DRAIN_DMG;
+import static dms.pastor.game.dcs.Config.VAMPIRE_DRAIN_HEAL_HP;
 
 /**
  * Author Dominik Symonowicz
@@ -17,17 +19,16 @@ public class VampireDrainSpell extends Spell {
     public VampireDrainSpell() {
         super();
         name = "Vampire Drain";
-        setElements(new Elements(1, 1, 1, 0));
+        setElements(new Elements(2, 2, 2, 0));
     }
-
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
         castSpellMessage(attacker.getName(), name, defender.getName());
-        int dmg = attacker.doesDamageTo(defender, Config.VAMPIRE_DRAIN_DMG);
-        if (dmg >= 3) {
-            attacker.addHP(Config.VAMPIRE_DRAIN_HEAL_HP);
-            System.out.println("Vampiring drain does " + dmg + " to " + defender.getName() + " abd " + attacker.getName() + " got " + Config.VAMPIRE_DRAIN_HEAL_HP);
+        int dmg = attacker.doesDamageTo(defender, VAMPIRE_DRAIN_DMG);
+        if (dmg >= 5 && !defender.isStrongShield()) {
+            attacker.addHP(VAMPIRE_DRAIN_HEAL_HP);
+            System.out.println("Vampire drain does " + dmg + " dmg to " + defender.getName() + " and " + attacker.getName() + " drain " + VAMPIRE_DRAIN_HEAL_HP + " dmg.");
         }
     }
 }

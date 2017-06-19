@@ -1,5 +1,6 @@
 package dms.pastor.game.dcs.units.enemies;
 
+import dms.pastor.game.dcs.spells.IceBoltSpell;
 import dms.pastor.game.dcs.spells.VampireDrainSpell;
 import dms.pastor.game.dcs.units.Unit;
 
@@ -23,15 +24,23 @@ public class Vampire extends Unit {
 
 
     @Override
-    public void turn(Unit unit) {
+    public void turn(Unit enemy) {
+
         VampireDrainSpell vds = new VampireDrainSpell();
 
-        vds.castSpell(this, unit);
+        System.out.println(getName() + " trying to drain energy from " + enemy.getName());
+        vds.castSpell(this, enemy);
 
         while (vds.hasEnoughElementsToCovertToSpell(getElements()) && (getMaxHp() - getHp() > 5)) {
-            vds.castSpell(this, unit);
+            vds.castSpell(this, enemy);
             getElements().useElements(vds.getElements());
         }
+
+        IceBoltSpell iceBoltSpell = new IceBoltSpell();
+        if(iceBoltSpell.hasEnoughElementsToCovertToSpell(getElements())){
+            iceBoltSpell.castSpell(this,enemy);
+        }
+
 
     }
 }

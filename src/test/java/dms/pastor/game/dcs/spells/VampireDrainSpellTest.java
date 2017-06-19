@@ -27,4 +27,5 @@ public final class VampireDrainSpellTest {
         assertThat(vampire.getHp()).isGreaterThan(Unit.DEFAULT_HEALTH_POINTS);
         assertThat(enemy.getHp()).isLessThan(initialHp);
     }
+
 }

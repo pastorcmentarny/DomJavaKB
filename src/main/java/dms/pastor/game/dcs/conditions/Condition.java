@@ -7,10 +7,16 @@ import org.slf4j.LoggerFactory;
 
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Random;
 
 import static dms.pastor.game.dcs.Config.DEFAULT_CONDITION_DURATION;
-import static dms.pastor.game.dcs.conditions.ConditionType.*;
+import static dms.pastor.game.dcs.conditions.ConditionType.AIR_IMMUNE;
+import static dms.pastor.game.dcs.conditions.ConditionType.AIR_RESISTANT;
+import static dms.pastor.game.dcs.conditions.ConditionType.EARTH_IMMUNE;
+import static dms.pastor.game.dcs.conditions.ConditionType.EARTH_RESISTANT;
+import static dms.pastor.game.dcs.conditions.ConditionType.FIRE_IMMUNE;
+import static dms.pastor.game.dcs.conditions.ConditionType.FIRE_RESISTANT;
+import static dms.pastor.game.dcs.conditions.ConditionType.WATER_IMMUNE;
+import static dms.pastor.game.dcs.conditions.ConditionType.WATER_RESISTANT;
 
 /**
  * Author Dominik Symonowicz
@@ -27,7 +33,6 @@ public class Condition {
     private RandomiseUtils randomiseUtils = new InGameRandomiseUtils();
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Condition.class);
-    private final Random random = new Random();
     private final HashSet<ConditionEntry> conditions = new HashSet<>();
 
     public HashSet<ConditionEntry> getConditions() {
@@ -96,7 +101,7 @@ public class Condition {
         }
     }
 
-    public ConditionEntry getConditionEntry(ConditionType type) {
+    ConditionEntry getConditionEntry(ConditionType type) {
         for (ConditionEntry element : conditions) {
             if (element.getConditionType().equals(type)) {
                 return element;

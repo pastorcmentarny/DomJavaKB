@@ -22,17 +22,6 @@ public final class UnitVsUnitBattleSimulationTest {
     }
 
     @Test
-    public void dummyVsTrollBattleSimulationTest() {
-        // setup
-        Dummy dummy = new Dummy("Dummy");
-        Troll troll = new Troll();
-        Battle battle = new Battle(dummy, troll);
-
-        // battle
-        battle.isInFight();
-    }
-
-    @Test
     public void dummyVsGolemBattleSimulationTest() {
         // setup
         Dummy dummy = new Dummy("Dummy");
@@ -44,11 +33,33 @@ public final class UnitVsUnitBattleSimulationTest {
     }
 
     @Test
+    public void dummyVsTrollBattleSimulationTest() {
+        // setup
+        Dummy dummy = new Dummy("Dummy");
+        Troll troll = new Troll();
+        Battle battle = new Battle(dummy, troll);
+
+        // battle
+        battle.isInFight();
+    }
+
+    @Test
     public void dummyVsVampireBattleSimulationTest() {
         // setup
         Dummy dummy = new Dummy("Dummy");
         Vampire vampire = new Vampire();
         Battle battle = new Battle(dummy, vampire);
+
+        // battle
+        battle.isInFight();
+    }
+
+    @Test
+    public void fireElementVsGolemBattleSimulationTest() {
+        // setup
+        FireElement fireElement = new FireElement();
+        Golem golem = new Golem();
+        Battle battle = new Battle(fireElement, golem);
 
         // battle
         battle.isInFight();
@@ -77,15 +88,27 @@ public final class UnitVsUnitBattleSimulationTest {
     }
 
     @Test
-    public void fireElementVsGolemBattleSimulationTest() {
+    public void golemVsTrollBattleSimulationTest() {
         // setup
-        FireElement fireElement = new FireElement();
         Golem golem = new Golem();
-        Battle battle = new Battle(fireElement, golem);
+        Troll troll = new Troll();
+        Battle battle = new Battle(golem, troll);
 
         // battle
         battle.isInFight();
     }
+
+    @Test
+    public void golemVsVampireBattleSimulationTest() {
+        // setup
+        Golem golem = new Golem();
+        Vampire vampire = new Vampire();
+        Battle battle = new Battle(golem, vampire);
+
+        // battle
+        battle.isInFight();
+    }
+
 
     @Test
     public void trollVsVampireBattleSimulationTest() {
@@ -93,17 +116,6 @@ public final class UnitVsUnitBattleSimulationTest {
         Troll troll = new Troll();
         Vampire vampire = new Vampire();
         Battle battle = new Battle(troll, vampire);
-
-        // battle
-        battle.isInFight();
-    }
-
-    @Test
-    public void trollVsGolemBattleSimulationTest() {
-        // setup
-        Troll troll = new Troll();
-        Golem golem = new Golem();
-        Battle battle = new Battle(troll, golem);
 
         // battle
         battle.isInFight();

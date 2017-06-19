@@ -115,7 +115,7 @@ public class FindSpellsTest {
 
     @Test
     public void testFindVampireDrain() throws Exception {
-        Elements elements = new Elements(1, 1, 1, 0);
+        Elements elements = new Elements(2, 2, 2, 0);
         assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new VampireDrainSpell().getName()));
     }
 

@@ -11,9 +11,10 @@ public class Enemies {
 
     static {
         allEnemies.add(new Dummy());
+        allEnemies.add(new FireElement());
+        allEnemies.add(new Golem());
         allEnemies.add(new Troll());
         allEnemies.add(new Vampire());
-        allEnemies.add(new FireElement());
     }
 
     public static List<Unit> getAllEnemies() {

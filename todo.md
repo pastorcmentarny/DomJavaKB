@@ -43,3 +43,6 @@ air - life
 earth - life
 fire - death
 water - death
+
+
+my conditions removable/persistent

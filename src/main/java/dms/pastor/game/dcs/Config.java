@@ -27,8 +27,8 @@ public class Config {
     public static final int REGEN_RATE = 1;
     public static final int REGEN_TURNS = 5;
     public static final int BLOODLUST_TURNS = 3;
-    public static final int VAMPIRE_DRAIN_HEAL_HP = 1;
-    public static final int VAMPIRE_DRAIN_DMG = 3;
+    public static final int VAMPIRE_DRAIN_HEAL_HP = 2;
+    public static final int VAMPIRE_DRAIN_DMG = 5;
     public static final int PENALTY_DMG = 2;
     public static final int ASP_DMG = 10;
     public static final int SHIELD_HEAL = 3;
