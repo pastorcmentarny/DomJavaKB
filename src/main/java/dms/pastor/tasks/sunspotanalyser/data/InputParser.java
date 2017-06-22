@@ -1,6 +1,5 @@
 package dms.pastor.tasks.sunspotanalyser.data;
 
-
 import java.io.File;
 
 import static dms.pastor.utils.FileTools.readRawData;

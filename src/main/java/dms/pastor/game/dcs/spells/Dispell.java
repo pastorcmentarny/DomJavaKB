@@ -13,6 +13,7 @@ import dms.pastor.game.dcs.units.Unit;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class Dispell extends Spell {
+
     public Dispell() {
         name = "Dispell";
         setElements(new Elements(2, 0, 1, 0));
@@ -21,6 +22,6 @@ public class Dispell extends Spell {
     @Override
     public void castSpell(Unit attacker, Unit defender) {
         castSpellMessage(attacker.getName(), name, defender.getName());
-        attacker.getConditions().removeAll();
+        attacker.getConditions().removeAllTemporaryConditions();
     }
 }

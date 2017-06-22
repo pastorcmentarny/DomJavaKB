@@ -20,6 +20,7 @@ import java.util.List;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 class ProjectAnalyser {
+
     private final List<File> javaFiles = new ArrayList<>();
     private final List<Integer> averageLines = new ArrayList<>();
     private final List<Integer> averageWidth = new ArrayList<>();
@@ -123,7 +124,6 @@ class ProjectAnalyser {
                 "\nFile with highest lines: " + getHighestLineCount() + " in " + getHighestLinesFileName() +
                 "\nAverage width line per file: " + calculateAverageWidth() +
                 "\nAverage lines per file: " + calculateAverageLinesPerFile();
-
 
     }
 

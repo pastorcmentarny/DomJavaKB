@@ -7,7 +7,9 @@ import java.util.List;
 
 import static dms.pastor.tools.lotto.BallCount.createForSingleNumberWithCount;
 import static dms.pastor.tools.lotto.BallCountBuilder.ballCountBuilder;
-import static dms.pastor.tools.lotto.BallCountOperations.*;
+import static dms.pastor.tools.lotto.BallCountOperations.getLeast2PlayedBalls;
+import static dms.pastor.tools.lotto.BallCountOperations.getNumbersFromBallsCount;
+import static dms.pastor.tools.lotto.BallCountOperations.getTop2PlayedBalls;
 import static java.util.Arrays.asList;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -78,6 +80,5 @@ public class BallCountOperationsTest {
         // then
         assertThat(numbersFromBallsCount).isEqualTo(expected);
     }
-
 
 }

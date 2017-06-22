@@ -13,20 +13,13 @@ import java.util.regex.Pattern;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class CharacterWithTone {
+
     private final String word;
     private final int tone;
 
     CharacterWithTone(String word, int tone) {
         this.word = word;
         this.tone = tone;
-    }
-
-    public String getWord() {
-        return word;
-    }
-
-    int getTone() {
-        return tone;
     }
 
     public static CharacterWithTone fromString(String string) {
@@ -38,10 +31,22 @@ public class CharacterWithTone {
         }
     }
 
+    public String getWord() {
+        return word;
+    }
+
+    int getTone() {
+        return tone;
+    }
+
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         CharacterWithTone that = (CharacterWithTone) o;
         return getTone() == that.getTone() &&
                 Objects.equals(getWord(), that.getWord());

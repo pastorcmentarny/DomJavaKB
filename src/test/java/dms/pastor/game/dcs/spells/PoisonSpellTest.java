@@ -33,7 +33,6 @@ public class PoisonSpellTest {
         assertThat(unit.getConditions().has(POISONED)).isTrue();
     }
 
-
     @Test
     public void castSpellShouldNotPoisonUnitIfIsImmuneToPoison() throws Exception {
         // given

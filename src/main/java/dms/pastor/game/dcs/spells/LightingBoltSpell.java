@@ -2,10 +2,12 @@ package dms.pastor.game.dcs.spells;
 
 import dms.pastor.game.dcs.Config;
 import dms.pastor.game.dcs.Elements;
-import dms.pastor.game.dcs.conditions.ConditionType;
 import dms.pastor.game.dcs.units.Unit;
 
 import java.util.Random;
+
+import static dms.pastor.game.dcs.conditions.ConditionEntry.createTemporaryCondition;
+import static dms.pastor.game.dcs.conditions.ConditionType.STUNNED;
 
 /**
  * Author Dominik Symonowicz
@@ -31,7 +33,7 @@ public class LightingBoltSpell extends Spell {
         Random random = new Random();
         if (50 >= random.nextInt(100)) {
             System.out.println(defender.getName() + "  is stunned after being hit by lighting.");
-            defender.getConditions().add(ConditionType.STUNNED, 2);
+            defender.getConditions().add(createTemporaryCondition(STUNNED, 2));
         }
     }
 }

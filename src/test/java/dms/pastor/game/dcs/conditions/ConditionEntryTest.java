@@ -2,6 +2,12 @@ package dms.pastor.game.dcs.conditions;
 
 import org.junit.Test;
 
+import static dms.pastor.game.dcs.Config.DEFAULT_CONDITION_DURATION;
+import static dms.pastor.game.dcs.Config.INFINITIVE_TURNS_LEFT;
+import static dms.pastor.game.dcs.conditions.ConditionEntry.createPersistentCondition;
+import static dms.pastor.game.dcs.conditions.ConditionEntry.createTemporaryCondition;
+import static dms.pastor.game.dcs.conditions.ConditionEntry.createTemporaryConditionWithDefaultDuration;
+import static dms.pastor.game.dcs.conditions.ConditionType.POISONED;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -15,9 +21,10 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class ConditionEntryTest {
 
-    private static final ConditionType CONDITION_TYPE = ConditionType.POISONED;
+    private static final ConditionType CONDITION_TYPE = POISONED;
     private static final int INITIAL_TURNS_LEFT = 3;
-    private final ConditionEntry conditionEntry = new ConditionEntry(CONDITION_TYPE, INITIAL_TURNS_LEFT);
+    private final ConditionEntry temporaryCondition = createTemporaryCondition(CONDITION_TYPE, INITIAL_TURNS_LEFT);
+    private final ConditionEntry persistentCondition = createPersistentCondition(CONDITION_TYPE);
 
     @Test
     public void updateTurnsLeftShouldUpdateTurnsIsHigherThanTurnsLeft() throws Exception {
@@ -25,10 +32,10 @@ public class ConditionEntryTest {
         final int newTurnsLeft = 4;
 
         // when
-        conditionEntry.updateTurnsLeft(newTurnsLeft);
+        temporaryCondition.updateTurnsLeft(newTurnsLeft);
 
         // then
-        assertThat(conditionEntry.getTurnsLeft()).isEqualTo(newTurnsLeft);
+        assertThat(temporaryCondition.getTurnsLeft()).isEqualTo(newTurnsLeft);
     }
 
     @Test
@@ -37,20 +44,71 @@ public class ConditionEntryTest {
         final int newTurnsLeft = 2;
 
         // when
-        conditionEntry.updateTurnsLeft(newTurnsLeft);
+        temporaryCondition.updateTurnsLeft(newTurnsLeft);
 
         // then
-        assertThat(conditionEntry.getTurnsLeft()).isEqualTo(INITIAL_TURNS_LEFT);
+        assertThat(temporaryCondition.getTurnsLeft()).isEqualTo(INITIAL_TURNS_LEFT);
     }
 
     @Test
     public void reduceTurnShouldReduceTurnLeftByOne() throws Exception {
 
         // when
-        conditionEntry.reduceTurn();
+        temporaryCondition.reduceTurn();
 
         // then
-        assertThat(conditionEntry.getTurnsLeft()).isEqualTo(2);
-
+        assertThat(temporaryCondition.getTurnsLeft()).isEqualTo(2);
     }
+
+    @Test
+    public void createPersistentConditionShouldReturnConditionWithPersistentTrue() {
+        // given
+        ConditionEntry expectedCondition = new ConditionEntry(CONDITION_TYPE, INFINITIVE_TURNS_LEFT, true);
+
+        // when
+        final ConditionEntry persistentConditionResult = createPersistentCondition(CONDITION_TYPE);
+
+        // then
+        assertThat(persistentConditionResult).isEqualTo(expectedCondition);
+    }
+
+    @Test
+    public void createTemporaryConditionShouldReturnWithConditionWithPersistentFalse() {
+        // given
+        ConditionEntry expectedCondition = new ConditionEntry(CONDITION_TYPE, INITIAL_TURNS_LEFT, false);
+
+        // when
+        final ConditionEntry persistentConditionResult = createTemporaryCondition(CONDITION_TYPE, INITIAL_TURNS_LEFT);
+
+        // then
+        assertThat(persistentConditionResult).isEqualTo(expectedCondition);
+    }
+
+    @Test
+    public void createTemporaryConditionWithDefaultDurationShouldReturnTemporaryConditionWithDefaultTurnsLef() {
+        // when
+        final ConditionEntry conditionEntry = createTemporaryConditionWithDefaultDuration(CONDITION_TYPE);
+
+        // then
+        assertThat(conditionEntry.getTurnsLeft()).isEqualTo(DEFAULT_CONDITION_DURATION);
+    }
+
+    @Test
+    public void reduceTurnShouldNotBeShouldChangeTurnsLeftForPersistentCondition() {
+        // when
+        persistentCondition.reduceTurn();
+
+        // then
+        assertThat(persistentCondition.getTurnsLeft()).isEqualTo(INFINITIVE_TURNS_LEFT);
+    }
+
+    @Test
+    public void updateTurnsLeftShouldNotBeShouldChangeTurnsLeftForPersistentCondition() {
+        // when
+        persistentCondition.updateTurnsLeft(INFINITIVE_TURNS_LEFT + 1);
+
+        // then
+        assertThat(persistentCondition.getTurnsLeft()).isEqualTo(INFINITIVE_TURNS_LEFT);
+    }
+
 }

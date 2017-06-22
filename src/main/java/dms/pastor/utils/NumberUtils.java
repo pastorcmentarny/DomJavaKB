@@ -24,7 +24,8 @@ public final class NumberUtils {
     private static final String BINARY_DIGIT_ZERO = "0";
     private static final String ERROR_MESSAGE_MUST_BE_INTEGER_ARRAY = "Invalid input. It must be integer array";
 
-    private NumberUtils(){}
+    private NumberUtils() {
+    }
 
     /**
      * *VERSION:        2
@@ -187,7 +188,9 @@ public final class NumberUtils {
                         swapped = true;
                     }
                 }
-                if (!swapped) break;
+                if (!swapped) {
+                    break;
+                }
             }
         }
         return numbers;
@@ -236,6 +239,7 @@ public final class NumberUtils {
     }
 
     private static class BitMaker {
+
         private String eightBit;
         private int leftOver;
 

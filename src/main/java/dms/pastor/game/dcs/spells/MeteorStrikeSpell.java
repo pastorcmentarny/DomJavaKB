@@ -17,6 +17,7 @@ import java.util.Random;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class MeteorStrikeSpell extends Spell {
+
     private final Random random = new Random();
 
     public MeteorStrikeSpell() {
@@ -24,7 +25,6 @@ public class MeteorStrikeSpell extends Spell {
         name = "Meteor Strike";
         setElements(new Elements(0, 2, 3, 0));
     }
-
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
@@ -47,6 +47,5 @@ public class MeteorStrikeSpell extends Spell {
             }
         }
     }
-
 
 }

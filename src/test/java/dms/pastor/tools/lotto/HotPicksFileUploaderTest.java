@@ -27,6 +27,7 @@ import static org.junit.Assert.fail;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class HotPicksFileUploaderTest {
+
     private static final String USER_DIRECTORY = "user.dir";
     private static final int DRAW_NUMBER = 2164;
     private static final String MACHINE_NAME = "Merlin";
@@ -95,7 +96,6 @@ public class HotPicksFileUploaderTest {
         // when
         hotPicksFileUploader.loadHotPicksDrawHistoryFile(null);
     }
-
 
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenFileTypeIsNotACsvFile() throws Exception {

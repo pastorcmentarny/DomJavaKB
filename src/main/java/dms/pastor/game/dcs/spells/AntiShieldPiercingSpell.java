@@ -21,7 +21,6 @@ public class AntiShieldPiercingSpell extends Spell {
         setElements(new Elements(1, 1, 1, 1));
     }
 
-
     @Override
     public void castSpell(Unit attacker, Unit defender) {
         castSpellMessage(attacker.getName(), name, defender.getName());
@@ -33,6 +32,5 @@ public class AntiShieldPiercingSpell extends Spell {
         }
 
     }
-
 
 }

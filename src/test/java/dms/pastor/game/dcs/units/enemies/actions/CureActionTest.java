@@ -5,6 +5,7 @@ import dms.pastor.game.dcs.spells.CureSpell;
 import dms.pastor.game.dcs.units.Unit;
 import org.junit.Test;
 
+import static dms.pastor.game.dcs.conditions.ConditionEntry.createTemporaryConditionWithDefaultDuration;
 import static dms.pastor.game.dcs.conditions.ConditionType.BLIND;
 import static dms.pastor.game.dcs.units.UnitBuilder.unitBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -17,7 +18,7 @@ public final class CureActionTest {
         CureAction cureAction = new CureAction();
 
         Condition condition = new Condition();
-        condition.add(BLIND);
+        condition.add(createTemporaryConditionWithDefaultDuration(BLIND));
         final Unit unit = unitBuilder()
                 .condition(condition)
                 .elements(new CureSpell().getElements())

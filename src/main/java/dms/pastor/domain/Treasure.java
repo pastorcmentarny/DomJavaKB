@@ -2,7 +2,9 @@ package dms.pastor.domain;
 
 import dms.pastor.utils.randoms.RandomDataGenerator;
 
-import static dms.pastor.utils.randoms.RandomDataGenerator.*;
+import static dms.pastor.utils.randoms.RandomDataGenerator.MAX_SMALL_VALUE;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateRandomParagraph;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 
 /**
  * Author Dominik Symonowicz
@@ -14,6 +16,7 @@ import static dms.pastor.utils.randoms.RandomDataGenerator.*;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class Treasure {
+
     private final String name;
     private final String description;
     private final int value;
@@ -39,6 +42,5 @@ public class Treasure {
     public int getValue() {
         return value;
     }
-
 
 }

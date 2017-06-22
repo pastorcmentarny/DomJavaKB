@@ -16,6 +16,7 @@ import static java.util.Collections.singletonList;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class BallCount {
+
     private final List<Integer> ballNumbers;
     private int count;
 
@@ -44,11 +45,6 @@ public class BallCount {
         count++;
     }
 
-    void setCount(int count) {
-        this.count = count;
-    }
-
-
     List<Integer> getBallNumbers() {
         return ballNumbers;
     }
@@ -57,17 +53,26 @@ public class BallCount {
         return count;
     }
 
+    void setCount(int count) {
+        this.count = count;
+    }
+
     void addBallNumber(Integer newBallNumber) {
         ballNumbers.add(newBallNumber);
     }
+
     void addBallNumbers(List<Integer> newBallNumbers) {
         ballNumbers.addAll(newBallNumbers);
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         BallCount ballCount = (BallCount) o;
         return getCount() == ballCount.getCount() &&
                 Objects.equals(getBallNumbers(), ballCount.getBallNumbers());

@@ -16,6 +16,7 @@ import org.junit.runners.model.Statement;
  * Inspired by Frank Appel(https://gist.github.com/fappel)
  */
 class RepeatStatement extends Statement {
+
     private final int times;
     private final Statement statement;
 

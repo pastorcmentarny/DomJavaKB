@@ -12,6 +12,7 @@ import java.math.BigDecimal;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 class TaxCalculator {
+
     public static final int DEFAULT_PERSONAL_ALLOWANCE_AMOUNT = 10600;
     public static final int FULL_PERSONAL_ALLOWANCE_LIMIT = 100000;
     private static final int DEFAULT_BASIC_TAX_LIMIT = 31785;
@@ -20,7 +21,6 @@ class TaxCalculator {
     private static final int TOP_TAX_RATE = 45;
     private static final int HIGH_TAX_LIMIT = 150000;
     private static final int TOO_HIGH_SALARY_FOR_PERSONAL_ALLOWANCE = 121200;
-
 
     public static int getNetSalary(int salary) {
         final BigDecimal personalAllowance = getPersonalAllowanceFor(salary);

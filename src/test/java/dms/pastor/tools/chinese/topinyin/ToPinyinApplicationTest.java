@@ -28,11 +28,10 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class ToPinyinApplicationTest {
 
-    private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-    private final PrintStream original = System.out;
     private static final String TEXT_INVALID_MESSAGE = "Text cannot be null or empty. It must be at least 2 characters or more.";
     private static final String PSEUDO_PINYIN_TYPE = "character";
-
+    private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    private final PrintStream original = System.out;
     @Rule
     public ExpectedException exception = ExpectedException.none();
 
@@ -46,7 +45,6 @@ public class ToPinyinApplicationTest {
         outputStream.close();
         System.setOut(original);
     }
-
 
     @Test
     public void shouldThrowExceptionWhenInputArgumentIsNull() throws Exception {

@@ -16,6 +16,7 @@ import java.util.Random;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class InfernoStrike extends Spell {
+
     private static final String HIT_MESSAGE = "It hits ";
     private final Random random = new Random();
 

@@ -22,7 +22,6 @@ class ToPinyinApplication {
         System.out.println(result);
     }
 
-
     private static void validateInputArgs(String[] inputArguments) {
         if (inputArguments == null) {
             throw new IllegalArgumentException("Input arguments cannot be null.");

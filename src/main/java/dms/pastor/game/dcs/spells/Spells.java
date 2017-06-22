@@ -16,6 +16,7 @@ import java.util.ArrayList;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class Spells {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(Spells.class);
     private static final ArrayList<Spell> spells = new ArrayList<>();
 

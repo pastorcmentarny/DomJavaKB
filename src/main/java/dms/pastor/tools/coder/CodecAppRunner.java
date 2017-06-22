@@ -1,6 +1,5 @@
 package dms.pastor.tools.coder;
 
-
 import dms.pastor.domain.exception.SomethingWentTerribleWrongError;
 
 import static dms.pastor.tools.coder.DomCoder.loadSourceFile;

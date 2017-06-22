@@ -21,6 +21,7 @@ import static org.mockito.BDDMockito.given;
  */
 @RunWith(MockitoJUnitRunner.class)
 public class UserKeyboardReaderTest {
+
     @Mock
     private
     Scanner scanner;

@@ -14,10 +14,10 @@ import java.io.Serializable;
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
- *
+ * <p>
  * tag-nullObjectPattern
  * tag-Singleton
- *
+ * <p>
  * Serialization is unnecessary for this class.
  * I used it to give complete example of singleton pattern.
  */
@@ -27,6 +27,11 @@ public class NoSpell extends Spell implements Serializable {
     private static final long serialVersionUID = -32961183500001L;
 
     private NoSpell() {
+    }
+
+    @SuppressWarnings("SameReturnValue") // part of Singleton
+    static NoSpell getInstance() {
+        return NoSpellHolder.INSTANCE;
     }
 
     @Override
@@ -45,28 +50,23 @@ public class NoSpell extends Spell implements Serializable {
     }
 
     @Override
-    void setElements(Elements elements) {
-        super.setElements(Elements.noElements());
-    }
-
-    @Override
     public Elements getElements() {
         return Elements.noElements();
     }
 
     // Singleton setup
 
-    private static class NoSpellHolder {
-
-        static final NoSpell INSTANCE = new NoSpell();
-    }
-
-    @SuppressWarnings("SameReturnValue") // part of Singleton
-    static NoSpell getInstance() {
-        return NoSpellHolder.INSTANCE;
+    @Override
+    void setElements(Elements elements) {
+        super.setElements(Elements.noElements());
     }
 
     private Object readResolve() {
         return NoSpell.getInstance();
+    }
+
+    private static class NoSpellHolder {
+
+        static final NoSpell INSTANCE = new NoSpell();
     }
 }

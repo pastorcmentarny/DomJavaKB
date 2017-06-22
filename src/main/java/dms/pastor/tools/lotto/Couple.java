@@ -15,6 +15,7 @@ import static java.lang.String.format;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class Couple {
+
     private int smallerNumber;
     private int largerNumber;
 
@@ -38,9 +39,9 @@ public class Couple {
         validateTwoIntsNotEqual(smallerNumber, largerNumber);
     }
 
-    public boolean contains(int... numbers){
-        for(int number : numbers){
-            if(smallerNumber == number || largerNumber == number){
+    public boolean contains(int... numbers) {
+        for (int number : numbers) {
+            if (smallerNumber == number || largerNumber == number) {
                 return true;
             }
         }
@@ -57,8 +58,12 @@ public class Couple {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Couple couple = (Couple) o;
         return getSmallerNumber() == couple.getSmallerNumber() &&
                 getLargerNumber() == couple.getLargerNumber();

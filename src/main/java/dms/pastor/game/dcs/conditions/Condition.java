@@ -7,8 +7,8 @@ import org.slf4j.LoggerFactory;
 
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Objects;
 
-import static dms.pastor.game.dcs.Config.DEFAULT_CONDITION_DURATION;
 import static dms.pastor.game.dcs.conditions.ConditionType.AIR_IMMUNE;
 import static dms.pastor.game.dcs.conditions.ConditionType.AIR_RESISTANT;
 import static dms.pastor.game.dcs.conditions.ConditionType.EARTH_IMMUNE;
@@ -30,38 +30,24 @@ import static dms.pastor.game.dcs.conditions.ConditionType.WATER_RESISTANT;
 public class Condition {
 
     private static final int IMMUNITY_PERCENTAGE = 50;
-    private RandomiseUtils randomiseUtils = new InGameRandomiseUtils();
-
     private static final Logger LOGGER = LoggerFactory.getLogger(Condition.class);
     private final HashSet<ConditionEntry> conditions = new HashSet<>();
+    private RandomiseUtils randomiseUtils = new InGameRandomiseUtils();
 
     public HashSet<ConditionEntry> getConditions() {
         return conditions;
     }
 
-    public void add(ConditionType condition, int turns) {
-        LOGGER.debug("You are " + condition.name().toLowerCase());
-        for (ConditionEntry conditionEntry : conditions) {
-            if (conditionEntry.getConditionType().equals(condition)) {
-                conditionEntry.updateTurnsLeft(turns);
-                return;
-            }
-        }
-        conditions.add(new ConditionEntry(condition, turns));
-    }
-
-    public void add(ConditionType condition) {
-        LOGGER.debug("You are " + condition.name().toLowerCase());
-        add(condition, DEFAULT_CONDITION_DURATION);
-    }
-
     public void add(ConditionEntry condition) {
         LOGGER.debug("You are " + condition.getConditionType().name().toLowerCase());
-        for (ConditionEntry conditionEntry : conditions) {
-            if (conditionEntry.equals(condition)) {
-                conditionEntry.updateTurnsLeft(condition.getTurnsLeft());
-                return;
+        if (has(condition.getConditionType())) {
+            if (getConditionEntry(condition.getConditionType()).isTemporary() && condition.isPersistent()) {
+                conditions.remove(getConditionEntry(condition.getConditionType()));
+                conditions.add(condition);
+            } else {
+                getConditionEntry(condition.getConditionType()).updateTurnsLeft(condition.getTurnsLeft());
             }
+            return;
         }
         conditions.add(condition);
     }
@@ -107,10 +93,19 @@ public class Condition {
                 return element;
             }
         }
-        return null;
+        return null; //TODO improve it
     }
 
-    public void removeAll() {
+    public void removeAllTemporaryConditions() {
+        if (!conditions.isEmpty()) {
+            for (ConditionEntry conditionEntry : conditions) {
+                System.out.println(conditionEntry.getConditionType() + " is removed");
+            }
+            conditions.clear();
+        }
+    }
+
+    public void removeAllConditions() {
         if (!conditions.isEmpty()) {
             for (ConditionEntry conditionEntry : conditions) {
                 System.out.println(conditionEntry.getConditionType() + " is removed");
@@ -124,6 +119,10 @@ public class Condition {
     }
 
     public boolean isImmuneTo(ElementType type) {
+        if (Objects.isNull(type)) {
+            LOGGER.error("Bug detected. Null passed as element type.");
+            return false;
+        }
         switch (type) {
             case AIR:
                 return isImmuneTo(AIR_IMMUNE, AIR_RESISTANT);

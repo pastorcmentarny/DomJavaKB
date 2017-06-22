@@ -12,6 +12,7 @@ import java.util.Set;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 class CoupleOperations {
+
     static Set<Couple> deleteDiscardedCouples(Set<Couple> couples, Set<Couple> couplesToDelete) {
         for (Couple couple : couplesToDelete) {
             if (couples.contains(couple)) {

@@ -29,7 +29,6 @@ class RomanArabicConverter {
         return arabicNumber;
     }
 
-
     private boolean isSubtractiveNotationNeeded(int i, char[] romanNumber) {
         if (i + 1 >= romanNumber.length) {
             return false;
@@ -45,7 +44,6 @@ class RomanArabicConverter {
                 return false;
         }
     }
-
 
     String convertArabicToRoman(int number) {
         if (!RomanNumberValidator.isIntCanBeRomanNumber(number)) {
@@ -65,7 +63,6 @@ class RomanArabicConverter {
         numberLeft = getNumberLeft(numberLeft, sb, RomanNumerals.X, RomanNumerals.I);
 
         numberLeft = getNumberLeft(numberLeft, sb, RomanNumerals.V, RomanNumerals.I);
-
 
         for (int i = 1; i <= numberLeft; i++) {
             sb.append('I');
@@ -88,6 +85,5 @@ class RomanArabicConverter {
         }
         return numberLeft;
     }
-
 
 }

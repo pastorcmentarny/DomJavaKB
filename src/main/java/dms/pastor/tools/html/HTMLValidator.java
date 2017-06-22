@@ -16,6 +16,7 @@ import static dms.pastor.utils.ValidatorUtils.validateIfNotNull;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 class HTMLValidator {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(HTMLValidator.class);
     private static final String NOT_HTML_TYPE_ERROR_MESSAGE = "WHOOPS!\n\tIt is not a html file.Unable to read non-html file.";
 

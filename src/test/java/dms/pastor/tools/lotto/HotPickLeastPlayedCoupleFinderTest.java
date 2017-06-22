@@ -21,6 +21,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class HotPickLeastPlayedCoupleFinderTest {
+
     private static final int[] HOT_PICK_NUMBERS = IntStream.rangeClosed(1, 59).toArray();
     private final HotPickLeastPlayedCoupleFinder leastPlayedCoupleFinder = new HotPickLeastPlayedCoupleFinder();
 

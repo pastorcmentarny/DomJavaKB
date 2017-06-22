@@ -16,6 +16,7 @@ import org.slf4j.LoggerFactory;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class BackstabSpell extends Spell {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(BackstabSpell.class);
 
     public BackstabSpell() {

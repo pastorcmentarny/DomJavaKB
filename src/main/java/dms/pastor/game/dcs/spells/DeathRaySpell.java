@@ -14,6 +14,7 @@ import dms.pastor.game.dcs.units.Unit;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class DeathRaySpell extends Spell {
+
     public DeathRaySpell() {
         super();
         name = "Death ray";

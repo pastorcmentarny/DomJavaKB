@@ -85,7 +85,6 @@ public class ArrayUtilsTest {
         assertThat(bytes).hasSize(size);
     }
 
-
     @Test
     public void shouldReverseStringArrayAcceptanceTest() throws Exception {
         // given

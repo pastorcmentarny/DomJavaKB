@@ -25,6 +25,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 @SuppressWarnings("resource") // not need to use try with resources for this test
 public class LegendaryServiceTest {
+
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private final PrintStream original = System.out;
     private final LegendaryService legendaryService = new LegendaryService();

@@ -20,10 +20,10 @@ import static org.hamcrest.CoreMatchers.is;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class BerlinClockTest {
-    private ClockInterface clock;
 
     @Rule
     public ExpectedException exception = ExpectedException.none();
+    private ClockInterface clock;
 
     @Before
     public void setUp() throws Exception {

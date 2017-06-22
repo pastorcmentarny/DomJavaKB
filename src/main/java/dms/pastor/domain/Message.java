@@ -8,10 +8,11 @@ package dms.pastor.domain;
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
- *
+ * <p>
  * Example of test of System.out
  */
 public class Message {
+
     public static final String INPUT_CANNOT_BE_EMPTY = "Input can not be null or empty.";
 
     private Message() {

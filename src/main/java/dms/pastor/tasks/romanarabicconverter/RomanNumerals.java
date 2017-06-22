@@ -18,7 +18,6 @@ public enum RomanNumerals {
     D('D', 500),
     M('M', 1000);
 
-
     private final char roman;
     private final int arabic;
 

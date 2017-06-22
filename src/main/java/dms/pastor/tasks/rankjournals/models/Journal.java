@@ -10,11 +10,11 @@ import static dms.pastor.tasks.rankjournals.JournalType.REVIEW;
  *         Created 2013-06-18 at 21:29:27
  */
 public class Journal {
+
     private final String name;
     private final double score;
     private final int year;
     private JournalType type = NORMAL;
-
 
     public Journal(String name, double score, int year) {
         this.name = name;

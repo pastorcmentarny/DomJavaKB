@@ -1,6 +1,5 @@
 package dms.pastor.utils.randoms;
 
-
 import dms.pastor.domain.exception.SomethingWentWrongException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +16,6 @@ import static dms.pastor.utils.ValidatorUtils.validateIfPositiveNumber;
 import static dms.pastor.utils.ValidatorUtils.validateMinValueIsSmallerThanMaxValue;
 import static java.lang.Integer.MAX_VALUE;
 
-
 /**
  * Author Dominik Symonowicz
  * WWW:	https://dominiksymonowicz.com/welcome
@@ -29,6 +27,7 @@ import static java.lang.Integer.MAX_VALUE;
  * Generate random data for personal use
  */
 public final class RandomDataGenerator {
+
     public static final int MAX_SMALL_VALUE = 10;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(RandomDataGenerator.class);
@@ -80,7 +79,6 @@ public final class RandomDataGenerator {
     public static String getRandomCharacterAsString() {
         return getRandomCharacterFromAlphabet().toString();
     }
-
 
     public static String generateRandomParagraph() {
         StringBuilder stringBuilder = new StringBuilder(EMPTY_STRING);
@@ -245,4 +243,7 @@ public final class RandomDataGenerator {
         return randomStrings;
     }
 
+    public static boolean generateRandomBoolean() {
+        return random.nextBoolean();
+    }
 }

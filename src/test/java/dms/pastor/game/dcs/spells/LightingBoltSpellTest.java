@@ -17,7 +17,6 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class LightingBoltSpellTest {
 
-
     @Test
     public void castLightBoltSpellShouldCauseDamageToUnit() throws Exception {
         // given

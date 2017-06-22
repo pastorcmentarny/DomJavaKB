@@ -31,5 +31,4 @@ public class SpellsCastTest {
         spell.castSpell(player1, player2);
     }
 
-
 }

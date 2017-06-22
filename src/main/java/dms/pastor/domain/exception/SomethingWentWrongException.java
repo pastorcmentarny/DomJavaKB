@@ -19,6 +19,7 @@ import static java.lang.String.format;
  */
 @SuppressWarnings("WeakerAccess")
 public class SomethingWentWrongException extends RuntimeException {
+
     private static final String ERROR = "Whoops! Something went wrong. %s. I apologize for any inconvenience caused by your mistake.";
 
     public SomethingWentWrongException() {

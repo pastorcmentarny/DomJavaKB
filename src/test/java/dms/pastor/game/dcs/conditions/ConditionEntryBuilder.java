@@ -1,5 +1,8 @@
 package dms.pastor.game.dcs.conditions;
 
+import static dms.pastor.game.dcs.conditions.ConditionEntry.createPersistentCondition;
+import static dms.pastor.game.dcs.conditions.ConditionEntry.createTemporaryCondition;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateRandomBoolean;
 import static dms.pastor.utils.randoms.RandomDataGenerator.randomPositiveInteger;
 
 /**
@@ -12,8 +15,10 @@ import static dms.pastor.utils.randoms.RandomDataGenerator.randomPositiveInteger
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class ConditionEntryBuilder {
+
     private ConditionType condition = ConditionType.POISONED;
     private int turnsLeft = randomPositiveInteger(10);
+    private boolean persistent = generateRandomBoolean();
 
     private ConditionEntryBuilder() {
     }
@@ -23,7 +28,15 @@ public class ConditionEntryBuilder {
     }
 
     public ConditionEntry build() {
-        return new ConditionEntry(condition, turnsLeft);
+        return new ConditionEntry(condition, turnsLeft, persistent);
+    }
+
+    public ConditionEntry buildPersistentCondition() {
+        return createPersistentCondition(condition);
+    }
+
+    public ConditionEntry buildTemporaryCondition() {
+        return createTemporaryCondition(condition, turnsLeft);
     }
 
     public ConditionEntryBuilder condition(ConditionType condition) {
@@ -35,4 +48,10 @@ public class ConditionEntryBuilder {
         this.turnsLeft = turnsLeft;
         return this;
     }
+
+    public ConditionEntryBuilder persistent(boolean persistent) {
+        this.persistent = persistent;
+        return this;
+    }
+
 }

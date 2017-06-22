@@ -17,6 +17,7 @@ import static dms.pastor.game.dcs.conditions.ConditionType.WEAKNESS;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class CureSpell extends Spell {
+
     public CureSpell() {
         super();
         name = "Draw an event";

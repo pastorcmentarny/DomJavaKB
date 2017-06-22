@@ -11,6 +11,7 @@ import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 class NameBuilder {
+
     private String first = generateString();
     private String middles = generateString();
     private String last = generateString();

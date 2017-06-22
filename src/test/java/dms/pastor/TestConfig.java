@@ -11,6 +11,7 @@ import static java.io.File.separator;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class TestConfig {
+
     public static final int MAX_RANDOM_SIZE = 4096;
     public static final String[] EMPTY_STRING_ARRAY = new String[0];
     public static final int[] EMPTY_INTEGER_ARRAY = {};

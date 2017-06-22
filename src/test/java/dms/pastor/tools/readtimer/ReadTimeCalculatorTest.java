@@ -13,7 +13,11 @@ import java.util.Random;
 import static dms.pastor.tools.readtimer.ReadSpeed.ADULT_AVERAGE;
 import static dms.pastor.utils.DateUtils.HOUR;
 import static dms.pastor.utils.DateUtils.MINUTE;
-import static dms.pastor.utils.randoms.RandomDataGenerator.*;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateRandomParagraph;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateWords;
+import static dms.pastor.utils.randoms.RandomDataGenerator.randomInteger;
+import static dms.pastor.utils.randoms.RandomDataGenerator.randomNegativeInteger;
 import static java.lang.Integer.MAX_VALUE;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
@@ -133,7 +137,6 @@ public class ReadTimeCalculatorTest {
         // then
         assertThat(wordPerMinute, is(ONE_WORD_PER_SECOND));
     }
-
 
     //running test few time for various negative numbers
     @Test

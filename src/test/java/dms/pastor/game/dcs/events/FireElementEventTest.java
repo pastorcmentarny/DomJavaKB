@@ -1,10 +1,12 @@
 package dms.pastor.game.dcs.events;
 
 import dms.pastor.game.dcs.conditions.Condition;
-import dms.pastor.game.dcs.conditions.ConditionType;
 import dms.pastor.game.dcs.units.Unit;
 import org.junit.Test;
 
+import static dms.pastor.game.dcs.conditions.ConditionEntry.createTemporaryCondition;
+import static dms.pastor.game.dcs.conditions.ConditionType.FIRE_IMMUNE;
+import static dms.pastor.game.dcs.conditions.ConditionType.FIRE_SENSITIVE;
 import static dms.pastor.game.dcs.units.UnitBuilder.unitBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -23,7 +25,7 @@ public class FireElementEventTest {
     public void performFireEventShouldCauseUnitToHasDamage() throws Exception {
         // given
         final Condition conditions = new Condition();
-        conditions.add(ConditionType.FIRE_SENSITIVE, 1);
+        conditions.add(createTemporaryCondition(FIRE_SENSITIVE, 1));
 
         final Unit unit = unitBuilder()
                 .condition(conditions)
@@ -42,7 +44,7 @@ public class FireElementEventTest {
     public void performFireEventShouldGivesFireElement() throws Exception {
         // given
         final Condition conditions = new Condition();
-        conditions.add(ConditionType.FIRE_IMMUNE, 1);
+        conditions.add(createTemporaryCondition(FIRE_IMMUNE, 1));
 
         final Unit unit = unitBuilder()
                 .condition(conditions)

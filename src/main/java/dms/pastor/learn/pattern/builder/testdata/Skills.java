@@ -14,6 +14,7 @@ import static java.lang.String.format;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class Skills {
+
     private int perception;
     private int strength;
     private int agility;
@@ -50,8 +51,12 @@ public class Skills {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Skills)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Skills)) {
+            return false;
+        }
         Skills skills = (Skills) o;
         return perception == skills.perception &&
                 strength == skills.strength &&

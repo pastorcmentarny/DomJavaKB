@@ -10,5 +10,6 @@ package dms.pastor.game.dcs.utils;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public interface UserInputReader {
+
     int getIntegerInput();
 }

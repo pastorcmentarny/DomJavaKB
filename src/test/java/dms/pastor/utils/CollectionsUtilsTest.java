@@ -3,12 +3,21 @@ package dms.pastor.utils;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Random;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static dms.pastor.TestConfig.MAX_RANDOM_SIZE;
-import static dms.pastor.utils.CollectionsUtils.*;
+import static dms.pastor.utils.CollectionsUtils.convertSetToIntArray;
+import static dms.pastor.utils.CollectionsUtils.convertStringArrayToSet;
+import static dms.pastor.utils.CollectionsUtils.emptyHashSet;
+import static dms.pastor.utils.CollectionsUtils.isListNotEmpty;
+import static dms.pastor.utils.CollectionsUtils.isStringArrayEmpty;
 import static dms.pastor.utils.StringUtils.isStringBlank;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateArray;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
@@ -79,7 +88,6 @@ public class CollectionsUtilsTest {
         // then
         Assert.assertThat(isEmpty, is(true));
     }
-
 
     @Test //FIXME assert in loop
     public void isStringArrayEmptyShouldReturnTrueForNonEmptyArrayTest() throws Exception {

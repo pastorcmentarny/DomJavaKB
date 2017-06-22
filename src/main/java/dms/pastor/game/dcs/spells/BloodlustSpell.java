@@ -4,6 +4,7 @@ import dms.pastor.game.dcs.Elements;
 import dms.pastor.game.dcs.units.Unit;
 
 import static dms.pastor.game.dcs.Config.BLOODLUST_TURNS;
+import static dms.pastor.game.dcs.conditions.ConditionEntry.createTemporaryCondition;
 import static dms.pastor.game.dcs.conditions.ConditionType.BLOODLUST;
 
 /**
@@ -26,6 +27,6 @@ public class BloodlustSpell extends Spell {
     @Override
     public void castSpell(Unit attacker, Unit defender) {
         castSpellMessage(attacker.getName(), name, attacker.getName());
-        attacker.getConditions().add(BLOODLUST, BLOODLUST_TURNS);
+        attacker.getConditions().add(createTemporaryCondition(BLOODLUST, BLOODLUST_TURNS));
     }
 }

@@ -1,6 +1,5 @@
 package dms.pastor.game.dcs.events;
 
-
 import dms.pastor.game.dcs.units.Unit;
 
 /**

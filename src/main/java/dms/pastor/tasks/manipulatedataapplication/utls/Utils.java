@@ -27,6 +27,7 @@ import java.util.stream.Collectors;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class Utils {
+
     public static final long DAY_FROM_MILLISECONDS = 1000L * 60L * 60L * 24L;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Utils.class);
@@ -82,10 +83,11 @@ public class Utils {
     }
 
     private static boolean isNotExists(Person person, List<Person> people) {
-        for (Person p : people)
+        for (Person p : people) {
             if (p.equals(person)) {
                 return false;
             }
+        }
         return true;
 
     }

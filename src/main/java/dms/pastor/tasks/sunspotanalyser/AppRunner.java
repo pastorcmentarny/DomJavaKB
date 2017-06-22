@@ -23,7 +23,6 @@ import static dms.pastor.utils.FileTools.isFileValid;
  */
 class AppRunner {
 
-
     public static void main(String[] args) {
         validateArgs(args);
 

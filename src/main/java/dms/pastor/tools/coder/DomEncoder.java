@@ -29,5 +29,4 @@ class DomEncoder extends DomCoder {
         setContent(new String(Base64.getEncoder().encode(getContent().getBytes())));
     }
 
-
 }

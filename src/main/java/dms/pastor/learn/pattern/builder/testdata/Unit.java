@@ -15,6 +15,7 @@ import static java.lang.String.format;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class Unit {
+
     private String name;
     private UUID id;
     private Skills skills;
@@ -91,8 +92,12 @@ public class Unit {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Unit)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Unit)) {
+            return false;
+        }
         Unit unit = (Unit) o;
         return heathPoints == unit.heathPoints &&
                 minimumDamage == unit.minimumDamage &&

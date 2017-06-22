@@ -33,7 +33,6 @@ public class CoupleTest {
 
     }
 
-
     @Test
     public void shouldGenerateCouple() throws Exception {
         // given
@@ -47,7 +46,6 @@ public class CoupleTest {
         assertThat(couple.getSmallerNumber()).isEqualTo(smallerNumber);
         assertThat(couple.getLargerNumber()).isEqualTo(largerNumber);
     }
-
 
     @Test // improve test name
     public void shouldGenerateCoupleAndSort() throws Exception {

@@ -54,6 +54,4 @@ class HTMLDownloader {
         return content.toString();
     }
 
-
-
 }

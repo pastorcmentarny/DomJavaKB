@@ -13,8 +13,24 @@ import java.util.Random;
 
 import static dms.pastor.utils.EnglishUtils.isStopWord;
 import static dms.pastor.utils.StringUtils.hasNonAlphabetCharactersOnly;
-import static dms.pastor.utils.randoms.RandomDataGenerator.*;
-import static java.lang.Character.*;
+import static dms.pastor.utils.randoms.RandomDataGenerator.MAX_SMALL_VALUE;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateArray;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateIntArray;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateNonAlphanumericString;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateRandomIntValues;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateRandomParagraph;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateStringList;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateWordWithoutStopWord;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateWords;
+import static dms.pastor.utils.randoms.RandomDataGenerator.getRandomCharacterAsString;
+import static dms.pastor.utils.randoms.RandomDataGenerator.getRandomCharacterFromAlphabet;
+import static dms.pastor.utils.randoms.RandomDataGenerator.getRandomText;
+import static dms.pastor.utils.randoms.RandomDataGenerator.randomInteger;
+import static dms.pastor.utils.randoms.RandomDataGenerator.randomNegativeInteger;
+import static java.lang.Character.isAlphabetic;
+import static java.lang.Character.isDigit;
+import static java.lang.Character.isLetter;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 
@@ -207,7 +223,6 @@ public class RandomDataGeneratorTest {
         Assert.assertThat(stringList.isEmpty(), is(true));
     }
 
-
     @Test
     public void generateStringArrayShouldThrowIllegalArgumentExceptionForNegativeTest() throws Exception {
         // except
@@ -289,7 +304,6 @@ public class RandomDataGeneratorTest {
         assertThat(stringList).isNotEmpty();
         assertThat(stringList.size()).isGreaterThanOrEqualTo(4);
     }
-
 
     @Test //TODO investigate as length was 6 that is not greater than 10
     public void shouldReturnParagraph() throws Exception {
@@ -404,7 +418,7 @@ public class RandomDataGeneratorTest {
         // expect
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("Value cannot be negative");
-        
+
         // when
         generateWords(-1);
     }
@@ -456,5 +470,15 @@ public class RandomDataGeneratorTest {
         // then
         assertThat(word).isNotEmpty();
         assertThat(isStopWord(word)).isFalse();
+    }
+
+    @Test
+    public void shouldGenerateRandomBoolean() {
+        // when
+        final boolean value = RandomDataGenerator.generateRandomBoolean();
+
+        // then
+        assertThat(Boolean.valueOf(value)).isNotNull();
+
     }
 }

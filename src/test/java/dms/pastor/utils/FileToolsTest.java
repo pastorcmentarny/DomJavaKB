@@ -10,7 +10,12 @@ import java.io.File;
 
 import static dms.pastor.TestConfig.EMPTY_STRING_ARRAY;
 import static dms.pastor.TestConfig.PATH;
-import static dms.pastor.utils.FileTools.*;
+import static dms.pastor.utils.FileTools.isFileValid;
+import static dms.pastor.utils.FileTools.isFilesExists;
+import static dms.pastor.utils.FileTools.lock;
+import static dms.pastor.utils.FileTools.readRawData;
+import static dms.pastor.utils.FileTools.saveListToFile;
+import static dms.pastor.utils.FileTools.unlockFile;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -23,6 +28,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class FileToolsTest {
+
     private static final String TEST_FILE = "test.txt";
     private static final String LOCK_FILE = "program.lock";
     private static final String DEFAULT_PATH = PATH + TEST_FILE;

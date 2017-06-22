@@ -22,7 +22,6 @@ public class Vampire extends Unit {
         setSp(48);
     }
 
-
     @Override
     public void turn(Unit enemy) {
 
@@ -37,10 +36,9 @@ public class Vampire extends Unit {
         }
 
         IceBoltSpell iceBoltSpell = new IceBoltSpell();
-        if(iceBoltSpell.hasEnoughElementsToCovertToSpell(getElements())){
-            iceBoltSpell.castSpell(this,enemy);
+        if (iceBoltSpell.hasEnoughElementsToCovertToSpell(getElements())) {
+            iceBoltSpell.castSpell(this, enemy);
         }
-
 
     }
 }

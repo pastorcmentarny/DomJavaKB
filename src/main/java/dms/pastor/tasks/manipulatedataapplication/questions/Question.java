@@ -11,6 +11,7 @@ import java.util.List;
  * Time: 21:33
  */
 public abstract class Question implements QAInterface {
+
     final List<Person> people;
 
     Question(List<Person> people) {

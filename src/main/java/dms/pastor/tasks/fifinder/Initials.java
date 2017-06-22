@@ -10,6 +10,7 @@ package dms.pastor.tasks.fifinder;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 class Initials {
+
     private static final char DOT = '.';
     private static final String SPACE = " ";
     private static final String DASH = "-";
@@ -89,7 +90,6 @@ class Initials {
         initials = initials.substring(0, initials.length() - 1);
         return initials;
     }
-
 
     private String getFirstCharacterCapitalized(String string) {
         return string.substring(0, 1).toUpperCase();

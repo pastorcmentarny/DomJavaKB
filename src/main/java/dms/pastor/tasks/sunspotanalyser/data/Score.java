@@ -14,6 +14,7 @@ import java.util.Objects;
  * A score model.
  */
 class Score implements Comparable<Score> {
+
     private final int x;
     private final int y;
     private final int score;
@@ -39,8 +40,12 @@ class Score implements Comparable<Score> {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Score score1 = (Score) o;
         return x == score1.x &&
                 y == score1.y &&

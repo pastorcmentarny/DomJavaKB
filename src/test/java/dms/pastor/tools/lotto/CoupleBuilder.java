@@ -14,6 +14,7 @@ import static dms.pastor.utils.randoms.RandomDataGenerator.randomInteger;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class CoupleBuilder {
+
     private int smallerNumber = randomInteger(MAX_SMALL_VALUE);
     private int largerNumber = MAX_SMALL_VALUE + 1;
 

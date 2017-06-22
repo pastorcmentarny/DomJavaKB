@@ -82,5 +82,4 @@ public class GridTest {
         assertThat(result).isFalse();
     }
 
-
 }

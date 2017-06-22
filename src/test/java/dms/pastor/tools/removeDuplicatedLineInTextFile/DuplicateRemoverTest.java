@@ -44,7 +44,6 @@ public class DuplicateRemoverTest {
         duplicateRemover.performTask("");
     }
 
-
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenFileDoesNotExist() throws Exception {
         // except
@@ -59,7 +58,6 @@ public class DuplicateRemoverTest {
         duplicateRemover.performTask(nonExistingFile);
 
     }
-
 
     @Test
     public void acceptanceCriteria() throws Exception {

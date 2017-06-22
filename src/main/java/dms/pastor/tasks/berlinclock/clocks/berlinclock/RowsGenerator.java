@@ -16,6 +16,7 @@ import static dms.pastor.tasks.berlinclock.data.Light.YELLOW;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 class RowsGenerator {
+
     private static final String EMPTY = "";
     private final Time time;
 

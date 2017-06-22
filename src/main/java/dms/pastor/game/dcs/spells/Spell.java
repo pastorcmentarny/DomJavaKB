@@ -15,6 +15,7 @@ import dms.pastor.game.dcs.units.Unit;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public abstract class Spell extends Card {
+
     private final CardType cardType = CardType.SPELL;
     private Elements elements;
 

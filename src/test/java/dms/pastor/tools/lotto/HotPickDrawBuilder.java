@@ -18,6 +18,7 @@ import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 @SuppressWarnings("unused")
         // because builders methods can be used later
 class HotPickDrawBuilder {
+
     private final Random random = new Random();
     private LocalDate drawDate = LocalDate.now();
     private int ball1 = randomHotPickNumber();

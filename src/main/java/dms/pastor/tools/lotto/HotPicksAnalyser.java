@@ -33,7 +33,6 @@ class HotPicksAnalyser {
         this.hotPickDrawList = hotPickDrawList;
     }
 
-
     String countBallDrawn() {
         if (hotPickDrawList == null || hotPickDrawList.isEmpty()) {
             return "We successfully gather no result :)";
@@ -86,7 +85,6 @@ class HotPicksAnalyser {
         }
         return getResultWithoutLastSeparator(stringBuilder);
     }
-
 
     int findLeastDrawnNumber() {
         int minNumber = Integer.MAX_VALUE;

@@ -10,6 +10,7 @@ package dms.pastor.game.dcs.utils;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class FakeInputReader implements UserInputReader {
+
     @Override
     public int getIntegerInput() {
         return 0;

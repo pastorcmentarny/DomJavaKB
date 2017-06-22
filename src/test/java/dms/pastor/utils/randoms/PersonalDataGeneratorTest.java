@@ -7,7 +7,11 @@ import org.junit.rules.ExpectedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static dms.pastor.utils.randoms.PersonalDataGenerator.*;
+import static dms.pastor.utils.randoms.PersonalDataGenerator.generateEmail;
+import static dms.pastor.utils.randoms.PersonalDataGenerator.generateFirstName;
+import static dms.pastor.utils.randoms.PersonalDataGenerator.generatePhoneNumberForPattern;
+import static dms.pastor.utils.randoms.PersonalDataGenerator.generateSurname;
+import static dms.pastor.utils.randoms.PersonalDataGenerator.getRandomCountry;
 import static java.lang.String.valueOf;
 import static java.util.Arrays.asList;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -22,6 +26,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class PersonalDataGeneratorTest {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(PersonalDataGeneratorTest.class);
 
     @Rule

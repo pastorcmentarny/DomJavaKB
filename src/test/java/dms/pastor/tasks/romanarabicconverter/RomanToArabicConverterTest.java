@@ -15,6 +15,7 @@ import org.junit.Test;
  */
 @SuppressWarnings("MagicNumber") //all numbers are used as numbers, so nothing magic about it.
 public class RomanToArabicConverterTest {
+
     private RomanArabicConverter converter;
 
     @Before
@@ -86,7 +87,6 @@ public class RomanToArabicConverterTest {
     public void testIfXXEquals20() throws Exception {
         Assert.assertEquals(20, converter.convertRomanToArabic("XX"));
     }
-
 
     @Test
     public void testIfXLEquals40() throws Exception {
@@ -227,7 +227,6 @@ public class RomanToArabicConverterTest {
     public void testIfMMCDXLIVEquals2444() throws Exception {
         Assert.assertEquals(2444, converter.convertRomanToArabic("MMCDXLIV"));
     }
-
 
     @Test
     public void testMaximumRomanNumber() throws Exception {

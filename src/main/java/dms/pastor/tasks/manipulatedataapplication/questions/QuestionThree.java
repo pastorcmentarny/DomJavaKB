@@ -12,6 +12,7 @@ import java.util.List;
  */
 
 public class QuestionThree extends Question {
+
     private final Person first;
     private final Person second;
     private long timeDiff;

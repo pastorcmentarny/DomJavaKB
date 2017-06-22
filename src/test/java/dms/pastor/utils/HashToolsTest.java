@@ -1,6 +1,5 @@
 package dms.pastor.utils;
 
-
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
@@ -71,7 +70,6 @@ public class HashToolsTest {
             result.contains(string.charAt(i));
         }
     }
-
 
     @Test
     public void shouldConvertStringToCharacterSetTest() throws Exception {

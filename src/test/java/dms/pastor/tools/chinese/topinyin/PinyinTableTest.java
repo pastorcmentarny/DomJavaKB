@@ -14,6 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class PinyinTableTest {
+
     private static final int NEUTRAL_TONE = 0;
     private static final int FIRST_TONE = 1;
     private static final int SECOND_TONE = 2;
@@ -31,7 +32,6 @@ public class PinyinTableTest {
         // then
         assertThat(pinyinCharacter).isEqualTo(letter);
     }
-
 
     @Test
     public void getPinyinCharacterFromLetterWithToneShouldReturnEWithFirstToneWhenInputWasLetterEWithOne() throws Exception {

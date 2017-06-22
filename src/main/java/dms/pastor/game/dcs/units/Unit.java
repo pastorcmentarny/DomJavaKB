@@ -184,7 +184,7 @@ public class Unit {
     }
 
     private void setSpToZeroIfUnitIsNotShielded(boolean shielded) {
-        if(!shielded){
+        if (!shielded) {
             setSp(0);
         }
     }

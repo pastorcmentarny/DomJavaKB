@@ -19,6 +19,7 @@ import static dms.pastor.game.dcs.units.UnitBuilder.unitBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public final class VampireTest {
+
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private final PrintStream original = System.out;
 
@@ -41,10 +42,10 @@ public final class VampireTest {
         // given
         Vampire vampire = new Vampire();
 
-        vampire.setElementsFor(ElementsType.AIR,6);
-        vampire.setElementsFor(ElementsType.EARTH,6);
-        vampire.setElementsFor(ElementsType.FIRE,6);
-        vampire.setElementsFor(ElementsType.WATER,3);
+        vampire.setElementsFor(ElementsType.AIR, 6);
+        vampire.setElementsFor(ElementsType.EARTH, 6);
+        vampire.setElementsFor(ElementsType.FIRE, 6);
+        vampire.setElementsFor(ElementsType.WATER, 3);
 
         Unit enemy = unitBuilder()
                 .withoutShield()
@@ -56,7 +57,7 @@ public final class VampireTest {
         vampire.turn(enemy);
 
         // then
-        assertThat(outputStream.toString()).contains(vampire.getName() + " trying to drain energy from "  + enemy.getName());
+        assertThat(outputStream.toString()).contains(vampire.getName() + " trying to drain energy from " + enemy.getName());
         assertThat(outputStream.toString().contains(vampire.getName() + " casting " + vampireDrainSpellName + " on " + enemy.getName()));
         assertThat(outputStream.toString()).contains("Vampire drain does 5 dmg to " + enemy.getName() + " and " + vampire.getName() + " drain " + VAMPIRE_DRAIN_HEAL_HP + " dmg.");
         assertThat(outputStream.toString().contains(vampire.getName() + " casting " + iceBoltSpellName + " on " + enemy.getName()));

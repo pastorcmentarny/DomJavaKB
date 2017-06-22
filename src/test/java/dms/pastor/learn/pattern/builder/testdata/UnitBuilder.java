@@ -17,6 +17,7 @@ import static java.util.UUID.randomUUID;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public final class UnitBuilder {
+
     private String name = generateString(10);
     private UUID id = randomUUID();
     private Skills skills = skillsBuilder().build();

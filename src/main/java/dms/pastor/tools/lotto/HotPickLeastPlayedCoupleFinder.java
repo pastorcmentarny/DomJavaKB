@@ -1,6 +1,10 @@
 package dms.pastor.tools.lotto;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -28,10 +32,9 @@ class HotPickLeastPlayedCoupleFinder {
         return couples;
     }
 
-
     Set<Couple> generateCouplesFromDraws(List<HotPickDraw> draws) {
         Set<Couple> coupleSet = new HashSet<>();
-        for(HotPickDraw draw : draws){
+        for (HotPickDraw draw : draws) {
             coupleSet.addAll(generateCouplesFromDraw(draw));
         }
         return coupleSet;

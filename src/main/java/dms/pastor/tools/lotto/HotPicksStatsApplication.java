@@ -1,6 +1,5 @@
 package dms.pastor.tools.lotto;
 
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,6 +17,7 @@ import static java.lang.String.format;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 class HotPicksStatsApplication {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(HotPicksStatsApplication.class);
     private static final String NO_PATH_ERROR_MESSAGE = "Path not provided. Please add path to file as argument when you run this program.";
 
@@ -31,7 +31,7 @@ class HotPicksStatsApplication {
         try {
             new HotPicksStatsGenerator(args[0]).generateNumbersToPlay();
         } catch (IOException e) {
-            LOGGER.error(format("Application crashes because: %s", e.getMessage()),e);
+            LOGGER.error(format("Application crashes because: %s", e.getMessage()), e);
         }
         LOGGER.info("Application ends his life peacefully. Until next time!");
     }

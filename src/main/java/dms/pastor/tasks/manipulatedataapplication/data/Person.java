@@ -8,6 +8,7 @@ package dms.pastor.tasks.manipulatedataapplication.data;
  * A simple 'model'
  */
 public class Person {
+
     private final String fullName;
     private final Genre genre;
     private final int Age;

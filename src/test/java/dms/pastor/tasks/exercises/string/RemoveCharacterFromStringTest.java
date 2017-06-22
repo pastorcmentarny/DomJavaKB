@@ -19,12 +19,12 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Info: Happy path only
  */
 public class RemoveCharacterFromStringTest {
-    @Rule
-    public ExpectedException exception = ExpectedException.none();
 
     private static final String TEST = "Test";
     private static final char CHARACTER_T = 't';
     private static final String EXPECTED_RESULT = "es";
+    @Rule
+    public ExpectedException exception = ExpectedException.none();
 
     @Test
     public void shouldRemoveCharacterFromStringUsingIterativeTest() throws Exception {

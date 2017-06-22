@@ -24,6 +24,7 @@ import static dms.pastor.utils.ValidatorUtils.validateIfPositiveNumber;
  * I used this to generate random background for one of my Android games.
  */
 class RandomBmpGenerator {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(RandomBmpGenerator.class);
     private static final Random random = new Random();
     private final int imageWidth;
@@ -36,9 +37,14 @@ class RandomBmpGenerator {
         this.pathName = pathName;
     }
 
+    private static void validateInput(int imageWidth, int imageHeight, String pathName) {
+        validateIfPositiveNumber(imageWidth, "Width");
+        validateIfPositiveNumber(imageHeight, "Height");
+        validateIfNotNull(pathName, "File path");
+    }
 
-     void generateImageFile() {
-        validateInput(imageWidth,imageHeight,pathName);
+    void generateImageFile() {
+        validateInput(imageWidth, imageHeight, pathName);
         LOGGER.info(String.format("Generating image %d x %d", imageWidth, imageHeight));
 
         final BufferedImage img = new BufferedImage(imageWidth, imageHeight, BufferedImage.TYPE_INT_RGB);
@@ -50,13 +56,13 @@ class RandomBmpGenerator {
     }
 
     private void saveImageToFile(BufferedImage img) {
-        LOGGER.info(String.format("Saving image to : %s",pathName));
+        LOGGER.info(String.format("Saving image to : %s", pathName));
 
         File resultFile = new File(pathName);
         try {
             ImageIO.write(img, "bmp", resultFile);
         } catch (IOException exception) {
-            LOGGER.error("Unable to save due: " + exception,exception);
+            LOGGER.error("Unable to save due: " + exception, exception);
         }
     }
 
@@ -66,11 +72,5 @@ class RandomBmpGenerator {
                 img.setRGB(w, h, random.nextInt(16777215));
             }
         }
-    }
-
-    private static void validateInput(int imageWidth, int imageHeight,String pathName) {
-        validateIfPositiveNumber(imageWidth,"Width");
-        validateIfPositiveNumber(imageHeight,"Height");
-        validateIfNotNull(pathName,"File path");
     }
 }

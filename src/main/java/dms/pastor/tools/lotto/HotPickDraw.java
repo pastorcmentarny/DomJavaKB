@@ -12,6 +12,7 @@ import java.time.LocalDate;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 class HotPickDraw {
+
     private final LocalDate drawDate;
     private final int ball1;
     private final int ball2;
@@ -40,35 +41,35 @@ class HotPickDraw {
         return ball1;
     }
 
-     int getBall2() {
+    int getBall2() {
         return ball2;
     }
 
-     int getBall3() {
+    int getBall3() {
         return ball3;
     }
 
-     int getBall4() {
+    int getBall4() {
         return ball4;
     }
 
-     int getBall5() {
+    int getBall5() {
         return ball5;
     }
 
-     int getBall6() {
+    int getBall6() {
         return ball6;
     }
 
-     int getBallSet() {
+    int getBallSet() {
         return ballSet;
     }
 
-     String getMachine() {
+    String getMachine() {
         return machine;
     }
 
-     int getDrawNumber() {
+    int getDrawNumber() {
         return drawNumber;
     }
 
@@ -77,7 +78,7 @@ class HotPickDraw {
         return String.format("HotPickDraw{drawDate=%s, balls: (%d, %d, %d, %d, %d, %d). ballSet:%d machine:'%s' drawNumber:%d}", drawDate, ball1, ball2, ball3, ball4, ball5, ball6, ballSet, machine, drawNumber);
     }
 
-     boolean containsBalls(int... numbers) {
+    boolean containsBalls(int... numbers) {
         for (int number : numbers) {
             if (isNotContains(number)) {
                 return false;

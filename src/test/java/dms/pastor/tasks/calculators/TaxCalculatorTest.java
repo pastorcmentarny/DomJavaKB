@@ -7,7 +7,9 @@ import org.junit.rules.ExpectedException;
 
 import java.util.Random;
 
-import static dms.pastor.tasks.calculators.TaxCalculator.*;
+import static dms.pastor.tasks.calculators.TaxCalculator.FULL_PERSONAL_ALLOWANCE_LIMIT;
+import static dms.pastor.tasks.calculators.TaxCalculator.getNetSalary;
+import static dms.pastor.tasks.calculators.TaxCalculator.getPersonalAllowanceFor;
 import static org.hamcrest.CoreMatchers.is;
 
 /**
@@ -20,6 +22,7 @@ import static org.hamcrest.CoreMatchers.is;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class TaxCalculatorTest {
+
     private static final int BOUND = 10000;
     private final Random random = new Random();
     @Rule

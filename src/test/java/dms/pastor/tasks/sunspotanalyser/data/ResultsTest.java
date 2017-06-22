@@ -1,6 +1,5 @@
 package dms.pastor.tasks.sunspotanalyser.data;
 
-
 import dms.pastor.domain.Result;
 import dms.pastor.utils.randoms.RandomDataGenerator;
 import org.junit.Assert;
@@ -20,8 +19,8 @@ import static org.hamcrest.CoreMatchers.is;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class ResultsTest {
-    private Result result;
 
+    private Result result;
 
     @Test
     public void shouldCreateSuccessResultTest() throws Exception {

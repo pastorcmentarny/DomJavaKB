@@ -21,6 +21,7 @@ import static dms.pastor.game.dcs.conditions.ConditionEntryBuilder.conditionEntr
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class UnitBuilder {
+
     private int hp = 24;
     private int sp = 24;
     private ArrayList<Card> cards = new ArrayList<>();
@@ -87,11 +88,11 @@ public class UnitBuilder {
 
     public UnitBuilder shielded(boolean shielded) {
         this.shielded = shielded;
-        if(shielded){
-            if(sp  == 0){
+        if (shielded) {
+            if (sp == 0) {
                 sp = INITIAL_SHIELD_POINTS;
             }
-        }else{
+        } else {
             sp = 0;
         }
         return this;

@@ -13,6 +13,7 @@ import dms.pastor.game.dcs.units.Unit;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class ChainLightingSpell extends Spell {
+
     public ChainLightingSpell() {
         super();
         name = "Chain Lighting";

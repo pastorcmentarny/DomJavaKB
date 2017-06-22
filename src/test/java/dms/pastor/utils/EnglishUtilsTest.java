@@ -2,7 +2,11 @@ package dms.pastor.utils;
 
 import org.junit.Test;
 
-import static dms.pastor.utils.EnglishUtils.*;
+import static dms.pastor.utils.EnglishUtils.isLetterConsonant;
+import static dms.pastor.utils.EnglishUtils.isLetterVowelExcludingY;
+import static dms.pastor.utils.EnglishUtils.isLetterVowelIncludingY;
+import static dms.pastor.utils.EnglishUtils.isNotStopWord;
+import static dms.pastor.utils.EnglishUtils.isStopWord;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -105,7 +109,6 @@ public class EnglishUtilsTest {
         // then
         assertThat(result).isFalse();
     }
-
 
     @Test
     public void isLetterConsonantReturnTrueForT() throws Exception {

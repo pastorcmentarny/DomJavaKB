@@ -49,6 +49,7 @@ public class Config {
     public static final int DEATH_RAY_DMG = 18;
     public static final int DEFAULT_CONDITION_DURATION = 3;
     public static final int EXHAUSTION_START_ROUND = 25;
+    public static final int INFINITIVE_TURNS_LEFT = Integer.MAX_VALUE / 2;
 
     private Config() {
     }

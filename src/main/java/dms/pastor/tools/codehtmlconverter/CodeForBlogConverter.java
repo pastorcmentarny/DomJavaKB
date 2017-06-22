@@ -17,11 +17,21 @@ import java.util.stream.Stream;
  * //TODO do refactoring using clean code guidance
  */
 class CodeForBlogConverter {
+
     private static final String BR_TAG = "<br/>";
     private static final int NUMBER_OF_SPACES = 4;
     private static final String EMPTY_STRING = "";
 
     private StringBuilder codeGenerator;
+
+    private static boolean contains4spaces(char[] charArray, int i) {
+        for (int position = i; position <= i + 3; position++) {
+            if (charArray[position] != ' ') {
+                return false;
+            }
+        }
+        return true;
+    }
 
     String convert(List<String> source) {
         codeGenerator = new StringBuilder(EMPTY_STRING);
@@ -87,15 +97,6 @@ class CodeForBlogConverter {
             }
         }
         return replaceCounter;
-    }
-
-    private static boolean contains4spaces(char[] charArray, int i) {
-        for (int position = i; position <= i + 3; position++) {
-            if (charArray[position] != ' ') {
-                return false;
-            }
-        }
-        return true;
     }
 
 }

@@ -2,14 +2,25 @@ package dms.pastor.utils;
 
 import dms.pastor.utils.randoms.RandomDataGenerator;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static dms.pastor.domain.Message.INPUT_CANNOT_BE_EMPTY;
 import static dms.pastor.utils.ValidatorUtils.validateIfListIsNotEmpty;
 import static dms.pastor.utils.ValidatorUtils.validateIfNotEmpty;
-import static java.lang.Character.*;
+import static java.lang.Character.isLowerCase;
+import static java.lang.Character.isUpperCase;
+import static java.lang.Character.isWhitespace;
+import static java.lang.Character.toLowerCase;
+import static java.lang.Character.toUpperCase;
 import static java.util.stream.Collectors.toList;
 
 /**
@@ -24,15 +35,15 @@ import static java.util.stream.Collectors.toList;
  */
 public final class StringUtils {
 
+    public static final String EMPTY_STRING = "";
+    public static final String WHITESPACE = " ";
+    public static final char NEW_LINE = '\n';
     static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
     static final String NON_ALPHANUMERIC = "~#&@£$^'`\".,:;*–+=(){}[]<>?!\\|/";
     private static final String ALPHABET_BOTH_CASE = ALPHABET + ALPHABET.toUpperCase();
     private static final char COMMA = ',';
-    public static final String EMPTY_STRING = "";
     private static final String ALPHANUMERIC = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"; //TODO replace it with RandomDataGenerator
     private static final String ALPHANUMERIC_REGEX = "[^a-zA-Z0-9]";
-    public static final String WHITESPACE = " ";
-    public static final char NEW_LINE = '\n';
 
     private StringUtils() {
     }

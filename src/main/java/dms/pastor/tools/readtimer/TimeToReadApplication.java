@@ -25,7 +25,7 @@ class TimeToReadApplication {
 
         validateInputArgs(args);
 
-        ReadTimeCalculator readTimeCalculator = new ReadTimeCalculator(args[0],Integer.parseInt(args[1]));
+        ReadTimeCalculator readTimeCalculator = new ReadTimeCalculator(args[0], Integer.parseInt(args[1]));
         readTimeCalculator.displayTimeNeededToRead();
 
         LOGGER.info("RIP .. at " + LocalDateTime.now().toString());

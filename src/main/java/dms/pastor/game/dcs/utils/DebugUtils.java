@@ -16,6 +16,7 @@ import java.util.ArrayList;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class DebugUtils {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(DebugUtils.class);
 
     public static void displayCardArray(ArrayList<Card> cards) {

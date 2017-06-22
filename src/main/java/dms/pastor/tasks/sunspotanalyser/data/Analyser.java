@@ -11,6 +11,7 @@ package dms.pastor.tasks.sunspotanalyser.data;
  * Analyzers data and produce results
  */
 public class Analyser {
+
     private final Grid grid;
     private final Results results;
 

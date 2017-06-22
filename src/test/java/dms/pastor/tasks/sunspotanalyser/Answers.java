@@ -1,6 +1,5 @@
 package dms.pastor.tasks.sunspotanalyser;
 
-
 import dms.pastor.tasks.sunspotanalyser.data.Analyser;
 import dms.pastor.tasks.sunspotanalyser.data.Grid;
 import dms.pastor.tasks.sunspotanalyser.data.InputParser;

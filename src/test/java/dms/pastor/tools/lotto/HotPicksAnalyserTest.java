@@ -35,7 +35,6 @@ public class HotPicksAnalyserTest {
             .ball6(6)
             .build();
 
-
     @Rule
     public ExpectedException exception = ExpectedException.none();
     private HotPicksAnalyser hotPicksAnalyser;
@@ -297,7 +296,6 @@ public class HotPicksAnalyserTest {
 
         // then
         assertThat(ints).isEqualTo(expectedInts);
-
 
     }
 

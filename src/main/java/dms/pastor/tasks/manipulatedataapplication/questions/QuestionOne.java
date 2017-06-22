@@ -11,6 +11,7 @@ import java.util.List;
  * Time: 21:28
  */
 public class QuestionOne extends Question {
+
     private int counter = 0;
 
     public QuestionOne(List<Person> people) {

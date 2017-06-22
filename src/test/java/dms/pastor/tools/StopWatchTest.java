@@ -23,8 +23,8 @@ public class StopWatchTest {
 
     private static final int TW0_SECOND = 2000;
     private static final int FIVE_SECONDS = 5000;
-    private StopWatch stopWatch;
     private final CountDownLatch latch = new CountDownLatch(1);
+    private StopWatch stopWatch;
 
     @Before
     public void setUp() throws Exception {

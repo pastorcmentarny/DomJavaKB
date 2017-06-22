@@ -30,5 +30,4 @@ class AnalyserLauncher {
         return args[0];
     }
 
-
 }

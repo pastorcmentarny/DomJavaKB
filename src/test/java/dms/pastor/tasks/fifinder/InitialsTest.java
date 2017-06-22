@@ -15,6 +15,7 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class InitialsTest {
+
     private static final char SPACE = ' ';
     private static final String FIRST_NAME = "Jessica";
     private static final String MIDDLE_NAME = "Sophie";

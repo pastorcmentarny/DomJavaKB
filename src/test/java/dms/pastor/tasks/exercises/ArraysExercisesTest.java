@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
- *
+ * <p>
  * //TODO split into separated tests
  */
 public class ArraysExercisesTest {
@@ -74,6 +74,5 @@ public class ArraysExercisesTest {
         assertThat(exercise.isMinimumValue(MAX_POSITIVE_VALUE, MIN_POSITIVE_VALUE)).isEqualTo(MIN_POSITIVE_VALUE);
         assertThat(exercise.isMinimumValue(MIN_NEGATIVE_VALUE, MAX_NEGATIVE_VALUE)).isEqualTo(MAX_NEGATIVE_VALUE);
     }
-
 
 }

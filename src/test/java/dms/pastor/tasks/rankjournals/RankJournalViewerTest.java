@@ -1,6 +1,5 @@
 package dms.pastor.tasks.rankjournals;
 
-
 import dms.pastor.tasks.rankjournals.models.Journal;
 import junit.framework.Test;
 import junit.framework.TestCase;
@@ -10,7 +9,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import static dms.pastor.tasks.rankjournals.JournalType.REVIEW;
-import static dms.pastor.tasks.rankjournals.RankJournalViewer.*;
+import static dms.pastor.tasks.rankjournals.RankJournalViewer.displaySortJournalsByScoreForYear;
+import static dms.pastor.tasks.rankjournals.RankJournalViewer.displaySortJournalsWithExclusionFilter;
+import static dms.pastor.tasks.rankjournals.RankJournalViewer.getJournalListAsString;
 import static dms.pastor.tasks.rankjournals.models.Journal.createReview;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -23,6 +24,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class RankJournalViewerTest extends TestCase {
+
     private ArrayList<Journal> journals;
 
     public RankJournalViewerTest(String testName) {

@@ -15,12 +15,12 @@ import static dms.pastor.game.dcs.Config.FIREBALL_DMG;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class CursedElementSpell extends Spell {
+
     public CursedElementSpell() {
         super();
         name = "Cursed Element Missile";
         setElements(new Elements(0, 0, 0, 1));
     }
-
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {

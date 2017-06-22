@@ -18,6 +18,7 @@ import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class ProjectAnalyserTest {
+
     @Rule
     public ExpectedException exception = ExpectedException.none();
 
@@ -47,7 +48,6 @@ public class ProjectAnalyserTest {
         // when
         new ProjectAnalyser().analyse(generateString(10));
     }
-
 
     @SuppressWarnings("AccessOfSystemProperties")
     @Test

@@ -12,6 +12,7 @@ import static dms.pastor.utils.randoms.RandomDataGenerator.getRandomCharacterAsS
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 class Finder {
+
     int find() {
 
         boolean ba = false;

@@ -39,7 +39,6 @@ public class TestDataBuilderPatternAcceptanceTest {
         System.out.println(result.toString());
     }
 
-
     @Test
     public void unitBuilderShouldReturnUnitWithDefinedData() throws Exception {
         // given

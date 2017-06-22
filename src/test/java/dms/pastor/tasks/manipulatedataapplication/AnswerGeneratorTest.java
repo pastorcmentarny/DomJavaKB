@@ -19,6 +19,7 @@ import static org.hamcrest.CoreMatchers.is;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class AnswerGeneratorTest {
+
     @Rule
     public final ExpectedException exception = ExpectedException.none();
 

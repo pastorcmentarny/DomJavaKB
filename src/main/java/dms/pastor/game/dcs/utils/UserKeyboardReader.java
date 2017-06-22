@@ -15,6 +15,7 @@ import java.util.Scanner;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class UserKeyboardReader implements UserInputReader {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(UserKeyboardReader.class);
     private final Scanner scanner;
 

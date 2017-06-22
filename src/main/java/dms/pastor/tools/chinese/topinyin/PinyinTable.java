@@ -24,26 +24,6 @@ public enum PinyinTable {
     private final String thirdTone;
     private final String fourthTone;
 
-    private String getNeutralTone() {
-        return neutralTone;
-    }
-
-    private String getFirstTone() {
-        return firstTone;
-    }
-
-    private String getSecondTone() {
-        return secondTone;
-    }
-
-    private String getThirdTone() {
-        return thirdTone;
-    }
-
-    private String getFourthTone() {
-        return fourthTone;
-    }
-
     PinyinTable(String neutralTone, String firstTone, String secondTone, String thirdTone, String fourthTone) {
         this.neutralTone = neutralTone;
         this.firstTone = firstTone;
@@ -80,5 +60,25 @@ public enum PinyinTable {
             default:
                 throw new IllegalArgumentException("Wrong tone. There are only 4 tones in mandarin(and no tone)");
         }
+    }
+
+    private String getNeutralTone() {
+        return neutralTone;
+    }
+
+    private String getFirstTone() {
+        return firstTone;
+    }
+
+    private String getSecondTone() {
+        return secondTone;
+    }
+
+    private String getThirdTone() {
+        return thirdTone;
+    }
+
+    private String getFourthTone() {
+        return fourthTone;
     }
 }

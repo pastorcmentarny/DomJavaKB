@@ -10,6 +10,10 @@ package dms.pastor.tasks.other;
  */
 public class ArraysExercises {
 
+    public static int isMaximumValue(int number, int max) {
+        return number > max ? number : max;
+    }
+
     //Find Largest and Smallest Number in an Array in Java without  any third-party library or API method
     public String findLargestAndSmallest(int[] numbers) {
         int min = Integer.MAX_VALUE;
@@ -20,10 +24,6 @@ public class ArraysExercises {
             min = isMinimumValue(number, min);
         }
         return "Min:" + min + " Max:" + max;
-    }
-
-    public static int isMaximumValue(int number, int max) {
-        return number > max ? number : max;
     }
 
     public int isMinimumValue(int number, int min) {

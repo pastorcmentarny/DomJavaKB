@@ -10,6 +10,7 @@ package dms.pastor.game.dcs;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class ElementsBuilder {
+
     private int fire = 0;
     private int water = 0;
     private int earth = 0;

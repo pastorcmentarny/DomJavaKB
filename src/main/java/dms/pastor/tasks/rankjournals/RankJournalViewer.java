@@ -1,6 +1,5 @@
 package dms.pastor.tasks.rankjournals;
 
-
 import dms.pastor.tasks.rankjournals.interfaces.ScoreComparator;
 import dms.pastor.tasks.rankjournals.models.Journal;
 

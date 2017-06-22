@@ -18,6 +18,7 @@ import java.util.List;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class Campaign {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(Campaign.class);
 
     private final List<Unit> enemies = Enemies.getAllEnemies();

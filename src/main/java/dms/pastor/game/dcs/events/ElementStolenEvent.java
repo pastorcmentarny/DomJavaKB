@@ -16,6 +16,7 @@ import static dms.pastor.game.dcs.Config.REMOVE_RANDOM_ELEMENTS_NUMBER;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class ElementStolenEvent extends Event {
+
     Random random = new Random();
 
     @Override

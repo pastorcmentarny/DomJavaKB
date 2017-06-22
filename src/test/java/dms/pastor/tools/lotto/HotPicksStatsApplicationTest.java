@@ -23,10 +23,9 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class HotPicksStatsApplicationTest {
 
+    private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     @Rule
     public ExpectedException exception = ExpectedException.none();
-
-    private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private PrintStream printStream;
 
     @Before
@@ -59,6 +58,5 @@ public class HotPicksStatsApplicationTest {
         HotPicksStatsApplication.main(null);
 
     }
-
 
 }

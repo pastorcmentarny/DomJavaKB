@@ -7,7 +7,9 @@ import java.util.ArrayList;
 
 import static dms.pastor.domain.Message.INPUT_CANNOT_BE_EMPTY;
 import static dms.pastor.utils.EnglishUtils.isNotStopWord;
-import static dms.pastor.utils.StringUtils.*;
+import static dms.pastor.utils.StringUtils.hasNonAlphanumericCharactersOnly;
+import static dms.pastor.utils.StringUtils.isContainSpace;
+import static dms.pastor.utils.StringUtils.isStringNotEmpty;
 import static java.util.Arrays.asList;
 
 /**
@@ -20,6 +22,7 @@ import static java.util.Arrays.asList;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 class WordCounter {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(WordCounter.class);
 
     static int countFullWords(String[] words) {

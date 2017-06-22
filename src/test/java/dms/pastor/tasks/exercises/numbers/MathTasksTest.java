@@ -19,6 +19,7 @@ import static org.hamcrest.number.OrderingComparison.greaterThan;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class MathTasksTest {
+
     private MathTasks tasks;
 
     @Before

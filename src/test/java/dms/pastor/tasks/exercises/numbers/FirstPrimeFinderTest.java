@@ -17,10 +17,9 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class FirstPrimeFinderTest {
 
+    private final FirstPrimeFinder firstPrimeFinder = new FirstPrimeFinder();
     @Rule
     public ExpectedException exception = ExpectedException.none();
-
-    private final FirstPrimeFinder firstPrimeFinder = new FirstPrimeFinder();
 
     @Test
     public void findShouldReturnPrimeNumberIfInputWithPrimeNumberAcceptanceCriteria() throws Exception {

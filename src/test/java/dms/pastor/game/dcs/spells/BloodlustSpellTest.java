@@ -30,7 +30,6 @@ public class BloodlustSpellTest {
         // when
         bloodlustSpell.castSpell(unit, UNUSED_UNIT);
 
-
         // then
         assertThat(unit.getConditions().has(BLOODLUST)).isTrue();
     }

@@ -6,6 +6,7 @@ package dms.pastor.domain;
  * Last update  2013-06-21
  */
 public class Result {
+
     private boolean success;
     private String message;
     private Object item;

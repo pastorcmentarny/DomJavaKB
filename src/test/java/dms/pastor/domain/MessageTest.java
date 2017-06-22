@@ -22,6 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * tag-system.out-test
  */
 public class MessageTest {
+
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private final PrintStream original = System.err;
 

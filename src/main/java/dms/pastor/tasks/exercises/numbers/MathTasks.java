@@ -19,8 +19,9 @@ class MathTasks {
         for (int i = 0; i < almostAll.length; i++) {
             if (i >= removedItem) {
                 almostAll[i] = allItems[i + 1];
-            } else
+            } else {
                 almostAll[i] = allItems[i];
+            }
         }
         return almostAll;
     }

@@ -3,10 +3,18 @@ package dms.pastor.tools.lotto;
 import dms.pastor.utils.PrintOutUtils;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
 import java.util.stream.IntStream;
 
-import static dms.pastor.tools.lotto.BallCountOperations.*;
+import static dms.pastor.tools.lotto.BallCountOperations.getLeast2PlayedBalls;
+import static dms.pastor.tools.lotto.BallCountOperations.getNumbersFromBallsCount;
+import static dms.pastor.tools.lotto.BallCountOperations.getTop2PlayedBalls;
 import static dms.pastor.tools.lotto.CoupleOperations.deleteDiscardedCouples;
 import static dms.pastor.tools.lotto.LottoConstants.HOT_PICK_BALL_MAXIMUM_VALUE;
 import static dms.pastor.tools.lotto.LottoConstants.HOT_PICK_BALL_MINIMUM_VALUE;
@@ -29,6 +37,14 @@ class HotPicksStatsGenerator {
 
     HotPicksStatsGenerator(String filePath) {
         this.filePath = filePath;
+    }
+
+    private static void addOrUpdateValue(Map<Integer, Integer> topNumbers, Integer key) {
+        if (topNumbers.containsKey(key)) {
+            topNumbers.put(key, topNumbers.get(key) + 1);
+        } else {
+            topNumbers.put(key, 1);
+        }
     }
 
     void generateNumbersToPlay() throws IOException {
@@ -83,7 +99,7 @@ class HotPicksStatsGenerator {
         }
 
         for (Couple couple : remainingCouples) {
-            if (couple.contains(convertListToIntArray(balls))){
+            if (couple.contains(convertListToIntArray(balls))) {
                 couplesWithMatchedBalls.add(couple);
             }
         }
@@ -94,7 +110,7 @@ class HotPicksStatsGenerator {
         Set<Couple> couplesWithMatchedBalls = new HashSet<>();
 
         for (Couple couple : remainingCouples) {
-            if (couple.contains(balls)){
+            if (couple.contains(balls)) {
                 couplesWithMatchedBalls.add(couple);
             }
         }
@@ -104,14 +120,6 @@ class HotPicksStatsGenerator {
     private List<HotPickDraw> loadData() throws IOException {
         HotPicksFileUploader hotPicksFileUploader = new HotPicksFileUploader();
         return hotPicksFileUploader.loadHotPicksDrawHistoryFile(filePath);
-    }
-
-    private static void addOrUpdateValue(Map<Integer, Integer> topNumbers, Integer key) {
-        if (topNumbers.containsKey(key)) {
-            topNumbers.put(key, topNumbers.get(key) + 1);
-        } else {
-            topNumbers.put(key, 1);
-        }
     }
 
     private void displayStatistic(HotPicksAnalyser analyser) {

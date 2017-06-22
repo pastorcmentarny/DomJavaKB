@@ -36,7 +36,7 @@ public class RandomBmpGeneratorTest {
         exception.expectMessage("Width cannot be negative.");
 
         // given
-        RandomBmpGenerator randomBmpGenerator = new RandomBmpGenerator(randomNegativeInteger(), randomPositiveInteger(),UNUSED_PATH);
+        RandomBmpGenerator randomBmpGenerator = new RandomBmpGenerator(randomNegativeInteger(), randomPositiveInteger(), UNUSED_PATH);
 
         // when
         randomBmpGenerator.generateImageFile();
@@ -49,7 +49,7 @@ public class RandomBmpGeneratorTest {
         exception.expectMessage("Height cannot be negative.");
 
         // given
-        RandomBmpGenerator randomBmpGenerator = new RandomBmpGenerator(randomPositiveInteger(),randomNegativeInteger(),UNUSED_PATH);
+        RandomBmpGenerator randomBmpGenerator = new RandomBmpGenerator(randomPositiveInteger(), randomNegativeInteger(), UNUSED_PATH);
 
         // when
         randomBmpGenerator.generateImageFile();
@@ -62,7 +62,7 @@ public class RandomBmpGeneratorTest {
         exception.expectMessage("File path cannot be null.");
 
         // given
-        RandomBmpGenerator randomBmpGenerator = new RandomBmpGenerator(randomPositiveInteger(),randomPositiveInteger(),null);
+        RandomBmpGenerator randomBmpGenerator = new RandomBmpGenerator(randomPositiveInteger(), randomPositiveInteger(), null);
 
         // when
         randomBmpGenerator.generateImageFile();

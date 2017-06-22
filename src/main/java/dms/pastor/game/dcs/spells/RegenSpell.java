@@ -1,9 +1,11 @@
 package dms.pastor.game.dcs.spells;
 
-import dms.pastor.game.dcs.Config;
 import dms.pastor.game.dcs.Elements;
-import dms.pastor.game.dcs.conditions.ConditionType;
 import dms.pastor.game.dcs.units.Unit;
+
+import static dms.pastor.game.dcs.Config.REGEN_TURNS;
+import static dms.pastor.game.dcs.conditions.ConditionEntry.createTemporaryCondition;
+import static dms.pastor.game.dcs.conditions.ConditionType.REGENERATION;
 
 /**
  * Author Dominik Symonowicz
@@ -15,6 +17,7 @@ import dms.pastor.game.dcs.units.Unit;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class RegenSpell extends Spell {
+
     public RegenSpell() {
         super();
         name = "Regeneration";
@@ -24,6 +27,6 @@ public class RegenSpell extends Spell {
     @Override
     public void castSpell(Unit attacker, Unit defender) {
         castSpellMessage(attacker.getName(), name, attacker.getName());
-        attacker.getConditions().add(ConditionType.REGENERATION, Config.REGEN_TURNS);
+        attacker.getConditions().add(createTemporaryCondition(REGENERATION, REGEN_TURNS));
     }
 }

@@ -12,6 +12,7 @@ import java.util.LinkedHashSet;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 class DuplicateCharacterInStringRemove {
+
     private static final String EMPTY_STRING = "";
 
     @SuppressWarnings("ReturnOfNull")

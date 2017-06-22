@@ -11,6 +11,7 @@ import static dms.pastor.utils.StringUtils.isStringBlank;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public final class EnglishUtils {
+
     private static final char[] vowels = {'a', 'e', 'i', 'o', 'u'};
     private static final char[] consonants = {'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'};
     private static final String[] STOP_WORDS = new String[]{"a", "an", "and", "are", "as", "at", "be", "but", "by", "for", "if", "in", "into", "is", "it", "no", "not", "of", "on", "or", "such", "that", "the", "their", "then", "there", "these", "they", "this", "to", "was", "will", "with"};
@@ -38,7 +39,6 @@ public final class EnglishUtils {
         return false;
     }
 
-
     static boolean isLetterConsonant(char letter) {
         for (char consonant : consonants) {
             if (Character.toLowerCase(letter) == consonant) {
@@ -63,8 +63,6 @@ public final class EnglishUtils {
     public static boolean isNotStopWord(String word) {
         return !isStopWord(word);
     }
-
-
 
 }
 

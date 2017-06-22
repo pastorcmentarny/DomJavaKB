@@ -2,9 +2,12 @@ package dms.pastor.game.dcs.spells;
 
 import dms.pastor.game.dcs.Config;
 import dms.pastor.game.dcs.Elements;
-import dms.pastor.game.dcs.conditions.ConditionType;
 import dms.pastor.game.dcs.conditions.ElementType;
 import dms.pastor.game.dcs.units.Unit;
+
+import static dms.pastor.game.dcs.Config.FREEZING_TURNS;
+import static dms.pastor.game.dcs.conditions.ConditionEntry.createTemporaryCondition;
+import static dms.pastor.game.dcs.conditions.ConditionType.FROZEN;
 
 /**
  * Author Dominik Symonowicz
@@ -23,17 +26,15 @@ public class FrozenSpell extends Spell {
         setElements(new Elements(1, 0, 0, 2));
     }
 
-
     @Override
     public void castSpell(Unit attacker, Unit defender) {
         castSpellMessage(attacker.getName(), name, defender.getName());
         defender.doesDamageTo(attacker, Config.FREEZING_DAMAGE);
         if (defender.getConditions().isNotImmuneTo(ElementType.WATER)) {
-            defender.getConditions().add(ConditionType.FROZEN, Config.FREEZING_TURNS);
+            defender.getConditions().add(createTemporaryCondition(FROZEN, FREEZING_TURNS));
         } else {
             System.out.println(defender + " resists spell");
         }
-
 
     }
 }

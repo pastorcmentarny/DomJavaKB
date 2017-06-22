@@ -43,7 +43,6 @@ public class AsteroidStormSpellTest {
         System.setOut(original);
     }
 
-
     @Test
     public void castAsteroidStormShouldCauseDamageToUnit() throws Exception {
         // given

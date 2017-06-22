@@ -16,6 +16,7 @@ import java.util.List;
  * Time: 21:01
  */
 class AnswerGenerator {
+
     private final List<Person> people;
 
     AnswerGenerator(String fileName) throws IOException {

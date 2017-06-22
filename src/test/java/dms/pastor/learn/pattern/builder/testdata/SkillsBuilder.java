@@ -12,6 +12,7 @@ import static dms.pastor.utils.randoms.RandomDataGenerator.randomPositiveInteger
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public final class SkillsBuilder {
+
     private int perception = randomPositiveInteger(10);
     private int strength = randomPositiveInteger(10);
     private int agility = randomPositiveInteger(10);

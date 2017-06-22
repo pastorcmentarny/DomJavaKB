@@ -9,6 +9,7 @@ import dms.pastor.game.dcs.units.Unit;
 import java.util.Random;
 
 import static dms.pastor.game.dcs.ElementsType.EARTH;
+import static dms.pastor.game.dcs.conditions.ConditionEntry.createPersistentCondition;
 import static dms.pastor.game.dcs.conditions.ConditionType.EARTH_IMMUNE;
 
 public class Golem extends Unit {
@@ -23,7 +24,7 @@ public class Golem extends Unit {
         setName("Golem Id:" + random.nextInt(maxGolemNumber));
         setHp(50);
         setArm(2);
-        getConditions().add(EARTH_IMMUNE);
+        getConditions().add(createPersistentCondition(EARTH_IMMUNE));
     }
 
     @Override

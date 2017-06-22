@@ -17,6 +17,7 @@ import static java.io.File.separator;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 class DomCoder {
+
     private static final String PATH = "src" + separator + "main" + separator + "resources" + separator + "input.txt";
     private String content;
 

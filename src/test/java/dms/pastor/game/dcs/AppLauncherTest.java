@@ -18,7 +18,6 @@ public final class AppLauncherTest {
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private PrintStream printStream;
 
-
     @Before
     public void setUp() throws Exception {
         printStream = System.out;

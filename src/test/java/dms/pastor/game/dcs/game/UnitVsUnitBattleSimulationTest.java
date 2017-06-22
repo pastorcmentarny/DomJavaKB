@@ -109,7 +109,6 @@ public final class UnitVsUnitBattleSimulationTest {
         battle.isInFight();
     }
 
-
     @Test
     public void trollVsVampireBattleSimulationTest() {
         // setup

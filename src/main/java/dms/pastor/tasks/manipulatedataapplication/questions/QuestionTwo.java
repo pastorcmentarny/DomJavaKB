@@ -12,6 +12,7 @@ import static dms.pastor.tasks.manipulatedataapplication.utls.Utils.calculateAve
  * Time: 21:38
  */
 public class QuestionTwo extends Question {
+
     private int totalAge = 0;
 
     public QuestionTwo(List<Person> people) {

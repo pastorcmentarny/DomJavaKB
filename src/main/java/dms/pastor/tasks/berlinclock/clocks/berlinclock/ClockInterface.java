@@ -7,6 +7,7 @@ import dms.pastor.tasks.berlinclock.data.Time;
  *         Created 2013-07-24 at 21:15:25
  */
 interface ClockInterface {
+
     /**
      * @param time as String in format hh::mm:ss
      * @return String representation of the Berlin Clock for a given time

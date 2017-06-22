@@ -7,6 +7,7 @@ import dms.pastor.game.dcs.units.Unit;
 import java.util.Random;
 
 import static dms.pastor.game.dcs.Config.FREEZING_TURNS;
+import static dms.pastor.game.dcs.conditions.ConditionEntry.createTemporaryCondition;
 import static dms.pastor.game.dcs.conditions.ConditionType.FROZEN;
 import static dms.pastor.game.dcs.conditions.ConditionType.POISONED;
 
@@ -27,16 +28,15 @@ public class CometStrikeSpell extends Spell {
         setElements(new Elements(0, 3, 0, 1));
     }
 
-
     @Override
     public void castSpell(Unit attacker, Unit defender) {
         castSpellMessage(attacker.getName(), name, defender.getName());
         attacker.doesDamageTo(defender, Config.COMMENT_DAMAGE);
         if (new Random().nextInt(100) > 66) {
-            defender.getConditions().add(FROZEN, FREEZING_TURNS);
+            defender.getConditions().add(createTemporaryCondition(FROZEN, FREEZING_TURNS));
         }
         if (new Random().nextInt(100) > 50) {
-            defender.getConditions().add(POISONED, FREEZING_TURNS);
+            defender.getConditions().add(createTemporaryCondition(POISONED, FREEZING_TURNS));
         }
     }
 }

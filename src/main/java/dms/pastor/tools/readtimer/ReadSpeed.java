@@ -19,14 +19,14 @@ public enum ReadSpeed {
         this.speed = speed;
     }
 
-    public int speed() {
-        return speed;
-    }
-
     public static String getSpeedAsStringFor(ReadSpeed readSpeed) {
-        if(readSpeed == null){
+        if (readSpeed == null) {
             return String.valueOf(ADULT_AVERAGE.speed());
         }
         return String.valueOf(readSpeed.speed());
+    }
+
+    public int speed() {
+        return speed;
     }
 }

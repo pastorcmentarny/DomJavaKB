@@ -6,6 +6,7 @@ import dms.pastor.game.dcs.units.Unit;
 import java.util.Random;
 
 import static dms.pastor.game.dcs.Config.MAGIC_STONE_DMG;
+import static dms.pastor.game.dcs.conditions.ConditionEntry.createTemporaryCondition;
 import static dms.pastor.game.dcs.conditions.ConditionType.EARTH_IMMUNE;
 import static dms.pastor.game.dcs.conditions.ConditionType.STUNNED;
 
@@ -39,7 +40,7 @@ public class MagicStoneSpell extends Spell {
                     System.out.println("StrongShield  protect " + defender.getName() + " from being stunned.");
                 } else {
                     System.out.println(defender.getName() + "  is stunned after being hit by stone.");
-                    defender.getConditions().add(STUNNED, 1);
+                    defender.getConditions().add(createTemporaryCondition(STUNNED, 1));
                 }
             }
         }

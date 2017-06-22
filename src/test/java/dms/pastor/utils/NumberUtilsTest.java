@@ -12,7 +12,21 @@ import java.util.List;
 import java.util.Random;
 
 import static dms.pastor.TestConfig.EMPTY_INTEGER_ARRAY;
-import static dms.pastor.utils.NumberUtils.*;
+import static dms.pastor.utils.NumberUtils.factorial;
+import static dms.pastor.utils.NumberUtils.generateNaturalSequenceIntArray;
+import static dms.pastor.utils.NumberUtils.getFibonacciNumberFor;
+import static dms.pastor.utils.NumberUtils.getLargestInt;
+import static dms.pastor.utils.NumberUtils.getMaxValue;
+import static dms.pastor.utils.NumberUtils.getMinValue;
+import static dms.pastor.utils.NumberUtils.getResultIn0to100Range;
+import static dms.pastor.utils.NumberUtils.getResultInRange;
+import static dms.pastor.utils.NumberUtils.getShortAs8BitRepresentation;
+import static dms.pastor.utils.NumberUtils.getSmallestInt;
+import static dms.pastor.utils.NumberUtils.isBigDecimalAValidInteger;
+import static dms.pastor.utils.NumberUtils.isNumberPalindrome;
+import static dms.pastor.utils.NumberUtils.isPrime;
+import static dms.pastor.utils.NumberUtils.reverseANumber;
+import static dms.pastor.utils.NumberUtils.sortIntegersCollection;
 import static dms.pastor.utils.StringUtils.containsOnly;
 import static dms.pastor.utils.randoms.RandomDataGenerator.randomNegativeInteger;
 import static dms.pastor.utils.randoms.RandomDataGenerator.randomPositiveInteger;
@@ -29,6 +43,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 @SuppressWarnings("MagicNumber") // because there are specific numbers
 public class NumberUtilsTest {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(NumberUtilsTest.class);
 
     private static final int MIN_VALUE = 5;
@@ -97,7 +112,6 @@ public class NumberUtilsTest {
         // then
         assertThat(result).isEqualTo(MAX_VALUE);
     }
-
 
     @Test
     public void testShouldReturn100For104() throws Exception {
@@ -453,13 +467,11 @@ public class NumberUtilsTest {
         assertThat(result).isEqualTo(8f);
     }
 
-
     @Test
     public void shouldGetCurrentMinValueTest() throws Exception {
         // given
         final float newValue = 23f;
         final float currentMaxValue = 21f;
-
 
         // when
         final float result = getMinValue(newValue, currentMaxValue);

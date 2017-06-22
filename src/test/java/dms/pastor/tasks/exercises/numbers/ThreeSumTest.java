@@ -18,6 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class ThreeSumTest {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(ThreeSumTest.class);
     private final ThreeSum threeSum = new ThreeSum();
     private final int[] testValues = {30, -40, -20, -10, 40, 0, 10, 5};

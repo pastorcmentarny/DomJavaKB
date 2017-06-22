@@ -16,6 +16,7 @@ import static org.junit.Assert.assertTrue;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class FindSpellsTest {
+
     private Spells spells;
 
     @Before

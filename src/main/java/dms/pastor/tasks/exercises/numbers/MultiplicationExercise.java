@@ -11,6 +11,7 @@ import static java.lang.String.format;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 class MultiplicationExercise {
+
     private MultiplicationExercise() {
     }
 

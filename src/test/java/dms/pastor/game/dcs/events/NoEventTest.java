@@ -16,8 +16,9 @@ import static org.assertj.core.api.Assertions.assertThat;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class NoEventTest {
-    private final Event noEvent = new NoEvent();
+
     private static final Unit UNUSED_UNIT = null;
+    private final Event noEvent = new NoEvent();
 
     @Test
     public void canHaveEventForNotEventShouldReturnTrue() throws Exception {
@@ -40,6 +41,5 @@ public class NoEventTest {
         // then
         assertThat(message).isEqualTo("Another round, where nothing seems to happen.");
     }
-
 
 }

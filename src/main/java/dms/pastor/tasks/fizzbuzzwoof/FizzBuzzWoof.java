@@ -20,6 +20,7 @@ package dms.pastor.tasks.fizzbuzzwoof;
  * if number is dividable by it digit add it 33-> FIZZ 5->BUZZ
  */
 class FizzBuzzWoof {
+
     private static final String FIZZ = "Fizz";
     private static final String BUZZ = "Buzz";
     private static final String WOOF = "Woof";

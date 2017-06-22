@@ -3,6 +3,7 @@ package dms.pastor.game.dcs.events;
 import dms.pastor.game.dcs.units.Unit;
 
 import static dms.pastor.game.dcs.ElementsType.WATER;
+import static dms.pastor.game.dcs.conditions.ConditionEntry.createTemporaryCondition;
 import static dms.pastor.game.dcs.conditions.ConditionType.FROZEN;
 import static dms.pastor.game.dcs.conditions.ConditionType.WATER_SENSITIVE;
 
@@ -33,7 +34,7 @@ public class WaterElementEvent extends Event {
             unit.getElements().addElement(WATER);
             return unit.getName() + " found " + WATER.name().toLowerCase();
         } else {
-            unit.getConditions().add(FROZEN, 1);
+            unit.getConditions().add(createTemporaryCondition(FROZEN, 1));
             return unit.getName() + " is frozen.";
         }
     }

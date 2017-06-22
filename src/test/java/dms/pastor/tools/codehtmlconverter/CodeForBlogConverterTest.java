@@ -21,6 +21,7 @@ import static org.hamcrest.CoreMatchers.is;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class CodeForBlogConverterTest {
+
     private static final String THREE_WHITESPACES = "   ";
     private CodeForBlogConverter converter;
 
@@ -36,6 +37,50 @@ public class CodeForBlogConverterTest {
         final String convertedSource = converter.convert(source);
         System.out.println("Output:\n\n" + convertedSource);
     }*/
+
+    private static String getResult() {
+        return "<blockquote>\n" +
+                "<code>\n" + "package dms.pastor.tools.codeToHTMLConverter;<br/>" + '\n' +
+                "<br/>" + '\n' +
+                "import org.junit.Before;<br/>" + '\n' +
+                "import org.junit.Test;<br/>" + '\n' +
+                "import java.util.ArrayList;<br/>" + '\n' +
+                "<br/>" + '\n' +
+                "import static org.junit.Assert.assertEquals;<br/>" + '\n' +
+                "/**<br/>\n" +
+                " * Author Dominik Symonowicz<br/>\n" +
+                " */<br/>\n" +
+                "public class CodeForBlogConverterTest {<br/>\n" +
+                StringUtils.getNbsp(4) +
+                "public static void main(String[] args) {<br/>\n" +
+                StringUtils.getNbsp(8) +
+                "System.out.println(\"I AM HUNGRY\");<br/>\n" +
+                StringUtils.getNbsp(4) +
+                "}<br/>\n" +
+                "}<br/>\n" +
+                "</code>\n" +
+                "</blockquote>\n";
+    }
+
+    private static List<String> generateSourceData() {
+        List<String> data = new ArrayList<>();
+        data.add("package dms.pastor.tools.codeToHTMLConverter;");
+        data.add("");
+        data.add("import org.junit.Before;");
+        data.add("import org.junit.Test;");
+        data.add("import java.util.ArrayList;");
+        data.add("");
+        data.add("import static org.junit.Assert.assertEquals;");
+        data.add("/**");
+        data.add(" * Author Dominik Symonowicz");
+        data.add(" */");
+        data.add("public class CodeForBlogConverterTest {");
+        data.add("    public static void main(String[] args) {");
+        data.add("        System.out.println(\"I AM HUNGRY\");");
+        data.add("    }");
+        data.add("}");
+        return data;
+    }
 
     @Before
     public void setUp() throws Exception {
@@ -95,49 +140,5 @@ public class CodeForBlogConverterTest {
         String line = "Test    Test";
         String convertedLine = converter.convertEach4SpacesToNsbpOnBeginningOfTheLine(line);
         Assert.assertThat(convertedLine, is(line));
-    }
-
-    private static String getResult() {
-        return "<blockquote>\n" +
-                "<code>\n" + "package dms.pastor.tools.codeToHTMLConverter;<br/>" + '\n' +
-                "<br/>" + '\n' +
-                "import org.junit.Before;<br/>" + '\n' +
-                "import org.junit.Test;<br/>" + '\n' +
-                "import java.util.ArrayList;<br/>" + '\n' +
-                "<br/>" + '\n' +
-                "import static org.junit.Assert.assertEquals;<br/>" + '\n' +
-                "/**<br/>\n" +
-                " * Author Dominik Symonowicz<br/>\n" +
-                " */<br/>\n" +
-                "public class CodeForBlogConverterTest {<br/>\n" +
-                StringUtils.getNbsp(4) +
-                "public static void main(String[] args) {<br/>\n" +
-                StringUtils.getNbsp(8) +
-                "System.out.println(\"I AM HUNGRY\");<br/>\n" +
-                StringUtils.getNbsp(4) +
-                "}<br/>\n" +
-                "}<br/>\n" +
-                "</code>\n" +
-                "</blockquote>\n";
-    }
-
-    private static List<String> generateSourceData() {
-        List<String> data = new ArrayList<>();
-        data.add("package dms.pastor.tools.codeToHTMLConverter;");
-        data.add("");
-        data.add("import org.junit.Before;");
-        data.add("import org.junit.Test;");
-        data.add("import java.util.ArrayList;");
-        data.add("");
-        data.add("import static org.junit.Assert.assertEquals;");
-        data.add("/**");
-        data.add(" * Author Dominik Symonowicz");
-        data.add(" */");
-        data.add("public class CodeForBlogConverterTest {");
-        data.add("    public static void main(String[] args) {");
-        data.add("        System.out.println(\"I AM HUNGRY\");");
-        data.add("    }");
-        data.add("}");
-        return data;
     }
 }

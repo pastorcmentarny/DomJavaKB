@@ -15,6 +15,7 @@ import org.junit.Test;
  */
 @SuppressWarnings("MagicNumber")// they are actual values
 public class ArabicToRomanConverterTest {
+
     private RomanArabicConverter converter;
 
     @Before
@@ -101,7 +102,6 @@ public class ArabicToRomanConverterTest {
     public void testIf19GivesXIX() throws Exception {
         Assert.assertEquals("XIX", converter.convertArabicToRoman(19));
     }
-
 
     @Test
     public void testIf20GivesXX() throws Exception {

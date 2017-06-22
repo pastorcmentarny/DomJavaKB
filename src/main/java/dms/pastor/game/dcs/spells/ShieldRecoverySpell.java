@@ -14,6 +14,7 @@ import dms.pastor.game.dcs.units.Unit;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class ShieldRecoverySpell extends Spell {
+
     public ShieldRecoverySpell() {
         super();
         name = "Strengthening shield";

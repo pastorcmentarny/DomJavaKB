@@ -13,6 +13,7 @@ import java.util.List;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public abstract class Card {
+
     protected String name;
     private String description = "No description";
     private CardType cardType;
