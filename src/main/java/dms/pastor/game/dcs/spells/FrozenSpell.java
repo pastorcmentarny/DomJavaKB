@@ -30,11 +30,15 @@ public class FrozenSpell extends Spell {
     public void castSpell(Unit attacker, Unit defender) {
         castSpellMessage(attacker.getName(), name, defender.getName());
         defender.doesDamageTo(attacker, Config.FREEZING_DAMAGE);
-        if (defender.getConditions().isNotImmuneTo(ElementType.WATER)) {
-            defender.getConditions().add(createTemporaryCondition(FROZEN, FREEZING_TURNS));
+        if (defender.isStrongShield()) {
+            System.out.println("StrongShield  protect " + defender.getName() + " from being frozen.");
         } else {
-            System.out.println(defender + " resists spell");
-        }
+            if (defender.getConditions().isNotImmuneTo(ElementType.WATER)) {
+                defender.getConditions().add(createTemporaryCondition(FROZEN, FREEZING_TURNS));
+            } else {
+                System.out.println(defender + " resists spell");
+            }
 
+        }
     }
 }

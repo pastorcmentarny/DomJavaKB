@@ -4,7 +4,6 @@ import java.util.Objects;
 
 import static dms.pastor.game.dcs.Config.DEFAULT_CONDITION_DURATION;
 import static dms.pastor.game.dcs.Config.INFINITIVE_TURNS_LEFT;
-import static java.lang.String.format;
 
 /**
  * Author Dominik Symonowicz
@@ -39,29 +38,29 @@ public class ConditionEntry {
         return new ConditionEntry(conditionType, DEFAULT_CONDITION_DURATION, false);
     }
 
-    public ConditionType getConditionType() {
+    ConditionType getConditionType() {
         return condition;
     }
 
-    public int getTurnsLeft() {
+    int getTurnsLeft() {
         return turnsLeft;
     }
 
-    public boolean isPersistent() {
+    boolean isPersistent() {
         return persistent;
     }
 
-    public boolean isTemporary() {
+    boolean isTemporary() {
         return !persistent;
     }
 
-    public void updateTurnsLeft(int turns) {
+    void updateTurnsLeft(int turns) {
         if (isNotPersistent() && turns > turnsLeft) {
             turnsLeft = turns;
         }
     }
 
-    public void reduceTurn() {
+    void reduceTurn() {
         if (isNotPersistent()) {
             turnsLeft--;
         }
@@ -72,22 +71,27 @@ public class ConditionEntry {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof ConditionEntry)) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        ConditionEntry that = (ConditionEntry) o;
-        return getTurnsLeft() == that.getTurnsLeft() &&
-                condition == that.condition;
+        ConditionEntry entry = (ConditionEntry) o;
+        return turnsLeft == entry.turnsLeft &&
+                persistent == entry.persistent &&
+                condition == entry.condition;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(condition, getTurnsLeft());
+        return Objects.hash(condition, turnsLeft, persistent);
     }
 
     @Override
     public String toString() {
-        return format("ConditionEntry{condition=%s, turnsLeft=%d}", condition, turnsLeft);
+        return "ConditionEntry{" +
+                "condition=" + condition +
+                ", turnsLeft=" + turnsLeft +
+                ", persistent=" + persistent +
+                '}';
     }
 
     private boolean isNotPersistent() {

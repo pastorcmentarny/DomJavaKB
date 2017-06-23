@@ -72,6 +72,7 @@ public class ConditionTest {
         final ConditionEntry conditionEntry = conditionEntryBuilder()
                 .condition(STUNNED)
                 .turnsLeft(DEFAULT_CONDITION_DURATION)
+                .persistent(false)
                 .build();
 
         // when
@@ -241,17 +242,15 @@ public class ConditionTest {
     }
 
     @Test
-    public void removeAllShouldClearAllConditions() throws Exception {
+    public void removeAllTemporaryConditionsShouldRemoveTemporaryConditions() throws Exception {
         // given
         final ConditionEntry condition = conditionEntryBuilder()
                 .condition(POISONED)
+                .persistent(false)
                 .build();
-        final ConditionEntry conditionTwo = conditionEntryBuilder()
-                .condition(STUNNED)
-                .build();
-        final ConditionEntry conditionThree = conditionEntryBuilder()
-                .condition(AIR_IMMUNE)
-                .build();
+
+        final ConditionEntry conditionTwo = createTemporaryCondition(STUNNED, 1);
+        final ConditionEntry conditionThree = createTemporaryConditionWithDefaultDuration(AIR_IMMUNE);
 
         conditions.add(condition);
         conditions.add(conditionTwo);
@@ -366,6 +365,17 @@ public class ConditionTest {
     }
 
     @Test
+    public void sizeShouldReturn0IfConditionsNull() {
+        // given
+        conditions.removeAllConditions();
+        // when
+        final int size = conditions.size();
+
+        // then
+        assertThat(size).isZero();
+    }
+
+    @Test
     public void sizeShouldReturn2For2Conditions() {
         // given
         final ConditionEntry fireSensitiveCondition = createPersistentCondition(FIRE_SENSITIVE);
@@ -434,12 +444,29 @@ public class ConditionTest {
 
     }
 
-    @Test
-    public void getConditionEntryShouldReturnNullIfConditionIsNotFound() {
+    @Test //single var args will cause NPE since casting
+    public void createConditionWithNullArrayShouldContainsEmptyCondition() {
         // when
-        final ConditionEntry conditionEntry = conditions.getConditionEntry(null);
+        final Condition condition = Condition.createCondition((ConditionEntry[]) null);
+
         // then
-        assertThat(conditionEntry).isNull();
+        assertThat(condition.size()).isZero();
+    }
+
+    @Test
+    public void createConditionShouldCreateConditionWithListConditions() {
+        // given
+        final ConditionEntry conditionOne = conditionEntryBuilder()
+                .condition(POISONED)
+                .build();
+        final ConditionEntry conditionTwo = createPersistentCondition(AIR_IMMUNE);
+        final ConditionEntry conditionThree = createTemporaryConditionWithDefaultDuration(STUNNED);
+
+        // when
+        final Condition condition = Condition.createCondition(conditionOne, conditionTwo, conditionThree);
+
+        // then
+        assertThat(condition.size()).isEqualTo(3);
     }
 
     private void checkIfConditionsHasOnlyPersistentStunnedCondition() {

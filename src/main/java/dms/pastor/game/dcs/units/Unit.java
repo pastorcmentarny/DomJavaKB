@@ -239,7 +239,7 @@ public class Unit {
     }
 
     public boolean isStrongShield() {
-        return isShielded() && getSp() >= 10;
+        return isShielded() && getSp() >= INITIAL_SHIELD_POINTS;
     }
 
     public void recreateShield() {

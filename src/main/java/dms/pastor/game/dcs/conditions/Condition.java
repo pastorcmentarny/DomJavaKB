@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 import static dms.pastor.game.dcs.conditions.ConditionType.AIR_IMMUNE;
 import static dms.pastor.game.dcs.conditions.ConditionType.AIR_RESISTANT;
@@ -31,13 +32,14 @@ public class Condition {
 
     private static final int IMMUNITY_PERCENTAGE = 50;
     private static final Logger LOGGER = LoggerFactory.getLogger(Condition.class);
-    private final HashSet<ConditionEntry> conditions = new HashSet<>();
+    private HashSet<ConditionEntry> conditions = new HashSet<>();
     private RandomiseUtils randomiseUtils = new InGameRandomiseUtils();
 
     public HashSet<ConditionEntry> getConditions() {
         return conditions;
     }
 
+    //TODO inspect  java.lang.NullPointerException that happens once
     public void add(ConditionEntry condition) {
         LOGGER.debug("You are " + condition.getConditionType().name().toLowerCase());
         if (has(condition.getConditionType())) {
@@ -98,14 +100,19 @@ public class Condition {
 
     public void removeAllTemporaryConditions() {
         if (!conditions.isEmpty()) {
-            for (ConditionEntry conditionEntry : conditions) {
-                System.out.println(conditionEntry.getConditionType() + " is removed");
-            }
-            conditions.clear();
+            conditions.forEach(this::displayConditionsToBeRemoved);
+            conditions = conditions.stream().filter(ConditionEntry::isPersistent).collect(Collectors.toCollection(HashSet::new));
+
         }
     }
 
-    public void removeAllConditions() {
+    private void displayConditionsToBeRemoved(ConditionEntry condition) {
+        if (condition.isTemporary()) {
+            System.out.println(condition.getConditionType() + " will be removed.");
+        }
+    }
+
+    void removeAllConditions() {
         if (!conditions.isEmpty()) {
             for (ConditionEntry conditionEntry : conditions) {
                 System.out.println(conditionEntry.getConditionType() + " is removed");
@@ -118,7 +125,7 @@ public class Condition {
         return !isImmuneTo(type);
     }
 
-    public boolean isImmuneTo(ElementType type) {
+    boolean isImmuneTo(ElementType type) {
         if (Objects.isNull(type)) {
             LOGGER.error("Bug detected. Null passed as element type.");
             return false;
@@ -144,5 +151,22 @@ public class Condition {
 
     public int size() {
         return conditions.size();
+    }
+
+    static Condition createCondition(ConditionEntry... conditionEntries) {
+        Condition condition = new Condition();
+        if(isEmpty(conditionEntries)){
+            return condition;
+        }
+
+        for(ConditionEntry entry : conditionEntries){
+            condition.add(entry);
+        }
+        return condition;
+    }
+
+    //TODO move to utils
+    public static boolean isEmpty(ConditionEntry[] conditionEntries) {
+        return conditionEntries == null || conditionEntries.length == 0;
     }
 }
