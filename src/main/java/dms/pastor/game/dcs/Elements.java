@@ -3,9 +3,10 @@ package dms.pastor.game.dcs;
 import dms.pastor.game.dcs.conditions.ElementType;
 import org.slf4j.Logger;
 
-import java.util.Objects;
 import java.util.Random;
 
+import static java.lang.String.format;
+import static java.util.Objects.hash;
 import static org.slf4j.LoggerFactory.getLogger;
 
 /**
@@ -185,15 +186,19 @@ public class Elements {
         switch (random.nextInt(ElementType.values().length)) {
             case 0:
                 numberOfElements = air;
+                setAir(0);
                 return numberOfElements;
             case 1:
                 numberOfElements = earth;
+                setEarth(0);
                 return numberOfElements;
             case 2:
                 numberOfElements = fire;
+                setFire(0);
                 return numberOfElements;
             case 3:
                 numberOfElements = water;
+                setWater(0);
                 return numberOfElements;
             default:
                 System.out.println("bug in getAndUseRandomElements");
@@ -218,12 +223,12 @@ public class Elements {
 
     @Override
     public int hashCode() {
-        return Objects.hash(fire, water, earth, air);
+        return hash(fire, water, earth, air);
     }
 
     @Override
     public String toString() {
-        return String.format("Elements{fire=%d, water=%d, earth=%d, air=%d}", fire, water, earth, air);
+        return format("Elements{fire=%d, water=%d, earth=%d, air=%d}", fire, water, earth, air);
     }
 
     public int countElements() {

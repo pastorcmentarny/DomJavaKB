@@ -225,6 +225,41 @@ public class ConditionTest {
     }
 
     @Test
+    public void reduceByOneTurnShouldRemoveTemporaryConditionIfTurnsLeftIsZero() throws Exception {
+        // given
+        final ConditionEntry condition = conditionEntryBuilder()
+                .condition(STUNNED)
+                .turnsLeft(1)
+                .persistent(false)
+                .build();
+        conditions.add(condition);
+        assertThat(conditions.getConditionEntry(STUNNED).getTurnsLeft() == 1).isTrue();
+
+        // when
+        conditions.reduceByOneTurn();
+
+        // then
+        assertThat(conditions.has(STUNNED)).isFalse();
+    }
+
+    @Test
+    public void reduceByOneTurnShouldRemoveTemporaryConditionIfTurnsLeftBelowZero() throws Exception {
+        // given
+        final ConditionEntry condition = conditionEntryBuilder()
+                .condition(STUNNED)
+                .turnsLeft(-1)
+                .persistent(false)
+                .build();
+        conditions.add(condition);
+
+        // when
+        conditions.reduceByOneTurn();
+
+        // then
+        assertThat(conditions.has(STUNNED)).isFalse();
+    }
+
+    @Test
     public void getConditionEntryShouldReturnConditionForGivenType() throws Exception {
         // given
         final ConditionEntry condition = conditionEntryBuilder()

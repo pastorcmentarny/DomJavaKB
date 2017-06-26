@@ -1,9 +1,9 @@
 package dms.pastor.game.dcs.conditions;
 
-import java.util.Objects;
-
 import static dms.pastor.game.dcs.Config.DEFAULT_CONDITION_DURATION;
 import static dms.pastor.game.dcs.Config.INFINITIVE_TURNS_LEFT;
+import static java.lang.String.format;
+import static java.util.Objects.hash;
 
 /**
  * Author Dominik Symonowicz
@@ -66,35 +66,27 @@ public class ConditionEntry {
         }
     }
 
+    private boolean isNotPersistent() {
+        return !persistent;
+    }
+
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        ConditionEntry entry = (ConditionEntry) o;
-        return turnsLeft == entry.turnsLeft &&
-                persistent == entry.persistent &&
-                condition == entry.condition;
+        if (this == o) return true;
+        if (!(o instanceof ConditionEntry)) return false;
+        ConditionEntry that = (ConditionEntry) o;
+        return getTurnsLeft() == that.getTurnsLeft() &&
+                isPersistent() == that.isPersistent() &&
+                condition == that.condition;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(condition, turnsLeft, persistent);
+        return hash(condition, getTurnsLeft(), isPersistent());
     }
 
     @Override
     public String toString() {
-        return "ConditionEntry{" +
-                "condition=" + condition +
-                ", turnsLeft=" + turnsLeft +
-                ", persistent=" + persistent +
-                '}';
-    }
-
-    private boolean isNotPersistent() {
-        return !persistent;
+        return format("ConditionEntry{condition=%s, turnsLeft=%d, persistent=%s}", condition, turnsLeft, persistent);
     }
 }

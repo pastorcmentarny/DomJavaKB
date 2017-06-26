@@ -63,21 +63,26 @@ public class Troll extends Unit {
         spell = new MagicStoneSpell();
         spell.castSpell(this, enemy);
         while (spell.hasEnoughElementsToCovertToSpell(getElements())) {
-            System.out.println(getName() + " will cast double magic stone!");
-
-            spell.castSpell(this, enemy);
-            spell.castSpell(this, enemy);
+            castMagicStone(enemy, spell);
+            castMagicStone(enemy, spell);
             while (randoms.isWillHappenWithProbabilityOf(50)) {
                 System.out.println("Lucky extra magic stone");
                 spell.castSpell(this, enemy);
             }
-            getElements().useElements(spell.getElements());
         }
 
         System.out.println(getName() + " regenerate 1 hp ");
         addHP(1);
         getElements().addElement(EARTH);
         getElements().addElement(FIRE);
+    }
+
+    private void castMagicStone(Unit enemy, Spell spell) {
+        System.out.println(getName() + " will cast double magic stone!");
+        if(spell.hasEnoughElementsToCovertToSpell(getElements())){
+            spell.castSpell(this, enemy);
+            getElements().useElements(spell.getElements());
+        }
     }
 
 }

@@ -3,8 +3,6 @@ package dms.pastor.game.dcs.spells;
 import dms.pastor.game.dcs.Elements;
 import dms.pastor.game.dcs.units.Unit;
 
-import static dms.pastor.game.dcs.Config.FIREBALL_DMG;
-
 /**
  * Author Dominik Symonowicz
  * Created 2015-08-05
@@ -19,13 +17,14 @@ public class CursedElementSpell extends Spell {
     public CursedElementSpell() {
         super();
         name = "Cursed Element Missile";
-        setElements(new Elements(0, 0, 0, 1));
+        setElements(new Elements(2, 2, 1, 2));
     }
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
         castSpellMessage(attacker.getName(), name, defender.getName());
         defender.getElements().getAndUseRandomElements();
-        defender.doesDamageTo(attacker, FIREBALL_DMG);
+        final int dmg = defender.getElements().getAndUseRandomElements();
+        attacker.doesDamageTo(defender, dmg);
     }
 }

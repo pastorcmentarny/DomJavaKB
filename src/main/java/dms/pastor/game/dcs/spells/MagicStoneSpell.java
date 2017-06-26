@@ -35,7 +35,7 @@ public class MagicStoneSpell extends Spell {
         } else {
             defender.doesDamageTo(attacker, MAGIC_STONE_DMG);
             Random random = new Random();
-            if (random.nextInt(100) > 40) {
+            if (random.nextInt(100) > 80) {
                 if (defender.isStrongShield()) {
                     System.out.println("StrongShield  protect " + defender.getName() + " from being stunned.");
                 } else {

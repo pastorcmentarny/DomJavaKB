@@ -31,9 +31,27 @@ public class FindSpellsTest {
     }
 
     @Test
+    public void testFindAsteroidStormSpell() throws Exception {
+        Elements elements = new Elements(1, 4, 0, 0);
+        assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new AsteroidStormSpell().getName()));
+    }
+
+    @Test
     public void testFindBackstabSpell() throws Exception {
         Elements elements = new Elements(1, 2, 0, 0);
         assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new BackstabSpell().getName()));
+    }
+
+    @Test
+    public void testFindBloodlust() throws Exception {
+        Elements elements = new Elements(0, 0, 0, 4);
+        assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new BloodlustSpell().getName()));
+    }
+
+    @Test
+    public void testFindChainLighting() throws Exception {
+        Elements elements = new Elements(3, 0, 1, 0);
+        assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new ChainLightingSpell().getName()));
     }
 
     @Test
@@ -49,51 +67,21 @@ public class FindSpellsTest {
     }
 
     @Test
-    public void testFindFireBall() throws Exception {
-        Elements elements = new Elements(0, 0, 3, 0);
-        assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new FireBallSpell().getName()));
-    }
-
-    @Test
-    public void testFindHeal() throws Exception {
-        Elements elements = new Elements(2, 0, 0, 1);
-        assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new HealSpell().getName()));
-    }
-
-    @Test
-    public void testFindMeteorStrike() throws Exception {
-        Elements elements = new Elements(0, 2, 3, 0);
-        assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new MeteorStrikeSpell().getName()));
-    }
-
-    @Test
-    public void testFindInfo() throws Exception {
-        Elements elements = new Elements(1, 0, 0, 0);
-        assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new InfoSpell().getName()));
-    }
-
-    @Test
-    public void testMagicStone() throws Exception {
-        Elements elements = new Elements(0, 2, 0, 0);
-        assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new MagicStoneSpell().getName()));
-    }
-
-    @Test
-    public void testFindInfernoStrike() throws Exception {
-        Elements elements = new Elements(1, 2, 2, 0);
-        assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new InfernoStrike().getName()));
-    }
-
-    @Test
-    public void testFindChainLighting() throws Exception {
-        Elements elements = new Elements(3, 0, 1, 0);
-        assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new ChainLightingSpell().getName()));
-    }
-
-    @Test
     public void testFindCursedEventSpell() {
         Elements elements = new Elements(2, 0, 2, 0);
         assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new CursedEventSpell().getName()));
+    }
+
+    @Test
+    public void testFindCursedElementSpell() {
+        Elements elements = new Elements(2, 2, 1, 2);
+        assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new CursedElementSpell().getName()));
+    }
+
+    @Test
+    public void testFindDeathRaySpell() {
+        Elements elements = new Elements(0, 3, 3, 1);
+        assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new DeathRaySpell().getName()));
     }
 
     @Test
@@ -103,9 +91,63 @@ public class FindSpellsTest {
     }
 
     @Test
-    public void testFindBloodlust() throws Exception {
-        Elements elements = new Elements(0, 0, 0, 4);
-        assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new BloodlustSpell().getName()));
+    public void testFindDrawEventSpell() throws Exception {
+        Elements elements = new Elements(1, 0, 1, 1);
+        assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new DrawEventSpell().getName()));
+    }
+
+    @Test
+    public void testFindFireBall() throws Exception {
+        Elements elements = new Elements(0, 0, 3, 0);
+        assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new FireBallSpell().getName()));
+    }
+
+    @Test
+    public void testFindFrozenSpell() {
+        Elements elements = new Elements(1, 0, 0, 2);
+        assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new FrozenSpell().getName()));
+    }
+
+    @Test
+    public void testFindHeal() throws Exception {
+        Elements elements = new Elements(2, 0, 0, 1);
+        assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new HealSpell().getName()));
+    }
+
+    @Test
+    public void testFindIceBallSpell() throws Exception {
+        Elements elements = new Elements(0, 0, 0, 3);
+        assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new IceBoltSpell().getName()));
+    }
+
+    @Test
+    public void testFindInfernoStrike() throws Exception {
+        Elements elements = new Elements(1, 2, 2, 0);
+        assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new InfernoStrike().getName()));
+    }
+
+    @Test
+    public void testFindInfo() throws Exception {
+        Elements elements = new Elements(1, 0, 0, 0);
+        assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new InfoSpell().getName()));
+    }
+
+    @Test
+    public void testLightingBoltSpell() throws Exception {
+        Elements elements = new Elements(4, 0, 0, 0);
+        assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new LightingBoltSpell().getName()));
+    }
+
+    @Test
+    public void testMagicStone() throws Exception {
+        Elements elements = new Elements(0, 2, 0, 0);
+        assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new MagicStoneSpell().getName()));
+    }
+
+    @Test
+    public void testFindMeteorStrike() throws Exception {
+        Elements elements = new Elements(0, 2, 3, 0);
+        assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new MeteorStrikeSpell().getName()));
     }
 
     @Test
@@ -115,15 +157,27 @@ public class FindSpellsTest {
     }
 
     @Test
+    public void testRegenHealthSpell() throws Exception {
+        Elements elements = new Elements(2, 0, 0, 2);
+        assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new RegenSpell().getName()));
+    }
+
+    @Test
+    public void testShieldRecoverySpell() throws Exception {
+        Elements elements = new Elements(2, 1, 1, 1);
+        assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new ShieldRecoverySpell().getName()));
+    }
+
+    @Test
     public void testFindVampireDrain() throws Exception {
         Elements elements = new Elements(2, 2, 2, 0);
         assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new VampireDrainSpell().getName()));
     }
 
     @Test
-    public void testFindDrawEventSpell() throws Exception {
-        Elements elements = new Elements(0, 0, 0, 3);
-        assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new DrawEventSpell().getName()));
+    public void testFindWeaknessSpell() throws Exception {
+        Elements elements = new Elements(0, 1, 0, 0);
+        assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new WeaknessSpell().getName()));
     }
 
     @Test

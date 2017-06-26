@@ -33,10 +33,11 @@ public class FireElement extends Unit {
         if (getElements().getWater() > 0) {
             int dmg = getElements().getWater() * 2;
             doesDamageTo(this, dmg);
-            System.out.println("Water elements  cause " + dmg);
+            System.out.println("Water elements  cause " + dmg + " dmg to " + getName());
             if (isDead()) {
                 return;
             }
+            getElements().setWater(0);
         }
 
         if (unit.getSp() > 0 && (getElements().getAir() >= 1 && getElements().getFire() >= 1)) {

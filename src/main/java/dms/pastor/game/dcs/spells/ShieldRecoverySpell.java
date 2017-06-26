@@ -1,8 +1,9 @@
 package dms.pastor.game.dcs.spells;
 
-import dms.pastor.game.dcs.Config;
 import dms.pastor.game.dcs.Elements;
 import dms.pastor.game.dcs.units.Unit;
+
+import static dms.pastor.game.dcs.Config.SHIELD_HEAL;
 
 /**
  * Author Dominik Symonowicz
@@ -25,10 +26,10 @@ public class ShieldRecoverySpell extends Spell {
     public void castSpell(Unit attacker, Unit defender) {
         castSpellMessage(attacker.getName(), name, defender.getName());
         if (attacker.isShielded()) {
-            attacker.increaseShieldBy(Config.SHIELD_HEAL);
-            System.out.println("Shield increased by" + Config.SHIELD_HEAL);
+            attacker.increaseShieldBy(SHIELD_HEAL);
+            System.out.println("Shield increased by" + SHIELD_HEAL);
         } else {
-            System.out.println("You need have to magic shield");
+            System.out.println("What I waste of mana! You need to have to magic shield first.");
         }
     }
 }

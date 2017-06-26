@@ -18,7 +18,7 @@ public class DrawEventSpell extends Spell {
     public DrawEventSpell() {
         super();
         name = "Draw an event";
-        setElements(new Elements(0, 0, 0, 3));
+        setElements(new Elements(1, 0, 1, 1));
     }
 
     @Override

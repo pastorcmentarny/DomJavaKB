@@ -10,14 +10,7 @@ import java.util.Iterator;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-import static dms.pastor.game.dcs.conditions.ConditionType.AIR_IMMUNE;
-import static dms.pastor.game.dcs.conditions.ConditionType.AIR_RESISTANT;
-import static dms.pastor.game.dcs.conditions.ConditionType.EARTH_IMMUNE;
-import static dms.pastor.game.dcs.conditions.ConditionType.EARTH_RESISTANT;
-import static dms.pastor.game.dcs.conditions.ConditionType.FIRE_IMMUNE;
-import static dms.pastor.game.dcs.conditions.ConditionType.FIRE_RESISTANT;
-import static dms.pastor.game.dcs.conditions.ConditionType.WATER_IMMUNE;
-import static dms.pastor.game.dcs.conditions.ConditionType.WATER_RESISTANT;
+import static dms.pastor.game.dcs.conditions.ConditionType.*;
 
 /**
  * Author Dominik Symonowicz
@@ -84,7 +77,11 @@ public class Condition {
             element.reduceTurn();
             if (element.getTurnsLeft() <= 0) {
                 System.out.println("You are NOT LONGER " + element.getConditionType().name().toLowerCase());
-                iterator.remove();
+                if (conditions.size() == 1) {
+                    conditions.clear();
+                } else {
+                    iterator.remove();
+                }
             }
         }
     }
@@ -155,11 +152,11 @@ public class Condition {
 
     static Condition createCondition(ConditionEntry... conditionEntries) {
         Condition condition = new Condition();
-        if(isEmpty(conditionEntries)){
+        if (isEmpty(conditionEntries)) {
             return condition;
         }
 
-        for(ConditionEntry entry : conditionEntries){
+        for (ConditionEntry entry : conditionEntries) {
             condition.add(entry);
         }
         return condition;
@@ -168,5 +165,13 @@ public class Condition {
     //TODO move to utils
     public static boolean isEmpty(ConditionEntry[] conditionEntries) {
         return conditionEntries == null || conditionEntries.length == 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Condition{" +
+                "conditions=" + conditions +
+                ", randomiseUtils=" + randomiseUtils +
+                '}';
     }
 }

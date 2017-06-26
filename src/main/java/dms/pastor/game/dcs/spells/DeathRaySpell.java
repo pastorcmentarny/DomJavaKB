@@ -18,7 +18,7 @@ public class DeathRaySpell extends Spell {
     public DeathRaySpell() {
         super();
         name = "Death ray";
-        setElements(new Elements(0, 1, 1, 1));
+        setElements(new Elements(0, 3, 3, 1));
     }
 
     @Override
