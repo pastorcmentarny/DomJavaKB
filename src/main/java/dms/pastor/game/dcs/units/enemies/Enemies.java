@@ -13,6 +13,7 @@ public class Enemies {
         allEnemies.add(new Dummy());
         allEnemies.add(new FireElement());
         allEnemies.add(new Golem());
+        allEnemies.add(new Mummy());
         allEnemies.add(new Troll());
         allEnemies.add(new Vampire());
     }

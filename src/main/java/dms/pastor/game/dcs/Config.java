@@ -10,6 +10,9 @@ import java.util.Random;
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+ *
+ * I used Config class rather than file as static in-class Config is simpler and enough good solution for application like this
+ * For dynamic types of Config , I use different solutions.
  */
 public class Config {
 

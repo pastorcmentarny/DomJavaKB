@@ -52,7 +52,7 @@ final class HashTools {
 }
     */
 
-    public static HashSet<Character> stringToCharacterSet(String string) {
+    static HashSet<Character> stringToCharacterSet(String string) {
         ValidatorUtils.validateIfNotEmpty(string);
         char[] chars = string.toCharArray();
         HashSet<Character> charsSet = new HashSet<>();
@@ -62,7 +62,7 @@ final class HashTools {
         return charsSet;
     }
 
-    public static HashMap<Character, Integer> stringToCharacterMap(String aString) {
+    static HashMap<Character, Integer> stringToCharacterMap(String aString) {
         char[] chars = aString.toCharArray();
         HashMap<Character, Integer> charHashMap = new HashMap<>();
         Integer counter;

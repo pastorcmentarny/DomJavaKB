@@ -19,6 +19,7 @@ import static dms.pastor.game.dcs.conditions.ConditionType.FIRE_IMMUNE;
 import static dms.pastor.game.dcs.conditions.ConditionType.FIRE_SENSITIVE;
 import static dms.pastor.game.dcs.conditions.ConditionType.POISONED;
 import static dms.pastor.game.dcs.conditions.ConditionType.STUNNED;
+import static dms.pastor.game.dcs.conditions.ConditionType.UNKNOWN;
 import static dms.pastor.game.dcs.conditions.ConditionType.WATER_IMMUNE;
 import static dms.pastor.game.dcs.conditions.ElementType.AIR;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -273,7 +274,16 @@ public class ConditionTest {
 
         // then
         assertThat(conditionEntryResult).isEqualTo(condition);
+    }
 
+    @SuppressWarnings("SuspiciousMethodCalls") //used for test
+    @Test
+    public void getConditionEntryShouldReturnUnknownConditionForNull() {
+        // when
+        conditions.getConditionEntry(null);
+
+        // then
+        assertThat(conditions.getConditions().contains(UNKNOWN));
     }
 
     @Test

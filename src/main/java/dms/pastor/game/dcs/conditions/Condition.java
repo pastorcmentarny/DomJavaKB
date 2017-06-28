@@ -10,7 +10,9 @@ import java.util.Iterator;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import static dms.pastor.game.dcs.conditions.ConditionEntry.unknown;
 import static dms.pastor.game.dcs.conditions.ConditionType.*;
+import static java.lang.String.format;
 
 /**
  * Author Dominik Symonowicz
@@ -92,10 +94,11 @@ public class Condition {
                 return element;
             }
         }
-        return null; //TODO improve it
+        return unknown();
     }
 
     public void removeAllTemporaryConditions() {
+        LOGGER.debug("Removing all temporary conditions.");
         if (!conditions.isEmpty()) {
             conditions.forEach(this::displayConditionsToBeRemoved);
             conditions = conditions.stream().filter(ConditionEntry::isPersistent).collect(Collectors.toCollection(HashSet::new));
@@ -110,6 +113,7 @@ public class Condition {
     }
 
     void removeAllConditions() {
+        LOGGER.debug("Clearing up all conditions");
         if (!conditions.isEmpty()) {
             for (ConditionEntry conditionEntry : conditions) {
                 System.out.println(conditionEntry.getConditionType() + " is removed");
@@ -169,9 +173,6 @@ public class Condition {
 
     @Override
     public String toString() {
-        return "Condition{" +
-                "conditions=" + conditions +
-                ", randomiseUtils=" + randomiseUtils +
-                '}';
+        return format("Condition{conditions=%s, randomiseUtils=%s}", conditions, randomiseUtils);
     }
 }

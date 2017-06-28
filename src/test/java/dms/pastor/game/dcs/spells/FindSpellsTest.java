@@ -26,7 +26,7 @@ public class FindSpellsTest {
 
     @Test
     public void testFindAntiShieldPiercingSpell() throws Exception {
-        Elements elements = new Elements(1, 1, 1, 1);
+        Elements elements = new Elements(2, 1, 1, 1);
         assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new AntiShieldPiercingSpell().getName()));
     }
 
@@ -80,7 +80,7 @@ public class FindSpellsTest {
 
     @Test
     public void testFindDeathRaySpell() {
-        Elements elements = new Elements(0, 3, 3, 1);
+        Elements elements = new Elements(2, 4, 1, 0);
         assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new DeathRaySpell().getName()));
     }
 
@@ -145,6 +145,12 @@ public class FindSpellsTest {
     }
 
     @Test
+    public void testMagneticDrain() throws Exception {
+        Elements elements = new Elements(1, 1, 1, 1);
+        assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new MagneticDrainSpell().getName()));
+    }
+
+    @Test
     public void testFindMeteorStrike() throws Exception {
         Elements elements = new Elements(0, 2, 3, 0);
         assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new MeteorStrikeSpell().getName()));
@@ -164,7 +170,7 @@ public class FindSpellsTest {
 
     @Test
     public void testShieldRecoverySpell() throws Exception {
-        Elements elements = new Elements(2, 1, 1, 1);
+        Elements elements = new Elements(2, 1, 1, 2);
         assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new ShieldRecoverySpell().getName()));
     }
 

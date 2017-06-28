@@ -2,6 +2,7 @@ package dms.pastor.game.dcs.conditions;
 
 import static dms.pastor.game.dcs.Config.DEFAULT_CONDITION_DURATION;
 import static dms.pastor.game.dcs.Config.INFINITIVE_TURNS_LEFT;
+import static dms.pastor.game.dcs.conditions.ConditionType.UNKNOWN;
 import static java.lang.String.format;
 import static java.util.Objects.hash;
 
@@ -36,6 +37,10 @@ public class ConditionEntry {
 
     public static ConditionEntry createTemporaryConditionWithDefaultDuration(ConditionType conditionType) {
         return new ConditionEntry(conditionType, DEFAULT_CONDITION_DURATION, false);
+    }
+
+    public static ConditionEntry unknown(){
+        return new ConditionEntry(UNKNOWN,0,false);
     }
 
     ConditionType getConditionType() {

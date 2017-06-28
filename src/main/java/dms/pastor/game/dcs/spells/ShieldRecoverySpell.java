@@ -19,7 +19,7 @@ public class ShieldRecoverySpell extends Spell {
     public ShieldRecoverySpell() {
         super();
         name = "Strengthening shield";
-        setElements(new Elements(2, 1, 1, 1));
+        setElements(new Elements(2, 1, 1, 2));
     }
 
     @Override

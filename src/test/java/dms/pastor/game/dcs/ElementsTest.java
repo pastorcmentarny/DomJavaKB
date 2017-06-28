@@ -1,11 +1,13 @@
 package dms.pastor.game.dcs;
 
+import dms.pastor.game.dcs.conditions.ElementType;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.List;
 
 import static dms.pastor.game.dcs.ElementsBuilder.elementsBuilder;
 import static dms.pastor.game.dcs.ElementsType.AIR;
@@ -123,14 +125,66 @@ public class ElementsTest {
     }
 
     @Test
+    public void getElementsForShouldReturnAmountOfElementsForAir() {
+        // given
+        final Elements elements = elementsBuilder().setToOneForAllElements().build();
+
+        // when
+        int airCount = elements.getElementsFor(ElementType.AIR);
+
+        // then
+        assertThat(airCount).isEqualTo(1);
+    }
+
+    @Test
+    public void getElementsForShouldReturnOneElementForEarth() {
+        // given
+        final Elements elements = elementsBuilder().setToOneForAllElements().build();
+
+        // when
+        int airCount = elements.getElementsFor(ElementType.EARTH);
+
+        // then
+        assertThat(airCount).isEqualTo(1);
+    }
+
+    @Test
+    public void getElementsForShouldReturnAmountOfElementsForFire() {
+        // given
+        final Elements elements = elementsBuilder().setToOneForAllElements().build();
+
+        // when
+        int airCount = elements.getElementsFor(ElementType.FIRE);
+
+        // then
+        assertThat(airCount).isEqualTo(1);
+    }
+
+
+    @Test
+    public void getElementsForShouldReturnOneElementForWater() {
+        // given
+        final Elements elements = elementsBuilder().setToOneForAllElements().build();
+
+        // when
+        int airCount = elements.getElementsFor(ElementType.WATER);
+
+        // then
+        assertThat(airCount).isEqualTo(1);
+    }
+
+
+    @Test
     public void removeRandomElementsShouldRemoveOneElement() {
         // given
         final Elements elements = elementsBuilder().setToOneForAllElements().build();
 
         // when
-        elements.removeRandomElements(1);
+        final List<ElementType> elementType = elements.removeRandomElements(1);
 
         // then
         assertThat(elements.countElements()).isEqualTo(3);
+        assertThat(elementType.size()).isEqualTo(1);
+
     }
 }

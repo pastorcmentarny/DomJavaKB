@@ -39,6 +39,7 @@ public class Spells {
         spells.add(new InfoSpell());
         spells.add(new InfernoStrike());
         spells.add(new LightingBoltSpell());
+        spells.add(new MagneticDrainSpell());
         spells.add(new MeteorStrikeSpell());
         spells.add(new MagicStoneSpell());
         spells.add(new PoisonSpell());

@@ -1,10 +1,17 @@
 package dms.pastor.game.dcs;
 
+import dms.pastor.domain.exception.SomethingWentWrongException;
 import dms.pastor.game.dcs.conditions.ElementType;
 import org.slf4j.Logger;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
+import static dms.pastor.game.dcs.conditions.ElementType.AIR;
+import static dms.pastor.game.dcs.conditions.ElementType.EARTH;
+import static dms.pastor.game.dcs.conditions.ElementType.FIRE;
+import static dms.pastor.game.dcs.conditions.ElementType.WATER;
 import static java.lang.String.format;
 import static java.util.Objects.hash;
 import static org.slf4j.LoggerFactory.getLogger;
@@ -142,25 +149,32 @@ public class Elements {
         }
     }
 
-    public void removeRandomElements(int numberOfElements) {
+    public List<ElementType> removeRandomElements(int numberOfElements) {
+        List<ElementType> types = new ArrayList<>();
         for (int i = 1; i <= numberOfElements; i++) {
             switch (random.nextInt(ElementType.values().length)) {
                 case 0:
                     reduceAirElement();
+                    types.add(AIR);
                     break;
                 case 1:
                     reduceEarthElement();
+                    types.add(EARTH);
                     break;
                 case 2:
                     reduceFireElement();
+                    types.add(FIRE);
                     break;
                 case 3:
                     reduceWaterElement();
+                    types.add(WATER);
                     break;
                 default:
                     LOGGER.warn("bug in addRandomElements");
+                    return null; //TODO improve it
             }
         }
+        return types;
     }
 
     private void reduceWaterElement() {
@@ -241,4 +255,19 @@ public class Elements {
         }
     }
 
+    public int getElementsFor(ElementType elementType) {
+        switch (elementType) {
+            case AIR:
+                return air;
+            case EARTH:
+                return earth;
+            case FIRE:
+                return fire;
+            case WATER:
+                return water;
+            default:
+                throw new SomethingWentWrongException("No implementation for " + elementType);
+        }
+
+    }
 }
