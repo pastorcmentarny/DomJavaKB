@@ -43,22 +43,11 @@ public class Dummy extends Unit {
         }
 
         spell = new FireBallSpell();
-        if (spell.hasEnoughElementsToCovertToSpell(getElements())) {
-            System.out.println(getName() + " casting fireball!");
-            if (spell.hasEnoughElementsToCovertToSpell(getElements())) {
-                spell.castSpell(this, unit);
-                getElements().useElements(spell.getElements());
-            }
-        }
+        spell.castSpellIfHasEnoughElements(this, unit);
 
         spell = new MagicStoneSpell();
-        while (spell.hasEnoughElementsToCovertToSpell(getElements())) {
-            System.out.println(getName() + " will cast magic stone!");
-            if (spell.hasEnoughElementsToCovertToSpell(getElements())) {
-                spell.castSpell(this, unit);
-                getElements().useElements(spell.getElements());
-            }
-        }
+        spell.castSpellAsLongAsItHasEnoughElements(this, unit);
+
     }
 
 }

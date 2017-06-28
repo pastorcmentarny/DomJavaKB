@@ -33,6 +33,21 @@ public abstract class Spell extends Card {
 
     public abstract void castSpell(Unit attacker, Unit defender);
 
+    public void castSpellIfHasEnoughElements(Unit attacker, Unit defender) {
+        if (hasEnoughElementsToCovertToSpell(attacker.getElements())) {
+            castSpell(attacker, defender);
+            attacker.getElements().useElements(elements);
+        }
+    }
+
+    public void castSpellAsLongAsItHasEnoughElements(Unit attacker, Unit defender) {
+        while (hasEnoughElementsToCovertToSpell(attacker.getElements())) {
+            castSpell(attacker, defender);
+            attacker.getElements().useElements(elements);
+        }
+
+    }
+
     public Elements getElements() {
         return elements;
     }

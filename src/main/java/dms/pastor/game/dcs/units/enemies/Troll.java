@@ -54,11 +54,7 @@ public class Troll extends Unit {
         }
 
         spell = new FireBallSpell();
-        while (spell.hasEnoughElementsToCovertToSpell(getElements())) {
-            System.out.println(getName() + " will cast " + spell.getName());
-            spell.castSpell(this, enemy);
-            getElements().useElements(spell.getElements());
-        }
+        spell.castSpellIfHasEnoughElements(this, enemy);
 
         spell = new MagicStoneSpell();
         spell.castSpell(this, enemy);

@@ -36,9 +36,7 @@ public class Vampire extends Unit {
         }
 
         IceBoltSpell iceBoltSpell = new IceBoltSpell();
-        if (iceBoltSpell.hasEnoughElementsToCovertToSpell(getElements())) {
-            iceBoltSpell.castSpell(this, enemy);
-        }
+        iceBoltSpell.castSpellIfHasEnoughElements(this, enemy);
 
     }
 }

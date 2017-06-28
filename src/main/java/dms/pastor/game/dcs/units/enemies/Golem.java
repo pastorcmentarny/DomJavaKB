@@ -48,16 +48,10 @@ public class Golem extends Unit {
         }
 
         FireBallSpell fireBallSpell = new FireBallSpell();
-        if (fireBallSpell.hasEnoughElementsToCovertToSpell(getElements())) {
-            getElements().useElements(fireBallSpell.getElements());
-            fireBallSpell.castSpell(this, enemy);
-        }
+        fireBallSpell.castSpell(this, enemy);
 
         LightingBoltSpell lightingBoltSpell = new LightingBoltSpell();
-        if (lightingBoltSpell.hasEnoughElementsToCovertToSpell(getElements())) {
-            getElements().useElements(lightingBoltSpell.getElements());
-            lightingBoltSpell.castSpell(this, enemy);
-        }
+        lightingBoltSpell.castSpellIfHasEnoughElements(this, enemy);
     }
 
     private void mayCastMagicStone(Unit unit) {
