@@ -1,6 +1,6 @@
 package dms.pastor.game.dcs.events;
 
-import dms.pastor.game.dcs.ElementsType;
+import dms.pastor.game.dcs.conditions.ElementType;
 import dms.pastor.game.dcs.units.Unit;
 
 import static dms.pastor.game.dcs.conditions.ConditionType.FIRE_SENSITIVE;
@@ -28,8 +28,8 @@ public class FireElementEvent extends Event {
 
     private String performFireEvent(Unit player) {
         if (canHaveEvent(player)) {
-            player.getElements().addElement(ElementsType.FIRE);
-            return player.getName() + " found " + ElementsType.FIRE.name().toLowerCase();
+            player.getElements().addElement(ElementType.FIRE);
+            return player.getName() + " found " + ElementType.FIRE.name().toLowerCase();
         } else {
             final int penaltyDmg = 3;
             player.doesDirectDamage(penaltyDmg);

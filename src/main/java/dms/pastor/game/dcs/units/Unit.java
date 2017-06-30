@@ -1,10 +1,9 @@
 package dms.pastor.game.dcs.units;
 
-import com.sun.istack.internal.NotNull;
 import dms.pastor.game.dcs.Elements;
-import dms.pastor.game.dcs.ElementsType;
 import dms.pastor.game.dcs.cards.Card;
 import dms.pastor.game.dcs.conditions.Condition;
+import dms.pastor.game.dcs.conditions.ElementType;
 import dms.pastor.game.dcs.utils.CLI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -258,7 +257,7 @@ public class Unit {
         return format("Unit{name='%s'\n, description='%s'\n, hp=%d, maxHp=%d\n, shielded=%s\n, sp=%d\n, arm=%d\n, elements=%s\n, cards=%s\n, player=%s\n, conditions=%s}", name, description, hp, maxHp, shielded, sp, arm, elements, cards, player, conditions);
     }
 
-    public int getElementsFor(@NotNull ElementsType elementsType) {
+    public int getElementsFor(ElementType elementsType) {
         if (elementsType == null) {
             LOGGER.warn("getElementsFor method was passed with null.");
             return 0;
@@ -279,7 +278,7 @@ public class Unit {
         }
     }
 
-    public void setElementsFor(ElementsType elementsType, int number) {
+    public void setElementsFor(ElementType elementsType, int number) {
         switch (elementsType) {
             case AIR:
                 elements.setAir(number);

@@ -15,12 +15,12 @@ import java.util.Random;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class InfernoStrike extends Spell {
+public class InfernoStrikeSpell extends Spell {
 
     private static final String HIT_MESSAGE = "It hits ";
     private final Random random = new Random();
 
-    public InfernoStrike() {
+    public InfernoStrikeSpell() {
         super();
         name = "Inferno Strike";
         setElements(new Elements(1, 2, 2, 0));

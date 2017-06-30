@@ -2,7 +2,7 @@ package dms.pastor.game.dcs.events;
 
 import dms.pastor.game.dcs.units.Unit;
 
-import static dms.pastor.game.dcs.ElementsType.EARTH;
+import static dms.pastor.game.dcs.conditions.ElementType.EARTH;
 
 /**
  * Author Dominik Symonowicz

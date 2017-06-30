@@ -3,10 +3,12 @@ package dms.pastor.game.dcs.game;
 import dms.pastor.game.dcs.conditions.Condition;
 import dms.pastor.game.dcs.conditions.ConditionEntry;
 import dms.pastor.game.dcs.conditions.ConditionEntryBuilder;
-import dms.pastor.game.dcs.conditions.ConditionType;
 import dms.pastor.game.dcs.units.Unit;
 import org.junit.Test;
 
+import static dms.pastor.game.dcs.conditions.ConditionType.POISONED;
+import static dms.pastor.game.dcs.conditions.ConditionType.REGENERATION;
+import static dms.pastor.game.dcs.conditions.ConditionType.STUNNED;
 import static dms.pastor.game.dcs.units.UnitBuilder.unitBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -46,19 +48,19 @@ public final class BattleTest {
     public void isInFightShouldReturnFalseIfAllUnitsAreAlive() {
         // given
         final ConditionEntry poisonCondition = ConditionEntryBuilder.conditionEntryBuilder()
-                .condition(ConditionType.POISONED)
+                .condition(POISONED)
                 .build();
         final ConditionEntry regenerationCondition = ConditionEntryBuilder.conditionEntryBuilder()
-                .condition(ConditionType.REGENERATION)
+                .condition(REGENERATION)
                 .build();
-        final ConditionEntry stunnedCondtion = ConditionEntryBuilder.conditionEntryBuilder()
-                .condition(ConditionType.STUNNED)
+        final ConditionEntry stunnedCondition = ConditionEntryBuilder.conditionEntryBuilder()
+                .condition(STUNNED)
                 .turnsLeft(1)
                 .build();
         Condition condition = new Condition();
         condition.add(poisonCondition);
         condition.add(regenerationCondition);
-        condition.add(stunnedCondtion);
+        condition.add(stunnedCondition);
 
         final Unit aliveUnit = unitBuilder()
                 .condition(condition)

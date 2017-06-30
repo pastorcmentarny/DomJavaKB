@@ -10,10 +10,10 @@ import java.io.PrintStream;
 import java.util.List;
 
 import static dms.pastor.game.dcs.ElementsBuilder.elementsBuilder;
-import static dms.pastor.game.dcs.ElementsType.AIR;
-import static dms.pastor.game.dcs.ElementsType.EARTH;
-import static dms.pastor.game.dcs.ElementsType.FIRE;
-import static dms.pastor.game.dcs.ElementsType.WATER;
+import static dms.pastor.game.dcs.conditions.ElementType.AIR;
+import static dms.pastor.game.dcs.conditions.ElementType.EARTH;
+import static dms.pastor.game.dcs.conditions.ElementType.FIRE;
+import static dms.pastor.game.dcs.conditions.ElementType.WATER;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -28,6 +28,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ElementsTest {
 
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    private static final int INIT_ELEMENTS = 10;
+    private static final int USED_ELEMENTS = 4;
+    private static final int ELEMENTS_LEFT = 6;
+
     private PrintStream printStream;
 
     @Before
@@ -60,6 +64,18 @@ public class ElementsTest {
 
         // then
         assertThat(outputStream.toString()).contains(String.format(" Air:%d Earth:%d Fire:%d Water:%d", 1, 1, 1, 1));
+    }
+
+    @Test
+    public void addElementWith5AirShouldAdd5AirElementToElements() {
+        // given
+        final Elements elements = elementsBuilder().setToOneForAllElements().build();
+
+        // when
+        elements.addElement(AIR, 5);
+
+        // then
+        assertThat(elements.getAir()).isEqualTo(6);
     }
 
     @Test
@@ -130,7 +146,7 @@ public class ElementsTest {
         final Elements elements = elementsBuilder().setToOneForAllElements().build();
 
         // when
-        int airCount = elements.getElementsFor(ElementType.AIR);
+        int airCount = elements.getElementsFor(AIR);
 
         // then
         assertThat(airCount).isEqualTo(1);
@@ -142,7 +158,7 @@ public class ElementsTest {
         final Elements elements = elementsBuilder().setToOneForAllElements().build();
 
         // when
-        int airCount = elements.getElementsFor(ElementType.EARTH);
+        int airCount = elements.getElementsFor(EARTH);
 
         // then
         assertThat(airCount).isEqualTo(1);
@@ -154,7 +170,7 @@ public class ElementsTest {
         final Elements elements = elementsBuilder().setToOneForAllElements().build();
 
         // when
-        int airCount = elements.getElementsFor(ElementType.FIRE);
+        int airCount = elements.getElementsFor(FIRE);
 
         // then
         assertThat(airCount).isEqualTo(1);
@@ -167,7 +183,7 @@ public class ElementsTest {
         final Elements elements = elementsBuilder().setToOneForAllElements().build();
 
         // when
-        int airCount = elements.getElementsFor(ElementType.WATER);
+        int airCount = elements.getElementsFor(WATER);
 
         // then
         assertThat(airCount).isEqualTo(1);
@@ -187,4 +203,65 @@ public class ElementsTest {
         assertThat(elementType.size()).isEqualTo(1);
 
     }
+
+    @Test
+    public void useElementShouldUseFourAirElements() {
+        // given
+        final Elements elements = elementsBuilder()
+                .air(INIT_ELEMENTS)
+                .build();
+
+        // when
+        final int usedElementsCount = elements.useElement(AIR, USED_ELEMENTS);
+
+        // then
+        assertThat(usedElementsCount).isEqualTo(ELEMENTS_LEFT);
+        assertThat(elements.getAir()).isEqualTo(ELEMENTS_LEFT);
+    }
+
+    @Test
+    public void useElementShouldUseFourEarthElements() {
+        // given
+        final Elements elements = elementsBuilder()
+                .earth(INIT_ELEMENTS)
+                .build();
+
+        // when
+        final int usedElementsCount = elements.useElement(EARTH, USED_ELEMENTS);
+
+        // then
+        assertThat(usedElementsCount).isEqualTo(ELEMENTS_LEFT);
+        assertThat(elements.getEarth()).isEqualTo(ELEMENTS_LEFT);
+    }
+
+    @Test
+    public void useElementShouldUseFourFireElements() {
+        // given
+        final Elements elements = elementsBuilder()
+                .fire(INIT_ELEMENTS)
+                .build();
+
+        // when
+        final int usedElementsCount = elements.useElement(FIRE, USED_ELEMENTS);
+
+        // then
+        assertThat(usedElementsCount).isEqualTo(ELEMENTS_LEFT);
+        assertThat(elements.getFire()).isEqualTo(ELEMENTS_LEFT);
+    }
+
+    @Test
+    public void useElementShouldUseFourWaterElements() {
+        // given
+        final Elements elements = elementsBuilder()
+                .water(INIT_ELEMENTS)
+                .build();
+
+        // when
+        final int usedElementsCount = elements.useElement(WATER, USED_ELEMENTS);
+
+        // then
+        assertThat(usedElementsCount).isEqualTo(ELEMENTS_LEFT);
+        assertThat(elements.getWater()).isEqualTo(ELEMENTS_LEFT);
+    }
+
 }

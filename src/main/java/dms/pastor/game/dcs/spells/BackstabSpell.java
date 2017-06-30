@@ -3,8 +3,6 @@ package dms.pastor.game.dcs.spells;
 import dms.pastor.game.dcs.Config;
 import dms.pastor.game.dcs.Elements;
 import dms.pastor.game.dcs.units.Unit;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * Author Dominik Symonowicz
@@ -16,8 +14,6 @@ import org.slf4j.LoggerFactory;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class BackstabSpell extends Spell {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(BackstabSpell.class);
 
     public BackstabSpell() {
         super();

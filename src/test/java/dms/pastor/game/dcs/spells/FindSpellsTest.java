@@ -123,7 +123,7 @@ public class FindSpellsTest {
     @Test
     public void testFindInfernoStrike() throws Exception {
         Elements elements = new Elements(1, 2, 2, 0);
-        assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new InfernoStrike().getName()));
+        assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new InfernoStrikeSpell().getName()));
     }
 
     @Test

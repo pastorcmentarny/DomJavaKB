@@ -2,10 +2,10 @@ package dms.pastor.game.dcs.events;
 
 import dms.pastor.game.dcs.units.Unit;
 
-import static dms.pastor.game.dcs.ElementsType.WATER;
 import static dms.pastor.game.dcs.conditions.ConditionEntry.createTemporaryCondition;
 import static dms.pastor.game.dcs.conditions.ConditionType.FROZEN;
 import static dms.pastor.game.dcs.conditions.ConditionType.WATER_SENSITIVE;
+import static dms.pastor.game.dcs.conditions.ElementType.WATER;
 
 /**
  * Author Dominik Symonowicz

@@ -8,11 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static dms.pastor.game.dcs.conditions.ElementType.AIR;
-import static dms.pastor.game.dcs.conditions.ElementType.EARTH;
-import static dms.pastor.game.dcs.conditions.ElementType.FIRE;
-import static dms.pastor.game.dcs.conditions.ElementType.WATER;
+import static dms.pastor.game.dcs.conditions.ElementType.values;
 import static java.lang.String.format;
+import static java.util.Arrays.asList;
 import static java.util.Objects.hash;
 import static org.slf4j.LoggerFactory.getLogger;
 
@@ -56,7 +54,7 @@ public class Elements {
 
     public void addRandomElements(int addCardPerTurn) {
         for (int i = 1; i <= addCardPerTurn; i++) {
-            switch (random.nextInt(ElementType.values().length)) {
+            switch (random.nextInt(values().length)) {
                 case 0:
                     air++;
                     break;
@@ -125,23 +123,23 @@ public class Elements {
         air -= spellElements.getAir();
     }
 
-    public void addElement(ElementsType elementsType) {
+    public void addElement(ElementType elementsType, int number) {
         if (elementsType == null) {
             LOGGER.warn("Element type was null, while calling elementsType. Bug?");
             return;
         }
         switch (elementsType) {
             case AIR:
-                air++;
+                air += number;
                 break;
             case FIRE:
-                fire++;
+                fire += number;
                 break;
             case EARTH:
-                earth++;
+                earth += number;
                 break;
             case WATER:
-                water++;
+                water += number;
                 break;
             default:
                 System.out.println("OH COCK, unimplemented element in addElement");
@@ -149,30 +147,14 @@ public class Elements {
         }
     }
 
+    public void addElement(ElementType elementsType) {
+        addElement(elementsType, 1);
+    }
+
     public List<ElementType> removeRandomElements(int numberOfElements) {
         List<ElementType> types = new ArrayList<>();
         for (int i = 1; i <= numberOfElements; i++) {
-            switch (random.nextInt(ElementType.values().length)) {
-                case 0:
-                    reduceAirElement();
-                    types.add(AIR);
-                    break;
-                case 1:
-                    reduceEarthElement();
-                    types.add(EARTH);
-                    break;
-                case 2:
-                    reduceFireElement();
-                    types.add(FIRE);
-                    break;
-                case 3:
-                    reduceWaterElement();
-                    types.add(WATER);
-                    break;
-                default:
-                    LOGGER.warn("bug in addRandomElements");
-                    return null; //TODO improve it
-            }
+            useElement(asList(values()).get(values().length - 1), 1);
         }
         return types;
     }
@@ -197,7 +179,7 @@ public class Elements {
 
     public int getAndUseRandomElements() {
         int numberOfElements;
-        switch (random.nextInt(ElementType.values().length)) {
+        switch (random.nextInt(values().length)) {
             case 0:
                 numberOfElements = air;
                 setAir(0);
@@ -218,6 +200,45 @@ public class Elements {
                 System.out.println("bug in getAndUseRandomElements");
                 return 0;
         }
+    }
+
+    public int countElements() {
+        return air + earth + fire + water;
+    }
+
+    public int getElementsFor(ElementType elementType) {
+        switch (elementType) {
+            case AIR:
+                return air;
+            case EARTH:
+                return earth;
+            case FIRE:
+                return fire;
+            case WATER:
+                return water;
+            default:
+                throw new SomethingWentWrongException("No implementation for " + elementType);
+        }
+    }
+
+    public int useElement(ElementType elementType, int number) {
+        switch (elementType) {
+            case AIR:
+                air -= number;
+                return getAir();
+            case FIRE:
+                fire -= number;
+                return getFire();
+            case EARTH:
+                earth -= number;
+                return getEarth();
+            case WATER:
+                water -= number;
+                return getWater();
+            default:
+                throw new SomethingWentWrongException("No implementation for " + elementType);
+        }
+
     }
 
     @Override
@@ -245,29 +266,9 @@ public class Elements {
         return format("Elements{fire=%d, water=%d, earth=%d, air=%d}", fire, water, earth, air);
     }
 
-    public int countElements() {
-        return air + earth + fire + water;
-    }
-
     private void reduceAirElement() {
         if (air > 0) {
             air--;
         }
-    }
-
-    public int getElementsFor(ElementType elementType) {
-        switch (elementType) {
-            case AIR:
-                return air;
-            case EARTH:
-                return earth;
-            case FIRE:
-                return fire;
-            case WATER:
-                return water;
-            default:
-                throw new SomethingWentWrongException("No implementation for " + elementType);
-        }
-
     }
 }

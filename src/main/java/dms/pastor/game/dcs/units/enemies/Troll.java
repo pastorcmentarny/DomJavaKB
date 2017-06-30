@@ -10,8 +10,8 @@ import dms.pastor.game.dcs.units.enemies.actions.CureAction;
 import dms.pastor.game.dcs.utils.random.InGameRandomiseUtils;
 import dms.pastor.game.dcs.utils.random.RandomiseUtils;
 
-import static dms.pastor.game.dcs.ElementsType.EARTH;
-import static dms.pastor.game.dcs.ElementsType.FIRE;
+import static dms.pastor.game.dcs.conditions.ElementType.EARTH;
+import static dms.pastor.game.dcs.conditions.ElementType.FIRE;
 
 /**
  * Author Dominik Symonowicz

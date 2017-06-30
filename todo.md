@@ -9,7 +9,7 @@ Enemies
 4. Deamon
 5. Dwarf
 6. Earthling (Human)
-7. Efreet
+.
 8. Elf
 9. Genie
 10. Ghost
@@ -20,7 +20,7 @@ Enemies
 15. Lizard
 16. Medusa
 17. Mintotaur
-18. Mummy
+.
 19. Ogr
 20. Ork
 21. Pegasus

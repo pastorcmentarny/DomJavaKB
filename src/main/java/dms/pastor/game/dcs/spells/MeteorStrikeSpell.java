@@ -1,11 +1,13 @@
 package dms.pastor.game.dcs.spells;
 
-import dms.pastor.game.dcs.Config;
 import dms.pastor.game.dcs.Elements;
-import dms.pastor.game.dcs.conditions.ElementType;
 import dms.pastor.game.dcs.units.Unit;
 
 import java.util.Random;
+
+import static dms.pastor.game.dcs.Config.METEOR_STRIKE_DMG;
+import static dms.pastor.game.dcs.Config.METEOR_STRIKE_NO;
+import static dms.pastor.game.dcs.conditions.ElementType.FIRE;
 
 /**
  * Author Dominik Symonowicz
@@ -29,20 +31,20 @@ public class MeteorStrikeSpell extends Spell {
     @Override
     public void castSpell(Unit attacker, Unit defender) {
         castSpellMessage(attacker.getName(), name, defender.getName());
-        for (int i = 1; i <= Config.METEOR_STRIKE_NO; i++) {
+        for (int i = 1; i <= METEOR_STRIKE_NO; i++) {
             int r = random.nextInt(100);
             if (r >= 50) {
                 System.out.println("Meteor hit " + defender.getName());
-                if (defender.getConditions().isNotImmuneTo(ElementType.FIRE)) {
-                    attacker.doesDamageTo(defender, Config.METEOR_STRIKE_DMG);
+                if (defender.getConditions().isNotImmuneTo(FIRE)) {
+                    attacker.doesDamageTo(defender, METEOR_STRIKE_DMG);
                 }
             } else if (r >= 5) {
                 System.out.println("Meteor missed.");
             } else {
                 System.out.println("Meteor accidentally hit " + attacker.getName());
                 System.out.println("Meteor hit " + defender.getName());
-                if (attacker.getConditions().isNotImmuneTo(ElementType.FIRE)) {
-                    attacker.doesDamageTo(attacker, Config.METEOR_STRIKE_DMG);
+                if (attacker.getConditions().isNotImmuneTo(FIRE)) {
+                    attacker.doesDamageTo(attacker, METEOR_STRIKE_DMG);
                 }
             }
         }

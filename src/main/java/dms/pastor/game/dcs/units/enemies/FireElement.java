@@ -1,13 +1,13 @@
 package dms.pastor.game.dcs.units.enemies;
 
 import dms.pastor.game.dcs.Elements;
-import dms.pastor.game.dcs.ElementsType;
+import dms.pastor.game.dcs.conditions.ElementType;
 import dms.pastor.game.dcs.spells.AntiShieldPiercingSpell;
 import dms.pastor.game.dcs.spells.FireBallSpell;
 import dms.pastor.game.dcs.units.Unit;
 
-import static dms.pastor.game.dcs.ElementsType.AIR;
-import static dms.pastor.game.dcs.ElementsType.EARTH;
+import static dms.pastor.game.dcs.conditions.ElementType.AIR;
+import static dms.pastor.game.dcs.conditions.ElementType.EARTH;
 
 /**
  * Author Dominik Symonowicz
@@ -63,7 +63,7 @@ public class FireElement extends Unit {
         convertToFireElementFrom(AIR);
     }
 
-    private void convertToFireElementFrom(ElementsType type) {
+    private void convertToFireElementFrom(ElementType type) {
         final int elementsNeeded = 3;
         if (getElementsFor(type) >= elementsNeeded) {
             int elementToAdd = getElementsFor(type) / elementsNeeded;

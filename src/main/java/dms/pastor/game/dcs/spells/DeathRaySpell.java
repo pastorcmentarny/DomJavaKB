@@ -1,8 +1,9 @@
 package dms.pastor.game.dcs.spells;
 
-import dms.pastor.game.dcs.Config;
 import dms.pastor.game.dcs.Elements;
 import dms.pastor.game.dcs.units.Unit;
+
+import static dms.pastor.game.dcs.Config.DEATH_RAY_DMG;
 
 /**
  * Author Dominik Symonowicz
@@ -24,7 +25,7 @@ public class DeathRaySpell extends Spell {
     @Override
     public void castSpell(Unit attacker, Unit defender) {
         castSpellMessage(attacker.getName(), name, defender.getName());
-        defender.doesDirectDamage(Config.DEATH_RAY_DMG);
-        System.out.println(name + " does " + Config.DEATH_RAY_DMG + " dmg.");
+        defender.doesDirectDamage(DEATH_RAY_DMG);
+        System.out.println(name + " does " + DEATH_RAY_DMG + " dmg.");
     }
 }

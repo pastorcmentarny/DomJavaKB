@@ -8,10 +8,10 @@ import java.io.PrintStream;
 
 import static dms.pastor.game.dcs.Config.INITIAL_SHIELD_POINTS;
 import static dms.pastor.game.dcs.ElementsBuilder.elementsBuilder;
-import static dms.pastor.game.dcs.ElementsType.AIR;
-import static dms.pastor.game.dcs.ElementsType.EARTH;
-import static dms.pastor.game.dcs.ElementsType.FIRE;
-import static dms.pastor.game.dcs.ElementsType.WATER;
+import static dms.pastor.game.dcs.conditions.ElementType.AIR;
+import static dms.pastor.game.dcs.conditions.ElementType.EARTH;
+import static dms.pastor.game.dcs.conditions.ElementType.FIRE;
+import static dms.pastor.game.dcs.conditions.ElementType.WATER;
 import static dms.pastor.game.dcs.units.UnitBuilder.unitBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -133,7 +133,6 @@ public class UnitTest {
     public void createShieldShouldDoNothingIfUnitIsShieldedAlready() throws Exception {
         // given
         System.setOut(new PrintStream(outputStream));
-        final int initialSp = 10;
         final Unit unit = unitBuilder()
                 .shielded(true)
                 .build();

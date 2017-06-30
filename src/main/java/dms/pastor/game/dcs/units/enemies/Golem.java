@@ -8,9 +8,9 @@ import dms.pastor.game.dcs.units.Unit;
 
 import java.util.Random;
 
-import static dms.pastor.game.dcs.ElementsType.EARTH;
 import static dms.pastor.game.dcs.conditions.ConditionEntry.createPersistentCondition;
 import static dms.pastor.game.dcs.conditions.ConditionType.EARTH_IMMUNE;
+import static dms.pastor.game.dcs.conditions.ElementType.EARTH;
 
 public class Golem extends Unit {
 

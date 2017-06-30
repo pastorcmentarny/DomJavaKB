@@ -16,9 +16,9 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class InfernoStrikeTest {
+public class InfernoStrikeSpellTest {
 
-    private InfernoStrike infernoStrike = new InfernoStrike();
+    private InfernoStrikeSpell infernoStrikeSpell = new InfernoStrikeSpell();
 
     @Test
     public void castInfernoStrikeShouldDoesDamage() throws Exception {
@@ -29,7 +29,7 @@ public class InfernoStrikeTest {
                 .hp(initHp)
                 .build();
         // when
-        infernoStrike.castSpell(unit, unit);
+        infernoStrikeSpell.castSpell(unit, unit);
 
         // then
         assertThat(unit.getHp()).isLessThan(initHp);
@@ -49,7 +49,7 @@ public class InfernoStrikeTest {
 
         // when
         for (int i = 0; i < 10; i++) {
-            infernoStrike.castSpell(unit1, unit2);
+            infernoStrikeSpell.castSpell(unit1, unit2);
             if (unit1.getHp() < 200) {
                 isUnitOneHit = true;
             }

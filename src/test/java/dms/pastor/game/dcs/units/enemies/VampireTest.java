@@ -1,6 +1,5 @@
 package dms.pastor.game.dcs.units.enemies;
 
-import dms.pastor.game.dcs.ElementsType;
 import dms.pastor.game.dcs.spells.IceBoltSpell;
 import dms.pastor.game.dcs.spells.VampireDrainSpell;
 import dms.pastor.game.dcs.units.Unit;
@@ -15,6 +14,10 @@ import java.io.IOException;
 import java.io.PrintStream;
 
 import static dms.pastor.game.dcs.Config.VAMPIRE_DRAIN_HEAL_HP;
+import static dms.pastor.game.dcs.conditions.ElementType.AIR;
+import static dms.pastor.game.dcs.conditions.ElementType.EARTH;
+import static dms.pastor.game.dcs.conditions.ElementType.FIRE;
+import static dms.pastor.game.dcs.conditions.ElementType.WATER;
 import static dms.pastor.game.dcs.units.UnitBuilder.unitBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -42,10 +45,10 @@ public final class VampireTest {
         // given
         Vampire vampire = new Vampire();
 
-        vampire.setElementsFor(ElementsType.AIR, 6);
-        vampire.setElementsFor(ElementsType.EARTH, 6);
-        vampire.setElementsFor(ElementsType.FIRE, 6);
-        vampire.setElementsFor(ElementsType.WATER, 3);
+        vampire.setElementsFor(AIR, 6);
+        vampire.setElementsFor(EARTH, 6);
+        vampire.setElementsFor(FIRE, 6);
+        vampire.setElementsFor(WATER, 3);
 
         Unit enemy = unitBuilder()
                 .withoutShield()
