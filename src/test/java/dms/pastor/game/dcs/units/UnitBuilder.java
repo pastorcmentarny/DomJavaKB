@@ -8,7 +8,6 @@ import dms.pastor.game.dcs.conditions.ConditionType;
 
 import java.util.ArrayList;
 
-import static dms.pastor.game.dcs.Config.INITIAL_SHIELD_POINTS;
 import static dms.pastor.game.dcs.conditions.ConditionEntryBuilder.conditionEntryBuilder;
 
 /**
@@ -25,7 +24,6 @@ public class UnitBuilder {
     private int hp = 24;
     private int sp = 24;
     private ArrayList<Card> cards = new ArrayList<>();
-    private boolean shielded = false;
     private Elements elements = Elements.noElements();
     private String description = "Description";
     private boolean player = false;
@@ -43,13 +41,8 @@ public class UnitBuilder {
     }
 
     public Unit build() {
-        if (sp <= 0) {
-            sp = 0;
-            shielded = false;
-        } else {
-            shielded = true;
-        }
-        final Unit unit = new Unit(shielded,
+        setSpToZeroIfIsNegative();
+        final Unit unit = new Unit(
                 sp,
                 elements,
                 hp,
@@ -65,7 +58,7 @@ public class UnitBuilder {
     }
 
     public Unit buildDeathUnit() {
-        return new Unit(false, 0, null, 0, null, false, "Death Unit", 1, 0, null, "This unit is death.");
+        return new Unit(0, null, 0, null, false, "Death Unit", 1, 0, null, "This unit is death.");
     }
 
     public UnitBuilder hp(int hp) {
@@ -75,26 +68,11 @@ public class UnitBuilder {
 
     public UnitBuilder sp(int sp) {
         this.sp = sp;
-        if (sp > 0) {
-            this.shielded(true);
-        }
         return this;
     }
 
     public UnitBuilder cards(ArrayList<Card> cards) {
         this.cards = cards;
-        return this;
-    }
-
-    public UnitBuilder shielded(boolean shielded) {
-        this.shielded = shielded;
-        if (shielded) {
-            if (sp == 0) {
-                sp = INITIAL_SHIELD_POINTS;
-            }
-        } else {
-            sp = 0;
-        }
         return this;
     }
 
@@ -141,13 +119,26 @@ public class UnitBuilder {
     }
 
     public UnitBuilder withoutShield() {
-        this.shielded(false);
         this.sp = 0;
         return this;
     }
 
     public UnitBuilder hpRegenPerTurn(int regenHpRate) {
         this.hpRegenRate = regenHpRate;
+        return this;
+    }
+
+    private void setSpToZeroIfIsNegative() {
+        if (sp <= 0) {
+            sp = 0;
+
+        }
+    }
+
+    public UnitBuilder shielded() {
+        if (sp <= 0) {
+            sp = Config.INITIAL_SHIELD_POINTS;
+        }
         return this;
     }
 }

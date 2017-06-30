@@ -1,5 +1,6 @@
 package dms.pastor.game.dcs.game;
 
+import dms.pastor.game.dcs.units.enemies.Afreet;
 import dms.pastor.game.dcs.units.enemies.Dummy;
 import dms.pastor.game.dcs.units.enemies.FireElement;
 import dms.pastor.game.dcs.units.enemies.Golem;
@@ -10,6 +11,17 @@ import org.junit.Test;
 
 //TODO generator for all possible 1 vs 1
 public final class UnitVsUnitBattleSimulationTest {
+
+    @Test
+    public void dummyVsAfreetBattleSimulationTest() {
+        // setup
+        Dummy dummy = new Dummy("Dummy");
+        Afreet afreet = new Afreet();
+        Battle battle = new Battle(dummy, afreet);
+
+        // battle
+        battle.isInFight();
+    }
 
     @Test
     public void dummyVsFireElementBattleSimulationTest() {
@@ -60,6 +72,61 @@ public final class UnitVsUnitBattleSimulationTest {
         Dummy dummy = new Dummy("Dummy");
         Vampire vampire = new Vampire();
         Battle battle = new Battle(dummy, vampire);
+
+        // battle
+        battle.isInFight();
+    }
+
+    @Test
+    public void afreetVsFireElementBattleSimulationTest() {
+        // setup
+        Afreet afreet = new Afreet();
+        FireElement fireElement = new FireElement();
+        Battle battle = new Battle(afreet, fireElement);
+
+        // battle
+        battle.isInFight();
+    }
+
+    @Test
+    public void afreetVsGolemBattleSimulationTest() {
+        // setup
+        Afreet afreet = new Afreet();
+        Golem golem = new Golem();
+        Battle battle = new Battle(afreet, golem);
+
+        // battle
+        battle.isInFight();
+    }
+
+    @Test
+    public void afreetVsMummyBattleSimulationTest() {
+        // setup
+        Afreet afreet = new Afreet();
+        Mummy mummy = new Mummy();
+        Battle battle = new Battle(afreet, mummy);
+
+        // battle
+        battle.isInFight();
+    }
+
+    @Test
+    public void afreetVsTrollBattleSimulationTest() {
+        // setup
+        Afreet afreet = new Afreet();
+        Mummy mummy = new Mummy();
+        Battle battle = new Battle(afreet, mummy);
+
+        // battle
+        battle.isInFight();
+    }
+
+    @Test
+    public void afreetVsVampireBattleSimulationTest() {
+        // setup
+        Afreet afreet = new Afreet();
+        Vampire vampire = new Vampire();
+        Battle battle = new Battle(afreet, vampire);
 
         // battle
         battle.isInFight();

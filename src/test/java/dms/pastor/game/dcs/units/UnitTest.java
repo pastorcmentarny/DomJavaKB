@@ -35,7 +35,7 @@ public class UnitTest {
     public void recreateShieldShouldSetSpToInitialSpIfCurrentSpIsHigher() throws Exception {
         // given
         final Unit unit = unitBuilder()
-                .shielded(true)
+                .shielded()
                 .sp(LARGE_SHIELD_POINTS)
                 .build();
         // when
@@ -50,7 +50,7 @@ public class UnitTest {
     public void recreateShieldShouldDoNotChangeIfCurrentSpIsLower() throws Exception {
         // given
         final Unit unit = unitBuilder()
-                .shielded(true)
+                .shielded()
                 .sp(1)
                 .build();
         // when
@@ -65,7 +65,7 @@ public class UnitTest {
     public void recreateShieldShouldCreateShield() throws Exception {
         // given
         final Unit unit = unitBuilder()
-                .shielded(false)
+                .withoutShield()
                 .sp(0)
                 .build();
         // when
@@ -115,7 +115,7 @@ public class UnitTest {
     public void createShieldShouldEnableShieldAndSetInitialSPValue() throws Exception {
         // given
         final Unit unit = unitBuilder()
-                .shielded(false)
+                .withoutShield()
                 .sp(0)
                 .build();
         final int initialShieldPoints = 20;
@@ -134,7 +134,7 @@ public class UnitTest {
         // given
         System.setOut(new PrintStream(outputStream));
         final Unit unit = unitBuilder()
-                .shielded(true)
+                .shielded()
                 .build();
 
         // when
@@ -320,7 +320,7 @@ public class UnitTest {
     public void isNotShieldedShouldReturnTrueIfUnitDoNotHaveShield() {
         // given
         final Unit unit = unitBuilder()
-                .shielded(false)
+                .withoutShield()
                 .build();
 
         // when
@@ -334,7 +334,7 @@ public class UnitTest {
     public void isNotShieldedShouldReturnFalseIfUnitDoHaveShield() {
         // given
         final Unit unit = unitBuilder()
-                .shielded(true)
+                .shielded()
                 .build();
 
         // when
@@ -348,7 +348,6 @@ public class UnitTest {
     public void setShieldToFalseShouldSetSpValueToZero() {
         // given
         final Unit unit = unitBuilder()
-                .shielded(true)
                 .sp(LARGE_SHIELD_POINTS)
                 .build();
 
@@ -369,7 +368,7 @@ public class UnitTest {
         final Unit unit = unitBuilder()
                 .hp(1)
                 .hpRegenPerTurn(regenHpRate)
-                .shielded(false)
+                .withoutShield()
                 .build();
 
         // when
@@ -391,7 +390,7 @@ public class UnitTest {
                 .hp(9)
                 .maxHp(maxHp)
                 .hpRegenPerTurn(regenHpRate)
-                .shielded(false)
+                .withoutShield()
                 .build();
 
         // when
@@ -413,7 +412,7 @@ public class UnitTest {
                 .hp(currentHp)
                 .maxHp(maxHp)
                 .hpRegenPerTurn(regenHpRate)
-                .shielded(false)
+                .withoutShield()
                 .build();
 
         // when

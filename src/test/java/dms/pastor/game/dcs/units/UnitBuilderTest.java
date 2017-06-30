@@ -1,8 +1,10 @@
 package dms.pastor.game.dcs.units;
 
+import dms.pastor.game.dcs.Config;
 import org.junit.Test;
 
 import static dms.pastor.utils.randoms.RandomDataGenerator.randomNegativeInteger;
+import static dms.pastor.utils.randoms.RandomDataGenerator.randomPositiveInteger;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -17,12 +19,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class UnitBuilderTest {
 
     @Test
-    public void buildShouldReturnUnitThatIsShieldIfSpIsHigherThanZeroAndShieldedIsSetToFalse() throws Exception {
+    public void buildShouldReturnUnitWithoutShieldIfLastModificationWasWithoutShield() throws Exception {
 
         // when
         final Unit unit = UnitBuilder.unitBuilder()
                 .sp(10)
-                .shielded(false)
+                .withoutShield()
                 .build();
 
         // then
@@ -31,12 +33,26 @@ public class UnitBuilderTest {
     }
 
     @Test
-    public void buildShouldReturnUnitWithoutShieldIfSpIsEqualOrLessZeroEvenShieldedIsSetToTrue() throws Exception {
+    public void buildShouldReturnUnitShieldedIfLastStepIsShieldedIsSetToTrue() throws Exception {
 
         // when
         final Unit unit = UnitBuilder.unitBuilder()
                 .sp(randomNegativeInteger())
-                .shielded(true)
+                .shielded()
+                .build();
+
+        // then
+        assertThat(unit.isShielded()).isTrue();
+        assertThat(unit.getSp()).isEqualTo(Config.INITIAL_SHIELD_POINTS);
+    }
+
+    @Test
+    public void buildShouldReturnUnitWithoutShieldIfSpIsEqualOrLessZeroEvenShieldedIsSetToTrue() throws Exception {
+
+        // when
+        final Unit unit = UnitBuilder.unitBuilder()
+                .sp(randomPositiveInteger())
+                .withoutShield()
                 .build();
 
         // then

@@ -44,7 +44,7 @@ public class BackstabSpellAcceptanceTest {
         final int initialHp = 10;
         final Unit unit2 = unitBuilder()
                 .hp(initialHp)
-                .shielded(false)
+                .withoutShield()
                 .sp(0)
                 .build();
         // when

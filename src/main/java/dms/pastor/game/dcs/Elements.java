@@ -154,27 +154,11 @@ public class Elements {
     public List<ElementType> removeRandomElements(int numberOfElements) {
         List<ElementType> types = new ArrayList<>();
         for (int i = 1; i <= numberOfElements; i++) {
-            useElement(asList(values()).get(values().length - 1), 1);
+            final ElementType elementTypeToRemove = asList(values()).get(values().length - 1);
+            useElement(elementTypeToRemove, 1);
+            types.add(elementTypeToRemove);
         }
         return types;
-    }
-
-    private void reduceWaterElement() {
-        if (water > 0) {
-            water--;
-        }
-    }
-
-    private void reduceFireElement() {
-        if (fire > 0) {
-            fire--;
-        }
-    }
-
-    private void reduceEarthElement() {
-        if (earth > 0) {
-            earth--;
-        }
     }
 
     public int getAndUseRandomElements() {

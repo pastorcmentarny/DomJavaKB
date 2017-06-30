@@ -35,7 +35,6 @@ public class Unit {
     private int hp = DEFAULT_HEALTH_POINTS;
     private int maxHp = 32;
 
-    private boolean shielded = false;
     private int sp = INITIAL_SHIELD_POINTS;
 
     private int arm = 0;
@@ -50,8 +49,7 @@ public class Unit {
 
     }
 
-    public Unit(boolean shielded, int sp, Elements elements, int hp, ArrayList<Card> cards, boolean player, String name, int maxHp, int arm, Condition conditions, String description) {
-        this.shielded = shielded;
+    public Unit(int sp, Elements elements, int hp, ArrayList<Card> cards, boolean player, String name, int maxHp, int arm, Condition conditions, String description) {
         this.sp = sp;
         this.elements = elements;
         this.hp = hp;
@@ -110,7 +108,7 @@ public class Unit {
     public void displayStats() {
         CLI.lineSeparator();
         String stats = getName() + " HP: " + hp + "/" + maxHp;
-        if (shielded && sp > 0) {
+        if (sp > 0) {
             stats += "| SP: " + sp;
         }
         System.out.println(stats);
@@ -170,16 +168,15 @@ public class Unit {
     }
 
     public boolean isShielded() {
-        return shielded;
+        return sp > 0;
     }
 
     protected void setShielded(boolean shielded) {
         setSpToZeroIfUnitIsNotShielded(shielded);
-        this.shielded = shielded;
     }
 
     public boolean isNotShielded() {
-        return !shielded;
+        return !isShielded();
     }
 
     private void setSpToZeroIfUnitIsNotShielded(boolean shielded) {
@@ -190,12 +187,11 @@ public class Unit {
 
     public int doesShieldDamage(int dmg) {
         System.out.println("Shield damage to deal: " + dmg);
-        if (shielded) {
+        if (isShielded()) {
             sp -= dmg;
             if (sp < 0) {
                 int tmp = sp * (-1);
                 sp = 0;
-                shielded = false;
                 return tmp;
             } else {
                 return 0;
@@ -210,7 +206,7 @@ public class Unit {
     }
 
     public boolean increaseShieldBy(int shieldHealBy) {
-        if (shielded) {
+        if (isShielded()) {
             sp += shieldHealBy;
             return true;
         } else {
@@ -219,8 +215,7 @@ public class Unit {
     }
 
     public void createShield(int initialShieldPoints) {
-        if (!shielded) {
-            shielded = true;
+        if (isNotShielded()) {
             sp = initialShieldPoints;
         } else {
             System.out.println(name + " has shield already.");
@@ -232,7 +227,7 @@ public class Unit {
     }
 
     public void shieldRegen(int regenShieldPoints) {
-        if (shielded) {
+        if (isShielded()) {
             sp += regenShieldPoints;
         }
     }
@@ -242,8 +237,7 @@ public class Unit {
     }
 
     public void recreateShield() {
-        if (!shielded) {
-            shielded = true;
+        if (isNotShielded()) {
             sp = INITIAL_SHIELD_POINTS;
         } else {
             if (sp > INITIAL_SHIELD_POINTS) {
@@ -254,7 +248,7 @@ public class Unit {
 
     @Override
     public String toString() {
-        return format("Unit{name='%s'\n, description='%s'\n, hp=%d, maxHp=%d\n, shielded=%s\n, sp=%d\n, arm=%d\n, elements=%s\n, cards=%s\n, player=%s\n, conditions=%s}", name, description, hp, maxHp, shielded, sp, arm, elements, cards, player, conditions);
+        return format("Unit{name='%s'\n, description='%s'\n, hp=%d, maxHp=%d\n, sp=%d\n, arm=%d\n, elements=%s\n, cards=%s\n, player=%s\n, conditions=%s}", name, description, hp, maxHp, sp, arm, elements, cards, player, conditions);
     }
 
     public int getElementsFor(ElementType elementsType) {
