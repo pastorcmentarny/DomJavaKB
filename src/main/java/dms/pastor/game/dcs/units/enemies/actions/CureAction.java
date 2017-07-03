@@ -9,10 +9,7 @@ public class CureAction implements Action {
     public void perform(Unit caster, Unit target) {
         if (target.getConditions().has(ConditionType.BLIND) || target.getConditions().has(ConditionType.POISONED) || target.getConditions().has(ConditionType.WEAKNESS)) {
             CureSpell cureSpell = new CureSpell();
-            if (cureSpell.hasEnoughElementsToCovertToSpell(caster.getElements())) {
-                cureSpell.castSpell(caster, target);
-                caster.getElements().useElements(cureSpell.getElements());
-            }
+            cureSpell.castSpellIfHasEnoughElements(caster, target);
         }
     }
 }

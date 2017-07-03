@@ -1,12 +1,6 @@
 package dms.pastor.game.dcs.game;
 
-import dms.pastor.game.dcs.units.enemies.Afreet;
-import dms.pastor.game.dcs.units.enemies.Dummy;
-import dms.pastor.game.dcs.units.enemies.FireElement;
-import dms.pastor.game.dcs.units.enemies.Golem;
-import dms.pastor.game.dcs.units.enemies.Mummy;
-import dms.pastor.game.dcs.units.enemies.Troll;
-import dms.pastor.game.dcs.units.enemies.Vampire;
+import dms.pastor.game.dcs.units.enemies.*;
 import org.junit.Test;
 
 //TODO generator for all possible 1 vs 1
@@ -14,6 +8,17 @@ public final class UnitVsUnitBattleSimulationTest {
 
     @Test
     public void dummyVsAfreetBattleSimulationTest() {
+        // setup
+        Dummy dummy = new Dummy("Dummy");
+        Afreet afreet = new Afreet();
+        Battle battle = new Battle(dummy, afreet);
+
+        // battle
+        battle.isInFight();
+    }
+
+    @Test
+    public void dummyVsDragonBattleSimulationTest() {
         // setup
         Dummy dummy = new Dummy("Dummy");
         Afreet afreet = new Afreet();
@@ -55,6 +60,7 @@ public final class UnitVsUnitBattleSimulationTest {
         // battle
         battle.isInFight();
     }
+
     @Test
     public void dummyVsTrollBattleSimulationTest() {
         // setup
@@ -72,6 +78,17 @@ public final class UnitVsUnitBattleSimulationTest {
         Dummy dummy = new Dummy("Dummy");
         Vampire vampire = new Vampire();
         Battle battle = new Battle(dummy, vampire);
+
+        // battle
+        battle.isInFight();
+    }
+
+    @Test
+    public void afreetVsDragonBattleSimulationTest() {
+        // setup
+        Afreet afreet = new Afreet();
+        Dragon dragon = new Dragon();
+        Battle battle = new Battle(afreet, dragon);
 
         // battle
         battle.isInFight();
@@ -127,6 +144,61 @@ public final class UnitVsUnitBattleSimulationTest {
         Afreet afreet = new Afreet();
         Vampire vampire = new Vampire();
         Battle battle = new Battle(afreet, vampire);
+
+        // battle
+        battle.isInFight();
+    }
+
+    @Test
+    public void dragonVsFireElementBattleSimulationTest() {
+        // setup
+        Dragon dragon = new Dragon();
+        FireElement fireElement = new FireElement();
+        Battle battle = new Battle(dragon, fireElement);
+
+        // battle
+        battle.isInFight();
+    }
+
+    @Test
+    public void dragonVsGolemBattleSimulationTest() {
+        // setup
+        Dragon dragon = new Dragon();
+        Golem golem = new Golem();
+        Battle battle = new Battle(dragon, golem);
+
+        // battle
+        battle.isInFight();
+    }
+
+    @Test
+    public void dragonVsMummyBattleSimulationTest() {
+        // setup
+        Dragon dragon = new Dragon();
+        Mummy mummy = new Mummy();
+        Battle battle = new Battle(dragon, mummy);
+
+        // battle
+        battle.isInFight();
+    }
+
+    @Test
+    public void dragonVsTrollBattleSimulationTest() {
+        // setup
+        Dragon dragon = new Dragon();
+        Troll troll = new Troll();
+        Battle battle = new Battle(dragon, troll);
+
+        // battle
+        battle.isInFight();
+    }
+
+    @Test
+    public void dragonVsVampireBattleSimulationTest() {
+        // setup
+        Dragon dragon = new Dragon();
+        Vampire vampire = new Vampire();
+        Battle battle = new Battle(dragon, vampire);
 
         // battle
         battle.isInFight();

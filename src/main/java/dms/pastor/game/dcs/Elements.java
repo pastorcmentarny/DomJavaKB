@@ -250,12 +250,6 @@ public class Elements {
         return format("Elements{fire=%d, water=%d, earth=%d, air=%d}", fire, water, earth, air);
     }
 
-    private void reduceAirElement() {
-        if (air > 0) {
-            air--;
-        }
-    }
-
     public void setToZero() {
         air = 0;
         earth = 0;

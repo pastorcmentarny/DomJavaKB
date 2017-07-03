@@ -7,6 +7,8 @@ import dms.pastor.game.dcs.units.Unit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static dms.pastor.game.dcs.Config.REGEN_SP_PER_TURN;
+
 /**
  * Author Dominik Symonowicz
  * Created 2015-07-23
@@ -109,8 +111,8 @@ class Battle {
         if (isAllPlayersAlive()) {
             System.out.println("End of turn.\n");
 
-            player1.shieldRegen(Config.REGEN_SP_PER_TURN);
-            player2.shieldRegen(Config.REGEN_SP_PER_TURN);
+            player1.shieldRegen(REGEN_SP_PER_TURN);
+            player2.shieldRegen(REGEN_SP_PER_TURN);
             player1.getConditions().reduceByOneTurn();
             player2.getConditions().reduceByOneTurn();
         } else {

@@ -1,3 +1,8 @@
+Generate lotto data to ensure test are passing
+
+DCG
+improve main (game,in,out)
+accept AAEFW as way to input
 Spells:
 1. MagicDeathScythe
 2. ImplosionSpell

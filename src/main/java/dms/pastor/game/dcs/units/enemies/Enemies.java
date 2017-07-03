@@ -16,6 +16,7 @@ public class Enemies {
         allEnemies.add(new Mummy());
         allEnemies.add(new Troll());
         allEnemies.add(new Vampire());
+        allEnemies.add(new Dragon());
     }
 
     public static List<Unit> getAllEnemies() {

@@ -15,6 +15,6 @@ public final class EnemiesTest {
         final List<Unit> allEnemies = Enemies.getAllEnemies();
 
         // then
-        assertThat(allEnemies).hasSize(6);
+        assertThat(allEnemies).hasSize(7);
     }
 }
