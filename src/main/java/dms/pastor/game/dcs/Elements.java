@@ -255,4 +255,11 @@ public class Elements {
             air--;
         }
     }
+
+    public void setToZero() {
+        air = 0;
+        earth = 0;
+        fire = 0;
+        water = 0;
+    }
 }

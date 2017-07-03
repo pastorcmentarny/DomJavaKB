@@ -264,4 +264,20 @@ public class ElementsTest {
         assertThat(elements.getWater()).isEqualTo(ELEMENTS_LEFT);
     }
 
+    @Test
+    public void setToZeroSetsAllElementsToZero() {
+        // given
+        final Elements elements = elementsBuilder().setToOneForAllElements().build();
+
+        // when
+        elements.setToZero();
+
+        // then
+        assertThat(elements.countElements()).isZero();
+        assertThat(elements.getAir()).isZero();
+        assertThat(elements.getEarth()).isZero();
+        assertThat(elements.getFire()).isZero();
+        assertThat(elements.getWater()).isZero();
+    }
+
 }
