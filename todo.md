@@ -27,11 +27,7 @@ Enemies
 22. Unicorn
 23. Vyvern
 24. Zombie
-25. Green Dragon
-26. White Dragon
-26. Red Dragon
-27. Blue Dragon
-28. Black Green
+25. Black Green
 
 
 Location

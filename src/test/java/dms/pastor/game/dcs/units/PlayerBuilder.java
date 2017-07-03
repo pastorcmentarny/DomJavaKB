@@ -34,7 +34,7 @@ public final class PlayerBuilder {
         } else {
             shielded = true;
         }
-        return new Player(shielded,
+        return new Player(
                 sp,
                 elements,
                 hp,
@@ -49,7 +49,7 @@ public final class PlayerBuilder {
     }
 
     public Player buildDeathPlayer() {
-        return new Player(false, 0, null, 0, null, false, "Death Unit", 1, 0, null, "This unit is death.", null);
+        return new Player(0, null, 0, null, false, "Death Unit", 1, 0, null, "This unit is death.", null);
     }
 
     public PlayerBuilder hp(int hp) {
