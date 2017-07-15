@@ -113,6 +113,10 @@ public abstract class ValidatorUtils {
         }
     }
 
+    public static boolean validateIfStringNotEmpty(String string) {
+        return string != null && string.length() > 0;
+    }
+
     public static void validateIfNotEmpty(String string, String objectName) {
         if (string == null || string.isEmpty()) {
             throw new IllegalArgumentException(objectName + " cannot be null or empty.");

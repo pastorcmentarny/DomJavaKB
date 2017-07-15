@@ -13,20 +13,8 @@ import java.util.List;
 import java.util.Random;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
-import static dms.pastor.utils.ValidatorUtils.isAnyOfPropertiesContainsNull;
-import static dms.pastor.utils.ValidatorUtils.isObjectCanBeSerialized;
-import static dms.pastor.utils.ValidatorUtils.validateIfListIsNotEmpty;
-import static dms.pastor.utils.ValidatorUtils.validateIfNotEmpty;
-import static dms.pastor.utils.ValidatorUtils.validateIfNotNull;
-import static dms.pastor.utils.ValidatorUtils.validateMinValueIsSmallerThanMaxValue;
-import static dms.pastor.utils.ValidatorUtils.validateNegativeBigDecimal;
-import static dms.pastor.utils.ValidatorUtils.validateNotNullPropertiesWithCustomMessage;
-import static dms.pastor.utils.ValidatorUtils.validateNotNullPropertiesWithCustomMessagesPerProperty;
-import static dms.pastor.utils.ValidatorUtils.validateTwoIntsNotEqual;
-import static dms.pastor.utils.randoms.RandomDataGenerator.MAX_SMALL_VALUE;
-import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
-import static dms.pastor.utils.randoms.RandomDataGenerator.randomInteger;
-import static dms.pastor.utils.randoms.RandomDataGenerator.randomPositiveInteger;
+import static dms.pastor.utils.ValidatorUtils.*;
+import static dms.pastor.utils.randoms.RandomDataGenerator.*;
 import static java.math.BigDecimal.ZERO;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -41,6 +29,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ValidatorUtilsTest {
 
     private static final String UNUSED_OBJECT_NAME = null;
+
     @Rule
     public ExpectedException expectedException = ExpectedException.none();
 
@@ -450,5 +439,35 @@ public class ValidatorUtilsTest {
         validateIfListIsNotEmpty(list, UNUSED_OBJECT_NAME);
 
         // then nothing happen, which means value are valid
+    }
+
+    @Test
+    public void validateIfNotEmptyShouldReturnFalseIfNull() throws Exception {
+        // when
+        final boolean result = validateIfStringNotEmpty(null);
+
+        // then
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    public void validateIfNotEmptyShouldReturnFalseIfEmpty() throws Exception {
+        // when
+        final boolean result = validateIfStringNotEmpty(EMPTY_STRING);
+
+        // then
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    public void validateIfNotEmptyShouldReturnTrueForNonEmptyInput() throws Exception {
+        // given
+        final String text = "A String";
+
+        // when
+        final boolean result = validateIfStringNotEmpty(text);
+
+        // then
+        assertThat(result).isTrue();
     }
 }

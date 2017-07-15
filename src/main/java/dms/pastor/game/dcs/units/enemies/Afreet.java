@@ -8,13 +8,19 @@ import dms.pastor.game.dcs.units.Unit;
 import java.util.Random;
 
 import static dms.pastor.game.dcs.conditions.ConditionEntry.createPersistentCondition;
-import static dms.pastor.game.dcs.conditions.ConditionType.AIR_SENSITIVE;
-import static dms.pastor.game.dcs.conditions.ConditionType.FIRE_IMMUNE;
-import static dms.pastor.game.dcs.conditions.ConditionType.WATER_SENSITIVE;
+import static dms.pastor.game.dcs.conditions.ConditionType.*;
 import static dms.pastor.game.dcs.conditions.ElementType.FIRE;
 
-/*
-Afreet based on Efreet which is a creature that exists in some Middle Eastern stories.
+/**
+ * Author Dominik Symonowicz
+ * Created 2017-06-30
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+ *
+ * Afreet based on Efreet which is a creature that exists in some Middle Eastern stories.
  */
 public class Afreet extends Unit {
 

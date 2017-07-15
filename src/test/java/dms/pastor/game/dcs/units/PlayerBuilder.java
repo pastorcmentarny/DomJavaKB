@@ -34,6 +34,7 @@ public final class PlayerBuilder {
         } else {
             shielded = true;
         }
+
         return new Player(
                 sp,
                 elements,
