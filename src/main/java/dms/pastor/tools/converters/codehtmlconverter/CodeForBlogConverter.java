@@ -1,4 +1,4 @@
-package dms.pastor.tools.codehtmlconverter;
+package dms.pastor.tools.converters.codehtmlconverter;
 
 import dms.pastor.utils.StringUtils;
 
