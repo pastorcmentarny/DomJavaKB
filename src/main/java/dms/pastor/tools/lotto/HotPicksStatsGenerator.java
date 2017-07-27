@@ -3,18 +3,10 @@ package dms.pastor.tools.lotto;
 import dms.pastor.utils.PrintOutUtils;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.IntStream;
 
-import static dms.pastor.tools.lotto.BallCountOperations.getLeast2PlayedBalls;
-import static dms.pastor.tools.lotto.BallCountOperations.getNumbersFromBallsCount;
-import static dms.pastor.tools.lotto.BallCountOperations.getTop2PlayedBalls;
+import static dms.pastor.tools.lotto.BallCountOperations.*;
 import static dms.pastor.tools.lotto.CoupleOperations.deleteDiscardedCouples;
 import static dms.pastor.tools.lotto.LottoConstants.HOT_PICK_BALL_MAXIMUM_VALUE;
 import static dms.pastor.tools.lotto.LottoConstants.HOT_PICK_BALL_MINIMUM_VALUE;
@@ -75,6 +67,8 @@ class HotPicksStatsGenerator {
 
         //get final numbers to use to play
         final int[] finalNumbers = getFinalNumbers(remainingCouples);
+
+        //TODO if more than 2 numbers choose 1 with most plays and 1 with least plays
 
         remainingCouples.forEach(System.out::println);
         System.out.println("Choose from these numbers:");

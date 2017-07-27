@@ -23,10 +23,7 @@ class HotPicksStatsApplication {
 
     public static void main(String[] args) {
         LOGGER.info("Running application: " + HotPicksStatsApplication.class.getName());
-        if (args == null || args.length != 1) {
-            LOGGER.error(NO_PATH_ERROR_MESSAGE);
-            throw new IllegalArgumentException(NO_PATH_ERROR_MESSAGE);
-        }
+        validateUserInput(args);
 
         try {
             new HotPicksStatsGenerator(args[0]).generateNumbersToPlay();
@@ -34,5 +31,12 @@ class HotPicksStatsApplication {
             LOGGER.error(format("Application crashes because: %s", e.getMessage()), e);
         }
         LOGGER.info("Application ends his life peacefully. Until next time!");
+    }
+
+    private static void validateUserInput(String[] args) {
+        if (args == null || args.length != 1) {
+            LOGGER.error(NO_PATH_ERROR_MESSAGE);
+            throw new IllegalArgumentException(NO_PATH_ERROR_MESSAGE);
+        }
     }
 }
