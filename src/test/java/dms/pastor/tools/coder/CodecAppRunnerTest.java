@@ -1,9 +1,15 @@
 package dms.pastor.tools.coder;
 
 import dms.pastor.domain.exception.SomethingWentTerribleWrongError;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+
+import java.io.File;
+
+import static java.io.File.separator;
 
 /**
  * Author Dominik Symonowicz
@@ -14,9 +20,22 @@ import org.junit.rules.ExpectedException;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class CodecAppRunnerTest {
+    private static final String PATH = "src" + separator + "main" + separator + "resources" + separator + "input.txt";
 
     @Rule
     public ExpectedException exception = ExpectedException.none();
+
+    @SuppressWarnings("ResultOfMethodCallIgnored")
+    @Before
+    public void setUp() throws Exception {
+        new File(PATH).createNewFile();
+    }
+
+    @SuppressWarnings("ResultOfMethodCallIgnored")
+    @After
+    public void tearDown() throws Exception {
+        new File(PATH).delete();
+    }
 
     @Test
     public void shouldThrowSomethingWentWrongErrorIfInputIsNull() throws Exception {
