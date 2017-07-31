@@ -782,7 +782,7 @@ public class StringUtilsTest {
         exception.expectMessage("text cannot be null");
 
         // when
-        capitalizeFirstCharacter(null);
+        getStringWithCapitalizedFirstCharacter(null);
     }
 
     @Test
@@ -795,36 +795,23 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void capitalizeFirstCharacterShouldReturnTheSameStringWhenInputHasCapitalCharacterdOnly() throws Exception {
+    public void capitalizeFirstCharacterShouldReturnTheSameStringWhenInputHasCapitalCharacter() throws Exception {
         // given
         final String string = "STRING";
-
+        final String expectedResult = "S";
         // when
         final String result = capitalizeFirstCharacter(string);
 
         // then
-        assertThat(result).isEqualTo(string);
+        assertThat(result).isEqualTo("S");
 
     }
 
     @Test
-    public void capitalizeFirstCharacterShouldReturnTheSameStringWhenInputHasFirstCharacterCapitalized() throws Exception {
+    public void capitalizeFirstCharacterShouldReturnTheSameStringWhenInputHasFirstCapitalized() throws Exception {
         // given
-        final String string = "String";
-
-        // when
-        final String result = capitalizeFirstCharacter(string);
-
-        // then
-        assertThat(result).isEqualTo(string);
-
-    }
-
-    @Test
-    public void capitalizeFirstCharacterShouldReturnStringWithFirstCharacterCapitalized() throws Exception {
-        // given
-        final String string = "string";
-        final String expectedResult = "String";
+        final String string = "STRING";
+        final String expectedResult = "S";
 
         // when
         final String result = capitalizeFirstCharacter(string);
@@ -834,5 +821,54 @@ public class StringUtilsTest {
 
     }
 
+
+    @Test
+    public void getStringWithCapitalizedFirstCharacterShouldReturnEmptyStringWhenInputIsEmpty() throws Exception {
+        // when
+        final String result = getStringWithCapitalizedFirstCharacter(EMPTY_STRING);
+
+        // then
+        assertThat(result).isEmpty();
+    }
+
+    @Test
+    public void getStringWithCapitalizedFirstCharacterShouldReturnTheSameStringWhenInputHasCapitalCharacterdOnly() throws Exception {
+        // given
+        final String string = "STRING";
+
+        // when
+        final String result = getStringWithCapitalizedFirstCharacter(string);
+
+        // then
+        assertThat(result).isEqualTo(string);
+
+    }
+
+    @Test
+    public void getStringWithCapitalizedFirstCharacterShouldReturnTheSameStringWhenInputHasFirstCharacterCapitalized() throws Exception {
+        // given
+        final String string = "String";
+
+        // when
+        final String result = getStringWithCapitalizedFirstCharacter(string);
+
+        // then
+        assertThat(result).isEqualTo(string);
+
+    }
+
+    @Test
+    public void getStringWithCapitalizedFirstCharacterShouldReturnStringWithFirstCharacterCapitalized() throws Exception {
+        // given
+        final String string = "string";
+        final String expectedResult = "String";
+
+        // when
+        final String result = getStringWithCapitalizedFirstCharacter(string);
+
+        // then
+        assertThat(result).isEqualTo(expectedResult);
+
+    }
 
 }

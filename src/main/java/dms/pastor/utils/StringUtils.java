@@ -364,7 +364,7 @@ public final class StringUtils {
                 .collect(toList());
     }
 
-    public static String capitalizeFirstCharacter(String string) {
+    public static String getStringWithCapitalizedFirstCharacter(String string) {
         if (string == null) {
             throw new IllegalArgumentException("text cannot be null");
         }
@@ -372,5 +372,15 @@ public final class StringUtils {
             return string;
         }
         return string.substring(0, 1).toUpperCase() + string.substring(1, string.length());
+    }
+
+    public static String capitalizeFirstCharacter(String string) {
+        if (string == null) {
+            throw new IllegalArgumentException("text cannot be null");
+        }
+        if (string.isEmpty()) {
+            return string;
+        }
+        return string.substring(0, 1).toUpperCase();
     }
 }

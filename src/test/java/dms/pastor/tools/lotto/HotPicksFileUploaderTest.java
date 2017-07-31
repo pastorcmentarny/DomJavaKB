@@ -3,6 +3,7 @@ package dms.pastor.tools.lotto;
 import dms.pastor.utils.FileTools;
 import dms.pastor.utils.ValidatorUtils;
 import org.junit.After;
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -38,8 +39,21 @@ public class HotPicksFileUploaderTest {
     private static final String EMPTY_STRING = "";
     private final Random random = new Random();
     private final HotPicksFileUploader hotPicksFileUploader = new HotPicksFileUploader();
+    final File csvFile = new File(EMPTY_CSV_FILE);
+    final File textFile = new File(EMPTY_TEXT_FILE);
     @Rule
     public ExpectedException exception = ExpectedException.none();
+
+    @Before
+    public void setUp() throws Exception {
+
+        deleteCSVFileIfExists();
+        assertThat(csvFile.createNewFile()).isTrue();
+
+        deleteTextFileIfExists();
+        assertThat(textFile.createNewFile()).isTrue();
+
+    }
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
     @After
@@ -102,9 +116,6 @@ public class HotPicksFileUploaderTest {
         // expect
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("It must be a csv file.");
-
-        // given
-        generateFile(EMPTY_TEXT_FILE);
 
         // when
         hotPicksFileUploader.loadHotPicksDrawHistoryFile(EMPTY_TEXT_FILE);
@@ -175,7 +186,7 @@ java.lang.IllegalArgumentException: Path is invalid or is not a file
     public void shouldReturnEmptyListIfLineIsEmpty() throws Exception {
         // given
         String[] lines = new String[]{EMPTY_STRING};
-        generateFile(EMPTY_CSV_FILE, lines);
+        //generateFile(EMPTY_CSV_FILE, lines);
 
         // when
         final List<HotPickDraw> hotPickDrawList = hotPicksFileUploader.loadHotPicksDrawHistoryFile(EMPTY_CSV_FILE);
@@ -203,7 +214,7 @@ java.lang.IllegalArgumentException: Path is invalid or is not a file
     public void shouldReturnEmptyListIfRowContainsNotValidBall() throws Exception {
         // given
         String[] lines = new String[]{"1,Z,3,4,5,6,7,8,9,10"};
-        generateFile(EMPTY_CSV_FILE, lines);
+        //generateFile(EMPTY_CSV_FILE, lines);
 
         // when
         final List<HotPickDraw> hotPickDrawList = hotPicksFileUploader.loadHotPicksDrawHistoryFile(EMPTY_CSV_FILE);
@@ -227,6 +238,7 @@ java.lang.IllegalArgumentException: Path is invalid or is not a file
         final String machine = MACHINE_NAME;
         final int drawNumber = DRAW_NUMBER;
         String[] lines = new String[]{generateDrawLineAsString(date, ball1, ball2, ball3, ball4, ball5, ball6, ballSet, machine, drawNumber)};
+        deleteCSVFileIfExists();
         generateFile(EMPTY_CSV_FILE, lines);
 
         // when
@@ -255,6 +267,7 @@ java.lang.IllegalArgumentException: Path is invalid or is not a file
         String[] lines = new String[]{generateDrawLineAsString(date, ball1, ball2, ball3, ball4, ball5, ball6, ballSet, machine, drawNumber),
                 generateString(MAX),
                 generateString(MAX)};
+        deleteCSVFileIfExists();
         generateFile(EMPTY_CSV_FILE, lines);
 
         // when
@@ -436,5 +449,18 @@ java.lang.IllegalArgumentException: Path is invalid or is not a file
 
     private int getRandomBallNumber() {
         return random.nextInt(HOT_PICK_BALL_MAXIMUM_VALUE) + 1;
+    }
+
+    private void deleteTextFileIfExists() {
+        if (textFile.exists()) {
+            assertThat(textFile.delete()).isTrue();
+        }
+    }
+
+    private void deleteCSVFileIfExists() {
+
+        if (csvFile.exists()) {
+            assertThat(csvFile.delete());
+        }
     }
 }
