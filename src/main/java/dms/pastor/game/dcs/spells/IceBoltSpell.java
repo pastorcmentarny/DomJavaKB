@@ -4,6 +4,7 @@ import dms.pastor.game.dcs.Elements;
 import dms.pastor.game.dcs.units.Unit;
 
 import static dms.pastor.game.dcs.Config.ICE_BOLT_DMG;
+import static dms.pastor.game.dcs.conditions.ConditionType.FROZEN;
 import static dms.pastor.game.dcs.conditions.ElementType.WATER;
 
 /**
@@ -27,9 +28,18 @@ public class IceBoltSpell extends Spell {
     public void castSpell(Unit attacker, Unit defender) {
         castSpellMessage(attacker.getName(), name, defender.getName());
         if (defender.getConditions().isNotImmuneTo(WATER)) {
-            defender.doesDamageTo(attacker, ICE_BOLT_DMG);
+            if (defender.getConditions().has(FROZEN)) {
+                System.out.println(defender.getName() + " will get double damage as it is frozen.");
+                defender.doesDamageTo(attacker, doubleDamgageFor(ICE_BOLT_DMG));
+            } else {
+                defender.doesDamageTo(attacker, ICE_BOLT_DMG);
+            }
         } else {
             System.out.println(defender + " resists spell.");
         }
+    }
+
+    private int doubleDamgageFor(int dmg) {
+        return 2 * dmg;
     }
 }

@@ -1,5 +1,6 @@
 package dms.pastor.game.dcs;
 
+import dms.pastor.domain.exception.SomethingWentTerribleWrongError;
 import dms.pastor.domain.exception.SomethingWentWrongException;
 import dms.pastor.game.dcs.conditions.ElementType;
 import org.slf4j.Logger;
@@ -8,7 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static dms.pastor.game.dcs.conditions.ElementType.values;
+import static dms.pastor.game.dcs.conditions.ElementType.*;
+import static dms.pastor.utils.StringUtils.getStringWithCapitalizedFirstCharacter;
 import static java.lang.String.format;
 import static java.util.Arrays.asList;
 import static java.util.Objects.hash;
@@ -44,6 +46,11 @@ public class Elements {
         addRandomElements(i);
     }
 
+    @SuppressWarnings("OverlyComplexBooleanExpression") //it has 4 elements
+    public boolean hasEnough(Elements elements) {
+        return (elements.getAir() >= air) && (elements.getEarth() >= earth) && (elements.getFire() >= fire) && (elements.getWater() >= water);
+    }
+
     public static Elements noElements() {
         return new Elements(0, 0, 0, 0);
     }
@@ -52,31 +59,31 @@ public class Elements {
         System.out.printf(" Air:%d Earth:%d Fire:%d Water:%d%n", air, earth, fire, water);
     }
 
-    public void addRandomElements(int addCardPerTurn) {
+    public String addRandomElements(int addCardPerTurn) {
         for (int i = 1; i <= addCardPerTurn; i++) {
             switch (random.nextInt(values().length)) {
                 case 0:
                     air++;
-                    break;
+                    return getElementName(AIR);
                 case 1:
                     earth++;
-                    break;
+                    return getElementName(EARTH);
                 case 2:
                     fire++;
-                    break;
+                    return getElementName(FIRE);
                 case 3:
                     water++;
-                    break;
+                    return getElementName(WATER);
                 default:
                     System.out.println("bug in addRandomElements");
                     break;
             }
         }
+        throw new SomethingWentTerribleWrongError();
     }
 
-    @SuppressWarnings("OverlyComplexBooleanExpression") //it has 4 elements
-    public boolean hasEnough(Elements elements) {
-        return (elements.getAir() >= air) && (elements.getEarth() >= earth) && (elements.getFire() >= fire) && (elements.getWater() >= water);
+    private String getElementName(ElementType elementType) {
+        return getStringWithCapitalizedFirstCharacter(elementType.name());
     }
 
     @SuppressWarnings("OverlyComplexBooleanExpression") //it has 4 elements

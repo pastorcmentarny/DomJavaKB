@@ -34,6 +34,5 @@ class AppLauncher {
     void newGame(Player player, Campaign campaign) {
         campaign.campaign(player);
         LOGGER.debug("End of life. Happy afterlife to you!");
-
     }
 }

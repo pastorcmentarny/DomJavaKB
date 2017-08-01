@@ -1,25 +1,18 @@
 package dms.pastor.game.dcs.units.enemies;
 
-import dms.pastor.game.dcs.spells.DeathRaySpell;
-import dms.pastor.game.dcs.spells.MagneticDrainSpell;
-import dms.pastor.game.dcs.spells.PoisonSpell;
-import dms.pastor.game.dcs.spells.RegenSpell;
-import dms.pastor.game.dcs.spells.WeaknessSpell;
+import dms.pastor.game.dcs.spells.*;
 import dms.pastor.game.dcs.units.Unit;
 
 import static dms.pastor.game.dcs.conditions.ConditionEntry.createPersistentCondition;
-import static dms.pastor.game.dcs.conditions.ConditionType.FIRE_SENSITIVE;
-import static dms.pastor.game.dcs.conditions.ConditionType.MINDLESS;
-import static dms.pastor.game.dcs.conditions.ConditionType.POISONED;
+import static dms.pastor.game.dcs.conditions.ConditionType.*;
 import static dms.pastor.game.dcs.utils.Names.getRandomMummyName;
 
-public class Mummy extends Unit {
+public class Daemon extends Unit {
 
     private static final int INITIAL_HP = 200;
 
-    public Mummy() {
+    public Daemon() {
         setName(getRandomMummyName());
-
         setHp(INITIAL_HP);
         setSp(0);
         getConditions().add(createPersistentCondition(FIRE_SENSITIVE));

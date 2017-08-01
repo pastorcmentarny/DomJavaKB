@@ -7,11 +7,11 @@ import org.junit.Test;
 public final class UnitVsUnitBattleSimulationTest {
 
     @Test
-    public void dummyVsAfreetBattleSimulationTest() {
+    public void dummyVsGenieBattleSimulationTest() {
         // setup
         Dummy dummy = new Dummy("Dummy");
-        Afreet afreet = new Afreet();
-        Battle battle = new Battle(dummy, afreet);
+        Genie genie = new Genie();
+        Battle battle = new Battle(dummy, genie);
 
         // battle
         battle.isInFight();
@@ -21,8 +21,8 @@ public final class UnitVsUnitBattleSimulationTest {
     public void dummyVsDragonBattleSimulationTest() {
         // setup
         Dummy dummy = new Dummy("Dummy");
-        Afreet afreet = new Afreet();
-        Battle battle = new Battle(dummy, afreet);
+        Genie genie = new Genie();
+        Battle battle = new Battle(dummy, genie);
 
         // battle
         battle.isInFight();
@@ -43,8 +43,8 @@ public final class UnitVsUnitBattleSimulationTest {
     public void dummyVsGolemBattleSimulationTest() {
         // setup
         Dummy dummy = new Dummy("Dummy");
-        Golem golem = new Golem();
-        Battle battle = new Battle(dummy, golem);
+        Clairvoyant clairvoyant = new Clairvoyant();
+        Battle battle = new Battle(dummy, clairvoyant);
 
         // battle
         battle.isInFight();
@@ -54,8 +54,8 @@ public final class UnitVsUnitBattleSimulationTest {
     public void dummyVsMummyBattleSimulationTest() {
         // setup
         Dummy dummy = new Dummy("Dummy");
-        Mummy mummy = new Mummy();
-        Battle battle = new Battle(dummy, mummy);
+        Daemon daemon = new Daemon();
+        Battle battle = new Battle(dummy, daemon);
 
         // battle
         battle.isInFight();
@@ -65,8 +65,8 @@ public final class UnitVsUnitBattleSimulationTest {
     public void dummyVsTrollBattleSimulationTest() {
         // setup
         Dummy dummy = new Dummy("Dummy");
-        Troll troll = new Troll();
-        Battle battle = new Battle(dummy, troll);
+        Cleric cleric = new Cleric();
+        Battle battle = new Battle(dummy, cleric);
 
         // battle
         battle.isInFight();
@@ -86,9 +86,9 @@ public final class UnitVsUnitBattleSimulationTest {
     @Test
     public void afreetVsDragonBattleSimulationTest() {
         // setup
-        Afreet afreet = new Afreet();
+        Genie genie = new Genie();
         Dragon dragon = new Dragon();
-        Battle battle = new Battle(afreet, dragon);
+        Battle battle = new Battle(genie, dragon);
 
         // battle
         battle.isInFight();
@@ -97,9 +97,9 @@ public final class UnitVsUnitBattleSimulationTest {
     @Test
     public void afreetVsFireElementBattleSimulationTest() {
         // setup
-        Afreet afreet = new Afreet();
+        Genie genie = new Genie();
         FireElement fireElement = new FireElement();
-        Battle battle = new Battle(afreet, fireElement);
+        Battle battle = new Battle(genie, fireElement);
 
         // battle
         battle.isInFight();
@@ -108,9 +108,9 @@ public final class UnitVsUnitBattleSimulationTest {
     @Test
     public void afreetVsGolemBattleSimulationTest() {
         // setup
-        Afreet afreet = new Afreet();
-        Golem golem = new Golem();
-        Battle battle = new Battle(afreet, golem);
+        Genie genie = new Genie();
+        Clairvoyant clairvoyant = new Clairvoyant();
+        Battle battle = new Battle(genie, clairvoyant);
 
         // battle
         battle.isInFight();
@@ -119,9 +119,9 @@ public final class UnitVsUnitBattleSimulationTest {
     @Test
     public void afreetVsMummyBattleSimulationTest() {
         // setup
-        Afreet afreet = new Afreet();
-        Mummy mummy = new Mummy();
-        Battle battle = new Battle(afreet, mummy);
+        Genie genie = new Genie();
+        Daemon daemon = new Daemon();
+        Battle battle = new Battle(genie, daemon);
 
         // battle
         battle.isInFight();
@@ -130,9 +130,9 @@ public final class UnitVsUnitBattleSimulationTest {
     @Test
     public void afreetVsTrollBattleSimulationTest() {
         // setup
-        Afreet afreet = new Afreet();
-        Mummy mummy = new Mummy();
-        Battle battle = new Battle(afreet, mummy);
+        Genie genie = new Genie();
+        Daemon daemon = new Daemon();
+        Battle battle = new Battle(genie, daemon);
 
         // battle
         battle.isInFight();
@@ -141,9 +141,9 @@ public final class UnitVsUnitBattleSimulationTest {
     @Test
     public void afreetVsVampireBattleSimulationTest() {
         // setup
-        Afreet afreet = new Afreet();
+        Genie genie = new Genie();
         Vampire vampire = new Vampire();
-        Battle battle = new Battle(afreet, vampire);
+        Battle battle = new Battle(genie, vampire);
 
         // battle
         battle.isInFight();
@@ -164,8 +164,8 @@ public final class UnitVsUnitBattleSimulationTest {
     public void dragonVsGolemBattleSimulationTest() {
         // setup
         Dragon dragon = new Dragon();
-        Golem golem = new Golem();
-        Battle battle = new Battle(dragon, golem);
+        Clairvoyant clairvoyant = new Clairvoyant();
+        Battle battle = new Battle(dragon, clairvoyant);
 
         // battle
         battle.isInFight();
@@ -175,8 +175,8 @@ public final class UnitVsUnitBattleSimulationTest {
     public void dragonVsMummyBattleSimulationTest() {
         // setup
         Dragon dragon = new Dragon();
-        Mummy mummy = new Mummy();
-        Battle battle = new Battle(dragon, mummy);
+        Daemon daemon = new Daemon();
+        Battle battle = new Battle(dragon, daemon);
 
         // battle
         battle.isInFight();
@@ -186,8 +186,8 @@ public final class UnitVsUnitBattleSimulationTest {
     public void dragonVsTrollBattleSimulationTest() {
         // setup
         Dragon dragon = new Dragon();
-        Troll troll = new Troll();
-        Battle battle = new Battle(dragon, troll);
+        Cleric cleric = new Cleric();
+        Battle battle = new Battle(dragon, cleric);
 
         // battle
         battle.isInFight();
@@ -208,8 +208,8 @@ public final class UnitVsUnitBattleSimulationTest {
     public void fireElementVsGolemBattleSimulationTest() {
         // setup
         FireElement fireElement = new FireElement();
-        Golem golem = new Golem();
-        Battle battle = new Battle(fireElement, golem);
+        Clairvoyant clairvoyant = new Clairvoyant();
+        Battle battle = new Battle(fireElement, clairvoyant);
 
         // battle
         battle.isInFight();
@@ -219,8 +219,8 @@ public final class UnitVsUnitBattleSimulationTest {
     public void fireElementVsMummyBattleSimulationTest() {
         // setup
         FireElement fireElement = new FireElement();
-        Mummy mummy = new Mummy();
-        Battle battle = new Battle(fireElement, mummy);
+        Daemon daemon = new Daemon();
+        Battle battle = new Battle(fireElement, daemon);
 
         // battle
         battle.isInFight();
@@ -230,8 +230,8 @@ public final class UnitVsUnitBattleSimulationTest {
     public void fireElementVsTrollBattleSimulationTest() {
         // setup
         FireElement fireElement = new FireElement();
-        Troll troll = new Troll();
-        Battle battle = new Battle(fireElement, troll);
+        Cleric cleric = new Cleric();
+        Battle battle = new Battle(fireElement, cleric);
 
         // battle
         battle.isInFight();
@@ -251,9 +251,9 @@ public final class UnitVsUnitBattleSimulationTest {
     @Test
     public void golemVsMummyBattleSimulationTest() {
         // setup
-        Golem golem = new Golem();
-        Mummy mummy = new Mummy();
-        Battle battle = new Battle(golem, mummy);
+        Clairvoyant clairvoyant = new Clairvoyant();
+        Daemon daemon = new Daemon();
+        Battle battle = new Battle(clairvoyant, daemon);
 
         // battle
         battle.isInFight();
@@ -262,9 +262,9 @@ public final class UnitVsUnitBattleSimulationTest {
     @Test
     public void golemVsTrollBattleSimulationTest() {
         // setup
-        Golem golem = new Golem();
-        Troll troll = new Troll();
-        Battle battle = new Battle(golem, troll);
+        Clairvoyant clairvoyant = new Clairvoyant();
+        Cleric cleric = new Cleric();
+        Battle battle = new Battle(clairvoyant, cleric);
 
         // battle
         battle.isInFight();
@@ -273,9 +273,9 @@ public final class UnitVsUnitBattleSimulationTest {
     @Test
     public void golemVsVampireBattleSimulationTest() {
         // setup
-        Golem golem = new Golem();
+        Clairvoyant clairvoyant = new Clairvoyant();
         Vampire vampire = new Vampire();
-        Battle battle = new Battle(golem, vampire);
+        Battle battle = new Battle(clairvoyant, vampire);
 
         // battle
         battle.isInFight();
@@ -284,9 +284,9 @@ public final class UnitVsUnitBattleSimulationTest {
     @Test
     public void mummyVsTrollBattleSimulationTest() {
         // setup
-        Mummy mummy = new Mummy();
-        Troll troll = new Troll();
-        Battle battle = new Battle(mummy, troll);
+        Daemon daemon = new Daemon();
+        Cleric cleric = new Cleric();
+        Battle battle = new Battle(daemon, cleric);
 
         // battle
         battle.isInFight();
@@ -295,9 +295,9 @@ public final class UnitVsUnitBattleSimulationTest {
     @Test
     public void mummyVsVampireBattleSimulationTest() {
         // setup
-        Mummy mummy = new Mummy();
+        Daemon daemon = new Daemon();
         Vampire vampire = new Vampire();
-        Battle battle = new Battle(mummy, vampire);
+        Battle battle = new Battle(daemon, vampire);
 
         // battle
         battle.isInFight();
@@ -306,9 +306,9 @@ public final class UnitVsUnitBattleSimulationTest {
     @Test
     public void trollVsVampireBattleSimulationTest() {
         // setup
-        Troll troll = new Troll();
+        Cleric cleric = new Cleric();
         Vampire vampire = new Vampire();
-        Battle battle = new Battle(troll, vampire);
+        Battle battle = new Battle(cleric, vampire);
 
         // battle
         battle.isInFight();

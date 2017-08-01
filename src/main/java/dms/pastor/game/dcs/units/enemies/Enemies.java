@@ -12,9 +12,9 @@ public class Enemies {
     static {
         allEnemies.add(new Dummy());
         allEnemies.add(new FireElement());
-        allEnemies.add(new Golem());
-        allEnemies.add(new Mummy());
-        allEnemies.add(new Troll());
+        allEnemies.add(new Clairvoyant());
+        allEnemies.add(new Daemon());
+        allEnemies.add(new Cleric());
         allEnemies.add(new Vampire());
         allEnemies.add(new Dragon());
     }

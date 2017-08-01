@@ -17,7 +17,7 @@ import dms.pastor.game.dcs.units.Unit;
  */
 public class Dummy extends Unit {
 
-    public Dummy() {
+    Dummy() {
         super();
         setHp(10);
     }

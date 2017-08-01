@@ -4,6 +4,9 @@ import dms.pastor.game.dcs.spells.IceBoltSpell;
 import dms.pastor.game.dcs.spells.VampireDrainSpell;
 import dms.pastor.game.dcs.units.Unit;
 
+import static dms.pastor.game.dcs.conditions.ConditionEntry.createPersistentCondition;
+import static dms.pastor.game.dcs.conditions.ConditionType.MINDLESS;
+
 /**
  * Author Dominik Symonowicz
  * Created 2015-08-02
@@ -18,8 +21,9 @@ public class Vampire extends Unit {
     public Vampire() {
         super();
         setName("Vampire");
-        setShielded(true);
         setSp(48);
+        getConditions().add(createPersistentCondition(MINDLESS));
+
     }
 
     @Override

@@ -1,12 +1,8 @@
 package dms.pastor.game.dcs.units.enemies;
 
-import dms.pastor.game.dcs.spells.FireBallSpell;
-import dms.pastor.game.dcs.spells.HealSpell;
-import dms.pastor.game.dcs.spells.MagicStoneSpell;
-import dms.pastor.game.dcs.spells.MeteorStrikeSpell;
-import dms.pastor.game.dcs.spells.Spell;
+import dms.pastor.game.dcs.actions.CureAction;
+import dms.pastor.game.dcs.spells.*;
 import dms.pastor.game.dcs.units.Unit;
-import dms.pastor.game.dcs.units.enemies.actions.CureAction;
 import dms.pastor.game.dcs.utils.random.InGameRandomiseUtils;
 import dms.pastor.game.dcs.utils.random.RandomiseUtils;
 
@@ -22,13 +18,13 @@ import static dms.pastor.game.dcs.conditions.ElementType.FIRE;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class Troll extends Unit {
+public class Cleric extends Unit {
 
     private RandomiseUtils randoms = new InGameRandomiseUtils();
 
-    public Troll() {
+    public Cleric() {
         super();
-        setName("Troll");
+        setName("Cleric");
         setHp(50);
     }
 

@@ -1,8 +1,8 @@
-package dms.pastor.game.dcs.units.enemies.actions;
+package dms.pastor.game.dcs.actions;
 
 import dms.pastor.game.dcs.units.Unit;
 
-interface Action {
+public interface Action {
 
     void perform(Unit caster, Unit target);
 }

@@ -1,4 +1,4 @@
-package dms.pastor.game.dcs.units.enemies.actions;
+package dms.pastor.game.dcs.actions;
 
 import dms.pastor.game.dcs.conditions.Condition;
 import dms.pastor.game.dcs.spells.CureSpell;

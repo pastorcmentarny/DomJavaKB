@@ -1,5 +1,7 @@
 package dms.pastor.tasks.fifinder;
 
+import static dms.pastor.utils.StringUtils.capitalizeFirstCharacter;
+
 /**
  * Author Dominik Symonowicz
  * Created 03/11/2016
@@ -47,7 +49,7 @@ class Initials {
             initials = addSpace();
             for (String last : fullName.getLast().split(splitBy)) {
                 initials = addSpace();
-                initials += getFirstCharacterCapitalized(last) + DOT;
+                initials += capitalizeFirstCharacter(last) + DOT;
             }
         }
     }
@@ -56,7 +58,7 @@ class Initials {
     private void createSingleInitialFromLastNames() {
         if (isNotNull(fullName.getLast())) {
             initials = addSpace();
-            initials += getFirstCharacterCapitalized(fullName.getLast()) + DOT;
+            initials += capitalizeFirstCharacter(fullName.getLast()) + DOT;
         }
     }
 
@@ -65,7 +67,7 @@ class Initials {
     private void createInitialsFromMiddleNames() {
         if (isNotNull(fullName.getMiddles())) {
             for (String name : fullName.getMiddles().split(SPACE)) {
-                initials += getFirstCharacterCapitalized(name) + DOT;
+                initials += capitalizeFirstCharacter(name) + DOT;
                 initials = addSpace();
             }
             initials = removeSpace();
@@ -74,7 +76,7 @@ class Initials {
 
     private void createInitialsFromFirstName() {
         if (isNotNull(fullName.getFirst())) {
-            initials += getFirstCharacterCapitalized(fullName.getFirst()) + DOT;
+            initials += capitalizeFirstCharacter(fullName.getFirst()) + DOT;
             if (isNotNull(fullName.getMiddles())) {
                 initials = addSpace();
             }
@@ -89,10 +91,6 @@ class Initials {
     private String removeSpace() {
         initials = initials.substring(0, initials.length() - 1);
         return initials;
-    }
-
-    private String getFirstCharacterCapitalized(String string) {
-        return string.substring(0, 1).toUpperCase();
     }
 
     private boolean isNotNull(String value) {
