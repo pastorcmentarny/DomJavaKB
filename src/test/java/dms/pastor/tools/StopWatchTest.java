@@ -50,13 +50,13 @@ public class StopWatchTest {
     public void shouldStopStopwatch() throws Exception {
         // given
         stopWatch.start();
-        latch.await(250, MILLISECONDS);
+        latch.await(250L, MILLISECONDS);
 
         // when
         stopWatch.stop();
 
         // then
-        assertThat(stopWatch.calcTotalTime()).isGreaterThan(250);
+        assertThat(stopWatch.calcTotalTime()).isGreaterThanOrEqualTo(250L);
 
         // when
         latch.await(100, MILLISECONDS);
