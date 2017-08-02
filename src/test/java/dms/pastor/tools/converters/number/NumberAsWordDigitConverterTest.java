@@ -493,7 +493,6 @@ public final class NumberAsWordDigitConverterTest {
         assertThat(digit).isEqualTo(numberAsInteger);
     }
 
-/* //TODO next stage
     @Test
     public void toDigitShouldReturn100ForHundred() {
         // given
@@ -506,19 +505,6 @@ public final class NumberAsWordDigitConverterTest {
         // then
         assertThat(digit).isEqualTo(numberAsInteger);
     }
-
-    @Test
-    public void toDigitShouldReturn100ForOneHundred() {
-        // given
-        final String numberAsString = "one hundred";
-        final int numberAsInteger = 100;
-
-        // when
-        final int digit = toDigit(numberAsString);
-
-        // then
-        assertThat(digit).isEqualTo(numberAsInteger);
-    }*/
 
     @Test
     public void toDigitShouldReturnIllegalArgumentExceptionIfNumberAsStringIsNull() {

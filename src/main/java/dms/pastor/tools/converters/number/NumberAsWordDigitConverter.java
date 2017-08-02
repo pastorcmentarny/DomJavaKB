@@ -4,6 +4,9 @@ import static dms.pastor.utils.ValidatorUtils.validateIfNotEmpty;
 
 public class NumberAsWordDigitConverter {
 
+    private NumberAsWordDigitConverter() {
+    }
+
     private static final String SPLIT_CHARACTER = " ";
 
     public static int toDigit(String numberAsString) {
@@ -11,13 +14,21 @@ public class NumberAsWordDigitConverter {
         final String[] number = numberAsString.toLowerCase().split(SPLIT_CHARACTER);
         int total = 0;
         for (String partOfNumber : number) {
-            total += getNumberFor(partOfNumber);
+            if (!partOfNumber.equalsIgnoreCase("and")) {
+                total += getNumberFor(partOfNumber);
+            }
+
         }
         return total;
     }
 
     @SuppressWarnings("MagicNumber") //as they are meaningful in this context
     private static int getNumberFor(String partOfNumber) {
+
+        switch (partOfNumber) {
+            case "hundred":
+                return 100;
+        }
 
         switch (partOfNumber) {
             case "twenty":
@@ -61,6 +72,15 @@ public class NumberAsWordDigitConverter {
                 return 19;
         }
 
+        Integer x = getIntegerInRange0To9(partOfNumber);
+        if (x != null) {
+            return x;
+        }
+
+        throw new IllegalArgumentException(partOfNumber + " is not a valid number word.");
+    }
+
+    private static Integer getIntegerInRange0To9(String partOfNumber) {
         switch (partOfNumber) {
             case "one":
                 return 1;
@@ -83,7 +103,6 @@ public class NumberAsWordDigitConverter {
             case "zero":
                 return 0;
         }
-
-        throw new IllegalArgumentException(partOfNumber + " is not a valid number word.");
+        return null;
     }
 }
