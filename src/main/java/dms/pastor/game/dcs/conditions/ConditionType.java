@@ -1,5 +1,7 @@
 package dms.pastor.game.dcs.conditions;
 
+import dms.pastor.domain.exception.SomethingWentWrongException;
+
 /**
  * Author Dominik Symonowicz
  * Created 2015-07-27
@@ -17,5 +19,16 @@ public enum ConditionType {
     FIRE_RESISTANT, FIRE_IMMUNE, FIRE_SENSITIVE,
     WATER_RESISTANT, WATER_IMMUNE, WATER_SENSITIVE,
     MINDLESS,
-    POISON_IMMUNITY,UNKNOWN
+    POISON_IMMUNITY, UNKNOWN;
+
+    public static String getText(ConditionType conditionType) {
+        throwExceptionIfNull(conditionType);
+        return conditionType.name().replaceAll("_", " ").toLowerCase();
+    }
+
+    private static void throwExceptionIfNull(ConditionType conditionType) {
+        if (conditionType == null) {
+            throw new SomethingWentWrongException();
+        }
+    }
 }
