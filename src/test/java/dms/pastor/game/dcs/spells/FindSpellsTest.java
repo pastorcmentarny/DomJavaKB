@@ -4,6 +4,7 @@ import dms.pastor.game.dcs.Elements;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -22,6 +23,16 @@ public class FindSpellsTest {
     @Before
     public void setUp() throws Exception {
         spells = new Spells();
+    }
+
+    @Test
+    public void findSpellShouldReturnNoSpellIfSpellNotFound() {
+
+        // when
+        final Spell result = spells.findSpell(new Elements(99, 99, 99, 99));
+
+        // then
+        assertThat(result).isEqualTo(NoSpell.getInstance());
     }
 
     @Test
