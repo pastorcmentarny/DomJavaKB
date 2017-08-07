@@ -7,9 +7,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static dms.pastor.domain.Message.INPUT_CANNOT_BE_EMPTY;
-import static dms.pastor.utils.ValidatorUtils.validateIfListIsNotEmpty;
-import static dms.pastor.utils.ValidatorUtils.validateIfNotEmpty;
+import static dms.pastor.utils.ValidatorUtils.*;
 import static java.lang.Character.*;
+import static java.util.Objects.nonNull;
 import static java.util.stream.Collectors.toList;
 
 /**
@@ -68,21 +68,15 @@ public final class StringUtils {
      * A palindrome is a word, phrase, number, or other sequence of symbols or elements that reads the same forward or reversed,
      */
     public static boolean isPalindromeOfAnyPermutationString(String word) {
-        char[] chars = word.toCharArray();
-        Map<Character, Integer> hm = new HashMap<>();
-        for (char ch : chars) {
-            if (hm.containsKey(ch)) {
-                Integer x = hm.get(ch);
-                x += 1;
-                hm.put(ch, x);
-            } else {
-                hm.put(ch, 1);
-            }
+        char[] characters = word.toCharArray();
+        Map<Character, Integer> characterCounter = new HashMap<>();
+        for (char character : characters) {
+            increaseByOne(characterCounter, character);
         }
 
         boolean odd = false;
 
-        Iterator<Map.Entry<Character, Integer>> it = hm.entrySet().iterator();
+        Iterator<Map.Entry<Character, Integer>> it = characterCounter.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry<Character, Integer> pairs = it.next();
             int value = pairs.getValue();
@@ -96,6 +90,16 @@ public final class StringUtils {
             it.remove(); // avoids a ConcurrentModificationException
         }
         return true;
+    }
+
+    private static void increaseByOne(Map<Character, Integer> characterCounter, char character) {
+        if (characterCounter.containsKey(character)) {
+            Integer count = characterCounter.get(character);
+            count += 1;
+            characterCounter.put(character, count);
+        } else {
+            characterCounter.put(character, 1);
+        }
     }
 
     static boolean isPalindromeString(String word) {
@@ -116,10 +120,11 @@ public final class StringUtils {
         return true;
     }
 
+    //TODO do version with custom delimiter not whitespace only
     public static String toString(int[] values) {
         StringBuilder sb = new StringBuilder("[ ");
-        for (int i : values) {
-            sb.append(i).append(WHITESPACE);
+        for (int value : values) {
+            sb.append(value).append(WHITESPACE);
         }
         sb.append(']');
         return sb.toString();
@@ -130,11 +135,11 @@ public final class StringUtils {
      */
     static boolean isPangrams(String sentence) {
         Map<Character, Integer> alphabet = StringUtils.getAlphabetAsMap();
-        char[] array = sentence.toLowerCase().toCharArray();
+        char[] sentenceAsCharArray = sentence.toLowerCase().toCharArray();
 
-        for (char ch : array) {
-            if (Character.isLetter(ch)) {
-                alphabet.put(ch, alphabet.get(ch) + 1);
+        for (char character : sentenceAsCharArray) {
+            if (Character.isLetter(character)) {
+                alphabet.put(character, increaseCountByOne(alphabet, character));
             }
         }
         return isAPangrams(alphabet);
@@ -152,6 +157,11 @@ public final class StringUtils {
         return true;
     }
 
+    private static int increaseCountByOne(Map<Character, Integer> alphabet, char character) {
+        return alphabet.get(character) + 1;
+    }
+
+
     public static String toString(LinkedHashSet<String> lines) {
         StringBuilder stringBuilder = new StringBuilder(EMPTY_STRING);
         for (String line : lines) {
@@ -161,7 +171,7 @@ public final class StringUtils {
     }
 
     static String[] toStringArray(List<String> list) {
-        ValidatorUtils.validateIfNotNull(list);
+        validateIfNotNull(list);
         String[] stringArray = new String[list.size()];
         int counter = 0;
         for (String string : list) {
@@ -206,8 +216,8 @@ public final class StringUtils {
         return true;
     }
 
-    static String getNullSafeString(String str) {
-        return str != null ? str : EMPTY_STRING;
+    static String getNullSafeString(String string) {
+        return nonNull(string) ? string : EMPTY_STRING;
     }
 
     //it considers only whitespaces as empty string since .trim()
@@ -365,9 +375,7 @@ public final class StringUtils {
     }
 
     public static String getStringWithCapitalizedFirstCharacter(String string) {
-        if (string == null) {
-            throw new IllegalArgumentException("text cannot be null");
-        }
+        validateIfNotNull(string, "text");
         if (string.isEmpty()) {
             return string;
         }

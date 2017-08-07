@@ -803,7 +803,7 @@ public class StringUtilsTest {
         final String result = capitalizeFirstCharacter(string);
 
         // then
-        assertThat(result).isEqualTo("S");
+        assertThat(result).isEqualTo(expectedResult);
 
     }
 
