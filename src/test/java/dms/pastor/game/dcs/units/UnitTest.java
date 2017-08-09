@@ -8,10 +8,9 @@ import java.io.PrintStream;
 
 import static dms.pastor.game.dcs.Config.INITIAL_SHIELD_POINTS;
 import static dms.pastor.game.dcs.ElementsBuilder.elementsBuilder;
-import static dms.pastor.game.dcs.conditions.ElementType.AIR;
-import static dms.pastor.game.dcs.conditions.ElementType.EARTH;
-import static dms.pastor.game.dcs.conditions.ElementType.FIRE;
-import static dms.pastor.game.dcs.conditions.ElementType.WATER;
+import static dms.pastor.game.dcs.conditions.ConditionEntry.createTemporaryConditionWithDefaultDuration;
+import static dms.pastor.game.dcs.conditions.ConditionType.BUBBLE_SHIELD;
+import static dms.pastor.game.dcs.conditions.ElementType.*;
 import static dms.pastor.game.dcs.units.UnitBuilder.unitBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -248,7 +247,7 @@ public class UnitTest {
         final int elements = unit.getElementsFor(null);
 
         // then
-        assertThat(elements).isEqualTo(0);
+        assertThat(elements).isZero();
         //TODO test log too
     }
 
@@ -419,7 +418,68 @@ public class UnitTest {
         final int increase = unit.increaseHpPerTurn();
 
         // then
-        assertThat(increase).isEqualTo(0);
+        assertThat(increase).isZero();
         assertThat(unit.getHp()).isEqualTo(currentHp);
     }
+
+    @Test
+    public void doesDamageToShouldNotDoesDamageInsteadItBurstBubble() {
+        // given
+
+        final int initialHp = 10;
+        final Unit unit = unitBuilder()
+                .hp(initialHp)
+                .build();
+        unit.getConditions().add(createTemporaryConditionWithDefaultDuration(BUBBLE_SHIELD));
+
+        // when
+        final int damage = unit.doesDamageTo(unit, 5);
+
+        // then
+        assertThat(damage).isZero();
+        assertThat(unit.getHp()).isEqualTo(initialHp);
+        assertThat(unit.getConditions().has(BUBBLE_SHIELD));
+    }
+
+    @Test
+    public void doesDirectDamageToShouldNotDoesDamageInsteadItBurstBubble() {
+        // given
+        final int initialHp = 10;
+        final int initialSp = 20;
+        final Unit unit = unitBuilder()
+                .hp(initialHp)
+                .sp(initialSp)
+                .build();
+        unit.getConditions().add(createTemporaryConditionWithDefaultDuration(BUBBLE_SHIELD));
+
+        // when
+        unit.doesDirectDamage(5);
+
+        // then
+        assertThat(unit.getHp()).isEqualTo(initialHp);
+        assertThat(unit.getSp()).isEqualTo(initialSp);
+        assertThat(unit.getConditions().has(BUBBLE_SHIELD));
+    }
+
+    @Test
+    public void doesShieldDamageToShouldNotDoesDamageInsteadItBurstBubble() {
+        // given
+        final int initialHp = 10;
+        final int initialSp = 20;
+        final Unit unit = unitBuilder()
+                .hp(initialHp)
+                .sp(initialSp)
+                .build();
+        unit.getConditions().add(createTemporaryConditionWithDefaultDuration(BUBBLE_SHIELD));
+
+        // when
+        unit.doesShieldDamage(5);
+
+        // then
+        assertThat(unit.getHp()).isEqualTo(initialHp);
+        assertThat(unit.getSp()).isEqualTo(initialSp);
+        assertThat(unit.getConditions().has(BUBBLE_SHIELD));
+    }
+
+
 }

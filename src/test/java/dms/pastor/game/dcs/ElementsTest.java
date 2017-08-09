@@ -4,17 +4,16 @@ import dms.pastor.game.dcs.conditions.ElementType;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.slf4j.Logger;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.List;
 
 import static dms.pastor.game.dcs.ElementsBuilder.elementsBuilder;
-import static dms.pastor.game.dcs.conditions.ElementType.AIR;
-import static dms.pastor.game.dcs.conditions.ElementType.EARTH;
-import static dms.pastor.game.dcs.conditions.ElementType.FIRE;
-import static dms.pastor.game.dcs.conditions.ElementType.WATER;
+import static dms.pastor.game.dcs.conditions.ElementType.*;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.slf4j.LoggerFactory.getLogger;
 
 /**
  * Author Dominik Symonowicz
@@ -26,6 +25,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class ElementsTest {
+    private static final Logger LOGGER = getLogger(ElementsTest.class);
 
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private static final int INIT_ELEMENTS = 10;
@@ -280,4 +280,49 @@ public class ElementsTest {
         assertThat(elements.getWater()).isZero();
     }
 
+    @Test
+    public void addRandomElementsShouldReturnEmptyStringWhenAddingZeroElements() {
+        // given
+        final Elements elements = elementsBuilder().build();
+
+        // when
+        final String result = elements.addRandomElements(0);
+
+        // then
+        assertThat(result).isEmpty();
+    }
+
+    @Test
+    public void addRandomElementsShouldReturnEmptyString() {
+        // given
+        final Elements elements = elementsBuilder().build();
+
+        // when
+        final String result = elements.addRandomElements(1);
+
+        // then
+        assertThat(result).isNotEmpty();
+        assertThat(elements.countElements()).isEqualTo(1);
+        assertThat(result.length()).isGreaterThanOrEqualTo(3);
+
+        // debug
+        LOGGER.debug(result);
+    }
+
+    @Test //TODO RENAME IT
+    public void addRandomElementsShouldReturnEmptyString2() {
+        // given
+        final Elements elements = elementsBuilder().build();
+
+        // when
+        final String result = elements.addRandomElements(2);
+        System.out.println(result);
+        // then
+        assertThat(result).isNotEmpty();
+        assertThat(elements.countElements()).isEqualTo(2);
+        assertThat(result.length()).isGreaterThanOrEqualTo(7);
+
+        // debug
+        LOGGER.debug(result);
+    }
 }

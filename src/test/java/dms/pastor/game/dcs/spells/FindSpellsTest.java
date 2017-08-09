@@ -60,6 +60,12 @@ public class FindSpellsTest {
     }
 
     @Test
+    public void testFindBubbleShieldSpell() throws Exception {
+        Elements elements = new Elements(3, 1, 1, 1);
+        assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new BubbleShieldSpell().getName()));
+    }
+
+    @Test
     public void testFindChainLighting() throws Exception {
         Elements elements = new Elements(3, 0, 1, 0);
         assertTrue(spells.findSpell(elements).getName().equalsIgnoreCase(new ChainLightingSpell().getName()));

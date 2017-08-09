@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Author Dominik Symonowicz
@@ -19,12 +20,14 @@ public class Spells {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Spells.class);
     private static final ArrayList<Spell> spells = new ArrayList<>();
+    private static final Random random = new Random();
 
     static {
         spells.add(new AntiShieldPiercingSpell());
         spells.add(new AsteroidStormSpell());
         spells.add(new BackstabSpell());
         spells.add(new BloodlustSpell());
+        spells.add(new BubbleShieldSpell());
         spells.add(new ChainLightingSpell());
         spells.add(new CometStrikeSpell());
         spells.add(new CureSpell());
@@ -62,4 +65,9 @@ public class Spells {
         System.out.println("Spell not found!");
         return NoSpell.getInstance();
     }
+
+    public static Spell getRandomSpell() {
+        return spells.get(random.nextInt(spells.size()));
+    }
+
 }

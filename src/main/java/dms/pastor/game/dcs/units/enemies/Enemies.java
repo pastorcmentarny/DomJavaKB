@@ -10,6 +10,7 @@ public class Enemies {
     private static final List<Unit> allEnemies = new ArrayList<>();
 
     static {
+        allEnemies.add(new Conjuror());
         allEnemies.add(new Dummy());
         allEnemies.add(new FireElement());
         allEnemies.add(new Clairvoyant());

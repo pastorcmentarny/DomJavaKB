@@ -59,27 +59,34 @@ public class Elements {
         System.out.printf(" Air:%d Earth:%d Fire:%d Water:%d%n", air, earth, fire, water);
     }
 
+    //TODO improeve it split into method that do something and return something
     public String addRandomElements(int addCardPerTurn) {
+        StringBuilder stringBuilder = new StringBuilder("");
         for (int i = 1; i <= addCardPerTurn; i++) {
+            stringBuilder.append(" ");
             switch (random.nextInt(values().length)) {
                 case 0:
                     air++;
-                    return getElementName(AIR);
+                    stringBuilder.append(getElementName(AIR));
+                    break;
                 case 1:
                     earth++;
-                    return getElementName(EARTH);
+                    stringBuilder.append(getElementName(EARTH));
+                    break;
                 case 2:
                     fire++;
-                    return getElementName(FIRE);
+                    stringBuilder.append(getElementName(FIRE));
+                    break;
                 case 3:
                     water++;
-                    return getElementName(WATER);
+                    stringBuilder.append(getElementName(WATER));
+                    break;
                 default:
                     System.out.println("bug in addRandomElements");
-                    break;
+                    throw new SomethingWentTerribleWrongError();
             }
         }
-        throw new SomethingWentTerribleWrongError();
+        return stringBuilder.toString().trim();
     }
 
     private String getElementName(ElementType elementType) {

@@ -30,5 +30,4 @@ public class SpellsCastTest {
         final Spell spell = new FireBallSpell();
         spell.castSpell(player1, player2);
     }
-
 }

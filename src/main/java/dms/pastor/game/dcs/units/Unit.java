@@ -12,8 +12,7 @@ import java.util.ArrayList;
 
 import static dms.pastor.game.dcs.Config.INITIAL_SHIELD_POINTS;
 import static dms.pastor.game.dcs.Config.REGEN_HP_PER_TURN;
-import static dms.pastor.game.dcs.conditions.ConditionType.BLOODLUST;
-import static dms.pastor.game.dcs.conditions.ConditionType.WEAKNESS;
+import static dms.pastor.game.dcs.conditions.ConditionType.*;
 import static java.lang.String.format;
 
 /**
@@ -79,6 +78,9 @@ public class Unit {
     }
 
     public int doesDamageTo(Unit defender, int dmg) {
+        if (burstBubbleInsteadOfDoDamage(dmg)) {
+            return 0;
+        }
         if (conditions.has(WEAKNESS)) {
             dmg /= 2;
         }
@@ -96,6 +98,15 @@ public class Unit {
         System.out.println("It does " + dmg + " dmg.");
         defender.setHp(defender.getHp() - dmg);
         return dmg;
+    }
+
+    private boolean burstBubbleInsteadOfDoDamage(int dmg) {
+        if (getConditions().has(BUBBLE_SHIELD)) {
+            System.out.println("Bubble shiled absorbed " + dmg + " damage and burst.");
+            getConditions().removeByConditionName(BUBBLE_SHIELD);
+            return true;
+        }
+        return false;
     }
 
     public void addHP(int heal) {
@@ -186,6 +197,9 @@ public class Unit {
     }
 
     public int doesShieldDamage(int dmg) {
+        if (burstBubbleInsteadOfDoDamage(dmg)) {
+            return 0;
+        }
         System.out.println("Shield damage to deal: " + dmg);
         if (isShielded()) {
             sp -= dmg;
@@ -202,6 +216,10 @@ public class Unit {
     }
 
     public void doesDirectDamage(int penaltyDmg) {
+        if (burstBubbleInsteadOfDoDamage(penaltyDmg)) {
+            return;
+        }
+        LOGGER.debug(getName() + " lose " + penaltyDmg + " dmg.");
         hp -= penaltyDmg;
     }
 

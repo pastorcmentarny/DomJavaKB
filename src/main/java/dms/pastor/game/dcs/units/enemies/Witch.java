@@ -7,11 +7,11 @@ import static dms.pastor.game.dcs.conditions.ConditionEntry.createPersistentCond
 import static dms.pastor.game.dcs.conditions.ConditionType.*;
 import static dms.pastor.game.dcs.utils.Names.getRandomMummyName;
 
-public class Daemon extends Unit {
+public class Witch extends Unit {
 
     private static final int INITIAL_HP = 200;
 
-    public Daemon() {
+    public Witch() {
         setName(getRandomMummyName());
         setHp(INITIAL_HP);
         setSp(0);

@@ -10,14 +10,7 @@ import java.util.Iterator;
 import java.util.Objects;
 
 import static dms.pastor.game.dcs.conditions.ConditionEntry.unknown;
-import static dms.pastor.game.dcs.conditions.ConditionType.AIR_IMMUNE;
-import static dms.pastor.game.dcs.conditions.ConditionType.AIR_RESISTANT;
-import static dms.pastor.game.dcs.conditions.ConditionType.EARTH_IMMUNE;
-import static dms.pastor.game.dcs.conditions.ConditionType.EARTH_RESISTANT;
-import static dms.pastor.game.dcs.conditions.ConditionType.FIRE_IMMUNE;
-import static dms.pastor.game.dcs.conditions.ConditionType.FIRE_RESISTANT;
-import static dms.pastor.game.dcs.conditions.ConditionType.WATER_IMMUNE;
-import static dms.pastor.game.dcs.conditions.ConditionType.WATER_RESISTANT;
+import static dms.pastor.game.dcs.conditions.ConditionType.*;
 import static java.lang.String.format;
 import static java.util.stream.Collectors.toCollection;
 
@@ -43,7 +36,7 @@ public class Condition {
 
     //TODO inspect  java.lang.NullPointerException that happens once
     public void add(ConditionEntry condition) {
-        LOGGER.debug("You are " + condition.getConditionType().name().toLowerCase());
+        LOGGER.debug("You are influence of " + ConditionType.getText(condition.getConditionType()));
         if (has(condition.getConditionType())) {
             if (getConditionEntry(condition.getConditionType()).isTemporary() && condition.isPersistent()) {
                 conditions.remove(getConditionEntry(condition.getConditionType()));
