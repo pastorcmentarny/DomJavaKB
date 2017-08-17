@@ -14,7 +14,7 @@ public class Enemies {
         allEnemies.add(new Dummy());
         allEnemies.add(new FireElement());
         allEnemies.add(new Clairvoyant());
-        allEnemies.add(new Daemon());
+        allEnemies.add(new Witch());
         allEnemies.add(new Cleric());
         allEnemies.add(new Vampire());
         allEnemies.add(new Dragon());
