@@ -48,7 +48,7 @@ public class FillEntireAreaCommand implements Command {
         canvas.updatePixelAt(width, height, pixel);
         visitedPixel[width][height] = true;
 
-        LOGGER.debug(canvas.getImageAsString());
+        LOGGER.debug(canvas.getCanvasAsString());
         fillArea(canvas, visitedPixel, previous(width), height, pixel, currentFill);
         fillArea(canvas, visitedPixel, next(width), height, pixel, currentFill);
         fillArea(canvas, visitedPixel, width, previous(height), pixel, currentFill);

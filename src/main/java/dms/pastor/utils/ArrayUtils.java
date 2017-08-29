@@ -70,4 +70,21 @@ public final class ArrayUtils {
         return stringArray;
     }
 
+    public static String[][] clone2DArrayOfInts(String[][] source) {
+        if (source == null) {
+            throw new IllegalArgumentException("2D Array of integers cannot be null.");
+        }
+
+        if (source.length == 0) {
+            return new String[][]{};
+        }
+
+        int length = source.length;
+        String[][] destination = new String[length][source[0].length];
+        for (int i = 0; i < length; i++) {
+            System.arraycopy(source[i], 0, destination[i], 0, source[i].length);
+        }
+        return destination;
+    }
+
 }

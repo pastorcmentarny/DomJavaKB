@@ -240,7 +240,7 @@ public class CreateNewRectangleCommandTest extends AbstractCommandTest {
         createNewRectangleCommand.execute(canvas);
 
         // then
-        assertThat(canvas.getImageAsString()).isEqualTo(result);
+        assertThat(canvas.getCanvasAsString()).isEqualTo(result);
     }
 
 }

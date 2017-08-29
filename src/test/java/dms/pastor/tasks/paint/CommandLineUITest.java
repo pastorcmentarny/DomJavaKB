@@ -38,7 +38,7 @@ public class CommandLineUITest {
     public final ExpectedException exception = ExpectedException.none();
 
     @Rule
-    public Timeout globalTimeout = Timeout.seconds(3); // global time out for
+    public Timeout globalTimeout = Timeout.seconds(3); // global time out for all tests
 
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private PrintStream printStream;
@@ -57,7 +57,7 @@ public class CommandLineUITest {
         System.setOut(printStream);
     }
 
-    @Test(timeout = TEST_TIMEOUT)
+    @Test(timeout = TEST_TIMEOUT) // time out for this test only
     public void runApplicationShouldQuitIfUserTypeQuitCommand() {
         // given
         CommandLineUI commandLineUI = new CommandLineUI(scanner);
@@ -84,7 +84,7 @@ public class CommandLineUITest {
         assertThat(counter).isEqualTo(2);
     }
 
-    @Test
+    @Test // example when it will use global time out
     public void shouldDisplayErrorMessageIfExecuteCommandThrowException() {
         // given
         CommandLineUI commandLineUI = new CommandLineUI(scanner);

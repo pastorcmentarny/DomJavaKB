@@ -86,7 +86,7 @@ public class CanvasTest {
                         "--------\n";
 
         // when
-        final String image = canvas.getImageAsString();
+        final String image = canvas.getCanvasAsString();
 
         // then
         assertThat(image).isEqualTo(expectedImage);
@@ -106,7 +106,7 @@ public class CanvasTest {
                         "----\n";
 
         // when
-        final String image = canvas.getImageAsString();
+        final String image = canvas.getCanvasAsString();
 
         // then
         assertThat(image).isEqualTo(expectedImage);
@@ -123,7 +123,7 @@ public class CanvasTest {
                         "| |\n" +
                         "---\n";
         // when
-        final String image = canvas.getImageAsString();
+        final String image = canvas.getCanvasAsString();
 
         // then
         assertThat(image).isEqualTo(expectedImage);
@@ -144,7 +144,7 @@ public class CanvasTest {
                         "|     |\n" +
                         "-------\n";
         // when
-        final String image = canvas.getImageAsString();
+        final String image = canvas.getCanvasAsString();
 
         // then
         assertThat(image).isEqualTo(expectedImage);
@@ -166,7 +166,7 @@ public class CanvasTest {
         Canvas canvas = noCanvas();
 
         // when
-        final String image = canvas.getImageAsString();
+        final String image = canvas.getCanvasAsString();
 
         // then
         assertThat(image).isEmpty();
@@ -206,56 +206,6 @@ public class CanvasTest {
     }
 
     @Test
-    public void setImageShouldThrowInvalidCanvasExceptionForNoCanvas() {
-        // expect
-        exception.expect(InvalidCanvasException.class);
-
-        // given
-        canvas = noCanvas();
-
-        //when
-        canvas.setImage(new String[0][0]);
-    }
-
-    @Test
-    public void setImageShouldThrowInvalidCanvasExceptionIfCanvasSizeIsDifferentThanNewImage() {
-        // expect
-        exception.expect(InvalidCanvasException.class);
-
-        // given
-        canvas = Canvas.createCanvasFor(DEFAULT_SQUARE_LENGTH, DEFAULT_SQUARE_LENGTH);
-
-        //when
-        canvas.setImage(new String[DEFAULT_HEIGHT][2]);
-    }
-
-    @Test
-    public void setImageShouldBeSetFoValidImage() {
-        // given
-        canvas = Canvas.createCanvasFor(DEFAULT_SQUARE_LENGTH, DEFAULT_SQUARE_LENGTH);
-        final String[][] image = canvas.getImage();
-        image[1][1] = "D";
-        image[2][1] = "O";
-        image[3][1] = "M";
-        image[3][2] = "I";
-        image[3][3] = "N";
-        image[2][3] = "I";
-        image[1][3] = "K";
-
-        // when
-        canvas.setImage(image);
-
-        // then
-        assertThat(canvas.getImageAsString()).isEqualTo(
-                "-----\n" +
-                        "|DOM|\n" +
-                        "|  I|\n" +
-                        "|KIN|\n" +
-                        "-----\n"
-        );
-    }
-
-    @Test
     public void getCoordinatesAsStringShouldReturnEmptyStringIfCanvasIsNotSet() throws Exception {
         // given
         Canvas canvas = noCanvas();
@@ -270,7 +220,7 @@ public class CanvasTest {
     @Test
     public void getCoordinatesAsStringShouldReturnCoordinatesForCanvas() throws Exception {
         // given
-        final Canvas canvas = Canvas.createCanvasFor(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+        final Canvas canvas = createCanvasFor(DEFAULT_WIDTH, DEFAULT_HEIGHT);
         final String expectedResult = "Width: 6 Height: 4";
 
         // when
@@ -283,7 +233,7 @@ public class CanvasTest {
     @Test
     public void isCanvasReturnsTrueForCreatedCanvas() throws Exception {
         // given
-        final Canvas canvas = Canvas.createCanvasFor(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+        final Canvas canvas = createCanvasFor(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 
         // when
         final boolean result = canvas.isCanvas();
@@ -307,7 +257,7 @@ public class CanvasTest {
     @Test
     public void isNoCanvasReturnsFalseForCreatedCanvas() throws Exception {
         // given
-        final Canvas canvas = Canvas.createCanvasFor(4, DEFAULT_HEIGHT);
+        final Canvas canvas = createCanvasFor(4, DEFAULT_HEIGHT);
 
         // when
         final boolean result = canvas.isNoCanvas();
@@ -327,4 +277,45 @@ public class CanvasTest {
         // then
         assertThat(result).isTrue();
     }
+
+    @Test
+    public void undoShouldReturnPreviousStateOfImage() throws Exception {
+        // given
+        canvas = createCanvasFor(8, 6);
+        final String expectedImage = canvas.getCanvasAsString();
+        canvas.saveState();
+        canvas.updatePixelAt(1, 1, "x");
+
+        // when
+        canvas.undo();
+
+        // then
+        assertThat(canvas.getCanvasAsString()).isEqualTo(expectedImage);
+    }
+
+    @Test
+    public void getImageAsStringShouldReturnImageWithDominikOnCanvas() {
+        // given
+        canvas = createCanvasFor(DEFAULT_SQUARE_LENGTH, DEFAULT_SQUARE_LENGTH);
+        canvas.updatePixelAt(1, 1, "D");
+        canvas.updatePixelAt(2, 1, "O");
+        canvas.updatePixelAt(3, 1, "M");
+        canvas.updatePixelAt(3, 2, "I");
+        canvas.updatePixelAt(3, 3, "N");
+        canvas.updatePixelAt(2, 3, "I");
+        canvas.updatePixelAt(1, 3, "K");
+
+        // when
+        final String result = canvas.getCanvasAsString();
+        // then
+        assertThat(result).isEqualTo(
+                "-----\n" +
+                        "|DOM|\n" +
+                        "|  I|\n" +
+                        "|KIN|\n" +
+                        "-----\n"
+        );
+    }
+
+
 }

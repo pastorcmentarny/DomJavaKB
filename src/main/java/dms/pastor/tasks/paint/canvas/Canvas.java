@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import static dms.pastor.tasks.paint.canvas.CanvasValidator.*;
+import static dms.pastor.tasks.paint.canvas.Image.noImage;
 import static java.lang.String.format;
 
 /**
@@ -20,13 +21,11 @@ public class Canvas {
     private static final String EMPTY_PIXEL = " ";
     private static final int BORDER = 1;
     private static final String EMPTY = "";
-    private int width;
-    private int height;
-    private String[][] image = null;
+    private Image image;
+    private State state = new State();
 
     private Canvas(int width, int height) {
-        this.width = width;
-        this.height = height;
+        image = new Image(width, height);
         generateCanvas();
     }
 
@@ -40,36 +39,33 @@ public class Canvas {
     }
 
     public void recreateCanvas(int width, int height) {
-        this.width = width;
-        this.height = height;
+        image = new Image(width, height);
         validate(width, height);
         generateCanvas();
     }
 
     private void generateCanvas() {
-        if (width == 0 || height == 0) {
-            image = new String[0][0];
+        if (image.getWidth() == 0 || image.getHeight() == 0) {
+            image.resetToNoImage();
             return;
         }
-        final int widthWithBorder = withBorder(width);
-        final int heightWithBorder = withBorder(height);
-
-        image = new String[widthWithBorder][heightWithBorder];
+        final int widthWithBorder = withBorder(image.getWidth());
+        final int heightWithBorder = withBorder(image.getHeight());
+        image.setImage(new String[widthWithBorder][heightWithBorder]);
 
         for (int y = 0; y < heightWithBorder; y++) {
             for (int x = 0; x < widthWithBorder; x++) {
-                image[x][y] = drawPixel(x, y);
+                image.setPixel(x, y, drawPixel(x, y));
             }
         }
-        System.out.println();
     }
 
     public int getWidth() {
-        return width;
+        return image.getWidth();
     }
 
     public int getHeight() {
-        return height;
+        return image.getHeight();
     }
 
     public int getBorder() {
@@ -83,21 +79,16 @@ public class Canvas {
 
     public void updatePixelAt(int x, int y, String pixelFill) {
         LOGGER.debug(format("Updating pixel at (%d,%d) to %s", x, y, pixelFill));
-        image[x][y] = pixelFill;
-        LOGGER.debug("Image:\n" + getImageAsString());
+        image.setPixel(x, y, pixelFill);
+        LOGGER.debug("Image:\n" + getCanvasAsString());
     }
 
     public String getPixelAt(int x, int y) {
-        return image[x][y];
+        return image.getPixelAt(x, y);
     }
 
     public String[][] getImage() {
-        return image;
-    }
-
-    public void setImage(String[][] image) {
-        validateImage(image);
-        this.image = image;
+        return image.getImage();
     }
 
     private void validateImage(String[][] image) {
@@ -105,13 +96,13 @@ public class Canvas {
         validateIfImageSizeAreTheSame(this, image);
     }
 
-    public String getImageAsString() {
+    public String getCanvasAsString() {
         StringBuilder imageBuilder = new StringBuilder(EMPTY);
         if (isNoCanvas()) {
             return imageBuilder.toString();
         }
-        for (int y = 0; y < withBorder(height); y++) {
-            for (int x = 0; x < withBorder(width); x++) {
+        for (int y = 0; y < withBorder(image.getHeight()); y++) {
+            for (int x = 0; x < withBorder(image.getWidth()); x++) {
                 imageBuilder.append(getPixelAt(x, y));
             }
             imageBuilder.append(NEW_LINE);
@@ -121,13 +112,13 @@ public class Canvas {
 
     public String getCoordinatesAsString() {
         if (isCanvas()) {
-            return String.format("Width: %d Height: %d", width, height);
+            return String.format("Width: %d Height: %d", image.getWidth(), image.getHeight());
         }
         return EMPTY;
     }
 
     public boolean isCanvas() {
-        return height > 0 && width > 0;
+        return image.isCreated();
     }
 
     public boolean isNoCanvas() {
@@ -148,14 +139,23 @@ public class Canvas {
     }
 
     private boolean isVerticalBorder(int widthPixel) {
-        return widthPixel == 0 || widthPixel == withBorder(width - 1);
+        return widthPixel == 0 || widthPixel == withBorder(image.getPreviousPixelFor(image.getWidth()));
     }
 
     private boolean isHorizontalBorder(int heightPixel) {
-        return heightPixel == 0 || heightPixel == withBorder(height - 1);
+        return heightPixel == 0 || heightPixel == withBorder(image.getPreviousPixelFor(image.getHeight()));
+    }
+
+    public void saveState() {
+        System.out.println("SAVING ...\r\n" + getCanvasAsString());
+        state.save(image);
     }
 
     public void undo() {
-
+        if (state.peek().isPresent()) {
+            System.out.println(state.peek().toString());
+            image = state.undo().orElse(noImage());
+        }
     }
+
 }

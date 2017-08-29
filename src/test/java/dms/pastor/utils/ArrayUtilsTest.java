@@ -1,13 +1,14 @@
 package dms.pastor.utils;
 
 import org.junit.Assert;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import static dms.pastor.utils.ArrayUtils.generateRandomByteArray;
-import static dms.pastor.utils.ArrayUtils.reverseStringArray;
+import static dms.pastor.utils.ArrayUtils.*;
 import static org.assertj.core.api.Java6Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 
@@ -21,6 +22,9 @@ import static org.hamcrest.CoreMatchers.is;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class ArrayUtilsTest {
+
+    @Rule
+    public ExpectedException exception = ExpectedException.none();
 
     private static final char[] CHARS_ARRAY = {};
     private static final String[] EMPTY_STRING_ARRAY = new String[0];
@@ -120,5 +124,45 @@ public class ArrayUtilsTest {
 
         // then
         assertThat(result).isEmpty();
+    }
+
+    @Test
+    public void clone2DArrayOfIntsShouldThrowIllegalArgumentExceptionIfSourceIsNull() throws Exception {
+        // expect
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("2D Array of integers cannot be null.");
+
+        // when
+        clone2DArrayOfInts(null);
+    }
+
+    @Test
+    public void clone2DArrayOfIntsShouldCoppyEmptyArrayIfYouPassEmptyArray() {
+        // given
+        final String[][] ints2d = {};
+
+        // when
+        final String[][] result = clone2DArrayOfInts(ints2d);
+
+        // then
+        assertThat(result).isEqualTo(ints2d);
+    }
+
+    @Test
+    public void clone2DArrayOfIntsShouldCopyArrayToNew() {
+        // given
+        final String[][] ints2d = new String[3][3];
+        ints2d[0][0] = "0";
+        ints2d[1][1] = "1";
+        ints2d[2][2] = "2";
+        final String[][] expectedResult = {{"0", null, null}, {null, "1", null}, {null, null, "2"}};
+
+        // when
+        final String[][] result = clone2DArrayOfInts(expectedResult);
+
+        // then set value to ensure ints2d is not referenced in result
+        ints2d[2][2] = "3";
+
+        assertThat(result).isEqualTo(expectedResult);
     }
 }

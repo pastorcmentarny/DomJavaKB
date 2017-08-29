@@ -310,7 +310,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
         createNewLineCommand.execute(canvas);
 
         // then
-        assertThat(canvas.getImageAsString()).isEqualTo(result);
+        assertThat(canvas.getCanvasAsString()).isEqualTo(result);
     }
 
     @Test
@@ -329,7 +329,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
         createNewLineCommand.execute(canvas);
 
         // then
-        assertThat(canvas.getImageAsString()).isEqualTo(result);
+        assertThat(canvas.getCanvasAsString()).isEqualTo(result);
     }
 
     @Test
@@ -341,7 +341,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
         createNewLineCommand.execute(canvas);
 
         // then
-        assertThat(canvas.getImageAsString()).isEmpty();
+        assertThat(canvas.getCanvasAsString()).isEmpty();
 
     }
 

@@ -26,6 +26,7 @@ public final class ToCommandTransformer {
         commands.add(new CreateNewLineCommand());
         commands.add(new CreateNewRectangleCommand());
         commands.add(new FillEntireAreaCommand());
+        commands.add(new UndoCommand());
     }
 
     private ToCommandTransformer() {

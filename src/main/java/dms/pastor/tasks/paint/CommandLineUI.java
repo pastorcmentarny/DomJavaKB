@@ -4,6 +4,7 @@ import dms.pastor.tasks.paint.canvas.Canvas;
 import dms.pastor.tasks.paint.command.Command;
 import dms.pastor.tasks.paint.command.InvalidCommandSyntaxException;
 import dms.pastor.tasks.paint.command.QuitCommand;
+import dms.pastor.tasks.paint.command.UndoCommand;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -61,13 +62,20 @@ public class CommandLineUI {
             if (command instanceof QuitCommand) {
                 running = false;
             } else {
+                doNotSaveStateForUndoCommand(command);
                 command.execute(canvas);
             }
         }
     }
 
+    private void doNotSaveStateForUndoCommand(Command command) {
+        if (!(command instanceof UndoCommand)) {
+            canvas.saveState();
+        }
+    }
+
     private void draw() {
-        System.out.println(canvas.getImageAsString());
+        System.out.println(canvas.getCanvasAsString());
     }
 
 }

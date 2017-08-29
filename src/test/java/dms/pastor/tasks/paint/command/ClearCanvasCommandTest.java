@@ -76,7 +76,7 @@ public class ClearCanvasCommandTest extends AbstractCommandTest {
         clearCanvasCommand.execute(canvas);
 
         // then
-        assertThat(canvas.getImageAsString()).isEqualTo(expectedCanvas.getImageAsString());
+        assertThat(canvas.getCanvasAsString()).isEqualTo(expectedCanvas.getCanvasAsString());
     }
 
 }

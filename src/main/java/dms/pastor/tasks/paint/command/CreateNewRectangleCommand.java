@@ -74,12 +74,12 @@ public class CreateNewRectangleCommand implements Command {
 
     private void validateAreParamsIsRange(Canvas canvas) {
         if (startPoint.getHeight() < canvas.getBorder() || endPoint.getHeight() >= canvas.getHeight() + canvas.getBorder()) {
-            LOGGER.warn("Start Point: " + startPoint.toString() + " End Point: " + endPoint.toString() + " Canvas: " + canvas.getCoordinatesAsString() + "Border: " + canvas.getBorder() + "\n" + canvas.getImageAsString());
+            LOGGER.warn("Start Point: " + startPoint.toString() + " End Point: " + endPoint.toString() + " Canvas: " + canvas.getCoordinatesAsString() + "Border: " + canvas.getBorder() + "\n" + canvas.getCanvasAsString());
             throw new InvalidCommandSyntaxException("paint on border is not allowed");
         }
 
         if (startPoint.getWidth() < canvas.getBorder() || endPoint.getWidth() >= canvas.getWidth() + canvas.getBorder()) {
-            LOGGER.warn("Start Point: " + startPoint.toString() + " End Point: " + endPoint.toString() + " Canvas: " + canvas.getCoordinatesAsString() + "Border: " + canvas.getBorder() + "\n" + canvas.getImageAsString());
+            LOGGER.warn("Start Point: " + startPoint.toString() + " End Point: " + endPoint.toString() + " Canvas: " + canvas.getCoordinatesAsString() + "Border: " + canvas.getBorder() + "\n" + canvas.getCanvasAsString());
             throw new InvalidCommandSyntaxException("paint on border is not allowed");
         }
     }

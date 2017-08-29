@@ -193,4 +193,32 @@ public class AcceptanceTests {
         assertThat(outputStream.toString()).contains("Enter command:Q\r\n" + EMPTY_CANVAS);
     }
 
+    @Test//(timeout = TEST_TIMEOUT)
+    public void shouldExecuteUndoCommand() {
+
+        // given
+        CommandLineUI commandLineUI = new CommandLineUI(scanner);
+        when(scanner.nextLine())
+                .thenReturn("C 20 4")
+                .thenReturn("L 1 1 3 1")
+                .thenReturn("L 2 2 4 2")
+                .thenReturn("R 2 2 4 4")
+                .thenReturn("U")
+                .thenReturn("Q");
+
+        // when
+        commandLineUI.runApplication();
+
+        // then
+        assertThat(outputStream.toString()).contains("Enter command:Q\r\n" +
+                "----------------------\n" +
+                "|xxx                 |\n" +
+                "| xxx                |\n" +
+                "|                    |\n" +
+                "|                    |\n" +
+                "----------------------\n"
+        );
+
+    }
+
 }

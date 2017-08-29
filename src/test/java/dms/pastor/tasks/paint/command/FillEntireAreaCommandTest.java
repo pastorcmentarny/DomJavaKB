@@ -63,7 +63,7 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
         fillEntireAreaCommand.execute(canvas);
 
         //then
-        assertThat(canvas.getImageAsString()).isEqualTo("---\n" +
+        assertThat(canvas.getCanvasAsString()).isEqualTo("---\n" +
                 "|o|\n" +
                 "---\n");
     }
@@ -80,7 +80,7 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
         fillEntireAreaCommand.execute(canvas);
 
         //then
-        assertThat(canvas.getImageAsString()).isEqualTo(EXPECTED_SQUARE_FILLED_WITH_O);
+        assertThat(canvas.getCanvasAsString()).isEqualTo(EXPECTED_SQUARE_FILLED_WITH_O);
     }
 
     @Test
@@ -94,7 +94,7 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
         fillEntireAreaCommand.execute(canvas);
 
         //then
-        assertThat(canvas.getImageAsString()).isEqualTo(EXPECTED_SQUARE_FILLED_WITH_O);
+        assertThat(canvas.getCanvasAsString()).isEqualTo(EXPECTED_SQUARE_FILLED_WITH_O);
     }
 
     @Test
@@ -108,7 +108,7 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
         fillEntireAreaCommand.execute(canvas);
 
         //then
-        assertThat(canvas.getImageAsString()).isEqualTo(EXPECTED_SQUARE_FILLED_WITH_O);
+        assertThat(canvas.getCanvasAsString()).isEqualTo(EXPECTED_SQUARE_FILLED_WITH_O);
     }
 
     @Test
@@ -122,7 +122,7 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
         fillEntireAreaCommand.execute(canvas);
 
         //then
-        assertThat(canvas.getImageAsString()).isEqualTo(EXPECTED_SQUARE_FILLED_WITH_O);
+        assertThat(canvas.getCanvasAsString()).isEqualTo(EXPECTED_SQUARE_FILLED_WITH_O);
     }
 
     @Test
@@ -136,7 +136,7 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
         fillEntireAreaCommand.execute(canvas);
 
         //then
-        assertThat(canvas.getImageAsString()).isEqualTo(EXPECTED_SQUARE_FILLED_WITH_O);
+        assertThat(canvas.getCanvasAsString()).isEqualTo(EXPECTED_SQUARE_FILLED_WITH_O);
     }
 
     @Test
@@ -159,7 +159,7 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
         fillEntireAreaCommand.execute(canvas);
 
         //then
-        assertThat(canvas.getImageAsString()).isEqualTo("-------\n"
+        assertThat(canvas.getCanvasAsString()).isEqualTo("-------\n"
                 + "|     |\n"
                 + "| xxx |\n"
                 + "| xox |\n"
@@ -188,7 +188,7 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
         fillEntireAreaCommand.execute(canvas);
 
         //then
-        assertThat(canvas.getImageAsString()).isEqualTo("-------\n"
+        assertThat(canvas.getCanvasAsString()).isEqualTo("-------\n"
                 + "|ooooo|\n"
                 + "|oxxxo|\n"
                 + "|ox xo|\n"
@@ -218,7 +218,7 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
         fillEntireAreaCommand.execute(canvas);
 
         //then
-        assertThat(canvas.getImageAsString()).isEqualTo("-------\n"
+        assertThat(canvas.getCanvasAsString()).isEqualTo("-------\n"
                 + "|ooooo|\n"
                 + "|oxxxo|\n"
                 + "|oooxo|\n"
@@ -236,7 +236,7 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
         fillEntireAreaCommand.execute(canvas);
 
         // then
-        assertThat(canvas.getImageAsString()).isEqualTo(noCanvas().getImageAsString());
+        assertThat(canvas.getCanvasAsString()).isEqualTo(noCanvas().getCanvasAsString());
 
     }
 

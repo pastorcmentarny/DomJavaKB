@@ -1,7 +1,9 @@
 package dms.pastor.tasks.paint.command;
 
+import dms.pastor.tasks.paint.canvas.Canvas;
 import org.junit.Test;
 
+import static dms.pastor.tasks.paint.canvas.Canvas.createCanvasFor;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -55,6 +57,25 @@ public class UndoCommandTest extends AbstractCommandTest {
         undoCommand.setParamsIfValid(params);
 
         // then nothing happen when params are valid
+    }
+
+    @Test
+    public void executeShouldUndoLastChange() throws Exception {
+        // given
+        final Canvas canvas = createCanvasFor(8, 6);
+        canvas.saveState();
+        canvas.updatePixelAt(1, 2, "x");
+
+        canvas.saveState();
+        canvas.updatePixelAt(1, 2, "d");
+
+        final Canvas expectedCanvas = createCanvasFor(8, 6);
+        expectedCanvas.updatePixelAt(1, 2, "x");
+
+        // when
+        undoCommand.execute(canvas);
+        // then
+        assertThat(canvas.getCanvasAsString()).isEqualTo(expectedCanvas.getCanvasAsString());
     }
 
 }
