@@ -35,7 +35,7 @@ public class State {
         }
         Image image = new Image(previous.getWidth(), previous.getHeight(), clone2DArrayOfInts(previous.getImage()));
         previous = null;
-        return Optional.ofNullable(image);
+        return Optional.of(image);
     }
 
     boolean containsPreviousState() {

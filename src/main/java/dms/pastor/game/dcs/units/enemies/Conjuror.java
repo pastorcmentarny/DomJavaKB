@@ -25,7 +25,7 @@ public class Conjuror extends Unit {
 
     private static final int INITIAL_SP = 40;
     private static final Logger LOGGER = LoggerFactory.getLogger(Genie.class);
-    private static Random random = new Random();
+    private static final Random random = new Random();
 
     public Conjuror() {
         super();

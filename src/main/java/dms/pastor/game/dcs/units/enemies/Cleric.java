@@ -20,7 +20,7 @@ import static dms.pastor.game.dcs.conditions.ElementType.FIRE;
  */
 public class Cleric extends Unit {
 
-    private RandomiseUtils randoms = new InGameRandomiseUtils();
+    private final RandomiseUtils randoms = new InGameRandomiseUtils();
 
     public Cleric() {
         super();

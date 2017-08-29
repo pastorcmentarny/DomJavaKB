@@ -19,7 +19,7 @@ public abstract class Spell extends Card {
     private final CardType cardType = CardType.SPELL;
     private Elements elements;
 
-    public static void castSpellMessage(String attackerName, String spellName, String defenderName) {
+    static void castSpellMessage(String attackerName, String spellName, String defenderName) {
         System.out.println(attackerName + " casting " + spellName + " on " + defenderName);
     }
 

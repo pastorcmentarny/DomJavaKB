@@ -59,7 +59,7 @@ public class Elements {
         System.out.printf(" Air:%d Earth:%d Fire:%d Water:%d%n", air, earth, fire, water);
     }
 
-    //TODO improeve it split into method that do something and return something
+    //TODO improve it split into method that do something and return something
     public String addRandomElements(int addCardPerTurn) {
         StringBuilder stringBuilder = new StringBuilder("");
         for (int i = 1; i <= addCardPerTurn; i++) {

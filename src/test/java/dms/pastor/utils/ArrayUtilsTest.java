@@ -158,7 +158,7 @@ public class ArrayUtilsTest {
         final String[][] expectedResult = {{"0", null, null}, {null, "1", null}, {null, null, "2"}};
 
         // when
-        final String[][] result = clone2DArrayOfInts(expectedResult);
+        final String[][] result = clone2DArrayOfInts(ints2d);
 
         // then set value to ensure ints2d is not referenced in result
         ints2d[2][2] = "3";

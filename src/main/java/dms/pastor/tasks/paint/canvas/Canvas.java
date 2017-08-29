@@ -22,7 +22,7 @@ public class Canvas {
     private static final int BORDER = 1;
     private static final String EMPTY = "";
     private Image image;
-    private State state = new State();
+    private final State state = new State();
 
     private Canvas(int width, int height) {
         image = new Image(width, height);

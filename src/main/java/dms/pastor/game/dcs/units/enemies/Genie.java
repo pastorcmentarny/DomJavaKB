@@ -28,7 +28,7 @@ import static dms.pastor.game.dcs.conditions.ElementType.FIRE;
 public class Genie extends Unit {
     private static final Logger LOGGER = LoggerFactory.getLogger(Genie.class);
     private static final int MAX_GRID_NUMBER = 1_000_000;
-    private static Random random = new Random();
+    private static final Random random = new Random();
 
 
     public Genie() {

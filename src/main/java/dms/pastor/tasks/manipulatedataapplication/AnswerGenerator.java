@@ -39,7 +39,7 @@ class AnswerGenerator {
         }
     }
 
-    String generate() throws Exception {
+    String generate() {
 
         Question howManyMale = new QuestionOne(people);
         howManyMale.processQuestion();

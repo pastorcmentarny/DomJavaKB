@@ -30,7 +30,7 @@ public class IceBoltSpell extends Spell {
         if (defender.getConditions().isNotImmuneTo(WATER)) {
             if (defender.getConditions().has(FROZEN)) {
                 System.out.println(defender.getName() + " will get double damage as it is frozen.");
-                defender.doesDamageTo(attacker, doubleDamgageFor(ICE_BOLT_DMG));
+                defender.doesDamageTo(attacker, doubleDamageFor(ICE_BOLT_DMG));
             } else {
                 defender.doesDamageTo(attacker, ICE_BOLT_DMG);
             }
@@ -39,7 +39,7 @@ public class IceBoltSpell extends Spell {
         }
     }
 
-    private int doubleDamgageFor(int dmg) {
+    private int doubleDamageFor(int dmg) {
         return 2 * dmg;
     }
 }

@@ -14,7 +14,7 @@ import static dms.pastor.utils.randoms.PersonalDataGenerator.generateFirstName;
 
 public class Clairvoyant extends Unit {
 
-    private static Random random = new Random();
+    private static final Random random = new Random();
     private static CometStrikeSpell cometStrikeSpell = new CometStrikeSpell();
     private static MagicStoneSpell magicStoneSpell = new MagicStoneSpell();
 

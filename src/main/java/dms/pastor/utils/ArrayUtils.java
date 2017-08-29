@@ -71,9 +71,7 @@ public final class ArrayUtils {
     }
 
     public static String[][] clone2DArrayOfInts(String[][] source) {
-        if (source == null) {
-            throw new IllegalArgumentException("2D Array of integers cannot be null.");
-        }
+        ValidatorUtils.validateIfNotNull(source, "2D Array of integers cannot be null.");
 
         if (source.length == 0) {
             return new String[][]{};

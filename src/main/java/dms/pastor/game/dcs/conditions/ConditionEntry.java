@@ -19,7 +19,7 @@ public class ConditionEntry {
 
     private final ConditionType condition;
     private int turnsLeft = 0;
-    private boolean persistent;
+    private final boolean persistent;
 
     ConditionEntry(ConditionType condition, int turns, boolean persistent) {
         this.condition = condition;

@@ -9,8 +9,8 @@ import static dms.pastor.utils.randoms.PersonalDataGenerator.generateFirstName;
 public class Names {
 
     private static final Random random = new Random();
-    private static List<String> ancientEgyptTitles;
-    private static List<String> places;
+    private static final List<String> ancientEgyptTitles;
+    private static final List<String> places;
 
     static {
         ancientEgyptTitles = new ArrayList<>();

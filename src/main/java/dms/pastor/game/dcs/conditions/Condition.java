@@ -28,7 +28,7 @@ public class Condition {
     private static final int IMMUNITY_PERCENTAGE = 50;
     private static final Logger LOGGER = LoggerFactory.getLogger(Condition.class);
     private HashSet<ConditionEntry> conditions = new HashSet<>();
-    private RandomiseUtils randomiseUtils = new InGameRandomiseUtils();
+    private final RandomiseUtils randomiseUtils = new InGameRandomiseUtils();
 
     public HashSet<ConditionEntry> getConditions() {
         return conditions;
@@ -167,7 +167,7 @@ public class Condition {
     }
 
     //TODO move to utils
-    public static boolean isEmpty(ConditionEntry[] conditionEntries) {
+    private static boolean isEmpty(ConditionEntry[] conditionEntries) {
         return conditionEntries == null || conditionEntries.length == 0;
     }
 

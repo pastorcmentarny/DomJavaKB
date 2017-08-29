@@ -102,7 +102,7 @@ public class Unit {
 
     private boolean burstBubbleInsteadOfDoDamage(int dmg) {
         if (getConditions().has(BUBBLE_SHIELD)) {
-            System.out.println("Bubble shiled absorbed " + dmg + " damage and burst.");
+            System.out.println("Bubble shield absorbed " + dmg + " damage and burst.");
             getConditions().removeByConditionName(BUBBLE_SHIELD);
             return true;
         }
@@ -158,7 +158,7 @@ public class Unit {
         return maxHp;
     }
 
-    public void setMaxHp(int maxHp) {
+    protected void setMaxHp(int maxHp) {
         this.maxHp = maxHp;
     }
 
@@ -174,7 +174,7 @@ public class Unit {
         return arm;
     }
 
-    public void setArm(int arm) {
+    protected void setArm(int arm) {
         this.arm = arm;
     }
 
