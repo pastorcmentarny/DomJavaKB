@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import org.junit.rules.Timeout;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
@@ -30,11 +31,14 @@ import static org.mockito.Mockito.when;
  */
 @RunWith(MockitoJUnitRunner.class)
 public class CommandLineUITest {
-    private static final int TEST_TIMEOUT = 1000; //used in case if command stuck with input
+    private static final int TEST_TIMEOUT = 2000; //used in case if command stuck with input
     private static final String ENTER_COMMAND_MESSAGE = "Enter command:";
 
     @Rule
     public final ExpectedException exception = ExpectedException.none();
+
+    @Rule
+    public Timeout globalTimeout = Timeout.seconds(3); // global time out for
 
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private PrintStream printStream;
@@ -80,7 +84,7 @@ public class CommandLineUITest {
         assertThat(counter).isEqualTo(2);
     }
 
-    @Test(timeout = TEST_TIMEOUT)
+    @Test
     public void shouldDisplayErrorMessageIfExecuteCommandThrowException() {
         // given
         CommandLineUI commandLineUI = new CommandLineUI(scanner);
