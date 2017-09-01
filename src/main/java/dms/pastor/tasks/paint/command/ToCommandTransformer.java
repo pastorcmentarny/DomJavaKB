@@ -27,6 +27,7 @@ public final class ToCommandTransformer {
         commands.add(new CreateNewRectangleCommand());
         commands.add(new FillEntireAreaCommand());
         commands.add(new UndoCommand());
+        commands.add(new RedoCommand());
     }
 
     private ToCommandTransformer() {
@@ -47,6 +48,7 @@ public final class ToCommandTransformer {
         }
     }
 
+    //TODO improve quality
     private static Command getCommandFor(String[] input) {
         for (Command command : commands) {
             if (command.getSyntax().equals(input[0])) {
@@ -55,6 +57,13 @@ public final class ToCommandTransformer {
                         return new CreateCanvasCommand();
                     } else {
                         return new ClearCanvasCommand();
+                    }
+                }
+                if (command.getSyntax().equalsIgnoreCase("R")) {
+                    if (input.length > 1) {
+                        return new CreateNewRectangleCommand();
+                    } else {
+                        return new RedoCommand();
                     }
                 }
                 return command;

@@ -193,7 +193,7 @@ public class AcceptanceTests {
         assertThat(outputStream.toString()).contains("Enter command:Q\r\n" + EMPTY_CANVAS);
     }
 
-    @Test//(timeout = TEST_TIMEOUT)
+    @Test
     public void shouldExecuteUndoCommand() {
 
         // given
@@ -216,6 +216,41 @@ public class AcceptanceTests {
                 "| xxx                |\n" +
                 "|                    |\n" +
                 "|                    |\n" +
+                "----------------------\n"
+        );
+
+    }
+
+    @Test
+    public void shouldExecuteRedoCommand() {
+
+        // given
+        CommandLineUI commandLineUI = new CommandLineUI(scanner);
+        when(scanner.nextLine())
+                .thenReturn("C 20 4")
+                .thenReturn("L 1 1 3 1")
+                .thenReturn("U")
+                .thenReturn("R")
+                .thenReturn("L 2 2 4 2")
+                .thenReturn("U")
+                .thenReturn("R")
+                .thenReturn("R 2 2 4 4")
+                .thenReturn("U")
+                .thenReturn("U")
+                .thenReturn("R")
+                .thenReturn("R")
+                .thenReturn("Q");
+
+        // when
+        commandLineUI.runApplication();
+
+        // then
+        assertThat(outputStream.toString()).contains("Enter command:Q\r\n" +
+                "----------------------\n" +
+                "|xxx                 |\n" +
+                "| xxx                |\n" +
+                "| x x                |\n" +
+                "| xxx                |\n" +
                 "----------------------\n"
         );
 

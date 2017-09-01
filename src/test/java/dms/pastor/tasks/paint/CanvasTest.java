@@ -294,6 +294,23 @@ public class CanvasTest {
     }
 
     @Test
+    public void redoShouldReturnNextStateOfImage() throws Exception {
+        // given
+        canvas = createCanvasFor(8, 6);
+        canvas.saveState();
+        canvas.updatePixelAt(1, 1, "x");
+        canvas.saveState();
+        final String expectedImage = canvas.getCanvasAsString();
+        canvas.undo();
+
+        // when
+        canvas.redo();
+
+        // then
+        assertThat(canvas.getCanvasAsString()).isEqualTo(expectedImage);
+    }
+
+    @Test
     public void getImageAsStringShouldReturnImageWithDominikOnCanvas() {
         // given
         canvas = createCanvasFor(DEFAULT_SQUARE_LENGTH, DEFAULT_SQUARE_LENGTH);
@@ -316,6 +333,5 @@ public class CanvasTest {
                         "-----\n"
         );
     }
-
 
 }

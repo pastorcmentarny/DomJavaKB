@@ -1,10 +1,7 @@
 package dms.pastor.tasks.paint;
 
 import dms.pastor.tasks.paint.canvas.Canvas;
-import dms.pastor.tasks.paint.command.Command;
-import dms.pastor.tasks.paint.command.InvalidCommandSyntaxException;
-import dms.pastor.tasks.paint.command.QuitCommand;
-import dms.pastor.tasks.paint.command.UndoCommand;
+import dms.pastor.tasks.paint.command.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -69,7 +66,7 @@ public class CommandLineUI {
     }
 
     private void doNotSaveStateForUndoCommand(Command command) {
-        if (!(command instanceof UndoCommand)) {
+        if (!(command instanceof UndoCommand) && !(command instanceof RedoCommand)) {
             canvas.saveState();
         }
     }

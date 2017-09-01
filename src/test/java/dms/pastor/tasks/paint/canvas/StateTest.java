@@ -56,7 +56,7 @@ public class StateTest {
         Image image = getImage();
         image.setPixel(randomPositiveInteger(image.getWidth()), randomPositiveInteger(image.getHeight()), getRandomCharacterAsString());
         state.save(image);
-        state.undo();
+        state.undo(image);
 
         // when
         final boolean result = state.containsPreviousState();
@@ -71,7 +71,7 @@ public class StateTest {
         Image image = getImage();
         image.setPixel(randomPositiveInteger(image.getWidth()), randomPositiveInteger(image.getHeight()), getRandomCharacterAsString());
         state.save(image);
-        state.undo();
+        state.undo(image);
         image.setPixel(randomPositiveInteger(image.getWidth()), randomPositiveInteger(image.getHeight()), getRandomCharacterAsString());
         state.save(image);
 
@@ -138,7 +138,7 @@ public class StateTest {
         image.setPixel(2, 2, pixelFill);
 
         // when
-        final Optional<Image> optionalImage = state.undo();
+        final Optional<Image> optionalImage = state.undo(image);
 
         // then
         assertThat(optionalImage.orElseThrow(() -> new SomethingWentWrongException("Image")).getImageAsString()).isEqualTo(expectedImage.getImageAsString());
@@ -156,8 +156,8 @@ public class StateTest {
         state.save(image);
 
         // when
-        state.undo();
-        final Optional<Image> imageOptional = state.undo();
+        state.undo(image);
+        final Optional<Image> imageOptional = state.undo(image);
 
         // then
         assertThat(imageOptional.isPresent()).isFalse();
@@ -178,7 +178,60 @@ public class StateTest {
 
         // then
         assertThat(state.containsPreviousState()).isTrue();
-        assertThat(imageOptional.orElseThrow(() -> new SomethingWentWrongException("Image")).getImageAsString()).isEqualTo(image.getImageAsString());
+        assertThat(imageOptional.orElseThrow(() -> new SomethingWentWrongException("peekShouldReturnPreviousStateOfImageWithoutRemoving")).getImageAsString()).isEqualTo(image.getImageAsString());
+    }
+
+    @Test
+    public void hasNextStateShouldReturnFalseIfnextStateIsNotSet() {
+        // when
+        final boolean result = state.containsNextState();
+
+        // then
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    public void hasNextStateShouldReturnTrueIfNextStateIsSetAfterExecutingUndo() {
+        // given
+        Image image = getImage();
+        image.setPixel(randomPositiveInteger(image.getWidth()), randomPositiveInteger(image.getHeight()), getRandomCharacterAsString());
+        state.save(image);
+        state.undo(image);
+
+        // when
+        final boolean result = state.containsNextState();
+
+        // then
+        assertThat(result).isTrue();
+    }
+
+    @Test
+    public void redoShouldReturnEmptyIfRedoStateDoNotExists() {
+        // given
+        Image image = getImage();
+        image.setPixel(randomPositiveInteger(image.getWidth()), randomPositiveInteger(image.getHeight()), getRandomCharacterAsString());
+        state.save(image);
+
+        // when
+        Optional<Image> imageOptional = state.redo();
+
+        // then
+        assertThat(imageOptional.isPresent()).isFalse();
+    }
+
+    @Test
+    public void redoShouldReturnOrginalImageIfRedoStateExists() {
+        // given
+        Image image = getImage();
+        image.setPixel(randomPositiveInteger(image.getWidth()), randomPositiveInteger(image.getHeight()), getRandomCharacterAsString());
+        state.save(image);
+        state.undo(image);
+
+        // when
+        Optional<Image> imageOptional = state.redo();
+
+        // then
+        assertThat(imageOptional.isPresent()).isTrue();
     }
 
 

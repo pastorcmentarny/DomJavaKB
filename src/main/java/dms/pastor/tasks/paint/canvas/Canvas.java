@@ -126,7 +126,6 @@ public class Canvas {
     }
 
     private String drawPixel(int widthPixel, int heightPixel) {
-        LOGGER.debug("Draw pixel at " + widthPixel + " " + heightPixel);
         if (isHorizontalBorder(heightPixel)) {
             return "-";
         }
@@ -154,7 +153,13 @@ public class Canvas {
     public void undo() {
         if (state.peek().isPresent()) {
             System.out.println(state.peek().toString());
-            image = state.undo().orElse(noImage());
+            image = state.undo(image).orElse(noImage());
+        }
+    }
+
+    public void redo() {
+        if (state.containsNextState()) {
+            image = state.redo().orElse(noImage());
         }
     }
 
