@@ -1,7 +1,9 @@
 package dms.pastor.tasks.paint.command;
 
+import dms.pastor.domain.exception.SomethingWentWrongException;
 import org.junit.Test;
 
+import static dms.pastor.tasks.paint.canvas.Canvas.noCanvas;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -55,6 +57,16 @@ public class QuitCommandTest extends AbstractCommandTest {
         quitCommand.setParamsIfValid(params);
 
         // then nothing happen when params are valid
+    }
+
+    @Test
+    public void exectureShouldThrowExceptionForQuitCommand() throws Exception {
+        // expect
+        exception.expect(SomethingWentWrongException.class);
+        exception.expectMessage(("Bug detected. execute method in quit command should not be called."));
+
+        // when
+        quitCommand.execute(noCanvas());
     }
 
 }

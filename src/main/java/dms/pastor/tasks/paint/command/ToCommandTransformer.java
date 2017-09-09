@@ -35,8 +35,10 @@ public final class ToCommandTransformer {
 
     public static Command toCommand(String input) {
         validateInput(input);
+
         final String[] commandParams = input.split(" ");
         final Command command = getCommandFor(commandParams);
+
         validateCommandParams(command, input);
         return command;
     }
@@ -53,22 +55,22 @@ public final class ToCommandTransformer {
         for (Command command : commands) {
             if (command.getSyntax().equals(input[0])) {
                 if (command.getSyntax().equalsIgnoreCase("C")) {
-                    if (input.length > 1) {
-                        return new CreateCanvasCommand();
-                    } else {
-                        return new ClearCanvasCommand();
-                    }
+                    return getCommand(input, new CreateCanvasCommand(), new ClearCanvasCommand());
                 }
                 if (command.getSyntax().equalsIgnoreCase("R")) {
-                    if (input.length > 1) {
-                        return new CreateNewRectangleCommand();
-                    } else {
-                        return new RedoCommand();
-                    }
+                    return getCommand(input, new CreateNewRectangleCommand(), new RedoCommand());
                 }
                 return command;
             }
         }
         throw new InvalidCommandSyntaxException("command not found");
+    }
+
+    private static Command getCommand(String[] input, Command cmdWithArgs, Command cmdWithoutArgs) {
+        if (input.length > 1) {
+            return cmdWithArgs;
+        } else {
+            return cmdWithoutArgs;
+        }
     }
 }

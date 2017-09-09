@@ -33,6 +33,6 @@ public class QuitCommand implements Command {
 
     @Override
     public void execute(Canvas canvas) {
-        throw new SomethingWentWrongException("execute in quit command should not be called.");
+        throw new SomethingWentWrongException("Bug detected. execute method in quit command should not be called.");
     }
 }

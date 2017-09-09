@@ -12,21 +12,7 @@ import java.util.List;
 import java.util.Random;
 
 import static dms.pastor.TestConfig.EMPTY_INTEGER_ARRAY;
-import static dms.pastor.utils.NumberUtils.factorial;
-import static dms.pastor.utils.NumberUtils.generateNaturalSequenceIntArray;
-import static dms.pastor.utils.NumberUtils.getFibonacciNumberFor;
-import static dms.pastor.utils.NumberUtils.getLargestInt;
-import static dms.pastor.utils.NumberUtils.getMaxValue;
-import static dms.pastor.utils.NumberUtils.getMinValue;
-import static dms.pastor.utils.NumberUtils.getResultIn0to100Range;
-import static dms.pastor.utils.NumberUtils.getResultInRange;
-import static dms.pastor.utils.NumberUtils.getShortAs8BitRepresentation;
-import static dms.pastor.utils.NumberUtils.getSmallestInt;
-import static dms.pastor.utils.NumberUtils.isBigDecimalAValidInteger;
-import static dms.pastor.utils.NumberUtils.isNumberPalindrome;
-import static dms.pastor.utils.NumberUtils.isPrime;
-import static dms.pastor.utils.NumberUtils.reverseANumber;
-import static dms.pastor.utils.NumberUtils.sortIntegersCollection;
+import static dms.pastor.utils.NumberUtils.*;
 import static dms.pastor.utils.StringUtils.containsOnly;
 import static dms.pastor.utils.randoms.RandomDataGenerator.randomNegativeInteger;
 import static dms.pastor.utils.randoms.RandomDataGenerator.randomPositiveInteger;
@@ -601,5 +587,4 @@ public class NumberUtilsTest {
         // debug
         LOGGER.debug("Value used in test:" + positiveInteger);
     }
-
 }

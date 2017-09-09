@@ -5,6 +5,8 @@ import dms.pastor.tasks.paint.canvas.Coordinates;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static dms.pastor.tasks.paint.canvas.Canvas.HORIZONTAL_BORDER;
+import static dms.pastor.tasks.paint.canvas.Canvas.VERTICAL_BORDER;
 import static dms.pastor.tasks.paint.canvas.Coordinates.noCoordination;
 import static dms.pastor.tasks.paint.command.CommandValidator.*;
 
@@ -73,7 +75,7 @@ public class FillEntireAreaCommand implements Command {
 
     private static boolean isOnBorder(Canvas canvas, int width, int height) {
         final String pixel = canvas.getPixelAt(width, height);
-        return pixel.equals("-") || pixel.equals("|");
+        return pixel.equals(HORIZONTAL_BORDER) || pixel.equals(VERTICAL_BORDER);
     }
 
     @Override

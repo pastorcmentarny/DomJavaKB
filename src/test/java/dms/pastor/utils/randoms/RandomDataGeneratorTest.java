@@ -13,24 +13,8 @@ import java.util.Random;
 
 import static dms.pastor.utils.EnglishUtils.isStopWord;
 import static dms.pastor.utils.StringUtils.hasNonAlphabetCharactersOnly;
-import static dms.pastor.utils.randoms.RandomDataGenerator.MAX_SMALL_VALUE;
-import static dms.pastor.utils.randoms.RandomDataGenerator.generateArray;
-import static dms.pastor.utils.randoms.RandomDataGenerator.generateIntArray;
-import static dms.pastor.utils.randoms.RandomDataGenerator.generateNonAlphanumericString;
-import static dms.pastor.utils.randoms.RandomDataGenerator.generateRandomIntValues;
-import static dms.pastor.utils.randoms.RandomDataGenerator.generateRandomParagraph;
-import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
-import static dms.pastor.utils.randoms.RandomDataGenerator.generateStringList;
-import static dms.pastor.utils.randoms.RandomDataGenerator.generateWordWithoutStopWord;
-import static dms.pastor.utils.randoms.RandomDataGenerator.generateWords;
-import static dms.pastor.utils.randoms.RandomDataGenerator.getRandomCharacterAsString;
-import static dms.pastor.utils.randoms.RandomDataGenerator.getRandomCharacterFromAlphabet;
-import static dms.pastor.utils.randoms.RandomDataGenerator.getRandomText;
-import static dms.pastor.utils.randoms.RandomDataGenerator.randomInteger;
-import static dms.pastor.utils.randoms.RandomDataGenerator.randomNegativeInteger;
-import static java.lang.Character.isAlphabetic;
-import static java.lang.Character.isDigit;
-import static java.lang.Character.isLetter;
+import static dms.pastor.utils.randoms.RandomDataGenerator.*;
+import static java.lang.Character.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 
@@ -102,17 +86,16 @@ public class RandomDataGeneratorTest {
         assertThat(string.length()).isLessThanOrEqualTo(10);
     }
 
-    @Test
+    @Test // failed once on 1.9'2017. Added log so i can see error next time.
     public void shouldThrowIllegalArgumentExceptionWhenMinValueIsHigherThanMinForGenerateStringTest() throws Exception {
         // except
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("Value must be higher than zero and min value must be smaller is larger than max value");
-
-        // when
-
         final int max = random.nextInt(RANDOM_STRING_LENGTH);
         final int min = random.nextInt(RANDOM_STRING_LENGTH) + max;
+        LOGGER.info("Generated. Min:" + min + " Max:" + max);
 
+        // when
         generateString(min, max);
     }
 

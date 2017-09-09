@@ -3,7 +3,7 @@ package dms.pastor.tasks.paint.canvas;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static dms.pastor.tasks.paint.canvas.CanvasValidator.*;
+import static dms.pastor.tasks.paint.canvas.CanvasValidator.validate;
 import static dms.pastor.tasks.paint.canvas.Image.noImage;
 import static java.lang.String.format;
 
@@ -21,6 +21,8 @@ public class Canvas {
     private static final String EMPTY_PIXEL = " ";
     private static final int BORDER = 1;
     private static final String EMPTY = "";
+    public static final String VERTICAL_BORDER = "|";
+    public static final String HORIZONTAL_BORDER = "-";
     private Image image;
     private final State state = new State();
 
@@ -91,11 +93,6 @@ public class Canvas {
         return image.getImage();
     }
 
-    private void validateImage(String[][] image) {
-        validateIfCanvasIsSet(this);
-        validateIfImageSizeAreTheSame(this, image);
-    }
-
     public String getCanvasAsString() {
         StringBuilder imageBuilder = new StringBuilder(EMPTY);
         if (isNoCanvas()) {
@@ -127,11 +124,11 @@ public class Canvas {
 
     private String drawPixel(int widthPixel, int heightPixel) {
         if (isHorizontalBorder(heightPixel)) {
-            return "-";
+            return HORIZONTAL_BORDER;
         }
 
         if (isVerticalBorder(widthPixel)) {
-            return "|";
+            return VERTICAL_BORDER;
         }
 
         return EMPTY_PIXEL;
