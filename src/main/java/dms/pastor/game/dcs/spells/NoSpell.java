@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 
 import java.io.Serializable;
 
+import static dms.pastor.game.dcs.Elements.noElements;
+
 /**
  * Author Dominik Symonowicz
  * Created 2017-06-05
@@ -36,7 +38,7 @@ public class NoSpell extends Spell implements Serializable {
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        LOGGER.debug("No");
+        LOGGER.warn("Nothing happen. (Bug? Casting spell for No Spell???)");
     }
 
     @Override
@@ -51,14 +53,13 @@ public class NoSpell extends Spell implements Serializable {
 
     @Override
     public Elements getElements() {
-        return Elements.noElements();
+        return noElements();
     }
-
-    // Singleton setup
 
     @Override
     void setElements(Elements elements) {
-        super.setElements(Elements.noElements());
+        LOGGER.warn("Bug detected! Something trying to set elements on NoSpell.");
+        super.setElements(noElements());
     }
 
     private Object readResolve() {
@@ -66,7 +67,6 @@ public class NoSpell extends Spell implements Serializable {
     }
 
     private static class NoSpellHolder {
-
         static final NoSpell INSTANCE = new NoSpell();
     }
 }
