@@ -151,11 +151,6 @@ public final class NumberUtils {
         return true;
     }
 
-    static boolean isNumberPalindrome(int number) {
-        int reversedNumber = reverseANumber(number);
-        return reversedNumber == number;
-    }
-
     //Since Java8, I use IntStream for that, but I left here for nostalgic reasons :)
     public static int[] generateNaturalSequenceIntArray(int size) {
         validateIfPositiveNumber(size);
@@ -165,6 +160,19 @@ public final class NumberUtils {
             array[i - 1] = i;
         }
         return array;
+    }
+
+    public static int parseNullSafeIntegerAsString(String value, int defaultValue) {
+        try {
+            return Integer.parseInt(value);
+        } catch (NumberFormatException nfe) {
+            return defaultValue;
+        }
+    }
+
+    static boolean isNumberPalindrome(int number) {
+        int reversedNumber = reverseANumber(number);
+        return reversedNumber == number;
     }
 
     //done as part of learning of basic of sorting in 2011

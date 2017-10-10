@@ -13,8 +13,7 @@ import java.util.Random;
 
 import static dms.pastor.TestConfig.EMPTY_INTEGER_ARRAY;
 import static dms.pastor.utils.NumberUtils.*;
-import static dms.pastor.utils.randoms.RandomDataGenerator.randomNegativeInteger;
-import static dms.pastor.utils.randoms.RandomDataGenerator.randomPositiveInteger;
+import static dms.pastor.utils.randoms.RandomDataGenerator.*;
 import static dms.pastor.utils.string.ContainsInStringUtils.containsOnly;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -586,5 +585,41 @@ public class NumberUtilsTest {
 
         // debug
         LOGGER.debug("Value used in test:" + positiveInteger);
+    }
+
+    @Test
+    public void parseIntNullSafeShouldReturnDefaultValueIfValueIsNotValidNumber() throws Exception {
+        // given
+        final int defaultValue = randomPositiveInteger();
+        final String invalidNumber = "Not A valid number";
+
+        // debug
+        LOGGER.debug("Default value: " + defaultValue);
+
+        // when
+        final int result = parseNullSafeIntegerAsString(invalidNumber, defaultValue);
+
+        // then
+        assertThat(result).isEqualTo(defaultValue);
+
+    }
+
+    @Test
+    public void parseIntNullSafeShouldReturnValueForValidNumberAsString() throws Exception {
+        // given
+        final int defaultValue = randomNegativeInteger();
+        final String validValue = generateRandomIntegerAsString(10);
+
+        // debug
+        LOGGER.debug("Default value: " + defaultValue + " Valid value: " + validValue);
+
+        // when
+        final int result = parseNullSafeIntegerAsString(validValue, defaultValue);
+
+        // then
+
+        assertThat(result).isEqualTo(Integer.parseInt(validValue));
+        assertThat(result).isNotEqualTo(defaultValue);
+
     }
 }
