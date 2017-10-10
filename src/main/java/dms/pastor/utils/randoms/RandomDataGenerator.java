@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.IntStream;
 
+import static dms.pastor.tools.chinese.pinyin.PinyinUtils.getAllPinyinFromFirstToFourthToneWithoutNeutralTone;
 import static dms.pastor.utils.EnglishUtils.isNotStopWord;
 import static dms.pastor.utils.PrintOutUtils.printIntArray;
 import static dms.pastor.utils.ValidatorUtils.validateIfPositiveNumber;
@@ -245,5 +246,10 @@ public final class RandomDataGenerator {
 
     public static boolean generateRandomBoolean() {
         return random.nextBoolean();
+    }
+
+    public static String generateRandomPinyinCharacter() {
+        final String allPinyinWithTones = getAllPinyinFromFirstToFourthToneWithoutNeutralTone();
+        return String.valueOf(allPinyinWithTones.charAt(random.nextInt(allPinyinWithTones.length())));
     }
 }

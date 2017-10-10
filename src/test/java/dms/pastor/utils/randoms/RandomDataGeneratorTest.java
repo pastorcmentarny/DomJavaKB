@@ -11,6 +11,7 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Random;
 
+import static dms.pastor.tools.chinese.pinyin.PinyinUtils.getAllPinyinFromFirstToFourthToneWithoutNeutralTone;
 import static dms.pastor.utils.EnglishUtils.isStopWord;
 import static dms.pastor.utils.StringUtils.hasNonAlphabetCharactersOnly;
 import static dms.pastor.utils.randoms.RandomDataGenerator.*;
@@ -463,5 +464,17 @@ public class RandomDataGeneratorTest {
         // then
         assertThat(Boolean.valueOf(value)).isNotNull();
 
+    }
+
+    @Test
+    public void generateRandomPinyinCharacterShouldReturnRandomPinyinCharacter() {
+        // when
+        final String value = RandomDataGenerator.generateRandomPinyinCharacter();
+
+        // debug
+        LOGGER.debug(value);
+
+        // then
+        assertThat(getAllPinyinFromFirstToFourthToneWithoutNeutralTone().contains(value)).isTrue();
     }
 }
