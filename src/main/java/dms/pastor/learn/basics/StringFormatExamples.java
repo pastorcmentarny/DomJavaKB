@@ -19,15 +19,15 @@ class StringFormatExamples {
     }
 
 
-    String displayNumberAllignedToRightWithWidth20(int number) {
+    String displayNumberAlignedToRightWithWidth20(int number) {
         return String.format("|%" + width + "d|", number);
     }
 
-    public String displayNumberAllignedToLeftWithWidth20(int number) {
+    public String displayNumberAlignedToLeftWithWidth20(int number) {
         return String.format("|%-" + width + "d|", number);
     }
 
-    public String displayNumberAllignedToRightWithWidth20AndPadWithZeros(int number) {
+    public String displayNumberAlignedToRightWithWidth20AndPadWithZeros(int number) {
         return String.format("|%0" + width + "d|", number); // prints: |00000000000000000093|
     }
 

@@ -21,7 +21,7 @@ public class StringFormatExamplesTest {
     @Test
     public void shouldPrintTextAlignedToTheRightWithSpecificWidth() {
         // when
-        final String result = stringFormatExamples.displayNumberAllignedToRightWithWidth20(number);
+        final String result = stringFormatExamples.displayNumberAlignedToRightWithWidth20(number);
 
         // then
         assertThat(result).isEqualTo("|  " + 168 + "|");
@@ -30,7 +30,7 @@ public class StringFormatExamplesTest {
     @Test
     public void shouldPrintTextAlignedToTheLeftWithSpecificWidth() {
         // when
-        final String result = stringFormatExamples.displayNumberAllignedToLeftWithWidth20(number);
+        final String result = stringFormatExamples.displayNumberAlignedToLeftWithWidth20(number);
 
         // then
         assertThat(result).isEqualTo("|" + 168 + "  |");
@@ -39,7 +39,7 @@ public class StringFormatExamplesTest {
     @Test
     public void shouldPrintTextAlignedToTheRightWithSpecificWidthAndPadWithZeros() {
         // when
-        final String result = stringFormatExamples.displayNumberAllignedToRightWithWidth20AndPadWithZeros(number);
+        final String result = stringFormatExamples.displayNumberAlignedToRightWithWidth20AndPadWithZeros(number);
 
         // then
         assertThat(result).isEqualTo("|00" + 168 + "|");
