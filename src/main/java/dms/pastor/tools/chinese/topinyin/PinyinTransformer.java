@@ -1,5 +1,7 @@
 package dms.pastor.tools.chinese.topinyin;
 
+import dms.pastor.tools.chinese.pinyin.PinyinTable;
+
 import static dms.pastor.utils.EnglishUtils.isLetterVowelExcludingY;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 

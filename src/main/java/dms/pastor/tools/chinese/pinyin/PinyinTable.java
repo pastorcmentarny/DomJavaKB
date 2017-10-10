@@ -1,5 +1,6 @@
-package dms.pastor.tools.chinese.topinyin;
+package dms.pastor.tools.chinese.pinyin;
 
+import static dms.pastor.tools.chinese.pinyin.PinyinConstants.*;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 
 /**
@@ -12,11 +13,11 @@ import static dms.pastor.utils.StringUtils.EMPTY_STRING;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public enum PinyinTable {
-    A("a", "ā", "á", "ǎ", "à"),
-    E("e", "ē", "é", "ě", "è"),
-    O("o", "ō", "ó", "ǒ", "ò"),
-    I("i", "ī", "í", "ǐ", "ì"),
-    U("u", "ū", "ú", "ǔ", "ù");
+    A(A_NEUTRAL, A_FIRST_NOTE, A_SECOND_TONE, A_THIRD_TONE, A_FOURTH_TONE),
+    E(E_NEUTRAL, E_FIRST_NOTE, E_SECOND_TONE, E_THIRD_TONE, E_FOURTH_TONE),
+    O(O_NEUTRAL, O_FIRST_NOTE, O_SECOND_TONE, O_THIRD_TONE, O_FOURTH_TONE),
+    I(I_NEUTRAL, I_FIRST_NOTE, I_SECOND_TONE, I_THIRD_TONE, I_FOURTH_TONE),
+    U(U_NEUTRAL, U_FIRST_NOTE, U_SECOND_TONE, U_THIRD_TONE, U_FOURTH_TONE);
 
     private final String neutralTone;
     private final String firstTone;

@@ -1,4 +1,4 @@
-package dms.pastor.tools.chinese.topinyin;
+package dms.pastor.tools.chinese.pinyin;
 
 import org.junit.Test;
 
