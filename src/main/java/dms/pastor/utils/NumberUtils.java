@@ -1,5 +1,9 @@
 package dms.pastor.utils;
 
+import dms.pastor.tools.chinese.validator.Word;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +21,7 @@ import static dms.pastor.utils.ValidatorUtils.validateIfPositiveNumber;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public final class NumberUtils {
+    private static final Logger LOGGER = LoggerFactory.getLogger(Word.class);
 
     private static final int FACTORIAL_MAXIMUM_VALUE = 19;
     private static final int FACTORIAL_NEGATIVE_MAXIMUM_VALUE = -FACTORIAL_MAXIMUM_VALUE;
@@ -166,6 +171,7 @@ public final class NumberUtils {
         try {
             return Integer.parseInt(value);
         } catch (NumberFormatException nfe) {
+            LOGGER.warn("Unable to parse " + value + " as integer.");
             return defaultValue;
         }
     }
