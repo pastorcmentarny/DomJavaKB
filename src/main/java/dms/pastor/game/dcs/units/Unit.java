@@ -61,8 +61,8 @@ public class Unit {
         this.description = description;
     }
 
-    void setPlayer(boolean isPlayer) {
-        this.player = isPlayer;
+    void setPlayer() {
+        this.player = true;
     }
 
     public boolean isAlive() {
