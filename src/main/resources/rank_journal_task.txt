@@ -8,7 +8,7 @@ Scenario1: Rank journals
 Scenario2: Rank journals with a shared rank. Done.
  Create list of journals for 2009. Done
  Run tests. Done
- Modify Score Comparator to meet new requirment .Done
+ Modify Score Comparator to meet new requirement .Done
 
 Scenario3: Rank journals excluding review journals. Done.
  Modify journal by add (review attribute)
