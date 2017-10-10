@@ -1,4 +1,4 @@
-package dms.pastor.tools.lotto;
+package dms.pastor.tools.lotto.hotpick;
 
 import org.junit.Test;
 
@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.IntStream;
 
-import static dms.pastor.tools.lotto.HotPickDrawBuilder.hotPickDrawBuilder;
+import static dms.pastor.tools.lotto.hotpick.HotPickDrawBuilder.hotPickDrawBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**

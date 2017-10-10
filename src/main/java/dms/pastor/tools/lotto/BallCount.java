@@ -25,11 +25,11 @@ public class BallCount {
         this.count = count;
     }
 
-    static BallCount createForNumber(int ballNumber) {
+    public static BallCount createForNumber(int ballNumber) {
         return new BallCount(singletonList(ballNumber), 0);
     }
 
-    static BallCount createForSingleNumberWithCount(int ballNumber, int count) {
+    public static BallCount createForSingleNumberWithCount(int ballNumber, int count) {
         return new BallCount(singletonList(ballNumber), count);
     }
 
@@ -41,11 +41,11 @@ public class BallCount {
         return ballCount.getBallNumbers().get(0) == 0 && (ballCount.getCount() == Integer.MAX_VALUE - 1 || ballCount.getCount() == Integer.MIN_VALUE + 1);
     }
 
-    void addCount() {
+    public void addCount() {
         count++;
     }
 
-    List<Integer> getBallNumbers() {
+    public List<Integer> getBallNumbers() {
         return ballNumbers;
     }
 

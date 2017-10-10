@@ -17,9 +17,9 @@ import static dms.pastor.utils.CollectionsUtils.convertSetToIntArray;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-class BallCountOperations {
+public class BallCountOperations {
 
-    static BallCount[] getTop2PlayedBalls(List<BallCount> ballCounts) {
+    public static BallCount[] getTop2PlayedBalls(List<BallCount> ballCounts) {
         BallCount[] top2 = getNewTop2List();
 
         for (BallCount ballCount : ballCounts) {
@@ -38,7 +38,7 @@ class BallCountOperations {
         return top2;
     }
 
-    static BallCount[] getLeast2PlayedBalls(List<BallCount> ballCounts) {
+    public static BallCount[] getLeast2PlayedBalls(List<BallCount> ballCounts) {
         BallCount[] top2 = getNewTop2List();
         top2[0].setCount(Integer.MAX_VALUE - 1);
         top2[1].setCount(Integer.MAX_VALUE - 1);
@@ -62,7 +62,7 @@ class BallCountOperations {
         return new BallCount[]{BallCount.dummyBall(), BallCount.dummyBall()};
     }
 
-    static int[] getNumbersFromBallsCount(BallCount[] topBalls) {
+    public static int[] getNumbersFromBallsCount(BallCount[] topBalls) {
         Set<Integer> integers = new HashSet<>();
         for (BallCount ballCount : topBalls) {
             integers.addAll(ballCount.getBallNumbers());
@@ -70,7 +70,7 @@ class BallCountOperations {
         return convertSetToIntArray(integers);
     }
 
-    static BallCount[] getLeast2PlayedBalls(Map<Integer, Integer> ballCounts) {
+    public static BallCount[] getLeast2PlayedBalls(Map<Integer, Integer> ballCounts) {
         BallCount[] top2 = getNewTop2List();
         top2[0].setCount(Integer.MAX_VALUE - 1);
         top2[1].setCount(Integer.MAX_VALUE - 1);

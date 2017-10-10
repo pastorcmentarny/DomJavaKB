@@ -9,10 +9,10 @@ package dms.pastor.tools.lotto;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-class LottoConstants {
+public class LottoConstants {
 
-    static final int HOT_PICK_BALL_MINIMUM_VALUE = 1;
-    static final int HOT_PICK_BALL_MAXIMUM_VALUE = 59;
+    public static final int HOT_PICK_BALL_MINIMUM_VALUE = 1;
+    public static final int HOT_PICK_BALL_MAXIMUM_VALUE = 59;
 
     private LottoConstants() {
     } // constant class

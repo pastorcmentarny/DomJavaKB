@@ -1,4 +1,4 @@
-package dms.pastor.tools.lotto;
+package dms.pastor.tools.lotto.hotpick;
 
 import java.time.LocalDate;
 import java.util.Random;

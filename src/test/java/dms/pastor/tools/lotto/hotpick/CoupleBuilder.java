@@ -1,6 +1,6 @@
-package dms.pastor.tools.lotto;
+package dms.pastor.tools.lotto.hotpick;
 
-import static dms.pastor.tools.lotto.Couple.createWithOrderedNumbers;
+import static dms.pastor.tools.lotto.hotpick.Couple.createWithOrderedNumbers;
 import static dms.pastor.utils.randoms.RandomDataGenerator.MAX_SMALL_VALUE;
 import static dms.pastor.utils.randoms.RandomDataGenerator.randomInteger;
 

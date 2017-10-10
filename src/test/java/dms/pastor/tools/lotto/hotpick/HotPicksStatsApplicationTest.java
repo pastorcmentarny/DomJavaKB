@@ -1,4 +1,4 @@
-package dms.pastor.tools.lotto;
+package dms.pastor.tools.lotto.hotpick;
 
 import org.junit.After;
 import org.junit.Before;

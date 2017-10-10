@@ -1,11 +1,11 @@
-package dms.pastor.tools.lotto;
+package dms.pastor.tools.lotto.hotpick;
 
 import org.junit.Test;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import static dms.pastor.tools.lotto.CoupleBuilder.coupleBuilder;
+import static dms.pastor.tools.lotto.hotpick.CoupleBuilder.coupleBuilder;
 import static java.util.Arrays.asList;
 import static org.assertj.core.api.Assertions.assertThat;
 

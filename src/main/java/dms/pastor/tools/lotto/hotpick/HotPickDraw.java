@@ -1,4 +1,4 @@
-package dms.pastor.tools.lotto;
+package dms.pastor.tools.lotto.hotpick;
 
 import java.time.LocalDate;
 
@@ -11,7 +11,7 @@ import java.time.LocalDate;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-class HotPickDraw {
+public class HotPickDraw {
 
     private final LocalDate drawDate;
     private final int ball1;
@@ -37,39 +37,39 @@ class HotPickDraw {
         this.drawNumber = drawNumber;
     }
 
-    int getBall1() {
+    public int getBall1() {
         return ball1;
     }
 
-    int getBall2() {
+    public int getBall2() {
         return ball2;
     }
 
-    int getBall3() {
+    public int getBall3() {
         return ball3;
     }
 
-    int getBall4() {
+    public int getBall4() {
         return ball4;
     }
 
-    int getBall5() {
+    public int getBall5() {
         return ball5;
     }
 
-    int getBall6() {
+    public int getBall6() {
         return ball6;
     }
 
-    int getBallSet() {
+    public int getBallSet() {
         return ballSet;
     }
 
-    String getMachine() {
+    public String getMachine() {
         return machine;
     }
 
-    int getDrawNumber() {
+    public int getDrawNumber() {
         return drawNumber;
     }
 
@@ -78,7 +78,7 @@ class HotPickDraw {
         return String.format("HotPickDraw{drawDate=%s, balls: (%d, %d, %d, %d, %d, %d). ballSet:%d machine:'%s' drawNumber:%d}", drawDate, ball1, ball2, ball3, ball4, ball5, ball6, ballSet, machine, drawNumber);
     }
 
-    boolean containsBalls(int... numbers) {
+    public boolean containsBalls(int... numbers) {
         for (int number : numbers) {
             if (isNotContains(number)) {
                 return false;
@@ -91,7 +91,7 @@ class HotPickDraw {
         return !(ball1 == number || ball2 == number || ball3 == number || ball4 == number || ball5 == number || ball6 == number);
     }
 
-    int[] getAllBalls() {
+    public int[] getAllBalls() {
         return new int[]{ball1, ball2, ball3, ball4, ball5, ball6};
     }
 }

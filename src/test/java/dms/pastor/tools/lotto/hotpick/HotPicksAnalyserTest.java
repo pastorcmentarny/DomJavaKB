@@ -1,5 +1,6 @@
-package dms.pastor.tools.lotto;
+package dms.pastor.tools.lotto.hotpick;
 
+import dms.pastor.tools.lotto.BallCount;
 import dms.pastor.utils.randoms.RandomDataGenerator;
 import org.junit.Rule;
 import org.junit.Test;
@@ -10,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static dms.pastor.tools.lotto.BallCount.createForSingleNumberWithCount;
-import static dms.pastor.tools.lotto.HotPickDrawBuilder.hotPickDrawBuilder;
+import static dms.pastor.tools.lotto.hotpick.HotPickDrawBuilder.hotPickDrawBuilder;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static java.time.LocalDate.now;
 import static org.assertj.core.api.Java6Assertions.assertThat;

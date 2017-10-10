@@ -1,4 +1,6 @@
-package dms.pastor.tools.lotto;
+package dms.pastor.tools.lotto.hotpick;
+
+import dms.pastor.tools.lotto.BallCount;
 
 import java.util.HashSet;
 import java.util.List;
@@ -22,18 +24,18 @@ import static dms.pastor.utils.StringUtils.NEW_LINE;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-class HotPicksAnalyser {
+public class HotPicksAnalyser {
 
     private static final String SEPARATOR = ",";
     private final List<HotPickDraw> hotPickDrawList;
 
     private final int[] ballDrawnCounter = new int[HOT_PICK_BALL_MAXIMUM_VALUE + 1];
 
-    HotPicksAnalyser(List<HotPickDraw> hotPickDrawList) {
+    public HotPicksAnalyser(List<HotPickDraw> hotPickDrawList) {
         this.hotPickDrawList = hotPickDrawList;
     }
 
-    String countBallDrawn() {
+    public String countBallDrawn() {
         if (hotPickDrawList == null || hotPickDrawList.isEmpty()) {
             return "We successfully gather no result :)";
         }
@@ -66,7 +68,7 @@ class HotPicksAnalyser {
         ballDrawnCounter[ball] = ballDrawnCounter[ball] + 1;
     }
 
-    int findMostDrawnNumber() {
+    public int findMostDrawnNumber() {
         int maxNumber = 0;
         for (int i = 1; i < ballDrawnCounter.length; i++) {
             if (ballDrawnCounter[i] > maxNumber) {
@@ -76,7 +78,7 @@ class HotPicksAnalyser {
         return maxNumber;
     }
 
-    String findBallsThatWasDrawnTimes(int times) {
+    public String findBallsThatWasDrawnTimes(int times) {
         StringBuilder stringBuilder = new StringBuilder(EMPTY_STRING);
         for (int i = 1; i < ballDrawnCounter.length; i++) {
             if (ballDrawnCounter[i] == times) {
@@ -86,7 +88,7 @@ class HotPicksAnalyser {
         return getResultWithoutLastSeparator(stringBuilder);
     }
 
-    int findLeastDrawnNumber() {
+    public int findLeastDrawnNumber() {
         int minNumber = Integer.MAX_VALUE;
         for (int i = 1; i < ballDrawnCounter.length; i++) {
             if (minNumber > ballDrawnCounter[i]) {
@@ -97,7 +99,7 @@ class HotPicksAnalyser {
     }
 
     //should be varargs up to 6 numbers
-    Optional<HotPickDraw> find2TheSameNumberInRow(int number1, int number2) {
+    public Optional<HotPickDraw> find2TheSameNumberInRow(int number1, int number2) {
         validateBall(number1, number2);
         for (HotPickDraw draw : hotPickDrawList) {
             if (draw.containsBalls(number1, number2)) {
@@ -127,7 +129,7 @@ class HotPicksAnalyser {
         }
     }
 
-    List<BallCount> getBallsCountList() {
+    public List<BallCount> getBallsCountList() {
         final List<BallCount> ballCountList = generateBallCountList();
         for (HotPickDraw hotPickDraw : hotPickDrawList) {
             ballCountList.get(hotPickDraw.getBall1() - 1).addCount();
@@ -146,7 +148,7 @@ class HotPicksAnalyser {
                 .collect(Collectors.toList());
     }
 
-    int[] removeNumbersFromGames(int previousGamesNumber) {
+    public int[] removeNumbersFromGames(int previousGamesNumber) {
         previousGamesNumber = setMaximumGameNumber(previousGamesNumber);
 
         Set<Integer> numbers = new HashSet<>();

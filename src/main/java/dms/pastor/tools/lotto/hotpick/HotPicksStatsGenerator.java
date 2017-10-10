@@ -1,5 +1,7 @@
-package dms.pastor.tools.lotto;
+package dms.pastor.tools.lotto.hotpick;
 
+import dms.pastor.tools.lotto.BallCount;
+import dms.pastor.tools.lotto.BallCountOperations;
 import dms.pastor.utils.PrintOutUtils;
 
 import java.io.IOException;
@@ -7,9 +9,9 @@ import java.util.*;
 import java.util.stream.IntStream;
 
 import static dms.pastor.tools.lotto.BallCountOperations.*;
-import static dms.pastor.tools.lotto.CoupleOperations.deleteDiscardedCouples;
 import static dms.pastor.tools.lotto.LottoConstants.HOT_PICK_BALL_MAXIMUM_VALUE;
 import static dms.pastor.tools.lotto.LottoConstants.HOT_PICK_BALL_MINIMUM_VALUE;
+import static dms.pastor.tools.lotto.hotpick.CoupleOperations.deleteDiscardedCouples;
 import static dms.pastor.utils.CollectionsUtils.convertListToIntArray;
 
 /**

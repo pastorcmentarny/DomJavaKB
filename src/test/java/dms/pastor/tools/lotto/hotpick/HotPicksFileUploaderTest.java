@@ -1,4 +1,4 @@
-package dms.pastor.tools.lotto;
+package dms.pastor.tools.lotto.hotpick;
 
 import dms.pastor.utils.FileTools;
 import dms.pastor.utils.ValidatorUtils;
@@ -141,9 +141,9 @@ public class HotPicksFileUploaderTest {
 
 java.lang.IllegalArgumentException: Path is invalid or is not a file
 
-	at dms.pastor.tools.lotto.HotPicksFileUploader.validateFilePath(HotPicksFileUploader.java:129)
-	at dms.pastor.tools.lotto.HotPicksFileUploader.loadHotPicksDrawHistoryFile(HotPicksFileUploader.java:35)
-	at dms.pastor.tools.lotto.HotPicksFileUploaderTest.shouldReturnEmptyListIfLineIsEmpty(HotPicksFileUploaderTest.java:115)
+	at dms.pastor.tools.lotto.hotpick.HotPicksFileUploader.validateFilePath(HotPicksFileUploader.java:129)
+	at dms.pastor.tools.lotto.hotpick.HotPicksFileUploader.loadHotPicksDrawHistoryFile(HotPicksFileUploader.java:35)
+	at dms.pastor.tools.lotto.hotpick.HotPicksFileUploaderTest.shouldReturnEmptyListIfLineIsEmpty(HotPicksFileUploaderTest.java:115)
 	at sun.reflect.GeneratedMethodAccessor361.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:497)
@@ -413,7 +413,6 @@ java.lang.IllegalArgumentException: Path is invalid or is not a file
     private void assertHotPickDraw(HotPickDraw hotPickDraw, String date, int ball1, int ball2, int ball3, int ball4, int ball5, int ball6, int ballSet, String machine, int drawNumber) {
         assertThat(hotPickDraw).isNotNull();
         System.out.println(date); //TODO date
-        assertThat(ball1).isEqualTo(hotPickDraw.getBall1());
         assertThat(ball1).isEqualTo(hotPickDraw.getBall1());
         assertThat(ball2).isEqualTo(hotPickDraw.getBall2());
         assertThat(ball3).isEqualTo(hotPickDraw.getBall3());
