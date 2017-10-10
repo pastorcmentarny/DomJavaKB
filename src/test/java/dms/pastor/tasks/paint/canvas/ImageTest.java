@@ -144,7 +144,7 @@ public class ImageTest {
 
         // expect
         exception.expect(IllegalArgumentException.class);
-        exception.expectMessage(format("It must have one characther but it has %d", 0));
+        exception.expectMessage(format("It must have one character but it has %d", 0));
 
         // when
         image.setPixel(1, 1, null);
@@ -158,7 +158,7 @@ public class ImageTest {
 
         // expect
         exception.expect(IllegalArgumentException.class);
-        exception.expectMessage(format("It must have one characther but it has %d", tooLongString.length()));
+        exception.expectMessage(format("It must have one character but it has %d", tooLongString.length()));
 
         // when
         image.setPixel(1, 1, tooLongString);

@@ -84,7 +84,7 @@ public class Image {
 
     public void setPixel(int x, int y, String pixelFill) {
         if (pixelFill == null || pixelFill.length() != 1) {
-            throw new IllegalArgumentException(format("It must have one characther but it has %d", isNull(pixelFill) ? 0 : pixelFill.length()));
+            throw new IllegalArgumentException(format("It must have one character but it has %d", isNull(pixelFill) ? 0 : pixelFill.length()));
         }
         image[x][y] = pixelFill;
     }
