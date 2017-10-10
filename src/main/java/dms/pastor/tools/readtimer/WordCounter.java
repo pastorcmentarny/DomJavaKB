@@ -5,11 +5,11 @@ import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 
-import static dms.pastor.domain.Message.INPUT_CANNOT_BE_EMPTY;
 import static dms.pastor.utils.EnglishUtils.isNotStopWord;
 import static dms.pastor.utils.StringUtils.hasNonAlphanumericCharactersOnly;
-import static dms.pastor.utils.StringUtils.isContainSpace;
 import static dms.pastor.utils.StringUtils.isStringNotEmpty;
+import static dms.pastor.utils.ValidatorUtils.validateIfStringArrayIsNotEmpty;
+import static dms.pastor.utils.string.ContainsInStringUtils.isContainSpace;
 import static java.util.Arrays.asList;
 
 /**
@@ -26,7 +26,7 @@ class WordCounter {
     private static final Logger LOGGER = LoggerFactory.getLogger(WordCounter.class);
 
     static int countFullWords(String[] words) {
-        validateIfWordsAreNotEmpty(words);
+        validateIfStringArrayIsNotEmpty(words);
 
         int counter = 0;
         int rejectedStopWords = 0;
@@ -49,12 +49,6 @@ class WordCounter {
                 "\n\tNot a Word: " + notAWord +
                 "\n\tRejected Stop Words:" + rejectedStopWords);
         return counter;
-    }
-
-    private static void validateIfWordsAreNotEmpty(String[] words) {
-        if (words == null || words.length == 0) {
-            throw new IllegalArgumentException(INPUT_CANNOT_BE_EMPTY);
-        }
     }
 
     private static boolean isAWord(String word) {

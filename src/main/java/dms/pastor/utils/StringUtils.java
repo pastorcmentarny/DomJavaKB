@@ -7,7 +7,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static dms.pastor.domain.Message.INPUT_CANNOT_BE_EMPTY;
-import static dms.pastor.utils.ValidatorUtils.*;
+import static dms.pastor.utils.ValidatorUtils.validateIfNotNull;
 import static java.lang.Character.*;
 import static java.util.Objects.nonNull;
 import static java.util.stream.Collectors.toList;
@@ -23,15 +23,14 @@ import static java.util.stream.Collectors.toList;
  * Yes, Apache commons is better, but this class was created to learn TDD.
  */
 public final class StringUtils {
-
     public static final String EMPTY_STRING = "";
     public static final String WHITESPACE = " ";
     public static final char NEW_LINE = '\n';
-    static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
+    public static final String ALPHANUMERIC = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"; //TODO replace it with RandomDataGenerator
+    public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
     static final String NON_ALPHANUMERIC = "~#&@£$^'`\".,:;*–+=(){}[]<>?!\\|/";
     private static final String ALPHABET_BOTH_CASE = ALPHABET + ALPHABET.toUpperCase();
     private static final char COMMA = ',';
-    private static final String ALPHANUMERIC = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"; //TODO replace it with RandomDataGenerator
     private static final String ALPHANUMERIC_REGEX = "[^a-zA-Z0-9]";
 
     private StringUtils() {
@@ -196,26 +195,6 @@ public final class StringUtils {
         return nsbpBuilder.toString();
     }
 
-    static boolean containsOnly(String text, char[] characters) {
-        if (isStringBlank(text) || characters == null || characters.length == 0) {
-            return false;
-        }
-
-        char[] textArray = text.toCharArray();
-        for (char characterFromArray : textArray) {
-            boolean characterFound = false;
-            for (char character : characters) {
-                if (characterFromArray == character) {
-                    characterFound = true;
-                }
-            }
-            if (!characterFound) {
-                return false;
-            }
-        }
-        return true;
-    }
-
     static String getNullSafeString(String string) {
         return nonNull(string) ? string : EMPTY_STRING;
     }
@@ -225,7 +204,7 @@ public final class StringUtils {
         return string == null || string.trim().isEmpty();
     }
 
-    private static boolean isStringEmpty(String string) {
+    public static boolean isStringEmpty(String string) {
         return string == null || string.isEmpty();
     }
 
@@ -241,20 +220,6 @@ public final class StringUtils {
 
     }
 
-    public static boolean isContainSpace(String word) {
-        if (isStringEmpty(word)) {
-            return false;
-        }
-
-        final char[] chars = word.toCharArray();
-        for (char character : chars) {
-            if (isNotWhitespaceCharacter(character)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
     public static boolean hasNonAlphanumericCharactersOnly(String string) {
         char[] charArray = string.toCharArray();
         for (char character : charArray) {
@@ -266,6 +231,7 @@ public final class StringUtils {
         }
         return true;
     }
+
 
     public static boolean hasNonAlphabetCharactersOnly(String string) {
         char[] charArray = string.toCharArray();
@@ -279,11 +245,6 @@ public final class StringUtils {
         return true;
     }
 
-    static boolean isTextContainsAllKeywordsExists(List<String> keywords, String text) {
-        validateIfListIsNotEmpty(keywords, "Keywords");
-        validateIfNotEmpty(text, "text");
-        return keywords.stream().anyMatch(text::contains);
-    }
 
     public static String swapCaseLettersInString(String text) {
         if (text == null) {
@@ -339,7 +300,7 @@ public final class StringUtils {
         return stringBuilder.toString();
     }
 
-    private static boolean isNotWhitespaceCharacter(char character) {
+    public static boolean isNotWhitespaceCharacter(char character) {
         return !isWhitespace(character);
     }
 

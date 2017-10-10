@@ -20,7 +20,6 @@ import static dms.pastor.utils.StringUtils.*;
 import static dms.pastor.utils.StringUtils.getRandomText;
 import static dms.pastor.utils.randoms.RandomDataGenerator.*;
 import static java.lang.Character.isLetter;
-import static java.util.Collections.emptyList;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 
@@ -38,12 +37,10 @@ public class StringUtilsTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(StringUtilsTest.class);
 
     private static final String NON_ALPHABETICAL_STRING = "&07";
-    private static final String EMPTY_STRING = "";
     private static final String PALINDROME = "abcdcba";
     private static final String NOT_PALINDROME = "abcdef";
     private static final String PALINDROME_AFTER_PERMUTATION = "abcdabcd";
-    private static final String SPACE_CHARACTER = " ";
-    private static final String WHITESPACES_ONLY_STRING = "                    ";
+    public static final String WHITESPACES_ONLY_STRING = "                    ";
 
     @Rule
     public ExpectedException exception = ExpectedException.none();
@@ -153,25 +150,6 @@ public class StringUtilsTest {
         Assert.assertEquals("&nbsp;&nbsp;&nbsp;", result);
     }
 
-    @Test
-    public void shouldReturnTrueForContainsOnlyAInAAA() throws Exception {
-        Assert.assertThat("A is in AAA", containsOnly("AAA", new char[]{'A'}), is(true));
-    }
-
-    @Test
-    public void shouldReturnFalseForJonInJohn() throws Exception {
-        Assert.assertFalse("Sara in Sarah", containsOnly("Sarah", new char[]{'S', 'a', 'r', 'a'}));
-    }
-
-    @Test
-    public void shouldReturnFalseForNullInputString() throws Exception {
-        Assert.assertFalse("Null", containsOnly(null, new char[]{'S', 'a', 'r', 'a'}));
-    }
-
-    @Test
-    public void shouldReturnFalseForNullCharacterArray() throws Exception {
-        Assert.assertFalse("Null", containsOnly("Word", null));
-    }
 
     @Test
     public void isStringEmptyShouldReturnTrueForNull() throws Exception {
@@ -288,58 +266,6 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void shouldReturnTrueForSpaceCharacterOnlyInStringTest() throws Exception {
-        // given
-
-        // when
-        final boolean hasSpaceOnly = isContainSpace(SPACE_CHARACTER);
-
-        // then
-        Assert.assertThat(hasSpaceOnly, is(true));
-    }
-
-    @Test
-    public void shouldReturnTrueForSpaceCharactersOnlyInStringTest() throws Exception {
-        // given
-
-        // when
-        final boolean hasSpaceOnly = isContainSpace(WHITESPACES_ONLY_STRING);
-
-        // then
-        Assert.assertThat(hasSpaceOnly, is(true));
-    }
-
-    @Test
-    public void shouldReturnFalseIfYouPassNullToHasSpaceOnlyTest() throws Exception {
-        // when
-        final boolean hasSpaceOnly = isContainSpace(null);
-
-        // then
-        Assert.assertFalse(hasSpaceOnly);
-    }
-
-    @Test
-    public void shouldReturnFalseIfYouPassEmptyStringToHasSpaceOnlyTest() throws Exception {
-        // when
-        final boolean hasSpaceOnly = isContainSpace("");
-
-        // then
-        Assert.assertFalse(hasSpaceOnly);
-    }
-
-    @Test
-    public void shouldReturnFalseIfInputContainsNotOnlySpaceInHasSpaceOnlyTest() throws Exception {
-        // given
-        final String space = " A B  CC   Garlic ";
-
-        // when
-        final boolean hasSpaceOnly = isContainSpace(space);
-
-        // then
-        Assert.assertFalse(hasSpaceOnly);
-    }
-
-    @Test
     public void shouldValidateStringWithNonAlphanumericCharactersOnlyTest() throws Exception {
         // when
         final boolean isAlphanumeric = hasNonAlphanumericCharactersOnly(NON_ALPHANUMERIC);
@@ -358,58 +284,6 @@ public class StringUtilsTest {
 
         // then
         Assert.assertFalse(isAlphanumeric);
-    }
-
-    @SuppressWarnings("ConstantConditions") // part of the test
-    @Test
-    public void shouldThrowIllegalArgumentExceptionIfKeywordIsNullTest() throws Exception {
-        // except
-        exception.expect(IllegalArgumentException.class);
-
-        // when
-        isTextContainsAllKeywordsExists(null, generateString());
-
-    }
-
-    @Test
-    public void shouldThrowIllegalArgumentExceptionIfTextIsNullTest() throws Exception {
-        // except
-        exception.expect(IllegalArgumentException.class);
-
-        // when
-        isTextContainsAllKeywordsExists(generateStringList(), null);
-    }
-
-    @Test
-    public void shouldThrowIllegalArgumentExceptionIfKeywordIsEmptyTest() throws Exception {
-        // except
-        exception.expect(IllegalArgumentException.class);
-
-        // when
-        isTextContainsAllKeywordsExists(emptyList(), generateString());
-
-    }
-
-    @Test
-    public void shouldThrowIllegalArgumentExceptionIfTextIsEmptyTest() throws Exception {
-        // except
-        exception.expect(IllegalArgumentException.class);
-
-        // when
-        isTextContainsAllKeywordsExists(generateStringList(), EMPTY_STRING);
-    }
-
-    @Test
-    public void shouldVerifyThatAllKeywordsExistsInTextTest() throws Exception {
-        // given
-        final List<String> keywords = Arrays.asList("brown", "fox", "dog", "panagram");
-        final String text = "The quick brown fox jumps over a lazy dog.";
-
-        //when
-        final boolean exists = isTextContainsAllKeywordsExists(keywords, text);
-
-        // then
-        assertThat(exists).isTrue();
     }
 
     @SuppressWarnings("ConstantConditions") // part of the test
@@ -868,7 +742,7 @@ public class StringUtilsTest {
 
         // then
         assertThat(result).isEqualTo(expectedResult);
-
     }
+
 
 }

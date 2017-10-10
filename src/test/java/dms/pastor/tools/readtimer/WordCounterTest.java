@@ -6,9 +6,7 @@ import org.junit.rules.ExpectedException;
 
 import static dms.pastor.TestConfig.MAX_RANDOM_SIZE;
 import static dms.pastor.tools.readtimer.WordCounter.countFullWords;
-import static dms.pastor.utils.randoms.RandomDataGenerator.generateArray;
-import static dms.pastor.utils.randoms.RandomDataGenerator.generateNonAlphanumericString;
-import static dms.pastor.utils.randoms.RandomDataGenerator.randomPositiveInteger;
+import static dms.pastor.utils.randoms.RandomDataGenerator.*;
 import static java.lang.String.valueOf;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -30,7 +28,7 @@ public class WordCounterTest {
     public void countFullWordsShouldThrowExceptionIfWordsIsNull() throws Exception {
         // expect
         exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Input can not be null or empty.");
+        exception.expectMessage("Input cannot be null or empty.");
 
         // when
         countFullWords(null);
@@ -41,7 +39,7 @@ public class WordCounterTest {
     public void countFullWordsShouldThrowExceptionIfWordsIsEmpty() throws Exception {
         // expect
         exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Input can not be null or empty.");
+        exception.expectMessage("Input cannot be null or empty.");
 
         // when
         countFullWords(new String[0]);
