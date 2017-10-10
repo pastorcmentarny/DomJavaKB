@@ -1,9 +1,16 @@
 package dms.pastor.domain;
 
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+import static dms.pastor.utils.StringUtils.getUnknownWhenNullString;
+
 /**
- * User: Dominik Symonowicz
- * Created: 24.06.12 , 16:41
- * Last update  2013-06-21
+ * Author Dominik Symonowicz
+ * Created 2012-06-12 at 16:41
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class Result {
 
@@ -11,16 +18,7 @@ public class Result {
     private String message;
     private Object item;
 
-    public Result(boolean success) {
-        this.success = success;
-        if (success) {
-            message = "Success";
-        } else {
-            message = "Fail";
-        }
-    }
-
-    public Result(boolean success, String message) {
+    private Result(boolean success, String message) {
         this.success = success;
         this.message = message;
     }
@@ -29,6 +27,22 @@ public class Result {
         this.success = success;
         this.message = message;
         this.item = item;
+    }
+
+    public static Result success(String message) {
+        return new Result(true, message);
+    }
+
+    public static Result success() {
+        return new Result(true, "Success");
+    }
+
+    public static Result fail(String message) {
+        return new Result(false, message);
+    }
+
+    public static Result fail() {
+        return new Result(false, "Fail");
     }
 
     public boolean isSuccess() {
@@ -44,11 +58,7 @@ public class Result {
     }
 
     public String getMessage() {
-        if (message != null) {
-            return message;
-        } else {
-            return "Unknown";
-        }
+        return getUnknownWhenNullString(message);
     }
 
     public void setMessage(String message) {
@@ -67,8 +77,9 @@ public class Result {
     public String toString() {
         return "Result{" +
                 "\n\tsuccess: " + success +
-                "\n\tmessage: " + message + '\'' +
-                "\n\thasItem: " + (item != null ? item.toString() : "null") +
+                "\n\tmessage: \'" + message + '\'' +
+                (item != null ? "\n\thasItem: " + item.toString() : EMPTY_STRING) +
                 "\n}";
     }
+
 }

@@ -2,12 +2,10 @@ package dms.pastor.tasks.sunspotanalyser.data;
 
 import dms.pastor.domain.Result;
 import dms.pastor.utils.randoms.RandomDataGenerator;
-import org.junit.Assert;
 import org.junit.Test;
 
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
-import static org.hamcrest.CoreMatchers.is;
 
 /**
  * Author Dominik Symonowicz
@@ -25,21 +23,21 @@ public class ResultsTest {
     @Test
     public void shouldCreateSuccessResultTest() throws Exception {
         // when
-        result = new Result(true);
+        result = Result.success();
 
         // then
-        Assert.assertThat(result.isSuccess(), is(true));
-        Assert.assertThat(result.getMessage(), is("Success"));
+        assertThat(result.isSuccess()).isTrue();
+        assertThat(result.getMessage()).isEqualTo("Success");
     }
 
     @Test
     public void shouldCreateFailResultTest() throws Exception {
         // when
-        result = new Result(false);
+        result = Result.fail();
 
         // then
-        Assert.assertThat(result.isFail(), is(true));
-        Assert.assertThat(result.getMessage(), is("Fail"));
+        assertThat(result.isFail()).isTrue();
+        assertThat(result.getMessage()).isEqualTo("Fail");
     }
 
     @Test
@@ -48,11 +46,11 @@ public class ResultsTest {
         final String message = generateString(20);
 
         // when
-        result = new Result(true, message);
+        result = Result.success(message);
 
         // then
-        Assert.assertThat(result.isSuccess(), is(true));
-        Assert.assertThat(result.getMessage(), is(message));
+        assertThat(result.isSuccess()).isTrue();
+        assertThat(result.getMessage()).isEqualTo(message);
     }
 
     @Test
@@ -61,11 +59,11 @@ public class ResultsTest {
         final String message = generateString();
 
         // when
-        result = new Result(false, message);
+        result = Result.fail(message);
 
         // then
-        Assert.assertThat(result.isFail(), is(true));
-        Assert.assertThat(result.getMessage(), is(message));
+        assertThat(result.isFail()).isTrue();
+        assertThat(result.getMessage()).isEqualTo(message);
     }
 
     @Test
@@ -78,9 +76,9 @@ public class ResultsTest {
         result = new Result(true, message, object);
 
         // then
-        Assert.assertThat(result.isSuccess(), is(true));
-        Assert.assertThat(result.getMessage(), is(message));
-        Assert.assertThat(result.getItem(), is(object));
+        assertThat(result.isSuccess()).isTrue();
+        assertThat(result.getMessage()).isEqualTo(message);
+        assertThat(result.getItem()).isEqualTo(object);
     }
 
     @Test
@@ -93,8 +91,8 @@ public class ResultsTest {
         result = new Result(false, message, object);
 
         // then
-        Assert.assertThat(result.isFail(), is(true));
-        Assert.assertThat(result.getMessage(), is(message));
+        assertThat(result.isFail()).isTrue();
+        assertThat(result.getMessage()).isEqualTo(message);
     }
 
     @Test
@@ -104,26 +102,26 @@ public class ResultsTest {
         final String item = "Item";
         final String asString = "Result{" +
                 "\n\tsuccess: true" +
-                "\n\tmessage: " + test + '\'' +
+                "\n\tmessage: \'" + test + '\'' +
                 "\n\thasItem: " + item +
                 "\n}";
 
         // when
-        result = new Result(false);
+        result = Result.fail();
         result.setSuccess();
         result.setMessage(null);
 
         // then
-        Assert.assertThat(result.getMessage(), is("Unknown"));
+        assertThat(result.getMessage()).isEqualTo("Unknown");
 
         // when
         result.setMessage(test);
         result.setItem(item);
 
         // then
-        Assert.assertThat(result.getMessage(), is(test));
-        Assert.assertThat(result.getItem() instanceof String, is(true));
-        Assert.assertThat(result.toString(), is(asString));
+        assertThat(result.getMessage()).isEqualTo(test);
+        assertThat(result.getItem()).isInstanceOf(String.class);
+        assertThat(result.toString()).isEqualTo(asString);
 
     }
 
