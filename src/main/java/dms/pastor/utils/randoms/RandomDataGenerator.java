@@ -185,6 +185,10 @@ public final class RandomDataGenerator {
         return randomInteger(MAX_VALUE);
     }
 
+    public static String generateRandomIntegerAsString(int maxValue) {
+        return String.valueOf(randomPositiveInteger(maxValue));
+    }
+
     public static int randomPositiveInteger(int maxValue) {
         return randomInteger(maxValue);
     }

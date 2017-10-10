@@ -467,7 +467,7 @@ public class RandomDataGeneratorTest {
     }
 
     @Test
-    public void generateRandomPinyinCharacterShouldReturnRandomPinyinCharacter() {
+    public void generateRandomIntegerAsStringShouldReturnRandomPinyinCharacter() {
         // when
         final String value = RandomDataGenerator.generateRandomPinyinCharacter();
 
@@ -476,5 +476,17 @@ public class RandomDataGeneratorTest {
 
         // then
         assertThat(getAllPinyinFromFirstToFourthToneWithoutNeutralTone().contains(value)).isTrue();
+    }
+
+    @Test
+    public void generateRandomIntegerAsStringShouldReturnRandomIntegerAsString() {
+        // when
+        final String result = RandomDataGenerator.generateRandomIntegerAsString(10);
+
+        // then
+        final int number = Integer.parseInt(result);
+
+        // debug
+        LOGGER.info("Number generated: " + number);
     }
 }
