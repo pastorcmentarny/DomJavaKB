@@ -108,25 +108,36 @@ public abstract class ValidatorUtils {
     }
 
     public static void validateIfNotEmpty(String string) {
-        if (string == null || string.isEmpty()) {
-            throw new IllegalArgumentException("Value cannot be null or empty.");
-        }
+        throwExceptionIfEmpty(string, "Value");
     }
 
     public static boolean validateIfStringNotEmpty(String string) {
         return string != null && string.length() > 0;
     }
 
-    public static void validateIfNotEmpty(String string, String objectName) {
-        if (string == null || string.isEmpty()) {
-            throw new IllegalArgumentException(objectName + " cannot be null or empty.");
+    public static void validateIfNotEmpty(String object, String objectName) {
+        throwExceptionIfEmpty(object, objectName);
+    }
+
+    private static void throwExceptionIfEmpty(String object, String objectName) {
+        if (object == null || object.isEmpty()) {
+            throw new IllegalArgumentException(getErrorMessage(objectName));
         }
     }
 
     public static void validateIfListIsNotEmpty(List<String> stringList, String listName) {
         if (stringList == null || stringList.isEmpty()) {
-            throw new IllegalArgumentException(listName + " cannot be null or empty.");
+            throw new IllegalArgumentException(getErrorMessage(listName));
         }
     }
 
+    public static void validateIfStringArrayIsNotEmpty(String[] strings) {
+        if (strings == null || strings.length == 0) {
+            throw new IllegalArgumentException(getErrorMessage("Input"));
+        }
+    }
+
+    private static String getErrorMessage(String what) {
+        return what + " cannot be null or empty.";
+    }
 }

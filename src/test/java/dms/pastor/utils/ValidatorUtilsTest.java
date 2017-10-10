@@ -470,4 +470,37 @@ public class ValidatorUtilsTest {
         // then
         assertThat(result).isTrue();
     }
+
+    @Test
+    public void validateIfStringArrayIsNotEmptyShouldThrowIllegalArgumentExceptionIfStringsIsNull() {
+        // expect
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Input cannot be null or empty.");
+
+        // when
+        validateIfStringArrayIsNotEmpty(null);
+    }
+
+    @Test
+    public void validateIfStringArrayIsNotEmptyShouldThrowIllegalArgumentExceptionIfStringsIsEmpty() {
+        // expect
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Input cannot be null or empty.");
+
+        // when
+        validateIfStringArrayIsNotEmpty(new String[0]);
+    }
+
+    @Test
+    public void validateIfStringArrayIsNotEmptyShouldValidateForNonEmptyStringArray() {
+        // given
+        final String[] stringArray = {generateString()};
+
+        // when
+        validateIfStringArrayIsNotEmpty(stringArray);
+
+        // then nothing happen, which means value are valid
+
+    }
+
 }
