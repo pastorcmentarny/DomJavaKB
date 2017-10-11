@@ -170,4 +170,13 @@ public final class Word {
         return "ID: " + id + "\nChinese: " + chineseCharacter + "\nPinyin: " + pinyin + "(" + strokes + ")\nEnglish: " + englishMeaning + "\nPolish:" + polish + "\nNotes: " + notes + "\nDifficulty: " + difficulty;
     }
 
+    public static Word defaultWord() {
+        return new Word(292, "字", "zì", 6,
+                "character", "znak", new String[]{"hsk1"}, "note", 2);
+
+    }
+
+    public static String[] noCategories() {
+        return null;
+    }
 }
