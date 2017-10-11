@@ -24,7 +24,7 @@ import static dms.pastor.utils.string.ContainsInStringUtils.containsPinyinCharac
 public class WordValidator {
     private static final Logger LOGGER = LoggerFactory.getLogger(Word.class);
 
-    static boolean validateWord(Word word) {
+    public static boolean validateWord(Word word) {
         validateIfNotNull(word, "Word");
 
         if (word.getId() <= 0) {
