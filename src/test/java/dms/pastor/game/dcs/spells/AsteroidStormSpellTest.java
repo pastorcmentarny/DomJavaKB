@@ -43,7 +43,7 @@ public class AsteroidStormSpellTest {
         System.setOut(original);
     }
 
-    @Test
+    @Test //TODO investigate failure of this test on 11.10'2017 ? Flaky ?
     public void castAsteroidStormShouldCauseDamageToUnit() throws Exception {
         // given
         final int initHp = 100;

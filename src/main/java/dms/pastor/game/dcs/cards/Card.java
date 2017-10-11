@@ -42,7 +42,7 @@ public abstract class Card {
         this.name = name;
     }
 
-    public String getDescription() {
+    protected String getDescription() {
         return description;
     }
 

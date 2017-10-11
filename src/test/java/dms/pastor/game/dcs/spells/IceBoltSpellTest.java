@@ -19,7 +19,7 @@ public final class IceBoltSpellTest {
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private final PrintStream original = System.out;
 
-    private IceBoltSpell iceBoltSpell = new IceBoltSpell();
+    private final IceBoltSpell iceBoltSpell = new IceBoltSpell();
 
     @Before
     public void setUp() {

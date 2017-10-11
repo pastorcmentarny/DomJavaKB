@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class InfernoStrikeSpellTest {
 
-    private InfernoStrikeSpell infernoStrikeSpell = new InfernoStrikeSpell();
+    private final InfernoStrikeSpell infernoStrikeSpell = new InfernoStrikeSpell();
 
     @Test
     public void castInfernoStrikeShouldDoesDamage() throws Exception {

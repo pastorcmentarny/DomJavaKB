@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public final class InGameRandomiseUtilsTest {
 
-    private InGameRandomiseUtils inGameRandomiserUtils = new InGameRandomiseUtils();
+    private final InGameRandomiseUtils inGameRandomiserUtils = new InGameRandomiseUtils();
 
     @Test
     public void isWillHappenWithProbabilityOfShouldReturnTrueIfPercentageIsAbove100() {

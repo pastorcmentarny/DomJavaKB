@@ -82,6 +82,7 @@ public class StateTest {
         assertThat(result).isTrue();
     }
 
+    @SuppressWarnings("ConstantConditions")
     @Test
     public void saveFirstState() throws Exception {
         // given

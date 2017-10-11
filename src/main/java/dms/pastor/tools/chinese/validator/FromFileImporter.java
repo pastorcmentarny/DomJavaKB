@@ -23,9 +23,9 @@ import static dms.pastor.tools.chinese.validator.WordValidator.validateWord;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class FromFileImporter implements Importer {
-    public static final String IGNORED_WORD = "////";
-    public static final String COLUMN_SEPERATOR = ";;";
-    public static final String GROUP_SEPERATOR = "~~";
+    private static final String IGNORED_WORD = "////";
+    private static final String COLUMN_SEPERATOR = ";;";
+    private static final String GROUP_SEPERATOR = "~~";
     private static final Logger LOGGER = LoggerFactory.getLogger(FromFileImporter.class);
 
     private static void closeReaderQueitly(Reader reader) {

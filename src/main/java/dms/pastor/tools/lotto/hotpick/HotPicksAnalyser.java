@@ -24,7 +24,7 @@ import static dms.pastor.utils.StringUtils.NEW_LINE;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class HotPicksAnalyser {
+class HotPicksAnalyser {
 
     private static final String SEPARATOR = ",";
     private final List<HotPickDraw> hotPickDrawList;

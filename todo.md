@@ -8,13 +8,14 @@ TODO:
         Spells:
             1. ImplosionSpell
             2. BubbleShieldSpell . it prevents from damage once 
+    4. Complete Lotto tools         
 
 Enemies:
-    0. (Done) Dummy
-    1. (Done) Cleric
-    2. (Done) Conjuror
-    3. Mage
-    4. (Done) Clairvoyant (jasnowidz)
+    0. (Done)   Dummy
+    1. (Done)   Cleric
+    2. (Done)   Conjuror
+    3. (Done)   Mage
+    4. (Done)   Clairvoyant (jasnowidz)
     5. Priest
     6. Warlock
     7. Sorcerer
@@ -36,3 +37,7 @@ Common 1/5      200
 Rare 1/10       100
 Legendary 1/100  10
 Unique 1/1000     1
+
+
+add this task
+https://www.javacodegeeks.com/2017/02/interview-questions-verify-braces.html

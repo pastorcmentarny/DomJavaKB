@@ -19,7 +19,7 @@ import static dms.pastor.domain.Result.fail;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class InMemoryDictionary {
+class InMemoryDictionary {
     private static final Logger LOGGER = LoggerFactory.getLogger(FromFileImporter.class);
 
     private final Importer fromFileImporter = new FromFileImporter();

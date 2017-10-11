@@ -15,8 +15,8 @@ import static org.assertj.core.api.Assertions.assertThat;
  * WARNING! Edge case tests omited as this is just example
  */
 public class StringFormatExamplesTest {
-    private StringFormatExamples stringFormatExamples = new StringFormatExamples(5);
-    private int number = 168;
+    private final StringFormatExamples stringFormatExamples = new StringFormatExamples(5);
+    private final int number = 168;
 
     @Test
     public void shouldPrintTextAlignedToTheRightWithSpecificWidth() {

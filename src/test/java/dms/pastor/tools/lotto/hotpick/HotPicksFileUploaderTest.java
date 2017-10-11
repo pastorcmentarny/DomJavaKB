@@ -39,8 +39,8 @@ public class HotPicksFileUploaderTest {
     private static final String EMPTY_STRING = "";
     private final Random random = new Random();
     private final HotPicksFileUploader hotPicksFileUploader = new HotPicksFileUploader();
-    final File csvFile = new File(EMPTY_CSV_FILE);
-    final File textFile = new File(EMPTY_TEXT_FILE);
+    private final File csvFile = new File(EMPTY_CSV_FILE);
+    private final File textFile = new File(EMPTY_TEXT_FILE);
     @Rule
     public ExpectedException exception = ExpectedException.none();
 

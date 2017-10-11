@@ -11,7 +11,7 @@ package dms.pastor.tools.chinese.validator;
  */
 class WordValidatorRunner {
 
-    public static final String PATH = "C:\\ds\\projects\\DomLearnsChinese\\res\\raw\\dictionary.txt";
+    private static final String PATH = "C:\\ds\\projects\\DomLearnsChinese\\res\\raw\\dictionary.txt";
 
     public static void main(String[] args) {
         InMemoryDictionary dictionary = new InMemoryDictionary(PATH);

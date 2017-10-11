@@ -11,7 +11,7 @@ import java.util.Set;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class CoupleOperations {
+class CoupleOperations {
 
     static Set<Couple> deleteDiscardedCouples(Set<Couple> couples, Set<Couple> couplesToDelete) {
         for (Couple couple : couplesToDelete) {

@@ -19,7 +19,7 @@ import static dms.pastor.utils.ArrayUtils.clone2DArrayOfInts;
  * <p>
  * tag-memento-pattern (sort of)
  */
-public class State {
+class State {
     private static final Logger LOGGER = LoggerFactory.getLogger(CommandLineUI.class);
     private Image previous = null;
     private Image next = null;
