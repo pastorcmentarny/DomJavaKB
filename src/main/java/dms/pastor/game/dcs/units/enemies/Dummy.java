@@ -18,12 +18,10 @@ import dms.pastor.game.dcs.units.Unit;
 public class Dummy extends Unit {
 
     Dummy() {
-        super();
         setHp(10);
     }
 
     public Dummy(String name) {
-        super();
         setName(name);
         setHp(24);
     }

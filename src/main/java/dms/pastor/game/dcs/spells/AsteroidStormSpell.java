@@ -8,10 +8,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Random;
 
-import static dms.pastor.game.dcs.Config.ASTEROID_STORM_MAX_ASTEROIDS;
-import static dms.pastor.game.dcs.Config.ASTEROID_STORM_MAX_DAMAGE;
-import static dms.pastor.game.dcs.Config.ASTEROID_STORM_MIN_ASTEROIDS;
-import static dms.pastor.game.dcs.Config.ASTEROID_STORM_MIN_DAMAGE;
+import static dms.pastor.game.dcs.Config.*;
 import static dms.pastor.game.dcs.conditions.ElementType.EARTH;
 
 /**
@@ -29,7 +26,6 @@ public class AsteroidStormSpell extends Spell {
     private final Random random = new Random();
 
     public AsteroidStormSpell() {
-        super();
         name = "Asteroid Storm";
         setElements(new Elements(1, 4, 0, 0));
     }

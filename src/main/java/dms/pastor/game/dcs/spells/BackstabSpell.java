@@ -16,7 +16,6 @@ import dms.pastor.game.dcs.units.Unit;
 public class BackstabSpell extends Spell {
 
     public BackstabSpell() {
-        super();
         name = "Backstab spell";
         setElements(new Elements(1, 2, 0, 0));
     }

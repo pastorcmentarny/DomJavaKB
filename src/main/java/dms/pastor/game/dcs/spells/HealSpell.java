@@ -17,7 +17,6 @@ import static dms.pastor.game.dcs.Config.HEAL;
 public class HealSpell extends Spell {
 
     public HealSpell() {
-        super();
         name = "Heal";
         setElements(new Elements(2, 0, 0, 1));
     }

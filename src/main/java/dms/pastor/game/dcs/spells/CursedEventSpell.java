@@ -16,7 +16,6 @@ import dms.pastor.game.dcs.units.Unit;
 public class CursedEventSpell extends Spell {
 
     public CursedEventSpell() {
-        super();
         name = "Draw an event";
         setElements(new Elements(2, 0, 2, 0));
     }

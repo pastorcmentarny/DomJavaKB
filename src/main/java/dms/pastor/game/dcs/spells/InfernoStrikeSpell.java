@@ -21,7 +21,6 @@ public class InfernoStrikeSpell extends Spell {
     private final Random random = new Random();
 
     public InfernoStrikeSpell() {
-        super();
         name = "Inferno Strike";
         setElements(new Elements(1, 2, 2, 0));
     }

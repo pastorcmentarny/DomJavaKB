@@ -15,7 +15,6 @@ import dms.pastor.game.dcs.units.Unit;
 public class ChainLightingSpell extends Spell {
 
     public ChainLightingSpell() {
-        super();
         name = "Chain Lighting";
         setElements(new Elements(3, 0, 1, 0));
     }

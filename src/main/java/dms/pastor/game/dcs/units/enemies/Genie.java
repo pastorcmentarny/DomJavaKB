@@ -32,7 +32,6 @@ public class Genie extends Unit {
 
 
     public Genie() {
-        super();
         setName("Genie from the grid :" + random.nextInt(MAX_GRID_NUMBER));
         setElements(new Elements(10));
         setSp(225);

@@ -23,7 +23,6 @@ public class MeteorStrikeSpell extends Spell {
     private final Random random = new Random();
 
     public MeteorStrikeSpell() {
-        super();
         name = "Meteor Strike";
         setElements(new Elements(0, 2, 3, 0));
     }

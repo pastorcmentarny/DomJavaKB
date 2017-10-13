@@ -21,7 +21,6 @@ import static dms.pastor.game.dcs.conditions.ConditionType.STUNNED;
 public class LightingBoltSpell extends Spell {
 
     public LightingBoltSpell() {
-        super();
         name = "Lighting Bolt";
         setElements(new Elements(4, 0, 0, 0));
     }

@@ -17,7 +17,6 @@ import static dms.pastor.game.dcs.Config.INITIAL_SHIELD_POINTS;
 public class CreateShieldSpell extends Spell {
 
     public CreateShieldSpell() {
-        super();
         name = "Create a shield";
         setElements(new Elements(0, 2, 0, 2));
     }

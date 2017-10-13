@@ -21,7 +21,6 @@ import static dms.pastor.game.dcs.conditions.ElementType.EARTH;
 public class FireElement extends Unit {
 
     public FireElement() {
-        super();
         setName("Fire element");
         setShielded(true);
         setElements(new Elements(10));

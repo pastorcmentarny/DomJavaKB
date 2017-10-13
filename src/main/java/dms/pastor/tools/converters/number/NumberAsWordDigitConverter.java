@@ -14,7 +14,7 @@ class NumberAsWordDigitConverter {
         final String[] number = numberAsString.toLowerCase().split(SPLIT_CHARACTER);
         int total = 0;
         for (String partOfNumber : number) {
-            if (!partOfNumber.equalsIgnoreCase("and")) {
+            if (!"and".equalsIgnoreCase(partOfNumber)) {
                 total += getNumberFor(partOfNumber);
             }
 

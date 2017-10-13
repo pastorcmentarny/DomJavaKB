@@ -19,7 +19,6 @@ import static dms.pastor.game.dcs.conditions.ConditionType.REGENERATION;
 public class RegenSpell extends Spell {
 
     public RegenSpell() {
-        super();
         name = "Regeneration";
         setElements(new Elements(2, 0, 0, 2));
     }

@@ -21,10 +21,10 @@ class Finder {
         while (!ba && !bz) {
             counter++;
             String s = getRandomCharacterAsString();
-            if (s.equalsIgnoreCase("a")) {
+            if ("a".equalsIgnoreCase(s)) {
                 ba = true;
             }
-            if (s.equalsIgnoreCase("z")) {
+            if ("z".equalsIgnoreCase(s)) {
                 bz = true;
             }
         }

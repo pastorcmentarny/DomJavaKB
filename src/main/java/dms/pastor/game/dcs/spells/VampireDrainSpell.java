@@ -18,7 +18,6 @@ import static dms.pastor.game.dcs.Config.VAMPIRE_DRAIN_HEAL_HP;
 public class VampireDrainSpell extends Spell {
 
     public VampireDrainSpell() {
-        super();
         name = "Vampire Drain";
         setElements(new Elements(2, 2, 2, 0));
     }

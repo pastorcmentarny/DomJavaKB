@@ -15,7 +15,6 @@ import dms.pastor.game.dcs.units.Unit;
 public class CursedElementSpell extends Spell {
 
     public CursedElementSpell() {
-        super();
         name = "Cursed Element Missile";
         setElements(new Elements(2, 2, 1, 2));
     }

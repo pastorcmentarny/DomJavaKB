@@ -23,7 +23,6 @@ import static dms.pastor.game.dcs.conditions.ConditionType.POISONED;
 public class CometStrikeSpell extends Spell {
 
     public CometStrikeSpell() {
-        super();
         name = "Comet Spell";
         setElements(new Elements(0, 3, 0, 1));
     }

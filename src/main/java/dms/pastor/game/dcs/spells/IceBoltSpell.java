@@ -19,7 +19,6 @@ import static dms.pastor.game.dcs.conditions.ElementType.WATER;
 public class IceBoltSpell extends Spell {
 
     public IceBoltSpell() {
-        super();
         name = "Ice Bolt";
         setElements(new Elements(0, 0, 0, 3));
     }

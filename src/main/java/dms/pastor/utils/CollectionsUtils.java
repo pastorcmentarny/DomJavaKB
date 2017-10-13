@@ -1,10 +1,6 @@
 package dms.pastor.utils;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Author Dominik Symonowicz
@@ -64,7 +60,7 @@ public abstract class CollectionsUtils {
     }
 
     public static boolean isListNotEmpty(List list) {
-        return list != null && list.size() > 0;
+        return list != null && !list.isEmpty();
     }
 
 }

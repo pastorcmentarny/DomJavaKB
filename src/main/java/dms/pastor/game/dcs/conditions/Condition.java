@@ -52,7 +52,7 @@ public class Condition {
     public void removeByConditionName(ConditionType conditionType) {
         ConditionEntry conditionEntryToDelete = null;
         for (ConditionEntry conditionEntry : conditions) {
-            if (conditionEntry.getConditionType().equals(conditionType)) {
+            if (conditionEntry.getConditionType() == conditionType) {
                 conditionEntryToDelete = conditionEntry;
             }
         }
@@ -61,7 +61,7 @@ public class Condition {
 
     public boolean has(ConditionType condition) {
         for (ConditionEntry conditionEntry : conditions) {
-            if (conditionEntry.getConditionType().equals(condition)) {
+            if (conditionEntry.getConditionType() == condition) {
                 return true;
             }
         }
@@ -90,7 +90,7 @@ public class Condition {
 
     ConditionEntry getConditionEntry(ConditionType type) {
         for (ConditionEntry element : conditions) {
-            if (element.getConditionType().equals(type)) {
+            if (element.getConditionType() == type) {
                 return element;
             }
         }

@@ -18,7 +18,6 @@ import static dms.pastor.game.dcs.conditions.ConditionType.BUBBLE_SHIELD;
 public class BubbleShieldSpell extends Spell {
 
     public BubbleShieldSpell() {
-        super();
         name = "Bubble shield";
         setElements(new Elements(3, 1, 1, 1));
     }

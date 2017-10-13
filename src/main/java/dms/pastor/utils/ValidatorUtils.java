@@ -112,7 +112,7 @@ public abstract class ValidatorUtils {
     }
 
     public static boolean validateIfStringNotEmpty(String string) {
-        return string != null && string.length() > 0;
+        return string != null && !string.isEmpty();
     }
 
     public static void validateIfNotEmpty(String object, String objectName) {

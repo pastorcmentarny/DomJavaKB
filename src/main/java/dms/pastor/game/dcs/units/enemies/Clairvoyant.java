@@ -19,7 +19,6 @@ public class Clairvoyant extends Unit {
     private static MagicStoneSpell magicStoneSpell = new MagicStoneSpell();
 
     public Clairvoyant() {
-        super();
         setName(generateFirstName() + " a Clairvoyant");
         setHp(50);
         getConditions().add(createPersistentCondition(EARTH_RESISTANT));

@@ -21,7 +21,6 @@ import static dms.pastor.game.dcs.conditions.ConditionType.WEAKNESS;
 public class WeaknessSpell extends Spell {
 
     public WeaknessSpell() {
-        super();
         name = "Weakness Spell";
         setElements(new Elements(0, 1, 0, 0));
     }

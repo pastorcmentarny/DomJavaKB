@@ -22,7 +22,6 @@ import static dms.pastor.game.dcs.conditions.ConditionType.STUNNED;
 public class MagicStoneSpell extends Spell {
 
     public MagicStoneSpell() {
-        super();
         name = "Magic Stone";
         setElements(new Elements(0, 2, 0, 0));
     }

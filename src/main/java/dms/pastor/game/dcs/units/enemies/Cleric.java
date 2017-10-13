@@ -23,7 +23,6 @@ public class Cleric extends Unit {
     private final RandomiseUtils randoms = new InGameRandomiseUtils();
 
     public Cleric() {
-        super();
         setName("Cleric");
         setHp(50);
     }

@@ -114,6 +114,7 @@ public final class NoSpellTest {
 
         // then assert logs
         verify(mockAppender).doAppend(captorLoggingEvent.capture());
+        verify(mockAppender).doAppend(captorLoggingEvent.capture());
         final ILoggingEvent loggingEvent = captorLoggingEvent.getValue();
         assertThat(loggingEvent.getLevel()).isEqualTo(Level.WARN);
         assertThat(loggingEvent.getFormattedMessage()).isEqualTo("Nothing happen. (Bug? Casting spell for No Spell???)");

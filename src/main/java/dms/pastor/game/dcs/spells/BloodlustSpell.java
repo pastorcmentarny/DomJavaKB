@@ -19,7 +19,6 @@ import static dms.pastor.game.dcs.conditions.ConditionType.BLOODLUST;
 public class BloodlustSpell extends Spell {
 
     public BloodlustSpell() {
-        super();
         name = "Bloodlust";
         setElements(new Elements(0, 0, 0, 4));
     }

@@ -21,7 +21,6 @@ import static dms.pastor.game.dcs.conditions.ConditionType.FROZEN;
 public class FrozenSpell extends Spell {
 
     public FrozenSpell() {
-        super();
         name = "Freezing Spell";
         setElements(new Elements(1, 0, 0, 2));
     }

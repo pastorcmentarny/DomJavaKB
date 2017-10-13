@@ -17,7 +17,6 @@ import static dms.pastor.game.dcs.Config.DEATH_RAY_DMG;
 public class DeathRaySpell extends Spell {
 
     public DeathRaySpell() {
-        super();
         name = "Death ray";
         setElements(new Elements(2, 4, 1, 0));
     }

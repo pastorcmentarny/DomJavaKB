@@ -28,7 +28,6 @@ public class Conjuror extends Unit {
     private static final Random random = new Random();
 
     public Conjuror() {
-        super();
         setName("Conjuror");
         setElements(new Elements(15));
         setHp(40);

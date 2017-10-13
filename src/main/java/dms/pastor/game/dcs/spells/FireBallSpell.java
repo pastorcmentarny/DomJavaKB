@@ -18,7 +18,6 @@ import dms.pastor.game.dcs.units.Unit;
 public class FireBallSpell extends Spell {
 
     public FireBallSpell() {
-        super();
         name = "Fireball";
         setElements(new Elements(0, 0, 3, 0));
     }

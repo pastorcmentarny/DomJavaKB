@@ -13,7 +13,6 @@ public class MagneticDrainSpell extends Spell {
     private static final Random random = new Random();
 
     public MagneticDrainSpell(){
-        super();
         name = "Magnetic Drain";
         setElements(new Elements(1, 1, 1, 1));
     }

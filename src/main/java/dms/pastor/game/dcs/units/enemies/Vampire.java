@@ -19,7 +19,6 @@ import static dms.pastor.game.dcs.conditions.ConditionType.MINDLESS;
 public class Vampire extends Unit {
 
     public Vampire() {
-        super();
         setName("Vampire");
         setSp(48);
         getConditions().add(createPersistentCondition(MINDLESS));

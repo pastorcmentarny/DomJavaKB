@@ -15,7 +15,6 @@ import dms.pastor.game.dcs.units.Unit;
 public class InfoSpell extends Spell {
 
     public InfoSpell() {
-        super();
         name = "Show Info";
         setElements(new Elements(1, 0, 0, 0));
     }

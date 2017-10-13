@@ -54,10 +54,10 @@ public final class ToCommandTransformer {
     private static Command getCommandFor(String[] input) {
         for (Command command : commands) {
             if (command.getSyntax().equals(input[0])) {
-                if (command.getSyntax().equalsIgnoreCase("C")) {
+                if ("C".equalsIgnoreCase(command.getSyntax())) {
                     return getCommand(input, new CreateCanvasCommand(), new ClearCanvasCommand());
                 }
-                if (command.getSyntax().equalsIgnoreCase("R")) {
+                if ("R".equalsIgnoreCase(command.getSyntax())) {
                     return getCommand(input, new CreateNewRectangleCommand(), new RedoCommand());
                 }
                 return command;

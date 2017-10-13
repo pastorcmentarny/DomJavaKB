@@ -20,7 +20,6 @@ import static dms.pastor.game.dcs.conditions.ConditionType.POISON_IMMUNITY;
 public class PoisonSpell extends Spell {
 
     public PoisonSpell() {
-        super();
         name = "Poison";
         setElements(new Elements(0, 2, 0, 1));
     }

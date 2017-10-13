@@ -3,9 +3,7 @@ package dms.pastor.game.dcs.spells;
 import dms.pastor.game.dcs.Elements;
 import dms.pastor.game.dcs.units.Unit;
 
-import static dms.pastor.game.dcs.conditions.ConditionType.BLIND;
-import static dms.pastor.game.dcs.conditions.ConditionType.POISONED;
-import static dms.pastor.game.dcs.conditions.ConditionType.WEAKNESS;
+import static dms.pastor.game.dcs.conditions.ConditionType.*;
 
 /**
  * Author Dominik Symonowicz
@@ -19,7 +17,6 @@ import static dms.pastor.game.dcs.conditions.ConditionType.WEAKNESS;
 public class CureSpell extends Spell {
 
     public CureSpell() {
-        super();
         name = "Draw an event";
         setElements(new Elements(0, 1, 0, 1));
     }
