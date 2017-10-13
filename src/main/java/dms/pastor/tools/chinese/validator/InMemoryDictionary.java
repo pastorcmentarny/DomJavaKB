@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Objects;
 
 import static dms.pastor.domain.Result.fail;
+import static dms.pastor.tools.chinese.validator.Word.noCategories;
 
 /**
  * Author Dominik Symonowicz
@@ -22,18 +23,19 @@ import static dms.pastor.domain.Result.fail;
 class InMemoryDictionary {
     private static final Logger LOGGER = LoggerFactory.getLogger(FromFileImporter.class);
 
-    private final Importer fromFileImporter = new FromFileImporter();
+    private final Importer fromFileImporter;
     private final String source;
 
     private Result dictionaryStatus = fail("Unknown state.");
     private List<Word> wordsList = new ArrayList<>();
 
-    public InMemoryDictionary(String source) {
+    public InMemoryDictionary(String source, Importer importer) {
         this.source = source;
+        this.fromFileImporter = importer;
     }
 
     public void load() {
-        dictionaryStatus = fromFileImporter.importDictionary(source, null);
+        dictionaryStatus = fromFileImporter.importDictionary(source, noCategories());
         if (dictionaryStatus.isSuccess()) {
             setWordListFromResult(dictionaryStatus.getItem());
             dictionaryStatus.setItem(null);
@@ -41,8 +43,8 @@ class InMemoryDictionary {
     }
 
     private void setWordListFromResult(Object wordListAsObject) {
-        if (Objects.nonNull(wordListAsObject) && wordListAsObject instanceof ArrayList) {
-            wordsList = (List<Word>) wordListAsObject;
+        if (Objects.nonNull(wordListAsObject) && wordListAsObject instanceof List) {
+            wordsList = (List<Word>) wordListAsObject;  //TODO improve it
         } else {
             dictionaryStatus = fail("Unable to retrive word list.");
             LOGGER.error("Unable to retrive word list.");
@@ -54,13 +56,12 @@ class InMemoryDictionary {
     }
 
     public Word getWordFromDictionary(int id) {
-        id++;
         for (Word word : wordsList) {
             if (word.getId() == id) {
                 return word;
             }
         }
-        LOGGER.warn("Word not found in dictionary for id:" + id);
+        LOGGER.warn("Word not found in dictionary for id: " + id);
         return Word.noWord();
     }
 

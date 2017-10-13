@@ -3,6 +3,8 @@ package dms.pastor.tools.chinese.validator;
 import dms.pastor.domain.Result;
 import org.junit.Test;
 
+import java.util.List;
+
 import static dms.pastor.tools.chinese.validator.Word.noCategories;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -29,6 +31,7 @@ public class DummyImporterTest {
         // then
         assertThat(result.isSuccess()).isTrue();
         assertThat(result.getMessage()).isNotEmpty();
-        assertThat(result.getItem()).isInstanceOf(Word.class);
+        List<Word> dictionary = (List<Word>) result.getItem(); //TODO improve it
+        assertThat(dictionary.get(0)).isEqualTo(Word.defaultWord());
     }
 }

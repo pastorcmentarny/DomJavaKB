@@ -24,8 +24,8 @@ import static dms.pastor.tools.chinese.validator.WordValidator.validateWord;
  */
 public class FromFileImporter implements Importer {
     private static final String IGNORED_WORD = "////";
-    private static final String COLUMN_SEPERATOR = ";;";
-    private static final String GROUP_SEPERATOR = "~~";
+    private static final String COLUMN_SEPARATOR = ";;";
+    private static final String GROUP_SEPARATOR = "~~";
     private static final Logger LOGGER = LoggerFactory.getLogger(FromFileImporter.class);
 
     private static void closeReaderQueitly(Reader reader) {
@@ -46,7 +46,9 @@ public class FromFileImporter implements Importer {
 
         File file = new File(filePath);
         if (!file.exists()) {
-            return fail("File to dictionary not found");
+            final String errorMessage = "File to dictionary not found";
+            LOGGER.error(errorMessage);
+            return fail(errorMessage);
         }
 
         FileInputStream fileInputStream;
@@ -66,7 +68,7 @@ public class FromFileImporter implements Importer {
             br = new BufferedReader(isr);
             while ((line = br.readLine()) != null) {
                 if (lineIsNotIgnored(line)) {
-                    data = line.split(COLUMN_SEPERATOR);
+                    data = line.split(COLUMN_SEPARATOR);
                     try {
                         word = parseWord(data);
                         if (validateWord(word)) {
@@ -90,7 +92,7 @@ public class FromFileImporter implements Importer {
         }
         closeReaderQueitly(isr);
         closeReaderQueitly(br);
-        return success("Dictionary loaded successfully.");
+        return success("Dictionary loaded successfully.", wordsList);
     }
 
     private Result returnFailResultOnException(String errorMessage, Exception exception) {
@@ -104,7 +106,7 @@ public class FromFileImporter implements Importer {
     }
 
     private String[] getWordCategories(String[] data) {
-        return data[7].split(GROUP_SEPERATOR);
+        return data[7].split(GROUP_SEPARATOR);
     }
 
     private boolean lineIsNotIgnored(String strLine) {

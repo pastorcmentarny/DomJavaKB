@@ -33,6 +33,10 @@ public class Result {
         return new Result(true, message);
     }
 
+    public static Result success(String message, Object item) {
+        return new Result(true, message, item);
+    }
+
     public static Result success() {
         return new Result(true, "Success");
     }

@@ -11,10 +11,6 @@ import java.util.Objects;
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
- * <p>
- * This tool is used to validate words while they are loaded to dictionary in Doms learn Chinese
- * This is slightly modified version of Word class from my game Dom Learn Chinese
- * Validator is here not in App due fact that testing in Android is pain in the ass
  */
 public final class Word {
 

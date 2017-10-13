@@ -2,6 +2,9 @@ package dms.pastor.tools.chinese.validator;
 
 import dms.pastor.domain.Result;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Author Dominik Symonowicz
  * Created 11/10/2017
@@ -14,6 +17,8 @@ import dms.pastor.domain.Result;
 public class DummyImporter implements Importer {
     @Override
     public Result importDictionary(String source, String[] requestedCategories) {
-        return new Result(true, "Dummy", Word.defaultWord());
+        List<Word> wordList = new ArrayList<>();
+        wordList.add(Word.defaultWord());
+        return new Result(true, "Dummy", wordList);
     }
 }
