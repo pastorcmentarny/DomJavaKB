@@ -5,7 +5,7 @@ import dms.pastor.game.dcs.units.Unit;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Enemies {
+public final class Enemies {
 
     private static final List<Unit> allEnemies = new ArrayList<>();
 
@@ -18,6 +18,9 @@ public class Enemies {
         allEnemies.add(new Cleric());
         allEnemies.add(new Vampire());
         allEnemies.add(new Dragon());
+    }
+
+    private Enemies() {
     }
 
     public static List<Unit> getAllEnemies() {

@@ -21,7 +21,7 @@ import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class PersonalDataGenerator {
+public final class PersonalDataGenerator {
 
     private static final List<String> firstName;
     private static final List<String> surname;
@@ -51,6 +51,9 @@ public class PersonalDataGenerator {
         surname.add("Wheaton");
         surname.add("Winterbottom");
         surname.add("Wordsworth");
+    }
+
+    private PersonalDataGenerator() {
     }
 
     public static String generateFirstName() {

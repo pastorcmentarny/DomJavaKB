@@ -16,7 +16,7 @@ import static java.lang.String.format;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
-public class RegexUtils {
+public final class RegexUtils {
     private static final Logger LOGGER = LoggerFactory.getLogger(RegexUtils.class);
 
     private RegexUtils() {

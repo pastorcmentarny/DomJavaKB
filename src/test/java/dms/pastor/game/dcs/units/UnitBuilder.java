@@ -19,7 +19,7 @@ import static dms.pastor.game.dcs.conditions.ConditionEntryBuilder.conditionEntr
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class UnitBuilder {
+public final class UnitBuilder {
 
     private int hp = 24;
     private int sp = 24;

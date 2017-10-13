@@ -16,7 +16,7 @@ import static java.util.Collections.singletonList;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class BallCountBuilder {
+public final class BallCountBuilder {
 
     private List<Integer> ballNumbers = singletonList(randomInteger(HOT_PICK_BALL_MINIMUM_VALUE, HOT_PICK_BALL_MAXIMUM_VALUE));
     private int count = randomInteger(10);

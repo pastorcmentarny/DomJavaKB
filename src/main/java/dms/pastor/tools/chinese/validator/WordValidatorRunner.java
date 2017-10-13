@@ -15,10 +15,13 @@ package dms.pastor.tools.chinese.validator;
  * Validator is here not in App due fact that testing in Android is pain in the ass
  *
  */
-class WordValidatorRunner {
+final class WordValidatorRunner {
 
     //TODO improve it
     private static final String PATH = "C:\\ds\\projects\\DomLearnsChinese\\res\\raw\\dictionary.txt";
+
+    private WordValidatorRunner() {
+    }
 
     public static void main(String[] args) {
         InMemoryDictionary dictionary = new InMemoryDictionary(PATH, new FromFileImporter());

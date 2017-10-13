@@ -9,7 +9,7 @@ package dms.pastor.tools.chinese.pinyin;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-class PinyinConstants {
+final class PinyinConstants {
     public static final String A_NEUTRAL = "a";
     public static final String A_FIRST_NOTE = "ā";
     public static final String A_SECOND_TONE = "á";

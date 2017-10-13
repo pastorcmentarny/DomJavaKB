@@ -15,10 +15,13 @@ import static dms.pastor.utils.ValidatorUtils.validateIfNotNull;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-class HTMLValidator {
+final class HTMLValidator {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(HTMLValidator.class);
     private static final String NOT_HTML_TYPE_ERROR_MESSAGE = "WHOOPS!\n\tIt is not a html file.Unable to read non-html file.";
+
+    private HTMLValidator() {
+    }
 
     static void validateContentType(String type) {
         validateIfNotNull(type);

@@ -15,9 +15,12 @@ import java.util.ArrayList;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class DebugUtils {
+public final class DebugUtils {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DebugUtils.class);
+
+    private DebugUtils() {
+    }
 
     public static void displayCardArray(ArrayList<Card> cards) {
         if (cards != null && !cards.isEmpty()) {

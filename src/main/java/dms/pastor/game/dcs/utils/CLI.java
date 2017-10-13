@@ -9,7 +9,10 @@ package dms.pastor.game.dcs.utils;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class CLI {
+public final class CLI {
+
+    private CLI() {
+    }
 
     public static void lineSeparator() {
         System.out.println("=-- --- =-= --- --=");

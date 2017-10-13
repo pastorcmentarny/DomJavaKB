@@ -9,7 +9,7 @@ package dms.pastor.game.dcs;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class Menus {
+public final class Menus {
 
     private Menus() {
     }

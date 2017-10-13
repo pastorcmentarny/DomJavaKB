@@ -16,7 +16,7 @@ import java.util.Random;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class EventGenerator {
+public final class EventGenerator {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(EventGenerator.class);
 
@@ -31,6 +31,9 @@ public class EventGenerator {
         events.add(new ShieldRechargeEvent());
         events.add(new NoEvent());
         events.addAll(getAllBadEvents());
+    }
+
+    private EventGenerator() {
     }
 
     private static ArrayList<Event> getAllBadEvents() {

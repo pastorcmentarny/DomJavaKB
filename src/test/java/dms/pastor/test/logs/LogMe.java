@@ -14,8 +14,11 @@ import static dms.pastor.utils.StringUtils.swapCaseLettersInString;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-class LogMe {
+final class LogMe {
     private static final Logger LOG = LoggerFactory.getLogger(LogMe.class);
+
+    private LogMe() {
+    }
 
     static String reverseCase(String text) {
         LOG.info("Reversing: " + text);

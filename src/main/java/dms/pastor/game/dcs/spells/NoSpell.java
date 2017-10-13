@@ -23,7 +23,7 @@ import static dms.pastor.game.dcs.Elements.noElements;
  * Serialization is unnecessary for this class.
  * I used it to give complete example of singleton pattern.
  */
-public class NoSpell extends Spell implements Serializable {
+public final class NoSpell extends Spell implements Serializable {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(NoSpell.class);
     private static final long serialVersionUID = -32961183500001L;
@@ -66,7 +66,7 @@ public class NoSpell extends Spell implements Serializable {
         return NoSpell.getInstance();
     }
 
-    private static class NoSpellHolder {
+    private static final class NoSpellHolder {
         static final NoSpell INSTANCE = new NoSpell();
     }
 }

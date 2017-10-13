@@ -10,12 +10,15 @@ import static java.io.File.separator;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-class AnalyserLauncher {
+final class AnalyserLauncher {
 
     @SuppressWarnings("AccessOfSystemProperties")
     static final String THIS_PROJECT_PATH = System.getProperty("user.dir") +
             separator + "src" + separator;
     private static final ProjectAnalyser analyser = new ProjectAnalyser();
+
+    private AnalyserLauncher() {
+    }
 
     public static void main(String[] args) {
 

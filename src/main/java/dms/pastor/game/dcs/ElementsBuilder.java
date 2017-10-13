@@ -9,7 +9,7 @@ package dms.pastor.game.dcs;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class ElementsBuilder {
+public final class ElementsBuilder {
 
     private int fire = 0;
     private int water = 0;

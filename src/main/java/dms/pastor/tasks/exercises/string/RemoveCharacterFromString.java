@@ -3,7 +3,10 @@ package dms.pastor.tasks.exercises.string;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.ValidatorUtils.validateIfNotNull;
 
-class RemoveCharacterFromString {
+final class RemoveCharacterFromString {
+
+    private RemoveCharacterFromString() {
+    }
 
     static String removeCharacterFromStringUsingIterative(String text) {
         validateIfNotNull(text);

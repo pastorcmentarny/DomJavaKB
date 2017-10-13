@@ -32,6 +32,9 @@ public final class FileTools {
     private static FileLock lockFile;
     private static File file;
 
+    private FileTools() {
+    }
+
     static boolean isFilesExists(String[] filesPath) {
         if (filesPath == null || filesPath.length == 0) {
             return false;

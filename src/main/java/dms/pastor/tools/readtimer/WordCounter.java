@@ -21,9 +21,12 @@ import static java.util.Arrays.asList;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-class WordCounter {
+final class WordCounter {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(WordCounter.class);
+
+    private WordCounter() {
+    }
 
     static int countFullWords(String[] words) {
         validateIfStringArrayIsNotEmpty(words);

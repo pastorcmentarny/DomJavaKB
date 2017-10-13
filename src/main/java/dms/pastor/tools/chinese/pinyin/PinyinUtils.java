@@ -11,7 +11,10 @@ import static dms.pastor.tools.chinese.pinyin.PinyinConstants.*;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class PinyinUtils {
+public final class PinyinUtils {
+
+    private PinyinUtils() {
+    }
 
     public static String getAllPinyinFromFirstToFourthToneWithoutNeutralTone() {
         return A_FIRST_NOTE + A_SECOND_TONE + A_THIRD_TONE + A_FOURTH_TONE +

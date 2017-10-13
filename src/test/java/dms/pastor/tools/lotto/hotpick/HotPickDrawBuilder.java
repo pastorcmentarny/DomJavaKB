@@ -16,6 +16,7 @@ import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 @SuppressWarnings("unused")
+final
         // because builders methods can be used later
 class HotPickDrawBuilder {
 

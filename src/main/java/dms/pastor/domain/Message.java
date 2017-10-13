@@ -11,7 +11,7 @@ package dms.pastor.domain;
  * <p>
  * Example of test of System.out
  */
-public class Message {
+public final class Message {
 
     public static final String INPUT_CANNOT_BE_EMPTY = "Input can not be null or empty.";
 

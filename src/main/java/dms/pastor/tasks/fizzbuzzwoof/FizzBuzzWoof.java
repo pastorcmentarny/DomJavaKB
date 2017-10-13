@@ -19,11 +19,14 @@ package dms.pastor.tasks.fizzbuzzwoof;
  * if dividable by 3 5 and 7 then FizzBuzzWoof (not FizzBuzzWoof )
  * if number is dividable by it digit add it 33-> FIZZ 5->BUZZ
  */
-class FizzBuzzWoof {
+final class FizzBuzzWoof {
 
     private static final String FIZZ = "Fizz";
     private static final String BUZZ = "Buzz";
     private static final String WOOF = "Woof";
+
+    private FizzBuzzWoof() {
+    }
 
     //TODO refactor this
     static String getResultFor(int number) {

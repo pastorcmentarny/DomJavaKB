@@ -11,9 +11,12 @@ import java.util.LinkedHashSet;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-class DuplicateCharacterInStringRemove {
+final class DuplicateCharacterInStringRemove {
 
     private static final String EMPTY_STRING = "";
+
+    private DuplicateCharacterInStringRemove() {
+    }
 
     @SuppressWarnings("ReturnOfNull")
     static String removeDuplicateCharacterFromString(String string) {

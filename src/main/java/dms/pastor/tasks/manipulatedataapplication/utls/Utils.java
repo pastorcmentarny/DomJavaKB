@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class Utils {
+public final class Utils {
 
     public static final long DAY_FROM_MILLISECONDS = 1000L * 60L * 60L * 24L;
 

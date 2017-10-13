@@ -10,7 +10,7 @@ import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-class NameBuilder {
+final class NameBuilder {
 
     private String first = generateString();
     private String middles = generateString();

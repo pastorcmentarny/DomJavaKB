@@ -51,15 +51,13 @@ class ProjectAnalyser {
 
     private void analyseFile(File file) throws IOException {
 
-        try (FileReader fileReader = new FileReader(file)) {
+        try (FileReader fileReader = new FileReader(file); BufferedReader bufferedReader = new BufferedReader(fileReader)) {
             int lines;
-            try (BufferedReader bufferedReader = new BufferedReader(fileReader)) {
-                String line;
-                lines = 0;
-                while ((line = bufferedReader.readLine()) != null) {
-                    analyseLine(line, file.getName());
-                    lines++;
-                }
+            String line;
+            lines = 0;
+            while ((line = bufferedReader.readLine()) != null) {
+                analyseLine(line, file.getName());
+                lines++;
             }
 
             setIfHighestLineFile(lines, file.getName());
@@ -143,7 +141,7 @@ class ProjectAnalyser {
         return BigDecimal.valueOf(sum / averageLines.size()).intValue();
     }
 
-    public int getLinesOfCode() {
+    int getLinesOfCode() {
         return lineCount;
     }
 

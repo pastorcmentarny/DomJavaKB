@@ -11,7 +11,10 @@ package dms.pastor.tasks.romanarabicconverter;
  * <p>
  * This class has method that allows you to check
  */
-class RomanNumberValidator {
+final class RomanNumberValidator {
+
+    private RomanNumberValidator() {
+    }
 
     public static boolean isValidRomanNumber(String romanNumber) {
         return isNotEmpty(romanNumber) && romanNumber.matches("[IVXLCDM]*");

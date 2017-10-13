@@ -2,7 +2,7 @@ package dms.pastor.tools.converters.number;
 
 import static dms.pastor.utils.ValidatorUtils.validateIfNotEmpty;
 
-class NumberAsWordDigitConverter {
+final class NumberAsWordDigitConverter {
 
     private NumberAsWordDigitConverter() {
     }

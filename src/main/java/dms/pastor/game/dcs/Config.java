@@ -14,7 +14,7 @@ import java.util.Random;
  * I used Config class rather than file as static in-class Config is simpler and enough good solution for application like this
  * For dynamic types of Config , I use different solutions.
  */
-public class Config {
+public final class Config {
 
     public static final int ADD_CARD_PER_TURN = 2;
     public static final int FIREBALL_DMG = 10;

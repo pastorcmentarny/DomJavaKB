@@ -6,7 +6,7 @@ import java.util.Random;
 
 import static dms.pastor.utils.randoms.PersonalDataGenerator.generateFirstName;
 
-public class Names {
+public final class Names {
 
     private static final Random random = new Random();
     private static final List<String> ancientEgyptTitles;
@@ -24,6 +24,9 @@ public class Names {
         places.add("treasuries");
         places.add("shoe shop"); //Al Bundy ;P
 
+    }
+
+    private Names() {
     }
 
     public static String getRandomMummyName() {

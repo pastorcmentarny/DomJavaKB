@@ -10,9 +10,12 @@ import java.util.stream.Collectors;
 /**
  * @author Pastor Created 2013-06-18 at 22:19:02
  */
-class RankJournalViewer {
+final class RankJournalViewer {
 
     private static final char TAB = '\t';
+
+    private RankJournalViewer() {
+    }
 
     static String getJournalListAsString(List<Journal> journalList) {
         StringBuilder list = new StringBuilder("Rank\tJournal\tScore\tYear\n");

@@ -17,7 +17,10 @@ import static dms.pastor.utils.CollectionsUtils.convertSetToIntArray;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class BallCountOperations {
+public final class BallCountOperations {
+
+    private BallCountOperations() {
+    }
 
     public static BallCount[] getTop2PlayedBalls(List<BallCount> ballCounts) {
         BallCount[] top2 = getNewTop2List();

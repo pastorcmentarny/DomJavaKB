@@ -14,7 +14,7 @@ import static dms.pastor.utils.randoms.RandomDataGenerator.randomPositiveInteger
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class ConditionEntryBuilder {
+public final class ConditionEntryBuilder {
 
     private ConditionType condition = ConditionType.POISONED;
     private int turnsLeft = randomPositiveInteger(10);

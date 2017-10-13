@@ -16,7 +16,10 @@ import static java.util.stream.Collectors.toMap;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-class CollectionExercises {
+final class CollectionExercises {
+
+    private CollectionExercises() {
+    }
 
     static Map<Integer, String> convertListToMapUsingJava8(List<String> list) {
 

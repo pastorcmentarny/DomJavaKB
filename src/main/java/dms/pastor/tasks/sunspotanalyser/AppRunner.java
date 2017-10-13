@@ -21,7 +21,10 @@ import static dms.pastor.utils.FileTools.isFileValid;
  * <p>
  * Runs application.Nothing excited .Is it?
  */
-class AppRunner {
+final class AppRunner {
+
+    private AppRunner() {
+    }
 
     public static void main(String[] args) {
         validateArgs(args);

@@ -21,9 +21,12 @@ import static dms.pastor.tools.html.HTMLValidator.validateUrl;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-class HTMLDownloader {
+final class HTMLDownloader {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(HTMLDownloader.class);
+
+    private HTMLDownloader() {
+    }
 
     static String download(String urlStr) throws IOException {
         String type;

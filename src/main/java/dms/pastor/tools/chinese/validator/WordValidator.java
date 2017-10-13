@@ -21,8 +21,11 @@ import static dms.pastor.utils.string.ContainsInStringUtils.containsPinyinCharac
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-class WordValidator {
+final class WordValidator {
     private static final Logger LOGGER = LoggerFactory.getLogger(Word.class);
+
+    private WordValidator() {
+    }
 
     public static boolean validateWord(Word word) {
         validateIfNotNull(word, "Word");
