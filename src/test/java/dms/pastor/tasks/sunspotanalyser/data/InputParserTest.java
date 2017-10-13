@@ -15,7 +15,7 @@ import static org.hamcrest.CoreMatchers.notNullValue;
 public class InputParserTest {
 
     @Rule
-    public ExpectedException exception = ExpectedException.none();
+    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void testGenerateGrid() {

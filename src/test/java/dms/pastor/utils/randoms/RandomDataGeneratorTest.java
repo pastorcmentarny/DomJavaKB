@@ -36,7 +36,7 @@ public class RandomDataGeneratorTest {
     private final Random random = new Random();
 
     @Rule
-    public ExpectedException exception = ExpectedException.none();
+    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void testGenerateRandomIntValues() throws Exception {

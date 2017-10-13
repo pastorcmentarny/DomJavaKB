@@ -3,6 +3,7 @@ package dms.pastor.tasks.paint.command;
 import dms.pastor.tasks.paint.canvas.Canvas;
 import org.junit.Test;
 
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static org.assertj.core.api.Assertions.assertThat;
 
 

@@ -28,7 +28,7 @@ public class IntegerAdderTest {
     private static final String DEMO_FILE_3 = PATH + "test3.txt";
 
     @Rule
-    public ExpectedException exception = ExpectedException.none();
+    public final ExpectedException exception = ExpectedException.none();
     private IntegerAdder adder;
 
     @Before

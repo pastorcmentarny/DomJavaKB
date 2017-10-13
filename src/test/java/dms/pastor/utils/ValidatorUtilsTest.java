@@ -31,7 +31,7 @@ public class ValidatorUtilsTest {
     private static final String UNUSED_OBJECT_NAME = null;
 
     @Rule
-    public ExpectedException expectedException = ExpectedException.none();
+    public final ExpectedException expectedException = ExpectedException.none();
 
     private ExampleObject anObject;
 
@@ -441,6 +441,7 @@ public class ValidatorUtilsTest {
         // then nothing happen, which means value are valid
     }
 
+    @SuppressWarnings("ConstantConditions") // it is purpose of test
     @Test
     public void validateIfNotEmptyShouldReturnFalseIfNull() throws Exception {
         // when

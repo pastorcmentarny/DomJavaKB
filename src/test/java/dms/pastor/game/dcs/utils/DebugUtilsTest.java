@@ -53,19 +53,10 @@ public final class DebugUtilsTest {
             }
 
             @Override
-            public void setName(String name) {
-                super.setName(name);
-            }
-
-            @Override
             public String getDescription() {
                 return "Description";
             }
 
-            @Override
-            public void setDescription(String description) {
-                super.setDescription(description);
-            }
         });
 
         // when

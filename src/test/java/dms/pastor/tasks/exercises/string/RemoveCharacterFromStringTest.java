@@ -24,7 +24,7 @@ public class RemoveCharacterFromStringTest {
     private static final char CHARACTER_T = 't';
     private static final String EXPECTED_RESULT = "es";
     @Rule
-    public ExpectedException exception = ExpectedException.none();
+    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void shouldRemoveCharacterFromStringUsingIterativeTest() throws Exception {

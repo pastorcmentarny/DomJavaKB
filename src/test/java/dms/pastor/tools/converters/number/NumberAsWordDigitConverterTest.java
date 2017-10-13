@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public final class NumberAsWordDigitConverterTest {
 
     @Rule
-    public ExpectedException exception = ExpectedException.none();
+    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void toDigitShouldReturn0ForZero() {

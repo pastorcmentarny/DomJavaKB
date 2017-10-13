@@ -1,10 +1,9 @@
 package dms.pastor.tasks.paint.command;
 
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
 import static dms.pastor.tasks.paint.command.CommandValidator.*;
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 
 /**
  * Author Dominik Symonowicz
@@ -14,12 +13,8 @@ import static dms.pastor.tasks.paint.command.CommandValidator.*;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
-public class CommandValidatorTest {
-    private static final String EMPTY_STRING = "";
+public class CommandValidatorTest extends AbstractCommandTest {
     private static final String NAME = "name";
-
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void validateCommandShouldValidateIfParamsAreNotRequired() throws Exception {

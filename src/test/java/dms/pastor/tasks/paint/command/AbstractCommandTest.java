@@ -13,7 +13,6 @@ import org.junit.rules.ExpectedException;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class AbstractCommandTest {
-    static final String EMPTY_STRING = "";
 
     @Rule
     public final ExpectedException exception = ExpectedException.none();

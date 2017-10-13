@@ -3,6 +3,7 @@ package dms.pastor.tasks.exercises.string;
 import org.junit.Test;
 
 import static dms.pastor.tasks.exercises.string.DuplicateCharacterInStringRemove.removeDuplicateCharacterFromString;
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -15,8 +16,6 @@ import static org.assertj.core.api.Assertions.assertThat;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class DuplicateCharacterInStringRemoveTest {
-
-    private static final String EMPTY_STRING = "";
 
     @Test
     public void shouldGetAFromStringWithACharactersOnlyAcceptanceCriteriaTest() throws Exception {

@@ -15,7 +15,7 @@ import org.junit.rules.ExpectedException;
 public class AppRunnerTest {
 
     @Rule
-    public ExpectedException exception = ExpectedException.none();
+    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenRunningAppWithoutArgumentsTest() throws Exception {

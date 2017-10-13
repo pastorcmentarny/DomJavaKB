@@ -22,7 +22,7 @@ import static org.hamcrest.CoreMatchers.is;
 public class BerlinClockTest {
 
     @Rule
-    public ExpectedException exception = ExpectedException.none();
+    public final ExpectedException exception = ExpectedException.none();
     private ClockInterface clock;
 
     @Before

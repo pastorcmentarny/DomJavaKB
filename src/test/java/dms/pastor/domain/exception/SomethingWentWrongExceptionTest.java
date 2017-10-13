@@ -19,7 +19,7 @@ import static java.lang.String.format;
 public class SomethingWentWrongExceptionTest {
 
     @Rule
-    public ExpectedException exception = ExpectedException.none();
+    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void shouldThrowNotImplementYetExceptionTest() throws Exception {

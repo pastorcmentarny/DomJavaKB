@@ -27,7 +27,7 @@ public class RandomBmpGeneratorTest {
     private static final String UNUSED_PATH = null;
     private static final String BITMAP_EXTENSION = "bmp";
     @Rule
-    public ExpectedException exception = ExpectedException.none();
+    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenWidthInputIsNegative() throws Exception {

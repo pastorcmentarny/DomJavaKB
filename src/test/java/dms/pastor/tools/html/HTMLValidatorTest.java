@@ -21,7 +21,7 @@ public class HTMLValidatorTest {
 
     private static final String ERROR_MESSAGE = "WHOOPS!\n\tIt is not a html file.Unable to read non-html file.";
     @Rule
-    public ExpectedException exception = ExpectedException.none();
+    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void validateUrlShouldThrowIllegalArgumentExceptionIfUrlIsNull() throws Exception {

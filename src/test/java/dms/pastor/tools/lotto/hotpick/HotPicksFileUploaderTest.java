@@ -42,7 +42,7 @@ public class HotPicksFileUploaderTest {
     private final File csvFile = new File(EMPTY_CSV_FILE);
     private final File textFile = new File(EMPTY_TEXT_FILE);
     @Rule
-    public ExpectedException exception = ExpectedException.none();
+    public final ExpectedException exception = ExpectedException.none();
 
     @Before
     public void setUp() throws Exception {
@@ -184,10 +184,6 @@ java.lang.IllegalArgumentException: Path is invalid or is not a file
      */
     @Test
     public void shouldReturnEmptyListIfLineIsEmpty() throws Exception {
-        // given
-        String[] lines = new String[]{EMPTY_STRING};
-        //generateFile(EMPTY_CSV_FILE, lines);
-
         // when
         final List<HotPickDraw> hotPickDrawList = hotPicksFileUploader.loadHotPicksDrawHistoryFile(EMPTY_CSV_FILE);
 
@@ -212,9 +208,6 @@ java.lang.IllegalArgumentException: Path is invalid or is not a file
 
     @Test
     public void shouldReturnEmptyListIfRowContainsNotValidBall() throws Exception {
-        // given
-        String[] lines = new String[]{"1,Z,3,4,5,6,7,8,9,10"};
-        //generateFile(EMPTY_CSV_FILE, lines);
 
         // when
         final List<HotPickDraw> hotPickDrawList = hotPicksFileUploader.loadHotPicksDrawHistoryFile(EMPTY_CSV_FILE);

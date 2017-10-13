@@ -60,7 +60,7 @@ public class QuitCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void exectureShouldThrowExceptionForQuitCommand() throws Exception {
+    public void executeShouldThrowExceptionForQuitCommand() throws Exception {
         // expect
         exception.expect(SomethingWentWrongException.class);
         exception.expectMessage(("Bug detected. execute method in quit command should not be called."));

@@ -24,7 +24,7 @@ import static org.hamcrest.CoreMatchers.is;
 public class ArrayUtilsTest {
 
     @Rule
-    public ExpectedException exception = ExpectedException.none();
+    public final ExpectedException exception = ExpectedException.none();
 
     private static final char[] CHARS_ARRAY = {};
     private static final String[] EMPTY_STRING_ARRAY = new String[0];
@@ -137,7 +137,7 @@ public class ArrayUtilsTest {
     }
 
     @Test
-    public void clone2DArrayOfIntsShouldCoppyEmptyArrayIfYouPassEmptyArray() {
+    public void clone2DArrayOfIntsShouldCopyEmptyArrayIfYouPassEmptyArray() {
         // given
         final String[][] ints2d = {};
 

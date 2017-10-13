@@ -43,7 +43,7 @@ public class StringUtilsTest {
     public static final String WHITESPACES_ONLY_STRING = "                    ";
 
     @Rule
-    public ExpectedException exception = ExpectedException.none();
+    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void testGetRandomCharacter() throws Exception {

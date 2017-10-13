@@ -1,10 +1,6 @@
 package dms.pastor.utils;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.rules.ExpectedException;
 
 import java.io.ByteArrayOutputStream;
@@ -13,10 +9,7 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import static dms.pastor.utils.PrintOutUtils.displayOddNumbers;
-import static dms.pastor.utils.PrintOutUtils.printArray;
-import static dms.pastor.utils.PrintOutUtils.printCharacterIntegerHashMap;
-import static dms.pastor.utils.PrintOutUtils.printIntArray;
+import static dms.pastor.utils.PrintOutUtils.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.containsString;
 
@@ -37,7 +30,7 @@ public class PrintOutUtilsTest {
     private final PrintStream original = System.out;
 
     @Rule
-    public ExpectedException exception = ExpectedException.none();
+    public final ExpectedException exception = ExpectedException.none();
 
     @Before
     public void setUpStreams() {

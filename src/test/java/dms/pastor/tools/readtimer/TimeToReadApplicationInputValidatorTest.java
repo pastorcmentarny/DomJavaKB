@@ -5,9 +5,7 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import static dms.pastor.tools.readtimer.TimeToReadApplicationInputValidator.validateInputArgs;
-import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
-import static dms.pastor.utils.randoms.RandomDataGenerator.randomInteger;
-import static dms.pastor.utils.randoms.RandomDataGenerator.randomNegativeInteger;
+import static dms.pastor.utils.randoms.RandomDataGenerator.*;
 
 /**
  * Author Dominik Symonowicz
@@ -21,7 +19,7 @@ import static dms.pastor.utils.randoms.RandomDataGenerator.randomNegativeInteger
 public class TimeToReadApplicationInputValidatorTest {
 
     @Rule
-    public ExpectedException exception = ExpectedException.none();
+    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void shouldThrowExceptionIfYouRunApplicationWith1Argument() throws Exception {

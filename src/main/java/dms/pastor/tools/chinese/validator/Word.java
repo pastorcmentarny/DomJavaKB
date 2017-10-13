@@ -172,6 +172,7 @@ public final class Word {
 
     }
 
+    @SuppressWarnings("SameReturnValue") // no categories is represented as null should wrap this with object
     public static String[] noCategories() {
         return null;
     }

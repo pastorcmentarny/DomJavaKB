@@ -36,7 +36,7 @@ public class NumberUtilsTest {
     private final Random random = new Random();
 
     @Rule
-    public ExpectedException exception = ExpectedException.none();
+    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void getResultInRangeShouldReturn10For10InRangeBetween5And20() throws Exception {
@@ -170,6 +170,7 @@ public class NumberUtilsTest {
         assertThat(result).isEqualTo(120);
     }
 
+    @SuppressWarnings("ResultOfMethodCallIgnored")// because result doesn't matter in this case
     @Test
     public void testShouldThrowExceptionFor20() throws Exception {
         //except

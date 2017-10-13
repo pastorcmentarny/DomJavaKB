@@ -7,9 +7,7 @@ import org.junit.rules.ExpectedException;
 
 import java.util.Date;
 
-import static dms.pastor.utils.DateUtils.countLeapYearBetween;
-import static dms.pastor.utils.DateUtils.displayTimeZoneList;
-import static dms.pastor.utils.DateUtils.getDayOfTheYearFor;
+import static dms.pastor.utils.DateUtils.*;
 import static java.time.LocalDate.now;
 import static java.time.LocalDate.of;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -26,7 +24,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class DateUtilsTest {
 
     @Rule
-    public ExpectedException exception = ExpectedException.none();
+    public final ExpectedException exception = ExpectedException.none();
 
     @SuppressWarnings("SpellCheckingInspection")
     @Test //TODO improve this test

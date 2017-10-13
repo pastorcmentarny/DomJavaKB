@@ -82,7 +82,7 @@ public class StateTest {
         assertThat(result).isTrue();
     }
 
-    @SuppressWarnings("ConstantConditions")
+    @SuppressWarnings({"ConstantConditions", "SpellCheckingInspection"})
     @Test
     public void saveFirstState() throws Exception {
         // given

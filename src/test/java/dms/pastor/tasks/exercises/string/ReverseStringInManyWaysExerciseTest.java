@@ -4,10 +4,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import static dms.pastor.tasks.exercises.string.ReverseStringInManyWaysExercise.reversStringViaChar;
-import static dms.pastor.tasks.exercises.string.ReverseStringInManyWaysExercise.reversStringViaStringBuffer;
-import static dms.pastor.tasks.exercises.string.ReverseStringInManyWaysExercise.reversStringViaStringBuilder;
-import static dms.pastor.tasks.exercises.string.ReverseStringInManyWaysExercise.reverseStringWithoutLibraries;
+import static dms.pastor.tasks.exercises.string.ReverseStringInManyWaysExercise.*;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.randoms.RandomDataGenerator.getRandomCharacterAsString;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -26,7 +23,7 @@ public class ReverseStringInManyWaysExerciseTest {
     private static final String REVERSED_TEST_STRING = "pot";
 
     @Rule
-    public ExpectedException exception = ExpectedException.none();
+    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void shouldThrowIllegalArgumentExceptionIfInputIsNullForReverseViaStringBuilderTest() throws Exception {

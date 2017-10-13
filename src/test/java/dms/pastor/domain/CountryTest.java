@@ -20,7 +20,7 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
 public class CountryTest {
 
     @Rule
-    public ExpectedException exception = ExpectedException.none();
+    public final ExpectedException exception = ExpectedException.none();
 
     @SuppressWarnings("ConstantConditions") //because this is purpose of test
     @Test

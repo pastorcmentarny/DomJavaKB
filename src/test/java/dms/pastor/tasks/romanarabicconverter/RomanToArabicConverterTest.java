@@ -13,7 +13,8 @@ import org.junit.Test;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-@SuppressWarnings("MagicNumber") //all numbers are used as numbers, so nothing magic about it.
+@SuppressWarnings({"MagicNumber", "SpellCheckingInspection"})
+//all numbers are used as numbers, so nothing magic about it and spell check doesn't understand roman numbers :(
 public class RomanToArabicConverterTest {
 
     private RomanArabicConverter converter;

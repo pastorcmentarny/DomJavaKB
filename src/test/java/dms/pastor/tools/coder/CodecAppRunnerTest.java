@@ -23,7 +23,7 @@ public class CodecAppRunnerTest {
     private static final String PATH = "src" + separator + "main" + separator + "resources" + separator + "input.txt";
 
     @Rule
-    public ExpectedException exception = ExpectedException.none();
+    public final ExpectedException exception = ExpectedException.none();
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
     @Before

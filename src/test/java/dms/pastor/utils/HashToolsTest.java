@@ -26,7 +26,7 @@ import static org.hamcrest.CoreMatchers.sameInstance;
 public class HashToolsTest {
 
     @Rule
-    public ExpectedException exception = ExpectedException.none();
+    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void shouldConvertStringToCharacterMapTest() throws Exception {
@@ -57,7 +57,8 @@ public class HashToolsTest {
         stringToCharacterSet("");
     }
 
-    @Test
+    @SuppressWarnings("ResultOfMethodCallIgnored")
+    @Test // because result doesn't matter in this case
     public void stringToCharacterSetShouldConvertTextToListOfCharacters() throws Exception {
         // given
         final String string = generateString(10);

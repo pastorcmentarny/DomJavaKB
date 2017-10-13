@@ -22,7 +22,7 @@ public class FindFirstNonRepeatedCharacterTest {
     private final FindFirstNonRepeatedCharacter findFirst = new FindFirstNonRepeatedCharacter();
 
     @Rule
-    public ExpectedException exception = ExpectedException.none();
+    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenTextIsNullTest() throws Exception {

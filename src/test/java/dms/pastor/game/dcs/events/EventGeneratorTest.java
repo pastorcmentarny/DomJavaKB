@@ -25,13 +25,4 @@ public class EventGeneratorTest {
         assertThat(randomEvent).isNotNull();
     }
 
-    @Test
-    public void generateEventShouldReturnEventOrNoEvent() {
-        // given
-
-        // when
-
-        // then
-
-    }
 }

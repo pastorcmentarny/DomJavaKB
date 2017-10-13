@@ -84,7 +84,7 @@ public final class UnitVsUnitBattleSimulationTest {
     }
 
     @Test
-    public void clearicVsFireElementBattleSimulationTest() {
+    public void clericVsFireElementBattleSimulationTest() {
         // setup
         Cleric cleric = new Cleric();
         FireElement fireElement = new FireElement();
@@ -194,7 +194,7 @@ public final class UnitVsUnitBattleSimulationTest {
     }
 
     @Test
-    public void genieVsCalirvoyantBattleSimulationTest() {
+    public void genieVsClairvoyantBattleSimulationTest() {
         // setup
         Genie genie = new Genie();
         Clairvoyant clairvoyant = new Clairvoyant();

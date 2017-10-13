@@ -24,7 +24,7 @@ public class DuplicateRemoverTest {
     private final DuplicateRemover duplicateRemover = new DuplicateRemover();
 
     @Rule
-    public ExpectedException exception = ExpectedException.none();
+    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void shouldThrowIllegalArgumentExceptionForNullFilePathTest() throws Exception {

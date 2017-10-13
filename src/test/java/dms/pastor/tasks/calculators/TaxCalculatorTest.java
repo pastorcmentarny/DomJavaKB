@@ -7,9 +7,7 @@ import org.junit.rules.ExpectedException;
 
 import java.util.Random;
 
-import static dms.pastor.tasks.calculators.TaxCalculator.FULL_PERSONAL_ALLOWANCE_LIMIT;
-import static dms.pastor.tasks.calculators.TaxCalculator.getNetSalary;
-import static dms.pastor.tasks.calculators.TaxCalculator.getPersonalAllowanceFor;
+import static dms.pastor.tasks.calculators.TaxCalculator.*;
 import static org.hamcrest.CoreMatchers.is;
 
 /**
@@ -26,7 +24,7 @@ public class TaxCalculatorTest {
     private static final int BOUND = 10000;
     private final Random random = new Random();
     @Rule
-    public ExpectedException thrown = ExpectedException.none();
+    public final ExpectedException thrown = ExpectedException.none();
 
     @Test
     public void shouldThrowExceptionWhenSalaryIsBelowZeroTest() throws Exception {

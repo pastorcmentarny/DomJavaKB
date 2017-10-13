@@ -85,7 +85,7 @@ public class ImageTest {
     }
 
     @Test
-    public void getPreviousPixelForShoulrdReturn4ForLengthOf5() {
+    public void getPreviousPixelForShouldReturn4ForLengthOf5() {
         // given
         Image image = getTestImage();
         final int length = 5;
@@ -176,12 +176,12 @@ public class ImageTest {
         assertThat(copyOfImage.getImageAsString()).isEqualTo(image.getImageAsString());
     }
 
-    @Test
+    @Test //TODO
     public void getImageAsStringShouldReturnEmptyIfHeightIsEmpty() {
 
     }
 
-    @Test
+    @Test  //TODO
     public void getImageAsStringShouldReturnEmptyIfWeightIsEmpty() {
 
     }

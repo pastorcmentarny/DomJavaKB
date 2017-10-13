@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  * <p>
- * WARNING! Edge case tests omited as this is just example
+ * WARNING! Edge case tests omitted as this is just example
  */
 public class StringFormatExamplesTest {
     private final StringFormatExamples stringFormatExamples = new StringFormatExamples(5);
@@ -64,7 +64,7 @@ public class StringFormatExamplesTest {
     }
 
     @Test
-    public void shouldDisplayNumberWithoCustomSeparator() {
+    public void shouldDisplayNumberWithCustomSeparator() {
         // given
         final int thousandOne = 1001;
         // when

@@ -25,7 +25,7 @@ public class HotPicksStatsApplicationTest {
 
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     @Rule
-    public ExpectedException exception = ExpectedException.none();
+    public final ExpectedException exception = ExpectedException.none();
     private PrintStream printStream;
 
     @Before
