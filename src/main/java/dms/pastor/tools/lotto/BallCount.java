@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Objects;
 
 import static java.util.Collections.singletonList;
+import static java.util.Collections.unmodifiableList;
 
 /**
  * Author Dominik Symonowicz
@@ -46,7 +47,7 @@ public class BallCount {
     }
 
     public List<Integer> getBallNumbers() {
-        return ballNumbers;
+        return unmodifiableList(ballNumbers);
     }
 
     int getCount() {

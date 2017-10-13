@@ -5,6 +5,8 @@ import dms.pastor.game.dcs.units.Unit;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.util.Collections.unmodifiableList;
+
 public final class Enemies {
 
     private static final List<Unit> allEnemies = new ArrayList<>();
@@ -24,6 +26,6 @@ public final class Enemies {
     }
 
     public static List<Unit> getAllEnemies() {
-        return allEnemies;
+        return unmodifiableList(allEnemies);
     }
 }

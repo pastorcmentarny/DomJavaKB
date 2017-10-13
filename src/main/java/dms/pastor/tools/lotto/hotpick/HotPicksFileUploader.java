@@ -15,6 +15,7 @@ import java.util.stream.Stream;
 
 import static dms.pastor.tools.lotto.LottoFilePathValidator.validateFilePath;
 import static java.lang.String.format;
+import static java.util.Collections.unmodifiableList;
 
 /**
  * Author Dominik Symonowicz
@@ -41,7 +42,7 @@ class HotPicksFileUploader {
         try (Stream<String> lines = Files.lines(Paths.get(filePath))) {
             lines.forEach(this::addIfLineValid);
         }
-        return hotPickDrawList;
+        return unmodifiableList(hotPickDrawList);
     }
 
     private void addIfLineValid(String line) {
