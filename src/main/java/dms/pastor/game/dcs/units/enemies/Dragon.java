@@ -15,14 +15,14 @@ import static dms.pastor.game.dcs.conditions.ConditionEntry.createPersistentCond
 import static dms.pastor.game.dcs.conditions.ConditionType.*;
 
 public class Dragon extends Unit {
-    private static final List<String> colors = new ArrayList<>();
+    private static final List<String> COLORS = new ArrayList<>();
 
     static {
-        colors.add("Black");
-        colors.add("White");
-        colors.add("Pink");
-        colors.add("Green");
-        colors.add("Red");
+        COLORS.add("Black");
+        COLORS.add("White");
+        COLORS.add("Pink");
+        COLORS.add("Green");
+        COLORS.add("Red");
     }
 
     public Dragon() {
@@ -41,22 +41,22 @@ public class Dragon extends Unit {
     public void turn(Unit enemy) {
         LightingBoltSpell lightingBoltSpell = new LightingBoltSpell();
         if (enemy.getConditions().hasNot(AIR_IMMUNE)) {
-            IntStream.range(0, 2).forEach(x -> lightingBoltSpell.castSpell(this, enemy));
+            IntStream.range(0, 2).forEach(counter -> lightingBoltSpell.castSpell(this, enemy));
         }
 
         FireBallSpell fireBallSpell = new FireBallSpell();
         if (enemy.getConditions().hasNot(FIRE_IMMUNE)) {
-            IntStream.range(0, 3).forEach(x -> fireBallSpell.castSpell(this, enemy));
+            IntStream.range(0, 3).forEach(counter -> fireBallSpell.castSpell(this, enemy));
         }
 
         MagicStoneSpell magicStoneSpell = new MagicStoneSpell();
         if (enemy.getConditions().hasNot(EARTH_IMMUNE)) {
-            IntStream.range(0, 5).forEach(x -> magicStoneSpell.castSpell(this, enemy));
+            IntStream.range(0, 5).forEach(counter -> magicStoneSpell.castSpell(this, enemy));
         }
 
         IceBoltSpell iceBoltSpell = new IceBoltSpell();
         if (enemy.getConditions().hasNot(WATER_IMMUNE)) {
-            IntStream.range(0, 3).forEach(x -> iceBoltSpell.castSpell(this, enemy));
+            IntStream.range(0, 3).forEach(counter -> iceBoltSpell.castSpell(this, enemy));
         }
 
         doDamageForAllMana();
@@ -73,6 +73,6 @@ public class Dragon extends Unit {
     }
 
     private String getRandomColor() {
-        return colors.get(new Random().nextInt(colors.size()));
+        return COLORS.get(new Random().nextInt(COLORS.size()));
     }
 }

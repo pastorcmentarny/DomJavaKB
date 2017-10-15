@@ -20,44 +20,48 @@ import java.util.Random;
 public class Spells {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Spells.class);
-    private static final List<Spell> spells = new ArrayList<>();
+    private static final List<Spell> SPELLS = new ArrayList<>();
     private static final Random random = new Random();
 
     static {
-        spells.add(new AntiShieldPiercingSpell());
-        spells.add(new AsteroidStormSpell());
-        spells.add(new BackstabSpell());
-        spells.add(new BloodlustSpell());
-        spells.add(new BubbleShieldSpell());
-        spells.add(new ChainLightingSpell());
-        spells.add(new CometStrikeSpell());
-        spells.add(new CureSpell());
-        spells.add(new CursedElementSpell());
-        spells.add(new Dispell());
-        spells.add(new DrawEventSpell());
-        spells.add(new DeathRaySpell());
-        spells.add(new FireBallSpell());
-        spells.add(new FrozenSpell());
-        spells.add(new HealSpell());
-        spells.add(new IceBoltSpell());
-        spells.add(new InfoSpell());
-        spells.add(new InfernoStrikeSpell());
-        spells.add(new LightingBoltSpell());
-        spells.add(new MagneticDrainSpell());
-        spells.add(new MeteorStrikeSpell());
-        spells.add(new MagicStoneSpell());
-        spells.add(new PoisonSpell());
-        spells.add(new RegenSpell());
-        spells.add(new ShieldRecoverySpell());
-        spells.add(new WeaknessSpell());
-        spells.add(new VampireDrainSpell());
-        spells.add(new CreateShieldSpell());
-        spells.add(new CursedEventSpell());
+        SPELLS.add(new AntiShieldPiercingSpell());
+        SPELLS.add(new AsteroidStormSpell());
+        SPELLS.add(new BackstabSpell());
+        SPELLS.add(new BloodlustSpell());
+        SPELLS.add(new BubbleShieldSpell());
+        SPELLS.add(new ChainLightingSpell());
+        SPELLS.add(new CometStrikeSpell());
+        SPELLS.add(new CureSpell());
+        SPELLS.add(new CursedElementSpell());
+        SPELLS.add(new Dispell());
+        SPELLS.add(new DrawEventSpell());
+        SPELLS.add(new DeathRaySpell());
+        SPELLS.add(new FireBallSpell());
+        SPELLS.add(new FrozenSpell());
+        SPELLS.add(new HealSpell());
+        SPELLS.add(new IceBoltSpell());
+        SPELLS.add(new InfoSpell());
+        SPELLS.add(new InfernoStrikeSpell());
+        SPELLS.add(new LightingBoltSpell());
+        SPELLS.add(new MagneticDrainSpell());
+        SPELLS.add(new MeteorStrikeSpell());
+        SPELLS.add(new MagicStoneSpell());
+        SPELLS.add(new PoisonSpell());
+        SPELLS.add(new RegenSpell());
+        SPELLS.add(new ShieldRecoverySpell());
+        SPELLS.add(new WeaknessSpell());
+        SPELLS.add(new VampireDrainSpell());
+        SPELLS.add(new CreateShieldSpell());
+        SPELLS.add(new CursedEventSpell());
+    }
+
+    public static Spell getRandomSpell() {
+        return SPELLS.get(random.nextInt(SPELLS.size()));
     }
 
     public Spell findSpell(Elements elements) {
         LOGGER.debug("finding spell");
-        for (Spell spell : spells) {
+        for (Spell spell : SPELLS) {
             if (elements.hasExactly(spell.getElements())) {
                 LOGGER.debug("Spell found:" + spell.getName());
                 return spell;
@@ -65,10 +69,6 @@ public class Spells {
         }
         System.out.println("Spell not found!");
         return NoSpell.getInstance();
-    }
-
-    public static Spell getRandomSpell() {
-        return spells.get(random.nextInt(spells.size()));
     }
 
 }

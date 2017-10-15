@@ -38,7 +38,7 @@ public final class RandomDataGenerator {
     private static final String NON_ALPHANUMERIC = "~#&@£$^'`\".,:;*–+=(){}[]<>?!\\|/";
     private static final int NOT_SPECIFIED = -1;
     private static final int MAX_LARGE_VALUE = 4096;
-    private static final Random random = new Random();
+    private final Random random = new Random();
     private static final String EMPTY_STRING = "";
     private static final String SPACE = " ";
 
@@ -248,6 +248,7 @@ public final class RandomDataGenerator {
         return randomStrings;
     }
 
+    @SuppressWarnings("BooleanMethodNameMustStartWithQuestion") // this is generator
     public static boolean generateRandomBoolean() {
         return random.nextBoolean();
     }

@@ -18,7 +18,7 @@ final class DuplicateCharacterInStringRemove {
     private DuplicateCharacterInStringRemove() {
     }
 
-    @SuppressWarnings("ReturnOfNull")
+    @SuppressWarnings({"ReturnOfNull", "QuestionableName"})
     static String removeDuplicateCharacterFromString(String string) {
         if (string == null) {
             return null;

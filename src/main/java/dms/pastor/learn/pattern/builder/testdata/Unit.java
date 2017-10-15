@@ -24,6 +24,7 @@ public class Unit {
     private int maximumDamage;
     private int armor;
 
+    @SuppressWarnings("ConstructorWithTooManyParameters") //it is object value
     public Unit(String name, UUID id, Skills skills, int heathPoints, int minimumDamage, int maximumDamage, int armor) {
         this.name = name;
         this.id = id;

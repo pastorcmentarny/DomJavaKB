@@ -29,29 +29,35 @@ public class Cleric extends Unit {
 
     @Override
     public void turn(Unit enemy) {
+        tryToHeal(enemy);
 
-        if (enemy.getHp() > 2 && enemy.getHp() < 10) {
-            while (getElements().getAir() >= 3) {
-                System.out.println(getName() + " casting heal!");
-                HealSpell spell = new HealSpell();
-                spell.castSpell(this, enemy);
-                getElements().setAir(getElements().getAir() - 3);
-            }
-        }
+        performCureAction();
 
-        new CureAction().perform(this, this);
+        castMeteorStrike(enemy);
+        Spell spell;
 
-        Spell spell = new MeteorStrikeSpell();
-        while (spell.hasEnoughElementsToCovertToSpell(getElements())) {
-            System.out.println(getName() + " will cast " + spell.getName());
-            spell.castSpell(this, enemy);
-            getElements().useElements(spell.getElements());
-        }
-
-        spell = new FireBallSpell();
-        spell.castSpellIfHasEnoughElements(this, enemy);
+        castFireBall(enemy);
 
         spell = new MagicStoneSpell();
+        castAsManyAsPossibleMagicStoneSpells(enemy, spell);
+
+        System.out.println(getName() + " regenerate 1 hp ");
+        addHP(1);
+        getElements().addElement(EARTH);
+        getElements().addElement(FIRE);
+    }
+
+    private void castFireBall(Unit enemy) {
+        Spell spell;
+        spell = new FireBallSpell();
+        spell.castSpellIfHasEnoughElements(this, enemy);
+    }
+
+    private void performCureAction() {
+        new CureAction().perform(this, this);
+    }
+
+    private void castAsManyAsPossibleMagicStoneSpells(Unit enemy, Spell spell) {
         spell.castSpell(this, enemy);
         while (spell.hasEnoughElementsToCovertToSpell(getElements())) {
             castMagicStone(enemy, spell);
@@ -61,11 +67,26 @@ public class Cleric extends Unit {
                 spell.castSpell(this, enemy);
             }
         }
+    }
 
-        System.out.println(getName() + " regenerate 1 hp ");
-        addHP(1);
-        getElements().addElement(EARTH);
-        getElements().addElement(FIRE);
+    private void castMeteorStrike(Unit enemy) {
+        Spell spell = new MeteorStrikeSpell();
+        while (spell.hasEnoughElementsToCovertToSpell(getElements())) {
+            System.out.println(getName() + " will cast " + spell.getName());
+            spell.castSpell(this, enemy);
+            getElements().useElements(spell.getElements());
+        }
+    }
+
+    private void tryToHeal(Unit enemy) {
+        if (enemy.getHp() > 2 && enemy.getHp() < 10) {
+            while (getElements().getAir() >= 3) {
+                System.out.println(getName() + " casting heal!");
+                HealSpell spell = new HealSpell();
+                spell.castSpell(this, enemy);
+                getElements().setAir(getElements().getAir() - 3);
+            }
+        }
     }
 
     private void castMagicStone(Unit enemy, Spell spell) {

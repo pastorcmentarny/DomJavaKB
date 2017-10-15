@@ -32,11 +32,11 @@ class HotPicksFileUploader {
     private static final String DASH = "-";
     private final List<HotPickDraw> hotPickDrawList;
 
-    public HotPicksFileUploader() {
+    HotPicksFileUploader() {
         hotPickDrawList = new ArrayList<>();
     }
 
-    public List<HotPickDraw> loadHotPicksDrawHistoryFile(String filePath) throws IOException {
+    List<HotPickDraw> loadHotPicksDrawHistoryFile(String filePath) throws IOException {
         validateFilePath(filePath);
 
         try (Stream<String> lines = Files.lines(Paths.get(filePath))) {
@@ -92,7 +92,7 @@ class HotPicksFileUploader {
         return Optional.of(new HotPickDraw(drawDate, ball1, ball2, ball3, ball4, ball5, ball6, ballSet, machine, drawNumber));
     }
 
-    public LocalDate parseLocalDate(String drawDate) {
+    LocalDate parseLocalDate(String drawDate) {
         validateDate(drawDate);
         final String[] date = drawDate.split(DASH);
         return LocalDate.of(Integer.parseInt(date[2]), DateUtils.getMonthNumberFromShortedName(date[1]), Integer.parseInt(date[0]));

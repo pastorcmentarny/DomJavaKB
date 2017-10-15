@@ -21,12 +21,12 @@ import static dms.pastor.utils.ValidatorUtils.validateIfPositiveNumber;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  * <p>
- * I used this to generate random background for one of my Android games.
+ * I used this to generate RANDOM background for one of my Android games.
  */
 class RandomBmpGenerator {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(RandomBmpGenerator.class);
-    private static final Random random = new Random();
+    private static final Random RANDOM = new Random();
     private final int imageWidth;
     private final int imageHeight;
     private final String pathName;
@@ -69,7 +69,7 @@ class RandomBmpGenerator {
     private void generateRandomPixels(BufferedImage img) {
         for (int h = 1; h < imageHeight; h++) {
             for (int w = 1; w < imageWidth; w++) {
-                img.setRGB(w, h, random.nextInt(16777215));
+                img.setRGB(w, h, RANDOM.nextInt(16777215));
             }
         }
     }

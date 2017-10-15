@@ -297,25 +297,23 @@ java.lang.IllegalArgumentException: Path is invalid or is not a file
         final int lineThreeBallSix = getRandomBallNumber();
 
         final int ballSet = 3;
-        final String machine = MACHINE_NAME;
         final int drawNumber1 = 2161;
         final int drawNumber2 = 2162;
         final int drawNumber3 = 2163;
 
-        String[] lines = new String[]{generateDrawLineAsString(date, lineOneBallOne, lineOneBallTwo, lineOneBallThree, lineOneBallFour, lineOneBallFive, lineOneBallSix, ballSet, machine, drawNumber1),
-                generateDrawLineAsString(date, lineTwoBallOne, lineTwoBallTwo, lineTwoBallThree, lineTwoBallFour, lineTwoBallFive, lineTwoBallSix, ballSet, machine, drawNumber2),
-                generateDrawLineAsString(date, lineThreeBallOne, lineThreeBallTwo, lineThreeBallThree, lineThreeBallFour, lineThreeBallFive, lineThreeBallSix, ballSet, machine, drawNumber3)};
+        String[] lines = new String[]{generateDrawLineAsString(date, lineOneBallOne, lineOneBallTwo, lineOneBallThree, lineOneBallFour, lineOneBallFive, lineOneBallSix, ballSet, MACHINE_NAME, drawNumber1),
+                generateDrawLineAsString(date, lineTwoBallOne, lineTwoBallTwo, lineTwoBallThree, lineTwoBallFour, lineTwoBallFive, lineTwoBallSix, ballSet, MACHINE_NAME, drawNumber2),
+                generateDrawLineAsString(date, lineThreeBallOne, lineThreeBallTwo, lineThreeBallThree, lineThreeBallFour, lineThreeBallFive, lineThreeBallSix, ballSet, MACHINE_NAME, drawNumber3)};
         generateFile(EMPTY_CSV_FILE, lines);
 
         // when
         final List<HotPickDraw> hotPickDrawList = hotPicksFileUploader.loadHotPicksDrawHistoryFile(EMPTY_CSV_FILE);
 
         // then
-        assertThat(hotPickDrawList).isNotNull();
         assertThat(hotPickDrawList.size()).isEqualTo(3);
-        assertHotPickDraw(hotPickDrawList.get(0), date, lineOneBallOne, lineOneBallTwo, lineOneBallThree, lineOneBallFour, lineOneBallFive, lineOneBallSix, ballSet, machine, drawNumber1);
-        assertHotPickDraw(hotPickDrawList.get(1), date, lineTwoBallOne, lineTwoBallTwo, lineTwoBallThree, lineTwoBallFour, lineTwoBallFive, lineTwoBallSix, ballSet, machine, drawNumber2);
-        assertHotPickDraw(hotPickDrawList.get(2), date, lineThreeBallOne, lineThreeBallTwo, lineThreeBallThree, lineThreeBallFour, lineThreeBallFive, lineThreeBallSix, ballSet, machine, drawNumber3);
+        assertHotPickDraw(hotPickDrawList.get(0), date, lineOneBallOne, lineOneBallTwo, lineOneBallThree, lineOneBallFour, lineOneBallFive, lineOneBallSix, ballSet, MACHINE_NAME, drawNumber1);
+        assertHotPickDraw(hotPickDrawList.get(1), date, lineTwoBallOne, lineTwoBallTwo, lineTwoBallThree, lineTwoBallFour, lineTwoBallFive, lineTwoBallSix, ballSet, MACHINE_NAME, drawNumber2);
+        assertHotPickDraw(hotPickDrawList.get(2), date, lineThreeBallOne, lineThreeBallTwo, lineThreeBallThree, lineThreeBallFour, lineThreeBallFive, lineThreeBallSix, ballSet, MACHINE_NAME, drawNumber3);
     }
 
     @Test

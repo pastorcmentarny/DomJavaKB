@@ -19,6 +19,7 @@ import static dms.pastor.tasks.paint.command.CommandValidator.validatePositiveLe
  */
 public class CreateNewLineCommand implements Command {
     private static final Logger LOGGER = LoggerFactory.getLogger(CreateCanvasCommand.class);
+    public static final String PIXEL_FILL = "x";
 
     private Coordinates startPoint = noCoordination();
     private Coordinates endPoint = noCoordination();
@@ -76,14 +77,22 @@ public class CreateNewLineCommand implements Command {
 
     private void drawLineOn(Canvas canvas) {
         if (isHorizontal()) {
-            for (int i = startPoint.getHeight(); i <= endPoint.getHeight(); i++) {
-                canvas.updatePixelAt(startPoint.getWidth(), i, "x");
-            }
+            drawHorizontalLine(canvas);
         }
         if (isVertical()) {
-            for (int i = startPoint.getWidth(); i <= endPoint.getWidth(); i++) {
-                canvas.updatePixelAt(i, startPoint.getHeight(), "x");
-            }
+            drawVerticalLine(canvas);
+        }
+    }
+
+    private void drawVerticalLine(Canvas canvas) {
+        for (int i = startPoint.getWidth(); i <= endPoint.getWidth(); i++) {
+            canvas.updatePixelAt(i, startPoint.getHeight(), PIXEL_FILL);
+        }
+    }
+
+    private void drawHorizontalLine(Canvas canvas) {
+        for (int i = startPoint.getHeight(); i <= endPoint.getHeight(); i++) {
+            canvas.updatePixelAt(startPoint.getWidth(), i, PIXEL_FILL);
         }
     }
 

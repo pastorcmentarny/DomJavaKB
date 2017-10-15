@@ -12,15 +12,15 @@ import static dms.pastor.utils.StringUtils.isStringBlank;
  */
 public final class EnglishUtils {
 
-    private static final char[] vowels = {'a', 'e', 'i', 'o', 'u'};
-    private static final char[] consonants = {'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'};
+    private static final char[] VOWELS = {'a', 'e', 'i', 'o', 'u'};
+    private static final char[] CONSONANTS = {'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'};
     private static final String[] STOP_WORDS = new String[]{"a", "an", "and", "are", "as", "at", "be", "but", "by", "for", "if", "in", "into", "is", "it", "no", "not", "of", "on", "or", "such", "that", "the", "their", "then", "there", "these", "they", "this", "to", "was", "will", "with"};
 
     private EnglishUtils() {
     }
 
     public static boolean isLetterVowelIncludingY(char letter) {
-        char[] vowelsWithY = StringUtils.addCharToCharArray('y', vowels);
+        char[] vowelsWithY = StringUtils.addCharToCharArray('y', VOWELS);
         for (char vowel : vowelsWithY) {
             if (Character.toLowerCase(letter) == vowel) {
                 return true;
@@ -31,7 +31,7 @@ public final class EnglishUtils {
 
     public static boolean isLetterVowelExcludingY(char letter) {
 
-        for (char vowel : vowels) {
+        for (char vowel : VOWELS) {
             if (Character.toLowerCase(letter) == vowel) {
                 return true;
             }
@@ -40,7 +40,7 @@ public final class EnglishUtils {
     }
 
     static boolean isLetterConsonant(char letter) {
-        for (char consonant : consonants) {
+        for (char consonant : CONSONANTS) {
             if (Character.toLowerCase(letter) == consonant) {
                 return true;
             }

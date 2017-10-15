@@ -12,8 +12,8 @@ import java.util.List;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  *
- * Class is abstract to prevent init
  */
+@SuppressWarnings("AbstractClassWithoutAbstractMethods") // Class is abstract to prevent init
 public abstract class Card {
 
     protected String name;

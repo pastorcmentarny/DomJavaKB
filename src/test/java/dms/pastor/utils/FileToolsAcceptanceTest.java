@@ -1,5 +1,6 @@
 package dms.pastor.utils;
 
+import dms.pastor.TestConfig;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,7 +12,6 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-import static dms.pastor.TestConfig.PATH;
 import static dms.pastor.utils.FileTools.saveListToFile;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.Java6Assertions.assertThat;
@@ -28,12 +28,12 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
 public class FileToolsAcceptanceTest {
 
     private static final int MAX_STRING_LENGTH = 20;
-    private static final String FILE_PATH = PATH + "savesListToFile.txt";
-    private static final Path path = Paths.get(FILE_PATH);
+    private static final String FILE_PATH = TestConfig.PATH + "savesListToFile.txt";
+    private static final Path PATH = Paths.get(FILE_PATH);
 
     @Before
     public void setUp() throws Exception {
-        Files.deleteIfExists(path);
+        Files.deleteIfExists(PATH);
     }
 
     @After
@@ -57,9 +57,9 @@ public class FileToolsAcceptanceTest {
         saveListToFile(stringArrayList, FILE_PATH);
 
         // then
-        assertThat(Files.exists(path)).isTrue();
-        Files.lines(path).forEach(System.out::println);
-        assertThat(Files.lines(path).count()).isEqualTo(stringArrayList.size());
+        assertThat(Files.exists(PATH)).isTrue();
+        Files.lines(PATH).forEach(System.out::println);
+        assertThat(Files.lines(PATH).count()).isEqualTo(stringArrayList.size());
     }
 
 }

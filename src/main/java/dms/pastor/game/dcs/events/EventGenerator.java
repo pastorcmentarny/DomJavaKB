@@ -21,17 +21,17 @@ public final class EventGenerator {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(EventGenerator.class);
 
-    private static final List<Event> events = new ArrayList<>();
+    private static final List<Event> EVENTS = new ArrayList<>();
     private static final Random random = new Random();
 
     static {
-        events.add(new AirElementEvent());
-        events.add(new EarthElementEvent());
-        events.add(new FireElementEvent());
-        events.add(new WaterElementEvent());
-        events.add(new ShieldRechargeEvent());
-        events.add(new NoEvent());
-        events.addAll(getAllBadEvents());
+        EVENTS.add(new AirElementEvent());
+        EVENTS.add(new EarthElementEvent());
+        EVENTS.add(new FireElementEvent());
+        EVENTS.add(new WaterElementEvent());
+        EVENTS.add(new ShieldRechargeEvent());
+        EVENTS.add(new NoEvent());
+        EVENTS.addAll(getAllBadEvents());
     }
 
     private EventGenerator() {
@@ -45,7 +45,7 @@ public final class EventGenerator {
 
     public static Event getRandomEvent() {
 
-        return events.get(random.nextInt(events.size()));
+        return EVENTS.get(random.nextInt(EVENTS.size()));
     }
 
     public static void event(Unit player1, Unit player2) {

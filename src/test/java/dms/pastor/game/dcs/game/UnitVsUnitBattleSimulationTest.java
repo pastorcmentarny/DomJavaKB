@@ -7,77 +7,77 @@ import org.junit.Test;
 public final class UnitVsUnitBattleSimulationTest {
 
     @Test
-    public void dummyVsGenieBattleSimulationTest() {
+    public void dummyUnitVsGenieBattleSimulationTest() {
         // setup
-        Dummy dummy = new Dummy("Dummy");
+        Dummy dummyUnitUnit = new Dummy("Dummy");
         Genie genie = new Genie();
-        Battle battle = new Battle(dummy, genie);
+        Battle battle = new Battle(dummyUnitUnit, genie);
 
         // battle
         battle.isInFight();
     }
 
     @Test
-    public void dummyVsDragonBattleSimulationTest() {
+    public void dummyUnitVsDragonBattleSimulationTest() {
         // setup
-        Dummy dummy = new Dummy("Dummy");
+        Dummy dummyUnit = new Dummy("Dummy");
         Genie genie = new Genie();
-        Battle battle = new Battle(dummy, genie);
+        Battle battle = new Battle(dummyUnit, genie);
 
         // battle
         battle.isInFight();
     }
 
     @Test
-    public void dummyVsFireElementBattleSimulationTest() {
+    public void dummyUnitVsFireElementBattleSimulationTest() {
         // setup
-        Dummy dummy = new Dummy("Dummy");
+        Dummy dummyUnit = new Dummy("Dummy");
         FireElement fireElement = new FireElement();
-        Battle battle = new Battle(dummy, fireElement);
+        Battle battle = new Battle(dummyUnit, fireElement);
 
         // battle
         battle.isInFight();
     }
 
     @Test
-    public void dummyVsClairvoyantBattleSimulationTest() {
+    public void dummyUnitVsClairvoyantBattleSimulationTest() {
         // setup
-        Dummy dummy = new Dummy("Dummy");
+        Dummy dummyUnit = new Dummy("Dummy");
         Clairvoyant clairvoyant = new Clairvoyant();
-        Battle battle = new Battle(dummy, clairvoyant);
+        Battle battle = new Battle(dummyUnit, clairvoyant);
 
         // battle
         battle.isInFight();
     }
 
     @Test
-    public void dummyVsWitchBattleSimulationTest() {
+    public void dummyUnitVsWitchBattleSimulationTest() {
         // setup
-        Dummy dummy = new Dummy("Dummy");
+        Dummy dummyUnit = new Dummy("Dummy");
         Witch witch = new Witch();
-        Battle battle = new Battle(dummy, witch);
+        Battle battle = new Battle(dummyUnit, witch);
 
         // battle
         battle.isInFight();
     }
 
     @Test
-    public void dummyVsTrollBattleSimulationTest() {
+    public void dummyUnitVsTrollBattleSimulationTest() {
         // setup
-        Dummy dummy = new Dummy("Dummy");
+        Dummy dummyUnit = new Dummy("Dummy");
         Cleric cleric = new Cleric();
-        Battle battle = new Battle(dummy, cleric);
+        Battle battle = new Battle(dummyUnit, cleric);
 
         // battle
         battle.isInFight();
     }
 
     @Test
-    public void dummyVsVampireBattleSimulationTest() {
+    public void dummyUnitVsVampireBattleSimulationTest() {
         // setup
-        Dummy dummy = new Dummy("Dummy");
+        Dummy dummyUnit = new Dummy("Dummy");
         Vampire vampire = new Vampire();
-        Battle battle = new Battle(dummy, vampire);
+        Battle battle = new Battle(dummyUnit, vampire);
 
         // battle
         battle.isInFight();

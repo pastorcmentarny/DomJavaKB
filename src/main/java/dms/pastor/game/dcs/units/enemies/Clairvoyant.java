@@ -3,20 +3,13 @@ package dms.pastor.game.dcs.units.enemies;
 import dms.pastor.game.dcs.spells.CometStrikeSpell;
 import dms.pastor.game.dcs.spells.FireBallSpell;
 import dms.pastor.game.dcs.spells.LightingBoltSpell;
-import dms.pastor.game.dcs.spells.MagicStoneSpell;
 import dms.pastor.game.dcs.units.Unit;
-
-import java.util.Random;
 
 import static dms.pastor.game.dcs.conditions.ConditionEntry.createPersistentCondition;
 import static dms.pastor.game.dcs.conditions.ConditionType.*;
 import static dms.pastor.utils.randoms.PersonalDataGenerator.generateFirstName;
 
 public class Clairvoyant extends Unit {
-
-    private static final Random random = new Random();
-    private static CometStrikeSpell cometStrikeSpell = new CometStrikeSpell();
-    private static MagicStoneSpell magicStoneSpell = new MagicStoneSpell();
 
     public Clairvoyant() {
         setName(generateFirstName() + " a Clairvoyant");

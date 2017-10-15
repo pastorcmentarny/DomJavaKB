@@ -27,6 +27,9 @@ public class FromFileImporter implements Importer {
     private static final String COLUMN_SEPARATOR = ";;";
     private static final String GROUP_SEPARATOR = "~~";
     private static final Logger LOGGER = LoggerFactory.getLogger(FromFileImporter.class);
+    private List<Word> wordsList = new ArrayList<>();
+    private int nr = 0;
+
 
     private static void closeReaderQuietly(Reader reader) {
         try {
@@ -42,8 +45,9 @@ public class FromFileImporter implements Importer {
 
     public Result importDictionary(String filePath, String[] requestedCategories) {
         LOGGER.info("Loading words to dictionary from file");
-        List<Word> wordsList = new ArrayList<>();
+        clear();
 
+        //TODO extract this
         File file = new File(filePath);
         if (!file.exists()) {
             final String errorMessage = "File to dictionary not found";
@@ -53,7 +57,7 @@ public class FromFileImporter implements Importer {
 
         BufferedReader br;
         InputStreamReader isr;
-        int nr = 0;
+
         try (FileInputStream fileInputStream = new FileInputStream(file)) {
 
             String line;
@@ -63,12 +67,12 @@ public class FromFileImporter implements Importer {
             isr = new InputStreamReader(fileInputStream);
             br = new BufferedReader(isr);
             while ((line = br.readLine()) != null) {
-                if (lineIsNotIgnored(line)) {
+                if (isLineNotIgnored(line)) {
                     data = line.split(COLUMN_SEPARATOR);
                     try {
                         word = parseWord(data);
                         if (validateWord(word)) {
-                            nr = addWordToWordList(wordsList, requestedCategories, getWordCategories(data), word, nr); //TODO improve nr
+                            addWordToWordList(requestedCategories, getWordCategories(data), word); //TODO improve nr
                         } else {
                             LOGGER.error("Word is corrupted(Line:" + getCurrentLine(nr) + ".It is something wrong with Dictionary." + getLine(line));
                             return fail("Validation failed as Word is invalid at line: " + (getCurrentLine(nr)) + ")\n.Problem occurred in: " + getLine(line));
@@ -93,6 +97,11 @@ public class FromFileImporter implements Importer {
         return success("Dictionary loaded successfully.", wordsList);
     }
 
+    private void clear() {
+        wordsList.clear();
+        nr = 0;
+    }
+
     private Result returnFailResultOnException(String errorMessage, Exception exception) {
         return returnFailResultOnException(errorMessage, Integer.MIN_VALUE, exception);
     }
@@ -107,7 +116,7 @@ public class FromFileImporter implements Importer {
         return data[7].split(GROUP_SEPARATOR);
     }
 
-    private boolean lineIsNotIgnored(String strLine) {
+    private boolean isLineNotIgnored(String strLine) {
         return !strLine.startsWith(IGNORED_WORD);
     }
 
@@ -133,21 +142,36 @@ public class FromFileImporter implements Importer {
         return NumberUtils.parseNullSafeIntegerAsString(difficulty, Integer.MIN_VALUE);
     }
 
-    private int addWordToWordList(List<Word> wordsList, String[] requestedCategories, String[] wordCategoriesList, Word word, int nr) {
+    private void addWordToWordList(String[] requestedCategories, String[] wordCategoriesList, Word word) {
         if (requestedCategories != null) {
-            for (String requestedCategory : requestedCategories) {
-                for (String wordCategory : wordCategoriesList) {
-                    if (wordCategory.equals(requestedCategory)) {
-                        wordsList.add(word);
-                        nr++;
-                    }
-                }
-            }
+            addWordIfExistsInRequestedCategories(requestedCategories, wordCategoriesList, word);
         } else {
-            wordsList.add(word);
-            nr++;
+            add(word);
         }
-        return nr;
+    }
+
+    private void addWordIfExistsInRequestedCategories(String[] requestedCategories, String[] wordCategoriesList, Word word) {
+        for (String requestedCategory : requestedCategories) {
+            addWordIfExistInRequestedCategory(wordCategoriesList, word, requestedCategory);
+        }
+    }
+
+    private void addWordIfExistInRequestedCategory(String[] wordCategoriesList, Word word, String requestedCategory) {
+        for (String wordCategory : wordCategoriesList) {
+            if (wordCategory.equals(requestedCategory)) {
+                add(word);
+            }
+        }
+    }
+
+    //TODO improve name
+    private void add(Word word) {
+        wordsList.add(word);
+        addLineNumber();
+    }
+
+    private void addLineNumber() {
+        nr++;
     }
 
 }

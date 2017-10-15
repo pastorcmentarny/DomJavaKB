@@ -18,12 +18,16 @@ final class MultiplicationExercise {
     static String generateMultiplicationSquareTable(int number) {
         StringBuilder stringBuilder = new StringBuilder("");
         for (int x = 1; x <= number; x++) {
-            for (int y = 1; y <= number; y++) {
-                stringBuilder.append(format("%5d", x * y));
-            }
+            createRow(number, stringBuilder, x);
             stringBuilder.append('\n');
         }
         return stringBuilder.toString();
+    }
+
+    private static void createRow(int number, StringBuilder stringBuilder, int x) {
+        for (int y = 1; y <= number; y++) {
+            stringBuilder.append(format("%5d", x * y));
+        }
     }
 
 }

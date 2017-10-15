@@ -8,6 +8,7 @@ package dms.pastor.tasks.exercises.string;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
+@SuppressWarnings("QuestionableName")
 public class CharacterExercises {
 
     public int countCharacterInString(Character character, String string) {

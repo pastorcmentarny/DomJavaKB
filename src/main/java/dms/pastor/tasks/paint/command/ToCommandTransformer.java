@@ -16,18 +16,18 @@ import static dms.pastor.utils.ValidatorUtils.validateIfStringNotEmpty;
  */
 public final class ToCommandTransformer {
 
-    private static final List<Command> commands;
+    private static final List<Command> COMMANDS;
 
     static {
-        commands = new ArrayList<>();
-        commands.add(new QuitCommand());
-        commands.add(new ClearCanvasCommand());
-        commands.add(new CreateCanvasCommand());
-        commands.add(new CreateNewLineCommand());
-        commands.add(new CreateNewRectangleCommand());
-        commands.add(new FillEntireAreaCommand());
-        commands.add(new UndoCommand());
-        commands.add(new RedoCommand());
+        COMMANDS = new ArrayList<>();
+        COMMANDS.add(new QuitCommand());
+        COMMANDS.add(new ClearCanvasCommand());
+        COMMANDS.add(new CreateCanvasCommand());
+        COMMANDS.add(new CreateNewLineCommand());
+        COMMANDS.add(new CreateNewRectangleCommand());
+        COMMANDS.add(new FillEntireAreaCommand());
+        COMMANDS.add(new UndoCommand());
+        COMMANDS.add(new RedoCommand());
     }
 
     private ToCommandTransformer() {
@@ -52,7 +52,7 @@ public final class ToCommandTransformer {
 
     //TODO improve quality
     private static Command getCommandFor(String[] input) {
-        for (Command command : commands) {
+        for (Command command : COMMANDS) {
             if (command.getSyntax().equals(input[0])) {
                 if ("C".equalsIgnoreCase(command.getSyntax())) {
                     return getCommand(input, new CreateCanvasCommand(), new ClearCanvasCommand());

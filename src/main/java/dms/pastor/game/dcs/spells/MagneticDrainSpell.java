@@ -5,12 +5,9 @@ import dms.pastor.game.dcs.units.Unit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Random;
-
 public class MagneticDrainSpell extends Spell {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MagneticDrainSpell.class);
-    private static final Random random = new Random();
 
     public MagneticDrainSpell(){
         name = "Magnetic Drain";

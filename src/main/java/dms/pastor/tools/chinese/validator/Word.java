@@ -25,19 +25,20 @@ public final class Word {
     private String notes = DEFAULT_NOTE;
     private int difficulty;
 
+    @SuppressWarnings("ConstructorWithTooManyParameters") //it is object value
     public Word(int id, String chineseCharacter, String pinyin, int strokes, String englishMeaning, String polish, String[] groups, String notes, int difficulty) {
-        setId(id);
-        setChineseCharacter(chineseCharacter);
-        setPinyin(pinyin);
-        setStrokes(strokes);
-        setEnglishMeaning(englishMeaning);
-        setPolishMeaning(polish);
-        setGroups(groups);
+        this.id = id;
+        this.chineseCharacter = chineseCharacter;
+        this.pinyin = pinyin;
+        this.strokes = strokes;
+        this.englishMeaning = englishMeaning;
+        this.polish = polish;
+        this.groups = groups;
         setNotes(notes);
-        setDifficulty(difficulty);
+        this.difficulty = difficulty;
     }
 
-    public static Word noWord() {
+    static Word noWord() {
         return new Word(-1, null, null, -1, null, null, null, null, -1);
     }
 
@@ -45,64 +46,32 @@ public final class Word {
         return chineseCharacter;
     }
 
-    private void setChineseCharacter(String chineseCharacter) {
-        this.chineseCharacter = chineseCharacter;
-    }
-
     public int getDifficulty() {
         return difficulty;
-    }
-
-    private void setDifficulty(int difficulty) {
-        this.difficulty = difficulty;
     }
 
     public String getPinyin() {
         return pinyin;
     }
 
-    private void setPinyin(String pinyin) {
-        this.pinyin = pinyin;
-    }
-
     public String getWordInEnglish() {
         return englishMeaning;
-    }
-
-    private void setEnglishMeaning(String wEnglish) {
-        this.englishMeaning = wEnglish;
     }
 
     public String getWordInPolish() {
         return polish;
     }
 
-    private void setPolishMeaning(String wPolish) {
-        this.polish = wPolish;
-    }
-
     public int getId() {
         return id;
-    }
-
-    private void setId(int id) {
-        this.id = id;
     }
 
     public int getStrokes() {
         return strokes;
     }
 
-    private void setStrokes(int strokes) {
-        this.strokes = strokes;
-    }
-
     public String[] getGroups() {
         return groups;
-    }
-
-    private void setGroups(String[] groups) {
-        this.groups = groups;
     }
 
     public String getNotes() {
@@ -115,14 +84,12 @@ public final class Word {
         } else {
             this.notes = note;
         }
-
     }
 
     public String toShortString() {
         return chineseCharacter + " - '" +
                 pinyin + "' - [ " +
                 englishMeaning + " ]";
-
     }
 
     @Override

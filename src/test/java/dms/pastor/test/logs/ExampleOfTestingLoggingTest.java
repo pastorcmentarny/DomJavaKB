@@ -28,7 +28,7 @@ import static org.mockito.Mockito.verify;
  */
 @RunWith(MockitoJUnitRunner.class)
 public class ExampleOfTestingLoggingTest {
-    private static final Logger logger = (Logger) LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
+    private static final Logger LOGGER = (Logger) LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 
     @Mock
     private Appender<ILoggingEvent> mockAppender;
@@ -38,12 +38,12 @@ public class ExampleOfTestingLoggingTest {
 
     @Before
     public void setup() {
-        logger.addAppender(mockAppender);
+        LOGGER.addAppender(mockAppender);
     }
 
     @After
     public void teardown() {
-        logger.detachAppender(mockAppender);
+        LOGGER.detachAppender(mockAppender);
     }
 
     @Test

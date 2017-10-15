@@ -42,7 +42,7 @@ public class FillEntireAreaCommand implements Command {
             return;
         }
 
-        if (notEquals(canvas, width, height, currentFill)) {
+        if (isNotEquals(canvas, width, height, currentFill)) {
             return;
         }
 
@@ -65,7 +65,7 @@ public class FillEntireAreaCommand implements Command {
         return pixel - 1;
     }
 
-    private static boolean notEquals(Canvas canvas, int width, int height, String currentFill) {
+    private static boolean isNotEquals(Canvas canvas, int width, int height, String currentFill) {
         return !canvas.getPixelAt(width, height).equals(currentFill);
     }
 

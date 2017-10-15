@@ -24,6 +24,7 @@ class HotPickDraw {
     private final String machine;
     private final int drawNumber;
 
+    @SuppressWarnings("ConstructorWithTooManyParameters") //it is object value
     public HotPickDraw(LocalDate drawDate, int ball1, int ball2, int ball3, int ball4, int ball5, int ball6, int ballSet, String machine, int drawNumber) {
         this.drawDate = drawDate;
         this.ball1 = ball1;

@@ -5,6 +5,8 @@ import dms.pastor.game.dcs.cards.Card;
 import dms.pastor.game.dcs.cards.CardType;
 import dms.pastor.game.dcs.units.Unit;
 
+import java.util.Random;
+
 /**
  * Author Dominik Symonowicz
  * Created 2015-07-23
@@ -15,6 +17,8 @@ import dms.pastor.game.dcs.units.Unit;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public abstract class Spell extends Card {
+
+    public final Random random = new Random();
 
     private final CardType cardType = CardType.SPELL;
     private Elements elements;

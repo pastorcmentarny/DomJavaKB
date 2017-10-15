@@ -23,45 +23,45 @@ import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
  */
 public final class PersonalDataGenerator {
 
-    private static final List<String> firstName;
-    private static final List<String> surname;
+    private static final List<String> FIRST_NAME;
+    private static final List<String> SURNAME;
     private static final Random random = new Random();
 
     static {
-        firstName = new ArrayList<>();
-        firstName.add("William");
-        firstName.add("Richard");
-        firstName.add("Walter");
-        firstName.add("Henry");
-        firstName.add("Clarence");
-        firstName.add("Louis");
-        firstName.add("Martha");
-        firstName.add("Florence");
-        firstName.add("Bertha");
-        firstName.add("Sarah");
-        surname = new ArrayList<>();
-        surname.add("Breeden");
-        surname.add("Cabbage");
-        surname.add("Oakes");
-        surname.add("Summer");
-        surname.add("Sunshine");
-        surname.add("Tattersall");
-        surname.add("Thornton");
-        surname.add("Rusty");
-        surname.add("Wheaton");
-        surname.add("Winterbottom");
-        surname.add("Wordsworth");
+        FIRST_NAME = new ArrayList<>();
+        FIRST_NAME.add("William");
+        FIRST_NAME.add("Richard");
+        FIRST_NAME.add("Walter");
+        FIRST_NAME.add("Henry");
+        FIRST_NAME.add("Clarence");
+        FIRST_NAME.add("Louis");
+        FIRST_NAME.add("Martha");
+        FIRST_NAME.add("Florence");
+        FIRST_NAME.add("Bertha");
+        FIRST_NAME.add("Sarah");
+        SURNAME = new ArrayList<>();
+        SURNAME.add("Breeden");
+        SURNAME.add("Cabbage");
+        SURNAME.add("Oakes");
+        SURNAME.add("Summer");
+        SURNAME.add("Sunshine");
+        SURNAME.add("Tattersall");
+        SURNAME.add("Thornton");
+        SURNAME.add("Rusty");
+        SURNAME.add("Wheaton");
+        SURNAME.add("Winterbottom");
+        SURNAME.add("Wordsworth");
     }
 
     private PersonalDataGenerator() {
     }
 
     public static String generateFirstName() {
-        return firstName.get(random.nextInt(firstName.size()));
+        return FIRST_NAME.get(random.nextInt(FIRST_NAME.size()));
     }
 
     public static String generateSurname() {
-        return surname.get(random.nextInt(surname.size()));
+        return SURNAME.get(random.nextInt(SURNAME.size()));
     }
 
     static Country getRandomCountry() {

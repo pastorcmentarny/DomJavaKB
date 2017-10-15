@@ -21,7 +21,7 @@ public class ArraysExercisesTest {
 
     private static final int MIN_POSITIVE_VALUE = 4;
     private static final int MAX_POSITIVE_VALUE = 4096;
-    private static final int[] numbers = new int[]{5, 6, 9, MAX_POSITIVE_VALUE, 1000, MIN_POSITIVE_VALUE, 2048};
+    private static final int[] NUMBERS = new int[]{5, 6, 9, MAX_POSITIVE_VALUE, 1000, MIN_POSITIVE_VALUE, 2048};
     private static final int MIN_NEGATIVE_VALUE = -2;
     private static final int MAX_NEGATIVE_VALUE = -10;
     private final ArraysExercises exercise = new ArraysExercises();
@@ -29,7 +29,7 @@ public class ArraysExercisesTest {
     @Test
     public void testLargestAndSmallest() throws Exception {
         String answer = "Min:" + MIN_POSITIVE_VALUE + " Max:" + MAX_POSITIVE_VALUE;
-        assertThat(exercise.findLargestAndSmallest(numbers)).isEqualTo(answer);
+        assertThat(exercise.findLargestAndSmallest(NUMBERS)).isEqualTo(answer);
     }
 
     @Test

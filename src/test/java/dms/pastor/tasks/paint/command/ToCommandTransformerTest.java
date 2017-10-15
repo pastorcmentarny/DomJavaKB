@@ -83,10 +83,10 @@ public class ToCommandTransformerTest {
     @Test
     public void toCommandWithInputForFillEntireAreaShouldReturnFillEntireAreaCommand() throws Exception {
         // given
-        final String FillEntireAreaCommandInput = "B 1 1 o";
+        final String fillEntireAreaCommandInput = "B 1 1 o";
 
         // when
-        final Command fillEntireAreaCommand = toCommand(FillEntireAreaCommandInput);
+        final Command fillEntireAreaCommand = toCommand(fillEntireAreaCommandInput);
 
         // then
         assertThat(fillEntireAreaCommand).isInstanceOf(FillEntireAreaCommand.class);

@@ -9,23 +9,23 @@ import static java.util.Collections.unmodifiableList;
 
 public final class Enemies {
 
-    private static final List<Unit> allEnemies = new ArrayList<>();
+    private static final List<Unit> ALL_ENEMIES = new ArrayList<>();
 
     static {
-        allEnemies.add(new Conjuror());
-        allEnemies.add(new Dummy());
-        allEnemies.add(new FireElement());
-        allEnemies.add(new Clairvoyant());
-        allEnemies.add(new Witch());
-        allEnemies.add(new Cleric());
-        allEnemies.add(new Vampire());
-        allEnemies.add(new Dragon());
+        ALL_ENEMIES.add(new Conjuror());
+        ALL_ENEMIES.add(new Dummy());
+        ALL_ENEMIES.add(new FireElement());
+        ALL_ENEMIES.add(new Clairvoyant());
+        ALL_ENEMIES.add(new Witch());
+        ALL_ENEMIES.add(new Cleric());
+        ALL_ENEMIES.add(new Vampire());
+        ALL_ENEMIES.add(new Dragon());
     }
 
     private Enemies() {
     }
 
     public static List<Unit> getAllEnemies() {
-        return unmodifiableList(allEnemies);
+        return unmodifiableList(ALL_ENEMIES);
     }
 }

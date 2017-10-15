@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import static dms.pastor.game.dcs.Config.*;
 import static dms.pastor.game.dcs.conditions.ConditionType.*;
@@ -25,8 +26,10 @@ import static java.lang.String.format;
  */
 public class Unit {
 
-
     private static final Logger LOGGER = LoggerFactory.getLogger(Unit.class);
+
+    public final Random random = new Random();
+
     private String name = "Name";
     private String description = "Description";
 
@@ -75,7 +78,7 @@ public class Unit {
     }
 
     public int doesDamageTo(Unit defender, int dmg) {
-        if (burstBubbleInsteadOfDoDamage(dmg)) {
+        if (shouldBurstBubbleInsteadOfDoDamage(dmg)) {
             return 0;
         }
         if (conditions.has(WEAKNESS)) {
@@ -97,7 +100,7 @@ public class Unit {
         return dmg;
     }
 
-    private boolean burstBubbleInsteadOfDoDamage(int dmg) {
+    private boolean shouldBurstBubbleInsteadOfDoDamage(int dmg) {
         if (getConditions().has(BUBBLE_SHIELD)) {
             System.out.println("Bubble shield absorbed " + dmg + " damage and burst.");
             getConditions().removeByConditionName(BUBBLE_SHIELD);
@@ -194,7 +197,7 @@ public class Unit {
     }
 
     public int doesShieldDamage(int dmg) {
-        if (burstBubbleInsteadOfDoDamage(dmg)) {
+        if (shouldBurstBubbleInsteadOfDoDamage(dmg)) {
             return 0;
         }
         System.out.println("Shield damage to deal: " + dmg);
@@ -213,7 +216,7 @@ public class Unit {
     }
 
     public void doesDirectDamage(int penaltyDmg) {
-        if (burstBubbleInsteadOfDoDamage(penaltyDmg)) {
+        if (shouldBurstBubbleInsteadOfDoDamage(penaltyDmg)) {
             return;
         }
         LOGGER.debug(getName() + " lose " + penaltyDmg + " dmg.");

@@ -7,8 +7,6 @@ import dms.pastor.game.dcs.units.Unit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Random;
-
 import static dms.pastor.game.dcs.conditions.ConditionEntry.createPersistentCondition;
 import static dms.pastor.game.dcs.conditions.ConditionType.*;
 
@@ -25,7 +23,6 @@ public class Conjuror extends Unit {
 
     private static final int INITIAL_SP = 40;
     private static final Logger LOGGER = LoggerFactory.getLogger(Genie.class);
-    private static final Random random = new Random();
 
     public Conjuror() {
         setName("Conjuror");
