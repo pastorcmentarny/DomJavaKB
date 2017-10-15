@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.Assertions.assertThat;
 
+@SuppressWarnings("resource") // auto closable not essential
 public final class DebugUtilsTest {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DebugUtilsTest.class);
@@ -46,18 +47,7 @@ public final class DebugUtilsTest {
         // given
         final String card = generateString(10);
         final ArrayList<Card> cards = new ArrayList<>();
-        cards.add(new Card() {
-            @Override
-            public String getName() {
-                return card;
-            }
-
-            @Override
-            public String getDescription() {
-                return "Description";
-            }
-
-        });
+        cards.add(new TestCard(card));
 
         // when
         DebugUtils.displayCardArray(cards);
@@ -86,5 +76,24 @@ public final class DebugUtilsTest {
 
         // then
         assertThat(outputStream.toString()).contains(input1 + " " + input2);
+    }
+
+    private static class TestCard extends Card {
+        private final String card;
+
+        public TestCard(String card) {
+            this.card = card;
+        }
+
+        @Override
+        public String getName() {
+            return card;
+        }
+
+        @Override
+        public String getDescription() {
+            return "Description";
+        }
+
     }
 }

@@ -13,7 +13,6 @@ import java.util.Set;
 import static dms.pastor.game.dcs.conditions.ConditionEntry.unknown;
 import static dms.pastor.game.dcs.conditions.ConditionType.*;
 import static java.lang.String.format;
-import static java.util.Collections.unmodifiableSet;
 import static java.util.stream.Collectors.toCollection;
 
 /**
@@ -29,11 +28,11 @@ public class Condition {
 
     private static final int IMMUNITY_PERCENTAGE = 50;
     private static final Logger LOGGER = LoggerFactory.getLogger(Condition.class);
-    private HashSet<ConditionEntry> conditions = new HashSet<>();
+    private Set<ConditionEntry> conditions = new HashSet<>();
     private final RandomiseUtils randomiseUtils = new InGameRandomiseUtils();
 
     public Set<ConditionEntry> getConditions() {
-        return unmodifiableSet(conditions);
+        return conditions;
     }
 
     //TODO inspect  java.lang.NullPointerException that happens once

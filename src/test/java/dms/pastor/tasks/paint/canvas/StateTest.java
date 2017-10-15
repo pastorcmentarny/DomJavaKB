@@ -183,7 +183,7 @@ public class StateTest {
     }
 
     @Test
-    public void hasNextStateShouldReturnFalseIfnextStateIsNotSet() {
+    public void hasNextStateShouldReturnFalseIfNextStateIsNotSet() {
         // when
         final boolean result = state.containsNextState();
 

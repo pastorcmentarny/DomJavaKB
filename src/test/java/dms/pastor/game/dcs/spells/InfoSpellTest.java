@@ -12,6 +12,7 @@ import java.io.PrintStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@SuppressWarnings("resource") // auto closable not essential
 public final class InfoSpellTest {
 
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();

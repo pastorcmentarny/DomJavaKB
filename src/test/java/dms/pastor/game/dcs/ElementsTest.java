@@ -24,6 +24,7 @@ import static org.slf4j.LoggerFactory.getLogger;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
+@SuppressWarnings("resource") // auto closable not essential
 public class ElementsTest {
     private static final Logger LOGGER = getLogger(ElementsTest.class);
 

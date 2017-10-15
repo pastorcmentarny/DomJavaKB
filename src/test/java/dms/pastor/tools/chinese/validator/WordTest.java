@@ -41,7 +41,7 @@ public class WordTest {
     }
 
     @Test
-    public void toShortStringShouldrRetunBasicInformationAboutWord() {
+    public void toShortStringShouldReturnBasicInformationAboutWord() {
         // given
         final String expectedWordWithBasicInformation = word.getChineseCharacter() + " - '" +
                 word.getPinyin() + "' - [ " +

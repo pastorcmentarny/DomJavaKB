@@ -46,8 +46,8 @@ class InMemoryDictionary {
         if (Objects.nonNull(wordListAsObject) && wordListAsObject instanceof List) {
             wordsList = (List<Word>) wordListAsObject;  //TODO improve it
         } else {
-            dictionaryStatus = fail("Unable to retrive word list.");
-            LOGGER.error("Unable to retrive word list.");
+            dictionaryStatus = fail("Unable to retrieve word list.");
+            LOGGER.error("Unable to retrieve word list.");
         }
     }
 

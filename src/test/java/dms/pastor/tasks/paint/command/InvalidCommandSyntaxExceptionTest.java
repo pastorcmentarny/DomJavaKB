@@ -1,6 +1,8 @@
 package dms.pastor.tasks.paint.command;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 /**
  * Author Dominik Symonowicz
@@ -10,7 +12,10 @@ import org.junit.Test;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
-public class InvalidCommandSyntaxExceptionTest extends AbstractCommandTest {
+public class InvalidCommandSyntaxExceptionTest {
+
+    @Rule
+    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void shouldReturnInvalidCommandSyntaxExceptionWithMessage() throws Exception {

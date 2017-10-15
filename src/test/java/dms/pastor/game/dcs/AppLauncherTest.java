@@ -12,6 +12,7 @@ import java.io.PrintStream;
 import static dms.pastor.game.dcs.units.PlayerBuilder.playerBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
 
+@SuppressWarnings("resource") // auto closable not essential
 public final class AppLauncherTest {
 
     private static final String GAME_OVER_MESSAGE = "GAME OVER!";

@@ -74,13 +74,14 @@ public class Player extends Unit {
 
     private void castSpell(Unit enemy) {
         Menus.castSpell();
-        Scanner scanner = new Scanner(System.in);
-        String spell = scanner.next();
-
-        String[] input = spell.split(";");
-        DebugUtils.displayInput(input);
         Elements spellElements;
-        try {
+        try (Scanner scanner = new Scanner(System.in)) {
+            String spell = scanner.next();
+
+            String[] input = spell.split(";");
+            DebugUtils.displayInput(input);
+
+
             int a = Integer.parseInt(input[0]);
             int e = Integer.parseInt(input[1]);
             int f = Integer.parseInt(input[2]);

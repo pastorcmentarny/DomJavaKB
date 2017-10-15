@@ -14,6 +14,7 @@ import static dms.pastor.game.dcs.conditions.ConditionType.WATER_IMMUNE;
 import static dms.pastor.game.dcs.units.UnitBuilder.unitBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
 
+@SuppressWarnings("resource") // auto closable not essential
 public final class IceBoltSpellTest {
 
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();

@@ -11,6 +11,7 @@ import static dms.pastor.game.dcs.Menus.castSpell;
 import static dms.pastor.game.dcs.Menus.displayPlayerActions;
 import static org.assertj.core.api.Assertions.assertThat;
 
+@SuppressWarnings("resource") // auto closable not essential
 public final class MenusTest {
 
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();

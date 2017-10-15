@@ -4,23 +4,13 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.HashSet;
+import java.util.Set;
 
 import static dms.pastor.game.dcs.Config.DEFAULT_CONDITION_DURATION;
 import static dms.pastor.game.dcs.Config.INFINITIVE_TURNS_LEFT;
-import static dms.pastor.game.dcs.conditions.ConditionEntry.createPersistentCondition;
-import static dms.pastor.game.dcs.conditions.ConditionEntry.createTemporaryCondition;
-import static dms.pastor.game.dcs.conditions.ConditionEntry.createTemporaryConditionWithDefaultDuration;
+import static dms.pastor.game.dcs.conditions.ConditionEntry.*;
 import static dms.pastor.game.dcs.conditions.ConditionEntryBuilder.conditionEntryBuilder;
-import static dms.pastor.game.dcs.conditions.ConditionType.AIR_IMMUNE;
-import static dms.pastor.game.dcs.conditions.ConditionType.AIR_SENSITIVE;
-import static dms.pastor.game.dcs.conditions.ConditionType.EARTH_IMMUNE;
-import static dms.pastor.game.dcs.conditions.ConditionType.FIRE_IMMUNE;
-import static dms.pastor.game.dcs.conditions.ConditionType.FIRE_SENSITIVE;
-import static dms.pastor.game.dcs.conditions.ConditionType.POISONED;
-import static dms.pastor.game.dcs.conditions.ConditionType.STUNNED;
-import static dms.pastor.game.dcs.conditions.ConditionType.UNKNOWN;
-import static dms.pastor.game.dcs.conditions.ConditionType.WATER_IMMUNE;
+import static dms.pastor.game.dcs.conditions.ConditionType.*;
 import static dms.pastor.game.dcs.conditions.ElementType.AIR;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -80,7 +70,7 @@ public class ConditionTest {
         conditions.add(conditionEntry);
 
         // then
-        final HashSet<ConditionEntry> allConditions = this.conditions.getConditions();
+        final Set<ConditionEntry> allConditions = this.conditions.getConditions();
         assertThat(allConditions).contains(conditionEntry);
         assertThat(allConditions.
                 stream()

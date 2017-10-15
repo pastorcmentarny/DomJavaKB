@@ -22,6 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
+@SuppressWarnings("resource") // auto closable not essential
 public class AsteroidStormSpellTest {
 
     private static final int NUMBER_OF_TIMES_TO_CAST_SPELL = 25;

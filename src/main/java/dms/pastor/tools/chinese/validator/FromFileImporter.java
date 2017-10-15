@@ -28,7 +28,7 @@ public class FromFileImporter implements Importer {
     private static final String GROUP_SEPARATOR = "~~";
     private static final Logger LOGGER = LoggerFactory.getLogger(FromFileImporter.class);
 
-    private static void closeReaderQueitly(Reader reader) {
+    private static void closeReaderQuietly(Reader reader) {
         try {
             reader.close();
         } catch (IOException e) {
@@ -51,19 +51,15 @@ public class FromFileImporter implements Importer {
             return fail(errorMessage);
         }
 
-        FileInputStream fileInputStream;
-        try {
-            fileInputStream = new FileInputStream(file);
-        } catch (FileNotFoundException e) {
-            return returnFailResultOnException("File not found", e);
-        }
         BufferedReader br;
         InputStreamReader isr;
-        String line;
-        String[] data;
-        Word word;
         int nr = 0;
-        try {
+        try (FileInputStream fileInputStream = new FileInputStream(file)) {
+
+            String line;
+            String[] data;
+            Word word;
+
             isr = new InputStreamReader(fileInputStream);
             br = new BufferedReader(isr);
             while ((line = br.readLine()) != null) {
@@ -72,7 +68,7 @@ public class FromFileImporter implements Importer {
                     try {
                         word = parseWord(data);
                         if (validateWord(word)) {
-                            nr = addWordToWordList(wordsList, requestedCategories, getWordCategories(data), word, nr); //TODO imporve nr
+                            nr = addWordToWordList(wordsList, requestedCategories, getWordCategories(data), word, nr); //TODO improve nr
                         } else {
                             LOGGER.error("Word is corrupted(Line:" + getCurrentLine(nr) + ".It is something wrong with Dictionary." + getLine(line));
                             return fail("Validation failed as Word is invalid at line: " + (getCurrentLine(nr)) + ")\n.Problem occurred in: " + getLine(line));
@@ -85,13 +81,15 @@ public class FromFileImporter implements Importer {
                     //TODO add total ignored line
                 }
             }
+        } catch (FileNotFoundException e) {
+            return returnFailResultOnException("File not found", e);
         } catch (IOException e) {
             return returnFailResultOnException("IOException", nr, e);
         } catch (ArrayIndexOutOfBoundsException aioobe) {
             return returnFailResultOnException("ArrayIndexOutOfBoundsException", nr, aioobe);
         }
-        closeReaderQueitly(isr);
-        closeReaderQueitly(br);
+        closeReaderQuietly(isr);
+        closeReaderQuietly(br);
         return success("Dictionary loaded successfully.", wordsList);
     }
 
