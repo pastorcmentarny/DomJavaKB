@@ -25,6 +25,7 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
+@SuppressWarnings("MagicNumber") // there are representation of ball number so it is not a magic number
 public class HotPicksAnalyserTest {
 
     private static final HotPickDraw HOT_PICK_DRAW_1 = hotPickDrawBuilder()

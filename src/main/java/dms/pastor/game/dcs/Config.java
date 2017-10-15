@@ -10,16 +10,20 @@ import java.util.Random;
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
- *
+ * <p>
  * I used Config class rather than file as static in-class Config is simpler and enough good solution for application like this
  * For dynamic types of Config , I use different solutions.
  */
 public final class Config {
 
-    public static final int ADD_CARD_PER_TURN = 2;
+    // HEALTH
+    public static final int DEFAULT_HEALTH_POINTS = 24;
+    public static final int DEFAULT_MANA_POINTS = 24;
+
+
+    // SPELL
     public static final int FIREBALL_DMG = 10;
     public static final int ICE_BOLT_DMG = 4;
-    public static final int REGEN_HP_PER_TURN = 1;
     public static final int HEAL = 3;
     public static final int METEOR_STRIKE_NO = 6;
     public static final int METEOR_STRIKE_DMG = 6;
@@ -53,6 +57,12 @@ public final class Config {
     public static final int DEFAULT_CONDITION_DURATION = 3;
     public static final int EXHAUSTION_START_ROUND = 25;
     public static final int INFINITIVE_TURNS_LEFT = Integer.MAX_VALUE / 2;
+
+    // CARD
+    public static final int ADD_CARD_PER_TURN = 2;
+    public static final int REGEN_HP_PER_TURN = 1;
+    public static final int DEFAULT_MAX_HEALTH = 32;
+    public static final int DEFAULT_ELEMENT_NUMBER = 5;
 
     private Config() {
     }

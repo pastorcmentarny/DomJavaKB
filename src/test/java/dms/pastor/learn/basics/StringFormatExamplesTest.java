@@ -24,7 +24,7 @@ public class StringFormatExamplesTest {
         final String result = stringFormatExamples.displayNumberAlignedToRightWithWidth20(number);
 
         // then
-        assertThat(result).isEqualTo("|  " + 168 + "|");
+        assertThat(result).isEqualTo("|  " + number + "|");
     }
 
     @Test
@@ -33,7 +33,7 @@ public class StringFormatExamplesTest {
         final String result = stringFormatExamples.displayNumberAlignedToLeftWithWidth20(number);
 
         // then
-        assertThat(result).isEqualTo("|" + 168 + "  |");
+        assertThat(result).isEqualTo("|" + number + "  |");
     }
 
     @Test
@@ -42,7 +42,7 @@ public class StringFormatExamplesTest {
         final String result = stringFormatExamples.displayNumberAlignedToRightWithWidth20AndPadWithZeros(number);
 
         // then
-        assertThat(result).isEqualTo("|00" + 168 + "|");
+        assertThat(result).isEqualTo("|00" + number + "|");
     }
 
     @Test

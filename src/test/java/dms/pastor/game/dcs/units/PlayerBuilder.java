@@ -6,18 +6,19 @@ import dms.pastor.game.dcs.conditions.Condition;
 
 import java.util.ArrayList;
 
+import static dms.pastor.game.dcs.Config.*;
+
 public final class PlayerBuilder {
 
-    private int hp = 24;
-    private int sp = 24;
+    private int hp = DEFAULT_HEALTH_POINTS;
+    private int sp = DEFAULT_MANA_POINTS;
     private ArrayList<Card> cards = new ArrayList<>();
-    private boolean shielded = false;
     private Elements elements = Elements.noElements();
     private String description = "Description";
     private boolean player = false;
     private Condition condition = new Condition();
     private String name = "Name";
-    private int maxHp = 32;
+    private int maxHp = DEFAULT_MAX_HEALTH;
     private int arm = 0;
 
     private PlayerBuilder() {
@@ -28,13 +29,6 @@ public final class PlayerBuilder {
     }
 
     public Unit build() {
-        if (sp <= 0) {
-            sp = 0;
-            shielded = false;
-        } else {
-            shielded = true;
-        }
-
         return new Player(
                 sp,
                 elements,
@@ -60,19 +54,11 @@ public final class PlayerBuilder {
 
     public PlayerBuilder sp(int sp) {
         this.sp = sp;
-        if (sp > 0) {
-            this.shielded(true);
-        }
         return this;
     }
 
     public PlayerBuilder cards(ArrayList<Card> cards) {
         this.cards = cards;
-        return this;
-    }
-
-    private PlayerBuilder shielded(boolean shielded) {
-        this.shielded = shielded;
         return this;
     }
 
@@ -112,7 +98,6 @@ public final class PlayerBuilder {
     }
 
     public PlayerBuilder withoutShield() {
-        this.shielded(false);
         this.sp = 0;
         return this;
     }

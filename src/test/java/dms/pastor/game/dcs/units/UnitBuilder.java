@@ -8,6 +8,7 @@ import dms.pastor.game.dcs.conditions.ConditionType;
 
 import java.util.ArrayList;
 
+import static dms.pastor.game.dcs.Config.*;
 import static dms.pastor.game.dcs.conditions.ConditionEntryBuilder.conditionEntryBuilder;
 
 /**
@@ -21,17 +22,17 @@ import static dms.pastor.game.dcs.conditions.ConditionEntryBuilder.conditionEntr
  */
 public final class UnitBuilder {
 
-    private int hp = 24;
-    private int sp = 24;
+    private int hp = DEFAULT_HEALTH_POINTS;
+    private int sp = DEFAULT_MANA_POINTS;
     private ArrayList<Card> cards = new ArrayList<>();
     private Elements elements = Elements.noElements();
     private String description = "Description";
     private boolean player = false;
     private Condition condition = new Condition();
     private String name = "Name";
-    private int maxHp = 32;
+    private int maxHp = DEFAULT_MAX_HEALTH;
     private int arm = 0;
-    private int hpRegenRate = Config.REGEN_HP_PER_TURN;
+    private int hpRegenRate = REGEN_HP_PER_TURN;
 
     private UnitBuilder() {
     }

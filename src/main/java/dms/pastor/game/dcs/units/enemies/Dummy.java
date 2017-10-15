@@ -1,5 +1,6 @@
 package dms.pastor.game.dcs.units.enemies;
 
+import dms.pastor.game.dcs.Config;
 import dms.pastor.game.dcs.spells.FireBallSpell;
 import dms.pastor.game.dcs.spells.HealSpell;
 import dms.pastor.game.dcs.spells.MagicStoneSpell;
@@ -16,14 +17,14 @@ import dms.pastor.game.dcs.units.Unit;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class Dummy extends Unit {
-
+    private final int initialHp = Config.DEFAULT_HEALTH_POINTS / 2;
     Dummy() {
-        setHp(10);
+        setHp(initialHp);
     }
 
     public Dummy(String name) {
         setName(name);
-        setHp(24);
+        setHp(initialHp);
     }
 
     @Override

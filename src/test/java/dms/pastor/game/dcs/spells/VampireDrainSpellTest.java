@@ -1,5 +1,6 @@
 package dms.pastor.game.dcs.spells;
 
+import dms.pastor.game.dcs.Config;
 import dms.pastor.game.dcs.units.Unit;
 import dms.pastor.game.dcs.units.UnitBuilder;
 import dms.pastor.game.dcs.units.enemies.Vampire;
@@ -24,7 +25,7 @@ public final class VampireDrainSpellTest {
         vampireDrainSpell.castSpell(vampire, enemy);
 
         // then
-        assertThat(vampire.getHp()).isGreaterThan(Unit.DEFAULT_HEALTH_POINTS);
+        assertThat(vampire.getHp()).isGreaterThan(Config.DEFAULT_HEALTH_POINTS);
         assertThat(enemy.getHp()).isLessThan(initialHp);
     }
 

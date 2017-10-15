@@ -10,8 +10,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 
-import static dms.pastor.game.dcs.Config.INITIAL_SHIELD_POINTS;
-import static dms.pastor.game.dcs.Config.REGEN_HP_PER_TURN;
+import static dms.pastor.game.dcs.Config.*;
 import static dms.pastor.game.dcs.conditions.ConditionType.*;
 import static java.lang.String.format;
 
@@ -26,19 +25,17 @@ import static java.lang.String.format;
  */
 public class Unit {
 
-    public static final int DEFAULT_HEALTH_POINTS = 24;
+
     private static final Logger LOGGER = LoggerFactory.getLogger(Unit.class);
     private String name = "Name";
     private String description = "Description";
 
     private int hp = DEFAULT_HEALTH_POINTS;
-    private int maxHp = 32;
-
+    private int maxHp = DEFAULT_MAX_HEALTH;
     private int sp = INITIAL_SHIELD_POINTS;
-
     private int arm = 0;
 
-    private Elements elements = new Elements(5);
+    private Elements elements = new Elements(DEFAULT_ELEMENT_NUMBER);
     private ArrayList<Card> cards = new ArrayList<>();
     private boolean player = false;
     private Condition conditions = new Condition();
