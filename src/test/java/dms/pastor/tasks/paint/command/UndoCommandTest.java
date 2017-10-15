@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class UndoCommandTest extends AbstractCommandTest {
     private static final String UNDO_COMMAND = "U";
-    private final UndoCommand undoCommand = new UndoCommand();
+    private final Command undoCommand = new UndoCommand();
 
     @Test
     public void getSyntaxShouldSyntaxForUndoCommand() throws Exception {

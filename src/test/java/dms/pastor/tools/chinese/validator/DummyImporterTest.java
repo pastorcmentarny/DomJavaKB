@@ -23,7 +23,7 @@ public class DummyImporterTest {
     @Test
     public void importDictionaryShouldReturnResultWithDefaultWord() {
         // given
-        DummyImporter importer = new DummyImporter();
+        Importer importer = new DummyImporter();
 
         // when
         final Result result = importer.importDictionary(generateString(), noCategories());

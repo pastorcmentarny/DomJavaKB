@@ -17,7 +17,7 @@ class HotPickLeastPlayedCoupleFinder {
     //generate all possible combination of pair numbers between 1-59
     Set<Couple> generateAllUniqueCombinationFor(int[] numbersRange) {
         final int capacity = new Double(numbersRange.length * numbersRange.length * 1.3).intValue();
-        HashSet<Couple> couples = new HashSet<>(capacity);
+        Set<Couple> couples = new HashSet<>(capacity);
         for (int i : numbersRange) {
             for (int j : numbersRange) {
                 if (i != j) {

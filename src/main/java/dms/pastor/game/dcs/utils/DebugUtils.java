@@ -4,7 +4,7 @@ import dms.pastor.game.dcs.cards.Card;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Author Dominik Symonowicz
@@ -22,7 +22,7 @@ public final class DebugUtils {
     private DebugUtils() {
     }
 
-    public static void displayCardArray(ArrayList<Card> cards) {
+    public static void displayCardArray(List<Card> cards) {
         if (cards != null && !cards.isEmpty()) {
             for (Card card : cards) {
                 System.out.println(card.getName());

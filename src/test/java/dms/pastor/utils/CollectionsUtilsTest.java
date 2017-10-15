@@ -3,21 +3,12 @@ package dms.pastor.utils;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static dms.pastor.TestConfig.MAX_RANDOM_SIZE;
-import static dms.pastor.utils.CollectionsUtils.convertSetToIntArray;
-import static dms.pastor.utils.CollectionsUtils.convertStringArrayToSet;
-import static dms.pastor.utils.CollectionsUtils.emptyHashSet;
-import static dms.pastor.utils.CollectionsUtils.isListNotEmpty;
-import static dms.pastor.utils.CollectionsUtils.isStringArrayEmpty;
+import static dms.pastor.utils.CollectionsUtils.*;
 import static dms.pastor.utils.StringUtils.isStringBlank;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateArray;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
@@ -40,7 +31,7 @@ public class CollectionsUtilsTest {
 
     @Test
     public void testConvertListToIntArray() throws Exception {
-        ArrayList<Integer> numbers = new ArrayList<>();
+        List<Integer> numbers = new ArrayList<>();
         numbers.add(2);
         numbers.add(3);
         numbers.add(5);

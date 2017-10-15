@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -20,7 +21,7 @@ public final class EventGenerator {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(EventGenerator.class);
 
-    private static final ArrayList<Event> events = new ArrayList<>();
+    private static final List<Event> events = new ArrayList<>();
     private static final Random random = new Random();
 
     static {

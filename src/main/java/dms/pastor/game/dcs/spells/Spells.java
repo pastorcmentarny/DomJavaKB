@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -19,7 +20,7 @@ import java.util.Random;
 public class Spells {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Spells.class);
-    private static final ArrayList<Spell> spells = new ArrayList<>();
+    private static final List<Spell> spells = new ArrayList<>();
     private static final Random random = new Random();
 
     static {

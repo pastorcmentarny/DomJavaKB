@@ -6,6 +6,7 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -45,7 +46,7 @@ public class JournalTest extends TestCase {
     }
 
     public void test2NotEqualsScoreComparator() {
-        ArrayList<Journal> journalList = new ArrayList<>();
+        List<Journal> journalList = new ArrayList<>();
         Journal journalA = new Journal("FirstLowerScore", 1.1, 2013);
         Journal journalB = new Journal("SecondHigherScore", 2.2, 2013);
         journalList.add(journalA);
@@ -55,7 +56,7 @@ public class JournalTest extends TestCase {
     }
 
     public void test2EqualsScoreComparator() {
-        ArrayList<Journal> journalList = new ArrayList<>();
+        List<Journal> journalList = new ArrayList<>();
         Journal journalA = new Journal("FirstEqualScore", 1.1, 2013);
         Journal journalB = new Journal("SecondEqualScore", 1.1, 2013);
         journalList.add(journalA);

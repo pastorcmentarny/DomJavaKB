@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class NumberConverterAcceptanceCriteriaTest {
 
-    private final NumberConverter numberConverter = new NumberConverter();
+    private final Converter numberConverter = new NumberConverter();
 
     @Test
     public void shouldConvertTextWithTonesAsNumberIntoPinyin() throws Exception {

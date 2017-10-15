@@ -31,7 +31,7 @@ public class UserKeyboardReaderTest {
         // given
         final int expectedValue = 1;
         given(scanner.nextInt()).willReturn(expectedValue);
-        UserKeyboardReader userKeyboardReader = new UserKeyboardReader(scanner);
+        UserInputReader userKeyboardReader = new UserKeyboardReader(scanner);
 
         // when
         final int integer = userKeyboardReader.getIntegerInput();

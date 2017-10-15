@@ -15,7 +15,7 @@ public final class CureActionTest {
     @Test
     public void performShouldCastCureSpellOnUnitItself() {
         // given
-        CureAction cureAction = new CureAction();
+        Action cureAction = new CureAction();
 
         Condition condition = new Condition();
         condition.add(createTemporaryConditionWithDefaultDuration(BLIND));

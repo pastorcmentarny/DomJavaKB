@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class RedoCommandTest extends AbstractCommandTest {
     private static final String REDO_COMMAND = "R";
-    private final RedoCommand redoCommand = new RedoCommand();
+    private final Command redoCommand = new RedoCommand();
 
     @Test
     public void getSyntaxShouldSyntaxForRedoCommand() throws Exception {

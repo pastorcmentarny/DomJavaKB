@@ -5,6 +5,7 @@ import dms.pastor.domain.exception.SomethingWentWrongException;
 import dms.pastor.utils.StringUtils;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Author Dominik Symonowicz
@@ -33,7 +34,7 @@ public enum PseudoPinyinType {
     }
 
     public static String displaySupportedType() {
-        ArrayList<String> types = new ArrayList<>();
+        List<String> types = new ArrayList<>();
         for (PseudoPinyinType pseudoPinyinType : PseudoPinyinType.values()) {
             types.add(pseudoPinyinType.name().toLowerCase());
         }

@@ -46,7 +46,7 @@ public final class ArrayUtils {
         if (chars == null) {
             throw new IllegalArgumentException("Array is null!");
         }
-        HashSet<Character> result = new HashSet<>();
+        Set<Character> result = new HashSet<>();
         for (char aChar : chars) {
             result.add(aChar);
         }

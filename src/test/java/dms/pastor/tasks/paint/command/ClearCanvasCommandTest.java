@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ClearCanvasCommandTest extends AbstractCommandTest {
 
     private static final String CLEAR_COMMAND_SYNTAX = "C";
-    private final ClearCanvasCommand clearCanvasCommand = new ClearCanvasCommand();
+    private final Command clearCanvasCommand = new ClearCanvasCommand();
 
     @Test
     public void getSyntaxShouldSyntaxForQuitCommand() throws Exception {

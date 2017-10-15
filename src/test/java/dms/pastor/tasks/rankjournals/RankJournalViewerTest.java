@@ -7,11 +7,10 @@ import junit.framework.TestSuite;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 import static dms.pastor.tasks.rankjournals.JournalType.REVIEW;
-import static dms.pastor.tasks.rankjournals.RankJournalViewer.displaySortJournalsByScoreForYear;
-import static dms.pastor.tasks.rankjournals.RankJournalViewer.displaySortJournalsWithExclusionFilter;
-import static dms.pastor.tasks.rankjournals.RankJournalViewer.getJournalListAsString;
+import static dms.pastor.tasks.rankjournals.RankJournalViewer.*;
 import static dms.pastor.tasks.rankjournals.models.Journal.createReview;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -91,7 +90,7 @@ public class RankJournalViewerTest extends TestCase {
         assertThat(displaySortJournalsWithExclusionFilter(2009, journals, getReview())).isEqualTo(answer);
     }
 
-    private ArrayList<JournalType> getReview() {
+    private List<JournalType> getReview() {
         return new ArrayList<>(Collections.singletonList(REVIEW));
     }
 }

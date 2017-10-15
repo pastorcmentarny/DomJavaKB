@@ -33,7 +33,7 @@ public class BerlinClockTest {
     @Test
     public void berlinClockTask() throws Exception {
         System.out.println("Running a Berlin clock... ");
-        BerlinClock berlinClock = new BerlinClock();
+        ClockInterface berlinClock = new BerlinClock();
         Date date = new Date();   // given date
         Calendar calendar = Calendar.getInstance(); // creates a new calendar instance
         calendar.setTime(date);   // assigns calendar to given date

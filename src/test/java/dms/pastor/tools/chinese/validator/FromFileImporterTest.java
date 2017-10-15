@@ -25,7 +25,7 @@ public class FromFileImporterTest {
     public void importDictionaryShouldLoadDictionaryFromFile() {
         // given
         String path = BASE_PATH + "word" + File.separator + "validdictionary.txt";
-        FromFileImporter importer = new FromFileImporter();
+        Importer importer = new FromFileImporter();
 
         // when
         final Result result = importer.importDictionary(path, noCategories());
@@ -41,7 +41,7 @@ public class FromFileImporterTest {
     public void importDictionaryShouldNotLoadDictionaryFromFileIfFileHasEntryWithValidationErrors() {
         // given
         String path = BASE_PATH + "word" + File.separator + "invaliddictionary.txt";
-        FromFileImporter importer = new FromFileImporter();
+        Importer importer = new FromFileImporter();
 
         // when
         final Result result = importer.importDictionary(path, noCategories());

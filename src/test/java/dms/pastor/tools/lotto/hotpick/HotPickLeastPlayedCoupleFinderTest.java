@@ -72,7 +72,7 @@ public class HotPickLeastPlayedCoupleFinderTest {
     @Test
     public void countCouplesInAllDrawsShouldReturnCountedCouple() throws Exception {
         // given
-        final ArrayList<HotPickDraw> hotPickDraws = new ArrayList<>();
+        final List<HotPickDraw> hotPickDraws = new ArrayList<>();
         hotPickDraws.add(hotPickDrawBuilder()
                 .ball1(1)
                 .ball2(2)
@@ -113,7 +113,7 @@ public class HotPickLeastPlayedCoupleFinderTest {
     @Test
     public void getLeastPlayedCoupleShouldReturnSomething() throws Exception {
         // given
-        final ArrayList<HotPickDraw> hotPickDraws = new ArrayList<>();
+        final List<HotPickDraw> hotPickDraws = new ArrayList<>();
         hotPickDraws.add(hotPickDrawBuilder()
                 .ball1(1)
                 .ball2(2)

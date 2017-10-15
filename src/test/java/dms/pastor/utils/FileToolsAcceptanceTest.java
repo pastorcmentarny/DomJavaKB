@@ -9,6 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.List;
 
 import static dms.pastor.TestConfig.PATH;
 import static dms.pastor.utils.FileTools.saveListToFile;
@@ -43,7 +44,7 @@ public class FileToolsAcceptanceTest {
     @Test
     public void savesStringListToFile() throws Exception {
         // given
-        final ArrayList<String> stringArrayList = new ArrayList<>();
+        final List<String> stringArrayList = new ArrayList<>();
         final String text1 = generateString(MAX_STRING_LENGTH);
         final String text2 = generateString(MAX_STRING_LENGTH);
         final String text3 = generateString(MAX_STRING_LENGTH);
