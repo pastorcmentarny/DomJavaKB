@@ -18,8 +18,6 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class BubbleShieldSpellTest {
 
-    private static final Unit UNUSED_UNIT = null;
-
     @Test
     public void castBubbleShieldSpellShouldAddBBubbleShieldToPlayer() throws Exception {
         // given

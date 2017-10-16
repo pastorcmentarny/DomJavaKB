@@ -26,7 +26,10 @@ import static org.mockito.Mockito.verify;
 @RunWith(MockitoJUnitRunner.class)
 public final class NoSpellTest {
     private static final Unit UNUSED_UNIT = null;
+
+    @SuppressWarnings("StaticFieldReferencedViaSubclass") // used for testing
     private static final Logger LOGGER = (Logger) LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
+
     @Mock
     private Appender<ILoggingEvent> mockAppender;
 

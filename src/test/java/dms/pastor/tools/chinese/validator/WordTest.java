@@ -55,7 +55,7 @@ public class WordTest {
     }
 
     @Test
-    public void asWordShouldRetunWordAsString() {
+    public void asWordShouldReturnWordAsString() {
         // given
         final String expectedWordAsStringWithAllInformation = "ID: " + word.getId()
                 + "\nChinese: " + word.getChineseCharacter() + "\nPinyin: " + word.getPinyin() + "(" + word.getStrokes()

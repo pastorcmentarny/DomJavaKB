@@ -28,7 +28,7 @@ public class Unit {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Unit.class);
 
-    public final Random random = new Random();
+    protected final Random random = new Random();
 
     private String name = "Name";
     private String description = "Description";

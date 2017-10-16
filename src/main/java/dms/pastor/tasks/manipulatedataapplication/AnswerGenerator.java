@@ -1,7 +1,7 @@
 package dms.pastor.tasks.manipulatedataapplication;
 
 import dms.pastor.tasks.manipulatedataapplication.data.Person;
-import dms.pastor.tasks.manipulatedataapplication.questions.Question;
+import dms.pastor.tasks.manipulatedataapplication.data.QAInterface;
 import dms.pastor.tasks.manipulatedataapplication.questions.QuestionOne;
 import dms.pastor.tasks.manipulatedataapplication.questions.QuestionThree;
 import dms.pastor.tasks.manipulatedataapplication.questions.QuestionTwo;
@@ -41,15 +41,15 @@ class AnswerGenerator {
 
     String generate() {
 
-        Question howManyMale = new QuestionOne(people);
+        QAInterface howManyMale = new QuestionOne(people);
         howManyMale.processQuestion();
         String result = howManyMale.printAnswer();
 
-        Question averageAge = new QuestionTwo(people);
+        QAInterface averageAge = new QuestionTwo(people);
         averageAge.processQuestion();
         result += averageAge.printAnswer();
 
-        Question daysDiff = new QuestionThree(people, getPerson("Jeff Briton"), getPerson("Tom Sawyer"));
+        QAInterface daysDiff = new QuestionThree(people, getPerson("Jeff Briton"), getPerson("Tom Sawyer"));
         daysDiff.processQuestion();
         return result + daysDiff.printAnswer();
     }

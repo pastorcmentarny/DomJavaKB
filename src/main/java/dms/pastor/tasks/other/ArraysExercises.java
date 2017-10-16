@@ -11,7 +11,7 @@ package dms.pastor.tasks.other;
  * Very old exercise
  * Find Largest and Smallest Number in an Array in Java without  any third-party library or API method
  */
-public class ArraysExercises {
+class ArraysExercises {
 
     public String findLargestAndSmallest(int[] numbers) {
         int min = Integer.MAX_VALUE;

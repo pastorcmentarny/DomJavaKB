@@ -19,7 +19,7 @@ import static dms.pastor.tasks.paint.command.CommandValidator.validatePositiveLe
  */
 public class CreateNewLineCommand implements Command {
     private static final Logger LOGGER = LoggerFactory.getLogger(CreateCanvasCommand.class);
-    public static final String PIXEL_FILL = "x";
+    private static final String PIXEL_FILL = "x";
 
     private Coordinates startPoint = noCoordination();
     private Coordinates endPoint = noCoordination();

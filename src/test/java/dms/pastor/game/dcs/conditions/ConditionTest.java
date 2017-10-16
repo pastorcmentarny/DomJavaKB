@@ -38,7 +38,7 @@ public class ConditionTest {
 
     @After
     public void tearDown() throws Exception {
-        conditions.getConditions().clear();
+        conditions.clear();
     }
 
     @Test
@@ -479,6 +479,7 @@ public class ConditionTest {
 
     }
 
+    @SuppressWarnings("CastToConcreteClass")
     @Test //single var args will cause NPE since casting
     public void createConditionWithNullArrayShouldContainsEmptyCondition() {
         // when

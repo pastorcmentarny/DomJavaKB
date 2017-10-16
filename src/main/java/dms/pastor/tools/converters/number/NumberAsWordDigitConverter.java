@@ -22,6 +22,7 @@ final class NumberAsWordDigitConverter {
         return total;
     }
 
+    //TODO improve this method
     @SuppressWarnings("MagicNumber") //as they are meaningful in this context
     private static int getNumberFor(String partOfNumber) {
 

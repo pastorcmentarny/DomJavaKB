@@ -24,7 +24,7 @@ public class ExampleObject {
         return anInteger;
     }
 
-    public String getaString() {
+    public String getString() {
         return aString;
     }
 

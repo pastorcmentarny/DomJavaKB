@@ -10,7 +10,7 @@ import java.util.List;
  * Date: 23.07.13
  * Time: 21:33
  */
-public abstract class Question implements QAInterface {
+abstract class Question implements QAInterface {
 
     final List<Person> people;
 

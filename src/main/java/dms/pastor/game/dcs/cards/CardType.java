@@ -10,5 +10,5 @@ package dms.pastor.game.dcs.cards;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public enum CardType {
-    ELEMENT, SPELL, EVENT
+    SPELL, EVENT
 }

@@ -176,4 +176,8 @@ public class Condition {
     public String toString() {
         return format("Condition{conditions=%s, randomiseUtils=%s}", conditions, randomiseUtils);
     }
+
+    public void clear() {
+        conditions.clear();
+    }
 }

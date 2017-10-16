@@ -11,6 +11,8 @@ import org.junit.rules.ExpectedException;
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+ *
+ * This class must be public otherwise test will throw java.lang.RuntimeException: How did getFields return a field we couldn't access?
  */
 public class AbstractCommandTest {
 

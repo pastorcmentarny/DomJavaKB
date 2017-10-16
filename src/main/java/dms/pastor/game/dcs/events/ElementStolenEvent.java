@@ -2,8 +2,6 @@ package dms.pastor.game.dcs.events;
 
 import dms.pastor.game.dcs.units.Unit;
 
-import java.util.Random;
-
 import static dms.pastor.game.dcs.Config.REMOVE_RANDOM_ELEMENTS_NUMBER;
 
 /**
@@ -16,8 +14,6 @@ import static dms.pastor.game.dcs.Config.REMOVE_RANDOM_ELEMENTS_NUMBER;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class ElementStolenEvent extends Event {
-
-    Random random = new Random();
 
     @Override
     public String makeItHappen(Unit attacker, Unit defender) {

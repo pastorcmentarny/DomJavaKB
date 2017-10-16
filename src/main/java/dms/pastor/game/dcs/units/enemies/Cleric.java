@@ -62,10 +62,14 @@ public class Cleric extends Unit {
         while (spell.hasEnoughElementsToCovertToSpell(getElements())) {
             castMagicStone(enemy, spell);
             castMagicStone(enemy, spell);
-            while (randoms.isWillHappenWithProbabilityOf(50)) {
-                System.out.println("Lucky extra magic stone");
-                spell.castSpell(this, enemy);
-            }
+            tryToCastMagicStoneIfLuckyEnough(enemy, spell);
+        }
+    }
+
+    private void tryToCastMagicStoneIfLuckyEnough(Unit enemy, Spell spell) {
+        while (randoms.isWillHappenWithProbabilityOf(50)) {
+            System.out.println("Lucky extra magic stone");
+            spell.castSpell(this, enemy);
         }
     }
 

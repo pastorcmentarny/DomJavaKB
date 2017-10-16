@@ -18,7 +18,6 @@ class StringFormatExamples {
         this.width = width;
     }
 
-
     String displayNumberAlignedToRightWithWidth20(int number) {
         return String.format("|%" + width + "d|", number);
     }

@@ -17,6 +17,7 @@ import java.util.Random;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
+@SuppressWarnings("ClassWithTooManyDependencies") //as it used to store all spells
 public class Spells {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Spells.class);

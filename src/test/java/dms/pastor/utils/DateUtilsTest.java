@@ -79,6 +79,7 @@ public class DateUtilsTest {
         assertThat(java8Date.toString()).isEqualTo(date);
     }
 
+    @SuppressWarnings("UseOfObsoleteDateTimeApi")
     @Test
     public void shouldConvertDateToLocalDate() throws Exception {
         // given

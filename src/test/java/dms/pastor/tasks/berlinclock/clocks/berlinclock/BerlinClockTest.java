@@ -6,9 +6,9 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import java.util.Calendar;
-import java.util.Date;
+import java.time.LocalTime;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 
 /**
@@ -23,6 +23,7 @@ public class BerlinClockTest {
 
     @Rule
     public final ExpectedException exception = ExpectedException.none();
+
     private ClockInterface clock;
 
     @Before
@@ -32,31 +33,39 @@ public class BerlinClockTest {
 
     @Test
     public void berlinClockTask() throws Exception {
-        System.out.println("Running a Berlin clock... ");
+        // given
         ClockInterface berlinClock = new BerlinClock();
-        Date date = new Date();   // given date
-        Calendar calendar = Calendar.getInstance(); // creates a new calendar instance
-        calendar.setTime(date);   // assigns calendar to given date
-        int hour = calendar.get(Calendar.HOUR_OF_DAY);
-        int minutes = calendar.get(Calendar.MINUTE);
-        int seconds = calendar.get(Calendar.SECOND);
-        System.out.println(berlinClock.showTime(berlinClock.getTimeAsString(hour, minutes, seconds)));
+        LocalTime today = LocalTime.now();
+        int hour = today.getHour();
+        int minutes = today.getMinute();
+        int seconds = today.getSecond();
 
-        System.out.println("End of program.\nGoodbye ! ");
+        // when
+        final String actualTime = berlinClock.showTime(berlinClock.getTimeAsString(hour, minutes, seconds));
+
+        // then
+        assertThat(actualTime).contains(String.valueOf(hour));
+        assertThat(actualTime).contains(String.valueOf(minutes));
+        assertThat(actualTime).contains(String.valueOf(seconds));
 
     }
 
     @Test
     public void testShowTime() throws Exception {
+        // given
+        final LocalTime today = LocalTime.now();
+        final int hour = today.getHour();
+        final int minutes = today.getMinute();
+        final int seconds = today.getSecond();
 
-        Date date = new Date();
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);   // assigns calendar to given date
-        int hour = calendar.get(Calendar.HOUR_OF_DAY);
-        int minutes = calendar.get(Calendar.MINUTE);
-        int seconds = calendar.get(Calendar.SECOND);
+        // when
+        final String currentTime = clock.showTime(clock.getTimeAsString(hour, minutes, seconds));
 
-        clock.showTime(clock.getTimeAsString(hour, minutes, seconds));
+        // then
+        assertThat(currentTime).contains(String.valueOf(hour));
+        assertThat(currentTime).contains(String.valueOf(minutes));
+        assertThat(currentTime).contains(String.valueOf(seconds));
+
     }
 
     @Test

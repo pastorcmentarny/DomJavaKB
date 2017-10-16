@@ -97,6 +97,7 @@ class HotPickDrawBuilder {
         return this;
     }
 
+    @SuppressWarnings("MethodWithTooManyParameters")
     HotPickDrawBuilder allBalls(int ball1, int ball2, int ball3, int ball4, int ball5, int ball6) {
         this.ball1 = ball1;
         this.ball2 = ball2;

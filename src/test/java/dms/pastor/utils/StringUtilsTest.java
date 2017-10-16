@@ -707,7 +707,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void getStringWithCapitalizedFirstCharacterShouldReturnTheSameStringWhenInputHasCapitalCharacterdOnly() throws Exception {
+    public void getStringWithCapitalizedFirstCharacterShouldReturnTheSameStringWhenInputHasCapitalCharacterOnly() throws Exception {
         // given
         final String string = "STRING";
 

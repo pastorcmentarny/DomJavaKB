@@ -38,6 +38,7 @@ public class IceBoltSpell extends Spell {
         }
     }
 
+    //TODO move this DamageUtils
     private int doubleDamageFor(int dmg) {
         return 2 * dmg;
     }

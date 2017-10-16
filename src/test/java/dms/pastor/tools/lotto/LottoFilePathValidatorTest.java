@@ -24,9 +24,9 @@ import static org.junit.Assert.fail;
  */
 public class LottoFilePathValidatorTest {
     private static final String USER_DIRECTORY = "user.dir";
+
     @Rule
     public final ExpectedException exception = ExpectedException.none();
-    private LottoFilePathValidator loadHotPicksDrawHistoryFile = new LottoFilePathValidator();
 
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenFileIsNull() throws Exception {

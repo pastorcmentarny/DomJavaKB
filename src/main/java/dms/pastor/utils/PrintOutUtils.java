@@ -1,6 +1,9 @@
 package dms.pastor.utils;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.IntStream;
 
 import static dms.pastor.utils.ValidatorUtils.validateMinValueIsSmallerThanMaxValue;
@@ -41,7 +44,7 @@ public final class PrintOutUtils {
         out.println(sb.toString());
     }
 
-    public static void printCharacterIntegerHashMap(HashMap<Character, Integer> hm) {
+    public static void printCharacterIntegerHashMap(Map<Character, Integer> hm) {
         Iterator<Map.Entry<Character, Integer>> it = hm.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry<Character, Integer> pairs = it.next();

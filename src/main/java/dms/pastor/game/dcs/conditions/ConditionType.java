@@ -12,7 +12,7 @@ import dms.pastor.domain.exception.SomethingWentWrongException;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public enum ConditionType {
-    STUNNED, POISONED, VAMPIRE, BLIND, WEAKNESS,
+    STUNNED, POISONED, BLIND, WEAKNESS,
     TRIPLE, REGENERATION, FROZEN, BLOODLUST,
     AIR_RESISTANT, AIR_IMMUNE, AIR_SENSITIVE,
     EARTH_RESISTANT, EARTH_IMMUNE, EARTH_SENSITIVE,

@@ -27,7 +27,7 @@ public class SomethingWentTerribleWrongError extends Error {
         throw new java.io.IOException("Cannot be deserialized");
     }
 
-    @SuppressWarnings("FinalPrivateMethod")
+    @SuppressWarnings({"FinalPrivateMethod", "unused"})
     private final void writeObject(ObjectOutputStream out) throws java.io.IOException {
         throw new java.io.IOException("Cannot be deserialized");
     }

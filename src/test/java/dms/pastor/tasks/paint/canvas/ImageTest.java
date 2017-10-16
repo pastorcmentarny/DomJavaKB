@@ -176,15 +176,9 @@ public class ImageTest {
         assertThat(copyOfImage.getImageAsString()).isEqualTo(image.getImageAsString());
     }
 
-    @Test //TODO
-    public void getImageAsStringShouldReturnEmptyIfHeightIsEmpty() {
+    //TODO @Test public void getImageAsStringShouldReturnEmptyIfHeightIsEmpty() {}
 
-    }
-
-    @Test  //TODO
-    public void getImageAsStringShouldReturnEmptyIfWeightIsEmpty() {
-
-    }
+    //TODO @Test public void getImageAsStringShouldReturnEmptyIfWeightIsEmpty() {}
 
     private Image getTestImage() {
         return new Image(8, 6);

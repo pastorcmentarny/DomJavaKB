@@ -45,16 +45,8 @@ public class Image {
         return width;
     }
 
-    private void setWidth(int width) {
-        this.width = width;
-    }
-
     public int getHeight() {
         return height;
-    }
-
-    private void setHeight(int height) {
-        this.height = height;
     }
 
     public String[][] getImage() {
@@ -77,8 +69,8 @@ public class Image {
     }
 
     public void resetToNoImage() {
-        setWidth(0);
-        setHeight(0);
+        width = 0;
+        height = 0;
         image = new String[0][0];
     }
 

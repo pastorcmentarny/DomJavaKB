@@ -72,7 +72,7 @@ public class ValidatorUtilsTest {
     public void shouldThrowIllegalArgumentExceptionWhenValidatingNotNullPropertiesWithCustomMessage() {
 
         // given
-        final Object[] arrayWithSomeNulls = {null, anObject.getaString(), anObject.getADouble(), null};
+        final Object[] arrayWithSomeNulls = {null, anObject.getString(), anObject.getADouble(), null};
 
         // except
         expectedException.expect(IllegalArgumentException.class);
@@ -85,7 +85,7 @@ public class ValidatorUtilsTest {
     @Test
     public void shouldValidateForValidateNotNullPropertiesWithCustomMessages() {
         // given
-        final Object[] objectsToValidate = {anObject.getADouble(), anObject.getAnInteger(), anObject.getaString()};
+        final Object[] objectsToValidate = {anObject.getADouble(), anObject.getAnInteger(), anObject.getString()};
 
         // when
         validateNotNullPropertiesWithCustomMessagesPerProperty(new Object[][]{
@@ -100,7 +100,7 @@ public class ValidatorUtilsTest {
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenForValidatingNotNullPropertiesWithCustomMessages() {
         // given
-        final Object[] objectsToValidate = {null, anObject.getADouble(), anObject.getAnInteger(), anObject.getaString(), null};
+        final Object[] objectsToValidate = {null, anObject.getADouble(), anObject.getAnInteger(), anObject.getString(), null};
 
         // except
         expectedException.expect(IllegalArgumentException.class);

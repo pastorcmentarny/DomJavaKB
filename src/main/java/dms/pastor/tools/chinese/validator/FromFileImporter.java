@@ -27,7 +27,7 @@ public class FromFileImporter implements Importer {
     private static final String COLUMN_SEPARATOR = ";;";
     private static final String GROUP_SEPARATOR = "~~";
     private static final Logger LOGGER = LoggerFactory.getLogger(FromFileImporter.class);
-    private List<Word> wordsList = new ArrayList<>();
+    private final List<Word> wordsList = new ArrayList<>();
     private int nr = 0;
 
 
@@ -86,7 +86,7 @@ public class FromFileImporter implements Importer {
                 }
             }
         } catch (FileNotFoundException e) {
-            return returnFailResultOnException("File not found", e);
+            return returnFailResultOnException(e);
         } catch (IOException e) {
             return returnFailResultOnException("IOException", nr, e);
         } catch (ArrayIndexOutOfBoundsException aioobe) {
@@ -102,8 +102,8 @@ public class FromFileImporter implements Importer {
         nr = 0;
     }
 
-    private Result returnFailResultOnException(String errorMessage, Exception exception) {
-        return returnFailResultOnException(errorMessage, Integer.MIN_VALUE, exception);
+    private Result returnFailResultOnException(Exception exception) {
+        return returnFailResultOnException("File not found", Integer.MIN_VALUE, exception);
     }
 
     private Result returnFailResultOnException(String errorMessage, int nr, Exception exception) {

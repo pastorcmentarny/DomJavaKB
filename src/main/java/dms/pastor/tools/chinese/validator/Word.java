@@ -15,15 +15,15 @@ import java.util.Objects;
 public final class Word {
 
     private static final String DEFAULT_NOTE = "none";
-    private int id;
-    private String chineseCharacter;
-    private String pinyin;
-    private int strokes;
-    private String englishMeaning;
-    private String polish;
-    private String[] groups;
+    private final int id;
+    private final String chineseCharacter;
+    private final String pinyin;
+    private final int strokes;
+    private final String englishMeaning;
+    private final String polish;
+    private final String[] groups;
     private String notes = DEFAULT_NOTE;
-    private int difficulty;
+    private final int difficulty;
 
     @SuppressWarnings("ConstructorWithTooManyParameters") //it is object value
     public Word(int id, String chineseCharacter, String pinyin, int strokes, String englishMeaning, String polish, String[] groups, String notes, int difficulty) {

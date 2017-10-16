@@ -25,11 +25,16 @@ public class Grid {
         grid = new Integer[gridSize][gridSize];
         Integer cell = 2;
         for (int row = 0; row < gridSize; row++) {
-            for (int column = 0; column < gridSize; column++) {
-                grid[row][column] = Integer.parseInt(data[cell]);
-                cell++;
-            }
+            cell = populateColumn(data, cell, row);
         }
+    }
+
+    private Integer populateColumn(String[] data, Integer cell, int row) {
+        for (int column = 0; column < gridSize; column++) {
+            grid[row][column] = Integer.parseInt(data[cell]);
+            cell++;
+        }
+        return cell;
     }
 
     //used for debug mode // TODO improve it

@@ -41,7 +41,6 @@ public final class NoSpell extends Spell implements Serializable {
         LOGGER.warn("Nothing happen. (Bug? Casting spell for No Spell???)");
     }
 
-    @Override
     public boolean isASpell(Elements elements) {
         return false;
     }

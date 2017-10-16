@@ -16,6 +16,7 @@ import static org.junit.Assert.assertTrue;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
+@SuppressWarnings("ClassWithTooManyDependencies") //as it test find spell functionality
 public class FindSpellsTest {
 
     private Spells spells;

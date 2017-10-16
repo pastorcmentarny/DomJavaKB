@@ -152,7 +152,6 @@ public class StateTest {
         final String pixelFill = getRandomCharacterAsString();
         image.setPixel(1, 1, pixelFill);
         state.save(image);
-        final Image expectedImage = new Image(image.getWidth(), image.getHeight(), image.getImage());
         image.setPixel(2, 2, pixelFill);
         state.save(image);
 
@@ -221,7 +220,7 @@ public class StateTest {
     }
 
     @Test
-    public void redoShouldReturnOrginalImageIfRedoStateExists() {
+    public void redoShouldReturnOriginalImageIfRedoStateExists() {
         // given
         Image image = getImage();
         image.setPixel(randomPositiveInteger(image.getWidth()), randomPositiveInteger(image.getHeight()), getRandomCharacterAsString());

@@ -24,7 +24,7 @@ public class FromFileImporterTest {
     @Test
     public void importDictionaryShouldLoadDictionaryFromFile() {
         // given
-        String path = BASE_PATH + "word" + File.separator + "validdictionary.txt";
+        String path = BASE_PATH + "word" + File.separator + "validDictionary.txt";
         Importer importer = new FromFileImporter();
 
         // when
@@ -40,7 +40,7 @@ public class FromFileImporterTest {
     @Test
     public void importDictionaryShouldNotLoadDictionaryFromFileIfFileHasEntryWithValidationErrors() {
         // given
-        String path = BASE_PATH + "word" + File.separator + "invaliddictionary.txt";
+        String path = BASE_PATH + "word" + File.separator + "invalidDictionary.txt";
         Importer importer = new FromFileImporter();
 
         // when

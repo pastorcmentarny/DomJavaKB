@@ -18,7 +18,7 @@ import java.util.Random;
  */
 public abstract class Spell extends Card {
 
-    public final Random random = new Random();
+    final Random random = new Random();
 
     private final CardType cardType = CardType.SPELL;
     private Elements elements;
@@ -60,7 +60,4 @@ public abstract class Spell extends Card {
         this.elements = elements;
     }
 
-    public boolean isASpell(Elements elements) {
-        return this.elements.hasExactly(elements);
-    }
 }

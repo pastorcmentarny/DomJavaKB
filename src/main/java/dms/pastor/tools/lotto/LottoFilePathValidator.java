@@ -12,6 +12,8 @@ import java.io.File;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public final class LottoFilePathValidator {
+    private LottoFilePathValidator() {
+    }
 
     public static void validateFilePath(String filePath) {
         if (filePath == null || filePath.isEmpty()) {

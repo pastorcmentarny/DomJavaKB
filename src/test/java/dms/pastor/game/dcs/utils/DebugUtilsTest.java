@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.List;
 
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -46,7 +47,7 @@ public final class DebugUtilsTest {
     public void displayCardArrayShouldReturnDisplayInfoAboutCardIfCardArrayIsOneCard() {
         // given
         final String card = generateString(10);
-        final ArrayList<Card> cards = new ArrayList<>();
+        final List<Card> cards = new ArrayList<>();
         cards.add(new TestCard(card));
 
         // when
@@ -81,7 +82,7 @@ public final class DebugUtilsTest {
     private static class TestCard extends Card {
         private final String card;
 
-        public TestCard(String card) {
+        TestCard(String card) {
             this.card = card;
         }
 
