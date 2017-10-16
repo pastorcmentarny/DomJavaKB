@@ -1,5 +1,7 @@
 package dms.pastor.tasks.manipulatedataapplication.data;
 
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+
 /**
  * Author Dominik Symonowicz
  * Created 2013-07-23
@@ -16,7 +18,6 @@ public enum Genre {
     FEMALE;
 
     private static final String SPECIAL_CHARACTERS = "\\s";
-    private static final String EMPTY_STRING = "";
 
     public static Genre fromString(String genre) {
         return valueOf(genre.toUpperCase().replaceAll(SPECIAL_CHARACTERS, EMPTY_STRING));

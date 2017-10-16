@@ -155,13 +155,14 @@ public class UnitTest {
         final Unit unit = unitBuilder()
                 .sp(DEFAULT_NUMBER_OF_ELEMENTS)
                 .build();
+        final int expectedSp = 15;
 
         // when
         final boolean wasIncreased = unit.increaseShieldBy(5);
 
         // then
         assertThat(wasIncreased).isTrue();
-        assertThat(unit.getSp()).isEqualTo(15);
+        assertThat(unit.getSp()).isEqualTo(expectedSp);
 
     }
 

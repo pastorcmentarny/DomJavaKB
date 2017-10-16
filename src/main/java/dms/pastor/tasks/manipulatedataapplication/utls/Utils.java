@@ -11,11 +11,12 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
-import java.util.TimeZone;
 import java.util.stream.Collectors;
+
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 
 /**
  * Author Dominik Symonowicz
@@ -27,24 +28,16 @@ import java.util.stream.Collectors;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public final class Utils {
-
-    public static final long DAY_FROM_MILLISECONDS = 1000L * 60L * 60L * 24L;
-
     private static final Logger LOGGER = LoggerFactory.getLogger(Utils.class);
     private static final String WHITESPACES = "\\s";
-    private static final String EMPTY_STRING = "";
+    private static final String SPLIT_CHARACTER = "/";
 
     private Utils() {
     }
 
-    //TODO replace this method with Java8
-    public static long setDate(String date) {
-        String[] aDate = date.split("/");
-        final Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
-        cal.set(Calendar.DAY_OF_MONTH, Integer.valueOf(aDate[0].replaceAll(WHITESPACES, EMPTY_STRING)));
-        cal.set(Calendar.MONTH, Integer.valueOf(aDate[1].replaceAll(WHITESPACES, EMPTY_STRING)));
-        cal.set(Calendar.YEAR, Integer.valueOf(aDate[2].replaceAll(WHITESPACES, EMPTY_STRING)));
-        return cal.getTimeInMillis();
+    public static LocalDate parseDate(String dateAsText) {
+        String[] aDate = dateAsText.split(SPLIT_CHARACTER);
+        return LocalDate.of(getValueFor(aDate[2]), getValueFor(aDate[1]), getValueFor(aDate[0]));
     }
 
     public static int calculateAverageAge(int totalAge, int numberOfPeople) {
@@ -63,36 +56,37 @@ public final class Utils {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 try {
-                    Person tmp = addPerson(line);
-
-                    if (isNotExists(tmp, people)) {
-                        people.add(tmp);
-                    }
-
+                    Person person = getPerson(line);
+                    addPersonIfDoesNotExist(people, person);
                 } catch (Exception e) {
-                    LOGGER.warn("not a valid person  due " + e.getMessage());
+                    LOGGER.warn("not a valid person due " + e.getMessage());
                 }
             }
         }
         return people;
     }
 
-    private static Person addPerson(String line) {
-        String[] columns = line.split(",");
-        return new Person(columns[0], Genre.fromString(columns[1]), Integer.valueOf(columns[2].replaceAll(WHITESPACES, EMPTY_STRING)), columns[3]);
-    }
-
-    private static boolean isNotExists(Person person, List<Person> people) {
-        for (Person p : people) {
-            if (p.equals(person)) {
-                return false;
-            }
-        }
-        return true;
-
-    }
-
     public static List<String> loadFileToArrayOfStrings(String filePath) throws IOException {
         return new ArrayList<>(Files.lines(Paths.get(filePath)).collect(Collectors.toList()));
+    }
+
+    private static void addPersonIfDoesNotExist(List<Person> people, Person tmp) {
+        if (isPersonNotExists(tmp, people)) {
+            people.add(tmp);
+        }
+    }
+
+    private static Integer getValueFor(String value) {
+        return Integer.valueOf(value.replaceAll(WHITESPACES, EMPTY_STRING));
+    }
+
+    private static Person getPerson(String line) {
+        String[] columns = line.split(",");
+        return new Person(columns[0], Genre.fromString(columns[1]), getValueFor(columns[2]), columns[3]);
+    }
+
+    private static boolean isPersonNotExists(Person newPerson, List<Person> people) {
+        return people.stream().noneMatch(person -> person.equals(newPerson));
+
     }
 }

@@ -5,6 +5,7 @@ import dms.pastor.tasks.manipulatedataapplication.data.Person;
 import java.util.List;
 
 import static dms.pastor.tasks.manipulatedataapplication.utls.Utils.calculateAverageAge;
+import static java.lang.String.format;
 
 /**
  * User: Pastor
@@ -21,13 +22,11 @@ public class QuestionTwo extends Question {
 
     @Override
     public void processQuestion() {
-        for (Person person : people) {
-            totalAge += person.getAge();
-        }
+        totalAge = people.stream().mapToInt(Person::getAge).sum();
     }
 
     @Override
     public String printAnswer() {
-        return " Average age of people is: " + calculateAverageAge(totalAge, people.size());
+        return format("Average age of people is: %d. ", calculateAverageAge(totalAge, people.size()));
     }
 }

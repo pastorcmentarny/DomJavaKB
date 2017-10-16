@@ -23,11 +23,12 @@ public class Conjuror extends Unit {
 
     private static final int INITIAL_SP = 40;
     private static final Logger LOGGER = LoggerFactory.getLogger(Genie.class);
+    public static final int INITIAL_HP = 40;
 
     public Conjuror() {
         setName("Conjuror");
         setElements(new Elements(15));
-        setHp(40);
+        setHp(INITIAL_HP);
         setSp(INITIAL_SP);
         maybeAddResistanceTo(AIR_RESISTANT);
         maybeAddResistanceTo(EARTH_RESISTANT);

@@ -27,6 +27,7 @@ import static org.mockito.Mockito.when;
  * <p>
  * This is a progressive acceptance test as example shows an example steps .This follows these steps
  */
+@SuppressWarnings("SpellCheckingInspection") //off as test contains lots text as graphic elements
 @RunWith(MockitoJUnitRunner.class)
 public class AcceptanceTests {
 

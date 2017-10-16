@@ -32,7 +32,7 @@ public class AnswerGeneratorTest {
 
     @Test
     public void acceptanceCriteria() throws Exception {
-        String result = "Number of male: 5 Average age of people is: 27Jeff Briton is 29 day(s) older than Tom Sawyer";
+        String result = "Number of male: 5. Average age of people is: 27. Jeff Briton is 29 day(s) older than Tom Sawyer.";
 
         final String answerGenerated = answers.generate();
         Assert.assertThat(answerGenerated, is(result));

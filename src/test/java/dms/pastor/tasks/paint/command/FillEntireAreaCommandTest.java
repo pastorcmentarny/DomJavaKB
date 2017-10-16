@@ -15,8 +15,12 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+ *
+ * I supress 2 warnings because:
+ * off as test contains lots text as graphic elements
+ * test tests algorithm that in many edge cases that uses similar condition
  */
-@SuppressWarnings("Duplicates") // test tests algorithm that in many edge cases that uses similar condition
+@SuppressWarnings({"Duplicates", "SpellCheckingInspection"})
 public class FillEntireAreaCommandTest extends AbstractCommandTest {
     private static final String FILL_ENTIRE_AREA_COMMAND = "B";
     private static final String FILL_CHARACTER = "o";

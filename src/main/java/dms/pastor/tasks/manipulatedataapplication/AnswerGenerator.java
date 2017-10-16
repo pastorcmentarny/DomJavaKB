@@ -5,10 +5,12 @@ import dms.pastor.tasks.manipulatedataapplication.data.QAInterface;
 import dms.pastor.tasks.manipulatedataapplication.questions.QuestionOne;
 import dms.pastor.tasks.manipulatedataapplication.questions.QuestionThree;
 import dms.pastor.tasks.manipulatedataapplication.questions.QuestionTwo;
-import dms.pastor.tasks.manipulatedataapplication.utls.Utils;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
+
+import static dms.pastor.tasks.manipulatedataapplication.utls.Utils.loadPeople;
 
 /**
  * User: Dominik Symonowicz
@@ -20,23 +22,20 @@ class AnswerGenerator {
     private final List<Person> people;
 
     AnswerGenerator(String fileName) throws IOException {
-        people = Utils.loadPeople(fileName);
+        people = loadPeople(fileName);
         displayPeople();
     }
 
     Person getPerson(String personName) {
-        for (Person person : people) {
-            if (person.getFullName().equalsIgnoreCase(personName)) {
-                return person;
-            }
-        }
-        throw new PersonNotFoundException(personName);
+        final Optional<Person> result = people.stream()
+                .filter(person -> person.getFullName().equalsIgnoreCase(personName))
+                .findFirst();
+
+        return result.orElseThrow(() -> new PersonNotFoundException(personName));
     }
 
     private void displayPeople() {
-        for (Person person : people) {
-            System.out.print(person.toString());
-        }
+        people.forEach(System.out::println);
     }
 
     String generate() {

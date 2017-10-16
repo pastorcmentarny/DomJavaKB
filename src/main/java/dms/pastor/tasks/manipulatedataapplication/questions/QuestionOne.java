@@ -1,9 +1,11 @@
 package dms.pastor.tasks.manipulatedataapplication.questions;
 
-import dms.pastor.tasks.manipulatedataapplication.data.Genre;
 import dms.pastor.tasks.manipulatedataapplication.data.Person;
 
 import java.util.List;
+
+import static dms.pastor.tasks.manipulatedataapplication.data.Genre.MALE;
+import static java.lang.String.format;
 
 /**
  * User: Dominik Symonowicz
@@ -20,11 +22,11 @@ public class QuestionOne extends Question {
 
     @Override
     public void processQuestion() {
-        people.stream().filter(person -> person.getGenre() == Genre.MALE).forEach(person -> counter++);
+        people.stream().filter(person -> person.getGenre() == MALE).forEach(person -> counter++);
     }
 
     @Override
     public String printAnswer() {
-        return "Number of male: " + counter;
+        return format("Number of male: %d. ", counter);
     }
 }
