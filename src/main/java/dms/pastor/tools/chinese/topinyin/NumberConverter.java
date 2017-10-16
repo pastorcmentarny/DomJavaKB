@@ -1,8 +1,7 @@
 package dms.pastor.tools.chinese.topinyin;
 
 import static dms.pastor.tools.chinese.topinyin.PinyinTransformer.transformToPinyin;
-import static dms.pastor.utils.StringUtils.isStringBlank;
-import static dms.pastor.utils.StringUtils.isStringNotEmpty;
+import static dms.pastor.utils.StringUtils.*;
 
 /**
  * Author Dominik Symonowicz
@@ -25,21 +24,34 @@ public class NumberConverter implements Converter {
         }
 
         String[] sentence = input.split(SPACE);
+
         StringBuilder outputBuilder = new StringBuilder(EMPTY_STRING);
-        for (String word : sentence) {
-            if (isStringNotEmpty(input)) {
-                CharacterWithTone characterWithTone = CharacterWithTone.fromString(word);
-                outputBuilder.append(transformToPinyin(characterWithTone));
-                outputBuilder.append(SPACE);
-            }
-        }
+
+        transformWordsInSentenceToPinyin(input, sentence, outputBuilder);
 
         String pinyin = outputBuilder.toString();
 
-        if (pinyin.charAt(pinyin.length() - 1) == ' ') {
+        return removeWhitespaceIfExistsInLastElement(pinyin);
+    }
+
+    private void transformWordsInSentenceToPinyin(String input, String[] sentence, StringBuilder outputBuilder) {
+        for (String word : sentence) {
+            transformWordToPinyin(input, outputBuilder, word);
+        }
+    }
+
+    private void transformWordToPinyin(String input, StringBuilder outputBuilder, String word) {
+        if (isStringNotEmpty(input)) {
+            CharacterWithTone characterWithTone = CharacterWithTone.fromString(word);
+            outputBuilder.append(transformToPinyin(characterWithTone));
+            outputBuilder.append(SPACE);
+        }
+    }
+
+    private String removeWhitespaceIfExistsInLastElement(String pinyin) {
+        if (pinyin.charAt(pinyin.length() - 1) == WHITESPACE_CHAR) {
             pinyin = pinyin.substring(0, pinyin.length() - 1);
         }
-
         return pinyin;
     }
 

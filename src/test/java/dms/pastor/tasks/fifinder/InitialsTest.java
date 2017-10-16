@@ -3,6 +3,7 @@ package dms.pastor.tasks.fifinder;
 import org.junit.Test;
 
 import static dms.pastor.tasks.fifinder.NameBuilder.nameBuilder;
+import static dms.pastor.utils.StringUtils.WHITESPACE_CHAR;
 import static org.assertj.core.api.Java6Assertions.assertThat;
 
 /**
@@ -16,14 +17,13 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
  */
 public class InitialsTest {
 
-    private static final char SPACE = ' ';
     private static final String FIRST_NAME = "Jessica";
     private static final String MIDDLE_NAME = "Sophie";
     private static final String MIDDLE_NAMES = MIDDLE_NAME + " Marie";
     private static final String LAST_NAME = "Abernathy";
     private static final String SECOND_LAST_NAME = "Tremaine";
     private static final String LAST_NAMES_WITH_DASH = LAST_NAME + '-' + SECOND_LAST_NAME;
-    private static final String LAST_NAMES_WITH_SPACE = LAST_NAME + SPACE + SECOND_LAST_NAME;
+    private static final String LAST_NAMES_WITH_SPACE = LAST_NAME + WHITESPACE_CHAR + SECOND_LAST_NAME;
     private static final String FIRST_NAME_INITIAL = "J.";
     private static final String MIDDLE_NAME_INITIAL = "S.";
     private static final String LAST_NAME_INITIAL = "  A.";

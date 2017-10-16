@@ -26,7 +26,7 @@ class CodeForBlogConverter {
 
     private static boolean contains4spaces(char[] charArray, int i) {
         for (int position = i; position <= i + 3; position++) {
-            if (charArray[position] != ' ') {
+            if (charArray[position] != StringUtils.WHITESPACE_CHAR) {
                 return false;
             }
         }

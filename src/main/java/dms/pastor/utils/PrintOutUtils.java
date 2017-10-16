@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.IntStream;
 
+import static dms.pastor.utils.StringUtils.WHITESPACE_CHAR;
 import static dms.pastor.utils.ValidatorUtils.validateMinValueIsSmallerThanMaxValue;
 import static java.lang.String.valueOf;
 import static java.lang.System.out;
@@ -22,9 +23,8 @@ import static java.lang.System.out;
 public final class PrintOutUtils {
 
     private static final String COMMA = ",";
-    private static final char SPACE = ' ';
     private static final String OPEN_ARRAY = "[";
-    private static final String OPEN_ARRAY_WITH_SPACE = OPEN_ARRAY + SPACE;
+    private static final String OPEN_ARRAY_WITH_SPACE = OPEN_ARRAY + WHITESPACE_CHAR;
     private static final char CLOSE_ARRAY = ']';
 
     private PrintOutUtils() {
@@ -32,14 +32,14 @@ public final class PrintOutUtils {
 
     public static void printIntArray(int[] values) {
         StringBuilder sb = new StringBuilder(OPEN_ARRAY_WITH_SPACE);
-        IntStream.of(values).forEach(integer -> sb.append(integer).append(SPACE));
+        IntStream.of(values).forEach(integer -> sb.append(integer).append(WHITESPACE_CHAR));
         sb.append(CLOSE_ARRAY);
         out.println(sb.toString());
     }
 
     public static void printIntArray(Integer[] values) {
         StringBuilder sb = new StringBuilder(OPEN_ARRAY_WITH_SPACE);
-        Arrays.asList(values).forEach(integer -> sb.append(integer).append(SPACE));
+        Arrays.asList(values).forEach(integer -> sb.append(integer).append(WHITESPACE_CHAR));
         sb.append(CLOSE_ARRAY);
         out.println(sb.toString());
     }
@@ -59,7 +59,7 @@ public final class PrintOutUtils {
         for (int i = min; i <= max; i++) {
             String text;
             if (i % 2 != 0) {
-                text = valueOf(i) + SPACE;
+                text = valueOf(i) + WHITESPACE_CHAR;
                 out.print(text);
             }
         }

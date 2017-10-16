@@ -2,6 +2,7 @@ package dms.pastor.tools.readtimer;
 
 import dms.pastor.test.rules.Repeat;
 import dms.pastor.test.rules.RepeaterRule;
+import dms.pastor.utils.StringUtils;
 import dms.pastor.utils.randoms.RandomDataGenerator;
 import org.junit.Before;
 import org.junit.Rule;
@@ -122,7 +123,7 @@ public class ReadTimeCalculatorTest {
         // given
         StringBuilder stringBuilder = new StringBuilder("");
         for (int i = 0; i < 60; i++) {
-            stringBuilder.append("Word").append(i + 1).append(' ');
+            stringBuilder.append("Word").append(i + 1).append(StringUtils.WHITESPACE_CHAR);
         }
         String sentence = stringBuilder.append('.').toString();
         readTimeCalculator = new ReadTimeCalculator(sentence, ONE_WORD_PER_SECOND);

@@ -85,7 +85,7 @@ public final class RandomDataGenerator {
 
         IntStream.range(10, RANDOM.nextInt(100) + 20).forEach(text -> stringBuilder.append(getRandomText(12)).append(WHITESPACE_CHAR));
 
-        return '\t' + getRandomCharacterAsString().toUpperCase() + getRandomText(12) + ' ' + stringBuilder.toString() + ".\n";
+        return '\t' + getRandomCharacterAsString().toUpperCase() + getRandomText(12) + WHITESPACE_CHAR + stringBuilder.toString() + ".\n";
     }
 
     public static int[] generateIntArray(int size, int numberRange) {

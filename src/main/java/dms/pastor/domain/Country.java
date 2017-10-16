@@ -1,5 +1,7 @@
 package dms.pastor.domain;
 
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+import static dms.pastor.utils.StringUtils.WHITESPACE_CHAR;
 import static java.lang.Character.toUpperCase;
 
 /**
@@ -17,8 +19,6 @@ public enum Country {
     POLAND("Poland"),
     UNITED_KINGDOM("UK");
 
-    private static final char WHITESPACE = ' ';
-    private static final String EMPTY_STRING = "";
 
     private final String code;
 
@@ -33,7 +33,7 @@ public enum Country {
 
         StringBuilder name = new StringBuilder(EMPTY_STRING);
         for (String word : words) {
-            name.append(word).append(WHITESPACE);
+            name.append(word).append(WHITESPACE_CHAR);
         }
 
         return name.substring(0, lastElement(name));
