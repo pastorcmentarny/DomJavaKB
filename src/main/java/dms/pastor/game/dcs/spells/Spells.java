@@ -21,7 +21,7 @@ public class Spells {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Spells.class);
     private static final List<Spell> SPELLS = new ArrayList<>();
-    private static final Random random = new Random();
+    private static final Random RANDOM = new Random();
 
     static {
         SPELLS.add(new AntiShieldPiercingSpell());
@@ -56,7 +56,7 @@ public class Spells {
     }
 
     public static Spell getRandomSpell() {
-        return SPELLS.get(random.nextInt(SPELLS.size()));
+        return SPELLS.get(RANDOM.nextInt(SPELLS.size()));
     }
 
     public Spell findSpell(Elements elements) {

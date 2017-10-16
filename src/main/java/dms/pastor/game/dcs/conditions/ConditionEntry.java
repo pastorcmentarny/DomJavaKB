@@ -76,13 +76,13 @@ public class ConditionEntry {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof ConditionEntry)) return false;
-        ConditionEntry that = (ConditionEntry) o;
-        return getTurnsLeft() == that.getTurnsLeft() &&
-                isPersistent() == that.isPersistent() &&
-                condition == that.condition;
+    public boolean equals(Object otherConditionEntry) {
+        if (this == otherConditionEntry) return true;
+        if (!(otherConditionEntry instanceof ConditionEntry)) return false;
+        ConditionEntry conditionEntry = (ConditionEntry) otherConditionEntry;
+        return getTurnsLeft() == conditionEntry.getTurnsLeft() &&
+                isPersistent() == conditionEntry.isPersistent() &&
+                condition == conditionEntry.condition;
     }
 
     @Override

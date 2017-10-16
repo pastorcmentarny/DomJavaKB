@@ -1,9 +1,7 @@
-package dms.pastor.tasks.exercises;
+package dms.pastor.tasks.other;
 
-import dms.pastor.tasks.other.ArraysExercises;
 import org.junit.Test;
 
-import static dms.pastor.tasks.other.ArraysExercises.isMaximumValue;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -49,30 +47,30 @@ public class ArraysExercisesTest {
     @Test
     public void shouldReplaceWithLargerNumber() throws Exception {
 
-        assertThat(isMaximumValue(MIN_POSITIVE_VALUE, MAX_POSITIVE_VALUE)).isEqualTo(MAX_POSITIVE_VALUE);
-        assertThat(isMaximumValue(MIN_NEGATIVE_VALUE, MAX_POSITIVE_VALUE)).isEqualTo(MAX_POSITIVE_VALUE);
-        assertThat(isMaximumValue(MAX_NEGATIVE_VALUE, MIN_NEGATIVE_VALUE)).isEqualTo(MIN_NEGATIVE_VALUE);
+        assertThat(exercise.getMaximumValue(MIN_POSITIVE_VALUE, MAX_POSITIVE_VALUE)).isEqualTo(MAX_POSITIVE_VALUE);
+        assertThat(exercise.getMaximumValue(MIN_NEGATIVE_VALUE, MAX_POSITIVE_VALUE)).isEqualTo(MAX_POSITIVE_VALUE);
+        assertThat(exercise.getMaximumValue(MAX_NEGATIVE_VALUE, MIN_NEGATIVE_VALUE)).isEqualTo(MIN_NEGATIVE_VALUE);
 
     }
 
     @Test
     public void shouldNotReplaceWithNotLargerNumber() throws Exception {
-        assertThat(isMaximumValue(MAX_POSITIVE_VALUE, MIN_POSITIVE_VALUE)).isEqualTo(MAX_POSITIVE_VALUE);
-        assertThat(isMaximumValue(MAX_POSITIVE_VALUE, MIN_NEGATIVE_VALUE)).isEqualTo(MAX_POSITIVE_VALUE);
-        assertThat(isMaximumValue(MIN_NEGATIVE_VALUE, MAX_NEGATIVE_VALUE)).isEqualTo(MIN_NEGATIVE_VALUE);
+        assertThat(exercise.getMaximumValue(MAX_POSITIVE_VALUE, MIN_POSITIVE_VALUE)).isEqualTo(MAX_POSITIVE_VALUE);
+        assertThat(exercise.getMaximumValue(MAX_POSITIVE_VALUE, MIN_NEGATIVE_VALUE)).isEqualTo(MAX_POSITIVE_VALUE);
+        assertThat(exercise.getMaximumValue(MIN_NEGATIVE_VALUE, MAX_NEGATIVE_VALUE)).isEqualTo(MIN_NEGATIVE_VALUE);
     }
 
     @Test
     public void shouldReplaceWithSmallerNumber() throws Exception {
-        assertThat(exercise.isMinimumValue(MAX_POSITIVE_VALUE, MIN_POSITIVE_VALUE)).isEqualTo(MIN_POSITIVE_VALUE);
-        assertThat(exercise.isMinimumValue(MAX_NEGATIVE_VALUE, MIN_POSITIVE_VALUE)).isEqualTo(MAX_NEGATIVE_VALUE);
-        assertThat(exercise.isMinimumValue(MAX_NEGATIVE_VALUE, MIN_NEGATIVE_VALUE)).isEqualTo(MAX_NEGATIVE_VALUE);
+        assertThat(exercise.getMinimumValue(MAX_POSITIVE_VALUE, MIN_POSITIVE_VALUE)).isEqualTo(MIN_POSITIVE_VALUE);
+        assertThat(exercise.getMinimumValue(MAX_NEGATIVE_VALUE, MIN_POSITIVE_VALUE)).isEqualTo(MAX_NEGATIVE_VALUE);
+        assertThat(exercise.getMinimumValue(MAX_NEGATIVE_VALUE, MIN_NEGATIVE_VALUE)).isEqualTo(MAX_NEGATIVE_VALUE);
     }
 
     @Test
     public void shouldNotReplaceWithNotSmallerNumber() throws Exception {
-        assertThat(exercise.isMinimumValue(MAX_POSITIVE_VALUE, MIN_POSITIVE_VALUE)).isEqualTo(MIN_POSITIVE_VALUE);
-        assertThat(exercise.isMinimumValue(MIN_NEGATIVE_VALUE, MAX_NEGATIVE_VALUE)).isEqualTo(MAX_NEGATIVE_VALUE);
+        assertThat(exercise.getMinimumValue(MAX_POSITIVE_VALUE, MIN_POSITIVE_VALUE)).isEqualTo(MIN_POSITIVE_VALUE);
+        assertThat(exercise.getMinimumValue(MIN_NEGATIVE_VALUE, MAX_NEGATIVE_VALUE)).isEqualTo(MAX_NEGATIVE_VALUE);
     }
 
 }

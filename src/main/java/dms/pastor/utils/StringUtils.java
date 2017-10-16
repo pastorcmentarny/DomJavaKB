@@ -22,9 +22,11 @@ import static java.util.stream.Collectors.toList;
  * <p>
  * Yes, Apache commons is better, but this class was created to learn TDD.
  */
+@SuppressWarnings("QuestionableName") // because string is valid name
 public final class StringUtils {
     public static final String EMPTY_STRING = "";
     public static final String WHITESPACE = " ";
+    public static final char WHITESPACE_CHAR = ' ';
     public static final char NEW_LINE = '\n';
     public static final String ALPHANUMERIC = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"; //TODO replace it with RandomDataGenerator
     public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";

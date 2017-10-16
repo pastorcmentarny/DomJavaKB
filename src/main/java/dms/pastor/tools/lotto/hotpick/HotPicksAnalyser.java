@@ -117,8 +117,8 @@ class HotPicksAnalyser {
         return result;
     }
 
-    private int getLastElement(String string) {
-        return string.length() - 1;
+    private int getLastElement(String element) {
+        return element.length() - 1;
     }
 
     private void validateBall(int... balls) {

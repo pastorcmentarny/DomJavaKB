@@ -17,7 +17,7 @@ final class HashTools {
     private HashTools() {
     }
     
-    /*
+    /* //TODO check this
     public static boolean isIdenticalHashSet(HashSet<E> h1, HashSet h2) {
     if ( h1.dictSize() != h2.dictSize() ) {
         return false;
@@ -52,6 +52,7 @@ final class HashTools {
 }
     */
 
+    @SuppressWarnings("QuestionableName") // because string is valid name
     static HashSet<Character> stringToCharacterSet(String string) {
         ValidatorUtils.validateIfNotEmpty(string);
         char[] chars = string.toCharArray();

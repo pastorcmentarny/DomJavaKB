@@ -43,7 +43,7 @@ public class ValidatorUtilsTest {
     @Test
     public void shouldValidateNotNullProperties() {
         // when
-        final boolean actual = isAnyOfPropertiesContainsNull(anObject.getADouble(), anObject.getInteger());
+        final boolean actual = isAnyOfPropertiesContainsNull(anObject.getADouble(), anObject.getAnInteger());
 
         // then
         assertThat(actual).isTrue();
@@ -52,7 +52,7 @@ public class ValidatorUtilsTest {
     @Test
     public void validateNotNullPropertiesShouldNotValidateIfHasNullProperties() {
         // when
-        final boolean actual = isAnyOfPropertiesContainsNull(anObject.getADouble(), null, anObject.getInteger());
+        final boolean actual = isAnyOfPropertiesContainsNull(anObject.getADouble(), null, anObject.getAnInteger());
 
         // then
         assertThat(actual).isFalse();
@@ -61,7 +61,7 @@ public class ValidatorUtilsTest {
     @Test
     public void shouldValidateForValidateNotNullPropertiesWithCustomMessage() {
         // given
-        final Object[] objectsToValidate = {anObject.getADouble(), anObject.getInteger()};
+        final Object[] objectsToValidate = {anObject.getADouble(), anObject.getAnInteger()};
         // when
         validateNotNullPropertiesWithCustomMessage(objectsToValidate, "parameter is invalid");
 
@@ -72,7 +72,7 @@ public class ValidatorUtilsTest {
     public void shouldThrowIllegalArgumentExceptionWhenValidatingNotNullPropertiesWithCustomMessage() {
 
         // given
-        final Object[] arrayWithSomeNulls = {null, anObject.getString(), anObject.getADouble(), null};
+        final Object[] arrayWithSomeNulls = {null, anObject.getaString(), anObject.getADouble(), null};
 
         // except
         expectedException.expect(IllegalArgumentException.class);
@@ -85,7 +85,7 @@ public class ValidatorUtilsTest {
     @Test
     public void shouldValidateForValidateNotNullPropertiesWithCustomMessages() {
         // given
-        final Object[] objectsToValidate = {anObject.getADouble(), anObject.getInteger(), anObject.getString()};
+        final Object[] objectsToValidate = {anObject.getADouble(), anObject.getAnInteger(), anObject.getaString()};
 
         // when
         validateNotNullPropertiesWithCustomMessagesPerProperty(new Object[][]{
@@ -100,7 +100,7 @@ public class ValidatorUtilsTest {
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenForValidatingNotNullPropertiesWithCustomMessages() {
         // given
-        final Object[] objectsToValidate = {null, anObject.getADouble(), anObject.getInteger(), anObject.getString(), null};
+        final Object[] objectsToValidate = {null, anObject.getADouble(), anObject.getAnInteger(), anObject.getaString(), null};
 
         // except
         expectedException.expect(IllegalArgumentException.class);

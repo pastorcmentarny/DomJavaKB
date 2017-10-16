@@ -22,7 +22,7 @@ public final class EventGenerator {
     private static final Logger LOGGER = LoggerFactory.getLogger(EventGenerator.class);
 
     private static final List<Event> EVENTS = new ArrayList<>();
-    private static final Random random = new Random();
+    private static final Random RANDOM = new Random();
 
     static {
         EVENTS.add(new AirElementEvent());
@@ -45,12 +45,12 @@ public final class EventGenerator {
 
     public static Event getRandomEvent() {
 
-        return EVENTS.get(random.nextInt(EVENTS.size()));
+        return EVENTS.get(RANDOM.nextInt(EVENTS.size()));
     }
 
     public static void event(Unit player1, Unit player2) {
-        LOGGER.debug("Generating random event..");
-        if (random.nextInt(100) > 40) {
+        LOGGER.debug("Generating RANDOM event..");
+        if (RANDOM.nextInt(100) > 40) {
             Event event = getRandomEvent();
             System.out.println("EVENT:" + event.makeItHappen(player1, player2));
         } else {

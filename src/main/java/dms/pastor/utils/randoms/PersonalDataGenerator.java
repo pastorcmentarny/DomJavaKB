@@ -25,7 +25,7 @@ public final class PersonalDataGenerator {
 
     private static final List<String> FIRST_NAME;
     private static final List<String> SURNAME;
-    private static final Random random = new Random();
+    private static final Random RANDOM = new Random();
 
     static {
         FIRST_NAME = new ArrayList<>();
@@ -57,15 +57,15 @@ public final class PersonalDataGenerator {
     }
 
     public static String generateFirstName() {
-        return FIRST_NAME.get(random.nextInt(FIRST_NAME.size()));
+        return FIRST_NAME.get(RANDOM.nextInt(FIRST_NAME.size()));
     }
 
     public static String generateSurname() {
-        return SURNAME.get(random.nextInt(SURNAME.size()));
+        return SURNAME.get(RANDOM.nextInt(SURNAME.size()));
     }
 
     static Country getRandomCountry() {
-        return Country.values()[random.nextInt(Country.values().length)];
+        return Country.values()[RANDOM.nextInt(Country.values().length)];
     }
 
     // It is pseudo generator.

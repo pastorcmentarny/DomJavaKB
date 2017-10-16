@@ -3,6 +3,9 @@ package dms.pastor.tools.readtimer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static dms.pastor.utils.ValidatorUtils.validateIfNotEmpty;
+import static dms.pastor.utils.ValidatorUtils.validateIfPositiveNumber;
+
 /**
  * Author Dominik Symonowicz
  * Created 26/12/2016
@@ -24,10 +27,9 @@ final class TimeToReadApplicationInputValidator {
         LOGGER.info("Validating input .. ");
 
         if (args != null && args.length == 2) {
-            checkIfTextIsNotEmpty(args[0]);
-
+            validateIfNotEmpty(args[0], "Input");
             final int readSpeed = getReadSpeed(args[1]);
-            checkIfReadSpeedIsPositiveNumber(readSpeed);
+            validateIfPositiveNumber(readSpeed, "Read speed");
         } else {
             throw new IllegalArgumentException(ERROR_MESSAGE);
         }
@@ -41,15 +43,4 @@ final class TimeToReadApplicationInputValidator {
         }
     }
 
-    private static void checkIfReadSpeedIsPositiveNumber(int readSpeed) {
-        if (readSpeed < 0) {
-            throw new IllegalArgumentException(ERROR_MESSAGE);
-        }
-    }
-
-    private static void checkIfTextIsNotEmpty(String arg) {
-        if (arg == null || arg.isEmpty()) {
-            throw new IllegalArgumentException(ERROR_MESSAGE);
-        }
-    }
 }

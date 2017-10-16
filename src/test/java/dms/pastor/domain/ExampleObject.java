@@ -10,22 +10,22 @@ package dms.pastor.domain;
  */
 public class ExampleObject {
 
-    private final Integer integer;
+    private final Integer anInteger;
     private final Double aDouble;
-    private final String string;
+    private final String aString;
 
     public ExampleObject() {
-        this.integer = 10;
+        this.anInteger = 10;
         this.aDouble = 20.16;
-        this.string = "Text";
+        this.aString = "Text";
     }
 
-    public Integer getInteger() {
-        return integer;
+    public Integer getAnInteger() {
+        return anInteger;
     }
 
-    public String getString() {
-        return string;
+    public String getaString() {
+        return aString;
     }
 
     public Double getADouble() {

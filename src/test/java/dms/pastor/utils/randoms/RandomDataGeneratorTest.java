@@ -77,6 +77,7 @@ public class RandomDataGeneratorTest {
         Assert.assertThat("Text dictSize is out of range: " + text.length(), 1 <= text.length() && text.length() <= 1000, is(true));
     }
 
+    @SuppressWarnings("QuestionableName") // because string is valid name
     @Test
     public void shouldGenerateRandomStringOfLengthBetween4And10Test() throws Exception {
         // when
@@ -176,14 +177,15 @@ public class RandomDataGeneratorTest {
     public void shouldThrowIllegalArgumentExceptionForNegativeSizeTest() throws Exception {
         // except
         exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Size must be bigger than zero!");
+        exception.expectMessage("Size cannot be negative.");
 
         // when
         generateStringList(-1);
     }
 
+    @SuppressWarnings("QuestionableName") // because string is valid name
     @Test
-    public void generateStringStringShouldReturnStringList() throws Exception {
+    public void generateStringShouldReturnStringList() throws Exception {
         // given
         final int arraySize = 10;
 
@@ -217,6 +219,7 @@ public class RandomDataGeneratorTest {
         generateArray(-1);
     }
 
+    @SuppressWarnings("QuestionableName") // because string is valid name
     @Test
     public void generateStringArrayShouldReturnStringArray() throws Exception {
         // given
@@ -261,11 +264,11 @@ public class RandomDataGeneratorTest {
         exception.expectMessage("Size of string must be greater than zero");
 
         // when
-        final String string = generateNonAlphanumericString(-1);
+        final String result = generateNonAlphanumericString(-1);
 
         // then
-        assertThat(string).isNotNull();
-        assertThat(hasNonAlphabetCharactersOnly(string)).isFalse(); //bad testing
+        assertThat(result).isNotNull();
+        assertThat(hasNonAlphabetCharactersOnly(result)).isFalse(); //bad testing
     }
 
     @Test

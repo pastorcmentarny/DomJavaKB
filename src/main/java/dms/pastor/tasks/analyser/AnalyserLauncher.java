@@ -15,7 +15,7 @@ final class AnalyserLauncher {
     @SuppressWarnings("AccessOfSystemProperties")
     static final String THIS_PROJECT_PATH = System.getProperty("user.dir") +
             separator + "src" + separator;
-    private static final ProjectAnalyser analyser = new ProjectAnalyser();
+    private static final ProjectAnalyser ANALYSER = new ProjectAnalyser();
 
     private AnalyserLauncher() {
     }
@@ -23,7 +23,7 @@ final class AnalyserLauncher {
     public static void main(String[] args) {
 
         String path = AnalyserLauncher.getPath(args);
-        analyser.analyse(path);
+        ANALYSER.analyse(path);
     }
 
     static String getPath(String[] args) {

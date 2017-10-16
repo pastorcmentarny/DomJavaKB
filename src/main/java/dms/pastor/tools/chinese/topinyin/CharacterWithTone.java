@@ -22,8 +22,8 @@ public class CharacterWithTone {
         this.tone = tone;
     }
 
-    public static CharacterWithTone fromString(String string) {
-        final String[] wordAndTone = string.split(Pattern.quote("("));
+    public static CharacterWithTone fromString(String character) {
+        final String[] wordAndTone = character.split(Pattern.quote("("));
         if (wordAndTone.length == 1) {
             return new CharacterWithTone(wordAndTone[0], 0);
         } else {
@@ -40,16 +40,16 @@ public class CharacterWithTone {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) {
+    public boolean equals(Object otherCharacterWithTone) {
+        if (this == otherCharacterWithTone) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (otherCharacterWithTone == null || getClass() != otherCharacterWithTone.getClass()) {
             return false;
         }
-        CharacterWithTone that = (CharacterWithTone) o;
-        return getTone() == that.getTone() &&
-                Objects.equals(getWord(), that.getWord());
+        CharacterWithTone characterWithTone = (CharacterWithTone) otherCharacterWithTone;
+        return getTone() == characterWithTone.getTone() &&
+                Objects.equals(getWord(), characterWithTone.getWord());
     }
 
     @Override

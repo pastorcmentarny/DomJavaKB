@@ -57,7 +57,7 @@ public class HashToolsTest {
         stringToCharacterSet("");
     }
 
-    @SuppressWarnings("ResultOfMethodCallIgnored")
+    @SuppressWarnings({"ResultOfMethodCallIgnored", "QuestionableName"})
     @Test // because result doesn't matter in this case
     public void stringToCharacterSetShouldConvertTextToListOfCharacters() throws Exception {
         // given

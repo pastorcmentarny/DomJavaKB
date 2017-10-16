@@ -107,10 +107,11 @@ public final class ValidatorUtils {
         }
     }
 
-    public static void validateIfNotEmpty(String string) {
-        throwExceptionIfEmpty(string, "Value");
+    public static void validateIfNotEmpty(String value) {
+        throwExceptionIfEmpty(value, "Value");
     }
 
+    @SuppressWarnings("QuestionableName") //string is a valid name
     public static boolean validateIfStringNotEmpty(String string) {
         return string != null && !string.isEmpty();
     }

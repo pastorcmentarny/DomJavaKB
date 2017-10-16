@@ -56,11 +56,11 @@ public final class ContainsInStringUtils {
         return true;
     }
 
-    public static boolean containsAnyAlphanumericCharacter(String string) {
-        if (isStringEmpty(string)) {
+    public static boolean containsAnyAlphanumericCharacter(String text) {
+        if (isStringEmpty(text)) {
             return false;
         }
-        char[] charArray = string.toCharArray();
+        char[] charArray = text.toCharArray();
         for (char character : charArray) {
             for (char letterOrNumber : ALPHANUMERIC.toCharArray()) {
                 if (character == letterOrNumber) {

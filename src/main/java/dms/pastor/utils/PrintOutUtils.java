@@ -1,10 +1,6 @@
 package dms.pastor.utils;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.IntStream;
 
 import static dms.pastor.utils.ValidatorUtils.validateMinValueIsSmallerThanMaxValue;
@@ -33,7 +29,7 @@ public final class PrintOutUtils {
 
     public static void printIntArray(int[] values) {
         StringBuilder sb = new StringBuilder(OPEN_ARRAY_WITH_SPACE);
-        IntStream.of(values).forEach(i -> sb.append(i).append(SPACE));
+        IntStream.of(values).forEach(integer -> sb.append(integer).append(SPACE));
         sb.append(CLOSE_ARRAY);
         out.println(sb.toString());
     }
@@ -68,8 +64,8 @@ public final class PrintOutUtils {
 
     public static String printArray(String[] array) {
         final StringBuilder stringBuilder = new StringBuilder(OPEN_ARRAY);
-        for (String string : array) {
-            stringBuilder.append(string).append(COMMA);
+        for (String text : array) {
+            stringBuilder.append(text).append(COMMA);
         }
         stringBuilder.trimToSize();
         stringBuilder.delete(stringBuilder.length() - 1, stringBuilder.length());

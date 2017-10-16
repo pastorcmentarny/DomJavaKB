@@ -45,7 +45,7 @@ public class BerlinClock implements ClockInterface {
     public Time validateTime(String time) {
         validateIfNotEmpty(time);
 
-        String hh, mm, ss;
+        String hour, minutes, seconds;
 
         String[] tmpHours = time.split(HOUR_SEPARATOR);
         String[] tmpMinutesAndSeconds = convertToMinutesAndSecond(tmpHours);
@@ -59,11 +59,11 @@ public class BerlinClock implements ClockInterface {
                 }
             }
         }
-        hh = tmpHours[0];
-        mm = tmpMinutesAndSeconds[0];
-        ss = tmpMinutesAndSeconds[1];
-        validateIfTimeIsInRange(parseInt(hh), parseInt(mm), parseInt(ss));
-        return new Time(parseInt(hh), parseInt(mm), parseInt(ss));
+        hour = tmpHours[0];
+        minutes = tmpMinutesAndSeconds[0];
+        seconds = tmpMinutesAndSeconds[1];
+        validateIfTimeIsInRange(parseInt(hour), parseInt(minutes), parseInt(seconds));
+        return new Time(parseInt(hour), parseInt(minutes), parseInt(seconds));
     }
 
     private void validateIfTimeIsInRange(int h, int m, int s) {

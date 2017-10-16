@@ -49,15 +49,15 @@ public class CharacterExercisesTest {
     //because there is one duplicate of the same letter bb
     @Test
     public void testAlternatingCharactersWillReturn1() throws Exception {
-        String one = "BABB";
-        assertThat(exercise.alternatingCharacters(one)).isEqualTo(1);
+        String firstString = "BABB";
+        assertThat(exercise.alternatingCharacters(firstString)).isEqualTo(1);
     }
 
     //because there are 3 the same character one after another so is 2
     @SuppressWarnings("SpellCheckingInspection")
     @Test
     public void testAlteringCharactersWillReturn2() throws Exception {
-        String two = "ABBBA";
-        assertThat(exercise.alternatingCharacters(two)).isEqualTo(2);
+        String secondString = "ABBBA";
+        assertThat(exercise.alternatingCharacters(secondString)).isEqualTo(2);
     }
 }

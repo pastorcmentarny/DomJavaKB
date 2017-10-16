@@ -1,5 +1,7 @@
 package dms.pastor.tasks.exercises.string;
 
+import dms.pastor.utils.ValidatorUtils;
+
 import java.util.Map;
 import java.util.Optional;
 import java.util.TreeMap;
@@ -13,7 +15,7 @@ public class FindFirstNonRepeatedCharacter {
     public Optional<Character> findFirstNonRepeatedCharacter(String text) {
         Map<Character, Integer> charList = new TreeMap<>();
 
-        validateInput(text);
+        ValidatorUtils.validateIfNotEmpty(text, "Text");
 
         convertTextIntoCharacterMap(text, charList);
 
@@ -28,14 +30,7 @@ public class FindFirstNonRepeatedCharacter {
     private void convertTextIntoCharacterMap(String text, Map<Character, Integer> charList) {
         char[] stringAsChar = text.toCharArray();
         for (char ch : stringAsChar) {
-            charList.merge(ch, 1, (a, b) -> a + b);
+            charList.merge(ch, 1, (character, nextCharacter) -> character + nextCharacter);
         }
     }
-
-    private void validateInput(String text) {
-        if (text == null || text.isEmpty()) {
-            throw new IllegalArgumentException("Text cannot be null or empty.");
-        }
-    }
-
 }

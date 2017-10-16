@@ -36,10 +36,10 @@ public class BallCountTest {
     @Test
     public void isDummyBallShouldReturnTrueForDummyBall() throws Exception {
         // when
-        final boolean dummy = isDummyBall(dummyBall());
+        final boolean dummyBall = isDummyBall(dummyBall());
 
         // then
-        assertThat(dummy).isTrue();
+        assertThat(dummyBall).isTrue();
     }
 
     @Test

@@ -71,10 +71,10 @@ public class ToCommandTransformerTest {
     @Test
     public void toCommandWithInputForCreateNewRectangleShouldReturnCreateNewRectangleCommand() throws Exception {
         // given
-        final String createCreateNewRectangleCommandInput = "R 2 2 3 3";
+        final String createNewRectangleCommandInput = "R 2 2 3 3";
 
         // when
-        final Command createNewRectangleCommand = toCommand(createCreateNewRectangleCommandInput);
+        final Command createNewRectangleCommand = toCommand(createNewRectangleCommandInput);
 
         // then
         assertThat(createNewRectangleCommand).isInstanceOf(CreateNewRectangleCommand.class);
