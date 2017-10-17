@@ -6,7 +6,7 @@ import org.junit.rules.ExpectedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static dms.pastor.tools.chinese.validator.WordValidator.validateWord;
+import static dms.pastor.tools.chinese.validator.WordValidator.isWordValid;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.randoms.RandomDataGenerator.*;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -42,7 +42,7 @@ public class WordValidatorTest {
     @Test
     public void validateWordShouldReturnTrueForValidWord() {
         // when
-        final boolean result = validateWord(validWord);
+        final boolean result = isWordValid(validWord);
 
         // then
         assertThat(result).isTrue();
@@ -55,7 +55,7 @@ public class WordValidatorTest {
         exception.expectMessage("Word cannot be null.");
 
         // when
-        validateWord(null);
+        isWordValid(null);
     }
 
     @Test
@@ -65,7 +65,7 @@ public class WordValidatorTest {
                 DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
         // when
-        final boolean result = validateWord(wordInInvalidId);
+        final boolean result = isWordValid(wordInInvalidId);
 
         // then
         assertThat(result).isFalse();
@@ -79,7 +79,7 @@ public class WordValidatorTest {
                 DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
         // when
-        final boolean result = validateWord(wordInInvalidId);
+        final boolean result = isWordValid(wordInInvalidId);
 
         // debug
         LOGGER.debug("random id used: " + negativeId);
@@ -95,7 +95,7 @@ public class WordValidatorTest {
                 DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
         // when
-        final boolean result = validateWord(wordInNullChineseCharacter);
+        final boolean result = isWordValid(wordInNullChineseCharacter);
 
 
         // then
@@ -109,7 +109,7 @@ public class WordValidatorTest {
                 DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
         // when
-        final boolean result = validateWord(wordInNullChineseCharacter);
+        final boolean result = isWordValid(wordInNullChineseCharacter);
 
         // then
         assertThat(result).isFalse();
@@ -124,7 +124,7 @@ public class WordValidatorTest {
                 DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
         // when
-        final boolean result = validateWord(wordInNullChineseCharacter);
+        final boolean result = isWordValid(wordInNullChineseCharacter);
 
         // then
         assertThat(result).isFalse();
@@ -138,7 +138,7 @@ public class WordValidatorTest {
                 DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
         // when
-        final boolean result = validateWord(wordInNullChineseCharacter);
+        final boolean result = isWordValid(wordInNullChineseCharacter);
 
         // debug
         LOGGER.debug(invalidChineseCharacter);
@@ -155,7 +155,7 @@ public class WordValidatorTest {
                 DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
         // when
-        final boolean result = validateWord(wordInNullChineseCharacter);
+        final boolean result = isWordValid(wordInNullChineseCharacter);
 
         // debug
         LOGGER.debug(invalidChineseCharacter);
@@ -172,7 +172,7 @@ public class WordValidatorTest {
                 DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
         // when
-        final boolean result = validateWord(wordWithInvalidStrokes);
+        final boolean result = isWordValid(wordWithInvalidStrokes);
 
         // then
         assertThat(result).isFalse();
@@ -186,7 +186,7 @@ public class WordValidatorTest {
                 DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
         // when
-        final boolean result = validateWord(wordWithValidStrokes);
+        final boolean result = isWordValid(wordWithValidStrokes);
 
         // then
         assertThat(result).isTrue();
@@ -200,7 +200,7 @@ public class WordValidatorTest {
                 DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
         // when
-        final boolean result = validateWord(wordWithInvalidStrokes);
+        final boolean result = isWordValid(wordWithInvalidStrokes);
 
         // then
         assertThat(result).isFalse();
@@ -214,7 +214,7 @@ public class WordValidatorTest {
                 DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
         // when
-        final boolean result = validateWord(wordWithValidStrokes);
+        final boolean result = isWordValid(wordWithValidStrokes);
 
         // then
         assertThat(result).isTrue();
@@ -227,7 +227,7 @@ public class WordValidatorTest {
                 DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
         // when
-        final boolean result = validateWord(wordInNullChineseCharacter);
+        final boolean result = isWordValid(wordInNullChineseCharacter);
 
 
         // then
@@ -241,7 +241,7 @@ public class WordValidatorTest {
                 DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
         // when
-        final boolean result = validateWord(wordInNullChineseCharacter);
+        final boolean result = isWordValid(wordInNullChineseCharacter);
 
         // then
         assertThat(result).isFalse();
@@ -255,7 +255,7 @@ public class WordValidatorTest {
                 DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
         // when
-        final boolean result = validateWord(wordWithNullEnglishMeaning);
+        final boolean result = isWordValid(wordWithNullEnglishMeaning);
 
         // then
         assertThat(result).isFalse();
@@ -269,7 +269,7 @@ public class WordValidatorTest {
                 DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
         // when
-        final boolean result = validateWord(wordWithEmptyEnglishMeaning);
+        final boolean result = isWordValid(wordWithEmptyEnglishMeaning);
 
         // then
         assertThat(result).isFalse();
@@ -284,7 +284,7 @@ public class WordValidatorTest {
                 DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
         // when
-        final boolean result = validateWord(wordWithEmptyEnglishMeaning);
+        final boolean result = isWordValid(wordWithEmptyEnglishMeaning);
 
         // then
         assertThat(result).isFalse();
@@ -298,7 +298,7 @@ public class WordValidatorTest {
                 null, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
         // when
-        final boolean result = validateWord(wordWithEmptyEnglishMeaning);
+        final boolean result = isWordValid(wordWithEmptyEnglishMeaning);
 
         // then
         assertThat(result).isFalse();
@@ -312,7 +312,7 @@ public class WordValidatorTest {
                 new String[0], DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
         // when
-        final boolean result = validateWord(wordWithNoGroup);
+        final boolean result = isWordValid(wordWithNoGroup);
 
         // then
         assertThat(result).isFalse();
@@ -327,7 +327,7 @@ public class WordValidatorTest {
                 DEFAULT_GROUP, null, DEFAULT_DIFFICULTY);
 
         // when
-        final boolean result = validateWord(wordWithNullNotes);
+        final boolean result = isWordValid(wordWithNullNotes);
 
         // then
         assertThat(result).isTrue();
@@ -343,7 +343,7 @@ public class WordValidatorTest {
                 DEFAULT_GROUP, DEFAULT_NOTES, tooLargeDifficulty);
 
         // when
-        final boolean result = validateWord(wordWithInvalidDifficulty);
+        final boolean result = isWordValid(wordWithInvalidDifficulty);
 
         // then
         assertThat(result).isFalse();
@@ -358,7 +358,7 @@ public class WordValidatorTest {
                 DEFAULT_GROUP, DEFAULT_NOTES, negativeDifficulty);
 
         // when
-        final boolean result = validateWord(wordWithInvalidDifficulty);
+        final boolean result = isWordValid(wordWithInvalidDifficulty);
 
         // then
         assertThat(result).isFalse();
@@ -375,7 +375,7 @@ public class WordValidatorTest {
         // debug
         LOGGER.debug("difficulty: " + difficulty);
         // when
-        final boolean result = validateWord(validDifficulty);
+        final boolean result = isWordValid(validDifficulty);
 
         // then
         assertThat(result).isTrue();

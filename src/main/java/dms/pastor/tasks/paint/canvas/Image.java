@@ -50,7 +50,7 @@ public class Image {
     }
 
     public String[][] getImage() {
-        return image;
+        return Arrays.copyOf(image, image.length);
     }
 
     public void setImage(String[][] image) {

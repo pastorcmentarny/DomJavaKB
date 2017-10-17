@@ -48,12 +48,11 @@ public class Unit {
 
     }
 
-    public Unit(int sp, Elements elements, int hp, ArrayList<Card> cards, boolean player, String name, int maxHp, int arm, Condition conditions, String description) {
+    public Unit(int sp, Elements elements, int hp, ArrayList<Card> cards, String name, int maxHp, int arm, Condition conditions, String description) {
         this.sp = sp;
         this.elements = elements;
         this.hp = hp;
         this.cards = cards;
-        this.player = player;
         this.name = name;
         this.maxHp = maxHp;
         this.arm = arm;
@@ -223,12 +222,9 @@ public class Unit {
         hp -= penaltyDmg;
     }
 
-    public boolean increaseShieldBy(int shieldHealBy) {
+    public void increaseShieldBy(int shieldHealBy) {
         if (isShielded()) {
             sp += shieldHealBy;
-            return true;
-        } else {
-            return false;
         }
     }
 

@@ -13,6 +13,7 @@ import java.util.Set;
 import static dms.pastor.game.dcs.conditions.ConditionEntry.unknown;
 import static dms.pastor.game.dcs.conditions.ConditionType.*;
 import static java.lang.String.format;
+import static java.util.Collections.unmodifiableSet;
 import static java.util.stream.Collectors.toCollection;
 
 /**
@@ -32,7 +33,7 @@ public class Condition {
     private final RandomiseUtils randomiseUtils = new InGameRandomiseUtils();
 
     public Set<ConditionEntry> getConditions() {
-        return conditions;
+        return unmodifiableSet(conditions);
     }
 
     //TODO inspect  java.lang.NullPointerException that happens once

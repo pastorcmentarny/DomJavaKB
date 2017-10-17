@@ -78,11 +78,11 @@ public class BerlinClock implements ClockInterface {
         return time;
     }
 
+    @SuppressWarnings("ProhibitedExceptionCaught") // exception is rethrown with better error message
     private String[] convertToMinutesAndSecond(String[] tmpHours) {
         String[] tmpMinutesAndSeconds;
         try {
             tmpMinutesAndSeconds = tmpHours[1].split(String.valueOf(MINUTES_SEPARATOR));
-
         } catch (ArrayIndexOutOfBoundsException e) {
             throw new IllegalArgumentException(INVALID_INPUT, e);
         }

@@ -1,5 +1,7 @@
+import org.codehaus.groovy.runtime.GStringImpl
+
 project.ext {
-    gradleDir = "${project(':').rootDir}/gradle"
+    gradleDir = "${project(':').rootDir}/gradle" as GStringImpl
 }
 
 apply plugin: 'java'

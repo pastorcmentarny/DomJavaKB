@@ -48,7 +48,6 @@ public final class UnitBuilder {
                 elements,
                 hp,
                 cards,
-                player,
                 name,
                 maxHp,
                 arm,
@@ -59,7 +58,7 @@ public final class UnitBuilder {
     }
 
     public Unit buildDeathUnit() {
-        return new Unit(0, null, 0, null, false, "Death Unit", 1, 0, null, "This unit is death.");
+        return new Unit(0, null, 0, null, "Death Unit", 1, 0, null, "This unit is death.");
     }
 
     public UnitBuilder hp(int hp) {

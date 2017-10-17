@@ -61,8 +61,8 @@ class CodeForBlogConverter {
 
     private List<String> replaceSpaceWithNsbpInCode(List<String> source) {
         final Stream<String> stringStream = source.stream().map(line -> {
-            line = convertEach4SpacesToNsbpOnBeginningOfTheLine(line);
-            return line + BR_TAG;
+            String convertedLine = convertEach4SpacesToNsbpOnBeginningOfTheLine(line);
+            return convertedLine + BR_TAG;
         });
 
         return stringStream.collect(Collectors.toList());

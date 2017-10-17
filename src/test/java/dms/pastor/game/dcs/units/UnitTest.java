@@ -158,10 +158,9 @@ public class UnitTest {
         final int expectedSp = 15;
 
         // when
-        final boolean wasIncreased = unit.increaseShieldBy(5);
+        unit.increaseShieldBy(5);
 
         // then
-        assertThat(wasIncreased).isTrue();
         assertThat(unit.getSp()).isEqualTo(expectedSp);
 
     }

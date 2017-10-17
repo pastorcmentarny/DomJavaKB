@@ -55,15 +55,19 @@ public final class Utils {
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
-                try {
-                    Person person = getPerson(line);
-                    addPersonIfDoesNotExist(people, person);
-                } catch (Exception e) {
-                    LOGGER.warn("not a valid person due " + e.getMessage());
-                }
+                addPerson(people, line);
             }
         }
         return people;
+    }
+
+    private static void addPerson(List<Person> people, String line) {
+        try {
+            Person person = parsePerson(line);
+            addPersonIfDoesNotExist(people, person);
+        } catch (Exception e) {
+            LOGGER.warn("not a valid person due " + e.getMessage());
+        }
     }
 
     public static List<String> loadFileToArrayOfStrings(String filePath) throws IOException {
@@ -80,7 +84,7 @@ public final class Utils {
         return Integer.valueOf(value.replaceAll(WHITESPACES, EMPTY_STRING));
     }
 
-    private static Person getPerson(String line) {
+    private static Person parsePerson(String line) {
         String[] columns = line.split(",");
         return new Person(columns[0], Genre.fromString(columns[1]), getValueFor(columns[2]), columns[3]);
     }

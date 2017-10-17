@@ -27,7 +27,7 @@ final class WordValidator {
     private WordValidator() {
     }
 
-    public static boolean validateWord(Word word) {
+    public static boolean isWordValid(Word word) {
         validateIfNotNull(word, "Word");
 
         if (word.getId() <= 0) {

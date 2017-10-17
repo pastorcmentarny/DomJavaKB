@@ -441,37 +441,6 @@ public class ValidatorUtilsTest {
         // then nothing happen, which means value are valid
     }
 
-    @SuppressWarnings("ConstantConditions") // it is purpose of test
-    @Test
-    public void validateIfNotEmptyShouldReturnFalseIfNull() throws Exception {
-        // when
-        final boolean result = validateIfStringNotEmpty(null);
-
-        // then
-        assertThat(result).isFalse();
-    }
-
-    @Test
-    public void validateIfNotEmptyShouldReturnFalseIfEmpty() throws Exception {
-        // when
-        final boolean result = validateIfStringNotEmpty(EMPTY_STRING);
-
-        // then
-        assertThat(result).isFalse();
-    }
-
-    @Test
-    public void validateIfNotEmptyShouldReturnTrueForNonEmptyInput() throws Exception {
-        // given
-        final String text = "A String";
-
-        // when
-        final boolean result = validateIfStringNotEmpty(text);
-
-        // then
-        assertThat(result).isTrue();
-    }
-
     @Test
     public void validateIfStringArrayIsNotEmptyShouldThrowIllegalArgumentExceptionIfStringsIsNull() {
         // expect

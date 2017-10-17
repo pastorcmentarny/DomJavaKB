@@ -81,12 +81,11 @@ public final class PersonalDataGenerator {
         for (char character : chars) {
             if (character == 'X') {
                 result.append(new Random().nextInt(10));
-                continue;
+            } else {
+                //TODO provide proper implementation
+                throwExceptionIfContainsIllegalCharacter(pattern, character);
+                result.append(character);
             }
-            //TODO provide proper implementation
-            throwExceptionIfContainsIllegalCharacter(pattern, character);
-
-            result.append(character);
         }
 
         return result.toString();

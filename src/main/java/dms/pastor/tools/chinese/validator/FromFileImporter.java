@@ -11,7 +11,7 @@ import java.util.List;
 
 import static dms.pastor.domain.Result.fail;
 import static dms.pastor.domain.Result.success;
-import static dms.pastor.tools.chinese.validator.WordValidator.validateWord;
+import static dms.pastor.tools.chinese.validator.WordValidator.isWordValid;
 
 /**
  * Author Dominik Symonowicz
@@ -43,6 +43,7 @@ public class FromFileImporter implements Importer {
         return line != null ? "[" + line + "]" : "line is empty.";
     }
 
+    @SuppressWarnings("ProhibitedExceptionCaught") //it catch malformed line
     public Result importDictionary(String filePath, String[] requestedCategories) {
         LOGGER.info("Loading words to dictionary from file");
         clear();
@@ -69,17 +70,8 @@ public class FromFileImporter implements Importer {
             while ((line = br.readLine()) != null) {
                 if (isLineNotIgnored(line)) {
                     data = line.split(COLUMN_SEPARATOR);
-                    try {
-                        word = parseWord(data);
-                        if (validateWord(word)) {
-                            addWordToWordList(requestedCategories, getWordCategories(data), word); //TODO improve nr
-                        } else {
-                            LOGGER.error("Word is corrupted(Line:" + getCurrentLine(nr) + ".It is something wrong with Dictionary." + getLine(line));
-                            return fail("Validation failed as Word is invalid at line: " + (getCurrentLine(nr)) + ")\n.Problem occurred in: " + getLine(line));
-                        }
-                    } catch (NumberFormatException | ArrayIndexOutOfBoundsException nfe) {
-                        return returnFailResultOnException(line, nr, nfe);
-                    }
+                    Result result = processLine(requestedCategories, line, data);
+                    if (result != null) return result;
                 } else {
                     LOGGER.warn("This line is ignored: Dictionary :", line);
                     //TODO add total ignored line
@@ -95,6 +87,23 @@ public class FromFileImporter implements Importer {
         closeReaderQuietly(isr);
         closeReaderQuietly(br);
         return success("Dictionary loaded successfully.", wordsList);
+    }
+
+    @SuppressWarnings("ProhibitedExceptionCaught") // Catch this exception to show error to user
+    private Result processLine(String[] requestedCategories, String line, String[] data) {
+        Word word;
+        try {
+            word = parseWord(data);
+            if (isWordValid(word)) {
+                addWordToWordList(requestedCategories, getWordCategories(data), word); //TODO improve nr
+            } else {
+                LOGGER.error("Word is corrupted(Line:" + getCurrentLine(nr) + ".It is something wrong with Dictionary." + getLine(line));
+                return fail("Validation failed as Word is invalid at line: " + (getCurrentLine(nr)) + ")\n.Problem occurred in: " + getLine(line));
+            }
+        } catch (NumberFormatException | ArrayIndexOutOfBoundsException nfe) {
+            return returnFailResultOnException(line, nr, nfe);
+        }
+        return null;
     }
 
     private void clear() {

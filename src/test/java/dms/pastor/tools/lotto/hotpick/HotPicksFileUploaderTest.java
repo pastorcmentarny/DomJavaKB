@@ -1,7 +1,5 @@
 package dms.pastor.tools.lotto.hotpick;
 
-import dms.pastor.utils.FileTools;
-import dms.pastor.utils.ValidatorUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
@@ -9,14 +7,13 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.List;
 import java.util.Random;
 
 import static dms.pastor.tools.lotto.LottoConstants.HOT_PICK_BALL_MAXIMUM_VALUE;
+import static dms.pastor.tools.lotto.LottoFilePathValidatorTest.generateFile;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.fail;
 
 /**
  * Author Dominik Symonowicz
@@ -417,24 +414,6 @@ java.lang.IllegalArgumentException: Path is invalid or is not a file
 
     private String generateDrawLineAsString(String date, int ball1, int ball2, int ball3, int ball4, int ball5, int ball6, int ballSet, String machine, int drawNumber) {
         return date + CSV_SEPARATOR + ball1 + CSV_SEPARATOR + ball2 + CSV_SEPARATOR + ball3 + CSV_SEPARATOR + ball4 + CSV_SEPARATOR + ball5 + CSV_SEPARATOR + ball6 + CSV_SEPARATOR + ballSet + CSV_SEPARATOR + machine + CSV_SEPARATOR + drawNumber;
-    }
-
-    private void generateFile(String path) throws IOException {
-        generateFile(path, null);
-    }
-
-    private void generateFile(String path, String[] lines) throws IOException {
-        ValidatorUtils.validateIfNotNull(path, "Path");
-        File file = new File(path);
-        if (lines != null) {
-            FileTools.saveListToFile(lines, path);
-        } else {
-            if (file.createNewFile()) {
-                System.out.println("File is created!");
-            } else {
-                fail("File wasn't created");
-            }
-        }
     }
 
     private int getRandomBallNumber() {

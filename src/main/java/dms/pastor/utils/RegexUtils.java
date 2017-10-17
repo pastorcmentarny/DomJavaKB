@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.regex.Pattern;
 
-import static dms.pastor.utils.ValidatorUtils.validateIfStringNotEmpty;
+import static dms.pastor.utils.StringUtils.isStringNotEmpty;
 import static java.lang.String.format;
 
 /**
@@ -24,7 +24,7 @@ public final class RegexUtils {
 
     public static int countOccurrencesOf(String what, String text) {
         LOGGER.debug("counting occurrence of " + what + " in " + text);
-        if (validateIfStringNotEmpty(what) && validateIfStringNotEmpty(text)) {
+        if (isStringNotEmpty(what) && isStringNotEmpty(text)) {
             try {
                 return Pattern.compile(what)
                         .split(text)

@@ -37,14 +37,14 @@ class InMemoryDictionary {
     public void load() {
         dictionaryStatus = fromFileImporter.importDictionary(source, noCategories());
         if (dictionaryStatus.isSuccess()) {
-            setWordListFromResult(dictionaryStatus.getItem());
+            setWordListFromResult((List<Word>) dictionaryStatus.getItem());
             dictionaryStatus.setItem(null);
         }
     }
 
-    private void setWordListFromResult(Object wordListAsObject) {
-        if (Objects.nonNull(wordListAsObject) && wordListAsObject instanceof List) {
-            wordsList = (List<Word>) wordListAsObject;  //TODO improve it
+    private void setWordListFromResult(List<Word> wordListAsObject) {
+        if (Objects.nonNull(wordListAsObject)) {
+            wordsList = wordListAsObject;  //TODO improve it
         } else {
             dictionaryStatus = fail("Unable to retrieve word list.");
             LOGGER.error("Unable to retrieve word list.");

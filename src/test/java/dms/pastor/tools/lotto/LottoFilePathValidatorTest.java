@@ -103,11 +103,13 @@ public class LottoFilePathValidatorTest {
 
     }*/
 
-    private void generateFile(String path) throws IOException {
+    //TODO move to File utils
+    public static void generateFile(String path) throws IOException {
         generateFile(path, null);
     }
 
-    private void generateFile(String path, String[] lines) throws IOException {
+    //TODO move to File utils
+    public static void generateFile(String path, String[] lines) throws IOException {
         ValidatorUtils.validateIfNotNull(path, "Path");
         File file = new File(path);
         if (lines != null) {

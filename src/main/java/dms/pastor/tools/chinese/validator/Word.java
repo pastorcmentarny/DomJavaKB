@@ -3,6 +3,8 @@ package dms.pastor.tools.chinese.validator;
 import java.util.Arrays;
 import java.util.Objects;
 
+import static java.util.Arrays.copyOf;
+
 /**
  * Author Dominik Symonowicz
  * Created 07/10/2017
@@ -71,7 +73,7 @@ public final class Word {
     }
 
     public String[] getGroups() {
-        return groups;
+        return groups == null ? new String[0] : copyOf(groups, groups.length);
     }
 
     public String getNotes() {

@@ -15,7 +15,6 @@ public final class PlayerBuilder {
     private ArrayList<Card> cards = new ArrayList<>();
     private Elements elements = Elements.noElements();
     private String description = "Description";
-    private boolean player = false;
     private Condition condition = new Condition();
     private String name = "Name";
     private int maxHp = DEFAULT_MAX_HEALTH;
@@ -34,7 +33,6 @@ public final class PlayerBuilder {
                 elements,
                 hp,
                 cards,
-                player,
                 name,
                 maxHp,
                 arm,
@@ -44,7 +42,7 @@ public final class PlayerBuilder {
     }
 
     public Player buildDeathPlayer() {
-        return new Player(0, null, 0, null, false, "Death Unit", 1, 0, null, "This unit is death.", null);
+        return new Player(0, null, 0, null, "Death Unit", 1, 0, null, "This unit is death.", null);
     }
 
     public PlayerBuilder hp(int hp) {
@@ -69,11 +67,6 @@ public final class PlayerBuilder {
 
     public PlayerBuilder description(String description) {
         this.description = description;
-        return this;
-    }
-
-    public PlayerBuilder player(boolean player) {
-        this.player = player;
         return this;
     }
 

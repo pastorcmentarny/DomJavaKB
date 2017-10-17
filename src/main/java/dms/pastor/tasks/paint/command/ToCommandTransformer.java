@@ -1,10 +1,11 @@
 package dms.pastor.tasks.paint.command;
 
+import dms.pastor.utils.StringUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import static dms.pastor.tasks.paint.command.CommandValidator.validateCommandParams;
-import static dms.pastor.utils.ValidatorUtils.validateIfStringNotEmpty;
 
 /**
  * Author Dominik Symonowicz
@@ -43,9 +44,8 @@ public final class ToCommandTransformer {
         return command;
     }
 
-    //TODO improve readability
     private static void validateInput(String input) {
-        if (!validateIfStringNotEmpty(input)) {
+        if (StringUtils.isStringEmpty(input)) {
             throw new InvalidCommandSyntaxException("input is null or empty");
         }
     }

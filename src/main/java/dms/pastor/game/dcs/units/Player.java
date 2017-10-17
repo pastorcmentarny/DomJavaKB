@@ -32,9 +32,10 @@ public class Player extends Unit {
 
     private final Spells spells = new Spells();
 
-    public Player(int sp, Elements elements, int hp, ArrayList<Card> cards, boolean player, String name, int maxHp, int arm, Condition condition, String description, UserInputReader userInputReader) {
-        super(sp, elements, hp, cards, player, name, maxHp, arm, condition, description);
+    Player(int sp, Elements elements, int hp, ArrayList<Card> cards, String name, int maxHp, int arm, Condition condition, String description, UserInputReader userInputReader) {
+        super(sp, elements, hp, cards, name, maxHp, arm, condition, description);
         this.userInputReader = userInputReader;
+        setPlayer();
     }
 
     public Player(String name, UserInputReader userInputReader) {

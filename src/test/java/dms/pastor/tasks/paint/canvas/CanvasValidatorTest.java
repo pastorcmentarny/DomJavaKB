@@ -7,7 +7,6 @@ import org.junit.rules.ExpectedException;
 import static dms.pastor.tasks.paint.canvas.Canvas.createCanvasFor;
 import static dms.pastor.tasks.paint.canvas.CanvasValidator.validateIfCanvasIsSet;
 import static dms.pastor.tasks.paint.canvas.CanvasValidator.validateIfImageSizeAreTheSame;
-import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Author Dominik Symonowicz
@@ -97,20 +96,6 @@ public class CanvasValidatorTest {
 
         // when
         createCanvasFor(CANVAS_WIDTH, 0);
-    }
-
-    @Test
-    public void shouldGenerateCanvas() throws Exception {
-        // given
-        final int width = CANVAS_WIDTH;
-        final int height = CANVAS_HEIGHT;
-
-        // when
-        final Canvas canvas = createCanvasFor(width, height);
-
-        // then
-        assertThat(canvas.getWidth()).isEqualTo(width);
-        assertThat(canvas.getHeight()).isEqualTo(height);
     }
 
 }
