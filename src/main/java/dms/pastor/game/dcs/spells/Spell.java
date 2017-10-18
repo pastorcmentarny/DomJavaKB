@@ -4,6 +4,8 @@ import dms.pastor.game.dcs.Elements;
 import dms.pastor.game.dcs.cards.Card;
 import dms.pastor.game.dcs.cards.CardType;
 import dms.pastor.game.dcs.units.Unit;
+import dms.pastor.game.dcs.utils.random.InGameRandomUtils;
+import dms.pastor.game.dcs.utils.random.RandomUtils;
 
 import java.util.Random;
 
@@ -18,7 +20,9 @@ import java.util.Random;
  */
 public abstract class Spell extends Card {
 
+    final RandomUtils randomUtils = new InGameRandomUtils();
     final Random random = new Random();
+
 
     private final CardType cardType = CardType.SPELL;
     private Elements elements;

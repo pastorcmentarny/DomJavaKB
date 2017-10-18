@@ -23,6 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class MessageTest {
 
+    @SuppressWarnings("resource")
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private final PrintStream original = System.err;
 

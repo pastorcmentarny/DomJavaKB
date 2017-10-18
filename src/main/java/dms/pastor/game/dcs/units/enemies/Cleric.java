@@ -3,11 +3,12 @@ package dms.pastor.game.dcs.units.enemies;
 import dms.pastor.game.dcs.actions.CureAction;
 import dms.pastor.game.dcs.spells.*;
 import dms.pastor.game.dcs.units.Unit;
-import dms.pastor.game.dcs.utils.random.InGameRandomiseUtils;
-import dms.pastor.game.dcs.utils.random.RandomiseUtils;
+import dms.pastor.game.dcs.utils.random.InGameRandomUtils;
+import dms.pastor.game.dcs.utils.random.RandomUtils;
 
 import static dms.pastor.game.dcs.conditions.ElementType.EARTH;
 import static dms.pastor.game.dcs.conditions.ElementType.FIRE;
+import static dms.pastor.game.dcs.utils.random.InGameRandomUtils.HALF;
 
 /**
  * Author Dominik Symonowicz
@@ -20,7 +21,7 @@ import static dms.pastor.game.dcs.conditions.ElementType.FIRE;
  */
 public class Cleric extends Unit {
 
-    private final RandomiseUtils randoms = new InGameRandomiseUtils();
+    private final RandomUtils randoms = new InGameRandomUtils();
 
     public Cleric() {
         setName("Cleric");
@@ -67,7 +68,7 @@ public class Cleric extends Unit {
     }
 
     private void tryToCastMagicStoneIfLuckyEnough(Unit enemy, Spell spell) {
-        while (randoms.isWillHappenWithProbabilityOf(50)) {
+        while (randoms.isWillHappenWithProbabilityOf(HALF)) {
             System.out.println("Lucky extra magic stone");
             spell.castSpell(this, enemy);
         }
@@ -95,7 +96,7 @@ public class Cleric extends Unit {
 
     private void castMagicStone(Unit enemy, Spell spell) {
         System.out.println(getName() + " will cast double magic stone!");
-        if(spell.hasEnoughElementsToCovertToSpell(getElements())){
+        if (spell.hasEnoughElementsToCovertToSpell(getElements())) {
             spell.castSpell(this, enemy);
             getElements().useElements(spell.getElements());
         }

@@ -15,6 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class CharacterExercisesTest {
 
+    private static final String LLANFARPWLL = "Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch";
     private CharacterExercises exercise;
 
     @Before
@@ -29,14 +30,13 @@ public class CharacterExercisesTest {
 
     @Test
     public void testShouldFound10LInLlanfairpwll() throws Exception {
-        assertThat(exercise.countCharacterInString('L', "Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch")).isEqualTo(11);
+        assertThat(exercise.countCharacterInString('L', LLANFARPWLL)).isEqualTo(11);
     }
 
     @Test
     public void runCountCharInStringExercise() {
         char charToCount = 'l';
-        String word = "Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch";
-        assertThat(exercise.countCharacterInStringIgnoringCase(charToCount, word)).isEqualTo(11);
+        assertThat(exercise.countCharacterInStringIgnoringCase(charToCount, LLANFARPWLL)).isEqualTo(11);
     }
 
     @SuppressWarnings("SpellCheckingInspection")

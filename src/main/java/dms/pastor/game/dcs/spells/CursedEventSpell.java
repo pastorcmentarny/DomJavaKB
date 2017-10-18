@@ -1,7 +1,6 @@
 package dms.pastor.game.dcs.spells;
 
 import dms.pastor.game.dcs.Elements;
-import dms.pastor.game.dcs.events.EventGenerator;
 import dms.pastor.game.dcs.units.Unit;
 
 /**
@@ -23,6 +22,6 @@ public class CursedEventSpell extends Spell {
     @Override
     public void castSpell(Unit attacker, Unit defender) {
         castSpellMessage(attacker.getName(), name, defender.getName());
-        EventGenerator.badEvent(defender);
+        //EventGenerator.badEvent(defender);
     }
 }

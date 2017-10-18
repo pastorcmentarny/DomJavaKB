@@ -4,7 +4,8 @@ import dms.pastor.game.dcs.Config;
 import dms.pastor.game.dcs.Elements;
 import dms.pastor.game.dcs.units.Unit;
 
-import java.util.Random;
+import static dms.pastor.game.dcs.Config.INFERNO_STRIKE_DMG;
+import static dms.pastor.game.dcs.utils.random.InGameRandomUtils.TWO_THIRD;
 
 /**
  * Author Dominik Symonowicz
@@ -18,7 +19,6 @@ import java.util.Random;
 public class InfernoStrikeSpell extends Spell {
 
     private static final String HIT_MESSAGE = "It hits ";
-    private final Random random = new Random();
 
     public InfernoStrikeSpell() {
         name = "Inferno Strike";
@@ -29,13 +29,12 @@ public class InfernoStrikeSpell extends Spell {
     public void castSpell(Unit attacker, Unit defender) {
         castSpellMessage(attacker.getName(), name, defender.getName());
         for (int i = 1; i <= Config.INFERNO_STRIKE_NO; i++) {
-            int r = random.nextInt(100);
-            if (r >= 60) {
+            if (randomUtils.isWillHappenWithProbabilityOf(TWO_THIRD)) {
                 System.out.println(HIT_MESSAGE + defender.getName());
-                attacker.doesDamageTo(defender, Config.INFERNO_STRIKE_DMG);
+                attacker.doesDamageTo(defender, INFERNO_STRIKE_DMG);
             } else {
                 System.out.println(HIT_MESSAGE + attacker.getName());
-                attacker.doesDamageTo(attacker, Config.INFERNO_STRIKE_DMG);
+                attacker.doesDamageTo(attacker, INFERNO_STRIKE_DMG);
             }
         }
     }

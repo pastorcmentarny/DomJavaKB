@@ -41,7 +41,8 @@ public final class NoSpell extends Spell implements Serializable {
         LOGGER.warn("Nothing happen. (Bug? Casting spell for No Spell???)");
     }
 
-    public boolean isASpell(Elements elements) {
+    @SuppressWarnings("SameReturnValue")
+    boolean isASpell(Elements elements) {
         return false;
     }
 

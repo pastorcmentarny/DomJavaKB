@@ -1,12 +1,16 @@
 package dms.pastor.game.dcs.events;
 
 import dms.pastor.game.dcs.units.Unit;
+import dms.pastor.game.dcs.utils.random.InGameRandomUtils;
+import dms.pastor.game.dcs.utils.random.RandomUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import static dms.pastor.game.dcs.utils.random.InGameRandomUtils.FORTY;
 
 /**
  * Author Dominik Symonowicz
@@ -23,6 +27,7 @@ public final class EventGenerator {
 
     private static final List<Event> EVENTS = new ArrayList<>();
     private static final Random RANDOM = new Random();
+    private static final RandomUtils RANDOM_UTILS = new InGameRandomUtils();
 
     static {
         EVENTS.add(new AirElementEvent());
@@ -43,14 +48,14 @@ public final class EventGenerator {
         return events;
     }
 
-    public static Event getRandomEvent() {
+    static Event getRandomEvent() {
 
         return EVENTS.get(RANDOM.nextInt(EVENTS.size()));
     }
 
     public static void event(Unit player1, Unit player2) {
-        LOGGER.debug("Generating RANDOM event..");
-        if (RANDOM.nextInt(100) > 40) {
+        LOGGER.debug("Generating RANDOM_UTILS event..");
+        if (RANDOM_UTILS.isWillHappenWithProbabilityOf(FORTY)) {
             Event event = getRandomEvent();
             System.out.println("EVENT:" + event.makeItHappen(player1, player2));
         } else {
@@ -59,7 +64,7 @@ public final class EventGenerator {
     }
 
     //TODO
-    public static Event badEvent(Unit defender) {
+/*    public static Event badEvent(Unit defender) {
         return new NoEvent();
-    }
+    }*/
 }

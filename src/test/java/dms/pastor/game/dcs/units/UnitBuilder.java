@@ -27,7 +27,6 @@ public final class UnitBuilder {
     private ArrayList<Card> cards = new ArrayList<>();
     private Elements elements = Elements.noElements();
     private String description = "Description";
-    private boolean player = false;
     private Condition condition = new Condition();
     private String name = "Name";
     private int maxHp = DEFAULT_MAX_HEALTH;
@@ -83,11 +82,6 @@ public final class UnitBuilder {
 
     public UnitBuilder description(String description) {
         this.description = description;
-        return this;
-    }
-
-    public UnitBuilder player(boolean player) {
-        this.player = player;
         return this;
     }
 

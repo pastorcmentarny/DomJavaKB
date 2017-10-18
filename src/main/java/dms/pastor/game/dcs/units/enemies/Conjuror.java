@@ -23,7 +23,7 @@ public class Conjuror extends Unit {
 
     private static final int INITIAL_SP = 40;
     private static final Logger LOGGER = LoggerFactory.getLogger(Genie.class);
-    public static final int INITIAL_HP = 40;
+    private static final int INITIAL_HP = 40;
 
     public Conjuror() {
         setName("Conjuror");

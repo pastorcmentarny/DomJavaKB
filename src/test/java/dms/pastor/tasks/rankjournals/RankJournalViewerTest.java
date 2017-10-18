@@ -6,12 +6,12 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import static dms.pastor.tasks.rankjournals.JournalType.REVIEW;
 import static dms.pastor.tasks.rankjournals.RankJournalViewer.*;
 import static dms.pastor.tasks.rankjournals.models.Journal.createReview;
+import static java.util.Collections.singletonList;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -24,6 +24,9 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class RankJournalViewerTest extends TestCase {
 
+    private static final int YEAR_2010 = 2010;
+    private static final int YEAR_2009 = 2009;
+    private static final int YEAR_2008 = 2008;
     private ArrayList<Journal> journals;
 
     public RankJournalViewerTest(String testName) {
@@ -38,23 +41,23 @@ public class RankJournalViewerTest extends TestCase {
     protected void setUp() throws Exception {
         super.setUp();
         journals = new ArrayList<>();
-        Journal journal = new Journal("Journal A", 5.6, 2010);
+        Journal journal = new Journal("Journal A", 5.6, YEAR_2010);
         journals.add(journal);
-        journal = new Journal("Journal B", 2.4, 2010);
+        journal = new Journal("Journal B", 2.4, YEAR_2010);
         journals.add(journal);
-        journal = new Journal("Journal C", 3.1, 2010);
+        journal = new Journal("Journal C", 3.1, YEAR_2010);
         journals.add(journal);
-        journal = createReview("Journal A", 2.2, 2009);
+        journal = createReview("Journal A", 2.2, YEAR_2009);
         journals.add(journal);
-        journal = new Journal("Journal B", 6.2, 2009);
+        journal = new Journal("Journal B", 6.2, YEAR_2009);
         journals.add(journal);
-        journal = createReview("Journal C", 6.2, 2009);
+        journal = createReview("Journal C", 6.2, YEAR_2009);
         journals.add(journal);
-        journal = createReview("Journal A", 5.6, 2008);
+        journal = createReview("Journal A", 5.6, YEAR_2008);
         journals.add(journal);
-        journal = new Journal("Journal B", 2.4, 2008);
+        journal = new Journal("Journal B", 2.4, YEAR_2008);
         journals.add(journal);
-        journal = new Journal("Journal C", 3.1, 2008);
+        journal = new Journal("Journal C", 3.1, YEAR_2008);
         journals.add(journal);
     }
 
@@ -70,27 +73,27 @@ public class RankJournalViewerTest extends TestCase {
     public void testSortJournalsByScoreForYear2010() {
         System.out.println("Scenario 1");
         String answer = "Rank	Journal	Score\n1	Journal A	5.6\n2	Journal C	3.1\n3	Journal B	2.4\n";
-        assertThat(displaySortJournalsByScoreForYear(2010, journals)).isEqualTo(answer);
+        assertThat(displaySortJournalsByScoreForYear(YEAR_2010, journals)).isEqualTo(answer);
     }
 
     public void testSortJournalsByScoreThenNameForYear2009() {
         System.out.println("Scenario 2");
         String answer = "Rank	Journal	Score\n1	Journal B	6.2\n2	Journal C	6.2\n3	Journal A	2.2\n";
-        assertThat(displaySortJournalsByScoreForYear(2009, journals)).isEqualTo(answer);
+        assertThat(displaySortJournalsByScoreForYear(YEAR_2009, journals)).isEqualTo(answer);
     }
 
     public void testSortJournalsWithExcludedFilterForYear2008() {
         System.out.println("Scenario 3");
         String answer = "Rank	Journal	Score\n1	Journal C	3.1\n2	Journal B	2.4\n";
-        assertThat(displaySortJournalsWithExclusionFilter(2008, journals, getReview())).isEqualTo(answer);
+        assertThat(displaySortJournalsWithExclusionFilter(YEAR_2008, journals, getReview())).isEqualTo(answer);
     }
 
     public void testSortJournalsWithExcludedFilterForYear2009() {
         String answer = "Rank	Journal	Score\n1	Journal B	6.2\n";
-        assertThat(displaySortJournalsWithExclusionFilter(2009, journals, getReview())).isEqualTo(answer);
+        assertThat(displaySortJournalsWithExclusionFilter(YEAR_2009, journals, getReview())).isEqualTo(answer);
     }
 
     private List<JournalType> getReview() {
-        return new ArrayList<>(Collections.singletonList(REVIEW));
+        return new ArrayList<>(singletonList(REVIEW));
     }
 }

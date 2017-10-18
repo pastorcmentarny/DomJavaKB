@@ -65,7 +65,7 @@ class HotPicksAnalyser {
 
     private void addBall(int ball) {
         validateBall(ball);
-        ballDrawnCounter[ball] = ballDrawnCounter[ball] + 1;
+        ballDrawnCounter[ball] += 1;
     }
 
     public int findMostDrawnNumber() {

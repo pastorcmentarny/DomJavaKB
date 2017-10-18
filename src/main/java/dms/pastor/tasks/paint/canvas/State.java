@@ -27,7 +27,6 @@ class State {
     void save(Image image) {
         LOGGER.debug("Saving image state");
         previous = new Image(image.getWidth(), image.getHeight(), clone2DArrayOfInts(image.getImage()));
-        //next = null;
     }
 
     Optional<Image> undo(Image current) {

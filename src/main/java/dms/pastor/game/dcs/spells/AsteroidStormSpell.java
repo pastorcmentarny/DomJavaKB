@@ -10,6 +10,7 @@ import java.util.Random;
 
 import static dms.pastor.game.dcs.Config.*;
 import static dms.pastor.game.dcs.conditions.ElementType.EARTH;
+import static dms.pastor.game.dcs.utils.random.InGameRandomUtils.TWO_THIRD;
 
 /**
  * Author Dominik Symonowicz
@@ -39,7 +40,7 @@ public class AsteroidStormSpell extends Spell {
         for (int i = 1; i <= asteroids; i++) {
             int r = random.nextInt(100);
             if (r >= Config.ASTEROID_STORM_CHANCE_TO_HIT) {
-                if (random.nextInt(100) > 66) {
+                if (randomUtils.isWillHappenWithProbabilityOf(TWO_THIRD)) {
                     System.out.println("Asteroid hits " + defender.getName() + "!");
                     if (defender.getConditions().isNotImmuneTo(EARTH)) {
                         attacker.doesDamageTo(defender, dmg);

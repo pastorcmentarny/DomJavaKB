@@ -31,25 +31,22 @@ final class NumberAsWordDigitConverter {
                 return 100;
         }
 
-        switch (partOfNumber) {
-            case "twenty":
-                return 20;
-            case "thirty":
-                return 30;
-            case "forty":
-                return 40;
-            case "fifty":
-                return 50;
-            case "sixty":
-                return 60;
-            case "seventy":
-                return 70;
-            case "eighty":
-                return 80;
-            case "ninety":
-                return 90;
+        Integer tensOfNumber = getTensOfNumber(partOfNumber);
+        if (tensOfNumber != null) return tensOfNumber;
+
+        Integer x1 = getIntegerInRangeFrom11To19(partOfNumber);
+        if (x1 != null) return x1;
+
+        Integer x = getIntegerInRange0To9(partOfNumber);
+        if (x != null) {
+            return x;
         }
 
+        throw new IllegalArgumentException(partOfNumber + " is not a valid number word.");
+    }
+
+    @SuppressWarnings("MagicNumber")
+    private static Integer getIntegerInRangeFrom11To19(String partOfNumber) {
         switch (partOfNumber) {
             case "ten":
                 return 10;
@@ -72,13 +69,29 @@ final class NumberAsWordDigitConverter {
             case "nineteen":
                 return 19;
         }
+        return null;
+    }
 
-        Integer x = getIntegerInRange0To9(partOfNumber);
-        if (x != null) {
-            return x;
+    private static Integer getTensOfNumber(String partOfNumber) {
+        switch (partOfNumber) {
+            case "twenty":
+                return 20;
+            case "thirty":
+                return 30;
+            case "forty":
+                return 40;
+            case "fifty":
+                return 50;
+            case "sixty":
+                return 60;
+            case "seventy":
+                return 70;
+            case "eighty":
+                return 80;
+            case "ninety":
+                return 90;
         }
-
-        throw new IllegalArgumentException(partOfNumber + " is not a valid number word.");
+        return null;
     }
 
     private static Integer getIntegerInRange0To9(String partOfNumber) {

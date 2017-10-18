@@ -8,6 +8,7 @@ import java.util.Random;
 
 import static dms.pastor.game.dcs.conditions.ConditionEntry.createTemporaryCondition;
 import static dms.pastor.game.dcs.conditions.ConditionType.STUNNED;
+import static dms.pastor.game.dcs.utils.random.InGameRandomUtils.HALF;
 
 /**
  * Author Dominik Symonowicz
@@ -30,7 +31,7 @@ public class LightingBoltSpell extends Spell {
         castSpellMessage(attacker.getName(), name, defender.getName());
         defender.doesDamageTo(attacker, Config.LIGHTING_BOLT_DAMAGE);
         Random random = new Random();
-        if (50 >= random.nextInt(100)) {
+        if (randomUtils.isWillHappenWithProbabilityOf(HALF)) {
             System.out.println(defender.getName() + "  is stunned after being hit by lighting.");
             defender.getConditions().add(createTemporaryCondition(STUNNED, 2));
         }

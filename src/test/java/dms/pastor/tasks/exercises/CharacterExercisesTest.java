@@ -22,6 +22,7 @@ public class CharacterExercisesTest {
         char character = 'l';
         final String word = "Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch";
         final int actual = test.countCharacterInString(character, word);
-        assertThat(actual).isEqualTo(11);
+        final int result = 11;
+        assertThat(actual).isEqualTo(result);
     }
 }

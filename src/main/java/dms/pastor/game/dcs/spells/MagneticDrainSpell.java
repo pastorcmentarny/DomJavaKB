@@ -5,6 +5,8 @@ import dms.pastor.game.dcs.units.Unit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static dms.pastor.game.dcs.utils.random.InGameRandomUtils.ONE_THIRD;
+
 public class MagneticDrainSpell extends Spell {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MagneticDrainSpell.class);
@@ -21,8 +23,8 @@ public class MagneticDrainSpell extends Spell {
         }else{
             final int maxToStole = defender.getElements().countElements() / 8;
             for (int i = 0; i < maxToStole; i++) {
-                if(40 > random.nextInt(100)){
-                    LOGGER.debug(defender.getName() + " ");
+                if (randomUtils.isWillHappenWithProbabilityOf(ONE_THIRD)) {
+                    LOGGER.debug(defender.getName() + " will lose element.");
                     defender.getElements().removeRandomElements(1);
                 }
             }

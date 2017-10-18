@@ -3,11 +3,10 @@ package dms.pastor.game.dcs.spells;
 import dms.pastor.game.dcs.Elements;
 import dms.pastor.game.dcs.units.Unit;
 
-import java.util.Random;
-
 import static dms.pastor.game.dcs.Config.DEFAULT_CONDITION_DURATION;
 import static dms.pastor.game.dcs.conditions.ConditionEntry.createTemporaryConditionWithDefaultDuration;
 import static dms.pastor.game.dcs.conditions.ConditionType.WEAKNESS;
+import static dms.pastor.game.dcs.utils.random.InGameRandomUtils.THREE_QUATER;
 
 /**
  * Author Dominik Symonowicz
@@ -28,7 +27,7 @@ public class WeaknessSpell extends Spell {
     @Override
     public void castSpell(Unit attacker, Unit defender) {
         castSpellMessage(attacker.getName(), name, defender.getName());
-        if (new Random().nextInt(100) > 75) {
+        if (randomUtils.isWillHappenWithProbabilityOf(THREE_QUATER)) {
             defender.getConditions().add(createTemporaryConditionWithDefaultDuration(WEAKNESS));
             System.out.println(defender.getName() + " is weak for " + DEFAULT_CONDITION_DURATION + " turns.");
         } else {

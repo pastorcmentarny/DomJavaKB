@@ -5,6 +5,8 @@ import dms.pastor.game.dcs.cards.Card;
 import dms.pastor.game.dcs.conditions.Condition;
 import dms.pastor.game.dcs.conditions.ElementType;
 import dms.pastor.game.dcs.utils.CLI;
+import dms.pastor.game.dcs.utils.random.InGameRandomUtils;
+import dms.pastor.game.dcs.utils.random.RandomUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,6 +28,7 @@ import static java.lang.String.format;
  */
 public class Unit {
 
+    protected final RandomUtils randomUtils = new InGameRandomUtils();
     private static final Logger LOGGER = LoggerFactory.getLogger(Unit.class);
 
     protected final Random random = new Random();

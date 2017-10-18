@@ -58,7 +58,7 @@ public final class NoSpellTest {
         assertThat(instanceOne.hashCode()).isEqualTo(instanceTwo.hashCode());
     }
 
-    @SuppressWarnings("CastToConcreteClass")
+    @SuppressWarnings({"CastToConcreteClass", "resource"})
     @Test
     public void noSpellSerializationTest() throws Exception {
         // given

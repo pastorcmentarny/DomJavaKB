@@ -1,7 +1,7 @@
 package dms.pastor.game.dcs.conditions;
 
-import dms.pastor.game.dcs.utils.random.InGameRandomiseUtils;
-import dms.pastor.game.dcs.utils.random.RandomiseUtils;
+import dms.pastor.game.dcs.utils.random.InGameRandomUtils;
+import dms.pastor.game.dcs.utils.random.RandomUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,7 +30,7 @@ public class Condition {
     private static final int IMMUNITY_PERCENTAGE = 50;
     private static final Logger LOGGER = LoggerFactory.getLogger(Condition.class);
     private Set<ConditionEntry> conditions = new HashSet<>();
-    private final RandomiseUtils randomiseUtils = new InGameRandomiseUtils();
+    private final RandomUtils randomUtils = new InGameRandomUtils();
 
     public Set<ConditionEntry> getConditions() {
         return unmodifiableSet(conditions);
@@ -149,7 +149,7 @@ public class Condition {
     }
 
     private boolean isImmuneTo(ConditionType conditionType, ConditionType resistCondition) {
-        return has(conditionType) || has(resistCondition) && randomiseUtils.isWillHappenWithProbabilityOf(IMMUNITY_PERCENTAGE);
+        return has(conditionType) || has(resistCondition) && randomUtils.isWillHappenWithProbabilityOf(IMMUNITY_PERCENTAGE);
     }
 
     public int size() {
@@ -175,7 +175,7 @@ public class Condition {
 
     @Override
     public String toString() {
-        return format("Condition{conditions=%s, randomiseUtils=%s}", conditions, randomiseUtils);
+        return format("Condition{conditions=%s, randomUtils=%s}", conditions, randomUtils);
     }
 
     public void clear() {

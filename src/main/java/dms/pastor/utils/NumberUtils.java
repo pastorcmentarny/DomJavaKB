@@ -131,7 +131,7 @@ public final class NumberUtils {
         do {
             remainder = number % 10;
             reversedNumber = reversedNumber * 10 + remainder;
-            number = number / 10;
+            number /= 10;
 
         } while (number > 0);
         return reversedNumber;
@@ -148,7 +148,7 @@ public final class NumberUtils {
             return false;
         }
 
-        for (int i = 3; i < number; i = i + 2) {
+        for (int i = 3; i < number; i += 2) {
             if (number % i == 0) {
                 return false;
             }

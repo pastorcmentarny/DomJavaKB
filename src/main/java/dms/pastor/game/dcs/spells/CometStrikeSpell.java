@@ -3,13 +3,13 @@ package dms.pastor.game.dcs.spells;
 import dms.pastor.game.dcs.Elements;
 import dms.pastor.game.dcs.units.Unit;
 
-import java.util.Random;
-
 import static dms.pastor.game.dcs.Config.COMMENT_DAMAGE;
 import static dms.pastor.game.dcs.Config.FREEZING_TURNS;
 import static dms.pastor.game.dcs.conditions.ConditionEntry.createTemporaryCondition;
 import static dms.pastor.game.dcs.conditions.ConditionType.FROZEN;
 import static dms.pastor.game.dcs.conditions.ConditionType.POISONED;
+import static dms.pastor.game.dcs.utils.random.InGameRandomUtils.HALF;
+import static dms.pastor.game.dcs.utils.random.InGameRandomUtils.TWO_THIRD;
 
 /**
  * Author Dominik Symonowicz
@@ -31,10 +31,10 @@ public class CometStrikeSpell extends Spell {
     public void castSpell(Unit attacker, Unit defender) {
         castSpellMessage(attacker.getName(), name, defender.getName());
         attacker.doesDamageTo(defender, COMMENT_DAMAGE);
-        if (new Random().nextInt(100) > 66) {
+        if (randomUtils.isWillHappenWithProbabilityOf(TWO_THIRD)) {
             defender.getConditions().add(createTemporaryCondition(FROZEN, FREEZING_TURNS));
         }
-        if (new Random().nextInt(100) > 50) {
+        if (randomUtils.isWillHappenWithProbabilityOf(HALF)) {
             defender.getConditions().add(createTemporaryCondition(POISONED, FREEZING_TURNS));
         }
     }

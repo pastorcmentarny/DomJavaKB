@@ -22,6 +22,7 @@ import static org.hamcrest.CoreMatchers.containsString;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
+@SuppressWarnings("resource")
 public class PrintOutUtilsTest {
 
     private static final byte[] BYTES = new byte[]{};

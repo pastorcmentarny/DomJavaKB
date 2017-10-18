@@ -8,13 +8,13 @@ import dms.pastor.game.dcs.units.Unit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Random;
-
 import static dms.pastor.game.dcs.conditions.ConditionEntry.createPersistentCondition;
 import static dms.pastor.game.dcs.conditions.ConditionType.AIR_IMMUNE;
 import static dms.pastor.game.dcs.conditions.ConditionType.WATER_SENSITIVE;
 import static dms.pastor.game.dcs.conditions.ElementType.AIR;
 import static dms.pastor.game.dcs.conditions.ElementType.FIRE;
+import static dms.pastor.game.dcs.utils.random.InGameRandomUtils.ONE_THIRD;
+import static dms.pastor.game.dcs.utils.random.InGameRandomUtils.THREE_QUATER;
 
 /**
  * Author Dominik Symonowicz
@@ -50,10 +50,9 @@ public class Genie extends Unit {
             }
             getElements().setFire(0);
         } else {
-            final int chance = random.nextInt(100);
-            if (33 > chance) {
+            if (randomUtils.isWillHappenWithProbabilityOf(ONE_THIRD)) {
                 //TODO improve this rubbish log
-                LOGGER.debug(getName() + " was lucky enough and get " + chance + " and will cast Frozen spell.");
+                LOGGER.debug(getName() + " was lucky enough and will cast Frozen spell.");
                 new FrozenSpell().castSpell(this, enemy);
             }
         }
@@ -71,7 +70,7 @@ public class Genie extends Unit {
     private void castTripleLightingBoltSpellIfLucky(Unit enemy) {
         LightingBoltSpell lightingBoltSpell = new LightingBoltSpell();
 
-        if (new Random().nextInt(100) > 80) {
+        if (randomUtils.isWillHappenWithProbabilityOf(THREE_QUATER)) {
             System.out.println("Triple fire ball strikes " + enemy.getName());
             for (int i = 1; i <= 3; i++) {
                 lightingBoltSpell.castSpell(this, enemy);

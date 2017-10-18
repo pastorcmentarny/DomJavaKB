@@ -8,6 +8,8 @@ import java.util.Random;
 import static dms.pastor.game.dcs.Config.METEOR_STRIKE_DMG;
 import static dms.pastor.game.dcs.Config.METEOR_STRIKE_NO;
 import static dms.pastor.game.dcs.conditions.ElementType.FIRE;
+import static dms.pastor.game.dcs.utils.random.InGameRandomUtils.FIVE_PERCENT;
+import static dms.pastor.game.dcs.utils.random.InGameRandomUtils.HALF;
 
 /**
  * Author Dominik Symonowicz
@@ -32,12 +34,12 @@ public class MeteorStrikeSpell extends Spell {
         castSpellMessage(attacker.getName(), name, defender.getName());
         for (int i = 1; i <= METEOR_STRIKE_NO; i++) {
             int r = random.nextInt(100);
-            if (r >= 50) {
+            if (randomUtils.isWillHappenWithProbabilityOf(HALF)) {
                 System.out.println("Meteor hit " + defender.getName());
                 if (defender.getConditions().isNotImmuneTo(FIRE)) {
                     attacker.doesDamageTo(defender, METEOR_STRIKE_DMG);
                 }
-            } else if (r >= 5) {
+            } else if (randomUtils.isWillHappenWithProbabilityOf(FIVE_PERCENT)) {
                 System.out.println("Meteor missed.");
             } else {
                 System.out.println("Meteor accidentally hit " + attacker.getName());

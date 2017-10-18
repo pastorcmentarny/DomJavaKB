@@ -2,18 +2,19 @@ package dms.pastor.game.dcs.utils.random;
 
 import org.junit.Test;
 
+import static dms.pastor.game.dcs.utils.random.InGameRandomUtils.HALF;
 import static dms.pastor.utils.randoms.RandomDataGenerator.randomNegativeInteger;
 import static dms.pastor.utils.randoms.RandomDataGenerator.randomPositiveInteger;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public final class InGameRandomiseUtilsTest {
+public final class InGameRandomUtilsTest {
 
-    private final RandomiseUtils inGameRandomiserUtils = new InGameRandomiseUtils();
+    private final RandomUtils randomUtils = new InGameRandomUtils();
 
     @Test
     public void isWillHappenWithProbabilityOfShouldReturnTrueIfPercentageIsAbove100() {
         // when
-        final boolean willHappenWithProbabilityOf = inGameRandomiserUtils.isWillHappenWithProbabilityOf(100 + randomPositiveInteger(256));
+        final boolean willHappenWithProbabilityOf = randomUtils.isWillHappenWithProbabilityOf(100 + randomPositiveInteger(256));
 
         // then
         assertThat(willHappenWithProbabilityOf).isTrue();
@@ -22,7 +23,7 @@ public final class InGameRandomiseUtilsTest {
     @Test
     public void isWillHappenWithProbabilityOfShouldReturnFalseIfPercentageIsNegative() {
         // when
-        final boolean willHappenWithProbabilityOf = inGameRandomiserUtils.isWillHappenWithProbabilityOf(randomNegativeInteger());
+        final boolean willHappenWithProbabilityOf = randomUtils.isWillHappenWithProbabilityOf(randomNegativeInteger());
 
         // then
         assertThat(willHappenWithProbabilityOf).isFalse();
@@ -37,7 +38,7 @@ public final class InGameRandomiseUtilsTest {
 
         // when
         for (int i = 0; i < 1000; i++) {
-            boolean result = inGameRandomiserUtils.isWillHappenWithProbabilityOf(50);
+            boolean result = randomUtils.isWillHappenWithProbabilityOf(HALF);
             if (result) {
                 trueResult = true;
             } else {

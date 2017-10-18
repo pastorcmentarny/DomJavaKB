@@ -20,6 +20,8 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class JournalTest extends TestCase {
 
+    private static final int YEAR_2012 = 2012;
+    private static final int YEAR_2013 = 2013;
     private Journal journalTest;
 
     public JournalTest(String testName) {
@@ -36,7 +38,7 @@ public class JournalTest extends TestCase {
     @Override
     protected void setUp() throws Exception {
         super.setUp();
-        journalTest = new Journal("name", 1.0, 2012);
+        journalTest = new Journal("name", 1.0, YEAR_2012);
     }
 
     public void testJournalDataTest() {
@@ -47,8 +49,8 @@ public class JournalTest extends TestCase {
 
     public void test2NotEqualsScoreComparator() {
         List<Journal> journalList = new ArrayList<>();
-        Journal journalA = new Journal("FirstLowerScore", 1.1, 2013);
-        Journal journalB = new Journal("SecondHigherScore", 2.2, 2013);
+        Journal journalA = new Journal("FirstLowerScore", 1.1, YEAR_2013);
+        Journal journalB = new Journal("SecondHigherScore", 2.2, YEAR_2013);
         journalList.add(journalA);
         journalList.add(journalB);
         journalList.sort(new ScoreComparator());
@@ -57,8 +59,8 @@ public class JournalTest extends TestCase {
 
     public void test2EqualsScoreComparator() {
         List<Journal> journalList = new ArrayList<>();
-        Journal journalA = new Journal("FirstEqualScore", 1.1, 2013);
-        Journal journalB = new Journal("SecondEqualScore", 1.1, 2013);
+        Journal journalA = new Journal("FirstEqualScore", 1.1, YEAR_2013);
+        Journal journalB = new Journal("SecondEqualScore", 1.1, YEAR_2013);
         journalList.add(journalA);
         journalList.add(journalB);
         journalList.sort(new ScoreComparator());

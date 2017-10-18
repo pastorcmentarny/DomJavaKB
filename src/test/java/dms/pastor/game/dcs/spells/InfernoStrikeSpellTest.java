@@ -50,10 +50,10 @@ public class InfernoStrikeSpellTest {
         // when
         for (int i = 0; i < 10; i++) {
             infernoStrikeSpell.castSpell(unit1, unit2);
-            if (unit1.getHp() < 200) {
+            if (unit1.getHp() < initHp) {
                 isUnitOneHit = true;
             }
-            if (unit2.getHp() < 200) {
+            if (unit2.getHp() < initHp) {
                 isUnitTwoHit = true;
             }
 
