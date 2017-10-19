@@ -37,6 +37,7 @@ class InMemoryDictionary {
     public void load() {
         dictionaryStatus = fromFileImporter.importDictionary(source, noCategories());
         if (dictionaryStatus.isSuccess()) {
+            LOGGER.info(dictionaryStatus.getMessage());
             setWordListFromResult((List<Word>) dictionaryStatus.getItem());
             dictionaryStatus.setItem(null);
         }

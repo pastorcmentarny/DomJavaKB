@@ -12,6 +12,7 @@ import java.util.List;
 import static dms.pastor.domain.Result.fail;
 import static dms.pastor.domain.Result.success;
 import static dms.pastor.tools.chinese.validator.WordValidator.isWordValid;
+import static java.lang.String.format;
 
 /**
  * Author Dominik Symonowicz
@@ -29,6 +30,7 @@ public class FromFileImporter implements Importer {
     private static final Logger LOGGER = LoggerFactory.getLogger(FromFileImporter.class);
     private final List<Word> wordsList = new ArrayList<>();
     private int nr = 0;
+    private int ignored = 0;
 
 
     private static void closeReaderQuietly(Reader reader) {
@@ -60,10 +62,8 @@ public class FromFileImporter implements Importer {
         InputStreamReader isr;
 
         try (FileInputStream fileInputStream = new FileInputStream(file)) {
-
             String line;
             String[] data;
-            Word word;
 
             isr = new InputStreamReader(fileInputStream);
             br = new BufferedReader(isr);
@@ -71,10 +71,10 @@ public class FromFileImporter implements Importer {
                 if (isLineNotIgnored(line)) {
                     data = line.split(COLUMN_SEPARATOR);
                     Result result = processLine(requestedCategories, line, data);
-                    if (result != null) return result;
+                    if (result != null && result.isFail()) return result;
                 } else {
-                    LOGGER.warn("This line is ignored: Dictionary :", line);
-                    //TODO add total ignored line
+                    LOGGER.warn("This line is ignored: Dictionary :{}", line);
+                    ignored++;
                 }
             }
         } catch (FileNotFoundException e) {
@@ -86,7 +86,7 @@ public class FromFileImporter implements Importer {
         }
         closeReaderQuietly(isr);
         closeReaderQuietly(br);
-        return success("Dictionary loaded successfully.", wordsList);
+        return success(format("Dictionary loaded successfully.(Words loaded: %d, Ignored: %d)", wordsList.size(), ignored), wordsList);
     }
 
     @SuppressWarnings("ProhibitedExceptionCaught") // Catch this exception to show error to user
@@ -103,12 +103,13 @@ public class FromFileImporter implements Importer {
         } catch (NumberFormatException | ArrayIndexOutOfBoundsException nfe) {
             return returnFailResultOnException(line, nr, nfe);
         }
-        return null;
+        return success();
     }
 
     private void clear() {
         wordsList.clear();
         nr = 0;
+        ignored = 0;
     }
 
     private Result returnFailResultOnException(Exception exception) {
