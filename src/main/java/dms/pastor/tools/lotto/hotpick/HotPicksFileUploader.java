@@ -56,10 +56,7 @@ class HotPicksFileUploader {
             return Optional.empty();
         }
         final String[] row = line.split(",");
-        final int rowLength = 10;
-        if (row.length != rowLength) {
-            //TODO how to test logs ?
-            LOGGER.warn(format("Row is invalid due wrong number of elements. Should be %d but was %d", rowLength, row.length));
+        if (checkRowLength(row)) {
             return Optional.empty();
         }
         LocalDate drawDate;
@@ -90,6 +87,16 @@ class HotPicksFileUploader {
         }
 
         return Optional.of(new HotPickDraw(drawDate, ball1, ball2, ball3, ball4, ball5, ball6, ballSet, machine, drawNumber));
+    }
+
+    private boolean checkRowLength(String[] row) {
+        final int rowLength = 10;
+        if (row.length != rowLength) {
+            //TODO how to test logs ?
+            LOGGER.warn(format("Row is invalid due wrong number of elements. Should be %d but was %d", rowLength, row.length));
+            return true;
+        }
+        return false;
     }
 
     LocalDate parseLocalDate(String drawDate) {

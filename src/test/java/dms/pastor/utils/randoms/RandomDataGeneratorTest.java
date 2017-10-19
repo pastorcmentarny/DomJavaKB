@@ -213,7 +213,7 @@ public class RandomDataGeneratorTest {
     public void generateStringArrayShouldThrowIllegalArgumentExceptionForNegativeTest() throws Exception {
         // except
         exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Size must be zero or higher in order to create an array.");
+        exception.expectMessage("Size cannot be negative.");
 
         // when
         generateArray(-1);
@@ -310,8 +310,8 @@ public class RandomDataGeneratorTest {
     @Test
     public void randomIntegerWithMinAndMaxValueShouldThrowExceptionWhenMinValueIsHigherThanMaxValue() throws Exception {
         // given
-        int maxValue = randomInteger(MAX_SMALL_VALUE);
-        int minValue = maxValue + randomInteger(1, MAX_SMALL_VALUE);
+        int maxValue = randomInteger(MAX_SMALL_VALUE_RANGE);
+        int minValue = maxValue + randomInteger(1, MAX_SMALL_VALUE_RANGE);
 
         // expect
         exception.expect(IllegalArgumentException.class);
@@ -324,8 +324,8 @@ public class RandomDataGeneratorTest {
     @Test
     public void randomIntegerWithMinAndMaxValueShouldReturnValueInRange() throws Exception {
         // given
-        int minValue = randomInteger(MAX_SMALL_VALUE);
-        int maxValue = minValue + randomInteger(1, 1 + MAX_SMALL_VALUE);
+        int minValue = randomInteger(MAX_SMALL_VALUE_RANGE);
+        int maxValue = minValue + randomInteger(1, 1 + MAX_SMALL_VALUE_RANGE);
 
         // when
         final int number = randomInteger(minValue, maxValue);
@@ -337,7 +337,7 @@ public class RandomDataGeneratorTest {
     @Test
     public void randomIntegerWithEqualMinAndMaxValueShouldReturnThatValue() throws Exception {
         // given
-        int value = randomInteger(MAX_SMALL_VALUE);
+        int value = randomInteger(MAX_SMALL_VALUE_RANGE);
 
         // when
         final int number = randomInteger(value, value);
@@ -452,7 +452,7 @@ public class RandomDataGeneratorTest {
     public void generateWordWithoutStopWordShouldReturnPseudoWordThatIsNotStopWord() throws Exception {
 
         // when
-        final String word = generateWordWithoutStopWord(MAX_SMALL_VALUE);
+        final String word = generateWordWithoutStopWord(MAX_SMALL_VALUE_RANGE);
 
         // then
         assertThat(word).isNotEmpty();

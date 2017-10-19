@@ -92,12 +92,12 @@ public final class PersonalDataGenerator {
     }
 
     private static void throwExceptionIfContainsIllegalCharacter(String pattern, char character) {
-        if (containsIllegallCharacter(character)) {
+        if (containsIllegalCharacter(character)) {
             throw new IllegalArgumentException("Pattern for phone contains illegal character(s). Pattern provided: " + pattern);
         }
     }
 
-    private static boolean containsIllegallCharacter(char character) {
+    private static boolean containsIllegalCharacter(char character) {
         return !"0123456789()-+xX".contains(String.valueOf(character));
     }
 

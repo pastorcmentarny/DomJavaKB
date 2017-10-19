@@ -30,23 +30,23 @@ import static java.lang.Integer.MAX_VALUE;
  */
 public final class RandomDataGenerator {
 
-    public static final int MAX_SMALL_VALUE = 10;
-
     private static final Logger LOGGER = LoggerFactory.getLogger(RandomDataGenerator.class);
+
+    public static final int MAX_SMALL_VALUE_RANGE = 10;
+    private static final int MAX_LARGE_VALUE_RANGE = 4096;
+    private static final Random RANDOM = new Random();
     private static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
     private static final String ALPHABET_WITH_LOWER_AND_UPPER = ALPHABET.toUpperCase() + ALPHABET;
     private static final String ALPHABET_WITH_ALL_CASES_AND_NUMBERS = ALPHABET_WITH_LOWER_AND_UPPER + "0123456789";
     private static final String NON_ALPHANUMERIC = "~#&@£$^'`\".,:;*–+=(){}[]<>?!\\|/";
     private static final int NOT_SPECIFIED = -1;
-    private static final int MAX_LARGE_VALUE = 4096;
-    private static final Random RANDOM = new Random();
 
     private RandomDataGenerator() {
     }
 
     private static String getRandomText(int length) {
         if (length == NOT_SPECIFIED) {
-            length = MAX_LARGE_VALUE;
+            length = MAX_LARGE_VALUE_RANGE;
         }
         StringBuilder text = new StringBuilder(EMPTY_STRING);
         for (int i = 1; i < RANDOM.nextInt(length); i++) {
@@ -56,7 +56,7 @@ public final class RandomDataGenerator {
     }
 
     public static void addRandomCharacterToStringBuilder(StringBuilder text) {
-        int character = (int) (Math.random() * 62);
+        int character = (int) (Math.random() * ALPHABET_WITH_ALL_CASES_AND_NUMBERS.length());
         text.append(ALPHABET_WITH_ALL_CASES_AND_NUMBERS.substring(character, character + 1));
     }
 
@@ -83,9 +83,9 @@ public final class RandomDataGenerator {
     public static String generateRandomParagraph() {
         StringBuilder stringBuilder = new StringBuilder(EMPTY_STRING);
 
-        IntStream.range(10, RANDOM.nextInt(100) + 20).forEach(text -> stringBuilder.append(getRandomText(12)).append(WHITESPACE_CHAR));
+        IntStream.range(10, RANDOM.nextInt(100) + 20).forEach(text -> stringBuilder.append(getRandomText(MAX_SMALL_VALUE_RANGE)).append(WHITESPACE_CHAR));
 
-        return '\t' + getRandomCharacterAsString().toUpperCase() + getRandomText(12) + WHITESPACE_CHAR + stringBuilder.toString() + ".\n";
+        return '\t' + getRandomCharacterAsString().toUpperCase() + getRandomText(MAX_SMALL_VALUE_RANGE) + WHITESPACE_CHAR + stringBuilder.toString() + ".\n";
     }
 
     public static int[] generateIntArray(int size, int numberRange) {
@@ -99,18 +99,16 @@ public final class RandomDataGenerator {
     }
 
     public static String[] generateArray(int size) {
-        if (size < 0) {
-            throw new IllegalArgumentException("Size must be zero or higher in order to create an array.");
-        }
+        validateIfPositiveNumber(size, "Size");
         String[] array = new String[size];
         for (int i = 0; i < size; i++) {
-            array[i] = generateString(4, MAX_LARGE_VALUE);
+            array[i] = generateString(4, MAX_LARGE_VALUE_RANGE);
         }
         return array;
     }
 
     public static String generateString() {
-        return generateString(RANDOM.nextInt(MAX_LARGE_VALUE) + 1);
+        return generateString(RANDOM.nextInt(MAX_LARGE_VALUE_RANGE) + 1);
     }
 
     public static String generateString(int max) {
@@ -147,7 +145,7 @@ public final class RandomDataGenerator {
         LOGGER.debug("Generate " + size + "  word(s).");
         StringBuilder stringBuilder = new StringBuilder(EMPTY_STRING);
         for (int i = 1; i <= size; i++) {
-            stringBuilder.append(generateWordWithoutStopWord(MAX_SMALL_VALUE)).append(WHITESPACE);
+            stringBuilder.append(generateWordWithoutStopWord(MAX_SMALL_VALUE_RANGE)).append(WHITESPACE);
         }
         final String words = stringBuilder.substring(0, stringBuilder.length() - 1);
         LOGGER.debug("Generated output: " + words);
@@ -158,7 +156,7 @@ public final class RandomDataGenerator {
         validateIfPositiveNumber(size);
         final int maxAttemptsToCreate = 512;
         for (int i = 0; i < maxAttemptsToCreate; i++) {
-            final String generatedString = generateString(MAX_SMALL_VALUE);
+            final String generatedString = generateString(MAX_SMALL_VALUE_RANGE);
             if (isNotStopWord(generatedString)) {
                 return generatedString;
             }
@@ -239,9 +237,9 @@ public final class RandomDataGenerator {
 
     public static List<String> generateStringList() {
         List<String> randomStrings = new ArrayList<>();
-        int size = RANDOM.nextInt(MAX_SMALL_VALUE) + 4;
+        int size = RANDOM.nextInt(MAX_SMALL_VALUE_RANGE) + 4;
         for (int i = 0; i < size; i++) {
-            randomStrings.add(generateString(MAX_SMALL_VALUE));
+            randomStrings.add(generateString(MAX_SMALL_VALUE_RANGE));
         }
         return randomStrings;
     }

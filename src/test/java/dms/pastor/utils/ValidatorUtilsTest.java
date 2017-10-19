@@ -169,8 +169,8 @@ public class ValidatorUtilsTest {
     public void validateMinValueIsSmallerThanMaxValueShouldThrowExceptionWhenMinValueIsGreaterThanMaxValue() throws Exception {
 
         // given
-        int maxValue = randomInteger(MAX_SMALL_VALUE);
-        int minValue = MAX_SMALL_VALUE + randomInteger(MAX_SMALL_VALUE);
+        int maxValue = randomInteger(MAX_SMALL_VALUE_RANGE);
+        int minValue = MAX_SMALL_VALUE_RANGE + randomInteger(MAX_SMALL_VALUE_RANGE);
 
         // exception
         expectedException.expect(IllegalArgumentException.class);
@@ -184,8 +184,8 @@ public class ValidatorUtilsTest {
     public void validateMinValueIsSmallerThanMaxValueShouldBeValidatedWhenMinValueIsSmallerThanMaxValue() throws Exception {
 
         // given
-        int minValue = randomInteger(MAX_SMALL_VALUE);
-        int maxValue = minValue + randomInteger(MAX_SMALL_VALUE);
+        int minValue = randomInteger(MAX_SMALL_VALUE_RANGE);
+        int maxValue = minValue + randomInteger(MAX_SMALL_VALUE_RANGE);
 
         // when
         validateMinValueIsSmallerThanMaxValue(minValue, maxValue);
@@ -232,7 +232,7 @@ public class ValidatorUtilsTest {
         expectedException.expectMessage("Value cannot be positive");
 
         // given
-        BigDecimal value = new BigDecimal(1 + new Random().nextInt(MAX_SMALL_VALUE));
+        BigDecimal value = new BigDecimal(1 + new Random().nextInt(MAX_SMALL_VALUE_RANGE));
 
         // when
         validateNegativeBigDecimal(value);
@@ -242,7 +242,7 @@ public class ValidatorUtilsTest {
     @Test
     public void validateNegativeBigDecimalShouldPassWithoutExceptionForNegativeValue() throws Exception {
         // given
-        final BigDecimal value = new BigDecimal(1 + new Random().nextInt(MAX_SMALL_VALUE)).negate();
+        final BigDecimal value = new BigDecimal(1 + new Random().nextInt(MAX_SMALL_VALUE_RANGE)).negate();
 
         // when
         validateNegativeBigDecimal(value);
@@ -267,7 +267,7 @@ public class ValidatorUtilsTest {
         expectedException.expectMessage("Value cannot be negative.");
 
         // given
-        BigDecimal value = new BigDecimal(1 + new Random().nextInt(MAX_SMALL_VALUE)).negate();
+        BigDecimal value = new BigDecimal(1 + new Random().nextInt(MAX_SMALL_VALUE_RANGE)).negate();
 
         // when
         ValidatorUtils.validateIfPositiveNumber(value);
@@ -277,7 +277,7 @@ public class ValidatorUtilsTest {
     @Test
     public void validatePositiveBigDecimalShouldPassWithoutExceptionForPositiveValue() throws Exception {
         // given
-        final BigDecimal value = new BigDecimal(1 + new Random().nextInt(MAX_SMALL_VALUE));
+        final BigDecimal value = new BigDecimal(1 + new Random().nextInt(MAX_SMALL_VALUE_RANGE));
 
         // when
         ValidatorUtils.validateIfPositiveNumber(value);
@@ -368,7 +368,7 @@ public class ValidatorUtilsTest {
     @Test
     public void validateIfNotEmptyShouldThrowIllegalArgumentExceptionIfNullWithCustomObjectName() throws Exception {
         // given
-        final String objectName = generateString(MAX_SMALL_VALUE);
+        final String objectName = generateString(MAX_SMALL_VALUE_RANGE);
 
         // expect
         expectedException.expect(IllegalArgumentException.class);
@@ -381,7 +381,7 @@ public class ValidatorUtilsTest {
     @Test
     public void validateIfNotEmptyShouldThrowIllegalArgumentExceptionIfEmptyWithCustomObjectName() throws Exception {
         // given
-        final String objectName = generateString(MAX_SMALL_VALUE);
+        final String objectName = generateString(MAX_SMALL_VALUE_RANGE);
 
         // expect
         expectedException.expect(IllegalArgumentException.class);
@@ -404,7 +404,7 @@ public class ValidatorUtilsTest {
     @Test
     public void validateIfListIsNotEmptyShouldThrowIllegalArgumentExceptionIfNullWithCustomObjectName() throws Exception {
         // given
-        final String objectName = generateString(MAX_SMALL_VALUE);
+        final String objectName = generateString(MAX_SMALL_VALUE_RANGE);
 
         // expect
         expectedException.expect(IllegalArgumentException.class);
@@ -417,7 +417,7 @@ public class ValidatorUtilsTest {
     @Test
     public void validateIfListIsNotEmptyShouldThrowIllegalArgumentExceptionIfEmptyWithCustomObjectName() throws Exception {
         // given
-        final String objectName = generateString(MAX_SMALL_VALUE);
+        final String objectName = generateString(MAX_SMALL_VALUE_RANGE);
         List<String> list = new ArrayList<>();
         list.clear();
 
@@ -433,7 +433,7 @@ public class ValidatorUtilsTest {
     public void validateIfListIsNotEmptyShouldValidateForNonEmptyInputWithCustomObjectName() throws Exception {
         // given
         List<String> list = new ArrayList<>();
-        list.add(generateString(MAX_SMALL_VALUE));
+        list.add(generateString(MAX_SMALL_VALUE_RANGE));
 
         // when
         validateIfListIsNotEmpty(list, UNUSED_OBJECT_NAME);

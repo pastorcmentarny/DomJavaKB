@@ -1,7 +1,7 @@
 package dms.pastor.tools.lotto.hotpick;
 
 import static dms.pastor.tools.lotto.hotpick.Couple.createWithOrderedNumbers;
-import static dms.pastor.utils.randoms.RandomDataGenerator.MAX_SMALL_VALUE;
+import static dms.pastor.utils.randoms.RandomDataGenerator.MAX_SMALL_VALUE_RANGE;
 import static dms.pastor.utils.randoms.RandomDataGenerator.randomInteger;
 
 /**
@@ -15,8 +15,8 @@ import static dms.pastor.utils.randoms.RandomDataGenerator.randomInteger;
  */
 public final class CoupleBuilder {
 
-    private int smallerNumber = randomInteger(MAX_SMALL_VALUE);
-    private int largerNumber = MAX_SMALL_VALUE + 1;
+    private int smallerNumber = randomInteger(MAX_SMALL_VALUE_RANGE);
+    private int largerNumber = MAX_SMALL_VALUE_RANGE + 1;
 
     private CoupleBuilder() {
     }

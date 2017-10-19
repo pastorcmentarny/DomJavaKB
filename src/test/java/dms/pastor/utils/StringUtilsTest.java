@@ -531,9 +531,9 @@ public class StringUtilsTest {
     @Test
     public void everythingIsEmptyShouldReturnTrueIfAllStringsAreEmptyAcceptanceTest() throws Exception {
         // given
-        final String string1 = generateString(MAX_SMALL_VALUE);
-        final String string2 = generateString(MAX_SMALL_VALUE);
-        final String string3 = generateString(MAX_SMALL_VALUE);
+        final String string1 = generateString(MAX_SMALL_VALUE_RANGE);
+        final String string2 = generateString(MAX_SMALL_VALUE_RANGE);
+        final String string3 = generateString(MAX_SMALL_VALUE_RANGE);
 
         // when
         final boolean result = isAllStringsAreNotEmpty(string1, string2, string3);
@@ -545,8 +545,8 @@ public class StringUtilsTest {
     @Test
     public void everythingIsEmptyShouldReturnFalseIfAnyOfStringsIsNotEmptyAcceptanceTest() throws Exception {
         // given
-        final String string1 = generateString(MAX_SMALL_VALUE);
-        final String string2 = generateString(MAX_SMALL_VALUE);
+        final String string1 = generateString(MAX_SMALL_VALUE_RANGE);
+        final String string2 = generateString(MAX_SMALL_VALUE_RANGE);
 
         // when
         final boolean result = isAllStringsAreNotEmpty(string1, string2, EMPTY_STRING);

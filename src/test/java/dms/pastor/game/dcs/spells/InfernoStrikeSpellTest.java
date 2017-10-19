@@ -4,7 +4,7 @@ import dms.pastor.game.dcs.units.Unit;
 import dms.pastor.game.dcs.units.UnitBuilder;
 import org.junit.Test;
 
-import static dms.pastor.utils.randoms.RandomDataGenerator.MAX_SMALL_VALUE;
+import static dms.pastor.utils.randoms.RandomDataGenerator.MAX_SMALL_VALUE_RANGE;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -25,7 +25,7 @@ public class InfernoStrikeSpellTest {
         // given
         final int initHp = 100;
         final Unit unit = UnitBuilder.unitBuilder()
-                .name(generateString(MAX_SMALL_VALUE))
+                .name(generateString(MAX_SMALL_VALUE_RANGE))
                 .hp(initHp)
                 .build();
         // when
@@ -40,7 +40,7 @@ public class InfernoStrikeSpellTest {
         // given
         final int initHp = 200;
         final UnitBuilder unitBuilder = UnitBuilder.unitBuilder()
-                .name(generateString(MAX_SMALL_VALUE))
+                .name(generateString(MAX_SMALL_VALUE_RANGE))
                 .hp(initHp);
         final Unit unit1 = unitBuilder.name("One").build();
         final Unit unit2 = unitBuilder.name("Two").build();
