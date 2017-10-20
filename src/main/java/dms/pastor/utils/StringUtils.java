@@ -28,8 +28,8 @@ public final class StringUtils {
     public static final String WHITESPACE = " ";
     public static final char WHITESPACE_CHAR = ' ';
     public static final char NEW_LINE = '\n';
-    public static final String ALPHANUMERIC = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"; //TODO replace it with RandomDataGenerator
     public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
+    public static final String ALPHANUMERIC = ALPHABET.toUpperCase() + ALPHABET + "0123456789"; //TODO replace it with RandomDataGenerator
     static final String NON_ALPHANUMERIC = "~#&@£$^'`\".,:;*–+=(){}[]<>?!\\|/";
     private static final String ALPHABET_BOTH_CASE = ALPHABET + ALPHABET.toUpperCase();
     private static final char COMMA = ',';

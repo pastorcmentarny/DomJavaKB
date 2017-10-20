@@ -398,6 +398,7 @@ java.lang.IllegalArgumentException: Path is invalid or is not a file
         hotPicksFileUploader.parseLocalDate("331-Jan-2015");
     }
 
+    @SuppressWarnings("MethodWithTooManyParameters")
     private void assertHotPickDraw(HotPickDraw hotPickDraw, String date, int ball1, int ball2, int ball3, int ball4, int ball5, int ball6, int ballSet, String machine, int drawNumber) {
         assertThat(hotPickDraw).isNotNull();
         System.out.println(date); //TODO date

@@ -48,7 +48,6 @@ public final class Config {
     public static final int COMMENT_DAMAGE = 5;
     public static final int ASTEROID_STORM_MIN_DAMAGE = 1;
     public static final int ASTEROID_STORM_MAX_DAMAGE = 3;
-    public static final int ASTEROID_STORM_CHANCE_TO_HIT = 25;
     public static final int ASTEROID_STORM_MIN_ASTEROIDS = 2;
     public static final int ASTEROID_STORM_MAX_ASTEROIDS = 5;
     public static final int POISON_DAMAGE = 1;

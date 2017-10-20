@@ -14,6 +14,7 @@ import org.junit.rules.ExpectedException;
  *
  * This class must be public otherwise test will throw java.lang.RuntimeException: How did getFields return a field we couldn't access?
  */
+@SuppressWarnings("WeakerAccess")
 public class AbstractCommandTest {
 
     @Rule
