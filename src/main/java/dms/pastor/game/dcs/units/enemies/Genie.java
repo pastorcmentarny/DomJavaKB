@@ -14,7 +14,7 @@ import static dms.pastor.game.dcs.conditions.ConditionType.WATER_SENSITIVE;
 import static dms.pastor.game.dcs.conditions.ElementType.AIR;
 import static dms.pastor.game.dcs.conditions.ElementType.FIRE;
 import static dms.pastor.game.dcs.utils.random.InGameRandomUtils.ONE_THIRD;
-import static dms.pastor.game.dcs.utils.random.InGameRandomUtils.THREE_QUATER;
+import static dms.pastor.game.dcs.utils.random.InGameRandomUtils.THREE_QUARTERS;
 
 /**
  * Author Dominik Symonowicz
@@ -70,7 +70,7 @@ public class Genie extends Unit {
     private void castTripleLightingBoltSpellIfLucky(Unit enemy) {
         LightingBoltSpell lightingBoltSpell = new LightingBoltSpell();
 
-        if (randomUtils.isWillHappenWithProbabilityOf(THREE_QUATER)) {
+        if (randomUtils.isWillHappenWithProbabilityOf(THREE_QUARTERS)) {
             System.out.println("Triple fire ball strikes " + enemy.getName());
             for (int i = 1; i <= 3; i++) {
                 lightingBoltSpell.castSpell(this, enemy);

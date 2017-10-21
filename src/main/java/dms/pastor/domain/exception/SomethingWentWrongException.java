@@ -35,12 +35,12 @@ public class SomethingWentWrongException extends RuntimeException {
     }
 
     //https://www.owasp.org/index.php/Deserialization_Cheat_Sheet
-    @SuppressWarnings("FinalPrivateMethod")
+    @SuppressWarnings({"FinalPrivateMethod", "unused"})
     private final void readObject(ObjectInputStream in) throws IOException {
         throw new IOException("Cannot be deserialized");
     }
 
-    @SuppressWarnings("FinalPrivateMethod")
+    @SuppressWarnings({"FinalPrivateMethod", "unused"})
     private final void writeObject(ObjectOutputStream out) throws IOException {
         throw new IOException("Cannot be serialized");
     }

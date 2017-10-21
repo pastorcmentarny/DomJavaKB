@@ -23,7 +23,6 @@ public abstract class Spell extends Card {
     final RandomUtils randomUtils = new InGameRandomUtils();
     final Random random = new Random();
 
-
     private final CardType cardType = CardType.SPELL;
     private Elements elements;
 

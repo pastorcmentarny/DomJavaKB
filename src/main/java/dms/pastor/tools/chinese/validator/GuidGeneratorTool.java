@@ -13,9 +13,12 @@ import static dms.pastor.utils.StringUtils.EMPTY_STRING;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class GuidGeneratorTool {
+final class GuidGeneratorTool {
 
-    public static String generateGuid() {
+    private GuidGeneratorTool() {
+    }
+
+    static String generateGuid() {
         return UUID.randomUUID().toString().replaceAll("-", EMPTY_STRING);
     }
 }

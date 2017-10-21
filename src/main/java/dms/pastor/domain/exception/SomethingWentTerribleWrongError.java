@@ -22,7 +22,7 @@ public class SomethingWentTerribleWrongError extends Error {
     }
 
     //https://www.owasp.org/index.php/Deserialization_Cheat_Sheet
-    @SuppressWarnings("FinalPrivateMethod")
+    @SuppressWarnings({"FinalPrivateMethod", "unused"})
     private final void readObject(ObjectInputStream in) throws java.io.IOException {
         throw new java.io.IOException("Cannot be deserialized");
     }

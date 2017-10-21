@@ -48,9 +48,9 @@ public class Unit {
     private int hpRegenRate = REGEN_HP_PER_TURN;
 
     protected Unit() {
-
     }
 
+    @SuppressWarnings("ConstructorWithTooManyParameters")
     public Unit(int sp, Elements elements, int hp, ArrayList<Card> cards, String name, int maxHp, int arm, Condition conditions, String description) {
         this.sp = sp;
         this.elements = elements;
@@ -168,7 +168,7 @@ public class Unit {
         return sp;
     }
 
-    protected void setSp(int sp) {
+    public void setSp(int sp) {
         this.sp = sp;
     }
 

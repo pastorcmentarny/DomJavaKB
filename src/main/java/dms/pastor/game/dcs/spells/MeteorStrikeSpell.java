@@ -3,8 +3,6 @@ package dms.pastor.game.dcs.spells;
 import dms.pastor.game.dcs.Elements;
 import dms.pastor.game.dcs.units.Unit;
 
-import java.util.Random;
-
 import static dms.pastor.game.dcs.Config.METEOR_STRIKE_DMG;
 import static dms.pastor.game.dcs.Config.METEOR_STRIKE_NO;
 import static dms.pastor.game.dcs.conditions.ElementType.FIRE;
@@ -22,8 +20,6 @@ import static dms.pastor.game.dcs.utils.random.InGameRandomUtils.HALF;
  */
 public class MeteorStrikeSpell extends Spell {
 
-    private final Random random = new Random();
-
     public MeteorStrikeSpell() {
         name = "Meteor Strike";
         setElements(new Elements(0, 2, 3, 0));
@@ -33,7 +29,6 @@ public class MeteorStrikeSpell extends Spell {
     public void castSpell(Unit attacker, Unit defender) {
         castSpellMessage(attacker.getName(), name, defender.getName());
         for (int i = 1; i <= METEOR_STRIKE_NO; i++) {
-            int r = random.nextInt(100);
             if (randomUtils.isWillHappenWithProbabilityOf(HALF)) {
                 System.out.println("Meteor hit " + defender.getName());
                 if (defender.getConditions().isNotImmuneTo(FIRE)) {

@@ -37,12 +37,12 @@ public final class PlayerBuilder {
                 maxHp,
                 arm,
                 condition,
-                description,
-                null);
+                description
+        );
     }
 
     public Player buildDeathPlayer() {
-        return new Player(0, null, 0, null, "Death Unit", 1, 0, null, "This unit is death.", null);
+        return new Player(0, null, 0, null, "Death Unit", 1, 0, null, "This unit is death.");
     }
 
     public PlayerBuilder hp(int hp) {

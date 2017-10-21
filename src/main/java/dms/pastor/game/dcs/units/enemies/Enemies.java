@@ -20,6 +20,7 @@ public final class Enemies {
         ALL_ENEMIES.add(new Cleric());
         ALL_ENEMIES.add(new Vampire());
         ALL_ENEMIES.add(new Dragon());
+        ALL_ENEMIES.add(new Mage());
     }
 
     private Enemies() {

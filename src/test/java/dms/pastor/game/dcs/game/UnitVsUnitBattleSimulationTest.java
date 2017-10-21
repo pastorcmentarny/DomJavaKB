@@ -40,6 +40,17 @@ public final class UnitVsUnitBattleSimulationTest {
     }
 
     @Test
+    public void dummyUnitVsMageBattleSimulationTest() {
+        // setup
+        Dummy dummyUnitUnit = new Dummy("Dummy");
+        Mage mage = new Mage();
+        Battle battle = new Battle(dummyUnitUnit, mage);
+
+        // battle
+        battle.isInFight();
+    }
+
+    @Test
     public void dummyUnitVsClairvoyantBattleSimulationTest() {
         // setup
         Dummy dummyUnit = new Dummy("Dummy");
@@ -117,6 +128,18 @@ public final class UnitVsUnitBattleSimulationTest {
     }
 
     @Test
+    public void conjurorVsMageBattleSimulationTest() {
+        // setup
+        Conjuror conjuror = new Conjuror();
+        Mage mage = new Mage();
+        Battle battle = new Battle(conjuror, mage);
+
+        // battle
+        battle.isInFight();
+    }
+
+
+    @Test
     public void conjurorVsWitchBattleSimulationTest() {
         // setup
         Conjuror conjuror = new Conjuror();
@@ -172,6 +195,28 @@ public final class UnitVsUnitBattleSimulationTest {
     }
 
     @Test
+    public void dragonVsMageBattleSimulationTest() {
+        // setup
+        Dragon dragon = new Dragon();
+        Mage mage = new Mage();
+        Battle battle = new Battle(dragon, mage);
+
+        // battle
+        battle.isInFight();
+    }
+
+    @Test
+    public void fireElementVsMageBattleSimulationTest() {
+        // setup
+        FireElement fireElement = new FireElement();
+        Mage mage = new Mage();
+        Battle battle = new Battle(fireElement, mage);
+
+        // battle
+        battle.isInFight();
+    }
+
+    @Test
     public void genieVsDragonBattleSimulationTest() {
         // setup
         Genie genie = new Genie();
@@ -205,11 +250,11 @@ public final class UnitVsUnitBattleSimulationTest {
     }
 
     @Test
-    public void genieVsWitchBattleSimulationTest() {
+    public void genieVsMageBattleSimulationTest() {
         // setup
         Genie genie = new Genie();
-        Witch witch = new Witch();
-        Battle battle = new Battle(genie, witch);
+        Mage mage = new Mage();
+        Battle battle = new Battle(genie, mage);
 
         // battle
         battle.isInFight();
@@ -221,6 +266,17 @@ public final class UnitVsUnitBattleSimulationTest {
         Genie genie = new Genie();
         Vampire vampire = new Vampire();
         Battle battle = new Battle(genie, vampire);
+
+        // battle
+        battle.isInFight();
+    }
+
+    @Test
+    public void genieVsWitchBattleSimulationTest() {
+        // setup
+        Genie genie = new Genie();
+        Witch witch = new Witch();
+        Battle battle = new Battle(genie, witch);
 
         // battle
         battle.isInFight();
@@ -357,6 +413,29 @@ public final class UnitVsUnitBattleSimulationTest {
         // battle
         battle.isInFight();
     }
+
+    @Test
+    public void mageVsVampireBattleSimulationTest() {
+        // setup
+        Mage mage = new Mage();
+        Vampire vampire = new Vampire();
+        Battle battle = new Battle(mage, vampire);
+
+        // battle
+        battle.isInFight();
+    }
+
+    @Test
+    public void mageVsWitchBattleSimulationTest() {
+        // setup
+        Mage mage = new Mage();
+        Witch witch = new Witch();
+        Battle battle = new Battle(mage, witch);
+
+        // battle
+        battle.isInFight();
+    }
+
 
     @Test
     public void witchVsVampireBattleSimulationTest() {

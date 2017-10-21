@@ -11,6 +11,7 @@ import static dms.pastor.utils.randoms.RandomDataGenerator.randomPositiveInteger
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
+@SuppressWarnings("unused")
 public final class SkillsBuilder {
 
     private int perception = randomPositiveInteger(10);

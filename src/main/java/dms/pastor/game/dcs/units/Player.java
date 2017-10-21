@@ -13,6 +13,8 @@ import org.slf4j.Logger;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static dms.pastor.game.dcs.Elements.noElements;
+import static dms.pastor.game.dcs.Menus.displayPlayerActions;
 import static org.slf4j.LoggerFactory.getLogger;
 
 /**
@@ -32,9 +34,10 @@ public class Player extends Unit {
 
     private final Spells spells = new Spells();
 
-    Player(int sp, Elements elements, int hp, ArrayList<Card> cards, String name, int maxHp, int arm, Condition condition, String description, UserInputReader userInputReader) {
+    @SuppressWarnings({"ConstructorWithTooManyParameters", "AssignmentToNull"})
+    Player(int sp, Elements elements, int hp, ArrayList<Card> cards, String name, int maxHp, int arm, Condition condition, String description) {
         super(sp, elements, hp, cards, name, maxHp, arm, condition, description);
-        this.userInputReader = userInputReader;
+        this.userInputReader = null;
         setPlayer();
     }
 
@@ -47,19 +50,17 @@ public class Player extends Unit {
 
     @Override
     public void turn(Unit unit) {
+        displayPlayerActions();
 
-        Menus.displayPlayerActions();
-
-        int text;
-
+        int integerInput;
         try {
-            text = userInputReader.getIntegerInput();
+            integerInput = userInputReader.getIntegerInput();
         } catch (Exception e) {
             System.out.print("Oh cock!" + e.getMessage());
-            text = 0;
+            integerInput = 0;
         }
 
-        switch (text) {
+        switch (integerInput) {
             case 1:
                 castSpell(unit);
                 break;
@@ -82,18 +83,13 @@ public class Player extends Unit {
             String[] input = spell.split(";");
             DebugUtils.displayInput(input);
 
-
-            int a = Integer.parseInt(input[0]);
-            int e = Integer.parseInt(input[1]);
-            int f = Integer.parseInt(input[2]);
-            int w = Integer.parseInt(input[3]);
-            spellElements = new Elements(a, e, f, w);
+            spellElements = getElementsFromInput(input);
         } catch (Exception e) {
             LOGGER.info("Whoops! " + e.getMessage());
-            spellElements = Elements.noElements();
+            spellElements = noElements();
         }
 
-        Spell aSpell = spells.findSpell(spellElements);
+        final Spell aSpell = spells.findSpell(spellElements);
         if (aSpell != null) {
             if (aSpell.hasEnoughElementsToCovertToSpell(getElements())) {
                 aSpell.castSpell(this, enemy);
@@ -104,5 +100,13 @@ public class Player extends Unit {
         } else {
             System.out.println("Spell not found");
         }
+    }
+
+    private Elements getElementsFromInput(String[] input) {
+        int a = Integer.parseInt(input[0]);
+        int e = Integer.parseInt(input[1]);
+        int f = Integer.parseInt(input[2]);
+        int w = Integer.parseInt(input[3]);
+        return new Elements(a, e, f, w);
     }
 }
