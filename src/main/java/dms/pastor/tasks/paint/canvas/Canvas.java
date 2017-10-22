@@ -5,6 +5,8 @@ import org.slf4j.LoggerFactory;
 
 import static dms.pastor.tasks.paint.canvas.CanvasValidator.validate;
 import static dms.pastor.tasks.paint.canvas.Image.noImage;
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+import static dms.pastor.utils.StringUtils.NEW_LINE;
 import static java.lang.String.format;
 
 /**
@@ -17,10 +19,8 @@ import static java.lang.String.format;
  */
 public final class Canvas {
     private static final Logger LOGGER = LoggerFactory.getLogger(Canvas.class);
-    private static final String NEW_LINE = "\n";
     private static final String EMPTY_PIXEL = " ";
     private static final int BORDER = 1;
-    private static final String EMPTY = "";
     public static final String VERTICAL_BORDER = "|";
     public static final String HORIZONTAL_BORDER = "-";
     private Image image;
@@ -94,7 +94,7 @@ public final class Canvas {
     }
 
     public String getCanvasAsString() {
-        StringBuilder imageBuilder = new StringBuilder(EMPTY);
+        StringBuilder imageBuilder = new StringBuilder(EMPTY_STRING);
         if (isNoCanvas()) {
             return imageBuilder.toString();
         }
@@ -111,7 +111,7 @@ public final class Canvas {
         if (isCanvas()) {
             return String.format("Width: %d Height: %d", image.getWidth(), image.getHeight());
         }
-        return EMPTY;
+        return EMPTY_STRING;
     }
 
     public boolean isCanvas() {

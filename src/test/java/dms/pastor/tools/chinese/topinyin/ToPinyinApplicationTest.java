@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 
 import static dms.pastor.tools.chinese.topinyin.ToPinyinApplication.main;
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static dms.pastor.utils.randoms.RandomDataGenerator.randomInteger;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -113,7 +114,7 @@ public class ToPinyinApplicationTest {
         exception.expectMessage(TEXT_INVALID_MESSAGE);
 
         // given
-        String[] arguments = new String[]{PSEUDO_PINYIN_TYPE, ""};
+        String[] arguments = new String[]{PSEUDO_PINYIN_TYPE, EMPTY_STRING};
 
         // when
         main(arguments);

@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Random;
 
 import static dms.pastor.game.dcs.conditions.ElementType.*;
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.StringUtils.getStringWithCapitalizedFirstCharacter;
 import static java.lang.String.format;
 import static java.util.Arrays.asList;
@@ -61,7 +62,7 @@ public class Elements {
 
     //TODO improve it split into method that do something and return something
     public String addRandomElements(int addCardPerTurn) {
-        StringBuilder stringBuilder = new StringBuilder("");
+        StringBuilder stringBuilder = new StringBuilder(EMPTY_STRING);
         for (int i = 1; i <= addCardPerTurn; i++) {
             stringBuilder.append(" ");
             switch (random.nextInt(values().length)) {

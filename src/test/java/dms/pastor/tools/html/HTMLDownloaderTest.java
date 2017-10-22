@@ -10,6 +10,7 @@ import java.io.IOException;
 
 import static dms.pastor.tools.html.HTMLDownloader.download;
 import static dms.pastor.utils.FileTools.saveTextToFile;
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 
@@ -53,7 +54,7 @@ public class HTMLDownloaderTest {
         exception.expect(IllegalArgumentException.class);
 
         // when
-        download("");
+        download(EMPTY_STRING);
     }
 
     @Test

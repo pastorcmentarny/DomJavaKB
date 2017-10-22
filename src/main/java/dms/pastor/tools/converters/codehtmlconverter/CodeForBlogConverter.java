@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+
 /**
  * Author Dominik Symonowicz
  * WWW:	https://dominiksymonowicz.com/welcome
@@ -20,7 +22,6 @@ class CodeForBlogConverter {
 
     private static final String BR_TAG = "<br/>";
     private static final int NUMBER_OF_SPACES = 4;
-    private static final String EMPTY_STRING = "";
 
     private StringBuilder codeGenerator;
 

@@ -11,6 +11,7 @@ import java.io.File;
 import static dms.pastor.TestConfig.EMPTY_STRING_ARRAY;
 import static dms.pastor.TestConfig.PATH;
 import static dms.pastor.utils.FileTools.*;
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -27,7 +28,6 @@ public class FileToolsTest {
     private static final String TEST_FILE = "test.txt";
     private static final String LOCK_FILE = "program.lock";
     private static final String DEFAULT_PATH = PATH + TEST_FILE;
-    private static final String EMPTY_STRING = "";
 
     @Rule
     public final ExpectedException exception = ExpectedException.none();

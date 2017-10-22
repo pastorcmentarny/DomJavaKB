@@ -6,6 +6,7 @@ import org.junit.rules.ExpectedException;
 
 import static dms.pastor.tools.html.HTMLValidator.validateContentType;
 import static dms.pastor.tools.html.HTMLValidator.validateUrl;
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 
 /**
@@ -38,7 +39,7 @@ public class HTMLValidatorTest {
         exception.expect(IllegalArgumentException.class);
 
         // when
-        validateUrl("");
+        validateUrl(EMPTY_STRING);
     }
 
     @Test

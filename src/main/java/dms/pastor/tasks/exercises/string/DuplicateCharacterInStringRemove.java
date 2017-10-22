@@ -2,6 +2,8 @@ package dms.pastor.tasks.exercises.string;
 
 import java.util.LinkedHashSet;
 
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+
 /**
  * Author Dominik Symonowicz
  * Created 12/02/2017
@@ -12,8 +14,6 @@ import java.util.LinkedHashSet;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 final class DuplicateCharacterInStringRemove {
-
-    private static final String EMPTY_STRING = "";
 
     private DuplicateCharacterInStringRemove() {
     }

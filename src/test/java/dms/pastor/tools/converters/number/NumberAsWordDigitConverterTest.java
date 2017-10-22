@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import static dms.pastor.tools.converters.number.NumberAsWordDigitConverter.toDigit;
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public final class NumberAsWordDigitConverterTest {
@@ -523,7 +524,7 @@ public final class NumberAsWordDigitConverterTest {
         exception.expectMessage("number as text cannot be null or empty.");
 
         // when
-        toDigit("");
+        toDigit(EMPTY_STRING);
     }
 
     @Test

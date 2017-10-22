@@ -2,6 +2,7 @@ package dms.pastor.tasks.romanarabicconverter;
 
 import org.junit.Test;
 
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -37,7 +38,7 @@ public class RomanNumberValidatorTest {
 
     @Test
     public void testIfEmptyStringProduceFalse() throws Exception {
-        assertThat(RomanNumberValidator.isValidRomanNumber("")).isFalse();
+        assertThat(RomanNumberValidator.isValidRomanNumber(EMPTY_STRING)).isFalse();
     }
 
     @Test

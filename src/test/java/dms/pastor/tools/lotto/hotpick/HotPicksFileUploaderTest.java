@@ -12,6 +12,7 @@ import java.util.Random;
 
 import static dms.pastor.tools.lotto.LottoConstants.HOT_PICK_BALL_MAXIMUM_VALUE;
 import static dms.pastor.tools.lotto.LottoFilePathValidatorTest.generateFile;
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -33,7 +34,6 @@ public class HotPicksFileUploaderTest {
     private static final String EMPTY_TEXT_FILE = System.getProperty(USER_DIRECTORY) + "lotto.txt";
     private static final String CSV_SEPARATOR = ",";
     private static final int MAX = 32;
-    private static final String EMPTY_STRING = "";
     private final Random random = new Random();
     private final HotPicksFileUploader hotPicksFileUploader = new HotPicksFileUploader();
     private final File csvFile = new File(EMPTY_CSV_FILE);

@@ -1,5 +1,8 @@
 package dms.pastor.tasks.sunspotanalyser.data;
 
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+import static dms.pastor.utils.StringUtils.WHITESPACE_CHAR;
+
 /**
  * Author Dominik Symonowicz
  * Created 2013-08-26
@@ -41,9 +44,9 @@ public class Grid {
     void displayGrid() {
         for (int row = 0; row < gridSize; row++) {
             for (int column = 0; column < gridSize; column++) {
-                System.out.print(" " + grid[row][column]);
+                System.out.print(WHITESPACE_CHAR + grid[row][column]);
             }
-            System.out.println("");
+            System.out.println(EMPTY_STRING);
         }
     }
 
@@ -51,7 +54,7 @@ public class Grid {
         return gridSize;
     }
 
-    public int getScore(int x, int y) {
+    int getScore(int x, int y) {
         if (isInRange(x, y)) {
             return grid[x][y];
         } else {
@@ -59,7 +62,7 @@ public class Grid {
         }
     }
 
-    public boolean isInRange(int x, int y) {
+    boolean isInRange(int x, int y) {
         return isInRangeFor(x) && isInRangeFor(y);
     }
 

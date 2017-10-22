@@ -13,6 +13,7 @@ import java.nio.channels.OverlappingFileLockException;
 import java.util.Arrays;
 import java.util.List;
 
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static java.lang.Runtime.getRuntime;
 
 /**
@@ -158,7 +159,7 @@ public final class FileTools {
             throw new IllegalArgumentException("File doesn't exist or cannot be read");
         }
 
-        StringBuilder sb = new StringBuilder("");
+        StringBuilder sb = new StringBuilder(EMPTY_STRING);
         try (FileInputStream fis = new FileInputStream(filePath);
              InputStreamReader isr = new InputStreamReader(fis, "UTF-8");
              BufferedReader br = new BufferedReader(isr)) {

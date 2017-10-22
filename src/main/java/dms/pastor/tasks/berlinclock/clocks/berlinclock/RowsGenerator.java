@@ -5,6 +5,8 @@ import dms.pastor.tasks.berlinclock.data.Time;
 
 import static dms.pastor.tasks.berlinclock.data.Light.RED;
 import static dms.pastor.tasks.berlinclock.data.Light.YELLOW;
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+import static dms.pastor.utils.StringUtils.NEW_LINE;
 
 /**
  * Author Dominik Symonowicz
@@ -17,7 +19,6 @@ import static dms.pastor.tasks.berlinclock.data.Light.YELLOW;
  */
 class RowsGenerator {
 
-    private static final String EMPTY = "";
     private final Time time;
 
     RowsGenerator(Time time) {
@@ -25,12 +26,11 @@ class RowsGenerator {
     }
 
     String generateRows() {
-        final String newLine = "\n";
-        return EMPTY + firstRow() + newLine +
-                secondRow() + newLine +
-                thirdRow() + newLine +
-                fourthRow() + newLine +
-                fifthRow() + newLine;
+        return EMPTY_STRING + firstRow() + NEW_LINE +
+                secondRow() + NEW_LINE +
+                thirdRow() + NEW_LINE +
+                fourthRow() + NEW_LINE +
+                fifthRow() + NEW_LINE;
     }
 
     private String firstRow() {
@@ -54,7 +54,7 @@ class RowsGenerator {
     }
 
     private String rowMaker(int lightsOn, Light on, int howMany) {
-        StringBuilder row = new StringBuilder(EMPTY);
+        StringBuilder row = new StringBuilder(EMPTY_STRING);
         for (int i = 0; i < lightsOn; i++) {
             row.append(on.getColor());
         }

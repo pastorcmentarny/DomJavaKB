@@ -159,7 +159,11 @@ public class StringUtilsTest {
 
     @Test
     public void isStringEmptyShouldReturnTrueForEmptyString() throws Exception {
-        Assert.assertThat("Empty", isStringBlank(""), is(true));
+        // when
+        final boolean result = isStringBlank(EMPTY_STRING);
+
+        // then
+        assertThat(result).isTrue();
     }
 
     @Test
@@ -219,7 +223,7 @@ public class StringUtilsTest {
         final String nullSafeString = getNullSafeString(null);
 
         // then
-        Assert.assertEquals("", nullSafeString);
+        assertThat(nullSafeString).isEmpty();
     }
 
     @Test
@@ -231,7 +235,7 @@ public class StringUtilsTest {
         final String nullSafeString = getNullSafeString(string);
 
         // then
-        Assert.assertEquals("string", nullSafeString);
+        assertThat(nullSafeString).isEqualTo(string);
     }
 
     @Test
@@ -300,7 +304,7 @@ public class StringUtilsTest {
     @Test
     public void shouldReturnEmptyStringIfYouPassEmptyStringIsEmptyForSwapCharactersTest() throws Exception {
         // when
-        final String actualResult = swapCaseLettersInString("");
+        final String actualResult = swapCaseLettersInString(EMPTY_STRING);
 
         // then
         assertThat(actualResult).isEmpty();

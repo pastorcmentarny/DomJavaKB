@@ -351,7 +351,7 @@ public class ValidatorUtilsTest {
         expectedException.expect(IllegalArgumentException.class);
 
         // when
-        validateIfNotEmpty("");
+        validateIfNotEmpty(EMPTY_STRING);
     }
 
     @Test

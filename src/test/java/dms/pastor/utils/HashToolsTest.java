@@ -11,6 +11,7 @@ import java.util.HashSet;
 import static dms.pastor.utils.HashTools.stringToCharacterMap;
 import static dms.pastor.utils.HashTools.stringToCharacterSet;
 import static dms.pastor.utils.StringUtils.ALPHABET;
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.CoreMatchers.sameInstance;
@@ -54,7 +55,7 @@ public class HashToolsTest {
         exception.expect(IllegalArgumentException.class);
 
         // when
-        stringToCharacterSet("");
+        stringToCharacterSet(EMPTY_STRING);
     }
 
     @SuppressWarnings({"ResultOfMethodCallIgnored", "QuestionableName"})

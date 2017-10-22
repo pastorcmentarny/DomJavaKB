@@ -1,5 +1,6 @@
 package dms.pastor.tasks.exercises.numbers;
 
+import static dms.pastor.utils.StringUtils.NEW_LINE;
 import static java.lang.String.format;
 
 /**
@@ -16,7 +17,7 @@ final class MultiplicationExercise {
     }
 
     static String generateMultiplicationSquareTable(int number) {
-        StringBuilder stringBuilder = new StringBuilder("");
+        StringBuilder stringBuilder = new StringBuilder(NEW_LINE);
         for (int x = 1; x <= number; x++) {
             createRow(number, stringBuilder, x);
             stringBuilder.append('\n');

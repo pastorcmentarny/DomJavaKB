@@ -166,7 +166,7 @@ public final class StringUtils {
     public static String toString(LinkedHashSet<String> lines) {
         StringBuilder stringBuilder = new StringBuilder(EMPTY_STRING);
         for (String line : lines) {
-            stringBuilder.append(line).append('\n');
+            stringBuilder.append(line).append(NEW_LINE);
         }
         return stringBuilder.toString();
     }
@@ -219,7 +219,6 @@ public final class StringUtils {
             throw new IllegalArgumentException(INPUT_CANNOT_BE_EMPTY);
         }
         return content.split(WHITESPACE);
-
     }
 
     public static boolean hasNonAlphanumericCharactersOnly(String string) {
@@ -234,7 +233,6 @@ public final class StringUtils {
         return true;
     }
 
-
     public static boolean hasNonAlphabetCharactersOnly(String string) {
         char[] charArray = string.toCharArray();
         for (char character : charArray) {
@@ -247,11 +245,8 @@ public final class StringUtils {
         return true;
     }
 
-
     public static String swapCaseLettersInString(String text) {
-        if (text == null) {
-            throw new IllegalArgumentException("You cannot swap characters if String is null");
-        }
+        validateIfNotNull(text, "text");
         if (text.isEmpty()) {
             return EMPTY_STRING;
         }
@@ -312,7 +307,7 @@ public final class StringUtils {
         return newCharArray.toCharArray();
     }
 
-    public static int countOccurrenceOf(String occurrence, String string) {
+    static int countOccurrenceOf(String occurrence, String string) {
         if (isStringBlank(occurrence) || isStringBlank(string)) {
             return 0;
         }
@@ -346,9 +341,7 @@ public final class StringUtils {
     }
 
     public static String capitalizeFirstCharacter(String string) {
-        if (string == null) {
-            throw new IllegalArgumentException("text cannot be null");
-        }
+        validateIfNotNull(string, "text");
         if (string.isEmpty()) {
             return string;
         }

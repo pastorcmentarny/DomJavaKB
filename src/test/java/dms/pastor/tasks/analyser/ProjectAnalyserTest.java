@@ -4,6 +4,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static java.io.File.separator;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
@@ -37,7 +38,7 @@ public class ProjectAnalyserTest {
         exception.expect(IllegalArgumentException.class);
 
         // when
-        new ProjectAnalyser().analyse("");
+        new ProjectAnalyser().analyse(EMPTY_STRING);
     }
 
     @Test

@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import static dms.pastor.tasks.analyser.AnalyserLauncher.THIS_PROJECT_PATH;
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
 /**
@@ -44,11 +45,10 @@ public class AnalyserLauncherTest {
     public void shouldReturnThisProjectPathWhenArgumentIsEmptyTest() throws Exception {
 
         // when
-        final String emptyString = "";
-        final String path = AnalyserLauncher.getPath(new String[]{emptyString});
+        final String path = AnalyserLauncher.getPath(new String[]{EMPTY_STRING});
 
         // then
-        assertThat(emptyString).isEqualTo(path);
+        assertThat(path).isEmpty();
     }
 
     @Test

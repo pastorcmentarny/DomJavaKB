@@ -18,9 +18,7 @@ public class CommonCharactersInStringFinder {
         boolean[] booleanArray = new boolean[ASCII_CHARACTERS_COUNT];
         char[] arrayA = stringA.toCharArray();
         char[] arrayB = stringB.toCharArray();
-        for (int i = 0; i < stringB.length(); i++) {
-            booleanArray[arrayB[i]] = true;
-        }
+        setBooleanArrayToTrue(stringB, booleanArray, arrayB);
 
         for (int i = 0; i < stringA.length(); i++) {
             if (booleanArray[arrayA[i]]) {
@@ -29,6 +27,12 @@ public class CommonCharactersInStringFinder {
             }
         }
         return result.toString();
+    }
+
+    private void setBooleanArrayToTrue(String stringB, boolean[] booleanArray, char[] arrayB) {
+        for (int i = 0; i < stringB.length(); i++) {
+            booleanArray[arrayB[i]] = true;
+        }
     }
 
     public String getCommonCharNSquared(String stringA, String stringB) {

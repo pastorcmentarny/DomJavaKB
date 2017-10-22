@@ -1,5 +1,7 @@
 package dms.pastor.tasks.romanarabicconverter;
 
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+
 /**
  * Author Dominik Symonowicz
  * Created 2015-06-22
@@ -49,7 +51,7 @@ class RomanArabicConverter {
         if (!RomanNumberValidator.isIntCanBeRomanNumber(number)) {
             throw new IllegalArgumentException("This number cannot be convert to roman.Allowed range is 1-3999");
         }
-        StringBuilder sb = new StringBuilder("");
+        StringBuilder sb = new StringBuilder(EMPTY_STRING);
         int numberLeft = number;
 
         numberLeft = getNumberLeft(numberLeft, sb, RomanNumerals.M, RomanNumerals.C);

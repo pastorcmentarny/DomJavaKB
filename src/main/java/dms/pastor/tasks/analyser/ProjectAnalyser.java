@@ -10,6 +10,8 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+
 /**
  * Author Dominik Symonowicz
  * Created 01/08/2016
@@ -27,9 +29,9 @@ class ProjectAnalyser {
     private int lineCount = 0;
     private int characterCount = 0;
     private int widestLine = 0;
-    private String widestLineFileName = "";
+    private String widestLineFileName = EMPTY_STRING;
     private int highestLinesFileCount = 0;
-    private String highestLinesFileName = "";
+    private String highestLinesFileName = EMPTY_STRING;
 
     void analyse(String path) {
         validate(path);

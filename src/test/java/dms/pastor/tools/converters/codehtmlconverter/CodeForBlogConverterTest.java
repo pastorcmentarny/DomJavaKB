@@ -8,6 +8,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 
@@ -65,11 +66,11 @@ public class CodeForBlogConverterTest {
     private static List<String> generateSourceData() {
         List<String> data = new ArrayList<>();
         data.add("package dms.pastor.tools.codeToHTMLConverter;");
-        data.add("");
+        addEmptyLine(data);
         data.add("import org.junit.Before;");
         data.add("import org.junit.Test;");
         data.add("import java.util.ArrayList;");
-        data.add("");
+        addEmptyLine(data);
         data.add("import static org.junit.Assert.assertEquals;");
         data.add("/**");
         data.add(" * Author Dominik Symonowicz");
@@ -80,6 +81,10 @@ public class CodeForBlogConverterTest {
         data.add("    }");
         data.add("}");
         return data;
+    }
+
+    private static void addEmptyLine(List<String> data) {
+        data.add(EMPTY_STRING);
     }
 
     @Before

@@ -2,11 +2,8 @@ package dms.pastor.utils;
 
 import org.junit.Test;
 
-import static dms.pastor.utils.EnglishUtils.isLetterConsonant;
-import static dms.pastor.utils.EnglishUtils.isLetterVowelExcludingY;
-import static dms.pastor.utils.EnglishUtils.isLetterVowelIncludingY;
-import static dms.pastor.utils.EnglishUtils.isNotStopWord;
-import static dms.pastor.utils.EnglishUtils.isStopWord;
+import static dms.pastor.utils.EnglishUtils.*;
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -219,7 +216,7 @@ public class EnglishUtilsTest {
     @Test
     public void isStopWordShouldReturnFalseForEmptyString() throws Exception {
         // given
-        final String notAStopWord = "";
+        final String notAStopWord = EMPTY_STRING;
 
         // when
         final boolean word = isStopWord(notAStopWord);

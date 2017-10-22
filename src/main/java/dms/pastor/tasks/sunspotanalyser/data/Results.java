@@ -3,6 +3,8 @@ package dms.pastor.tasks.sunspotanalyser.data;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+
 /**
  * Author Dominik Symonowicz
  * Created 2013-08-26
@@ -18,23 +20,22 @@ class Results {
 
     private final ArrayList<Score> highScores;
 
-    public Results() {
+    Results() {
         highScores = new ArrayList<>();
     }
 
-    public void addScore(Score score) {
+    void addScore(Score score) {
         highScores.add(score);
     }
 
-    public String displayResults(int top) {
+    String displayResults(int top) {
         Collections.sort(highScores);
-        StringBuilder sb = new StringBuilder("");
+        StringBuilder sb = new StringBuilder(EMPTY_STRING);
         int no = top > highScores.size() ? highScores.size() : top;
         for (int i = 0; i < no; i++) {
             sb.append(highScores.get(i).displayScore());
         }
         return sb.toString();
-
     }
 
     public int getResultSize() {

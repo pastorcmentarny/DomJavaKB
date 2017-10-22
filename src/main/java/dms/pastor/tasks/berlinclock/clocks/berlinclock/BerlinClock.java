@@ -3,6 +3,7 @@ package dms.pastor.tasks.berlinclock.clocks.berlinclock;
 import dms.pastor.tasks.berlinclock.data.Time;
 import dms.pastor.utils.DateUtils;
 
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.ValidatorUtils.validateIfNotEmpty;
 import static java.lang.Integer.parseInt;
 
@@ -23,7 +24,7 @@ public class BerlinClock implements ClockInterface {
 
     @Override
     public String showTime(String givenTime) {
-        StringBuilder timeBuilder = new StringBuilder("");
+        StringBuilder timeBuilder = new StringBuilder(EMPTY_STRING);
         Time time = getTimeFromString(givenTime);
         RowsGenerator rowsGenerator = new RowsGenerator(time);
         timeBuilder.append(time.toString())

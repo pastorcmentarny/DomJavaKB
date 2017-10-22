@@ -10,6 +10,7 @@ import java.util.LinkedHashSet;
 import java.util.Scanner;
 
 import static dms.pastor.utils.FileTools.saveTextToFile;
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static java.lang.String.format;
 
 /**
@@ -36,7 +37,7 @@ class DuplicateRemover {
         }
         LOGGER.debug("Saving file without duplicated lines..." + filePath);
         final boolean result = saveTextToFile(cleanedFileAsString, filePath);
-        LOGGER.info("File " + (result ? "" : "NOT") + " saved.");
+        LOGGER.info("File " + (result ? EMPTY_STRING : "NOT") + " saved.");
     }
 
     private String removeDuplicateLinesFromFile(String filePath) throws FileNotFoundException {

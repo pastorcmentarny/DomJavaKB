@@ -1,5 +1,7 @@
 package dms.pastor.tasks.fizzbuzzwoof;
 
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+
 /**
  * Author Dominik Symonowicz
  * WWW:	https://dominiksymonowicz.com/welcome
@@ -31,7 +33,7 @@ final class FizzBuzzWoof {
     //TODO refactor this
     static String getResultFor(int number) {
 
-        String result = "";
+        String result = EMPTY_STRING;
 
         result = addIfDivisibleBy(3, number, result, FIZZ);
         result = addIfNumberMatch(3, number, result, FIZZ);

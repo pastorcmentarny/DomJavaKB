@@ -7,6 +7,7 @@ import org.junit.rules.ExpectedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.randoms.PersonalDataGenerator.*;
 import static java.lang.String.valueOf;
 import static java.util.Arrays.asList;
@@ -122,11 +123,8 @@ public class PersonalDataGeneratorTest {
 
     @Test
     public void generatePhoneNumberForPatternShouldReturnEmptyStringForEmptyInput() throws Exception {
-        // given
-        final String empty = "";
-
         // when
-        final String result = generatePhoneNumberForPattern(empty);
+        final String result = generatePhoneNumberForPattern(EMPTY_STRING);
 
         // then
         assertThat(result).isEmpty();

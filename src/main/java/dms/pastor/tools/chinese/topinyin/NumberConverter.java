@@ -14,16 +14,13 @@ import static dms.pastor.utils.StringUtils.*;
  */
 public class NumberConverter implements Converter {
 
-    private static final String SPACE = " ";
-    private static final String EMPTY_STRING = "";
-
     @Override
     public String convertToPinyin(String input) {
         if (isStringBlank(input)) {
             return EMPTY_STRING;
         }
 
-        String[] sentence = input.split(SPACE);
+        String[] sentence = input.split(WHITESPACE);
 
         StringBuilder outputBuilder = new StringBuilder(EMPTY_STRING);
 
@@ -44,7 +41,7 @@ public class NumberConverter implements Converter {
         if (isStringNotEmpty(input)) {
             CharacterWithTone characterWithTone = CharacterWithTone.fromString(word);
             outputBuilder.append(transformToPinyin(characterWithTone));
-            outputBuilder.append(SPACE);
+            outputBuilder.append(WHITESPACE_CHAR);
         }
     }
 

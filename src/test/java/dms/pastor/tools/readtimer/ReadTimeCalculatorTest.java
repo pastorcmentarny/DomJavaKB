@@ -14,6 +14,7 @@ import java.util.Random;
 import static dms.pastor.tools.readtimer.ReadSpeed.ADULT_AVERAGE;
 import static dms.pastor.utils.DateUtils.HOUR;
 import static dms.pastor.utils.DateUtils.MINUTE;
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.randoms.RandomDataGenerator.*;
 import static java.lang.Integer.MAX_VALUE;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -121,7 +122,7 @@ public class ReadTimeCalculatorTest {
     @Test
     public void shouldReadOneWordPerSecond() throws Exception {
         // given
-        StringBuilder stringBuilder = new StringBuilder("");
+        StringBuilder stringBuilder = new StringBuilder(EMPTY_STRING);
         for (int i = 0; i < 60; i++) {
             stringBuilder.append("Word").append(i + 1).append(StringUtils.WHITESPACE_CHAR);
         }

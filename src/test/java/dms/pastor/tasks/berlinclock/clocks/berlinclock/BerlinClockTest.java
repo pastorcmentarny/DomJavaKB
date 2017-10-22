@@ -8,6 +8,7 @@ import org.junit.rules.ExpectedException;
 
 import java.time.LocalTime;
 
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 
@@ -107,7 +108,7 @@ public class BerlinClockTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void shouldThrowExceptionForEmptyInput() throws Exception {
-        clock.validateTime("");
+        clock.validateTime(EMPTY_STRING);
     }
 
     @Test

@@ -1,6 +1,6 @@
 package dms.pastor.tasks.fifinder;
 
-import static dms.pastor.utils.StringUtils.capitalizeFirstCharacter;
+import static dms.pastor.utils.StringUtils.*;
 
 /**
  * Author Dominik Symonowicz
@@ -14,17 +14,16 @@ import static dms.pastor.utils.StringUtils.capitalizeFirstCharacter;
 class Initials {
 
     private static final char DOT = '.';
-    private static final String SPACE = " ";
     private static final String DASH = "-";
 
     private final Name fullName;
-    private String initials = "";
+    private String initials = EMPTY_STRING;
 
-    public Initials(Name fullName) {
+    Initials(Name fullName) {
         this.fullName = fullName;
     }
 
-    public String getInitials() {
+    String getInitials() {
 
         createInitialsFromFirstName();
         createInitialsFromMiddleNames();
@@ -33,7 +32,7 @@ class Initials {
         return initials;
     }
 
-    public String getInitialsFromFirstAndLastNameOnly() {
+    String getInitialsFromFirstAndLastNameOnly() {
 
         createInitialsFromFirstName();
         createSingleInitialFromLastNames();
@@ -45,7 +44,7 @@ class Initials {
     @SuppressWarnings("StringConcatenationInLoop")
     private void createInitialsFromLastNames() {
         if (isNotNull(fullName.getLast())) {
-            final String splitBy = fullName.getLast().contains(DASH) ? DASH : SPACE;
+            final String splitBy = fullName.getLast().contains(DASH) ? DASH : WHITESPACE;
             initials = addSpace();
             for (String last : fullName.getLast().split(splitBy)) {
                 initials = addSpace();
@@ -66,7 +65,7 @@ class Initials {
     @SuppressWarnings("StringConcatenationInLoop")
     private void createInitialsFromMiddleNames() {
         if (isNotNull(fullName.getMiddles())) {
-            for (String name : fullName.getMiddles().split(SPACE)) {
+            for (String name : fullName.getMiddles().split(WHITESPACE)) {
                 initials += capitalizeFirstCharacter(name) + DOT;
                 initials = addSpace();
             }
@@ -84,7 +83,7 @@ class Initials {
     }
 
     private String addSpace() {
-        initials += SPACE;
+        initials += WHITESPACE;
         return initials;
     }
 
