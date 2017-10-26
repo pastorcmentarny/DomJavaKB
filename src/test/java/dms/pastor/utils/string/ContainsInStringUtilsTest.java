@@ -1,7 +1,6 @@
 package dms.pastor.utils.string;
 
 import dms.pastor.tools.chinese.pinyin.PinyinUtils;
-import org.assertj.core.api.AssertionsForClassTypes;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -163,7 +162,7 @@ public class ContainsInStringUtilsTest {
         final boolean result = containsAnyAlphanumericCharacter(null);
 
         // then
-        AssertionsForClassTypes.assertThat(result).isFalse();
+        assertThat(result).isFalse();
     }
 
     @Test
@@ -172,7 +171,7 @@ public class ContainsInStringUtilsTest {
         final boolean result = containsAnyAlphanumericCharacter(EMPTY_STRING);
 
         // then
-        AssertionsForClassTypes.assertThat(result).isFalse();
+        assertThat(result).isFalse();
     }
 
     @Test
@@ -184,7 +183,7 @@ public class ContainsInStringUtilsTest {
         final boolean result = containsAnyAlphanumericCharacter(characters);
 
         // then
-        AssertionsForClassTypes.assertThat(result).isFalse();
+        assertThat(result).isFalse();
     }
 
     @Test
@@ -196,7 +195,7 @@ public class ContainsInStringUtilsTest {
         final boolean result = containsAnyAlphanumericCharacter(characters);
 
         // then
-        AssertionsForClassTypes.assertThat(result).isTrue();
+        assertThat(result).isTrue();
     }
 
     @Test
@@ -208,7 +207,7 @@ public class ContainsInStringUtilsTest {
         final boolean result = containsAnyAlphanumericCharacter(characters);
 
         // then
-        AssertionsForClassTypes.assertThat(result).isTrue();
+        assertThat(result).isTrue();
     }
 
     @SuppressWarnings("ConstantConditions") // part of the test
@@ -260,7 +259,7 @@ public class ContainsInStringUtilsTest {
         final boolean exists = isTextContainsAllKeywordsExists(keywords, text);
 
         // then
-        AssertionsForClassTypes.assertThat(exists).isTrue();
+        assertThat(exists).isTrue();
     }
 
 
