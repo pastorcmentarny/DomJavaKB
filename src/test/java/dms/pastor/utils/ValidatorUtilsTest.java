@@ -9,11 +9,13 @@ import org.junit.rules.ExpectedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import static dms.pastor.TestConfig.BASE_PATH;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.ValidatorUtils.*;
 import static dms.pastor.utils.randoms.RandomDataGenerator.*;
@@ -33,6 +35,7 @@ public class ValidatorUtilsTest {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ValidatorUtilsTest.class);
     private static final String UNUSED_OBJECT_NAME = null;
+    private static final String PATH_TO_FILE_IS_INVALID_ERROR_MESSAGE = "Path to file is invalid.";
     public static final int START_RANGE = 0;
     public static final int END_RANGE = 10;
 
@@ -473,6 +476,58 @@ public class ValidatorUtilsTest {
 
         // when
         validateIfStringArrayIsNotEmpty(stringArray);
+
+        // then nothing happen, which means value are valid
+
+    }
+
+    @Test
+    public void validateIfPathExistsShouldThrowIllegalArgumentExceptionIfPathIsNull() {
+        // expect
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage(PATH_TO_FILE_IS_INVALID_ERROR_MESSAGE);
+
+        // when
+        validateIfPathExists(null);
+    }
+
+    @Test
+    public void validateIfPathExistsShouldThrowIllegalArgumentExceptionIfPathIsEmpty() {
+        // expect
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage(PATH_TO_FILE_IS_INVALID_ERROR_MESSAGE);
+
+        // when
+        validateIfPathExists(EMPTY_STRING);
+    }
+
+    @Test
+    public void validateIfPathExistsShouldThrowIllegalArgumentExceptionIfPathDoNotExists() {
+        // expect
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage(PATH_TO_FILE_IS_INVALID_ERROR_MESSAGE);
+
+        // when
+        validateIfPathExists(generateString());
+    }
+
+    @Test
+    public void validateIfPathExistsShouldThrowIllegalArgumentExceptionIfPathIsDirectory() {
+        // expect
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage(PATH_TO_FILE_IS_INVALID_ERROR_MESSAGE);
+
+        // when
+        validateIfPathExists(BASE_PATH);
+    }
+
+    @Test
+    public void shouldValidateIfPathExists() {
+        // given
+        final String path = BASE_PATH + File.separator + "example.txt";
+
+        // when
+        validateIfPathExists(path);
 
         // then nothing happen, which means value are valid
 

@@ -1,11 +1,13 @@
 package dms.pastor.utils;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.math.BigDecimal;
 import java.util.List;
 
+import static dms.pastor.utils.StringUtils.isStringEmpty;
 import static java.lang.String.format;
 
 /**
@@ -141,6 +143,18 @@ public final class ValidatorUtils {
 
     private static String getErrorMessage(String what) {
         return what + " cannot be null or empty.";
+    }
+
+    public static void validateIfPathExists(String path) {
+        if (isStringEmpty(path)) {
+            throw new IllegalArgumentException("Path to file is invalid.");
+        }
+
+        final File file = new File(path);
+
+        if (!file.exists() || !file.isFile()) {
+            throw new IllegalArgumentException("Path to file is invalid.");
+        }
     }
 
     public static void validateIfValuesIsInRange(int min, int max, int[] numbers) {
