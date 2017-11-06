@@ -19,11 +19,13 @@ public class ToStringUtils {
     private ToStringUtils() {
     }
 
-    //TODO do version with custom delimiter not whitespace only
-    public static String toString(int[] values) {
+    public static String toString(int[] values, String delimiter) {
+        if (values.length == 0) {
+            return EMPTY_STRING;
+        }
         StringBuilder sb = new StringBuilder("[ ");
         for (int value : values) {
-            sb.append(value).append(WHITESPACE);
+            sb.append(value).append(delimiter);
         }
         sb.append(']');
         return sb.toString();

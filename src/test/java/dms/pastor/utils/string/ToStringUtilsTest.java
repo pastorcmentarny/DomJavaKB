@@ -1,12 +1,12 @@
 package dms.pastor.utils.string;
 
-import org.assertj.core.api.AssertionsForClassTypes;
 import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.List;
 
+import static dms.pastor.utils.StringUtils.WHITESPACE;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -61,15 +61,30 @@ public class ToStringUtilsTest {
     }
 
     @Test
+    public void intArrayToStringShouldReturnEMptyStringForEmptyArray() throws Exception {
+        // given
+        int[] intValues = new int[]{};
+
+        // when
+        final String result = ToStringUtils.toString(intValues, WHITESPACE);
+
+        // then
+        assertThat(result).isEmpty();
+
+    }
+
+
+    @Test
     public void intArrayToStringAcceptanceTest() throws Exception {
         // given
         final String expectedString = "[ 1 2 3 5 8 13 ]";
         int[] intValues = new int[]{1, 2, 3, 5, 8, 13};
+
         // when
-        final String result = ToStringUtils.toString(intValues);
+        final String result = ToStringUtils.toString(intValues, WHITESPACE);
 
         // then
-        AssertionsForClassTypes.assertThat(result).isEqualTo(expectedString);
+        assertThat(result).isEqualTo(expectedString);
 
     }
 
@@ -82,8 +97,7 @@ public class ToStringUtilsTest {
         final String result = ToStringUtils.toString(list);
 
         // then
-        AssertionsForClassTypes.assertThat(result).isEqualTo("Garlic,Coriander,Cheese");
+        assertThat(result).isEqualTo("Garlic,Coriander,Cheese");
     }
-
 
 }
