@@ -137,7 +137,7 @@ public class ToPinyinApplicationTest {
     public void shouldDisplayPinyinForMaWIthSecondToneAcceptanceTest() throws Exception {
         // given
         final String[] arguments = new String[]{"number", "ma(2)"};
-        final String expected = "má\r\n";
+        final String expected = "má" + System.lineSeparator();
 
         // when
         main(arguments);
