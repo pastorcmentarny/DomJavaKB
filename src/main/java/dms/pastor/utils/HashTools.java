@@ -16,41 +16,6 @@ final class HashTools {
 
     private HashTools() {
     }
-    
-    /* //TODO check this
-    public static boolean isIdenticalHashSet(HashSet<E> h1, HashSet h2) {
-    if ( h1.dictSize() != h2.dictSize() ) {
-        return false;
-    }
-    HashSet<> clone = new HashSet<>(h2); // just use h2 if you don't need to save the original h2
-    Iterator it = h1.iterator();
-    while (it.hasNext() ){
-        A = it.next();
-        if (clone.contains(A)){ // replace clone with h2 if not concerned with saving data from h2
-            clone.remove(A);
-        } else {
-            return false;
-        }
-    }
-    return true; // will only return true if sets are equal
-}
-        private static boolean isIdenticalHashM(HashSet h1, HashSet h2) {
-    if ( h1.dictSize() != h2.dictSize() ) {
-        return false;
-    }
-    HashSet<A> clone = new HashSet<A>(h2); // just use h2 if you don't need to save the original h2
-    Iterator it = h1.iterator();
-    while (it.hasNext() ){
-        A = it.next();
-        if (clone.contains(A)){ // replace clone with h2 if not concerned with saving data from h2
-            clone.remove(A);
-        } else {
-            return false;
-        }
-    }
-    return true; // will only return true if sets are equal
-}
-    */
 
     @SuppressWarnings("QuestionableName") // because string is valid name
     static HashSet<Character> stringToCharacterSet(String string) {
