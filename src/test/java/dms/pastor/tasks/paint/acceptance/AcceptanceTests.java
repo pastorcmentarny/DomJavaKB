@@ -67,7 +67,7 @@ public class AcceptanceTests {
         commandLineUI.runApplication();
 
         //then
-        assertThat(outputStream.toString()).contains("\r\n" +
+        assertThat(outputStream.toString()).contains(System.lineSeparator() +
                 EMPTY_CANVAS);
     }
 
@@ -191,7 +191,7 @@ public class AcceptanceTests {
         commandLineUI.runApplication();
 
         // then
-        assertThat(outputStream.toString()).contains("Enter command:Q\r\n" + EMPTY_CANVAS);
+        assertThat(outputStream.toString()).contains("Enter command:Q" + System.lineSeparator() + EMPTY_CANVAS);
     }
 
     @Test
@@ -211,7 +211,7 @@ public class AcceptanceTests {
         commandLineUI.runApplication();
 
         // then
-        assertThat(outputStream.toString()).contains("Enter command:Q\r\n" +
+        assertThat(outputStream.toString()).contains("Enter command:Q" + System.lineSeparator() +
                 "----------------------\n" +
                 "|xxx                 |\n" +
                 "| xxx                |\n" +
@@ -246,7 +246,7 @@ public class AcceptanceTests {
         commandLineUI.runApplication();
 
         // then
-        assertThat(outputStream.toString()).contains("Enter command:Q\r\n" +
+        assertThat(outputStream.toString()).contains("Enter command:Q" + System.lineSeparator() +
                 "----------------------\n" +
                 "|xxx                 |\n" +
                 "| xxx                |\n" +

@@ -126,7 +126,7 @@ public class PrintOutUtilsTest {
     public void printIntArrayShouldPrintIntegers() throws Exception {
         // given
         Integer[] integers = new Integer[]{1, 2, 3, null};
-        final String expected = "[ 1 2 3 null ]\r\n";
+        final String expected = "[ 1 2 3 null ]" + System.lineSeparator();
 
         // when
         printIntArray(integers);
