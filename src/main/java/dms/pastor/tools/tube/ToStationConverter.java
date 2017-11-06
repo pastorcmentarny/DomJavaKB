@@ -1,8 +1,13 @@
 package dms.pastor.tools.tube;
 
-public class ToStationConverter {
+import static dms.pastor.tools.tube.Status.NOT_VISITED;
+
+public final class ToStationConverter {
+
+    private ToStationConverter() {
+    }
 
     public static Station convert(String stationAsString){
-        return new Station(stationAsString,null,null);
+        return new Station(stationAsString, NOT_VISITED, null);
     }
 }

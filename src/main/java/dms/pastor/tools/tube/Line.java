@@ -1,5 +1,5 @@
 package dms.pastor.tools.tube;
 
-public class Line {
+class Line {
     private String name;
 }

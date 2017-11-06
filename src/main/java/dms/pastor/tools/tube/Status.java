@@ -1,7 +1,6 @@
 package dms.pastor.tools.tube;
 
 import dms.pastor.domain.exception.NotFoundException;
-import dms.pastor.utils.ValidatorUtils;
 
 import java.util.Arrays;
 
@@ -18,11 +17,7 @@ public enum Status {
         this.value = value;
     }
 
-    public String value() {
-        return value;
-    }
-
-    public static Status fromValue(String statusShortcut){
+    public static Status fromValue(String statusShortcut) {
         validateIfNotEmpty(statusShortcut);
 
         return Arrays
@@ -30,5 +25,9 @@ public enum Status {
                 .filter(status -> status.value().equalsIgnoreCase(statusShortcut))
                 .findFirst()
                 .orElseThrow(() -> new NotFoundException("Status"));
+    }
+
+    private String value() {
+        return value;
     }
 }
