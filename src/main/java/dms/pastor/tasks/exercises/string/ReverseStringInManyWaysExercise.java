@@ -1,7 +1,5 @@
 package dms.pastor.tasks.exercises.string;
 
-import static dms.pastor.utils.StringUtils.EMPTY_STRING;
-
 /**
  * Author Dominik Symonowicz
  * Created 2015-10-31
@@ -17,7 +15,7 @@ final class ReverseStringInManyWaysExercise {
     private ReverseStringInManyWaysExercise() {
     }
 
-    public static String reversStringViaStringBuilder(String string) {
+    static String reversStringViaStringBuilder(String string) {
         validateInput(string);
         return new StringBuilder(string).reverse().toString();
     }
@@ -28,12 +26,12 @@ final class ReverseStringInManyWaysExercise {
         }
     }
 
-    public static String reversStringViaStringBuffer(String string) {
+    static String reversStringViaStringBuffer(String string) {
         validateInput(string);
         return new StringBuffer(string).reverse().toString();
     }
 
-    public static String reversStringViaChar(String string) {
+    static String reversStringViaChar(String string) {
         validateInput(string);
         char[] charArray = string.toCharArray();
         int length = string.length();
@@ -48,21 +46,20 @@ final class ReverseStringInManyWaysExercise {
         return new String(charArray);
     }
 
-    //TODO check
-    public static String reverseStringWithoutLibraries(String originalString) {
+    static String reverseStringWithoutLibraries(String originalString) {
         validateInput(originalString);
-        if (originalString.equalsIgnoreCase(EMPTY_STRING) || originalString.length() == 1) {
+        if (originalString.isEmpty() || originalString.length() == 1) {
             return originalString;
         }
 
         char[] reversedString = new char[originalString.length()];
         char[] originalArray = originalString.toCharArray();
 
-        int j = 0;
+        int reversedIndex = 0;
 
         for (int i = originalArray.length - 1; i >= 0; i--) {
-            reversedString[i] = originalArray[j];
-            j++;
+            reversedString[i] = originalArray[reversedIndex];
+            reversedIndex++;
         }
 
         return new String(reversedString);
