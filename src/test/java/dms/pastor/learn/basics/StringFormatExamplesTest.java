@@ -81,7 +81,7 @@ public class StringFormatExamplesTest {
         final int length = 4;
 
         // when
-        final String result = stringFormatExamples.displayTextOfLength(text, length);
+        final String result = stringFormatExamples.displayFirstFewCharactersFor(text, length);
 
         // then
         assertThat(result).isEqualTo("|Warm|");

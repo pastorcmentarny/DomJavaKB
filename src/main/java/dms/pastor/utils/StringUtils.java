@@ -29,10 +29,10 @@ public final class StringUtils {
     public static final char WHITESPACE_CHAR = ' ';
     public static final char NEW_LINE = '\n';
     public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
-    public static final String ALPHANUMERIC = ALPHABET.toUpperCase() + ALPHABET + "0123456789"; //TODO replace it with RandomDataGenerator
+    public static final String ALPHANUMERIC = ALPHABET.toUpperCase() + ALPHABET + "0123456789";
     static final String NON_ALPHANUMERIC = "~#&@£$^'`\".,:;*–+=(){}[]<>?!\\|/";
     private static final String ALPHABET_BOTH_CASE = ALPHABET + ALPHABET.toUpperCase();
-    private static final char COMMA = ',';
+    public static final char COMMA = ',';
     private static final String ALPHANUMERIC_REGEX = "[^a-zA-Z0-9]";
 
     private StringUtils() {
@@ -121,16 +121,6 @@ public final class StringUtils {
         return true;
     }
 
-    //TODO do version with custom delimiter not whitespace only
-    public static String toString(int[] values) {
-        StringBuilder sb = new StringBuilder("[ ");
-        for (int value : values) {
-            sb.append(value).append(WHITESPACE);
-        }
-        sb.append(']');
-        return sb.toString();
-    }
-
     /*
         A panagram is a holoalphabetic sentence for a given ALPHABET is a sentence using every letter of the ALPHABET at least once.
      */
@@ -162,15 +152,6 @@ public final class StringUtils {
         return alphabet.get(character) + 1;
     }
 
-
-    public static String toString(LinkedHashSet<String> lines) {
-        StringBuilder stringBuilder = new StringBuilder(EMPTY_STRING);
-        for (String line : lines) {
-            stringBuilder.append(line).append(NEW_LINE);
-        }
-        return stringBuilder.toString();
-    }
-
     static String[] toStringArray(List<String> list) {
         validateIfNotNull(list);
         String[] stringArray = new String[list.size()];
@@ -182,11 +163,6 @@ public final class StringUtils {
         return stringArray;
     }
 
-    public static String toString(List<String> stringList) {
-        final StringBuilder stringBuilder = new StringBuilder(EMPTY_STRING);
-        stringList.forEach(element -> stringBuilder.append(element).append(COMMA));
-        return stringBuilder.toString().substring(0, stringBuilder.length() - 1);
-    }
 
     //TODO move TextUtils
     public static String getNbsp(int times) {

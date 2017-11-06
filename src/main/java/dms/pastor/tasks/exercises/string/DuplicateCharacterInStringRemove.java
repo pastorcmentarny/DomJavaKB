@@ -1,8 +1,8 @@
 package dms.pastor.tasks.exercises.string;
 
-import java.util.LinkedHashSet;
+import dms.pastor.utils.character.ToStringUtils;
 
-import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+import java.util.LinkedHashSet;
 
 /**
  * Author Dominik Symonowicz
@@ -27,15 +27,8 @@ final class DuplicateCharacterInStringRemove {
         for (Character character : string.toCharArray()) {
             linkedHashSet.add(character);
         }
-        return toString(linkedHashSet);
+        return ToStringUtils.toString(linkedHashSet);
     }
 
-    //TODO move to StringUtils
-    private static String toString(LinkedHashSet<Character> charactersList) {
-        StringBuilder stringBuilder = new StringBuilder(EMPTY_STRING);
-        for (Character character : charactersList) {
-            stringBuilder.append(character);
-        }
-        return stringBuilder.toString();
-    }
+
 }

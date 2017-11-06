@@ -9,8 +9,6 @@ import org.slf4j.LoggerFactory;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedHashSet;
 import java.util.List;
 
 import static dms.pastor.domain.Message.INPUT_CANNOT_BE_EMPTY;
@@ -262,22 +260,6 @@ public class StringUtilsTest {
         assertThat(result).isTrue();
     }
 
-    @Test
-    public void stringCollectionToStringExample() throws Exception {
-        // given
-        LinkedHashSet<String> lines = new LinkedHashSet<>();
-        final String garlic = "Garlic";
-        final String squatToilet = "Squat toilet";
-        lines.add(garlic);
-        lines.add(squatToilet);
-        final String expectedResult = garlic + '\n' + squatToilet + '\n';
-
-        // when
-        final String result = StringUtils.toString(lines);
-
-        // then
-        assertThat(result).isEqualTo(expectedResult);
-    }
 
     @Test
     public void getEmptyStringForNullStringExample() throws Exception {
@@ -538,18 +520,6 @@ public class StringUtilsTest {
         assertThat(result).isEqualTo(expectedResult);
     }
 
-    @Test
-    public void intArrayToStringAcceptanceTest() throws Exception {
-        // given
-        final String expectedString = "[ 1 2 3 5 8 13 ]";
-        int[] intValues = new int[]{1, 2, 3, 5, 8, 13};
-        // when
-        final String result = StringUtils.toString(intValues);
-
-        // then
-        assertThat(result).isEqualTo(expectedString);
-
-    }
 
     @Test
     public void shouldReturnTrueWhenTextHasNonAlphabetCharactersOnly() throws Exception {
@@ -570,17 +540,6 @@ public class StringUtilsTest {
         assertThat(result).isTrue();
     }
 
-    @Test
-    public void toStringShouldReturnStringWithArray() throws Exception {
-        // given
-        final List<String> list = Arrays.asList("Garlic", "Coriander", "Cheese");
-
-        // when
-        final String result = StringUtils.toString(list);
-
-        // then
-        assertThat(result).isEqualTo("Garlic,Coriander,Cheese");
-    }
 
     @Test
     public void appendCharToCharArrayShouldReturnCharArrayWithAddedCharacter() throws Exception {

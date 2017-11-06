@@ -22,24 +22,23 @@ class StringFormatExamples {
         return String.format("|%" + width + "d|", number);
     }
 
-    public String displayNumberAlignedToLeftWithWidth20(int number) {
+    String displayNumberAlignedToLeftWithWidth20(int number) {
         return String.format("|%-" + width + "d|", number);
     }
 
-    public String displayNumberAlignedToRightWithWidth20AndPadWithZeros(int number) {
+    String displayNumberAlignedToRightWithWidth20AndPadWithZeros(int number) {
         return String.format("|%0" + width + "d|", number); // prints: |00000000000000000093|
     }
 
-    public String displayPlusForPositiveNumber(int number) {
+    String displayPlusForPositiveNumber(int number) {
         return String.format("|%+" + width + "d|", number);
     }
 
-    public String displayNumberWithAmericanSeparator(int number) {
+    String displayNumberWithAmericanSeparator(int number) {
         return String.format("|%,d|", number);
     }
 
-    //TODO improve name
-    public String displayTextOfLength(String text, int length) {
+    String displayFirstFewCharactersFor(String text, int length) {
         return String.format("|%." + length + "s|", text);
 
     }

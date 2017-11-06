@@ -1,6 +1,6 @@
 package dms.pastor.tools.removeDuplicatedLineInTextFile;
 
-import dms.pastor.utils.StringUtils;
+import dms.pastor.utils.string.ToStringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -49,7 +49,7 @@ class DuplicateRemover {
                 lines.add(scanner.nextLine());
             }
         }
-        return StringUtils.toString(lines);
+        return ToStringUtils.toString(lines);
     }
 
     private void validateFilePath(String filePath) {

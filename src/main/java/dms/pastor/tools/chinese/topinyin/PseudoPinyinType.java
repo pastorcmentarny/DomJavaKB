@@ -2,7 +2,7 @@ package dms.pastor.tools.chinese.topinyin;
 
 import dms.pastor.domain.exception.NotImplementYetException;
 import dms.pastor.domain.exception.SomethingWentWrongException;
-import dms.pastor.utils.StringUtils;
+import dms.pastor.utils.string.ToStringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +39,7 @@ public enum PseudoPinyinType {
             types.add(pseudoPinyinType.name().toLowerCase());
         }
 
-        return StringUtils.toString(types);
+        return ToStringUtils.toString(types);
     }
 
     public static Converter getConverterFor(String converterName) {
