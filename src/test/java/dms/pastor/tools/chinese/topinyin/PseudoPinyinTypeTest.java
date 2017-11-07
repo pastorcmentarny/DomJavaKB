@@ -2,6 +2,7 @@ package dms.pastor.tools.chinese.topinyin;
 
 import org.junit.Test;
 
+import static dms.pastor.tools.chinese.topinyin.PseudoPinyinType.displaySupportedType;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -64,15 +65,16 @@ public class PseudoPinyinTypeTest {
         assertThat(result).isTrue();
     }
 
-    //TODO
     @Test
     public void shouldDisplayAllTypes() throws Exception {
         // given
+        final String expectedResult = "number,character";
 
         // when
-        PseudoPinyinType.displaySupportedType();
-        // then
+        final String supportedType = displaySupportedType();
 
+        // then
+        assertThat(supportedType).isEqualToIgnoringCase(expectedResult);
     }
 
     @Test
