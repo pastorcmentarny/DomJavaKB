@@ -538,7 +538,7 @@ public class ValidatorUtilsTest {
     @Test
     public void isValueInRangeShouldThrowExceptionIfMinValueIsHigherThanMaxValue() {
         // expect
-        expectedException.expect(IllegalArgumentException.class);
+        exception.expect(IllegalArgumentException.class);
 
         // when
         isValueInRange(10, 0, 3);
@@ -601,8 +601,8 @@ public class ValidatorUtilsTest {
         int[] valuesInRange = {1, 2, 4, 9};
 
         // expect
-        expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage(format("MinValue (%d) must be lower than MaxValue(%d)", min, max));
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage(format("MinValue (%d) must be lower than MaxValue(%d)", min, max));
 
         // when
         validateIfValuesIsInRange(min, max, valuesInRange);
@@ -611,8 +611,8 @@ public class ValidatorUtilsTest {
     @Test
     public void validateIfValuesIsInRangeShouldThrowIllegalArgumentExceptionIfOneOfValuesIsLowerThanMinValue() {
         // expect
-        expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("One of values is not in range.");
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("One of values is not in range.");
 
         // when
         final int min = 3;
@@ -626,8 +626,8 @@ public class ValidatorUtilsTest {
     @Test
     public void validateIfValuesIsInRangeShouldThrowIllegalArgumentExceptionIfOneOfValuesIsHigherThanMaxValue() {
         // expect
-        expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("One of values is not in range.");
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("One of values is not in range.");
 
         // when
         final int min = 0;
@@ -641,8 +641,8 @@ public class ValidatorUtilsTest {
     @Test
     public void validateIfValuesIsInRangeShouldThrowIllegalArgumentExceptionIfValuesSizeIsZero() {
         // expect
-        expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Values array cannot be null or empty.");
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("Values array cannot be null or empty.");
 
         // when
         final int min = 0;
