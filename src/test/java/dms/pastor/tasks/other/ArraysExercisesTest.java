@@ -12,8 +12,6 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
- * <p>
- * //TODO split into separated tests
  */
 public class ArraysExercisesTest {
 
@@ -45,32 +43,104 @@ public class ArraysExercisesTest {
     }
 
     @Test
-    public void shouldReplaceWithLargerNumber() throws Exception {
+    public void getMaximumValueShouldReturnLargerPositiveValueWhenSmallerPositiveValueIsComparedToLargerPositiveValue() throws Exception {
+        // when
+        final int result = exercise.getMaximumValue(MIN_POSITIVE_VALUE, MAX_POSITIVE_VALUE);
 
-        assertThat(exercise.getMaximumValue(MIN_POSITIVE_VALUE, MAX_POSITIVE_VALUE)).isEqualTo(MAX_POSITIVE_VALUE);
-        assertThat(exercise.getMaximumValue(MIN_NEGATIVE_VALUE, MAX_POSITIVE_VALUE)).isEqualTo(MAX_POSITIVE_VALUE);
-        assertThat(exercise.getMaximumValue(MAX_NEGATIVE_VALUE, MIN_NEGATIVE_VALUE)).isEqualTo(MIN_NEGATIVE_VALUE);
+        // then
+        assertThat(result).isEqualTo(MAX_POSITIVE_VALUE);
+    }
+
+    @Test
+    public void getMaximumValueShouldReturnLargerPositiveValueWhenSmallerNegativeValueIsComparedToLargerPositiveValue() throws Exception {
+        // when
+        final int result = exercise.getMaximumValue(MIN_NEGATIVE_VALUE, MAX_POSITIVE_VALUE);
+
+        // then
+        assertThat(result).isEqualTo(MAX_POSITIVE_VALUE);
 
     }
 
     @Test
-    public void shouldNotReplaceWithNotLargerNumber() throws Exception {
-        assertThat(exercise.getMaximumValue(MAX_POSITIVE_VALUE, MIN_POSITIVE_VALUE)).isEqualTo(MAX_POSITIVE_VALUE);
-        assertThat(exercise.getMaximumValue(MAX_POSITIVE_VALUE, MIN_NEGATIVE_VALUE)).isEqualTo(MAX_POSITIVE_VALUE);
-        assertThat(exercise.getMaximumValue(MIN_NEGATIVE_VALUE, MAX_NEGATIVE_VALUE)).isEqualTo(MIN_NEGATIVE_VALUE);
+    public void getMaximumValueShouldReturnSmallerNegativeValueWhenLargerNegativeValueIsComparedToSmallerNegativeValue() throws Exception {
+        // when
+        final int result = exercise.getMaximumValue(MAX_NEGATIVE_VALUE, MIN_NEGATIVE_VALUE);
+
+        // then
+        assertThat(result).isEqualTo(MIN_NEGATIVE_VALUE);
+
     }
 
     @Test
-    public void shouldReplaceWithSmallerNumber() throws Exception {
-        assertThat(exercise.getMinimumValue(MAX_POSITIVE_VALUE, MIN_POSITIVE_VALUE)).isEqualTo(MIN_POSITIVE_VALUE);
-        assertThat(exercise.getMinimumValue(MAX_NEGATIVE_VALUE, MIN_POSITIVE_VALUE)).isEqualTo(MAX_NEGATIVE_VALUE);
-        assertThat(exercise.getMinimumValue(MAX_NEGATIVE_VALUE, MIN_NEGATIVE_VALUE)).isEqualTo(MAX_NEGATIVE_VALUE);
+    public void getMaximumValueShouldReturnLargerPositiveValueWhenLargerPositiveValueIsComparedToSmallerPositiveValue() throws Exception {
+        // when
+        final int result = exercise.getMaximumValue(MAX_POSITIVE_VALUE, MIN_POSITIVE_VALUE);
+
+        // then
+        assertThat(result).isEqualTo(MAX_POSITIVE_VALUE);
     }
 
     @Test
-    public void shouldNotReplaceWithNotSmallerNumber() throws Exception {
-        assertThat(exercise.getMinimumValue(MAX_POSITIVE_VALUE, MIN_POSITIVE_VALUE)).isEqualTo(MIN_POSITIVE_VALUE);
-        assertThat(exercise.getMinimumValue(MIN_NEGATIVE_VALUE, MAX_NEGATIVE_VALUE)).isEqualTo(MAX_NEGATIVE_VALUE);
+    public void getMaximumValueShouldReturnLargerPositiveValueWhenComparedToSmallerNegativeValue() throws Exception {
+        // when
+        final int result = exercise.getMaximumValue(MAX_POSITIVE_VALUE, MIN_NEGATIVE_VALUE);
+
+        // then
+        assertThat(result).isEqualTo(MAX_POSITIVE_VALUE);
+    }
+
+    @Test
+    public void getMaximumValueShouldReturnSmallerNegativeValueWhenSmallerNegativeValueIsComparedToLargerNegativeValue() throws Exception {
+        // when
+        final int result = exercise.getMaximumValue(MIN_NEGATIVE_VALUE, MAX_NEGATIVE_VALUE);
+
+        // then
+        assertThat(result).isEqualTo(MIN_NEGATIVE_VALUE);
+    }
+
+    @Test
+    public void getMinimumValueShouldReturnSmallerPositiveValueWhenYouCompareLargerPositiveValueToSmallerPositiveValue() throws Exception {
+        // when
+        final int result = exercise.getMinimumValue(MAX_POSITIVE_VALUE, MIN_POSITIVE_VALUE);
+
+        // then
+        assertThat(result).isEqualTo(MIN_POSITIVE_VALUE);
+    }
+
+    @Test
+    public void getMinimumValueShouldReturnLargerNegativeValueWhenLargerNegativeValueIsComparedToSmallerPositiveValue() throws Exception {
+        // when
+        final int result = exercise.getMinimumValue(MAX_NEGATIVE_VALUE, MIN_POSITIVE_VALUE);
+
+        // then
+        assertThat(result).isEqualTo(MAX_NEGATIVE_VALUE);
+    }
+
+    @Test
+    public void getMinimumValueShouldReturnLargerNegativeValueWhenLargerNegativeValueIsComparedToSmallerNegativeValue() throws Exception {
+        // when
+        final int result = exercise.getMinimumValue(MAX_NEGATIVE_VALUE, MIN_NEGATIVE_VALUE);
+
+        // then
+        assertThat(result).isEqualTo(MAX_NEGATIVE_VALUE);
+    }
+
+    @Test
+    public void getMinimumValueShouldReturnSmallerPositiveValueWhenLargerPositiveValueIsComparedToSmallerPositiveValue() throws Exception {
+        // when
+        final int result = exercise.getMinimumValue(MAX_POSITIVE_VALUE, MIN_POSITIVE_VALUE);
+
+        // then
+        assertThat(result).isEqualTo(MIN_POSITIVE_VALUE);
+    }
+
+    @Test
+    public void getMinimumValueShouldReturnLargerNegativeValueWhenSmallerNegativeValueIsComparedToLargerNegativeValue() throws Exception {
+        // when
+        final int result = exercise.getMinimumValue(MIN_NEGATIVE_VALUE, MAX_NEGATIVE_VALUE);
+
+        // then
+        assertThat(result).isEqualTo(MAX_NEGATIVE_VALUE);
     }
 
 }

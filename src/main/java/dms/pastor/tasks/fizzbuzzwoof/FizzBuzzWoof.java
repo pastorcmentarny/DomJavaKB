@@ -30,7 +30,6 @@ final class FizzBuzzWoof {
     private FizzBuzzWoof() {
     }
 
-    //TODO refactor this
     static String getResultFor(int number) {
 
         String result = EMPTY_STRING;

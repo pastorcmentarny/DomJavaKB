@@ -52,6 +52,7 @@ public final class Utils {
     public static List<Person> loadPeople(String filename) throws IOException {
         List<Person> people = new ArrayList<>();
         File file = new File(filename);
+        //TODO add validator for check if file exists
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
