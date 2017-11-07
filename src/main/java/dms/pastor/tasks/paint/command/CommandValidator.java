@@ -3,6 +3,7 @@ package dms.pastor.tasks.paint.command;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static dms.pastor.utils.StringUtils.WHITESPACE;
 import static dms.pastor.utils.StringUtils.isStringNotEmpty;
 import static java.lang.String.format;
 
@@ -16,7 +17,7 @@ import static java.lang.String.format;
  */
 final class CommandValidator {
     private static final Logger LOGGER = LoggerFactory.getLogger(CommandValidator.class);
-    private static final String PARAMS_SPLITTER = " ";
+    private static final String PARAMS_SPLITTER = WHITESPACE;
 
     private CommandValidator() {
     }
@@ -44,7 +45,6 @@ final class CommandValidator {
         }
     }
 
-    //TODO improve readability
     static void validateFillCharacter(String fillCharacter, String name) {
         if (!isStringNotEmpty(fillCharacter) || fillCharacter.length() != 1) {
             final String errorMessage = name + " is not a valid fill character";

@@ -32,7 +32,7 @@ public enum RomanNumerals {
                 return numeral.arabic;
             }
         }
-        return 0; //TODO throw an exception
+        throw new IllegalArgumentException(String.format("%s is not a valid roman character", roman));
     }
 
     public char roman() {
