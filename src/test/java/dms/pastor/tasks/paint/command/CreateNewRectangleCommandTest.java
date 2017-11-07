@@ -30,40 +30,40 @@ public class CreateNewRectangleCommandTest extends AbstractCommandTest {
 
     @Test
     public void getStartWidthShouldReturnValue() {
-        //given
+        // given
         String[] params = {CREATE_RECTANGLE_COMMAND, VALID_VALUE_AS_STRING, NOT_USED_SMALL_VALUE_AS_STRING, NOT_USED_LARGE_VALUE_AS_STRING, NOT_USED_MEDIUM_VALUE_AS_STRING};
         createNewRectangleCommand.setParamsIfValid(params);
 
         // when
         final int result = createNewRectangleCommand.getStartWidth();
 
-        //then
+        // then
         assertThat(result).isEqualTo(3);
     }
 
     @Test
     public void getStartHeightShouldReturnValue() {
-        //given
+        // given
         String[] params = {CREATE_RECTANGLE_COMMAND, NOT_USED_SMALL_VALUE_AS_STRING, VALID_VALUE_AS_STRING, NOT_USED_MEDIUM_VALUE_AS_STRING, NOT_USED_LARGE_VALUE_AS_STRING};
         createNewRectangleCommand.setParamsIfValid(params);
 
         // when
         final int result = createNewRectangleCommand.getStartHeight();
 
-        //then
+        // then
         assertThat(result).isEqualTo(3);
     }
 
     @Test
     public void getEndWidthShouldReturnValue() {
-        //given
+        // given
         String[] params = {CREATE_RECTANGLE_COMMAND, NOT_USED_SMALL_VALUE_AS_STRING, NOT_USED_SMALL_VALUE_AS_STRING, VALID_VALUE_AS_STRING, NOT_USED_SMALL_VALUE_AS_STRING};
         createNewRectangleCommand.setParamsIfValid(params);
 
         // when
         final int result = createNewRectangleCommand.getEndWidth();
 
-        //then
+        // then
         assertThat(result).isEqualTo(3);
     }
 

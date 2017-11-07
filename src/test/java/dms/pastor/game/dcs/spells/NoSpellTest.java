@@ -88,7 +88,7 @@ public final class NoSpellTest {
         // when
         final boolean result = NoSpell.getInstance().isASpell(elementsBuilder().build());
 
-        //then
+        // then
         assertThat(result).isFalse();
     }
 
@@ -98,7 +98,7 @@ public final class NoSpellTest {
         // when
         final boolean result = NoSpell.getInstance().hasEnoughElementsToCovertToSpell(elementsBuilder().build());
 
-        //then
+        // then
         assertThat(result).isFalse();
     }
 
@@ -107,7 +107,7 @@ public final class NoSpellTest {
         // when
         final Elements result = NoSpell.getInstance().getElements();
 
-        //then
+        // then
         assertThat(result).isEqualTo(noElements());
     }
 

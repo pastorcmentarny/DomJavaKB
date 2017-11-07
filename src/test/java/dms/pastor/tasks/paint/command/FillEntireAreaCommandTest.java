@@ -63,10 +63,10 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
         final String[] params = {fillEntireAreaCommand.getSyntax(), SQUARE_WITH_LENGTH_1_AS_STRING, SQUARE_WITH_LENGTH_1_AS_STRING, FILL_CHARACTER};
         fillEntireAreaCommand.setParamsIfValid(params);
 
-        //when
+        // when
         fillEntireAreaCommand.execute(canvas);
 
-        //then
+        // then
         assertThat(canvas.getCanvasAsString()).isEqualTo("---\n" +
                 "|o|\n" +
                 "---\n");
@@ -80,10 +80,10 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
         final String[] params = {fillEntireAreaCommand.getSyntax(), length, length, FILL_CHARACTER};
         fillEntireAreaCommand.setParamsIfValid(params);
 
-        //when
+        // when
         fillEntireAreaCommand.execute(canvas);
 
-        //then
+        // then
         assertThat(canvas.getCanvasAsString()).isEqualTo(EXPECTED_SQUARE_FILLED_WITH_O);
     }
 
@@ -94,10 +94,10 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
         final String[] params = {fillEntireAreaCommand.getSyntax(), SQUARE_WITH_LENGTH_1_AS_STRING, SQUARE_WITH_LENGTH_1_AS_STRING, FILL_CHARACTER};
         fillEntireAreaCommand.setParamsIfValid(params);
 
-        //when
+        // when
         fillEntireAreaCommand.execute(canvas);
 
-        //then
+        // then
         assertThat(canvas.getCanvasAsString()).isEqualTo(EXPECTED_SQUARE_FILLED_WITH_O);
     }
 
@@ -108,10 +108,10 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
         final String[] params = {fillEntireAreaCommand.getSyntax(), SQUARE_WITH_LENGTH_1_AS_STRING, SQUARE_WITH_LENGTH_3_AS_STRING, FILL_CHARACTER};
         fillEntireAreaCommand.setParamsIfValid(params);
 
-        //when
+        // when
         fillEntireAreaCommand.execute(canvas);
 
-        //then
+        // then
         assertThat(canvas.getCanvasAsString()).isEqualTo(EXPECTED_SQUARE_FILLED_WITH_O);
     }
 
@@ -122,10 +122,10 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
         final String[] params = {fillEntireAreaCommand.getSyntax(), SQUARE_WITH_LENGTH_3_AS_STRING, SQUARE_WITH_LENGTH_1_AS_STRING, FILL_CHARACTER};
         fillEntireAreaCommand.setParamsIfValid(params);
 
-        //when
+        // when
         fillEntireAreaCommand.execute(canvas);
 
-        //then
+        // then
         assertThat(canvas.getCanvasAsString()).isEqualTo(EXPECTED_SQUARE_FILLED_WITH_O);
     }
 
@@ -136,10 +136,10 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
         final String[] params = {fillEntireAreaCommand.getSyntax(), SQUARE_WITH_LENGTH_3_AS_STRING, SQUARE_WITH_LENGTH_3_AS_STRING, FILL_CHARACTER};
         fillEntireAreaCommand.setParamsIfValid(params);
 
-        //when
+        // when
         fillEntireAreaCommand.execute(canvas);
 
-        //then
+        // then
         assertThat(canvas.getCanvasAsString()).isEqualTo(EXPECTED_SQUARE_FILLED_WITH_O);
     }
 
@@ -159,10 +159,10 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
         final String[] params = {fillEntireAreaCommand.getSyntax(), SQUARE_WITH_LENGTH_3_AS_STRING, SQUARE_WITH_LENGTH_3_AS_STRING, FILL_CHARACTER};
         fillEntireAreaCommand.setParamsIfValid(params);
 
-        //when
+        // when
         fillEntireAreaCommand.execute(canvas);
 
-        //then
+        // then
         assertThat(canvas.getCanvasAsString()).isEqualTo("-------\n"
                 + "|     |\n"
                 + "| xxx |\n"
@@ -188,10 +188,10 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
         final String[] params = {fillEntireAreaCommand.getSyntax(), SQUARE_WITH_LENGTH_1_AS_STRING, SQUARE_WITH_LENGTH_1_AS_STRING, FILL_CHARACTER};
         fillEntireAreaCommand.setParamsIfValid(params);
 
-        //when
+        // when
         fillEntireAreaCommand.execute(canvas);
 
-        //then
+        // then
         assertThat(canvas.getCanvasAsString()).isEqualTo("-------\n"
                 + "|ooooo|\n"
                 + "|oxxxo|\n"
@@ -218,10 +218,10 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
         final String[] params = {fillEntireAreaCommand.getSyntax(), SQUARE_WITH_LENGTH_1_AS_STRING, SQUARE_WITH_LENGTH_1_AS_STRING, FILL_CHARACTER};
         fillEntireAreaCommand.setParamsIfValid(params);
 
-        //when
+        // when
         fillEntireAreaCommand.execute(canvas);
 
-        //then
+        // then
         assertThat(canvas.getCanvasAsString()).isEqualTo("-------\n"
                 + "|ooooo|\n"
                 + "|oxxxo|\n"

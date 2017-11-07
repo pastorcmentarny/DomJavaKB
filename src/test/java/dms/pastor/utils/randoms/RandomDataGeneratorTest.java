@@ -417,7 +417,7 @@ public class RandomDataGeneratorTest {
         // when
         final String result = generateWords(zeroSize);
 
-        //then
+        // then
         assertThat(result).isEmpty();
     }
 
@@ -429,7 +429,7 @@ public class RandomDataGeneratorTest {
         // when
         final String result = generateWords(size);
 
-        //then
+        // then
         assertThat(result).isNotEmpty();
         assertThat(result).doesNotEndWith(SPACE);
     }
@@ -442,7 +442,7 @@ public class RandomDataGeneratorTest {
         // when
         final String result = generateWords(size);
 
-        //then
+        // then
         assertThat(result).isNotEmpty();
         assertThat(result).contains(SPACE);
         assertThat(result).doesNotEndWith(SPACE);

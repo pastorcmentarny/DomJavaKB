@@ -45,7 +45,7 @@ public class MageTest {
 
     @Test
     public void turnShouldCastShieldIfMageDoesNotHave() {
-        //given
+        // given
         Unit mage = new Mage();
         mage.setSp(0);
         mage.setElementsFor(EARTH, 2);
@@ -64,7 +64,7 @@ public class MageTest {
 
     @Test
     public void turnShouldCastShieldRegenIfShieldPointsAreLow() {
-        //given
+        // given
         Unit mage = new Mage();
         final int lowSp = mage.getSp() / 4;
         mage.setSp(lowSp);

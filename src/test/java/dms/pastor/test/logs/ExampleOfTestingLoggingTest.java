@@ -50,14 +50,14 @@ public class ExampleOfTestingLoggingTest {
 
     @Test
     public void reverseCaseShouldReverseString() {
-        //given
+        // given
         final String input = "uFo";
         String expectedResult = "UfO";
 
-        //when
+        // when
         final String result = LogMe.reverseCase(input);
 
-        //then
+        // then
         assertThat(result).isEqualTo(expectedResult);
         verify(mockAppender).doAppend(captorLoggingEvent.capture());
         final ILoggingEvent loggingEvent = captorLoggingEvent.getValue();

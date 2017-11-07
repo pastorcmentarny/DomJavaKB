@@ -253,7 +253,7 @@ public class NumberUtilsTest {
 
     @Test //TODO improve it as I think looping and asserting is a bad thing
     public void testIsNumberPrime() throws Exception {
-        //given
+        // given
         int[] primes = new int[]{2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97};
 
         for (int i : primes) {
@@ -542,7 +542,7 @@ public class NumberUtilsTest {
 
     @Test
     public void shouldReturnFalseIfBigDecimalIsNotInteger() throws Exception {
-        //given
+        // given
         BigDecimal bigDecimal = new BigDecimal("1.23");
 
         // when

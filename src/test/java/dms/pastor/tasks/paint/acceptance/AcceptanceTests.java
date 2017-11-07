@@ -66,7 +66,7 @@ public class AcceptanceTests {
         // when
         commandLineUI.runApplication();
 
-        //then
+        // then
         assertThat(outputStream.toString()).contains(System.lineSeparator() +
                 EMPTY_CANVAS);
     }
@@ -84,7 +84,7 @@ public class AcceptanceTests {
         // when
         commandLineUI.runApplication();
 
-        //then
+        // then
         assertThat(outputStream.toString()).contains(
                 "----------------------\n" +
                         "|                    |\n" +
@@ -108,7 +108,7 @@ public class AcceptanceTests {
         // when
         commandLineUI.runApplication();
 
-        //then
+        // then
         assertThat(outputStream.toString()).contains(
                 "----------------------\n" +
                         "|               xxxxx|\n" +
@@ -132,7 +132,8 @@ public class AcceptanceTests {
 
         // when
         commandLineUI.runApplication();
-        //then
+
+        // then
         assertThat(outputStream.toString()).contains(
                 "----------------------\n" +
                         "|oooooooooooooooxxxxx|\n" +

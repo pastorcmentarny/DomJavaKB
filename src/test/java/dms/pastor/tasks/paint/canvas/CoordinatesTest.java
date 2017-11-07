@@ -22,7 +22,7 @@ public class CoordinatesTest {
         // when
         final Coordinates coordinates = Coordinates.noCoordination();
 
-        //then
+        // then
         assertThat(coordinates.getWidth()).isEqualTo(NO_VALUE);
         assertThat(coordinates.getHeight()).isEqualTo(NO_VALUE);
     }
@@ -34,7 +34,8 @@ public class CoordinatesTest {
 
         // when
         final boolean result = coordinates.isCoordinatesSet();
-        //then
+
+        // then
         assertThat(result).isFalse();
     }
 
@@ -46,7 +47,7 @@ public class CoordinatesTest {
         // when
         final boolean result = coordinates.isCoordinatesSet();
 
-        //then
+        // then
         assertThat(result).isTrue();
     }
 

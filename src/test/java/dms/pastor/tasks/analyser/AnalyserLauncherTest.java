@@ -64,7 +64,7 @@ public class AnalyserLauncherTest {
     @Test
     public void shouldAnalyseFile() throws Exception {
 
-        //when
+        // when
         AnalyserLauncher.main(new String[]{THIS_PROJECT_PATH});
 
     }

@@ -64,7 +64,7 @@ public class ReadTimeCalculatorTest {
 
     @Test
     public void shouldReturnIllegalArgumentExceptionForNullInputTest() throws Exception {
-        //given
+        // given
         readTimeCalculator = new ReadTimeCalculator(null, randomInteger());
 
         // except
@@ -77,7 +77,7 @@ public class ReadTimeCalculatorTest {
 
     @Test
     public void shouldReturnIllegalArgumentExceptionForZeroWordPerMinutes() throws Exception {
-        //given
+        // given
         readTimeCalculator = new ReadTimeCalculator(generateString(), randomNegativeInteger());
 
         // except

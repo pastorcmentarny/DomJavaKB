@@ -174,51 +174,53 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
 
     @Test
     public void getStartWidthShouldReturnValue() {
-        //given
+        // given
         String[] params = {CREATE_LINE_COMMAND, VALID_VALUE_AS_STRING, NOT_USED_SMALL_VALUE_AS_STRING, NOT_USED_LARGE_VALUE_AS_STRING, NOT_USED_SMALL_VALUE_AS_STRING};
         createNewLineCommand.setParamsIfValid(params);
+
         // when
         final int result = createNewLineCommand.getStartWidth();
 
-        //then
+        // then
         assertThat(result).isEqualTo(3);
     }
 
     @Test
     public void getStartHeightShouldReturnValue() {
-        //given
+        // given
         String[] params = {CREATE_LINE_COMMAND, NOT_USED_SMALL_VALUE_AS_STRING, VALID_VALUE_AS_STRING, NOT_USED_SMALL_VALUE_AS_STRING, NOT_USED_LARGE_VALUE_AS_STRING};
         createNewLineCommand.setParamsIfValid(params);
 
         // when
         final int result = createNewLineCommand.getStartHeight();
 
-        //then
+        // then
         assertThat(result).isEqualTo(3);
     }
 
     @Test
     public void getEndWidthShouldReturnValue() {
-        //given
+        // given
         String[] params = {CREATE_LINE_COMMAND, NOT_USED_SMALL_VALUE_AS_STRING, NOT_USED_SMALL_VALUE_AS_STRING, VALID_VALUE_AS_STRING, NOT_USED_SMALL_VALUE_AS_STRING};
         createNewLineCommand.setParamsIfValid(params);
+
         // when
         final int result = createNewLineCommand.getEndWidth();
 
-        //then
+        // then
         assertThat(result).isEqualTo(3);
     }
 
     @Test
     public void getEndHeightShouldReturnValue() {
-        //given
+        // given
         String[] params = {CREATE_LINE_COMMAND, NOT_USED_SMALL_VALUE_AS_STRING, NOT_USED_SMALL_VALUE_AS_STRING, NOT_USED_SMALL_VALUE_AS_STRING, VALID_VALUE_AS_STRING,};
         createNewLineCommand.setParamsIfValid(params);
 
         // when
         final int result = createNewLineCommand.getEndHeight();
 
-        //then
+        // then
         assertThat(result).isEqualTo(3);
     }
 

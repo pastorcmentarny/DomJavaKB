@@ -255,7 +255,7 @@ public class ContainsInStringUtilsTest {
         final List<String> keywords = Arrays.asList("brown", "fox", "dog", "panagram");
         final String text = "The quick brown fox jumps over a lazy dog.";
 
-        //when
+        // when
         final boolean exists = isTextContainsAllKeywordsExists(keywords, text);
 
         // then
