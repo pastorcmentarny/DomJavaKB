@@ -1,7 +1,6 @@
 package dms.pastor.tools.converters.codehtmlconverter;
 
 import dms.pastor.utils.StringUtils;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,7 +9,6 @@ import java.util.List;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.CoreMatchers.is;
 
 /**
  * Author Dominik Symonowicz
@@ -26,18 +24,94 @@ public class CodeForBlogConverterTest {
     private static final String THREE_WHITESPACES = "   ";
     private CodeForBlogConverter converter;
 
-/*     //TODO
-    String filePath = "D:\\Dropbox\\dsProjects\\DomJavaKB\\src\\dms\\pastor\\tools\\codeToHTMLConverter\\CodeForBlogConverter.java";
+    @Before
+    public void setUp() throws Exception {
+        converter = new CodeForBlogConverter();
+    }
 
     @Test
-    public void acceptanceCriteria() throws Exception {
+    public void shouldConvertCodeToHTMLTest() {
         // given
-        FileTools.saveListToFile(generateSourceData(),filePath);
-        CodeForBlogConverter converter = new CodeForBlogConverter();
-        ArrayList<String> source =  FileTools.loadTextFileAsArrayOfStrings(filePath);
-        final String convertedSource = converter.convert(source);
-        System.out.println("Output:\n\n" + convertedSource);
-    }*/
+        List<String> source = generateSourceData();
+        String answer = getResult();
+
+        // when
+        final String result = converter.convert(source);
+
+        // then
+        assertThat(result).isEqualTo(answer);
+    }
+
+    @Test
+    public void shouldConvert4SpaceToNbsp() {
+        // given
+        String line = "    ";
+        String result = StringUtils.getNbsp(4);
+
+        // when
+        String convertedLine = converter.convertEach4SpacesToNsbpOnBeginningOfTheLine(line);
+
+        // then
+        assertThat(convertedLine).isEqualTo(result);
+    }
+
+    @Test
+    public void shouldNotConvert3SpacesToNbsp() {
+        // when
+        String convertedLine = converter.convertEach4SpacesToNsbpOnBeginningOfTheLine(THREE_WHITESPACES);
+
+        // then
+        assertThat(convertedLine).isEqualTo(THREE_WHITESPACES);
+    }
+
+    @Test
+    public void shouldNotConvert4SpacesInTheEndToNbsp() {
+        // given
+        String line = "Test    ";
+
+        // when
+        String convertedLine = converter.convertEach4SpacesToNsbpOnBeginningOfTheLine(line);
+
+        // then
+        assertThat(convertedLine).isEqualTo(line);
+    }
+
+    @Test
+    public void shouldConvertFirst4SpacesToNbsp() {
+        // given
+        String line = "    Test    Test    ";
+        String result = StringUtils.getNbsp(4) + "Test    Test    ";
+
+        // when
+        String convertedLine = converter.convertEach4SpacesToNsbpOnBeginningOfTheLine(line);
+
+        // then
+        assertThat(convertedLine).isEqualTo(result);
+    }
+
+    @Test
+    public void shouldNotConvertAny4SpacesToNbsp() {
+        // given
+        String line = "   Test    Test    ";//first has 3 spaces only
+
+        // when
+        String convertedLine = converter.convertEach4SpacesToNsbpOnBeginningOfTheLine(line);
+
+        // then
+        assertThat(convertedLine).isEqualTo(line);
+    }
+
+    @Test
+    public void shouldNotConvert4SpacesInTheMiddleToNbsp() {
+        // given
+        String line = "Test    Test";
+
+        // when
+        String convertedLine = converter.convertEach4SpacesToNsbpOnBeginningOfTheLine(line);
+
+        // then
+        assertThat(convertedLine).isEqualTo(line);
+    }
 
     private static String getResult() {
         return "<blockquote>\n" +
@@ -87,63 +161,4 @@ public class CodeForBlogConverterTest {
         data.add(EMPTY_STRING);
     }
 
-    @Before
-    public void setUp() throws Exception {
-        converter = new CodeForBlogConverter();
-
-    }
-
-    @Test
-    public void shouldConvertCodeToHTMLTest() {
-        List<String> source = generateSourceData();
-        String answer = getResult();
-        final String result = converter.convert(source);
-        Assert.assertThat(result, is(answer));
-    }
-
-    @Test
-    public void shouldConvert4SpaceToNbsp() {
-        String line = "    ";
-        String result = StringUtils.getNbsp(4);
-        String convertedLine = converter.convertEach4SpacesToNsbpOnBeginningOfTheLine(line);
-        Assert.assertThat(convertedLine, is(result));
-    }
-
-    @Test
-    public void shouldNotConvert3SpacesToNbsp() {
-        // when
-        String convertedLine = converter.convertEach4SpacesToNsbpOnBeginningOfTheLine(THREE_WHITESPACES);
-
-        // then
-        assertThat(convertedLine).isEqualTo(THREE_WHITESPACES);
-    }
-
-    @Test
-    public void shouldNotConvert4SpacesInTheEndToNbsp() {
-        String line = "Test    ";
-        String convertedLine = converter.convertEach4SpacesToNsbpOnBeginningOfTheLine(line);
-        Assert.assertThat(convertedLine, is(line));
-    }
-
-    @Test
-    public void shouldConvertFirst4SpacesToNbsp() {
-        String line = "    Test    Test    ";
-        String result = StringUtils.getNbsp(4) + "Test    Test    ";
-        String convertedLine = converter.convertEach4SpacesToNsbpOnBeginningOfTheLine(line);
-        Assert.assertThat(convertedLine, is(result));
-    }
-
-    @Test
-    public void shouldNotConvertAny4SpacesToNbsp() {
-        String line = "   Test    Test    ";//first has 3 spaces only
-        String convertedLine = converter.convertEach4SpacesToNsbpOnBeginningOfTheLine(line);
-        Assert.assertThat(convertedLine, is(line));
-    }
-
-    @Test
-    public void shouldNotConvert4SpacesInTheMiddleToNbsp() {
-        String line = "Test    Test";
-        String convertedLine = converter.convertEach4SpacesToNsbpOnBeginningOfTheLine(line);
-        Assert.assertThat(convertedLine, is(line));
-    }
 }
