@@ -1,17 +1,13 @@
 package dms.pastor.tasks.sunspotanalyser.data;
 
-import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import java.io.File;
 
-import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.assertj.core.api.Assertions.assertThat;
 
-/**
- * @author Pastor
- */
 public class InputParserTest {
 
     @Rule
@@ -19,19 +15,15 @@ public class InputParserTest {
 
     @Test
     public void testGenerateGrid() {
+        // given
         String testData = "1 5 5 3 1 2 0 4 1 1 3 2 2 3 2 4 3 0 2 3 3 2 1 0 2 4 3";
-        InputParser instance = new InputParser(testData);
-        Grid result = instance.generateGrid();
-        Assert.assertThat(result, notNullValue());
-    }
+        InputParser inputParser = new InputParser(testData);
 
-    @Test //TODO improve this test
-    public void testParseValidData() {
+        // when
+        Grid result = inputParser.generateGrid();
 
-        String testData = "1 5 5 3 1 2 0 4 1 1 3 2 2 3 2 4 3 0 2 3 3 2 1 0 2 4 3";
-        InputParser instance = new InputParser(testData);
-        instance.generateGrid();
-        instance.validateData();
+        // then
+        assertThat(result).isNotNull();
     }
 
     @Test

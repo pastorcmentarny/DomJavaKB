@@ -40,7 +40,7 @@ public class Grid {
         return cell;
     }
 
-    //used for debug mode // TODO improve it
+    //used for debug mode only
     void displayGrid() {
         for (int row = 0; row < gridSize; row++) {
             for (int column = 0; column < gridSize; column++) {
