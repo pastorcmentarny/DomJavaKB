@@ -16,7 +16,7 @@ import static dms.pastor.tools.chinese.topinyin.ToPinyinApplication.main;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.StringUtils.WHITESPACE;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
-import static dms.pastor.utils.randoms.RandomDataGenerator.randomInteger;
+import static dms.pastor.utils.randoms.RandomDataGenerator.randomPositiveInteger;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -76,7 +76,7 @@ public class ToPinyinApplicationTest {
         exception.expectMessage("It should contains 2 arguments (type of pinyin (number,character) and text.");
 
         // given
-        String[] arguments = RandomDataGenerator.generateArray(3 + randomInteger(32));
+        String[] arguments = RandomDataGenerator.generateArray(3 + randomPositiveInteger(32));
 
         // when
         main(arguments);

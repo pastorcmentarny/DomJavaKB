@@ -6,6 +6,8 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -15,6 +17,7 @@ import java.util.Random;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.ValidatorUtils.*;
 import static dms.pastor.utils.randoms.RandomDataGenerator.*;
+import static java.lang.String.format;
 import static java.math.BigDecimal.ZERO;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -28,7 +31,10 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class ValidatorUtilsTest {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(ValidatorUtilsTest.class);
     private static final String UNUSED_OBJECT_NAME = null;
+    public static final int START_RANGE = 0;
+    public static final int END_RANGE = 10;
 
     @Rule
     public final ExpectedException expectedException = ExpectedException.none();
@@ -152,10 +158,11 @@ public class ValidatorUtilsTest {
     @Test
     public void twoIntsNotEqualShouldPassWhenBothIntsAreNotEqual() throws Exception {
         // given
-        int number1 = randomPositiveInteger();
-        int number2 = number1 + 1;
-        //TODO uncomment when method implement int number2 = randomIntegerExcluding(0,Integer.MAX_VALUE,number1);
-        System.out.println(":) " + number1 + " and " + number2);
+        int number1 = randomPositiveInteger(9);
+        int number2 = randomIntegerExcluding(0, 10, new int[]{number1});
+
+        // debug info
+        LOGGER.debug(":) " + number1 + " and " + number2);
 
         // when
         validateTwoIntsNotEqual(number1, number2);
@@ -163,14 +170,12 @@ public class ValidatorUtilsTest {
         // then pass if no exception thrown
     }
 
-    //randomIntegerBiggerThan(int number)
-
     @Test
     public void validateMinValueIsSmallerThanMaxValueShouldThrowExceptionWhenMinValueIsGreaterThanMaxValue() throws Exception {
 
         // given
-        int maxValue = randomInteger(MAX_SMALL_VALUE_RANGE);
-        int minValue = MAX_SMALL_VALUE_RANGE + randomInteger(MAX_SMALL_VALUE_RANGE);
+        int maxValue = randomPositiveInteger(MAX_SMALL_VALUE_RANGE);
+        int minValue = MAX_SMALL_VALUE_RANGE + randomPositiveInteger(MAX_SMALL_VALUE_RANGE);
 
         // exception
         expectedException.expect(IllegalArgumentException.class);
@@ -184,8 +189,8 @@ public class ValidatorUtilsTest {
     public void validateMinValueIsSmallerThanMaxValueShouldBeValidatedWhenMinValueIsSmallerThanMaxValue() throws Exception {
 
         // given
-        int minValue = randomInteger(MAX_SMALL_VALUE_RANGE);
-        int maxValue = minValue + randomInteger(MAX_SMALL_VALUE_RANGE);
+        int minValue = randomPositiveInteger(MAX_SMALL_VALUE_RANGE);
+        int maxValue = minValue + randomPositiveInteger(MAX_SMALL_VALUE_RANGE);
 
         // when
         validateMinValueIsSmallerThanMaxValue(minValue, maxValue);
@@ -473,4 +478,121 @@ public class ValidatorUtilsTest {
 
     }
 
+    @Test
+    public void isValueInRangeShouldThrowExceptionIfMinValueIsHigherThanMaxValue() {
+        // expect
+        expectedException.expect(IllegalArgumentException.class);
+
+        // when
+        isValueInRange(10, 0, 3);
+    }
+
+    @Test
+    public void isValueInRangeShouldReturnTrueIfIsInRange() {
+        // given
+        final int valueInRange = 3;
+
+        // when
+        final boolean result = isValueInRange(START_RANGE, END_RANGE, valueInRange);
+
+        // then
+        assertThat(result).isTrue();
+    }
+
+    @Test
+    public void isValueInRangeShouldReturnFalseIfValueToSmall() {
+        // given
+        final int tooSmallValue = -1;
+
+        // when
+        final boolean result = isValueInRange(START_RANGE, END_RANGE, tooSmallValue);
+
+        // then
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    public void isValueInRangeShouldReturnFalseIfValueToBig() {
+        // given
+        final int tooBigValue = 11;
+
+        // when
+        final boolean result = isValueInRange(START_RANGE, END_RANGE, tooBigValue);
+
+        // then
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    public void shouldValidateIfValuesIsInRange() {
+        // given
+        final int min = 0;
+        final int max = 10;
+        int[] valuesInRange = {1, 2, 4, 9};
+
+        // when
+        validateIfValuesIsInRange(min, max, valuesInRange);
+
+        // then nothing happen, which means value are valid
+    }
+
+    @Test
+    public void validateIfValuesIsInRangeShouldThrowIllegalArgumentExceptionIfMinValueIsHigherThanMaxValue() {
+        // given
+        final int min = 10;
+        final int max = 0;
+        int[] valuesInRange = {1, 2, 4, 9};
+
+        // expect
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage(format("MinValue (%d) must be lower than MaxValue(%d)", min, max));
+
+        // when
+        validateIfValuesIsInRange(min, max, valuesInRange);
+    }
+
+    @Test
+    public void validateIfValuesIsInRangeShouldThrowIllegalArgumentExceptionIfOneOfValuesIsLowerThanMinValue() {
+        // expect
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("One of values is not in range.");
+
+        // when
+        final int min = 3;
+        final int max = 10;
+        int[] valuesInRange = {1, 2, 4, 9};
+
+        // when
+        validateIfValuesIsInRange(min, max, valuesInRange);
+    }
+
+    @Test
+    public void validateIfValuesIsInRangeShouldThrowIllegalArgumentExceptionIfOneOfValuesIsHigherThanMaxValue() {
+        // expect
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("One of values is not in range.");
+
+        // when
+        final int min = 0;
+        final int max = 5;
+        int[] valuesInRange = {1, 2, 4, 9};
+
+        // when
+        validateIfValuesIsInRange(min, max, valuesInRange);
+    }
+
+    @Test
+    public void validateIfValuesIsInRangeShouldThrowIllegalArgumentExceptionIfValuesSizeIsZero() {
+        // expect
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Values array cannot be null or empty.");
+
+        // when
+        final int min = 0;
+        final int max = 5;
+        int[] valuesInRange = new int[0];
+
+        // when
+        validateIfValuesIsInRange(min, max, valuesInRange);
+    }
 }

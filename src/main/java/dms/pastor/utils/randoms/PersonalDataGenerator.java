@@ -82,7 +82,6 @@ public final class PersonalDataGenerator {
             if (character == 'X') {
                 result.append(new Random().nextInt(10));
             } else {
-                //TODO provide proper implementation
                 throwExceptionIfContainsIllegalCharacter(pattern, character);
                 result.append(character);
             }
@@ -106,7 +105,6 @@ public final class PersonalDataGenerator {
         Pattern regex = Pattern.compile("[0-9()-+xX]+$");
         Matcher matcher = regex.matcher(pattern);
 
-        //TODO improve it
         if (pattern.isEmpty()) {
             return;
         }

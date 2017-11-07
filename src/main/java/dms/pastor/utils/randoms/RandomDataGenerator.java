@@ -14,8 +14,7 @@ import static dms.pastor.tools.chinese.pinyin.PinyinUtils.getAllPinyinFromFirstT
 import static dms.pastor.utils.EnglishUtils.isNotStopWord;
 import static dms.pastor.utils.PrintOutUtils.printIntArray;
 import static dms.pastor.utils.StringUtils.*;
-import static dms.pastor.utils.ValidatorUtils.validateIfPositiveNumber;
-import static dms.pastor.utils.ValidatorUtils.validateMinValueIsSmallerThanMaxValue;
+import static dms.pastor.utils.ValidatorUtils.*;
 import static java.lang.Integer.MAX_VALUE;
 
 /**
@@ -176,9 +175,8 @@ public final class RandomDataGenerator {
         return stringBuilder.toString();
     }
 
-    //TODO how to write test for this ?
     public static int randomPositiveInteger() {
-        return randomInteger(MAX_VALUE);
+        return RANDOM.nextInt(Integer.MAX_VALUE);
     }
 
     public static String generateRandomIntegerAsString(int maxValue) {
@@ -186,11 +184,12 @@ public final class RandomDataGenerator {
     }
 
     public static int randomPositiveInteger(int maxValue) {
-        return randomInteger(maxValue);
+        validateIfPositiveNumber(maxValue);
+        return RANDOM.nextInt(maxValue);
     }
 
-    // TODO FIX IT
-/*    public static int randomIntegerExcluding(int min,int max,int... numbers) {
+    public static int randomIntegerExcluding(int min, int max, int[] numbers) {
+        validateIfValuesIsInRange(min, max, numbers);
         int randomNumber = randomInteger(min,max);
         boolean repeat = true;
         while (repeat) {
@@ -203,7 +202,7 @@ public final class RandomDataGenerator {
             }
         }
         return randomNumber;
-    }*/
+    }
 
     public static int randomInteger() {
         if (RANDOM.nextBoolean()) {
@@ -211,10 +210,6 @@ public final class RandomDataGenerator {
         } else {
             return randomNegativeInteger();
         }
-    }
-
-    public static int randomInteger(int maxValue) {
-        return RANDOM.nextInt(maxValue);
     }
 
     public static int randomInteger(int minValue, int maxValue) {

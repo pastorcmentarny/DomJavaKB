@@ -5,6 +5,7 @@ import java.util.List;
 import static dms.pastor.tools.lotto.LottoConstants.HOT_PICK_BALL_MAXIMUM_VALUE;
 import static dms.pastor.tools.lotto.LottoConstants.HOT_PICK_BALL_MINIMUM_VALUE;
 import static dms.pastor.utils.randoms.RandomDataGenerator.randomInteger;
+import static dms.pastor.utils.randoms.RandomDataGenerator.randomPositiveInteger;
 import static java.util.Collections.singletonList;
 
 /**
@@ -20,7 +21,7 @@ import static java.util.Collections.singletonList;
 public final class BallCountBuilder {
 
     private List<Integer> ballNumbers = singletonList(randomInteger(HOT_PICK_BALL_MINIMUM_VALUE, HOT_PICK_BALL_MAXIMUM_VALUE));
-    private int count = randomInteger(10);
+    private int count = randomPositiveInteger(10);
 
     private BallCountBuilder() {
     }

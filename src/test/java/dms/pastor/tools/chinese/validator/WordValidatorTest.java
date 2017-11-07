@@ -133,7 +133,7 @@ public class WordValidatorTest {
     @Test
     public void validateWordShouldReturnFalseIfChineseCharacterContainNumber() {
         // given
-        final String invalidChineseCharacter = DEFAULT_CHINESE_CHARACTER + randomInteger(10);
+        final String invalidChineseCharacter = DEFAULT_CHINESE_CHARACTER + randomPositiveInteger(10);
         final Word wordInNullChineseCharacter = new Word(DEFAULT_ID, invalidChineseCharacter, DEFAULT_PINYIN, DEFAULT_STROKES,
                 DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 

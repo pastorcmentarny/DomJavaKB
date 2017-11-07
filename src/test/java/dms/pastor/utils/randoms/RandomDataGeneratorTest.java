@@ -88,13 +88,15 @@ public class RandomDataGeneratorTest {
         assertThat(string.length()).isLessThanOrEqualTo(10);
     }
 
-    @Test // failed once on 1.9'2017. Added log so i can see error next time.
+    @Test //FIXME failed once on 1.9'2017. Added log so i can see error next time.
     public void shouldThrowIllegalArgumentExceptionWhenMinValueIsHigherThanMinForGenerateStringTest() throws Exception {
         // except
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("Value must be higher than zero and min value must be smaller is larger than max value");
         final int max = random.nextInt(RANDOM_STRING_LENGTH);
         final int min = random.nextInt(RANDOM_STRING_LENGTH) + max;
+
+        // debug info
         LOGGER.info("Generated. Min:" + min + " Max:" + max);
 
         // when
@@ -310,7 +312,7 @@ public class RandomDataGeneratorTest {
     @Test
     public void randomIntegerWithMinAndMaxValueShouldThrowExceptionWhenMinValueIsHigherThanMaxValue() throws Exception {
         // given
-        int maxValue = randomInteger(MAX_SMALL_VALUE_RANGE);
+        int maxValue = randomPositiveInteger(MAX_SMALL_VALUE_RANGE);
         int minValue = maxValue + randomInteger(1, MAX_SMALL_VALUE_RANGE);
 
         // expect
@@ -324,7 +326,7 @@ public class RandomDataGeneratorTest {
     @Test
     public void randomIntegerWithMinAndMaxValueShouldReturnValueInRange() throws Exception {
         // given
-        int minValue = randomInteger(MAX_SMALL_VALUE_RANGE);
+        int minValue = randomPositiveInteger(MAX_SMALL_VALUE_RANGE);
         int maxValue = minValue + randomInteger(1, 1 + MAX_SMALL_VALUE_RANGE);
 
         // when
@@ -337,7 +339,7 @@ public class RandomDataGeneratorTest {
     @Test
     public void randomIntegerWithEqualMinAndMaxValueShouldReturnThatValue() throws Exception {
         // given
-        int value = randomInteger(MAX_SMALL_VALUE_RANGE);
+        int value = randomPositiveInteger(MAX_SMALL_VALUE_RANGE);
 
         // when
         final int number = randomInteger(value, value);
