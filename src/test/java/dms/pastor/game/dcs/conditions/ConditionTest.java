@@ -1,8 +1,11 @@
 package dms.pastor.game.dcs.conditions;
 
+import dms.pastor.domain.exception.SomethingWentWrongException;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import java.util.Set;
 
@@ -25,6 +28,9 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class ConditionTest {
 
+    @Rule
+    public ExpectedException exception = ExpectedException.none();
+
     private final ConditionEntry temporaryConditionEntry = conditionEntryBuilder()
             .condition(STUNNED)
             .buildTemporaryCondition();
@@ -39,6 +45,15 @@ public class ConditionTest {
     @After
     public void tearDown() throws Exception {
         conditions.clear();
+    }
+
+    @Test
+    public void addShouldThrowSomethingWentWrongExceptionIfCondtionEntryIsNull() {
+        // expect
+        exception.expect(SomethingWentWrongException.class);
+
+        // when
+        conditions.add(null);
     }
 
     @Test

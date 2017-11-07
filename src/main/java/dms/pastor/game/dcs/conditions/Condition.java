@@ -1,5 +1,6 @@
 package dms.pastor.game.dcs.conditions;
 
+import dms.pastor.domain.exception.SomethingWentWrongException;
 import dms.pastor.game.dcs.utils.random.InGameRandomUtils;
 import dms.pastor.game.dcs.utils.random.RandomUtils;
 import org.slf4j.Logger;
@@ -36,8 +37,13 @@ public class Condition {
         return unmodifiableSet(conditions);
     }
 
-    //TODO inspect  java.lang.NullPointerException that happens once
     public void add(ConditionEntry condition) {
+        if (Objects.isNull(condition)) {
+            final String errorMessage = "Cock-up detected. Passing null instead condition.";
+            LOGGER.error(errorMessage);
+            throw new SomethingWentWrongException(errorMessage);
+        }
+
         LOGGER.debug("You are influence of " + ConditionType.getText(condition.getConditionType()));
         if (has(condition.getConditionType())) {
             if (getConditionEntry(condition.getConditionType()).isTemporary() && condition.isPersistent()) {
