@@ -37,7 +37,7 @@ public class ValidatorUtilsTest {
     public static final int END_RANGE = 10;
 
     @Rule
-    public final ExpectedException expectedException = ExpectedException.none();
+    public final ExpectedException exception = ExpectedException.none();
 
     private ExampleObject anObject;
 
@@ -81,8 +81,8 @@ public class ValidatorUtilsTest {
         final Object[] arrayWithSomeNulls = {null, anObject.getString(), anObject.getADouble(), null};
 
         // except
-        expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("one of parameters is rubbish");
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("one of parameters is rubbish");
 
         // when
         validateNotNullPropertiesWithCustomMessage(arrayWithSomeNulls, "one of parameters is rubbish");
@@ -109,8 +109,8 @@ public class ValidatorUtilsTest {
         final Object[] objectsToValidate = {null, anObject.getADouble(), anObject.getAnInteger(), anObject.getString(), null};
 
         // except
-        expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("null :)");
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("null :)");
 
         // when
         validateNotNullPropertiesWithCustomMessagesPerProperty(new Object[][]{
@@ -148,8 +148,8 @@ public class ValidatorUtilsTest {
         int number2 = 1;
 
         // exception
-        expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Both numbers cannot be equals, but both numbers are 1 and 1.");
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("Both numbers cannot be equals, but both numbers are 1 and 1.");
 
         // when
         validateTwoIntsNotEqual(number1, number2);
@@ -178,8 +178,8 @@ public class ValidatorUtilsTest {
         int minValue = MAX_SMALL_VALUE_RANGE + randomPositiveInteger(MAX_SMALL_VALUE_RANGE);
 
         // exception
-        expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("MinValue (" + minValue + ") must be lower than MaxValue(" + maxValue + ")");
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("MinValue (" + minValue + ") must be lower than MaxValue(" + maxValue + ")");
 
         // when
         validateMinValueIsSmallerThanMaxValue(minValue, maxValue);
@@ -211,8 +211,8 @@ public class ValidatorUtilsTest {
     @Test
     public void validateIfNotNullShouldThrowExceptionIfInputIsNull() throws Exception {
         // expect
-        expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Value cannot be null");
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("Value cannot be null");
 
         // when
         validateIfNotNull(null);
@@ -223,8 +223,8 @@ public class ValidatorUtilsTest {
     @Test
     public void validateNegativeBigDecimalShouldThrowExceptionIfNull() throws Exception {
         // expect
-        expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Value cannot be null");
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("Value cannot be null");
 
         // when
         validateNegativeBigDecimal(null);
@@ -233,8 +233,8 @@ public class ValidatorUtilsTest {
     @Test
     public void validateNegativeBigDecimalShouldThrowExceptionIfValueIsPositive() throws Exception {
         // expect
-        expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Value cannot be positive");
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("Value cannot be positive");
 
         // given
         BigDecimal value = new BigDecimal(1 + new Random().nextInt(MAX_SMALL_VALUE_RANGE));
@@ -258,8 +258,8 @@ public class ValidatorUtilsTest {
     @Test
     public void validatePositiveBigDecimalShouldThrowExceptionIfNull() throws Exception {
         // expect
-        expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Value cannot be null");
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("Value cannot be null");
 
         // when
         ValidatorUtils.validateIfPositiveNumber(null);
@@ -268,8 +268,8 @@ public class ValidatorUtilsTest {
     @Test
     public void validatePositiveBigDecimalShouldThrowExceptionIfValueIsNegative() throws Exception {
         // expect
-        expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Value cannot be negative.");
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("Value cannot be negative.");
 
         // given
         BigDecimal value = new BigDecimal(1 + new Random().nextInt(MAX_SMALL_VALUE_RANGE)).negate();
@@ -293,8 +293,8 @@ public class ValidatorUtilsTest {
     @Test
     public void validateIfPositiveNumberShouldThrowExceptionIfIntegerValueIsNegative() throws Exception {
         // expect
-        expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Value cannot be negative.");
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("Value cannot be negative.");
 
         // given
         final int negativeInteger = -1;
@@ -318,8 +318,8 @@ public class ValidatorUtilsTest {
     @Test
     public void validateIfPositiveNumberShouldThrowExceptionIfIntegerValueWithCustomValueNameIsNegative() throws Exception {
         // expect
-        expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("CustomValueName cannot be negative.");
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("CustomValueName cannot be negative.");
 
         // given
         final int negativeInteger = -1;
@@ -344,7 +344,7 @@ public class ValidatorUtilsTest {
     @Test
     public void validateIfNotEmptyShouldThrowIllegalArgumentExceptionIfNull() throws Exception {
         // expect
-        expectedException.expect(IllegalArgumentException.class);
+        exception.expect(IllegalArgumentException.class);
 
         // when
         validateIfNotEmpty(null);
@@ -353,7 +353,7 @@ public class ValidatorUtilsTest {
     @Test
     public void validateIfNotEmptyShouldThrowIllegalArgumentExceptionIfEmpty() throws Exception {
         // expect
-        expectedException.expect(IllegalArgumentException.class);
+        exception.expect(IllegalArgumentException.class);
 
         // when
         validateIfNotEmpty(EMPTY_STRING);
@@ -376,8 +376,8 @@ public class ValidatorUtilsTest {
         final String objectName = generateString(MAX_SMALL_VALUE_RANGE);
 
         // expect
-        expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage(objectName + " cannot be null or empty.");
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage(objectName + " cannot be null or empty.");
 
         // when
         validateIfNotEmpty(null, objectName);
@@ -389,8 +389,8 @@ public class ValidatorUtilsTest {
         final String objectName = generateString(MAX_SMALL_VALUE_RANGE);
 
         // expect
-        expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage(objectName + " cannot be null or empty.");
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage(objectName + " cannot be null or empty.");
         // when
         validateIfNotEmpty(EMPTY_STRING, objectName);
     }
@@ -412,8 +412,8 @@ public class ValidatorUtilsTest {
         final String objectName = generateString(MAX_SMALL_VALUE_RANGE);
 
         // expect
-        expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage(objectName + " cannot be null or empty.");
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage(objectName + " cannot be null or empty.");
 
         // when
         validateIfListIsNotEmpty(null, objectName);
@@ -427,8 +427,8 @@ public class ValidatorUtilsTest {
         list.clear();
 
         // expect
-        expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage(objectName + " cannot be null or empty.");
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage(objectName + " cannot be null or empty.");
 
         // when
         validateIfListIsNotEmpty(list, objectName);
@@ -449,8 +449,8 @@ public class ValidatorUtilsTest {
     @Test
     public void validateIfStringArrayIsNotEmptyShouldThrowIllegalArgumentExceptionIfStringsIsNull() {
         // expect
-        expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Input cannot be null or empty.");
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("Input cannot be null or empty.");
 
         // when
         validateIfStringArrayIsNotEmpty(null);
@@ -459,8 +459,8 @@ public class ValidatorUtilsTest {
     @Test
     public void validateIfStringArrayIsNotEmptyShouldThrowIllegalArgumentExceptionIfStringsIsEmpty() {
         // expect
-        expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Input cannot be null or empty.");
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("Input cannot be null or empty.");
 
         // when
         validateIfStringArrayIsNotEmpty(new String[0]);
@@ -481,7 +481,7 @@ public class ValidatorUtilsTest {
     @Test
     public void isValueInRangeShouldThrowExceptionIfMinValueIsHigherThanMaxValue() {
         // expect
-        expectedException.expect(IllegalArgumentException.class);
+        exception.expect(IllegalArgumentException.class);
 
         // when
         isValueInRange(10, 0, 3);
@@ -544,8 +544,8 @@ public class ValidatorUtilsTest {
         int[] valuesInRange = {1, 2, 4, 9};
 
         // expect
-        expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage(format("MinValue (%d) must be lower than MaxValue(%d)", min, max));
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage(format("MinValue (%d) must be lower than MaxValue(%d)", min, max));
 
         // when
         validateIfValuesIsInRange(min, max, valuesInRange);
@@ -554,8 +554,8 @@ public class ValidatorUtilsTest {
     @Test
     public void validateIfValuesIsInRangeShouldThrowIllegalArgumentExceptionIfOneOfValuesIsLowerThanMinValue() {
         // expect
-        expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("One of values is not in range.");
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("One of values is not in range.");
 
         // when
         final int min = 3;
@@ -569,8 +569,8 @@ public class ValidatorUtilsTest {
     @Test
     public void validateIfValuesIsInRangeShouldThrowIllegalArgumentExceptionIfOneOfValuesIsHigherThanMaxValue() {
         // expect
-        expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("One of values is not in range.");
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("One of values is not in range.");
 
         // when
         final int min = 0;
@@ -584,8 +584,8 @@ public class ValidatorUtilsTest {
     @Test
     public void validateIfValuesIsInRangeShouldThrowIllegalArgumentExceptionIfValuesSizeIsZero() {
         // expect
-        expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Values array cannot be null or empty.");
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("Values array cannot be null or empty.");
 
         // when
         final int min = 0;
