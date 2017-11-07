@@ -35,6 +35,8 @@ public class ValidatorUtilsTest {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ValidatorUtilsTest.class);
     private static final String UNUSED_OBJECT_NAME = null;
+    public static final int START_RANGE = 0;
+    public static final int END_RANGE = 10;
     private static final String PATH_TO_FILE_IS_INVALID_ERROR_MESSAGE = "Path to file is invalid.";
     public static final int START_RANGE = 0;
     public static final int END_RANGE = 10;
@@ -533,6 +535,123 @@ public class ValidatorUtilsTest {
 
     }
 
+    @Test
+    public void isValueInRangeShouldThrowExceptionIfMinValueIsHigherThanMaxValue() {
+        // expect
+        expectedException.expect(IllegalArgumentException.class);
+
+        // when
+        isValueInRange(10, 0, 3);
+    }
+
+    @Test
+    public void isValueInRangeShouldReturnTrueIfIsInRange() {
+        // given
+        final int valueInRange = 3;
+
+        // when
+        final boolean result = isValueInRange(START_RANGE, END_RANGE, valueInRange);
+
+        // then
+        assertThat(result).isTrue();
+    }
+
+    @Test
+    public void isValueInRangeShouldReturnFalseIfValueToSmall() {
+        // given
+        final int tooSmallValue = -1;
+
+        // when
+        final boolean result = isValueInRange(START_RANGE, END_RANGE, tooSmallValue);
+
+        // then
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    public void isValueInRangeShouldReturnFalseIfValueToBig() {
+        // given
+        final int tooBigValue = 11;
+
+        // when
+        final boolean result = isValueInRange(START_RANGE, END_RANGE, tooBigValue);
+
+        // then
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    public void shouldValidateIfValuesIsInRange() {
+        // given
+        final int min = 0;
+        final int max = 10;
+        int[] valuesInRange = {1, 2, 4, 9};
+
+        // when
+        validateIfValuesIsInRange(min, max, valuesInRange);
+
+        // then nothing happen, which means value are valid
+    }
+
+    @Test
+    public void validateIfValuesIsInRangeShouldThrowIllegalArgumentExceptionIfMinValueIsHigherThanMaxValue() {
+        // given
+        final int min = 10;
+        final int max = 0;
+        int[] valuesInRange = {1, 2, 4, 9};
+
+        // expect
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage(format("MinValue (%d) must be lower than MaxValue(%d)", min, max));
+
+        // when
+        validateIfValuesIsInRange(min, max, valuesInRange);
+    }
+
+    @Test
+    public void validateIfValuesIsInRangeShouldThrowIllegalArgumentExceptionIfOneOfValuesIsLowerThanMinValue() {
+        // expect
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("One of values is not in range.");
+
+        // when
+        final int min = 3;
+        final int max = 10;
+        int[] valuesInRange = {1, 2, 4, 9};
+
+        // when
+        validateIfValuesIsInRange(min, max, valuesInRange);
+    }
+
+    @Test
+    public void validateIfValuesIsInRangeShouldThrowIllegalArgumentExceptionIfOneOfValuesIsHigherThanMaxValue() {
+        // expect
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("One of values is not in range.");
+
+        // when
+        final int min = 0;
+        final int max = 5;
+        int[] valuesInRange = {1, 2, 4, 9};
+
+        // when
+        validateIfValuesIsInRange(min, max, valuesInRange);
+    }
+
+    @Test
+    public void validateIfValuesIsInRangeShouldThrowIllegalArgumentExceptionIfValuesSizeIsZero() {
+        // expect
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Values array cannot be null or empty.");
+
+        // when
+        final int min = 0;
+        final int max = 5;
+        int[] valuesInRange = new int[0];
+
+        // when
+        validateIfValuesIsInRange(min, max, valuesInRange);
+    }
     @Test
     public void isValueInRangeShouldThrowExceptionIfMinValueIsHigherThanMaxValue() {
         // expect
