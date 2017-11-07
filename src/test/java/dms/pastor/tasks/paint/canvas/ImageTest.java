@@ -19,6 +19,9 @@ import static org.assertj.core.api.Assertions.assertThat;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class ImageTest {
+    private static final int WIDTH = 8;
+    private static final int HEIGHT = 6;
+
     @Rule
     public final ExpectedException exception = ExpectedException.none();
 
@@ -176,12 +179,33 @@ public class ImageTest {
         assertThat(copyOfImage.getImageAsString()).isEqualTo(image.getImageAsString());
     }
 
-    //TODO @Test public void getImageAsStringShouldReturnEmptyIfHeightIsEmpty() {}
+    @Test
+    public void getImageAsStringShouldReturnEmptyIfHeightIsEmpty() {
+        // given
+        final Image image = new Image(WIDTH, 0);
 
-    //TODO @Test public void getImageAsStringShouldReturnEmptyIfWeightIsEmpty() {}
+        // when
+        final String imageAsString = image.getImageAsString();
+
+        // then
+        assertThat(imageAsString).isEmpty();
+    }
+
+    @Test
+    public void getImageAsStringShouldReturnEmptyIfWeightIsEmpty() {
+        // given
+        final Image image = new Image(0, HEIGHT);
+
+        // when
+        final String imageAsString = image.getImageAsString();
+
+        // then
+        assertThat(imageAsString).isEmpty();
+
+    }
 
     private Image getTestImage() {
-        return new Image(8, 6);
+        return new Image(WIDTH, HEIGHT);
     }
 
 }

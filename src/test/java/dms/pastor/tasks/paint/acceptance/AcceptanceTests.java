@@ -177,7 +177,7 @@ public class AcceptanceTests {
                 "----------------------\n");
     }
 
-    @Test //TODO test will work on Windows only :(
+    @Test
     public void clearCanvasAcceptanceTest() {
         // given
         CommandLineUI commandLineUI = new CommandLineUI(scanner);
