@@ -1,6 +1,6 @@
 package dms.pastor.tools.converters.codehtmlconverter;
 
-import dms.pastor.utils.StringUtils;
+import dms.pastor.utils.HtmlUtils;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -46,7 +46,7 @@ public class CodeForBlogConverterTest {
     public void shouldConvert4SpaceToNbsp() {
         // given
         String line = "    ";
-        String result = StringUtils.getNbsp(4);
+        String result = HtmlUtils.getNbsp(4);
 
         // when
         String convertedLine = converter.convertEach4SpacesToNsbpOnBeginningOfTheLine(line);
@@ -80,7 +80,7 @@ public class CodeForBlogConverterTest {
     public void shouldConvertFirst4SpacesToNbsp() {
         // given
         String line = "    Test    Test    ";
-        String result = StringUtils.getNbsp(4) + "Test    Test    ";
+        String result = HtmlUtils.getNbsp(4) + "Test    Test    ";
 
         // when
         String convertedLine = converter.convertEach4SpacesToNsbpOnBeginningOfTheLine(line);
@@ -126,11 +126,11 @@ public class CodeForBlogConverterTest {
                 " * Author Dominik Symonowicz<br/>\n" +
                 " */<br/>\n" +
                 "public class CodeForBlogConverterTest {<br/>\n" +
-                StringUtils.getNbsp(4) +
+                HtmlUtils.getNbsp(4) +
                 "public static void main(String[] args) {<br/>\n" +
-                StringUtils.getNbsp(8) +
+                HtmlUtils.getNbsp(8) +
                 "System.out.println(\"I AM HUNGRY\");<br/>\n" +
-                StringUtils.getNbsp(4) +
+                HtmlUtils.getNbsp(4) +
                 "}<br/>\n" +
                 "}<br/>\n" +
                 "</code>\n" +

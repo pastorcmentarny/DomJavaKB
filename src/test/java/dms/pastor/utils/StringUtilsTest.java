@@ -187,25 +187,6 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void shouldReturn1Nsbp() throws Exception {
-        // when
-        final String result = getNbsp(1);
-
-        // then
-        assertThat(result).isEqualTo("&nbsp;");
-    }
-
-    @Test
-    public void shouldReturn3Nsbp() throws Exception {
-        // when
-        final String result = getNbsp(3);
-
-        // then
-        assertThat(result).isEqualTo("&nbsp;&nbsp;&nbsp;");
-    }
-
-
-    @Test
     public void isStringEmptyShouldReturnTrueForNull() throws Exception {
         // when
         final boolean result = isStringBlank(null);

@@ -163,16 +163,6 @@ public final class StringUtils {
         return stringArray;
     }
 
-
-    //TODO move TextUtils
-    public static String getNbsp(int times) {
-        StringBuilder nsbpBuilder = new StringBuilder(EMPTY_STRING);
-        for (int i = 0; i < times; i++) {
-            nsbpBuilder.append("&nbsp;");
-        }
-        return nsbpBuilder.toString();
-    }
-
     static String getNullSafeString(String string) {
         return nonNull(string) ? string : EMPTY_STRING;
     }

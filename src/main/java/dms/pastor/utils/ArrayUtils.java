@@ -53,7 +53,6 @@ public final class ArrayUtils {
         return result;
     }
 
-    //TODO do generic version
     @SuppressWarnings("ReturnOfNull") // valid case as if you pass null , you should get null
     public static String[] reverseStringArray(String[] stringArray) {
         if (stringArray == null) {

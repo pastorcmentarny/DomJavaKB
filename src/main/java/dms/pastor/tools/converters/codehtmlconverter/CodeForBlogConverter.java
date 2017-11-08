@@ -1,5 +1,6 @@
 package dms.pastor.tools.converters.codehtmlconverter;
 
+import dms.pastor.utils.HtmlUtils;
 import dms.pastor.utils.StringUtils;
 
 import java.util.List;
@@ -46,7 +47,7 @@ class CodeForBlogConverter {
         int replaceCounter = count4SpacesInLineToReplace(line);
 
         StringBuilder newLine = new StringBuilder(EMPTY_STRING);
-        String nsbp = StringUtils.getNbsp(NUMBER_OF_SPACES);
+        String nsbp = HtmlUtils.getNbsp(NUMBER_OF_SPACES);
         for (int i = 0; i < replaceCounter; i++) {
             newLine.append(nsbp);
         }

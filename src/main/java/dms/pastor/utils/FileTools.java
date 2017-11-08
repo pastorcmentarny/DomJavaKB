@@ -48,6 +48,7 @@ public final class FileTools {
         return true;
     }
 
+    //TODO create TextFileSaver
     @SuppressWarnings("BooleanMethodNameMustStartWithQuestion")
     static boolean saveListToFile(List<String> content, String file) {
         StringBuilder list = new StringBuilder();
@@ -94,17 +95,15 @@ public final class FileTools {
 
         try (PrintWriter out = new PrintWriter(new FileWriter(path2file))) {
             out.print(text);
-            //System.out.println("File saved.");
+            LOGGER.info("File saved.");
         } catch (IOException ex) {
-            LOGGER.error("Unable to create ");
-            //TODO Generate error message
-            //JOptionPane.showMessageDialog(null, , msg.getMsg("error.createFile"), JOptionPane.ERROR_MESSAGE);
+            LOGGER.error("Unable to save file ");
             return false;
         }
         return true;
     }
 
-    /*
+    /**
      * Lock program,so it can be run once per time.
      */
     static void lock() {
