@@ -55,7 +55,7 @@ public class NotImplementYetExceptionTest {
         // then
         assertThat(result).isFalse();
 
-        // then verify (//TODO check better ways to verify this
+        // then verify
         OutputStream sink = new ByteArrayOutputStream();
         ObjectOutputStream stream = new ObjectOutputStream(sink);
         stream.writeObject(notImplementYetException);

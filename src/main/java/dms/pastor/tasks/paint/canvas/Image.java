@@ -18,7 +18,6 @@ import static java.util.Objects.isNull;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  * <p>
- * //TODO change image,width and height to Pixel Object so Image will be array of Pixel ?
  */
 public class Image {
     private int width;

@@ -40,7 +40,7 @@ public class BerlinClock implements ClockInterface {
      * I should use regex expression. but well at least it makes more tricky
      *
      * @param time a time in format (hh::mm:ss)
-     * @return array of hours,minutes and second .//TODO use TIME object that
+     * @return array of hours,minutes and second .
      * will contains hh,mm,ss
      */
     public Time validateTime(String time) {

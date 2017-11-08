@@ -16,9 +16,8 @@ public enum ElementType {
 
     private static final Random RANDOM = new Random();
 
-    //TODO improve name
-    public static int getRandomElement() {
-        return RANDOM.nextInt(ElementType.values().length);
+    public static ElementType getRandomElement() {
+        return ElementType.values()[RANDOM.nextInt(ElementType.values().length)];
     }
 
 }

@@ -1,6 +1,8 @@
 package dms.pastor.game.dcs.conditions;
 
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -14,15 +16,18 @@ import static org.assertj.core.api.Assertions.assertThat;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public final class ElementTypeTest {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ElementTypeTest.class);
 
     @Test
-    public void shouldReturnNumberThatIsUsedToSelectRandomElement() {
+    public void shouldReturnRandomElement() {
         // when
-        final int randomElement = ElementType.getRandomElement();
+        final ElementType elementType = ElementType.getRandomElement();
 
         // then
-        assertThat(randomElement).isGreaterThanOrEqualTo(0);
-        assertThat(randomElement).isLessThan(ElementType.values().length);
+        assertThat(elementType).isNotNull();
+
+        // debug info
+        LOGGER.debug(elementType.name());
 
     }
 }

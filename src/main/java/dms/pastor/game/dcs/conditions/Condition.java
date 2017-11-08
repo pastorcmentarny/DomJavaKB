@@ -11,6 +11,7 @@ import java.util.Iterator;
 import java.util.Objects;
 import java.util.Set;
 
+import static dms.pastor.game.dcs.conditions.ConditionEntry.isEmpty;
 import static dms.pastor.game.dcs.conditions.ConditionEntry.unknown;
 import static dms.pastor.game.dcs.conditions.ConditionType.*;
 import static java.lang.String.format;
@@ -168,23 +169,22 @@ public class Condition {
             return condition;
         }
 
-        for (ConditionEntry entry : conditionEntries) {
-            condition.add(entry);
-        }
+        addAllCondtionsEntries(condition, conditionEntries);
         return condition;
     }
 
-    //TODO move to utils
-    private static boolean isEmpty(ConditionEntry[] conditionEntries) {
-        return conditionEntries == null || conditionEntries.length == 0;
+    private static void addAllCondtionsEntries(Condition condition, ConditionEntry[] conditionEntries) {
+        for (ConditionEntry entry : conditionEntries) {
+            condition.add(entry);
+        }
+    }
+
+    public void clear() {
+        conditions.clear();
     }
 
     @Override
     public String toString() {
         return format("Condition{conditions=%s, randomUtils=%s}", conditions, randomUtils);
-    }
-
-    public void clear() {
-        conditions.clear();
     }
 }

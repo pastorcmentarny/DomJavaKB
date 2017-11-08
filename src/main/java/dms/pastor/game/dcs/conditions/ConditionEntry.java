@@ -43,6 +43,10 @@ public class ConditionEntry {
         return new ConditionEntry(UNKNOWN,0,false);
     }
 
+    static boolean isEmpty(ConditionEntry[] conditionEntries) {
+        return conditionEntries == null || conditionEntries.length == 0;
+    }
+
     ConditionType getConditionType() {
         return condition;
     }

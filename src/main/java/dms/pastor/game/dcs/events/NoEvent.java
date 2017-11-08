@@ -2,6 +2,8 @@ package dms.pastor.game.dcs.events;
 
 import dms.pastor.game.dcs.units.Unit;
 
+import java.util.Random;
+
 /**
  * Author Dominik Symonowicz
  * Created 2015-07-26
@@ -12,10 +14,15 @@ import dms.pastor.game.dcs.units.Unit;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class NoEvent extends Event {
+    private static final Random RANDOM = new Random();
+    private static final String[] description = new String[]{
+            "Another round, where nothing seems to happen.",
+            "Wind of boredom pass through this round"
+    };
 
     public NoEvent() {
         setName("No Event");
-        setDescription("Another round, where nothing seems to happen."); //TODO make it random message
+        setDescription(description[RANDOM.nextInt(description.length)]);
     }
 
     @Override

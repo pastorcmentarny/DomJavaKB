@@ -1,7 +1,10 @@
 package dms.pastor.game.dcs.events;
 
+import dms.pastor.game.dcs.conditions.ElementTypeTest;
 import dms.pastor.game.dcs.units.Unit;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static dms.pastor.game.dcs.units.UnitBuilder.unitBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -17,6 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class NoEventTest {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(ElementTypeTest.class);
     private static final Unit UNUSED_UNIT = null;
     private final Event noEvent = new NoEvent();
 
@@ -39,7 +43,10 @@ public class NoEventTest {
         final String message = noEvent.makeItHappen(UNUSED_UNIT, UNUSED_UNIT);
 
         // then
-        assertThat(message).isEqualTo("Another round, where nothing seems to happen.");
+        assertThat(message).isNotBlank();
+
+        // debug info
+        LOGGER.info("Description generated:" + message);
     }
 
 }
