@@ -5,8 +5,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.ValidatorUtils.validateIfPositiveNumber;
@@ -23,35 +21,19 @@ import static dms.pastor.utils.ValidatorUtils.validateIfPositiveNumber;
 public final class NumberUtils {
     private static final Logger LOGGER = LoggerFactory.getLogger(Word.class);
 
+    static final String BINARY_DIGIT_ONE = "1";
+    static final String BINARY_DIGIT_ZERO = "0";
     private static final int FACTORIAL_MAXIMUM_VALUE = 19;
     private static final int FACTORIAL_NEGATIVE_MAXIMUM_VALUE = -FACTORIAL_MAXIMUM_VALUE;
-    private static final String BINARY_DIGIT_ONE = "1";
-    private static final String BINARY_DIGIT_ZERO = "0";
     private static final String ERROR_MESSAGE_MUST_BE_INTEGER_ARRAY = "Invalid input. It must be integer array";
 
     private NumberUtils() {
     }
 
-    /**
-     * *VERSION:        2
-     * *LAST UPDAtED:   07.04.2013
-     *
-     * @param result a number  to check
-     * @return a number in range between 0-100
-     */
     static int getResultIn0to100Range(int result) {
         return getResultInRange(result, 0, 100);
     }
 
-    /**
-     * *VERSION:        2
-     * *LAST UPDAtED:   07.04.2013
-     *
-     * @param min    a minimum value that must be returned
-     * @param max    a minimum value that must be returned
-     * @param result a number  to check
-     * @return a number in range between min and max
-     */
     static int getResultInRange(int result, int min, int max) {
         if (result > max) {
             result = max;
@@ -97,9 +79,7 @@ public final class NumberUtils {
     }
 
     public static int getSmallestInt(int[] values) {
-        if (values == null || values.length == 0) {
-            throw new IllegalArgumentException(ERROR_MESSAGE_MUST_BE_INTEGER_ARRAY);
-        }
+        ValidatorUtils.validateIfNotEmpty(values, "values");
         int smallestInt = Integer.MAX_VALUE;
         for (int i : values) {
             if (i < smallestInt) {
@@ -110,9 +90,7 @@ public final class NumberUtils {
     }
 
     public static int getLargestInt(int[] values) {
-        if (values == null || values.length == 0) {
-            throw new IllegalArgumentException(ERROR_MESSAGE_MUST_BE_INTEGER_ARRAY);
-        }
+        ValidatorUtils.validateIfNotEmpty(values, "values");
         int largestInt = Integer.MIN_VALUE;
         for (int i : values) {
             if (i > largestInt) {
@@ -181,35 +159,6 @@ public final class NumberUtils {
         return reversedNumber == number;
     }
 
-    //done as part of learning of basic of sorting in 2011
-    static List<Integer> sortIntegersCollection(ArrayList<Integer> numbers) {
-        if (numbers != null) {
-            for (int i = 0; i < numbers.size() / 2; i++) {
-                boolean swapped = false;
-                for (int j = i; j < numbers.size() - i - 1; j++) {
-                    if (numbers.get(j) < numbers.get(j + 1)) {
-                        Integer tmp = numbers.get(j);
-                        numbers.set(j, numbers.get(j + 1));
-                        numbers.set(j + 1, tmp);
-                        swapped = true;
-                    }
-                }
-                for (int j = numbers.size() - 2 - i; j > i; j--) {
-                    if (numbers.get(j) > numbers.get(j - 1)) {
-                        Integer tmp = numbers.get(j);
-                        numbers.set(j, numbers.get(j - 1));
-                        numbers.set(j - 1, tmp);
-                        swapped = true;
-                    }
-                }
-                if (!swapped) {
-                    break;
-                }
-            }
-        }
-        return numbers;
-    }
-
     //done as part of learning of basic of TDD in 2012
     static String getShortAs8BitRepresentation(int number) {
         String eightBit = EMPTY_STRING;
@@ -228,14 +177,18 @@ public final class NumberUtils {
         }
 
         eightBit = bitMaker.getEightBit();
+        eightBit = addLeftOverBit(eightBit, bitMaker);
+
+        return eightBit;
+    }
+
+    private static String addLeftOverBit(String eightBit, BitMaker bitMaker) {
         if (bitMaker.getLeftOver() == 1) {
             eightBit += BINARY_DIGIT_ONE;
         } else {
             eightBit += BINARY_DIGIT_ZERO;
         }
-
         return eightBit;
-
     }
 
     static boolean isBigDecimalAValidInteger(BigDecimal bigDecimal) {
@@ -249,35 +202,6 @@ public final class NumberUtils {
             return value;
         } else {
             return value;
-        }
-    }
-
-    private static class BitMaker {
-
-        private String eightBit;
-        private int leftOver;
-
-        BitMaker(String eightBit, int leftOver) {
-            this.eightBit = eightBit;
-            this.leftOver = leftOver;
-        }
-
-        String getEightBit() {
-            return eightBit;
-        }
-
-        int getLeftOver() {
-            return leftOver;
-        }
-
-        BitMaker invoke(int divider) {
-            if (leftOver >= divider) {
-                eightBit += BINARY_DIGIT_ONE;
-                leftOver -= divider;
-            } else {
-                eightBit += BINARY_DIGIT_ZERO;
-            }
-            return this;
         }
     }
 

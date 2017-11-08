@@ -115,6 +115,12 @@ public final class ValidatorUtils {
         throwExceptionIfEmpty(object, objectName);
     }
 
+    public static void validateIfNotEmpty(int[] numberArray, String arrayName) {
+        if (numberArray == null || numberArray.length == 0) {
+            throw new IllegalArgumentException(arrayName);
+        }
+    }
+
     private static void throwExceptionIfEmpty(String object, String objectName) {
         if (object == null || object.isEmpty()) {
             throw new IllegalArgumentException(getErrorMessage(objectName));

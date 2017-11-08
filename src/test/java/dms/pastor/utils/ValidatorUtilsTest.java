@@ -380,7 +380,7 @@ public class ValidatorUtilsTest {
         exception.expectMessage(objectName + " cannot be null or empty.");
 
         // when
-        validateIfNotEmpty(null, objectName);
+        validateIfNotEmpty((String) null, objectName);
     }
 
     @Test

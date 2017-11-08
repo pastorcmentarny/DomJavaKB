@@ -27,9 +27,8 @@ public class DateUtilsTest {
     public final ExpectedException exception = ExpectedException.none();
 
     @SuppressWarnings("SpellCheckingInspection")
-    @Test //TODO improve this test
+    @Test
     public void shouldReturnTimeZoneListExample() throws Exception {
-
         // when
         final String displayTimeZoneList = displayTimeZoneList();
 

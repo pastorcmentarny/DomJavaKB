@@ -7,14 +7,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 import static dms.pastor.TestConfig.EMPTY_INTEGER_ARRAY;
 import static dms.pastor.utils.NumberUtils.*;
 import static dms.pastor.utils.randoms.RandomDataGenerator.*;
-import static dms.pastor.utils.string.ContainsInStringUtils.containsOnly;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -251,18 +248,19 @@ public class NumberUtilsTest {
         assertThat(result).isEqualTo(answer);
     }
 
-    @Test //TODO improve it as I think looping and asserting is a bad thing
+    @Test //normally I will split loop into each test. This is just exception
     public void testIsNumberPrime() throws Exception {
         // given
         int[] primes = new int[]{2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97};
 
+        // then check for few prime numbers
         for (int i : primes) {
             final boolean result = isPrime(i);
             assertThat(result).isTrue();
         }
     }
 
-    @Test
+    @Test //normally I will split loop into each test. This is just exception
     public void testIsNotNumberPrime() throws Exception {
         int[] notPrimes = new int[]{4, 6, 8, 10, 20, 50, 100};
         for (int i : notPrimes) {
@@ -404,16 +402,6 @@ public class NumberUtilsTest {
         assertThat(result).isEqualTo("11111111");
     }
 
-    //FIXME assertion part is done wrong. I think Uncle Bob will excommunicate me as developer for this test
-    @Test //done as part of learning of basic of TDD in 2012
-    public void getShortAs8BitRepresentationForRandomNumberBetween0And255() {
-        final int randomValue = random.nextInt(255);
-        final String bitRepresentation = getShortAs8BitRepresentation(randomValue);
-        assertThat(bitRepresentation != null ? bitRepresentation.length() : 0).isEqualTo(8);
-        assertThat(bitRepresentation).isNotNull();
-        assertThat(containsOnly(bitRepresentation, new char[]{'0', '1'})).isTrue();
-    }
-
     @Test
     public void shouldGetCurrentMaxValueTest() throws Exception {
         // given
@@ -510,26 +498,6 @@ public class NumberUtilsTest {
         assertThat(isNumberPalindrome).isFalse();
     }
 
-    @Test
-    public void sortIntegersCollectionExample() throws Exception {
-        // given
-        ArrayList<Integer> notSortedCollection = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            notSortedCollection.add(random.nextInt(Integer.MAX_VALUE));
-        }
-
-        // when
-        final List<Integer> sortedIntegerList = sortIntegersCollection(notSortedCollection);
-
-        // then
-        Integer previousValue = Integer.MAX_VALUE;
-        for (Integer integer : sortedIntegerList) {
-            assertThat(previousValue).isGreaterThan(integer);
-            previousValue = integer;
-        }
-
-    }
-
     @SuppressWarnings("ConstantConditions")
     @Test
     public void shouldReturnFalseIfBigDecimalIsNull() throws Exception {
@@ -618,9 +586,7 @@ public class NumberUtilsTest {
         final int result = parseNullSafeIntegerAsString(validValue, defaultValue);
 
         // then
-
         assertThat(result).isEqualTo(Integer.parseInt(validValue));
         assertThat(result).isNotEqualTo(defaultValue);
-
     }
 }
