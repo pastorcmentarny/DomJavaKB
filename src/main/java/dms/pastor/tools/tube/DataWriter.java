@@ -1,6 +1,5 @@
 package dms.pastor.tools.tube;
 
-import dms.pastor.utils.ValidatorUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -10,6 +9,7 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static dms.pastor.utils.ValidatorUtils.validateIfPathExists;
 import static java.lang.String.format;
 
 /**
@@ -25,7 +25,7 @@ public class DataWriter {
     private static final Logger LOGGER = LoggerFactory.getLogger(DataWriter.class);
 
     public void save(String path, List<Station> stationList) {
-        ValidatorUtils.validateIfPathExists(path);
+        validateIfPathExists(path);
         final String content = stationList.stream().map(Station::toString).collect(Collectors.joining("\n"));
         try {
             Files.write(Paths.get(path), content.getBytes());

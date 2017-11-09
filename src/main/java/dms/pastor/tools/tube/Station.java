@@ -4,7 +4,8 @@ import java.util.List;
 import java.util.Objects;
 
 public class Station {
-    private static final String SEPARATOR = ";;";
+    protected static final String SEPARATOR = ";;";
+    private static final String LINE_SEPARATOR = "||";
     private final String name;
     private final Status status;
     private final List<Line> lines;
@@ -21,6 +22,10 @@ public class Station {
 
     private Status getStatus() {
         return status;
+    }
+
+    public String getStatusAsValue() {
+        return status.value();
     }
 
     private List<Line> getLines() {
@@ -44,6 +49,11 @@ public class Station {
 
     @Override
     public String toString() {
-        return name + SEPARATOR;// + status.value();
+        return name + SEPARATOR + getStatusAsValue() + SEPARATOR + getLinesAsString();
+    }
+
+    //TODO stub
+    public String getLinesAsString() {
+        return lines.get(0).getName();
     }
 }

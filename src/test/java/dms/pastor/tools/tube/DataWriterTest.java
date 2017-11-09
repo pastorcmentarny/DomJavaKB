@@ -11,6 +11,8 @@ import java.util.Collections;
 import java.util.List;
 
 import static dms.pastor.TestConfig.TEST_BASE_PATH;
+import static dms.pastor.tools.tube.Line.noLine;
+import static dms.pastor.tools.tube.Status.fromValue;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -23,6 +25,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class DataWriterTest {
+    public static final List<Line> DUMMY_LINE = noLine();
     @Rule
     public ExpectedException exception = ExpectedException.none();
     String path = TEST_BASE_PATH + "tube" + File.separator + "station.txt";
@@ -56,8 +59,8 @@ public class DataWriterTest {
         file.createNewFile();
         file.deleteOnExit(); //comment this out if you need see file
 
-        final Station amershamStation = new Station("Amersham", Status.fromValue("V"), null);
-        final Station cheshamStation = new Station("Pinner", Status.fromValue("P"), null);
+        final Station amershamStation = new Station("Amersham", fromValue("V"), noLine());
+        final Station cheshamStation = new Station("Pinner", fromValue("P"), noLine());
         List<Station> stations = new ArrayList<>();
         stations.add(amershamStation);
         stations.add(cheshamStation);

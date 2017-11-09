@@ -1,269 +1,269 @@
-Acton Town
-Aldgate
-Aldgate East
-Alperton
-Amersham
-Angel
-Archway
-Arnos Grove
-Arsenal
-Baker Street
-Balham
-Bank
-Barbican
-Barking
-Barkingside
-Barons Court
-Bayswater
-Becontree
-Belsize Park
-Bermondsey
-Bethnal Green
-Blackfriars
-Blackhorse Road
-Bond Street
-Borough
-Boston Manor
-Hounslow
-Bounds Green
-Bow Road
-Brent Cross
-Brixton
-Bromley-by-Bow
-Buckhurst Hill
-Burnt Oak
-Caledonian Road
-Camden Town
-Canada Water
-Canary Wharf
-Canning Town
-Cannon Street
-Canons Park
-Chalfont & Latimer
-Chalk Farm
-Chancery Lane
-Camden
-Charing Cross
-Chesham
-Chigwell
-Chiswick Park
-Chorleywood
-Clapham Common
-Clapham North
-Clapham South
-Cockfosters
-Colindale
-Colliers Wood
-Covent Garden
-Croxley
-Dagenham East
-Dagenham Heathway
-Debden
-Dollis Hill
-Ealing Broadway
-Ealing Common
-Earl's Court
-East Acton
-East Finchley
-East Ham
-East Putney
-Eastcote
-Edgware
-Edgware Road
-Elephant & Castle
-Elm Park
-Embankment
-Epping
-Euston
-Euston Square
-Fairlop
-Farringdon
-Finchley Road
-Finsbury Park
-Fulham Broadway
-Gants Hill
-Gloucester Road
-Golders Green
-Goldhawk Road
-Goodge Street
-Grange Hill
-Great Portland Street
-Greenford
-Green Park
-Gunnersbury
-Hainault
-Hammersmith
-HammersmithHampstead
-Hanger Lane
-Harlesden
-Harrow & Wealdstone
-Harrow-on-the-Hill
-Hatton Cross
-Heathrow Terminals 1, 2, 3
-Heathrow Terminal 4
-Heathrow Terminal 5
-Hendon High Barnet
-Highbury & Islington
-Highgate
-High Street Kensington
-Holborn
-Holland Park
-Holloway Road
-Hornchurch
-Hounslow
-Hounslow East
-Hounslow West
-Hyde Park Corner
-Ickenham
-Kennington
-Kensal Green
-Kensington (Olympia)
-Kentish Town
-Kenton
-Harrow
-Kew Gardens
-Kilburn
-Kilburn Park
-Kingsbury
-King's Cross St. Pancras
-Knightsbridge
-Ladbroke Grove
-Lambeth North
-Lancaster Gate
-Latimer Road
-Leicester Square
-Leyton
-Leytonstone
-Liverpool Street
-London Bridge
-Loughton
-Maida Vale
-Manor House
-Haringey
-Mansion House
-Marble Arch
-Marylebone
-Mile End
-Mill Hill East
-Monument
-Moorgate
-Moor Park
-Morden
-Mornington Crescent
-Neasden
-Newbury Park
-North Acton
-North Ealing
-North Greenwich
-North Harrow
-North Wembley
-Northfields
-Northolt
-Northwick Park
-Northwood
-Northwood Hills
-Notting Hill Gate
-Oakwood
-Old Street
-Hackney
-Osterley
-Oval
-Oxford Circus
-Paddington
-Parsons Green
-Perivale
-Piccadilly Circus
-Pimlico
-Pinner
-Plaistow
-Preston Road
-Putney Bridge
-Queen's Park
-Queensbury
-Queensway
-Ravenscourt Park
-Rayners Lane
-Redbridge
-Regent's Park
-Richmond
-Rickmansworth
-Roding Valley
-Redbridge
-Royal Oak
-Ruislip
-Ruislip Gardens
-Ruislip Manor
-Russell Square
-St. James's Park
-St. John's Wood
-St. Paul's
-Seven Sisters
-Shepherd's Bush
-Shepherd's Bush Market
-Sloane Square
-Snaresbrook
-South Ealing
-South Harrow
-South Kensington
-South Kenton
-South Ruislip
-South Wimbledon
-South Woodford
-Southfields
-Southgate
-Southwark
-Stamford Brook
-Stanmore
-Stepney Green
-Stockwell
-Stonebridge Park
-Stratford
-Sudbury Hill
-Harrow
-Sudbury Town
-Ealing
-Swiss Cottage
-Temple
-Theydon Bois
-Tooting Bec
-Tooting Broadway
-Tottenham Court Road
-Tottenham Hale
-Totteridge & Whetstone
-Tower Hill
-Tufnell Park
-Turnham Green
-Turnpike Lane
-Upminster
-Upminster Bridge
-Upney
-Upton Park
-Uxbridge
-Vauxhall
-Victoria
-Walthamstow Wanstead
-Warren Street
-Warwick Avenue
-Waterloo
-Watford
-Wembley Park
-West Acton
-West Brompton
-West Finchley
-West Ham
-West Hampstead
-West Harrow
-West Kensington
-West Ruislip
-Westbourne Park
-Westminster
-White City
-Whitechapel
-Willesden Green
-Willesden Junction
-Wimbledon
-Wimbledon Park
-Wood Green
-Wood Lane
-Woodford
-Woodside Park
+Acton Town;;X;;none
+Aldgate;;X;;none
+Aldgate East;;X;;none
+Alperton;;X;;none
+Amersham;;X;;none
+Angel;;X;;none
+Archway;;X;;none
+Arnos Grove;;X;;none
+Arsenal;;X;;none
+Baker Street;;X;;none
+Balham;;X;;none
+Bank;;X;;none
+Barbican;;X;;none
+Barking;;X;;none
+Barkingside;;X;;none
+Barons Court;;X;;none
+Bayswater;;X;;none
+Becontree;;X;;none
+Belsize Park;;X;;none
+Bermondsey;;X;;none
+Bethnal Green;;X;;none
+Blackfriars;;X;;none
+Blackhorse Road;;X;;none
+Bond Street;;X;;none
+Borough;;X;;none
+Boston Manor;;X;;none
+Hounslow;;X;;none
+Bounds Green;;X;;none
+Bow Road;;X;;none
+Brent Cross;;X;;none
+Brixton;;X;;none
+Bromley-by-Bow;;X;;none
+Buckhurst Hill;;X;;none
+Burnt Oak;;X;;none
+Caledonian Road;;X;;none
+Camden Town;;X;;none
+Canada Water;;X;;none
+Canary Wharf;;X;;none
+Canning Town;;X;;none
+Cannon Street;;X;;none
+Canons Park;;X;;none
+Chalfont & Latimer;;X;;none
+Chalk Farm;;X;;none
+Chancery Lane;;X;;none
+Camden;;X;;none
+Charing Cross;;X;;none
+Chesham;;X;;none
+Chigwell;;X;;none
+Chiswick Park;;X;;none
+Chorleywood;;X;;none
+Clapham Common;;X;;none
+Clapham North;;X;;none
+Clapham South;;X;;none
+Cockfosters;;X;;none
+Colindale;;X;;none
+Colliers Wood;;X;;none
+Covent Garden;;X;;none
+Croxley;;X;;none
+Dagenham East;;X;;none
+Dagenham Heathway;;X;;none
+Debden;;X;;none
+Dollis Hill;;X;;none
+Ealing Broadway;;X;;none
+Ealing Common;;X;;none
+Earl's Court;;X;;none
+East Acton;;X;;none
+East Finchley;;X;;none
+East Ham;;X;;none
+East Putney;;X;;none
+Eastcote;;X;;none
+Edgware;;X;;none
+Edgware Road;;X;;none
+Elephant & Castle;;X;;none
+Elm Park;;X;;none
+Embankment;;X;;none
+Epping;;X;;none
+Euston;;X;;none
+Euston Square;;X;;none
+Fairlop;;X;;none
+Farringdon;;X;;none
+Finchley Road;;X;;none
+Finsbury Park;;X;;none
+Fulham Broadway;;X;;none
+Gants Hill;;X;;none
+Gloucester Road;;X;;none
+Golders Green;;X;;none
+Goldhawk Road;;X;;none
+Goodge Street;;X;;none
+Grange Hill;;X;;none
+Great Portland Street;;X;;none
+Greenford;;X;;none
+Green Park;;X;;none
+Gunnersbury;;X;;none
+Hainault;;X;;none
+Hammersmith;;X;;none
+HammersmithHampstead;;X;;none
+Hanger Lane;;X;;none
+Harlesden;;X;;none
+Harrow & Wealdstone;;X;;none
+Harrow-on-the-Hill;;X;;none
+Hatton Cross;;X;;none
+Heathrow Terminals 1, 2, 3;;X;;none
+Heathrow Terminal 4;;X;;none
+Heathrow Terminal 5;;X;;none
+Hendon High Barnet;;X;;none
+Highbury & Islington;;X;;none
+Highgate;;X;;none
+High Street Kensington;;X;;none
+Holborn;;X;;none
+Holland Park;;X;;none
+Holloway Road;;X;;none
+Hornchurch;;X;;none
+Hounslow;;X;;none
+Hounslow East;;X;;none
+Hounslow West;;X;;none
+Hyde Park Corner;;X;;none
+Ickenham;;X;;none
+Kennington;;X;;none
+Kensal Green;;X;;none
+Kensington (Olympia);;X;;none
+Kentish Town;;X;;none
+Kenton;;X;;none
+Harrow;;X;;none
+Kew Gardens;;X;;none
+Kilburn;;X;;none
+Kilburn Park;;X;;none
+Kingsbury;;X;;none
+King's Cross St. Pancras;;X;;none
+Knightsbridge;;X;;none
+Ladbroke Grove;;X;;none
+Lambeth North;;X;;none
+Lancaster Gate;;X;;none
+Latimer Road;;X;;none
+Leicester Square;;X;;none
+Leyton;;X;;none
+Leytonstone;;X;;none
+Liverpool Street;;X;;none
+London Bridge;;X;;none
+Loughton;;X;;none
+Maida Vale;;X;;none
+Manor House;;X;;none
+Haringey;;X;;none
+Mansion House;;X;;none
+Marble Arch;;X;;none
+Marylebone;;X;;none
+Mile End;;X;;none
+Mill Hill East;;X;;none
+Monument;;X;;none
+Moorgate;;X;;none
+Moor Park;;X;;none
+Morden;;X;;none
+Mornington Crescent;;X;;none
+Neasden;;X;;none
+Newbury Park;;X;;none
+North Acton;;X;;none
+North Ealing;;X;;none
+North Greenwich;;X;;none
+North Harrow;;X;;none
+North Wembley;;X;;none
+Northfields;;X;;none
+Northolt;;X;;none
+Northwick Park;;X;;none
+Northwood;;X;;none
+Northwood Hills;;X;;none
+Notting Hill Gate;;X;;none
+Oakwood;;X;;none
+Old Street;;X;;none
+Hackney;;X;;none
+Osterley;;X;;none
+Oval;;X;;none
+Oxford Circus;;X;;none
+Paddington;;X;;none
+Parsons Green;;X;;none
+Perivale;;X;;none
+Piccadilly Circus;;X;;none
+Pimlico;;X;;none
+Pinner;;X;;none
+Plaistow;;X;;none
+Preston Road;;X;;none
+Putney Bridge;;X;;none
+Queen's Park;;X;;none
+Queensbury;;X;;none
+Queensway;;X;;none
+Ravenscourt Park;;X;;none
+Rayners Lane;;X;;none
+Redbridge;;X;;none
+Regent's Park;;X;;none
+Richmond;;X;;none
+Rickmansworth;;X;;none
+Roding Valley;;X;;none
+Redbridge;;X;;none
+Royal Oak;;X;;none
+Ruislip;;X;;none
+Ruislip Gardens;;X;;none
+Ruislip Manor;;X;;none
+Russell Square;;X;;none
+St. James's Park;;X;;none
+St. John's Wood;;X;;none
+St. Paul's;;X;;none
+Seven Sisters;;X;;none
+Shepherd's Bush;;X;;none
+Shepherd's Bush Market;;X;;none
+Sloane Square;;X;;none
+Snaresbrook;;X;;none
+South Ealing;;X;;none
+South Harrow;;X;;none
+South Kensington;;X;;none
+South Kenton;;X;;none
+South Ruislip;;X;;none
+South Wimbledon;;X;;none
+South Woodford;;X;;none
+Southfields;;X;;none
+Southgate;;X;;none
+Southwark;;X;;none
+Stamford Brook;;X;;none
+Stanmore;;X;;none
+Stepney Green;;X;;none
+Stockwell;;X;;none
+Stonebridge Park;;X;;none
+Stratford;;X;;none
+Sudbury Hill;;X;;none
+Harrow;;X;;none
+Sudbury Town;;X;;none
+Ealing;;X;;none
+Swiss Cottage;;X;;none
+Temple;;X;;none
+Theydon Bois;;X;;none
+Tooting Bec;;X;;none
+Tooting Broadway;;X;;none
+Tottenham Court Road;;X;;none
+Tottenham Hale;;X;;none
+Totteridge & Whetstone;;X;;none
+Tower Hill;;X;;none
+Tufnell Park;;X;;none
+Turnham Green;;X;;none
+Turnpike Lane;;X;;none
+Upminster;;X;;none
+Upminster Bridge;;X;;none
+Upney;;X;;none
+Upton Park;;X;;none
+Uxbridge;;X;;none
+Vauxhall;;X;;none
+Victoria;;X;;none
+Walthamstow Wanstead;;X;;none
+Warren Street;;X;;none
+Warwick Avenue;;X;;none
+Waterloo;;X;;none
+Watford;;X;;none
+Wembley Park;;X;;none
+West Acton;;X;;none
+West Brompton;;X;;none
+West Finchley;;X;;none
+West Ham;;X;;none
+West Hampstead;;X;;none
+West Harrow;;X;;none
+West Kensington;;X;;none
+West Ruislip;;X;;none
+Westbourne Park;;X;;none
+Westminster;;X;;none
+White City;;X;;none
+Whitechapel;;X;;none
+Willesden Green;;X;;none
+Willesden Junction;;X;;none
+Wimbledon;;X;;none
+Wimbledon Park;;X;;none
+Wood Green;;X;;none
+Wood Lane;;X;;none
+Woodford;;X;;none
+Woodside Park;;X;;none

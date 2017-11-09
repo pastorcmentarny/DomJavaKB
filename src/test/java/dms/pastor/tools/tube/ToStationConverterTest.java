@@ -3,6 +3,7 @@ package dms.pastor.tools.tube;
 import org.junit.Test;
 
 import static dms.pastor.tools.tube.Status.NOT_VISITED;
+import static dms.pastor.tools.tube.Status.VISITED;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -19,14 +20,38 @@ public class ToStationConverterTest {
     @Test
     public void convertShouldConvertStationAsStringToObject() {
         // given
-        final String stationAsString = "Chesham";
-        final Station expectedStation = new Station(stationAsString, NOT_VISITED, null);
+        final String stationAsString = "Chesham;;V;;none";
+        final Station expectedStation = new Station(stationAsString, NOT_VISITED, Line.noLine());
 
         // when
         final Station station = ToStationConverter.convert(stationAsString);
 
         // then
         assertThat(station).isEqualTo(expectedStation);
+    }
+
+    @Test
+    public void getStatusAsValue() {
+        // given
+        final Station station = new Station("Amersham", VISITED, null);
+
+        // when
+        final String result = station.getStatusAsValue();
+
+        // then
+        assertThat(result).isEqualTo("V");
+    }
+
+    @Test
+    public void asLine() {
+        // given
+        final Station station = new Station("Amersham", VISITED, null);
+
+        // when
+        final String result = station.getStatusAsValue();
+
+        // then
+        assertThat(result).isEqualTo("V");
     }
 
 }

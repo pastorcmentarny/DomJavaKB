@@ -21,5 +21,7 @@ public class USSDominikStatsApplicationRunner {
         DataUploader dataUploader = new DataUploader();
         final List<Station> stationList = dataUploader.load(path);
         stationList.forEach(System.out::println);
+        DataWriter dataWriter = new DataWriter();
+        dataWriter.save(path, stationList);
     }
 }
