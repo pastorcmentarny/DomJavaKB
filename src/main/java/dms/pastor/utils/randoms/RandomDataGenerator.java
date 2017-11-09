@@ -29,9 +29,8 @@ import static java.lang.Integer.MAX_VALUE;
  */
 public final class RandomDataGenerator {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(RandomDataGenerator.class);
-
     public static final int MAX_SMALL_VALUE_RANGE = 10;
+    private static final Logger LOGGER = LoggerFactory.getLogger(RandomDataGenerator.class);
     private static final int MAX_LARGE_VALUE_RANGE = 4096;
     private static final Random RANDOM = new Random();
     private static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
@@ -190,7 +189,7 @@ public final class RandomDataGenerator {
 
     public static int randomIntegerExcluding(int min, int max, int[] numbers) {
         validateIfValuesIsInRange(min, max, numbers);
-        int randomNumber = randomInteger(min,max);
+        int randomNumber = randomInteger(min, max);
         boolean repeat = true;
         while (repeat) {
             repeat = false;

@@ -11,7 +11,6 @@ import java.util.List;
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
- *
  */
 @SuppressWarnings("AbstractClassWithoutAbstractMethods") // Class is abstract to prevent init
 public abstract class Card {

@@ -28,7 +28,7 @@ public class FireBallSpell extends Spell {
         if (defender.getConditions().isNotImmuneTo(ElementType.FIRE)) {
             attacker.doesDamageTo(defender, Config.FIREBALL_DMG);
         } else {
-            if(defender.getConditions().has(ConditionType.FIRE_IMMUNE)){
+            if (defender.getConditions().has(ConditionType.FIRE_IMMUNE)) {
                 final int heal = Config.FIREBALL_DMG / 2;
                 System.out.println(defender + " was heal " + heal + " points by " + getName());
                 defender.addHP(heal);

@@ -2,7 +2,7 @@ package dms.pastor.tools.tube;
 
 import static dms.pastor.tools.tube.Status.NOT_VISITED;
 
-public final class ToStationConverter {
+final class ToStationConverter {
 
     private ToStationConverter() {
     }

@@ -4,7 +4,7 @@ import dms.pastor.tasks.berlinclock.data.Time;
 
 /**
  * @author Pastor
- *         Created 2013-07-24 at 21:15:25
+ * Created 2013-07-24 at 21:15:25
  */
 interface ClockInterface {
 

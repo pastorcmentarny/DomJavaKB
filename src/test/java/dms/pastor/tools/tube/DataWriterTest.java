@@ -25,10 +25,8 @@ import static org.assertj.core.api.Assertions.assertThat;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class DataWriterTest {
-    public static final List<Line> DUMMY_LINE = noLine();
     @Rule
     public ExpectedException exception = ExpectedException.none();
-    String path = TEST_BASE_PATH + "tube" + File.separator + "station.txt";
 
     @Test
     public void saveShouldThrowIllegalArgumentExceptionIfPathIsNull() {

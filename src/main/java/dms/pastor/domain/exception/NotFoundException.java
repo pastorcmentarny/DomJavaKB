@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-import static java.lang.String.format;
-
 /**
  * Author Dominik Symonowicz
  * Created 18/09/2016

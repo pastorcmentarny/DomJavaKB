@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Station {
-    protected static final String SEPARATOR = ";;";
+    static final String SEPARATOR = ";;";
     private static final String LINE_SEPARATOR = "||";
     private final String name;
     private final Status status;
@@ -53,7 +53,7 @@ public class Station {
     }
 
     //TODO stub
-    public String getLinesAsString() {
+    private String getLinesAsString() {
         return lines.get(0).getName();
     }
 }

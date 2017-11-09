@@ -5,9 +5,9 @@ import java.util.List;
 import static java.util.Collections.singletonList;
 
 class Line {
-    private String name;
+    private final String name;
 
-    public Line(String name) {
+    private Line(String name) {
         this.name = name;
     }
 

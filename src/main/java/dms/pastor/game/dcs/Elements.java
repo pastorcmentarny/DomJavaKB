@@ -47,13 +47,13 @@ public class Elements {
         addRandomElements(i);
     }
 
+    public static Elements noElements() {
+        return new Elements(0, 0, 0, 0);
+    }
+
     @SuppressWarnings("OverlyComplexBooleanExpression") //it has 4 elements
     public boolean hasEnough(Elements elements) {
         return (elements.getAir() >= air) && (elements.getEarth() >= earth) && (elements.getFire() >= fire) && (elements.getWater() >= water);
-    }
-
-    public static Elements noElements() {
-        return new Elements(0, 0, 0, 0);
     }
 
     public void displayElements() {

@@ -31,8 +31,24 @@ public class Condition {
 
     private static final int IMMUNITY_PERCENTAGE = 50;
     private static final Logger LOGGER = LoggerFactory.getLogger(Condition.class);
-    private Set<ConditionEntry> conditions = new HashSet<>();
     private final RandomUtils randomUtils = new InGameRandomUtils();
+    private Set<ConditionEntry> conditions = new HashSet<>();
+
+    static Condition createCondition(ConditionEntry... conditionEntries) {
+        Condition condition = new Condition();
+        if (isEmpty(conditionEntries)) {
+            return condition;
+        }
+
+        addAllCondtionsEntries(condition, conditionEntries);
+        return condition;
+    }
+
+    private static void addAllCondtionsEntries(Condition condition, ConditionEntry[] conditionEntries) {
+        for (ConditionEntry entry : conditionEntries) {
+            condition.add(entry);
+        }
+    }
 
     public Set<ConditionEntry> getConditions() {
         return unmodifiableSet(conditions);
@@ -161,22 +177,6 @@ public class Condition {
 
     public int size() {
         return conditions.size();
-    }
-
-    static Condition createCondition(ConditionEntry... conditionEntries) {
-        Condition condition = new Condition();
-        if (isEmpty(conditionEntries)) {
-            return condition;
-        }
-
-        addAllCondtionsEntries(condition, conditionEntries);
-        return condition;
-    }
-
-    private static void addAllCondtionsEntries(Condition condition, ConditionEntry[] conditionEntries) {
-        for (ConditionEntry entry : conditionEntries) {
-            condition.add(entry);
-        }
     }
 
     public void clear() {

@@ -18,13 +18,13 @@ import static java.lang.String.format;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public final class Canvas {
+    public static final String VERTICAL_BORDER = "|";
+    public static final String HORIZONTAL_BORDER = "-";
     private static final Logger LOGGER = LoggerFactory.getLogger(Canvas.class);
     private static final String EMPTY_PIXEL = " ";
     private static final int BORDER = 1;
-    public static final String VERTICAL_BORDER = "|";
-    public static final String HORIZONTAL_BORDER = "-";
-    private Image image;
     private final State state = new State();
+    private Image image;
 
     private Canvas(int width, int height) {
         image = new Image(width, height);

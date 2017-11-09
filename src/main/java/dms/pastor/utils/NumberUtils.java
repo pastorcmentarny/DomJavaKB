@@ -19,10 +19,9 @@ import static dms.pastor.utils.ValidatorUtils.validateIfPositiveNumber;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public final class NumberUtils {
-    private static final Logger LOGGER = LoggerFactory.getLogger(Word.class);
-
     static final String BINARY_DIGIT_ONE = "1";
     static final String BINARY_DIGIT_ZERO = "0";
+    private static final Logger LOGGER = LoggerFactory.getLogger(Word.class);
     private static final int FACTORIAL_MAXIMUM_VALUE = 19;
     private static final int FACTORIAL_NEGATIVE_MAXIMUM_VALUE = -FACTORIAL_MAXIMUM_VALUE;
     private static final String ERROR_MESSAGE_MUST_BE_INTEGER_ARRAY = "Invalid input. It must be integer array";

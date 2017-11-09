@@ -11,7 +11,8 @@ import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 
 public class StationLineValidatorTest {
 
-    public static final String TUBE_LINE_NAME = "Metropolitan line";
+    private static final String TUBE_LINE_NAME = "Metropolitan line";
+
     @Rule
     public ExpectedException exception = ExpectedException.none();
 

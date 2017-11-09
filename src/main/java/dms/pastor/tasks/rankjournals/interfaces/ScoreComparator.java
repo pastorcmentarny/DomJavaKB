@@ -6,7 +6,7 @@ import java.util.Comparator;
 
 /**
  * @author Pastor
- *         Created 2013-06-18 at 22:50:17
+ * Created 2013-06-18 at 22:50:17
  */
 public class ScoreComparator implements Comparator<Journal> {
 

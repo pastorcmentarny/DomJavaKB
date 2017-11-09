@@ -24,8 +24,8 @@ public final class Word {
     private final String englishMeaning;
     private final String polish;
     private final String[] groups;
-    private String notes = DEFAULT_NOTE;
     private final int difficulty;
+    private String notes = DEFAULT_NOTE;
 
     @SuppressWarnings("ConstructorWithTooManyParameters") //it is object value
     public Word(int id, String chineseCharacter, String pinyin, int strokes, String englishMeaning, String polish, String[] groups, String notes, int difficulty) {
@@ -42,6 +42,17 @@ public final class Word {
 
     static Word noWord() {
         return new Word(-1, null, null, -1, null, null, null, null, -1);
+    }
+
+    public static Word defaultWord() {
+        return new Word(292, "字", "zì", 6,
+                "character", "znak", new String[]{"hsk1"}, "note", 2);
+
+    }
+
+    @SuppressWarnings("SameReturnValue") // no categories is represented as null should wrap this with object
+    public static String[] noCategories() {
+        return null;
     }
 
     public String getChineseCharacter() {
@@ -130,19 +141,7 @@ public final class Word {
                 '}';
     }
 
-
     public String asWord() {
         return "ID: " + id + "\nChinese: " + chineseCharacter + "\nPinyin: " + pinyin + "(" + strokes + ")\nEnglish: " + englishMeaning + "\nPolish:" + polish + "\nNotes: " + notes + "\nDifficulty: " + difficulty;
-    }
-
-    public static Word defaultWord() {
-        return new Word(292, "字", "zì", 6,
-                "character", "znak", new String[]{"hsk1"}, "note", 2);
-
-    }
-
-    @SuppressWarnings("SameReturnValue") // no categories is represented as null should wrap this with object
-    public static String[] noCategories() {
-        return null;
     }
 }

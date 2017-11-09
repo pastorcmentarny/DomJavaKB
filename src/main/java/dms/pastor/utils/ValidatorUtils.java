@@ -162,7 +162,6 @@ public final class ValidatorUtils {
     }
 
 
-
     public static void validateIfPathExists(String path) {
         if (isStringEmpty(path)) {
             throw new IllegalArgumentException("Path to file is invalid.");
@@ -175,19 +174,4 @@ public final class ValidatorUtils {
         }
     }
 
-    public static void validateIfValuesIsInRange(int min, int max, int[] numbers) {
-        if (numbers.length == 0) {
-            throw new IllegalArgumentException(getErrorMessage("Values array"));
-        }
-        for (int number : numbers) {
-            if (!isValueInRange(min, max, number)) {
-                throw new IllegalArgumentException("One of values is not in range.");
-            }
-        }
-    }
-
-    public static boolean isValueInRange(int min, int max, int number) {
-        validateMinValueIsSmallerThanMaxValue(min, max);
-        return number >= min && number <= max;
-    }
 }

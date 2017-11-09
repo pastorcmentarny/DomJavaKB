@@ -28,9 +28,8 @@ import static java.lang.String.format;
  */
 public class Unit {
 
-    protected final RandomUtils randomUtils = new InGameRandomUtils();
     private static final Logger LOGGER = LoggerFactory.getLogger(Unit.class);
-
+    protected final RandomUtils randomUtils = new InGameRandomUtils();
     protected final Random random = new Random();
 
     private String name = "Name";

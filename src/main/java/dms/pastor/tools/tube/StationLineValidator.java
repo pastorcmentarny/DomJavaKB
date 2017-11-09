@@ -3,7 +3,7 @@ package dms.pastor.tools.tube;
 import static dms.pastor.tools.tube.Station.SEPARATOR;
 import static dms.pastor.utils.ValidatorUtils.validateIfNotEmpty;
 
-public class StationLineValidator {
+class StationLineValidator {
     private static final int columnsNumber = 3;
 
     public static void validate(String stationAsString) {

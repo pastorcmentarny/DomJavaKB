@@ -2,10 +2,7 @@ package dms.pastor.tools.readtimer;
 
 import static dms.pastor.utils.DateUtils.HOUR;
 import static dms.pastor.utils.DateUtils.MINUTE;
-import static dms.pastor.utils.StringUtils.EMPTY_STRING;
-import static dms.pastor.utils.StringUtils.WHITESPACE;
-import static dms.pastor.utils.StringUtils.isStringBlank;
-import static dms.pastor.utils.StringUtils.splitContentIntoWords;
+import static dms.pastor.utils.StringUtils.*;
 
 /**
  * Author Dominik Symonowicz

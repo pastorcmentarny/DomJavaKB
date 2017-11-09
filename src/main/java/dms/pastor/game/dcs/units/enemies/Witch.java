@@ -39,13 +39,13 @@ public class Witch extends Unit {
             getElements().useElements(regenSpell.getElements());
         }
 
-        if(deathRaySpell.hasEnoughElementsToCovertToSpell(getElements())){
+        if (deathRaySpell.hasEnoughElementsToCovertToSpell(getElements())) {
             deathRaySpell.castSpell(this, enemy);
             getElements().useElements(deathRaySpell.getElements());
         }
 
-        if(magneticDrainSpell.hasEnoughElementsToCovertToSpell(getElements())){
-            magneticDrainSpell.castSpell(this,enemy);
+        if (magneticDrainSpell.hasEnoughElementsToCovertToSpell(getElements())) {
+            magneticDrainSpell.castSpell(this, enemy);
             getElements().useElements(magneticDrainSpell.getElements());
         }
 

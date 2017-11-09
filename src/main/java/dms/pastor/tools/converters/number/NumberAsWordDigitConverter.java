@@ -4,10 +4,10 @@ import static dms.pastor.utils.ValidatorUtils.validateIfNotEmpty;
 
 final class NumberAsWordDigitConverter {
 
+    private static final String SPLIT_CHARACTER = " ";
+
     private NumberAsWordDigitConverter() {
     }
-
-    private static final String SPLIT_CHARACTER = " ";
 
     public static int toDigit(String numberAsString) {
         validateIfNotEmpty(numberAsString, "number as text");

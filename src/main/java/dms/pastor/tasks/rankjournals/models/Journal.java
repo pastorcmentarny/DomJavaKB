@@ -7,7 +7,7 @@ import static dms.pastor.tasks.rankjournals.JournalType.REVIEW;
 
 /**
  * @author Pastor
- *         Created 2013-06-18 at 21:29:27
+ * Created 2013-06-18 at 21:29:27
  */
 public class Journal {
 

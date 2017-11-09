@@ -17,10 +17,6 @@ public enum Status {
         this.value = value;
     }
 
-    public String value() {
-        return value;
-    }
-
     public static Status fromValue(String statusShortcut) {
         validateIfNotEmpty(statusShortcut);
 
@@ -29,5 +25,9 @@ public enum Status {
                 .filter(status -> status.value().equalsIgnoreCase(statusShortcut))
                 .findFirst()
                 .orElseThrow(() -> new NotFoundException("Status"));
+    }
+
+    public String value() {
+        return value;
     }
 }

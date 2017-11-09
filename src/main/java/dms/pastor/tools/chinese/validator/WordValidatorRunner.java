@@ -16,7 +16,6 @@ import org.slf4j.LoggerFactory;
  * while they are loaded to dictionary database in Doms learn Chinese from file
  * This is slightly modified version of Word class from my game Dom Learn Chinese
  * Validator is here not in App due fact that testing in Android is pain in the ass
- *
  */
 final class WordValidatorRunner {
     private static final Logger LOGGER = LoggerFactory.getLogger(WordValidatorRunner.class);

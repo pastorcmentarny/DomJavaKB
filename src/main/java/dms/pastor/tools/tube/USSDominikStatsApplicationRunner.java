@@ -5,7 +5,7 @@ import java.util.List;
 
 import static java.io.File.separator;
 
-public class USSDominikStatsApplicationRunner {
+class USSDominikStatsApplicationRunner {
     private static final String SRC = "src" + separator;
     private static final String RESOURCES = "resources" + separator;
     private static final String BASE_PATH = System.getProperty("user.dir") +

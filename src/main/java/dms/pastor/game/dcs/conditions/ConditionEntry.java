@@ -18,8 +18,8 @@ import static java.util.Objects.hash;
 public class ConditionEntry {
 
     private final ConditionType condition;
-    private int turnsLeft = 0;
     private final boolean persistent;
+    private int turnsLeft = 0;
 
     ConditionEntry(ConditionType condition, int turns, boolean persistent) {
         this.condition = condition;
@@ -39,8 +39,8 @@ public class ConditionEntry {
         return new ConditionEntry(conditionType, DEFAULT_CONDITION_DURATION, false);
     }
 
-    public static ConditionEntry unknown(){
-        return new ConditionEntry(UNKNOWN,0,false);
+    public static ConditionEntry unknown() {
+        return new ConditionEntry(UNKNOWN, 0, false);
     }
 
     static boolean isEmpty(ConditionEntry[] conditionEntries) {

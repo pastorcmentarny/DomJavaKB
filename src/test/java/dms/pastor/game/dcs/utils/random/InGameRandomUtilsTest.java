@@ -1,6 +1,8 @@
 package dms.pastor.game.dcs.utils.random;
 
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static dms.pastor.game.dcs.utils.random.InGameRandomUtils.HALF;
 import static dms.pastor.utils.randoms.RandomDataGenerator.randomNegativeInteger;
@@ -8,13 +10,19 @@ import static dms.pastor.utils.randoms.RandomDataGenerator.randomPositiveInteger
 import static org.assertj.core.api.Assertions.assertThat;
 
 public final class InGameRandomUtilsTest {
-
+    private static final Logger LOGGER = LoggerFactory.getLogger(InGameRandomUtilsTest.class);
     private final RandomUtils randomUtils = new InGameRandomUtils();
 
-    @Test
+    @Test // test failed once
     public void isWillHappenWithProbabilityOfShouldReturnTrueIfPercentageIsAbove100() {
+        // given
+        final int percentage = 100 + randomPositiveInteger(256);
+
+        // debug info
+        LOGGER.debug("Percentage: " + percentage);
+
         // when
-        final boolean willHappenWithProbabilityOf = randomUtils.isWillHappenWithProbabilityOf(100 + randomPositiveInteger(256));
+        final boolean willHappenWithProbabilityOf = randomUtils.isWillHappenWithProbabilityOf(percentage);
 
         // then
         assertThat(willHappenWithProbabilityOf).isTrue();

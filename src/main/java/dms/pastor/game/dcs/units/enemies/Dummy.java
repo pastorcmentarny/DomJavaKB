@@ -18,6 +18,7 @@ import dms.pastor.game.dcs.units.Unit;
  */
 public class Dummy extends Unit {
     private final int initialHp = Config.DEFAULT_HEALTH_POINTS / 2;
+
     Dummy() {
         setHp(initialHp);
     }
