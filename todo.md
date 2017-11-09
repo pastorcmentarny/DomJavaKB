@@ -8,7 +8,8 @@ TODO:
         Spells:
             1. ImplosionSpell
             2. BubbleShieldSpell . it prevents from damage once 
-    4. Complete Lotto tools         
+    4. Complete Lotto tools  
+    5. Create TextFileSaver       
 
 Enemies:
     0. (Done)   Dummy

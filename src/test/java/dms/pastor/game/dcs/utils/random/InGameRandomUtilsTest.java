@@ -40,12 +40,11 @@ public final class InGameRandomUtilsTest {
     @Test //TODO find better way to test random
     public void isWillHappenWithProbabilityOfShouldReturnTrueAndFalseForMany() {
         // given
-
         boolean trueResult = false;
         boolean falseResult = false;
 
         // when
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 20; i++) {
             boolean result = randomUtils.isWillHappenWithProbabilityOf(HALF);
             if (result) {
                 trueResult = true;
@@ -54,6 +53,7 @@ public final class InGameRandomUtilsTest {
             }
 
             if (trueResult && falseResult) {
+                LOGGER.debug("It took " + (i + 1) + " attempts to pass test.");
                 break;
             }
         }
