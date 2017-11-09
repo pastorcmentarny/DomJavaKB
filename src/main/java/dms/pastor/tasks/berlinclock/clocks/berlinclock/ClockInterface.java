@@ -3,15 +3,16 @@ package dms.pastor.tasks.berlinclock.clocks.berlinclock;
 import dms.pastor.tasks.berlinclock.data.Time;
 
 /**
- * @author Pastor
+ * Author Dominik Symonowicz
  * Created 2013-07-24 at 21:15:25
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 interface ClockInterface {
 
-    /**
-     * @param time as String in format hh::mm:ss
-     * @return String representation of the Berlin Clock for a given time
-     */
     String showTime(String time);
 
     String getTimeAsString(int hour, int minutes, int seconds);

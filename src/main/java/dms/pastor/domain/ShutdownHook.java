@@ -3,8 +3,13 @@ package dms.pastor.domain;
 import static dms.pastor.utils.FileTools.unlockFile;
 
 /**
- * @author Pastor
+ * Author Dominik Symonowicz
  * Created 2011-11-05 at 00:27:34
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class ShutdownHook extends Thread {
 

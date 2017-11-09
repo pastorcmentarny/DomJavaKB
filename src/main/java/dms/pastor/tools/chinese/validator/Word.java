@@ -47,7 +47,6 @@ public final class Word {
     public static Word defaultWord() {
         return new Word(292, "字", "zì", 6,
                 "character", "znak", new String[]{"hsk1"}, "note", 2);
-
     }
 
     @SuppressWarnings("SameReturnValue") // no categories is represented as null should wrap this with object
