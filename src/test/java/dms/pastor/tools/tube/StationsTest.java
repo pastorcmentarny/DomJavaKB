@@ -2,9 +2,11 @@ package dms.pastor.tools.tube;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import static dms.pastor.tools.tube.Line.noLine;
 import static dms.pastor.tools.tube.Status.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -83,4 +85,37 @@ public class StationsTest {
         assertThat(stations.getStationByName(stationName).getStatus()).isEqualTo(VISITED);
 
     }
+
+    @Test
+    public void countStationPassedShouldCountStationPassed() {
+        // given
+        Stations stations = generateStations();
+
+        // when
+        final long count = stations.countStationPassed();
+
+        // then
+        assertThat(count).isEqualTo(1);
+    }
+
+    @Test
+    public void countStationPassedShouldCountStationVisited() {
+        // given
+        Stations stations = generateStations();
+
+        // when
+        final long count = stations.countStationVisited();
+
+        // then
+        assertThat(count).isEqualTo(1);
+    }
+
+    private Stations generateStations() {
+        List<Station> stationList = new ArrayList<>();
+        stationList.add(new Station("Wembley Park", Status.VISITED, noLine()));
+        stationList.add(new Station("Green Park", Status.PASSED, noLine()));
+        stationList.add(new Station("Elm Park", Status.NOT_VISITED, noLine()));
+        return new Stations(stationList);
+    }
+
 }

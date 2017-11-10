@@ -25,7 +25,6 @@ public class Stations {
         }
     }
 
-
     public Station getStationByName(String name) {
         return stationList.stream()
                 .filter(station -> station.getName().equals(name))
@@ -37,4 +36,19 @@ public class Stations {
         station.setStatus(VISITED);
     }
 
+    public long countStationPassed() {
+        return countStationThatHasStatusOf(PASSED.value());
+    }
+
+    public long countStationVisited() {
+        return countStationThatHasStatusOf(VISITED.value());
+    }
+
+    private long countStationThatHasStatusOf(String statusValue) {
+        return stationList.stream()
+                .filter(station -> station.getStatus().value().equalsIgnoreCase(statusValue))
+                .count();
+    }
+
 }
+
