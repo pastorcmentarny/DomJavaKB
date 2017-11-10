@@ -6,12 +6,17 @@ import java.util.List;
 
 import static dms.pastor.tools.tube.Status.PASSED;
 import static dms.pastor.tools.tube.Status.VISITED;
+import static java.util.Collections.unmodifiableList;
 
 public class Stations {
-    List<Station> stationList;
+    private List<Station> stationList;
 
     public Stations(List<Station> stationList) {
         this.stationList = stationList;
+    }
+
+    public List<Station> getStationList() {
+        return unmodifiableList(stationList);
     }
 
     public void setPassedFor(Station station) {
@@ -19,6 +24,7 @@ public class Stations {
             station.setStatus(PASSED);
         }
     }
+
 
     public Station getStationByName(String name) {
         return stationList.stream()
@@ -30,4 +36,5 @@ public class Stations {
     public void setVisitedFor(Station station) {
         station.setStatus(VISITED);
     }
+
 }
