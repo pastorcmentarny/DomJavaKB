@@ -5,9 +5,6 @@ TODO:
         make game playable
         improve main (game,in,out)
         accept AAEFW as way to input
-        Spells:
-            1. ImplosionSpell
-            2. BubbleShieldSpell . it prevents from damage once 
     4. Complete Lotto tools  
     5. Create TextFileSaver       
 
@@ -27,11 +24,9 @@ Enemies:
     12,13,14,15 -4 Elements
     16 (Done) Dragon
 
-
 Location
 where you get bonus for using specific elements
-or some events happen (for example lighting bolt every 2-3 runds
-
+or some events happen (for example lighting bolt every 2-3 rounds
 
 Event rarity
 Common 1/5      200

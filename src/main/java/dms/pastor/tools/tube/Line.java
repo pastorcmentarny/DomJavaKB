@@ -16,7 +16,7 @@ import static java.util.Collections.singletonList;
 class Line {
     private final String name;
 
-    private Line(String name) {
+    public Line(String name) {
         this.name = name;
     }
 
