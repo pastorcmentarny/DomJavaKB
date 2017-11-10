@@ -19,6 +19,7 @@ import java.util.Scanner;
 import static dms.pastor.tools.tube.Line.noLine;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TubeCLITest {
@@ -59,6 +60,18 @@ public class TubeCLITest {
         assertThat(outputStream.toString()).endsWith(expectedLastLine);
     }
 
+    @Test
+    public void shouldDisplayStats() {
+        //given
+        when(scanner.nextInt()).thenReturn(0)
+                .thenReturn(9);
+
+        //when
+        cli.main();
+
+        //then
+        assertThat(outputStream.toString()).contains("You visited 1 station(s)." + System.lineSeparator() + "You passed 1 station(s).");
+    }
 
     private Stations generateStations() {
         List<Station> stationList = new ArrayList<>();

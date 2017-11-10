@@ -51,6 +51,7 @@ class TubeCLI {
     }
 
     public void displayStatistic() {
-
+        System.out.println("You visited " + stations.countStationVisited() + " station(s).");
+        System.out.println("You passed " + stations.countStationPassed() + " station(s).");
     }
 }
