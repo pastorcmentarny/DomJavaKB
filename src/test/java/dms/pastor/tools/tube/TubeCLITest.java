@@ -61,16 +61,18 @@ public class TubeCLITest {
     }
 
     @Test
-    public void shouldDisplayStats() {
+    public void shouldDisplayAllStationStats() {
         //given
-        when(scanner.nextInt()).thenReturn(0)
+        when(scanner.nextInt()).thenReturn(8)
                 .thenReturn(9);
 
         //when
         cli.main();
 
         //then
-        assertThat(outputStream.toString()).contains("You visited 1 station(s)." + System.lineSeparator() + "You passed 1 station(s).");
+        assertThat(outputStream.toString()).contains("Wembley Park" + System.lineSeparator() +
+                "Green Park" + System.lineSeparator() +
+                "Elm Park" + System.lineSeparator());
     }
 
     private Stations generateStations() {

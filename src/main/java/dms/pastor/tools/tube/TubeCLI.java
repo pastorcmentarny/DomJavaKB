@@ -26,6 +26,7 @@ class TubeCLI {
             System.out.println("2. Current Status for selected station.");
             System.out.println("3. Update Status to Passed for station.");
             System.out.println("4. Update Status to Visited for station.");
+            System.out.println("8. Display list of all stations.");
             System.out.println("9. Exit.");
             try {
                 final int option = scanner.nextInt();
@@ -33,8 +34,8 @@ class TubeCLI {
                     case 0:
                         displayStatistic();
                         break;
-                    case 1:
-                        stations.getStationList().forEach(System.out::println);
+                    case 8:
+                        stations.getStationList().forEach(station -> System.out.println(station.getName()));
                         break;
                     case 9:
                         showMenu = false;
