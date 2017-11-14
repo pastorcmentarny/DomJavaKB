@@ -1,7 +1,5 @@
 package dms.pastor.tools.tube;
 
-import static dms.pastor.tools.tube.Status.NOT_VISITED;
-
 /**
  * Author Dominik Symonowicz
  * Created 07/11/2017
@@ -17,7 +15,7 @@ final class ToStationConverter {
     }
 
     public static Station convert(String stationAsString) {
-        StationLineValidator.validate(stationAsString);
-        return new Station(stationAsString, NOT_VISITED, Line.noLine());
+        final String[] validatedLine = StationLineValidator.validate(stationAsString);
+        return new Station(validatedLine[0], Status.fromValue(validatedLine[1]), Line.noLine());
     }
 }

@@ -34,6 +34,7 @@ public final class StringUtils {
     static final String NON_ALPHANUMERIC = "~#&@£$^'`\".,:;*–+=(){}[]<>?!\\|/";
     private static final String ALPHABET_BOTH_CASE = ALPHABET + ALPHABET.toUpperCase();
     private static final String ALPHANUMERIC_REGEX = "[^a-zA-Z0-9]";
+    public static final String UNDERSCORE = "_";
 
     private StringUtils() {
     }

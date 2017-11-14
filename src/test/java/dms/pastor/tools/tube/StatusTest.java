@@ -69,4 +69,17 @@ public class StatusTest {
         Status.fromValue(EMPTY_STRING);
     }
 
+
+    @Test
+    public void asNameShouldReturnNameWithCapitalizedFirstCharacterAndNoUnderscoreForNotVisited() {
+        // given
+        final String expectedResult = "not visited";
+
+        // when
+        final String result = Status.NOT_VISITED.asName();
+
+        // then
+        assertThat(result).isEqualTo(expectedResult);
+    }
+
 }

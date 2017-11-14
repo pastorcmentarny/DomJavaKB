@@ -16,8 +16,8 @@ public class Station {
     static final String SEPARATOR = ";;";
     private static final String LINE_SEPARATOR = "||";
     private final String name;
-    private Status status;
     private final List<Line> lines;
+    private Status status;
 
     public Station(String name, Status status, List<Line> lines) {
         this.name = name;
@@ -29,12 +29,12 @@ public class Station {
         return name;
     }
 
-    public void setStatus(Status status) {
-        this.status = status;
-    }
-
     public Status getStatus() {
         return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     public String getStatusAsValue() {
@@ -68,6 +68,14 @@ public class Station {
     //TODO stub
     private String getLinesAsString() {
         return lines.get(0).getName();
+    }
+
+    public String asFormattedString() {
+        return getName() + " was " + getStatus().asName();
+    }
+
+    public String asLine() {
+        return name + SEPARATOR + getStatusAsValue() + SEPARATOR + getLinesAsString();
     }
 
 }

@@ -16,7 +16,7 @@ import static dms.pastor.utils.ValidatorUtils.validateIfNotEmpty;
 class StationLineValidator {
     private static final int columnsNumber = 3;
 
-    public static void validate(String stationAsString) {
+    public static String[] validate(String stationAsString) {
 
         validateIfNotEmpty(stationAsString, "Station as string");
         String[] columns = stationAsString.split(SEPARATOR);
@@ -24,5 +24,6 @@ class StationLineValidator {
             throw new IllegalArgumentException("Invalid number of columns. Expect " + columnsNumber + " but was " + columns.length);
         }
         Status.fromValue(columns[1]);
+        return columns;
     }
 }

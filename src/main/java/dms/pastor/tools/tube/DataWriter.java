@@ -26,7 +26,7 @@ class DataWriter {
 
     public void save(String path, List<Station> stationList) {
         validateIfPathExists(path);
-        final String content = stationList.stream().map(Station::toString).collect(Collectors.joining("\n"));
+        final String content = stationList.stream().map(Station::asLine).collect(Collectors.joining("\n"));
         try {
             Files.write(Paths.get(path), content.getBytes());
         } catch (IOException e) {

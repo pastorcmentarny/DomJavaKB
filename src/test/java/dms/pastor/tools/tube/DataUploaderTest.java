@@ -28,7 +28,7 @@ public class DataUploaderTest {
     }
 
     @Test
-    public void shouldLoadStationsFromFile(){
+    public void shouldLoadStationsFromFile() {
         // given
         DataUploader dataUploader = new DataUploader();
         String path = BASE_PATH + "tube" + File.separator + "station.txt";

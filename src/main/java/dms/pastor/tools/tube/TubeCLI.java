@@ -34,6 +34,9 @@ class TubeCLI {
                     case 0:
                         displayStatistic();
                         break;
+                    case 1:
+                        displayStatusForAllStations();
+                        break;
                     case 8:
                         stations.getStationList().forEach(station -> System.out.println(station.getName()));
                         break;
@@ -49,6 +52,12 @@ class TubeCLI {
             }
         }
 
+    }
+
+    private void displayStatusForAllStations() {
+        stations.getStationList().stream()
+                .map(Station::asFormattedString)
+                .forEach(System.out::println);
     }
 
     public void displayStatistic() {

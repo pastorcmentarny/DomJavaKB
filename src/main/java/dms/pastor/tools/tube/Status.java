@@ -4,6 +4,8 @@ import dms.pastor.domain.exception.NotFoundException;
 
 import java.util.Arrays;
 
+import static dms.pastor.utils.StringUtils.UNDERSCORE;
+import static dms.pastor.utils.StringUtils.WHITESPACE;
 import static dms.pastor.utils.ValidatorUtils.validateIfNotEmpty;
 
 /**
@@ -39,5 +41,9 @@ public enum Status {
 
     public String value() {
         return value;
+    }
+
+    public String asName() {
+        return name().toLowerCase().replaceAll(UNDERSCORE, WHITESPACE);
     }
 }

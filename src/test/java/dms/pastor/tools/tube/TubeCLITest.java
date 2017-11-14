@@ -23,13 +23,11 @@ import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TubeCLITest {
-    private TubeCLI cli = null;
-    private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-    private final PrintStream original = System.out;
-
     @Rule
     public final ExpectedException exception = ExpectedException.none();
-
+    private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    private final PrintStream original = System.out;
+    private TubeCLI cli = null;
     @Mock
     private Scanner scanner;
 
@@ -74,6 +72,22 @@ public class TubeCLITest {
                 "Green Park" + System.lineSeparator() +
                 "Elm Park" + System.lineSeparator());
     }
+
+    @Test
+    public void shouldDisplayStatusForAllStations() {
+        //given
+        when(scanner.nextInt()).thenReturn(1)
+                .thenReturn(9);
+
+        //when
+        cli.main();
+
+        //then
+        assertThat(outputStream.toString()).contains("Wembley Park was visited" + System.lineSeparator() +
+                "Green Park was passed" + System.lineSeparator() +
+                "Elm Park was not visited" + System.lineSeparator());
+    }
+
 
     private Stations generateStations() {
         List<Station> stationList = new ArrayList<>();
