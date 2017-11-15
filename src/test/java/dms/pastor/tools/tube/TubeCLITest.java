@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import static dms.pastor.tools.tube.Line.noLine;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.when;
@@ -104,6 +105,21 @@ public class TubeCLITest {
     }
 
     @Test
+    public void updateStationStatusToPassedShouldDisplayErrorMessageIfStationCannotBeFound() {
+        // given
+        final String invalidStationName = generateString(10);
+        when(scanner.nextInt()).thenReturn(3).thenReturn(2)
+                .thenReturn(9);
+        when(scanner.next()).thenReturn(invalidStationName);
+
+        //when
+        cli.main();
+
+        // then
+        assertThat(outputStream.toString()).contains("Station " + invalidStationName + " not found");
+    }
+
+    @Test
     public void updateStationStatusToPassedShouldUpdateNotVisitedStationToPassed() {
         // given
         when(scanner.nextInt()).thenReturn(3).thenReturn(2)
@@ -119,6 +135,37 @@ public class TubeCLITest {
 
     }
 
+    @Test
+    public void updateStationStatusToVisitedShouldDisplayErrorMessageIfStationCannotBeFound() {
+        // given
+        final String invalidStationName = generateString(10);
+        when(scanner.nextInt()).thenReturn(4).thenReturn(2)
+                .thenReturn(9);
+        when(scanner.next()).thenReturn(invalidStationName);
+
+        //when
+        cli.main();
+
+        // then
+        assertThat(outputStream.toString()).contains("Station " + invalidStationName + " not found");
+    }
+
+
+    @Test
+    public void updateStationStatusToVisitedShouldUpdateNotVisitedStationToVisited() {
+        // given
+        when(scanner.nextInt()).thenReturn(4).thenReturn(2)
+                .thenReturn(9);
+        when(scanner.next()).thenReturn("Elm Park");
+
+        //when
+        cli.main();
+
+        // then
+        assertThat(outputStream.toString()).contains("You set Elm Park status to visited");
+        assertThat(outputStream.toString()).contains("Elm Park was visited");
+
+    }
 
     private Stations generateStations() {
         List<Station> stationList = new ArrayList<>();
