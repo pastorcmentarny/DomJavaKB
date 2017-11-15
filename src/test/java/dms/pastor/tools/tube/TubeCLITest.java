@@ -101,6 +101,21 @@ public class TubeCLITest {
         //then
         assertThat(outputStream.toString()).contains("Wembley Park was visited");
 
+    }
+
+    @Test
+    public void updateStationStatusToPassedShouldUpdateNotVisitedStationToPassed() {
+        // given
+        when(scanner.nextInt()).thenReturn(3).thenReturn(2)
+                .thenReturn(9);
+        when(scanner.next()).thenReturn("Elm Park");
+
+        //when
+        cli.main();
+
+        // then
+        assertThat(outputStream.toString()).contains("You set Elm Park status to passed");
+        assertThat(outputStream.toString()).contains("Elm Park was passed");
 
     }
 

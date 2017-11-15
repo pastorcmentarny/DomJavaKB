@@ -41,6 +41,9 @@ class TubeCLI {
                     case 2:
                         displayStatusFor();
                         break;
+                    case 3:
+                        updateStationStatusToPassed();
+                        break;
                     case 8:
                         stations.getStationList().forEach(station -> System.out.println(station.getName()));
                         break;
@@ -58,8 +61,20 @@ class TubeCLI {
 
     }
 
-    private void displayStatusFor() {
+    private void updateStationStatusToPassed() {
+        final String option = scanner.next();
+        LOGGER.debug(String.format("Updating status to passed for %s", option));
+        try {
+            final Station station = stations.findStation(option);
+            stations.setPassedFor(station);
+            final Station updatedStation = stations.findStation(station.getName());
+            System.out.println("You set " + updatedStation.getName() + " status to " + updatedStation.getStatus().asName() + ".");
+        } catch (NotFoundException nfe) {
+            System.out.println("Station " + option + " not found.");
+        }
+    }
 
+    private void displayStatusFor() {
         final String option = scanner.next();
         LOGGER.debug(String.format("Displaying info for %s", option));
         try {
@@ -68,7 +83,6 @@ class TubeCLI {
         } catch (NotFoundException nfe) {
             System.out.println("Station " + option + " not found.");
         }
-
 
     }
 

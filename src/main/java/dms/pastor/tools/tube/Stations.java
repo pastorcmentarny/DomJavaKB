@@ -24,8 +24,10 @@ public class Stations {
     }
 
     public void setPassedFor(Station station) {
-        if (station.getStatus() != VISITED) {
+        if (station.getStatus() != VISITED && station.getStatus() != PASSED) {
             station.setStatus(PASSED);
+        } else {
+            LOGGER.info("You passed or visited this station already.");
         }
     }
 

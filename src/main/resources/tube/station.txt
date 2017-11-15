@@ -186,7 +186,7 @@ Rayners Lane;;X;;none
 Redbridge;;X;;none
 Regent's Park;;X;;none
 Richmond;;X;;none
-Rickmansworth;;X;;none
+Rickmansworth;;P;;none
 Roding Valley;;X;;none
 Redbridge;;X;;none
 Royal Oak;;X;;none

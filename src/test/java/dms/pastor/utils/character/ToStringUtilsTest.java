@@ -39,7 +39,7 @@ public class ToStringUtilsTest {
 
     }
 
-    @Test
+    @Test // Expecting: <"y"> to be equal to: <"yy"> ignoring case considerations
     public void linkedHashSetToStringShouldReturnLinkedHashSetAsString() {
         // given
         final Character character = getRandomCharacterFromAlphabet();
