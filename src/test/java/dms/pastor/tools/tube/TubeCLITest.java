@@ -88,6 +88,22 @@ public class TubeCLITest {
                 "Elm Park was not visited" + System.lineSeparator());
     }
 
+    @Test
+    public void findStationShouldDisplayInfoAboutWembleyPark() {
+        //given
+        when(scanner.nextInt()).thenReturn(2)
+                .thenReturn(9);
+        when(scanner.next()).thenReturn("Wembley Park");
+
+        //when
+        cli.main();
+
+        //then
+        assertThat(outputStream.toString()).contains("Wembley Park was visited");
+
+
+    }
+
 
     private Stations generateStations() {
         List<Station> stationList = new ArrayList<>();

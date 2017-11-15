@@ -1,5 +1,6 @@
 package dms.pastor.tools.tube;
 
+import dms.pastor.domain.exception.NotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -37,6 +38,9 @@ class TubeCLI {
                     case 1:
                         displayStatusForAllStations();
                         break;
+                    case 2:
+                        displayStatusFor();
+                        break;
                     case 8:
                         stations.getStationList().forEach(station -> System.out.println(station.getName()));
                         break;
@@ -51,6 +55,20 @@ class TubeCLI {
                 LOGGER.warn("User typed gibberish." + e.getMessage(), e);
             }
         }
+
+    }
+
+    private void displayStatusFor() {
+
+        final String option = scanner.next();
+        LOGGER.debug(String.format("Displaying info for %s", option));
+        try {
+            final Station station = stations.findStation(option);
+            System.out.println(station.asFormattedString());
+        } catch (NotFoundException nfe) {
+            System.out.println("Station " + option + " not found.");
+        }
+
 
     }
 

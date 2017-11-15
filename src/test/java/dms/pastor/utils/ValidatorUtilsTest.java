@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import org.junit.rules.Timeout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -41,6 +42,9 @@ public class ValidatorUtilsTest {
 
     @Rule
     public final ExpectedException exception = ExpectedException.none();
+
+    @Rule
+    public Timeout globalTimeout = Timeout.seconds(3); // global time out for all tests
 
     private ExampleObject anObject;
 
@@ -158,7 +162,7 @@ public class ValidatorUtilsTest {
         validateTwoIntsNotEqual(number1, number2);
     }
 
-    @Test
+    @Test //TODO fix test hang up (infitive loop ?
     public void twoIntsNotEqualShouldPassWhenBothIntsAreNotEqual() throws Exception {
         // given
         int number1 = randomPositiveInteger(9);
