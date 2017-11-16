@@ -97,7 +97,7 @@ HammersmithHampstead;;X;;none;;none;;none
 Hanger Lane;;X;;none;;none;;none
 Harlesden;;X;;none;;none;;none
 Harrow & Wealdstone;;X;;none;;none;;none
-Harrow-on-the-Hill;;X;;none;;none;;none
+Harrow-on-the-Hill;;V;;none;;none;;2017-11-16
 Hatton Cross;;X;;none;;none;;none
 Heathrow Terminals 1, 2, 3;;X;;none;;none;;none
 Heathrow Terminal 4;;X;;none;;none;;none
@@ -120,7 +120,6 @@ Kensal Green;;X;;none;;none;;none
 Kensington (Olympia);;X;;none;;none;;none
 Kentish Town;;X;;none;;none;;none
 Kenton;;X;;none;;none;;none
-Harrow;;X;;none;;none;;none
 Kew Gardens;;X;;none;;none;;none
 Kilburn;;X;;none;;none;;none
 Kilburn Park;;X;;none;;none;;none

@@ -1,7 +1,6 @@
 package dms.pastor.tools.tube;
 
 import dms.pastor.domain.exception.NotFoundException;
-import dms.pastor.utils.StringUtils;
 import org.slf4j.LoggerFactory;
 
 import java.time.LocalDate;
@@ -9,6 +8,7 @@ import java.util.List;
 
 import static dms.pastor.tools.tube.Status.PASSED;
 import static dms.pastor.tools.tube.Status.VISITED;
+import static dms.pastor.utils.StringUtils.isStringEmpty;
 import static java.util.Collections.unmodifiableList;
 
 public class Stations {
@@ -43,6 +43,9 @@ public class Stations {
     public void setVisitedFor(Station station) {
         if (station.getStatus() != VISITED) {
             station.setStatus(VISITED);
+            if (station.getPassedDate() == null) {
+                station.setPassedDate(LocalDate.now());
+            }
             station.setVisitedDate(LocalDate.now());
         } else {
             LOGGER.info("You visited this station already.");
@@ -66,7 +69,7 @@ public class Stations {
 
     public Station findStation(String searchFor) {
         final NotFoundException notFoundException = new NotFoundException("Station");
-        if (StringUtils.isStringEmpty(searchFor)) {
+        if (isStringEmpty(searchFor)) {
             LOGGER.warn(String.format("Unable to find station as search query is invalid. User typed: %s", searchFor));
             throw notFoundException;
         }
@@ -76,4 +79,7 @@ public class Stations {
                 .orElseThrow(() -> notFoundException);
     }
 
+    public int totalNumber() {
+        return stationList.size();
+    }
 }

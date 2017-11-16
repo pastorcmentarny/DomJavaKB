@@ -92,17 +92,45 @@ public class StationsTest {
     @Test
     public void setVisitedForShouldSetStatusToVisitedIfStationHasStatusPassed() {
         // given
-        final String stationName = STATION_NAME;
-        final Station amersham = Station.passed(stationName, lines, PASSED_DATE);
+        final Station amersham = Station.passed(STATION_NAME, lines, PASSED_DATE);
         Stations stations = new Stations(Collections.singletonList(amersham));
 
         // when
         stations.setVisitedFor(amersham);
 
         // then
-        assertThat(stations.getStationByName(stationName).getStatus()).isEqualTo(VISITED);
-
+        assertThat(stations.getStationByName(STATION_NAME).getStatus()).isEqualTo(VISITED);
     }
+
+    @Test
+    public void setVisitedForShouldSetBothPassedDateAndVisitedDateWhenIfStationHasPreviouslyStatusNotVisited() {
+        // given
+        final Station amersham = Station.passed(STATION_NAME, lines, PASSED_DATE);
+        Stations stations = new Stations(Collections.singletonList(amersham));
+
+        // when
+        stations.setVisitedFor(amersham);
+
+        // then
+        assertThat(stations.getStationByName(STATION_NAME).getPassedDate()).isEqualTo(LocalDate.now());
+        assertThat(stations.getStationByName(STATION_NAME).getVisitedDate()).isEqualTo(LocalDate.now());
+    }
+
+    @Test
+    public void setVisitedForShouldNotSetPassedDateIfStationHasPreviouslyStatusNotVisited() {
+        // given
+        final LocalDate yesterday = PASSED_DATE.minusDays(1);
+        final Station amersham = Station.passed(STATION_NAME, lines, yesterday);
+        Stations stations = new Stations(Collections.singletonList(amersham));
+
+        // when
+        stations.setVisitedFor(amersham);
+
+        // then
+        assertThat(stations.getStationByName(STATION_NAME).getPassedDate()).isEqualTo(yesterday);
+        assertThat(stations.getStationByName(STATION_NAME).getVisitedDate()).isEqualTo(LocalDate.now());
+    }
+
 
     @Test
     public void countStationPassedShouldCountStationPassed() {
@@ -187,6 +215,18 @@ public class StationsTest {
         // then
         assertThat(result).isEqualTo(expectedStation);
 
+    }
+
+    @Test //this test based on test data
+    public void totalNumberShouldReturn3ForStationsCount() {
+        // given
+        final Stations stations = generateStations();
+
+        // when
+        final int result = stations.totalNumber();
+
+        // then
+        assertThat(result).isEqualTo(3);
     }
 
     private Stations generateStations() {

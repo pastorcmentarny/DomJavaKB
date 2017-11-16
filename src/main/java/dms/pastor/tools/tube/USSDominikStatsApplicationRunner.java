@@ -37,7 +37,6 @@ class USSDominikStatsApplicationRunner {
         final List<Station> stationList = dataUploader.load(path);
         TubeCLI tubeCLI = new TubeCLI(new Stations(stationList), new Scanner(System.in));
         tubeCLI.main();
-        update(stationList);
 
         stationList.forEach(System.out::println);
         LOGGER.info("Saving data..");
@@ -47,12 +46,5 @@ class USSDominikStatsApplicationRunner {
         LOGGER.info("Done. Goodbye!");
     }
 
-    private static void update(List<Station> stationList) {
-        stationList.forEach(System.out::println);
-        LOGGER.info("Saving data..");
-        DataWriter dataWriter = new DataWriter();
-        dataWriter.save(path, stationList);
-
-    }
 
 }

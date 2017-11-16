@@ -55,10 +55,12 @@ class TubeCLI {
                         break;
                     default:
                         System.out.println(INVALID_CHOICE_MESSAGE);
+                        break;
                 }
             } catch (RuntimeException e) {
                 System.out.println(INVALID_CHOICE_MESSAGE);
                 LOGGER.warn("User typed gibberish." + e.getMessage(), e);
+                scanner.next();
             }
         }
 
@@ -110,6 +112,15 @@ class TubeCLI {
 
     public void displayStatistic() {
         System.out.println("You visited " + stations.countStationVisited() + " station(s).");
+        System.out.print("It is a " + stations.countStationVisited() / stations.getStationList().size());
         System.out.println("You passed " + stations.countStationPassed() + " station(s).");
+        displayWarningIfTotalStationNumberIsWrong();
+    }
+
+    private void displayWarningIfTotalStationNumberIsWrong() {
+        final int totalNumber = 269; //it is 270 as there are 2 Edgware road stations
+        if (stations.totalNumber() != totalNumber) {
+            System.out.println("WARNING! Total number should be " + totalNumber + " but file contains only " + stations.totalNumber());
+        }
     }
 }
