@@ -1,5 +1,8 @@
 package dms.pastor.tools.tube;
 
+import java.time.LocalDate;
+import java.util.Objects;
+
 /**
  * Author Dominik Symonowicz
  * Created 07/11/2017
@@ -16,6 +19,10 @@ final class ToStationConverter {
 
     public static Station convert(String stationAsString) {
         final String[] validatedLine = StationLineValidator.validate(stationAsString);
-        return new Station(validatedLine[0], Status.fromValue(validatedLine[1]), Line.noLine());
+        return new Station(validatedLine[0], Status.fromValue(validatedLine[1]), Line.noLine(), setDateFor(validatedLine[3]), setDateFor(validatedLine[4]));
+    }
+
+    private static LocalDate setDateFor(String date) {
+        return Objects.isNull(date) || date.equalsIgnoreCase("none") ? null : LocalDate.parse(date);
     }
 }

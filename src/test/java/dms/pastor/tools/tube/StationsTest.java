@@ -5,6 +5,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -16,8 +17,11 @@ import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class StationsTest {
-    private static final Station WEMBLEY_PARK = new Station("Wembley Park", Status.VISITED, noLine());
+    private static final LocalDate PASSED_DATE = LocalDate.now();
+    private static final LocalDate VISITED_DATE = LocalDate.now();
+    private static final Station WEMBLEY_PARK = new Station("Wembley Park", Status.VISITED, noLine(), PASSED_DATE, VISITED_DATE);
     private static final String STATION_NOT_FOUND_ERROR_MESSAGE = "Station was not found.";
+    private static final String STATION_NAME = "Amersham";
     private final List<Line> lines = Collections.singletonList(new Line("none"));
     private Stations stations = generateStations();
 
@@ -28,8 +32,8 @@ public class StationsTest {
     @Test
     public void getStationByNameShouldReturnStation() {
         // given
-        final String stationName = "Amersham";
-        final Station amershamStaton = new Station(stationName, NOT_VISITED, lines);
+        final String stationName = STATION_NAME;
+        final Station amershamStaton = Station.notVisited(stationName, lines);
         Stations stations = new Stations(Collections.singletonList(amershamStaton));
 
         // when
@@ -43,8 +47,8 @@ public class StationsTest {
     @Test
     public void setPassedForShouldSetStatusToPassIfStationHasStatusNotVisited() {
         // given
-        final String stationName = "Amersham";
-        final Station amersham = new Station(stationName, NOT_VISITED, lines);
+        final String stationName = STATION_NAME;
+        final Station amersham = Station.notVisited(stationName, lines);
         Stations stations = new Stations(Collections.singletonList(amersham));
 
         // when
@@ -58,8 +62,9 @@ public class StationsTest {
     @Test
     public void setPassedForShouldNotChangeStatusToPassedForVisited() {
         // given
-        final String stationName = "Amersham";
-        final Station amersham = new Station(stationName, VISITED, lines);
+        final String stationName = STATION_NAME;
+        final LocalDate today = LocalDate.now();
+        final Station amersham = new Station(stationName, VISITED, lines, today, today);
         Stations stations = new Stations(Collections.singletonList(amersham));
 
         // when
@@ -72,8 +77,9 @@ public class StationsTest {
     @Test
     public void setVisitedForShouldSetStatusToVisitedIfStationHasStatusNotVisited() {
         // given
-        final String stationName = "Amersham";
-        final Station amersham = new Station(stationName, NOT_VISITED, lines);
+        final String stationName = STATION_NAME;
+        final LocalDate today = LocalDate.now();
+        final Station amersham = new Station(stationName, NOT_VISITED, lines, today, today);
         Stations stations = new Stations(Collections.singletonList(amersham));
 
         // when
@@ -86,8 +92,8 @@ public class StationsTest {
     @Test
     public void setVisitedForShouldSetStatusToVisitedIfStationHasStatusPassed() {
         // given
-        final String stationName = "Amersham";
-        final Station amersham = new Station(stationName, PASSED, lines);
+        final String stationName = STATION_NAME;
+        final Station amersham = Station.passed(stationName, lines, PASSED_DATE);
         Stations stations = new Stations(Collections.singletonList(amersham));
 
         // when
@@ -158,11 +164,36 @@ public class StationsTest {
         assertThat(station).isEqualTo(WEMBLEY_PARK);
     }
 
+    @Test
+    public void passedShouldReturnStationWithPassedDateButWithoutVisitedDate() {
+        // given
+        final Station expectedStation = new Station(STATION_NAME, PASSED, noLine(), PASSED_DATE, null);
+
+        // when
+        final Station result = Station.passed(STATION_NAME, noLine(), PASSED_DATE);
+
+        // then
+        assertThat(result).isEqualTo(expectedStation);
+    }
+
+    @Test
+    public void notVisitedShouldReturnStationWithoutPassedAndOrVisitedDate() {
+        // given
+        final Station expectedStation = new Station(STATION_NAME, NOT_VISITED, noLine(), null, null);
+
+        // when
+        final Station result = Station.notVisited(STATION_NAME, noLine());
+
+        // then
+        assertThat(result).isEqualTo(expectedStation);
+
+    }
+
     private Stations generateStations() {
         List<Station> stationList = new ArrayList<>();
         stationList.add(WEMBLEY_PARK);
-        stationList.add(new Station("Green Park", Status.PASSED, noLine()));
-        stationList.add(new Station("Elm Park", Status.NOT_VISITED, noLine()));
+        stationList.add(Station.passed("Green Park", noLine(), LocalDate.now()));
+        stationList.add(Station.notVisited("Elm Park", noLine()));
         return new Stations(stationList);
     }
 

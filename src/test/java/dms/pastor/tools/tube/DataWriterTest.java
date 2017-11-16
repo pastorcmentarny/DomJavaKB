@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import java.io.File;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -12,7 +13,7 @@ import java.util.List;
 
 import static dms.pastor.TestConfig.TEST_BASE_PATH;
 import static dms.pastor.tools.tube.Line.noLine;
-import static dms.pastor.tools.tube.Status.fromValue;
+import static dms.pastor.tools.tube.Status.VISITED;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -35,7 +36,7 @@ public class DataWriterTest {
 
         // given
         DataWriter writer = new DataWriter();
-        final Station amershamStation = new Station("Amersham", null, null);
+        final Station amershamStation = new Station("Amersham", null, null, null, null);
         List<Station> stations = Collections.singletonList(amershamStation);
 
         // when
@@ -57,8 +58,8 @@ public class DataWriterTest {
         file.createNewFile();
         file.deleteOnExit(); //comment this out if you need see file
 
-        final Station amershamStation = new Station("Amersham", fromValue("V"), noLine());
-        final Station cheshamStation = new Station("Pinner", fromValue("P"), noLine());
+        final Station amershamStation = new Station("Amersham", VISITED, noLine(), LocalDate.now(), LocalDate.now());
+        final Station cheshamStation = Station.passed("Pinner", noLine(), LocalDate.now());
         List<Station> stations = new ArrayList<>();
         stations.add(amershamStation);
         stations.add(cheshamStation);

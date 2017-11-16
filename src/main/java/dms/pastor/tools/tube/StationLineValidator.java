@@ -1,5 +1,7 @@
 package dms.pastor.tools.tube;
 
+import java.util.Objects;
+
 import static dms.pastor.tools.tube.Station.SEPARATOR;
 import static dms.pastor.utils.ValidatorUtils.validateIfNotEmpty;
 
@@ -14,7 +16,7 @@ import static dms.pastor.utils.ValidatorUtils.validateIfNotEmpty;
  */
 
 class StationLineValidator {
-    private static final int columnsNumber = 3;
+    private static final int columnsNumber = 5;
 
     public static String[] validate(String stationAsString) {
 
@@ -23,7 +25,28 @@ class StationLineValidator {
         if (columns.length != columnsNumber) {
             throw new IllegalArgumentException("Invalid number of columns. Expect " + columnsNumber + " but was " + columns.length);
         }
-        Status.fromValue(columns[1]);
+        final Status status = Status.fromValue(columns[1]);
+        verifyPassedDate(columns, status);
+        verifyVisitedDate(columns, status);
+
         return columns;
     }
+
+    private static void verifyPassedDate(String[] columns, Status status) {
+        if (status == Status.PASSED || status == Status.VISITED) {
+            if (Objects.isNull(columns[3])) {
+                throw new IllegalArgumentException("Status is passed/visited but there is date missing for passed date");
+            }
+        }
+    }
+
+    private static void verifyVisitedDate(String[] columns, Status status) {
+        if (status == Status.VISITED) {
+            if (Objects.isNull(columns[4])) {
+                throw new IllegalArgumentException("Status is visited but there is date missing for visited date");
+            }
+        }
+    }
+
+
 }

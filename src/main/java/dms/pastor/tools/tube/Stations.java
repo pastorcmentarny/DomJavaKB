@@ -4,6 +4,7 @@ import dms.pastor.domain.exception.NotFoundException;
 import dms.pastor.utils.StringUtils;
 import org.slf4j.LoggerFactory;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import static dms.pastor.tools.tube.Status.PASSED;
@@ -26,6 +27,7 @@ public class Stations {
     public void setPassedFor(Station station) {
         if (station.getStatus() != VISITED && station.getStatus() != PASSED) {
             station.setStatus(PASSED);
+            station.setPassedDate(LocalDate.now());
         } else {
             LOGGER.info("You passed or visited this station already.");
         }
@@ -39,7 +41,13 @@ public class Stations {
     }
 
     public void setVisitedFor(Station station) {
-        station.setStatus(VISITED);
+        if (station.getStatus() != VISITED) {
+            station.setStatus(VISITED);
+            station.setVisitedDate(LocalDate.now());
+        } else {
+            LOGGER.info("You visited this station already.");
+        }
+
     }
 
     public long countStationPassed() {

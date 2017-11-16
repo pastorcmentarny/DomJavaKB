@@ -1,269 +1,269 @@
-Acton Town;;X;;none
-Aldgate;;X;;none
-Aldgate East;;X;;none
-Alperton;;X;;none
-Amersham;;X;;none
-Angel;;X;;none
-Archway;;X;;none
-Arnos Grove;;X;;none
-Arsenal;;X;;none
-Baker Street;;X;;none
-Balham;;X;;none
-Bank;;X;;none
-Barbican;;X;;none
-Barking;;X;;none
-Barkingside;;X;;none
-Barons Court;;X;;none
-Bayswater;;X;;none
-Becontree;;X;;none
-Belsize Park;;X;;none
-Bermondsey;;X;;none
-Bethnal Green;;X;;none
-Blackfriars;;X;;none
-Blackhorse Road;;X;;none
-Bond Street;;X;;none
-Borough;;X;;none
-Boston Manor;;X;;none
-Hounslow;;X;;none
-Bounds Green;;X;;none
-Bow Road;;X;;none
-Brent Cross;;X;;none
-Brixton;;X;;none
-Bromley-by-Bow;;X;;none
-Buckhurst Hill;;X;;none
-Burnt Oak;;X;;none
-Caledonian Road;;X;;none
-Camden Town;;X;;none
-Canada Water;;X;;none
-Canary Wharf;;X;;none
-Canning Town;;X;;none
-Cannon Street;;X;;none
-Canons Park;;X;;none
-Chalfont & Latimer;;X;;none
-Chalk Farm;;X;;none
-Chancery Lane;;X;;none
-Camden;;X;;none
-Charing Cross;;X;;none
-Chesham;;X;;none
-Chigwell;;X;;none
-Chiswick Park;;X;;none
-Chorleywood;;X;;none
-Clapham Common;;X;;none
-Clapham North;;X;;none
-Clapham South;;X;;none
-Cockfosters;;X;;none
-Colindale;;X;;none
-Colliers Wood;;X;;none
-Covent Garden;;X;;none
-Croxley;;X;;none
-Dagenham East;;X;;none
-Dagenham Heathway;;X;;none
-Debden;;X;;none
-Dollis Hill;;X;;none
-Ealing Broadway;;X;;none
-Ealing Common;;X;;none
-Earl's Court;;X;;none
-East Acton;;X;;none
-East Finchley;;X;;none
-East Ham;;X;;none
-East Putney;;X;;none
-Eastcote;;X;;none
-Edgware;;X;;none
-Edgware Road;;X;;none
-Elephant & Castle;;X;;none
-Elm Park;;X;;none
-Embankment;;X;;none
-Epping;;X;;none
-Euston;;X;;none
-Euston Square;;X;;none
-Fairlop;;X;;none
-Farringdon;;X;;none
-Finchley Road;;X;;none
-Finsbury Park;;X;;none
-Fulham Broadway;;X;;none
-Gants Hill;;X;;none
-Gloucester Road;;X;;none
-Golders Green;;X;;none
-Goldhawk Road;;X;;none
-Goodge Street;;X;;none
-Grange Hill;;X;;none
-Great Portland Street;;X;;none
-Greenford;;X;;none
-Green Park;;X;;none
-Gunnersbury;;X;;none
-Hainault;;X;;none
-Hammersmith;;X;;none
-HammersmithHampstead;;X;;none
-Hanger Lane;;X;;none
-Harlesden;;X;;none
-Harrow & Wealdstone;;X;;none
-Harrow-on-the-Hill;;X;;none
-Hatton Cross;;X;;none
-Heathrow Terminals 1, 2, 3;;X;;none
-Heathrow Terminal 4;;X;;none
-Heathrow Terminal 5;;X;;none
-Hendon High Barnet;;X;;none
-Highbury & Islington;;X;;none
-Highgate;;X;;none
-High Street Kensington;;X;;none
-Holborn;;X;;none
-Holland Park;;X;;none
-Holloway Road;;X;;none
-Hornchurch;;X;;none
-Hounslow;;X;;none
-Hounslow East;;X;;none
-Hounslow West;;X;;none
-Hyde Park Corner;;X;;none
-Ickenham;;X;;none
-Kennington;;X;;none
-Kensal Green;;X;;none
-Kensington (Olympia);;X;;none
-Kentish Town;;X;;none
-Kenton;;X;;none
-Harrow;;X;;none
-Kew Gardens;;X;;none
-Kilburn;;X;;none
-Kilburn Park;;X;;none
-Kingsbury;;X;;none
-King's Cross St. Pancras;;X;;none
-Knightsbridge;;X;;none
-Ladbroke Grove;;X;;none
-Lambeth North;;X;;none
-Lancaster Gate;;X;;none
-Latimer Road;;X;;none
-Leicester Square;;X;;none
-Leyton;;X;;none
-Leytonstone;;X;;none
-Liverpool Street;;X;;none
-London Bridge;;X;;none
-Loughton;;X;;none
-Maida Vale;;X;;none
-Manor House;;X;;none
-Haringey;;X;;none
-Mansion House;;X;;none
-Marble Arch;;X;;none
-Marylebone;;X;;none
-Mile End;;X;;none
-Mill Hill East;;X;;none
-Monument;;X;;none
-Moorgate;;X;;none
-Moor Park;;X;;none
-Morden;;X;;none
-Mornington Crescent;;X;;none
-Neasden;;X;;none
-Newbury Park;;X;;none
-North Acton;;X;;none
-North Ealing;;X;;none
-North Greenwich;;X;;none
-North Harrow;;X;;none
-North Wembley;;X;;none
-Northfields;;X;;none
-Northolt;;X;;none
-Northwick Park;;X;;none
-Northwood;;X;;none
-Northwood Hills;;X;;none
-Notting Hill Gate;;X;;none
-Oakwood;;X;;none
-Old Street;;X;;none
-Hackney;;X;;none
-Osterley;;X;;none
-Oval;;X;;none
-Oxford Circus;;X;;none
-Paddington;;X;;none
-Parsons Green;;X;;none
-Perivale;;X;;none
-Piccadilly Circus;;X;;none
-Pimlico;;X;;none
-Pinner;;X;;none
-Plaistow;;X;;none
-Preston Road;;X;;none
-Putney Bridge;;X;;none
-Queen's Park;;X;;none
-Queensbury;;X;;none
-Queensway;;X;;none
-Ravenscourt Park;;X;;none
-Rayners Lane;;X;;none
-Redbridge;;X;;none
-Regent's Park;;X;;none
-Richmond;;X;;none
-Rickmansworth;;P;;none
-Roding Valley;;X;;none
-Redbridge;;X;;none
-Royal Oak;;X;;none
-Ruislip;;X;;none
-Ruislip Gardens;;X;;none
-Ruislip Manor;;X;;none
-Russell Square;;X;;none
-St. James's Park;;X;;none
-St. John's Wood;;X;;none
-St. Paul's;;X;;none
-Seven Sisters;;X;;none
-Shepherd's Bush;;X;;none
-Shepherd's Bush Market;;X;;none
-Sloane Square;;X;;none
-Snaresbrook;;X;;none
-South Ealing;;X;;none
-South Harrow;;X;;none
-South Kensington;;X;;none
-South Kenton;;X;;none
-South Ruislip;;X;;none
-South Wimbledon;;X;;none
-South Woodford;;X;;none
-Southfields;;X;;none
-Southgate;;X;;none
-Southwark;;X;;none
-Stamford Brook;;X;;none
-Stanmore;;X;;none
-Stepney Green;;X;;none
-Stockwell;;X;;none
-Stonebridge Park;;X;;none
-Stratford;;X;;none
-Sudbury Hill;;X;;none
-Harrow;;X;;none
-Sudbury Town;;X;;none
-Ealing;;X;;none
-Swiss Cottage;;X;;none
-Temple;;X;;none
-Theydon Bois;;X;;none
-Tooting Bec;;X;;none
-Tooting Broadway;;X;;none
-Tottenham Court Road;;X;;none
-Tottenham Hale;;X;;none
-Totteridge & Whetstone;;X;;none
-Tower Hill;;X;;none
-Tufnell Park;;X;;none
-Turnham Green;;X;;none
-Turnpike Lane;;X;;none
-Upminster;;X;;none
-Upminster Bridge;;X;;none
-Upney;;X;;none
-Upton Park;;X;;none
-Uxbridge;;X;;none
-Vauxhall;;X;;none
-Victoria;;X;;none
-Walthamstow Wanstead;;X;;none
-Warren Street;;X;;none
-Warwick Avenue;;X;;none
-Waterloo;;X;;none
-Watford;;X;;none
-Wembley Park;;X;;none
-West Acton;;X;;none
-West Brompton;;X;;none
-West Finchley;;X;;none
-West Ham;;X;;none
-West Hampstead;;X;;none
-West Harrow;;X;;none
-West Kensington;;X;;none
-West Ruislip;;X;;none
-Westbourne Park;;X;;none
-Westminster;;X;;none
-White City;;X;;none
-Whitechapel;;X;;none
-Willesden Green;;X;;none
-Willesden Junction;;X;;none
-Wimbledon;;X;;none
-Wimbledon Park;;X;;none
-Wood Green;;X;;none
-Wood Lane;;X;;none
-Woodford;;X;;none
-Woodside Park;;X;;none
+Acton Town;;X;;none;;none;;none
+Aldgate;;X;;none;;none;;none
+Aldgate East;;X;;none;;none;;none
+Alperton;;X;;none;;none;;none
+Amersham;;X;;none;;none;;none
+Angel;;X;;none;;none;;none
+Archway;;X;;none;;none;;none
+Arnos Grove;;X;;none;;none;;none
+Arsenal;;X;;none;;none;;none
+Baker Street;;X;;none;;none;;none
+Balham;;X;;none;;none;;none
+Bank;;X;;none;;none;;none
+Barbican;;X;;none;;none;;none
+Barking;;X;;none;;none;;none
+Barkingside;;X;;none;;none;;none
+Barons Court;;X;;none;;none;;none
+Bayswater;;X;;none;;none;;none
+Becontree;;X;;none;;none;;none
+Belsize Park;;X;;none;;none;;none
+Bermondsey;;X;;none;;none;;none
+Bethnal Green;;X;;none;;none;;none
+Blackfriars;;X;;none;;none;;none
+Blackhorse Road;;X;;none;;none;;none
+Bond Street;;X;;none;;none;;none
+Borough;;X;;none;;none;;none
+Boston Manor;;X;;none;;none;;none
+Hounslow;;X;;none;;none;;none
+Bounds Green;;X;;none;;none;;none
+Bow Road;;X;;none;;none;;none
+Brent Cross;;X;;none;;none;;none
+Brixton;;X;;none;;none;;none
+Bromley-by-Bow;;X;;none;;none;;none
+Buckhurst Hill;;X;;none;;none;;none
+Burnt Oak;;X;;none;;none;;none
+Caledonian Road;;X;;none;;none;;none
+Camden Town;;X;;none;;none;;none
+Canada Water;;X;;none;;none;;none
+Canary Wharf;;X;;none;;none;;none
+Canning Town;;X;;none;;none;;none
+Cannon Street;;X;;none;;none;;none
+Canons Park;;X;;none;;none;;none
+Chalfont & Latimer;;X;;none;;none;;none
+Chalk Farm;;X;;none;;none;;none
+Chancery Lane;;X;;none;;none;;none
+Camden;;X;;none;;none;;none
+Charing Cross;;X;;none;;none;;none
+Chesham;;X;;none;;none;;none
+Chigwell;;X;;none;;none;;none
+Chiswick Park;;X;;none;;none;;none
+Chorleywood;;X;;none;;none;;none
+Clapham Common;;X;;none;;none;;none
+Clapham North;;X;;none;;none;;none
+Clapham South;;X;;none;;none;;none
+Cockfosters;;X;;none;;none;;none
+Colindale;;X;;none;;none;;none
+Colliers Wood;;X;;none;;none;;none
+Covent Garden;;X;;none;;none;;none
+Croxley;;X;;none;;none;;none
+Dagenham East;;X;;none;;none;;none
+Dagenham Heathway;;X;;none;;none;;none
+Debden;;X;;none;;none;;none
+Dollis Hill;;X;;none;;none;;none
+Ealing Broadway;;X;;none;;none;;none
+Ealing Common;;X;;none;;none;;none
+Earl's Court;;X;;none;;none;;none
+East Acton;;X;;none;;none;;none
+East Finchley;;X;;none;;none;;none
+East Ham;;X;;none;;none;;none
+East Putney;;X;;none;;none;;none
+Eastcote;;X;;none;;none;;none
+Edgware;;X;;none;;none;;none
+Edgware Road;;X;;none;;none;;none
+Elephant & Castle;;X;;none;;none;;none
+Elm Park;;X;;none;;none;;none
+Embankment;;X;;none;;none;;none
+Epping;;X;;none;;none;;none
+Euston;;X;;none;;none;;none
+Euston Square;;X;;none;;none;;none
+Fairlop;;X;;none;;none;;none
+Farringdon;;X;;none;;none;;none
+Finchley Road;;X;;none;;none;;none
+Finsbury Park;;X;;none;;none;;none
+Fulham Broadway;;X;;none;;none;;none
+Gants Hill;;X;;none;;none;;none
+Gloucester Road;;X;;none;;none;;none
+Golders Green;;X;;none;;none;;none
+Goldhawk Road;;X;;none;;none;;none
+Goodge Street;;X;;none;;none;;none
+Grange Hill;;X;;none;;none;;none
+Great Portland Street;;X;;none;;none;;none
+Greenford;;X;;none;;none;;none
+Green Park;;X;;none;;none;;none
+Gunnersbury;;X;;none;;none;;none
+Hainault;;X;;none;;none;;none
+Hammersmith;;X;;none;;none;;none
+HammersmithHampstead;;X;;none;;none;;none
+Hanger Lane;;X;;none;;none;;none
+Harlesden;;X;;none;;none;;none
+Harrow & Wealdstone;;X;;none;;none;;none
+Harrow-on-the-Hill;;X;;none;;none;;none
+Hatton Cross;;X;;none;;none;;none
+Heathrow Terminals 1, 2, 3;;X;;none;;none;;none
+Heathrow Terminal 4;;X;;none;;none;;none
+Heathrow Terminal 5;;X;;none;;none;;none
+Hendon High Barnet;;X;;none;;none;;none
+Highbury & Islington;;X;;none;;none;;none
+Highgate;;X;;none;;none;;none
+High Street Kensington;;X;;none;;none;;none
+Holborn;;X;;none;;none;;none
+Holland Park;;X;;none;;none;;none
+Holloway Road;;X;;none;;none;;none
+Hornchurch;;X;;none;;none;;none
+Hounslow;;X;;none;;none;;none
+Hounslow East;;X;;none;;none;;none
+Hounslow West;;X;;none;;none;;none
+Hyde Park Corner;;X;;none;;none;;none
+Ickenham;;X;;none;;none;;none
+Kennington;;X;;none;;none;;none
+Kensal Green;;X;;none;;none;;none
+Kensington (Olympia);;X;;none;;none;;none
+Kentish Town;;X;;none;;none;;none
+Kenton;;X;;none;;none;;none
+Harrow;;X;;none;;none;;none
+Kew Gardens;;X;;none;;none;;none
+Kilburn;;X;;none;;none;;none
+Kilburn Park;;X;;none;;none;;none
+Kingsbury;;X;;none;;none;;none
+King's Cross St. Pancras;;X;;none;;none;;none
+Knightsbridge;;X;;none;;none;;none
+Ladbroke Grove;;X;;none;;none;;none
+Lambeth North;;X;;none;;none;;none
+Lancaster Gate;;X;;none;;none;;none
+Latimer Road;;X;;none;;none;;none
+Leicester Square;;X;;none;;none;;none
+Leyton;;X;;none;;none;;none
+Leytonstone;;X;;none;;none;;none
+Liverpool Street;;X;;none;;none;;none
+London Bridge;;X;;none;;none;;none
+Loughton;;X;;none;;none;;none
+Maida Vale;;X;;none;;none;;none
+Manor House;;X;;none;;none;;none
+Haringey;;X;;none;;none;;none
+Mansion House;;X;;none;;none;;none
+Marble Arch;;X;;none;;none;;none
+Marylebone;;X;;none;;none;;none
+Mile End;;X;;none;;none;;none
+Mill Hill East;;X;;none;;none;;none
+Monument;;X;;none;;none;;none
+Moorgate;;X;;none;;none;;none
+Moor Park;;X;;none;;none;;none
+Morden;;X;;none;;none;;none
+Mornington Crescent;;X;;none;;none;;none
+Neasden;;X;;none;;none;;none
+Newbury Park;;X;;none;;none;;none
+North Acton;;X;;none;;none;;none
+North Ealing;;X;;none;;none;;none
+North Greenwich;;X;;none;;none;;none
+North Harrow;;X;;none;;none;;none
+North Wembley;;X;;none;;none;;none
+Northfields;;X;;none;;none;;none
+Northolt;;X;;none;;none;;none
+Northwick Park;;X;;none;;none;;none
+Northwood;;X;;none;;none;;none
+Northwood Hills;;X;;none;;none;;none
+Notting Hill Gate;;X;;none;;none;;none
+Oakwood;;X;;none;;none;;none
+Old Street;;X;;none;;none;;none
+Hackney;;X;;none;;none;;none
+Osterley;;X;;none;;none;;none
+Oval;;X;;none;;none;;none
+Oxford Circus;;X;;none;;none;;none
+Paddington;;X;;none;;none;;none
+Parsons Green;;X;;none;;none;;none
+Perivale;;X;;none;;none;;none
+Piccadilly Circus;;X;;none;;none;;none
+Pimlico;;X;;none;;none;;none
+Pinner;;X;;none;;none;;none
+Plaistow;;X;;none;;none;;none
+Preston Road;;X;;none;;none;;none
+Putney Bridge;;X;;none;;none;;none
+Queen's Park;;X;;none;;none;;none
+Queensbury;;X;;none;;none;;none
+Queensway;;X;;none;;none;;none
+Ravenscourt Park;;X;;none;;none;;none
+Rayners Lane;;X;;none;;none;;none
+Redbridge;;X;;none;;none;;none
+Regent's Park;;X;;none;;none;;none
+Richmond;;X;;none;;none;;none
+Rickmansworth;;P;;none;;2017-01-02;;none
+Roding Valley;;X;;none;;none;;none
+Redbridge;;X;;none;;none;;none
+Royal Oak;;X;;none;;none;;none
+Ruislip;;X;;none;;none;;none
+Ruislip Gardens;;X;;none;;none;;none
+Ruislip Manor;;X;;none;;none;;none
+Russell Square;;X;;none;;none;;none
+St. James's Park;;X;;none;;none;;none
+St. John's Wood;;X;;none;;none;;none
+St. Paul's;;X;;none;;none;;none
+Seven Sisters;;X;;none;;none;;none
+Shepherd's Bush;;X;;none;;none;;none
+Shepherd's Bush Market;;X;;none;;none;;none
+Sloane Square;;X;;none;;none;;none
+Snaresbrook;;X;;none;;none;;none
+South Ealing;;X;;none;;none;;none
+South Harrow;;X;;none;;none;;none
+South Kensington;;X;;none;;none;;none
+South Kenton;;X;;none;;none;;none
+South Ruislip;;X;;none;;none;;none
+South Wimbledon;;X;;none;;none;;none
+South Woodford;;X;;none;;none;;none
+Southfields;;X;;none;;none;;none
+Southgate;;X;;none;;none;;none
+Southwark;;X;;none;;none;;none
+Stamford Brook;;X;;none;;none;;none
+Stanmore;;X;;none;;none;;none
+Stepney Green;;X;;none;;none;;none
+Stockwell;;X;;none;;none;;none
+Stonebridge Park;;X;;none;;none;;none
+Stratford;;X;;none;;none;;none
+Sudbury Hill;;X;;none;;none;;none
+Harrow;;X;;none;;none;;none
+Sudbury Town;;X;;none;;none;;none
+Ealing;;X;;none;;none;;none
+Swiss Cottage;;X;;none;;none;;none
+Temple;;X;;none;;none;;none
+Theydon Bois;;X;;none;;none;;none
+Tooting Bec;;X;;none;;none;;none
+Tooting Broadway;;X;;none;;none;;none
+Tottenham Court Road;;X;;none;;none;;none
+Tottenham Hale;;X;;none;;none;;none
+Totteridge & Whetstone;;X;;none;;none;;none
+Tower Hill;;X;;none;;none;;none
+Tufnell Park;;X;;none;;none;;none
+Turnham Green;;X;;none;;none;;none
+Turnpike Lane;;X;;none;;none;;none
+Upminster;;X;;none;;none;;none
+Upminster Bridge;;X;;none;;none;;none
+Upney;;X;;none;;none;;none
+Upton Park;;X;;none;;none;;none
+Uxbridge;;X;;none;;none;;none
+Vauxhall;;X;;none;;none;;none
+Victoria;;X;;none;;none;;none
+Walthamstow Wanstead;;X;;none;;none;;none
+Warren Street;;X;;none;;none;;none
+Warwick Avenue;;X;;none;;none;;none
+Waterloo;;X;;none;;none;;none
+Watford;;X;;none;;none;;none
+Wembley Park;;X;;none;;none;;none
+West Acton;;X;;none;;none;;none
+West Brompton;;X;;none;;none;;none
+West Finchley;;X;;none;;none;;none
+West Ham;;X;;none;;none;;none
+West Hampstead;;X;;none;;none;;none
+West Harrow;;X;;none;;none;;none
+West Kensington;;X;;none;;none;;none
+West Ruislip;;X;;none;;none;;none
+Westbourne Park;;X;;none;;none;;none
+Westminster;;X;;none;;none;;none
+White City;;X;;none;;none;;none
+Whitechapel;;X;;none;;none;;none
+Willesden Green;;X;;none;;none;;none
+Willesden Junction;;X;;none;;none;;none
+Wimbledon;;X;;none;;none;;none
+Wimbledon Park;;X;;none;;none;;none
+Wood Green;;X;;none;;none;;none
+Wood Lane;;X;;none;;none;;none
+Woodford;;X;;none;;none;;none
+Woodside Park;;X;;none;;none;;none

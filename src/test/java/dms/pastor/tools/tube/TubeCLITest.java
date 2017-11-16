@@ -12,6 +12,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -84,8 +85,8 @@ public class TubeCLITest {
         cli.main();
 
         //then
-        assertThat(outputStream.toString()).contains("Wembley Park was visited" + System.lineSeparator() +
-                "Green Park was passed" + System.lineSeparator() +
+        assertThat(outputStream.toString()).contains("Wembley Park was visited at " + LocalDate.now() + System.lineSeparator() +
+                "Green Park was passed at " + LocalDate.now() + System.lineSeparator() +
                 "Elm Park was not visited" + System.lineSeparator());
     }
 
@@ -169,9 +170,9 @@ public class TubeCLITest {
 
     private Stations generateStations() {
         List<Station> stationList = new ArrayList<>();
-        stationList.add(new Station("Wembley Park", Status.VISITED, noLine()));
-        stationList.add(new Station("Green Park", Status.PASSED, noLine()));
-        stationList.add(new Station("Elm Park", Status.NOT_VISITED, noLine()));
+        stationList.add(new Station("Wembley Park", Status.VISITED, noLine(), LocalDate.now(), LocalDate.now()));
+        stationList.add(Station.passed("Green Park", noLine(), LocalDate.now()));
+        stationList.add(Station.notVisited("Elm Park", noLine()));
         return new Stations(stationList);
     }
 

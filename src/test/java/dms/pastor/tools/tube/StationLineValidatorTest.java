@@ -5,6 +5,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import java.time.LocalDate;
+
 import static dms.pastor.tools.tube.Station.SEPARATOR;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
@@ -56,7 +58,7 @@ public class StationLineValidatorTest {
         final String invalidStatus = "D";
 
         // when
-        StationLineValidator.validate("Acton Town" + SEPARATOR + invalidStatus + SEPARATOR + TUBE_LINE_NAME);
+        StationLineValidator.validate("Acton Town" + SEPARATOR + invalidStatus + SEPARATOR + TUBE_LINE_NAME + SEPARATOR + LocalDate.now() + SEPARATOR + LocalDate.now());
 
 
     }
