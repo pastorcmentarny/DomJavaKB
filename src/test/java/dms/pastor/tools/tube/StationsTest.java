@@ -131,10 +131,8 @@ public class StationsTest {
         assertThat(stations.getStationByName(STATION_NAME).getVisitedDate()).isEqualTo(LocalDate.now());
     }
 
-
     @Test
     public void countStationPassedShouldCountStationPassed() {
-
         // when
         final long count = stations.countStationPassed();
 
@@ -144,7 +142,6 @@ public class StationsTest {
 
     @Test
     public void countStationPassedShouldCountStationVisited() {
-
         // when
         final long count = stations.countStationVisited();
 

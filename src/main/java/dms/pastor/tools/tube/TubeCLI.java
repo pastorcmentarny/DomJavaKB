@@ -31,6 +31,7 @@ class TubeCLI {
             System.out.println("9. Exit.");
             try {
                 final int option = scanner.nextInt();
+                scanner.nextLine();
                 switch (option) {
                     case 0:
                         displayStatistic();
@@ -67,7 +68,7 @@ class TubeCLI {
     }
 
     private void updateStationStatusToVisited() {
-        final String option = scanner.next();
+        final String option = scanner.nextLine();
         LOGGER.debug(String.format("Updating status to visited for %s", option));
         try {
             final Station station = stations.findStation(option);
@@ -76,11 +77,12 @@ class TubeCLI {
             System.out.println("You set " + updatedStation.getName() + " status to " + updatedStation.getStatus().asName() + ".");
         } catch (NotFoundException nfe) {
             System.out.println("Station " + option + " not found.");
+            scanner.next();
         }
     }
 
     private void updateStationStatusToPassed() {
-        final String option = scanner.next();
+        final String option = scanner.nextLine();
         LOGGER.debug(String.format("Updating status to passed for %s", option));
         try {
             final Station station = stations.findStation(option);
@@ -101,7 +103,6 @@ class TubeCLI {
         } catch (NotFoundException nfe) {
             System.out.println("Station " + option + " not found.");
         }
-
     }
 
     private void displayStatusForAllStations() {
@@ -110,11 +111,16 @@ class TubeCLI {
                 .forEach(System.out::println);
     }
 
-    public void displayStatistic() {
-        System.out.println("You visited " + stations.countStationVisited() + " station(s).");
-        System.out.print("It is a " + stations.countStationVisited() / stations.getStationList().size());
-        System.out.println("You passed " + stations.countStationPassed() + " station(s).");
+    private void displayStatistic() {
+        System.out.println("You visited " + stations.countStationVisited() + " station(s). (" +
+                countPercentageOfAllStationFor(stations.countStationVisited()));
+        System.out.println("You passed " + stations.countStationPassed() + " station(s). (" +
+                countPercentageOfAllStationFor(stations.countStationPassed()));
         displayWarningIfTotalStationNumberIsWrong();
+    }
+
+    private String countPercentageOfAllStationFor(long what) {
+        return (what * 100 / stations.getStationList().size()) + "%)";
     }
 
     private void displayWarningIfTotalStationNumberIsWrong() {

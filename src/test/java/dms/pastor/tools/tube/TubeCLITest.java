@@ -25,6 +25,7 @@ import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TubeCLITest {
+    public static final String ELM_PARK_VALID_STATION = "Elm Park";
     @Rule
     public final ExpectedException exception = ExpectedException.none();
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
@@ -72,7 +73,7 @@ public class TubeCLITest {
         //then
         assertThat(outputStream.toString()).contains("Wembley Park" + System.lineSeparator() +
                 "Green Park" + System.lineSeparator() +
-                "Elm Park" + System.lineSeparator());
+                ELM_PARK_VALID_STATION + System.lineSeparator());
     }
 
     @Test
@@ -125,7 +126,8 @@ public class TubeCLITest {
         // given
         when(scanner.nextInt()).thenReturn(3).thenReturn(2)
                 .thenReturn(9);
-        when(scanner.next()).thenReturn("Elm Park");
+        when(scanner.next()).thenReturn(ELM_PARK_VALID_STATION);
+        when(scanner.nextLine()).thenReturn(ELM_PARK_VALID_STATION);
 
         //when
         cli.main();
@@ -151,13 +153,13 @@ public class TubeCLITest {
         assertThat(outputStream.toString()).contains("Station " + invalidStationName + " not found");
     }
 
-
     @Test
     public void updateStationStatusToVisitedShouldUpdateNotVisitedStationToVisited() {
         // given
         when(scanner.nextInt()).thenReturn(4).thenReturn(2)
                 .thenReturn(9);
-        when(scanner.next()).thenReturn("Elm Park");
+        when(scanner.next()).thenReturn(ELM_PARK_VALID_STATION);
+        when(scanner.nextLine()).thenReturn(ELM_PARK_VALID_STATION);
 
         //when
         cli.main();
@@ -172,7 +174,7 @@ public class TubeCLITest {
         List<Station> stationList = new ArrayList<>();
         stationList.add(new Station("Wembley Park", Status.VISITED, noLine(), LocalDate.now(), LocalDate.now()));
         stationList.add(Station.passed("Green Park", noLine(), LocalDate.now()));
-        stationList.add(Station.notVisited("Elm Park", noLine()));
+        stationList.add(Station.notVisited(ELM_PARK_VALID_STATION, noLine()));
         return new Stations(stationList);
     }
 
