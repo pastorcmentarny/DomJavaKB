@@ -6,11 +6,13 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Scanner;
 
+import static dms.pastor.tools.tube.USSDominikStatsApplicationRunner.STATION_PATH;
+
 class TubeCLI {
     private static final Logger LOGGER = LoggerFactory.getLogger(TubeCLI.class);
     private static final String INVALID_CHOICE_MESSAGE = "Invalid choice. Try again";
 
-    private final Stations stations;
+    private Stations stations;
     private Scanner scanner = new Scanner(System.in);
 
 
@@ -48,6 +50,12 @@ class TubeCLI {
                     case 4:
                         updateStationStatusToVisited();
                         break;
+                    case 6:
+                        //save();
+                        break;
+                    case 7:
+                        //reset();
+                        break;
                     case 8:
                         stations.getStationList().forEach(station -> System.out.println(station.getName()));
                         break;
@@ -64,10 +72,24 @@ class TubeCLI {
                 scanner.next();
             }
         }
+    }
 
+    private void save() {
+        //TODO backup before save
+        LOGGER.info("Saving data..");
+        DataWriter dataWriter = new DataWriter();
+        dataWriter.save(STATION_PATH, stations.getStationList());
+    }
+
+    private void reset() {
+        System.out.println("Reload data without saving.. All changes in the session will be discarded");
+        DataUploader dataUploader = new DataUploader();
+        stations = new Stations(dataUploader.load(STATION_PATH));
     }
 
     private void updateStationStatusToVisited() {
+        System.out.println("What station did you visit?");
+
         final String option = scanner.nextLine();
         LOGGER.debug(String.format("Updating status to visited for %s", option));
         try {
@@ -82,6 +104,8 @@ class TubeCLI {
     }
 
     private void updateStationStatusToPassed() {
+        System.out.println("What station did you passed?");
+
         final String option = scanner.nextLine();
         LOGGER.debug(String.format("Updating status to passed for %s", option));
         try {
@@ -116,6 +140,10 @@ class TubeCLI {
                 countPercentageOfAllStationFor(stations.countStationVisited()));
         System.out.println("You passed " + stations.countStationPassed() + " station(s). (" +
                 countPercentageOfAllStationFor(stations.countStationPassed()));
+
+        //TODO how many station blog about it
+        //TODO i am ahead or behind posting stations
+
         displayWarningIfTotalStationNumberIsWrong();
     }
 

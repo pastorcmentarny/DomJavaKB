@@ -26,7 +26,7 @@ class USSDominikStatsApplicationRunner {
     private static final String BASE_PATH = System.getProperty("user.dir") +
             separator + SRC + "main" +
             separator + RESOURCES;
-    private static final String path = BASE_PATH + "tube" + File.separator + "station.txt";
+    public static final String STATION_PATH = BASE_PATH + "tube" + File.separator + "station.txt";
 
     private USSDominikStatsApplicationRunner() {
     }
@@ -34,14 +34,14 @@ class USSDominikStatsApplicationRunner {
     public static void main(String[] args) {
         LOGGER.info("Loading data..");
         DataUploader dataUploader = new DataUploader();
-        final List<Station> stationList = dataUploader.load(path);
+        final List<Station> stationList = dataUploader.load(STATION_PATH);
         TubeCLI tubeCLI = new TubeCLI(new Stations(stationList), new Scanner(System.in));
         tubeCLI.main();
 
         stationList.forEach(System.out::println);
         LOGGER.info("Saving data..");
         DataWriter dataWriter = new DataWriter();
-        dataWriter.save(path, stationList);
+        dataWriter.save(STATION_PATH, stationList);
 
         LOGGER.info("Done. Goodbye!");
     }

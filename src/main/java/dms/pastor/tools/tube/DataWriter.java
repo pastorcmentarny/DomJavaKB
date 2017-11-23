@@ -29,6 +29,7 @@ class DataWriter {
         final String content = stationList.stream().map(Station::asLine).collect(Collectors.joining("\n"));
         try {
             Files.write(Paths.get(path), content.getBytes());
+            LOGGER.info("Date saved to file :" + path);
         } catch (IOException e) {
             LOGGER.error(format("Unable to save due %s", e.getMessage()), e);
         }
