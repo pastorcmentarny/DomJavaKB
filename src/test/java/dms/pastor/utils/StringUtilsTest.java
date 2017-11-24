@@ -186,6 +186,7 @@ public class StringUtilsTest {
         toStringArray(null);
     }
 
+    @SuppressWarnings("ConstantConditions")
     @Test
     public void isStringEmptyShouldReturnTrueForNull() throws Exception {
         // when

@@ -12,27 +12,19 @@ class TubeCLI {
     private static final Logger LOGGER = LoggerFactory.getLogger(TubeCLI.class);
     private static final String INVALID_CHOICE_MESSAGE = "Invalid choice. Try again";
 
-    private Stations stations;
+    private final Stations stations;
     private Scanner scanner = new Scanner(System.in);
 
 
-    public TubeCLI(Stations stations, Scanner scanner) {
+    TubeCLI(Stations stations, Scanner scanner) {
         this.stations = stations;
         this.scanner = scanner;
     }
 
-    public void main() {
+    void mainMenu() {
         boolean showMenu = true;
         while (showMenu) {
-            System.out.println("0. Stats");
-            System.out.println("1. Current Status for all station");
-            System.out.println("2. Current Status for selected station");
-            System.out.println("3. Update Status to Passed for station");
-            System.out.println("4. Update Status to Visited for station");
-            System.out.println("6. Save changes (with Backup)");
-            System.out.println("7. Discard unsaved changes");
-            System.out.println("8. Display list of all stations");
-            System.out.println("9. Exit");
+            displayMenu();
             try {
                 final int option = scanner.nextInt();
                 scanner.nextLine();
@@ -63,6 +55,7 @@ class TubeCLI {
                         break;
                     case 9:
                         showMenu = false;
+                        scanner.close();
                         break;
                     default:
                         System.out.println(INVALID_CHOICE_MESSAGE);
@@ -74,6 +67,18 @@ class TubeCLI {
                 scanner.next();
             }
         }
+    }
+
+    private void displayMenu() {
+        System.out.println("0. Stats");
+        System.out.println("1. Current Status for all station");
+        System.out.println("2. Current Status for selected station");
+        System.out.println("3. Update Status to Passed for station");
+        System.out.println("4. Update Status to Visited for station");
+        System.out.println("6. Save changes (with Backup)");
+        System.out.println("7. Discard unsaved changes");
+        System.out.println("8. Display list of all stations");
+        System.out.println("9. Exit");
     }
 
     private void save() {

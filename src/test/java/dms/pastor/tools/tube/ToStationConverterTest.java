@@ -18,8 +18,8 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class ToStationConverterTest {
 
-    public static final LocalDate PASSED_DATE = LocalDate.now();
-    public static final LocalDate VISITED_DATE = LocalDate.now();
+    private static final LocalDate PASSED_DATE = LocalDate.now();
+    private static final LocalDate VISITED_DATE = LocalDate.now();
 
     @Test
     public void convertShouldConvertStationAsStringToObject() {

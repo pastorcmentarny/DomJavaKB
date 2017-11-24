@@ -15,15 +15,18 @@ import static dms.pastor.utils.ValidatorUtils.validateIfNotEmpty;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 
-class StationLineValidator {
-    private static final int columnsNumber = 5;
+final class StationLineValidator {
+    private static final int COLUMNS_NUMBER = 5;
 
-    public static String[] validate(String stationAsString) {
+    private StationLineValidator() {
+    }
+
+    static String[] validate(String stationAsString) {
 
         validateIfNotEmpty(stationAsString, "Station as string");
         String[] columns = stationAsString.split(SEPARATOR);
-        if (columns.length != columnsNumber) {
-            throw new IllegalArgumentException("Invalid number of columns. Expect " + columnsNumber + " but was " + columns.length);
+        if (columns.length != COLUMNS_NUMBER) {
+            throw new IllegalArgumentException("Invalid number of columns. Expect " + COLUMNS_NUMBER + " but was " + columns.length);
         }
         final Status status = Status.fromValue(columns[1]);
         verifyPassedDate(columns, status);

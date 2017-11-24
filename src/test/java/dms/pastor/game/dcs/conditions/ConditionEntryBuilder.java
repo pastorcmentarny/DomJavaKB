@@ -49,8 +49,13 @@ public final class ConditionEntryBuilder {
         return this;
     }
 
-    public ConditionEntryBuilder persistent(boolean persistent) {
-        this.persistent = persistent;
+    public ConditionEntryBuilder persistent() {
+        this.persistent = true;
+        return this;
+    }
+
+    public ConditionEntryBuilder nonPersistent() {
+        this.persistent = false;
         return this;
     }
 

@@ -213,6 +213,7 @@ public class EnglishUtilsTest {
         assertThat(word).isFalse();
     }
 
+    @SuppressWarnings("UnnecessaryLocalVariable")
     @Test
     public void isStopWordShouldReturnFalseForEmptyString() throws Exception {
         // given

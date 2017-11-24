@@ -40,11 +40,11 @@ public class Condition {
             return condition;
         }
 
-        addAllCondtionsEntries(condition, conditionEntries);
+        addAllConditionsEntries(condition, conditionEntries);
         return condition;
     }
 
-    private static void addAllCondtionsEntries(Condition condition, ConditionEntry[] conditionEntries) {
+    private static void addAllConditionsEntries(Condition condition, ConditionEntry[] conditionEntries) {
         for (ConditionEntry entry : conditionEntries) {
             condition.add(entry);
         }

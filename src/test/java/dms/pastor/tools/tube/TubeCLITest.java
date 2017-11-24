@@ -23,14 +23,19 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.when;
 
+@SuppressWarnings("resource")
 @RunWith(MockitoJUnitRunner.class)
 public class TubeCLITest {
-    public static final String ELM_PARK_VALID_STATION = "Elm Park";
+
+    private static final String ELM_PARK_VALID_STATION = "Elm Park";
     @Rule
     public final ExpectedException exception = ExpectedException.none();
+
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private final PrintStream original = System.out;
+
     private TubeCLI cli = null;
+
     @Mock
     private Scanner scanner;
 
@@ -54,7 +59,7 @@ public class TubeCLITest {
         given(scanner.nextInt()).willReturn(9);
 
         //when
-        cli.main();
+        cli.mainMenu();
 
         //then
         assertThat(outputStream.toString()).startsWith(expectedFirstLine);
@@ -68,7 +73,7 @@ public class TubeCLITest {
                 .thenReturn(9);
 
         //when
-        cli.main();
+        cli.mainMenu();
 
         //then
         assertThat(outputStream.toString()).contains("Wembley Park" + System.lineSeparator() +
@@ -83,7 +88,7 @@ public class TubeCLITest {
                 .thenReturn(9);
 
         //when
-        cli.main();
+        cli.mainMenu();
 
         //then
         assertThat(outputStream.toString()).contains("Wembley Park was visited at " + LocalDate.now() + System.lineSeparator() +
@@ -99,7 +104,7 @@ public class TubeCLITest {
         when(scanner.next()).thenReturn("Wembley Park");
 
         //when
-        cli.main();
+        cli.mainMenu();
 
         //then
         assertThat(outputStream.toString()).contains("Wembley Park was visited");
@@ -115,7 +120,7 @@ public class TubeCLITest {
         when(scanner.next()).thenReturn(invalidStationName);
 
         //when
-        cli.main();
+        cli.mainMenu();
 
         // then
         assertThat(outputStream.toString()).contains("Station " + invalidStationName + " not found");
@@ -130,7 +135,7 @@ public class TubeCLITest {
         when(scanner.nextLine()).thenReturn(ELM_PARK_VALID_STATION);
 
         //when
-        cli.main();
+        cli.mainMenu();
 
         // then
         assertThat(outputStream.toString()).contains("You set Elm Park status to passed");
@@ -147,7 +152,7 @@ public class TubeCLITest {
         when(scanner.next()).thenReturn(invalidStationName);
 
         //when
-        cli.main();
+        cli.mainMenu();
 
         // then
         assertThat(outputStream.toString()).contains("Station " + invalidStationName + " not found");
@@ -162,7 +167,7 @@ public class TubeCLITest {
         when(scanner.nextLine()).thenReturn(ELM_PARK_VALID_STATION);
 
         //when
-        cli.main();
+        cli.mainMenu();
 
         // then
         assertThat(outputStream.toString()).contains("You set Elm Park status to visited");

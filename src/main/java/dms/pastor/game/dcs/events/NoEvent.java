@@ -15,14 +15,14 @@ import java.util.Random;
  */
 public class NoEvent extends Event {
     private static final Random RANDOM = new Random();
-    private static final String[] description = new String[]{
+    private static final String[] DESCRIPTION = new String[]{
             "Another round, where nothing seems to happen.",
             "Wind of boredom pass through this round"
     };
 
     public NoEvent() {
         setName("No Event");
-        setDescription(description[RANDOM.nextInt(description.length)]);
+        setDescription(DESCRIPTION[RANDOM.nextInt(DESCRIPTION.length)]);
     }
 
     @Override

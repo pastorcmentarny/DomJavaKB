@@ -10,12 +10,21 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import static dms.pastor.tools.tube.USSDominikApplication.BASE_PATH;
-import static dms.pastor.tools.tube.USSDominikApplication.STATION_PATH;
+import static java.io.File.separator;
 
-public class DataOperations {
+final class DataOperations {
     private static final Logger LOGGER = LoggerFactory.getLogger(DataOperations.class);
-    public static final String PATH = BASE_PATH + "tube" + File.separator + "station" + Timestamp.valueOf(LocalDateTime.now()) + ".txt";
+    private static final String SRC = "src" + separator;
+    private static final String RESOURCES = "resources" + separator;
+    private static final String BASE_PATH = System.getProperty("user.dir") +
+            separator + SRC + "mainMenu" +
+            separator + RESOURCES;
+    private static final String STATION_PATH = BASE_PATH + "tube" + File.separator + "station.txt";
+
+    private static final String PATH = BASE_PATH + "tube" + File.separator + "station" + Timestamp.valueOf(LocalDateTime.now()) + ".txt";
+
+    private DataOperations() {
+    }
 
     static void saveToFile(List<Station> stationList) {
         LOGGER.info("Saving data..");

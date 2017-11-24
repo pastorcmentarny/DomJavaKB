@@ -29,7 +29,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ConditionTest {
 
     @Rule
-    public ExpectedException exception = ExpectedException.none();
+    public final ExpectedException exception = ExpectedException.none();
 
     private final ConditionEntry temporaryConditionEntry = conditionEntryBuilder()
             .condition(STUNNED)
@@ -78,7 +78,7 @@ public class ConditionTest {
         final ConditionEntry conditionEntry = conditionEntryBuilder()
                 .condition(STUNNED)
                 .turnsLeft(DEFAULT_CONDITION_DURATION)
-                .persistent(false)
+                .nonPersistent()
                 .build();
 
         // when
@@ -218,7 +218,7 @@ public class ConditionTest {
         final ConditionEntry condition = conditionEntryBuilder()
                 .condition(STUNNED)
                 .turnsLeft(2)
-                .persistent(false)
+                .nonPersistent()
                 .build();
         conditions.add(condition);
         assertThat(conditions.getConditionEntry(STUNNED).getTurnsLeft() == 2).isTrue();
@@ -236,7 +236,7 @@ public class ConditionTest {
         final ConditionEntry condition = conditionEntryBuilder()
                 .condition(STUNNED)
                 .turnsLeft(1)
-                .persistent(false)
+                .nonPersistent()
                 .build();
         conditions.add(condition);
         assertThat(conditions.getConditionEntry(STUNNED).getTurnsLeft() == 1).isTrue();
@@ -254,7 +254,7 @@ public class ConditionTest {
         final ConditionEntry condition = conditionEntryBuilder()
                 .condition(STUNNED)
                 .turnsLeft(-1)
-                .persistent(false)
+                .nonPersistent()
                 .build();
         conditions.add(condition);
 
@@ -296,7 +296,7 @@ public class ConditionTest {
         // given
         final ConditionEntry condition = conditionEntryBuilder()
                 .condition(POISONED)
-                .persistent(false)
+                .nonPersistent()
                 .build();
 
         final ConditionEntry conditionTwo = createTemporaryCondition(STUNNED, 1);

@@ -21,7 +21,7 @@ public class BubbleShieldSpellTest {
     @Test
     public void castBubbleShieldSpellShouldAddBBubbleShieldToPlayer() throws Exception {
         // given
-        final BubbleShieldSpell bubbleShieldSpell = new BubbleShieldSpell();
+        final Spell bubbleShieldSpell = new BubbleShieldSpell();
         final Unit unit = unitBuilder()
                 .build();
 

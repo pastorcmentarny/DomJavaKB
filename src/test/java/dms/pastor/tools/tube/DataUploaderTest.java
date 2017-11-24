@@ -13,7 +13,7 @@ import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 public class DataUploaderTest {
 
     @Rule
-    public ExpectedException exception = ExpectedException.none();
+    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void loadShouldThrowExceptionIfPathIsInvalid() {

@@ -23,6 +23,6 @@ final class ToStationConverter {
     }
 
     private static LocalDate setDateFor(String date) {
-        return Objects.isNull(date) || date.equalsIgnoreCase("none") ? null : LocalDate.parse(date);
+        return Objects.isNull(date) || "none".equalsIgnoreCase(date) ? null : LocalDate.parse(date);
     }
 }

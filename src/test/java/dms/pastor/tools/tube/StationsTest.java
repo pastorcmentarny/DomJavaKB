@@ -23,11 +23,9 @@ public class StationsTest {
     private static final String STATION_NOT_FOUND_ERROR_MESSAGE = "Station was not found.";
     private static final String STATION_NAME = "Amersham";
     private final List<Line> lines = Collections.singletonList(new Line("none"));
-    private Stations stations = generateStations();
-
-
     @Rule
-    public ExpectedException exception = ExpectedException.none();
+    public final ExpectedException exception = ExpectedException.none();
+    private final Stations stations = generateStations();
 
     @Test
     public void getStationByNameShouldReturnStation() {
