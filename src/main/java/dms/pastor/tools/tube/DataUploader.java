@@ -17,9 +17,12 @@ class DataUploader {
     private static final Logger LOGGER = LoggerFactory.getLogger(DataUploader.class);
 
     List<Station> load(String path) {
+        LOGGER.info("Loading data from " + path);
         validateIfPathExists(path);
         try (Stream<String> lines = Files.lines(Paths.get(path))) {
-            return lines.map(ToStationConverter::convert).collect(Collectors.toList());
+            final List<Station> stationList = lines.map(ToStationConverter::convert).collect(Collectors.toList());
+            LOGGER.info("Data loaded.");
+            return stationList;
         } catch (IOException e) {
             LOGGER.error("Unable to load data as something went wrong! " + e.getMessage(), e);
         }

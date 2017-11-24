@@ -7,6 +7,7 @@ import java.io.File;
 import java.util.List;
 import java.util.Scanner;
 
+import static dms.pastor.tools.tube.DataOperations.saveToFile;
 import static java.io.File.separator;
 
 /**
@@ -18,30 +19,26 @@ import static java.io.File.separator;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-class USSDominikStatsApplicationRunner {
-    private static final Logger LOGGER = LoggerFactory.getLogger(USSDominikStatsApplicationRunner.class);
+class USSDominikApplication {
+    private static final Logger LOGGER = LoggerFactory.getLogger(USSDominikApplication.class);
 
     private static final String SRC = "src" + separator;
     private static final String RESOURCES = "resources" + separator;
-    private static final String BASE_PATH = System.getProperty("user.dir") +
+    public static final String BASE_PATH = System.getProperty("user.dir") +
             separator + SRC + "main" +
             separator + RESOURCES;
     public static final String STATION_PATH = BASE_PATH + "tube" + File.separator + "station.txt";
 
-    private USSDominikStatsApplicationRunner() {
+    private USSDominikApplication() {
     }
 
     public static void main(String[] args) {
-        LOGGER.info("Loading data..");
-        DataUploader dataUploader = new DataUploader();
-        final List<Station> stationList = dataUploader.load(STATION_PATH);
+        final List<Station> stationList = DataOperations.loadFromFile();
         TubeCLI tubeCLI = new TubeCLI(new Stations(stationList), new Scanner(System.in));
         tubeCLI.main();
 
         stationList.forEach(System.out::println);
-        LOGGER.info("Saving data..");
-        DataWriter dataWriter = new DataWriter();
-        dataWriter.save(STATION_PATH, stationList);
+        saveToFile(stationList);
 
         LOGGER.info("Done. Goodbye!");
     }

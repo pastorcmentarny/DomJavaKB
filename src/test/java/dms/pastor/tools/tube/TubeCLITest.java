@@ -49,8 +49,8 @@ public class TubeCLITest {
     @Test
     public void shouldDisplayMenu() {
         //given
-        final String expectedFirstLine = "0. Stats.";
-        final String expectedLastLine = "9. Exit." + System.lineSeparator();
+        final String expectedFirstLine = "0. Stats";
+        final String expectedLastLine = "9. Exit" + System.lineSeparator();
         given(scanner.nextInt()).willReturn(9);
 
         //when

@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Scanner;
 
-import static dms.pastor.tools.tube.USSDominikStatsApplicationRunner.STATION_PATH;
+import static dms.pastor.tools.tube.DataOperations.*;
 
 class TubeCLI {
     private static final Logger LOGGER = LoggerFactory.getLogger(TubeCLI.class);
@@ -24,13 +24,15 @@ class TubeCLI {
     public void main() {
         boolean showMenu = true;
         while (showMenu) {
-            System.out.println("0. Stats.");
-            System.out.println("1. Current Status for all station.");
-            System.out.println("2. Current Status for selected station.");
-            System.out.println("3. Update Status to Passed for station.");
-            System.out.println("4. Update Status to Visited for station.");
-            System.out.println("8. Display list of all stations.");
-            System.out.println("9. Exit.");
+            System.out.println("0. Stats");
+            System.out.println("1. Current Status for all station");
+            System.out.println("2. Current Status for selected station");
+            System.out.println("3. Update Status to Passed for station");
+            System.out.println("4. Update Status to Visited for station");
+            System.out.println("6. Save changes (with Backup)");
+            System.out.println("7. Discard unsaved changes");
+            System.out.println("8. Display list of all stations");
+            System.out.println("9. Exit");
             try {
                 final int option = scanner.nextInt();
                 scanner.nextLine();
@@ -51,10 +53,10 @@ class TubeCLI {
                         updateStationStatusToVisited();
                         break;
                     case 6:
-                        //save();
+                        save();
                         break;
                     case 7:
-                        //reset();
+                        reset();
                         break;
                     case 8:
                         stations.getStationList().forEach(station -> System.out.println(station.getName()));
@@ -69,22 +71,21 @@ class TubeCLI {
             } catch (RuntimeException e) {
                 System.out.println(INVALID_CHOICE_MESSAGE);
                 LOGGER.warn("User typed gibberish." + e.getMessage(), e);
+
+            } finally {
                 scanner.next();
             }
         }
     }
 
     private void save() {
-        //TODO backup before save
-        LOGGER.info("Saving data..");
-        DataWriter dataWriter = new DataWriter();
-        dataWriter.save(STATION_PATH, stations.getStationList());
+        backup();
+        saveToFile(stations.getStationList());
     }
 
     private void reset() {
         System.out.println("Reload data without saving.. All changes in the session will be discarded");
-        DataUploader dataUploader = new DataUploader();
-        stations = new Stations(dataUploader.load(STATION_PATH));
+        loadFromFile();
     }
 
     private void updateStationStatusToVisited() {
