@@ -7,7 +7,7 @@ Angel;;P;;none;;2017-05-26;;none
 Archway;;X;;none;;none;;none
 Arnos Grove;;X;;none;;none;;none
 Arsenal;;X;;none;;none;;none
-Baker Street;;P;;none;;2017-01-03;;none
+Baker Street;;P;;none;;2017-01-03;;2017-06-23
 Balham;;X;;none;;none;;none
 Bank;;P;;none;;2017-11-01;;none
 Barbican;;P;;none;;2017-01-03;;2017-06-05
@@ -66,7 +66,7 @@ East Acton;;X;;none;;none;;none
 East Finchley;;X;;none;;none;;none
 East Ham;;X;;none;;none;;none
 East Putney;;X;;none;;none;;none
-Eastcote;;X;;none;;none;;none
+Eastcote;;P;;none;;2017-03-21;;none
 Edgware;;X;;none;;none;;none
 Edgware Road;;P;;none;;2017-06-19;;none
 Elephant & Castle;;P;;none;;2017-11-01;;none
@@ -77,7 +77,7 @@ Euston;;P;;none;;2017-05-26;;none
 Euston Square;;V;;none;;2017-01-03;;2017-09-02
 Fairlop;;X;;none;;none;;none
 Farringdon;;P;;none;;2017-01-03;;none
-Finchley Road;;P;;none;;2017-01-03;;none
+Finchley Road;;P;;none;;2017-01-03;;2017-03-03
 Finsbury Park;;P;;none;;2017-01-03;;none
 Fulham Broadway;;X;;none;;none;;none
 Gants Hill;;X;;none;;none;;none
@@ -105,6 +105,7 @@ Hendon High Barnet;;X;;none;;none;;none
 Highbury & Islington;;P;;none;;2017-11-19;;none
 Highgate;;X;;none;;none;;none
 High Street Kensington;;P;;none;;2017-07-06;;none
+Hillingdon;;P;;none;;2017-03-21;;none
 Holborn;;V;;none;;2017-06-15;;2017-06-15
 Holland Park;;X;;none;;none;;none
 Holloway Road;;X;;none;;none;;none
@@ -113,7 +114,7 @@ Hounslow Central;;P;;none;;2017-10-30;;none
 Hounslow East;;P;;none;;2017-10-30;;none
 Hounslow West;;P;;none;;2017-10-30;;none
 Hyde Park Corner;;X;;none;;none;;none
-Ickenham;;X;;none;;none;;none
+Ickenham;;P;;none;;2017-03-21;;none
 Kennington;;P;;none;;2017-11-01;;none
 Kensal Green;;X;;none;;none;;none
 Kensington (Olympia);;X;;none;;none;;none
@@ -189,9 +190,9 @@ Rickmansworth;;V;;none;;2017-01-03;;2017-01-03
 Roding Valley;;X;;none;;none;;none
 Redbridge;;X;;none;;none;;none
 Royal Oak;;X;;none;;none;;none
-Ruislip;;X;;none;;none;;none
+Ruislip;;P;;none;;2017-03-21;;none
 Ruislip Gardens;;X;;none;;none;;none
-Ruislip Manor;;X;;none;;none;;none
+Ruislip Manor;;P;;none;;2017-03-21;;none
 Russell Square;;P;;none;;2017-06-15;;none
 St. James's Park;;P;;none;;2017-02-02;;none
 St. John's Wood;;P;;none;;2017-10-30;;none
@@ -237,7 +238,7 @@ Upminster;;X;;none;;none;;none
 Upminster Bridge;;X;;none;;none;;none
 Upney;;X;;none;;none;;none
 Upton Park;;X;;none;;none;;none
-Uxbridge;;X;;none;;none;;none
+Uxbridge;;V;;none;;2017-03-21;;2017-03-21
 Vauxhall;;P;;none;;2017-11-01;;none
 Victoria;;V;;none;;2017-02-02;;2017-11-19
 Walthamstow Wanstead;;X;;none;;none;;none

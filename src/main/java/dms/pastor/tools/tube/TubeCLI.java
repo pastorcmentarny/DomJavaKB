@@ -71,8 +71,6 @@ class TubeCLI {
             } catch (RuntimeException e) {
                 System.out.println(INVALID_CHOICE_MESSAGE);
                 LOGGER.warn("User typed gibberish." + e.getMessage(), e);
-
-            } finally {
                 scanner.next();
             }
         }
