@@ -1,5 +1,6 @@
 package dms.pastor.utils.string;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -44,6 +45,7 @@ public class ToStringUtilsTest {
     }
 
     @Test
+    @Ignore // not implement yet and it is here due accidental middle of the night merge
     public void linkedHashSetToStringShouldReturnLinkedHashSetAsString() {
         // given
         final String stringOne = generateString();

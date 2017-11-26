@@ -15,7 +15,10 @@ import static dms.pastor.utils.StringUtils.EMPTY_STRING;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  * To avoid problem with method has the same erasure as another method (String and Character) related
  */
-public class ToStringUtils {
+public final class ToStringUtils {
+    private ToStringUtils() {
+    }
+
     public static String toString(LinkedHashSet<Character> lines) {
         if (Objects.isNull(lines)) {
             return EMPTY_STRING;

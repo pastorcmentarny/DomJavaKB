@@ -623,9 +623,9 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void countOccurrenceOfShouldReturn2ForOccurrenceOfLabInLablab() throws Exception {
+    public void countOccurrenceOfShouldReturn2ForOccurrenceOfLabInLabLab() throws Exception {
         // given
-        final String text = "Lablab";
+        final String text = "LabLab";
         final String occurrence = "lab";
 
         // when

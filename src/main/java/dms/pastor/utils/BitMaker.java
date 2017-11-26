@@ -2,6 +2,8 @@ package dms.pastor.utils;
 
 // used in NumberUtils to make a bit
 class BitMaker {
+    private static final String BINARY_DIGIT_ONE = "1";
+    private static final String BINARY_DIGIT_ZERO = "0";
 
     private String eightBit;
     private int leftOver;
@@ -21,11 +23,21 @@ class BitMaker {
 
     BitMaker invoke(int divider) {
         if (leftOver >= divider) {
-            eightBit += NumberUtils.BINARY_DIGIT_ONE;
+            eightBit += BINARY_DIGIT_ONE;
             leftOver -= divider;
         } else {
-            eightBit += NumberUtils.BINARY_DIGIT_ZERO;
+            eightBit += BINARY_DIGIT_ZERO;
         }
         return this;
     }
+
+    String addLeftOverBit(String eightBit) {
+        if (getLeftOver() == 1) {
+            eightBit += BINARY_DIGIT_ONE;
+        } else {
+            eightBit += BINARY_DIGIT_ZERO;
+        }
+        return eightBit;
+    }
+
 }

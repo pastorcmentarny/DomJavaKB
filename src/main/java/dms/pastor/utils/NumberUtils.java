@@ -19,8 +19,6 @@ import static dms.pastor.utils.ValidatorUtils.validateIfPositiveNumber;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public final class NumberUtils {
-    static final String BINARY_DIGIT_ONE = "1";
-    static final String BINARY_DIGIT_ZERO = "0";
     private static final Logger LOGGER = LoggerFactory.getLogger(Word.class);
     private static final int FACTORIAL_MAXIMUM_VALUE = 19;
     private static final int FACTORIAL_NEGATIVE_MAXIMUM_VALUE = -FACTORIAL_MAXIMUM_VALUE;
@@ -175,17 +173,8 @@ public final class NumberUtils {
         }
 
         eightBit = bitMaker.getEightBit();
-        eightBit = addLeftOverBit(eightBit, bitMaker);
+        eightBit = bitMaker.addLeftOverBit(eightBit);
 
-        return eightBit;
-    }
-
-    private static String addLeftOverBit(String eightBit, BitMaker bitMaker) {
-        if (bitMaker.getLeftOver() == 1) {
-            eightBit += BINARY_DIGIT_ONE;
-        } else {
-            eightBit += BINARY_DIGIT_ZERO;
-        }
         return eightBit;
     }
 

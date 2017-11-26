@@ -162,7 +162,7 @@ public class ValidatorUtilsTest {
         validateTwoIntsNotEqual(number1, number2);
     }
 
-    @Test //TODO fix test hang up (infitive loop ?
+    @Test //TODO fix test hang up (infinitive loop ?
     public void twoIntsNotEqualShouldPassWhenBothIntsAreNotEqual() throws Exception {
         // given
         int number1 = randomPositiveInteger(9);

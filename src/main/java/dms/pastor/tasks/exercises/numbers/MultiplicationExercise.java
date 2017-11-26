@@ -1,6 +1,6 @@
 package dms.pastor.tasks.exercises.numbers;
 
-import static dms.pastor.utils.StringUtils.NEW_LINE;
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static java.lang.String.format;
 
 /**
@@ -16,14 +16,8 @@ final class MultiplicationExercise {
     private MultiplicationExercise() {
     }
 
-    /*
-    new StringBuilder(String.valueOf(NEW_LINE)) looks weird?
-    well..
-     as it turns out char is cast to int by stringBuilder
-     int in constructor is treated as ... initial capacity which is not what i want.
-     */
     static String generateMultiplicationSquareTable(int number) {
-        StringBuilder stringBuilder = new StringBuilder(String.valueOf(NEW_LINE)); //* read comment above
+        StringBuilder stringBuilder = new StringBuilder(EMPTY_STRING); //* read comment above
         for (int x = 1; x <= number; x++) {
             createRow(number, stringBuilder, x);
             stringBuilder.append('\n');
