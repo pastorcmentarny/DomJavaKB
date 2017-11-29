@@ -13,14 +13,14 @@ import static java.util.Collections.singletonList;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-class Line {
+public class Line {
     private final String name;
 
     public Line(String name) {
         this.name = name;
     }
 
-    static List<Line> noLine() {
+    public static List<Line> noLine() {
         return singletonList(new Line("none"));
     }
 

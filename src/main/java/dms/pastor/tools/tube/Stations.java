@@ -24,7 +24,7 @@ public class Stations {
 
     private final List<Station> stationList;
 
-    Stations(List<Station> stationList) {
+    public Stations(List<Station> stationList) {
         this.stationList = stationList;
     }
 
