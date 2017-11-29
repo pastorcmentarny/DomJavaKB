@@ -9,11 +9,12 @@ import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.time.LocalDate;
 
 import static dms.pastor.tools.tube.builders.StationsBuilder.stationsBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class DisplayStatisticOptionTest {
+public class DisplayStatusForAllStationsOptionTest {
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private final PrintStream original = System.out;
 
@@ -29,17 +30,18 @@ public class DisplayStatisticOptionTest {
     }
 
     @Test
-    public void shouldDisplayStatistic() {
+    public void shouldDisplayStatusForAllStations() {
         // given
-        final DisplayStatisticOption displayStatisticOption = new DisplayStatisticOption();
+        final DisplayStatusForAllStationsOption displayStatusForAllStationsOption = new DisplayStatusForAllStationsOption();
         final Stations stations = stationsBuilder().build();
 
         // when
-        displayStatisticOption.choose(stations);
+        displayStatusForAllStationsOption.choose(stations);
 
         // then
-        assertThat(outputStream.toString()).contains("You visited 1 station(s). (33%)" + System.lineSeparator() +
-                "You passed 1 station(s). (33%)");
+        assertThat(outputStream.toString()).contains("Wembley Park was visited at " + LocalDate.now() + System.lineSeparator() +
+                "Green Park was passed at " + LocalDate.now() + System.lineSeparator() +
+                "Elm Park was not visited");
 
     }
 
