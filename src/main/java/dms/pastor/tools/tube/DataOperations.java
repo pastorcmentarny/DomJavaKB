@@ -12,12 +12,20 @@ import java.util.List;
 
 import static java.io.File.separator;
 
-final class DataOperations {
+/**
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+ */
+public final class DataOperations {
     private static final Logger LOGGER = LoggerFactory.getLogger(DataOperations.class);
     private static final String SRC = "src" + separator;
     private static final String RESOURCES = "resources" + separator;
     private static final String BASE_PATH = System.getProperty("user.dir") +
-            separator + SRC + "mainMenu" +
+            separator + SRC + "main" +
             separator + RESOURCES;
     private static final String STATION_PATH = BASE_PATH + "tube" + File.separator + "station.txt";
 
@@ -26,19 +34,19 @@ final class DataOperations {
     private DataOperations() {
     }
 
-    static void saveToFile(List<Station> stationList) {
+    public static void saveToFile(List<Station> stationList) {
         LOGGER.info("Saving data..");
         DataWriter dataWriter = new DataWriter();
         dataWriter.save(STATION_PATH, stationList);
     }
 
-    static List<Station> loadFromFile() {
+    public static List<Station> loadFromFile() {
         LOGGER.info("Loading data..");
         DataUploader dataUploader = new DataUploader();
         return dataUploader.load(STATION_PATH);
     }
 
-    static void backup() {
+    public static void backup() {
         LOGGER.info("Backup saved data");
         final List<Station> originalStationList = loadFromFile();
         DataWriter dataWriter = new DataWriter();

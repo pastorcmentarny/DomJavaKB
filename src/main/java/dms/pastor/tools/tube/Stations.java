@@ -11,7 +11,15 @@ import static dms.pastor.tools.tube.Status.VISITED;
 import static dms.pastor.utils.StringUtils.isStringEmpty;
 import static java.util.Collections.unmodifiableList;
 
-class Stations {
+/**
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+ */
+public class Stations {
     private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(Stations.class);
 
     private final List<Station> stationList;
@@ -20,11 +28,11 @@ class Stations {
         this.stationList = stationList;
     }
 
-    List<Station> getStationList() {
+    public List<Station> getStationList() {
         return unmodifiableList(stationList);
     }
 
-    void setPassedFor(Station station) {
+    public void setPassedFor(Station station) {
         if (station.getStatus() != VISITED && station.getStatus() != PASSED) {
             station.setStatus(PASSED);
             station.setPassedDate(LocalDate.now());
@@ -40,7 +48,7 @@ class Stations {
                 .orElseThrow(() -> new NotFoundException("Station " + name));
     }
 
-    void setVisitedFor(Station station) {
+    public void setVisitedFor(Station station) {
         if (station.getStatus() != VISITED) {
             station.setStatus(VISITED);
             if (station.getPassedDate() == null) {
@@ -53,11 +61,11 @@ class Stations {
 
     }
 
-    long countStationPassed() {
+    public long countStationPassed() {
         return countStationThatHasStatusOf(PASSED.value());
     }
 
-    long countStationVisited() {
+    public long countStationVisited() {
         return countStationThatHasStatusOf(VISITED.value());
     }
 
@@ -67,7 +75,7 @@ class Stations {
                 .count();
     }
 
-    Station findStation(String searchFor) {
+    public Station findStation(String searchFor) {
         final NotFoundException notFoundException = new NotFoundException("Station");
         if (isStringEmpty(searchFor)) {
             LOGGER.warn(String.format("Unable to find station as search query is invalid. User typed: %s", searchFor));
@@ -79,7 +87,7 @@ class Stations {
                 .orElseThrow(() -> notFoundException);
     }
 
-    int totalNumber() {
+    public int totalNumber() {
         return stationList.size();
     }
 }

@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 import java.util.Scanner;
 
+import static dms.pastor.tools.tube.DataOperations.loadFromFile;
 import static dms.pastor.tools.tube.DataOperations.saveToFile;
 
 /**
@@ -24,11 +25,12 @@ final class USSDominikApplication {
     }
 
     public static void main(String[] args) {
-        final List<Station> stationList = DataOperations.loadFromFile();
+
+        final List<Station> stationList = loadFromFile();
+
         TubeCLI tubeCLI = new TubeCLI(new Stations(stationList), new Scanner(System.in));
         tubeCLI.mainMenu();
 
-        stationList.forEach(System.out::println);
         saveToFile(stationList);
 
         LOGGER.info("Done. Goodbye!");

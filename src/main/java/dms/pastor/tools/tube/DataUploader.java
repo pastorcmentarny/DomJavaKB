@@ -13,6 +13,14 @@ import java.util.stream.Stream;
 import static dms.pastor.utils.ValidatorUtils.validateIfPathExists;
 import static java.util.Collections.emptyList;
 
+/**
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+ */
 class DataUploader {
     private static final Logger LOGGER = LoggerFactory.getLogger(DataUploader.class);
 
