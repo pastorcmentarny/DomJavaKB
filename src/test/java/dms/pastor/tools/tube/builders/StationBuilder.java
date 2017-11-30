@@ -5,15 +5,16 @@ import dms.pastor.tools.tube.Station;
 import dms.pastor.tools.tube.Status;
 
 import java.time.LocalDate;
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+import static dms.pastor.tools.tube.Station.notVisited;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
+import static java.util.Collections.singletonList;
 
 public class StationBuilder {
     private String name = generateString(10);
-    private List<Line> lines = Collections.singletonList(new Line(generateString(10)));
+    private List<Line> lines = singletonList(new Line(generateString(10)));
     private Status status = Status.values()[new Random().nextInt(Status.values().length)];
     private LocalDate passedDate = LocalDate.now();
     private LocalDate visitedDate = LocalDate.now();
@@ -27,6 +28,10 @@ public class StationBuilder {
 
     public Station build() {
         return new Station(name, status, lines, passedDate, visitedDate);
+    }
+
+    public Station buildNotVisitedStation() {
+        return notVisited(name, lines);
     }
 
     public StationBuilder name(String name) {
