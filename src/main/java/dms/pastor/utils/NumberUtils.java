@@ -24,7 +24,6 @@ public final class NumberUtils {
     private static final Logger LOGGER = LoggerFactory.getLogger(Word.class);
     private static final int FACTORIAL_MAXIMUM_VALUE = 19;
     private static final int FACTORIAL_NEGATIVE_MAXIMUM_VALUE = -FACTORIAL_MAXIMUM_VALUE;
-    private static final String ERROR_MESSAGE_MUST_BE_INTEGER_ARRAY = "Invalid input. It must be integer array";
 
     private NumberUtils() {
     }

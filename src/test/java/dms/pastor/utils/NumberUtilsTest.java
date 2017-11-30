@@ -30,7 +30,6 @@ public class NumberUtilsTest {
 
     private static final int MIN_VALUE = 5;
     private static final int MAX_VALUE = 20;
-    private final Random random = new Random();
 
     @Rule
     public final ExpectedException exception = ExpectedException.none();

@@ -20,6 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class DummyImporterTest {
 
+    @SuppressWarnings("unchecked")
     @Test
     public void importDictionaryShouldReturnResultWithDefaultWord() {
         // given
@@ -31,6 +32,7 @@ public class DummyImporterTest {
         // then
         assertThat(result.isSuccess()).isTrue();
         assertThat(result.getMessage()).isNotEmpty();
+
         List<Word> dictionary = (List<Word>) result.getItem(); //TODO improve it
         assertThat(dictionary.get(0)).isEqualTo(Word.defaultWord());
     }

@@ -21,6 +21,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class FromFileImporterTest {
 
+    @SuppressWarnings("unchecked")
     @Test
     public void importDictionaryShouldLoadDictionaryFromFile() {
         // given
@@ -32,7 +33,7 @@ public class FromFileImporterTest {
 
         // then
         assertThat(result.isSuccess()).isTrue();
-        final List<Word> wordList = (List<Word>) result.getItem();  //TODO improve it
+        final List<Word> wordList = (List<Word>) result.getItem();
         assertThat(wordList).hasSize(10);
 
     }

@@ -21,7 +21,7 @@ import java.util.Scanner;
 public class OptionsFactory {
     private final Map<Integer, Option> options;
 
-    public OptionsFactory() {
+    private OptionsFactory() {
         this.options = new HashMap<>();
     }
 

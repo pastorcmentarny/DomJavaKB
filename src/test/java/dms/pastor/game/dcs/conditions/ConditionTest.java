@@ -48,7 +48,7 @@ public class ConditionTest {
     }
 
     @Test
-    public void addShouldThrowSomethingWentWrongExceptionIfCondtionEntryIsNull() {
+    public void addShouldThrowSomethingWentWrongExceptionIfConditionEntryIsNull() {
         // expect
         exception.expect(SomethingWentWrongException.class);
 
