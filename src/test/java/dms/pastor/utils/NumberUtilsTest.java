@@ -275,16 +275,24 @@ public class NumberUtilsTest {
 
     @Test
     public void getNullIfValueIsBelow0() {
+        // when
         final String result = getShortAs8BitRepresentation(-10);
-        assertThat(result).isNull();
+
+        // then
+        assertThat(result).isEmpty();
     }
 
     @Test
     public void getNullIfValueIsAbove255() {
+        // given
         final int max8BitValue = 256;
         final int randomNumber = new Random().nextInt(Integer.MAX_VALUE - max8BitValue) + 255;
+
+        // when
         final String result = getShortAs8BitRepresentation(randomNumber);
-        assertThat(result).isNull();
+
+        // then
+        assertThat(result).isEmpty();
     }
 
     @Test //done as part of learning of basic of TDD in 2012

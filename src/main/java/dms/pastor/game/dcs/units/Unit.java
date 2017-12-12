@@ -35,9 +35,9 @@ public class Unit {
     private String name = "Name";
     private String description = "Description";
 
-    private int hp = DEFAULT_HEALTH_POINTS;
+    private int hp = DEFAULT_HEALTH_POINTS; //TODO split health to separate class
     private int maxHp = DEFAULT_MAX_HEALTH;
-    private int sp = INITIAL_SHIELD_POINTS;
+    private int sp = INITIAL_SHIELD_POINTS;  //TODO split shield to separate class
     private int arm = 0;
 
     private Elements elements = new Elements(DEFAULT_ELEMENT_NUMBER);
@@ -92,7 +92,7 @@ public class Unit {
         if (defender.isShielded()) {
             dmg = defender.doesShieldDamage(dmg);
         }
-        dmg -= arm;
+        dmg -= getArm();
         if (dmg < 0) {
             dmg = 0;
         }

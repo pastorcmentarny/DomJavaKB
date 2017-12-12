@@ -19,6 +19,16 @@ import static dms.pastor.game.dcs.conditions.ConditionEntryBuilder.conditionEntr
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+ * <p/>
+ * tag-builder-pattern
+ * tag-test-data-builder-pattern
+ * <p/>
+ * Test Data Builder pattern is based on Builder Pattern.
+ * It is used to generate data for test,so you don't need setup things with default implementation with customisation needed
+ * for particular test case.
+ * It helps set data correctly and quicker (Specially for larger object values)
+ * It helps you maintain tests as default value can be set in one place and it will highlight what side effect it may have
+ * in your code.
  */
 @SuppressWarnings("unused")
 public final class UnitBuilder {

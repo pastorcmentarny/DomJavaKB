@@ -16,6 +16,7 @@ public class Witch extends Unit {
         setName(getRandomMummyName());
         setHp(INITIAL_HP);
         setSp(0);
+        setArm(1);
         getConditions().add(createPersistentCondition(FIRE_SENSITIVE));
         getConditions().add(createPersistentCondition(MINDLESS));
     }

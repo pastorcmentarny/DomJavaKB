@@ -6,6 +6,7 @@ import dms.pastor.game.dcs.units.Unit;
 import java.util.Random;
 
 import static dms.pastor.game.dcs.cards.CardType.EVENT;
+import static dms.pastor.game.dcs.events.Rarity.COMMON;
 
 /**
  * Author Dominik Symonowicz
@@ -18,8 +19,13 @@ import static dms.pastor.game.dcs.cards.CardType.EVENT;
  */
 abstract class Event extends Card {
 
+    Rarity rarity = COMMON;
     Event() {
         setCardType(EVENT);
+    }
+
+    Rarity getRarity() {
+        return rarity;
     }
 
     boolean canHaveEvent(Unit unit) {

@@ -72,6 +72,7 @@ final class NumberAsWordDigitConverter {
         return null;
     }
 
+    @SuppressWarnings("MagicNumber")
     private static Integer getTensOfNumber(String partOfNumber) {
         switch (partOfNumber) {
             case "twenty":

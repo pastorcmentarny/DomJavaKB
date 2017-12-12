@@ -13,6 +13,8 @@ package dms.pastor.tasks.romanarabicconverter;
  */
 final class RomanNumberValidator {
 
+    private static final int MAX_ROMAN_NUMBER_IN_ARABIC = 4000;
+
     private RomanNumberValidator() {
     }
 
@@ -25,7 +27,7 @@ final class RomanNumberValidator {
     }
 
     public static boolean isIntCanBeRomanNumber(int arabicNumber) {
-        return arabicNumber > 0 && arabicNumber < 4000;
+        return arabicNumber > 0 && arabicNumber < MAX_ROMAN_NUMBER_IN_ARABIC;
     }
 
     private static boolean isNotEmpty(String romanNumber) {

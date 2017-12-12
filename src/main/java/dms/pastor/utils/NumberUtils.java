@@ -161,7 +161,7 @@ public final class NumberUtils {
         int divider = 128;
 
         if (number > 255 || number < 0) {
-            return null;
+            return EMPTY_STRING;
         }
 
         BitMaker bitMaker = new BitMaker(eightBit, number).invoke(divider);
