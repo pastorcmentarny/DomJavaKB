@@ -14,7 +14,6 @@ import static java.lang.String.format;
 
 /**
  * Author Dominik Symonowicz
- * Created 03/11/2017
  * WWW:	https://dominiksymonowicz.com/welcome
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny

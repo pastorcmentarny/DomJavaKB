@@ -14,6 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+import static dms.pastor.utils.StringUtils.NEW_LINE;
 import static java.lang.Runtime.getRuntime;
 
 /**
@@ -28,7 +29,6 @@ import static java.lang.Runtime.getRuntime;
 public final class FileTools {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(FileTools.class);
-    private static final char NEW_LINE = '\n';
     private static FileChannel channel;
     private static FileLock lockFile;
     private static File file;
@@ -41,7 +41,7 @@ public final class FileTools {
             return false;
         }
         for (String aFilesPath : filesPath) {
-            if (!new File(aFilesPath).exists()) {
+            if (!new File(aFilesPath).exists()) { //TODO replace with checkIfFileIsAccessible() ?
                 return false;
             }
         }
@@ -154,9 +154,7 @@ public final class FileTools {
 
     //example try-with-resources
     public static String readRawData(File filePath) {
-        if (filePath == null || !filePath.exists() || !filePath.canRead()) {
-            throw new IllegalArgumentException("File doesn't exist or cannot be read");
-        }
+        checkIfFileIsAccessible(filePath);
 
         StringBuilder sb = new StringBuilder(EMPTY_STRING);
         try (FileInputStream fis = new FileInputStream(filePath);
@@ -172,5 +170,11 @@ public final class FileTools {
             throw new SomethingWentTerribleWrongError(e.getMessage());
         }
         return sb.toString();
+    }
+
+    private static void checkIfFileIsAccessible(File filePath) {
+        if (filePath == null || !filePath.exists() || !filePath.canRead()) {
+            throw new IllegalArgumentException("File doesn't exist or cannot be read");
+        }
     }
 }

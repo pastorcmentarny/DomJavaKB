@@ -6,7 +6,6 @@ import static java.util.Collections.singletonList;
 
 /**
  * Author Dominik Symonowicz
- * Created 08/11/2017
  * WWW:	https://dominiksymonowicz.com/welcome
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny

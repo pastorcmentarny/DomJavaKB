@@ -1,6 +1,5 @@
 TODO:
     1. Generate lotto data to ensure test are passing on all machines
-    2. use kanbanize
     3. DCG
         make game playable
         improve main (game,in,out)

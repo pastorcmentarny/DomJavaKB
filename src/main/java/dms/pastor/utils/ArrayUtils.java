@@ -4,6 +4,9 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
+import static dms.pastor.utils.PrintOutUtils.printArray;
+import static dms.pastor.utils.ValidatorUtils.validateIfNotNull;
+
 /**
  * Author Dominik Symonowicz
  * Created 2015-10-29
@@ -38,14 +41,12 @@ public final class ArrayUtils {
     public static byte[] generateRandomByteArray(int size) {
         byte[] bytes = new byte[size];
         new Random().nextBytes(bytes);
-        PrintOutUtils.printArray(bytes);
+        printArray(bytes);
         return bytes;
     }
 
     public static Set<Character> convertCharArrayToSet(char[] chars) {
-        if (chars == null) {
-            throw new IllegalArgumentException("Array is null!");
-        }
+        validateIfNotNull(chars);
         Set<Character> result = new HashSet<>();
         for (char aChar : chars) {
             result.add(aChar);
@@ -70,7 +71,7 @@ public final class ArrayUtils {
     }
 
     public static String[][] clone2DArrayOfInts(String[][] source) {
-        ValidatorUtils.validateIfNotNull(source, "2D Array of integers cannot be null.");
+        validateIfNotNull(source, "2D Array of integers cannot be null.");
 
         if (source.length == 0) {
             return new String[][]{};

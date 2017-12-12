@@ -38,7 +38,6 @@ public class OptionsFactory {
         options.addOptions(7, new LoadStationOption());
         options.addOptions(8, new DisplayAllStationsNameOption());
 
-
         return options;
     }
 

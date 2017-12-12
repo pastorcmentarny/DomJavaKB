@@ -56,18 +56,22 @@ public final class DateUtils {
 
     public static int getMonthNumberFromShortedName(String month) {
         final String message = "Invalid shortcut for month";
-        if (month == null) {
-            throw new IllegalArgumentException(message);
-        }
-        for (Month m : Month.values()) {
-            if (m.name().toLowerCase().startsWith(month.toLowerCase())) {
-                return m.getValue();
+        validateIfNotNull(month, message);
+
+        for (Month thisMonth : Month.values()) {
+            if (matchMonth(month, thisMonth)) {
+                return thisMonth.getValue();
             }
         }
         throw new IllegalArgumentException(message);
     }
 
-    public static LocalDate toJavaDate(org.joda.time.LocalDate jodaDate) {
+    //TODO improve name of variables
+    private static boolean matchMonth(String month, Month thisMonth) {
+        return thisMonth.name().toLowerCase().startsWith(month.toLowerCase());
+    }
+
+    static LocalDate toJavaDate(org.joda.time.LocalDate jodaDate) {
         return LocalDate.of(jodaDate.getYear(), jodaDate.getMonthOfYear(), jodaDate.getDayOfMonth());
     }
 
@@ -103,10 +107,10 @@ public final class DateUtils {
     When you create it via new Date()  (It used System.currentTimeMillis() method which based on default time zone)
     So when you print it will add the system default time zone will be displayed together.
 
-    It is f.. confusing and thanks for Java 8 time.
+    It is f.. confusing and thanks for Java 8 time that based on great Joda library
      */
     @SuppressWarnings("UseOfObsoleteDateTimeApi") //it is used for conversion purposes
-    public static LocalDate convertDateToLocalDate(Date date) {
+    static LocalDate convertDateToLocalDate(Date date) {
         return LocalDateTime.ofInstant(Instant.ofEpochMilli(date.getTime()), ZoneId.systemDefault()).toLocalDate();
     }
 }

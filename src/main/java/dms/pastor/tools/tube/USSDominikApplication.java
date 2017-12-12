@@ -11,7 +11,6 @@ import static dms.pastor.tools.tube.DataOperations.saveToFile;
 
 /**
  * Author Dominik Symonowicz
- * Created 07/11/2017
  * WWW:	https://dominiksymonowicz.com/welcome
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
