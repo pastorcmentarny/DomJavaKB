@@ -84,4 +84,17 @@ public class PinyinTableTest {
         // then
         assertThat(pinyinCharacter).isEqualTo(expectedPinyinCharacter);
     }
+
+    @Test
+    public void getPinyinCharacterFromLetterWithToneShouldReturnEmptyStringWhenInputHasInvalidLetterWithValidThirdTone() throws Exception {
+        // given
+        final String letter = "ą";
+
+        // when
+        final String pinyinCharacter = PinyinTable.getPinyinCharacterFromLetterWithTone(letter, THIRD_TONE);
+
+        // then
+        assertThat(pinyinCharacter).isEmpty();
+    }
+
 }

@@ -2,6 +2,7 @@ package dms.pastor.tasks.paint.command;
 
 import dms.pastor.tasks.paint.canvas.Canvas;
 import dms.pastor.tasks.paint.canvas.Coordinates;
+import dms.pastor.tasks.paint.canvas.Point;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -102,13 +103,13 @@ public class CreateNewRectangleCommand implements Command {
 
     private void drawRectangleOn(Canvas canvas) {
         for (int i = getStartHeight(); i <= getEndHeight(); i++) {
-            canvas.updatePixelAt(getStartWidth(), i, PIXEL_FILL);
-            canvas.updatePixelAt(getEndWidth(), i, PIXEL_FILL);
+            canvas.updatePixelAt(Point.of(getStartWidth(), i, PIXEL_FILL));
+            canvas.updatePixelAt(Point.of(getEndWidth(), i, PIXEL_FILL));
         }
 
         for (int i = getStartWidth(); i <= getEndWidth(); i++) {
-            canvas.updatePixelAt(i, getStartHeight(), PIXEL_FILL);
-            canvas.updatePixelAt(i, getEndHeight(), PIXEL_FILL);
+            canvas.updatePixelAt(Point.of(i, getStartHeight(), PIXEL_FILL));
+            canvas.updatePixelAt(Point.of(i, getEndHeight(), PIXEL_FILL));
         }
     }
 }

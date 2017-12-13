@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.util.List;
 
+import static dms.pastor.tools.chinese.WordResult.success;
 import static dms.pastor.tools.chinese.validator.Word.defaultWord;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static java.util.Collections.singletonList;
@@ -29,7 +30,7 @@ public class WordResultTest {
         final List<Word> wordList = singletonList(defaultWord());
 
         // when
-        result = new WordResult(true, message, wordList);
+        result = success(message, wordList);
 
         // then
         assertThat(result.isSuccess()).isTrue();
@@ -41,10 +42,8 @@ public class WordResultTest {
     public void shouldCreateFailResultWithMessageAndObjectTest() throws Exception {
         // given
         final String message = generateString();
-        final List<Word> wordList = singletonList(defaultWord());
-
         // when
-        result = new WordResult(false, message, wordList);
+        result = WordResult.fail(message);
 
         // then
         assertThat(result.isFail()).isTrue();

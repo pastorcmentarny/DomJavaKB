@@ -20,7 +20,6 @@ import static dms.pastor.utils.StringUtils.EMPTY_STRING;
  */
 public class Station {
     static final String SEPARATOR = ";;";
-    //private static final String LINE_SEPARATOR = "||";
     private final String name;
     private final List<Line> lines;
     private Status status;

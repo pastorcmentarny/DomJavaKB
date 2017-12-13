@@ -2,6 +2,7 @@ package dms.pastor.tasks.paint.command;
 
 import dms.pastor.tasks.paint.canvas.Canvas;
 import dms.pastor.tasks.paint.canvas.Coordinates;
+import dms.pastor.tasks.paint.canvas.Point;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -86,13 +87,13 @@ public class CreateNewLineCommand implements Command {
 
     private void drawVerticalLine(Canvas canvas) {
         for (int i = startPoint.getWidth(); i <= endPoint.getWidth(); i++) {
-            canvas.updatePixelAt(i, startPoint.getHeight(), PIXEL_FILL);
+            canvas.updatePixelAt(Point.of(i, startPoint.getHeight(), PIXEL_FILL));
         }
     }
 
     private void drawHorizontalLine(Canvas canvas) {
         for (int i = startPoint.getHeight(); i <= endPoint.getHeight(); i++) {
-            canvas.updatePixelAt(startPoint.getWidth(), i, PIXEL_FILL);
+            canvas.updatePixelAt(Point.of(startPoint.getWidth(), i, PIXEL_FILL));
         }
     }
 

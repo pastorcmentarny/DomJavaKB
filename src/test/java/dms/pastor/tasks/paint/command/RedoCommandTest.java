@@ -1,6 +1,7 @@
 package dms.pastor.tasks.paint.command;
 
 import dms.pastor.tasks.paint.canvas.Canvas;
+import dms.pastor.tasks.paint.canvas.Point;
 import org.junit.Test;
 
 import static dms.pastor.tasks.paint.canvas.Canvas.createCanvasFor;
@@ -65,7 +66,7 @@ public class RedoCommandTest extends AbstractCommandTest {
         final Canvas canvas = createCanvasFor(8, 6);
         canvas.saveState();
 
-        canvas.updatePixelAt(1, 2, "x");
+        canvas.updatePixelAt(Point.of(1, 2, "x"));
 
         canvas.undo();
 
@@ -73,7 +74,7 @@ public class RedoCommandTest extends AbstractCommandTest {
         assertThat(canvas.getCanvasAsString()).isEqualTo(expectedCanvasAfterUndo.getCanvasAsString());
 
         final Canvas expectedCanvasAfterRedo = createCanvasFor(8, 6);
-        expectedCanvasAfterRedo.updatePixelAt(1, 2, "x");
+        expectedCanvasAfterRedo.updatePixelAt(Point.of(1, 2, "x"));
 
         // when
         redoCommand.execute(canvas);

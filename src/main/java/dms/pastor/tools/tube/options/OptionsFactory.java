@@ -18,7 +18,7 @@ import java.util.Scanner;
  * tag-command-pattern
  * <p>
  */
-public class OptionsFactory {
+public final class OptionsFactory {
     private final Map<Integer, Option> options;
 
     private OptionsFactory() {

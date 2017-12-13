@@ -1,6 +1,7 @@
 package dms.pastor.tasks.paint.command;
 
 import dms.pastor.tasks.paint.canvas.Canvas;
+import dms.pastor.tasks.paint.canvas.Point;
 import org.junit.Test;
 
 import static dms.pastor.tasks.paint.canvas.Canvas.createCanvasFor;
@@ -66,9 +67,9 @@ public class ClearCanvasCommandTest extends AbstractCommandTest {
         final int width = 8;
         final int height = 6;
         final Canvas canvas = createCanvasFor(width, height);
-        canvas.updatePixelAt(1, 1, "d");
-        canvas.updatePixelAt(2, 2, "o");
-        canvas.updatePixelAt(3, 3, "m");
+        canvas.updatePixelAt(Point.of(1, 1, "d"));
+        canvas.updatePixelAt(Point.of(2, 2, "o"));
+        canvas.updatePixelAt(Point.of(3, 3, "m"));
 
         Canvas expectedCanvas = createCanvasFor(width, height);
 

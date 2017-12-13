@@ -1,5 +1,7 @@
 package dms.pastor.tasks.paint.canvas;
 
+import java.util.Objects;
+
 /**
  * Author Dominik Symonowicz
  * Created 18/07/2017
@@ -33,6 +35,20 @@ public class Coordinates {
 
     public boolean isCoordinatesSet() {
         return height != NO_VALUE && width != NO_VALUE;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Coordinates)) return false;
+        Coordinates that = (Coordinates) o;
+        return getWidth() == that.getWidth() &&
+                getHeight() == that.getHeight();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getWidth(), getHeight());
     }
 
     @Override

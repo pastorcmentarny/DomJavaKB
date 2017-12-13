@@ -10,7 +10,7 @@ import java.util.List;
 
 import static dms.pastor.tools.tube.Line.noLine;
 
-public class StationsBuilder {
+public final class StationsBuilder {
     private List<Station> stationList = generateStations();
 
     private StationsBuilder() {

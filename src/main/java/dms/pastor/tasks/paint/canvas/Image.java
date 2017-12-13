@@ -73,6 +73,10 @@ public class Image {
         image = new String[0][0];
     }
 
+    public void setPixel(Point point) {
+        setPixel(point.getWidth(), point.getHeight(), point.getFill());
+    }
+
     public void setPixel(int x, int y, String pixelFill) {
         if (pixelFill == null || pixelFill.length() != 1) {
             throw new IllegalArgumentException(format("It must have one character but it has %d", isNull(pixelFill) ? 0 : pixelFill.length()));

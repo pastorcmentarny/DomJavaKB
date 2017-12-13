@@ -2,12 +2,15 @@ package dms.pastor.tasks.paint.command;
 
 import dms.pastor.tasks.paint.canvas.Canvas;
 import dms.pastor.tasks.paint.canvas.Coordinates;
+import dms.pastor.tasks.paint.canvas.Point;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import static dms.pastor.tasks.paint.canvas.Canvas.HORIZONTAL_BORDER;
 import static dms.pastor.tasks.paint.canvas.Canvas.VERTICAL_BORDER;
 import static dms.pastor.tasks.paint.canvas.Coordinates.noCoordination;
+import static dms.pastor.tasks.paint.canvas.Point.withReplacedHeight;
+import static dms.pastor.tasks.paint.canvas.Point.withReplacedWidth;
 import static dms.pastor.tasks.paint.command.CommandValidator.*;
 
 /**
@@ -24,37 +27,41 @@ public class FillEntireAreaCommand implements Command {
     private String fillCharacter;
 
     private static void fillArea(Canvas canvas, boolean[][] visitedPixel,
-                                 int width, int height, String pixel, String currentFill) {
+                                 Point point, String currentFill) {
         LOGGER.debug("Checking if pixel can be filled. ");
-        if (isOutOfCanvas(canvas, width, height)) {
+        if (isOutOfCanvas(canvas, point.getWidth(), point.getHeight())) {
             return;
         }
 
-        if (visitedPixel[width][height]) {
+        if (visitedPixel[point.getWidth()][point.getHeight()]) {
             return;
         }
 
-        if (isOnBorder(canvas, width, height)) {
+        if (isOnBorder(canvas, point.getWidth(), point.getHeight())) {
             return;
         }
 
-        if (canvas.getPixelAt(width, height).equals(pixel)) {
+        if (isPixelFilledWithTheSamelFill(canvas, point)) {
             return;
         }
 
-        if (isNotEquals(canvas, width, height, currentFill)) {
+        if (isNotEquals(canvas, point.getWidth(), point.getHeight(), currentFill)) {
             return;
         }
 
-        LOGGER.debug("Updating pixel at ({},{})", width, height);
-        canvas.updatePixelAt(width, height, pixel);
-        visitedPixel[width][height] = true;
+        LOGGER.debug("Updating pixel at ({},{})", point.getWidth(), point.getHeight());
+        canvas.updatePixelAt(point);
+        visitedPixel[point.getWidth()][point.getHeight()] = true;
 
         LOGGER.debug(canvas.getCanvasAsString());
-        fillArea(canvas, visitedPixel, previous(width), height, pixel, currentFill);
-        fillArea(canvas, visitedPixel, next(width), height, pixel, currentFill);
-        fillArea(canvas, visitedPixel, width, previous(height), pixel, currentFill);
-        fillArea(canvas, visitedPixel, width, next(height), pixel, currentFill);
+        fillArea(canvas, visitedPixel, withReplacedWidth(previous(point.getWidth()), point), currentFill);
+        fillArea(canvas, visitedPixel, withReplacedWidth(next(point.getWidth()), point), currentFill);
+        fillArea(canvas, visitedPixel, withReplacedHeight(previous(point.getHeight()), point), currentFill);
+        fillArea(canvas, visitedPixel, withReplacedHeight(next(point.getHeight()), point), currentFill);
+    }
+
+    private static boolean isPixelFilledWithTheSamelFill(Canvas canvas, Point point) {
+        return canvas.getPixelAt(point.getWidth(), point.getHeight()).equals(point.getFill());
     }
 
     private static int next(int pixel) {
@@ -113,7 +120,7 @@ public class FillEntireAreaCommand implements Command {
         final String currentFill = canvas.getPixelAt(startPoint.getWidth(), startPoint.getHeight());
 
         boolean[][] mark = new boolean[canvas.getWidth() + 1][canvas.getHeight() + 1];
-        fillArea(canvas, mark, startPoint.getWidth(), startPoint.getHeight(), fillCharacter, currentFill);
+        fillArea(canvas, mark, new Point(new Coordinates(startPoint.getWidth(), startPoint.getHeight()), fillCharacter), currentFill);
     }
 
 }

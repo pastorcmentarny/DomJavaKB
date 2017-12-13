@@ -12,7 +12,7 @@ import static dms.pastor.tools.tube.Station.notVisited;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static java.util.Collections.singletonList;
 
-public class StationBuilder {
+public final class StationBuilder {
     private String name = generateString(10);
     private List<Line> lines = singletonList(new Line(generateString(10)));
     private Status status = Status.values()[new Random().nextInt(Status.values().length)];

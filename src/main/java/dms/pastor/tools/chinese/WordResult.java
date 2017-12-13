@@ -17,11 +17,11 @@ import static java.util.Collections.emptyList;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class WordResult extends Result {
+public final class WordResult extends Result {
 
     private List<Word> wordList = emptyList();
 
-    public WordResult(boolean success, String message, List<Word> wordList) {
+    private WordResult(boolean success, String message, List<Word> wordList) {
         super(success, message);
         this.wordList = wordList;
     }
@@ -33,6 +33,11 @@ public class WordResult extends Result {
     public static WordResult fail() {
         return new WordResult(false, "Fail", emptyList());
     }
+
+    public static WordResult fail(String message) {
+        return new WordResult(false, message, emptyList());
+    }
+
 
     public List<Word> getWordList() {
         return wordList;

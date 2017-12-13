@@ -413,6 +413,7 @@ java.lang.IllegalArgumentException: Path is invalid or is not a file
         assertThat(drawNumber).isEqualTo(hotPickDraw.getDrawNumber());
     }
 
+    @SuppressWarnings("MethodWithTooManyParameters")
     private String generateDrawLineAsString(String date, int ball1, int ball2, int ball3, int ball4, int ball5, int ball6, int ballSet, String machine, int drawNumber) {
         return date + CSV_SEPARATOR + ball1 + CSV_SEPARATOR + ball2 + CSV_SEPARATOR + ball3 + CSV_SEPARATOR + ball4 + CSV_SEPARATOR + ball5 + CSV_SEPARATOR + ball6 + CSV_SEPARATOR + ballSet + CSV_SEPARATOR + machine + CSV_SEPARATOR + drawNumber;
     }

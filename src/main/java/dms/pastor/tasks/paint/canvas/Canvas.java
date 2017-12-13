@@ -79,9 +79,9 @@ public final class Canvas {
         return length + 2 * BORDER;
     }
 
-    public void updatePixelAt(int x, int y, String pixelFill) {
-        LOGGER.debug(format("Updating pixel at (%d,%d) to %s", x, y, pixelFill));
-        image.setPixel(x, y, pixelFill);
+    public void updatePixelAt(Point point) {
+        LOGGER.debug(format("Updating pixel at (%d,%d) to %s", point.getWidth(), point.getHeight(), point.getFill()));
+        image.setPixel(point);
         LOGGER.debug("Image:\n" + getCanvasAsString());
     }
 

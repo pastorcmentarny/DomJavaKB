@@ -1,6 +1,7 @@
 package dms.pastor.tasks.paint.command;
 
 import dms.pastor.tasks.paint.canvas.Canvas;
+import dms.pastor.tasks.paint.canvas.Point;
 import org.junit.Test;
 
 import static dms.pastor.tasks.paint.canvas.Canvas.createCanvasFor;
@@ -64,13 +65,13 @@ public class UndoCommandTest extends AbstractCommandTest {
         // given
         final Canvas canvas = createCanvasFor(8, 6);
         canvas.saveState();
-        canvas.updatePixelAt(1, 2, "x");
+        canvas.updatePixelAt(Point.of(1, 2, "x"));
 
         canvas.saveState();
-        canvas.updatePixelAt(1, 2, "d");
+        canvas.updatePixelAt(Point.of(1, 2, "d"));
 
         final Canvas expectedCanvas = createCanvasFor(8, 6);
-        expectedCanvas.updatePixelAt(1, 2, "x");
+        expectedCanvas.updatePixelAt(Point.of(1, 2, "x"));
 
         // when
         undoCommand.execute(canvas);

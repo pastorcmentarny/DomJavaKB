@@ -1,8 +1,5 @@
 package dms.pastor.utils;
 
-import static dms.pastor.utils.NumberUtils.BINARY_DIGIT_ONE;
-import static dms.pastor.utils.NumberUtils.BINARY_DIGIT_ZERO;
-
 // used in NumberUtils to make a bit
 class BitMaker {
     private static final String BINARY_DIGIT_ONE = "1";

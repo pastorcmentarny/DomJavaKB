@@ -2,6 +2,7 @@ package dms.pastor.tasks.paint;
 
 import dms.pastor.tasks.paint.canvas.Canvas;
 import dms.pastor.tasks.paint.canvas.InvalidCanvasException;
+import dms.pastor.tasks.paint.canvas.Point;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
@@ -284,7 +285,7 @@ public class CanvasTest {
         canvas = createCanvasFor(8, 6);
         final String expectedImage = canvas.getCanvasAsString();
         canvas.saveState();
-        canvas.updatePixelAt(1, 1, "x");
+        canvas.updatePixelAt(Point.of(1, 1, "x"));
 
         // when
         canvas.undo();
@@ -298,7 +299,7 @@ public class CanvasTest {
         // given
         canvas = createCanvasFor(8, 6);
         canvas.saveState();
-        canvas.updatePixelAt(1, 1, "x");
+        canvas.updatePixelAt(Point.of(1, 1, "x"));
         canvas.saveState();
         final String expectedImage = canvas.getCanvasAsString();
         canvas.undo();
@@ -314,13 +315,13 @@ public class CanvasTest {
     public void getImageAsStringShouldReturnImageWithDominikOnCanvas() {
         // given
         canvas = createCanvasFor(DEFAULT_SQUARE_LENGTH, DEFAULT_SQUARE_LENGTH);
-        canvas.updatePixelAt(1, 1, "D");
-        canvas.updatePixelAt(2, 1, "O");
-        canvas.updatePixelAt(3, 1, "M");
-        canvas.updatePixelAt(3, 2, "I");
-        canvas.updatePixelAt(3, 3, "N");
-        canvas.updatePixelAt(2, 3, "I");
-        canvas.updatePixelAt(1, 3, "K");
+        canvas.updatePixelAt(Point.of(1, 1, "D"));
+        canvas.updatePixelAt(Point.of(2, 1, "O"));
+        canvas.updatePixelAt(Point.of(3, 1, "M"));
+        canvas.updatePixelAt(Point.of(3, 2, "I"));
+        canvas.updatePixelAt(Point.of(3, 3, "N"));
+        canvas.updatePixelAt(Point.of(2, 3, "I"));
+        canvas.updatePixelAt(Point.of(1, 3, "K"));
 
         // when
         final String result = canvas.getCanvasAsString();
