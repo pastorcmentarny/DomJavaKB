@@ -616,7 +616,7 @@ public class ValidatorUtilsTest {
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("One of values is not in range.");
 
-        // when
+        // given
         final int min = 3;
         final int max = 10;
         int[] valuesInRange = {1, 2, 4, 9};
@@ -646,13 +646,35 @@ public class ValidatorUtilsTest {
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("Values array cannot be null or empty.");
 
-        // when
+        // given
         final int min = 0;
         final int max = 5;
         int[] valuesInRange = new int[0];
 
         // when
         validateIfValuesIsInRange(min, max, valuesInRange);
+    }
+
+    @Test
+    public void validateIfSumOfIntegerIsInIntegerValueRangeShouldThrowIllegalArgumentException() {
+        // expect
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("Range may produce number bigger than valid range for integer.");
+
+        // when
+        ValidatorUtils.validateIfSumOfIntegerIsInIntegerValueRange(Integer.MAX_VALUE, Integer.MAX_VALUE);
+    }
+
+    @Test
+    public void shouldValidateIfSumOfIntegerIsInIntegerValueRange() {
+        // given
+        final int min = 1;
+        final int max = 5;
+
+        // when
+        ValidatorUtils.validateIfSumOfIntegerIsInIntegerValueRange(min, max);
+
+        // then nothing happen if sum of 2 values in valid integer range.
     }
 
 }

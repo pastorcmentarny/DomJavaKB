@@ -39,7 +39,7 @@ public class PointTest {
     public void withReplacedWidthShouldReturnPoint() {
         // given
         final int width = randomPositiveInteger(10);
-        final int newWidth = 11 + randomPositiveInteger(10); //TODO implement randomPositive with min,max value
+        final int newWidth = randomPositiveInteger(width, 10);
         final int height = randomPositiveInteger(10);
         final String fill = getRandomCharacterAsString();
         final Coordinates coordinates = new Coordinates(width, height);
@@ -58,7 +58,7 @@ public class PointTest {
         // given
         final int width = randomPositiveInteger(10);
         final int height = randomPositiveInteger(10);
-        final int newHight = 11 + randomPositiveInteger(10); //TODO implement randomPositive with min,max value
+        final int newHight = randomPositiveInteger(height, 10);
         final String fill = getRandomCharacterAsString();
 
         final Coordinates coordinates = new Coordinates(width, height);

@@ -182,6 +182,14 @@ public final class RandomDataGenerator {
         return String.valueOf(randomPositiveInteger(maxValue));
     }
 
+    public static int randomPositiveInteger(int minValue, int maxValue) {
+        validateIfPositiveNumber(maxValue);
+        final int minValuePlusOne = minValue + 1;
+        validateIfSumOfIntegerIsInIntegerValueRange(minValuePlusOne, maxValue);
+        return minValuePlusOne + RANDOM.nextInt(maxValue);
+    }
+
+
     public static int randomPositiveInteger(int maxValue) {
         validateIfPositiveNumber(maxValue);
         return RANDOM.nextInt(maxValue);
