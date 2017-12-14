@@ -1,0 +1,376 @@
+<component name="InspectionProjectProfileManager">
+    <profile version="1.0">
+        <option name="myName" value="Dom code style"/>
+        <inspection_tool class="AbstractClassNamingConvention" enabled="true" level="Experimental"
+                         enabled_by_default="true">
+            <option name="m_minLength" value="2"/>
+        </inspection_tool>
+        <inspection_tool class="AbstractClassNeverImplemented" enabled="true" level="Experimental"
+                         enabled_by_default="true"/>
+        <inspection_tool class="AbstractClassWithoutAbstractMethods" enabled="true" level="Experimental"
+                         enabled_by_default="true"/>
+        <inspection_tool class="AnnotationNamingConvention" enabled="true" level="Experimental"
+                         enabled_by_default="true">
+            <option name="m_regex" value="[A-Z][A-Za-z\d]*"/>
+            <option name="m_minLength" value="2"/>
+            <option name="m_maxLength" value="64"/>
+        </inspection_tool>
+        <inspection_tool class="AnonymousClassMethodCount" enabled="true" level="Experimental"
+                         enabled_by_default="true">
+            <option name="m_limit" value="1"/>
+        </inspection_tool>
+        <inspection_tool class="AnonymousInnerClassMayBeStatic" enabled="true" level="Experimental"
+                         enabled_by_default="true"/>
+        <inspection_tool class="ArrayEquality" enabled="true" level="Experimental" enabled_by_default="true"/>
+        <inspection_tool class="ArrayHashCode" enabled="true" level="Experimental" enabled_by_default="true"/>
+        <inspection_tool class="AssertEqualsCalledOnArray" enabled="true" level="Experimental"
+                         enabled_by_default="true"/>
+        <inspection_tool class="AssertEqualsMayBeAssertSame" enabled="true" level="Experimental"
+                         enabled_by_default="true"/>
+        <inspection_tool class="AssignmentToDateFieldFromParameter" enabled="true" level="Experimental"
+                         enabled_by_default="true">
+            <option name="ignorePrivateMethods" value="true"/>
+        </inspection_tool>
+        <inspection_tool class="AssignmentToLambdaParameter" enabled="true" level="Experimental"
+                         enabled_by_default="true"/>
+        <inspection_tool class="AssignmentToNull" enabled="true" level="Experimental" enabled_by_default="true"/>
+        <inspection_tool class="AutoCloseableResource" enabled="true" level="Experimental" enabled_by_default="true"/>
+        <inspection_tool class="BadExceptionCaught" enabled="true" level="Experimental" enabled_by_default="true">
+            <option name="exceptionsString" value=""/>
+            <option name="exceptions">
+                <value/>
+            </option>
+        </inspection_tool>
+        <inspection_tool class="BadExceptionDeclared" enabled="true" level="Experimental" enabled_by_default="true">
+            <scope name="Tests" level="Experimental" enabled="false">
+                <option name="exceptionsString" value=""/>
+                <option name="exceptions">
+                    <value/>
+                </option>
+                <option name="ignoreTestCases" value="false"/>
+                <option name="ignoreLibraryOverrides" value="false"/>
+            </scope>
+            <option name="exceptionsString" value=""/>
+            <option name="exceptions">
+                <value/>
+            </option>
+            <option name="ignoreTestCases" value="false"/>
+            <option name="ignoreLibraryOverrides" value="false"/>
+        </inspection_tool>
+        <inspection_tool class="BigDecimalEquals" enabled="true" level="Experimental" enabled_by_default="true"/>
+        <inspection_tool class="BooleanMethodNameMustStartWithQuestion" enabled="true" level="Experimental"
+                         enabled_by_default="true">
+            <option name="ignoreBooleanMethods" value="true"/>
+            <option name="ignoreInAnnotationInterface" value="true"/>
+            <option name="onlyWarnOnBaseMethods" value="true"/>
+            <option name="questionString"
+                    value="add,are,can,check,contains,could,endsWith,equals,has,is,matches,must,put,remove,shall,should,startsWith,was,were,will,would"/>
+        </inspection_tool>
+        <inspection_tool class="BooleanParameter" enabled="true" level="Experimental" enabled_by_default="true"/>
+        <inspection_tool class="CastToConcreteClass" enabled="true" level="Experimental" enabled_by_default="true"/>
+        <inspection_tool class="ClassComplexity" enabled="true" level="Experimental" enabled_by_default="true">
+            <option name="m_limit" value="80"/>
+        </inspection_tool>
+        <inspection_tool class="ClassCoupling" enabled="true" level="WARNING" enabled_by_default="true">
+            <option name="m_includeJavaClasses" value="false"/>
+            <option name="m_includeLibraryClasses" value="false"/>
+            <option name="m_limit" value="15"/>
+        </inspection_tool>
+        <inspection_tool class="ClassNamingConvention" enabled="true" level="Experimental" enabled_by_default="true">
+            <option name="m_regex" value="[A-Z][A-Za-z\d]*"/>
+            <option name="m_minLength" value="2"/>
+            <option name="m_maxLength" value="64"/>
+        </inspection_tool>
+        <inspection_tool class="ClassReferencesSubclass" enabled="true" level="Experimental" enabled_by_default="true"/>
+        <inspection_tool class="ClassWithMultipleLoggers" enabled="true" level="Experimental" enabled_by_default="true">
+            <option name="loggerNamesString"
+                    value="java.util.logging.Logger,org.slf4j.Logger,org.apache.commons.logging.Log,org.apache.log4j.Logger"/>
+        </inspection_tool>
+        <inspection_tool class="ClassWithOnlyPrivateConstructors" enabled="true" level="Experimental"
+                         enabled_by_default="true"/>
+        <inspection_tool class="ClassWithTooManyDependencies" enabled="true" level="Experimental"
+                         enabled_by_default="true">
+            <option name="limit" value="15"/>
+        </inspection_tool>
+        <inspection_tool class="CollectionAddAllCanBeReplacedWithConstructor" enabled="true" level="Experimental"
+                         enabled_by_default="true"/>
+        <inspection_tool class="CollectionContainsUrl" enabled="true" level="Experimental" enabled_by_default="true"/>
+        <inspection_tool class="ComparisonOfShortAndChar" enabled="true" level="Experimental"
+                         enabled_by_default="true"/>
+        <inspection_tool class="ComparisonToNaN" enabled="true" level="Experimental" enabled_by_default="true"/>
+        <inspection_tool class="ConfusingMainMethod" enabled="true" level="Experimental" enabled_by_default="true"/>
+        <inspection_tool class="ConstantMathCall" enabled="true" level="Experimental" enabled_by_default="true"/>
+        <inspection_tool class="ConstantNamingConvention" enabled="true" level="Experimental" enabled_by_default="true">
+            <option name="onlyCheckImmutables" value="false"/>
+            <option name="m_regex" value="[A-Z][A-Z_\d]*"/>
+            <option name="m_minLength" value="1"/>
+            <option name="m_maxLength" value="40"/>
+        </inspection_tool>
+        <inspection_tool class="ConstructorCount" enabled="true" level="Experimental" enabled_by_default="true">
+            <option name="ignoreDeprecatedConstructors" value="true"/>
+            <option name="m_limit" value="5"/>
+        </inspection_tool>
+        <inspection_tool class="ContinueStatement" enabled="true" level="WARNING" enabled_by_default="true"/>
+        <inspection_tool class="CyclicClassDependency" enabled="true" level="Experimental" enabled_by_default="true"/>
+        <inspection_tool class="CyclomaticComplexity" enabled="true" level="Experimental" enabled_by_default="true">
+            <option name="m_limit" value="20"/>
+        </inspection_tool>
+        <inspection_tool class="DeprecatedIsStillUsed" enabled="true" level="Experimental" enabled_by_default="true"/>
+        <inspection_tool class="Deprecation" enabled="true" level="Experimental" enabled_by_default="true"/>
+        <inspection_tool class="DivideByZero" enabled="true" level="Experimental" enabled_by_default="true"/>
+        <inspection_tool class="DollarSignInName" enabled="true" level="Experimental" enabled_by_default="true"/>
+        <inspection_tool class="DoubleBraceInitialization" enabled="true" level="WARNING" enabled_by_default="true"/>
+        <inspection_tool class="EmptyClass" enabled="true" level="Experimental" enabled_by_default="true">
+            <option name="ignorableAnnotations">
+                <value/>
+            </option>
+            <option name="ignoreClassWithParameterization" value="false"/>
+            <option name="ignoreThrowables" value="true"/>
+            <option name="commentsAreContent" value="true"/>
+        </inspection_tool>
+        <inspection_tool class="EnumeratedClassNamingConvention" enabled="true" level="Experimental"
+                         enabled_by_default="true">
+            <option name="m_regex" value="[A-Z][A-Za-z\d]*"/>
+            <option name="m_minLength" value="2"/>
+            <option name="m_maxLength" value="64"/>
+        </inspection_tool>
+        <inspection_tool class="EnumeratedConstantNamingConvention" enabled="true" level="Experimental"
+                         enabled_by_default="true">
+            <option name="m_regex" value="[A-Z][A-Z_\d]*"/>
+            <option name="m_minLength" value="1"/>
+            <option name="m_maxLength" value="32"/>
+        </inspection_tool>
+        <inspection_tool class="EqualsCalledOnEnumConstant" enabled="true" level="Experimental"
+                         enabled_by_default="true"/>
+        <inspection_tool class="ErrorRethrown" enabled="true" level="Experimental" enabled_by_default="true"/>
+        <inspection_tool class="ExceptionNameDoesntEndWithException" enabled="true" level="Experimental"
+                         enabled_by_default="true"/>
+        <inspection_tool class="ExtendsThrowable" enabled="true" level="Experimental" enabled_by_default="true"/>
+        <inspection_tool class="FieldCount" enabled="true" level="Experimental" enabled_by_default="true">
+            <option name="m_countConstantFields" value="false"/>
+            <option name="m_considerStaticFinalFieldsConstant" value="false"/>
+            <option name="myCountEnumConstants" value="false"/>
+            <option name="m_limit" value="10"/>
+        </inspection_tool>
+        <inspection_tool class="Finalize" enabled="true" level="WARNING" enabled_by_default="true">
+            <option name="ignoreTrivialFinalizers" value="true"/>
+        </inspection_tool>
+        <inspection_tool class="FinalizeNotProtected" enabled="true" level="WARNING" enabled_by_default="true"/>
+        <inspection_tool class="FloatingPointEquality" enabled="true" level="Experimental" enabled_by_default="true"/>
+        <inspection_tool class="ForLoopReplaceableByWhile" enabled="true" level="WARNING" enabled_by_default="true">
+            <option name="m_ignoreLoopsWithoutConditions" value="false"/>
+        </inspection_tool>
+        <inspection_tool class="InnerClassMayBeStatic" enabled="true" level="Experimental" enabled_by_default="true"/>
+        <inspection_tool class="InstanceMethodNamingConvention" enabled="true" level="Experimental"
+                         enabled_by_default="false">
+            <scope name="Production" level="Experimental" enabled="true">
+                <option name="m_regex" value="[a-z][A-Za-z\d]*"/>
+                <option name="m_minLength" value="3"/>
+                <option name="m_maxLength" value="64"/>
+            </scope>
+            <option name="m_regex" value="[a-z][A-Za-z\d]*"/>
+            <option name="m_minLength" value="2"/>
+            <option name="m_maxLength" value="64"/>
+        </inspection_tool>
+        <inspection_tool class="InstanceofChain" enabled="true" level="Experimental" enabled_by_default="true">
+            <option name="ignoreInstanceofOnLibraryClasses" value="false"/>
+        </inspection_tool>
+        <inspection_tool class="IntLiteralMayBeLongLiteral" enabled="true" level="Experimental"
+                         enabled_by_default="true"/>
+        <inspection_tool class="InterfaceNamingConvention" enabled="true" level="Experimental"
+                         enabled_by_default="true">
+            <option name="m_regex" value="[A-Z][A-Za-z\d]*"/>
+            <option name="m_minLength" value="2"/>
+            <option name="m_maxLength" value="64"/>
+        </inspection_tool>
+        <inspection_tool class="JavaLangImport" enabled="true" level="WARNING" enabled_by_default="true"/>
+        <inspection_tool class="LambdaParameterNamingConvention" enabled="true" level="Experimental"
+                         enabled_by_default="true">
+            <option name="m_minLength" value="2"/>
+            <option name="m_maxLength" value="32"/>
+        </inspection_tool>
+        <inspection_tool class="LengthOneStringInIndexOf" enabled="true" level="Experimental"
+                         enabled_by_default="true"/>
+        <inspection_tool class="ListIndexOfReplaceableByContains" enabled="true" level="Experimental"
+                         enabled_by_default="true"/>
+        <inspection_tool class="LiteralAsArgToStringEquals" enabled="true" level="Experimental"
+                         enabled_by_default="true"/>
+        <inspection_tool class="LocalVariableNamingConvention" enabled="true" level="Experimental"
+                         enabled_by_default="true">
+            <option name="m_ignoreForLoopParameters" value="true"/>
+            <option name="m_ignoreCatchParameters" value="true"/>
+            <option name="m_regex" value="[a-z][A-Za-z\d]*"/>
+            <option name="m_minLength" value="1"/>
+            <option name="m_maxLength" value="48"/>
+        </inspection_tool>
+        <inspection_tool class="LocalVariableOfConcreteClass" enabled="false" level="Experimental"
+                         enabled_by_default="false">
+            <option name="ignoreAbstractClasses" value="true"/>
+        </inspection_tool>
+        <inspection_tool class="LongLiteralsEndingWithLowercaseL" enabled="true" level="Experimental"
+                         enabled_by_default="true"/>
+        <inspection_tool class="MagicNumber" enabled="true" level="Experimental" enabled_by_default="false">
+            <scope name="Production" level="Experimental" enabled="true">
+                <option name="ignoreInitialCapacity" value="true"/>
+            </scope>
+        </inspection_tool>
+        <inspection_tool class="MapReplaceableByEnumMap" enabled="true" level="Experimental" enabled_by_default="true"/>
+        <inspection_tool class="MethodCount" enabled="true" level="Experimental" enabled_by_default="true">
+            <option name="m_limit" value="20"/>
+            <option name="ignoreGettersAndSetters" value="true"/>
+            <option name="ignoreOverridingMethods" value="true"/>
+        </inspection_tool>
+        <inspection_tool class="MethodCoupling" enabled="true" level="Experimental" enabled_by_default="true">
+            <option name="m_includeJavaClasses" value="false"/>
+            <option name="m_includeLibraryClasses" value="false"/>
+            <option name="m_limit" value="10"/>
+        </inspection_tool>
+        <inspection_tool class="MethodNameSameAsClassName" enabled="true" level="Experimental"
+                         enabled_by_default="true"/>
+        <inspection_tool class="MethodReturnOfConcreteClass" enabled="false" level="Experimental"
+                         enabled_by_default="false">
+            <option name="ignoreAbstractClasses" value="true"/>
+        </inspection_tool>
+        <inspection_tool class="MethodWithMultipleLoops" enabled="false" level="Experimental"
+                         enabled_by_default="false"/>
+        <inspection_tool class="NativeMethodNamingConvention" enabled="true" level="Experimental"
+                         enabled_by_default="true">
+            <option name="m_minLength" value="2"/>
+            <option name="m_maxLength" value="64"/>
+        </inspection_tool>
+        <inspection_tool class="NestedAssignment" enabled="false" level="Experimental" enabled_by_default="false"/>
+        <inspection_tool class="NestedSwitchStatement" enabled="true" level="WARNING" enabled_by_default="true"/>
+        <inspection_tool class="NestedTryStatement" enabled="true" level="Experimental" enabled_by_default="true"/>
+        <inspection_tool class="NestingDepth" enabled="true" level="Experimental" enabled_by_default="true">
+            <option name="m_limit" value="5"/>
+        </inspection_tool>
+        <inspection_tool class="NonBooleanMethodNameMayNotStartWithQuestion" enabled="true" level="Experimental"
+                         enabled_by_default="false">
+            <scope name="Production" level="Experimental" enabled="true">
+                <option name="questionString"
+                        value="are,can,check,contains,could,endsWith,equals,has,is,matches,must,put,shall,should,startsWith,was,were,will,would"/>
+                <option name="ignoreBooleanMethods" value="false"/>
+                <option name="onlyWarnOnBaseMethods" value="true"/>
+            </scope>
+            <option name="questionString"
+                    value="are,can,check,contains,could,endsWith,equals,has,is,matches,must,put,shall,should,startsWith,was,were,will,would"/>
+            <option name="ignoreBooleanMethods" value="true"/>
+            <option name="onlyWarnOnBaseMethods" value="true"/>
+        </inspection_tool>
+        <inspection_tool class="NonCommentSourceStatements" enabled="true" level="Experimental"
+                         enabled_by_default="true">
+            <option name="m_limit" value="30"/>
+        </inspection_tool>
+        <inspection_tool class="NonExceptionNameEndsWithException" enabled="true" level="Experimental"
+                         enabled_by_default="true"/>
+        <inspection_tool class="NonFinalUtilityClass" enabled="true" level="Experimental" enabled_by_default="true"/>
+        <inspection_tool class="NonProtectedConstructorInAbstractClass" enabled="true" level="Experimental"
+                         enabled_by_default="true">
+            <option name="m_ignoreNonPublicClasses" value="true"/>
+        </inspection_tool>
+        <inspection_tool class="NonReproducibleMathCall" enabled="false" level="Experimental"
+                         enabled_by_default="false"/>
+        <inspection_tool class="ObjectToString" enabled="true" level="Experimental" enabled_by_default="true">
+            <option name="IGNORE_NONNLS" value="true"/>
+            <option name="IGNORE_EXCEPTION" value="true"/>
+            <option name="IGNORE_TOSTRING" value="true"/>
+        </inspection_tool>
+        <inspection_tool class="ObsoleteCollection" enabled="true" level="Experimental" enabled_by_default="true">
+            <option name="ignoreRequiredObsoleteCollectionTypes" value="false"/>
+        </inspection_tool>
+        <inspection_tool class="PackageNamingConvention" enabled="false" level="Experimental"
+                         enabled_by_default="false">
+            <option name="m_regex" value="[a-z]*"/>
+            <option name="m_minLength" value="2"/>
+            <option name="m_maxLength" value="16"/>
+        </inspection_tool>
+        <inspection_tool class="ParameterNamingConvention" enabled="true" level="Experimental"
+                         enabled_by_default="true">
+            <option name="m_regex" value="[a-z][A-Za-z\d]*"/>
+            <option name="m_minLength" value="1"/>
+            <option name="m_maxLength" value="32"/>
+        </inspection_tool>
+        <inspection_tool class="ParameterOfConcreteClass" enabled="false" level="Experimental"
+                         enabled_by_default="false"/>
+        <inspection_tool class="ParametersPerConstructor" enabled="true" level="Experimental"
+                         enabled_by_default="true"/>
+        <inspection_tool class="ParametersPerMethod" enabled="true" level="Experimental" enabled_by_default="true">
+            <option name="m_limit" value="5"/>
+        </inspection_tool>
+        <inspection_tool class="ProtectedMemberInFinalClass" enabled="true" level="Experimental"
+                         enabled_by_default="true"/>
+        <inspection_tool class="QuestionableName" enabled="true" level="Experimental" enabled_by_default="true">
+            <option name="nameString"
+                    value="aa,abc,bad,bar,bar2,baz,baz1,baz2,baz3,bb,blah,bogus,bool,cc,dd,defau1t,dummy,dummy2,ee,fa1se,ff,foo,foo1,foo2,foo3,foobar,four,fred,fred1,fred2,gg,hh,hello,hello1,hello2,hello3,ii,nu11,one,silly,silly2,string,two,that,then,three,whi1e,var"/>
+        </inspection_tool>
+        <inspection_tool class="RandomDoubleForRandomInteger" enabled="true" level="Experimental"
+                         enabled_by_default="true"/>
+        <inspection_tool class="ReplaceAssignmentWithOperatorAssignment" enabled="true" level="Experimental"
+                         enabled_by_default="true">
+            <option name="ignoreLazyOperators" value="true"/>
+            <option name="ignoreObscureOperators" value="false"/>
+        </inspection_tool>
+        <inspection_tool class="ReturnFromFinallyBlock" enabled="true" level="Experimental" enabled_by_default="true"/>
+        <inspection_tool class="ReturnNull" enabled="true" level="Experimental" enabled_by_default="true">
+            <option name="m_reportObjectMethods" value="true"/>
+            <option name="m_reportArrayMethods" value="true"/>
+            <option name="m_reportCollectionMethods" value="true"/>
+            <option name="m_ignorePrivateMethods" value="true"/>
+        </inspection_tool>
+        <inspection_tool class="ReturnOfCollectionField" enabled="true" level="Experimental" enabled_by_default="true">
+            <option name="ignorePrivateMethods" value="true"/>
+        </inspection_tool>
+        <inspection_tool class="ReturnOfDateField" enabled="true" level="Experimental" enabled_by_default="true"/>
+        <inspection_tool class="SetReplaceableByEnumSet" enabled="true" level="Experimental" enabled_by_default="true"/>
+        <inspection_tool class="SizeReplaceableByIsEmpty" enabled="true" level="Experimental"
+                         enabled_by_default="true"/>
+        <inspection_tool class="StaticFieldReferenceOnSubclass" enabled="true" level="Experimental"
+                         enabled_by_default="true"/>
+        <inspection_tool class="StaticMethodNamingConvention" enabled="true" level="Experimental"
+                         enabled_by_default="true">
+            <option name="m_regex" value="[a-z][A-Za-z\d]*"/>
+            <option name="m_minLength" value="2"/>
+            <option name="m_maxLength" value="64"/>
+        </inspection_tool>
+        <inspection_tool class="StringEqualsEmptyString" enabled="true" level="Experimental" enabled_by_default="true"/>
+        <inspection_tool class="SystemOutErr" enabled="false" level="Experimental" enabled_by_default="false"/>
+        <inspection_tool class="TestCaseWithNoTestMethods" enabled="true" level="Experimental"
+                         enabled_by_default="true">
+            <option name="ignoreSupers" value="false"/>
+        </inspection_tool>
+        <inspection_tool class="TestOnlyProblems" enabled="true" level="Experimental" enabled_by_default="true"/>
+        <inspection_tool class="TextLabelInSwitchStatement" enabled="true" level="Experimental"
+                         enabled_by_default="true"/>
+        <inspection_tool class="ThreadDeathRethrown" enabled="true" level="Experimental" enabled_by_default="true"/>
+        <inspection_tool class="ThreadDumpStack" enabled="true" level="Experimental" enabled_by_default="true"/>
+        <inspection_tool class="ThreeNegationsPerMethod" enabled="true" level="Experimental" enabled_by_default="true">
+            <option name="m_ignoreInEquals" value="true"/>
+            <option name="ignoreInAssert" value="false"/>
+        </inspection_tool>
+        <inspection_tool class="ThrowablePrintStackTrace" enabled="true" level="Experimental"
+                         enabled_by_default="true"/>
+        <inspection_tool class="TypeMayBeWeakened" enabled="false" level="Experimental" enabled_by_default="false">
+            <option name="useRighthandTypeAsWeakestTypeInAssignments" value="true"/>
+            <option name="useParameterizedTypeForCollectionMethods" value="false"/>
+            <option name="doNotWeakenToJavaLangObject" value="true"/>
+            <option name="onlyWeakentoInterface" value="true"/>
+        </inspection_tool>
+        <inspection_tool class="UnnecessaryCallToStringValueOf" enabled="true" level="Experimental"
+                         enabled_by_default="true"/>
+        <inspection_tool class="UnnecessarySuperConstructor" enabled="true" level="Experimental"
+                         enabled_by_default="true"/>
+        <inspection_tool class="UpperCaseFieldNameNotConstant" enabled="true" level="Experimental"
+                         enabled_by_default="true"/>
+        <inspection_tool class="UseOfObsoleteDateTimeApi" enabled="true" level="Experimental"
+                         enabled_by_default="true"/>
+        <inspection_tool class="UtilityClassWithPublicConstructor" enabled="true" level="Experimental"
+                         enabled_by_default="true"/>
+        <inspection_tool class="UtilityClassWithoutPrivateConstructor" enabled="true" level="Experimental"
+                         enabled_by_default="true">
+            <option name="ignorableAnnotations">
+                <value/>
+            </option>
+            <option name="ignoreClassesWithOnlyMain" value="false"/>
+        </inspection_tool>
+    </profile>
+</component>
