@@ -14,7 +14,6 @@ import static dms.pastor.game.dcs.utils.random.InGameRandomUtils.FORTY;
 
 /**
  * Author Dominik Symonowicz
- * Created 2015-07-26
  * WWW:	https://dominiksymonowicz.com/welcome
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
@@ -45,6 +44,7 @@ public final class EventGenerator {
     private static ArrayList<Event> getAllBadEvents() {
         ArrayList<Event> events = new ArrayList<>();
         events.add(new ElementStolenEvent());
+        events.add(new AntiMatterStormEvent());
         return events;
     }
 
@@ -53,18 +53,14 @@ public final class EventGenerator {
         return EVENTS.get(RANDOM.nextInt(EVENTS.size()));
     }
 
-    public static void event(Unit player1, Unit player2) {
-        LOGGER.debug("Generating RANDOM_UTILS event..");
+    public static void event(Unit unit1, Unit unit2) {
+        LOGGER.debug("Generating random event..");
         if (RANDOM_UTILS.isWillHappenWithProbabilityOf(FORTY)) {
             Event event = getRandomEvent();
-            System.out.println("EVENT:" + event.makeItHappen(player1, player2));
+            System.out.println("EVENT:" + event.makeItHappen(unit1, unit2));
         } else {
             System.out.println("EVENT: Nothing happen");
         }
     }
 
-    //TODO
-/*    public static Event badEvent(Unit defender) {
-        return new NoEvent();
-    }*/
 }
