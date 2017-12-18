@@ -27,10 +27,10 @@ public class Dragon extends Unit {
 
     public Dragon() {
         setName(getRandomColor() + " Dragon");
-        setHp(1024);
-        setMaxHp(1024);
+        getHealth().setHp(1024);
+        getHealth().setMaxHp(1024);
         setSp(2048);
-        setArm(2);
+        getHealth().setArm(2);
         getConditions().add(createPersistentCondition(AIR_RESISTANT));
         getConditions().add(createPersistentCondition(EARTH_RESISTANT));
         getConditions().add(createPersistentCondition(FIRE_RESISTANT));

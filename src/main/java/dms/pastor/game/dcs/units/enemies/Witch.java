@@ -14,9 +14,9 @@ public class Witch extends Unit {
 
     public Witch() {
         setName(getRandomMummyName());
-        setHp(INITIAL_HP);
+        getHealth().setHp(INITIAL_HP);
         setSp(0);
-        setArm(1);
+        getHealth().setArm(1);
         getConditions().add(createPersistentCondition(FIRE_SENSITIVE));
         getConditions().add(createPersistentCondition(MINDLESS));
     }
@@ -53,6 +53,6 @@ public class Witch extends Unit {
     }
 
     private boolean isHealthLow() {
-        return getHp() < QUARTER * getMaxHp();
+        return getHealth().getHp() < QUARTER * getHealth().getMaxHp();
     }
 }

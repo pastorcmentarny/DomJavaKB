@@ -8,7 +8,7 @@ import dms.pastor.game.dcs.conditions.ConditionType;
 
 import java.util.ArrayList;
 
-import static dms.pastor.game.dcs.Config.*;
+import static dms.pastor.game.dcs.Config.DEFAULT_MANA_POINTS;
 import static dms.pastor.game.dcs.conditions.ConditionEntryBuilder.conditionEntryBuilder;
 
 /**
@@ -33,16 +33,13 @@ import static dms.pastor.game.dcs.conditions.ConditionEntryBuilder.conditionEntr
 @SuppressWarnings("unused")
 public final class UnitBuilder {
 
-    private int hp = DEFAULT_HEALTH_POINTS;
     private int sp = DEFAULT_MANA_POINTS;
     private ArrayList<Card> cards = new ArrayList<>();
     private Elements elements = Elements.noElements();
+    private Health health = HealthBuilder.healthBuilder().build();
     private String description = "Description";
     private Condition condition = new Condition();
     private String name = "Name";
-    private int maxHp = DEFAULT_MAX_HEALTH;
-    private int arm = 0;
-    private int hpRegenRate = REGEN_HP_PER_TURN;
 
     private UnitBuilder() {
     }
@@ -53,26 +50,26 @@ public final class UnitBuilder {
 
     public Unit build() {
         setSpToZeroIfIsNegative();
-        final Unit unit = new Unit(
+        return new Unit(
                 sp,
                 elements,
-                hp,
+                health,
                 cards,
                 name,
-                maxHp,
-                arm,
                 condition,
                 description);
-        unit.setHpRegenRate(hpRegenRate);
-        return unit;
     }
 
     public Unit buildDeathUnit() {
-        return new Unit(0, null, 0, null, "Death Unit", 1, 0, null, "This unit is death.");
+        Health health = new Health();
+        health.setHp(0);
+        health.setMaxHp(1);
+        health.setArm(0);
+        return new Unit(0, null, health, null, "Death Unit", null, "This unit is death.");
     }
 
     public UnitBuilder hp(int hp) {
-        this.hp = hp;
+        health.setHp(hp);
         return this;
     }
 
@@ -88,6 +85,11 @@ public final class UnitBuilder {
 
     public UnitBuilder elements(Elements elements) {
         this.elements = elements;
+        return this;
+    }
+
+    public UnitBuilder health(Health health) {
+        this.health = health;
         return this;
     }
 
@@ -114,12 +116,12 @@ public final class UnitBuilder {
     }
 
     public UnitBuilder maxHp(int maxHp) {
-        this.maxHp = maxHp;
+        health.setMaxHp(maxHp);
         return this;
     }
 
     public UnitBuilder arm(int arm) {
-        this.arm = arm;
+        health.setArm(arm);
         return this;
     }
 
@@ -129,7 +131,7 @@ public final class UnitBuilder {
     }
 
     public UnitBuilder hpRegenPerTurn(int regenHpRate) {
-        this.hpRegenRate = regenHpRate;
+        health.setHpRegenRate(regenHpRate);
         return this;
     }
 

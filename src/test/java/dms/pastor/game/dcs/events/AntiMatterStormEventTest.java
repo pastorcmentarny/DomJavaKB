@@ -6,6 +6,7 @@ import dms.pastor.game.dcs.units.Unit;
 import org.junit.Test;
 
 import static dms.pastor.game.dcs.ElementsBuilder.elementsBuilder;
+import static dms.pastor.game.dcs.units.HealthBuilder.healthBuilder;
 import static dms.pastor.game.dcs.units.UnitBuilder.unitBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -26,17 +27,22 @@ public class AntiMatterStormEventTest {
     public void makeThingsHappenWillCauseDamagePerElementAndLoseHalfOfElements() {
         // given
         final Unit player = PlayerBuilder.playerBuilder()
-                .hp(10)
+                .health(healthBuilder()
+                        .hp(10)
+                        .arm(1)
+                        .build())
                 .sp(10)
-                .arm(1)
+
                 .elements(elementsBuilder()
                         .setToOneForAllElements()
                         .build())
                 .build();
         final Unit enemy = unitBuilder()
-                .hp(10)
+                .health(healthBuilder()
+                        .hp(10)
+                        .arm(1)
+                        .build())
                 .sp(10)
-                .arm(1)
                 .elements(elementsBuilder()
                         .setToOneForAllElements()
                         .build())

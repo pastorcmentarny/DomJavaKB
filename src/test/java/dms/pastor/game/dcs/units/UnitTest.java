@@ -372,7 +372,7 @@ public class UnitTest {
                 .build();
 
         // when
-        final int increase = unit.increaseHpPerTurn();
+        final int increase = unit.getHealth().increaseHpPerTurn();
 
         // then
         assertThat(increase).isEqualTo(regenHpRate);
@@ -394,7 +394,7 @@ public class UnitTest {
                 .build();
 
         // when
-        final int increase = unit.increaseHpPerTurn();
+        final int increase = unit.getHealth().increaseHpPerTurn();
 
         // then
         assertThat(increase).isEqualTo(1);
@@ -416,7 +416,7 @@ public class UnitTest {
                 .build();
 
         // when
-        final int increase = unit.increaseHpPerTurn();
+        final int increase = unit.getHealth().increaseHpPerTurn();
 
         // then
         assertThat(increase).isZero();

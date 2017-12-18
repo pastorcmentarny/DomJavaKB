@@ -13,7 +13,7 @@ public class Clairvoyant extends Unit {
 
     public Clairvoyant() {
         setName(generateFirstName() + " a Clairvoyant");
-        setHp(50);
+        getHealth().setHp(50);
         getConditions().add(createPersistentCondition(EARTH_RESISTANT));
         getConditions().add(createPersistentCondition(FIRE_RESISTANT));
         getConditions().add(createPersistentCondition(AIR_RESISTANT));

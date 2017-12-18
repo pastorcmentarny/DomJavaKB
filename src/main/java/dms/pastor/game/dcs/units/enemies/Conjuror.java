@@ -28,7 +28,7 @@ public class Conjuror extends Unit {
     public Conjuror() {
         setName("Conjuror");
         setElements(new Elements(15));
-        setHp(INITIAL_HP);
+        getHealth().setHp(INITIAL_HP);
         setSp(INITIAL_SP);
         maybeAddResistanceTo(AIR_RESISTANT);
         maybeAddResistanceTo(EARTH_RESISTANT);
@@ -47,7 +47,7 @@ public class Conjuror extends Unit {
         }
 
         Spell healSpell = new HealSpell();
-        if (getHp() < 15 && healSpell.hasEnoughElementsToCovertToSpell(getElements())) {
+        if (getHealth().getHp() < 15 && healSpell.hasEnoughElementsToCovertToSpell(getElements())) {
             healSpell.castSpellIfHasEnoughElements(this, enemy);
         }
 

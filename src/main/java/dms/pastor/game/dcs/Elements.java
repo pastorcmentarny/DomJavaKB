@@ -82,7 +82,7 @@ public class Elements {
                     water++;
                     stringBuilder.append(getElementName(WATER));
                     break;
-                default:
+                default: //TODO how to test this ?
                     System.out.println("bug in addRandomElements");
                     throw new SomethingWentTerribleWrongError();
             }
@@ -205,7 +205,7 @@ public class Elements {
         return air + earth + fire + water;
     }
 
-    public int getElementsFor(ElementType elementType) {
+    int getElementsFor(ElementType elementType) {
         switch (elementType) {
             case AIR:
                 return air;

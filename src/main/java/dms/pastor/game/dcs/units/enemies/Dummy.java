@@ -20,18 +20,18 @@ public class Dummy extends Unit {
     private final int initialHp = Config.DEFAULT_HEALTH_POINTS / 2;
 
     Dummy() {
-        setHp(initialHp);
+        getHealth().setHp(initialHp);
     }
 
     public Dummy(String name) {
         setName(name);
-        setHp(initialHp);
+        getHealth().setHp(initialHp);
     }
 
     @Override
     public void turn(Unit unit) {
         Spell spell;
-        if (this.getHp() > 2 && this.getHp() < 5) {
+        if (this.getHealth().getHp() > 2 && this.getHealth().getHp() < 5) {
             spell = new HealSpell();
             while (spell.hasEnoughElementsToCovertToSpell(getElements())) {
                 System.out.println(getName() + " casting heal!");

@@ -13,7 +13,8 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.Random;
 
-import static dms.pastor.game.dcs.Config.*;
+import static dms.pastor.game.dcs.Config.DEFAULT_ELEMENT_NUMBER;
+import static dms.pastor.game.dcs.Config.INITIAL_SHIELD_POINTS;
 import static dms.pastor.game.dcs.conditions.ConditionType.*;
 import static java.lang.String.format;
 
@@ -35,44 +36,55 @@ public class Unit {
     private String name = "Name";
     private String description = "Description";
 
-    private int hp = DEFAULT_HEALTH_POINTS; //TODO split health to separate class
-    private int maxHp = DEFAULT_MAX_HEALTH;
+    private Health health = new Health();
+
     private int sp = INITIAL_SHIELD_POINTS;  //TODO split shield to separate class
-    private int arm = 0;
 
     private Elements elements = new Elements(DEFAULT_ELEMENT_NUMBER);
     private ArrayList<Card> cards = new ArrayList<>();
     private boolean player = false;
     private Condition conditions = new Condition();
-    private int hpRegenRate = REGEN_HP_PER_TURN;
 
     protected Unit() {
     }
 
     @SuppressWarnings("ConstructorWithTooManyParameters")
-    public Unit(int sp, Elements elements, int hp, ArrayList<Card> cards, String name, int maxHp, int arm, Condition conditions, String description) {
+    public Unit(int sp, Elements elements, Health health, ArrayList<Card> cards, String name, Condition conditions, String description) {
         this.sp = sp;
         this.elements = elements;
-        this.hp = hp;
+        this.health = health;
         this.cards = cards;
         this.name = name;
-        this.maxHp = maxHp;
-        this.arm = arm;
         this.conditions = conditions;
         this.description = description;
     }
 
-    void setPlayer() {
-        this.player = true;
+    public Health getHealth() {
+        return health;
+    }
+
+    public void setHealth(Health health) {
+        this.health = health;
+    }
+
+
+    public int getHp() {
+        return getHealth().getHp();
     }
 
     public boolean isAlive() {
-        return hp > 0;
+        return getHealth().getHp() > 0;
     }
 
     public boolean isDead() {
         return !isAlive();
     }
+
+
+    void setPlayer() {
+        this.player = true;
+    }
+
 
     public void turn(Unit unit) {
         //Nothing
@@ -92,12 +104,12 @@ public class Unit {
         if (defender.isShielded()) {
             dmg = defender.doesShieldDamage(dmg);
         }
-        dmg -= getArm();
+        dmg -= health.getArm();
         if (dmg < 0) {
             dmg = 0;
         }
         System.out.println("It does " + dmg + " dmg.");
-        defender.setHp(defender.getHp() - dmg);
+        defender.getHealth().setHp(defender.getHealth().getHp() - dmg);
         return dmg;
     }
 
@@ -111,15 +123,12 @@ public class Unit {
     }
 
     public void addHP(int heal) {
-        hp += heal;
-        if (hp > maxHp) {
-            hp = maxHp;
-        }
+        health.addHp(heal);
     }
 
     public void displayStats() {
         CLI.lineSeparator();
-        String stats = getName() + " HP: " + hp + "/" + maxHp;
+        String stats = getName() + " HP: " + getHealth().getHp() + "/" + getHealth().getMaxHp();
         if (sp > 0) {
             stats += "| SP: " + sp;
         }
@@ -147,21 +156,6 @@ public class Unit {
         return conditions;
     }
 
-    public int getHp() {
-        return hp;
-    }
-
-    public void setHp(int hp) {
-        this.hp = hp;
-    }
-
-    protected int getMaxHp() {
-        return maxHp;
-    }
-
-    protected void setMaxHp(int maxHp) {
-        this.maxHp = maxHp;
-    }
 
     public int getSp() {
         return sp;
@@ -169,14 +163,6 @@ public class Unit {
 
     public void setSp(int sp) {
         this.sp = sp;
-    }
-
-    public int getArm() {
-        return arm;
-    }
-
-    protected void setArm(int arm) {
-        this.arm = arm;
     }
 
     public boolean isShielded() {
@@ -221,7 +207,7 @@ public class Unit {
             return;
         }
         LOGGER.debug(getName() + " lose " + penaltyDmg + " dmg.");
-        hp -= penaltyDmg;
+        getHealth().setHp(getHealth().getHp() - penaltyDmg);
     }
 
     public void increaseShieldBy(int shieldHealBy) {
@@ -264,7 +250,7 @@ public class Unit {
 
     @Override
     public String toString() {
-        return format("Unit{name='%s'\n, description='%s'\n, hp=%d, maxHp=%d\n, sp=%d\n, arm=%d\n, elements=%s\n, cards=%s\n, player=%s\n, conditions=%s}", name, description, hp, maxHp, sp, arm, elements, cards, player, conditions);
+        return format("Unit{name='%s'\n, description='%s'\n, hp=%d, maxHp=%d\n, sp=%d\n, arm=%d\n, elements=%s\n, cards=%s\n, player=%s\n, conditions=%s}", name, description, getHealth().getHp(), getHealth().getMaxHp(), sp, getHealth().getArm(), elements, cards, player, conditions);
     }
 
     public int getElementsFor(ElementType elementsType) {
@@ -308,20 +294,6 @@ public class Unit {
         }
     }
 
-    public int increaseHpPerTurn() {
-        if (hp > maxHp) {
-            return 0;
-        }
-        int beforeHp = getHp();
-        setHp(getHp() + hpRegenRate);
-        if (hp > maxHp) {
-            setHp(maxHp);
 
-        }
-        return getHp() - beforeHp;
-    }
 
-    public void setHpRegenRate(int hpRegenRate) {
-        this.hpRegenRate = hpRegenRate;
-    }
 }

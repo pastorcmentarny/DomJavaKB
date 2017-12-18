@@ -33,7 +33,7 @@ public class Vampire extends Unit {
         System.out.println(getName() + " trying to drain energy from " + enemy.getName());
         vds.castSpell(this, enemy);
 
-        while (vds.hasEnoughElementsToCovertToSpell(getElements()) && (getMaxHp() - getHp() > 5)) {
+        while (vds.hasEnoughElementsToCovertToSpell(getElements()) && (getHealth().getMaxHp() - getHealth().getHp() > 5)) {
             vds.castSpell(this, enemy);
             getElements().useElements(vds.getElements());
         }

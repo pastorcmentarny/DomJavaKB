@@ -6,19 +6,18 @@ import dms.pastor.game.dcs.conditions.Condition;
 
 import java.util.ArrayList;
 
-import static dms.pastor.game.dcs.Config.*;
+import static dms.pastor.game.dcs.Config.DEFAULT_MANA_POINTS;
+import static dms.pastor.game.dcs.units.HealthBuilder.healthBuilder;
 
 public final class PlayerBuilder {
 
-    private int hp = DEFAULT_HEALTH_POINTS;
     private int sp = DEFAULT_MANA_POINTS;
     private ArrayList<Card> cards = new ArrayList<>();
     private Elements elements = Elements.noElements();
+    private Health health = HealthBuilder.healthBuilder().build();
     private String description = "Description";
     private Condition condition = new Condition();
     private String name = "Name";
-    private int maxHp = DEFAULT_MAX_HEALTH;
-    private int arm = 0;
 
     private PlayerBuilder() {
     }
@@ -31,23 +30,19 @@ public final class PlayerBuilder {
         return new Player(
                 sp,
                 elements,
-                hp,
+                health,
                 cards,
                 name,
-                maxHp,
-                arm,
                 condition,
                 description
         );
     }
 
     public Player buildDeathPlayer() {
-        return new Player(0, null, 0, null, "Death Unit", 1, 0, null, "This unit is death.");
-    }
-
-    public PlayerBuilder hp(int hp) {
-        this.hp = hp;
-        return this;
+        return new Player(0, null, healthBuilder()
+                .hp(0)
+                .build(),
+                null, "Death Unit", null, "This unit is death.");
     }
 
     public PlayerBuilder sp(int sp) {
@@ -70,6 +65,11 @@ public final class PlayerBuilder {
         return this;
     }
 
+    public PlayerBuilder health(Health health) {
+        this.health = health;
+        return this;
+    }
+
     public PlayerBuilder condition(Condition condition) {
         this.condition = condition;
         return this;
@@ -80,15 +80,6 @@ public final class PlayerBuilder {
         return this;
     }
 
-    public PlayerBuilder maxHp(int maxHp) {
-        this.maxHp = maxHp;
-        return this;
-    }
-
-    public PlayerBuilder arm(int arm) {
-        this.arm = arm;
-        return this;
-    }
 
     public PlayerBuilder withoutShield() {
         this.sp = 0;

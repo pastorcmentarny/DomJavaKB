@@ -33,13 +33,16 @@ public final class InfoSpellTest {
     public void castInfoSpellShouldDisplayInfoAboutUnit() {
         // given
         InfoSpell infoSpell = new InfoSpell();
-        final Unit unit = UnitBuilder.unitBuilder().build();
+        final Unit unit = UnitBuilder.unitBuilder()
+                .hp(24)
+                .sp(24)
+                .maxHp(32)
+                .build();
 
         // when
         infoSpell.castSpell(unit, unit);
 
         // then
-
         assertThat(outputStream.toString()).contains("Name casting Show Info on Name");
         assertThat(outputStream.toString()).contains("Name HP: 24/32| SP: 24");
     }

@@ -25,6 +25,7 @@ import static org.mockito.Mockito.verify;
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+ * tag-log-test
  */
 @RunWith(MockitoJUnitRunner.class)
 public class ExampleOfTestingLoggingTest {

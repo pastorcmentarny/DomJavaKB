@@ -25,7 +25,7 @@ public class Cleric extends Unit {
 
     public Cleric() {
         setName("Cleric");
-        setHp(50);
+        getHealth().setHp(50);
     }
 
     @Override

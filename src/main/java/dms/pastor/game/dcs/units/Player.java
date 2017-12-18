@@ -34,9 +34,9 @@ public class Player extends Unit {
 
     private final Spells spells = new Spells();
 
-    @SuppressWarnings({"ConstructorWithTooManyParameters", "AssignmentToNull"})
-    Player(int sp, Elements elements, int hp, ArrayList<Card> cards, String name, int maxHp, int arm, Condition condition, String description) {
-        super(sp, elements, hp, cards, name, maxHp, arm, condition, description);
+    @SuppressWarnings({"AssignmentToNull"})
+    Player(int sp, Elements elements, Health health, ArrayList<Card> cards, String name, Condition condition, String description) {
+        super(sp, elements, health, cards, name, condition, description);
         this.userInputReader = null;
         setPlayer();
     }
