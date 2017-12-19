@@ -2,6 +2,8 @@ package dms.pastor.utils;
 
 import java.util.*;
 
+import static dms.pastor.utils.ValidatorUtils.validateIfNotNull;
+
 /**
  * Author Dominik Symonowicz
  * Created 2015-10-25
@@ -61,6 +63,11 @@ public final class CollectionsUtils {
 
     public static boolean isListNotEmpty(List list) {
         return list != null && !list.isEmpty();
+    }
+
+    public static <E extends Enum<E>> List<E> toList(E[] enums) {
+        validateIfNotNull(enums, "Enum values");
+        return Arrays.asList(enums);
     }
 
 }

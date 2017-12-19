@@ -1,7 +1,10 @@
 package dms.pastor.utils;
 
+import dms.pastor.game.dcs.conditions.ConditionType;
 import org.junit.Assert;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -28,6 +31,9 @@ import static org.hamcrest.CoreMatchers.is;
 public class CollectionsUtilsTest {
 
     private static final String[] EMPTY_ARRAY = new String[0];
+
+    @Rule
+    public ExpectedException exception = ExpectedException.none();
 
     @Test
     public void testConvertListToIntArray() throws Exception {
@@ -158,6 +164,34 @@ public class CollectionsUtilsTest {
 
         // then
         assertThat(stringSet).isEqualTo(expectedStringSet);
+    }
+
+    @Test
+    public void toListShouldThrowIllegalArgumentExceptionIfEnumIsNull() throws Exception {
+        // expected
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("Enum values cannot be null.");
+
+        // when
+        final List<ConditionType> result = CollectionsUtils.toList(null);
+    }
+
+
+    @Test
+    public void toListShouldReturnListOfEnumsValues() throws Exception {
+        // given
+        final ConditionType[] enums = ConditionType.values();
+
+        // when
+        final List<ConditionType> result = CollectionsUtils.toList(enums);
+
+        // then
+        assertThat(result).isNotEmpty();
+        assertThat(result).hasSize(enums.length);
+
+        // debug info
+        result.forEach(System.out::println);
+
     }
 
 }
