@@ -1,9 +1,8 @@
 package dms.pastor.tools.lotto.hotpick;
 
+import dms.pastor.domain.exception.SomethingWentWrongException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.io.IOException;
 
 import static java.lang.String.format;
 
@@ -29,8 +28,8 @@ final class HotPicksStatsApplication {
         validateUserInput(args);
 
         try {
-            new HotPicksStatsGenerator(args[0]).generateNumbersToPlay();
-        } catch (IOException e) {
+            new HotPicksNumberToPlay2017Generator(args[0]).generateNumbersToPlay();
+        } catch (SomethingWentWrongException e) {
             LOGGER.error(format("Application crashes because: %s", e.getMessage()), e);
         }
         LOGGER.info("Application ends his life peacefully. Until next time!");

@@ -1,5 +1,6 @@
 package dms.pastor.tools.lotto.hotpick;
 
+import dms.pastor.domain.exception.SomethingWentWrongException;
 import dms.pastor.utils.DateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,11 +37,13 @@ class HotPicksFileUploader {
         hotPickDrawList = new ArrayList<>();
     }
 
-    List<HotPickDraw> loadHotPicksDrawHistoryFile(String filePath) throws IOException {
+    List<HotPickDraw> loadHotPicksDrawHistoryFile(String filePath) {
         validateFilePath(filePath);
 
         try (Stream<String> lines = Files.lines(Paths.get(filePath))) {
             lines.forEach(this::addIfLineValid);
+        } catch (IOException e) {
+            throw new SomethingWentWrongException("Getting lines from file", e);
         }
         return unmodifiableList(hotPickDrawList);
     }

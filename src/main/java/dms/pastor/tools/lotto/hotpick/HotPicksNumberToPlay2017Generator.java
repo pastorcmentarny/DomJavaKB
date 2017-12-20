@@ -4,7 +4,6 @@ import dms.pastor.tools.lotto.BallCount;
 import dms.pastor.tools.lotto.BallCountOperations;
 import dms.pastor.utils.PrintOutUtils;
 
-import java.io.IOException;
 import java.util.*;
 import java.util.stream.IntStream;
 
@@ -23,13 +22,13 @@ import static dms.pastor.utils.CollectionsUtils.convertListToIntArray;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-class HotPicksStatsGenerator {
+class HotPicksNumberToPlay2017Generator {
 
     private static final int[] HOT_PICK_NUMBER_RANGE = IntStream.rangeClosed(HOT_PICK_BALL_MINIMUM_VALUE, HOT_PICK_BALL_MAXIMUM_VALUE).toArray();
     private static final int NUMBER_OF_PREVIOUS_GAMES = 8;
     private final String filePath;
 
-    HotPicksStatsGenerator(String filePath) {
+    HotPicksNumberToPlay2017Generator(String filePath) {
         this.filePath = filePath;
     }
 
@@ -41,7 +40,7 @@ class HotPicksStatsGenerator {
         }
     }
 
-    void generateNumbersToPlay() throws IOException {
+    void generateNumbersToPlay() {
         final List<HotPickDraw> hotPickDrawList = loadData();
         HotPicksAnalyser analyser = new HotPicksAnalyser(hotPickDrawList);
         HotPickLeastPlayedCoupleFinder leastPlayedCoupleFinder = new HotPickLeastPlayedCoupleFinder();
@@ -113,7 +112,7 @@ class HotPicksStatsGenerator {
         return couplesWithMatchedBalls;
     }
 
-    private List<HotPickDraw> loadData() throws IOException {
+    private List<HotPickDraw> loadData() {
         HotPicksFileUploader hotPicksFileUploader = new HotPicksFileUploader();
         return hotPicksFileUploader.loadHotPicksDrawHistoryFile(filePath);
     }
