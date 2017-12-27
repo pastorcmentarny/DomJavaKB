@@ -5,17 +5,16 @@ import java.util.stream.Collectors;
 
 /**
  * Author Dominik Symonowicz
- * Created 10/03/2017
  * WWW:	https://dominiksymonowicz.com/welcome
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-class HotPickLeastPlayedCoupleFinder {
+public class HotPickLeastPlayedCoupleFinder {
 
     //generate all possible combination of pair numbers between 1-59
-    Set<Couple> generateAllUniqueCombinationFor(int[] numbersRange) {
+    public Set<Couple> generateAllUniqueCombinationFor(int[] numbersRange) {
         final int capacity = new Double(numbersRange.length * numbersRange.length * 1.3).intValue();
         Set<Couple> couples = new HashSet<>(capacity);
         for (int i : numbersRange) {
@@ -28,7 +27,7 @@ class HotPickLeastPlayedCoupleFinder {
         return couples;
     }
 
-    Set<Couple> generateCouplesFromDraws(List<HotPickDraw> draws) {
+    public Set<Couple> generateCouplesFromDraws(List<HotPickDraw> draws) {
         Set<Couple> coupleSet = new HashSet<>();
         for (HotPickDraw draw : draws) {
             coupleSet.addAll(generateCouplesFromDraw(draw));

@@ -39,6 +39,7 @@ public class HotPicksAnalyserTest {
 
     @Rule
     public final ExpectedException exception = ExpectedException.none();
+
     private HotPicksAnalyser hotPicksAnalyser;
 
     @Test

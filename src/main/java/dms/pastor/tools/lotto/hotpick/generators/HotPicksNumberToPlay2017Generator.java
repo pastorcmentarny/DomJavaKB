@@ -1,47 +1,47 @@
-package dms.pastor.tools.lotto.hotpick;
+package dms.pastor.tools.lotto.hotpick.generators;
 
-import dms.pastor.tools.lotto.BallCount;
 import dms.pastor.tools.lotto.BallCountOperations;
+import dms.pastor.tools.lotto.common.NumbersToPlayGenerator;
+import dms.pastor.tools.lotto.hotpick.Couple;
+import dms.pastor.tools.lotto.hotpick.HotPickDraw;
+import dms.pastor.tools.lotto.hotpick.HotPickLeastPlayedCoupleFinder;
+import dms.pastor.tools.lotto.hotpick.HotPicksAnalyser;
 import dms.pastor.utils.PrintOutUtils;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.stream.IntStream;
 
 import static dms.pastor.tools.lotto.BallCountOperations.*;
 import static dms.pastor.tools.lotto.LottoConstants.HOT_PICK_BALL_MAXIMUM_VALUE;
 import static dms.pastor.tools.lotto.LottoConstants.HOT_PICK_BALL_MINIMUM_VALUE;
 import static dms.pastor.tools.lotto.hotpick.CoupleOperations.deleteDiscardedCouples;
-import static dms.pastor.utils.CollectionsUtils.convertListToIntArray;
+import static dms.pastor.tools.lotto.hotpick.CoupleOperations.findAllCouplesThatContainsThisBalls;
+import static dms.pastor.tools.lotto.hotpick.HotPickStats.displayStatistic;
 
 /**
  * Author Dominik Symonowicz
- * Created 18/09/2016
  * WWW:	https://dominiksymonowicz.com/welcome
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-class HotPicksNumberToPlay2017Generator {
+public class HotPicksNumberToPlay2017Generator extends NumbersToPlayGenerator {
 
     private static final int[] HOT_PICK_NUMBER_RANGE = IntStream.rangeClosed(HOT_PICK_BALL_MINIMUM_VALUE, HOT_PICK_BALL_MAXIMUM_VALUE).toArray();
-    private static final int NUMBER_OF_PREVIOUS_GAMES = 8;
+    static final int NUMBER_OF_PREVIOUS_GAMES = 8;
     private final String filePath;
 
-    HotPicksNumberToPlay2017Generator(String filePath) {
+    public HotPicksNumberToPlay2017Generator(String filePath) {
         this.filePath = filePath;
     }
 
-    private static void addOrUpdateValue(Map<Integer, Integer> topNumbers, Integer key) {
-        if (topNumbers.containsKey(key)) {
-            topNumbers.put(key, topNumbers.get(key) + 1);
-        } else {
-            topNumbers.put(key, 1);
-        }
-    }
 
-    void generateNumbersToPlay() {
-        final List<HotPickDraw> hotPickDrawList = loadData();
+    public void generateNumbersToPlay() {
+        final List<HotPickDraw> hotPickDrawList = loadData(filePath);
         HotPicksAnalyser analyser = new HotPicksAnalyser(hotPickDrawList);
         HotPickLeastPlayedCoupleFinder leastPlayedCoupleFinder = new HotPickLeastPlayedCoupleFinder();
 
@@ -86,50 +86,4 @@ class HotPicksNumberToPlay2017Generator {
         return getNumbersFromBallsCount(getLeast2PlayedBalls(ballsCounterInRemainingCouples));
     }
 
-    private Set<Couple> findAllCouplesThatContainsThisBalls(Set<Couple> remainingCouples, BallCount[] top2PlayedBalls) {
-        Set<Couple> couplesWithMatchedBalls = new HashSet<>();
-        List<Integer> balls = new ArrayList<>();
-        for (BallCount ballCount : top2PlayedBalls) {
-            balls.addAll(ballCount.getBallNumbers());
-        }
-
-        for (Couple couple : remainingCouples) {
-            if (couple.contains(convertListToIntArray(balls))) {
-                couplesWithMatchedBalls.add(couple);
-            }
-        }
-        return couplesWithMatchedBalls;
-    }
-
-    private Set<Couple> findAllCouplesThatContainsThisBalls(Set<Couple> remainingCouples, int[] balls) {
-        Set<Couple> couplesWithMatchedBalls = new HashSet<>();
-
-        for (Couple couple : remainingCouples) {
-            if (couple.contains(balls)) {
-                couplesWithMatchedBalls.add(couple);
-            }
-        }
-        return couplesWithMatchedBalls;
-    }
-
-    private List<HotPickDraw> loadData() {
-        HotPicksFileUploader hotPicksFileUploader = new HotPicksFileUploader();
-        return hotPicksFileUploader.loadHotPicksDrawHistoryFile(filePath);
-    }
-
-    private void displayStatistic(HotPicksAnalyser analyser) {
-        final String result = analyser.countBallDrawn();
-        System.out.println(result);
-        final int mostDrawnNumber = analyser.findMostDrawnNumber();
-        final String ballsDrawnMostTimes = analyser.findBallsThatWasDrawnTimes(mostDrawnNumber);
-        System.out.println("Most drawn number is " + mostDrawnNumber + " and these number was drawn that times " + ballsDrawnMostTimes);
-
-        final int leastDrawnNumber = analyser.findLeastDrawnNumber();
-        final String ballsDrawnLeastTimes = analyser.findBallsThatWasDrawnTimes(leastDrawnNumber);
-        System.out.println("Least drawn number is " + leastDrawnNumber + " and these number was drawn that times " + ballsDrawnLeastTimes);
-
-        final Optional<HotPickDraw> throwNumbersPlayedTogether = analyser.find2TheSameNumberInRow(Integer.parseInt(ballsDrawnLeastTimes.split(",")[0]), Integer.parseInt(ballsDrawnMostTimes.split(",")[0]));
-        System.out.println("Is most and least common number were played together ?" + throwNumbersPlayedTogether.isPresent());
-        throwNumbersPlayedTogether.ifPresent(System.out::println);
-    }
 }

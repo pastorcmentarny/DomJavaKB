@@ -20,24 +20,23 @@ import static java.util.Collections.unmodifiableList;
 
 /**
  * Author Dominik Symonowicz
- * Created 18/09/2016
  * WWW:	https://dominiksymonowicz.com/welcome
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-class HotPicksFileUploader {
+public class HotPicksFileUploader {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(HotPicksFileUploader.class);
     private static final String DASH = "-";
     private final List<HotPickDraw> hotPickDrawList;
 
-    HotPicksFileUploader() {
+    public HotPicksFileUploader() {
         hotPickDrawList = new ArrayList<>();
     }
 
-    List<HotPickDraw> loadHotPicksDrawHistoryFile(String filePath) {
+    public List<HotPickDraw> loadHotPicksDrawHistoryFile(String filePath) {
         validateFilePath(filePath);
 
         try (Stream<String> lines = Files.lines(Paths.get(filePath))) {

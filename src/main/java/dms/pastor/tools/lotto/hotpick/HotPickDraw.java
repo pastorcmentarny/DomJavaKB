@@ -4,14 +4,13 @@ import java.time.LocalDate;
 
 /**
  * Author Dominik Symonowicz
- * Created 18/09/2016
  * WWW:	https://dominiksymonowicz.com/welcome
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-class HotPickDraw {
+public class HotPickDraw {
 
     private final LocalDate drawDate;
     private final int ball1;

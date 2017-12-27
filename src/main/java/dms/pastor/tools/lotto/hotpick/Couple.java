@@ -48,11 +48,11 @@ public final class Couple {
         return false;
     }
 
-    int getSmallerNumber() {
+    public int getSmallerNumber() {
         return smallerNumber;
     }
 
-    int getLargerNumber() {
+    public int getLargerNumber() {
         return largerNumber;
     }
 

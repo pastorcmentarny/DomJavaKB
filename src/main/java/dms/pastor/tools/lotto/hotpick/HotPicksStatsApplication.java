@@ -1,6 +1,7 @@
 package dms.pastor.tools.lotto.hotpick;
 
 import dms.pastor.domain.exception.SomethingWentWrongException;
+import dms.pastor.tools.lotto.hotpick.generators.HotPicksNumberToPlay2017Generator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -8,7 +9,6 @@ import static java.lang.String.format;
 
 /**
  * Author Dominik Symonowicz
- * Created 11/03/2017
  * WWW:	https://dominiksymonowicz.com/welcome
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
