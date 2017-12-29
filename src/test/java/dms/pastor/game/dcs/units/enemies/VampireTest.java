@@ -15,7 +15,7 @@ import java.io.PrintStream;
 
 import static dms.pastor.game.dcs.Config.VAMPIRE_DRAIN_HEAL_HP;
 import static dms.pastor.game.dcs.conditions.ElementType.*;
-import static dms.pastor.game.dcs.units.UnitBuilder.unitBuilder;
+import static dms.pastor.game.dcs.units.enemies.builders.UnitBuilder.unitBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SuppressWarnings("resource") // auto closable not essential

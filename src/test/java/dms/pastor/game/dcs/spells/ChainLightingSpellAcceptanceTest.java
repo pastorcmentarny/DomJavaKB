@@ -3,7 +3,7 @@ package dms.pastor.game.dcs.spells;
 import dms.pastor.game.dcs.units.Unit;
 import org.junit.Test;
 
-import static dms.pastor.game.dcs.units.UnitBuilder.unitBuilder;
+import static dms.pastor.game.dcs.units.enemies.builders.UnitBuilder.unitBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**

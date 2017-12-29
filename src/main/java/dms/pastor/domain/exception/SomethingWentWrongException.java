@@ -8,7 +8,6 @@ import static java.lang.String.format;
 
 /**
  * Author Dominik Symonowicz
- * Created 18/09/2016
  * WWW:	https://dominiksymonowicz.com/welcome
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny

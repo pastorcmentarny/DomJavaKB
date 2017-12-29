@@ -1,6 +1,7 @@
 package dms.pastor.game.dcs.units;
 
 import dms.pastor.game.dcs.Config;
+import dms.pastor.game.dcs.units.enemies.builders.UnitBuilder;
 import org.junit.Test;
 
 import static dms.pastor.utils.randoms.RandomDataGenerator.randomNegativeInteger;

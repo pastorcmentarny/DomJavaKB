@@ -7,7 +7,7 @@ import org.junit.Test;
 import static dms.pastor.game.dcs.conditions.ConditionEntryBuilder.conditionEntryBuilder;
 import static dms.pastor.game.dcs.conditions.ConditionType.POISONED;
 import static dms.pastor.game.dcs.conditions.ConditionType.POISON_IMMUNITY;
-import static dms.pastor.game.dcs.units.UnitBuilder.unitBuilder;
+import static dms.pastor.game.dcs.units.enemies.builders.UnitBuilder.unitBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**

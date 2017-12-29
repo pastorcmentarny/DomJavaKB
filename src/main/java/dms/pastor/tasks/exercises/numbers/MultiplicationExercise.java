@@ -17,10 +17,13 @@ final class MultiplicationExercise {
     }
 
     static String generateMultiplicationSquareTable(int number) {
+        if (number <= 0) {
+            return EMPTY_STRING;
+        }
         StringBuilder stringBuilder = new StringBuilder(EMPTY_STRING); //* read comment above
         for (int x = 1; x <= number; x++) {
             createRow(number, stringBuilder, x);
-            stringBuilder.append('\n');
+            stringBuilder.append(NEW_LINE);
         }
         return stringBuilder.toString();
     }

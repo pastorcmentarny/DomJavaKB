@@ -9,7 +9,7 @@ import static dms.pastor.game.dcs.ElementsBuilder.elementsBuilder;
 import static dms.pastor.game.dcs.conditions.ConditionEntryBuilder.conditionEntryBuilder;
 import static dms.pastor.game.dcs.conditions.ConditionType.FROZEN;
 import static dms.pastor.game.dcs.conditions.ConditionType.WATER_SENSITIVE;
-import static dms.pastor.game.dcs.units.UnitBuilder.unitBuilder;
+import static dms.pastor.game.dcs.units.enemies.builders.UnitBuilder.unitBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public final class WaterElementEventTest {

@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import static dms.pastor.game.dcs.Config.DEFAULT_ELEMENT_NUMBER;
@@ -20,7 +21,6 @@ import static java.lang.String.format;
 
 /**
  * Author Dominik Symonowicz
- * Created 2015-07-23
  * WWW:	https://dominiksymonowicz.com/welcome
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
@@ -41,7 +41,7 @@ public class Unit {
     private int sp = INITIAL_SHIELD_POINTS;  //TODO split shield to separate class
 
     private Elements elements = new Elements(DEFAULT_ELEMENT_NUMBER);
-    private ArrayList<Card> cards = new ArrayList<>();
+    private List<Card> cards = new ArrayList<>();
     private boolean player = false;
     private Condition conditions = new Condition();
 
@@ -156,13 +156,39 @@ public class Unit {
         return conditions;
     }
 
+    public int getHp() {
+        return hp;
+    }
+
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+
+    protected int getMaxHp() {
+        return maxHp;
+    }
+
+    public void setMaxHp(int maxHp) {
+        this.maxHp = maxHp;
+    }
 
     public int getSp() {
         return sp;
     }
 
     public void setSp(int sp) {
+        if (sp <= 0) {
+            sp = 0;
+        }
         this.sp = sp;
+    }
+
+    public int getArm() {
+        return arm;
+    }
+
+    public void setArm(int arm) {
+        this.arm = arm;
     }
 
     public boolean isShielded() {

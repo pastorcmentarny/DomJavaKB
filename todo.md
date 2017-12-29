@@ -5,7 +5,8 @@ TODO:
         improve main (game,in,out)
         accept AAEFW as way to input
     4. Complete Lotto tools  
-    5. Create TextFileSaver       
+    5. Create TextFileSaver   
+    6. Add gradle task to generate domUtils.jar    
 
 Enemies:
     0. (Done)   Dummy

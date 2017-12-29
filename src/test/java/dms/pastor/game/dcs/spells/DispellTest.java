@@ -5,10 +5,8 @@ import dms.pastor.game.dcs.conditions.ConditionEntry;
 import dms.pastor.game.dcs.units.Unit;
 import org.junit.Test;
 
-import static dms.pastor.game.dcs.conditions.ConditionType.AIR_IMMUNE;
-import static dms.pastor.game.dcs.conditions.ConditionType.EARTH_IMMUNE;
-import static dms.pastor.game.dcs.conditions.ConditionType.FIRE_IMMUNE;
-import static dms.pastor.game.dcs.units.UnitBuilder.unitBuilder;
+import static dms.pastor.game.dcs.conditions.ConditionType.*;
+import static dms.pastor.game.dcs.units.enemies.builders.UnitBuilder.unitBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public final class DispellTest {

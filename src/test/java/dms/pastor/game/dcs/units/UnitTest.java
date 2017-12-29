@@ -13,7 +13,7 @@ import static dms.pastor.game.dcs.ElementsBuilder.elementsBuilder;
 import static dms.pastor.game.dcs.conditions.ConditionEntry.createTemporaryConditionWithDefaultDuration;
 import static dms.pastor.game.dcs.conditions.ConditionType.BUBBLE_SHIELD;
 import static dms.pastor.game.dcs.conditions.ElementType.*;
-import static dms.pastor.game.dcs.units.UnitBuilder.unitBuilder;
+import static dms.pastor.game.dcs.units.enemies.builders.UnitBuilder.unitBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**

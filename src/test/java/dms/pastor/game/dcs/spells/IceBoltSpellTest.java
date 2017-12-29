@@ -11,7 +11,7 @@ import java.io.PrintStream;
 
 import static dms.pastor.game.dcs.Config.ICE_BOLT_DMG;
 import static dms.pastor.game.dcs.conditions.ConditionType.WATER_IMMUNE;
-import static dms.pastor.game.dcs.units.UnitBuilder.unitBuilder;
+import static dms.pastor.game.dcs.units.enemies.builders.UnitBuilder.unitBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SuppressWarnings("resource") // auto closable not essential

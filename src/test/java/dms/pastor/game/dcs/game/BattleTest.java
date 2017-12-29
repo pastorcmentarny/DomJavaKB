@@ -6,10 +6,8 @@ import dms.pastor.game.dcs.conditions.ConditionEntryBuilder;
 import dms.pastor.game.dcs.units.Unit;
 import org.junit.Test;
 
-import static dms.pastor.game.dcs.conditions.ConditionType.POISONED;
-import static dms.pastor.game.dcs.conditions.ConditionType.REGENERATION;
-import static dms.pastor.game.dcs.conditions.ConditionType.STUNNED;
-import static dms.pastor.game.dcs.units.UnitBuilder.unitBuilder;
+import static dms.pastor.game.dcs.conditions.ConditionType.*;
+import static dms.pastor.game.dcs.units.enemies.builders.UnitBuilder.unitBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public final class BattleTest {

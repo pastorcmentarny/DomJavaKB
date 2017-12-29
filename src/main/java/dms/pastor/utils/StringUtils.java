@@ -27,7 +27,7 @@ public final class StringUtils {
     public static final String EMPTY_STRING = "";
     public static final String WHITESPACE = " ";
     public static final char WHITESPACE_CHAR = ' ';
-    public static final char NEW_LINE = '\n';
+    public static final char NEW_LINE = '\n'; //TODO replace with System.lineSeparator()
     public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
     public static final String ALPHANUMERIC = ALPHABET.toUpperCase() + ALPHABET + "0123456789";
     public static final char COMMA = ',';

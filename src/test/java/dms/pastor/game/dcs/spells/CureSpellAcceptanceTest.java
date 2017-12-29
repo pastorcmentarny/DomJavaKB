@@ -1,6 +1,6 @@
 package dms.pastor.game.dcs.spells;
 
-import dms.pastor.game.dcs.units.UnitBuilder;
+import dms.pastor.game.dcs.units.enemies.builders.UnitBuilder;
 import org.junit.Test;
 
 /**

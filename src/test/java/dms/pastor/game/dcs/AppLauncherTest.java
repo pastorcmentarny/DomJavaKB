@@ -9,7 +9,7 @@ import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static dms.pastor.game.dcs.units.PlayerBuilder.playerBuilder;
+import static dms.pastor.game.dcs.units.enemies.builders.PlayerBuilder.playerBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SuppressWarnings("resource") // auto closable not essential

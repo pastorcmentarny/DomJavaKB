@@ -1,10 +1,11 @@
-package dms.pastor.game.dcs.units;
+package dms.pastor.game.dcs.units.enemies.builders;
 
 import dms.pastor.game.dcs.Config;
 import dms.pastor.game.dcs.Elements;
 import dms.pastor.game.dcs.cards.Card;
 import dms.pastor.game.dcs.conditions.Condition;
 import dms.pastor.game.dcs.conditions.ConditionType;
+import dms.pastor.game.dcs.units.Unit;
 
 import java.util.ArrayList;
 
@@ -138,7 +139,6 @@ public final class UnitBuilder {
     private void setSpToZeroIfIsNegative() {
         if (sp <= 0) {
             sp = 0;
-
         }
     }
 

@@ -41,8 +41,11 @@ final class WordValidator {
         }
 
         if (isStringEmpty(word.getChineseCharacter()) || containsAnyAlphanumericCharacter(word.getChineseCharacter()) || containsPinyinCharacter(word.getChineseCharacter())) {
-            LOGGER.error(generateErrorMessage(word.getId(), "Chinese character", "It does't contain chinese character,"));
-            return false;
+            //TODO it is temp fix, i need improve it
+            if (isStringEmpty(word.getChineseCharacter()) || !word.getChineseCharacter().equalsIgnoreCase("T恤")) {
+                LOGGER.error(generateErrorMessage(word.getId(), "Chinese character", "It does't contain chinese character,"));
+                return false;
+            }
         }
 
         //pinyin should be lowered case only

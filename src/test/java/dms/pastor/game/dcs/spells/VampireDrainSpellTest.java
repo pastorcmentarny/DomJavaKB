@@ -2,8 +2,8 @@ package dms.pastor.game.dcs.spells;
 
 import dms.pastor.game.dcs.Config;
 import dms.pastor.game.dcs.units.Unit;
-import dms.pastor.game.dcs.units.UnitBuilder;
 import dms.pastor.game.dcs.units.enemies.Vampire;
+import dms.pastor.game.dcs.units.enemies.builders.UnitBuilder;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

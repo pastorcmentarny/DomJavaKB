@@ -1,7 +1,7 @@
 package dms.pastor.game.dcs.spells;
 
 import dms.pastor.game.dcs.units.Unit;
-import dms.pastor.game.dcs.units.UnitBuilder;
+import dms.pastor.game.dcs.units.enemies.builders.UnitBuilder;
 import org.junit.Test;
 
 import static dms.pastor.game.dcs.conditions.ConditionType.WEAKNESS;
