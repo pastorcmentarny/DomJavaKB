@@ -48,6 +48,15 @@ public final class Couple {
         return false;
     }
 
+    public boolean doNotContainNumbers(int[] numbersMustHave) {
+        for (int number : numbersMustHave) {
+            if (number == smallerNumber || number == largerNumber) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public int getSmallerNumber() {
         return smallerNumber;
     }
@@ -78,4 +87,5 @@ public final class Couple {
     public String toString() {
         return format("Couple{smallerNumber=%d, largerNumber=%d}", smallerNumber, largerNumber);
     }
+
 }

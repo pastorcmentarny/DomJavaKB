@@ -47,7 +47,7 @@ public class CoupleTest {
         assertThat(couple.getLargerNumber()).isEqualTo(largerNumber);
     }
 
-    @Test // improve test name
+    @Test //TODO improve test name
     public void shouldGenerateCoupleAndSort() throws Exception {
         // given
         final int smallerNumber = 1;
@@ -59,6 +59,54 @@ public class CoupleTest {
         // then
         assertThat(couple.getSmallerNumber()).isNotEqualTo(largerNumber);
         assertThat(couple.getLargerNumber()).isNotEqualTo(smallerNumber);
+    }
+
+    @Test
+    public void doNotContainNumbersShouldReturnTrueIfSmallerNumberIsNotOnList() {
+        // given
+        final Couple couple = Couple.createWithOrderedNumbers(1, 3);
+
+        // when
+        final boolean result = couple.doNotContainNumbers(new int[]{2, 3, 4});
+
+        // then
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    public void doNotContainNumbersShouldReturnTrueIfLargerNumberIsNotOnList() {
+        // given
+        final Couple couple = Couple.createWithOrderedNumbers(1, 3);
+
+        // when
+        final boolean result = couple.doNotContainNumbers(new int[]{1, 2, 4});
+
+        // then
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    public void doNotContainNumbersShouldReturnTrueIfSmallerAndLargerNumberIsNotOnList() {
+        // given
+        final Couple couple = Couple.createWithOrderedNumbers(1, 3);
+
+        // when
+        final boolean result = couple.doNotContainNumbers(new int[]{2, 4});
+
+        // then
+        assertThat(result).isTrue();
+    }
+
+    @Test
+    public void doNotContainNumbersShouldReturnFalseIfSmallerAndLargerNumberAreOnList() {
+        // given
+        final Couple couple = Couple.createWithOrderedNumbers(1, 3);
+
+        // when
+        final boolean result = couple.doNotContainNumbers(new int[]{1, 2, 3, 4});
+
+        // then
+        assertThat(result).isFalse();
     }
 
 }
