@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import static dms.pastor.tools.lotto.hotpick.CoupleBuilder.coupleBuilder;
+import static dms.pastor.tools.lotto.hotpick.CoupleOperations.removeAllCouplesThatDoNotContainsNumbers;
 import static java.util.Arrays.asList;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -52,4 +53,46 @@ public class CoupleOperationsTest {
         // then
         assertThat(resultCouplesSet).isEqualTo(expectedCoupleSet);
     }
+
+    @Test
+    public void removeAllCouplesThatDoNotContainsNumbersShouldRemove1CoupleThatDoNotContainsNumbers() {
+        // given
+        final Couple couple1 = coupleBuilder()
+                .smallerNumber(1)
+                .largerNumber(3)
+                .build();
+        final Couple couple2 = coupleBuilder()
+                .smallerNumber(5)
+                .largerNumber(7)
+                .build();
+        Set<Couple> coupleSet = new HashSet<>(asList(couple1, couple2));
+
+        // when
+        final Set<Couple> result = removeAllCouplesThatDoNotContainsNumbers(coupleSet, new int[]{1, 2, 3, 4});
+
+        // then
+        assertThat(result).contains(couple1);
+        assertThat(result).doesNotContain(couple2);
+    }
+
+    @Test
+    public void removeAllCouplesThatDoNotContainsNumbersShouldNotRemoveAnyCouple() {
+        // given
+        final Couple couple1 = coupleBuilder()
+                .smallerNumber(1)
+                .largerNumber(3)
+                .build();
+        final Couple couple2 = coupleBuilder()
+                .smallerNumber(5)
+                .largerNumber(7)
+                .build();
+        Set<Couple> coupleSet = new HashSet<>(asList(couple1, couple2));
+
+        // when
+        final Set<Couple> result = removeAllCouplesThatDoNotContainsNumbers(coupleSet, new int[]{2, 3, 4, 5});
+
+        // then
+        assertThat(result).containsExactlyInAnyOrder(couple1, couple2);
+    }
+
 }

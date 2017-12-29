@@ -33,10 +33,10 @@ public final class CoupleOperations {
         return couplesWithMatchedBalls;
     }
 
-    public static Set<Couple> findAllCouplesThatContainsThisBalls(Set<Couple> remainingCouples, BallCount[] top2PlayedBalls) {
+    public static Set<Couple> findAllCouplesThatContainsThisBalls(Set<Couple> remainingCouples, BallCount[] couples) {
         Set<Couple> couplesWithMatchedBalls = new HashSet<>();
         List<Integer> balls = new ArrayList<>();
-        for (BallCount ballCount : top2PlayedBalls) {
+        for (BallCount ballCount : couples) {
             balls.addAll(ballCount.getBallNumbers());
         }
 
@@ -51,6 +51,15 @@ public final class CoupleOperations {
     public static Set<Couple> deleteDiscardedCouples(Set<Couple> couples, Set<Couple> couplesToDelete) {
         for (Couple couple : couplesToDelete) {
             if (couples.contains(couple)) {
+                couples.remove(couple);
+            }
+        }
+        return couples;
+    }
+
+    public static Set<Couple> removeAllCouplesThatDoNotContainsNumbers(Set<Couple> couples, int[] numbersMustBeInCouples) {
+        for (Couple couple : couples) {
+            if (couple.doNotContainNumbers(numbersMustBeInCouples)) {
                 couples.remove(couple);
             }
         }
