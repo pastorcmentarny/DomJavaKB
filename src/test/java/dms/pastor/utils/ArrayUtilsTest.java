@@ -165,4 +165,18 @@ public class ArrayUtilsTest {
 
         assertThat(result).isEqualTo(expectedResult);
     }
+
+    @Test //TODO add edge cases
+    public void shouldSubtractIntArrayFromAnother() {
+        // given
+        int[] intArrayOne = new int[]{1, 2, 3, 4, 5, 6};
+        int[] intArrayTwo = new int[]{4, 5, 6};
+        int[] expectedResult = new int[]{1, 2, 3};
+
+        // when
+        final int[] result = ArrayUtils.subtractIntArray(intArrayOne, intArrayTwo);
+
+        // then
+        assertThat(result).isEqualTo(expectedResult);
+    }
 }

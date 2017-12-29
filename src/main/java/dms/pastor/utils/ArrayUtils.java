@@ -3,7 +3,10 @@ package dms.pastor.utils;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
+import static dms.pastor.utils.CollectionsUtils.convertSetToIntArray;
 import static dms.pastor.utils.PrintOutUtils.printArray;
 import static dms.pastor.utils.ValidatorUtils.validateIfNotNull;
 
@@ -83,6 +86,14 @@ public final class ArrayUtils {
             System.arraycopy(source[i], 0, destination[i], 0, source[i].length);
         }
         return destination;
+    }
+
+    public static int[] subtractIntArray(int[] x, int[] y) {
+        Set<Integer> result = new HashSet<>(IntStream.of(x).boxed().collect(Collectors.toSet()));
+        for (int value : y) {
+            result.remove(value);
+        }
+        return convertSetToIntArray(result);
     }
 
 }
