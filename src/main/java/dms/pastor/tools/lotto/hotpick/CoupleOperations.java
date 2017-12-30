@@ -57,12 +57,27 @@ public final class CoupleOperations {
         return couples;
     }
 
+    //TODO replace with better collections later
     public static Set<Couple> removeAllCouplesThatDoNotContainsNumbers(Set<Couple> couples, int[] numbersMustBeInCouples) {
+        Set<Couple> coupleSet = new HashSet<>();
         for (Couple couple : couples) {
-            if (couple.doNotContainNumbers(numbersMustBeInCouples)) {
-                couples.remove(couple);
+            if (couple.containsAll(numbersMustBeInCouples)) {
+                boolean s = false;
+                boolean l = false;
+                for (int i : numbersMustBeInCouples) {
+                    if (i == couple.getSmallerNumber()) {
+                        s = true;
+                    }
+                    if (i == couple.getLargerNumber()) {
+                        l = true;
+                    }
+                }
+                if (l && s) {
+                    System.out.println(couple.toString());
+                    coupleSet.add(couple);
+                }
             }
         }
-        return couples;
+        return coupleSet;
     }
 }

@@ -62,7 +62,7 @@ public class CoupleTest {
     }
 
     @Test
-    public void doNotContainNumbersShouldReturnTrueIfSmallerNumberIsNotOnList() {
+    public void coupleDoNotContainNumbersShouldReturnFalseIfLargerNumberIsOnList() {
         // given
         final Couple couple = Couple.createWithOrderedNumbers(1, 3);
 
@@ -74,7 +74,7 @@ public class CoupleTest {
     }
 
     @Test
-    public void doNotContainNumbersShouldReturnTrueIfLargerNumberIsNotOnList() {
+    public void coupleDoNotContainNumbersShouldReturnFalseIfSmallerNumberIsNotOnList() {
         // given
         final Couple couple = Couple.createWithOrderedNumbers(1, 3);
 
@@ -86,7 +86,7 @@ public class CoupleTest {
     }
 
     @Test
-    public void doNotContainNumbersShouldReturnTrueIfSmallerAndLargerNumberIsNotOnList() {
+    public void coupleDoNotContainNumbersShouldReturnTrueIfSmallerAndLargerNumberIsNotOnList() {
         // given
         final Couple couple = Couple.createWithOrderedNumbers(1, 3);
 
@@ -98,7 +98,7 @@ public class CoupleTest {
     }
 
     @Test
-    public void doNotContainNumbersShouldReturnFalseIfSmallerAndLargerNumberAreOnList() {
+    public void coupleDoNotContainNumbersShouldReturnFalseIfSmallerAndLargerNumberAreOnList() {
         // given
         final Couple couple = Couple.createWithOrderedNumbers(1, 3);
 
@@ -109,4 +109,52 @@ public class CoupleTest {
         assertThat(result).isFalse();
     }
 
+    @Test
+    public void containsAllShouldReturnFalseIfDoNotHaveAnyNumber() {
+        // given
+        final Couple couple = Couple.createWithOrderedNumbers(1, 3);
+
+        // when
+        final boolean result = couple.containsAll(2, 4, 6);
+
+        // then
+        assertThat(result).isFalse();
+    }
+
+
+    @Test
+    public void containsAllShouldReturnFalseIfDoNotHaveSomeSmallNumber() {
+        // given
+        final Couple couple = Couple.createWithOrderedNumbers(1, 3);
+
+        // when
+        final boolean result = couple.containsAll(2, 3, 4);
+
+        // then
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    public void containsAllShouldReturnFalseIfDoNotHaveSomeLargeNumber() {
+        // given
+        final Couple couple = Couple.createWithOrderedNumbers(1, 3);
+
+        // when
+        final boolean result = couple.containsAll(2, 4, 6);
+
+        // then
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    public void containsAllShouldReturnTrueIfDoHaveAllNumbers() {
+        // given
+        final Couple couple = Couple.createWithOrderedNumbers(1, 3);
+
+        // when
+        final boolean result = couple.containsAll(1, 2, 3);
+
+        // then
+        assertThat(result).isTrue();
+    }
 }

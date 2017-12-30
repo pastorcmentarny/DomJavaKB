@@ -62,21 +62,25 @@ public class CoupleOperationsTest {
                 .largerNumber(3)
                 .build();
         final Couple couple2 = coupleBuilder()
+                .smallerNumber(2)
+                .largerNumber(4)
+                .build();
+        final Couple couple3 = coupleBuilder()
                 .smallerNumber(5)
                 .largerNumber(7)
                 .build();
         Set<Couple> coupleSet = new HashSet<>(asList(couple1, couple2));
 
         // when
-        final Set<Couple> result = removeAllCouplesThatDoNotContainsNumbers(coupleSet, new int[]{1, 2, 3, 4});
+        final Set<Couple> result = removeAllCouplesThatDoNotContainsNumbers(coupleSet, new int[]{4, 5, 6, 7});
 
         // then
-        assertThat(result).contains(couple1);
-        assertThat(result).doesNotContain(couple2);
+        assertThat(result).doesNotContain(couple1, couple2);
+        assertThat(result).contains(couple3);
     }
 
     @Test
-    public void removeAllCouplesThatDoNotContainsNumbersShouldNotRemoveAnyCouple() {
+    public void removeAllCouplesThatDoNotContainsNumbersShouldRemoveAllCouples() {
         // given
         final Couple couple1 = coupleBuilder()
                 .smallerNumber(1)
@@ -92,7 +96,7 @@ public class CoupleOperationsTest {
         final Set<Couple> result = removeAllCouplesThatDoNotContainsNumbers(coupleSet, new int[]{2, 3, 4, 5});
 
         // then
-        assertThat(result).containsExactlyInAnyOrder(couple1, couple2);
+        assertThat(result).doesNotContain(couple1, couple2);
     }
 
 }

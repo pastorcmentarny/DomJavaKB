@@ -1,7 +1,7 @@
 package dms.pastor.tools.lotto.hotpick;
 
 import dms.pastor.domain.exception.SomethingWentWrongException;
-import dms.pastor.tools.lotto.hotpick.generators.HotPicksNumberToPlay2017Generator;
+import dms.pastor.tools.lotto.hotpick.generators.HotPicksNumberToPlay2018Generator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,7 +28,7 @@ final class HotPicksStatsApplication {
         validateUserInput(args);
 
         try {
-            new HotPicksNumberToPlay2017Generator(args[0]).generateNumbersToPlay();
+            new HotPicksNumberToPlay2018Generator(args[0]).generateNumbersToPlay();
         } catch (SomethingWentWrongException e) {
             LOGGER.error(format("Application crashes because: %s", e.getMessage()), e);
         }

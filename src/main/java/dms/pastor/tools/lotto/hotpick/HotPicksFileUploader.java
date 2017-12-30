@@ -124,7 +124,7 @@ public class HotPicksFileUploader {
     private int validateBall(String ball) {
         final int ballNumber;
         try {
-            ballNumber = Integer.parseInt(ball);
+            ballNumber = Integer.parseInt(ball.trim());
         } catch (Exception e) {
             throw new IllegalArgumentException("Data is corrupted .Ball is not a valid number  " + ball, e);
         }

@@ -2,15 +2,13 @@ package dms.pastor.tools.lotto.hotpick;
 
 import dms.pastor.tools.lotto.BallCount;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import static dms.pastor.tools.lotto.LottoConstants.HOT_PICK_BALL_MAXIMUM_VALUE;
 import static dms.pastor.tools.lotto.LottoConstants.HOT_PICK_BALL_MINIMUM_VALUE;
+import static dms.pastor.utils.CollectionsUtils.convertListToIntArray;
 import static dms.pastor.utils.CollectionsUtils.convertSetToIntArray;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.StringUtils.NEW_LINE;
@@ -34,6 +32,7 @@ public class HotPicksAnalyser {
         this.hotPickDrawList = hotPickDrawList;
     }
 
+    //TODO fix this,it must be run first which is wrong
     public String countBallDrawn() {
         if (hotPickDrawList == null || hotPickDrawList.isEmpty()) {
             return "We successfully gather no result :)";
@@ -85,6 +84,17 @@ public class HotPicksAnalyser {
             }
         }
         return getResultWithoutLastSeparator(stringBuilder);
+    }
+
+    public int[] getBallsThatWasDrawn(int times) {
+        List<Integer> integerList = new ArrayList<>();
+
+        for (int i = 1; i < ballDrawnCounter.length; i++) {
+            if (ballDrawnCounter[i] == times) {
+                integerList.add(i);
+            }
+        }
+        return convertListToIntArray(integerList);
     }
 
     public int findLeastDrawnNumber() {
@@ -141,7 +151,7 @@ public class HotPicksAnalyser {
         return ballCountList;
     }
 
-    private List<BallCount> generateBallCountList() {
+    public static List<BallCount> generateBallCountList() {
         return IntStream.rangeClosed(HOT_PICK_BALL_MINIMUM_VALUE, HOT_PICK_BALL_MAXIMUM_VALUE)
                 .mapToObj(BallCount::createForNumber)
                 .collect(Collectors.toList());

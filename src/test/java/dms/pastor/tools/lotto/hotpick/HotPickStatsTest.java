@@ -27,7 +27,7 @@ public class HotPickStatsTest {
     private final OutputStream outputStream = new ByteArrayOutputStream();
     private PrintStream printStream;
 
-    private static final HotPickDraw HOT_PICK_DRAW_1 = hotPickDrawBuilder()
+    private static final HotPickDraw HOT_PICK_DRAW = hotPickDrawBuilder()
             .ball1(1)
             .ball2(2)
             .ball3(3)
@@ -51,7 +51,7 @@ public class HotPickStatsTest {
     public void shouldDisplayStatistic() {
         // given
         List<HotPickDraw> hotPickDrawList = new ArrayList<>();
-        hotPickDrawList.add(HOT_PICK_DRAW_1);
+        hotPickDrawList.add(HOT_PICK_DRAW);
         final HotPicksAnalyser analyser = new HotPicksAnalyser(hotPickDrawList);
 
         // when
@@ -68,4 +68,5 @@ public class HotPickStatsTest {
         assertThat(outputStream.toString()).contains("Least drawn number is 0 and these number was drawn that times 7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59");
         assertThat(outputStream.toString()).contains("Is most and least common number were played together? false");
     }
+
 }

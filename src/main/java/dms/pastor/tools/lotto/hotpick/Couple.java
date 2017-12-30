@@ -39,6 +39,7 @@ public final class Couple {
         validateTwoIntsNotEqual(smallerNumber, largerNumber);
     }
 
+    //TODO rename it to containsAny
     public boolean contains(int... numbers) {
         for (int number : numbers) {
             if (smallerNumber == number || largerNumber == number) {
@@ -46,6 +47,20 @@ public final class Couple {
             }
         }
         return false;
+    }
+
+    public boolean containsAll(int... numbers) {
+        boolean hasSmallerNumber = false;
+        boolean hasLargerNumber = false;
+        for (int number : numbers) {
+            if (smallerNumber == number) {
+                hasSmallerNumber = true;
+            }
+            if (largerNumber == number) {
+                hasLargerNumber = true;
+            }
+        }
+        return hasSmallerNumber && hasLargerNumber;
     }
 
     public boolean doNotContainNumbers(int[] numbersMustHave) {

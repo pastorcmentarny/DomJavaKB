@@ -2,6 +2,8 @@ package dms.pastor.game.dcs.units;
 
 import dms.pastor.game.dcs.ElementsBuilder;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -16,7 +18,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Author Dominik Symonowicz
- * Created 28/05/2017
  * WWW:	https://dominiksymonowicz.com/welcome
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
@@ -25,6 +26,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 @SuppressWarnings("resource") // auto closable not essential
 public class UnitTest {
+    private static final Logger LOGGER = LoggerFactory.getLogger(UnitTest.class);
 
     private static final int DEFAULT_NUMBER_OF_ELEMENTS = 10;
     private static final int LARGE_SHIELD_POINTS = 256;
@@ -360,7 +362,7 @@ public class UnitTest {
         assertThat(unit.getSp()).isZero();
     }
 
-    @Test
+    @Test //TODO failed once add
     public void increaseHpPerTurnShouldIncreaseHpIfIsBelowMaxHp() {
         // given
         final int regenHpRate = 2;
@@ -371,6 +373,8 @@ public class UnitTest {
                 .withoutShield()
                 .build();
 
+        // debug
+        LOGGER.info(unit.toString());
         // when
         final int increase = unit.getHealth().increaseHpPerTurn();
 

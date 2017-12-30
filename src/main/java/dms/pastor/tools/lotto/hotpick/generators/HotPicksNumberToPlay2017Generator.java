@@ -12,11 +12,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.IntStream;
 
 import static dms.pastor.tools.lotto.BallCountOperations.*;
-import static dms.pastor.tools.lotto.LottoConstants.HOT_PICK_BALL_MAXIMUM_VALUE;
-import static dms.pastor.tools.lotto.LottoConstants.HOT_PICK_BALL_MINIMUM_VALUE;
+import static dms.pastor.tools.lotto.LottoConstants.HOT_PICK_NUMBER_RANGE;
 import static dms.pastor.tools.lotto.hotpick.CoupleOperations.deleteDiscardedCouples;
 import static dms.pastor.tools.lotto.hotpick.CoupleOperations.findAllCouplesThatContainsThisBalls;
 import static dms.pastor.tools.lotto.hotpick.HotPickStats.displayStatistic;
@@ -31,14 +29,12 @@ import static dms.pastor.tools.lotto.hotpick.HotPickStats.displayStatistic;
  */
 public class HotPicksNumberToPlay2017Generator extends NumbersToPlayGenerator {
 
-    private static final int[] HOT_PICK_NUMBER_RANGE = IntStream.rangeClosed(HOT_PICK_BALL_MINIMUM_VALUE, HOT_PICK_BALL_MAXIMUM_VALUE).toArray();
     static final int NUMBER_OF_PREVIOUS_GAMES = 8;
     private final String filePath;
 
     public HotPicksNumberToPlay2017Generator(String filePath) {
         this.filePath = filePath;
     }
-
 
     public void generateNumbersToPlay() {
         final List<HotPickDraw> hotPickDrawList = loadData(filePath);
@@ -62,7 +58,6 @@ public class HotPicksNumberToPlay2017Generator extends NumbersToPlayGenerator {
         couplesWithMatchedBalls = findAllCouplesThatContainsThisBalls(remainingCouples, BallCountOperations.getLeast2PlayedBalls(analyser.getBallsCountList()));
         remainingCouples = deleteDiscardedCouples(remainingCouples, couplesWithMatchedBalls);
 
-        // remove all couples that contains least 2 played numbers
         couplesWithMatchedBalls = findAllCouplesThatContainsThisBalls(remainingCouples, analyser.removeNumbersFromGames(NUMBER_OF_PREVIOUS_GAMES));
         remainingCouples = deleteDiscardedCouples(remainingCouples, couplesWithMatchedBalls);
 

@@ -1,5 +1,7 @@
 package dms.pastor.tools.lotto;
 
+import java.util.stream.IntStream;
+
 /**
  * Author Dominik Symonowicz
  * Created 26/05/2017
@@ -13,6 +15,7 @@ public final class LottoConstants {
 
     public static final int HOT_PICK_BALL_MINIMUM_VALUE = 1;
     public static final int HOT_PICK_BALL_MAXIMUM_VALUE = 59;
+    public static final int[] HOT_PICK_NUMBER_RANGE = IntStream.rangeClosed(HOT_PICK_BALL_MINIMUM_VALUE, HOT_PICK_BALL_MAXIMUM_VALUE).toArray();
 
     private LottoConstants() {
     } // constant class
