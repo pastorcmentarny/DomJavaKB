@@ -1,5 +1,8 @@
 package dms.pastor.tools.tube;
 
+import dms.pastor.tools.tube.data.DataUploader;
+import dms.pastor.tools.tube.data.DataWriter;
+import dms.pastor.tools.tube.station.Station;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -12,8 +15,8 @@ import java.util.Collections;
 import java.util.List;
 
 import static dms.pastor.TestConfig.TEST_BASE_PATH;
-import static dms.pastor.tools.tube.Line.noLine;
-import static dms.pastor.tools.tube.Status.VISITED;
+import static dms.pastor.tools.tube.station.Line.noLine;
+import static dms.pastor.tools.tube.station.Status.VISITED;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**

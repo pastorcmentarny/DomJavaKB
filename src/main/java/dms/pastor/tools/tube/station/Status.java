@@ -1,4 +1,4 @@
-package dms.pastor.tools.tube;
+package dms.pastor.tools.tube.station;
 
 import dms.pastor.domain.exception.NotFoundException;
 

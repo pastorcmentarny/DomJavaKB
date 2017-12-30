@@ -1,7 +1,7 @@
 package dms.pastor.tools.tube.options;
 
 
-import dms.pastor.tools.tube.Stations;
+import dms.pastor.tools.tube.station.Stations;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

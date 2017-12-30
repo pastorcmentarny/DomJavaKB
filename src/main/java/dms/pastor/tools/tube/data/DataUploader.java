@@ -1,5 +1,7 @@
-package dms.pastor.tools.tube;
+package dms.pastor.tools.tube.data;
 
+import dms.pastor.tools.tube.station.Station;
+import dms.pastor.tools.tube.station.ToStationConverter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,10 +23,10 @@ import static java.util.Collections.emptyList;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-class DataUploader {
+public class DataUploader {
     private static final Logger LOGGER = LoggerFactory.getLogger(DataUploader.class);
 
-    List<Station> load(String path) {
+    public List<Station> load(String path) {
         LOGGER.info("Loading data from " + path);
         validateIfPathExists(path);
         try (Stream<String> lines = Files.lines(Paths.get(path))) {

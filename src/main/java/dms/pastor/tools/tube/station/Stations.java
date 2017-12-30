@@ -1,4 +1,4 @@
-package dms.pastor.tools.tube;
+package dms.pastor.tools.tube.station;
 
 import dms.pastor.domain.exception.NotFoundException;
 import org.slf4j.LoggerFactory;
@@ -6,8 +6,8 @@ import org.slf4j.LoggerFactory;
 import java.time.LocalDate;
 import java.util.List;
 
-import static dms.pastor.tools.tube.Status.PASSED;
-import static dms.pastor.tools.tube.Status.VISITED;
+import static dms.pastor.tools.tube.station.Status.PASSED;
+import static dms.pastor.tools.tube.station.Status.VISITED;
 import static dms.pastor.utils.StringUtils.isStringEmpty;
 import static java.util.Collections.unmodifiableList;
 
@@ -41,7 +41,7 @@ public class Stations {
         }
     }
 
-    Station getStationByName(String name) {
+    public Station getStationByName(String name) {
         return stationList.stream()
                 .filter(station -> station.getName().equals(name))
                 .findFirst()

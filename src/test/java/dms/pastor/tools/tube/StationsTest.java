@@ -1,6 +1,10 @@
 package dms.pastor.tools.tube;
 
 import dms.pastor.domain.exception.NotFoundException;
+import dms.pastor.tools.tube.station.Line;
+import dms.pastor.tools.tube.station.Station;
+import dms.pastor.tools.tube.station.Stations;
+import dms.pastor.tools.tube.station.Status;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -10,8 +14,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static dms.pastor.tools.tube.Line.noLine;
-import static dms.pastor.tools.tube.Status.*;
+import static dms.pastor.tools.tube.station.Line.noLine;
+import static dms.pastor.tools.tube.station.Status.*;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.Assertions.assertThat;

@@ -1,7 +1,7 @@
 package dms.pastor.tools.tube.options;
 
 
-import dms.pastor.tools.tube.Stations;
+import dms.pastor.tools.tube.station.Stations;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -10,9 +10,9 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.Scanner;
 
-import static dms.pastor.tools.tube.Status.PASSED;
 import static dms.pastor.tools.tube.builders.StationBuilder.stationBuilder;
 import static dms.pastor.tools.tube.builders.StationsBuilder.stationsBuilder;
+import static dms.pastor.tools.tube.station.Status.PASSED;
 import static java.util.Collections.singletonList;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;

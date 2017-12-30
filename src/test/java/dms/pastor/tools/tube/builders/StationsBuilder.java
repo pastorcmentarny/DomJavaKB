@@ -1,14 +1,14 @@
 package dms.pastor.tools.tube.builders;
 
-import dms.pastor.tools.tube.Station;
-import dms.pastor.tools.tube.Stations;
-import dms.pastor.tools.tube.Status;
+import dms.pastor.tools.tube.station.Station;
+import dms.pastor.tools.tube.station.Stations;
+import dms.pastor.tools.tube.station.Status;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import static dms.pastor.tools.tube.Line.noLine;
+import static dms.pastor.tools.tube.station.Line.noLine;
 
 public final class StationsBuilder {
     private List<Station> stationList = generateStations();

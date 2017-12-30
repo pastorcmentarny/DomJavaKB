@@ -1,4 +1,4 @@
-package dms.pastor.tools.tube;
+package dms.pastor.tools.tube.station;
 
 import dms.pastor.domain.exception.NotImplementYetException;
 
@@ -6,8 +6,8 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
-import static dms.pastor.tools.tube.Status.NOT_VISITED;
-import static dms.pastor.tools.tube.Status.PASSED;
+import static dms.pastor.tools.tube.station.Status.NOT_VISITED;
+import static dms.pastor.tools.tube.station.Status.PASSED;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 
 /**
@@ -19,7 +19,7 @@ import static dms.pastor.utils.StringUtils.EMPTY_STRING;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class Station {
-    static final String SEPARATOR = ";;";
+    public static final String SEPARATOR = ";;";
     private final String name;
     private final List<Line> lines;
     private Status status;

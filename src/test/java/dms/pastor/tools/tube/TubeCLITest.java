@@ -1,5 +1,8 @@
 package dms.pastor.tools.tube;
 
+import dms.pastor.tools.tube.station.Station;
+import dms.pastor.tools.tube.station.Stations;
+import dms.pastor.tools.tube.station.Status;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
@@ -17,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import static dms.pastor.tools.tube.Line.noLine;
+import static dms.pastor.tools.tube.station.Line.noLine;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;

@@ -1,14 +1,14 @@
 package dms.pastor.tools.tube.builders;
 
-import dms.pastor.tools.tube.Station;
-import dms.pastor.tools.tube.Status;
+import dms.pastor.tools.tube.station.Station;
+import dms.pastor.tools.tube.station.Status;
 import org.junit.Test;
 
 import java.time.LocalDate;
 
-import static dms.pastor.tools.tube.Status.NOT_VISITED;
-import static dms.pastor.tools.tube.Status.VISITED;
 import static dms.pastor.tools.tube.builders.StationBuilder.stationBuilder;
+import static dms.pastor.tools.tube.station.Status.NOT_VISITED;
+import static dms.pastor.tools.tube.station.Status.VISITED;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.Assertions.assertThat;
 

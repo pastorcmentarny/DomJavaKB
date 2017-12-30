@@ -1,14 +1,14 @@
 package dms.pastor.tools.tube.builders;
 
-import dms.pastor.tools.tube.Line;
-import dms.pastor.tools.tube.Station;
-import dms.pastor.tools.tube.Status;
+import dms.pastor.tools.tube.station.Line;
+import dms.pastor.tools.tube.station.Station;
+import dms.pastor.tools.tube.station.Status;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Random;
 
-import static dms.pastor.tools.tube.Station.notVisited;
+import static dms.pastor.tools.tube.station.Station.notVisited;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static java.util.Collections.singletonList;
 

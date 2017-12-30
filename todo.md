@@ -35,3 +35,9 @@ Unique 1/1000     1
 
 add this task
 https://www.javacodegeeks.com/2017/02/interview-questions-verify-braces.html
+
+
+The decorator pattern is used to add more functionality to an existing object without affecting other instances of the class. This means that it used composition instead of inheritance to extend functionality of an object at runtime. You can use it in different occasions:
+When you want to transparently and dynamically add responsibilities to objects without affecting other objects.
+When you want to add responsibilities to an object that you may want to change in future.
+Extending functionality by sub-classing is no longer practical.
