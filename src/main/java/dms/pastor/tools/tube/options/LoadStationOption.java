@@ -1,8 +1,8 @@
 package dms.pastor.tools.tube.options;
 
-import dms.pastor.tools.tube.Stations;
+import dms.pastor.tools.tube.station.Stations;
 
-import static dms.pastor.tools.tube.DataOperations.loadFromFile;
+import static dms.pastor.tools.tube.data.DataOperations.loadFromFile;
 
 /**
  * Author Dominik Symonowicz

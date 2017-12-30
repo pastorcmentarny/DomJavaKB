@@ -1,13 +1,14 @@
 package dms.pastor.tools.tube;
 
 import dms.pastor.domain.exception.NotFoundException;
+import dms.pastor.tools.tube.station.StationLineValidator;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import java.time.LocalDate;
 
-import static dms.pastor.tools.tube.Station.SEPARATOR;
+import static dms.pastor.tools.tube.station.Station.SEPARATOR;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 

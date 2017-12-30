@@ -1,10 +1,13 @@
 package dms.pastor.tools.tube;
 
+import dms.pastor.tools.tube.station.Line;
+import dms.pastor.tools.tube.station.Station;
+import dms.pastor.tools.tube.station.ToStationConverter;
 import org.junit.Test;
 
 import java.time.LocalDate;
 
-import static dms.pastor.tools.tube.Status.VISITED;
+import static dms.pastor.tools.tube.station.Status.VISITED;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**

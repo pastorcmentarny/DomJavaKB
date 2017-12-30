@@ -7,7 +7,7 @@ Angel;;P;;none;;2017-05-26;;none
 Archway;;X;;none;;none;;none
 Arnos Grove;;X;;none;;none;;none
 Arsenal;;X;;none;;none;;none
-Baker Street;;P;;none;;2017-01-03;;2017-06-23
+Baker Street;;V;;none;;2017-01-03;;2017-12-21
 Balham;;X;;none;;none;;none
 Bank;;P;;none;;2017-11-01;;none
 Barbican;;P;;none;;2017-01-03;;2017-06-05
@@ -173,7 +173,7 @@ Park Royal;;P;;none;;2017-06-10;;none
 Parsons Green;;X;;none;;none;;none
 Perivale;;X;;none;;none;;none
 Piccadilly Circus;;V;;none;;2017-01-28;;2017-01-28
-Pimlico;;P;;none;;2017-11-19;;none
+Pimlico;;V;;none;;2017-11-19;;2017-12-21
 Pinner;;X;;none;;none;;none
 Plaistow;;X;;none;;none;;none
 Preston Road;;X;;none;;none;;none
@@ -239,7 +239,7 @@ Upminster Bridge;;X;;none;;none;;none
 Upney;;X;;none;;none;;none
 Upton Park;;X;;none;;none;;none
 Uxbridge;;V;;none;;2017-03-21;;2017-03-21
-Vauxhall;;P;;none;;2017-11-01;;none
+Vauxhall;;V;;none;;2017-11-01;;2017-12-14
 Victoria;;V;;none;;2017-02-02;;2017-11-19
 Walthamstow Wanstead;;X;;none;;none;;none
 Warren Street;;P;;none;;2017-11-19;;none

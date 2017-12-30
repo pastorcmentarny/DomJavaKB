@@ -1,13 +1,15 @@
 package dms.pastor.tools.tube;
 
+import dms.pastor.tools.tube.station.Station;
+import dms.pastor.tools.tube.station.Stations;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.Scanner;
 
-import static dms.pastor.tools.tube.DataOperations.loadFromFile;
-import static dms.pastor.tools.tube.DataOperations.saveToFile;
+import static dms.pastor.tools.tube.data.DataOperations.loadFromFile;
+import static dms.pastor.tools.tube.data.DataOperations.saveToFile;
 
 /**
  * Author Dominik Symonowicz

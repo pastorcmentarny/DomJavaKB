@@ -1,8 +1,8 @@
 package dms.pastor.tools.tube.options;
 
 import dms.pastor.domain.exception.NotFoundException;
-import dms.pastor.tools.tube.Station;
-import dms.pastor.tools.tube.Stations;
+import dms.pastor.tools.tube.station.Station;
+import dms.pastor.tools.tube.station.Stations;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

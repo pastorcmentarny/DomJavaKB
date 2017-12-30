@@ -1,6 +1,7 @@
-package dms.pastor.tools.tube;
+package dms.pastor.tools.tube.data;
 
 import dms.pastor.domain.exception.SomethingWentWrongException;
+import dms.pastor.tools.tube.station.Station;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

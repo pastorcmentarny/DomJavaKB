@@ -1,7 +1,7 @@
 package dms.pastor.tools.tube.options;
 
 import dms.pastor.domain.exception.NotFoundException;
-import dms.pastor.tools.tube.Stations;
+import dms.pastor.tools.tube.station.Stations;
 
 import java.util.HashMap;
 import java.util.Map;

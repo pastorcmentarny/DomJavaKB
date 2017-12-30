@@ -1,7 +1,7 @@
 package dms.pastor.tools.tube.options;
 
-import dms.pastor.tools.tube.Station;
-import dms.pastor.tools.tube.Stations;
+import dms.pastor.tools.tube.station.Station;
+import dms.pastor.tools.tube.station.Stations;
 
 /**
  * Author Dominik Symonowicz

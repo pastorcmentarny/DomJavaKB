@@ -1,12 +1,13 @@
 package dms.pastor.tools.tube;
 
 import dms.pastor.domain.exception.NotFoundException;
+import dms.pastor.tools.tube.station.Status;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import static dms.pastor.tools.tube.Status.PASSED;
-import static dms.pastor.tools.tube.Status.VISITED;
+import static dms.pastor.tools.tube.station.Status.PASSED;
+import static dms.pastor.tools.tube.station.Status.VISITED;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static org.assertj.core.api.Assertions.assertThat;
 
