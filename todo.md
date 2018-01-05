@@ -1,5 +1,4 @@
 TODO:
-    1. Generate lotto data to ensure test are passing on all machines
     3. DCG
         make game playable
         improve main (game,in,out)
@@ -16,7 +15,6 @@ Enemies:
     4. (Done)   Clairvoyant (jasnowidz)
     5. Priest
     6. Warlock
-    7. Sorcerer
     8. (Done) Witch
     9. (Done) Genie
     10. Wizard

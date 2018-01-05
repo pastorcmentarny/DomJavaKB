@@ -30,7 +30,7 @@ public class Witch extends Unit {
         MagneticDrainSpell magneticDrainSpell = new MagneticDrainSpell();
         weaknessSpell.castSpell(this, enemy);
 
-        if (isHealthLow() && regenSpell.hasEnoughElementsToCovertToSpell(getElements())) {
+        if (getHealth().isHealthLow() && regenSpell.hasEnoughElementsToCovertToSpell(getElements())) {
             regenSpell.castSpell(this, this);
             getElements().useElements(regenSpell.getElements());
         }
@@ -52,7 +52,5 @@ public class Witch extends Unit {
 
     }
 
-    private boolean isHealthLow() {
-        return getHealth().getHp() < QUARTER * getHealth().getMaxHp();
-    }
+
 }

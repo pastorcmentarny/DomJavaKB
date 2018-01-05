@@ -3,6 +3,7 @@ package dms.pastor.game.dcs.units;
 import java.util.Objects;
 
 import static dms.pastor.game.dcs.Config.*;
+import static dms.pastor.game.dcs.utils.random.InGameRandomUtils.QUARTER;
 
 public class Health {
     private int hp = DEFAULT_HEALTH_POINTS;
@@ -67,6 +68,10 @@ public class Health {
 
         }
         return getHp() - beforeHp;
+    }
+
+    public boolean isHealthLow() {
+        return getHp() < QUARTER * getMaxHp();
     }
 
     @Override
