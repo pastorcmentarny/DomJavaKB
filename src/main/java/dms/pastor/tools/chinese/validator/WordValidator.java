@@ -4,17 +4,15 @@ import dms.pastor.utils.string.ContainsInStringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Objects;
-
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.StringUtils.isStringEmpty;
 import static dms.pastor.utils.ValidatorUtils.validateIfNotNull;
 import static dms.pastor.utils.string.ContainsInStringUtils.containsAnyAlphanumericCharacter;
 import static dms.pastor.utils.string.ContainsInStringUtils.containsPinyinCharacter;
+import static java.util.Objects.isNull;
 
 /**
  * Author Dominik Symonowicz
- * Created 07/10/2017
  * WWW:	https://dominiksymonowicz.com/welcome
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
@@ -35,31 +33,30 @@ final class WordValidator {
             return false;
         }
 
-        if (word.getStrokes() < -1 || word.getStrokes() == 0) {
+        if (isNotValidStroke(word)) {
             LOGGER.error(generateErrorMessage(word.getId(), "Strokes", "Invalid number of strokes."));
             return false;
         }
 
-        if (isStringEmpty(word.getChineseCharacter()) || containsAnyAlphanumericCharacter(word.getChineseCharacter()) || containsPinyinCharacter(word.getChineseCharacter())) {
+        if (isNotValidChineseCharacter(word)) {
             //TODO it is temp fix, i need improve it
-            if (isStringEmpty(word.getChineseCharacter()) || !word.getChineseCharacter().equalsIgnoreCase("T恤")) {
+            if (isStringEmpty(word.getChineseCharacter()) || !"T恤".equalsIgnoreCase(word.getChineseCharacter())) {
                 LOGGER.error(generateErrorMessage(word.getId(), "Chinese character", "It does't contain chinese character,"));
                 return false;
             }
         }
 
-        //pinyin should be lowered case only
-        if (isStringEmpty(word.getPinyin()) || ContainsInStringUtils.containsUpperCase(word.getPinyin())) {
+        if (isNotValidPinyin(word)) {
             LOGGER.error(generateErrorMessage(word.getId(), "Pinyin", "Pinyin should not contain upper case letters."));
             return false;
         }
 
-        if (isStringEmpty(word.getWordInEnglish()) || containsPinyinCharacter(word.getWordInEnglish())) {
+        if (isNotValidEnglishWord(word)) {
             LOGGER.error(generateErrorMessage(word.getId(), "English word", "English meaning should not be empty or contain pinyin character."));
             return false;
         }
 
-        if (Objects.isNull(word.getNotes())) {
+        if (isNull(word.getNotes())) {
             LOGGER.error(generateErrorMessage(word.getId(), "Notes", "Notes should not be null."));
             return false;
         }
@@ -69,12 +66,34 @@ final class WordValidator {
             return false;
         }
 
-        if (word.getDifficulty() > 8 || word.getDifficulty() < 1) {
+        if (isNotInRange(word)) {
             LOGGER.error(generateErrorMessage(word.getId(), "Difficulty", "value " + word.getDifficulty() + " is not in range."));
             return false;
         }
 
         return true;
+    }
+
+    private static boolean isNotValidChineseCharacter(Word word) {
+        return isStringEmpty(word.getChineseCharacter()) || containsAnyAlphanumericCharacter(word.getChineseCharacter()) || containsPinyinCharacter(word.getChineseCharacter());
+    }
+
+    private static boolean isNotValidStroke(Word word) {
+        return word.getStrokes() < -1 || word.getStrokes() == 0;
+    }
+
+    //pinyin should be lowered case only
+
+    private static boolean isNotValidPinyin(Word word) {
+        return isStringEmpty(word.getPinyin()) || ContainsInStringUtils.containsUpperCase(word.getPinyin());
+    }
+
+    private static boolean isNotValidEnglishWord(Word word) {
+        return isStringEmpty(word.getWordInEnglish()) || containsPinyinCharacter(word.getWordInEnglish());
+    }
+
+    private static boolean isNotInRange(Word word) {
+        return word.getDifficulty() > 8 || word.getDifficulty() < 1;
     }
 
     private static String generateErrorMessage(int id, String what, String reason) {
