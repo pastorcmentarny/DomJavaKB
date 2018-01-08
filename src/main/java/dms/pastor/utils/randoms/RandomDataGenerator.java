@@ -136,10 +136,10 @@ public final class RandomDataGenerator {
     }
 
     public static String generateWords(int size) {
-        validateIfPositiveNumber(size);
         if (size == 0) {
             return EMPTY_STRING;
         }
+        validateIfPositiveNumber(size);
         LOGGER.debug("Generate " + size + "  word(s).");
         StringBuilder stringBuilder = new StringBuilder(EMPTY_STRING);
         for (int i = 1; i <= size; i++) {

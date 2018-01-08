@@ -44,9 +44,8 @@ public class ToStringUtilsTest {
 
     }
 
-    @Ignore //TODO fix new line problem
+    @Ignore //TODO fix new line problem // not implement yet and it is here due accidental middle of the night merge
     @Test
-    @Ignore // not implement yet and it is here due accidental middle of the night merge
     public void linkedHashSetToStringShouldReturnLinkedHashSetAsString() {
         // given
         final String stringOne = generateString();

@@ -76,7 +76,7 @@ public final class ValidatorUtils {
     }
 
     public static void validateIfPositiveNumber(int number, String valueName) {
-        if (number < 0) {
+        if (number <= 0) {
             throw new IllegalArgumentException(valueName + ERROR_MESSAGE_VALUE_CANNOT_BE_NEGATIVE);
         }
     }

@@ -1,26 +1,32 @@
 package dms.pastor.game.dcs.units.enemies;
 
+import dms.pastor.game.dcs.Config;
 import dms.pastor.game.dcs.spells.*;
 import dms.pastor.game.dcs.units.Unit;
 
 import static dms.pastor.game.dcs.conditions.ConditionEntry.createPersistentCondition;
 import static dms.pastor.game.dcs.conditions.ConditionType.*;
 
-public class Warlock extends Unit {
-
+public class Wizard extends Unit {
     boolean hasInfoAboutEnemy = false;
 
-    public Warlock() {
-        setSp(48);
-        setArm(2);
-        getConditions().add(createPersistentCondition(FIRE_RESISTANT));
+    public Wizard() {
+        setSp(Config.INITIAL_SHIELD_POINTS * 3);
+        getConditions().add(createPersistentCondition(AIR_RESISTANT));
         getConditions().add(createPersistentCondition(EARTH_RESISTANT));
+        getConditions().add(createPersistentCondition(FIRE_RESISTANT));
+        getConditions().add(createPersistentCondition(WATER_SENSITIVE));
     }
 
     @Override
     public void turn(Unit enemy) {
 
-        InfoSpell infoSpell = new InfoSpell();
+        if (this.getConditions().hasNegativeCondition()) {
+            new CureSpell().castSpellIfHasEnoughElements(this, this);
+        }
+        new MagneticDrainSpell().castSpellIfHasEnoughElements(this, enemy);
+        new DeathRaySpell().castSpell(this, enemy);
+        new BubbleShieldSpell().castSpell(this, this);
 
         if (hasInfoAboutEnemy) {
             if (enemy.getConditions().has(AIR_SENSITIVE)) {
@@ -37,13 +43,12 @@ public class Warlock extends Unit {
             }
 
             if (random.nextBoolean()) {
-                new MagneticDrainSpell().castSpellIfHasEnoughElements(this, enemy);
             } else if (random.nextBoolean() && random.nextBoolean()) {
                 new VampireDrainSpell().castSpellIfHasEnoughElements(this, enemy);
             }
 
         } else {
-            if (infoSpell.hasEnoughElementsToCovertToSpell(getElements())) {
+            if (new InfoSpell().hasEnoughElementsToCovertToSpell(getElements())) {
                 hasInfoAboutEnemy = true;
             }
             new BubbleShieldSpell().castSpellIfHasEnoughElements(this, enemy);
@@ -59,4 +64,3 @@ public class Warlock extends Unit {
 
     }
 }
-

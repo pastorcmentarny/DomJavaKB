@@ -14,10 +14,10 @@ Enemies:
     3. (Done)   Mage
     4. (Done)   Clairvoyant (jasnowidz)
     5. Priest
-    6. Warlock
+    6. (Done) Warlock
     8. (Done) Witch
     9. (Done) Genie
-    10. Wizard
+    10. (Done)Wizard
     11 (Done) Vampire
     12,13,14,15 -4 Elements
     16 (Done) Dragon

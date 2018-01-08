@@ -1,6 +1,7 @@
 package dms.pastor.tasks.exercises.numbers;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+import static dms.pastor.utils.StringUtils.NEW_LINE;
 import static java.lang.String.format;
 
 /**

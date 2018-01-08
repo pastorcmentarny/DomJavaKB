@@ -1,13 +1,12 @@
 package dms.pastor.game.dcs.events;
 
-
-import dms.pastor.game.dcs.units.PlayerBuilder;
 import dms.pastor.game.dcs.units.Unit;
+import dms.pastor.game.dcs.units.enemies.builders.PlayerBuilder;
 import org.junit.Test;
 
 import static dms.pastor.game.dcs.ElementsBuilder.elementsBuilder;
 import static dms.pastor.game.dcs.units.HealthBuilder.healthBuilder;
-import static dms.pastor.game.dcs.units.UnitBuilder.unitBuilder;
+import static dms.pastor.game.dcs.units.enemies.builders.UnitBuilder.unitBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class AntiMatterStormEventTest {

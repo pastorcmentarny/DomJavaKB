@@ -2,6 +2,8 @@ package dms.pastor.game.dcs.conditions;
 
 import dms.pastor.domain.exception.SomethingWentWrongException;
 
+import static dms.pastor.game.dcs.conditions.ConditionGroup.*;
+
 /**
  * Author Dominik Symonowicz
  * Created 2015-07-27
@@ -12,14 +14,24 @@ import dms.pastor.domain.exception.SomethingWentWrongException;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public enum ConditionType {
-    STUNNED, POISONED, BLIND, WEAKNESS,
-    TRIPLE, REGENERATION, FROZEN, BLOODLUST,
-    AIR_RESISTANT, AIR_IMMUNE, AIR_SENSITIVE,
-    EARTH_RESISTANT, EARTH_IMMUNE, EARTH_SENSITIVE,
-    FIRE_RESISTANT, FIRE_IMMUNE, FIRE_SENSITIVE,
-    WATER_RESISTANT, WATER_IMMUNE, WATER_SENSITIVE,
-    MINDLESS, BUBBLE_SHIELD,
-    POISON_IMMUNITY, UNKNOWN;
+    STUNNED(NEGATIVE), POISONED(NEGATIVE), BLIND(NEGATIVE), WEAKNESS(NEGATIVE),
+    TRIPLE(POSITIVE), REGENERATION(POSITIVE), FROZEN(POSITIVE), BLOODLUST(POSITIVE),
+    AIR_RESISTANT(POSITIVE), AIR_IMMUNE(POSITIVE), AIR_SENSITIVE(NEGATIVE),
+    EARTH_RESISTANT(POSITIVE), EARTH_IMMUNE(POSITIVE), EARTH_SENSITIVE(NEGATIVE),
+    FIRE_RESISTANT(POSITIVE), FIRE_IMMUNE(POSITIVE), FIRE_SENSITIVE(NEGATIVE),
+    WATER_RESISTANT(POSITIVE), WATER_IMMUNE(POSITIVE), WATER_SENSITIVE(POSITIVE),
+    MINDLESS(NEUTREAL), BUBBLE_SHIELD(POSITIVE),
+    POISON_IMMUNITY(POSITIVE), UNKNOWN(NEUTREAL);
+
+    private final ConditionGroup group;
+
+    ConditionType(ConditionGroup group) {
+        this.group = group;
+    }
+
+    public ConditionGroup group() {
+        return group;
+    }
 
     public static String getText(ConditionType conditionType) {
         throwExceptionIfNull(conditionType);

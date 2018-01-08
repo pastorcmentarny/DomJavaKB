@@ -44,6 +44,7 @@ public class Unit {
     private List<Card> cards = new ArrayList<>();
     private boolean player = false;
     private Condition conditions = new Condition();
+    private int hpRegenRate;
 
     protected Unit() {
     }
@@ -65,11 +66,6 @@ public class Unit {
 
     public void setHealth(Health health) {
         this.health = health;
-    }
-
-
-    public int getHp() {
-        return getHealth().getHp();
     }
 
     public boolean isAlive() {
@@ -157,19 +153,19 @@ public class Unit {
     }
 
     public int getHp() {
-        return hp;
+        return getHealth().getHp();
     }
 
     public void setHp(int hp) {
-        this.hp = hp;
+        getHealth().setHp(hp);
     }
 
     protected int getMaxHp() {
-        return maxHp;
+        return getHealth().getMaxHp();
     }
 
     public void setMaxHp(int maxHp) {
-        this.maxHp = maxHp;
+        getHealth().setMaxHp(maxHp);
     }
 
     public int getSp() {
@@ -184,11 +180,11 @@ public class Unit {
     }
 
     public int getArm() {
-        return arm;
+        return getHealth().getArm();
     }
 
     public void setArm(int arm) {
-        this.arm = arm;
+        getHealth().setArm(arm);
     }
 
     public boolean isShielded() {
@@ -321,5 +317,19 @@ public class Unit {
     }
 
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
+    public void setConditions(Condition conditions) {
+        this.conditions = conditions;
+    }
+
+    public void setCards(List<Card> cards) {
+        this.cards = cards;
+    }
+
+    public void setHpRegenRate(int hpRegenRate) {
+        this.hpRegenRate = hpRegenRate;
+    }
 }

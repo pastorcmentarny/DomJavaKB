@@ -3,6 +3,8 @@ package dms.pastor.game.dcs.units.enemies.builders;
 import dms.pastor.game.dcs.Elements;
 import dms.pastor.game.dcs.cards.Card;
 import dms.pastor.game.dcs.conditions.Condition;
+import dms.pastor.game.dcs.units.Health;
+import dms.pastor.game.dcs.units.HealthBuilder;
 import dms.pastor.game.dcs.units.Player;
 import dms.pastor.game.dcs.units.Unit;
 

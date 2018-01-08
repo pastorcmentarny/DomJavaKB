@@ -11,6 +11,7 @@ import java.util.Set;
 
 import static dms.pastor.game.dcs.Config.DEFAULT_CONDITION_DURATION;
 import static dms.pastor.game.dcs.Config.INFINITIVE_TURNS_LEFT;
+import static dms.pastor.game.dcs.conditions.Condition.createCondition;
 import static dms.pastor.game.dcs.conditions.ConditionEntry.*;
 import static dms.pastor.game.dcs.conditions.ConditionEntryBuilder.conditionEntryBuilder;
 import static dms.pastor.game.dcs.conditions.ConditionType.*;
@@ -498,7 +499,7 @@ public class ConditionTest {
     @Test //single var args will cause NPE since casting
     public void createConditionWithNullArrayShouldContainsEmptyCondition() {
         // when
-        final Condition condition = Condition.createCondition((ConditionEntry[]) null);
+        final Condition condition = createCondition((ConditionEntry[]) null);
 
         // then
         assertThat(condition.size()).isZero();
@@ -514,10 +515,47 @@ public class ConditionTest {
         final ConditionEntry conditionThree = createTemporaryConditionWithDefaultDuration(STUNNED);
 
         // when
-        final Condition condition = Condition.createCondition(conditionOne, conditionTwo, conditionThree);
+        final Condition condition = createCondition(conditionOne, conditionTwo, conditionThree);
 
         // then
         assertThat(condition.size()).isEqualTo(3);
+    }
+
+
+    @Test
+    public void hasNegativeConditionShouldReturnTrueForNegativeCondition() {
+        // given
+        final Condition condition = createCondition(createPersistentCondition(STUNNED));
+
+        // when
+        final boolean result = condition.hasNegativeCondition();
+
+        // then
+        assertThat(result).isTrue();
+    }
+
+    @Test
+    public void hasNegativeConditionShouldReturnFalseForNeutralCondition() {
+        // given
+        final Condition condition = createCondition(createPersistentCondition(MINDLESS));
+
+        // when
+        final boolean result = condition.hasNegativeCondition();
+
+        // then
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    public void hasNegativeConditionShouldReturnFalseForPositiveCondition() {
+        // given
+        final Condition condition = createCondition(createPersistentCondition(BUBBLE_SHIELD));
+
+        // when
+        final boolean result = condition.hasNegativeCondition();
+
+        // then
+        assertThat(result).isFalse();
     }
 
     private void checkIfConditionsHasOnlyPersistentStunnedCondition() {

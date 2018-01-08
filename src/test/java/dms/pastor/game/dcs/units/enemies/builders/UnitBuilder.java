@@ -5,6 +5,8 @@ import dms.pastor.game.dcs.Elements;
 import dms.pastor.game.dcs.cards.Card;
 import dms.pastor.game.dcs.conditions.Condition;
 import dms.pastor.game.dcs.conditions.ConditionType;
+import dms.pastor.game.dcs.units.Health;
+import dms.pastor.game.dcs.units.HealthBuilder;
 import dms.pastor.game.dcs.units.Unit;
 
 import java.util.ArrayList;

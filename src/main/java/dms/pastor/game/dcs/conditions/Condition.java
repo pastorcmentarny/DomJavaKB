@@ -13,6 +13,7 @@ import java.util.Set;
 
 import static dms.pastor.game.dcs.conditions.ConditionEntry.isEmpty;
 import static dms.pastor.game.dcs.conditions.ConditionEntry.unknown;
+import static dms.pastor.game.dcs.conditions.ConditionGroup.NEGATIVE;
 import static dms.pastor.game.dcs.conditions.ConditionType.*;
 import static java.lang.String.format;
 import static java.util.Collections.unmodifiableSet;
@@ -186,5 +187,10 @@ public class Condition {
     @Override
     public String toString() {
         return format("Condition{conditions=%s, randomUtils=%s}", conditions, randomUtils);
+    }
+
+    public boolean hasNegativeCondition() {
+        return conditions.stream().anyMatch(conditionEntry -> conditionEntry.getConditionType().group() == NEGATIVE);
+
     }
 }
