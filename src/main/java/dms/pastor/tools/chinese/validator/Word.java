@@ -7,7 +7,6 @@ import static java.util.Arrays.copyOf;
 
 /**
  * Author Dominik Symonowicz
- * Created 07/10/2017
  * WWW:	https://dominiksymonowicz.com/welcome
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
@@ -41,7 +40,11 @@ public final class Word {
     }
 
     static Word noWord() {
-        return new Word(-1, null, null, -1, null, null, null, null, -1);
+        return new Word(none(), null, null, none(), null, null, null, null, none());
+    }
+
+    private static int none() {
+        return -1;
     }
 
     public static Word defaultWord() {

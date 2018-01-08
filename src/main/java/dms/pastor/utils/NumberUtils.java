@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import java.math.BigDecimal;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+import static dms.pastor.utils.ValidatorUtils.validateIfNotEmpty;
 import static dms.pastor.utils.ValidatorUtils.validateIfPositiveNumber;
 
 /**
@@ -26,56 +27,38 @@ public final class NumberUtils {
     private NumberUtils() {
     }
 
-    static int getResultIn0to100Range(int result) {
-        return getResultInRange(result, 0, 100);
-    }
+    //Since Java8, I use IntStream for that, but I left here for nostalgic reasons :)
 
-    static int getResultInRange(int result, int min, int max) {
-        if (result > max) {
-            result = max;
+    public static int[] generateNaturalSequenceIntArray(int size) {
+        validateIfPositiveNumber(size);
+
+        int[] array = new int[size];
+        for (int i = 1; i <= size; i++) {
+            array[i - 1] = i;
         }
-        if (result < min) {
-            result = min;
+        return array;
+    }
+
+    public static int parseNullSafeIntegerAsString(String value, int defaultValue) {
+        try {
+            return Integer.parseInt(value);
+        } catch (NumberFormatException nfe) {
+            LOGGER.warn("Unable to parse " + value + " as integer.");
+            return defaultValue;
         }
-        return result;
     }
 
-    static float getMaxValue(float currentValue, float maxValue) {
-
-        int i1 = Float.compare(currentValue, maxValue);
-
-        return getResult(currentValue, maxValue, i1);
-    }
-
-    public static int calcTotal(int[] items) {
+    public static int calcTotal(int[] numbers) {
         int total = 0;
-        for (int i : items) {
-            total += i;
+        for (int number : numbers) {
+            total += number;
         }
         return total;
     }
 
-    static float getMinValue(float currentValue, float minValue) {
-
-        int i1 = Float.compare(minValue, currentValue);
-
-        return getResult(currentValue, minValue, i1);
-
-    }
-
-    static int factorial(int a) {
-        if (a > FACTORIAL_MAXIMUM_VALUE || a < FACTORIAL_NEGATIVE_MAXIMUM_VALUE) {
-            throw new IllegalArgumentException("Number too big/small for integer");
-        }
-        int fact = 1;
-        for (int i = 1; i <= a; i++) {
-            fact *= i;
-        }
-        return fact;
-    }
 
     public static int getSmallestInt(int[] values) {
-        ValidatorUtils.validateIfNotEmpty(values, "values");
+        validateIfNotEmpty(values, "values");
         int smallestInt = Integer.MAX_VALUE;
         for (int i : values) {
             if (i < smallestInt) {
@@ -86,11 +69,11 @@ public final class NumberUtils {
     }
 
     public static int getLargestInt(int[] values) {
-        ValidatorUtils.validateIfNotEmpty(values, "values");
+        validateIfNotEmpty(values, "values");
         int largestInt = Integer.MIN_VALUE;
-        for (int i : values) {
-            if (i > largestInt) {
-                largestInt = i;
+        for (int value : values) {
+            if (value > largestInt) {
+                largestInt = value;
             }
         }
         return largestInt;
@@ -130,24 +113,42 @@ public final class NumberUtils {
         return true;
     }
 
-    //Since Java8, I use IntStream for that, but I left here for nostalgic reasons :)
-    public static int[] generateNaturalSequenceIntArray(int size) {
-        validateIfPositiveNumber(size);
-
-        int[] array = new int[size];
-        for (int i = 1; i <= size; i++) {
-            array[i - 1] = i;
-        }
-        return array;
+    static int getResultIn0to100Range(int result) {
+        return getResultInRange(result, 0, 100);
     }
 
-    public static int parseNullSafeIntegerAsString(String value, int defaultValue) {
-        try {
-            return Integer.parseInt(value);
-        } catch (NumberFormatException nfe) {
-            LOGGER.warn("Unable to parse " + value + " as integer.");
-            return defaultValue;
+    static int getResultInRange(int result, int min, int max) {
+        if (result > max) {
+            result = max;
         }
+        if (result < min) {
+            result = min;
+        }
+        return result;
+    }
+
+    static float getMaxValue(float currentValue, float maxValue) {
+        int comparisonResult = Float.compare(currentValue, maxValue);
+        return getResult(currentValue, maxValue, comparisonResult);
+    }
+
+    static float getMinValue(float currentValue, float minValue) {
+
+        int comparisonResult = Float.compare(minValue, currentValue);
+
+        return getResult(currentValue, minValue, comparisonResult);
+
+    }
+
+    static int factorial(int number) {
+        if (isFactorialInRange(number)) {
+            throw new IllegalArgumentException("Number too big/small for integer");
+        }
+        int factorial = 1;
+        for (int currentValue = 1; currentValue <= number; currentValue++) {
+            factorial *= currentValue;
+        }
+        return factorial;
     }
 
     static boolean isNumberPalindrome(int number) {
@@ -160,16 +161,16 @@ public final class NumberUtils {
         String eightBit = EMPTY_STRING;
         int divider = 128;
 
-        if (number > 255 || number < 0) {
+        if (isNotInShortRange(number)) {
             return EMPTY_STRING;
         }
 
         BitMaker bitMaker = new BitMaker(eightBit, number).invoke(divider);
-        divider /= 2;
+        divider = divideBy2(divider);
 
         while (divider != 1) {
             bitMaker = new BitMaker(bitMaker.getEightBit(), bitMaker.getLeftOver()).invoke(divider);
-            divider /= 2;
+            divider = divideBy2(divider);
         }
 
         eightBit = bitMaker.getEightBit();
@@ -180,6 +181,18 @@ public final class NumberUtils {
 
     static boolean isBigDecimalAValidInteger(BigDecimal bigDecimal) {
         return bigDecimal != null && bigDecimal.scale() == 0;
+    }
+
+    private static boolean isFactorialInRange(int number) {
+        return number > FACTORIAL_MAXIMUM_VALUE || number < FACTORIAL_NEGATIVE_MAXIMUM_VALUE;
+    }
+
+    private static int divideBy2(int divider) {
+        return divider / 2;
+    }
+
+    private static boolean isNotInShortRange(int number) {
+        return number > 255 || number < 0;
     }
 
     private static float getResult(float currentValue, float value, int comparisonResult) {

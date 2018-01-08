@@ -11,13 +11,12 @@ import static dms.pastor.game.dcs.Config.*;
 
 /**
  * Author Dominik Symonowicz
- * Created 28/12/2017
  * WWW:	http://pastor.ovh.org
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
-public class EnemyBuilder {
+public final class EnemyBuilder {
     private final int hp = DEFAULT_HEALTH_POINTS;
     private final int sp = DEFAULT_MANA_POINTS;
     private final ArrayList<Card> cards = new ArrayList<>();
