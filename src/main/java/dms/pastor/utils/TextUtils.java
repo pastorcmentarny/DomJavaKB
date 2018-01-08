@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class TextUtils {
+class TextUtils {
     private static final Logger LOGGER = LoggerFactory.getLogger(TextUtils.class);
     private static final String ERROR_MESSAGE = "Unable to count word due ";
 

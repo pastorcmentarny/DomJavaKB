@@ -18,16 +18,16 @@ import static dms.pastor.game.dcs.Config.*;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public class EnemyBuilder {
-    private int hp = DEFAULT_HEALTH_POINTS;
-    private int sp = DEFAULT_MANA_POINTS;
-    private ArrayList<Card> cards = new ArrayList<>();
-    private Elements elements = Elements.noElements();
-    private String description = "Description";
-    private Condition condition = new Condition();
-    private String name = "Name";
-    private int maxHp = DEFAULT_MAX_HEALTH;
-    private int arm = 0;
-    private int hpRegenRate = REGEN_HP_PER_TURN;
+    private final int hp = DEFAULT_HEALTH_POINTS;
+    private final int sp = DEFAULT_MANA_POINTS;
+    private final ArrayList<Card> cards = new ArrayList<>();
+    private final Elements elements = Elements.noElements();
+    private final String description = "Description";
+    private final Condition condition = new Condition();
+    private final String name = "Name";
+    private final int maxHp = DEFAULT_MAX_HEALTH;
+    private final int arm = 0;
+    private final int hpRegenRate = REGEN_HP_PER_TURN;
 
     private EnemyBuilder() {
     }

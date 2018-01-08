@@ -151,7 +151,7 @@ public class HotPicksAnalyser {
         return ballCountList;
     }
 
-    public static List<BallCount> generateBallCountList() {
+    private static List<BallCount> generateBallCountList() {
         return IntStream.rangeClosed(HOT_PICK_BALL_MINIMUM_VALUE, HOT_PICK_BALL_MAXIMUM_VALUE)
                 .mapToObj(BallCount::createForNumber)
                 .collect(Collectors.toList());

@@ -15,7 +15,7 @@ public enum Rarity {
     LEGENDARY(100),
     UNIQUE(1000);
 
-    private int chance;
+    private final int chance;
 
     Rarity(int chance) {
         this.chance = chance;

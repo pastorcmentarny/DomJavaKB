@@ -32,7 +32,7 @@ public class Point {
         return new Point(new Coordinates(point.getWidth(), newHeight), point.getFill());
     }
 
-    public Coordinates getCoordinates() {
+    private Coordinates getCoordinates() {
         return coordinates;
     }
 

@@ -8,7 +8,7 @@ import static dms.pastor.game.dcs.conditions.ConditionType.*;
 
 public class Warlock extends Unit {
 
-    boolean hasInfoAboutEnemy = false;
+    private boolean hasInfoAboutEnemy = false;
 
     public Warlock() {
         setSp(48);

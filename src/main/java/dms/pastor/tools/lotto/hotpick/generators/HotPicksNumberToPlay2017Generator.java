@@ -29,7 +29,7 @@ import static dms.pastor.tools.lotto.hotpick.HotPickStats.displayStatistic;
  */
 public class HotPicksNumberToPlay2017Generator extends NumbersToPlayGenerator {
 
-    static final int NUMBER_OF_PREVIOUS_GAMES = 8;
+    private static final int NUMBER_OF_PREVIOUS_GAMES = 8;
     private final String filePath;
 
     public HotPicksNumberToPlay2017Generator(String filePath) {

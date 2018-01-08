@@ -10,7 +10,7 @@ import static dms.pastor.game.dcs.units.enemies.builders.UnitBuilder.unitBuilder
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class AntiMatterStormEventTest {
-    private AntiMatterStormEvent antiMatterStormEvent = new AntiMatterStormEvent();
+    private final AntiMatterStormEvent antiMatterStormEvent = new AntiMatterStormEvent();
 
     @Test
     public void antiMatterStormEventRarityShouldBeRare() {

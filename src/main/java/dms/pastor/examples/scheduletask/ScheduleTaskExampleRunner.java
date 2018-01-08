@@ -12,7 +12,7 @@ import java.util.Timer;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
-public class ScheduleTaskExampleRunner {
+class ScheduleTaskExampleRunner {
     private static final Logger LOGGER = LoggerFactory.getLogger(ScheduleTaskExampleRunner.class);
 
     public static void runScheduleTaskExample(String name) throws InterruptedException {

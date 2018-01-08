@@ -14,10 +14,10 @@ import static org.slf4j.LoggerFactory.getLogger;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
-public class Task extends TimerTask {
+class Task extends TimerTask {
     private static final Logger LOGGER = getLogger(Task.class);
 
-    private String name;
+    private final String name;
 
     public Task(String name) {
         this.name = name;

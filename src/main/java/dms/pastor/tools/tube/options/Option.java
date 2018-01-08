@@ -25,6 +25,6 @@ import dms.pastor.tools.tube.Stations;
  * Source: Wikipedia
  */
 @FunctionalInterface
-public interface Option {
+interface Option {
     void choose(Stations stations);
 }

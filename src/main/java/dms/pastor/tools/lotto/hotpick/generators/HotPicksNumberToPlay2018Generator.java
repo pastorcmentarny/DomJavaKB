@@ -27,7 +27,7 @@ import static dms.pastor.tools.lotto.hotpick.CoupleOperations.removeAllCouplesTh
  */
 public class HotPicksNumberToPlay2018Generator extends NumbersToPlayGenerator {
 
-    static final int NUMBER_OF_PREVIOUS_GAMES = 10;
+    private static final int NUMBER_OF_PREVIOUS_GAMES = 10;
     private final String filePath;
 
     public HotPicksNumberToPlay2018Generator(String filePath) {

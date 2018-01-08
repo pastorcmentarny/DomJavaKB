@@ -8,7 +8,7 @@ import static dms.pastor.game.dcs.conditions.ConditionEntry.createPersistentCond
 import static dms.pastor.game.dcs.conditions.ConditionType.*;
 
 public class Wizard extends Unit {
-    boolean hasInfoAboutEnemy = false;
+    private boolean hasInfoAboutEnemy = false;
 
     public Wizard() {
         setSp(Config.INITIAL_SHIELD_POINTS * 3);

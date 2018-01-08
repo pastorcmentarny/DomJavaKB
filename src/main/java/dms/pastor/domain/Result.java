@@ -18,7 +18,7 @@ public class Result {
     private String message;
     private Object item;
 
-    public Result(boolean success, String message) {
+    protected Result(boolean success, String message) {
         this.success = success;
         this.message = message;
     }
