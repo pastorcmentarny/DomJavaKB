@@ -27,6 +27,7 @@ class RandomBmpGenerator {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(RandomBmpGenerator.class);
     private static final Random RANDOM = new Random();
+    private static final int MAX_RGB_VALUE = 16777215;
     private final int imageWidth;
     private final int imageHeight;
     private final String pathName;
@@ -69,7 +70,7 @@ class RandomBmpGenerator {
     private void generateRandomPixels(BufferedImage img) {
         for (int h = 1; h < imageHeight; h++) {
             for (int w = 1; w < imageWidth; w++) {
-                img.setRGB(w, h, RANDOM.nextInt(16777215));
+                img.setRGB(w, h, RANDOM.nextInt(MAX_RGB_VALUE));
             }
         }
     }

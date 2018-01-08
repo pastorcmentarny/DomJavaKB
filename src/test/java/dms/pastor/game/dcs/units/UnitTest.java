@@ -375,6 +375,7 @@ public class UnitTest {
 
         // debug
         LOGGER.info(unit.toString());
+
         // when
         final int increase = unit.getHealth().increaseHpPerTurn();
 

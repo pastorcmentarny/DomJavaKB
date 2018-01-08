@@ -9,18 +9,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-class TextUtils {
+final class TextUtils {
     private static final Logger LOGGER = LoggerFactory.getLogger(TextUtils.class);
     private static final String ERROR_MESSAGE = "Unable to count word due ";
+    private static final String DELIMITER = "(?m:^$)";
 
     public static long countWordInTextInFile(String fileName) {
         try (Scanner scanner = new Scanner(new File(fileName))) {
-            long counter = 0;
-            while (scanner.hasNext()) {
-                scanner.next();
-                counter++;
-            }
-            return counter;
+            return countWords(scanner);
         } catch (Exception exception) {
             final String errorMessage = ERROR_MESSAGE + exception.getMessage();
             LOGGER.error(errorMessage, exception);
@@ -28,19 +24,32 @@ class TextUtils {
         }
     }
 
-    public static List<String> getTextInParagraphs(String fileName) {
+    static List<String> getTextInParagraphs(String fileName) {
         try (Scanner scanner = new Scanner(new File(fileName))) {
-            scanner.useDelimiter("(?m:^$)");
+            scanner.useDelimiter(DELIMITER);
             List<String> paragraphs = new ArrayList<>();
-            while (scanner.hasNext()) {
-                String paragraph = scanner.next();
-                paragraphs.add(paragraph);
-            }
+            addParagraphsToParagraphs(scanner, paragraphs);
             return paragraphs;
         } catch (Exception exception) {
             final String errorMessage = ERROR_MESSAGE + exception.getMessage();
             LOGGER.error(errorMessage, exception);
             throw new SomethingWentWrongException(errorMessage, exception);
+        }
+    }
+
+    private static long countWords(Scanner scanner) {
+        long counter = 0;
+        while (scanner.hasNext()) {
+            scanner.next();
+            counter++;
+        }
+        return counter;
+    }
+
+    private static void addParagraphsToParagraphs(Scanner scanner, List<String> paragraphs) {
+        while (scanner.hasNext()) {
+            String paragraph = scanner.next();
+            paragraphs.add(paragraph);
         }
     }
 }

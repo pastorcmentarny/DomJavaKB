@@ -39,6 +39,7 @@ public final class WordResult extends Result {
     }
 
 
+    @SuppressWarnings("ReturnOfCollectionOrArrayField")
     public List<Word> getWordList() {
         return wordList;
     }

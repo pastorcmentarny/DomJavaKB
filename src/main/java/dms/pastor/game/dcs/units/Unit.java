@@ -272,7 +272,9 @@ public class Unit {
 
     @Override
     public String toString() {
-        return format("Unit{name='%s'\n, description='%s'\n, hp=%d, maxHp=%d\n, sp=%d\n, arm=%d\n, elements=%s\n, cards=%s\n, player=%s\n, conditions=%s}", name, description, getHealth().getHp(), getHealth().getMaxHp(), sp, getHealth().getArm(), elements, cards, player, conditions);
+        return format("Unit{randomUtils=%s, random=%s, name='%s', description='%s', health=%s, sp=%d, elements=%s," +
+                        " cards=%s, player=%s, conditions=%s, hpRegenRate=%d}",
+                randomUtils, random, name, description, health, sp, elements, cards, player, conditions, hpRegenRate);
     }
 
     public int getElementsFor(ElementType elementsType) {
