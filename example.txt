@@ -1,21 +1,7 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8"/>
-    <meta name="Description" content="Page is used for test connection in my app." />
-    <meta name="Author" content="Dominik Symonowicz" />
-    <link rel="stylesheet" href="./css/pro.css" type="text/css"/>
-  </head>
-  <body>
-
-    <div class="all">
-        <p class="headline">
-          <strong>DOM'S DIAGNOSTIC TOOLS</strong> test network site<br/>
-
-			IT SEEMS ,THAT YOUR NETWORK CONNECTION WORKS :)<br/>	
-				(what you see is html file used to display page in web browser)
-
-        </p>
-    </div>
-  </body>
+<head><title>301 Moved Permanently</title></head>
+<body bgcolor="white">
+<center><h1>301 Moved Permanently</h1></center>
+<hr><center>nginx</center>
+</body>
 </html>

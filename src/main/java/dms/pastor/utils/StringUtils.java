@@ -314,4 +314,8 @@ public final class StringUtils {
         }
         return string.substring(0, 1).toUpperCase();
     }
+
+    public static boolean isNotBlank(String text) {
+        return !isStringBlank(text);
+    }
 }

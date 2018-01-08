@@ -124,8 +124,8 @@ public class FileToolsTest {
         assertThat(new File(LOCK_FILE).exists()).isTrue();
     }
 
+    @Ignore //TODO need to fix it
     @Test
-    @Ignore//TODO fix it
     public void shouldUnlockFileTest() throws Exception {
         // given
         if (!new File(LOCK_FILE).exists()) {

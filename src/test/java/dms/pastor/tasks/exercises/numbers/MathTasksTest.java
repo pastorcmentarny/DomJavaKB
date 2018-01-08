@@ -5,6 +5,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.stream.IntStream;
+
 import static dms.pastor.utils.PrintOutUtils.printIntArray;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.number.OrderingComparison.greaterThan;
@@ -30,7 +32,7 @@ public class MathTasksTest {
     //TODO (It passed task acceptance requirement but it is a stupid test, I should improve it.
     @Test
     public void smokeTest() {
-        int[] allItems = NumberUtils.generateNaturalSequenceIntArray(10);
+        int[] allItems = IntStream.range(0, 10).toArray();
         int[] itemsWithoutOneRandomNumber = tasks.removeRandomNumberFromArray(allItems);
         printIntArray(allItems);
         printIntArray(itemsWithoutOneRandomNumber);

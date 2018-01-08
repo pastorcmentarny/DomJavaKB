@@ -4,7 +4,6 @@ import dms.pastor.game.dcs.Elements;
 import dms.pastor.game.dcs.cards.Card;
 import dms.pastor.game.dcs.conditions.Condition;
 import dms.pastor.game.dcs.units.Health;
-import dms.pastor.game.dcs.units.HealthBuilder;
 import dms.pastor.game.dcs.units.Player;
 import dms.pastor.game.dcs.units.Unit;
 
@@ -18,7 +17,7 @@ public final class PlayerBuilder {
     private int sp = DEFAULT_MANA_POINTS;
     private ArrayList<Card> cards = new ArrayList<>();
     private Elements elements = Elements.noElements();
-    private Health health = HealthBuilder.healthBuilder().build();
+    private Health health = healthBuilder().build();
     private String description = "Description";
     private Condition condition = new Condition();
     private String name = "Name";

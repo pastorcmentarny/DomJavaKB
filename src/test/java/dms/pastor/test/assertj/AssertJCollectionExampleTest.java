@@ -102,7 +102,7 @@ public class AssertJCollectionExampleTest {
         List<Unit> enemies = getListOfEnemies();
 
         // then
-        assertThat(enemies).extracting(Unit::getArm)
-                .containsExactly(0, 0, 0, 0);
+        assertThat(enemies).extracting(Unit::getSp)
+                .containsExactly(24, 225, 200, 48);
     }
 }

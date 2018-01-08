@@ -81,6 +81,21 @@ public class Unit {
         this.player = true;
     }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setCards(List<Card> cards) {
+        this.cards = cards;
+    }
+
+    public void setPlayer(boolean player) {
+        this.player = player;
+    }
+
+    public void setConditions(Condition conditions) {
+        this.conditions = conditions;
+    }
 
     public void turn(Unit unit) {
         //Nothing
@@ -316,19 +331,6 @@ public class Unit {
                 LOGGER.warn("getElementsFor method is not implemented for " + elementsType + " with number of elements equals to " + number);
                 break;
         }
-    }
-
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setConditions(Condition conditions) {
-        this.conditions = conditions;
-    }
-
-    public void setCards(List<Card> cards) {
-        this.cards = cards;
     }
 
     public void setHpRegenRate(int hpRegenRate) {

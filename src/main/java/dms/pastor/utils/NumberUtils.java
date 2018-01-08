@@ -8,7 +8,6 @@ import java.math.BigDecimal;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.ValidatorUtils.validateIfNotEmpty;
-import static dms.pastor.utils.ValidatorUtils.validateIfPositiveNumber;
 
 /**
  * Author Dominik Symonowicz
@@ -25,18 +24,6 @@ public final class NumberUtils {
     private static final int FACTORIAL_NEGATIVE_MAXIMUM_VALUE = -FACTORIAL_MAXIMUM_VALUE;
 
     private NumberUtils() {
-    }
-
-    //Since Java8, I use IntStream for that, but I left here for nostalgic reasons :)
-
-    public static int[] generateNaturalSequenceIntArray(int size) {
-        validateIfPositiveNumber(size);
-
-        int[] array = new int[size];
-        for (int i = 1; i <= size; i++) {
-            array[i - 1] = i;
-        }
-        return array;
     }
 
     public static int parseNullSafeIntegerAsString(String value, int defaultValue) {

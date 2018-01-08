@@ -538,32 +538,6 @@ public class NumberUtilsTest {
     }
 
     @Test
-    public void generateNaturalSequenceIntArrayShouldReturnIllegalArgumentExceptionIfValueIsNegative() throws Exception {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-        // given
-        final int negativeValue = randomNegativeInteger();
-
-        // when
-        generateNaturalSequenceIntArray(negativeValue);
-
-        // debug info
-        LOGGER.warn("Value used in test:" + negativeValue);
-    }
-
-    @Test
-    public void generateNaturalSequenceIntArrayShouldReturnIntArrayForSpecificSize() throws Exception {
-        // given
-        final int positiveInteger = randomPositiveInteger(10);
-
-        // when
-        generateNaturalSequenceIntArray(positiveInteger);
-
-        // debug
-        LOGGER.debug("Value used in test:" + positiveInteger);
-    }
-
-    @Test
     public void parseIntNullSafeShouldReturnDefaultValueIfValueIsNotValidNumber() throws Exception {
         // given
         final int defaultValue = randomPositiveInteger();

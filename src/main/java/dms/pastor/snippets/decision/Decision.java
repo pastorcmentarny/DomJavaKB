@@ -1,16 +1,19 @@
-package dms.pastor.snippets;
+package dms.pastor.snippets.decision;
 
 /**
  * Author Dominik Symonowicz
- * Created 24/12/2017
  * WWW:	https://dominiksymonowicz.com/welcome
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+ *
+ * tag-decision
  */
 public interface Decision {
-    decision isPassed, get(failed)Reasons[
-    and messages)]
+    boolean isPassed = false;
 
+    String getReasons(String[] reasons);
+
+    void makeDecision();
 }

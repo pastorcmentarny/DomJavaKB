@@ -1,6 +1,5 @@
 package dms.pastor.tools.html;
 
-import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
@@ -12,7 +11,6 @@ import static dms.pastor.tools.html.HTMLDownloader.download;
 import static dms.pastor.utils.FileTools.saveTextToFile;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.CoreMatchers.is;
 
 /**
  * Author Dominik Symonowicz
@@ -23,14 +21,15 @@ import static org.hamcrest.CoreMatchers.is;
  */
 public class HTMLDownloaderTest {
 
+    public static final String URL = "http://dominiksymonowicz.com/about/";
     @Rule
     public final ExpectedException exception = ExpectedException.none();
 
+    @Ignore //need implement https version
     @Test
-    @Ignore //as I move to new site
     public void acceptanceCriteria() throws Exception {
         // given
-        final String content = download("http://pastor.ovh.org/ok.html");
+        final String content = download(URL);
         System.out.println(content);
 
         // when
@@ -57,34 +56,18 @@ public class HTMLDownloaderTest {
         download(EMPTY_STRING);
     }
 
+    @Ignore //need implement https version
     @Test
-    @Ignore //as I move to new site
     public void testShouldReturnOKPage() throws IOException {
-        Assert.assertThat(download("http://pastor.ovh.org/ok.html"), is(getOKPage()));
-    }
+        // when
+        final String result = download(URL);
 
-    private String getOKPage() {
-        return "<!DOCTYPE html>\n" +
-                "<html>\n" +
-                "  <head>\n" +
-                "    <meta charset=\"utf-8\"/>\n" +
-                "    <meta name=\"Description\" content=\"Page is used for test connection in my app.\" />\n" +
-                "    <meta name=\"Author\" content=\"Dominik Symonowicz\" />\n" +
-                "    <link rel=\"stylesheet\" href=\"./css/pro.css\" type=\"text/css\"/>\n" +
-                "  </head>\n" +
-                "  <body>\n" +
-                '\n' +
-                "    <div class=\"all\">\n" +
-                "        <p class=\"headline\">\n" +
-                "          <strong>DOM'S DIAGNOSTIC TOOLS</strong> test network site<br/>\n" +
-                '\n' +
-                "\t\t\tIT SEEMS ,THAT YOUR NETWORK CONNECTION WORKS :)<br/>\t\n" +
-                "\t\t\t\t(what you see is html file used to display page in web browser)\n" +
-                '\n' +
-                "        </p>\n" +
-                "    </div>\n" +
-                "  </body>\n" +
-                "</html>\n";
+        // then
+        assertThat(result).contains(" I have done a proper IQ test." +
+                " My result is 106. It means I am painfully average male with one exception. I have a special talent." +
+                " According to the result, I am a genius in combine Lego bricks together. Agreed." +
+                " It is not a key skill that guarantees to achieve successes in everything in your life." +
+                " However, it is always something!");
     }
 
 }

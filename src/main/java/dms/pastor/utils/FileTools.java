@@ -134,9 +134,11 @@ public final class FileTools {
             if (lockFile != null) {
                 lockFile.release();
                 channel.close();
-                boolean pass = file.delete();
-                if (!pass) {
-                    LOGGER.warn("Unable to unlock program.It cans cause problem with running program.\nProgram should work after restart of your computer.");
+                if (file.exists()) {
+                    boolean pass = file.delete();
+                    if (!pass) {
+                        LOGGER.warn("Unable to unlock program.It cans cause problem with running program.\nProgram should work after restart of your computer.");
+                    }
                 }
             }
         } catch (IOException e) {
