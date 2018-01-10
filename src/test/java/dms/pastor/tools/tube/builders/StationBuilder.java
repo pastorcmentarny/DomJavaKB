@@ -18,6 +18,7 @@ public final class StationBuilder {
     private Status status = Status.values()[new Random().nextInt(Status.values().length)];
     private LocalDate passedDate = LocalDate.now();
     private LocalDate visitedDate = LocalDate.now();
+    private LocalDate thisYearVisitedDate = LocalDate.now();
 
     private StationBuilder() {
     }
@@ -27,7 +28,7 @@ public final class StationBuilder {
     }
 
     public Station build() {
-        return new Station(name, status, lines, passedDate, visitedDate);
+        return new Station(name, status, lines, passedDate, visitedDate, thisYearVisitedDate);
     }
 
     public Station buildNotVisitedStation() {

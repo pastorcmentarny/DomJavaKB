@@ -14,7 +14,7 @@ import static dms.pastor.utils.ValidatorUtils.validateIfNotEmpty;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public final class StationLineValidator {
-    private static final int COLUMNS_NUMBER = 5;
+    private static final int COLUMNS_NUMBER = 6;
 
     private StationLineValidator() {
     }
