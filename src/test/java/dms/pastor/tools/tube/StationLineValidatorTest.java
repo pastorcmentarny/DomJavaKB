@@ -67,7 +67,7 @@ public class StationLineValidatorTest {
         final String invalidStatus = "D";
 
         // when
-        StationLineValidator.validate("Acton Town" + SEPARATOR + invalidStatus + SEPARATOR + TUBE_LINE_NAME + SEPARATOR + LocalDate.now() + SEPARATOR + LocalDate.now());
+        StationLineValidator.validate("Acton Town" + SEPARATOR + invalidStatus + SEPARATOR + TUBE_LINE_NAME + SEPARATOR + LocalDate.now() + SEPARATOR + LocalDate.now() + SEPARATOR + LocalDate.now());
 
 
     }

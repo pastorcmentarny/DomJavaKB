@@ -22,12 +22,13 @@ public class ToStationConverterTest {
 
     private static final LocalDate PASSED_DATE = LocalDate.now();
     private static final LocalDate VISITED_DATE = LocalDate.now();
+    private static final LocalDate THIS_YEAR_VISITED_DATE = LocalDate.now();
 
     @Test
     public void convertShouldConvertStationAsStringToObject() {
         // given
-        final String stationAsString = "Chesham;;V;;none;;" + PASSED_DATE + Station.SEPARATOR + VISITED_DATE;
-        final Station expectedStation = new Station("Chesham", VISITED, Line.noLine(), PASSED_DATE, VISITED_DATE);
+        final String stationAsString = "Chesham;;V;;none;;" + PASSED_DATE + Station.SEPARATOR + VISITED_DATE + Station.SEPARATOR + THIS_YEAR_VISITED_DATE;
+        final Station expectedStation = new Station("Chesham", VISITED, Line.noLine(), PASSED_DATE, VISITED_DATE, THIS_YEAR_VISITED_DATE);
 
         // when
         final Station station = ToStationConverter.convert(stationAsString);
@@ -39,25 +40,25 @@ public class ToStationConverterTest {
     @Test
     public void getStatusAsValue() {
         // given
-        final Station station = new Station("Amersham", VISITED, null, PASSED_DATE, VISITED_DATE);
+        final Station station = new Station("Amersham", VISITED, null, PASSED_DATE, VISITED_DATE, THIS_YEAR_VISITED_DATE);
 
         // when
         final String result = station.getStatusAsValue();
 
         // then
-        assertThat(result).isEqualTo("V");
+        assertThat(result).isEqualTo(VISITED.value());
     }
 
     @Test
     public void asLine() {
         // given
-        final Station station = new Station("Amersham", VISITED, null, PASSED_DATE, VISITED_DATE);
+        final Station station = new Station("Amersham", VISITED, null, PASSED_DATE, VISITED_DATE, THIS_YEAR_VISITED_DATE);
 
         // when
         final String result = station.getStatusAsValue();
 
         // then
-        assertThat(result).isEqualTo("V");
+        assertThat(result).isEqualTo(VISITED.value());
     }
 
 }

@@ -31,7 +31,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class StationsTest {
     private static final LocalDate PASSED_DATE = LocalDate.now();
     private static final LocalDate VISITED_DATE = LocalDate.now();
-    private static final Station WEMBLEY_PARK = new Station("Wembley Park", Status.VISITED, noLine(), PASSED_DATE, VISITED_DATE);
+
+    private static final LocalDate THIS_YEAR_VISITED_DATE = LocalDate.now();
+
+    private static final Station WEMBLEY_PARK = new Station("Wembley Park", Status.VISITED, noLine(), PASSED_DATE, VISITED_DATE, THIS_YEAR_VISITED_DATE);
     private static final String STATION_NOT_FOUND_ERROR_MESSAGE = "Station was not found.";
     private static final String STATION_NAME = "Amersham";
     private final List<Line> lines = Collections.singletonList(new Line("none"));
@@ -74,7 +77,7 @@ public class StationsTest {
         // given
         final String stationName = STATION_NAME;
         final LocalDate today = LocalDate.now();
-        final Station amersham = new Station(stationName, VISITED, lines, today, today);
+        final Station amersham = new Station(stationName, VISITED, lines, today, today, today);
         Stations stations = new Stations(Collections.singletonList(amersham));
 
         // when
@@ -89,7 +92,7 @@ public class StationsTest {
         // given
         final String stationName = STATION_NAME;
         final LocalDate today = LocalDate.now();
-        final Station amersham = new Station(stationName, NOT_VISITED, lines, today, today);
+        final Station amersham = new Station(stationName, NOT_VISITED, lines, today, today, today);
         Stations stations = new Stations(Collections.singletonList(amersham));
 
         // when
@@ -202,7 +205,7 @@ public class StationsTest {
     @Test
     public void passedShouldReturnStationWithPassedDateButWithoutVisitedDate() {
         // given
-        final Station expectedStation = new Station(STATION_NAME, PASSED, noLine(), PASSED_DATE, null);
+        final Station expectedStation = new Station(STATION_NAME, PASSED, noLine(), PASSED_DATE, null, null);
 
         // when
         final Station result = Station.passed(STATION_NAME, noLine(), PASSED_DATE);
@@ -214,7 +217,7 @@ public class StationsTest {
     @Test
     public void notVisitedShouldReturnStationWithoutPassedAndOrVisitedDate() {
         // given
-        final Station expectedStation = new Station(STATION_NAME, NOT_VISITED, noLine(), null, null);
+        final Station expectedStation = new Station(STATION_NAME, NOT_VISITED, noLine(), null, null, null);
 
         // when
         final Station result = Station.notVisited(STATION_NAME, noLine());

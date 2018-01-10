@@ -31,7 +31,7 @@ public final class StationsBuilder {
 
     private List<Station> generateStations() {
         List<Station> stationList = new ArrayList<>();
-        stationList.add(new Station("Wembley Park", Status.VISITED, noLine(), LocalDate.now(), LocalDate.now()));
+        stationList.add(new Station("Wembley Park", Status.VISITED, noLine(), LocalDate.now(), LocalDate.now(), LocalDate.now()));
         stationList.add(Station.passed("Green Park", noLine(), LocalDate.now()));
         stationList.add(Station.notVisited("Elm Park", noLine()));
         return stationList;

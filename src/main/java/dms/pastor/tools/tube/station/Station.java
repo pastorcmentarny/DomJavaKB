@@ -25,21 +25,23 @@ public class Station {
     private Status status;
     private LocalDate passedDate;
     private LocalDate visitedDate;
+    private LocalDate thisYearVisitedDate;
 
-    public Station(String name, Status status, List<Line> lines, LocalDate passedDate, LocalDate visitedDate) {
+    public Station(String name, Status status, List<Line> lines, LocalDate passedDate, LocalDate visitedDate, LocalDate thisYearVisitedDate) {
         this.name = name;
         this.status = status;
         this.lines = lines;
         this.passedDate = passedDate;
         this.visitedDate = visitedDate;
+        this.thisYearVisitedDate = thisYearVisitedDate;
     }
 
     public static Station notVisited(String name, List<Line> lines) {
-        return new Station(name, NOT_VISITED, lines, null, null);
+        return new Station(name, NOT_VISITED, lines, null, null, null);
     }
 
     public static Station passed(String name, List<Line> lines, LocalDate passedDate) {
-        return new Station(name, PASSED, lines, passedDate, null);
+        return new Station(name, PASSED, lines, passedDate, null, null);
     }
 
     public String getName() {
@@ -87,12 +89,13 @@ public class Station {
                 Objects.equals(getLines(), station.getLines()) &&
                 getStatus() == station.getStatus() &&
                 Objects.equals(getPassedDate(), station.getPassedDate()) &&
-                Objects.equals(getVisitedDate(), station.getVisitedDate());
+                Objects.equals(getVisitedDate(), station.getVisitedDate()) &&
+                Objects.equals(thisYearVisitedDate, station.thisYearVisitedDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getName(), getLines(), getStatus(), getPassedDate(), getVisitedDate());
+        return Objects.hash(getName(), getLines(), getStatus(), getPassedDate(), getVisitedDate(), thisYearVisitedDate);
     }
 
     @Override
@@ -103,6 +106,7 @@ public class Station {
                 ", status=" + status +
                 ", passedDate=" + passedDate +
                 ", visitedDate=" + visitedDate +
+                ", thisYearVisitedDate=" + thisYearVisitedDate +
                 '}';
     }
 
@@ -121,7 +125,9 @@ public class Station {
                 getStatusAsValue() + SEPARATOR +
                 getLinesAsString() + SEPARATOR +
                 getDate(passedDate) + SEPARATOR +
-                getDate(visitedDate);
+                getDate(visitedDate) + SEPARATOR +
+                getDate(thisYearVisitedDate);
+
     }
 
     private String getDate(LocalDate date) {
