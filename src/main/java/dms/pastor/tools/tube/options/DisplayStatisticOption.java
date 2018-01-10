@@ -17,6 +17,8 @@ public class DisplayStatisticOption implements Option {
 
     @Override
     public void choose(Stations stations) {
+        System.out.println("You visited " + stations.countStationVisitedThisYear() + " station(s). (" +
+                countPercentageOfAllStationFor(stations.getStationList().size(), stations.countStationVisitedThisYear()));
         System.out.println("You visited " + stations.countStationVisited() + " station(s). (" +
                 countPercentageOfAllStationFor(stations.getStationList().size(), stations.countStationVisited()));
         System.out.println("You passed " + stations.countStationPassed() + " station(s). (" +
