@@ -68,6 +68,14 @@ public class Station {
         this.visitedDate = visitedDate;
     }
 
+    public LocalDate getVisitedThisYearDate() {
+        return thisYearVisitedDate;
+    }
+
+    public void setVistedStationThisYearToNow() {
+        this.thisYearVisitedDate = LocalDate.now();
+    }
+
     public void setStatus(Status status) {
         this.status = status;
     }

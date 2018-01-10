@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 
 import static dms.pastor.tools.tube.station.Status.PASSED;
 import static dms.pastor.tools.tube.station.Status.VISITED;
@@ -55,10 +56,20 @@ public class Stations {
                 station.setPassedDate(LocalDate.now());
             }
             station.setVisitedDate(LocalDate.now());
+            station.setVistedStationThisYearToNow();
         } else {
             LOGGER.info("You visited this station already.");
+            setVisitedThisYearFor(station);
         }
+    }
 
+    private void setVisitedThisYearFor(Station station) {
+        if (Objects.nonNull(station.getVisitedThisYearDate())) {
+            LOGGER.info("You visited this station this year too.");
+        } else {
+            System.out.println("You updated " + station.getName() + " with info that you visited this year.");
+            station.setVistedStationThisYearToNow();
+        }
     }
 
     public long countStationPassed() {
@@ -68,6 +79,13 @@ public class Stations {
     public long countStationVisited() {
         return countStationThatHasStatusOf(VISITED.value());
     }
+
+    public long countStationVisitedThisYear() {
+        return stationList.stream()
+                .filter(station -> station.getStatus().value().equalsIgnoreCase(VISITED.value()) && Objects.nonNull(station.getVisitedThisYearDate()))
+                .count();
+    }
+
 
     private long countStationThatHasStatusOf(String statusValue) {
         return stationList.stream()
@@ -90,4 +108,5 @@ public class Stations {
     public int totalNumber() {
         return stationList.size();
     }
+
 }
