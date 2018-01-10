@@ -35,6 +35,7 @@ public class HotPicksNumberToPlay2018Generator extends NumbersToPlayGenerator {
         this.filePath = filePath;
     }
 
+    //TODO need to generate triplets
     @Override
     public void generateNumbersToPlay() {
         final List<HotPickDraw> hotPickDrawList = loadData(filePath);
