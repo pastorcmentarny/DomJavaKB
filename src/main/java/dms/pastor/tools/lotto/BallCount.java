@@ -50,7 +50,7 @@ public class BallCount {
         return unmodifiableList(ballNumbers);
     }
 
-    int getCount() {
+    public int getCount() {
         return count;
     }
 

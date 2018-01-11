@@ -14,8 +14,7 @@ import java.util.Map;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public abstract class NumbersToPlayGenerator {
-    public abstract void generateNumbersToPlay();
+public abstract class NumbersToPlayGenerator implements Generator {
 
     protected List<HotPickDraw> loadData(String filePath) {
         HotPicksFileUploader hotPicksFileUploader = new HotPicksFileUploader();

@@ -9,7 +9,6 @@ import dms.pastor.utils.ArrayUtils;
 import dms.pastor.utils.PrintOutUtils;
 import dms.pastor.utils.string.ToStringUtils;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -37,7 +36,7 @@ public class HotPicksNumberToPlay2018Generator extends NumbersToPlayGenerator {
 
     //TODO need to generate triplets
     @Override
-    public void generateNumbersToPlay() {
+    public String generateNumbersToPlay() {
         final List<HotPickDraw> hotPickDrawList = loadData(filePath);
 
         HotPicksAnalyser analyser = new HotPicksAnalyser(hotPickDrawList);
@@ -65,7 +64,6 @@ public class HotPicksNumberToPlay2018Generator extends NumbersToPlayGenerator {
 
         PrintOutUtils.printIntArray(ints);
         int previousGamesCounter = NUMBER_OF_PREVIOUS_GAMES + 1;
-        ints = new int[]{9, 26, 33, 48};
         while (ints.length > 3 && previousGamesCounter < 20) {
             System.out.println("Running for: " + previousGamesCounter);
             int[] x = analyser.removeNumbersFromGames(previousGamesCounter);
@@ -78,15 +76,7 @@ public class HotPicksNumberToPlay2018Generator extends NumbersToPlayGenerator {
 
         System.out.println("\n\n::>> You should choose:");
         PrintOutUtils.printIntArray(ints);
-    }
-
-    private boolean uniqueBallCount(Set<Couple> remainingCouples) {
-        Set<Integer> balls = new HashSet<>();
-        for (Couple couple : remainingCouples) {
-            balls.add(couple.getSmallerNumber());
-            balls.add(couple.getLargerNumber());
-        }
-        return balls.size() > 3;
+        return ""; //TODO need to be implemented
     }
 
 }
