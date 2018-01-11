@@ -36,7 +36,7 @@ public class HotPicksNumberToPlay2017Generator extends NumbersToPlayGenerator {
         this.filePath = filePath;
     }
 
-    public void generateNumbersToPlay() {
+    public String generateNumbersToPlay() {
         final List<HotPickDraw> hotPickDrawList = loadData(filePath);
         HotPicksAnalyser analyser = new HotPicksAnalyser(hotPickDrawList);
         HotPickLeastPlayedCoupleFinder leastPlayedCoupleFinder = new HotPickLeastPlayedCoupleFinder();
@@ -69,6 +69,8 @@ public class HotPicksNumberToPlay2017Generator extends NumbersToPlayGenerator {
         remainingCouples.forEach(System.out::println);
         System.out.println("Choose from these numbers:");
         PrintOutUtils.printIntArray(finalNumbers);
+
+        return ""; //TODO temp fix
     }
 
     private int[] getFinalNumbers(Set<Couple> remainingCouples) {
