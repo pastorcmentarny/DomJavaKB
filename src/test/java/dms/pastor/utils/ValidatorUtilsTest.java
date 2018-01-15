@@ -195,6 +195,20 @@ public class ValidatorUtilsTest {
     }
 
     @Test
+    public void validateMinValueIsSmallerThanMaxValueShouldThrowExceptionWhenMinValueIsEqualsThanMaxValue() throws Exception {
+
+        // given
+        int value = randomPositiveInteger(MAX_SMALL_VALUE_RANGE);
+
+        // exception
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("MinValue (" + value + ") must be lower than MaxValue(" + value + ")");
+
+        // when
+        validateMinValueIsSmallerThanMaxValue(value, value);
+    }
+
+    @Test
     public void validateMinValueIsSmallerThanMaxValueShouldBeValidatedWhenMinValueIsSmallerThanMaxValue() throws Exception {
 
         // given
@@ -203,6 +217,46 @@ public class ValidatorUtilsTest {
 
         // when
         validateMinValueIsSmallerThanMaxValue(minValue, maxValue);
+
+        // then nothing happen, which means value are valid
+    }
+
+    @Test
+    public void validateValueIsSmallerOrEqualsThatOtherValueShouldThrowExceptionWhenMinValueIsGreaterThanMaxValue() throws Exception {
+
+        // given
+        int maxValue = randomPositiveInteger(MAX_SMALL_VALUE_RANGE);
+        int minValue = MAX_SMALL_VALUE_RANGE + randomPositiveInteger(MAX_SMALL_VALUE_RANGE);
+
+        // exception
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("Value (" + minValue + ") must be lower or equals to than Other Value(" + maxValue + ")");
+
+        // when
+        validateValueIsSmallerOrEqualsThatOtherValue(minValue, maxValue);
+    }
+
+    @Test
+    public void validateValueIsSmallerOrEqualsThatOtherValueShouldBeValidatedWhenValueIsEqualsToOtherValue() throws Exception {
+
+        // given
+        int value = randomPositiveInteger(MAX_SMALL_VALUE_RANGE);
+
+        // when
+        validateValueIsSmallerOrEqualsThatOtherValue(value, value);
+
+        // then nothing happen, which means value are valid
+    }
+
+    @Test
+    public void validateValueIsSmallerOrEqualsThatOtherValueShouldBeValidatedWhenMinValueIsSmallerThanMaxValue() throws Exception {
+
+        // given
+        int minValue = randomPositiveInteger(MAX_SMALL_VALUE_RANGE);
+        int maxValue = minValue + randomPositiveInteger(MAX_SMALL_VALUE_RANGE);
+
+        // when
+        validateValueIsSmallerOrEqualsThatOtherValue(minValue, maxValue);
 
         // then nothing happen, which means value are valid
     }

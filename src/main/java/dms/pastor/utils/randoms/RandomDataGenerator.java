@@ -220,7 +220,7 @@ public final class RandomDataGenerator {
     }
 
     public static int randomInteger(int minValue, int maxValue) {
-        validateMinValueIsSmallerThanMaxValue(minValue, maxValue);
+        validateValueIsSmallerOrEqualsThatOtherValue(minValue, maxValue);
         final int randomInteger = RANDOM.nextInt(maxValue + 1);
         return randomInteger < minValue ? minValue : randomInteger;
     }

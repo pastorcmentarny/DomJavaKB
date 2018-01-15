@@ -112,8 +112,14 @@ public final class ValidatorUtils {
     }
 
     public static void validateMinValueIsSmallerThanMaxValue(int minValue, int maxValue) {
-        if (minValue > maxValue) {
+        if (minValue >= maxValue) {
             throw new IllegalArgumentException(format("MinValue (%d) must be lower than MaxValue(%d)", minValue, maxValue));
+        }
+    }
+
+    public static void validateValueIsSmallerOrEqualsThatOtherValue(int value, int otherValue) {
+        if (value > otherValue) {
+            throw new IllegalArgumentException(format("Value (%d) must be lower or equals to than Other Value(%d)", value, otherValue));
         }
     }
 
