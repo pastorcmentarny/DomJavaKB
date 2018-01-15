@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.LinkedHashSet;
 
 import static dms.pastor.utils.ValidatorUtils.validateIfNotNull;
-import static dms.pastor.utils.ValidatorUtils.validateMinValueIsSmallerThanMaxValue;
+import static dms.pastor.utils.ValidatorUtils.validateValueIsSmallerOrEqualsThatOtherValue;
 import static java.time.ZoneId.getAvailableZoneIds;
 import static java.time.temporal.ChronoUnit.DAYS;
 import static java.util.stream.Collectors.joining;
@@ -83,7 +83,7 @@ public final class DateUtils {
     static long countLeapYearBetween(LocalDate start, LocalDate end) {
         validateIfNotNull(start, "Start date");
         validateIfNotNull(end, "End date");
-        validateMinValueIsSmallerThanMaxValue(start.getYear(), end.getYear());
+        validateValueIsSmallerOrEqualsThatOtherValue(start.getYear(), end.getYear());
 
         int counter = 0;
         for (int i = start.getYear(); i <= end.getYear(); i++) {
