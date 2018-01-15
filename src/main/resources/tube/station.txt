@@ -76,7 +76,7 @@ Epping;;X;;none;;none;;none;;none
 Euston;;P;;none;;2017-05-26;;none;;none
 Euston Square;;V;;none;;2017-01-03;;2017-09-02;;none
 Fairlop;;X;;none;;none;;none;;none
-Farringdon;;P;;none;;2017-01-03;;none;;none
+Farringdon;;V;;none;;2017-01-03;;2018-01-12;;2018-01-12
 Finchley Road;;P;;none;;2017-01-03;;2017-03-03;;none
 Finsbury Park;;P;;none;;2017-01-03;;none;;none
 Fulham Broadway;;X;;none;;none;;none;;none
