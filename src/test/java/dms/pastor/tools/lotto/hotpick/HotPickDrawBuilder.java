@@ -16,9 +16,7 @@ import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 @SuppressWarnings("unused")
-final
-        // because builders methods can be used later
-class HotPickDrawBuilder {
+public final class HotPickDrawBuilder {
 
     private final Random random = new Random();
     private LocalDate drawDate = LocalDate.now();
@@ -35,11 +33,11 @@ class HotPickDrawBuilder {
     private HotPickDrawBuilder() {
     }
 
-    static HotPickDrawBuilder hotPickDrawBuilder() {
+    public static HotPickDrawBuilder hotPickDrawBuilder() {
         return new HotPickDrawBuilder();
     }
 
-    HotPickDraw build() {
+    public HotPickDraw build() {
         return new HotPickDraw(drawDate, ball1, ball2, ball3, ball4, ball5, ball6, ballSet, machine, drawNumber);
     }
 
@@ -92,7 +90,7 @@ class HotPickDrawBuilder {
         return this;
     }
 
-    HotPickDrawBuilder drawNumber(int drawNumber) {
+    public HotPickDrawBuilder drawNumber(int drawNumber) {
         this.drawNumber = drawNumber;
         return this;
     }

@@ -18,7 +18,7 @@ public class AllTimeStatistics {
     }
 
     public void displayAllStatistics() {
-        List<HotPickDraw> hotPickDrawList = uploader.loadHotPicksDrawHistoryFile(filePath);
+        List<HotPickDraw> hotPickDrawList = uploader.loadHotPicksDrawHistoryFile(filePath).getDrawList();
         HotPicksAnalyser analyser = new HotPicksAnalyser(hotPickDrawList);
         System.out.println(analyser.countBallDrawn());
         analyser.getBallsCountList().stream().sorted(Comparator.comparing(BallCount::getCount).reversed()).forEach(System.out::println);

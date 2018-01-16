@@ -16,7 +16,6 @@ import java.util.stream.Stream;
 
 import static dms.pastor.tools.lotto.LottoFilePathValidator.validateFilePath;
 import static java.lang.String.format;
-import static java.util.Collections.unmodifiableList;
 
 /**
  * Author Dominik Symonowicz
@@ -26,7 +25,7 @@ import static java.util.Collections.unmodifiableList;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class HotPicksFileUploader {
+public class HotPicksFileUploader implements FileUploader {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(HotPicksFileUploader.class);
     private static final String DASH = "-";
@@ -36,7 +35,7 @@ public class HotPicksFileUploader {
         hotPickDrawList = new ArrayList<>();
     }
 
-    public List<HotPickDraw> loadHotPicksDrawHistoryFile(String filePath) {
+    public DrawList loadHotPicksDrawHistoryFile(String filePath) {
         validateFilePath(filePath);
 
         try (Stream<String> lines = Files.lines(Paths.get(filePath))) {
@@ -44,7 +43,7 @@ public class HotPicksFileUploader {
         } catch (IOException e) {
             throw new SomethingWentWrongException("Getting lines from file", e);
         }
-        return unmodifiableList(hotPickDrawList);
+        return new DrawList(hotPickDrawList);
     }
 
     private void addIfLineValid(String line) {
