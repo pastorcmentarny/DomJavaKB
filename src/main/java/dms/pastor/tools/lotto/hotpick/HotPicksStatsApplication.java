@@ -5,6 +5,8 @@ import dms.pastor.tools.lotto.hotpick.generators.HotPicksNumberToPlay2018Generat
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.List;
+
 import static java.lang.String.format;
 
 /**
@@ -28,7 +30,8 @@ final class HotPicksStatsApplication {
         validateUserInput(args);
 
         try {
-            new HotPicksNumberToPlay2018Generator(args[0]).generateNumbersToPlay();
+            final List<HotPickDraw> hotPickDrawList = new HotPicksFileUploader().loadHotPicksDrawHistoryFile(args[0]).getDrawList();
+            new HotPicksNumberToPlay2018Generator(hotPickDrawList).generateNumbersToPlay();
         } catch (SomethingWentWrongException e) {
             LOGGER.error(format("Application crashes because: %s", e.getMessage()), e);
         }

@@ -125,7 +125,7 @@ public class HotPicksFileUploaderTest {
         generateFile(EMPTY_CSV_FILE, lines);
 
         // when
-        final List<HotPickDraw> hotPickDrawList = hotPicksFileUploader.loadHotPicksDrawHistoryFile(EMPTY_CSV_FILE);
+        final List<HotPickDraw> hotPickDrawList = hotPicksFileUploader.loadHotPicksDrawHistoryFile(EMPTY_CSV_FILE).getDrawList();
 
         // then
         assertThat(hotPickDrawList).isNotNull();
@@ -182,7 +182,7 @@ java.lang.IllegalArgumentException: Path is invalid or is not a file
     @Test
     public void shouldReturnEmptyListIfLineIsEmpty() throws Exception {
         // when
-        final List<HotPickDraw> hotPickDrawList = hotPicksFileUploader.loadHotPicksDrawHistoryFile(EMPTY_CSV_FILE);
+        final List<HotPickDraw> hotPickDrawList = hotPicksFileUploader.loadHotPicksDrawHistoryFile(EMPTY_CSV_FILE).getDrawList();
 
         // then
         assertThat(hotPickDrawList).isNotNull();
@@ -196,7 +196,7 @@ java.lang.IllegalArgumentException: Path is invalid or is not a file
         generateFile(EMPTY_CSV_FILE, lines);
 
         // when
-        final List<HotPickDraw> hotPickDrawList = hotPicksFileUploader.loadHotPicksDrawHistoryFile(EMPTY_CSV_FILE);
+        final List<HotPickDraw> hotPickDrawList = hotPicksFileUploader.loadHotPicksDrawHistoryFile(EMPTY_CSV_FILE).getDrawList();
 
         // then
         assertThat(hotPickDrawList).isNotNull();
@@ -207,7 +207,7 @@ java.lang.IllegalArgumentException: Path is invalid or is not a file
     public void shouldReturnEmptyListIfRowContainsNotValidBall() throws Exception {
 
         // when
-        final List<HotPickDraw> hotPickDrawList = hotPicksFileUploader.loadHotPicksDrawHistoryFile(EMPTY_CSV_FILE);
+        final List<HotPickDraw> hotPickDrawList = hotPicksFileUploader.loadHotPicksDrawHistoryFile(EMPTY_CSV_FILE).getDrawList();
 
         // then
         assertThat(hotPickDrawList).isNotNull();
@@ -232,7 +232,7 @@ java.lang.IllegalArgumentException: Path is invalid or is not a file
         generateFile(EMPTY_CSV_FILE, lines);
 
         // when
-        final List<HotPickDraw> hotPickDrawList = hotPicksFileUploader.loadHotPicksDrawHistoryFile(EMPTY_CSV_FILE);
+        final List<HotPickDraw> hotPickDrawList = hotPicksFileUploader.loadHotPicksDrawHistoryFile(EMPTY_CSV_FILE).getDrawList();
 
         // then
         assertThat(hotPickDrawList).isNotNull();
@@ -261,7 +261,7 @@ java.lang.IllegalArgumentException: Path is invalid or is not a file
         generateFile(EMPTY_CSV_FILE, lines);
 
         // when
-        final List<HotPickDraw> hotPickDrawList = hotPicksFileUploader.loadHotPicksDrawHistoryFile(EMPTY_CSV_FILE);
+        final List<HotPickDraw> hotPickDrawList = hotPicksFileUploader.loadHotPicksDrawHistoryFile(EMPTY_CSV_FILE).getDrawList();
 
         // then
         assertThat(hotPickDrawList).isNotNull();
@@ -304,7 +304,7 @@ java.lang.IllegalArgumentException: Path is invalid or is not a file
         generateFile(EMPTY_CSV_FILE, lines);
 
         // when
-        final List<HotPickDraw> hotPickDrawList = hotPicksFileUploader.loadHotPicksDrawHistoryFile(EMPTY_CSV_FILE);
+        final List<HotPickDraw> hotPickDrawList = hotPicksFileUploader.loadHotPicksDrawHistoryFile(EMPTY_CSV_FILE).getDrawList();
 
         // then
         assertThat(hotPickDrawList.size()).isEqualTo(3);
@@ -328,7 +328,7 @@ java.lang.IllegalArgumentException: Path is invalid or is not a file
         generateFile(EMPTY_CSV_FILE, lines);
 
         // when
-        final List<HotPickDraw> hotPickDrawList = hotPicksFileUploader.loadHotPicksDrawHistoryFile(EMPTY_CSV_FILE);
+        final List<HotPickDraw> hotPickDrawList = hotPicksFileUploader.loadHotPicksDrawHistoryFile(EMPTY_CSV_FILE).getDrawList();
 
         // then
         assertThat(hotPickDrawList).isEmpty();

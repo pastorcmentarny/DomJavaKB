@@ -9,9 +9,9 @@ public class HotPicksNumberToPlay2018GeneratorTest {
 
     @Test
     public void test() {
-        final HotPicksNumberToPlay2018Generator generator = new HotPicksNumberToPlay2018Generator(filePath);
+//        final HotPicksNumberToPlay2018Generator generator = new HotPicksNumberToPlay2018Generator(filePath);
 
-        generator.generateNumbersToPlay();
+        //    generator.generateNumbersToPlay();
     }
 
 }

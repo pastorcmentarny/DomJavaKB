@@ -18,7 +18,7 @@ public abstract class NumbersToPlayGenerator implements Generator {
 
     protected List<HotPickDraw> loadData(String filePath) {
         HotPicksFileUploader hotPicksFileUploader = new HotPicksFileUploader();
-        return hotPicksFileUploader.loadHotPicksDrawHistoryFile(filePath);
+        return hotPicksFileUploader.loadHotPicksDrawHistoryFile(filePath).getDrawList();
     }
 
     protected static void addOrUpdateValue(Map<Integer, Integer> topNumbers, Integer key) {
