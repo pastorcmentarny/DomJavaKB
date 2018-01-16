@@ -1,5 +1,6 @@
 package dms.pastor.tools.lotto.hotpick.generators;
 
+import dms.pastor.tools.lotto.common.NumberToPlayResult;
 import dms.pastor.tools.lotto.common.NumbersToPlayGenerator;
 import dms.pastor.tools.lotto.hotpick.Couple;
 import dms.pastor.tools.lotto.hotpick.HotPickDraw;
@@ -27,18 +28,16 @@ import static dms.pastor.tools.lotto.hotpick.CoupleOperations.removeAllCouplesTh
 public class HotPicksNumberToPlay2018Generator extends NumbersToPlayGenerator {
 
     private static final int NUMBER_OF_PREVIOUS_GAMES = 10;
-    private final String filePath;
+    private final List<HotPickDraw> hotPickDrawList;
 
-    public HotPicksNumberToPlay2018Generator(String filePath) {
+    public HotPicksNumberToPlay2018Generator(List<HotPickDraw> hotPickDrawList) {
         System.out.println("Running HotPick 2018");
-        this.filePath = filePath;
+        this.hotPickDrawList = hotPickDrawList;
     }
 
     //TODO need to generate triplets
     @Override
-    public String generateNumbersToPlay() {
-        final List<HotPickDraw> hotPickDrawList = loadData(filePath);
-
+    public NumberToPlayResult generateNumbersToPlay() {
         HotPicksAnalyser analyser = new HotPicksAnalyser(hotPickDrawList);
         analyser.countBallDrawn(); //TODO fix it as now this line is required to make analyser work
         int leastDrawnNumber = analyser.findLeastDrawnNumber();
@@ -76,7 +75,7 @@ public class HotPicksNumberToPlay2018Generator extends NumbersToPlayGenerator {
 
         System.out.println("\n\n::>> You should choose:");
         PrintOutUtils.printIntArray(ints);
-        return ""; //TODO need to be implemented
+        return new NumberToPlayResult(ints[0], ints[1]);
     }
 
 }
