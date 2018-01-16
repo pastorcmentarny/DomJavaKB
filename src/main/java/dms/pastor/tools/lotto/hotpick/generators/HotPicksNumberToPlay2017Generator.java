@@ -1,6 +1,7 @@
 package dms.pastor.tools.lotto.hotpick.generators;
 
 import dms.pastor.tools.lotto.BallCountOperations;
+import dms.pastor.tools.lotto.common.NumberToPlayResult;
 import dms.pastor.tools.lotto.common.NumbersToPlayGenerator;
 import dms.pastor.tools.lotto.hotpick.Couple;
 import dms.pastor.tools.lotto.hotpick.HotPickDraw;
@@ -36,7 +37,7 @@ public class HotPicksNumberToPlay2017Generator extends NumbersToPlayGenerator {
         this.filePath = filePath;
     }
 
-    public String generateNumbersToPlay() {
+    public NumberToPlayResult generateNumbersToPlay() {
         final List<HotPickDraw> hotPickDrawList = loadData(filePath);
         HotPicksAnalyser analyser = new HotPicksAnalyser(hotPickDrawList);
         HotPickLeastPlayedCoupleFinder leastPlayedCoupleFinder = new HotPickLeastPlayedCoupleFinder();
@@ -70,7 +71,7 @@ public class HotPicksNumberToPlay2017Generator extends NumbersToPlayGenerator {
         System.out.println("Choose from these numbers:");
         PrintOutUtils.printIntArray(finalNumbers);
 
-        return ""; //TODO temp fix
+        return new NumberToPlayResult(finalNumbers[0], finalNumbers[1]);
     }
 
     private int[] getFinalNumbers(Set<Couple> remainingCouples) {
