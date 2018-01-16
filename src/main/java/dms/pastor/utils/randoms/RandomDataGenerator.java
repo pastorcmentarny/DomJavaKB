@@ -8,6 +8,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.UUID;
 import java.util.stream.IntStream;
 
 import static dms.pastor.tools.chinese.pinyin.PinyinUtils.getAllPinyinFromFirstToFourthToneWithoutNeutralTone;
@@ -254,5 +255,10 @@ public final class RandomDataGenerator {
     public static String generateRandomPinyinCharacter() {
         final String allPinyinWithTones = getAllPinyinFromFirstToFourthToneWithoutNeutralTone();
         return String.valueOf(allPinyinWithTones.charAt(RANDOM.nextInt(allPinyinWithTones.length())));
+    }
+
+
+    static void displayRandomUUID() {
+        System.out.print(UUID.randomUUID());
     }
 }

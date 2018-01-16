@@ -1,13 +1,12 @@
 package dms.pastor.utils.randoms;
 
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.rules.ExpectedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Random;
@@ -35,9 +34,22 @@ public class RandomDataGeneratorTest {
     private static final int RANDOM_STRING_LENGTH = 1024;
     private static final String SPACE = " ";
     private final Random random = new Random();
+    private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    private PrintStream printStream;
 
     @Rule
     public final ExpectedException exception = ExpectedException.none();
+
+    @Before
+    public void setUp() throws Exception {
+        printStream = System.out;
+        System.setOut(new PrintStream(outputStream));
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        System.setOut(printStream);
+    }
 
     @Test
     public void testGenerateRandomIntValues() throws Exception {
@@ -495,5 +507,19 @@ public class RandomDataGeneratorTest {
 
         // debug
         LOGGER.info("Number generated: " + number);
+    }
+
+    @Test // it is not a test,i need generate UUID sometimes
+    public void shouldPrintRandomUUID() {
+        //given
+        final int uuidLength = 36;
+
+        // it is a utility not test
+        displayRandomUUID();
+
+        // but I will verify just in case
+        assertThat(outputStream.toString().length()).isEqualTo(uuidLength);
+
+
     }
 }
