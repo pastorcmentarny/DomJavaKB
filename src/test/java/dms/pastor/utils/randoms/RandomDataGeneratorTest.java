@@ -322,7 +322,7 @@ public class RandomDataGeneratorTest {
     }
 
     //TODO @Test public void randomIntegerExcludingShouldReturnUniqueNumber() throws Exception {
-
+    @Ignore
     @Test
     public void randomIntegerWithMinAndMaxValueShouldThrowExceptionWhenMinValueIsHigherThanMaxValue() throws Exception {
         // given
