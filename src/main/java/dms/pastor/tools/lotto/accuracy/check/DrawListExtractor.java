@@ -23,6 +23,8 @@ public final class DrawListExtractor {
         validateIfNotNull(drawList, "Hot Picks Draw");
         validateIfNotNull(startRange, "Start Range");
         validateIfNotNull(endRange, "End Range");
+        validateIfPositiveNumber(startRange);
+        validateIfPositiveNumber(endRange);
         validateMinValueIsSmallerThanMaxValue(startRange, endRange);
         validateMinValueIsSmallerThanMaxValue(startRange, endRange);
         validateValueIsSmallerOrEqualsThatOtherValue(startRange, drawList.size());

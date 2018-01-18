@@ -90,6 +90,34 @@ public class DrawListExtractorTest {
     }
 
     @Test
+    public void getHotPickDrawListFromRangeShouldReturnInvalidArgumentExceptionIfStartRangeIsANegativeNumber() {
+        // expect
+        exception.expect(IllegalArgumentException.class);
+
+        // given
+        final int invalidStartRange = -1;
+        final int validEndRange = 2;
+
+        // when
+        getHotPickDrawListFromRange(UNUSED_LIST, invalidStartRange, validEndRange);
+    }
+
+    @Test
+    public void getHotPickDrawListFromRangeShouldReturnInvalidArgumentExceptionIfEndRangeIsANegativeNumber() {
+        // expect
+        exception.expect(IllegalArgumentException.class);
+
+        // given
+        final int invalidStartRange = 1;
+        final int validEndRange = -1;
+
+        // when
+        getHotPickDrawListFromRange(UNUSED_LIST, invalidStartRange, validEndRange);
+    }
+
+
+
+    @Test
     public void getHotPickDrawListFromRangeShouldReturnNewList() {
         // given
         final HotPickDraw draw1 = hotPickDrawBuilder().drawNumber(2).build();
