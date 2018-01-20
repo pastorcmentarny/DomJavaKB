@@ -37,12 +37,12 @@ public class HotPicksFileUploader implements FileUploader {
 
     public DrawList loadHotPicksDrawHistoryFile(String filePath) {
         validateFilePath(filePath);
-
         try (Stream<String> lines = Files.lines(Paths.get(filePath))) {
             lines.forEach(this::addIfLineValid);
         } catch (IOException e) {
             throw new SomethingWentWrongException("Getting lines from file", e);
         }
+        LOGGER.debug("File contains " + hotPickDrawList.size() + " draws.");
         return new DrawList(hotPickDrawList);
     }
 

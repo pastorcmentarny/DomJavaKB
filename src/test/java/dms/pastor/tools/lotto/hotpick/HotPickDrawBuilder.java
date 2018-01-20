@@ -50,32 +50,32 @@ public final class HotPickDrawBuilder {
         return this;
     }
 
-    HotPickDrawBuilder ball1(int ball1) {
+    public HotPickDrawBuilder ball1(int ball1) {
         this.ball1 = ball1;
         return this;
     }
 
-    HotPickDrawBuilder ball2(int ball2) {
+    public HotPickDrawBuilder ball2(int ball2) {
         this.ball2 = ball2;
         return this;
     }
 
-    HotPickDrawBuilder ball3(int ball3) {
+    public HotPickDrawBuilder ball3(int ball3) {
         this.ball3 = ball3;
         return this;
     }
 
-    HotPickDrawBuilder ball4(int ball4) {
+    public HotPickDrawBuilder ball4(int ball4) {
         this.ball4 = ball4;
         return this;
     }
 
-    HotPickDrawBuilder ball5(int ball5) {
+    public HotPickDrawBuilder ball5(int ball5) {
         this.ball5 = ball5;
         return this;
     }
 
-    HotPickDrawBuilder ball6(int ball6) {
+    public HotPickDrawBuilder ball6(int ball6) {
         this.ball6 = ball6;
         return this;
     }
