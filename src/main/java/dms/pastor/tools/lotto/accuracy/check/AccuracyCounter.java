@@ -44,4 +44,13 @@ public class AccuracyCounter {
     public int getTotal() {
         return total;
     }
+
+
+    @Override
+    public String toString() {
+        return "AccuracyCounter{" +
+                "hit=" + hit +
+                ", total=" + total +
+                '}';
+    }
 }

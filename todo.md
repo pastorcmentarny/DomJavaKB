@@ -5,7 +5,8 @@ TODO:
         accept AAEFW as way to input
     4. Complete Lotto tools  
     5. Create TextFileSaver   
-    6. Add gradle task to generate domUtils.jar    
+    6. Add gradle task to generate domUtils.jar   
+    7. Combine lotto examples into one 
 
 Enemies:
     0. (Done)   Dummy
