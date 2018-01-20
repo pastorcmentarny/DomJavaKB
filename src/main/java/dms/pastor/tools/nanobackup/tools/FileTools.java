@@ -80,10 +80,10 @@ public class FileTools {
      */
     public static boolean checkEnoughSpace(Statistic stats, String[] sources, String destination) {
         long srcSize = 0;
-        for (int i = 0; i < sources.length; i++) {
-            file = new File(sources[i]);
+        for (String source : sources) {
+            file = new File(source);
             if (file.exists()) {
-                srcSize += FileUtils.sizeOf(new File(sources[i]));
+                srcSize += FileUtils.sizeOf(new File(source));
                 if (stats != null) {
                     stats.setBackupSize(String.valueOf(srcSize));
                 }
@@ -107,7 +107,7 @@ public class FileTools {
      */
     public static String chooseFiletoLoad() {
         LOGGER.debug("select file to Load");
-        ArrayList<String> path = new ArrayList<String>();
+        ArrayList<String> path = new ArrayList<>();
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setMultiSelectionEnabled(false);
         fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
@@ -127,15 +127,15 @@ public class FileTools {
      */
     public static String[] chooseFilestoLoad() {
         LOGGER.debug("select file to Load");
-        ArrayList<String> path = new ArrayList<String>();
+        ArrayList<String> path = new ArrayList<>();
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setMultiSelectionEnabled(true);
         fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
         int returnVal = fileChooser.showOpenDialog(null);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File[] files = fileChooser.getSelectedFiles();
-            for (int i = 0; i < files.length; i++) {
-                path.add(files[i].getPath());
+            for (File file1 : files) {
+                path.add(file1.getPath());
             }
             return path.toArray(new String[path.size()]);
         } else {
@@ -171,7 +171,7 @@ public class FileTools {
      */
     public static String[] chooseDirsToLoad() {
         LOGGER.debug("select folder to Load");
-        ArrayList<String> path = new ArrayList<String>();
+        ArrayList<String> path = new ArrayList<>();
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         fileChooser.setMultiSelectionEnabled(true);
@@ -179,8 +179,8 @@ public class FileTools {
 
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File[] files = fileChooser.getSelectedFiles();
-            for (int i = 0; i < files.length; i++) {
-                path.add(files[i].getPath());
+            for (File file1 : files) {
+                path.add(file1.getPath());
             }
         } else {
             return null;
@@ -200,7 +200,7 @@ public class FileTools {
      * @return list of file(s)/folder(s)
      */
     public static String[] chooseItemsToLoad() {
-        ArrayList<String> path = new ArrayList<String>();
+        ArrayList<String> path = new ArrayList<>();
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setMultiSelectionEnabled(true);
         fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
@@ -208,8 +208,8 @@ public class FileTools {
 
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File[] files = fileChooser.getSelectedFiles();
-            for (int i = 0; i < files.length; i++) {
-                path.add(files[i].getPath());
+            for (File file1 : files) {
+                path.add(file1.getPath());
             }
         } else {
             return null;
@@ -393,7 +393,7 @@ public class FileTools {
 
     }
 
-    public static void copyFileToDirectory(File srcFile, File destDir, Statistic stats) throws IOException {
+    public static void copyFileToDirectory(File srcFile, File destDir, Statistic stats) {
         if (destDir == null) {
             throw new NullPointerException("Destination must not be null");
         }
@@ -555,8 +555,8 @@ public class FileTools {
     //TODO refactor this method
     static boolean isFilesExists(String[] filesPath) {
         try {
-            for (int i = 0; i < filesPath.length; i++) {
-                if (!new File(filesPath[i]).exists()) {
+            for (String aFilesPath : filesPath) {
+                if (!new File(aFilesPath).exists()) {
                     return false;
                 }
             }
@@ -758,16 +758,16 @@ public class FileTools {
             return false;
         }
         stats.addFileCopied(1);
-        for (int i = 0; i < folderPath.length; i++) {
-            if (isADirectory(folderPath[i])) {
-                String[] x = new File(folderPath[i]).list();
+        for (String aFolderPath : folderPath) {
+            if (isADirectory(aFolderPath)) {
+                String[] x = new File(aFolderPath).list();
                 String[] listInDir = new String[x.length];
                 for (int ix = 0; ix < x.length; ix++) {
-                    listInDir[ix] = folderPath[i] + System.getProperty("file.separator") + x[ix];
+                    listInDir[ix] = aFolderPath + System.getProperty("file.separator") + x[ix];
                 }
                 zipFolder(listInDir, out, results, stats);
             } else {
-                zipFile(folderPath[i], out, stats);
+                zipFile(aFolderPath, out, stats);
             }
         }
         return true;

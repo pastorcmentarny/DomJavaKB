@@ -232,9 +232,9 @@ public class Backup extends AbstractTools {
             LOGGER.debug("Backup folder created.");
         }
 
-        for (int i = 0; i < sources.length; i++) {
-            updateInfoText(info, "Coping file:" + sources[i]);
-            FileTools.copy(sources[i], destinationDir + System.getProperty("file.separator") + new File(sources[i]).getName(), stats);
+        for (String source : sources) {
+            updateInfoText(info, "Coping file:" + source);
+            FileTools.copy(source, destinationDir + System.getProperty("file.separator") + new File(source).getName(), stats);
            /*
             if (FileTools.isAFile(sources[i])) {
                 result = FileTools.copyFile(sources[i], destinationDir + System.getProperty("file.separator") + new File(sources[i]).getName(), stats);
@@ -578,11 +578,8 @@ public class Backup extends AbstractTools {
                     scheduler = Executors.newScheduledThreadPool(1);
                     updateInfo = new UpdateInfo(info, null);//TODO this wil crash app!
                     final ScheduledFuture<?> scheduleChecking = scheduler.scheduleAtFixedRate(updateInfo, 0, 30, TimeUnit.SECONDS);
-                    scheduler.schedule(new Runnable() {
-
-                        public void run() {
-                            scheduleChecking.cancel(true);
-                        }
+                    scheduler.schedule(() -> {
+                        scheduleChecking.cancel(true);
                     }, Integer.MAX_VALUE, TimeUnit.DAYS);
 
                 } catch (RejectedExecutionException ree) {

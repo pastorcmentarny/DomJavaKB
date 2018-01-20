@@ -70,12 +70,7 @@ public class About extends javax.swing.JFrame {
      * @param args
      */
     public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-
-            public void run() {
-                new About().setVisible(true);
-            }
-        });
+        java.awt.EventQueue.invokeLater(() -> new About().setVisible(true));
     }
 
     /**
@@ -225,11 +220,7 @@ public class About extends javax.swing.JFrame {
         messagePanel.setViewportView(messageTextArea);
 
         goToButton.setText("Go to my page");
-        goToButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                goToButtonActionPerformed(evt);
-            }
-        });
+        goToButton.addActionListener(evt -> goToButtonActionPerformed(evt));
 
         pictureOfMe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nanobackup/me.jpg"))); // NOI18N
 

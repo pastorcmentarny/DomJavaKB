@@ -72,7 +72,7 @@ public class Engine extends AbstractTools {
      * @return list of path of destination folder or null if things go wrong
      */
     public String[] swapDestFolderPaths(String[] paths, String what, String with) {
-        List<String> swappedPaths = new ArrayList<String>();
+        List<String> swappedPaths = new ArrayList<>();
         for (String path : paths) {
             if (path.equals(what)) {
                 swappedPaths.add(with);
@@ -102,7 +102,7 @@ public class Engine extends AbstractTools {
                 paths[paths.length - 1] = newPath;
                 return paths;
             } else {
-                ArrayList<String> newPaths = new ArrayList<String>();
+                ArrayList<String> newPaths = new ArrayList<>();
                 newPaths.addAll(Arrays.asList(paths));
                 newPaths.add(newPath);
                 return newPaths.toArray(new String[newPaths.size()]);
@@ -160,7 +160,7 @@ public class Engine extends AbstractTools {
      * @return results of this scan.
      */
     public String[] itselfHealthScan() {
-        ArrayList<String> result = new ArrayList<String>();
+        ArrayList<String> result = new ArrayList<>();
         result.add(0, "OK");
         if (!FileTools.isDirectoryExists("data")) {
             result.add("Data folder doesn't exist!");
@@ -202,7 +202,7 @@ public class Engine extends AbstractTools {
         if (!file.exists()) {
             return new String[0];
         }
-        ArrayList<String> itemsList = new ArrayList<String>();
+        ArrayList<String> itemsList = new ArrayList<>();
         BufferedReader reader = null;
         String text;
         try {
@@ -235,13 +235,13 @@ public class Engine extends AbstractTools {
      * @return new list with all items from exists and merged source files
      */
     public String[] merge2Source(final String[] srcList) {
-        final List<String> temp = new ArrayList<String>();
+        final List<String> temp = new ArrayList<>();
         final String[] tempSource = FileTools.chooseFilestoLoad();
         if (tempSource != null && tempSource.length != 0) {
             String[] itemsList;
-            for (int i = 0; i < tempSource.length; i++) {
-                if (FileTools.isFileExists(tempSource[i])) {
-                    itemsList = makeList(tempSource[i]);
+            for (String aTempSource : tempSource) {
+                if (FileTools.isFileExists(aTempSource)) {
+                    itemsList = makeList(aTempSource);
                     itemsList = TaskUtils.removeNonExistsItems(itemsList);
                     temp.addAll(Arrays.asList(itemsList));
                     //itemsList = null;
@@ -263,21 +263,21 @@ public class Engine extends AbstractTools {
      */
     public String[] removeItemsFromList(String[] srcList, JList sourceList) {
         Object[] itemsToDelete;
-        ArrayList<String> toDeleteList = new ArrayList<String>();
-        ArrayList<String> newList = new ArrayList<String>();
+        ArrayList<String> toDeleteList = new ArrayList<>();
+        ArrayList<String> newList = new ArrayList<>();
         if (!sourceList.isSelectionEmpty()) {
             try {
                 itemsToDelete = sourceList.getSelectedValues();
-                for (int i = 0; i < itemsToDelete.length; i++) {
-                    toDeleteList.add(itemsToDelete[i].toString());
+                for (Object anItemsToDelete : itemsToDelete) {
+                    toDeleteList.add(anItemsToDelete.toString());
                 }
             } catch (NullPointerException e) {
                 return srcList; //TODO return orginal list or null ?
             }
             if (!toDeleteList.isEmpty()) {
-                for (int i = 0; i < srcList.length; i++) {
-                    if (!toDeleteList.contains(srcList[i])) {
-                        newList.add(srcList[i]);
+                for (String aSrcList : srcList) {
+                    if (!toDeleteList.contains(aSrcList)) {
+                        newList.add(aSrcList);
                     }
                 }
             }
@@ -345,8 +345,8 @@ public class Engine extends AbstractTools {
      */
     public boolean deleteSourceAfterBackup(final String[] sourcesPath) {
         boolean success;
-        for (int i = 0; i < sourcesPath.length; i++) {
-            success = FileTools.delete(sourcesPath[i]);
+        for (String aSourcesPath : sourcesPath) {
+            success = FileTools.delete(aSourcesPath);
             if (!success) {
                 return false;
             }
@@ -363,7 +363,7 @@ public class Engine extends AbstractTools {
      * @return
      */
     public String[] addItemsToItemsList(String[] srcList, final JTextField sourceField, final String pathType) {
-        final ArrayList<String> temp = new ArrayList<String>();
+        final ArrayList<String> temp = new ArrayList<>();
         String[] newSource;
         temp.addAll(Arrays.asList(srcList));
         if (pathType.equalsIgnoreCase("item")) {

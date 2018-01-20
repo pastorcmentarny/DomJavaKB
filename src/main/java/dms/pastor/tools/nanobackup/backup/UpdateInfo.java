@@ -16,7 +16,7 @@ public class UpdateInfo implements Runnable {
     Backup outer;
     private JTextArea label = null;
     private Random randomText = new Random();
-    private ArrayList<String> lolText = new ArrayList<String>();
+    private ArrayList<String> lolText = new ArrayList<>();
 
     //TODO solve problem with using , Backup outer because of issue with GUI
 

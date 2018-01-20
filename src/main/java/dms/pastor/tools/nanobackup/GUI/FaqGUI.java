@@ -15,7 +15,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Properties;
@@ -60,24 +59,13 @@ public class FaqGUI extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException | javax.swing.UnsupportedLookAndFeelException | IllegalAccessException | InstantiationException ex) {
             // java.util.logging.Logger.getLogger(FaqGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            //java.util.logging.Logger.getLogger(FaqGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            //java.util.logging.Logger.getLogger(FaqGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            //java.util.logging.Logger.getLogger(FaqGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-
-            public void run() {
-                new FaqGUI().setVisible(true);
-            }
-        });
+        java.awt.EventQueue.invokeLater(() -> new FaqGUI().setVisible(true));
     }
 
     /**
@@ -102,11 +90,7 @@ public class FaqGUI extends javax.swing.JFrame {
         questionComboBox.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         questionComboBox.setModel(new javax.swing.DefaultComboBoxModel(questions));
         questionComboBox.setToolTipText("Place,where you can select question");
-        questionComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                questionComboBoxActionPerformed(evt);
-            }
-        });
+        questionComboBox.addActionListener(evt -> questionComboBoxActionPerformed(evt));
 
         jLabel1.setText("Choose question to see answer:");
 
@@ -149,8 +133,8 @@ public class FaqGUI extends javax.swing.JFrame {
 
     private void setup() {
         FileInputStream fis = null;
-        ArrayList<String> question = new ArrayList<String>();
-        ArrayList<String> answer = new ArrayList<String>();
+        ArrayList<String> question = new ArrayList<>();
+        ArrayList<String> answer = new ArrayList<>();
 
         try {
             fis = new FileInputStream("data" + System.getProperty("file.separator") + "message.properties");
@@ -171,10 +155,6 @@ public class FaqGUI extends javax.swing.JFrame {
             answers = answer.toArray(sa);
         } catch (NumberFormatException ex) {
             LOGGER.warn("Error cause due author screwed up update faq section in message.properties or somebody \"innocent\" had crap idea to mess up with message.properties");
-            this.dispose();
-        } catch (FileNotFoundException ex) {
-            LOGGER.warn("Unexpected error due load properties for About." + ex.getCause() + ("\n" + ex.getMessage()));
-            //JOptionPane.showMessageDialog(rootPane, messagePanel, "WOOPS",  JOptionPane.ERROR_MESSAGE);
             this.dispose();
         } catch (IOException ex) {
             LOGGER.warn("Unexpected error due load properties for About." + ex.getCause() + ("\n" + ex.getMessage()));

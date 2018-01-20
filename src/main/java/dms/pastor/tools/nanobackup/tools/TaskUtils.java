@@ -29,10 +29,10 @@ public class TaskUtils {
      */
     public static String[] removeDuplicateLines(String[] lineslist) {
         LOGGER.debug("Removing duplicate lines from list ...");
-        ArrayList<String> singles = new ArrayList<String>();
-        for (int i = 0; i < lineslist.length; i++) {
-            if (!singles.contains(lineslist[i])) {
-                singles.add(lineslist[i]);
+        ArrayList<String> singles = new ArrayList<>();
+        for (String aLineslist : lineslist) {
+            if (!singles.contains(aLineslist)) {
+                singles.add(aLineslist);
             }
         }
         LOGGER.debug("Duplicate lines from list was removed.");
@@ -47,7 +47,7 @@ public class TaskUtils {
      */
     public static String[] removeNonExistsItems(String[] sources) {
         LOGGER.debug("Cleaning items list from non exists elements...");
-        ArrayList<String> clearedList = new ArrayList<String>();
+        ArrayList<String> clearedList = new ArrayList<>();
         for (String source : sources) {
             if (new File(source).exists()) {
                 clearedList.add(source);
@@ -68,9 +68,9 @@ public class TaskUtils {
      */
     public static boolean deleteSourceAferBackup(String[] sources) {
         LOGGER.debug("deleting source's file/folders after backup...");
-        for (int i = 0; i < sources.length; i++) {
-            if (FileTools.isAFile(sources[i]) || FileTools.isADirectory(sources[i])) {
-                FileTools.delete(sources[i]);
+        for (String source : sources) {
+            if (FileTools.isAFile(source) || FileTools.isADirectory(source)) {
+                FileTools.delete(source);
             } else {
                 LOGGER.debug("Unable to delete all/some source's file/folders.");
                 return false;
