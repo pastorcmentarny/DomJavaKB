@@ -10,7 +10,7 @@ import java.time.LocalDate;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class HotPickDraw {
+public class HotPickDraw implements Draw {
 
     private final LocalDate drawDate;
     private final int ball1;

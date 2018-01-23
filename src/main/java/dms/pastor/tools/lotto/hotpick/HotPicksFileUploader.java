@@ -43,7 +43,7 @@ public class HotPicksFileUploader implements FileUploader {
             throw new SomethingWentWrongException("Getting lines from file", e);
         }
         LOGGER.debug("File contains " + hotPickDrawList.size() + " draws.");
-        return new DrawList(hotPickDrawList);
+        return new DrawList<>(hotPickDrawList);
     }
 
     private void addIfLineValid(String line) {

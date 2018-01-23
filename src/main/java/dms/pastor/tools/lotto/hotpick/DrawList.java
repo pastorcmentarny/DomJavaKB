@@ -2,14 +2,14 @@ package dms.pastor.tools.lotto.hotpick;
 
 import java.util.List;
 
-public class DrawList {
-    private final List<HotPickDraw> drawList;
+public class DrawList<T extends Draw> {
+    private final List<T> drawList;
 
-    public DrawList(List<HotPickDraw> drawList) {
+    public DrawList(List<T> drawList) {
         this.drawList = drawList;
     }
 
-    public List<HotPickDraw> getDrawList() {
+    public List<T> getDrawList() {
         return drawList;
     }
 }
