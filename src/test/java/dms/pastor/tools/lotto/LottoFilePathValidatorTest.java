@@ -15,7 +15,6 @@ import static org.junit.Assert.fail;
 
 /**
  * Author Dominik Symonowicz
- * Created 03/10/2017
  * WWW:	https://dominiksymonowicz.com/welcome
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
@@ -85,7 +84,7 @@ public class LottoFilePathValidatorTest {
         exception.expectMessage("It must be a csv file.");
 
         // when
-        hotPicksFileUploader.loadHotPicksDrawHistoryFile(EMPTY_TEXT_FILE);
+        hotPicksFileUploader.loadDrawHistoryFile(EMPTY_TEXT_FILE);
     }*/
 
 /*    @Test
@@ -95,7 +94,7 @@ public class LottoFilePathValidatorTest {
         generateFile(EMPTY_CSV_FILE, lines);
 
         // when
-        final List<HotPickDraw> hotPickDrawList = hotPicksFileUploader.loadHotPicksDrawHistoryFile(EMPTY_CSV_FILE);
+        final List<HotPickDraw> hotPickDrawList = hotPicksFileUploader.loadDrawHistoryFile(EMPTY_CSV_FILE);
 
         // then
         assertThat(hotPickDrawList).isNotNull();

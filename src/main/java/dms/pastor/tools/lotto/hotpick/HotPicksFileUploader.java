@@ -35,7 +35,7 @@ public class HotPicksFileUploader implements FileUploader {
         hotPickDrawList = new ArrayList<>();
     }
 
-    public DrawList loadHotPicksDrawHistoryFile(String filePath) {
+    public DrawList loadDrawHistoryFile(String filePath) {
         validateFilePath(filePath);
         try (Stream<String> lines = Files.lines(Paths.get(filePath))) {
             lines.forEach(this::addIfLineValid);

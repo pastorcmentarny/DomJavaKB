@@ -8,6 +8,14 @@ import dms.pastor.tools.lotto.hotpick.HotPicksFileUploader;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+ */
 public class AllTimeStatistics {
     private final String filePath;
     private final HotPicksFileUploader uploader;
@@ -18,7 +26,7 @@ public class AllTimeStatistics {
     }
 
     public void displayAllStatistics() {
-        List<HotPickDraw> hotPickDrawList = uploader.loadHotPicksDrawHistoryFile(filePath).getDrawList();
+        List<HotPickDraw> hotPickDrawList = uploader.loadDrawHistoryFile(filePath).getDrawList();
         HotPicksAnalyser analyser = new HotPicksAnalyser(hotPickDrawList);
         System.out.println(analyser.countBallDrawn());
         analyser.getBallsCountList().stream().sorted(Comparator.comparing(BallCount::getCount).reversed()).forEach(System.out::println);

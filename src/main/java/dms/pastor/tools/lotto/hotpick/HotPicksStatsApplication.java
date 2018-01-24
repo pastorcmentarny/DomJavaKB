@@ -30,7 +30,7 @@ final class HotPicksStatsApplication {
         validateUserInput(args);
 
         try {
-            final List<HotPickDraw> hotPickDrawList = new HotPicksFileUploader().loadHotPicksDrawHistoryFile(args[0]).getDrawList();
+            final List<HotPickDraw> hotPickDrawList = new HotPicksFileUploader().loadDrawHistoryFile(args[0]).getDrawList();
             new HotPicksNumberToPlay2018Generator(hotPickDrawList).generateNumbersToPlay();
         } catch (SomethingWentWrongException e) {
             LOGGER.error(format("Application crashes because: %s", e.getMessage()), e);

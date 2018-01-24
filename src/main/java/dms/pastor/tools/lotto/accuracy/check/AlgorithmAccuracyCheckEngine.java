@@ -9,13 +9,22 @@ import java.util.List;
 
 import static dms.pastor.tools.lotto.accuracy.check.DrawListExtractor.getHotPickDrawListFromRange;
 
-//make this generic as this one is for hotpicks only
+/**
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+ * <p>
+ * //TODO make this generic as this one is for hotpicks only
+ */
 public class AlgorithmAccuracyCheckEngine {
     final List<HotPickDraw> hotPickDrawList;
     final AccuracyCounter counter;
 
     public AlgorithmAccuracyCheckEngine(String filePath, FileUploader fileUploader) {
-        hotPickDrawList = fileUploader.loadHotPicksDrawHistoryFile(filePath).getDrawList();
+        hotPickDrawList = fileUploader.loadDrawHistoryFile(filePath).getDrawList();
         counter = new AccuracyCounter();
     }
 
@@ -29,7 +38,7 @@ public class AlgorithmAccuracyCheckEngine {
 
         for (int i = getLast(hotPickDrawList); i > 1; i--) {
             System.out.println("Checking for draw nr." + i);
-            draw = getHotPickDrawListFromRange(hotPickDrawList, 0, 51);
+            draw = getHotPickDrawListFromRange(hotPickDrawList, 1, 52);
             generator = new HotPicksNumberToPlay2018Generator(draw);
             final NumberToPlayResult numberToPlayResult = generator.generateNumbersToPlay();
             final HotPickDraw currentDraw = getCurrentDraw(draw, i);

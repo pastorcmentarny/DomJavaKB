@@ -13,7 +13,7 @@ public class HotPicksNumberToPlay2018GeneratorTest {
 
     @Test
     public void test() {
-        final List<HotPickDraw> hotPickDrawList = new HotPicksFileUploader().loadHotPicksDrawHistoryFile(filePath).getDrawList();
+        final List<HotPickDraw> hotPickDrawList = new HotPicksFileUploader().loadDrawHistoryFile(filePath).getDrawList();
         final HotPicksNumberToPlay2018Generator generator = new HotPicksNumberToPlay2018Generator(hotPickDrawList);
 
         generator.generateNumbersToPlay();
