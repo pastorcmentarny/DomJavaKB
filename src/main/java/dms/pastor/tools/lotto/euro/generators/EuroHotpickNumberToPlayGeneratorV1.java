@@ -26,8 +26,16 @@ public class EuroHotpickNumberToPlayGeneratorV1 extends NumbersToPlayGenerator {
     @Override
     public NumberToPlayResult generateNumbersToPlay() {
         EuroAnalyser analyser = new EuroAnalyser(euroDrawList);
+        // stats
         System.out.println(analyser.countBallDrawn());
+        System.out.println(analyser.countLuckyStarDrawn());
+
+        // filter out all couples that ever played
+        // find which balls played most
+        // find couple that balls played most time but never together
+
         System.out.println(analyser.findLeastDrawnNumber());
+
         return null;
     }
 }

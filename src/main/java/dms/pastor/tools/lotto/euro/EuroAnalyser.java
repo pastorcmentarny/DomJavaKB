@@ -3,6 +3,7 @@ package dms.pastor.tools.lotto.euro;
 import java.util.List;
 
 import static dms.pastor.tools.lotto.LottoConstants.EURO_BALL_MAXIMUM_VALUE;
+import static dms.pastor.tools.lotto.LottoConstants.LUCKY_STAR_MAX;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.StringUtils.NEW_LINE;
 
@@ -11,6 +12,7 @@ public class EuroAnalyser {
     private final List<EuroDraw> euroDrawList;
 
     private final int[] ballDrawnCounter = new int[EURO_BALL_MAXIMUM_VALUE + 1];
+    private final int[] luckyStarCounter = new int[LUCKY_STAR_MAX + 1];
 
     public EuroAnalyser(List<EuroDraw> euroDrawList) {
         this.euroDrawList = euroDrawList;
@@ -30,8 +32,31 @@ public class EuroAnalyser {
         return displayBallDrawnCounterAsString();
     }
 
+    public String countLuckyStarDrawn() {
+        if (euroDrawList == null || euroDrawList.isEmpty()) {
+            return "We successfully gather no result :)";
+        }
+        for (EuroDraw draw : euroDrawList) {
+            addLuckyStar(draw.getLuckyStar1());
+            addLuckyStar(draw.getLuckyStar2());
+        }
+
+        //TODO export this method
+        StringBuilder counter = new StringBuilder(EMPTY_STRING);
+        for (int i = 1; i <= LUCKY_STAR_MAX; i++) {
+            if (luckyStarCounter[i] > 0) {
+                counter.append(i).append(": ").append(luckyStarCounter[i]).append(NEW_LINE);
+            }
+        }
+        return counter.toString();
+    }
+
     private void addBall(int ball) {
         ballDrawnCounter[ball] += 1;
+    }
+
+    private void addLuckyStar(int ball) {
+        luckyStarCounter[ball] += 1;
     }
 
     private String displayBallDrawnCounterAsString() {

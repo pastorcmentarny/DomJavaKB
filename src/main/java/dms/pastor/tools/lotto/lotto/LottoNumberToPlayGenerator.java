@@ -1,6 +1,7 @@
 package dms.pastor.tools.lotto.lotto;
 
 import dms.pastor.tools.lotto.common.Generator;
+import dms.pastor.tools.lotto.common.NumberToPlayResult;
 
 /**
  * Author Dominik Symonowicz
@@ -12,8 +13,9 @@ import dms.pastor.tools.lotto.common.Generator;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class LottoNumberToPlayGenerator implements Generator {
+
     @Override
-    public String generateNumbersToPlay() {
+    public NumberToPlayResult generateNumbersToPlay() {
         return null;
     }
 }
