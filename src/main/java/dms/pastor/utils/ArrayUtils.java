@@ -89,7 +89,7 @@ public final class ArrayUtils {
     }
 
     public static int[] subtractIntArray(int[] x, int[] y) {
-        Set<Integer> result = new HashSet<>(IntStream.of(x).boxed().collect(Collectors.toSet()));
+        Set<Integer> result = IntStream.of(x).boxed().distinct().collect(Collectors.toSet());
         for (int value : y) {
             result.remove(value);
         }

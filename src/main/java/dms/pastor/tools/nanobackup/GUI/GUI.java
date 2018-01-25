@@ -15,12 +15,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.swing.*;
+import javax.swing.JPopupMenu.Separator;
 import java.awt.*;
+import java.awt.event.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Properties;
+
+import static java.awt.Font.BOLD;
 
 /**
  * Author Dominik Symonowicz
@@ -50,76 +54,73 @@ public class GUI extends javax.swing.JFrame {
     private String[] recentSrcPaths = new String[0];
     private String[] recentDestPaths = new String[0];
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem AboutMenuItem;
-    private javax.swing.JMenuItem FAQMenuItem;
-    private javax.swing.JLabel InfoLabel;
-    private javax.swing.JMenuItem Lap2ArchMenu;
-    private javax.swing.JMenuItem Lap2HDDMenu;
-    private javax.swing.JMenuItem Lap2USBMenu;
-    private javax.swing.JCheckBoxMenuItem QuickBackupCheckBoxMenuItem;
-    private javax.swing.JMenuItem USB2LapMenu;
-    private javax.swing.JMenuItem WorkStartMenu;
-    private javax.swing.JButton addButton;
-    private javax.swing.JCheckBoxMenuItem checkFreeSpaceBeforeBackupMenuItem;
-    private javax.swing.JMenuItem clearSourceMenuItem;
-    private javax.swing.JCheckBoxMenuItem confirmExitCheckBoxMenuItem;
-    private javax.swing.JMenuItem createDefaultConfigMenuItem;
-    private javax.swing.JButton createSourceFileButton;
-    private javax.swing.JCheckBoxMenuItem deleteSourceCheckBoxMenuItem;
-    private javax.swing.JTextField destinationField;
-    private javax.swing.JButton doBackupButton;
-    private javax.swing.JCheckBoxMenuItem domMode;
-    private javax.swing.JMenuItem exitMenuItem;
-    private javax.swing.JCheckBoxMenuItem exitProgramAfterBackupMenuItem;
-    private javax.swing.JCheckBoxMenuItem happyModeCheckkBoxMenuItem;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JPopupMenu.Separator jSeparator1;
-    private javax.swing.JPopupMenu.Separator jSeparator2;
-    private javax.swing.JMenuItem loadSettingsMenuItem;
-    private javax.swing.JButton mergeButton;
-    private javax.swing.JComboBox previousDestPathComboBox;
-    private javax.swing.JComboBox previousSrcPathComboBox;
-    private javax.swing.JRadioButtonMenuItem priority_max_radioItem;
-    private javax.swing.JRadioButtonMenuItem priority_min_radioItem;
-    private javax.swing.JRadioButtonMenuItem priority_normal_radioItem;
-    private javax.swing.JMenuItem refreshSettingsMenuItem;
-    private javax.swing.JButton removeButton;
-    private javax.swing.JMenuItem removeDuplicatesMenuItem;
-    private javax.swing.JCheckBoxMenuItem saveAsCryptedCheckBoxMenuItem;
-    private javax.swing.JCheckBoxMenuItem saveAsZipCheckBoxMenuItem;
-    private javax.swing.JCheckBoxMenuItem saveResultToFileCheckBoxMenuItem;
-    private javax.swing.JMenuItem saveSettingsMenuItem;
-    private javax.swing.JButton selectDestinationButton;
-    private javax.swing.JButton selectSourceButton;
-    private javax.swing.JMenu settingsMenu;
-    private javax.swing.JCheckBoxMenuItem shutdownAfterBackupMenuItem;
-    private javax.swing.JTextField sourceField;
-    private javax.swing.JLabel sourceFileLabel;
+    private JMenuItem AboutMenuItem;
+    private JMenuItem FAQMenuItem;
+    private JLabel InfoLabel;
+    private JMenuItem Lap2ArchMenu;
+    private JMenuItem Lap2HDDMenu;
+    private JMenuItem Lap2USBMenu;
+    private JCheckBoxMenuItem QuickBackupCheckBoxMenuItem;
+    private JMenuItem USB2LapMenu;
+    private JMenuItem WorkStartMenu;
+    private JButton addButton;
+    private JCheckBoxMenuItem checkFreeSpaceBeforeBackupMenuItem;
+    private JMenuItem clearSourceMenuItem;
+    private JCheckBoxMenuItem confirmExitCheckBoxMenuItem;
+    private JMenuItem createDefaultConfigMenuItem;
+    private JButton createSourceFileButton;
+    private JCheckBoxMenuItem deleteSourceCheckBoxMenuItem;
+    private JTextField destinationField;
+    private JButton doBackupButton;
+    private JCheckBoxMenuItem domMode;
+    private JMenuItem exitMenuItem;
+    private JCheckBoxMenuItem exitProgramAfterBackupMenuItem;
+    private JCheckBoxMenuItem happyModeCheckkBoxMenuItem;
+    private JLabel jLabel1;
+    private JLabel jLabel2;
+    private JLabel jLabel3;
+    private JMenu jMenu1;
+    private JMenu jMenu2;
+    private JMenu jMenu3;
+    private JMenu jMenu4;
+    private JMenu jMenu5;
+    private JMenu jMenu6;
+    private JMenu jMenu7;
+    private JMenuBar jMenuBar1;
+    private JMenuItem jMenuItem2;
+    private JScrollPane jScrollPane1;
+    private Separator jSeparator1;
+    private Separator jSeparator2;
+    private JMenuItem loadSettingsMenuItem;
+    private JButton mergeButton;
+    private JComboBox previousDestPathComboBox;
+    private JComboBox previousSrcPathComboBox;
+    private JRadioButtonMenuItem priority_max_radioItem;
+    private JRadioButtonMenuItem priority_min_radioItem;
+    private JRadioButtonMenuItem priority_normal_radioItem;
+    private JMenuItem refreshSettingsMenuItem;
+    private JButton removeButton;
+    private JMenuItem removeDuplicatesMenuItem;
+    private JCheckBoxMenuItem saveAsCryptedCheckBoxMenuItem;
+    private JCheckBoxMenuItem saveAsZipCheckBoxMenuItem;
+    private JCheckBoxMenuItem saveResultToFileCheckBoxMenuItem;
+    private JMenuItem saveSettingsMenuItem;
+    private JButton selectDestinationButton;
+    private JButton selectSourceButton;
+    private JMenu settingsMenu;
+    private JCheckBoxMenuItem shutdownAfterBackupMenuItem;
+    private JTextField sourceField;
+    private JLabel sourceFileLabel;
     private javax.swing.JList sourceList;
-    private javax.swing.JCheckBoxMenuItem speedLightModeMenuItem;
-    private javax.swing.JMenu statusMenu;
-    private javax.swing.JMenuItem statusMenuItem;
-    private javax.swing.JButton swapDestinationFolderPathButton;
-    private javax.swing.JButton swapSourceFolderPathButton;
-    private javax.swing.JMenu tbpMenu;
-    private javax.swing.JMenuItem tutorialMenuItem;
-    private javax.swing.JMenuItem workEndMenu;
-
-    /**
-     * Creates new form GUI
-     */
+    private JCheckBoxMenuItem speedLightModeMenuItem;
+    private JMenu statusMenu;
+    private JMenuItem statusMenuItem;
+    private JButton swapDestinationFolderPathButton;
+    private JButton swapSourceFolderPathButton;
+    private JMenu tbpMenu;
+    private JMenuItem tutorialMenuItem;
+    private JMenuItem workEndMenu;
+    
     public GUI() {
         LOGGER.info("Program: Start.");
         boot();
@@ -145,88 +146,88 @@ public class GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jLabel1 = new JLabel();
+        jScrollPane1 = new JScrollPane();
         sourceList = new javax.swing.JList();
-        jLabel2 = new javax.swing.JLabel();
-        destinationField = new javax.swing.JTextField();
-        addButton = new javax.swing.JButton();
-        removeButton = new javax.swing.JButton();
-        selectDestinationButton = new javax.swing.JButton();
-        doBackupButton = new javax.swing.JButton();
-        sourceField = new javax.swing.JTextField();
-        sourceFileLabel = new javax.swing.JLabel();
-        selectSourceButton = new javax.swing.JButton();
-        InfoLabel = new javax.swing.JLabel();
-        createSourceFileButton = new javax.swing.JButton();
-        mergeButton = new javax.swing.JButton();
-        previousDestPathComboBox = new javax.swing.JComboBox();
-        jLabel3 = new javax.swing.JLabel();
-        swapDestinationFolderPathButton = new javax.swing.JButton();
-        previousSrcPathComboBox = new javax.swing.JComboBox();
-        swapSourceFolderPathButton = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        statusMenu = new javax.swing.JMenu();
-        AboutMenuItem = new javax.swing.JMenuItem();
-        exitMenuItem = new javax.swing.JMenuItem();
-        statusMenuItem = new javax.swing.JMenuItem();
-        settingsMenu = new javax.swing.JMenu();
-        exitProgramAfterBackupMenuItem = new javax.swing.JCheckBoxMenuItem();
-        deleteSourceCheckBoxMenuItem = new javax.swing.JCheckBoxMenuItem();
-        QuickBackupCheckBoxMenuItem = new javax.swing.JCheckBoxMenuItem();
-        confirmExitCheckBoxMenuItem = new javax.swing.JCheckBoxMenuItem();
-        shutdownAfterBackupMenuItem = new javax.swing.JCheckBoxMenuItem();
-        saveAsZipCheckBoxMenuItem = new javax.swing.JCheckBoxMenuItem();
-        saveAsCryptedCheckBoxMenuItem = new javax.swing.JCheckBoxMenuItem();
-        saveResultToFileCheckBoxMenuItem = new javax.swing.JCheckBoxMenuItem();
-        checkFreeSpaceBeforeBackupMenuItem = new javax.swing.JCheckBoxMenuItem();
-        speedLightModeMenuItem = new javax.swing.JCheckBoxMenuItem();
-        jSeparator2 = new javax.swing.JPopupMenu.Separator();
-        happyModeCheckkBoxMenuItem = new javax.swing.JCheckBoxMenuItem();
-        domMode = new javax.swing.JCheckBoxMenuItem();
-        jMenu7 = new javax.swing.JMenu();
-        priority_max_radioItem = new javax.swing.JRadioButtonMenuItem();
-        priority_normal_radioItem = new javax.swing.JRadioButtonMenuItem();
-        priority_min_radioItem = new javax.swing.JRadioButtonMenuItem();
-        jMenu5 = new javax.swing.JMenu();
-        createDefaultConfigMenuItem = new javax.swing.JMenuItem();
-        clearSourceMenuItem = new javax.swing.JMenuItem();
-        removeDuplicatesMenuItem = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        tbpMenu = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        WorkStartMenu = new javax.swing.JMenuItem();
-        workEndMenu = new javax.swing.JMenuItem();
-        jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        jMenu4 = new javax.swing.JMenu();
-        Lap2USBMenu = new javax.swing.JMenuItem();
-        Lap2HDDMenu = new javax.swing.JMenuItem();
-        jMenu6 = new javax.swing.JMenu();
-        Lap2ArchMenu = new javax.swing.JMenuItem();
-        USB2LapMenu = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
-        saveSettingsMenuItem = new javax.swing.JMenuItem();
-        loadSettingsMenuItem = new javax.swing.JMenuItem();
-        refreshSettingsMenuItem = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        FAQMenuItem = new javax.swing.JMenuItem();
-        tutorialMenuItem = new javax.swing.JMenuItem();
+        jLabel2 = new JLabel();
+        destinationField = new JTextField();
+        addButton = new JButton();
+        removeButton = new JButton();
+        selectDestinationButton = new JButton();
+        doBackupButton = new JButton();
+        sourceField = new JTextField();
+        sourceFileLabel = new JLabel();
+        selectSourceButton = new JButton();
+        InfoLabel = new JLabel();
+        createSourceFileButton = new JButton();
+        mergeButton = new JButton();
+        previousDestPathComboBox = new JComboBox();
+        jLabel3 = new JLabel();
+        swapDestinationFolderPathButton = new JButton();
+        previousSrcPathComboBox = new JComboBox();
+        swapSourceFolderPathButton = new JButton();
+        jMenuBar1 = new JMenuBar();
+        statusMenu = new JMenu();
+        AboutMenuItem = new JMenuItem();
+        exitMenuItem = new JMenuItem();
+        statusMenuItem = new JMenuItem();
+        settingsMenu = new JMenu();
+        exitProgramAfterBackupMenuItem = new JCheckBoxMenuItem();
+        deleteSourceCheckBoxMenuItem = new JCheckBoxMenuItem();
+        QuickBackupCheckBoxMenuItem = new JCheckBoxMenuItem();
+        confirmExitCheckBoxMenuItem = new JCheckBoxMenuItem();
+        shutdownAfterBackupMenuItem = new JCheckBoxMenuItem();
+        saveAsZipCheckBoxMenuItem = new JCheckBoxMenuItem();
+        saveAsCryptedCheckBoxMenuItem = new JCheckBoxMenuItem();
+        saveResultToFileCheckBoxMenuItem = new JCheckBoxMenuItem();
+        checkFreeSpaceBeforeBackupMenuItem = new JCheckBoxMenuItem();
+        speedLightModeMenuItem = new JCheckBoxMenuItem();
+        jSeparator2 = new Separator();
+        happyModeCheckkBoxMenuItem = new JCheckBoxMenuItem();
+        domMode = new JCheckBoxMenuItem();
+        jMenu7 = new JMenu();
+        priority_max_radioItem = new JRadioButtonMenuItem();
+        priority_normal_radioItem = new JRadioButtonMenuItem();
+        priority_min_radioItem = new JRadioButtonMenuItem();
+        jMenu5 = new JMenu();
+        createDefaultConfigMenuItem = new JMenuItem();
+        clearSourceMenuItem = new JMenuItem();
+        removeDuplicatesMenuItem = new JMenuItem();
+        jMenuItem2 = new JMenuItem();
+        tbpMenu = new JMenu();
+        jMenu3 = new JMenu();
+        WorkStartMenu = new JMenuItem();
+        workEndMenu = new JMenuItem();
+        jSeparator1 = new Separator();
+        jMenu4 = new JMenu();
+        Lap2USBMenu = new JMenuItem();
+        Lap2HDDMenu = new JMenuItem();
+        jMenu6 = new JMenu();
+        Lap2ArchMenu = new JMenuItem();
+        USB2LapMenu = new JMenuItem();
+        jMenu1 = new JMenu();
+        saveSettingsMenuItem = new JMenuItem();
+        loadSettingsMenuItem = new JMenuItem();
+        refreshSettingsMenuItem = new JMenuItem();
+        jMenu2 = new JMenu();
+        FAQMenuItem = new JMenuItem();
+        tutorialMenuItem = new JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("nanoBackup by Pastor Cmentarny");
-        setFont(new java.awt.Font("Corbel", 3, 18)); // NOI18N
+        setFont(new Font("Corbel", BOLD, 18)); 
         setMinimumSize(new java.awt.Dimension(444, 444));
-        setName("mainGUIframe"); // NOI18N
+        setName("mainGUIframe"); 
         setResizable(false);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent evt) {
                 formWindowClosing(evt);
             }
         });
 
         jLabel1.setText("What items (files and/or folders should be in backup?");
 
-        sourceList.setModel(new javax.swing.AbstractListModel() {
+        sourceList.setModel(new AbstractListModel() {
             String[] strings = srcList;
 
             public int getSize() {
@@ -260,7 +261,7 @@ public class GUI extends javax.swing.JFrame {
         selectDestinationButton.setText("Change");
         selectDestinationButton.addActionListener(this::selectDestinationButtonActionPerformed);
 
-        doBackupButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        doBackupButton.setFont(new Font("Tahoma", BOLD, 14)); 
         doBackupButton.setText("Make Backup");
         doBackupButton.setPreferredSize(new java.awt.Dimension(128, 96));
         doBackupButton.setRolloverEnabled(false);
@@ -284,7 +285,7 @@ public class GUI extends javax.swing.JFrame {
         InfoLabel.setForeground(new java.awt.Color(255, 0, 0));
         InfoLabel.setText("InfoBar");
         InfoLabel.setMaximumSize(new java.awt.Dimension(395, 14));
-        InfoLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+        InfoLabel.addMouseListener(new MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 InfoLabelMouseClicked(evt);
             }
@@ -296,7 +297,7 @@ public class GUI extends javax.swing.JFrame {
         mergeButton.setText("Merge");
         mergeButton.addActionListener(this::mergeButtonActionPerformed);
 
-        previousDestPathComboBox.setModel(new javax.swing.DefaultComboBoxModel(recentDestPaths));
+        previousDestPathComboBox.setModel(new DefaultComboBoxModel(recentDestPaths));
         previousDestPathComboBox.setMaximumSize(new java.awt.Dimension(300, 20));
         previousDestPathComboBox.setMinimumSize(new java.awt.Dimension(300, 20));
         previousDestPathComboBox.setPreferredSize(new java.awt.Dimension(300, 20));
@@ -306,7 +307,7 @@ public class GUI extends javax.swing.JFrame {
         swapDestinationFolderPathButton.setText("Swap");
         swapDestinationFolderPathButton.addActionListener(this::swapDestinationFolderPathButtonActionPerformed);
 
-        previousSrcPathComboBox.setModel(new javax.swing.DefaultComboBoxModel(recentSrcPaths));
+        previousSrcPathComboBox.setModel(new DefaultComboBoxModel(recentSrcPaths));
 
         swapSourceFolderPathButton.setText("Swap");
         swapSourceFolderPathButton.addActionListener(this::swapSourceFolderPathButtonActionPerformed);
@@ -315,7 +316,7 @@ public class GUI extends javax.swing.JFrame {
 
         AboutMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, 0));
         AboutMenuItem.setText("About");
-        AboutMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
+        AboutMenuItem.addMouseListener(new MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 AboutMenuItemMouseClicked(evt);
             }
@@ -624,9 +625,9 @@ public class GUI extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
-    private void doBackupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doBackupButtonActionPerformed
+    private void doBackupButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_doBackupButtonActionPerformed
         if (backup.isInProgress()) {
             utilities.setInfoLabel(AppColor.DARKORANGE, "Another backup in progress.Please wait until previous backup is done", InfoLabel);
         } else {
@@ -638,7 +639,7 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_doBackupButtonActionPerformed
 
-    private void selectSourceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectSourceButtonActionPerformed
+    private void selectSourceButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_selectSourceButtonActionPerformed
         String tempSource = utilities.chooseFiletoLoad();
         if (FileTools.isFileExists(tempSource)) {
             sourceField.setText(tempSource);
@@ -657,7 +658,7 @@ public class GUI extends javax.swing.JFrame {
 
     }//GEN-LAST:event_selectSourceButtonActionPerformed
 
-    private void selectDestinationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectDestinationButtonActionPerformed
+    private void selectDestinationButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_selectDestinationButtonActionPerformed
         String tempSource = FileTools.chooseDirtoLoad();
         if (tempSource != null) {
             destinationField.setText(tempSource);
@@ -677,7 +678,7 @@ public class GUI extends javax.swing.JFrame {
 
     }//GEN-LAST:event_selectDestinationButtonActionPerformed
 
-    private void createDefaultConfigMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createDefaultConfigMenuItemActionPerformed
+    private void createDefaultConfigMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_createDefaultConfigMenuItemActionPerformed
         if (settings.createDefaultSettings()) {
             sourceField.setText(settings.getSourceFilePath());
             srcList = utilities.makeList(settings.getSourceFilePath());
@@ -691,16 +692,16 @@ public class GUI extends javax.swing.JFrame {
         check();
     }//GEN-LAST:event_createDefaultConfigMenuItemActionPerformed
 
-    private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
+    private void exitMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
         settings.setProperties(true);
         utilities.shutdown("exitByUser");
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
-    private void AboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AboutMenuItemActionPerformed
+    private void AboutMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_AboutMenuItemActionPerformed
         new About().setVisible(true);
     }//GEN-LAST:event_AboutMenuItemActionPerformed
 
-    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
+    private void addButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         String[] addFileResult = utilities.addItemsToItemsList(srcList, sourceField, "item");
         if (addFileResult != null) {
             srcList = addFileResult;
@@ -723,12 +724,12 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_addButtonActionPerformed
 
-    private void FAQMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FAQMenuItemActionPerformed
+    private void FAQMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_FAQMenuItemActionPerformed
         FaqGUI faq = new FaqGUI();
         faq.setVisible(true);
     }//GEN-LAST:event_FAQMenuItemActionPerformed
 
-    private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
+    private void removeButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
         String[] temp = srcList;
         srcList = utilities.removeItemsFromList(srcList, sourceList);
         if (srcList != null) {
@@ -746,7 +747,7 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_removeButtonActionPerformed
 
-    private void domModeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_domModeItemStateChanged
+    private void domModeItemStateChanged(ItemEvent evt) {//GEN-FIRST:event_domModeItemStateChanged
         if (domMode.isSelected()) {
             utilities.setInfoLabel(Tools.getRandomColor(), "dom Mode activated.", InfoLabel);
         } else {
@@ -755,7 +756,7 @@ public class GUI extends javax.swing.JFrame {
         check();
     }//GEN-LAST:event_domModeItemStateChanged
 
-    private void workEndMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_workEndMenuActionPerformed
+    private void workEndMenuActionPerformed(ActionEvent evt) {//GEN-FIRST:event_workEndMenuActionPerformed
         utilities.setInfoLabel(Color.BLACK, "WORK.END: doing backup...", InfoLabel);
         backup.backupGUI(utilities.makeList(dom.getProperty("dom.source.work.end")), dom.getProperty("dom.destination.word.end"), this);
         utilities.setInfoLabel(Color.BLACK, "WORK.END backup task ended.", InfoLabel);
@@ -763,19 +764,19 @@ public class GUI extends javax.swing.JFrame {
 
     }//GEN-LAST:event_workEndMenuActionPerformed
 
-    private void Lap2ArchMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Lap2ArchMenuActionPerformed
+    private void Lap2ArchMenuActionPerformed(ActionEvent evt) {//GEN-FIRST:event_Lap2ArchMenuActionPerformed
         utilities.setInfoLabel(Color.BLACK, "USB2HDD: doing backup", InfoLabel);
         backup.backupGUI(utilities.makeList(dom.getProperty("dom.source.usb.hdd")), dom.getProperty("dom.destination.usb.hdd"), this);
         utilities.setInfoLabel(Color.BLACK, "USB2HDD backup task ended.", InfoLabel);
     }//GEN-LAST:event_Lap2ArchMenuActionPerformed
 
-    private void Lap2USBMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Lap2USBMenuActionPerformed
+    private void Lap2USBMenuActionPerformed(ActionEvent evt) {//GEN-FIRST:event_Lap2USBMenuActionPerformed
         utilities.setInfoLabel(Color.BLACK, "LAP2USB: doing backup", InfoLabel);
         backup.backupGUI(utilities.makeList(dom.getProperty("dom.source.lap.usb")), dom.getProperty("dom.destination.lap.usb"), this);
         utilities.setInfoLabel(Color.BLACK, "LAP2USB backup task ended.", InfoLabel);
     }//GEN-LAST:event_Lap2USBMenuActionPerformed
 
-    private void WorkStartMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WorkStartMenuActionPerformed
+    private void WorkStartMenuActionPerformed(ActionEvent evt) {//GEN-FIRST:event_WorkStartMenuActionPerformed
         utilities.setInfoLabel(Color.BLACK, "WORK.START: job started.", InfoLabel);
         settings.setDomJobs(dom.getProperty("dom.source.work.start.before"), dom.getProperty("dom.source.work.start.after"));
         backup.backupGUI(utilities.makeList(dom.getProperty("dom.source.work.start")), dom.getProperty("dom.destination.work.start"), this);
@@ -785,11 +786,11 @@ public class GUI extends javax.swing.JFrame {
 
     }//GEN-LAST:event_WorkStartMenuActionPerformed
 
-    private void tutorialMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tutorialMenuItemActionPerformed
+    private void tutorialMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_tutorialMenuItemActionPerformed
         JOptionPane.showMessageDialog(null, msg.getMsg("tutorial"), "Tutorial", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_tutorialMenuItemActionPerformed
 
-    private void createSourceFileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createSourceFileButtonActionPerformed
+    private void createSourceFileButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_createSourceFileButtonActionPerformed
         String result = FileTools.createSourceFile(Settings.SRC_FILE_ENDING);
         if (result == null) {
             utilities.setInfoLabel(Color.RED, "File was NOT created.", InfoLabel);
@@ -806,7 +807,7 @@ public class GUI extends javax.swing.JFrame {
         check();
     }//GEN-LAST:event_createSourceFileButtonActionPerformed
 
-    private void Lap2HDDMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Lap2HDDMenuActionPerformed
+    private void Lap2HDDMenuActionPerformed(ActionEvent evt) {//GEN-FIRST:event_Lap2HDDMenuActionPerformed
         InfoLabel.setForeground(Color.BLACK);
         InfoLabel.setText("LAP2HDD: doing backup");
         boolean result = FileTools.copyFolder(new File(dom.getProperty("dom.source.lap.hdd")), new File(dom.getProperty("dom.destination.lap.hdd")), null);
@@ -817,7 +818,7 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Lap2HDDMenuActionPerformed
 
-    private void USB2LapMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_USB2LapMenuActionPerformed
+    private void USB2LapMenuActionPerformed(ActionEvent evt) {//GEN-FIRST:event_USB2LapMenuActionPerformed
         InfoLabel.setText("USB2LAP: doing backup");
         //TODO CHANGE IT!
         String tempResponse = backup.doClassicBackup(utilities.makeList(dom.getProperty("dom.source.usb.lap")), dom.getProperty("dom.destination.usb.lap"), null);
@@ -833,7 +834,7 @@ public class GUI extends javax.swing.JFrame {
         new About().setVisible(true);
     }//GEN-LAST:event_AboutMenuItemMouseClicked
 
-    private void clearSourceMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearSourceMenuItemActionPerformed
+    private void clearSourceMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_clearSourceMenuItemActionPerformed
         srcList = TaskUtils.removeNonExistsItems(srcList);
         FileTools.saveListToFile(srcList, sourceField.getText());
         removeButton.setEnabled(true);
@@ -842,7 +843,7 @@ public class GUI extends javax.swing.JFrame {
         utilities.setInfoLabel(Color.BLUE, "Source list is cleaned from non existing files/folders.", InfoLabel);
     }//GEN-LAST:event_clearSourceMenuItemActionPerformed
 
-    private void exitProgramAfterBackupMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitProgramAfterBackupMenuItemActionPerformed
+    private void exitProgramAfterBackupMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_exitProgramAfterBackupMenuItemActionPerformed
         settings.setExitAfterBackup(exitProgramAfterBackupMenuItem.isSelected());
         settings.setProperties(true);
         if (exitProgramAfterBackupMenuItem.isSelected()) {
@@ -853,7 +854,7 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_exitProgramAfterBackupMenuItemActionPerformed
 
-    private void removeDuplicatesMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeDuplicatesMenuItemActionPerformed
+    private void removeDuplicatesMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_removeDuplicatesMenuItemActionPerformed
         srcList = TaskUtils.removeDuplicateLines(srcList);
         FileTools.saveListToFile(srcList, source);
         utilities.setInfoLabel(AppColor.DARKGREEN, "Duplicate lines in source file are removed.", InfoLabel);
@@ -861,7 +862,7 @@ public class GUI extends javax.swing.JFrame {
         check();
     }//GEN-LAST:event_removeDuplicatesMenuItemActionPerformed
 
-    private void QuickBackupCheckBoxMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuickBackupCheckBoxMenuItemActionPerformed
+    private void QuickBackupCheckBoxMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_QuickBackupCheckBoxMenuItemActionPerformed
         settings.setQuickBackup(QuickBackupCheckBoxMenuItem.isSelected());
         if (quickBackupMode(QuickBackupCheckBoxMenuItem.isSelected())) {
             utilities.setInfoLabel(Color.BLUE, "Quick backup enabled.(Source file is NOT needed to make Backup)", InfoLabel);
@@ -872,7 +873,7 @@ public class GUI extends javax.swing.JFrame {
         check();
     }//GEN-LAST:event_QuickBackupCheckBoxMenuItemActionPerformed
 
-    private void deleteSourceCheckBoxMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteSourceCheckBoxMenuItemActionPerformed
+    private void deleteSourceCheckBoxMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_deleteSourceCheckBoxMenuItemActionPerformed
         settings.setDeleteSourceAfterBackup(deleteSourceCheckBoxMenuItem.isSelected());
         settings.setProperties(true);
         if (deleteSourceCheckBoxMenuItem.isSelected()) {
@@ -882,7 +883,7 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_deleteSourceCheckBoxMenuItemActionPerformed
 
-    private void confirmExitCheckBoxMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmExitCheckBoxMenuItemActionPerformed
+    private void confirmExitCheckBoxMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_confirmExitCheckBoxMenuItemActionPerformed
         settings.setConfirmOnExit(confirmExitCheckBoxMenuItem.isSelected());
         settings.setProperties(true);
         if (exitProgramAfterBackupMenuItem.isSelected()) {
@@ -892,7 +893,7 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_confirmExitCheckBoxMenuItemActionPerformed
 
-    private void happyModeCheckkBoxMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_happyModeCheckkBoxMenuItemActionPerformed
+    private void happyModeCheckkBoxMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_happyModeCheckkBoxMenuItemActionPerformed
         InfoLabel.setForeground(AppColor.DARKGREEN);
         settings.setHappyMode(happyModeCheckkBoxMenuItem.isSelected());
         settings.setProperties(true);
@@ -904,7 +905,7 @@ public class GUI extends javax.swing.JFrame {
 
     }//GEN-LAST:event_happyModeCheckkBoxMenuItemActionPerformed
 
-    private void mergeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mergeButtonActionPerformed
+    private void mergeButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_mergeButtonActionPerformed
         String[] itemsList = utilities.merge2Source(srcList);
         if (itemsList != null) {
             srcList = TaskUtils.removeDuplicateLines(itemsList);
@@ -918,16 +919,16 @@ public class GUI extends javax.swing.JFrame {
         check();
     }//GEN-LAST:event_mergeButtonActionPerformed
 
-    private void statusMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statusMenuItemActionPerformed
+    private void statusMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_statusMenuItemActionPerformed
         Tools.showStatus(status);
     }//GEN-LAST:event_statusMenuItemActionPerformed
 
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+    private void formWindowClosing(WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         //log.debug();
         utilities.shutdown("");
     }//GEN-LAST:event_formWindowClosing
 
-    private void saveAsZipCheckBoxMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAsZipCheckBoxMenuItemActionPerformed
+    private void saveAsZipCheckBoxMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_saveAsZipCheckBoxMenuItemActionPerformed
         settings.setSaveAsZip(saveAsZipCheckBoxMenuItem.isSelected());
         settings.setProperties(true);
         if (deleteSourceCheckBoxMenuItem.isSelected()) {
@@ -939,7 +940,7 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_saveAsZipCheckBoxMenuItemActionPerformed
 
-    private void swapDestinationFolderPathButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_swapDestinationFolderPathButtonActionPerformed
+    private void swapDestinationFolderPathButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_swapDestinationFolderPathButtonActionPerformed
         String temp = previousDestPathComboBox.getSelectedItem().toString();
         if (FileTools.isDirectoryExists(temp)) {
             utilities.swapDestFolderPaths(recentDestPaths, temp, destinationField.getText());
@@ -954,7 +955,7 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_swapDestinationFolderPathButtonActionPerformed
 
-    private void saveResultToFileCheckBoxMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveResultToFileCheckBoxMenuItemActionPerformed
+    private void saveResultToFileCheckBoxMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_saveResultToFileCheckBoxMenuItemActionPerformed
         settings.setSaveResultsToFile(saveResultToFileCheckBoxMenuItem.isSelected());
         settings.setProperties(true);
         if (saveResultToFileCheckBoxMenuItem.isSelected()) {
@@ -968,7 +969,7 @@ public class GUI extends javax.swing.JFrame {
         history.showHistoryOfMessages();
     }//GEN-LAST:event_InfoLabelMouseClicked
 
-    private void checkFreeSpaceBeforeBackupMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkFreeSpaceBeforeBackupMenuItemActionPerformed
+    private void checkFreeSpaceBeforeBackupMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_checkFreeSpaceBeforeBackupMenuItemActionPerformed
         settings.setCheckFreeSpaceBeforeBackup(checkFreeSpaceBeforeBackupMenuItem.isSelected());
         settings.setProperties(true);
         if (checkFreeSpaceBeforeBackupMenuItem.isSelected()) {
@@ -978,7 +979,7 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_checkFreeSpaceBeforeBackupMenuItemActionPerformed
 
-    private void saveSettingsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveSettingsMenuItemActionPerformed
+    private void saveSettingsMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_saveSettingsMenuItemActionPerformed
         String result = settings.saveSettingsWithDestSelection();
         if (result != null) {
             settings.setProperties(true);
@@ -994,11 +995,11 @@ public class GUI extends javax.swing.JFrame {
 
     }//GEN-LAST:event_saveSettingsMenuItemActionPerformed
 
-    private void shutdownAfterBackupMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shutdownAfterBackupMenuItemActionPerformed
+    private void shutdownAfterBackupMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_shutdownAfterBackupMenuItemActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_shutdownAfterBackupMenuItemActionPerformed
 
-    private void speedLightModeMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_speedLightModeMenuItemActionPerformed
+    private void speedLightModeMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_speedLightModeMenuItemActionPerformed
         settings.setSpeedLightMode(speedLightModeMenuItem.isSelected());
         settings.setProperties(true);
         settings.saveProperties();
@@ -1009,7 +1010,7 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_speedLightModeMenuItemActionPerformed
 
-    private void swapSourceFolderPathButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_swapSourceFolderPathButtonActionPerformed
+    private void swapSourceFolderPathButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_swapSourceFolderPathButtonActionPerformed
         String temp = previousSrcPathComboBox.getSelectedItem().toString();
         if (FileTools.isFileExists(temp)) {
             utilities.swapDestFolderPaths(recentSrcPaths, temp, sourceField.getText());
@@ -1027,7 +1028,7 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_swapSourceFolderPathButtonActionPerformed
 
-    private void loadSettingsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadSettingsMenuItemActionPerformed
+    private void loadSettingsMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_loadSettingsMenuItemActionPerformed
         //TODO test it!
         String path = FileTools.chooseFiletoLoad();
         if (path != null) {
@@ -1055,7 +1056,7 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_loadSettingsMenuItemActionPerformed
 
-    private void refreshSettingsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshSettingsMenuItemActionPerformed
+    private void refreshSettingsMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_refreshSettingsMenuItemActionPerformed
 
         boolean loaded = settings.loadSettings(true);
         if (loaded) {
@@ -1069,7 +1070,7 @@ public class GUI extends javax.swing.JFrame {
 
     }//GEN-LAST:event_refreshSettingsMenuItemActionPerformed
 
-    private void saveAsCryptedCheckBoxMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAsCryptedCheckBoxMenuItemActionPerformed
+    private void saveAsCryptedCheckBoxMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_saveAsCryptedCheckBoxMenuItemActionPerformed
         settings.setSaveAsCrypted(saveAsCryptedCheckBoxMenuItem.isSelected());
         settings.setProperties(true);
         if (saveAsCryptedCheckBoxMenuItem.isSelected()) {
@@ -1082,19 +1083,19 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_saveAsCryptedCheckBoxMenuItemActionPerformed
 
-    private void priority_max_radioItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priority_max_radioItemActionPerformed
+    private void priority_max_radioItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_priority_max_radioItemActionPerformed
         settings.setCpuPriority(2);
         settings.setProperties(true);
         utilities.setInfoLabel(AppColor.DARKBLUE, "Backup will used highest cpu priority.", InfoLabel);
     }//GEN-LAST:event_priority_max_radioItemActionPerformed
 
-    private void priority_normal_radioItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priority_normal_radioItemActionPerformed
+    private void priority_normal_radioItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_priority_normal_radioItemActionPerformed
         settings.setCpuPriority(1);
         settings.setProperties(true);
         utilities.setInfoLabel(AppColor.DARKBLUE, "Backup will used normal cpu priority.", InfoLabel);
     }//GEN-LAST:event_priority_normal_radioItemActionPerformed
 
-    private void priority_min_radioItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priority_min_radioItemActionPerformed
+    private void priority_min_radioItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_priority_min_radioItemActionPerformed
         settings.setCpuPriority(0);
         settings.setProperties(true);
         utilities.setInfoLabel(AppColor.DARKBLUE, "Backup will used lowest priority.", InfoLabel);
@@ -1104,7 +1105,7 @@ public class GUI extends javax.swing.JFrame {
     private void refreshContent() {
         LOGGER.debug("refreshing GUI content...");
         //SOURCE LIST
-        sourceList.setModel(new javax.swing.AbstractListModel() {
+        sourceList.setModel(new AbstractListModel() {
             String[] strings = srcList;
 
             public int getSize() {
@@ -1117,8 +1118,8 @@ public class GUI extends javax.swing.JFrame {
         });
 
         //SOURCE AND DESTINATION PATHS LIST
-        previousSrcPathComboBox.setModel(new javax.swing.DefaultComboBoxModel(recentSrcPaths));
-        previousDestPathComboBox.setModel(new javax.swing.DefaultComboBoxModel(recentDestPaths));
+        previousSrcPathComboBox.setModel(new DefaultComboBoxModel(recentSrcPaths));
+        previousDestPathComboBox.setModel(new DefaultComboBoxModel(recentDestPaths));
 
         //SETTINGS        
         exitProgramAfterBackupMenuItem.setSelected(settings.isExitAfterBackup());

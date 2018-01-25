@@ -101,7 +101,7 @@ public final class Settings {
             case 2:
                 return afterBackupJobPath;
             default:
-                return null;
+                return "";
         }
     }
 

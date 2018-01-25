@@ -4,8 +4,14 @@
  */
 package dms.pastor.game.littlefighter;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
+
+import static java.lang.String.format;
 
 /**
  * Author Dominik Symonowicz
@@ -16,9 +22,10 @@ import java.util.ArrayList;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public class HiScore {
+    private static final Logger LOGGER = LoggerFactory.getLogger(HiScore.class);
 
-    ArrayList<Integer> scoreList = new ArrayList();
-    int[] score = new int[10];
+    private List<Integer> scoreList = new ArrayList<>();
+    private int[] score = new int[10];
     private StringBuilder content = new StringBuilder();
     private FileReader fileLoader;
     private FileWriter fileSaver;
@@ -67,7 +74,8 @@ public class HiScore {
             fileSaver.write(allText);
             fileSaver.close();
 
-        } catch (IOException ex) {
+        } catch (IOException exception) {
+            LOGGER.warn(format("Unable save to file due %s", exception.getMessage()), exception);
         }
     }
 

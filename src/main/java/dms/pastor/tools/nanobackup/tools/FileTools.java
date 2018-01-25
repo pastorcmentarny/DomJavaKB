@@ -177,14 +177,7 @@ public class FileTools {
         fileChooser.setMultiSelectionEnabled(true);
         int returnVal = fileChooser.showOpenDialog(null);
 
-        if (returnVal == JFileChooser.APPROVE_OPTION) {
-            File[] files = fileChooser.getSelectedFiles();
-            for (File file1 : files) {
-                path.add(file1.getPath());
-            }
-        } else {
-            return null;
-        }
+        if (addPaths(path, fileChooser, returnVal)) return null;
 
         String results[] = new String[path.size()];
 
@@ -206,14 +199,7 @@ public class FileTools {
         fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
         int returnVal = fileChooser.showOpenDialog(null);
 
-        if (returnVal == JFileChooser.APPROVE_OPTION) {
-            File[] files = fileChooser.getSelectedFiles();
-            for (File file1 : files) {
-                path.add(file1.getPath());
-            }
-        } else {
-            return null;
-        }
+        if (addPaths(path, fileChooser, returnVal)) return null;
 
         String results[] = new String[path.size()];
 
@@ -221,6 +207,18 @@ public class FileTools {
             results[i] = path.get(i).toString();
         }
         return results;
+    }
+
+    private static boolean addPaths(ArrayList<String> path, JFileChooser fileChooser, int returnVal) {
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            File[] files = fileChooser.getSelectedFiles();
+            for (File file1 : files) {
+                path.add(file1.getPath());
+            }
+        } else {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -319,7 +317,7 @@ public class FileTools {
         }
 
         if (destDir.exists()) {
-            if (destDir.isDirectory() == false) {
+            if (!destDir.isDirectory()) {
                 if (stats != null) {
                     stats.addErrorCount("Destination '" + destDir + "' exists but is not a directory");
                 }
@@ -332,7 +330,7 @@ public class FileTools {
                 }
             }
         }
-        if (destDir.canWrite() == false) {
+        if (!destDir.canWrite()) {
             if (stats != null) {
                 stats.addErrorCount("Destination '" + destDir + "' cannot be written to");
             }
@@ -397,7 +395,7 @@ public class FileTools {
         if (destDir == null) {
             throw new NullPointerException("Destination must not be null");
         }
-        if (destDir.exists() && destDir.isDirectory() == false) {
+        if (destDir.exists() && !destDir.isDirectory()) {
             throw new IllegalArgumentException("Destination '" + destDir + "' is not a directory");
         }
         File destFile = new File(destDir, srcFile.getName());

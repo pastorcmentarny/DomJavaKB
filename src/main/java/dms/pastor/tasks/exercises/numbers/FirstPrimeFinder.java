@@ -47,9 +47,7 @@ class FirstPrimeFinder {
 
     private boolean isSingleNumberAPrimeNumber(int[] numbers) {
         if (numbers.length == 1) {
-            if (isPrime(numbers[0])) {
-                return true;
-            }
+            return isPrime(numbers[0]);
         }
         return false;
     }

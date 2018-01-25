@@ -167,7 +167,7 @@ public class Backup extends AbstractTools {
                     killBackupThread();
                     infoTextArea.setForeground(Color.ORANGE);
                     updateInfoText(infoTextArea, "Stooping backup...");
-                    if (inProgress == true) {
+                    if (inProgress) {
                         if (JOptionPane.showConfirmDialog(null, msg.getMsg("q.RUSure"), "Do you want delete,what was copied already?", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE) == JOptionPane.YES_OPTION) {
                             infoTextArea.setForeground(Color.RED);
                             infoTextArea.setText("Deleting what was already copied.Program may freeze for while");
@@ -597,7 +597,7 @@ public class Backup extends AbstractTools {
          * @param results contains all logs that was displayed during backup
          */
         private void saveResultsToFile(String results) {
-            if (inProgress == false && settings.isSaveResultsToFile()) {
+            if (!inProgress && settings.isSaveResultsToFile()) {
                 LOGGER.debug("saving  results to file");
                 String sr2f = Settings.DATAPATH + Tools.getCurrentDateWithTime() + ".txt";
                 updateInfoText(info, "Saving results to file:" + sr2f);

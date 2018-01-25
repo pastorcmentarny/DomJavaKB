@@ -72,7 +72,7 @@ public final class Utils {
     }
 
     public static List<String> loadFileToArrayOfStrings(String filePath) throws IOException {
-        return new ArrayList<>(Files.lines(Paths.get(filePath)).collect(Collectors.toList()));
+        return Files.lines(Paths.get(filePath)).collect(Collectors.toList());
     }
 
     private static void addPersonIfDoesNotExist(List<Person> people, Person tmp) {

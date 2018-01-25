@@ -102,8 +102,7 @@ public class Engine extends AbstractTools {
                 paths[paths.length - 1] = newPath;
                 return paths;
             } else {
-                ArrayList<String> newPaths = new ArrayList<>();
-                newPaths.addAll(Arrays.asList(paths));
+                ArrayList<String> newPaths = new ArrayList<>(Arrays.asList(paths));
                 newPaths.add(newPath);
                 return newPaths.toArray(new String[newPaths.size()]);
             }
@@ -354,18 +353,9 @@ public class Engine extends AbstractTools {
         return true;
     }
 
-    /**
-     * Add item(s) to list
-     *
-     * @param srcList
-     * @param sourceField
-     * @param pathType
-     * @return
-     */
     public String[] addItemsToItemsList(String[] srcList, final JTextField sourceField, final String pathType) {
-        final ArrayList<String> temp = new ArrayList<>();
         String[] newSource;
-        temp.addAll(Arrays.asList(srcList));
+        final ArrayList<String> temp = new ArrayList<>(Arrays.asList(srcList));
         if (pathType.equalsIgnoreCase("item")) {
             newSource = FileTools.chooseItemsToLoad();
         } else if (pathType.equalsIgnoreCase("file")) {
