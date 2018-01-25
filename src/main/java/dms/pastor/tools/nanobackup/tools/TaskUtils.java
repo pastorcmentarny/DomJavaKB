@@ -96,16 +96,22 @@ public class TaskUtils {
             for (int i = 1; i <= size; i++) {
                 System.out.println(i);
                 String type = job.getProperty("task." + i + ".name");
-                if (type.equals("replace")) {
-                    FileTools.replace(job.getProperty("task." + i + ".what"), job.getProperty("task." + i + ".with"), job.getProperty("task." + i + ".file"));
-                } else if (type.equals("copyFile")) {
-                    FileTools.copyFile(job.getProperty("task." + i + ".from"), job.getProperty("task." + i + ".to"), null);
-                } else if (type.equals("copyFolder")) {
-                    FileTools.copyFolder(new File(job.getProperty("task." + i + ".from")), new File(job.getProperty("task." + i + ".to")), null);
-                } else if (type.equals("delete")) {
-                    FileTools.delete(job.getProperty("task." + i + ".path"));
-                } else {
-                    LOGGER.warn("Job: " + type + " is not implemented or you made childish typo error.");
+                switch (type) {
+                    case "replace":
+                        FileTools.replace(job.getProperty("task." + i + ".what"), job.getProperty("task." + i + ".with"), job.getProperty("task." + i + ".file"));
+                        break;
+                    case "copyFile":
+                        FileTools.copyFile(job.getProperty("task." + i + ".from"), job.getProperty("task." + i + ".to"), null);
+                        break;
+                    case "copyFolder":
+                        FileTools.copyFolder(new File(job.getProperty("task." + i + ".from")), new File(job.getProperty("task." + i + ".to")), null);
+                        break;
+                    case "delete":
+                        FileTools.delete(job.getProperty("task." + i + ".path"));
+                        break;
+                    default:
+                        LOGGER.warn("Job: " + type + " is not implemented or you made childish typo error.");
+                        break;
                 }
             }
         } catch (Exception e) {

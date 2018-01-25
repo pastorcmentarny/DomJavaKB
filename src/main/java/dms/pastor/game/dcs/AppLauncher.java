@@ -20,13 +20,16 @@ class AppLauncher {
         ValidatorUtils.validateIfNotNull(args);
         LOGGER.debug("Starting application");
         Player player;
-        if (args.length == 0) {
-            player = new Player("1UP", new UserKeyboardReader());
-        } else if (args.length == 2) {
-            LOGGER.warn("Running Player simulation...");
-            player = new Player("Demo Player", new FakeInputReader());
-        } else {
-            throw new SomethingWentTerribleWrongError();
+        switch (args.length) {
+            case 0:
+                player = new Player("1UP", new UserKeyboardReader());
+                break;
+            case 2:
+                LOGGER.warn("Running Player simulation...");
+                player = new Player("Demo Player", new FakeInputReader());
+                break;
+            default:
+                throw new SomethingWentTerribleWrongError();
         }
         new AppLauncher().newGame(player, new Campaign());
     }

@@ -107,13 +107,13 @@ public class MainGameGUI extends javax.swing.JFrame {
         jScrollPane1.setViewportView(console);
 
         RunTurn.setText("NEXT TURN");
-        RunTurn.addActionListener(evt -> RunTurnActionPerformed(evt));
+        RunTurn.addActionListener(this::RunTurnActionPerformed);
 
         FireBall.setText("FireBall");
-        FireBall.addActionListener(evt -> FireBallActionPerformed(evt));
+        FireBall.addActionListener(this::FireBallActionPerformed);
 
         nextEnemy.setText("Next Enemy");
-        nextEnemy.addActionListener(evt -> nextEnemyActionPerformed(evt));
+        nextEnemy.addActionListener(this::nextEnemyActionPerformed);
 
         playerConsole.setColumns(20);
         playerConsole.setRows(5);
@@ -124,28 +124,28 @@ public class MainGameGUI extends javax.swing.JFrame {
         jScrollPane3.setViewportView(enemyConsole);
 
         Mana2Shield.setText("Mana>Shield");
-        Mana2Shield.addActionListener(evt -> Mana2ShieldActionPerformed(evt));
+        Mana2Shield.addActionListener(this::Mana2ShieldActionPerformed);
 
         PowerUP.setText("PowerUP");
-        PowerUP.addActionListener(evt -> PowerUPActionPerformed(evt));
+        PowerUP.addActionListener(this::PowerUPActionPerformed);
 
         QuickerShieldRegen.setText("Q.S.regen");
-        QuickerShieldRegen.addActionListener(evt -> QuickerShieldRegenActionPerformed(evt));
+        QuickerShieldRegen.addActionListener(this::QuickerShieldRegenActionPerformed);
 
         Info.setText("Info");
-        Info.addActionListener(evt -> InfoActionPerformed(evt));
+        Info.addActionListener(this::InfoActionPerformed);
 
         lightingSpell.setText("Lighting Strike");
         lightingSpell.setEnabled(false);
-        lightingSpell.addActionListener(evt -> lightingSpellActionPerformed(evt));
+        lightingSpell.addActionListener(this::lightingSpellActionPerformed);
 
         magicVampire.setText("MagicVampire");
         magicVampire.setEnabled(false);
-        magicVampire.addActionListener(evt -> magicVampireActionPerformed(evt));
+        magicVampire.addActionListener(this::magicVampireActionPerformed);
 
         dispel.setText("Dispel");
         dispel.setEnabled(false);
-        dispel.addActionListener(evt -> dispelActionPerformed(evt));
+        dispel.addActionListener(this::dispelActionPerformed);
 
         poisonEnemy.setText("Poison Enemy");
         poisonEnemy.setEnabled(false);
@@ -155,13 +155,13 @@ public class MainGameGUI extends javax.swing.JFrame {
 
         shadowAttack.setText("ShadowAttack");
         shadowAttack.setEnabled(false);
-        shadowAttack.addActionListener(evt -> shadowAttackActionPerformed(evt));
+        shadowAttack.addActionListener(this::shadowAttackActionPerformed);
 
         suddenDeath.setText("Sudden Death");
         suddenDeath.setEnabled(false);
 
         Spell.setText("Spell");
-        Spell.addActionListener(evt -> SpellActionPerformed(evt));
+        Spell.addActionListener(this::SpellActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

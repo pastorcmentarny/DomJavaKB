@@ -83,12 +83,14 @@ public final class Settings {
     }
 
     public static Dimension getDimensionFor(String what) {
-        if (what.equals("hisotryOfMessageGUI")) {
-            return hisotryOfMessageGUI;
-        } else if (what.equals("backupGUI")) {
-            return backupGUI;
-        } else {
-            return null;
+        switch (what) {
+            case "hisotryOfMessageGUI":
+                return hisotryOfMessageGUI;
+            case "backupGUI":
+                return backupGUI;
+            default:
+                return null; //TODO NoDimension object
+
         }
     }
 

@@ -90,7 +90,7 @@ public class FaqGUI extends javax.swing.JFrame {
         questionComboBox.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         questionComboBox.setModel(new javax.swing.DefaultComboBoxModel(questions));
         questionComboBox.setToolTipText("Place,where you can select question");
-        questionComboBox.addActionListener(evt -> questionComboBoxActionPerformed(evt));
+        questionComboBox.addActionListener(this::questionComboBoxActionPerformed);
 
         jLabel1.setText("Choose question to see answer:");
 

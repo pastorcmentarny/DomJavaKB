@@ -220,7 +220,7 @@ public class About extends javax.swing.JFrame {
         messagePanel.setViewportView(messageTextArea);
 
         goToButton.setText("Go to my page");
-        goToButton.addActionListener(evt -> goToButtonActionPerformed(evt));
+        goToButton.addActionListener(this::goToButtonActionPerformed);
 
         pictureOfMe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nanobackup/me.jpg"))); // NOI18N
 
