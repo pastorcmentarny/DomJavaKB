@@ -23,7 +23,7 @@ public class EuroDraw implements Draw {
     private final int luckyStar1;
     private final int luckyStar2;
     private final String ukMillionaireMaker;
-    private final int DrawNumber;
+    private final int drawNumber;
 
 
     public EuroDraw(LocalDate drawDate, int ball1, int ball2, int ball3, int ball4, int ball5, int luckyStar1, int luckyStar2, String ukMillionaireMaker, int drawNumber) {
@@ -36,7 +36,7 @@ public class EuroDraw implements Draw {
         this.luckyStar1 = luckyStar1;
         this.luckyStar2 = luckyStar2;
         this.ukMillionaireMaker = ukMillionaireMaker;
-        DrawNumber = drawNumber;
+        this.drawNumber = drawNumber;
     }
 
     public LocalDate getDrawDate() {
@@ -76,7 +76,7 @@ public class EuroDraw implements Draw {
     }
 
     public int getDrawNumber() {
-        return DrawNumber;
+        return drawNumber;
     }
 
     @Override
@@ -113,7 +113,7 @@ public class EuroDraw implements Draw {
                 ", luckyStar1=" + luckyStar1 +
                 ", luckyStar2=" + luckyStar2 +
                 ", ukMillionaireMaker='" + ukMillionaireMaker + '\'' +
-                ", DrawNumber=" + DrawNumber +
+                ", drawNumber=" + drawNumber +
                 '}';
     }
 }

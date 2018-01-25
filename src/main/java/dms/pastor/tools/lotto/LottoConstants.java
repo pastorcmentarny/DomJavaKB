@@ -15,7 +15,14 @@ public final class LottoConstants {
 
     public static final int HOT_PICK_BALL_MINIMUM_VALUE = 1;
     public static final int HOT_PICK_BALL_MAXIMUM_VALUE = 59;
+    public static final int EURO_BALL_MINIMUM_VALUE = 1;
+    public static final int EURO_BALL_MAXIMUM_VALUE = 50;
+    public static final int LUCKY_STAR_MAX = 12;
+    public static final int LUCKY_STAR_MIN = 1;
     public static final int[] HOT_PICK_NUMBER_RANGE = IntStream.rangeClosed(HOT_PICK_BALL_MINIMUM_VALUE, HOT_PICK_BALL_MAXIMUM_VALUE).toArray();
+    public static final String DASH = "-";
+    public static final String NO_RESULT = "We successfully gather no result :)";
+
 
     private LottoConstants() {
     } // constant class

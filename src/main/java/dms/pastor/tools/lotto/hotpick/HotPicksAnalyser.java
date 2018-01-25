@@ -6,8 +6,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import static dms.pastor.tools.lotto.LottoConstants.HOT_PICK_BALL_MAXIMUM_VALUE;
-import static dms.pastor.tools.lotto.LottoConstants.HOT_PICK_BALL_MINIMUM_VALUE;
+import static dms.pastor.tools.lotto.LottoConstants.*;
 import static dms.pastor.utils.CollectionsUtils.convertListToIntArray;
 import static dms.pastor.utils.CollectionsUtils.convertSetToIntArray;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
@@ -35,7 +34,7 @@ public class HotPicksAnalyser {
     //TODO fix this,it must be run first which is wrong
     public String countBallDrawn() {
         if (hotPickDrawList == null || hotPickDrawList.isEmpty()) {
-            return "We successfully gather no result :)";
+            return NO_RESULT;
         }
         for (HotPickDraw draw : hotPickDrawList) {
             addBall(draw.getBall1());
@@ -44,7 +43,6 @@ public class HotPicksAnalyser {
             addBall(draw.getBall4());
             addBall(draw.getBall5());
             addBall(draw.getBall6());
-
         }
         return displayBallDrawnCounterAsString();
     }
@@ -130,6 +128,7 @@ public class HotPicksAnalyser {
         return element.length() - 1;
     }
 
+    //TODO move validator to uploader
     private void validateBall(int... balls) {
         for (int ball : balls) {
             if (ball > HOT_PICK_BALL_MAXIMUM_VALUE || ball < HOT_PICK_BALL_MINIMUM_VALUE) {
