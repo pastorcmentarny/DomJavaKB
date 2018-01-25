@@ -63,12 +63,7 @@ public class MainGameGUI extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-
-            public void run() {
-                new MainGameGUI().setVisible(true);
-            }
-        });
+        java.awt.EventQueue.invokeLater(() -> new MainGameGUI().setVisible(true));
     }
 
     /**
@@ -112,25 +107,13 @@ public class MainGameGUI extends javax.swing.JFrame {
         jScrollPane1.setViewportView(console);
 
         RunTurn.setText("NEXT TURN");
-        RunTurn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RunTurnActionPerformed(evt);
-            }
-        });
+        RunTurn.addActionListener(evt -> RunTurnActionPerformed(evt));
 
         FireBall.setText("FireBall");
-        FireBall.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FireBallActionPerformed(evt);
-            }
-        });
+        FireBall.addActionListener(evt -> FireBallActionPerformed(evt));
 
         nextEnemy.setText("Next Enemy");
-        nextEnemy.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nextEnemyActionPerformed(evt);
-            }
-        });
+        nextEnemy.addActionListener(evt -> nextEnemyActionPerformed(evt));
 
         playerConsole.setColumns(20);
         playerConsole.setRows(5);
@@ -141,56 +124,28 @@ public class MainGameGUI extends javax.swing.JFrame {
         jScrollPane3.setViewportView(enemyConsole);
 
         Mana2Shield.setText("Mana>Shield");
-        Mana2Shield.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Mana2ShieldActionPerformed(evt);
-            }
-        });
+        Mana2Shield.addActionListener(evt -> Mana2ShieldActionPerformed(evt));
 
         PowerUP.setText("PowerUP");
-        PowerUP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PowerUPActionPerformed(evt);
-            }
-        });
+        PowerUP.addActionListener(evt -> PowerUPActionPerformed(evt));
 
         QuickerShieldRegen.setText("Q.S.regen");
-        QuickerShieldRegen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                QuickerShieldRegenActionPerformed(evt);
-            }
-        });
+        QuickerShieldRegen.addActionListener(evt -> QuickerShieldRegenActionPerformed(evt));
 
         Info.setText("Info");
-        Info.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InfoActionPerformed(evt);
-            }
-        });
+        Info.addActionListener(evt -> InfoActionPerformed(evt));
 
         lightingSpell.setText("Lighting Strike");
         lightingSpell.setEnabled(false);
-        lightingSpell.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lightingSpellActionPerformed(evt);
-            }
-        });
+        lightingSpell.addActionListener(evt -> lightingSpellActionPerformed(evt));
 
         magicVampire.setText("MagicVampire");
         magicVampire.setEnabled(false);
-        magicVampire.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                magicVampireActionPerformed(evt);
-            }
-        });
+        magicVampire.addActionListener(evt -> magicVampireActionPerformed(evt));
 
         dispel.setText("Dispel");
         dispel.setEnabled(false);
-        dispel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dispelActionPerformed(evt);
-            }
-        });
+        dispel.addActionListener(evt -> dispelActionPerformed(evt));
 
         poisonEnemy.setText("Poison Enemy");
         poisonEnemy.setEnabled(false);
@@ -200,21 +155,13 @@ public class MainGameGUI extends javax.swing.JFrame {
 
         shadowAttack.setText("ShadowAttack");
         shadowAttack.setEnabled(false);
-        shadowAttack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                shadowAttackActionPerformed(evt);
-            }
-        });
+        shadowAttack.addActionListener(evt -> shadowAttackActionPerformed(evt));
 
         suddenDeath.setText("Sudden Death");
         suddenDeath.setEnabled(false);
 
         Spell.setText("Spell");
-        Spell.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SpellActionPerformed(evt);
-            }
-        });
+        Spell.addActionListener(evt -> SpellActionPerformed(evt));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

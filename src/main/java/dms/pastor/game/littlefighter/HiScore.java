@@ -67,7 +67,6 @@ public class HiScore {
             fileSaver.write(allText);
             fileSaver.close();
 
-        } catch (FileNotFoundException ex) {
         } catch (IOException ex) {
         }
     }
@@ -75,8 +74,8 @@ public class HiScore {
     private void checkScore(int exp, String t, int line) {
         String[] temp = new String[line];
         temp = t.split("\n");
-        for (int i = 0; i < temp.length; i++) {
-            System.out.println(temp[i]);
+        for (String aTemp : temp) {
+            System.out.println(aTemp);
         }
     }
 
@@ -109,15 +108,14 @@ public class HiScore {
             fileLoader.close();
             fileSaver = new FileWriter(fileName);
             BufferedWriter bw = new BufferedWriter(fileSaver);
-            for (int i = 0; i < scoreList.size(); i++) {
-                String x = scoreList.get(i).toString() + "\n";
+            for (Integer aScoreList : scoreList) {
+                String x = aScoreList.toString() + "\n";
                 fileSaver.write(x);
             }
 
 
             fileSaver.close();
 
-        } catch (FileNotFoundException ex) {
         } catch (IOException ex) {
         }
     }

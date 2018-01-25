@@ -114,11 +114,7 @@ public class Spell extends javax.swing.JFrame {
         jButton6.setText("Poison");
 
         VampireAttack.setText("Vampire");
-        VampireAttack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                VampireAttackActionPerformed(evt);
-            }
-        });
+        VampireAttack.addActionListener(evt -> VampireAttackActionPerformed(evt));
 
         jButton7.setText("Mana>Shield");
 
