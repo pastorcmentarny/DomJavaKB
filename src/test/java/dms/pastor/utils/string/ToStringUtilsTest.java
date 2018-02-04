@@ -63,7 +63,7 @@ public class ToStringUtilsTest {
     }
 
     @Test
-    public void intArrayToStringShouldReturnEMptyStringForEmptyArray() throws Exception {
+    public void intArrayToStringShouldReturnEmptyStringForEmptyArray() {
         // given
         int[] intValues = new int[]{};
 
@@ -77,7 +77,7 @@ public class ToStringUtilsTest {
 
 
     @Test
-    public void intArrayToStringAcceptanceTest() throws Exception {
+    public void intArrayToStringAcceptanceTest() {
         // given
         final String expectedString = "[ 1 2 3 5 8 13 ]";
         int[] intValues = new int[]{1, 2, 3, 5, 8, 13};
@@ -91,7 +91,7 @@ public class ToStringUtilsTest {
     }
 
     @Test
-    public void toStringShouldReturnStringWithArray() throws Exception {
+    public void toStringShouldReturnStringWithArray() {
         // given
         final List<String> list = Arrays.asList("Garlic", "Coriander", "Cheese");
 

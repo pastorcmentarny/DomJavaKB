@@ -20,20 +20,18 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * @author Dominik Symonowicz
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class Engine extends AbstractTools {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Engine.class);
     private final History history = History.getHistoryGUI();
 
-
-    /**
-     * Activates Quick Mode
-     *
-     * @param sourceField Element where information is displayed
-     * @return true if quick backup is activated successfully.
-     */
     public boolean activateQuickBackupMode(JTextField sourceField) {
         LOGGER.debug("Activating quick backup mode.");
         settings.setNonQuickPath(sourceField.getText());
@@ -44,11 +42,6 @@ public class Engine extends AbstractTools {
         return true;
     }
 
-    /**
-     * Deactivates Quick Mode
-     *
-     * @param sourceField Element where information is displayed
-     */
     public void deactivateQuickBackupMode(JTextField sourceField) {
         LOGGER.debug("Deactivating quick backup mode.");
         settings.setNonQuickPath(null);
@@ -63,14 +56,6 @@ public class Engine extends AbstractTools {
 
     }
 
-    /**
-     * Swaps selected item from list
-     *
-     * @param paths list of recent destination folder path
-     * @param what
-     * @param with
-     * @return list of path of destination folder or null if things go wrong
-     */
     public String[] swapDestFolderPaths(String[] paths, String what, String with) {
         List<String> swappedPaths = new ArrayList<>();
         for (String path : paths) {
@@ -83,14 +68,6 @@ public class Engine extends AbstractTools {
         return swappedPaths.toArray(new String[swappedPaths.size()]);
     }
 
-    /**
-     * Adds new path (that was created or selected ) to list and delete oldest
-     * one.
-     *
-     * @param paths
-     * @param newPath
-     * @return list of path of destination folder or null if things go wrong
-     */
     public String[] updateRecentFolderPaths(String[] paths, String newPath) {
         if (checkIfNewPathExistInList(paths, newPath)) {
             return paths;
@@ -119,11 +96,6 @@ public class Engine extends AbstractTools {
         return false;
     }
 
-    /**
-     * Chooses file
-     *
-     * @return path file
-     */
     public String chooseFiletoLoad() {
         LOGGER.debug("select file to Load");
         String path;
@@ -152,12 +124,6 @@ public class Engine extends AbstractTools {
         return path;
     }
 
-    /**
-     * It used for debbuging only ,to inform is all files required by program
-     * exists.
-     *
-     * @return results of this scan.
-     */
     public String[] itselfHealthScan() {
         ArrayList<String> result = new ArrayList<>();
         result.add(0, "OK");
@@ -190,12 +156,6 @@ public class Engine extends AbstractTools {
 
     //TODO temporary implementation
 
-    /**
-     * Reads file for items
-     *
-     * @param source path to file where paths to file
-     * @return list of items to backup
-     */
     public String[] makeList(String source) {
         File file = new File(source);
         if (!file.exists()) {
@@ -227,12 +187,6 @@ public class Engine extends AbstractTools {
         }
     }
 
-    /**
-     * Add list of files from another source file
-     *
-     * @param srcList
-     * @return new list with all items from exists and merged source files
-     */
     public String[] merge2Source(final String[] srcList) {
         final List<String> temp = new ArrayList<>();
         final String[] tempSource = FileTools.chooseFilestoLoad();
@@ -253,13 +207,6 @@ public class Engine extends AbstractTools {
         }
     }
 
-    /**
-     * Removes item(s) from list
-     *
-     * @param srcList
-     * @param sourceList
-     * @return new list without removed items
-     */
     public String[] removeItemsFromList(String[] srcList, JList sourceList) {
         Object[] itemsToDelete;
         ArrayList<String> toDeleteList = new ArrayList<>();
@@ -285,13 +232,6 @@ public class Engine extends AbstractTools {
     }
 
 
-    /**
-     * Sets color and fileName on information bar
-     *
-     * @param color
-     * @param infoLabel
-     * @return
-     */
     public JLabel setInfoLabel(Color color, String message, JLabel infoLabel) {
         infoLabel.setForeground(color);
         infoLabel.setText(message);
@@ -301,14 +241,6 @@ public class Engine extends AbstractTools {
 
     //TODO improve confirm on exit,because currect is temporary solution only
 
-    /**
-     * Shutsdown program. - deactivate QuickBackup Mode if was active - unlock
-     * program (prevent to multiply istnance of program - add info do logs -
-     * kill jvm ;P
-     *
-     * @param reason
-     * @return
-     */
     public boolean shutdown(final String reason) {
         if (settings.isConfirmOnExit()) {
             if (!reason.equals("alreadyRun")) {
@@ -338,10 +270,6 @@ public class Engine extends AbstractTools {
         return true;
     }
 
-    /**
-     * @param sourcesPath
-     * @return
-     */
     public boolean deleteSourceAfterBackup(final String[] sourcesPath) {
         boolean success;
         for (String aSourcesPath : sourcesPath) {

@@ -10,11 +10,7 @@ import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Properties;
 
-/**
- * It contains extra tasks that will be perform and
- *
- * @author Dominik Symonowicz
- */
+
 public class TaskUtils {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TaskUtils.class);

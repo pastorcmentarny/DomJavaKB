@@ -75,7 +75,7 @@ public class GUI extends javax.swing.JFrame {
     private JCheckBoxMenuItem domMode;
     private JMenuItem exitMenuItem;
     private JCheckBoxMenuItem exitProgramAfterBackupMenuItem;
-    private JCheckBoxMenuItem happyModeCheckkBoxMenuItem;
+    private JCheckBoxMenuItem happyModeCheckBoxMenuItem;
     private JLabel jLabel1;
     private JLabel jLabel2;
     private JLabel jLabel3;
@@ -101,7 +101,7 @@ public class GUI extends javax.swing.JFrame {
     private JMenuItem refreshSettingsMenuItem;
     private JButton removeButton;
     private JMenuItem removeDuplicatesMenuItem;
-    private JCheckBoxMenuItem saveAsCryptedCheckBoxMenuItem;
+    private JCheckBoxMenuItem saveAsEncryptedCheckBoxMenuItem;
     private JCheckBoxMenuItem saveAsZipCheckBoxMenuItem;
     private JCheckBoxMenuItem saveResultToFileCheckBoxMenuItem;
     private JMenuItem saveSettingsMenuItem;
@@ -178,12 +178,12 @@ public class GUI extends javax.swing.JFrame {
         confirmExitCheckBoxMenuItem = new JCheckBoxMenuItem();
         shutdownAfterBackupMenuItem = new JCheckBoxMenuItem();
         saveAsZipCheckBoxMenuItem = new JCheckBoxMenuItem();
-        saveAsCryptedCheckBoxMenuItem = new JCheckBoxMenuItem();
+        saveAsEncryptedCheckBoxMenuItem = new JCheckBoxMenuItem();
         saveResultToFileCheckBoxMenuItem = new JCheckBoxMenuItem();
         checkFreeSpaceBeforeBackupMenuItem = new JCheckBoxMenuItem();
         speedLightModeMenuItem = new JCheckBoxMenuItem();
         jSeparator2 = new Separator();
-        happyModeCheckkBoxMenuItem = new JCheckBoxMenuItem();
+        happyModeCheckBoxMenuItem = new JCheckBoxMenuItem();
         domMode = new JCheckBoxMenuItem();
         jMenu7 = new JMenu();
         priority_max_radioItem = new JRadioButtonMenuItem();
@@ -363,7 +363,7 @@ public class GUI extends javax.swing.JFrame {
         settingsMenu.add(confirmExitCheckBoxMenuItem);
 
         shutdownAfterBackupMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_5, java.awt.event.InputEvent.ALT_MASK));
-        shutdownAfterBackupMenuItem.setForeground(AppColor.DARKORANGE);
+        shutdownAfterBackupMenuItem.setForeground(AppColor.DARK_ORANGE);
         shutdownAfterBackupMenuItem.setText("Shutdown a PC after backup(beta!)");
         shutdownAfterBackupMenuItem.setEnabled(false);
         shutdownAfterBackupMenuItem.addActionListener(this::shutdownAfterBackupMenuItemActionPerformed);
@@ -372,17 +372,17 @@ public class GUI extends javax.swing.JFrame {
         saveAsZipCheckBoxMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_6, java.awt.event.InputEvent.ALT_MASK));
         saveAsZipCheckBoxMenuItem.setSelected(settings.isSaveAsZip());
         saveAsZipCheckBoxMenuItem.setText("Save a zip file (beta!)");
-        saveAsZipCheckBoxMenuItem.setForeground(AppColor.DARKORANGE);
+        saveAsZipCheckBoxMenuItem.setForeground(AppColor.DARK_ORANGE);
         saveAsZipCheckBoxMenuItem.addActionListener(this::saveAsZipCheckBoxMenuItemActionPerformed);
         settingsMenu.add(saveAsZipCheckBoxMenuItem);
 
-        saveAsCryptedCheckBoxMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_0, java.awt.event.InputEvent.ALT_MASK));
-        saveAsCryptedCheckBoxMenuItem.setSelected(settings.isSaveAsCrypted());
-        saveAsZipCheckBoxMenuItem.setForeground(AppColor.DARKORANGE);
-        saveAsCryptedCheckBoxMenuItem.setText("Save as paranoid crypted zip file");
-        saveAsCryptedCheckBoxMenuItem.setEnabled(false);
-        saveAsCryptedCheckBoxMenuItem.addActionListener(this::saveAsCryptedCheckBoxMenuItemActionPerformed);
-        settingsMenu.add(saveAsCryptedCheckBoxMenuItem);
+        saveAsEncryptedCheckBoxMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_0, java.awt.event.InputEvent.ALT_MASK));
+        saveAsEncryptedCheckBoxMenuItem.setSelected(settings.isSaveAsEncrypted());
+        saveAsZipCheckBoxMenuItem.setForeground(AppColor.DARK_ORANGE);
+        saveAsEncryptedCheckBoxMenuItem.setText("Save as paranoid crypted zip file");
+        saveAsEncryptedCheckBoxMenuItem.setEnabled(false);
+        saveAsEncryptedCheckBoxMenuItem.addActionListener(this::saveAsEncryptedCheckBoxMenuItemActionPerformed);
+        settingsMenu.add(saveAsEncryptedCheckBoxMenuItem);
 
         saveResultToFileCheckBoxMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_7, java.awt.event.InputEvent.ALT_MASK));
         saveResultToFileCheckBoxMenuItem.setSelected(settings.isSaveResultsToFile());
@@ -398,17 +398,17 @@ public class GUI extends javax.swing.JFrame {
 
         speedLightModeMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_9, java.awt.event.InputEvent.ALT_MASK));
         speedLightModeMenuItem.setText("Speed Light mode");
-        speedLightModeMenuItem.setForeground(AppColor.DARKORANGE);
+        speedLightModeMenuItem.setForeground(AppColor.DARK_ORANGE);
         speedLightModeMenuItem.setSelected(settings.isSpeedLightMode());
         speedLightModeMenuItem.addActionListener(this::speedLightModeMenuItemActionPerformed);
         settingsMenu.add(speedLightModeMenuItem);
         settingsMenu.add(jSeparator2);
 
-        happyModeCheckkBoxMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        happyModeCheckkBoxMenuItem.setText("happy mode");
-        happyModeCheckkBoxMenuItem.setSelected(settings.isHappyMode());
-        happyModeCheckkBoxMenuItem.addActionListener(this::happyModeCheckkBoxMenuItemActionPerformed);
-        settingsMenu.add(happyModeCheckkBoxMenuItem);
+        happyModeCheckBoxMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        happyModeCheckBoxMenuItem.setText("happy mode");
+        happyModeCheckBoxMenuItem.setSelected(settings.isHappyMode());
+        happyModeCheckBoxMenuItem.addActionListener(this::happyModeCheckBoxMenuItemActionPerformed);
+        settingsMenu.add(happyModeCheckBoxMenuItem);
 
         domMode.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         domMode.setText("dom mode");
@@ -510,7 +510,7 @@ public class GUI extends javax.swing.JFrame {
 
         saveSettingsMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F10, java.awt.event.InputEvent.ALT_MASK));
         saveSettingsMenuItem.setText("save settings (beta!)");
-        saveSettingsMenuItem.setForeground(AppColor.DARKORANGE);
+        saveSettingsMenuItem.setForeground(AppColor.DARK_ORANGE);
         saveSettingsMenuItem.addActionListener(this::saveSettingsMenuItemActionPerformed);
         jMenu1.add(saveSettingsMenuItem);
 
@@ -629,7 +629,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void doBackupButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_doBackupButtonActionPerformed
         if (backup.isInProgress()) {
-            utilities.setInfoLabel(AppColor.DARKORANGE, "Another backup in progress.Please wait until previous backup is done", InfoLabel);
+            utilities.setInfoLabel(AppColor.DARK_ORANGE, "Another backup in progress.Please wait until previous backup is done", InfoLabel);
         } else {
             LOGGER.debug("Doing backup using:\n\tsource file:" + sourceField.getText() + "\n\tdestination folder:" + destinationField.getText());
             backup.backupGUI(utilities.makeList(sourceField.getText()), destinationField.getText(), this);
@@ -649,7 +649,7 @@ public class GUI extends javax.swing.JFrame {
             settings.setProperties(true);
             recentSrcPaths = utilities.updateRecentFolderPaths(recentSrcPaths, tempSource);
             FileTools.saveListToFile(recentSrcPaths, Settings.RECENT_SRC_PATHS_FILE);
-            utilities.setInfoLabel(AppColor.DARKGREEN, "Source file set to " + tempSource, InfoLabel);
+            utilities.setInfoLabel(AppColor.DARK_GREEN, "Source file set to " + tempSource, InfoLabel);
         } else {
             utilities.setInfoLabel(Color.RED, "Action cancelled", InfoLabel);
         }
@@ -667,7 +667,7 @@ public class GUI extends javax.swing.JFrame {
             recentDestPaths = utilities.updateRecentFolderPaths(recentDestPaths, tempSource);
             FileTools.saveListToFile(recentDestPaths, Settings.RECENT_DEST_PATHS_FILE);
 
-            InfoLabel.setForeground(AppColor.DARKGREEN);
+            InfoLabel.setForeground(AppColor.DARK_GREEN);
             InfoLabel.setText("Destination folder is set to: " + tempSource);
         } else {
             InfoLabel.setForeground(Color.RED);
@@ -684,7 +684,7 @@ public class GUI extends javax.swing.JFrame {
             srcList = utilities.makeList(settings.getSourceFilePath());
             destinationField.setText(settings.getDestinationFolderPath());
             destination = settings.getDestinationFolderPath();
-            utilities.setInfoLabel(AppColor.DARKGREEN, "Default config was used to create source/destination path.", InfoLabel);
+            utilities.setInfoLabel(AppColor.DARK_GREEN, "Default config was used to create source/destination path.", InfoLabel);
         } else {
             utilities.setInfoLabel(Color.RED, "Unable to create default config.Please reinstall program!", InfoLabel);
         }
@@ -713,7 +713,7 @@ public class GUI extends javax.swing.JFrame {
             }
             refreshContent();
             check();
-            InfoLabel.setForeground(AppColor.DARKGREEN);
+            InfoLabel.setForeground(AppColor.DARK_GREEN);
             if (addFileResult.length == 1) {
                 InfoLabel.setText("Item added." + InfoLabel.getText());
             } else {
@@ -741,9 +741,9 @@ public class GUI extends javax.swing.JFrame {
         }
 
         if (Arrays.equals(temp, srcList)) {
-            utilities.setInfoLabel(AppColor.DARKORANGE, "Nothing was removed.", InfoLabel);
+            utilities.setInfoLabel(AppColor.DARK_ORANGE, "Nothing was removed.", InfoLabel);
         } else {
-            utilities.setInfoLabel(AppColor.DARKGREEN, "Item(s) was removed from list.", InfoLabel);
+            utilities.setInfoLabel(AppColor.DARK_GREEN, "Item(s) was removed from list.", InfoLabel);
         }
     }//GEN-LAST:event_removeButtonActionPerformed
 
@@ -795,7 +795,7 @@ public class GUI extends javax.swing.JFrame {
         if (result == null) {
             utilities.setInfoLabel(Color.RED, "File was NOT created.", InfoLabel);
         } else {
-            utilities.setInfoLabel(AppColor.DARKGREEN, "Source file: " + result + " was created.", InfoLabel);
+            utilities.setInfoLabel(AppColor.DARK_GREEN, "Source file: " + result + " was created.", InfoLabel);
             recentSrcPaths = utilities.updateRecentFolderPaths(recentSrcPaths, sourceField.getText());
             FileTools.saveListToFile(recentSrcPaths, Settings.RECENT_SRC_PATHS_FILE);
             sourceField.setText(result);
@@ -812,7 +812,7 @@ public class GUI extends javax.swing.JFrame {
         InfoLabel.setText("LAP2HDD: doing backup");
         boolean result = FileTools.copyFolder(new File(dom.getProperty("dom.source.lap.hdd")), new File(dom.getProperty("dom.destination.lap.hdd")), null);
         if (result) {
-            utilities.setInfoLabel(AppColor.DARKGREEN, "LAP2HDD backup was done successfully.", InfoLabel);
+            utilities.setInfoLabel(AppColor.DARK_GREEN, "LAP2HDD backup was done successfully.", InfoLabel);
         } else {
             utilities.setInfoLabel(Color.RED, "Program was unable to create backup", InfoLabel);
         }
@@ -824,9 +824,9 @@ public class GUI extends javax.swing.JFrame {
         String tempResponse = backup.doClassicBackup(utilities.makeList(dom.getProperty("dom.source.usb.lap")), dom.getProperty("dom.destination.usb.lap"), null);
         if (tempResponse != null) {
             JOptionPane.showMessageDialog(null, tempResponse, "Results", JOptionPane.INFORMATION_MESSAGE);
-            utilities.setInfoLabel(AppColor.DARKGREEN, "USB2LAP backup was done successfully.", InfoLabel);
+            utilities.setInfoLabel(AppColor.DARK_GREEN, "USB2LAP backup was done successfully.", InfoLabel);
         } else {
-            utilities.setInfoLabel(AppColor.DARKGREEN, "Program was unable to create backup", InfoLabel);
+            utilities.setInfoLabel(AppColor.DARK_GREEN, "Program was unable to create backup", InfoLabel);
         }
     }//GEN-LAST:event_USB2LapMenuActionPerformed
 
@@ -857,7 +857,7 @@ public class GUI extends javax.swing.JFrame {
     private void removeDuplicatesMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_removeDuplicatesMenuItemActionPerformed
         srcList = TaskUtils.removeDuplicateLines(srcList);
         FileTools.saveListToFile(srcList, source);
-        utilities.setInfoLabel(AppColor.DARKGREEN, "Duplicate lines in source file are removed.", InfoLabel);
+        utilities.setInfoLabel(AppColor.DARK_GREEN, "Duplicate lines in source file are removed.", InfoLabel);
         refreshContent();
         check();
     }//GEN-LAST:event_removeDuplicatesMenuItemActionPerformed
@@ -877,9 +877,9 @@ public class GUI extends javax.swing.JFrame {
         settings.setDeleteSourceAfterBackup(deleteSourceCheckBoxMenuItem.isSelected());
         settings.setProperties(true);
         if (deleteSourceCheckBoxMenuItem.isSelected()) {
-            utilities.setInfoLabel(AppColor.DARKORANGE, "Source item(s) will be deleted after backup.(It cannot be undone!)", InfoLabel);
+            utilities.setInfoLabel(AppColor.DARK_ORANGE, "Source item(s) will be deleted after backup.(It cannot be undone!)", InfoLabel);
         } else {
-            utilities.setInfoLabel(AppColor.DARKGREEN, "Source item(s) will stay untouched after backup.", InfoLabel);
+            utilities.setInfoLabel(AppColor.DARK_GREEN, "Source item(s) will stay untouched after backup.", InfoLabel);
         }
     }//GEN-LAST:event_deleteSourceCheckBoxMenuItemActionPerformed
 
@@ -893,11 +893,11 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_confirmExitCheckBoxMenuItemActionPerformed
 
-    private void happyModeCheckkBoxMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_happyModeCheckkBoxMenuItemActionPerformed
-        InfoLabel.setForeground(AppColor.DARKGREEN);
-        settings.setHappyMode(happyModeCheckkBoxMenuItem.isSelected());
+    private void happyModeCheckBoxMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_happyModeCheckkBoxMenuItemActionPerformed
+        InfoLabel.setForeground(AppColor.DARK_GREEN);
+        settings.setHappyMode(happyModeCheckBoxMenuItem.isSelected());
         settings.setProperties(true);
-        if (happyModeCheckkBoxMenuItem.isSelected()) {
+        if (happyModeCheckBoxMenuItem.isSelected()) {
             utilities.setInfoLabel(Color.BLUE, "happy mode is activated.(It works only if speed light mode is disabled)", InfoLabel);
         } else {
             utilities.setInfoLabel(Color.DARK_GRAY, "Happy mode is deactivated.", InfoLabel);
@@ -911,7 +911,7 @@ public class GUI extends javax.swing.JFrame {
             srcList = TaskUtils.removeDuplicateLines(itemsList);
             FileTools.saveListToFile(srcList, sourceField.getText());
             settings.setProperties(true);
-            utilities.setInfoLabel(AppColor.DARKGREEN, "Selected source file was merged into item list.", InfoLabel);
+            utilities.setInfoLabel(AppColor.DARK_GREEN, "Selected source file was merged into item list.", InfoLabel);
         } else {
             utilities.setInfoLabel(Color.RED, "Action cancelled.", InfoLabel);
         }
@@ -932,11 +932,11 @@ public class GUI extends javax.swing.JFrame {
         settings.setSaveAsZip(saveAsZipCheckBoxMenuItem.isSelected());
         settings.setProperties(true);
         if (deleteSourceCheckBoxMenuItem.isSelected()) {
-            utilities.setInfoLabel(AppColor.DARKGREEN, "Backup will be saved as compressed zip file.", InfoLabel);
+            utilities.setInfoLabel(AppColor.DARK_GREEN, "Backup will be saved as compressed zip file.", InfoLabel);
             //TODO; remove below dialog when zip feature will be completly implemented
             JOptionPane.showMessageDialog(null, "This is beta feature!\nIt has some known issues,which cause distasters!See changelog .. ", "WARNING", WIDTH);
         } else {
-            utilities.setInfoLabel(AppColor.DARKGREEN, "Backup will be saved as folder.", InfoLabel);
+            utilities.setInfoLabel(AppColor.DARK_GREEN, "Backup will be saved as folder.", InfoLabel);
         }
     }//GEN-LAST:event_saveAsZipCheckBoxMenuItemActionPerformed
 
@@ -949,7 +949,7 @@ public class GUI extends javax.swing.JFrame {
             settings.setProperties(true);
             refreshContent();
             check();
-            utilities.setInfoLabel(AppColor.DARKGREEN, "Destination folder path is swapped.", InfoLabel);
+            utilities.setInfoLabel(AppColor.DARK_GREEN, "Destination folder path is swapped.", InfoLabel);
         } else {
             utilities.setInfoLabel(Color.RED, "Selected destination path doesn't exist.", InfoLabel);
         }
@@ -975,7 +975,7 @@ public class GUI extends javax.swing.JFrame {
         if (checkFreeSpaceBeforeBackupMenuItem.isSelected()) {
             utilities.setInfoLabel(Color.BLUE, "Program will check free space before backup.(Takes more time).", InfoLabel);
         } else {
-            utilities.setInfoLabel(AppColor.DARKORANGE, "Program will NOT check free space before backup.(Quicker backup).", InfoLabel);
+            utilities.setInfoLabel(AppColor.DARK_ORANGE, "Program will NOT check free space before backup.(Quicker backup).", InfoLabel);
         }
     }//GEN-LAST:event_checkFreeSpaceBeforeBackupMenuItemActionPerformed
 
@@ -986,10 +986,10 @@ public class GUI extends javax.swing.JFrame {
             settings.saveProperties();
             refreshContent();
             check();
-            utilities.setInfoLabel(AppColor.DARKGREEN, "Setting file: " + result + " was saved.", InfoLabel);
+            utilities.setInfoLabel(AppColor.DARK_GREEN, "Setting file: " + result + " was saved.", InfoLabel);
 
         } else {
-            utilities.setInfoLabel(AppColor.DARKORANGE, "Unable to save.", InfoLabel);
+            utilities.setInfoLabel(AppColor.DARK_ORANGE, "Unable to save.", InfoLabel);
         }
 
 
@@ -1022,7 +1022,7 @@ public class GUI extends javax.swing.JFrame {
             settings.setProperties(true);
             refreshContent();
             check();
-            utilities.setInfoLabel(AppColor.DARKGREEN, "Source folder path is swapped.", InfoLabel);
+            utilities.setInfoLabel(AppColor.DARK_GREEN, "Source folder path is swapped.", InfoLabel);
         } else {
             utilities.setInfoLabel(Color.RED, "Selected Source path doesn't exist.", InfoLabel);
         }
@@ -1046,13 +1046,13 @@ public class GUI extends javax.swing.JFrame {
                 settings.saveProperties();
                 refreshContent();
                 check();
-                utilities.setInfoLabel(AppColor.DARKORANGE, "Settings loaded and set.", InfoLabel);
+                utilities.setInfoLabel(AppColor.DARK_ORANGE, "Settings loaded and set.", InfoLabel);
             } else {
-                utilities.setInfoLabel(AppColor.DARKORANGE, "Unable to load settings due error.", InfoLabel);
+                utilities.setInfoLabel(AppColor.DARK_ORANGE, "Unable to load settings due error.", InfoLabel);
             }
 
         } else {
-            utilities.setInfoLabel(AppColor.DARKORANGE, "Load settings was cancelled", InfoLabel);
+            utilities.setInfoLabel(AppColor.DARK_ORANGE, "Load settings was cancelled", InfoLabel);
         }
     }//GEN-LAST:event_loadSettingsMenuItemActionPerformed
 
@@ -1063,42 +1063,42 @@ public class GUI extends javax.swing.JFrame {
             settings.validateProperties(true);
             refreshContent();
             check();        // TODO add your handling code here:
-            utilities.setInfoLabel(AppColor.DARKGREEN, "Settings refreshed.", InfoLabel);
+            utilities.setInfoLabel(AppColor.DARK_GREEN, "Settings refreshed.", InfoLabel);
         } else {
-            utilities.setInfoLabel(AppColor.DARKORANGE, "Unable to refresh settings!", InfoLabel);
+            utilities.setInfoLabel(AppColor.DARK_ORANGE, "Unable to refresh settings!", InfoLabel);
         }
 
     }//GEN-LAST:event_refreshSettingsMenuItemActionPerformed
 
-    private void saveAsCryptedCheckBoxMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_saveAsCryptedCheckBoxMenuItemActionPerformed
-        settings.setSaveAsCrypted(saveAsCryptedCheckBoxMenuItem.isSelected());
+    private void saveAsEncryptedCheckBoxMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_saveAsEncryptedCheckBoxMenuItemActionPerformed
+        settings.setSaveAsEncrypted(saveAsEncryptedCheckBoxMenuItem.isSelected());
         settings.setProperties(true);
-        if (saveAsCryptedCheckBoxMenuItem.isSelected()) {
+        if (saveAsEncryptedCheckBoxMenuItem.isSelected()) {
             JOptionPane.showMessageDialog(null, "CAUTION!\nUse this only for file (few files).\n Keep in mind,that it will take ages to finish this backup.\n\n This mode is designed only for ", "WARNING!", JOptionPane.ERROR_MESSAGE);
-            utilities.setInfoLabel(AppColor.DARKGREEN, "Backup will be saved as compressed zip file.", InfoLabel);
+            utilities.setInfoLabel(AppColor.DARK_GREEN, "Backup will be saved as compressed zip file.", InfoLabel);
             //TODO; remove below dialog when zip feature will be completly implemented
             JOptionPane.showMessageDialog(null, "This is beta feature!\nIt has some known issues,which cause distasters!See changelog .. ", "WARNING", WIDTH);
         } else {
-            utilities.setInfoLabel(AppColor.DARKGREEN, "Backup will be saved as crypted archive file.", InfoLabel);
+            utilities.setInfoLabel(AppColor.DARK_GREEN, "Backup will be saved as crypted archive file.", InfoLabel);
         }
-    }//GEN-LAST:event_saveAsCryptedCheckBoxMenuItemActionPerformed
+    }//GEN-LAST:event_saveAsEncryptedCheckBoxMenuItemActionPerformed
 
     private void priority_max_radioItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_priority_max_radioItemActionPerformed
         settings.setCpuPriority(2);
         settings.setProperties(true);
-        utilities.setInfoLabel(AppColor.DARKBLUE, "Backup will used highest cpu priority.", InfoLabel);
+        utilities.setInfoLabel(AppColor.DARK_BLUE, "Backup will used highest cpu priority.", InfoLabel);
     }//GEN-LAST:event_priority_max_radioItemActionPerformed
 
     private void priority_normal_radioItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_priority_normal_radioItemActionPerformed
         settings.setCpuPriority(1);
         settings.setProperties(true);
-        utilities.setInfoLabel(AppColor.DARKBLUE, "Backup will used normal cpu priority.", InfoLabel);
+        utilities.setInfoLabel(AppColor.DARK_BLUE, "Backup will used normal cpu priority.", InfoLabel);
     }//GEN-LAST:event_priority_normal_radioItemActionPerformed
 
     private void priority_min_radioItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_priority_min_radioItemActionPerformed
         settings.setCpuPriority(0);
         settings.setProperties(true);
-        utilities.setInfoLabel(AppColor.DARKBLUE, "Backup will used lowest priority.", InfoLabel);
+        utilities.setInfoLabel(AppColor.DARK_BLUE, "Backup will used lowest priority.", InfoLabel);
     }//GEN-LAST:event_priority_min_radioItemActionPerformed
     // End of variables declaration//GEN-END:variables
 
@@ -1128,11 +1128,11 @@ public class GUI extends javax.swing.JFrame {
         confirmExitCheckBoxMenuItem.setSelected(settings.isConfirmOnExit());
         shutdownAfterBackupMenuItem.setSelected(settings.isShutdownAfterBackup());
         saveAsZipCheckBoxMenuItem.setSelected(settings.isSaveAsZip());
-        saveAsCryptedCheckBoxMenuItem.setSelected(settings.isSaveAsCrypted());
+        saveAsEncryptedCheckBoxMenuItem.setSelected(settings.isSaveAsEncrypted());
         saveResultToFileCheckBoxMenuItem.setSelected(settings.isSaveResultsToFile());
         checkFreeSpaceBeforeBackupMenuItem.setSelected(settings.isCheckFreeSpaceBeforeBackup());
         speedLightModeMenuItem.setSelected(settings.isSpeedLightMode());
-        happyModeCheckkBoxMenuItem.setSelected(settings.isHappyMode());
+        happyModeCheckBoxMenuItem.setSelected(settings.isHappyMode());
 
 
     }
@@ -1285,14 +1285,14 @@ public class GUI extends javax.swing.JFrame {
         LOGGER.debug("Program starting:\tSetup in progress...");
         //STATUS for dom mode
         if (status[0] == null) {
-            statusMenuItem.setForeground(AppColor.DARKORANGE);
+            statusMenuItem.setForeground(AppColor.DARK_ORANGE);
             statusMenuItem.setText("STATUS: UNKNOWN");
         } else if (status[0].equalsIgnoreCase("ERROR")) {
             statusMenuItem.setForeground(Color.RED);
         } else if (status[0].equalsIgnoreCase("WARNING")) {
-            statusMenuItem.setForeground(AppColor.DARKORANGE);
+            statusMenuItem.setForeground(AppColor.DARK_ORANGE);
         } else if (status[0].equalsIgnoreCase("OK")) {
-            statusMenuItem.setForeground(AppColor.DARKGREEN);
+            statusMenuItem.setForeground(AppColor.DARK_GREEN);
         } else {
             statusMenuItem.setForeground(Color.DARK_GRAY);
         }
@@ -1338,7 +1338,7 @@ public class GUI extends javax.swing.JFrame {
                     source = recentSrcPath;
                     sourceField.setText(source);
                 }
-                InfoLabel.setForeground(AppColor.DARKBLUE);
+                InfoLabel.setForeground(AppColor.DARK_BLUE);
                 InfoLabel.setText("Source path doesn't exist.Program will use one of them from recent source list.");
             }
         }
@@ -1349,7 +1349,7 @@ public class GUI extends javax.swing.JFrame {
                     destination = recentDestPath;
                     destinationField.setText(destination);
                 }
-                InfoLabel.setForeground(AppColor.DARKBLUE);
+                InfoLabel.setForeground(AppColor.DARK_BLUE);
                 InfoLabel.setText("Destination path doesn't exist.Program will use one of them from recent destinations list.");
             }
         }

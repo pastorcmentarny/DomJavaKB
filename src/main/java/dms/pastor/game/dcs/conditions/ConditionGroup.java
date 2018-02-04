@@ -2,6 +2,6 @@ package dms.pastor.game.dcs.conditions;
 
 public enum ConditionGroup {
     POSITIVE,
-    NEUTREAL,
+    NEUTRAL,
     NEGATIVE
 }

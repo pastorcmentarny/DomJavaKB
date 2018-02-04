@@ -20,7 +20,13 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
 /**
- * @author Dominik Symonowicz
+ * Author Dominik Symonowicz
+ * Created: 09-Jan-2012 10:49:45
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class FileTools {
 
@@ -32,12 +38,6 @@ public class FileTools {
     private static File file;
     private final Messenger msg = new Messenger();
 
-    /**
-     * Calculates size of path (file/folder (with subdir(s)))
-     *
-     * @param path
-     * @return size of path
-     */
     public static String displaySize(String path) {
         String sizeMsg = "";
         file = new File(path);
@@ -51,12 +51,6 @@ public class FileTools {
         return sizeMsg;
     }
 
-    /**
-     * Calculates size of path (file/folder (with subdir(s)))
-     *
-     * @param path
-     * @return size of path
-     */
     public static long calcSize(String path) {
         long size = 0;
         file = new File(path);
@@ -70,14 +64,6 @@ public class FileTools {
         return size;
     }
 
-    /**
-     * Checks if is enough space of device where desitnation folder will be
-     * stored
-     *
-     * @param sources     list of items
-     * @param destination folder
-     * @return true if is enough space,false otherwise
-     */
     public static boolean checkEnoughSpace(Statistic stats, String[] sources, String destination) {
         long srcSize = 0;
         for (String source : sources) {
@@ -92,19 +78,10 @@ public class FileTools {
         return checkFreeSpace(destination) - srcSize > 0;
     }
 
-    /**
-     * Checks size of free space on partition where is file/folder
-     *
-     * @param path
-     * @return free space ...size ? sounds weird .. is it ?
-     */
     public static long checkFreeSpace(String path) {
         return new File(path).getFreeSpace();
     }
 
-    /**
-     * @return list of file(s) selected by user
-     */
     public static String chooseFiletoLoad() {
         LOGGER.debug("select file to Load");
         ArrayList<String> path = new ArrayList<>();
@@ -122,9 +99,6 @@ public class FileTools {
         //return (String[]) (path != null? (path.toArray(new String[path.size()])):  path);
     }
 
-    /**
-     * @return list of file(s) selected by user
-     */
     public static String[] chooseFilestoLoad() {
         LOGGER.debug("select file to Load");
         ArrayList<String> path = new ArrayList<>();
@@ -145,9 +119,6 @@ public class FileTools {
         //return (String[]) (path != null? (path.toArray(new String[path.size()])):  path);
     }
 
-    /**
-     * @return
-     */
     public static String chooseDirtoLoad() {
         LOGGER.debug("select folder to Load");
         String path;
@@ -164,11 +135,6 @@ public class FileTools {
         return path;
     }
 
-    /**
-     * Choose directories.
-     *
-     * @return list of paths to directories that was selected by user.
-     */
     public static String[] chooseDirsToLoad() {
         LOGGER.debug("select folder to Load");
         ArrayList<String> path = new ArrayList<>();
@@ -187,11 +153,6 @@ public class FileTools {
         return results;
     }
 
-    /**
-     * Choose file(s)/folder(s) by GUI
-     *
-     * @return list of file(s)/folder(s)
-     */
     public static String[] chooseItemsToLoad() {
         ArrayList<String> path = new ArrayList<>();
         JFileChooser fileChooser = new JFileChooser();
@@ -221,15 +182,6 @@ public class FileTools {
         return false;
     }
 
-    /**
-     * Copy file from one place to another
-     *
-     * @param sourceFile      as String
-     * @param destinationFile as String
-     * @param stats           responds for add information about result that will be
-     *                        displayed as summary
-     * @return true if file was copied.false otherwise
-     */
     public static boolean copyFile(String sourceFile, String destinationFile, Statistic stats) {
         LOGGER.debug("copy file from: " + sourceFile + " to " + destinationFile);
         try {
@@ -243,14 +195,6 @@ public class FileTools {
         }
     }
 
-    /**
-     * 1121	* Internal copy file method. 1122	* 1123
-     *
-     * @param srcFile  the validated source file, must not be {@code null} 1124
-     * @param destFile the validated destination file, must not be {@code null}
-     *                 1125
-     * @throws IOException if an error occurs 1127
-     */
     private static void doCopyFile(File srcFile, File destFile, Statistic stats) {
         LOGGER.debug("copy file from: " + srcFile + " to " + destFile);
         if (destFile.exists() && destFile.isDirectory()) {
@@ -346,15 +290,6 @@ public class FileTools {
         }
     }
 
-    /**
-     * Copies folder from one place to another
-     *
-     * @param sourceFolder      from path
-     * @param destinationFolder to path
-     * @param stats             responds for add information about result that will be
-     *                          displayed as summary
-     * @return true if folder was copied.false otherwise
-     */
     public static boolean copyFolder(File sourceFolder, File destinationFolder, Statistic stats) {
         LOGGER.debug("copying folder from: " + sourceFolder + " to " + destinationFolder);
         try {
@@ -402,12 +337,6 @@ public class FileTools {
         doCopyFile(srcFile, destFile, stats);
     }
 
-    /**
-     * Creates a file
-     *
-     * @param filePath
-     * @return true, if file was created ,false otherwise
-     */
     public static boolean createAFile(String filePath) {
         LOGGER.debug("create file in path:" + filePath);
         file = new File(filePath);
@@ -421,12 +350,6 @@ public class FileTools {
 
     //TODO improve this method
 
-    /**
-     * Creates path where zip file will be created.
-     *
-     * @param path path to backup folder
-     * @return path to zip file
-     */
     public static String createABackupZipPath(String path) {
         LOGGER.debug("creating path for backup(copressed in zip)");
         int year = Calendar.getInstance().get(Calendar.YEAR);
@@ -449,12 +372,6 @@ public class FileTools {
         return file.getAbsolutePath();
     }
 
-    /**
-     * Creates a backup directory
-     *
-     * @param path place where
-     * @return path where directory was created.
-     */
     public static String createABackupDirectory(String path) {
         LOGGER.debug("create backup folder" + path);
         int year = Calendar.getInstance().get(Calendar.YEAR);
@@ -493,19 +410,12 @@ public class FileTools {
         return path;
     }
 
-    /**
-     * @param filePath
-     * @return
-     */
     public static boolean createADirectory(String filePath) {
         file = new File(filePath);
         return file.mkdir();
     }
 
-    /**
-     * @param filePath
-     * @return
-     */
+
     public static boolean delete(String filePath) {
         file = new File(filePath);
         try {
@@ -516,10 +426,6 @@ public class FileTools {
         }
     }
 
-    /**
-     * @param path
-     * @return
-     */
     public static boolean isAFile(String path) {
         if (isFileExists(path)) {
             try {
@@ -533,10 +439,6 @@ public class FileTools {
         }
     }
 
-    /**
-     * @param path
-     * @return
-     */
     public static boolean isADirectory(String path) {
         if (isDirectoryExists(path)) {
             try {
@@ -566,10 +468,6 @@ public class FileTools {
 
     //TODO refactor this method    
 
-    /**
-     * @param filePath
-     * @return
-     */
     public static boolean isFileExists(String filePath) {
         try {
             file = new File(filePath);
@@ -579,10 +477,6 @@ public class FileTools {
         return file.isFile();
     }
 
-    /**
-     * @param filePath
-     * @return
-     */
     public static boolean isDirectoryExists(String filePath) {
         try {
             file = new File(filePath);
@@ -592,11 +486,6 @@ public class FileTools {
         return file.isDirectory();
     }
 
-    /**
-     * @param content
-     * @param file
-     * @return
-     */
     public static boolean saveListToFile(String[] content, String file) {
         BufferedWriter out = null;
         StringBuilder list = new StringBuilder();
@@ -621,13 +510,6 @@ public class FileTools {
         return true;
     }
 
-    /**
-     * Save text to file Based on version 1 from package
-     * dstools.file.saveStringToFile;
-     *
-     * @param text
-     * @param path2file
-     */
     public static boolean saveTextToFile(String text, String path2file) {
         LOGGER.debug("Saving text to file: " + path2file);
         file = new File(path2file);
@@ -667,12 +549,6 @@ public class FileTools {
         return true;
     }
 
-    /**
-     * @param whatPath
-     * @param fromPath
-     * @param file
-     * @return
-     */
     public static boolean replace(String whatPath, String fromPath, String file) {
         if (file != null) {
             delete(whatPath + System.getProperty("file.separator") + file);
@@ -695,9 +571,6 @@ public class FileTools {
 
     //TODO improve this method by better error messages and etc
 
-    /**
-     * Lock program,so it can be run once per time.
-     */
     public static void lock() {
         try {
             f = new File("program.lock");
@@ -718,14 +591,6 @@ public class FileTools {
         }
     }
 
-    /*
-     *
-     * Unlocking
-     */
-
-    /**
-     *
-     */
     public static void unlockFile() {
         try {
             if (lockFile != null) {
@@ -743,13 +608,6 @@ public class FileTools {
 
     //TODO IMPROVE THIS GARBAGE this method doesn't need a return ?
 
-    /**
-     * @param folderPath
-     * @param out
-     * @param results
-     * @param stats
-     * @return
-     */
     public static boolean zipFolder(String[] folderPath, ZipOutputStream out, StringBuilder results, Statistic stats) {
         if (folderPath == null) {
             stats.addErrorCount("Problem source file/folder found.Backup cancelled.");
@@ -771,12 +629,6 @@ public class FileTools {
         return true;
     }
 
-    /**
-     * @param path
-     * @param zos
-     * @param stats
-     * @return
-     */
     public static boolean zipFile(String path, ZipOutputStream zos, Statistic stats) {
         try {
             BufferedInputStream bis = new BufferedInputStream(new FileInputStream(new File(path)), 2048);
@@ -796,11 +648,6 @@ public class FileTools {
         return true;
     }
 
-    /**
-     * Creates source file
-     *
-     * @return path to source file (or null if any problems occur
-     */
     public static String createSourceFile(String ending) {
         LOGGER.debug("creating source file");
         String fileName = JOptionPane.showInputDialog(null, "Name of file:", "Create new source file", JOptionPane.INFORMATION_MESSAGE);

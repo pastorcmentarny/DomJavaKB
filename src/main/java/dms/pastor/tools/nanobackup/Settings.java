@@ -12,14 +12,12 @@ import java.io.IOException;
 import java.util.Properties;
 
 /**
- * @author Dominik Symonowicz
- * <p>
- * Settings managment.
- * <p>
- * <p>
- * To add new setting you need: * Create variable * add setters , getters and
- * set default method * add below code to validate and save properties * add
- * below code to set settings * (optional) add display current settings
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public final class Settings {
 
@@ -105,9 +103,6 @@ public final class Settings {
         }
     }
 
-    /**
-     * @return
-     */
     public static synchronized Settings getSettings() {
         if (settings == null) {
             settings = new Settings();
@@ -133,32 +128,20 @@ public final class Settings {
         this.saveResultsToFile = saveResultsToFile;
     }
 
-    /**
-     * @return
-     */
+
     public boolean isSaveAsZip() {
         return saveAsZip;
     }
 
-    /**
-     * Sets setting save as zip
-     *
-     * @param saveAsZip true
-     */
     public void setSaveAsZip(boolean saveAsZip) {
         this.saveAsZip = saveAsZip;
     }
 
-    /**
-     * Sets default setting "about save as zip"
-     */
     public void setDefaultSaveAsZip() {
         setSaveAsZip(false);
     }
 
-    /**
-     * @return
-     */
+
     public String getNonQuickPath() {
         if (nonQuickPath == null) {
             return getSourceFilePath();
@@ -168,9 +151,6 @@ public final class Settings {
 
     }
 
-    /**
-     * @param nonQuickPath
-     */
     public void setNonQuickPath(String nonQuickPath) {
         this.nonQuickPath = nonQuickPath;
     }
@@ -180,83 +160,50 @@ public final class Settings {
         throw new CloneNotSupportedException();
     }
 
-    /**
-     * @return
-     */
     public boolean isConfirmOnExit() {
         return confirmOnExit;
     }
 
-    /**
-     * @param confirmOnExit true if dialog will appear to confirm to exit
-     */
     public void setConfirmOnExit(boolean confirmOnExit) {
         this.confirmOnExit = confirmOnExit;
     }
 
-
-    /**
-     *
-     */
     public void setDefaultConfirmOnExit() {
         setConfirmOnExit(false);
     }
 
-    /**
-     * @return true, if program exits after backup.False,otherwise.
-     */
+
     public boolean isExitAfterBackup() {
         return exitAfterBackup;
     }
 
-    /**
-     * @param exitAfterBackup true if program will exits after backup,false
-     *                        otherwise
-     */
+
     public void setExitAfterBackup(boolean exitAfterBackup) {
         this.exitAfterBackup = exitAfterBackup;
         //saveSettings();
     }
 
-    /**
-     *
-     */
     public void setDefaultExitAfterBackup() {
         setExitAfterBackup(false);
     }
 
-    /**
-     * @return true if source file will be deleted after backup
-     */
     public boolean isDeleteSourceAfterBackup() {
         return deleteSourceAfterBackup;
     }
 
-    /**
-     * @param deleteSourceAfterBackup Deletes source
-     */
     public void setDeleteSourceAfterBackup(boolean deleteSourceAfterBackup) {
         this.deleteSourceAfterBackup = deleteSourceAfterBackup;
     }
 
-    /**
-     *
-     */
     public void setDefaultDeleteSourceAfterBackup() {
         setDeleteSourceAfterBackup(false);
     }
 
-    /**
-     * @return true if quick backup mode is actived
-     */
     public boolean isQuickBackup() {
         return quickBackup;
     }
 
-    /**
-     * @param quickBackup true/false if quick backup will be
-     *                    activated/deactivated
-     */
+
     public void setQuickBackup(boolean quickBackup) {
         this.quickBackup = quickBackup;
 
@@ -283,9 +230,7 @@ public final class Settings {
         this.destinationFolderPath = destinationFolderPath;
     }
 
-    /**
-     *
-     */
+
     public void setDefaultDestinationFolderPath() {
         setDestinationFolderPath(DEFAULTPATH + "Backupfolder");
     }
@@ -459,16 +404,13 @@ public final class Settings {
         properties.setProperty("settings.checkFreeSpaceBeforeBackup", String.valueOf(isCheckFreeSpaceBeforeBackup()));
         properties.setProperty("settings.saveResultsToFile", String.valueOf(isSaveResultsToFile()));
         properties.setProperty("settings.speedLightMode", String.valueOf(isSpeedLightMode()));
-        properties.setProperty("settings.saveAsCrypted", String.valueOf(isSaveAsCrypted()));
+        properties.setProperty("settings.saveAsEncrypted", String.valueOf(isSaveAsEncrypted()));
         properties.setProperty("settings.cpuPriority", String.valueOf(getCpuPriority()));
         if (withSave) {
             saveProperties();
         }
     }
 
-    /**
-     * sets settings in program read from file
-     */
     public void setSettings() {
         setConfirmOnExit(Boolean.parseBoolean(properties.getProperty("settings.confirmOnExit")));
         setDeleteSourceAfterBackup(Boolean.parseBoolean(properties.getProperty("settings.deleteSourceAfterBackup")));
@@ -482,14 +424,10 @@ public final class Settings {
         setSaveResultsToFile(Boolean.parseBoolean(properties.getProperty("settings.saveResultsToFile")));
         setCheckFreeSpaceBeforeBackup(Boolean.parseBoolean(properties.getProperty("settings.checkFreeSpaceBeforeBackup")));
         setSpeedLightMode(Boolean.parseBoolean(properties.getProperty("settings.speedLightMode")));
-        setSaveAsCrypted(Boolean.parseBoolean(properties.getProperty("settings.saveAsCrypted")));
+        setSaveAsEncrypted(Boolean.parseBoolean(properties.getProperty("settings.saveAsEncrypted")));
         setCpuPriority(Integer.parseInt(properties.getProperty("settings.cpuPriority")));
     }
 
-    /**
-     * @param where
-     * @return
-     */
     public String displayCurrentSettings(String where) {
         StringBuilder displaySettingsStatus = new StringBuilder();
         displaySettingsStatus.append("\n~~~~Settings Status~~~~\n").append(SETTINGSPATH);
@@ -502,7 +440,7 @@ public final class Settings {
         displaySettingsStatus.append("\nDestinationFolderPath: ").append(getDestinationFolderPath());
         displaySettingsStatus.append("\nHappyMode:").append(isHappyMode());
         displaySettingsStatus.append("\nSave Backup as zip:").append(isSaveAsZip());
-        displaySettingsStatus.append("\nSave paranoid encrypted zip Backup :").append(isSaveAsCrypted());
+        displaySettingsStatus.append("\nSave paranoid encrypted zip Backup :").append(isSaveAsEncrypted());
         displaySettingsStatus.append("\nSave results to file:").append(isSaveResultsToFile());
         displaySettingsStatus.append("\nCheck free space before backup:").append(isCheckFreeSpaceBeforeBackup());
         displaySettingsStatus.append("\nLight Speed Mode:").append(isSpeedLightMode());
@@ -510,12 +448,6 @@ public final class Settings {
         return displaySettingsStatus.toString();
     }
 
-    /**
-     * Creates default settings from scratch
-     *
-     * @return true if settings are created without problems.False if it was
-     * impossible to create file with settings
-     */
     public boolean createDefaultSettings() {
         LOGGER.debug("creating new settings file");
         //recreate settings.properties 
@@ -541,16 +473,12 @@ public final class Settings {
         setDefaultSaveResultsToFile();
         setDefaultCheckFreeSpaceBeforeBackup();
         setDefaultSpeedLightMode();
-        setDefaultSaveAsCrypted();
+        setDefaultSaveAsEncrypted();
         setDefaultCpuPriority();
         saveProperties();
         return true;
     }
 
-    /**
-     * Validates settings and set defaults if are not valid and saves settings
-     * in the end
-     */
     public void validateProperties(boolean withSave) {
         String temp;
 
@@ -615,10 +543,10 @@ public final class Settings {
             properties.setProperty("settings.checkFreeSpaceBeforeBackup", String.valueOf(isCheckFreeSpaceBeforeBackup()));
         }
 
-        temp = properties.getProperty("settings.saveAsCrypted");
+        temp = properties.getProperty("settings.saveAsEncrypted");
         if (temp == null) {
-            setDefaultSaveAsCrypted();
-            properties.setProperty("settings.saveAsCrypted", String.valueOf(isSaveAsCrypted()));
+            setDefaultSaveAsEncrypted();
+            properties.setProperty("settings.saveAsEncrypted", String.valueOf(isSaveAsEncrypted()));
         }
 
         temp = properties.getProperty("settings.cpuPriority");
@@ -645,11 +573,6 @@ public final class Settings {
 
     //TODO implement is shutdownAfterBackup
 
-    /**
-     * NOT IMPLEMENT YET
-     *
-     * @return false, because is not implement yet.
-     */
     public boolean isShutdownAfterBackup() {
         return shutdownAfterBackup;
     }
@@ -666,18 +589,16 @@ public final class Settings {
         setSpeedLightMode(false);
     }
 
-
-    public boolean isSaveAsCrypted() {
+    public boolean isSaveAsEncrypted() {
         return crypted;
-
     }
 
-    public void setSaveAsCrypted(boolean crypted) {
+    public void setSaveAsEncrypted(boolean crypted) {
         this.crypted = crypted;
     }
 
-    public void setDefaultSaveAsCrypted() {
-        setSaveAsCrypted(false);
+    public void setDefaultSaveAsEncrypted() {
+        setSaveAsEncrypted(false);
     }
 
     public int getCpuPriority() {
@@ -688,9 +609,6 @@ public final class Settings {
         this.cpuPriority = cpuPriority;
     }
 
-    /**
-     * @return priority for backup (normal priority if number is odd
-     */
     public int getPriorityForBackup() {
 
         switch (cpuPriority) {

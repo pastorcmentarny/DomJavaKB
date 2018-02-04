@@ -18,19 +18,19 @@ public class ThunderBallDraw {
     private final int ball3;
     private final int ball4;
     private final int ball5;
-    private final int thunderball;
+    private final int thunderBall;
     private final String ballSet;
     private final String machine;
     private final int drawNumber;
 
-    public ThunderBallDraw(LocalDate drawDate, int ball1, int ball2, int ball3, int ball4, int ball5, int thunderball, String ballSet, String machine, int drawNumber) {
+    public ThunderBallDraw(LocalDate drawDate, int ball1, int ball2, int ball3, int ball4, int ball5, int thunderBall, String ballSet, String machine, int drawNumber) {
         DrawDate = drawDate;
         this.ball1 = ball1;
         this.ball2 = ball2;
         this.ball3 = ball3;
         this.ball4 = ball4;
         this.ball5 = ball5;
-        this.thunderball = thunderball;
+        this.thunderBall = thunderBall;
         this.ballSet = ballSet;
         this.machine = machine;
         this.drawNumber = drawNumber;
@@ -60,8 +60,8 @@ public class ThunderBallDraw {
         return ball5;
     }
 
-    public int getThunderball() {
-        return thunderball;
+    public int getThunderBall() {
+        return thunderBall;
     }
 
     public String getBallSet() {

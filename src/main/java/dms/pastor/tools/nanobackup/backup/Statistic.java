@@ -1,15 +1,16 @@
 package dms.pastor.tools.nanobackup.backup;
 
 import java.util.Calendar;
-//
+
 
 /**
- * Statistic.java
- * this class shows time statistic
- *
- * @author dominik symonowicz
- * <p>
- * Created on 2010-02-17, 01:36:09
+ * Author Dominik Symonowicz
+ * Created: 2010-02-17 at 01:36:09
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class Statistic {
 
@@ -24,36 +25,20 @@ public class Statistic {
     private String backupSize = "";
     private String backupType;
 
-    /**
-     * starts stopwatch for backup task
-     */
     public void start() {
         taskFinish = 0;
         sizeCopied = 0;
         taskStart = Calendar.getInstance().getTimeInMillis();
     }
 
-    /**
-     * calucates total time spent on backup
-     *
-     * @return time
-     */
     public long calcTotalTime() {
         return taskFinish - taskStart;
     }
 
-    /**
-     * stops stopwatch for backup task
-     */
     public void stop() {
         taskFinish = Calendar.getInstance().getTimeInMillis();
     }
 
-    /**
-     * Displays results
-     *
-     * @return results text
-     */
     public String display() {
         int days;
         int hours;
@@ -74,7 +59,7 @@ public class Statistic {
         result.append(" minutes and ").append(seconds).append(" seconds.");
         result.append("\nBackupType: ").append(backupType);
         result.append("\nFiles copied: ").append(fileCopied);
-        result.append("\nErros: ").append(error);
+        result.append("\nErrors: ").append(error);
         if (!backupSize.equals("")) {
             result.append("\nBackup size: ").append(backupSize);
         }
@@ -84,28 +69,15 @@ public class Statistic {
         return result.toString();
     }
 
-    /**
-     * add
-     *
-     * @param filesNumber
-     */
     public void addFileCopied(int filesNumber) {
         fileCopied += filesNumber;
     }
 
-    /**
-     * adds error message ' to error messages list '
-     *
-     * @param errormsg
-     */
-    public void addErrorCount(String errormsg) {
+    public void addErrorCount(String errors) {
         error++;
-        errorMsgList += errormsg;
+        errorMsgList += errors;
     }
 
-    /**
-     * resets counter for backup
-     */
     public void resetStats() {
         fileCopied = 0;
         sizeCopied = 0;
@@ -116,11 +88,6 @@ public class Statistic {
         backupSize = "";
     }
 
-    /**
-     * adds size of backup to result message
-     *
-     * @param backupSize
-     */
     public void addSizeOfBackup(String backupSize) {
         this.backupSize = backupSize;
     }

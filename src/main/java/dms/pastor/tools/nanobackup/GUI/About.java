@@ -14,11 +14,13 @@ import java.net.URI;
 import java.util.Properties;
 
 /**
- * About window where are displayed information about me, program, changelog, eula and thanks
- *
- * @author dominik symonowicz
- * <p>
- * Created on 2009-10-31, 17:59:32
+ * Author Dominik Symonowicz
+ * Created: 2009-10-31 at17:59:32
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class About extends javax.swing.JFrame {
 

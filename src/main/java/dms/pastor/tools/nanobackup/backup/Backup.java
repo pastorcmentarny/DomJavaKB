@@ -21,25 +21,27 @@ import java.io.File;
 import java.util.Collection;
 import java.util.concurrent.*;
 
+import static java.awt.Color.DARK_GRAY;
+
 /**
- * This class is responds for performing backup.That's i hope explained tricky
- * name of this class.
- *
- * @author Dominik Symonowicz Created at 08.11'2011
+ * Author Dominik Symonowicz
+ * Created: 08.11'2011
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class Backup extends AbstractTools {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Backup.class);
     private static Backup backup;
-    /**
-     *
-     */
+
     public Engine utilities = new Engine();
     JFrame BackupTaskFrame;
     private boolean inProgress = false;
     private Thread backupThread;
     private UpdateInfo updateInfo;
-    //private static final Logger LOGGER = LoggerFactory.getLogger( log = Logger.getLogger(Backup.class);
     private StringBuilder results;
     private ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
     private Statistic stats = new Statistic();
@@ -49,9 +51,6 @@ public class Backup extends AbstractTools {
         //loadSettings();
     }
 
-    /**
-     * @return
-     */
     public static synchronized Backup getBackup() {
         if (backup == null) {
             backup = new Backup();
@@ -69,20 +68,11 @@ public class Backup extends AbstractTools {
         return inProgress;
     }
 
-    /**
-     * Create Backup GUI for BackupTask
-     *
-     * @param sources     - list of items to backup
-     * @param destination - path for backup folder
-     * @param GUIFrame    - Main program window (to make invisible during backup
-     *                    process,to avoid multibackup process
-     */
     public void backupGUI(final String[] sources, final String destination, final JFrame GUIFrame) {
 
         GUIFrame.setVisible(false);
 
         BackupTaskFrame = new JFrame("Backup");
-
 
         JPanel innerPanel = new JPanel();
         innerPanel.setSize(Settings.getDimensionFor("backupGUI"));
@@ -141,8 +131,6 @@ public class Backup extends AbstractTools {
                 GUIFrame.setVisible(true);
                 killBackupThread();
                 inProgress = false;
-
-
             }
 
             public void windowClosed(WindowEvent windowEvent) {
@@ -203,13 +191,6 @@ public class Backup extends AbstractTools {
         return doClassicBackup(srcList, destination, null);
     }
 
-    /**
-     * Performs normal uncompressed backup
-     *
-     * @param sources
-     * @param destination
-     * @return result summary of backup
-     */
     public String doClassicBackup(String[] sources, String destination, JTextArea info) {
         LOGGER.info("performing backup(plain)");
         updateInfoText(info, "Start performig backup");
@@ -221,7 +202,6 @@ public class Backup extends AbstractTools {
         stats.start();
         updateInfoText(info, Messenger.BACKUP_IN_PROGRESS + Messenger.CREATING_BACKUP_DIR);
         LOGGER.debug(Messenger.CREATING_BACKUP_DIR);
-
 
         destinationDir = FileTools.createABackupDirectory(destination);
         if (destinationDir == null) {
@@ -244,7 +224,7 @@ public class Backup extends AbstractTools {
                     results.append("\n").append(infoMsg);
                     log.debug(infoMsg);
                 } else {
-                    String infoMsg = Messenger.UNABLED_TO_COPY + sources[i];
+                    String infoMsg = Messenger.UNABLE_TO_COPY + sources[i];
                     updateInfoText(info, infoMsg);
                     results.append("\n").append(infoMsg);
                     log.debug(infoMsg);
@@ -258,7 +238,7 @@ public class Backup extends AbstractTools {
                     results.append("\n").append(infoMsg);
                     log.debug(infoMsg);
                 } else {
-                    String infoMsg = Messenger.UNABLED_TO_COPY + sources[i];
+                    String infoMsg = Messenger.UNABLE_TO_COPY + sources[i];
                     updateInfoText(info, infoMsg);
                     results.append("\n").append(infoMsg);
                     log.debug(infoMsg);
@@ -319,10 +299,10 @@ public class Backup extends AbstractTools {
     public boolean precheck(String[] sources, String destination, JFrame BackupTaskFrame, JTextArea info) {
         LOGGER.info("performing precheck ...");
         LOGGER.debug("precheck: check sources ...");
-        updateInfoText(info, Messenger.PRECHECK + Messenger.REMOVE_DUPLICATES);
+        updateInfoText(info, Messenger.PRE_CHECK + Messenger.REMOVE_DUPLICATES);
         sources = TaskUtils.removeDuplicateLines(sources);
 
-        updateInfoText(info, Messenger.PRECHECK + Messenger.REMOVE_NONEXIST_ITEMS);
+        updateInfoText(info, Messenger.PRE_CHECK + Messenger.REMOVING_NON_EXIST_ITEMS);
         sources = TaskUtils.removeNonExistsItems(sources);
 
         if (sources == null) {
@@ -335,7 +315,7 @@ public class Backup extends AbstractTools {
 
 
         LOGGER.debug("precheck: check destination folder ...");
-        updateInfoText(info, Messenger.PRECHECK + Messenger.DESTINATION_PATH_CHECK);
+        updateInfoText(info, Messenger.PRE_CHECK + Messenger.DESTINATION_PATH_CHECK);
         if (!FileTools.isADirectory(destination)) {
             JOptionPane.showConfirmDialog(null, "Destination path is not a folder.Please correct it.!", "WOOPS", JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE);
             LOGGER.info("Path to destination folder is incorrect");
@@ -347,7 +327,7 @@ public class Backup extends AbstractTools {
 
 
         if (settings.isCheckFreeSpaceBeforeBackup() || !settings.isSpeedLightMode()) {
-            updateInfoText(info, Messenger.PRECHECK + Messenger.ENOUGH_SPACE_CHECK);
+            updateInfoText(info, Messenger.PRE_CHECK + Messenger.ENOUGH_SPACE_CHECK);
             LOGGER.debug("precheck: check is it enough space for backup...");
             if (!FileTools.checkEnoughSpace(stats, sources, destination)) {
                 JOptionPane.showConfirmDialog(null, "The is not enough space on device where destination folder is :(.", "WOOPS", JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE);
@@ -361,7 +341,7 @@ public class Backup extends AbstractTools {
         } else {
             LOGGER.debug("Free space check skipped.");
         }
-        updateAll(info, false, false, Messenger.PRECHECK_COMPLETED);
+        updateAll(info, false, false, Messenger.PRE_CHECK_COMPLETED);
         return true;
     }
 
@@ -394,10 +374,7 @@ public class Backup extends AbstractTools {
 
     private void updateInfoText(JTextArea info, String message) {
         if (info != null) {
-            /*
-             * This if statement prevent raise error:
-             * "Exception in thread "backup" java.lang.Error: Interrupted attempt to aquire write lock"
-             */
+
             //TODO test this solution
             if (backupThread != null) {
                 info.setText(info.getText() + "\n" + message);
@@ -415,11 +392,6 @@ public class Backup extends AbstractTools {
         }
     }
 
-    /**
-     * Performs backup task (choose right backup and perform tasks required by
-     * user (like delete source after backup,switch off program or OS after
-     * backup
-     */
     private class BackupTask implements Runnable {
 
         private final String dest;
@@ -479,14 +451,6 @@ public class Backup extends AbstractTools {
             activateHappyModeForBackup();
             String domJobTemp = null;
 
-            //TODOUncomment (and modify) when dom mode will be reimplemented
-            /*
-             * domJobTemp = Settings.getDomJob(1); if (Settings.getDomJob(1) !=
-             * null) { info.setText("Task: before Backup Job in progress");
-             * TaskUtils.doJob(Settings.getDomJob(1)); }
-             *
-             */
-
             String results = "";
             try {
                 results = performBackup();
@@ -496,23 +460,13 @@ public class Backup extends AbstractTools {
             } finally {
                 inProgress = false;
             }
-            /*
-             *
-             * domJobTemp = Settings.getDomJob(2); if (domJobTemp != null) {
-             * info.setText("Task: after Backup Job in progress");
-             * TaskUtils.doJob(Settings.getDomJob(2)); }
-             *
-             */
 
             deleteSourceAfterBackup();
 
             saveResultsToFile(results);
             bar.setIndeterminate(false);
 
-            //Tools.shutdownComputerOnRequest();
-
             Tools.exitProgramOnRequest();
-
 
             try {
                 if (!scheduler.isShutdown() && scheduler != null) {
@@ -525,19 +479,14 @@ public class Backup extends AbstractTools {
                 updateInfo = null;
             }
 
-            info.setForeground(Color.DARK_GRAY);
+            info.setForeground(DARK_GRAY);
             updateInfoText(info, results);
 
             return true; //TODO reimplement rhi
         }
 
-        /**
-         * Performs backup and send result information
-         *
-         * @return result information
-         */
         private String performBackup() {
-            if (settings.isSaveAsCrypted()) {
+            if (settings.isSaveAsEncrypted()) {
                 throw new NotImplementYetException();
             } else if (settings.isSaveAsZip()) {
                 throw new NotImplementYetException();
@@ -546,9 +495,6 @@ public class Backup extends AbstractTools {
             }
         }
 
-        /**
-         * Program deletes source after backup
-         */
         private void deleteSourceAfterBackup() {
 
             if (settings.isDeleteSourceAfterBackup()) {
@@ -567,10 +513,6 @@ public class Backup extends AbstractTools {
             }
         }
 
-        /**
-         * Activates Happy Mode during backup (only when happymode is selected
-         * and speed light mode is disabled
-         */
         private void activateHappyModeForBackup() {
             if (settings.isHappyMode() && !settings.isSpeedLightMode()) {
                 LOGGER.debug("HappyMode is active");
@@ -591,11 +533,6 @@ public class Backup extends AbstractTools {
             }
         }
 
-        /**
-         * Saves results (all logs that was displayed during backup into file
-         *
-         * @param results contains all logs that was displayed during backup
-         */
         private void saveResultsToFile(String results) {
             if (!inProgress && settings.isSaveResultsToFile()) {
                 LOGGER.debug("saving  results to file");

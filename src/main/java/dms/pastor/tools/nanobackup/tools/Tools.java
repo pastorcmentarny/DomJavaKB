@@ -16,8 +16,13 @@ import java.util.Locale;
 import java.util.Random;
 
 /**
- * @author Dominik Symonowicz ( dominik.symonowicz@thebookpeople.co.uk )
- * 01-Feb-2012 09:42:43 UTF-8
+ * Author Dominik Symonowicz
+ * Created: 01-Feb-2012 09:42:43
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class Tools {
     public static final String EMPTY = "";
@@ -46,11 +51,6 @@ public class Tools {
         return temp;
     }
 
-    /**
-     * Gives currect time in format yyyyMMdd-HHmm
-     *
-     * @return date with time
-     */
     public static String getCurrentTime() {
         String temp;
         Date date = new Date();
@@ -88,21 +88,11 @@ public class Tools {
         }
     }
 
-    /**
-     * Generate random color.
-     *
-     * @return Random dark color
-     */
     public static Color getRandomColor() {
         Random rrgb = new Random();
         return new Color(rrgb.nextInt(128), rrgb.nextInt(128), rrgb.nextInt(128));
     }
 
-    /**
-     * Changes status to Warning,if is not
-     *
-     * @param result status
-     */
     public static void changeToYelloStatus(List<String> result) {
         if (!result.get(0).equalsIgnoreCase("ERROR")) {
             result.set(0, "WARNING");
@@ -149,12 +139,6 @@ public class Tools {
             charArray[j] = i;
     }
 
-    /**
-     * based from StringUtils.java and belong to
-     *
-     * @param string
-     * @return
-     */
     public static String nullFreeString(String string) {
         return string == null ? EMPTY : string;
     }

@@ -7,10 +7,12 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * @author Pastor
- * @created 02.11.2011
- * <p>
- * It displays random message during perform backup task.
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class UpdateInfo implements Runnable {
     Backup outer;
@@ -20,14 +22,6 @@ public class UpdateInfo implements Runnable {
 
     //TODO solve problem with using , Backup outer because of issue with GUI
 
-    /**
-     * Selecting random message and diplay on backup GUI
-     *
-     * @param label place where message is displayed
-     * @param outer no idea why Engine class need be sent as parameter here,but i don't want argue with netbeans.
-     *              <p>
-     *              For some unknown reason i need use Engine as parameter to make it works.
-     */
     public UpdateInfo(JTextArea label, Backup outer) {
         this.outer = outer;
         lolText = fillText(lolText);
@@ -50,10 +44,10 @@ public class UpdateInfo implements Runnable {
         lolText.add("(Backup in progress)\n This can take Eon rarely.");
         lolText.add("(Backup in progress)\n It is quite big one.Is it?");
         lolText.add("(Backup in progress)\n How are you today?\nHow feel your parents?\nIs your pets are healthy?\nDo not answer on above questions.This program doesn't  care and doesn't even listen you.");
-        lolText.add("(Backup in progress)\n Advertisment:\n\n If you feel bored,see my irony caricature of homepage: http://pastor.ovh.org/ .\n\nEnd of crap Advertisment.");
+        lolText.add("(Backup in progress)\n Advertisement:\n\n If you feel bored,see my irony caricature of homepage: http://pastor.ovh.org/ .\n\nEnd of crap Advertisement.");
         lolText.add("(Backup in progress)\n No. I am not planning implement show % progress  ");
-        lolText.add("(Backup in progress)\n Are you trying beat Guiness recond in biggest and longest backup ever ???");
-        lolText.add("(Backup in progress)\n What are you bakuping ?\n All porn websites with movies or what?");
+        lolText.add("(Backup in progress)\n Are you trying beat Guinness record in biggest and longest backup ever ???");
+        lolText.add("(Backup in progress)\n What are you backup ?\n All porn websites with movies or what?");
         lolText.add("(Backup in progress)\n Are you doing backup of whole internet ???");
         lolText.add("(Backup in progress)\n Why you still looking here?\n This message will not replace your social (real & virtual) life.");
         lolText.add("(Backup in progress)\n I feel bored with doing backup of your stuff.I really do.");
