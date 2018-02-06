@@ -46,10 +46,11 @@ class FirstPrimeFinder {
     }
 
     private boolean isSingleNumberAPrimeNumber(int[] numbers) {
-        if (numbers.length == 1) {
-            return isPrime(numbers[0]);
-        }
-        return false;
+        return isSizeOfOne(numbers) && isPrime(numbers[0]);
+    }
+
+    private boolean isSizeOfOne(int[] numbers) {
+        return numbers.length == 1;
     }
 
     private void validateInput(int[] numbers) {
