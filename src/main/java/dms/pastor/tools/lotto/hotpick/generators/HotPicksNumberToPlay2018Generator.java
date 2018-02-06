@@ -40,7 +40,9 @@ public class HotPicksNumberToPlay2018Generator extends NumbersToPlayGenerator {
     public NumberToPlayResult generateNumbersToPlay() {
         HotPicksAnalyser analyser = new HotPicksAnalyser(hotPickDrawList);
         analyser.countBallDrawn(); //TODO fix it as now this line is required to make analyser work
+        System.out.println(analyser.countBallDrawn());
         int leastDrawnNumber = analyser.findLeastDrawnNumber();
+
         int[] ballsDrawnLeastTimes = analyser.getBallsThatWasDrawn(leastDrawnNumber);
         System.out.println("Least drawn number is " + leastDrawnNumber + " and these number was drawn that times " + ToStringUtils.toString(ballsDrawnLeastTimes, " "));
 
@@ -54,10 +56,12 @@ public class HotPicksNumberToPlay2018Generator extends NumbersToPlayGenerator {
         //generate all couples played
         Set<Couple> playedCouples = leastPlayedCoupleFinder.generateCouplesFromDraws(hotPickDrawList);
         remainingCouples = deleteDiscardedCouples(remainingCouples, playedCouples);
+        System.out.println(remainingCouples);
 
         //remove all couples that do not contain remainingNumbers
         remainingCouples = removeAllCouplesThatDoNotContainsNumbers(remainingCouples, ballsDrawnLeastTimes);
         remainingCouples = removeAllCouplesThatDoNotContainsNumbers(remainingCouples, numbersPlayed);
+        System.out.println(remainingCouples);
 
         int[] ints = ArrayUtils.subtractIntArray(ballsDrawnLeastTimes, numbersPlayed);
 

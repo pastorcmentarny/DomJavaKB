@@ -235,61 +235,30 @@ public final class Settings {
         setDestinationFolderPath(DEFAULTPATH + "Backupfolder");
     }
 
-    /**
-     * Gets source file
-     *
-     * @return path to source file
-     */
     public String getSourceFilePath() {
         return sourceFilePath;
     }
 
-    /**
-     * Sets source file
-     *
-     * @param sourceFilePath
-     */
     public void setSourceFilePath(String sourceFilePath) {
         this.sourceFilePath = sourceFilePath;
     }
 
-    /**
-     * Sets default source file
-     */
     public void setDefaultSourceFilePath() {
         setSourceFilePath(DEFAULTPATH + "filesToBackup.txt");
     }
 
-    /**
-     * Check,if happy mode is sets
-     *
-     * @return
-     */
     public boolean isHappyMode() {
         return happyMode;
     }
 
-    /**
-     * Sets happy mode
-     *
-     * @param happyMode
-     */
     public void setHappyMode(boolean happyMode) {
         this.happyMode = happyMode;
     }
 
-    /**
-     * Sets default happy mode
-     */
     public void setDefaultHappyMode() {
         happyMode = true;
     }
 
-    /**
-     * Saves settings to file.
-     *
-     * @return true if settings was saved, false if was any problem.
-     */
     public boolean saveProperties() {
         FileOutputStream fos = null;
         try {
@@ -304,11 +273,6 @@ public final class Settings {
         }
     }
 
-    /**
-     * Saves settings to file.
-     *
-     * @return true if settings was saved, false if was any problem.
-     */
     public boolean saveSettings() {
 
         if (!FileTools.isFileExists(SETTINGSPATH)) {
@@ -328,11 +292,6 @@ public final class Settings {
         return true;
     }
 
-    /**
-     * Saves settings to file.
-     *
-     * @return true if settings was saved, false if was any problem.
-     */
     public String saveSettingsWithDestSelection() {
         String path = FileTools.createSourceFile(Settings.SETTINGS_FILE_ENDING);
         if (!FileTools.isFileExists(path)) {

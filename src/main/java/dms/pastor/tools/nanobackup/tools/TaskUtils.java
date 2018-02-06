@@ -35,12 +35,6 @@ public class TaskUtils {
         return singles.toArray(new String[singles.size()]);
     }
 
-    /**
-     * Clears source list from non existing entries (folder / file )
-     *
-     * @param sources
-     * @return clean list of files/folder that exists.
-     */
     public static String[] removeNonExistsItems(String[] sources) {
         LOGGER.debug("Cleaning items list from non exists elements...");
         ArrayList<String> clearedList = new ArrayList<>();
@@ -76,12 +70,6 @@ public class TaskUtils {
         return true;
     }
 
-    /**
-     * Performs some tasks
-     *
-     * @param jobsPath
-     * @return
-     */
     public static boolean doJob(String jobsPath) {
         Properties job = new Properties();
         FileInputStream fis = null;

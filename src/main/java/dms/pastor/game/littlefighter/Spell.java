@@ -27,24 +27,12 @@ public class Spell extends javax.swing.JFrame {
     Enemy enemy;
     SpellBook spell;
     JTextArea console;
-    /**
-     * public static void main(String args[]) {
-     * java.awt.EventQueue.invokeLater(new Runnable() {
-     * public void run() {
-     * new Spell().setVisible(true);
-     * }
-     * });
-     * }
-     */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton InfoSpell;
     private javax.swing.JButton VampireAttack;
     private javax.swing.JButton increaseAttackSpell;
 
-    /**
-     * @param args the command line arguments
-     */
     private javax.swing.JButton increaseSheldRegenSpell;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
