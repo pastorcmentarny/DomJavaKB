@@ -12,7 +12,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.swing.*;
-import javax.swing.filechooser.FileFilter;
 import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
@@ -101,18 +100,8 @@ public class Engine extends AbstractTools {
         String path;
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        FileFilter fileFilter = new FileFilter() {
-
-            public boolean accept(File file) {
-                return file.getName().toLowerCase().endsWith(".txt") || file.isDirectory();
-            }
-
-            @Override
-            public String getDescription() {
-                return "text file only";
-            }
-        };
-        fileChooser.setFileFilter(fileFilter);
+        TextFileFilter textFileFilter = new TextFileFilter();
+        fileChooser.setFileFilter(textFileFilter);
 
         int returnVal = fileChooser.showOpenDialog(null);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
@@ -305,5 +294,17 @@ public class Engine extends AbstractTools {
             return null;
         }
         return srcList;
+    }
+
+    private static class TextFileFilter extends javax.swing.filechooser.FileFilter {
+
+        public boolean accept(File file) {
+            return file.getName().toLowerCase().endsWith(".txt") || file.isDirectory();
+        }
+
+        @Override
+        public String getDescription() {
+            return "text file only";
+        }
     }
 }

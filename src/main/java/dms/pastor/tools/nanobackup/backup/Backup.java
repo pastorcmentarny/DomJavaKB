@@ -79,13 +79,7 @@ public class Backup extends AbstractTools {
         final JProgressBar progressBar = new JProgressBar();
         progressBar.setIndeterminate(false);
         progressBar.setSize(500, 80);
-        progressBar.addMouseListener(new java.awt.event.MouseAdapter() {
-
-            @Override
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Tools.showStatus(new String[0]);
-            }
-        });
+        progressBar.addMouseListener(new ShowStatusMouseAdapter());
         BackupTaskFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         BackupTaskFrame.setTitle("Backup Task");
         BackupTaskFrame.setSize(500, 240);
@@ -389,6 +383,14 @@ public class Backup extends AbstractTools {
             int filesNumber = counter.size();
             LOGGER.debug("\nItems copied: " + filesNumber);
             stats.addFileCopied(filesNumber);
+        }
+    }
+
+    private static class ShowStatusMouseAdapter extends java.awt.event.MouseAdapter {
+
+        @Override
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            Tools.showStatus(new String[0]);
         }
     }
 
