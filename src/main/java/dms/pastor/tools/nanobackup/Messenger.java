@@ -1,6 +1,5 @@
 package dms.pastor.tools.nanobackup;
 
-import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -36,16 +35,12 @@ public class Messenger {
     private boolean missingMessageFile = false;
 
     public Messenger() {
-        FileInputStream fis = null;
-        try {
-            fis = new FileInputStream(PATH);
+        try (FileInputStream fis = new FileInputStream(PATH)) {
             properties.load(fis);
             missingMessageFile = false;
         } catch (Exception ex) {
             LOGGER.debug("It was problem with message.properties because " + ex.getMessage());
             missingMessageFile = true;
-        } finally {
-            IOUtils.closeQuietly(fis);
         }
     }
 

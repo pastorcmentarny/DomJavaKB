@@ -1,7 +1,6 @@
 package dms.pastor.tools.nanobackup.tools;
 
 import dms.pastor.tools.nanobackup.Settings;
-import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -72,9 +71,7 @@ public class TaskUtils {
 
     public static boolean doJob(String jobsPath) {
         Properties job = new Properties();
-        FileInputStream fis = null;
-        try {
-            fis = new FileInputStream(jobsPath);
+        try (FileInputStream fis = new FileInputStream(jobsPath)) {
             job.load(fis);
             int size = Integer.parseInt(job.getProperty("tasks.size"));
             for (int i = 1; i <= size; i++) {
@@ -101,8 +98,6 @@ public class TaskUtils {
         } catch (Exception e) {
             LOGGER.error("Something went wrong.\n" + e.getCause() + "\n" + e.getMessage());
             return false;
-        } finally {
-            IOUtils.closeQuietly(fis);
         }
         return true;
     }

@@ -1,7 +1,6 @@
 package dms.pastor.tools.nanobackup;
 
 import dms.pastor.tools.nanobackup.tools.FileTools;
-import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -260,16 +259,12 @@ public final class Settings {
     }
 
     public boolean saveProperties() {
-        FileOutputStream fos = null;
-        try {
-            fos = new FileOutputStream(SETTINGSPATH);
+        try (FileOutputStream fos = new FileOutputStream(SETTINGSPATH)) {
             properties.store(fos, "Settings for nanoBackup");
             return true;
         } catch (IOException ex) {
             LOGGER.warn("Unable to save config file\n" + ex.getCause() + "\n\n" + ex.getMessage());
             return false;
-        } finally {
-            IOUtils.closeQuietly(fos);
         }
     }
 
@@ -278,15 +273,11 @@ public final class Settings {
         if (!FileTools.isFileExists(SETTINGSPATH)) {
             createDefaultSettings();
         }
-        FileInputStream fis = null;
-        try {
-            fis = new FileInputStream(SETTINGSPATH);
+        try (FileInputStream fis = new FileInputStream(SETTINGSPATH)) {
             properties.load(fis);
         } catch (Exception ex) {
             LOGGER.debug(ex.getCause() + "\n" + ex.getMessage());
             return false;
-        } finally {
-            IOUtils.closeQuietly(fis);
         }
         setSettings();
         return true;
@@ -297,43 +288,25 @@ public final class Settings {
         if (!FileTools.isFileExists(path)) {
             createDefaultSettings();
         }
-        FileOutputStream fos = null;
-        try {
-            fos = new FileOutputStream(path);
+        try (FileOutputStream fos = new FileOutputStream(path)) {
             properties.store(fos, "Settings for nanoBackup");
         } catch (Exception ex) {
             LOGGER.debug(ex.getCause() + "\n" + ex.getMessage());
             return null;
-        } finally {
-            IOUtils.closeQuietly(fos);
         }
         return path;
     }
 
-    /**
-     * Reads settings from file.
-     *
-     * @param withValidateAndSave it will validate settings and autosave corrected version
-     * @return true if settings was loaded, false if was any problem.
-     */
     public boolean loadSettings(boolean withValidateAndSave) {
         return loadSettings(SETTINGSPATH, withValidateAndSave);
     }
 
-    /**
-     * Reads settings from file.
-     *
-     * @param withValidateAndSave it will validate settings and autosave corrected version
-     * @return true if settings was loaded, false if was any problem.
-     */
     public boolean loadSettings(String path, boolean withValidateAndSave) {
 
         if (!FileTools.isFileExists(path)) {
             createDefaultSettings();
         }
-        FileInputStream fis = null;
-        try {
-            fis = new FileInputStream(path);
+        try (FileInputStream fis = new FileInputStream(path)) {
             properties.load(fis);
             setSettings();
             if (withValidateAndSave) {
@@ -342,8 +315,6 @@ public final class Settings {
         } catch (Exception ex) {
             LOGGER.debug(ex.getCause() + "\n" + ex.getMessage());
             return false;
-        } finally {
-            IOUtils.closeQuietly(fis);
         }
         return true;
     }

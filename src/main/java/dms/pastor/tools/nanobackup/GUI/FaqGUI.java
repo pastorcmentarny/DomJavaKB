@@ -10,7 +10,6 @@
  */
 package dms.pastor.tools.nanobackup.GUI;
 
-import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -131,12 +130,11 @@ public class FaqGUI extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void setup() {
-        FileInputStream fis = null;
         ArrayList<String> question = new ArrayList<>();
         ArrayList<String> answer = new ArrayList<>();
 
-        try {
-            fis = new FileInputStream("data" + System.getProperty("file.separator") + "message.properties");
+        final String path = "data" + System.getProperty("file.separator") + "message.properties";
+        try (FileInputStream fis = new FileInputStream(path)) {
             properties.load(fis);
             //validateFAQ();
             for (int i = 0; i < Integer.parseInt(properties.getProperty("faq.counter")); i++) {
@@ -158,8 +156,6 @@ public class FaqGUI extends javax.swing.JFrame {
         } catch (IOException ex) {
             LOGGER.warn("Unexpected error due load properties for About." + ex.getCause() + ("\n" + ex.getMessage()));
             this.dispose();
-        } finally {
-            IOUtils.closeQuietly(fis);
         }
     }
 

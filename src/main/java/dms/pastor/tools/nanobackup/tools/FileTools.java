@@ -5,7 +5,6 @@ import dms.pastor.tools.nanobackup.Messenger;
 import dms.pastor.tools.nanobackup.backup.Statistic;
 import dms.pastor.utils.StringUtils;
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -204,18 +203,14 @@ public class FileTools {
             return;
         }
 
-        FileInputStream fis = null;
-        FileOutputStream fos = null;
-        FileChannel input = null;
-        FileChannel output = null;
         long size = -1;
-        try {
+        try (
+                FileInputStream fis = new FileInputStream(srcFile);
 
-            fis = new FileInputStream(srcFile);
-
-            fos = new FileOutputStream(destFile);
-            input = fis.getChannel();
-            output = fos.getChannel();
+                FileOutputStream fos = new FileOutputStream(destFile);
+                FileChannel input = fis.getChannel();
+                FileChannel output = fos.getChannel()
+        ) {
 
             size = input.size();
 
@@ -237,11 +232,6 @@ public class FileTools {
             if (stats != null) {
                 stats.addErrorCount("Unable to copy file.IO error during coping file.\nPossible reasons:\nNetwork problem?Device disconnected?)");
             }
-        } finally {
-            IOUtils.closeQuietly(output);
-            IOUtils.closeQuietly(fos);
-            IOUtils.closeQuietly(input);
-            IOUtils.closeQuietly(fis);
         }
 
         if (srcFile.length() != destFile.length()) {
@@ -487,7 +477,6 @@ public class FileTools {
     }
 
     public static boolean saveListToFile(String[] content, String file) {
-        BufferedWriter out = null;
         StringBuilder list = new StringBuilder();
         for (int i = 0; i < content.length; i++) {
             if (i == content.length - 1) {
@@ -497,15 +486,13 @@ public class FileTools {
                 list.append("\n");
             }
         }
-        try {
-            FileWriter fstream = new FileWriter(file);
-            out = new BufferedWriter(fstream);
+        try (FileWriter fstream = new FileWriter(file);
+             BufferedWriter out = new BufferedWriter(fstream)
+        ) {
             out.write(list.toString());
         } catch (IOException e) {
             LOGGER.error("Unable to save source list to file: " + file);
             return false;
-        } finally {
-            IOUtils.closeQuietly(out);
         }
         return true;
     }

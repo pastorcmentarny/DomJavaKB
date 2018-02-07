@@ -1,7 +1,6 @@
 package dms.pastor.tools.nanobackup.GUI;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -338,9 +337,7 @@ public class About extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void setup() {
-        FileInputStream fis = null;
-        try {
-            fis = new FileInputStream("data" + System.getProperty("file.separator") + "message.properties");
+        try (FileInputStream fis = new FileInputStream("data" + System.getProperty("file.separator") + "message.properties")) {
             properties.load(fis);
         } catch (FileNotFoundException ex) {
             LOGGER.warn("Unexpected error due load properties for About." + ex.getCause() + ("\n" + ex.getMessage()));
@@ -349,8 +346,6 @@ public class About extends javax.swing.JFrame {
         } catch (IOException ex) {
             LOGGER.warn("Unexpected error due load properties for About." + ex.getCause() + ("\n" + ex.getMessage()));
             this.dispose();
-        } finally {
-            IOUtils.closeQuietly(fis);
         }
     }
 }

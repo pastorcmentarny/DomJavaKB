@@ -7,7 +7,6 @@ import dms.pastor.tools.nanobackup.tools.FileTools;
 import dms.pastor.tools.nanobackup.tools.TaskUtils;
 import dms.pastor.tools.nanobackup.tools.Tools;
 import dms.pastor.utils.StringUtils;
-import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -142,17 +141,14 @@ public class Engine extends AbstractTools {
 
 
     //TODO temporary implementation
-
     public String[] makeList(String source) {
         File file = new File(source);
         if (!file.exists()) {
             return new String[0];
         }
         ArrayList<String> itemsList = new ArrayList<>();
-        BufferedReader reader = null;
         String text;
-        try {
-            reader = new BufferedReader(new FileReader(file));
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             while ((text = reader.readLine()) != null) {
                 itemsList.add(text);
             }
@@ -169,8 +165,6 @@ public class Engine extends AbstractTools {
             JOptionPane.showMessageDialog(null, msg.getMsg("error.IOerror"), "Woops", JOptionPane.ERROR_MESSAGE);
             LOGGER.error("IOException happen. " + ex.getCause() + "\n" + ex.getMessage());
             return new String[0];
-        } finally {
-            IOUtils.closeQuietly(reader);
         }
     }
 
@@ -195,12 +189,11 @@ public class Engine extends AbstractTools {
     }
 
     public String[] removeItemsFromList(String[] srcList, JList sourceList) {
-        Object[] itemsToDelete;
         ArrayList<String> toDeleteList = new ArrayList<>();
         ArrayList<String> newList = new ArrayList<>();
         if (!sourceList.isSelectionEmpty()) {
             try {
-                itemsToDelete = sourceList.getSelectedValues();
+                final List itemsToDelete = sourceList.getSelectedValuesList();
                 for (Object anItemsToDelete : itemsToDelete) {
                     toDeleteList.add(anItemsToDelete.toString());
                 }

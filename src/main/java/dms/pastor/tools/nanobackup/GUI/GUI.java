@@ -10,7 +10,6 @@ import dms.pastor.tools.nanobackup.tools.FileTools;
 import dms.pastor.tools.nanobackup.tools.TaskUtils;
 import dms.pastor.tools.nanobackup.tools.Tools;
 import dms.pastor.utils.StringUtils;
-import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -1298,7 +1297,6 @@ public class GUI extends javax.swing.JFrame {
         }
 
         //dom mode
-        FileInputStream fis = null;
         try {
             dom.load(new FileInputStream(System.getProperty("user.dir") + System.getProperty("file.separator") + "dom.properties"));
             domMode.setSelected(true);
@@ -1307,8 +1305,6 @@ public class GUI extends javax.swing.JFrame {
             domMode.setVisible(false);
             domMode.setEnabled(false);
             domMode.setSelected(false);
-        } finally {
-            IOUtils.closeQuietly(fis);
         }
 
         //OS depended setup
