@@ -60,7 +60,7 @@ public class Statistic {
         result.append("\nBackupType: ").append(backupType);
         result.append("\nFiles copied: ").append(fileCopied);
         result.append("\nErrors: ").append(error);
-        if (!"".equals(backupSize)) {
+        if (backupSize != null && !backupSize.isEmpty()) {
             result.append("\nBackup size: ").append(backupSize);
         }
         if (!"".equalsIgnoreCase(errorMsgList)) {

@@ -148,7 +148,7 @@ public class FileTools {
         String results[] = new String[path.size()];
 
         for (int i = 0; i < path.size(); i++) {
-            results[i] = path.get(i).toString();
+            results[i] = path.get(i);
         }
         return results;
     }
@@ -165,7 +165,7 @@ public class FileTools {
         String results[] = new String[path.size()];
 
         for (int i = 0; i < path.size(); i++) {
-            results[i] = path.get(i).toString();
+            results[i] = path.get(i);
         }
         return results;
     }

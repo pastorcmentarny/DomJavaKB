@@ -72,9 +72,7 @@ public class Engine extends AbstractTools {
             return paths;
         } else {
             if (paths.length >= 5) {
-                for (int i = 0; i < paths.length - 1; i++) {
-                    paths[i] = paths[i + 1];
-                }
+                System.arraycopy(paths, 1, paths, 0, paths.length - 1);
                 paths[paths.length - 1] = newPath;
                 return paths;
             } else {
@@ -161,7 +159,7 @@ public class Engine extends AbstractTools {
             String temp[] = new String[itemsList.size()];
 
             for (int i = 0; i < itemsList.size(); i++) {
-                temp[i] = itemsList.get(i).toString();
+                temp[i] = itemsList.get(i);
             }
             return temp;
         } catch (FileNotFoundException ex) {
@@ -287,7 +285,7 @@ public class Engine extends AbstractTools {
             temp.addAll(Arrays.asList(newSource));
             srcList = new String[temp.size()];
             for (int i = 0; i < temp.size(); i++) {
-                srcList[i] = temp.get(i).toString();
+                srcList[i] = temp.get(i);
             }
             FileTools.saveListToFile(srcList, sourceField.getText());
         } else {
