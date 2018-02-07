@@ -38,7 +38,6 @@ public class FaqGUI extends javax.swing.JFrame {
      * Creates new form FaqGUI
      */
     public FaqGUI() {
-        super();
         setup();
         initComponents();
     }

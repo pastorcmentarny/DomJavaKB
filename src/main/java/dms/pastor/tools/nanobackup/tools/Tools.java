@@ -94,7 +94,7 @@ public class Tools {
     }
 
     public static void changeToYelloStatus(List<String> result) {
-        if (!result.get(0).equalsIgnoreCase("ERROR")) {
+        if (!"ERROR".equalsIgnoreCase(result.get(0))) {
             result.set(0, "WARNING");
         }
     }

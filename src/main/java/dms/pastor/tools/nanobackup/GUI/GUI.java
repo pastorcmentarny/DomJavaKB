@@ -1206,7 +1206,7 @@ public class GUI extends javax.swing.JFrame {
     private void boot() {
         LOGGER.debug("Program starting:\tSetup in progress...");
         status = utilities.itselfHealthScan();
-        if (status[0].equals("ERROR")) {
+        if ("ERROR".equals(status[0])) {
             LOGGER.warn("Program is damaged.");
         }
 
@@ -1287,11 +1287,11 @@ public class GUI extends javax.swing.JFrame {
         if (status[0] == null) {
             statusMenuItem.setForeground(AppColor.DARK_ORANGE);
             statusMenuItem.setText("STATUS: UNKNOWN");
-        } else if (status[0].equalsIgnoreCase("ERROR")) {
+        } else if ("ERROR".equalsIgnoreCase(status[0])) {
             statusMenuItem.setForeground(Color.RED);
-        } else if (status[0].equalsIgnoreCase("WARNING")) {
+        } else if ("WARNING".equalsIgnoreCase(status[0])) {
             statusMenuItem.setForeground(AppColor.DARK_ORANGE);
-        } else if (status[0].equalsIgnoreCase("OK")) {
+        } else if ("OK".equalsIgnoreCase(status[0])) {
             statusMenuItem.setForeground(AppColor.DARK_GREEN);
         } else {
             statusMenuItem.setForeground(Color.DARK_GRAY);

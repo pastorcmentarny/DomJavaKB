@@ -59,15 +59,14 @@ public final class DateUtils {
         validateIfNotNull(month, message);
 
         for (Month thisMonth : Month.values()) {
-            if (matchMonth(month, thisMonth)) {
+            if (isMonthNameTheSame(month, thisMonth)) {
                 return thisMonth.getValue();
             }
         }
         throw new IllegalArgumentException(message);
     }
 
-    //TODO improve name of variables
-    private static boolean matchMonth(String month, Month thisMonth) {
+    private static boolean isMonthNameTheSame(String month, Month thisMonth) {
         return thisMonth.name().toLowerCase().startsWith(month.toLowerCase());
     }
 

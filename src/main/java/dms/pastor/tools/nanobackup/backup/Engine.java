@@ -232,26 +232,26 @@ public class Engine extends AbstractTools {
 
     public boolean shutdown(final String reason) {
         if (settings.isConfirmOnExit()) {
-            if (!reason.equals("alreadyRun")) {
+            if (!"alreadyRun".equals(reason)) {
                 if (JOptionPane.showConfirmDialog(null, msg.getMsg("q.RUSure"), "Nooo.... YOU WANT EXIT.. why? why?", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE) == JOptionPane.NO_OPTION) {
                     return false;
                 }
             }
         }
         LOGGER.debug("Shutting down program....");
-        if (reason.equalsIgnoreCase("alreadyRun")) {
+        if ("alreadyRun".equalsIgnoreCase(reason)) {
             LOGGER.debug("due another istance of program is running already.");
-        } else if (reason.equalsIgnoreCase("exitAfterBackup")) {
+        } else if ("exitAfterBackup".equalsIgnoreCase(reason)) {
             LOGGER.info("due exit after finished backup.");
-        } else if (reason.equalsIgnoreCase("disaster")) {
+        } else if ("disaster".equalsIgnoreCase(reason)) {
             LOGGER.warn("due unrecoverable error that cause massive disaster.");
-        } else if (reason.equalsIgnoreCase("exitByUser")) {
+        } else if ("exitByUser".equalsIgnoreCase(reason)) {
             LOGGER.debug("due user fus");
         } else {
             LOGGER.debug("is time to eat and sleep.");
         }
         settings.saveProperties();
-        if (settings.isQuickBackup() && !reason.equalsIgnoreCase("alreadyRun")) {
+        if (settings.isQuickBackup() && !"alreadyRun".equalsIgnoreCase(reason)) {
             deactivateQuickBackupMode(new JTextField());
         }
         FileTools.unlockFile();
@@ -273,11 +273,11 @@ public class Engine extends AbstractTools {
     public String[] addItemsToItemsList(String[] srcList, final JTextField sourceField, final String pathType) {
         String[] newSource;
         final ArrayList<String> temp = new ArrayList<>(Arrays.asList(srcList));
-        if (pathType.equalsIgnoreCase("item")) {
+        if ("item".equalsIgnoreCase(pathType)) {
             newSource = FileTools.chooseItemsToLoad();
-        } else if (pathType.equalsIgnoreCase("file")) {
+        } else if ("file".equalsIgnoreCase(pathType)) {
             newSource = FileTools.chooseFilestoLoad();
-        } else if (pathType.equalsIgnoreCase("folder")) {
+        } else if ("folder".equalsIgnoreCase(pathType)) {
             newSource = FileTools.chooseDirsToLoad();
         } else {
             return null;

@@ -60,10 +60,10 @@ public class Statistic {
         result.append("\nBackupType: ").append(backupType);
         result.append("\nFiles copied: ").append(fileCopied);
         result.append("\nErrors: ").append(error);
-        if (!backupSize.equals("")) {
+        if (!"".equals(backupSize)) {
             result.append("\nBackup size: ").append(backupSize);
         }
-        if (!errorMsgList.equalsIgnoreCase("")) {
+        if (!"".equalsIgnoreCase(errorMsgList)) {
             result.append("\n\nError messages:\n\n").append(errorMsgList).append("\n\nPlease:\n\t- Use\" clear non existing files\" from menu to solve above erros \n\t- Check do you have access/permissions to resources");
         }
         return result.toString();
