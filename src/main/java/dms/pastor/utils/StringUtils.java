@@ -30,11 +30,12 @@ public final class StringUtils {
     public static final char NEW_LINE = '\n'; //TODO replace with System.lineSeparator()
     public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
     public static final String ALPHANUMERIC = ALPHABET.toUpperCase() + ALPHABET + "0123456789";
+    public static final String UNDERSCORE = "_";
     public static final char COMMA = ',';
     static final String NON_ALPHANUMERIC = "~#&@£$^'`\".,:;*–+=(){}[]<>?!\\|/";
     private static final String ALPHABET_BOTH_CASE = ALPHABET + ALPHABET.toUpperCase();
     private static final String ALPHANUMERIC_REGEX = "[^a-zA-Z0-9]";
-    public static final String UNDERSCORE = "_";
+
 
     private StringUtils() {
     }
