@@ -11,7 +11,7 @@ import javax.swing.*;
 /**
  * @author pastor
  */
-public class Battle {
+class Battle {
     //Round
     //private int dmg;
 

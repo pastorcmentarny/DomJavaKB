@@ -31,7 +31,7 @@ public class Statistic {
         taskStart = Calendar.getInstance().getTimeInMillis();
     }
 
-    public long calcTotalTime() {
+    private long calcTotalTime() {
         return taskFinish - taskStart;
     }
 
@@ -64,7 +64,7 @@ public class Statistic {
             result.append("\nBackup size: ").append(backupSize);
         }
         if (!"".equalsIgnoreCase(errorMsgList)) {
-            result.append("\n\nError messages:\n\n").append(errorMsgList).append("\n\nPlease:\n\t- Use\" clear non existing files\" from menu to solve above erros \n\t- Check do you have access/permissions to resources");
+            result.append("\n\nError messages:\n\n").append(errorMsgList).append("\n\nPlease:\n\t- Use\" clear non existing files\" from menu to solve above errors \n\t- Check do you have access/permissions to resources");
         }
         return result.toString();
     }

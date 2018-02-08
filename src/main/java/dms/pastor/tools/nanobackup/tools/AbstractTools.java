@@ -12,9 +12,9 @@ import dms.pastor.tools.nanobackup.Settings;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public abstract class AbstractTools {
+public class AbstractTools {
 
-    public Messenger msg = new Messenger();
+    protected final Messenger msg = new Messenger();
 
-    public Settings settings = Settings.getSettings();
+    protected final Settings settings = Settings.getSettings();
 }

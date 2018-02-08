@@ -21,7 +21,7 @@ import static dms.pastor.tools.lotto.LottoFilePathValidator.validateFilePath;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class LottoUploader {
+class LottoUploader {
     private final List<LottoDraw> lottoDrawList;
 
     public LottoUploader() {

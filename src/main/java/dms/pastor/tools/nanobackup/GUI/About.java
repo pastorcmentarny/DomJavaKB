@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -45,7 +46,7 @@ public class About extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JLabel lincenceLabel;
+    private javax.swing.JLabel licenceLabel;
     private javax.swing.JScrollPane messagePanel;
     private javax.swing.JTextArea messageTextArea;
     private javax.swing.JLabel nameLabel;
@@ -74,7 +75,7 @@ public class About extends javax.swing.JFrame {
         aboutPanel = new javax.swing.JPanel();
         nameLabel = new javax.swing.JLabel();
         versionLabel = new javax.swing.JLabel();
-        lincenceLabel = new javax.swing.JLabel();
+        licenceLabel = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
         OSLabel = new javax.swing.JLabel();
@@ -101,7 +102,7 @@ public class About extends javax.swing.JFrame {
 
         setTitle("ABOUT ME");
         setAlwaysOnTop(true);
-        setName("about"); // NOI18N
+        setName("about"); 
         setResizable(false);
 
         AboutTabbedPanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -114,13 +115,13 @@ public class About extends javax.swing.JFrame {
 
         versionLabel.setText(properties.getProperty("about.version"));
 
-        lincenceLabel.setText("FORM OF SOFTWARE DISTRIBUTION: Freeware");
+        licenceLabel.setText("FORM OF SOFTWARE DISTRIBUTION: Freeware");
 
         jScrollPane5.setEnabled(false);
-        jScrollPane5.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jScrollPane5.setFont(getDefaultFont()); 
 
         jTextArea2.setColumns(20);
-        jTextArea2.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        jTextArea2.setFont(getDefaultFont()); 
         jTextArea2.setLineWrap(true);
         jTextArea2.setRows(5);
         jTextArea2.setText(properties.getProperty("about.program"));
@@ -139,7 +140,7 @@ public class About extends javax.swing.JFrame {
                                 .addGroup(aboutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(nameLabel)
                                         .addComponent(versionLabel)
-                                        .addComponent(lincenceLabel)
+                                        .addComponent(licenceLabel)
                                         .addComponent(OSLabel)
                                         .addComponent(JVLabel)
                                         .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE))
@@ -153,7 +154,7 @@ public class About extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(versionLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lincenceLabel)
+                                .addComponent(licenceLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                                 .addComponent(OSLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -167,7 +168,7 @@ public class About extends javax.swing.JFrame {
 
         changelogTextArea.setColumns(20);
         changelogTextArea.setEditable(false);
-        changelogTextArea.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        changelogTextArea.setFont(getDefaultFont()); 
         changelogTextArea.setLineWrap(true);
         changelogTextArea.setRows(5);
         changelogTextArea.setWrapStyleWord(true);
@@ -200,7 +201,7 @@ public class About extends javax.swing.JFrame {
 
         messageTextArea.setColumns(20);
         messageTextArea.setEditable(false);
-        messageTextArea.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        messageTextArea.setFont(getDefaultFont()); 
         messageTextArea.setLineWrap(true);
         messageTextArea.setRows(5);
         messageTextArea.setText(properties.getProperty("about.me"));
@@ -209,7 +210,7 @@ public class About extends javax.swing.JFrame {
         goToButton.setText("Go to my page");
         goToButton.addActionListener(this::goToButtonActionPerformed);
 
-        pictureOfMe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nanobackup/me.jpg"))); // NOI18N
+        pictureOfMe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nanobackup/me.jpg"))); 
 
         javax.swing.GroupLayout aboutMePanelLayout = new javax.swing.GroupLayout(aboutMePanel);
         aboutMePanel.setLayout(aboutMePanelLayout);
@@ -260,7 +261,7 @@ public class About extends javax.swing.JFrame {
 
         thanksTextArea.setColumns(20);
         thanksTextArea.setEditable(false);
-        thanksTextArea.setFont(new java.awt.Font("Lucida Sans", 0, 12)); // NOI18N
+        thanksTextArea.setFont(getDefaultFont()); 
         thanksTextArea.setLineWrap(true);
         thanksTextArea.setRows(5);
         thanksTextArea.setText(properties.getProperty("about.thanks"));
@@ -282,7 +283,7 @@ public class About extends javax.swing.JFrame {
 
         eulaTextArea.setColumns(20);
         eulaTextArea.setEditable(false);
-        eulaTextArea.setFont(new java.awt.Font("Lucida Sans", 0, 14)); // NOI18N
+        eulaTextArea.setFont(new java.awt.Font("Lucida Sans", 0, 14)); 
         eulaTextArea.setLineWrap(true);
         eulaTextArea.setRows(5);
         jScrollPane1.setViewportView(eulaTextArea);
@@ -313,6 +314,10 @@ public class About extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private Font getDefaultFont() {
+        return new Font("Lucida Sans", 0, 12);
+    }
 
     private void AboutTabbedPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AboutTabbedPanelMouseClicked
         try {

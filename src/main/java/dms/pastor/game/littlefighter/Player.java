@@ -15,9 +15,9 @@ import java.util.Random;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
-public class Player {
-    public Status status = new Status();
-    Random random = new Random();
+class Player {
+    public final Status status = new Status();
+    private final Random random = new Random();
     String PlayerName = "Player";
     int PlayerAttack = random.nextInt(9) + 1;
     int PlayerDefence = random.nextInt(9) + 1;
@@ -31,10 +31,10 @@ public class Player {
     int exp = 0;
     int score = 0;
     int playerLevel = 1;
-    int PlayerShieldRegen = 2;
+    private int PlayerShieldRegen = 2;
     int playerManaRegen = 2;
     int kills = 0;
-    String msg;
+    private String msg;
 
     public Status getStatus() {
         return status;
@@ -58,7 +58,7 @@ public class Player {
                 return "Defence +1";
             case 3:
                 PlayerShieldRegen++;
-                return "Sheild regenaration +1";
+                return "Shield regeneration +1";
             case 4:
                 playerManaRegen++;
                 return "quicker mana regen";

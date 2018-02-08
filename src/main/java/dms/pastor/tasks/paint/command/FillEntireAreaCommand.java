@@ -41,7 +41,7 @@ public class FillEntireAreaCommand implements Command {
             return;
         }
 
-        if (isPixelFilledWithTheSamelFill(canvas, point)) {
+        if (isPixelFilledWithTheSameFill(canvas, point)) {
             return;
         }
 
@@ -60,7 +60,7 @@ public class FillEntireAreaCommand implements Command {
         fillArea(canvas, visitedPixel, withReplacedHeight(next(point.getHeight()), point), currentFill);
     }
 
-    private static boolean isPixelFilledWithTheSamelFill(Canvas canvas, Point point) {
+    private static boolean isPixelFilledWithTheSameFill(Canvas canvas, Point point) {
         return canvas.getPixelAt(point.getWidth(), point.getHeight()).equals(point.getFill());
     }
 

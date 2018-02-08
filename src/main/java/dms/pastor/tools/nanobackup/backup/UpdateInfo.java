@@ -14,10 +14,10 @@ import java.util.Random;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class UpdateInfo implements Runnable {
-    Backup outer;
+class UpdateInfo implements Runnable {
+    private final Backup outer;
     private JTextArea label = null;
-    private Random randomText = new Random();
+    private final Random randomText = new Random();
     private ArrayList<String> lolText = new ArrayList<>();
 
     //TODO solve problem with using , Backup outer because of issue with GUI

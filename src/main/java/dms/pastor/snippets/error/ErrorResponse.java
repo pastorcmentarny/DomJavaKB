@@ -27,23 +27,23 @@ public class ErrorResponse {
         this.moreInfo = moreInfo;
     }
 
-    public long getId() {
+    private long getId() {
         return id;
     }
 
-    public String getErrorMessage() {
+    private String getErrorMessage() {
         return errorMessage;
     }
 
-    public String getCaused() {
+    private String getCaused() {
         return caused;
     }
 
-    public String getSolution() {
+    private String getSolution() {
         return solution;
     }
 
-    public String getMoreInfo() {
+    private String getMoreInfo() {
         return moreInfo;
     }
 

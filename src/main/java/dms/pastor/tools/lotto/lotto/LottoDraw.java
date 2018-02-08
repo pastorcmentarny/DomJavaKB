@@ -25,7 +25,7 @@ public class LottoDraw {
     private final String raffle;
     private final int drawNumber;
 
-    public LottoDraw(String drawDate, int ball1, int ball2, int ball3, int ball4, int ball5, int ball6, int bonusBall, int ballSet, String machine, String raffle, int drawNumber) {
+    private LottoDraw(String drawDate, int ball1, int ball2, int ball3, int ball4, int ball5, int ball6, int bonusBall, int ballSet, String machine, String raffle, int drawNumber) {
         DrawDate = drawDate;
         this.ball1 = ball1;
         this.ball2 = ball2;

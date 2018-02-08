@@ -14,9 +14,10 @@ import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.logging.Level;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
+
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 
 /**
  * Author Dominik Symonowicz
@@ -77,11 +78,11 @@ public class FileTools {
         return checkFreeSpace(destination) - srcSize > 0;
     }
 
-    public static long checkFreeSpace(String path) {
+    private static long checkFreeSpace(String path) {
         return new File(path).getFreeSpace();
     }
 
-    public static String chooseFiletoLoad() {
+    public static String chooseFileToLoad() {
         LOGGER.debug("select file to Load");
         ArrayList<String> path = new ArrayList<>();
         JFileChooser fileChooser = new JFileChooser();
@@ -94,11 +95,9 @@ public class FileTools {
         } else {
             return null;
         }
-        //TODO solve below line issue
-        //return (String[]) (path != null? (path.toArray(new String[path.size()])):  path);
     }
 
-    public static String[] chooseFilestoLoad() {
+    public static String[] chooseFilesToLoad() {
         LOGGER.debug("select file to Load");
         ArrayList<String> path = new ArrayList<>();
         JFileChooser fileChooser = new JFileChooser();
@@ -118,7 +117,7 @@ public class FileTools {
         //return (String[]) (path != null? (path.toArray(new String[path.size()])):  path);
     }
 
-    public static String chooseDirtoLoad() {
+    public static String chooseDirToLoad() {
         LOGGER.debug("select folder to Load");
         String path;
         JFileChooser fileChooser = new JFileChooser();
@@ -128,7 +127,7 @@ public class FileTools {
             file = fileChooser.getSelectedFile();
             path = file.getPath();
         } else {
-            path = null;
+            path = EMPTY_STRING;
             LOGGER.debug("File was not selected");
         }
         return path;
@@ -218,11 +217,8 @@ public class FileTools {
             long count = 0;
             while (pos < size) {
                 count = size - pos > FILE_COPY_BUFFER_SIZE ? FILE_COPY_BUFFER_SIZE : size - pos;
-                try {
-                    pos += output.transferFrom(input, pos, count);
-                } catch (IOException ex) {
-                    java.util.logging.Logger.getLogger(FileTools.class.getName()).log(Level.SEVERE, null, ex);
-                }
+
+                pos += output.transferFrom(input, pos, count);
             }
         } catch (FileNotFoundException ex) {
             if (stats != null) {
@@ -341,7 +337,7 @@ public class FileTools {
     //TODO improve this method
 
     public static String createABackupZipPath(String path) {
-        LOGGER.debug("creating path for backup(copressed in zip)");
+        LOGGER.debug("creating path for backup(compressed in zip)");
         int year = Calendar.getInstance().get(Calendar.YEAR);
         int month = Calendar.getInstance().get(Calendar.MONTH) + 1;
         int day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
@@ -373,7 +369,7 @@ public class FileTools {
         path = createPath(path, day);
         path += System.getProperty("file.separator") + Tools.getCurrentTime();
 
-        File dir = new File(path); // //FileUtils.forceMkdir(dir); i should use this one instead ???
+        File dir = new File(path);
         int next = 1;
         boolean test = true;
         while (test) {
@@ -486,8 +482,8 @@ public class FileTools {
                 list.append("\n");
             }
         }
-        try (FileWriter fstream = new FileWriter(file);
-             BufferedWriter out = new BufferedWriter(fstream)
+        try (FileWriter fileWriter = new FileWriter(file);
+             BufferedWriter out = new BufferedWriter(fileWriter)
         ) {
             out.write(list.toString());
         } catch (IOException e) {
@@ -585,7 +581,7 @@ public class FileTools {
                 channel.close();
                 boolean pass = f.delete();
                 if (!pass) {
-                    LOGGER.warn("Unable to unlock program.It cans cause problem with running program.\nProgram shoulds work afrer restar of your computer.");
+                    LOGGER.warn("Unable to unlock program.It cans cause problem with running program.\nProgram should work after restart of your computer.");
                 }
             }
         } catch (IOException e) {
@@ -595,7 +591,7 @@ public class FileTools {
 
     //TODO IMPROVE THIS GARBAGE this method doesn't need a return ?
 
-    public static boolean zipFolder(String[] folderPath, ZipOutputStream out, StringBuilder results, Statistic stats) {
+    private static boolean zipFolder(String[] folderPath, ZipOutputStream out, StringBuilder results, Statistic stats) {
         if (folderPath == null) {
             stats.addErrorCount("Problem source file/folder found.Backup cancelled.");
             return false;
@@ -616,7 +612,7 @@ public class FileTools {
         return true;
     }
 
-    public static boolean zipFile(String path, ZipOutputStream zos, Statistic stats) {
+    private static boolean zipFile(String path, ZipOutputStream zos, Statistic stats) {
         try {
             BufferedInputStream bis = new BufferedInputStream(new FileInputStream(new File(path)), 2048);
             byte[] data = new byte[2048];
@@ -641,7 +637,7 @@ public class FileTools {
         if (StringUtils.isStringBlank(fileName)) {
             return null;
         }
-        String path = FileTools.chooseDirtoLoad();
+        String path = FileTools.chooseDirToLoad();
         if (StringUtils.isStringBlank(fileName) || StringUtils.isStringBlank(path)) {
             return null;
         } else if (FileTools.createAFile(path + System.getProperty("file.separator") + fileName + ending)) {

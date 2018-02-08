@@ -103,7 +103,7 @@ public class EuroFileUploader implements FileUploader {
         return false;
     }
 
-    LocalDate parseLocalDate(String drawDate) {
+    private LocalDate parseLocalDate(String drawDate) {
         validateDate(drawDate);
         final String[] date = drawDate.split(DASH);
         return LocalDate.of(Integer.parseInt(date[2]), DateUtils.getMonthNumberFromShortedName(date[1]), Integer.parseInt(date[0]));

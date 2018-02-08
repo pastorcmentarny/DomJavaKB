@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+
 /**
  * Author Dominik Symonowicz
  * WWW:	https://dominiksymonowicz.com/welcome
@@ -33,14 +35,14 @@ public class Engine extends AbstractTools {
     public boolean activateQuickBackupMode(JTextField sourceField) {
         LOGGER.debug("Activating quick backup mode.");
         settings.setNonQuickPath(sourceField.getText());
-        if (!FileTools.createAFile(Settings.QUICKMODE_FILENAME)) {
+        if (!FileTools.createAFile(Settings.QUICK_MODE_FILENAME)) {
             return false;
         }
-        sourceField.setText(new File(Settings.QUICKMODE_FILENAME).getAbsolutePath());
+        sourceField.setText(new File(Settings.QUICK_MODE_FILENAME).getAbsolutePath());
         return true;
     }
 
-    public void deactivateQuickBackupMode(JTextField sourceField) {
+    private void deactivateQuickBackupMode(JTextField sourceField) {
         LOGGER.debug("Deactivating quick backup mode.");
         settings.setNonQuickPath(null);
         if (StringUtils.isStringEmpty(sourceField.getText())) {
@@ -92,7 +94,7 @@ public class Engine extends AbstractTools {
         return false;
     }
 
-    public String chooseFiletoLoad() {
+    public String chooseFileToLoad() {
         LOGGER.debug("select file to Load");
         String path;
         JFileChooser fileChooser = new JFileChooser();
@@ -105,7 +107,7 @@ public class Engine extends AbstractTools {
             File file = fileChooser.getSelectedFile();
             path = file.getPath();
         } else {
-            path = null;
+            path = EMPTY_STRING;
         }
         return path;
     }
@@ -117,23 +119,23 @@ public class Engine extends AbstractTools {
             result.add("Data folder doesn't exist!");
             result.set(0, "ERROR");
         }
-        if (!FileTools.isFileExists(Settings.DATAPATH + "settings.properties")) {
+        if (!FileTools.isFileExists(Settings.DATA_PATH + "settings.properties")) {
             if (!settings.createDefaultSettings()) {
                 result.add("Unable to create settings.properties");
                 result.set(0, "ERROR");
             }
         }
-        if (!FileTools.isFileExists(Settings.DATAPATH + "changelog.txt")) {
+        if (!FileTools.isFileExists(Settings.DATA_PATH + "changelog.txt")) {
             result.add("Non important file changelog.txt doesn't exist. ");
-            Tools.changeToYelloStatus(result);
+            Tools.changeToYellowStatus(result);
         }
-        if (!FileTools.isFileExists(Settings.DATAPATH + "message.properties")) {
+        if (!FileTools.isFileExists(Settings.DATA_PATH + "message.properties")) {
             result.add("Important file message.properties doesn't exist.");
-            Tools.changeToYelloStatus(result);
+            Tools.changeToYellowStatus(result);
         }
-        if (!FileTools.isFileExists(Settings.DATAPATH + "eula.txt")) {
+        if (!FileTools.isFileExists(Settings.DATA_PATH + "eula.txt")) {
             result.add("Important file (for law  reasons) eula.txt doesn't exist. ");
-            Tools.changeToYelloStatus(result);
+            Tools.changeToYellowStatus(result);
 
         }
         return result.toArray(new String[result.size()]);
@@ -159,10 +161,10 @@ public class Engine extends AbstractTools {
             }
             return temp;
         } catch (FileNotFoundException ex) {
-            LOGGER.warn(ex.getCause() + " occured with messaged" + ex.getMessage());
+            LOGGER.warn(ex.getCause() + " occurred with messaged" + ex.getMessage());
             return new String[0];
         } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, msg.getMsg("error.IOerror"), "Woops", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, msg.getMsg("error.IOerror"), "Whoops", JOptionPane.ERROR_MESSAGE);
             LOGGER.error("IOException happen. " + ex.getCause() + "\n" + ex.getMessage());
             return new String[0];
         }
@@ -170,7 +172,7 @@ public class Engine extends AbstractTools {
 
     public String[] merge2Source(final String[] srcList) {
         final List<String> temp = new ArrayList<>();
-        final String[] tempSource = FileTools.chooseFilestoLoad();
+        final String[] tempSource = FileTools.chooseFilesToLoad();
         if (tempSource != null && tempSource.length != 0) {
             String[] itemsList;
             for (String aTempSource : tempSource) {
@@ -198,7 +200,7 @@ public class Engine extends AbstractTools {
                     toDeleteList.add(anItemsToDelete.toString());
                 }
             } catch (NullPointerException e) {
-                return srcList; //TODO return orginal list or null ?
+                return new String[0];
             }
             if (!toDeleteList.isEmpty()) {
                 for (String aSrcList : srcList) {
@@ -219,7 +221,7 @@ public class Engine extends AbstractTools {
         return infoLabel;
     }
 
-    //TODO improve confirm on exit,because currect is temporary solution only
+    //TODO improve confirm on exit,because current is temporary solution only
 
     public boolean shutdown(final String reason) {
         if (settings.isConfirmOnExit()) {
@@ -267,7 +269,7 @@ public class Engine extends AbstractTools {
         if ("item".equalsIgnoreCase(pathType)) {
             newSource = FileTools.chooseItemsToLoad();
         } else if ("file".equalsIgnoreCase(pathType)) {
-            newSource = FileTools.chooseFilestoLoad();
+            newSource = FileTools.chooseFilesToLoad();
         } else if ("folder".equalsIgnoreCase(pathType)) {
             newSource = FileTools.chooseDirsToLoad();
         } else {

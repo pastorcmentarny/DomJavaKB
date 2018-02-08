@@ -37,14 +37,14 @@ public class Backup extends AbstractTools {
     private static final Logger LOGGER = LoggerFactory.getLogger(Backup.class);
     private static Backup backup;
 
-    public Engine utilities = new Engine();
-    JFrame BackupTaskFrame;
+    private final Engine utilities = new Engine();
+    private JFrame BackupTaskFrame;
     private boolean inProgress = false;
     private Thread backupThread;
     private UpdateInfo updateInfo;
     private StringBuilder results;
     private ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
-    private Statistic stats = new Statistic();
+    private final Statistic stats = new Statistic();
     private String destinationDir;
 
     private Backup() {
@@ -290,9 +290,9 @@ public class Backup extends AbstractTools {
         updateInfo = null;
     }
 
-    public boolean precheck(String[] sources, String destination, JFrame BackupTaskFrame, JTextArea info) {
-        LOGGER.info("performing precheck ...");
-        LOGGER.debug("precheck: check sources ...");
+    private boolean preCheck(String[] sources, String destination, JFrame BackupTaskFrame, JTextArea info) {
+        LOGGER.info("performing preCheck ...");
+        LOGGER.debug("preCheck: check sources ...");
         updateInfoText(info, Messenger.PRE_CHECK + Messenger.REMOVE_DUPLICATES);
         sources = TaskUtils.removeDuplicateLines(sources);
 
@@ -300,36 +300,36 @@ public class Backup extends AbstractTools {
         sources = TaskUtils.removeNonExistsItems(sources);
 
         if (sources == null) {
-            JOptionPane.showConfirmDialog(null, "Nothing to backup!\n\nWHAT HAPPEN?\n\tIt means that list of file/folder contains waste products of digital metabolis but not list of files or folders to backup.\nWHAT TO DO?\n\tAre you using right file with list of items?\n\tDo you have access to your resources?", "WOOPS", JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showConfirmDialog(null, "Nothing to backup!\n\nWHAT HAPPEN?\n\tIt means that list of file/folder contains waste products of digital metabolism but not list of files or folders to backup.\nWHAT TO DO?\n\tAre you using right file with list of items?\n\tDo you have access to your resources?", "WHOOPS", JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE);
             killBackupThread();
             LOGGER.info("Not enough space on device where destination folder is");
             return false;
         }
-        LOGGER.debug("precheck: Sources check completed.");
+        LOGGER.debug("preCheck: Sources check completed.");
 
 
-        LOGGER.debug("precheck: check destination folder ...");
+        LOGGER.debug("preCheck: check destination folder ...");
         updateInfoText(info, Messenger.PRE_CHECK + Messenger.DESTINATION_PATH_CHECK);
         if (!FileTools.isADirectory(destination)) {
-            JOptionPane.showConfirmDialog(null, "Destination path is not a folder.Please correct it.!", "WOOPS", JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showConfirmDialog(null, "Destination path is not a folder.Please correct it.!", "WHOOPS", JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE);
             LOGGER.info("Path to destination folder is incorrect");
             killBackupThread();
             return false;
         } else {
-            LOGGER.debug("precheck:destination folder  check completed.");
+            LOGGER.debug("preCheck:destination folder  check completed.");
         }
 
 
         if (settings.isCheckFreeSpaceBeforeBackup() || !settings.isSpeedLightMode()) {
             updateInfoText(info, Messenger.PRE_CHECK + Messenger.ENOUGH_SPACE_CHECK);
-            LOGGER.debug("precheck: check is it enough space for backup...");
+            LOGGER.debug("preCheck: check is it enough space for backup...");
             if (!FileTools.checkEnoughSpace(stats, sources, destination)) {
                 JOptionPane.showConfirmDialog(null, "The is not enough space on device where destination folder is :(.", "WOOPS", JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE);
                 killBackupThread();
                 LOGGER.info("Not enough space on device where destination folder is");
                 return false;
             } else {
-                LOGGER.debug("precheck: enough space for backup check completed.");
+                LOGGER.debug("preCheck: enough space for backup check completed.");
 
             }
         } else {
@@ -358,7 +358,7 @@ public class Backup extends AbstractTools {
 
     /**
      * Below code cause a big problem as throws...
-     * "Exception in thread "backup" java.lang.Error: Interrupted attempt to aquire write lock"
+     * "Exception in thread "backup" java.lang.Error: Interrupted attempt to acquire write lock"
      * I have a solution in place,but it suggest that my code doing crap thing ,so i need improve my swing skills
      * TODO solve below problem by http://www.kauss.org/Stephan/swing/index.html
      * http://weblogs.java.net/blog/kgh/archive/2004/10/multithreaded_t.html
@@ -400,9 +400,9 @@ public class Backup extends AbstractTools {
         private final JFrame BackupTaskFrame;
         private final JTextArea info;
         private final JProgressBar bar;
-        private String[] src;
+        private final String[] src;
 
-        public BackupTask(String[] sources, String destination, JFrame BackupTaskFrame, JTextArea info, JProgressBar bar) {
+        BackupTask(String[] sources, String destination, JFrame BackupTaskFrame, JTextArea info, JProgressBar bar) {
             src = sources;
             dest = destination;
             this.BackupTaskFrame = BackupTaskFrame;
@@ -414,18 +414,18 @@ public class Backup extends AbstractTools {
             info.setForeground(Color.BLUE);
             LOGGER.info("Perform backup task....");
             stats.resetStats();
-            info.setText("Doing precheck...");
+            info.setText("Doing preCheck...");
             try {
 
 
-                if (precheck(src, dest, BackupTaskFrame, info)) {
+                if (preCheck(src, dest, BackupTaskFrame, info)) {
                     processBackup();
                 } else {
                     LOGGER.info("Precheck failed,backup cancelled.");
                 }
             } catch (Exception e) {
                 String error = "Backup throw unexpected error: '" + e.getCause() + "' with error message: '" + e.getMessage() + "'\n Exception message:\n " + "\n\n";
-                JOptionPane.showMessageDialog(null, error, "WOOPS!", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, error, "WHOOPS!", JOptionPane.ERROR_MESSAGE);
                 LOGGER.warn(error);
             }
             BackupTaskFrame.toBack();
@@ -434,9 +434,9 @@ public class Backup extends AbstractTools {
                 /*
              * } else { if (FileTools.checkEnoughSpace(src, dest)) {
              * processBackup(); } else { info.setForeground(Color.RED);
-             * info.setText("Unable to do Backup due lack of freespace on
+             * info.setText("Unable to do Backup due lack of free space on
              * destination drive."); log.debug("Unable to do Backup due lack of
-             * freespace on destination drive."); bar.setIndeterminate(false);
+             * free space on destination drive."); bar.setIndeterminate(false);
              * bar.setSize(500, 10); } } } else { info.setForeground(new
              * Color(200, 100, 21)); info.setText("(Backup in progress) I hope
              * you are DAMN SURE that you have enough space,without checking by
@@ -457,8 +457,8 @@ public class Backup extends AbstractTools {
             try {
                 results = performBackup();
 
-            } catch (NotImplementYetException niye) {
-                JOptionPane.showConfirmDialog(null, niye.getMessage(), "WOOPS", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
+            } catch (NotImplementYetException exception) {
+                JOptionPane.showConfirmDialog(null, exception.getMessage(), "WOOPS", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
             } finally {
                 inProgress = false;
             }
@@ -503,14 +503,14 @@ public class Backup extends AbstractTools {
                 LOGGER.debug("Deleting source(s) ... after backup");
                 updateInfoText(info, "Deleting source(s) ... after backup");
                 if (settings.isExitAfterBackup()) {
-                    if (TaskUtils.deleteSourceAferBackup(src)) {
+                    if (TaskUtils.deleteSourceAfterBackup(src)) {
                         utilities.shutdown("exitAfterBackup");
                     } else {
                         utilities.shutdown("disaster");
                     }
 
                 } else if (JOptionPane.showConfirmDialog(null, msg.getMsg("q.RUSure"), "WARNING", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE) == JOptionPane.YES_OPTION) {
-                    TaskUtils.deleteSourceAferBackup(src);
+                    TaskUtils.deleteSourceAfterBackup(src);
                 }
             }
         }
@@ -538,7 +538,7 @@ public class Backup extends AbstractTools {
         private void saveResultsToFile(String results) {
             if (!inProgress && settings.isSaveResultsToFile()) {
                 LOGGER.debug("saving  results to file");
-                String sr2f = Settings.DATAPATH + Tools.getCurrentDateWithTime() + ".txt";
+                String sr2f = Settings.DATA_PATH + Tools.getCurrentDateWithTime() + ".txt";
                 updateInfoText(info, "Saving results to file:" + sr2f);
                 FileTools.saveTextToFile(results, sr2f);
             }

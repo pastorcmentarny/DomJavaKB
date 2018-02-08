@@ -32,7 +32,7 @@ final class HTMLValidator {
         //TODO if(type.compareTo("application/json") )
     }
 
-    //TDOD improve it
+    //TODD improve it
     static void validateUrl(String urlStr) {
         if (isStringBlank(urlStr)) {
             throw new IllegalArgumentException("It must be valid url");

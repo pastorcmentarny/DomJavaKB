@@ -19,18 +19,18 @@ import static dms.pastor.tools.lotto.accuracy.check.DrawListExtractor.getHotPick
  * <p>
  * //TODO make this generic as this one is for hotpicks only
  */
-public class AlgorithmAccuracyCheckEngine {
-    final List<HotPickDraw> hotPickDrawList;
-    final AccuracyCounter counter;
+class AlgorithmAccuracyCheckEngine {
+    private final List<HotPickDraw> hotPickDrawList;
+    private final AccuracyCounter counter;
 
     public AlgorithmAccuracyCheckEngine(String filePath, FileUploader fileUploader) {
         hotPickDrawList = fileUploader.loadDrawHistoryFile(filePath).getDrawList();
         counter = new AccuracyCounter();
     }
 
-    /*run with specific generator with specific balldrawlist that will cam froem all htopicks draws
+    /*run with specific generator with specific ball draw list that will cam from all hotpicks draws
         Result will show accuracy for double  and will calculate money outcome with assumption I will play n1,n2 and n1+n2
-    \*/
+    */
     public Result analyse() {
         System.out.println("Analysing...");
         List<HotPickDraw> draw;
@@ -49,7 +49,7 @@ public class AlgorithmAccuracyCheckEngine {
         // get oldest 52 hotpicks
         // run analyse
         // check if got it
-        // move by 1 ,repeast
+        // move by 1 , repeat
         System.out.println("Analyse complete.");
         return new Result(counter.getAccuracy(), Integer.MIN_VALUE);
     }

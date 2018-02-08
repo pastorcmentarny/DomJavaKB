@@ -21,24 +21,24 @@ import static java.lang.String.format;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
-public class HiScore {
+class HiScore {
     private static final Logger LOGGER = LoggerFactory.getLogger(HiScore.class);
 
-    private List<Integer> scoreList = new ArrayList<>();
-    private int[] score = new int[10];
+    private final List<Integer> scoreList = new ArrayList<>();
+    private final int[] score = new int[10];
     private StringBuilder content = new StringBuilder();
     private FileReader fileLoader;
     private FileWriter fileSaver;
-    private String fileName = "HiScore.txt";
+    private final String fileName = "HiScore.txt";
 
-    public void IsItHiScore(int exp) {
+    public void IsItHighScore(int exp) {
         for (int i = 0; i < score.length; i++) {
             if (exp > score[i]) {
-                int temp = score[i];
+                int tempI = score[i];
                 score[i] = exp;
                 for (int j = i; j < score.length; i++) {
-                    int subtemp = score[j];
-                    score[j] = temp;
+                    int tempJ = score[j];
+                    score[j] = tempI;
                 }
             }
         }
@@ -55,23 +55,23 @@ public class HiScore {
         try {
             fileLoader = new FileReader(fileName);
             BufferedReader br = new BufferedReader(fileLoader);
-            String allText = "";
+            StringBuilder allText = new StringBuilder();
             String t;
             int line = 0;
             while ((t = br.readLine()) != null) {
                 System.out.println(t);
-                allText = allText + t + "\n";
+                allText.append(t).append("\n");
                 line++;
             }
             System.out.println(allText);
-            allText += exp + "\n";
+            allText.append(exp).append("\n");
             System.out.println(allText);
 
             fileLoader.close();
             fileSaver = new FileWriter(fileName);
             BufferedWriter bw = new BufferedWriter(fileSaver);
             //checkScore(exp,singleScore,line);
-            fileSaver.write(allText);
+            fileSaver.write(allText.toString());
             fileSaver.close();
 
         } catch (IOException exception) {
@@ -121,14 +121,14 @@ public class HiScore {
                 fileSaver.write(x);
             }
 
-
             fileSaver.close();
 
         } catch (IOException ex) {
+            LOGGER.error(String.format("Unable to save file due %s", ex.getMessage()));
         }
     }
 
-    public void sortScoreList() {
+    private void sortScoreList() {
         for (int i = 1; i < scoreList.size(); i++) {
             int temp = 0;
             int a = scoreList.get(i - 1);

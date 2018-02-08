@@ -25,10 +25,10 @@ import java.util.Random;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class Tools {
-    public static final String EMPTY = "";
+    private static final String EMPTY = "";
     private static final Logger LOGGER = LoggerFactory.getLogger(Tools.class);
     //Settings settings = Settings.getSettings();
-    private static char[] charArray = new char[36];
+    private static final char[] charArray = new char[36];
 
     public static void exitProgramOnRequest() {
         Settings settings = Settings.getSettings();
@@ -37,11 +37,6 @@ public class Tools {
         }
     }
 
-    /**
-     * Gives currect time in format yyyyMMdd-HHmm
-     *
-     * @return date with time
-     */
     public static String getCurrentDateWithTime() {
         String temp;
         Date date = new Date();
@@ -83,17 +78,17 @@ public class Tools {
                     Process systemKiller = Runtime.getRuntime().exec(shutdownCmd);
                 }
             } catch (IOException ex) {
-                LOGGER.warn("Prgoram was unable to shutdown OS");
+                LOGGER.warn("Program was unable to shutdown OS");
             }
         }
     }
 
     public static Color getRandomColor() {
-        Random rrgb = new Random();
-        return new Color(rrgb.nextInt(128), rrgb.nextInt(128), rrgb.nextInt(128));
+        Random randomColor = new Random();
+        return new Color(randomColor.nextInt(128), randomColor.nextInt(128), randomColor.nextInt(128));
     }
 
-    public static void changeToYelloStatus(List<String> result) {
+    public static void changeToYellowStatus(List<String> result) {
         if (!"ERROR".equalsIgnoreCase(result.get(0))) {
             result.set(0, "WARNING");
         }
@@ -129,7 +124,7 @@ public class Tools {
         return s;
     }
 
-    public static void populateCharArray() {
+    private static void populateCharArray() {
         int j = 0;
 
         for (char i = 'A'; i <= 'Z'; i++, j++)

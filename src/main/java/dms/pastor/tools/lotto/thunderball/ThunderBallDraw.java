@@ -11,7 +11,7 @@ import java.time.LocalDate;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class ThunderBallDraw {
+class ThunderBallDraw {
     private final LocalDate DrawDate;
     private final int ball1;
     private final int ball2;

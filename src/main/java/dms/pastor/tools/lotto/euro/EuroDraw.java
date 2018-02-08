@@ -39,7 +39,7 @@ public class EuroDraw implements Draw {
         this.drawNumber = drawNumber;
     }
 
-    public LocalDate getDrawDate() {
+    private LocalDate getDrawDate() {
         return drawDate;
     }
 
@@ -71,11 +71,11 @@ public class EuroDraw implements Draw {
         return luckyStar2;
     }
 
-    public String getUkMillionaireMaker() {
+    private String getUkMillionaireMaker() {
         return ukMillionaireMaker;
     }
 
-    public int getDrawNumber() {
+    private int getDrawNumber() {
         return drawNumber;
     }
 

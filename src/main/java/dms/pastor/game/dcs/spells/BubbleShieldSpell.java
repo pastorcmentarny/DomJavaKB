@@ -17,7 +17,7 @@ import static dms.pastor.game.dcs.conditions.ConditionType.BUBBLE_SHIELD;
  */
 public class BubbleShieldSpell extends Spell {
 
-    public static final int INITIAL_TURNS_LEFT = 20;
+    private static final int INITIAL_TURNS_LEFT = 20;
 
     public BubbleShieldSpell() {
         name = "Bubble shield";

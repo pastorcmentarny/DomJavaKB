@@ -72,7 +72,7 @@ public class Station {
         return thisYearVisitedDate;
     }
 
-    public void setVistedStationThisYearToNow() {
+    public void setVisitedStationThisYearToNow() {
         this.thisYearVisitedDate = LocalDate.now();
     }
 

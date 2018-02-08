@@ -19,8 +19,6 @@ import static dms.pastor.utils.ValidatorUtils.validateIfNotEmpty;
 
 public enum Status {
     NOT_VISITED("X"),
-    /*    PASSED_2018("M"), // minąć
-        VISITED_2018("B"), // byłem*/
     PASSED("P"),
     VISITED("V");
 

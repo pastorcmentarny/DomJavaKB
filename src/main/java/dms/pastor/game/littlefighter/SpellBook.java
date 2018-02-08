@@ -10,14 +10,14 @@ import javax.swing.*;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
-public class SpellBook {
+class SpellBook {
 
     public String castMana2Shield(int PlayerMana, int PlayerShield, JTextArea console) {
 
         if (PlayerMana >= 17) {
             PlayerMana -= 17;
             PlayerShield += 13;
-            return "\nReachearge Shield spell casted";
+            return "\nRecharge Shield spell casted";
         }
         return "";
 

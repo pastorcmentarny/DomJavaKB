@@ -15,14 +15,14 @@ import java.util.Objects;
  * tag-error
  */
 public class ValidationErrorResponse extends ErrorResponse {
-    List<Field> fields;
+    private final List<Field> fields;
 
     public ValidationErrorResponse(long id, String errorMessage, String caused, String solution, String moreInfo, List<Field> fields) {
         super(id, errorMessage, caused, solution, moreInfo);
         this.fields = fields;
     }
 
-    public List<Field> getFields() {
+    private List<Field> getFields() {
         return fields;
     }
 

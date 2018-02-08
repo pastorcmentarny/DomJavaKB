@@ -15,11 +15,11 @@ public class Result {
     }
 
 
-    public double getAccuracy() {
+    private double getAccuracy() {
         return accuracy;
     }
 
-    public int getBalance() {
+    private int getBalance() {
         return balance;
     }
 

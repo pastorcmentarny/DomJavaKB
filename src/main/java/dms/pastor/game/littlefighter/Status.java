@@ -12,14 +12,14 @@ public class Status {
 
     private boolean isPoisoned;
     private int lengthOfPoison;
-    private boolean isBeserked;
+    private boolean isBerserked;
     private boolean isWeak;
     private boolean isBlind;
     private boolean toBeGaga; //gaga - zdziecinnieć; zramoleć;
 
     public Status() {
         isPoisoned = false;
-        isBeserked = false;
+        isBerserked = false;
         isWeak = false;
         isBlind = false;
         toBeGaga = false;
@@ -27,7 +27,7 @@ public class Status {
 
     public void purify() {
         isPoisoned = false;
-        isBeserked = false;
+        isBerserked = false;
         isWeak = false;
         isBlind = false;
         toBeGaga = false;
@@ -38,7 +38,7 @@ public class Status {
         if (isPoisoned) {
             activeStatuses += "Poison ";
         }
-        if (isBeserked) {
+        if (isBerserked) {
             activeStatuses += "Beserk ";
         }
         if (isWeak) {
@@ -56,7 +56,7 @@ public class Status {
         isPoisoned = true;
     }
 
-    public void noPoison() {
+    private void noPoison() {
         isPoisoned = false;
     }
 
@@ -65,11 +65,11 @@ public class Status {
     }
 
     public void isBeserked() {
-        isBeserked = true;
+        isBerserked = true;
     }
 
-    public void noBeserk() {
-        isBeserked = false;
+    public void noBerserk() {
+        isBerserked = false;
     }
 
     public void isWeak() {
@@ -84,7 +84,7 @@ public class Status {
         isBlind = true;
     }
 
-    public void decreseLengthOfPoison() {
+    public void decreaseLengthOfPoison() {
         lengthOfPoison--;
         if (lengthOfPoison == 0) {
             noPoison();

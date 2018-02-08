@@ -15,19 +15,12 @@ public class TaskUtils {
     private static final Logger LOGGER = LoggerFactory.getLogger(TaskUtils.class);
     private Settings settings = Settings.getSettings();
 
-
-    /**
-     * Removes duplicate lines from list of items
-     *
-     * @param lineslist list of items
-     * @return list of items without duplicates
-     */
-    public static String[] removeDuplicateLines(String[] lineslist) {
+    public static String[] removeDuplicateLines(String[] linesList) {
         LOGGER.debug("Removing duplicate lines from list ...");
         ArrayList<String> singles = new ArrayList<>();
-        for (String aLineslist : lineslist) {
-            if (!singles.contains(aLineslist)) {
-                singles.add(aLineslist);
+        for (String line : linesList) {
+            if (!singles.contains(line)) {
+                singles.add(line);
             }
         }
         LOGGER.debug("Duplicate lines from list was removed.");
@@ -49,13 +42,7 @@ public class TaskUtils {
         return clearedList.toArray(new String[clearedList.size()]);
     }
 
-    /**
-     * Deletes Source After Backup
-     *
-     * @param sources - list of source items
-     * @return true if everything was deleted successfully
-     */
-    public static boolean deleteSourceAferBackup(String[] sources) {
+    public static boolean deleteSourceAfterBackup(String[] sources) {
         LOGGER.debug("deleting source's file/folders after backup...");
         for (String source : sources) {
             if (FileTools.isAFile(source) || FileTools.isADirectory(source)) {

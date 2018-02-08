@@ -56,7 +56,7 @@ public class Stations {
                 station.setPassedDate(LocalDate.now());
             }
             station.setVisitedDate(LocalDate.now());
-            station.setVistedStationThisYearToNow();
+            station.setVisitedStationThisYearToNow();
         } else {
             LOGGER.info("You visited this station already.");
             setVisitedThisYearFor(station);
@@ -68,7 +68,7 @@ public class Stations {
             LOGGER.info("You visited this station this year too.");
         } else {
             System.out.println("You updated " + station.getName() + " with info that you visited this year.");
-            station.setVistedStationThisYearToNow();
+            station.setVisitedStationThisYearToNow();
         }
     }
 

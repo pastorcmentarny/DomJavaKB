@@ -15,17 +15,17 @@ import java.util.Random;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
-public class Enemy {
-    protected int enemyAttack;
-    protected int enemyDefence;
-    protected int enemyPower;
-    protected int enemyHP;
+class Enemy {
+    int enemyAttack;
+    int enemyDefence;
+    int enemyPower;
+    int enemyHP;
     //private int EnemyShield = 2*EnemyHP;
-    protected int enemyArmor;
+    int enemyArmor;
     protected boolean isUseMagicShield;
-    Random random = new Random();
+    final Random random = new Random();
     String enemyName = "Effigy";
-    Status statuses = new Status();
+    final Status statuses = new Status();
     int regen;
     boolean isPoisoned;
 

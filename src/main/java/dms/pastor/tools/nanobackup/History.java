@@ -19,9 +19,9 @@ import java.awt.*;
  */
 public class History {
     private static History history;
-    public String messageHistory = ""; //TODO change that
-    JFrame msgWindow;
-    JTextArea messages;
+    private String messageHistory = ""; //TODO change that
+    private JFrame msgWindow;
+    private JTextArea messages;
 
     public static synchronized History getHistoryGUI() {
         if (history == null) {
@@ -63,7 +63,7 @@ public class History {
         }
     }
 
-    public void updateMessages() {
+    private void updateMessages() {
         messages.setText(messageHistory);
     }
 

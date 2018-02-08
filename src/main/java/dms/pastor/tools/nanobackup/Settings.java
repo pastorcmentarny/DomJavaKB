@@ -20,42 +20,23 @@ import java.util.Properties;
  */
 public final class Settings {
 
-    //private internalVariables
-    public static final String DATAPATH = "data" + System.getProperty("file.separator");
-    public static final String DEFAULTPATH = System.getProperty("user.dir") + System.getProperty("file.separator");
-    public static final String SETTINGSPATH = DATAPATH + "settings.properties";
-    public static final String RECENT_SRC_PATHS_FILE = DATAPATH + "recentSrcPaths.nbd";
-    public static final String RECENT_DEST_PATHS_FILE = DATAPATH + "recentDestPaths.nbd";
-    public static final String QUICKMODE_FILENAME = "quickmode.nbd";
+    public static final String DATA_PATH = "data" + System.getProperty("file.separator");
+    private static final String DEFAULT_PATH = System.getProperty("user.dir") + System.getProperty("file.separator");
+    public static final String SETTINGS_PATH = DATA_PATH + "settings.properties";
+    public static final String RECENT_SRC_PATHS_FILE = DATA_PATH + "recentSrcPaths.nbd";
+    public static final String RECENT_DEST_PATHS_FILE = DATA_PATH + "recentDestPaths.nbd";
+    public static final String QUICK_MODE_FILENAME = "quickmode.nbd";
     public static final String SRC_FILE_ENDING = ".txt";
-    public static final String SETTINGS_FILE_ENDING = ".properties";
+    private static final String SETTINGS_FILE_ENDING = ".properties";
     private static final Logger LOGGER = LoggerFactory.getLogger(Settings.class);
-    public static String PROPETIES_FILE_ENDING;
-    public static String AUTHOR = "made by nanoBackup by Pastor Cmentarny (\"http://pastor.ovh.org).\n";
     private static Settings settings;
-    /**
-     * improve code below and use instead of int ,so it will be meaningful
-     * <p>
-     * public static enum PriorityName{
-     * MAX(2),MIN(0),NORMAL(1);
-     * private final int x;
-     * PriorityName(int x){
-     * this.x = x;
-     * }
-     * <p>
-     * public int getCode() {
-     * return x;
-     * }
-     * }
-     */
-
 
     //GUI settings
-    private static Dimension hisotryOfMessageGUI = new Dimension(425, 550);
-    private static Dimension backupGUI = new Dimension(500, 200);
+    private static final Dimension historyOfMessageGUI = new Dimension(425, 550);
+    private static final Dimension backupGUI = new Dimension(500, 200);
     private static String beforeBackupJobPath = null;
     private static String afterBackupJobPath = null;
-    private Properties properties = new Properties();
+    private final Properties properties = new Properties();
     //settings
     private boolean confirmOnExit;
     private boolean exitAfterBackup;
@@ -66,9 +47,9 @@ public final class Settings {
     private boolean saveAsZip;
     private boolean saveResultsToFile;
     private boolean checkFreeSpaceBeforeBackup;
-    private boolean shutdownAfterBackup = false; //TODO remove = false ,when feature will be implemented
+    private final boolean shutdownAfterBackup = false; //TODO remove = false ,when feature will be implemented
     private boolean speedLightMode;
-    private boolean crypted;
+    private boolean encrypted;
     private int cpuPriority = Integer.MAX_VALUE;
     //domMode settings
     private boolean domJob;
@@ -81,8 +62,8 @@ public final class Settings {
 
     public static Dimension getDimensionFor(String what) {
         switch (what) {
-            case "hisotryOfMessageGUI":
-                return hisotryOfMessageGUI;
+            case "historyOfMessageGUI":
+                return historyOfMessageGUI;
             case "backupGUI":
                 return backupGUI;
             default:
@@ -115,7 +96,7 @@ public final class Settings {
         System.out.println(":::" + Settings.beforeBackupJobPath + "\n" + Settings.afterBackupJobPath);
     }
 
-    public void setDefaultSaveResultsToFile() {
+    private void setDefaultSaveResultsToFile() {
         saveResultsToFile = false;
     }
 
@@ -136,7 +117,7 @@ public final class Settings {
         this.saveAsZip = saveAsZip;
     }
 
-    public void setDefaultSaveAsZip() {
+    private void setDefaultSaveAsZip() {
         setSaveAsZip(false);
     }
 
@@ -167,7 +148,7 @@ public final class Settings {
         this.confirmOnExit = confirmOnExit;
     }
 
-    public void setDefaultConfirmOnExit() {
+    private void setDefaultConfirmOnExit() {
         setConfirmOnExit(false);
     }
 
@@ -182,7 +163,7 @@ public final class Settings {
         //saveSettings();
     }
 
-    public void setDefaultExitAfterBackup() {
+    private void setDefaultExitAfterBackup() {
         setExitAfterBackup(false);
     }
 
@@ -194,7 +175,7 @@ public final class Settings {
         this.deleteSourceAfterBackup = deleteSourceAfterBackup;
     }
 
-    public void setDefaultDeleteSourceAfterBackup() {
+    private void setDefaultDeleteSourceAfterBackup() {
         setDeleteSourceAfterBackup(false);
     }
 
@@ -211,7 +192,7 @@ public final class Settings {
     /**
      * Sets default quick backup
      */
-    public void setDefaultQuickBackup() {
+    private void setDefaultQuickBackup() {
         setQuickBackup(false);
     }
 
@@ -230,8 +211,8 @@ public final class Settings {
     }
 
 
-    public void setDefaultDestinationFolderPath() {
-        setDestinationFolderPath(DEFAULTPATH + "Backupfolder");
+    private void setDefaultDestinationFolderPath() {
+        setDestinationFolderPath(DEFAULT_PATH + "BackupFolder");
     }
 
     public String getSourceFilePath() {
@@ -242,8 +223,8 @@ public final class Settings {
         this.sourceFilePath = sourceFilePath;
     }
 
-    public void setDefaultSourceFilePath() {
-        setSourceFilePath(DEFAULTPATH + "filesToBackup.txt");
+    private void setDefaultSourceFilePath() {
+        setSourceFilePath(DEFAULT_PATH + "filesToBackup.txt");
     }
 
     public boolean isHappyMode() {
@@ -254,12 +235,12 @@ public final class Settings {
         this.happyMode = happyMode;
     }
 
-    public void setDefaultHappyMode() {
+    private void setDefaultHappyMode() {
         happyMode = true;
     }
 
     public boolean saveProperties() {
-        try (FileOutputStream fos = new FileOutputStream(SETTINGSPATH)) {
+        try (FileOutputStream fos = new FileOutputStream(SETTINGS_PATH)) {
             properties.store(fos, "Settings for nanoBackup");
             return true;
         } catch (IOException ex) {
@@ -270,10 +251,10 @@ public final class Settings {
 
     public boolean saveSettings() {
 
-        if (!FileTools.isFileExists(SETTINGSPATH)) {
+        if (!FileTools.isFileExists(SETTINGS_PATH)) {
             createDefaultSettings();
         }
-        try (FileInputStream fis = new FileInputStream(SETTINGSPATH)) {
+        try (FileInputStream fis = new FileInputStream(SETTINGS_PATH)) {
             properties.load(fis);
         } catch (Exception ex) {
             LOGGER.debug(ex.getCause() + "\n" + ex.getMessage());
@@ -298,7 +279,7 @@ public final class Settings {
     }
 
     public boolean loadSettings(boolean withValidateAndSave) {
-        return loadSettings(SETTINGSPATH, withValidateAndSave);
+        return loadSettings(SETTINGS_PATH, withValidateAndSave);
     }
 
     public boolean loadSettings(String path, boolean withValidateAndSave) {
@@ -341,7 +322,7 @@ public final class Settings {
         }
     }
 
-    public void setSettings() {
+    private void setSettings() {
         setConfirmOnExit(Boolean.parseBoolean(properties.getProperty("settings.confirmOnExit")));
         setDeleteSourceAfterBackup(Boolean.parseBoolean(properties.getProperty("settings.deleteSourceAfterBackup")));
         setQuickBackup(Boolean.parseBoolean(properties.getProperty("settings.quickBackup")));
@@ -360,7 +341,7 @@ public final class Settings {
 
     public String displayCurrentSettings(String where) {
         StringBuilder displaySettingsStatus = new StringBuilder();
-        displaySettingsStatus.append("\n~~~~Settings Status~~~~\n").append(SETTINGSPATH);
+        displaySettingsStatus.append("\n~~~~Settings Status~~~~\n").append(SETTINGS_PATH);
         displaySettingsStatus.append("\n-=--=- ").append(where).append(" -=--=-");
         displaySettingsStatus.append("\nConfirmOnExit: ").append(isConfirmOnExit());
         displaySettingsStatus.append("\nDeleteSourceAfterBackup: ").append(isDeleteSourceAfterBackup());
@@ -381,11 +362,11 @@ public final class Settings {
     public boolean createDefaultSettings() {
         LOGGER.debug("creating new settings file");
         //recreate settings.properties 
-        if (FileTools.isFileExists(SETTINGSPATH)) {
-            FileTools.delete(SETTINGSPATH);
+        if (FileTools.isFileExists(SETTINGS_PATH)) {
+            FileTools.delete(SETTINGS_PATH);
         }
 
-        if (FileTools.createAFile(SETTINGSPATH)) {
+        if (FileTools.createAFile(SETTINGS_PATH)) {
         } else {
             return false;
         }
@@ -497,7 +478,7 @@ public final class Settings {
         this.checkFreeSpaceBeforeBackup = checkFreeSpaceBeforeBackup;
     }
 
-    public void setDefaultCheckFreeSpaceBeforeBackup() {
+    private void setDefaultCheckFreeSpaceBeforeBackup() {
         setCheckFreeSpaceBeforeBackup(true);
     }
 
@@ -515,19 +496,19 @@ public final class Settings {
         this.speedLightMode = speedLightMode;
     }
 
-    public void setDefaultSpeedLightMode() {
+    private void setDefaultSpeedLightMode() {
         setSpeedLightMode(false);
     }
 
     public boolean isSaveAsEncrypted() {
-        return crypted;
+        return encrypted;
     }
 
-    public void setSaveAsEncrypted(boolean crypted) {
-        this.crypted = crypted;
+    public void setSaveAsEncrypted(boolean encrypted) {
+        this.encrypted = encrypted;
     }
 
-    public void setDefaultSaveAsEncrypted() {
+    private void setDefaultSaveAsEncrypted() {
         setSaveAsEncrypted(false);
     }
 
@@ -553,7 +534,7 @@ public final class Settings {
         }
     }
 
-    public void setDefaultCpuPriority() {
+    private void setDefaultCpuPriority() {
         setCpuPriority(1);
     }
 
