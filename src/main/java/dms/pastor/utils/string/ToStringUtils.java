@@ -9,7 +9,6 @@ import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 
 /**
  * Author Dominik Symonowicz
- * Created 06/11/2017
  * WWW:	https://dominiksymonowicz.com/welcome
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
