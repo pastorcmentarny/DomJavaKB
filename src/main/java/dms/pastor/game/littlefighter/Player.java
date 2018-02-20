@@ -68,8 +68,8 @@ class Player {
         }
     }
 
-    public void msg(String string) {
-        msg += string;
+    public void msg(String message) {
+        msg += message;
     }
 
     public String getMsg() {

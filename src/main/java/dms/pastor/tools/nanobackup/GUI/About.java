@@ -56,8 +56,8 @@ public class About extends javax.swing.JFrame {
         JLabel licenceLabel = new JLabel();
         JScrollPane jScrollPane5 = new JScrollPane();
         JTextArea jTextArea2 = new JTextArea();
-        JLabel OSLabel = new JLabel();
-        JLabel JVLabel = new JLabel();
+        JLabel osLabel = new JLabel();
+        JLabel jvmLabel = new JLabel();
         JPanel changelogPanel = new JPanel();
         JScrollPane jScrollPane2 = new JScrollPane();
         changelogTextArea = new javax.swing.JTextArea();
@@ -85,7 +85,7 @@ public class About extends javax.swing.JFrame {
 
         aboutTabbedPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                AboutTabbedPanelMouseClicked(evt);
+                aboutTabbedPanelMouseClicked(evt);
             }
         });
 
@@ -106,9 +106,9 @@ public class About extends javax.swing.JFrame {
         jTextArea2.setWrapStyleWord(true);
         jScrollPane5.setViewportView(jTextArea2);
 
-        OSLabel.setText("OS: " + System.getProperty("os.name") + "[" + System.getProperty("os.version") + "/" + System.getProperty("os.arch") + "]");
+        osLabel.setText("OS: " + System.getProperty("os.name") + "[" + System.getProperty("os.version") + "/" + System.getProperty("os.arch") + "]");
 
-        JVLabel.setText("JAVA: " + System.getProperty("java.version"));
+        jvmLabel.setText("JAVA: " + System.getProperty("java.version"));
 
         javax.swing.GroupLayout aboutPanelLayout = new javax.swing.GroupLayout(aboutPanel);
         aboutPanel.setLayout(aboutPanelLayout);
@@ -119,8 +119,8 @@ public class About extends javax.swing.JFrame {
                                         .addComponent(nameLabel)
                                         .addComponent(versionLabel)
                                         .addComponent(licenceLabel)
-                                        .addComponent(OSLabel)
-                                        .addComponent(JVLabel)
+                                        .addComponent(osLabel)
+                                        .addComponent(jvmLabel)
                                         .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE))
                                 .addContainerGap())
         );
@@ -134,9 +134,9 @@ public class About extends javax.swing.JFrame {
                                 .addPreferredGap(RELATED)
                                 .addComponent(licenceLabel)
                                 .addPreferredGap(RELATED, 14, Short.MAX_VALUE)
-                                .addComponent(OSLabel)
+                                .addComponent(osLabel)
                                 .addPreferredGap(RELATED)
-                                .addComponent(JVLabel)
+                                .addComponent(jvmLabel)
                                 .addPreferredGap(RELATED)
                                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(DEFAULT_GAP_SIZE, DEFAULT_GAP_SIZE, DEFAULT_GAP_SIZE))
@@ -261,7 +261,7 @@ public class About extends javax.swing.JFrame {
 
         eulaTextArea.setColumns(COLUMNS_SIZE);
         eulaTextArea.setEditable(false);
-        eulaTextArea.setFont(new java.awt.Font("Lucida Sans", 0, 14)); 
+        eulaTextArea.setFont(new java.awt.Font("Lucida Sans", Font.PLAIN, 14));
         eulaTextArea.setLineWrap(true);
         eulaTextArea.setRows(5);
         jScrollPane1.setViewportView(eulaTextArea);
@@ -291,13 +291,13 @@ public class About extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
-
-    private Font getDefaultFont() {
-        return new Font("Lucida Sans", 0, 12);
     }
 
-    private void AboutTabbedPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AboutTabbedPanelMouseClicked
+    private Font getDefaultFont() {
+        return new Font("Lucida Sans", Font.PLAIN, 12);
+    }
+
+    private void aboutTabbedPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AboutTabbedPanelMouseClicked
         try {
             String changelog = FileUtils.readFileToString(new File("data" + System.getProperty("file.separator") + "changelog.txt"), UTF_8);
             changelogTextArea.setText(changelog);
@@ -317,7 +317,7 @@ public class About extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "It is something wrong with web address.\nPossible reasons:\nIt is possible that you have weird problem with internet connection.\nFirewall blocks Java to access to internet\nAddress is incorrect.", "BAD NEWS!", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_goToButtonActionPerformed
-    // End of variables declaration//GEN-END:variables
+
 
     private void setup() {
         try (FileInputStream fis = new FileInputStream("data" + System.getProperty("file.separator") + "message.properties")) {

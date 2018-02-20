@@ -66,7 +66,7 @@ public final class Settings {
         switch (what) {
             case "historyOfMessageGUI":
                 return historyOfMessageGUI;
-            case "backupGUI":
+            case "backupGui":
                 return backupGUI;
             default:
                 return null; //TODO NoDimension object

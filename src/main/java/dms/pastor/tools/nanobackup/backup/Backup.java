@@ -72,14 +72,14 @@ public final class Backup extends AbstractTools {
         return inProgress;
     }
 
-    public void backupGUI(final String[] sources, final String destination, final JFrame GUIFrame) {
+    public void backupGui(final String[] sources, final String destination, final JFrame guiFrame) {
 
-        GUIFrame.setVisible(false);
+        guiFrame.setVisible(false);
 
         BackupTaskFrame = new JFrame("Backup");
 
         JPanel innerPanel = new JPanel();
-        innerPanel.setSize(Settings.getDimensionFor("backupGUI"));
+        innerPanel.setSize(Settings.getDimensionFor("backupGui"));
         final JProgressBar progressBar = new JProgressBar();
         progressBar.setIndeterminate(false);
         progressBar.setSize(DEFAULT_WIDTH, 80);
@@ -104,7 +104,7 @@ public final class Backup extends AbstractTools {
         BackupTaskFrame.add(innerPanel, BorderLayout.SOUTH);
         BackupTaskFrame.setVisible(true);
         progressBar.setIndeterminate(true);
-        backupThread = new Thread(new BackupTask(sources, destination, GUIFrame, infoTextArea, progressBar), "backup");
+        backupThread = new Thread(new BackupTask(sources, destination, guiFrame, infoTextArea, progressBar), "backup");
 
         try {
             backupThread.setPriority(settings.getPriorityForBackup());
@@ -116,7 +116,7 @@ public final class Backup extends AbstractTools {
 
         }
 
-        WindowListener windowListener = new MyWindowListener(GUIFrame, infoTextArea);
+        WindowListener windowListener = new MyWindowListener(guiFrame, infoTextArea);
         BackupTaskFrame.addWindowListener(windowListener);
 
         backupThread.start();
@@ -234,7 +234,8 @@ public final class Backup extends AbstractTools {
         updateInfo = null;
     }
 
-    private boolean preCheck(String[] sources, String destination, JFrame BackupTaskFrame, JTextArea info) {
+    @SuppressWarnings("BooleanMethodNameMustStartWithQuestion")
+    private boolean preCheck(String[] sources, String destination, JTextArea info) {
         LOGGER.info("performing preCheck ...");
         LOGGER.debug("preCheck: check sources ...");
         updateInfoText(info, Messenger.PRE_CHECK + Messenger.REMOVE_DUPLICATES);
@@ -244,7 +245,7 @@ public final class Backup extends AbstractTools {
         sources = TaskUtils.removeNonExistsItems(sources);
 
         if (sources == null) {
-            JOptionPane.showConfirmDialog(null, "Nothing to backup!\n\nWHAT HAPPEN?\n\tIt means that list of file/folder contains waste products of digital metabolism but not list of files or folders to backup.\nWHAT TO DO?\n\tAre you using right file with list of items?\n\tDo you have access to your resources?", "WHOOPS", JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showConfirmDialog(null, "Nothing to backup!\n\nWHAT HAPPEN?\n\tIt means that list of file/folder contains waste products of digital metabolism but not list of files or folders to backup.\nWHAT TO DO?\n\tAre you using right file with list of items?\n\tDo you have access to your resources?", "WHOOPS", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
             killBackupThread();
             LOGGER.info("Not enough space on device where destination folder is");
             return false;
@@ -255,7 +256,7 @@ public final class Backup extends AbstractTools {
         LOGGER.debug("preCheck: check destination folder ...");
         updateInfoText(info, Messenger.PRE_CHECK + Messenger.DESTINATION_PATH_CHECK);
         if (!FileTools.isADirectory(destination)) {
-            JOptionPane.showConfirmDialog(null, "Destination path is not a folder.Please correct it.!", "WHOOPS", JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showConfirmDialog(null, "Destination path is not a folder.Please correct it.!", "WHOOPS", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
             LOGGER.info("Path to destination folder is incorrect");
             killBackupThread();
             return false;
@@ -268,7 +269,7 @@ public final class Backup extends AbstractTools {
             updateInfoText(info, Messenger.PRE_CHECK + Messenger.ENOUGH_SPACE_CHECK);
             LOGGER.debug("preCheck: check is it enough space for backup...");
             if (!FileTools.checkEnoughSpace(stats, sources, destination)) {
-                JOptionPane.showConfirmDialog(null, "The is not enough space on device where destination folder is :(.", "WHOOPS", JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showConfirmDialog(null, "The is not enough space on device where destination folder is :(.", "WHOOPS", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
                 killBackupThread();
                 LOGGER.info("Not enough space on device where destination folder is");
                 return false;
@@ -344,14 +345,14 @@ public final class Backup extends AbstractTools {
         private final String dest;
         private final JFrame BackupTaskFrame;
         private final JTextArea info;
-        private final JProgressBar bar;
+        private final JProgressBar progressBar;
         private final String[] src;
 
-        BackupTask(String[] sources, String destination, JFrame BackupTaskFrame, JTextArea info, JProgressBar bar) {
+        BackupTask(String[] sources, String destination, JFrame backupTaskFrame, JTextArea info, JProgressBar progressBar) {
             src = sources;
             dest = destination;
-            this.BackupTaskFrame = BackupTaskFrame;
-            this.bar = bar;
+            this.BackupTaskFrame = backupTaskFrame;
+            this.progressBar = progressBar;
             this.info = info;
         }
 
@@ -363,7 +364,7 @@ public final class Backup extends AbstractTools {
             try {
 
 
-                if (preCheck(src, dest, BackupTaskFrame, info)) {
+                if (preCheck(src, dest, info)) {
                     processBackup();
                 } else {
                     LOGGER.info("Pre-check failed,backup cancelled.");
@@ -381,8 +382,8 @@ public final class Backup extends AbstractTools {
              * processBackup(); } else { info.setForeground(Color.RED);
              * info.setText("Unable to do Backup due lack of free space on
              * destination drive."); log.debug("Unable to do Backup due lack of
-             * free space on destination drive."); bar.setIndeterminate(false);
-             * bar.setSize(500, 10); } } } else { info.setForeground(new
+             * free space on destination drive."); progressBar.setIndeterminate(false);
+             * progressBar.setSize(500, 10); } } } else { info.setForeground(new
              * Color(200, 100, 21)); info.setText("(Backup in progress) I hope
              * you are DAMN SURE that you have enough space,without checking by
              * program."); processBackup(); }
@@ -411,7 +412,7 @@ public final class Backup extends AbstractTools {
             deleteSourceAfterBackup();
 
             saveResultsToFile(results);
-            bar.setIndeterminate(false);
+            progressBar.setIndeterminate(false);
 
             Tools.exitProgramOnRequest();
 
@@ -495,8 +496,8 @@ public final class Backup extends AbstractTools {
         private final JFrame GUIFrame;
         private final JTextArea infoTextArea;
 
-        public MyWindowListener(JFrame GUIFrame, JTextArea infoTextArea) {
-            this.GUIFrame = GUIFrame;
+        public MyWindowListener(JFrame guiFrame, JTextArea infoTextArea) {
+            this.GUIFrame = guiFrame;
             this.infoTextArea = infoTextArea;
         }
 

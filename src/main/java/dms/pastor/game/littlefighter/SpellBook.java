@@ -12,11 +12,11 @@ package dms.pastor.game.littlefighter;
         //TOO OLD PROJECT  TO TAKE CARE OF MAGIC NUMBERS
 class SpellBook {
 
-    public String castMana2Shield(int PlayerMana, int PlayerShield) {
+    public String castMana2Shield(int playerMana, int playerShield) {
 
-        if (PlayerMana >= 17) {
-            PlayerMana -= 17;
-            PlayerShield += 13;
+        if (playerMana >= 17) {
+            playerMana -= 17;
+            playerShield += 13;
             return "\nRecharge Shield spell casted";
         }
         return "";

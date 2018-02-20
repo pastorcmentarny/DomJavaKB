@@ -24,7 +24,6 @@ import java.util.Random;
 public final class Tools {
     private static final String EMPTY = "";
     private static final Logger LOGGER = LoggerFactory.getLogger(Tools.class);
-    private static final char[] charArray = new char[36];
     private static final int HALF_OF_MAX_RGB_VALUE = 128;
 
     private Tools() {

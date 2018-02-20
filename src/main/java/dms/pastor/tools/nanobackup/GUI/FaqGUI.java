@@ -31,7 +31,7 @@ import java.util.Properties;
 public class FaqGUI extends javax.swing.JFrame {
     private static final Logger LOGGER = LoggerFactory.getLogger(FaqGUI.class);
     private static final int PREFERED_SIZE = 589;
-    private static final Font DEFAULT_FONT = new Font("Verdana", 0, 14);
+    private static final Font DEFAULT_FONT = new Font("Verdana", Font.PLAIN, 14);
     private final Properties properties = new Properties();
     private String[] questions = {"Why I don't see FAQ?"};
     private String[] answers = {"It seems like file message.properties was missing , damaged or author of this program forgot update FAQ sections."};
@@ -69,9 +69,9 @@ public class FaqGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("FAQ");
-        setName("faqFrame"); // NOI18N
+        setName("faqFrame");
 
-        questionComboBox.setFont(DEFAULT_FONT); // NOI18N
+        questionComboBox.setFont(DEFAULT_FONT);
         questionComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(questions));
         questionComboBox.setToolTipText("Place,where you can select question");
         questionComboBox.addActionListener(this::questionComboBoxActionPerformed);
@@ -79,7 +79,7 @@ public class FaqGUI extends javax.swing.JFrame {
         jLabel1.setText("Choose question to see answer:");
 
         answersField.setColumns(20);
-        answersField.setFont(DEFAULT_FONT); // NOI18N
+        answersField.setFont(DEFAULT_FONT);
         answersField.setLineWrap(true);
         answersField.setRows(5);
         answersField.setText(answers[0]);
@@ -106,7 +106,7 @@ public class FaqGUI extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
     private void questionComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_questionComboBoxActionPerformed
         answersField.setText(answers[questionComboBox.getSelectedIndex()]);

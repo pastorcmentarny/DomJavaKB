@@ -45,7 +45,7 @@ public class History {
         msgWindow.getContentPane().add(sp);
         messages.setSize(400, 500);
         messages.setRows(30);
-        messages.setFont(new java.awt.Font("Tahoma", 0, 14));
+        messages.setFont(new java.awt.Font("Tahoma", Font.PLAIN, 14));
         messages.setBackground(Color.BLACK);
         messages.setForeground(Color.GREEN);
         messages.setEditable(false);

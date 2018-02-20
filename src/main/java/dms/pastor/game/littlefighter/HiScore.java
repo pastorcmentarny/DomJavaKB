@@ -31,7 +31,7 @@ class HiScore {
     private FileWriter fileSaver;
     private final String fileName = "HiScore.txt";
 
-    public void IsItHighScore(int exp) {
+    public void isItHighScore(int exp) {
         for (int i = 0; i < score.length; i++) {
             if (exp > score[i]) {
                 int tempI = score[i];

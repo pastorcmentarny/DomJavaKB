@@ -96,10 +96,10 @@ public final class MainGameGUI extends javax.swing.JFrame {
         jScrollPane1.setViewportView(console);
 
         RunTurn.setText("NEXT TURN");
-        RunTurn.addActionListener(this::RunTurnActionPerformed);
+        RunTurn.addActionListener(this::runTurnActionPerformed);
 
         fireBall.setText("FireBall");
-        fireBall.addActionListener(this::FireBallActionPerformed);
+        fireBall.addActionListener(this::fireBallActionPerformed);
 
         nextEnemy.setText("Next Enemy");
         nextEnemy.addActionListener(this::nextEnemyActionPerformed);
@@ -113,16 +113,16 @@ public final class MainGameGUI extends javax.swing.JFrame {
         jScrollPane3.setViewportView(enemyConsole);
 
         mana2Shield.setText("Mana>Shield");
-        mana2Shield.addActionListener(this::Mana2ShieldActionPerformed);
+        mana2Shield.addActionListener(this::mana2ShieldActionPerformed);
 
         powerUP.setText("PowerUP");
-        powerUP.addActionListener(this::PowerUPActionPerformed);
+        powerUP.addActionListener(this::powerUPActionPerformed);
 
         quickerShieldRegen.setText("Q.S.regen");
-        quickerShieldRegen.addActionListener(this::QuickerShieldRegenActionPerformed);
+        quickerShieldRegen.addActionListener(this::quickerShieldRegenActionPerformed);
 
         info.setText("Info");
-        info.addActionListener(this::InfoActionPerformed);
+        info.addActionListener(this::infoActionPerformed);
 
         lightingSpell.setText("Lighting Strike");
         lightingSpell.setEnabled(false);
@@ -150,7 +150,7 @@ public final class MainGameGUI extends javax.swing.JFrame {
         suddenDeath.setEnabled(false);
 
         spell.setText("Spell");
-        spell.addActionListener(this::SpellActionPerformed);
+        spell.addActionListener(this::spellActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -230,14 +230,14 @@ public final class MainGameGUI extends javax.swing.JFrame {
         pack();
     }
 
-    private void RunTurnActionPerformed(java.awt.event.ActionEvent evt) {
+    private void runTurnActionPerformed(java.awt.event.ActionEvent evt) {
         status();
         antiExp += 10;
-        int playerDmg = battle.PlayerAttack(player, enemy, console);
+        int playerDmg = battle.playerAttack(player, enemy, console);
         console.setText(console.getText() + "\nEnemy does " + playerDmg + " damage!");
         boolean isIt = isAlive();
         if (isIt) {
-            int enemyDmg = battle.EnemyAttack(player, enemy, lvl, console);
+            int enemyDmg = battle.enemyAttack(player, enemy, console);
             antiExp += enemyDmg;
             console.setText(console.getText() + "\nPlayer does " + enemyDmg + " damage!");
             player.PlayerShield -= enemyDmg;
@@ -255,7 +255,7 @@ public final class MainGameGUI extends javax.swing.JFrame {
 
     }
 
-    private void FireBallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FireBallActionPerformed
+    private void fireBallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FireBallActionPerformed
         boolean isCasted = spellBook.castFireBall(player, enemy);
         if (isCasted) {
             console.setText(console.getText() + "\nFireBall spell casted!");
@@ -269,7 +269,7 @@ public final class MainGameGUI extends javax.swing.JFrame {
         nextEnemy.setEnabled(false);
     }//GEN-LAST:event_nextEnemyActionPerformed
 
-    private void Mana2ShieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Mana2ShieldActionPerformed
+    private void mana2ShieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Mana2ShieldActionPerformed
         //casting spell mana to shield
         String result = spellBook.castMana2Shield(player.PlayerMana, player.PlayerHP);
         console.setText(console.getText() + result);
@@ -277,7 +277,7 @@ public final class MainGameGUI extends javax.swing.JFrame {
 
     }//GEN-LAST:event_Mana2ShieldActionPerformed
 
-    private void PowerUPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PowerUPActionPerformed
+    private void powerUPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PowerUPActionPerformed
         if (player.PlayerMana >= 100) {
             player.PlayerMana -= 100;
             player.PlayerPower += 1;
@@ -285,7 +285,7 @@ public final class MainGameGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_PowerUPActionPerformed
 
-    private void QuickerShieldRegenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuickerShieldRegenActionPerformed
+    private void quickerShieldRegenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuickerShieldRegenActionPerformed
         if (player.PlayerMana >= 75) {
             player.PlayerMana -= 75;
             shieldRegen += 1;
@@ -294,7 +294,7 @@ public final class MainGameGUI extends javax.swing.JFrame {
 
     }//GEN-LAST:event_QuickerShieldRegenActionPerformed
 
-    private void InfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoActionPerformed
+    private void infoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoActionPerformed
         if (player.PlayerMana >= 10) {
             player.PlayerMana -= 10;
             updateConsole();
@@ -324,7 +324,7 @@ public final class MainGameGUI extends javax.swing.JFrame {
         boolean result = spellBook.castShadowAttack(player);
         if (result) {
             for (int i = 1; i <= 3; i++) {
-                int playerAttack = battle.PlayerAttack(player, enemy, console);
+                int playerAttack = battle.playerAttack(player, enemy, console);
                 player.exp += playerAttack;
                 player.score += playerAttack;
                 console.setText(console.getText() + "In " + i + " attack:\nEnemy does " + playerAttack + " damage!");
@@ -352,11 +352,11 @@ public final class MainGameGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_magicVampireActionPerformed
 
-    private void SpellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SpellActionPerformed
+    private void spellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SpellActionPerformed
         Spell spell = new Spell();
         spell.setVisible(true);
     }//GEN-LAST:event_SpellActionPerformed
-    // End of variables declaration//GEN-END:variables
+
 
     private void updateConsole() {
         playerConsole.setText(
