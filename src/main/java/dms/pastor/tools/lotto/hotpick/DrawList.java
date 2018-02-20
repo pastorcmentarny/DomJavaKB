@@ -1,5 +1,6 @@
 package dms.pastor.tools.lotto.hotpick;
 
+import java.util.Collections;
 import java.util.List;
 
 public class DrawList<T extends Draw> {
@@ -10,6 +11,6 @@ public class DrawList<T extends Draw> {
     }
 
     public List<T> getDrawList() {
-        return drawList;
+        return Collections.unmodifiableList(drawList);
     }
 }

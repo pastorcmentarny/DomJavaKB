@@ -223,9 +223,9 @@ public final class MainGameGUI extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
-    private void RunTurnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RunTurnActionPerformed
+    private void RunTurnActionPerformed(java.awt.event.ActionEvent evt) {
         status();
         antiExp += 10;
         int playerDmg = battle.PlayerAttack(player, enemy, console);
@@ -248,8 +248,7 @@ public final class MainGameGUI extends javax.swing.JFrame {
         updateConsole();
         endOfTurn();
 
-
-    }//GEN-LAST:event_RunTurnActionPerformed
+    }
 
     private void FireBallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FireBallActionPerformed
         boolean isCasted = spellBook.castFireBall(player, enemy);
@@ -349,7 +348,7 @@ public final class MainGameGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_magicVampireActionPerformed
 
     private void SpellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SpellActionPerformed
-        Spell spell = new Spell(player, enemy, spellBook, console);
+        Spell spell = new Spell();
         spell.setVisible(true);
     }//GEN-LAST:event_SpellActionPerformed
     // End of variables declaration//GEN-END:variables

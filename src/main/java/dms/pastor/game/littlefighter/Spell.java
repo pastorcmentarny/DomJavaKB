@@ -22,19 +22,9 @@ import javax.swing.*;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 class Spell extends javax.swing.JFrame {
-    int mana;
 
-    /**
-     * Creates new form Spell
-     */
-    //public Spell() {
-    //    initComponents();
-    //}
-    public Spell(Player p, Enemy e, SpellBook sb, JTextArea console) {
-        Player player = p;
-        Enemy enemy = e;
-        SpellBook spell = sb;
-        JTextArea console1 = console;
+
+    public Spell() {
         initComponents();
 
     }
@@ -75,7 +65,6 @@ class Spell extends javax.swing.JFrame {
         jButton6.setText("Poison");
 
         vampireAttack.setText("Vampire");
-        vampireAttack.addActionListener(this::VampireAttackActionPerformed);
 
         jButton7.setText("Mana>Shield");
 
@@ -142,15 +131,6 @@ class Spell extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
-
-    private void VampireAttackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VampireAttackActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_VampireAttackActionPerformed
-    // End of variables declaration//GEN-END:variables
-
-    void cast(Player player, Enemy enemy) {
-
     }
 
 }

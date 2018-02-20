@@ -10,6 +10,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+import static java.lang.String.format;
+
 /**
  * Author Dominik Symonowicz
  * WWW:	https://dominiksymonowicz.com/welcome
@@ -340,23 +342,16 @@ public final class Settings {
     }
 
     public String displayCurrentSettings(String where) {
-        StringBuilder displaySettingsStatus = new StringBuilder();
-        displaySettingsStatus.append("\n~~~~Settings Status~~~~\n").append(SETTINGS_PATH);
-        displaySettingsStatus.append("\n-=--=- ").append(where).append(" -=--=-");
-        displaySettingsStatus.append("\nConfirmOnExit: ").append(isConfirmOnExit());
-        displaySettingsStatus.append("\nDeleteSourceAfterBackup: ").append(isDeleteSourceAfterBackup());
-        displaySettingsStatus.append("\nExitAfterBackup: ").append(isExitAfterBackup());
-        displaySettingsStatus.append("\nQuickBackup: ").append(isQuickBackup());
-        displaySettingsStatus.append("\nSourceFilePath: ").append(getSourceFilePath());
-        displaySettingsStatus.append("\nDestinationFolderPath: ").append(getDestinationFolderPath());
-        displaySettingsStatus.append("\nHappyMode:").append(isHappyMode());
-        displaySettingsStatus.append("\nSave Backup as zip:").append(isSaveAsZip());
-        displaySettingsStatus.append("\nSave paranoid encrypted zip Backup :").append(isSaveAsEncrypted());
-        displaySettingsStatus.append("\nSave results to file:").append(isSaveResultsToFile());
-        displaySettingsStatus.append("\nCheck free space before backup:").append(isCheckFreeSpaceBeforeBackup());
-        displaySettingsStatus.append("\nLight Speed Mode:").append(isSpeedLightMode());
-        displaySettingsStatus.append("\nPriority:").append(getCpuPriority());
-        return displaySettingsStatus.toString();
+        return format("\n~~~~Settings Status~~~~\n%s\n-=--=- %s -=--=-\nConfirmOnExit: %s\n" +
+                        "DeleteSourceAfterBackup: %s\nExitAfterBackup: %s\nQuickBackup: %s\n" +
+                        "SourceFilePath: %s\nDestinationFolderPath: %s\nHappyMode:%s\n" +
+                        "Save Backup as zip:%s\nSave paranoid encrypted zip Backup :%s\n" +
+                        "Save results to file:%s\nCheck free space before backup:%s\nLight Speed Mode:%s\n" +
+                        "Priority:%d",
+                SETTINGS_PATH, where, isConfirmOnExit(), isDeleteSourceAfterBackup(), isExitAfterBackup(),
+                isQuickBackup(), getSourceFilePath(), getDestinationFolderPath(), isHappyMode(), isSaveAsZip(),
+                isSaveAsEncrypted(), isSaveResultsToFile(), isCheckFreeSpaceBeforeBackup(), isSpeedLightMode(),
+                getCpuPriority());
     }
 
     public boolean createDefaultSettings() {
