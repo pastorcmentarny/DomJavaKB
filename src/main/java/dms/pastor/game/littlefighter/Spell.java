@@ -23,25 +23,6 @@ import javax.swing.*;
  */
 class Spell extends javax.swing.JFrame {
     int mana;
-    private final Player player;
-    private final Enemy enemy;
-    private final SpellBook spell;
-    private final JTextArea console;
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton InfoSpell;
-    private javax.swing.JButton VampireAttack;
-    private javax.swing.JButton increaseAttackSpell;
-
-    private javax.swing.JButton increaseShieldRegenSpell;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
 
     /**
      * Creates new form Spell
@@ -50,32 +31,32 @@ class Spell extends javax.swing.JFrame {
     //    initComponents();
     //}
     public Spell(Player p, Enemy e, SpellBook sb, JTextArea console) {
-        this.player = p;
-        this.enemy = e;
-        this.spell = sb;
-        this.console = console;
+        Player player = p;
+        Enemy enemy = e;
+        SpellBook spell = sb;
+        JTextArea console1 = console;
         initComponents();
 
     }
 
     private void initComponents() {
 
-        InfoSpell = new javax.swing.JButton();
-        increaseAttackSpell = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        increaseShieldRegenSpell = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        VampireAttack = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        JButton infoSpell = new JButton();
+        JButton increaseAttackSpell = new JButton();
+        JButton jButton1 = new JButton();
+        JButton increaseShieldRegenSpell = new JButton();
+        JButton jButton3 = new JButton();
+        JButton jButton2 = new JButton();
+        JButton jButton4 = new JButton();
+        JButton jButton5 = new JButton();
+        JButton jButton6 = new JButton();
+        JButton vampireAttack = new JButton();
+        JButton jButton7 = new JButton();
+        JButton jButton8 = new JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        InfoSpell.setText("Info");
+        infoSpell.setText("Info");
 
         increaseAttackSpell.setText("Attack +1");
 
@@ -93,8 +74,8 @@ class Spell extends javax.swing.JFrame {
 
         jButton6.setText("Poison");
 
-        VampireAttack.setText("Vampire");
-        VampireAttack.addActionListener(this::VampireAttackActionPerformed);
+        vampireAttack.setText("Vampire");
+        vampireAttack.addActionListener(this::VampireAttackActionPerformed);
 
         jButton7.setText("Mana>Shield");
 
@@ -117,14 +98,14 @@ class Spell extends javax.swing.JFrame {
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                                         .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                         .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
-                                                        .addComponent(InfoSpell, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                        .addComponent(infoSpell, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                                         .addComponent(jButton6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                         .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                         .addComponent(jButton5, javax.swing.GroupLayout.Alignment.LEADING)))
                                         .addGroup(layout.createSequentialGroup()
-                                                .addComponent(VampireAttack)
+                                                .addComponent(vampireAttack)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addContainerGap())
@@ -135,7 +116,7 @@ class Spell extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(VampireAttack)
+                                                        .addComponent(vampireAttack)
                                                         .addComponent(jButton4))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -143,7 +124,7 @@ class Spell extends javax.swing.JFrame {
                                                         .addComponent(jButton6))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(InfoSpell)
+                                                        .addComponent(infoSpell)
                                                         .addComponent(jButton2))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

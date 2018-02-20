@@ -28,8 +28,6 @@ public class FaqGUI extends javax.swing.JFrame {
     private String[] questions = {"Why I don't see FAQ?"};
     private String[] answers = {"It seems like file message.properties was missing , damaged or author of this program forgot update FAQ sections."};
     private javax.swing.JTextArea answersField;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox questionComboBox;
 
     /**
@@ -57,8 +55,8 @@ public class FaqGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         questionComboBox = new javax.swing.JComboBox();
-        jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        javax.swing.JLabel jLabel1 = new javax.swing.JLabel();
+        javax.swing.JScrollPane jScrollPane1 = new javax.swing.JScrollPane();
         answersField = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);

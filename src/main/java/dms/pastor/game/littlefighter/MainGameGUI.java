@@ -28,20 +28,11 @@ public final class MainGameGUI extends javax.swing.JFrame {
     private int lvl = 0;
     private int shieldRegen = 2;
     private int antiExp = 0;
-    private javax.swing.JButton FireBall;
-    private javax.swing.JButton Info;
-    private javax.swing.JButton Mana2Shield;
-    private javax.swing.JButton PowerUP;
-    private javax.swing.JButton QuickerShieldRegen;
     private javax.swing.JButton RunTurn;
-    private javax.swing.JButton Spell;
     private javax.swing.JButton berserkAttack;
     private javax.swing.JTextArea console;
     private javax.swing.JButton dispel;
     private javax.swing.JTextArea enemyConsole;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JButton lightingSpell;
     private javax.swing.JButton magicVampire;
     private javax.swing.JButton nextEnemy;
@@ -69,19 +60,19 @@ public final class MainGameGUI extends javax.swing.JFrame {
 
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
+        javax.swing.JScrollPane jScrollPane1 = new javax.swing.JScrollPane();
         console = new javax.swing.JTextArea();
         RunTurn = new javax.swing.JButton();
-        FireBall = new javax.swing.JButton();
+        javax.swing.JButton fireBall = new javax.swing.JButton();
         nextEnemy = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        javax.swing.JScrollPane jScrollPane2 = new javax.swing.JScrollPane();
         playerConsole = new javax.swing.JTextArea();
-        jScrollPane3 = new javax.swing.JScrollPane();
+        javax.swing.JScrollPane jScrollPane3 = new javax.swing.JScrollPane();
         enemyConsole = new javax.swing.JTextArea();
-        Mana2Shield = new javax.swing.JButton();
-        PowerUP = new javax.swing.JButton();
-        QuickerShieldRegen = new javax.swing.JButton();
-        Info = new javax.swing.JButton();
+        javax.swing.JButton mana2Shield = new javax.swing.JButton();
+        javax.swing.JButton powerUP = new javax.swing.JButton();
+        javax.swing.JButton quickerShieldRegen = new javax.swing.JButton();
+        javax.swing.JButton info = new javax.swing.JButton();
         lightingSpell = new javax.swing.JButton();
         magicVampire = new javax.swing.JButton();
         dispel = new javax.swing.JButton();
@@ -89,7 +80,7 @@ public final class MainGameGUI extends javax.swing.JFrame {
         berserkAttack = new javax.swing.JButton();
         shadowAttack = new javax.swing.JButton();
         suddenDeath = new javax.swing.JButton();
-        Spell = new javax.swing.JButton();
+        javax.swing.JButton spell = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Little fighter");
@@ -102,8 +93,8 @@ public final class MainGameGUI extends javax.swing.JFrame {
         RunTurn.setText("NEXT TURN");
         RunTurn.addActionListener(this::RunTurnActionPerformed);
 
-        FireBall.setText("FireBall");
-        FireBall.addActionListener(this::FireBallActionPerformed);
+        fireBall.setText("FireBall");
+        fireBall.addActionListener(this::FireBallActionPerformed);
 
         nextEnemy.setText("Next Enemy");
         nextEnemy.addActionListener(this::nextEnemyActionPerformed);
@@ -116,17 +107,17 @@ public final class MainGameGUI extends javax.swing.JFrame {
         enemyConsole.setRows(5);
         jScrollPane3.setViewportView(enemyConsole);
 
-        Mana2Shield.setText("Mana>Shield");
-        Mana2Shield.addActionListener(this::Mana2ShieldActionPerformed);
+        mana2Shield.setText("Mana>Shield");
+        mana2Shield.addActionListener(this::Mana2ShieldActionPerformed);
 
-        PowerUP.setText("PowerUP");
-        PowerUP.addActionListener(this::PowerUPActionPerformed);
+        powerUP.setText("PowerUP");
+        powerUP.addActionListener(this::PowerUPActionPerformed);
 
-        QuickerShieldRegen.setText("Q.S.regen");
-        QuickerShieldRegen.addActionListener(this::QuickerShieldRegenActionPerformed);
+        quickerShieldRegen.setText("Q.S.regen");
+        quickerShieldRegen.addActionListener(this::QuickerShieldRegenActionPerformed);
 
-        Info.setText("Info");
-        Info.addActionListener(this::InfoActionPerformed);
+        info.setText("Info");
+        info.addActionListener(this::InfoActionPerformed);
 
         lightingSpell.setText("Lighting Strike");
         lightingSpell.setEnabled(false);
@@ -153,8 +144,8 @@ public final class MainGameGUI extends javax.swing.JFrame {
         suddenDeath.setText("Sudden Death");
         suddenDeath.setEnabled(false);
 
-        Spell.setText("Spell");
-        Spell.addActionListener(this::SpellActionPerformed);
+        spell.setText("Spell");
+        spell.addActionListener(this::SpellActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -167,21 +158,21 @@ public final class MainGameGUI extends javax.swing.JFrame {
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                 .addComponent(nextEnemy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addComponent(RunTurn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addComponent(Spell))
+                                        .addComponent(spell))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(shadowAttack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(dispel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(berserkAttack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(QuickerShieldRegen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(Mana2Shield, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(PowerUP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(quickerShieldRegen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(mana2Shield, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(powerUP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jScrollPane2))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(FireBall, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
-                                        .addComponent(Info, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
+                                        .addComponent(fireBall, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
+                                        .addComponent(info, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
                                         .addComponent(suddenDeath, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
                                         .addComponent(lightingSpell, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
                                         .addComponent(magicVampire, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
@@ -204,12 +195,12 @@ public final class MainGameGUI extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(PowerUP)
-                                                        .addComponent(Spell))
+                                                        .addComponent(powerUP)
+                                                        .addComponent(spell))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(Mana2Shield)
+                                                .addComponent(mana2Shield)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(QuickerShieldRegen)
+                                                .addComponent(quickerShieldRegen)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(berserkAttack)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -217,9 +208,9 @@ public final class MainGameGUI extends javax.swing.JFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(shadowAttack))
                                         .addGroup(layout.createSequentialGroup()
-                                                .addComponent(Info)
+                                                .addComponent(info)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(FireBall)
+                                                .addComponent(fireBall)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addComponent(magicVampire)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)

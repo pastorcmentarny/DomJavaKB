@@ -26,37 +26,9 @@ public class About extends javax.swing.JFrame {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(About.class);
     private final Properties properties = new Properties();
-    // Variables declaration - do not modify
-    // End of variables declaration
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTabbedPane AboutTabbedPanel;
-    private javax.swing.JLabel JVLabel;
-    private javax.swing.JLabel OSLabel;
-    private javax.swing.JPanel aboutMePanel;
-    private javax.swing.JPanel aboutPanel;
-    private javax.swing.JLabel authorLabel;
-    private javax.swing.JPanel changelogPanel;
     private javax.swing.JTextArea changelogTextArea;
-    private javax.swing.JTextField emailField;
-    private javax.swing.JLabel emailLabel;
-    private javax.swing.JPanel eulaPanel;
     private javax.swing.JTextArea eulaTextArea;
-    private javax.swing.JButton goToButton;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JLabel licenceLabel;
     private javax.swing.JScrollPane messagePanel;
-    private javax.swing.JTextArea messageTextArea;
-    private javax.swing.JLabel nameLabel;
-    private javax.swing.JLabel pictureOfMe;
-    private javax.swing.JPanel thanksPanel;
-    private javax.swing.JScrollPane thanksScrollPanel;
-    private javax.swing.JTextArea thanksTextArea;
-    private javax.swing.JLabel versionLabel;
-    private javax.swing.JTextField www;
-    private javax.swing.JLabel wwwLabel;
 
     public About() {
         setup();
@@ -71,33 +43,33 @@ public class About extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        AboutTabbedPanel = new javax.swing.JTabbedPane();
-        aboutPanel = new javax.swing.JPanel();
-        nameLabel = new javax.swing.JLabel();
-        versionLabel = new javax.swing.JLabel();
-        licenceLabel = new javax.swing.JLabel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
-        OSLabel = new javax.swing.JLabel();
-        JVLabel = new javax.swing.JLabel();
-        changelogPanel = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        JTabbedPane aboutTabbedPanel = new JTabbedPane();
+        JPanel aboutPanel = new JPanel();
+        JLabel nameLabel = new JLabel();
+        JLabel versionLabel = new JLabel();
+        JLabel licenceLabel = new JLabel();
+        JScrollPane jScrollPane5 = new JScrollPane();
+        JTextArea jTextArea2 = new JTextArea();
+        JLabel OSLabel = new JLabel();
+        JLabel JVLabel = new JLabel();
+        JPanel changelogPanel = new JPanel();
+        JScrollPane jScrollPane2 = new JScrollPane();
         changelogTextArea = new javax.swing.JTextArea();
-        aboutMePanel = new javax.swing.JPanel();
-        authorLabel = new javax.swing.JLabel();
-        emailLabel = new javax.swing.JLabel();
-        emailField = new javax.swing.JTextField();
-        wwwLabel = new javax.swing.JLabel();
-        www = new javax.swing.JTextField();
+        JPanel aboutMePanel = new JPanel();
+        JLabel authorLabel = new JLabel();
+        JLabel emailLabel = new JLabel();
+        JTextField emailField = new JTextField();
+        JLabel wwwLabel = new JLabel();
+        JTextField www = new JTextField();
         messagePanel = new javax.swing.JScrollPane();
-        messageTextArea = new javax.swing.JTextArea();
-        goToButton = new javax.swing.JButton();
-        pictureOfMe = new javax.swing.JLabel();
-        thanksPanel = new javax.swing.JPanel();
-        thanksScrollPanel = new javax.swing.JScrollPane();
-        thanksTextArea = new javax.swing.JTextArea();
-        eulaPanel = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        JTextArea messageTextArea = new JTextArea();
+        JButton goToButton = new JButton();
+        JLabel pictureOfMe = new JLabel();
+        JPanel thanksPanel = new JPanel();
+        JScrollPane thanksScrollPanel = new JScrollPane();
+        JTextArea thanksTextArea = new JTextArea();
+        JPanel eulaPanel = new JPanel();
+        JScrollPane jScrollPane1 = new JScrollPane();
         eulaTextArea = new javax.swing.JTextArea();
 
         setTitle("ABOUT ME");
@@ -105,7 +77,7 @@ public class About extends javax.swing.JFrame {
         setName("about"); 
         setResizable(false);
 
-        AboutTabbedPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+        aboutTabbedPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 AboutTabbedPanelMouseClicked(evt);
             }
@@ -164,7 +136,7 @@ public class About extends javax.swing.JFrame {
                                 .addGap(83, 83, 83))
         );
 
-        AboutTabbedPanel.addTab("About program", aboutPanel);
+        aboutTabbedPanel.addTab("About program", aboutPanel);
 
         changelogTextArea.setColumns(20);
         changelogTextArea.setEditable(false);
@@ -185,7 +157,7 @@ public class About extends javax.swing.JFrame {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
         );
 
-        AboutTabbedPanel.addTab("changelog", changelogPanel);
+        aboutTabbedPanel.addTab("changelog", changelogPanel);
 
         authorLabel.setText("Author: Dominik Symonowicz");
 
@@ -257,7 +229,7 @@ public class About extends javax.swing.JFrame {
                                 .addContainerGap())
         );
 
-        AboutTabbedPanel.addTab("About me", aboutMePanel);
+        aboutTabbedPanel.addTab("About me", aboutMePanel);
 
         thanksTextArea.setColumns(20);
         thanksTextArea.setEditable(false);
@@ -279,7 +251,7 @@ public class About extends javax.swing.JFrame {
                         .addComponent(thanksScrollPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
         );
 
-        AboutTabbedPanel.addTab("Thanks", thanksPanel);
+        aboutTabbedPanel.addTab("Thanks", thanksPanel);
 
         eulaTextArea.setColumns(20);
         eulaTextArea.setEditable(false);
@@ -299,17 +271,17 @@ public class About extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
         );
 
-        AboutTabbedPanel.addTab("eula", eulaPanel);
+        aboutTabbedPanel.addTab("eula", eulaPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(AboutTabbedPanel)
+                        .addComponent(aboutTabbedPanel)
         );
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(AboutTabbedPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
+                        .addComponent(aboutTabbedPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
         );
 
         pack();

@@ -45,25 +45,16 @@ public class GUI extends javax.swing.JFrame {
     private final Messenger msg = new Messenger();
     public final Engine utilities = new Engine();
     private final Backup backup = Backup.getBackup();
-    private ButtonGroup group;
     private String source;
     private String destination;
     private String[] srcList = new String[0];
     private String[] status = {"UNKNOWN"};
     private String[] recentSrcPaths = new String[0];
     private String[] recentDestPaths = new String[0];
-    private JMenuItem AboutMenuItem;
-    private JMenuItem FAQMenuItem;
     private JLabel InfoLabel;
-    private JMenuItem Lap2ArchMenu;
-    private JMenuItem Lap2HDDMenu;
-    private JMenuItem Lap2USBMenu;
     private JCheckBoxMenuItem QuickBackupCheckBoxMenuItem;
-    private JMenuItem USB2LapMenu;
-    private JMenuItem WorkStartMenu;
     private JButton addButton;
     private JCheckBoxMenuItem checkFreeSpaceBeforeBackupMenuItem;
-    private JMenuItem clearSourceMenuItem;
     private JCheckBoxMenuItem confirmExitCheckBoxMenuItem;
     private JMenuItem createDefaultConfigMenuItem;
     private JButton createSourceFileButton;
@@ -71,54 +62,28 @@ public class GUI extends javax.swing.JFrame {
     private JTextField destinationField;
     private JButton doBackupButton;
     private JCheckBoxMenuItem domMode;
-    private JMenuItem exitMenuItem;
     private JCheckBoxMenuItem exitProgramAfterBackupMenuItem;
     private JCheckBoxMenuItem happyModeCheckBoxMenuItem;
-    private JLabel jLabel1;
-    private JLabel jLabel2;
-    private JLabel jLabel3;
-    private JMenu jMenu1;
-    private JMenu jMenu2;
-    private JMenu jMenu3;
-    private JMenu jMenu4;
-    private JMenu jMenu5;
-    private JMenu jMenu6;
-    private JMenu jMenu7;
-    private JMenuBar jMenuBar1;
-    private JMenuItem jMenuItem2;
-    private JScrollPane jScrollPane1;
-    private Separator jSeparator1;
-    private Separator jSeparator2;
-    private JMenuItem loadSettingsMenuItem;
     private JButton mergeButton;
     private JComboBox previousDestPathComboBox;
     private JComboBox previousSrcPathComboBox;
     private JRadioButtonMenuItem priority_max_radioItem;
     private JRadioButtonMenuItem priority_min_radioItem;
     private JRadioButtonMenuItem priority_normal_radioItem;
-    private JMenuItem refreshSettingsMenuItem;
     private JButton removeButton;
-    private JMenuItem removeDuplicatesMenuItem;
     private JCheckBoxMenuItem saveAsEncryptedCheckBoxMenuItem;
     private JCheckBoxMenuItem saveAsZipCheckBoxMenuItem;
     private JCheckBoxMenuItem saveResultToFileCheckBoxMenuItem;
-    private JMenuItem saveSettingsMenuItem;
-    private JButton selectDestinationButton;
     private JButton selectSourceButton;
-    private JMenu settingsMenu;
     private JCheckBoxMenuItem shutdownAfterBackupMenuItem;
     private JTextField sourceField;
     private JLabel sourceFileLabel;
     private javax.swing.JList sourceList;
     private JCheckBoxMenuItem speedLightModeMenuItem;
-    private JMenu statusMenu;
     private JMenuItem statusMenuItem;
     private JButton swapDestinationFolderPathButton;
     private JButton swapSourceFolderPathButton;
-    private JMenu tbpMenu;
-    private JMenuItem tutorialMenuItem;
-    private JMenuItem workEndMenu;
-    
+
     public GUI() {
         LOGGER.info("Program: Start.");
         boot();
@@ -134,14 +99,14 @@ public class GUI extends javax.swing.JFrame {
 
     private void initComponents() {
 
-        jLabel1 = new JLabel();
-        jScrollPane1 = new JScrollPane();
+        JLabel jLabel1 = new JLabel();
+        JScrollPane jScrollPane1 = new JScrollPane();
         sourceList = new javax.swing.JList();
-        jLabel2 = new JLabel();
+        JLabel jLabel2 = new JLabel();
         destinationField = new JTextField();
         addButton = new JButton();
         removeButton = new JButton();
-        selectDestinationButton = new JButton();
+        JButton selectDestinationButton = new JButton();
         doBackupButton = new JButton();
         sourceField = new JTextField();
         sourceFileLabel = new JLabel();
@@ -150,16 +115,16 @@ public class GUI extends javax.swing.JFrame {
         createSourceFileButton = new JButton();
         mergeButton = new JButton();
         previousDestPathComboBox = new JComboBox();
-        jLabel3 = new JLabel();
+        JLabel jLabel3 = new JLabel();
         swapDestinationFolderPathButton = new JButton();
         previousSrcPathComboBox = new JComboBox();
         swapSourceFolderPathButton = new JButton();
-        jMenuBar1 = new JMenuBar();
-        statusMenu = new JMenu();
-        AboutMenuItem = new JMenuItem();
-        exitMenuItem = new JMenuItem();
+        JMenuBar jMenuBar1 = new JMenuBar();
+        JMenu statusMenu = new JMenu();
+        JMenuItem aboutMenuItem = new JMenuItem();
+        JMenuItem exitMenuItem = new JMenuItem();
         statusMenuItem = new JMenuItem();
-        settingsMenu = new JMenu();
+        JMenu settingsMenu = new JMenu();
         exitProgramAfterBackupMenuItem = new JCheckBoxMenuItem();
         deleteSourceCheckBoxMenuItem = new JCheckBoxMenuItem();
         QuickBackupCheckBoxMenuItem = new JCheckBoxMenuItem();
@@ -170,36 +135,36 @@ public class GUI extends javax.swing.JFrame {
         saveResultToFileCheckBoxMenuItem = new JCheckBoxMenuItem();
         checkFreeSpaceBeforeBackupMenuItem = new JCheckBoxMenuItem();
         speedLightModeMenuItem = new JCheckBoxMenuItem();
-        jSeparator2 = new Separator();
+        Separator jSeparator2 = new Separator();
         happyModeCheckBoxMenuItem = new JCheckBoxMenuItem();
         domMode = new JCheckBoxMenuItem();
-        jMenu7 = new JMenu();
+        JMenu jMenu7 = new JMenu();
         priority_max_radioItem = new JRadioButtonMenuItem();
         priority_normal_radioItem = new JRadioButtonMenuItem();
         priority_min_radioItem = new JRadioButtonMenuItem();
-        jMenu5 = new JMenu();
+        JMenu jMenu5 = new JMenu();
         createDefaultConfigMenuItem = new JMenuItem();
-        clearSourceMenuItem = new JMenuItem();
-        removeDuplicatesMenuItem = new JMenuItem();
-        jMenuItem2 = new JMenuItem();
-        tbpMenu = new JMenu();
-        jMenu3 = new JMenu();
-        WorkStartMenu = new JMenuItem();
-        workEndMenu = new JMenuItem();
-        jSeparator1 = new Separator();
-        jMenu4 = new JMenu();
-        Lap2USBMenu = new JMenuItem();
-        Lap2HDDMenu = new JMenuItem();
-        jMenu6 = new JMenu();
-        Lap2ArchMenu = new JMenuItem();
-        USB2LapMenu = new JMenuItem();
-        jMenu1 = new JMenu();
-        saveSettingsMenuItem = new JMenuItem();
-        loadSettingsMenuItem = new JMenuItem();
-        refreshSettingsMenuItem = new JMenuItem();
-        jMenu2 = new JMenu();
-        FAQMenuItem = new JMenuItem();
-        tutorialMenuItem = new JMenuItem();
+        JMenuItem clearSourceMenuItem = new JMenuItem();
+        JMenuItem removeDuplicatesMenuItem = new JMenuItem();
+        JMenuItem jMenuItem2 = new JMenuItem();
+        JMenu tbpMenu = new JMenu();
+        JMenu jMenu3 = new JMenu();
+        JMenuItem workStartMenu = new JMenuItem();
+        JMenuItem workEndMenu = new JMenuItem();
+        Separator jSeparator1 = new Separator();
+        JMenu jMenu4 = new JMenu();
+        JMenuItem lap2USBMenu = new JMenuItem();
+        JMenuItem lap2HDDMenu = new JMenuItem();
+        JMenu jMenu6 = new JMenu();
+        JMenuItem lap2ArchMenu = new JMenuItem();
+        JMenuItem USB2LapMenu = new JMenuItem();
+        JMenu jMenu1 = new JMenu();
+        JMenuItem saveSettingsMenuItem = new JMenuItem();
+        JMenuItem loadSettingsMenuItem = new JMenuItem();
+        JMenuItem refreshSettingsMenuItem = new JMenuItem();
+        JMenu jMenu2 = new JMenu();
+        JMenuItem FAQMenuItem = new JMenuItem();
+        JMenuItem tutorialMenuItem = new JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("nanoBackup by Pastor Cmentarny");
@@ -302,15 +267,15 @@ public class GUI extends javax.swing.JFrame {
 
         statusMenu.setText("Program");
 
-        AboutMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, 0));
-        AboutMenuItem.setText("About");
-        AboutMenuItem.addMouseListener(new MouseAdapter() {
+        aboutMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, 0));
+        aboutMenuItem.setText("About");
+        aboutMenuItem.addMouseListener(new MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 AboutMenuItemMouseClicked(evt);
             }
         });
-        AboutMenuItem.addActionListener(this::AboutMenuItemActionPerformed);
-        statusMenu.add(AboutMenuItem);
+        aboutMenuItem.addActionListener(this::AboutMenuItemActionPerformed);
+        statusMenu.add(aboutMenuItem);
 
         exitMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
         exitMenuItem.setText("Exit");
@@ -451,10 +416,10 @@ public class GUI extends javax.swing.JFrame {
 
         jMenu3.setText("Work");
 
-        WorkStartMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, java.awt.event.InputEvent.CTRL_MASK));
-        WorkStartMenu.setText("Work(Start)");
-        WorkStartMenu.addActionListener(this::WorkStartMenuActionPerformed);
-        jMenu3.add(WorkStartMenu);
+        workStartMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, java.awt.event.InputEvent.CTRL_MASK));
+        workStartMenu.setText("Work(Start)");
+        workStartMenu.addActionListener(this::WorkStartMenuActionPerformed);
+        jMenu3.add(workStartMenu);
 
         workEndMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, java.awt.event.InputEvent.CTRL_MASK));
         workEndMenu.setText("Work(End)");
@@ -466,24 +431,24 @@ public class GUI extends javax.swing.JFrame {
 
         jMenu4.setText("Home(Laptop)");
 
-        Lap2USBMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, java.awt.event.InputEvent.CTRL_MASK));
-        Lap2USBMenu.setText("To USB");
-        Lap2USBMenu.addActionListener(this::Lap2USBMenuActionPerformed);
-        jMenu4.add(Lap2USBMenu);
+        lap2USBMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, java.awt.event.InputEvent.CTRL_MASK));
+        lap2USBMenu.setText("To USB");
+        lap2USBMenu.addActionListener(this::Lap2USBMenuActionPerformed);
+        jMenu4.add(lap2USBMenu);
 
-        Lap2HDDMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.CTRL_MASK));
-        Lap2HDDMenu.setText("To HDD");
-        Lap2HDDMenu.addActionListener(this::Lap2HDDMenuActionPerformed);
-        jMenu4.add(Lap2HDDMenu);
+        lap2HDDMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.CTRL_MASK));
+        lap2HDDMenu.setText("To HDD");
+        lap2HDDMenu.addActionListener(this::Lap2HDDMenuActionPerformed);
+        jMenu4.add(lap2HDDMenu);
 
         tbpMenu.add(jMenu4);
 
         jMenu6.setText("Home(USB)");
 
-        Lap2ArchMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, java.awt.event.InputEvent.CTRL_MASK));
-        Lap2ArchMenu.setText("To Archive");
-        Lap2ArchMenu.addActionListener(this::Lap2ArchMenuActionPerformed);
-        jMenu6.add(Lap2ArchMenu);
+        lap2ArchMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, java.awt.event.InputEvent.CTRL_MASK));
+        lap2ArchMenu.setText("To Archive");
+        lap2ArchMenu.addActionListener(this::Lap2ArchMenuActionPerformed);
+        jMenu6.add(lap2ArchMenu);
 
         USB2LapMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F6, java.awt.event.InputEvent.CTRL_MASK));
         USB2LapMenu.setText("ToLaptop");
@@ -1363,7 +1328,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void addonsForInitComponents() {
         //sets radio group for priority
-        group = new ButtonGroup();
+        ButtonGroup group = new ButtonGroup();
         group.add(priority_max_radioItem);
         group.add(priority_normal_radioItem);
         group.add(priority_min_radioItem);
