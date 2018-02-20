@@ -8,11 +8,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 import java.security.SecureRandom;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
-import java.util.Locale;
 import java.util.Random;
 
 /**
@@ -40,21 +38,13 @@ public class Tools {
     }
 
     public static String getCurrentDateWithTime() {
-        String temp;
-        Date date = new Date();
-        DateFormat dfDate = new SimpleDateFormat("yyyyMMdd-HHmm", Locale.getDefault());
-        temp = dfDate.format(date);
-        LOGGER.debug("Program:\tCurrent date and  time used for sitemap is:  " + temp);
-        return temp;
+        return LocalDateTime.now().toString();
     }
 
     public static String getCurrentTime() {
-        String temp;
-        Date date = new Date();
-        DateFormat dfDate = new SimpleDateFormat("HHmm", Locale.getDefault());
-        temp = dfDate.format(date);
-        LOGGER.debug("Program:\tCurrent date and  time used for sitemap is:  " + temp);
-        return temp;
+        String currentTime = LocalTime.now().toString();
+        LOGGER.debug("Program:\tCurrent date and  time used for sitemap is:  " + currentTime);
+        return currentTime;
     }
 
     public static void shutdownComputerOnRequest() {

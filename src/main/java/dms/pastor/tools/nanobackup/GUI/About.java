@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.net.URI;
 import java.util.Properties;
 
+import static java.nio.charset.StandardCharsets.UTF_8;
+
 /**
  * Author Dominik Symonowicz
  * Created: 2009-10-31 at17:59:32
@@ -292,10 +294,10 @@ public class About extends javax.swing.JFrame {
 
     private void AboutTabbedPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AboutTabbedPanelMouseClicked
         try {
-            String changelog = FileUtils.readFileToString(new File("data" + System.getProperty("file.separator") + "changelog.txt"));
+            String changelog = FileUtils.readFileToString(new File("data" + System.getProperty("file.separator") + "changelog.txt"), UTF_8);
             changelogTextArea.setText(changelog);
             changelogTextArea.setCaretPosition(0);
-            String eula = FileUtils.readFileToString(new File("data" + System.getProperty("file.separator") + "eula.txt"));
+            String eula = FileUtils.readFileToString(new File("data" + System.getProperty("file.separator") + "eula.txt"), UTF_8);
             eulaTextArea.setText(eula);
             eulaTextArea.setCaretPosition(0);
         } catch (IOException ex) {
