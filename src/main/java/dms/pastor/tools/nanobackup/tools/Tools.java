@@ -29,6 +29,9 @@ public class Tools {
     private static final Logger LOGGER = LoggerFactory.getLogger(Tools.class);
     private static final char[] charArray = new char[36];
 
+    private Tools() {
+    }
+
     public static void exitProgramOnRequest() {
         Settings settings = Settings.getSettings();
         if (settings.isExitAfterBackup()) {

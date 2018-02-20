@@ -14,6 +14,9 @@ final class TextUtils {
     private static final String ERROR_MESSAGE = "Unable to count word due ";
     private static final String DELIMITER = "(?m:^$)";
 
+    private TextUtils() {
+    }
+
     public static long countWordInTextInFile(String fileName) {
         try (Scanner scanner = new Scanner(new File(fileName))) {
             return countWords(scanner);

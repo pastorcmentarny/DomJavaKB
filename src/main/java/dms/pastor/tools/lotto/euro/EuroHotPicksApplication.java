@@ -7,6 +7,7 @@ import java.util.List;
 /**
  * PROTOTYPE!
  */
+@SuppressWarnings("UtilityClassWithoutPrivateConstructor")
 public final class EuroHotPicksApplication {
 
     public static void main(String[] args) {

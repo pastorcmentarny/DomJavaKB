@@ -9,6 +9,9 @@ import static dms.pastor.utils.ValidatorUtils.*;
 
 public final class DrawListExtractor {
 
+    private DrawListExtractor() {
+    }
+
     public static List<HotPickDraw> getHotPickDrawListFromRange(List<HotPickDraw> drawList, int startRange, int endRange) {
         validateInput(drawList, startRange, endRange);
         List<HotPickDraw> draws = new ArrayList<>(endRange - startRange);

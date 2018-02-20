@@ -15,6 +15,9 @@ import java.util.Timer;
 final class ScheduleTaskExampleRunner {
     private static final Logger LOGGER = LoggerFactory.getLogger(ScheduleTaskExampleRunner.class);
 
+    private ScheduleTaskExampleRunner() {
+    }
+
     public static void runScheduleTaskExample(String name) throws InterruptedException {
         LOGGER.debug("Running ScheduleTask Example");
         Timer timer = new Timer();

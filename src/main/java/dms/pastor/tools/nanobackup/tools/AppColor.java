@@ -20,4 +20,7 @@ public final class AppColor {
     public static final Color DARK_ORANGE = new Color(200, 100, 21);
     public static final Color DARK_BLUE = new Color(70, 130, 180);
     public static final Color DARK_GREEN = new Color(34, 140, 34);
+
+    private AppColor() {
+    }
 }

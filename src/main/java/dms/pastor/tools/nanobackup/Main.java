@@ -20,6 +20,9 @@ public final class Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
 
+    private Main() {
+    }
+
     public static void main(String[] args) {
         final GUI start = new GUI();
         try {
