@@ -78,8 +78,6 @@ public class ScheduleTaskExampleRunnerTest {
         assertThat(allLoggingEvents.get(lastLog).getLevel()).isEqualTo(Level.DEBUG);
         assertThat(allLoggingEvents.get(lastLog).getFormattedMessage()).endsWith("End of ScheduleTask Example");
 
-
     }
-
 
 }

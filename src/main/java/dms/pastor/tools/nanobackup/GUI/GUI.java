@@ -52,7 +52,6 @@ public class GUI extends javax.swing.JFrame {
     private String[] status = {"UNKNOWN"};
     private String[] recentSrcPaths = new String[0];
     private String[] recentDestPaths = new String[0];
-    // Variables declaration - do not modify//GEN-BEGIN:variables
     private JMenuItem AboutMenuItem;
     private JMenuItem FAQMenuItem;
     private JLabel InfoLabel;
@@ -129,9 +128,6 @@ public class GUI extends javax.swing.JFrame {
         check();
     }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> new GUI().setVisible(true));
     }
@@ -637,7 +633,7 @@ public class GUI extends javax.swing.JFrame {
             utilities.setInfoLabel(Color.BLUE, "Backup task ended.(See BackupTask window for details)", InfoLabel);
             check();
         }
-    }//GEN-LAST:event_doBackupButtonActionPerformed
+    }
 
     private void selectSourceButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_selectSourceButtonActionPerformed
         String tempSource = utilities.chooseFileToLoad();
@@ -656,7 +652,7 @@ public class GUI extends javax.swing.JFrame {
         refreshContent();
         check();
 
-    }//GEN-LAST:event_selectSourceButtonActionPerformed
+    }
 
     private void selectDestinationButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_selectDestinationButtonActionPerformed
         String tempSource = FileTools.chooseDirToLoad();
@@ -676,7 +672,7 @@ public class GUI extends javax.swing.JFrame {
         refreshContent();
         check();
 
-    }//GEN-LAST:event_selectDestinationButtonActionPerformed
+    }
 
     private void createDefaultConfigMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_createDefaultConfigMenuItemActionPerformed
         if (settings.createDefaultSettings()) {
@@ -690,7 +686,7 @@ public class GUI extends javax.swing.JFrame {
         }
         refreshContent();
         check();
-    }//GEN-LAST:event_createDefaultConfigMenuItemActionPerformed
+    }
 
     private void exitMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
         settings.setProperties(true);

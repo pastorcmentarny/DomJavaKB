@@ -17,7 +17,7 @@ import static dms.pastor.utils.StringUtils.EMPTY_STRING;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
-public class MainGameGUI extends javax.swing.JFrame {
+public final class MainGameGUI extends javax.swing.JFrame {
 
     private final Player player = new Player();
     private Enemy enemy = new Unknown();
