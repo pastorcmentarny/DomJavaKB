@@ -27,7 +27,6 @@ import java.util.Random;
 public class Tools {
     private static final String EMPTY = "";
     private static final Logger LOGGER = LoggerFactory.getLogger(Tools.class);
-    //Settings settings = Settings.getSettings();
     private static final char[] charArray = new char[36];
 
     public static void exitProgramOnRequest() {

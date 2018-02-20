@@ -11,7 +11,7 @@ import java.util.stream.IntStream;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class LottoNumberChooserApplication {
+public final class LottoNumberChooserApplication {
 
     public static void main(String[] args) {
         IntStream.rangeClosed(0, 59).forEach(System.out::println);

@@ -16,7 +16,7 @@ import java.awt.*;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class AppColor {
+public final class AppColor {
     public static final Color DARK_ORANGE = new Color(200, 100, 21);
     public static final Color DARK_BLUE = new Color(70, 130, 180);
     public static final Color DARK_GREEN = new Color(34, 140, 34);

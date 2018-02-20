@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * PROTOTYPE!
  */
-public class EuroHotPicksApplication {
+public final class EuroHotPicksApplication {
 
     public static void main(String[] args) {
         assert (args.length == 1);

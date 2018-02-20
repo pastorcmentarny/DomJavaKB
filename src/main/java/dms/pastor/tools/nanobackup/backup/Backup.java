@@ -32,7 +32,7 @@ import static java.awt.Color.DARK_GRAY;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class Backup extends AbstractTools {
+public final class Backup extends AbstractTools {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Backup.class);
     private static Backup backup;
