@@ -16,7 +16,7 @@ import java.util.List;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class AllTimeStatistics {
+class AllTimeStatistics {
     private final String filePath;
     private final HotPicksFileUploader uploader;
 

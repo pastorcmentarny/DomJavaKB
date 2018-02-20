@@ -7,7 +7,7 @@ import java.util.List;
 
 import static dms.pastor.utils.ValidatorUtils.*;
 
-public final class DrawListExtractor {
+final class DrawListExtractor {
 
     private DrawListExtractor() {
     }

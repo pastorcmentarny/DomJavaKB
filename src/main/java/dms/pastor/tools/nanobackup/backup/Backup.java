@@ -32,6 +32,7 @@ import static java.awt.Color.DARK_GRAY;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
+@SuppressWarnings("AssignmentToNull") // null is used to release unused resources
 public final class Backup extends AbstractTools {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Backup.class);
@@ -395,6 +396,7 @@ public final class Backup extends AbstractTools {
         }
     }
 
+    @SuppressWarnings("AssignmentToNull")
     private class BackupTask implements Runnable {
 
         private final String dest;
@@ -521,7 +523,7 @@ public final class Backup extends AbstractTools {
                 LOGGER.debug("HappyMode is active");
                 try {
                     scheduler = Executors.newScheduledThreadPool(1);
-                    updateInfo = new UpdateInfo(info, null);//TODO this wil crash app!
+                    updateInfo = new UpdateInfo(info);//TODO this wil crash app!
                     final ScheduledFuture<?> scheduleChecking = scheduler.scheduleAtFixedRate(updateInfo, 0, 30, TimeUnit.SECONDS);
                     scheduler.schedule(() -> {
                         scheduleChecking.cancel(true);

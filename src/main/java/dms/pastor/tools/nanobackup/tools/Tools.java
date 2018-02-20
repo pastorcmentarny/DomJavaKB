@@ -7,7 +7,6 @@ import org.slf4j.LoggerFactory;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
-import java.security.SecureRandom;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
@@ -22,7 +21,7 @@ import java.util.Random;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class Tools {
+public final class Tools {
     private static final String EMPTY = "";
     private static final Logger LOGGER = LoggerFactory.getLogger(Tools.class);
     private static final char[] charArray = new char[36];
@@ -97,37 +96,35 @@ public class Tools {
         JOptionPane.showMessageDialog(null, temp.toString() + settings.displayCurrentSettings("STATUS"), "Info", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    public static String[] genArray() {
-        populateCharArray();
-        SecureRandom random = new SecureRandom();
-        char currChar;
-        String[] s = new String[random.nextInt(4000) + 1000];
-        for (int i = 0; i < s.length; i++) {
-            s[i] = "";
-            for (int j = 0; j < random.nextInt(49) + 1; j++) {
-                currChar = charArray[random.nextInt(35)];
-                if (currChar == ' ') {
-                    j--;
-                    continue;
-                }
-                s[i] += currChar;
-            }
-        }
-        return s;
-    }
+    //TODO remove it
+//    public static String[] generateArray() {
+//        populateCharArray();
+//        SecureRandom random = new SecureRandom();
+//        char currChar;
+//        String[] s = new String[random.nextInt(4000) + 1000];
+//        for (int i = 0; i < s.length; i++) {
+//            s[i] = "";
+//            for (int j = 0; j < random.nextInt(49) + 1; j++) {
+//                currChar = charArray[random.nextInt(35)];
+//                if (currChar == ' ') {
+//                    j--;
+//                    continue;
+//                }
+//                s[i] += currChar;
+//            }
+//        }
+//        return s;
+//    }
 
-    private static void populateCharArray() {
-        int j = 0;
-
-        for (char i = 'A'; i <= 'Z'; i++, j++)
-            charArray[j] = i;
-
-        for (char i = '0'; i <= '9'; i++, j++)
-            charArray[j] = i;
-    }
-
-    public static String nullFreeString(String string) {
-        return string == null ? EMPTY : string;
-    }
+    //TODO remove it or move to utils
+//    private static void populateCharArray() {
+//        int j = 0;
+//
+//        for (char i = 'A'; i <= 'Z'; i++, j++)
+//            charArray[j] = i;
+//
+//        for (char i = '0'; i <= '9'; i++, j++)
+//            charArray[j] = i;
+//    }
 
 }

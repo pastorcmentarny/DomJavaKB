@@ -11,7 +11,7 @@ import dms.pastor.tools.lotto.hotpick.HotPickDraw;
     If you one of them then is 1 hit
     if you hit both of them there is 3
  */
-public class AccuracyCounter {
+class AccuracyCounter {
     private int hit = 0;
     private int total = 0;
 

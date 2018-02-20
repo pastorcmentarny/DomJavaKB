@@ -146,7 +146,7 @@ public class DrawListExtractorTest {
         assertThat(result).isEqualTo(expectedResult);
     }
 
-    public List<HotPickDraw> getListOf3HotPickDraws() {
+    private List<HotPickDraw> getListOf3HotPickDraws() {
         List<HotPickDraw> draws = new ArrayList<>(3);
         draws.add(hotPickDrawBuilder().build());
         draws.add(hotPickDrawBuilder().build());

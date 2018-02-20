@@ -15,15 +15,13 @@ import java.util.Random;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 class UpdateInfo implements Runnable {
-    private final Backup outer;
     private JTextArea label = null;
     private final Random randomText = new Random();
     private ArrayList<String> lolText = new ArrayList<>();
 
     //TODO solve problem with using , Backup outer because of issue with GUI
 
-    public UpdateInfo(JTextArea label, Backup outer) {
-        this.outer = outer;
+    public UpdateInfo(JTextArea label) {
         lolText = fillText(lolText);
         this.label = label;
     }

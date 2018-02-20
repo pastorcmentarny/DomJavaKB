@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * tag-error
  */
-public class ErrorResponse {
+class ErrorResponse {
     private final long id;
     private final String errorMessage;
     private final String caused;

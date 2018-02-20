@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ResultTest {
 
-    public static final int NOT_USEDACCURACY = randomPositiveInteger(1, 100);
+    private static final int NOT_USEDACCURACY = randomPositiveInteger(1, 100);
 
     @Test
     public void getBalanceInPenniesShouldReturn100ForBalanceEqualsTo100() {
