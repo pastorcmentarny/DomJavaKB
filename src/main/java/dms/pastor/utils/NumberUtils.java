@@ -144,6 +144,7 @@ public final class NumberUtils {
     }
 
     //done as part of learning of basic of TDD in 2012
+    @SuppressWarnings("MagicNumber") // it is not a magic number
     static String getShortAs8BitRepresentation(int number) {
         String eightBit = EMPTY_STRING;
         int divider = 128;

@@ -8,6 +8,8 @@ package dms.pastor.game.littlefighter;
 import java.util.Random;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+import static java.lang.Short.MAX_VALUE;
+import static javax.swing.GroupLayout.DEFAULT_SIZE;
 
 /**
  * Author Dominik Symonowicz
@@ -17,8 +19,11 @@ import static dms.pastor.utils.StringUtils.EMPTY_STRING;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
+@SuppressWarnings("MagicNumber") //TOO OLD PROJECT  TO TAKE CARE OF MAGIC NUMBERS
 public final class MainGameGUI extends javax.swing.JFrame {
 
+    private static final int PREFERRED_SIZE = 113;
+    private static final int DEFAULT_GAP_SIZE = 274;
     private final Player player = new Player();
     private Enemy enemy = new Unknown();
     private final Battle battle = new Battle();
@@ -156,27 +161,27 @@ public final class MainGameGUI extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(nextEnemy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(RunTurn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addComponent(nextEnemy, DEFAULT_SIZE, DEFAULT_SIZE, MAX_VALUE)
+                                                .addComponent(RunTurn, DEFAULT_SIZE, DEFAULT_SIZE, MAX_VALUE))
                                         .addComponent(spell))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(shadowAttack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(dispel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(berserkAttack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(quickerShieldRegen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(mana2Shield, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(powerUP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(shadowAttack, DEFAULT_SIZE, DEFAULT_SIZE, MAX_VALUE)
+                                        .addComponent(dispel, DEFAULT_SIZE, DEFAULT_SIZE, MAX_VALUE)
+                                        .addComponent(berserkAttack, DEFAULT_SIZE, DEFAULT_SIZE, MAX_VALUE)
+                                        .addComponent(quickerShieldRegen, DEFAULT_SIZE, DEFAULT_SIZE, MAX_VALUE)
+                                        .addComponent(mana2Shield, DEFAULT_SIZE, DEFAULT_SIZE, MAX_VALUE)
+                                        .addComponent(powerUP, DEFAULT_SIZE, DEFAULT_SIZE, MAX_VALUE)
                                         .addComponent(jScrollPane2))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, DEFAULT_SIZE, MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(fireBall, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
-                                        .addComponent(info, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
-                                        .addComponent(suddenDeath, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
-                                        .addComponent(lightingSpell, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
-                                        .addComponent(magicVampire, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
-                                        .addComponent(poisonEnemy, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE))
+                                        .addComponent(fireBall, DEFAULT_SIZE, PREFERRED_SIZE, MAX_VALUE)
+                                        .addComponent(info, DEFAULT_SIZE, PREFERRED_SIZE, MAX_VALUE)
+                                        .addComponent(suddenDeath, DEFAULT_SIZE, PREFERRED_SIZE, MAX_VALUE)
+                                        .addComponent(lightingSpell, javax.swing.GroupLayout.Alignment.TRAILING, DEFAULT_SIZE, PREFERRED_SIZE, MAX_VALUE)
+                                        .addComponent(magicVampire, DEFAULT_SIZE, PREFERRED_SIZE, MAX_VALUE)
+                                        .addComponent(poisonEnemy, javax.swing.GroupLayout.Alignment.TRAILING, DEFAULT_SIZE, PREFERRED_SIZE, MAX_VALUE))
                                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -185,12 +190,12 @@ public final class MainGameGUI extends javax.swing.JFrame {
                                 .addComponent(nextEnemy)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(RunTurn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(274, 274, 274))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
+                                .addGap(DEFAULT_GAP_SIZE, DEFAULT_GAP_SIZE, DEFAULT_GAP_SIZE))
+                        .addComponent(jScrollPane1, DEFAULT_SIZE, 370, MAX_VALUE)
                         .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE))
+                                        .addComponent(jScrollPane3, DEFAULT_SIZE, 185, MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
@@ -211,7 +216,7 @@ public final class MainGameGUI extends javax.swing.JFrame {
                                                 .addComponent(info)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(fireBall)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, DEFAULT_SIZE, MAX_VALUE)
                                                 .addComponent(magicVampire)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(poisonEnemy)
@@ -266,7 +271,7 @@ public final class MainGameGUI extends javax.swing.JFrame {
 
     private void Mana2ShieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Mana2ShieldActionPerformed
         //casting spell mana to shield
-        String result = spellBook.castMana2Shield(player.PlayerMana, player.PlayerHP, console);
+        String result = spellBook.castMana2Shield(player.PlayerMana, player.PlayerHP);
         console.setText(console.getText() + result);
         updateConsole();
 

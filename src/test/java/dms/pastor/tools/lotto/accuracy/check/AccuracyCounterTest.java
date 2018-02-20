@@ -12,21 +12,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class AccuracyCounterTest {
 
     @Test
-    public void updateCountShouldReturnTotalOf3IfBothNumberMatches() {
-
-    }
-
-    @Test
-    public void updateCountShouldReturnTotalOf1IfFirstNumberMatches() {
-
-    }
-
-    @Test
-    public void updateCountShouldReturnTotalOf1IfSecondNumberMatches() {
-
-    }
-
-    @Test
     public void getAccuracyShouldReturnZeroAfterInitAccuracyCounter() {
         // given
         final AccuracyCounter accuracyCounter = new AccuracyCounter();

@@ -20,6 +20,7 @@ import static dms.pastor.tools.lotto.accuracy.check.DrawListExtractor.getHotPick
  * //TODO make this generic as this one is for hotpicks only
  */
 class AlgorithmAccuracyCheckEngine {
+    private static final int DEFAULT_MAX_RANGE = 52;
     private final List<HotPickDraw> hotPickDrawList;
     private final AccuracyCounter counter;
 
@@ -38,7 +39,7 @@ class AlgorithmAccuracyCheckEngine {
 
         for (int i = getLast(hotPickDrawList); i > 1; i--) {
             System.out.println("Checking for draw nr." + i);
-            draw = getHotPickDrawListFromRange(hotPickDrawList, 1, 52);
+            draw = getHotPickDrawListFromRange(hotPickDrawList, 1, DEFAULT_MAX_RANGE);
             generator = new HotPicksNumberToPlay2018Generator(draw);
             final NumberToPlayResult numberToPlayResult = generator.generateNumbersToPlay();
             final HotPickDraw currentDraw = getCurrentDraw(draw, i);

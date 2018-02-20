@@ -21,7 +21,7 @@ final class ScheduleTaskExampleRunner {
     public static void runScheduleTaskExample(String name) throws InterruptedException {
         LOGGER.debug("Running ScheduleTask Example");
         Timer timer = new Timer();
-        timer.schedule(new Task(name), 50, 100);
+        timer.schedule(new Task(name), 100, 100);
         Thread.sleep(1000);
         LOGGER.debug("End of ScheduleTask Example");
         timer.cancel();

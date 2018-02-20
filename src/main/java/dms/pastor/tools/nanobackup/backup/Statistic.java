@@ -12,7 +12,11 @@ import java.util.Calendar;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
+@SuppressWarnings("MagicNumber") //TOO OLD PROJECT  TO TAKE CARE OF MAGIC NUMBERS
 public class Statistic {
+    private static final long MINUTE_IN_SECONDS = 60L;
+    private static final long HOUR_IN_SECONDS = 3600L;
+    private static final long DAY_IN_SECONDS = 86400L;
 
     //private static final Logger LOGGER = LoggerFactory.getLogger( log = Logger.getLogger(Statistic.class);
 
@@ -47,12 +51,12 @@ public class Statistic {
         StringBuilder result = new StringBuilder();
         long time = calcTotalTime();
         time /= 1000L;
-        days = (int) (time / 86400L);
-        time -= (days * 86400L);
-        hours = (int) (time / 3600L);
-        time -= (hours * 3600L);
-        minutes = (int) (time / 60L);
-        time -= (minutes * 60L);
+        days = (int) (time / DAY_IN_SECONDS);
+        time -= (days * DAY_IN_SECONDS);
+        hours = (int) (time / HOUR_IN_SECONDS);
+        time -= (hours * HOUR_IN_SECONDS);
+        minutes = (int) (time / MINUTE_IN_SECONDS);
+        time -= (minutes * MINUTE_IN_SECONDS);
         seconds = (int) time;
         result.append("--------\nSummary.\n--------\nTime needed: ").append(days).append(" days, ");
         result.append(hours).append(" hours, ").append(minutes);

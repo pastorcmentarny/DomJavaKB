@@ -4,6 +4,7 @@ import dms.pastor.game.dcs.spells.IceBoltSpell;
 import dms.pastor.game.dcs.spells.VampireDrainSpell;
 import dms.pastor.game.dcs.units.Unit;
 
+import static dms.pastor.game.dcs.Config.DEFAULT_HEALTH_POINTS;
 import static dms.pastor.game.dcs.conditions.ConditionEntry.createPersistentCondition;
 import static dms.pastor.game.dcs.conditions.ConditionType.MINDLESS;
 
@@ -20,7 +21,7 @@ public class Vampire extends Unit {
 
     public Vampire() {
         setName("Vampire");
-        setSp(48);
+        setSp(2 * DEFAULT_HEALTH_POINTS);
         getConditions().add(createPersistentCondition(MINDLESS));
 
     }

@@ -6,6 +6,7 @@ import dms.pastor.game.dcs.units.Unit;
 import dms.pastor.game.dcs.utils.random.InGameRandomUtils;
 import dms.pastor.game.dcs.utils.random.RandomUtils;
 
+import static dms.pastor.game.dcs.Config.DEFAULT_HEALTH_POINTS;
 import static dms.pastor.game.dcs.conditions.ElementType.EARTH;
 import static dms.pastor.game.dcs.conditions.ElementType.FIRE;
 import static dms.pastor.game.dcs.utils.random.InGameRandomUtils.HALF;
@@ -25,7 +26,7 @@ public class Cleric extends Unit {
 
     public Cleric() {
         setName("Cleric");
-        getHealth().setHp(50);
+        getHealth().setHp(3 * DEFAULT_HEALTH_POINTS);
     }
 
     @Override

@@ -13,22 +13,30 @@ package dms.pastor.tools.nanobackup.GUI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.awt.*;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Properties;
 
-
 /**
- * @author Pastor
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
+@SuppressWarnings("MagicNumber") //TOO OLD PROJECT  TO TAKE CARE OF MAGIC NUMBERS
 public class FaqGUI extends javax.swing.JFrame {
     private static final Logger LOGGER = LoggerFactory.getLogger(FaqGUI.class);
+    private static final int PREFERED_SIZE = 589;
+    private static final Font DEFAULT_FONT = new Font("Verdana", 0, 14);
     private final Properties properties = new Properties();
     private String[] questions = {"Why I don't see FAQ?"};
     private String[] answers = {"It seems like file message.properties was missing , damaged or author of this program forgot update FAQ sections."};
     private javax.swing.JTextArea answersField;
-    private javax.swing.JComboBox questionComboBox;
+    private javax.swing.JComboBox<String> questionComboBox;
 
     /**
      * Creates new form FaqGUI
@@ -54,7 +62,7 @@ public class FaqGUI extends javax.swing.JFrame {
 
     private void initComponents() {
 
-        questionComboBox = new javax.swing.JComboBox();
+        questionComboBox = new javax.swing.JComboBox<>();
         javax.swing.JLabel jLabel1 = new javax.swing.JLabel();
         javax.swing.JScrollPane jScrollPane1 = new javax.swing.JScrollPane();
         answersField = new javax.swing.JTextArea();
@@ -63,15 +71,15 @@ public class FaqGUI extends javax.swing.JFrame {
         setTitle("FAQ");
         setName("faqFrame"); // NOI18N
 
-        questionComboBox.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        questionComboBox.setModel(new javax.swing.DefaultComboBoxModel(questions));
+        questionComboBox.setFont(DEFAULT_FONT); // NOI18N
+        questionComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(questions));
         questionComboBox.setToolTipText("Place,where you can select question");
         questionComboBox.addActionListener(this::questionComboBoxActionPerformed);
 
         jLabel1.setText("Choose question to see answer:");
 
         answersField.setColumns(20);
-        answersField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        answersField.setFont(DEFAULT_FONT); // NOI18N
         answersField.setLineWrap(true);
         answersField.setRows(5);
         answersField.setText(answers[0]);
@@ -83,9 +91,9 @@ public class FaqGUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
-                        .addComponent(questionComboBox, 0, 589, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, PREFERED_SIZE, Short.MAX_VALUE)
+                        .addComponent(questionComboBox, 0, PREFERED_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, PREFERED_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -33,6 +33,7 @@ public class FileTools {
 
     private static final long FILE_COPY_BUFFER_SIZE = 1024 * 1024 * 12;//12 megabyte
     private static final Logger LOGGER = LoggerFactory.getLogger(FileTools.class);
+    private static final int BUFFER_SIZE = 2048;
     private static File f;
     private static FileChannel channel;
     private static FileLock lockFile;
@@ -573,12 +574,12 @@ public class FileTools {
 
     private static boolean zipFile(String path, ZipOutputStream zos, Statistic stats) {
         try {
-            BufferedInputStream bis = new BufferedInputStream(new FileInputStream(new File(path)), 2048);
-            byte[] data = new byte[2048];
+            BufferedInputStream bis = new BufferedInputStream(new FileInputStream(new File(path)), BUFFER_SIZE);
+            byte[] data = new byte[BUFFER_SIZE];
             ZipEntry entry = new ZipEntry(new File(path).getAbsolutePath());
             zos.putNextEntry(entry);
             int count;
-            while ((count = bis.read(data, 0, 2048)) != -1) {
+            while ((count = bis.read(data, 0, BUFFER_SIZE)) != -1) {
                 zos.write(data, 0, count);
             }
             stats.addFileCopied(1);

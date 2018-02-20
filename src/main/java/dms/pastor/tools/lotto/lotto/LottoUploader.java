@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -36,7 +37,7 @@ class LottoUploader {
         } catch (IOException e) {
             throw new SomethingWentWrongException("Getting lines from file", e);
         }
-        return null;
+        return Collections.emptyList();
     }
 
     private void addIfLineValid(String line) {

@@ -5,6 +5,7 @@ import dms.pastor.game.dcs.spells.FireBallSpell;
 import dms.pastor.game.dcs.spells.LightingBoltSpell;
 import dms.pastor.game.dcs.units.Unit;
 
+import static dms.pastor.game.dcs.Config.DEFAULT_HEALTH_POINTS;
 import static dms.pastor.game.dcs.conditions.ConditionEntry.createPersistentCondition;
 import static dms.pastor.game.dcs.conditions.ConditionType.*;
 import static dms.pastor.utils.randoms.PersonalDataGenerator.generateFirstName;
@@ -13,7 +14,7 @@ public class Clairvoyant extends Unit {
 
     public Clairvoyant() {
         setName(generateFirstName() + " a Clairvoyant");
-        getHealth().setHp(50);
+        getHealth().setHp(2 * DEFAULT_HEALTH_POINTS);
         getConditions().add(createPersistentCondition(EARTH_RESISTANT));
         getConditions().add(createPersistentCondition(FIRE_RESISTANT));
         getConditions().add(createPersistentCondition(AIR_RESISTANT));

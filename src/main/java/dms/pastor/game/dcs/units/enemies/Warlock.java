@@ -3,6 +3,7 @@ package dms.pastor.game.dcs.units.enemies;
 import dms.pastor.game.dcs.spells.*;
 import dms.pastor.game.dcs.units.Unit;
 
+import static dms.pastor.game.dcs.Config.INITIAL_SHIELD_POINTS;
 import static dms.pastor.game.dcs.conditions.ConditionEntry.createPersistentCondition;
 import static dms.pastor.game.dcs.conditions.ConditionType.*;
 
@@ -11,7 +12,7 @@ public class Warlock extends Unit {
     private boolean hasInfoAboutEnemy = false;
 
     public Warlock() {
-        setSp(48);
+        setSp(3 * INITIAL_SHIELD_POINTS);
         setArm(2);
         getConditions().add(createPersistentCondition(FIRE_RESISTANT));
         getConditions().add(createPersistentCondition(EARTH_RESISTANT));

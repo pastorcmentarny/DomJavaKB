@@ -5,6 +5,9 @@
 
 package dms.pastor.game.littlefighter;
 
+
+import static dms.pastor.game.littlefighter.Config.DEFAULT_HEALTH_POINTS;
+
 /**
  * Author Dominik Symonowicz
  * Created 2009
@@ -18,10 +21,7 @@ public class Troll extends Enemy {
         enemyAttack = random.nextInt(8) + 1;
         enemyDefence = random.nextInt(8) + 1;
         enemyPower = random.nextInt(4) + 1;
-        //int EnemyMinDamage = random.nextInt(9) + 1;
-        //int EnemyMaxDamage = 2*EnemyMinDamage;
-        enemyHP = 80 + random.nextInt(80);
-        //int EnemyShield = 2*EnemyHP;
+        enemyHP = 3 * DEFAULT_HEALTH_POINTS + random.nextInt(3 * DEFAULT_HEALTH_POINTS);
         enemyArmor = random.nextInt(1);
         regen = 5;
         enemyName = "Troll";
@@ -31,7 +31,7 @@ public class Troll extends Enemy {
         enemyAttack += lvl;
         enemyDefence += lvl;
         enemyPower += lvl;
-        enemyHP += 20 * lvl;
+        enemyHP += DEFAULT_HEALTH_POINTS * lvl;
         regen += lvl;
     }
 }

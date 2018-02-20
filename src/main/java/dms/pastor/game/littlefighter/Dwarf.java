@@ -5,6 +5,8 @@
 
 package dms.pastor.game.littlefighter;
 
+import static dms.pastor.game.littlefighter.Config.DEFAULT_HEALTH_POINTS;
+
 /**
  * Author Dominik Symonowicz
  * Created 2009
@@ -18,7 +20,7 @@ public class Dwarf extends Enemy {
         enemyAttack = random.nextInt(9) + 1;
         enemyDefence = random.nextInt(9) + 1;
         enemyPower = random.nextInt(9) + 6;
-        enemyHP = 80 + random.nextInt(80);
+        enemyHP = 2 * DEFAULT_HEALTH_POINTS + random.nextInt(2 * DEFAULT_HEALTH_POINTS);
         //enemyShield = 2*EnemyHP;
         enemyArmor = random.nextInt(8);
         enemyName = "Dwarf";
@@ -28,7 +30,7 @@ public class Dwarf extends Enemy {
         enemyAttack += lvl;
         enemyDefence += lvl;
         enemyPower += lvl;
-        enemyHP += 20 * lvl;
+        enemyHP += DEFAULT_HEALTH_POINTS * lvl;
         enemyArmor += lvl;
     }
 

@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.IntStream;
 
+import static dms.pastor.game.dcs.Config.DEFAULT_HEALTH_POINTS;
+import static dms.pastor.game.dcs.Config.INITIAL_SHIELD_POINTS;
 import static dms.pastor.game.dcs.conditions.ConditionEntry.createPersistentCondition;
 import static dms.pastor.game.dcs.conditions.ConditionType.*;
 
@@ -27,9 +29,9 @@ public class Dragon extends Unit {
 
     public Dragon() {
         setName(getRandomColor() + " Dragon");
-        getHealth().setHp(1024);
-        getHealth().setMaxHp(1024);
-        setSp(2048);
+        getHealth().setHp(100 * DEFAULT_HEALTH_POINTS);
+        getHealth().setMaxHp(100 * DEFAULT_HEALTH_POINTS);
+        setSp(100 * INITIAL_SHIELD_POINTS);
         getHealth().setArm(2);
         getConditions().add(createPersistentCondition(AIR_RESISTANT));
         getConditions().add(createPersistentCondition(EARTH_RESISTANT));

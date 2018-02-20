@@ -36,9 +36,12 @@ import static java.awt.Font.BOLD;
  * <p>
  * This is main window(GUI) of program .
  */
+@SuppressWarnings("MagicNumber") //TOO OLD PROJECT  TO TAKE CARE OF MAGIC NUMBERS
 public class GUI extends javax.swing.JFrame {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(GUI.class);
+    private static final int LARGE_FONT_SZIE = 18;
+    private static final Dimension PREVIOUS_DESTINATION_DIMENSION = new Dimension(300, 20);
     private final Settings settings = Settings.getSettings();
     private final History history = History.getHistoryGUI();
     private final Properties dom = new Properties();
@@ -65,8 +68,8 @@ public class GUI extends javax.swing.JFrame {
     private JCheckBoxMenuItem exitProgramAfterBackupMenuItem;
     private JCheckBoxMenuItem happyModeCheckBoxMenuItem;
     private JButton mergeButton;
-    private JComboBox previousDestPathComboBox;
-    private JComboBox previousSrcPathComboBox;
+    private JComboBox<String> previousDestPathComboBox;
+    private JComboBox<String> previousSrcPathComboBox;
     private JRadioButtonMenuItem priority_max_radioItem;
     private JRadioButtonMenuItem priority_min_radioItem;
     private JRadioButtonMenuItem priority_normal_radioItem;
@@ -114,10 +117,10 @@ public class GUI extends javax.swing.JFrame {
         InfoLabel = new JLabel();
         createSourceFileButton = new JButton();
         mergeButton = new JButton();
-        previousDestPathComboBox = new JComboBox();
+        previousDestPathComboBox = new JComboBox<String>();
         JLabel jLabel3 = new JLabel();
         swapDestinationFolderPathButton = new JButton();
-        previousSrcPathComboBox = new JComboBox();
+        previousSrcPathComboBox = new JComboBox<>();
         swapSourceFolderPathButton = new JButton();
         JMenuBar jMenuBar1 = new JMenuBar();
         JMenu statusMenu = new JMenu();
@@ -168,7 +171,7 @@ public class GUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("nanoBackup by Pastor Cmentarny");
-        setFont(new Font("Corbel", BOLD, 18)); 
+        setFont(new Font("Corbel", BOLD, LARGE_FONT_SZIE));
         setMinimumSize(new java.awt.Dimension(444, 444));
         setName("main GUI frame");
         setResizable(false);
@@ -235,7 +238,7 @@ public class GUI extends javax.swing.JFrame {
         selectSourceButton.setText("Change");
         selectSourceButton.addActionListener(this::selectSourceButtonActionPerformed);
 
-        InfoLabel.setForeground(new java.awt.Color(255, 0, 0));
+        InfoLabel.setForeground(Color.RED);
         InfoLabel.setText("InfoBar");
         InfoLabel.setMaximumSize(new java.awt.Dimension(395, 14));
         InfoLabel.addMouseListener(new MouseAdapter() {
@@ -250,17 +253,17 @@ public class GUI extends javax.swing.JFrame {
         mergeButton.setText("Merge");
         mergeButton.addActionListener(this::mergeButtonActionPerformed);
 
-        previousDestPathComboBox.setModel(new DefaultComboBoxModel(recentDestPaths));
-        previousDestPathComboBox.setMaximumSize(new java.awt.Dimension(300, 20));
-        previousDestPathComboBox.setMinimumSize(new java.awt.Dimension(300, 20));
-        previousDestPathComboBox.setPreferredSize(new java.awt.Dimension(300, 20));
+        previousDestPathComboBox.setModel(new DefaultComboBoxModel<>(recentDestPaths));
+        previousDestPathComboBox.setMaximumSize(PREVIOUS_DESTINATION_DIMENSION);
+        previousDestPathComboBox.setMinimumSize(PREVIOUS_DESTINATION_DIMENSION);
+        previousDestPathComboBox.setPreferredSize(PREVIOUS_DESTINATION_DIMENSION);
 
         jLabel3.setText("Swap destinations with  one of resent destination paths:");
 
         swapDestinationFolderPathButton.setText("Swap");
         swapDestinationFolderPathButton.addActionListener(this::swapDestinationFolderPathButtonActionPerformed);
 
-        previousSrcPathComboBox.setModel(new DefaultComboBoxModel(recentSrcPaths));
+        previousSrcPathComboBox.setModel(new DefaultComboBoxModel<>(recentSrcPaths));
 
         swapSourceFolderPathButton.setText("Swap");
         swapSourceFolderPathButton.addActionListener(this::swapSourceFolderPathButtonActionPerformed);
@@ -319,7 +322,6 @@ public class GUI extends javax.swing.JFrame {
         shutdownAfterBackupMenuItem.setForeground(AppColor.DARK_ORANGE);
         shutdownAfterBackupMenuItem.setText("Shutdown a PC after backup(beta!)");
         shutdownAfterBackupMenuItem.setEnabled(false);
-        shutdownAfterBackupMenuItem.addActionListener(this::shutdownAfterBackupMenuItemActionPerformed);
         settingsMenu.add(shutdownAfterBackupMenuItem);
 
         saveAsZipCheckBoxMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_6, java.awt.event.InputEvent.ALT_MASK));
@@ -951,10 +953,6 @@ public class GUI extends javax.swing.JFrame {
 
     }//GEN-LAST:event_saveSettingsMenuItemActionPerformed
 
-    private void shutdownAfterBackupMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_shutdownAfterBackupMenuItemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_shutdownAfterBackupMenuItemActionPerformed
-
     private void speedLightModeMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_speedLightModeMenuItemActionPerformed
         settings.setSpeedLightMode(speedLightModeMenuItem.isSelected());
         settings.setProperties(true);
@@ -1074,8 +1072,8 @@ public class GUI extends javax.swing.JFrame {
         });
 
         //SOURCE AND DESTINATION PATHS LIST
-        previousSrcPathComboBox.setModel(new DefaultComboBoxModel(recentSrcPaths));
-        previousDestPathComboBox.setModel(new DefaultComboBoxModel(recentDestPaths));
+        previousSrcPathComboBox.setModel(new DefaultComboBoxModel<>(recentSrcPaths));
+        previousDestPathComboBox.setModel(new DefaultComboBoxModel<>(recentDestPaths));
 
         //SETTINGS        
         exitProgramAfterBackupMenuItem.setSelected(settings.isExitAfterBackup());

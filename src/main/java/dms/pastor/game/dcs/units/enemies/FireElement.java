@@ -6,6 +6,7 @@ import dms.pastor.game.dcs.spells.AntiShieldPiercingSpell;
 import dms.pastor.game.dcs.spells.FireBallSpell;
 import dms.pastor.game.dcs.units.Unit;
 
+import static dms.pastor.game.dcs.Config.INITIAL_SHIELD_POINTS;
 import static dms.pastor.game.dcs.conditions.ElementType.AIR;
 import static dms.pastor.game.dcs.conditions.ElementType.EARTH;
 
@@ -24,7 +25,7 @@ public class FireElement extends Unit {
         setName("Fire element");
         setShielded(true);
         setElements(new Elements(10));
-        setSp(36);
+        setSp(2 * INITIAL_SHIELD_POINTS);
     }
 
     @Override

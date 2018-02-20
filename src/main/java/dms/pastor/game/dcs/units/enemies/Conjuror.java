@@ -7,6 +7,8 @@ import dms.pastor.game.dcs.units.Unit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static dms.pastor.game.dcs.Config.DEFAULT_ELEMENT_NUMBER;
+import static dms.pastor.game.dcs.Config.DEFAULT_HEALTH_POINTS;
 import static dms.pastor.game.dcs.conditions.ConditionEntry.createPersistentCondition;
 import static dms.pastor.game.dcs.conditions.ConditionType.*;
 
@@ -27,7 +29,7 @@ public class Conjuror extends Unit {
 
     public Conjuror() {
         setName("Conjuror");
-        setElements(new Elements(15));
+        setElements(new Elements(3 * DEFAULT_ELEMENT_NUMBER));
         getHealth().setHp(INITIAL_HP);
         setSp(INITIAL_SP);
         maybeAddResistanceTo(AIR_RESISTANT);
@@ -47,7 +49,7 @@ public class Conjuror extends Unit {
         }
 
         Spell healSpell = new HealSpell();
-        if (getHealth().getHp() < 15 && healSpell.hasEnoughElementsToCovertToSpell(getElements())) {
+        if (getHealth().getHp() < DEFAULT_HEALTH_POINTS && healSpell.hasEnoughElementsToCovertToSpell(getElements())) {
             healSpell.castSpellIfHasEnoughElements(this, enemy);
         }
 

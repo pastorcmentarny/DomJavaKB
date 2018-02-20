@@ -1,7 +1,5 @@
 package dms.pastor.game.littlefighter;
 
-import javax.swing.*;
-
 /**
  * Author Dominik Symonowicz
  * Created 2009
@@ -10,9 +8,11 @@ import javax.swing.*;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
+@SuppressWarnings("MagicNumber")
+        //TOO OLD PROJECT  TO TAKE CARE OF MAGIC NUMBERS
 class SpellBook {
 
-    public String castMana2Shield(int PlayerMana, int PlayerShield, JTextArea console) {
+    public String castMana2Shield(int PlayerMana, int PlayerShield) {
 
         if (PlayerMana >= 17) {
             PlayerMana -= 17;

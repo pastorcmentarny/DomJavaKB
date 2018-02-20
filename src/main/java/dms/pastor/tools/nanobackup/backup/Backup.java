@@ -32,10 +32,12 @@ import static java.awt.Color.DARK_GRAY;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-@SuppressWarnings("AssignmentToNull") // null is used to release unused resources
+@SuppressWarnings({"AssignmentToNull", "MagicNumber"})
+// null is used to release unused resources, TOO OLD PROJECT  TO TAKE CARE OF MAGIC NUMBERS
 public final class Backup extends AbstractTools {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Backup.class);
+    private static final int DEFAULT_WIDTH = 500;
     private static Backup backup;
 
     private final Engine utilities = new Engine();
@@ -80,18 +82,18 @@ public final class Backup extends AbstractTools {
         innerPanel.setSize(Settings.getDimensionFor("backupGUI"));
         final JProgressBar progressBar = new JProgressBar();
         progressBar.setIndeterminate(false);
-        progressBar.setSize(500, 80);
+        progressBar.setSize(DEFAULT_WIDTH, 80);
         progressBar.addMouseListener(new ShowStatusMouseAdapter());
-        BackupTaskFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        BackupTaskFrame.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         BackupTaskFrame.setTitle("Backup Task");
-        BackupTaskFrame.setSize(500, 240);
+        BackupTaskFrame.setSize(DEFAULT_WIDTH, 240);
         BackupTaskFrame.setResizable(false);
         final JTextArea infoTextArea = new JTextArea();
         infoTextArea.setAutoscrolls(true);
         infoTextArea.setFont(new java.awt.Font("Tahoma", 0, 14));
         infoTextArea.setForeground(Color.BLUE);
         infoTextArea.setEditable(false);
-        infoTextArea.setSize(470, 100);
+        infoTextArea.setSize(DEFAULT_WIDTH, 100);
         infoTextArea.setWrapStyleWord(true);
         infoTextArea.setLineWrap(true);
         infoTextArea.setRows(4);
@@ -114,67 +116,7 @@ public final class Backup extends AbstractTools {
 
         }
 
-        WindowListener windowListener = new WindowListener() {
-
-            public void windowOpened(WindowEvent e) {
-            }
-
-            public void windowClosing(WindowEvent e) {
-                //TODO improve this method 
-                if (inProgress) {
-                    deleteCopiedAlready();
-                }
-                GUIFrame.setVisible(true);
-                killBackupThread();
-                inProgress = false;
-            }
-
-            public void windowClosed(WindowEvent windowEvent) {
-            }
-
-            public void windowIconified(WindowEvent e) {
-            }
-
-            public void windowDeiconified(WindowEvent e) {
-            }
-
-            public void windowActivated(WindowEvent e) {
-            }
-
-            public void windowDeactivated(WindowEvent e) {
-            }
-
-            //TODO improve below code,because it not working ...
-            private void deleteCopiedAlready() {
-                if (isInProgress()) {
-                    LOGGER.debug("Stooping backup...");
-                    killBackupThread();
-                    infoTextArea.setForeground(Color.ORANGE);
-                    updateInfoText(infoTextArea, "Stooping backup...");
-                    if (inProgress) {
-                        if (JOptionPane.showConfirmDialog(null, msg.getMsg("q.RUSure"), "Do you want delete,what was copied already?", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE) == JOptionPane.YES_OPTION) {
-                            infoTextArea.setForeground(Color.RED);
-                            infoTextArea.setText("Deleting what was already copied.Program may freeze for while");
-                            LOGGER.debug("deleting already copied files to backup...");
-                            if (!StringUtils.isStringBlank(destinationDir)) {
-                                if (FileTools.isADirectory(destinationDir) || FileTools.isAFile(destinationDir)) {
-                                    FileTools.delete(destinationDir);
-                                } else {
-                                    updateAll(infoTextArea, false, true, "Unable to delete,because destination zipped/folder doesn't exist.");
-                                }
-
-                            } else {
-                                updateAll(infoTextArea, false, true, "Unable to delete,because destination path is invalid.");
-                            }
-                        }
-                    } else {
-                        LOGGER.debug("Closing backup's GUI");
-                    }
-                    BackupTaskFrame.dispose();
-                    inProgress = false;
-                }
-            }
-        };
+        WindowListener windowListener = new MyWindowListener(GUIFrame, infoTextArea);
         BackupTaskFrame.addWindowListener(windowListener);
 
         backupThread.start();
@@ -544,6 +486,76 @@ public final class Backup extends AbstractTools {
                 String sr2f = Settings.DATA_PATH + Tools.getCurrentDateWithTime() + ".txt";
                 updateInfoText(info, "Saving results to file:" + sr2f);
                 FileTools.saveTextToFile(results, sr2f);
+            }
+        }
+    }
+
+    private class MyWindowListener implements WindowListener {
+
+        private final JFrame GUIFrame;
+        private final JTextArea infoTextArea;
+
+        public MyWindowListener(JFrame GUIFrame, JTextArea infoTextArea) {
+            this.GUIFrame = GUIFrame;
+            this.infoTextArea = infoTextArea;
+        }
+
+        public void windowOpened(WindowEvent e) {
+        }
+
+        public void windowClosing(WindowEvent e) {
+            //TODO improve this method
+            if (inProgress) {
+                deleteCopiedAlready();
+            }
+            GUIFrame.setVisible(true);
+            killBackupThread();
+            inProgress = false;
+        }
+
+        public void windowClosed(WindowEvent windowEvent) {
+        }
+
+        public void windowIconified(WindowEvent e) {
+        }
+
+        public void windowDeiconified(WindowEvent e) {
+        }
+
+        public void windowActivated(WindowEvent e) {
+        }
+
+        public void windowDeactivated(WindowEvent e) {
+        }
+
+        //TODO improve below code,because it not working ...
+        private void deleteCopiedAlready() {
+            if (isInProgress()) {
+                LOGGER.debug("Stooping backup...");
+                killBackupThread();
+                infoTextArea.setForeground(Color.ORANGE);
+                updateInfoText(infoTextArea, "Stooping backup...");
+                if (inProgress) {
+                    if (JOptionPane.showConfirmDialog(null, msg.getMsg("q.RUSure"), "Do you want delete,what was copied already?", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE) == JOptionPane.YES_OPTION) {
+                        infoTextArea.setForeground(Color.RED);
+                        infoTextArea.setText("Deleting what was already copied.Program may freeze for while");
+                        LOGGER.debug("deleting already copied files to backup...");
+                        if (!StringUtils.isStringBlank(destinationDir)) {
+                            if (FileTools.isADirectory(destinationDir) || FileTools.isAFile(destinationDir)) {
+                                FileTools.delete(destinationDir);
+                            } else {
+                                updateAll(infoTextArea, false, true, "Unable to delete,because destination zipped/folder doesn't exist.");
+                            }
+
+                        } else {
+                            updateAll(infoTextArea, false, true, "Unable to delete,because destination path is invalid.");
+                        }
+                    }
+                } else {
+                    LOGGER.debug("Closing backup's GUI");
+                }
+                BackupTaskFrame.dispose();
+                inProgress = false;
             }
         }
     }

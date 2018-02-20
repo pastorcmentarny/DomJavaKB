@@ -25,6 +25,7 @@ public final class Tools {
     private static final String EMPTY = "";
     private static final Logger LOGGER = LoggerFactory.getLogger(Tools.class);
     private static final char[] charArray = new char[36];
+    private static final int HALF_OF_MAX_RGB_VALUE = 128;
 
     private Tools() {
     }
@@ -76,7 +77,7 @@ public final class Tools {
 
     public static Color getRandomColor() {
         Random randomColor = new Random();
-        return new Color(randomColor.nextInt(128), randomColor.nextInt(128), randomColor.nextInt(128));
+        return new Color(randomColor.nextInt(HALF_OF_MAX_RGB_VALUE), randomColor.nextInt(HALF_OF_MAX_RGB_VALUE), randomColor.nextInt(HALF_OF_MAX_RGB_VALUE));
     }
 
     public static void changeToYellowStatus(List<String> result) {

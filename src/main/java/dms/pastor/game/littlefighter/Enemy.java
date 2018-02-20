@@ -7,6 +7,8 @@ package dms.pastor.game.littlefighter;
 
 import java.util.Random;
 
+import static dms.pastor.game.littlefighter.Config.DEFAULT_HEALTH_POINTS;
+
 /**
  * Author Dominik Symonowicz
  * Created 2009
@@ -33,10 +35,7 @@ class Enemy {
         enemyAttack = random.nextInt(9) + 1;
         enemyDefence = random.nextInt(9) + 1;
         enemyPower = random.nextInt(5) + 1;
-        //int EnemyMinDamage = random.nextInt(9) + 1;
-        //int EnemyMaxDamage = 2*EnemyMinDamage;
-        enemyHP = 40 + random.nextInt(40);
-        //int EnemyShield = 2*EnemyHP;
+        enemyHP = 2 * DEFAULT_HEALTH_POINTS + random.nextInt(3 * DEFAULT_HEALTH_POINTS);
         enemyArmor = random.nextInt(2);
         regen = 1;
 

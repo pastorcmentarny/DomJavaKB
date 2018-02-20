@@ -47,6 +47,7 @@ public final class Word {
         return -1;
     }
 
+    @SuppressWarnings("MagicNumber")
     public static Word defaultWord() {
         return new Word(292, "字", "zì", 6,
                 "character", "znak", new String[]{"hsk1"}, "note", 2);
