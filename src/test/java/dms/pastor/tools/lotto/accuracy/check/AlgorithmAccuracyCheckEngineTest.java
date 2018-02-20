@@ -34,7 +34,7 @@ public class AlgorithmAccuracyCheckEngineTest {
 
 
     @Test
-    public void shouldReturnPostiveBalanceResult() {
+    public void shouldReturnPositiveBalanceResult() {
 
     }
 

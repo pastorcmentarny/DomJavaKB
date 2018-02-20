@@ -33,8 +33,13 @@ public class StringUtilsTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(StringUtilsTest.class);
 
     private static final String NON_ALPHABETICAL_STRING = "&07";
+    @SuppressWarnings("SpellCheckingInspection")
     private static final String PALINDROME = "abcdcba";
+
+    @SuppressWarnings("SpellCheckingInspection")
     private static final String NOT_A_PALINDROME = "abcdef";
+
+    @SuppressWarnings("SpellCheckingInspection")
     private static final String PALINDROME_AFTER_PERMUTATION = "abcdabcd";
     public static final String WHITESPACES_ONLY_STRING = "                    ";
 

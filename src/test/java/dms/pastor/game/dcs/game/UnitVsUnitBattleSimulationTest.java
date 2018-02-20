@@ -438,7 +438,7 @@ public final class UnitVsUnitBattleSimulationTest {
     }
 
     @Test
-    public void dragonVsWitchkBattleSimulationTest() {
+    public void dragonVsWitchBattleSimulationTest() {
         // setup
         Dragon dragon = new Dragon();
         Unit enemy = new Witch();

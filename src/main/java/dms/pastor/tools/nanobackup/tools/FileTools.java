@@ -585,7 +585,7 @@ public class FileTools {
                 }
             }
         } catch (IOException e) {
-            LOGGER.warn("Unable to unlock program.It cans cause problem with running program.\nProgram shoulds work afrer restar of your computer.");
+            LOGGER.warn("Unable to unlock program.It cans cause problem with running program.\nProgram should work after restart of your computer.");
         }
     }
 

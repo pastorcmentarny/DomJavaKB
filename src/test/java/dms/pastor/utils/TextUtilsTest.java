@@ -17,7 +17,7 @@ public class TextUtilsTest {
     public ExpectedException exception = ExpectedException.none();
 
     @Test
-    public void countWordInTextInFileShouldThrowSomethingWentWrongExceptionIfAnyExceptionIsThrownDuingCounting() {
+    public void countWordInTextInFileShouldThrowSomethingWentWrongExceptionIfAnyExceptionIsThrownDuringCounting() {
         // expect
         exception.expect(SomethingWentWrongException.class);
         exception.expectMessage("Unable to count word due null");
@@ -36,7 +36,7 @@ public class TextUtilsTest {
     }
 
     @Test
-    public void getTextInParagrapsShouldThrowSomethingWentWrongExceptionIfAnyExceptionIsThrownDuingCounting() {
+    public void getTextInParagraphShouldThrowSomethingWentWrongExceptionIfAnyExceptionIsThrownDuringCounting() {
         // expect
         exception.expect(SomethingWentWrongException.class);
         exception.expectMessage("Unable to count word due null");

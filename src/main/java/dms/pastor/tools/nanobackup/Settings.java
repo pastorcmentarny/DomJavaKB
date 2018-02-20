@@ -25,7 +25,7 @@ public final class Settings {
     public static final String SETTINGS_PATH = DATA_PATH + "settings.properties";
     public static final String RECENT_SRC_PATHS_FILE = DATA_PATH + "recentSrcPaths.nbd";
     public static final String RECENT_DEST_PATHS_FILE = DATA_PATH + "recentDestPaths.nbd";
-    public static final String QUICK_MODE_FILENAME = "quickmode.nbd";
+    public static final String QUICK_MODE_FILENAME = "quickMode.nbd";
     public static final String SRC_FILE_ENDING = ".txt";
     private static final String SETTINGS_FILE_ENDING = ".properties";
     private static final Logger LOGGER = LoggerFactory.getLogger(Settings.class);

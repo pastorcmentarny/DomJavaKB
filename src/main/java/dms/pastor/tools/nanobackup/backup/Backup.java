@@ -179,7 +179,7 @@ public class Backup extends AbstractTools {
     }
 
     public String doCLIBackup(String source, String destination) {
-        LOGGER.debug("peforming backup(CLI)");
+        LOGGER.debug("performing backup(CLI)");
         Engine engine = new Engine();
         String[] srcList = engine.makeList(source);
         return doClassicBackup(srcList, destination, null);
@@ -187,7 +187,7 @@ public class Backup extends AbstractTools {
 
     public String doClassicBackup(String[] sources, String destination, JTextArea info) {
         LOGGER.info("performing backup(plain)");
-        updateInfoText(info, "Start performig backup");
+        updateInfoText(info, "Start performing backup");
         boolean result;
         inProgress = true;
         results = new StringBuilder();
@@ -324,7 +324,7 @@ public class Backup extends AbstractTools {
             updateInfoText(info, Messenger.PRE_CHECK + Messenger.ENOUGH_SPACE_CHECK);
             LOGGER.debug("preCheck: check is it enough space for backup...");
             if (!FileTools.checkEnoughSpace(stats, sources, destination)) {
-                JOptionPane.showConfirmDialog(null, "The is not enough space on device where destination folder is :(.", "WOOPS", JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showConfirmDialog(null, "The is not enough space on device where destination folder is :(.", "WHOOPS", JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE);
                 killBackupThread();
                 LOGGER.info("Not enough space on device where destination folder is");
                 return false;
@@ -421,7 +421,7 @@ public class Backup extends AbstractTools {
                 if (preCheck(src, dest, BackupTaskFrame, info)) {
                     processBackup();
                 } else {
-                    LOGGER.info("Precheck failed,backup cancelled.");
+                    LOGGER.info("Pre-check failed,backup cancelled.");
                 }
             } catch (Exception e) {
                 String error = "Backup throw unexpected error: '" + e.getCause() + "' with error message: '" + e.getMessage() + "'\n Exception message:\n " + "\n\n";
@@ -458,7 +458,7 @@ public class Backup extends AbstractTools {
                 results = performBackup();
 
             } catch (NotImplementYetException exception) {
-                JOptionPane.showConfirmDialog(null, exception.getMessage(), "WOOPS", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showConfirmDialog(null, exception.getMessage(), "WHOOPS", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
             } finally {
                 inProgress = false;
             }

@@ -58,16 +58,16 @@ public class PointTest {
         // given
         final int width = randomPositiveInteger(10);
         final int height = randomPositiveInteger(10);
-        final int newHight = randomPositiveInteger(height, 10);
+        final int newHeight = randomPositiveInteger(height, 10);
         final String fill = getRandomCharacterAsString();
 
         final Coordinates coordinates = new Coordinates(width, height);
         Point point = new Point(coordinates, fill);
 
-        final Coordinates expectedCoordinates = new Coordinates(width, newHight);
+        final Coordinates expectedCoordinates = new Coordinates(width, newHeight);
         Point expectedPoint = new Point(expectedCoordinates, fill);
         // when
-        final Point result = withReplacedHeight(newHight, point);
+        final Point result = withReplacedHeight(newHeight, point);
 
         // then
         assertThat(result).isEqualTo(expectedPoint);

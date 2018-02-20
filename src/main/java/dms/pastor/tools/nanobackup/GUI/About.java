@@ -40,7 +40,6 @@ public class About extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         JTabbedPane aboutTabbedPanel = new JTabbedPane();
@@ -308,7 +307,7 @@ public class About extends javax.swing.JFrame {
         try {
             java.awt.Desktop.getDesktop().browse(new URI("http://pastor.ovh.org"));
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "It is something wrong with web address.\nPossible reasons:\nIt is possible that you have weird problem with internet connection.\nFirewall blocks Java to access to inernet\nAddress is incorrect.", "BAD NEWS!", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "It is something wrong with web address.\nPossible reasons:\nIt is possible that you have weird problem with internet connection.\nFirewall blocks Java to access to internet\nAddress is incorrect.", "BAD NEWS!", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_goToButtonActionPerformed
     // End of variables declaration//GEN-END:variables
@@ -318,7 +317,7 @@ public class About extends javax.swing.JFrame {
             properties.load(fis);
         } catch (FileNotFoundException ex) {
             LOGGER.warn("Unexpected error due load properties for About." + ex.getCause() + ("\n" + ex.getMessage()));
-            JOptionPane.showMessageDialog(rootPane, messagePanel, "WOOPS", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(rootPane, messagePanel, "WHOOPS", JOptionPane.ERROR_MESSAGE);
             this.dispose();
         } catch (IOException ex) {
             LOGGER.warn("Unexpected error due load properties for About." + ex.getCause() + ("\n" + ex.getMessage()));

@@ -46,7 +46,7 @@ public class Engine extends AbstractTools {
         LOGGER.debug("Deactivating quick backup mode.");
         settings.setNonQuickPath(null);
         if (StringUtils.isStringEmpty(sourceField.getText())) {
-            FileTools.delete("quickmode.nbd");
+            FileTools.delete("quickMode.nbd");
             if (sourceField != null) {
                 sourceField.setText(settings.getNonQuickPath());
             } else {
@@ -164,7 +164,7 @@ public class Engine extends AbstractTools {
             LOGGER.warn(ex.getCause() + " occurred with messaged" + ex.getMessage());
             return new String[0];
         } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, msg.getMsg("error.IOerror"), "Whoops", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, msg.getMsg("error.IOError"), "Whoops", JOptionPane.ERROR_MESSAGE);
             LOGGER.error("IOException happen. " + ex.getCause() + "\n" + ex.getMessage());
             return new String[0];
         }
@@ -233,7 +233,7 @@ public class Engine extends AbstractTools {
         }
         LOGGER.debug("Shutting down program....");
         if ("alreadyRun".equalsIgnoreCase(reason)) {
-            LOGGER.debug("due another istance of program is running already.");
+            LOGGER.debug("due another instance of program is running already.");
         } else if ("exitAfterBackup".equalsIgnoreCase(reason)) {
             LOGGER.info("due exit after finished backup.");
         } else if ("disaster".equalsIgnoreCase(reason)) {

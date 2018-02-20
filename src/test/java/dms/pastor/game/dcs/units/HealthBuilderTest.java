@@ -41,7 +41,7 @@ public class HealthBuilderTest {
     }
 
     @Test
-    public void buildShouldGenerateHealthWithCustomeValue() {
+    public void buildShouldGenerateHealthWithCustomerValue() {
 
         // given
         final int maxHp = 5;

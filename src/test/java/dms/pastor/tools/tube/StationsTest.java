@@ -46,14 +46,14 @@ public class StationsTest {
     public void getStationByNameShouldReturnStation() {
         // given
         final String stationName = STATION_NAME;
-        final Station amershamStaton = Station.notVisited(stationName, lines);
-        Stations stations = new Stations(Collections.singletonList(amershamStaton));
+        final Station amershamStation = Station.notVisited(stationName, lines);
+        Stations stations = new Stations(Collections.singletonList(amershamStation));
 
         // when
         Station result = stations.getStationByName(stationName);
 
         // then
-        assertThat(result).isEqualTo(amershamStaton);
+        assertThat(result).isEqualTo(amershamStation);
 
     }
 

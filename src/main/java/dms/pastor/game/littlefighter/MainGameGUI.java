@@ -134,7 +134,7 @@ public final class MainGameGUI extends javax.swing.JFrame {
         poisonEnemy.setText("Poison Enemy");
         poisonEnemy.setEnabled(false);
 
-        berserkAttack.setText("Beserk Attack");
+        berserkAttack.setText("BerserkAttack");
         berserkAttack.setEnabled(false);
 
         shadowAttack.setText("ShadowAttack");
@@ -320,11 +320,11 @@ public final class MainGameGUI extends javax.swing.JFrame {
         boolean result = spellBook.castShadowAttack(player);
         if (result) {
             for (int i = 1; i <= 3; i++) {
-                int Pdmg = battle.PlayerAttack(player, enemy, console);
-                player.exp += Pdmg;
-                player.score += Pdmg;
-                console.setText(console.getText() + "In " + i + " attack:\nEnemy does " + Pdmg + " damage!");
-                enemy.setEnemyHP(enemy.getEnemyHP() - Pdmg);
+                int playerAttack = battle.PlayerAttack(player, enemy, console);
+                player.exp += playerAttack;
+                player.score += playerAttack;
+                console.setText(console.getText() + "In " + i + " attack:\nEnemy does " + playerAttack + " damage!");
+                enemy.setEnemyHP(enemy.getEnemyHP() - playerAttack);
                 isAlive();
 
             }

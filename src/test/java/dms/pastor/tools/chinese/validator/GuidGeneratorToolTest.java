@@ -25,7 +25,7 @@ public class GuidGeneratorToolTest {
         final String guid = GuidGeneratorTool.generateGuid();
 
         // debug
-        LOGGER.info("Genereted GUID: " + guid);
+        LOGGER.info("Generated GUID: " + guid);
 
         // then
         assertThat(guid).isNotEmpty();
