@@ -14,6 +14,7 @@ import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Objects;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -412,64 +413,22 @@ public class FileTools {
         }
     }
 
+    //TODO remove it
     public static boolean isAFile(String path) {
-        if (isFileExists(path)) {
-            try {
-                file = new File(path);
-            } catch (NullPointerException e) {
-                return false;
-            }
-            return file.isFile();
-        } else {
-            return false;
-        }
+        return isFileExists(path);
     }
 
+    //TODO remove it
     public static boolean isADirectory(String path) {
-        if (isDirectoryExists(path)) {
-            try {
-                file = new File(path);
-            } catch (NullPointerException e) {
-                return false;
-            }
-            return file.isDirectory();
-        } else {
-            return false;
-        }
+        return isDirectoryExists(path);
     }
-
-    //TODO refactor this method
-    static boolean isFilesExists(String[] filesPath) {
-        try {
-            for (String aFilesPath : filesPath) {
-                if (!new File(aFilesPath).exists()) {
-                    return false;
-                }
-            }
-        } catch (NullPointerException e) {
-            return false;
-        }
-        return true;
-    }
-
-    //TODO refactor this method    
 
     public static boolean isFileExists(String filePath) {
-        try {
-            file = new File(filePath);
-        } catch (NullPointerException e) {
-            return false;
-        }
-        return file.isFile();
+        return Objects.nonNull(filePath) && file.isFile();
     }
 
     public static boolean isDirectoryExists(String filePath) {
-        try {
-            file = new File(filePath);
-        } catch (NullPointerException e) {
-            return false;
-        }
-        return file.isDirectory();
+        return Objects.nonNull(filePath) && file.isDirectory();
     }
 
     public static boolean saveListToFile(String[] content, String file) {

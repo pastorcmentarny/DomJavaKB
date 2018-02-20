@@ -16,6 +16,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 
@@ -193,15 +194,15 @@ public class Engine extends AbstractTools {
     public String[] removeItemsFromList(String[] srcList, JList sourceList) {
         ArrayList<String> toDeleteList = new ArrayList<>();
         ArrayList<String> newList = new ArrayList<>();
+        if (Objects.isNull(sourceList)) {
+            return new String[0];
+        }
         if (!sourceList.isSelectionEmpty()) {
-            try {
-                final List itemsToDelete = sourceList.getSelectedValuesList();
-                for (Object anItemsToDelete : itemsToDelete) {
-                    toDeleteList.add(anItemsToDelete.toString());
-                }
-            } catch (NullPointerException e) {
-                return new String[0];
+            final List itemsToDelete = sourceList.getSelectedValuesList();
+            for (Object anItemsToDelete : itemsToDelete) {
+                toDeleteList.add(anItemsToDelete.toString());
             }
+
             if (!toDeleteList.isEmpty()) {
                 for (String aSrcList : srcList) {
                     if (!toDeleteList.contains(aSrcList)) {
