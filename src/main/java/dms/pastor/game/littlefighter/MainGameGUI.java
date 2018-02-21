@@ -241,7 +241,7 @@ public final class MainGameGUI extends javax.swing.JFrame {
             antiExp += enemyDmg;
             console.setText(console.getText() + "\nPlayer does " + enemyDmg + " damage!");
             player.setPlayerShield(player.getPlayerShield() - enemyDmg);
-            if (player.noShield()) {
+            if (player.hasNotShield()) {
                 player.addHp(player.getPlayerShield());
                 player.setShieldToZero();
             }
@@ -306,7 +306,7 @@ public final class MainGameGUI extends javax.swing.JFrame {
                             + "\nDefence: " + enemy.getEnemyDefence()
                             + "\nArmor:" + enemy.getEnemyArmor()
             );
-            playerConsole.setText(player.status.checkStatus());
+            playerConsole.setText(player.status.setActiveStatuses());
             console.setText(console.getText() + "\n Info spell casted!");
         }
 
@@ -380,7 +380,7 @@ public final class MainGameGUI extends javax.swing.JFrame {
 
     private void endOfBattle() {
         player.addKill();
-        console.setText("You kill " + player.getKills() + " unit" + isPlurar());
+        console.setText("You kill " + player.getKills() + " unit" + setPlurarForMoreThanOneKill());
         RunTurn.setEnabled(false);
         nextEnemy.setEnabled(true);
         player.addHp();
@@ -398,17 +398,18 @@ public final class MainGameGUI extends javax.swing.JFrame {
         console.setText(console.getText() + "\nGet ready for next battle");
     }
 
-    private void isLevelUpForSomebody() {
-        if (antiExp >= 1000) {
-            antiExp -= 1000;
+    private void levelUpUnitsIfTheyHaveEnoughExperience() {
+        final int nextLevelValue = 1000;
+        if (antiExp >= nextLevelValue) {
+            antiExp -= nextLevelValue;
             lvl++;
             console.setText("Enemy level up! Current level:" + lvl);
         }
-        if (player.getExp() >= 1000) {
+        if (player.getExp() >= nextLevelValue) {
             player.levelUp();
             updateConsole();
         }
-        isEnoughLevelToUnlockNewSpell();
+        unlockNewSpellCheck();
 
     }
 
@@ -503,7 +504,7 @@ public final class MainGameGUI extends javax.swing.JFrame {
 
     }
 
-    private String isPlurar() {
+    private String setPlurarForMoreThanOneKill() {
         if (player.getKills() > 1) {
             return "s";
         }
@@ -525,7 +526,7 @@ public final class MainGameGUI extends javax.swing.JFrame {
         }
     }
 
-    private void isEnoughLevelToUnlockNewSpell() {
+    private void unlockNewSpellCheck() {
         if (player.getPlayerLevel() >= 2) {
             magicVampire.setEnabled(true);
         }
@@ -559,7 +560,7 @@ public final class MainGameGUI extends javax.swing.JFrame {
         player.addShieldPoints(shieldRegen);
         player.regenMana();
         enemy.setEnemyHP(enemy.getEnemyHP() + enemy.getRegen());
-        isLevelUpForSomebody();
+        levelUpUnitsIfTheyHaveEnoughExperience();
         player.status.decreaseLengthOfPoison();
     }
 }

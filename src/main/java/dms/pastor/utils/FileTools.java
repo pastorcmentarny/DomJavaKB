@@ -41,7 +41,7 @@ public final class FileTools {
             return false;
         }
         for (String aFilesPath : filesPath) {
-            if (!new File(aFilesPath).exists()) { //TODO replace with checkIfFileIsAccessible() ?
+            if (!new File(aFilesPath).exists()) { //TODO replace with validateIfFileAccessible() ?
                 return false;
             }
         }
@@ -156,7 +156,7 @@ public final class FileTools {
 
     //example try-with-resources
     public static String readRawData(File filePath) {
-        checkIfFileIsAccessible(filePath);
+        validateIfFileAccessible(filePath);
 
         StringBuilder sb = new StringBuilder(EMPTY_STRING);
         try (FileInputStream fis = new FileInputStream(filePath);
@@ -174,7 +174,8 @@ public final class FileTools {
         return sb.toString();
     }
 
-    private static void checkIfFileIsAccessible(File filePath) {
+    //TODO move to validator
+    private static void validateIfFileAccessible(File filePath) {
         if (filePath == null || !filePath.exists() || !filePath.canRead()) {
             throw new IllegalArgumentException("File doesn't exist or cannot be read");
         }

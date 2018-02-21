@@ -380,7 +380,7 @@ public final class Backup extends AbstractTools {
 
         }
 
-        private boolean processBackup() {
+        private void processBackup() {
             LOGGER.debug("BACKUP. Processing backup started.");
             info.setForeground(Color.BLUE);
             info.setText("(Backup in progress)  Please wait with patience.\n to cancel backup, simply close this window.");
@@ -419,7 +419,6 @@ public final class Backup extends AbstractTools {
             info.setForeground(DARK_GRAY);
             updateInfoText(info, results);
 
-            return true; //TODO reimplement rhi
         }
 
         private String performBackup() {

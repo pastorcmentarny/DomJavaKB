@@ -24,7 +24,7 @@ public class Unknown extends Enemy {
     public boolean addOnToAttack(Player player) {
         int r = random.nextInt(100);
         if (r > 25) {
-            player.getStatus().isPoisoned();
+            player.getStatus().setPoisoned();
             player.getStatus().setLengthOfPoison(5);
             player.msg("\nPlayer is poisoned!");
             return true;

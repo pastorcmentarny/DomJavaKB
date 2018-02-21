@@ -31,11 +31,11 @@ class HiScore {
     private FileWriter fileSaver;
     private final String fileName = "HiScore.txt";
 
-    public void isItHighScore(int exp) {
+    public void setHighScoreFor(int points) {
         for (int i = 0; i < score.length; i++) {
-            if (exp > score[i]) {
+            if (points > score[i]) {
                 int tempI = score[i];
-                score[i] = exp;
+                score[i] = points;
                 for (int j = i; j < score.length; i++) {
                     int tempJ = score[j];
                     score[j] = tempI;
@@ -79,13 +79,13 @@ class HiScore {
         }
     }
 
-    private void checkScore(int exp, String t, int line) {
+/*    private void checkScore(int exp, String t, int line) {
         String[] temp;
         temp = t.split("\n");
         for (String aTemp : temp) {
             System.out.println(aTemp);
         }
-    }
+    }*/
 
     public void addToHiScore(int score) {
         try {

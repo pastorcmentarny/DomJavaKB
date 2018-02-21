@@ -35,8 +35,8 @@ public final class Settings {
     private static Settings settings;
 
     //GUI settings
-    private static final Dimension historyOfMessageGUI = new Dimension(425, 550);
-    private static final Dimension backupGUI = new Dimension(500, 200);
+    private static final Dimension MESSAGE_HISTORY_DIMENSION = new Dimension(425, 550);
+    private static final Dimension BACKUP_GUI_DIMENSION = new Dimension(500, 200);
     private static String beforeBackupJobPath = null;
     private static String afterBackupJobPath = null;
     private final Properties properties = new Properties();
@@ -65,10 +65,10 @@ public final class Settings {
 
     public static Dimension getDimensionFor(String what) {
         switch (what) {
-            case "historyOfMessageGUI":
-                return historyOfMessageGUI;
+            case "MESSAGE_HISTORY_DIMENSION":
+                return MESSAGE_HISTORY_DIMENSION;
             case "backupGui":
-                return backupGUI;
+                return BACKUP_GUI_DIMENSION;
             default:
                 return null; //TODO NoDimension object
 

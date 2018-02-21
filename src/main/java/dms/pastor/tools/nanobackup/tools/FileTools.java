@@ -79,10 +79,10 @@ public class FileTools {
                 }
             }
         }
-        return checkFreeSpace(destination) - srcSize > 0;
+        return getFreeSpace(destination) - srcSize > 0;
     }
 
-    private static long checkFreeSpace(String path) {
+    private static long getFreeSpace(String path) {
         return new File(path).getFreeSpace();
     }
 

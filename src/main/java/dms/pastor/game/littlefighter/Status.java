@@ -1,5 +1,7 @@
 package dms.pastor.game.littlefighter;
 
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+
 /**
  * Author Dominik Symonowicz
  * Created 2009
@@ -33,8 +35,8 @@ public class Status {
         toBeGaga = false;
     }
 
-    public String checkStatus() {
-        String activeStatuses = "";
+    public String setActiveStatuses() {
+        String activeStatuses = EMPTY_STRING;
         if (isPoisoned) {
             activeStatuses += "Poison ";
         }
@@ -52,7 +54,7 @@ public class Status {
     }
 
 
-    public void isPoisoned() {
+    public void setPoisoned() {
         isPoisoned = true;
     }
 
@@ -72,7 +74,7 @@ public class Status {
         isBerserk = false;
     }
 
-    public void isWeak() {
+    public void setWeak() {
         isWeak = true;
     }
 
@@ -80,7 +82,7 @@ public class Status {
         isWeak = false;
     }
 
-    public void isBlind() {
+    public void setBlind() {
         isBlind = true;
     }
 

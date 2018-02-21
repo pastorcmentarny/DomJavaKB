@@ -94,7 +94,7 @@ public class GUI extends javax.swing.JFrame {
         initComponents();
         addonsForInitComponents();
         setup();
-        check();
+        setGui();
     }
 
     public static void main(String args[]) {
@@ -599,7 +599,7 @@ public class GUI extends javax.swing.JFrame {
             backup.backupGui(utilities.makeList(sourceField.getText()), destinationField.getText(), this);
             this.toBack();
             utilities.setInfoLabel(Color.BLUE, "Backup task ended.(See BackupTask window for details)", InfoLabel);
-            check();
+            setGui();
         }
     }
 
@@ -618,7 +618,7 @@ public class GUI extends javax.swing.JFrame {
             utilities.setInfoLabel(Color.RED, "Action cancelled", InfoLabel);
         }
         refreshContent();
-        check();
+        setGui();
 
     }
 
@@ -638,7 +638,7 @@ public class GUI extends javax.swing.JFrame {
             InfoLabel.setText("Destination folder is not changed.");
         }
         refreshContent();
-        check();
+        setGui();
 
     }
 
@@ -653,7 +653,7 @@ public class GUI extends javax.swing.JFrame {
             utilities.setInfoLabel(Color.RED, "Unable to create default config.Please reinstall program!", InfoLabel);
         }
         refreshContent();
-        check();
+        setGui();
     }
 
     private void exitMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
@@ -676,7 +676,7 @@ public class GUI extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, msg.getMsg("error.createFile"), "Whoops!", JOptionPane.ERROR_MESSAGE);
             }
             refreshContent();
-            check();
+            setGui();
             InfoLabel.setForeground(AppColor.DARK_GREEN);
             if (addFileResult.length == 1) {
                 InfoLabel.setText("Item added." + InfoLabel.getText());
@@ -701,7 +701,7 @@ public class GUI extends javax.swing.JFrame {
             FileTools.saveListToFile(srcList, sourceField.getText());
             removeButton.setEnabled(true);
             refreshContent();
-            check();
+            setGui();
         }
 
         if (Arrays.equals(temp, srcList)) {
@@ -717,7 +717,7 @@ public class GUI extends javax.swing.JFrame {
         } else {
             utilities.setInfoLabel(Tools.getRandomColor(), "dom Mode deactivated.", InfoLabel);
         }
-        check();
+        setGui();
     }//GEN-LAST:event_domModeItemStateChanged
 
     private void workEndMenuActionPerformed(ActionEvent evt) {//GEN-FIRST:event_workEndMenuActionPerformed
@@ -765,7 +765,7 @@ public class GUI extends javax.swing.JFrame {
             srcList = new String[0];
         }
         refreshContent();
-        check();
+        setGui();
     }//GEN-LAST:event_createSourceFileButtonActionPerformed
 
     private void lap2HDDMenuActionPerformed(ActionEvent evt) {//GEN-FIRST:event_Lap2HDDMenuActionPerformed
@@ -796,7 +796,7 @@ public class GUI extends javax.swing.JFrame {
         FileTools.saveListToFile(srcList, sourceField.getText());
         removeButton.setEnabled(true);
         refreshContent();
-        check();
+        setGui();
         utilities.setInfoLabel(Color.BLUE, "Source list is cleaned from non existing files/folders.", InfoLabel);
     }//GEN-LAST:event_clearSourceMenuItemActionPerformed
 
@@ -804,7 +804,7 @@ public class GUI extends javax.swing.JFrame {
         settings.setExitAfterBackup(exitProgramAfterBackupMenuItem.isSelected());
         settings.setProperties(true);
         if (exitProgramAfterBackupMenuItem.isSelected()) {
-            check();
+            setGui();
             utilities.setInfoLabel(Color.BLUE, "Program will exit when backup is finished.", InfoLabel);
         } else {
             utilities.setInfoLabel(Color.BLUE, "Program will back to this screen when backup is finished.", InfoLabel);
@@ -816,7 +816,7 @@ public class GUI extends javax.swing.JFrame {
         FileTools.saveListToFile(srcList, source);
         utilities.setInfoLabel(AppColor.DARK_GREEN, "Duplicate lines in source file are removed.", InfoLabel);
         refreshContent();
-        check();
+        setGui();
     }//GEN-LAST:event_removeDuplicatesMenuItemActionPerformed
 
     private void quickBackupCheckBoxMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_QuickBackupCheckBoxMenuItemActionPerformed
@@ -827,7 +827,7 @@ public class GUI extends javax.swing.JFrame {
             utilities.setInfoLabel(Color.DARK_GRAY, "Quick backup disabled.(Source file is  needed to make Backup)", InfoLabel);
         }
         refreshContent();
-        check();
+        setGui();
     }//GEN-LAST:event_QuickBackupCheckBoxMenuItemActionPerformed
 
     private void deleteSourceCheckBoxMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_deleteSourceCheckBoxMenuItemActionPerformed
@@ -873,7 +873,7 @@ public class GUI extends javax.swing.JFrame {
             utilities.setInfoLabel(Color.RED, "Action cancelled.", InfoLabel);
         }
         refreshContent();
-        check();
+        setGui();
     }//GEN-LAST:event_mergeButtonActionPerformed
 
     private void statusMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_statusMenuItemActionPerformed
@@ -906,7 +906,7 @@ public class GUI extends javax.swing.JFrame {
                 settings.setDestinationFolderPath(previousDestPathComboBox.getSelectedItem().toString());
                 settings.setProperties(true);
                 refreshContent();
-                check();
+                setGui();
                 utilities.setInfoLabel(AppColor.DARK_GREEN, "Destination folder path is swapped.", InfoLabel);
             } else {
                 utilities.setInfoLabel(Color.RED, "Selected destination path doesn't exist.", InfoLabel);
@@ -946,7 +946,7 @@ public class GUI extends javax.swing.JFrame {
             settings.setProperties(true);
             settings.saveProperties();
             refreshContent();
-            check();
+            setGui();
             utilities.setInfoLabel(AppColor.DARK_GREEN, "Setting file: " + result + " was saved.", InfoLabel);
 
         } else {
@@ -979,7 +979,7 @@ public class GUI extends javax.swing.JFrame {
                 settings.setSourceFilePath(previousSrcPathComboBox.getSelectedItem().toString());
                 settings.setProperties(true);
                 refreshContent();
-                check();
+                setGui();
                 utilities.setInfoLabel(AppColor.DARK_GREEN, "Source folder path is swapped.", InfoLabel);
             } else {
                 utilities.setInfoLabel(Color.RED, "Selected Source path doesn't exist.", InfoLabel);
@@ -1006,7 +1006,7 @@ public class GUI extends javax.swing.JFrame {
                 settings.setProperties(true);
                 settings.saveProperties();
                 refreshContent();
-                check();
+                setGui();
                 utilities.setInfoLabel(AppColor.DARK_ORANGE, "Settings loaded and set.", InfoLabel);
             } else {
                 utilities.setInfoLabel(AppColor.DARK_ORANGE, "Unable to load settings due error.", InfoLabel);
@@ -1023,7 +1023,7 @@ public class GUI extends javax.swing.JFrame {
         if (loaded) {
             settings.validateProperties(true);
             refreshContent();
-            check();        // TODO add your handling code here:
+            setGui();        // TODO add your handling code here:
             utilities.setInfoLabel(AppColor.DARK_GREEN, "Settings refreshed.", InfoLabel);
         } else {
             utilities.setInfoLabel(AppColor.DARK_ORANGE, "Unable to refresh settings!", InfoLabel);
@@ -1098,11 +1098,10 @@ public class GUI extends javax.swing.JFrame {
 
     }
 
-    private void check() {
+    private void setGui() {
 
         //CREATE DEFAULT 
         createDefaultConfigMenuItem.setEnabled(!settings.isQuickBackup());
-
 
         //ADD/MERGE BUTTON
 

@@ -211,7 +211,7 @@ class Player {
         score += points;
     }
 
-    public boolean noShield() {
+    public boolean hasNotShield() {
         return playerShield < 0;
     }
 

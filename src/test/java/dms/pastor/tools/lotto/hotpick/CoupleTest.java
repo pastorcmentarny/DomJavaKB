@@ -67,7 +67,7 @@ public class CoupleTest {
         final Couple couple = Couple.createWithOrderedNumbers(1, 3);
 
         // when
-        final boolean result = couple.doNotContainNumbers(new int[]{2, 3, 4});
+        final boolean result = couple.isNotContainNumbers(new int[]{2, 3, 4});
 
         // then
         assertThat(result).isFalse();
@@ -79,7 +79,7 @@ public class CoupleTest {
         final Couple couple = Couple.createWithOrderedNumbers(1, 3);
 
         // when
-        final boolean result = couple.doNotContainNumbers(new int[]{1, 2, 4});
+        final boolean result = couple.isNotContainNumbers(new int[]{1, 2, 4});
 
         // then
         assertThat(result).isFalse();
@@ -91,7 +91,7 @@ public class CoupleTest {
         final Couple couple = Couple.createWithOrderedNumbers(1, 3);
 
         // when
-        final boolean result = couple.doNotContainNumbers(new int[]{2, 4});
+        final boolean result = couple.isNotContainNumbers(new int[]{2, 4});
 
         // then
         assertThat(result).isTrue();
@@ -103,7 +103,7 @@ public class CoupleTest {
         final Couple couple = Couple.createWithOrderedNumbers(1, 3);
 
         // when
-        final boolean result = couple.doNotContainNumbers(new int[]{1, 2, 3, 4});
+        final boolean result = couple.isNotContainNumbers(new int[]{1, 2, 3, 4});
 
         // then
         assertThat(result).isFalse();

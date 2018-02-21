@@ -63,7 +63,7 @@ public final class Couple {
         return hasSmallerNumber && hasLargerNumber;
     }
 
-    public boolean doNotContainNumbers(int[] numbersMustHave) {
+    public boolean isNotContainNumbers(int[] numbersMustHave) {
         for (int number : numbersMustHave) {
             if (number == smallerNumber || number == largerNumber) {
                 return false;

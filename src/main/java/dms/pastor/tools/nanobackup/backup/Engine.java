@@ -37,6 +37,7 @@ public class Engine extends AbstractTools {
         LOGGER.debug("Activating quick backup mode.");
         settings.setNonQuickPath(sourceField.getText());
         if (!FileTools.createAFile(Settings.QUICK_MODE_FILENAME)) {
+            LOGGER.warn("Unable to activate Quick backup mode.");
             return false;
         }
         sourceField.setText(new File(Settings.QUICK_MODE_FILENAME).getAbsolutePath());
