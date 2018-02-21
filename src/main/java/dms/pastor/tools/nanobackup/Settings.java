@@ -10,6 +10,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+import static dms.pastor.utils.ValidatorUtils.validateIfNotNull;
 import static java.lang.String.format;
 
 /**
@@ -268,6 +269,7 @@ public final class Settings {
 
     public String saveSettingsWithDestSelection() {
         String path = FileTools.createSourceFile(Settings.SETTINGS_FILE_ENDING);
+        validateIfNotNull(path, "Path to file"); //TODO add catch exception
         if (!FileTools.isFileExists(path)) {
             createDefaultSettings();
         }
@@ -361,8 +363,7 @@ public final class Settings {
             FileTools.delete(SETTINGS_PATH);
         }
 
-        if (FileTools.createAFile(SETTINGS_PATH)) {
-        } else {
+        if (!FileTools.createAFile(SETTINGS_PATH)) {
             return false;
         }
 

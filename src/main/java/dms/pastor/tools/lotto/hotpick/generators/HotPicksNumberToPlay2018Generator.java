@@ -69,8 +69,8 @@ public class HotPicksNumberToPlay2018Generator extends NumbersToPlayGenerator {
         int previousGamesCounter = NUMBER_OF_PREVIOUS_GAMES + 1;
         while (ints.length > 3 && previousGamesCounter < 20) {
             System.out.println("Running for: " + previousGamesCounter);
-            int[] x = analyser.removeNumbersFromGames(previousGamesCounter);
-            ints = ArrayUtils.subtractIntArray(ballsDrawnLeastTimes, x);
+            int[] remainingNumbers = analyser.removeNumbersFromGames(previousGamesCounter);
+            ints = ArrayUtils.subtractIntArray(ballsDrawnLeastTimes, remainingNumbers);
             previousGamesCounter++;
             System.out.println("Status:");
             PrintOutUtils.printIntArray(ints);

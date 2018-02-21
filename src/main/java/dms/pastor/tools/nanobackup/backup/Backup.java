@@ -90,7 +90,7 @@ public final class Backup extends AbstractTools {
         BackupTaskFrame.setResizable(false);
         final JTextArea infoTextArea = new JTextArea();
         infoTextArea.setAutoscrolls(true);
-        infoTextArea.setFont(new java.awt.Font("Tahoma", 0, 14));
+        infoTextArea.setFont(new java.awt.Font("Tahoma", Font.PLAIN, 14));
         infoTextArea.setForeground(Color.BLUE);
         infoTextArea.setEditable(false);
         infoTextArea.setSize(DEFAULT_WIDTH, 100);
@@ -142,13 +142,8 @@ public final class Backup extends AbstractTools {
         LOGGER.debug(Messenger.CREATING_BACKUP_DIR);
 
         destinationDir = FileTools.createABackupDirectory(destination);
-        if (destinationDir == null) {
-            updateAll(info, false, true, "Backup: Program was unable to create a Backup folder.");
-            return msg.getMsg("error.createBackupFolder");
-        } else {
-            updateInfoText(info, "Backup folder created.");
-            LOGGER.debug("Backup folder created.");
-        }
+        updateInfoText(info, "Backup folder created.");
+        LOGGER.debug("Backup folder created.");
 
         for (String source : sources) {
             updateInfoText(info, "Coping file:" + source);
@@ -244,12 +239,6 @@ public final class Backup extends AbstractTools {
         updateInfoText(info, Messenger.PRE_CHECK + Messenger.REMOVING_NON_EXIST_ITEMS);
         sources = TaskUtils.removeNonExistsItems(sources);
 
-        if (sources == null) {
-            JOptionPane.showConfirmDialog(null, "Nothing to backup!\n\nWHAT HAPPEN?\n\tIt means that list of file/folder contains waste products of digital metabolism but not list of files or folders to backup.\nWHAT TO DO?\n\tAre you using right file with list of items?\n\tDo you have access to your resources?", "WHOOPS", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
-            killBackupThread();
-            LOGGER.info("Not enough space on device where destination folder is");
-            return false;
-        }
         LOGGER.debug("preCheck: Sources check completed.");
 
 

@@ -43,7 +43,6 @@ public class Wizard extends Unit {
             }
 
             if (random.nextBoolean()) {
-            } else if (random.nextBoolean() && random.nextBoolean()) {
                 new VampireDrainSpell().castSpellIfHasEnoughElements(this, enemy);
             }
 

@@ -21,6 +21,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.Properties;
 
 import static java.awt.Font.BOLD;
@@ -217,7 +218,7 @@ public class GUI extends javax.swing.JFrame {
         selectDestinationButton.setText("Change");
         selectDestinationButton.addActionListener(this::selectDestinationButtonActionPerformed);
 
-        doBackupButton.setFont(new Font("Tahoma", BOLD, 14)); 
+        doBackupButton.setFont(new Font("Tahoma", BOLD, 14));
         doBackupButton.setText("Make Backup");
         doBackupButton.setPreferredSize(new java.awt.Dimension(128, 96));
         doBackupButton.setRolloverEnabled(false);
@@ -745,9 +746,11 @@ public class GUI extends javax.swing.JFrame {
         backup.backupGui(utilities.makeList(dom.getProperty("dom.source.work.start")), dom.getProperty("dom.destination.work.start"), this);
         utilities.setInfoLabel(Color.BLACK, "WORK.START  job ended.", InfoLabel);
     }
+
     private void tutorialMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_tutorialMenuItemActionPerformed
         JOptionPane.showMessageDialog(null, msg.getMsg("tutorial"), "Tutorial", JOptionPane.INFORMATION_MESSAGE);
     }
+
     private void createSourceFileButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_createSourceFileButtonActionPerformed
         String result = FileTools.createSourceFile(Settings.SRC_FILE_ENDING);
         if (result == null) {
@@ -780,12 +783,8 @@ public class GUI extends javax.swing.JFrame {
         InfoLabel.setText("USB2LAP: doing backup");
         //TODO CHANGE IT!
         String tempResponse = backup.doClassicBackup(utilities.makeList(dom.getProperty("dom.source.usb.lap")), dom.getProperty("dom.destination.usb.lap"), null);
-        if (tempResponse != null) {
-            JOptionPane.showMessageDialog(null, tempResponse, "Results", JOptionPane.INFORMATION_MESSAGE);
-            utilities.setInfoLabel(AppColor.DARK_GREEN, "USB2LAP backup was done successfully.", InfoLabel);
-        } else {
-            utilities.setInfoLabel(AppColor.DARK_GREEN, "Program was unable to create backup", InfoLabel);
-        }
+        JOptionPane.showMessageDialog(null, tempResponse, "Results", JOptionPane.INFORMATION_MESSAGE);
+        utilities.setInfoLabel(AppColor.DARK_GREEN, "USB2LAP backup was done successfully.", InfoLabel);
     }//GEN-LAST:event_USB2LapMenuActionPerformed
 
     private void aboutMenuItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AboutMenuItemMouseClicked
@@ -899,15 +898,19 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_saveAsZipCheckBoxMenuItemActionPerformed
 
     private void swapDestinationFolderPathButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_swapDestinationFolderPathButtonActionPerformed
-        String temp = previousDestPathComboBox.getSelectedItem().toString();
-        if (FileTools.isDirectoryExists(temp)) {
-            utilities.swapDestFolderPaths(recentDestPaths, temp, destinationField.getText());
-            destinationField.setText(previousDestPathComboBox.getSelectedItem().toString());
-            settings.setDestinationFolderPath(previousDestPathComboBox.getSelectedItem().toString());
-            settings.setProperties(true);
-            refreshContent();
-            check();
-            utilities.setInfoLabel(AppColor.DARK_GREEN, "Destination folder path is swapped.", InfoLabel);
+        if (Objects.nonNull(previousDestPathComboBox) && Objects.nonNull(previousDestPathComboBox.getSelectedItem())) {
+            String temp = previousDestPathComboBox.getSelectedItem().toString();
+            if (FileTools.isDirectoryExists(temp)) {
+                utilities.swapDestFolderPaths(recentDestPaths, temp, destinationField.getText());
+                destinationField.setText(previousDestPathComboBox.getSelectedItem().toString());
+                settings.setDestinationFolderPath(previousDestPathComboBox.getSelectedItem().toString());
+                settings.setProperties(true);
+                refreshContent();
+                check();
+                utilities.setInfoLabel(AppColor.DARK_GREEN, "Destination folder path is swapped.", InfoLabel);
+            } else {
+                utilities.setInfoLabel(Color.RED, "Selected destination path doesn't exist.", InfoLabel);
+            }
         } else {
             utilities.setInfoLabel(Color.RED, "Selected destination path doesn't exist.", InfoLabel);
         }
@@ -965,18 +968,22 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_speedLightModeMenuItemActionPerformed
 
     private void swapSourceFolderPathButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_swapSourceFolderPathButtonActionPerformed
-        String temp = previousSrcPathComboBox.getSelectedItem().toString();
-        if (FileTools.isFileExists(temp)) {
-            utilities.swapDestFolderPaths(recentSrcPaths, temp, sourceField.getText());
-            sourceField.setText(previousSrcPathComboBox.getSelectedItem().toString());
-            srcList = utilities.makeList(previousSrcPathComboBox.getSelectedItem().toString());
-            srcList = TaskUtils.removeNonExistsItems(srcList);
-            recentSrcPaths = utilities.updateRecentFolderPaths(recentSrcPaths, previousSrcPathComboBox.getSelectedItem().toString());
-            settings.setSourceFilePath(previousSrcPathComboBox.getSelectedItem().toString());
-            settings.setProperties(true);
-            refreshContent();
-            check();
-            utilities.setInfoLabel(AppColor.DARK_GREEN, "Source folder path is swapped.", InfoLabel);
+        if (Objects.nonNull(previousSrcPathComboBox) && Objects.nonNull(previousSrcPathComboBox.getSelectedItem())) {
+            String temp = previousSrcPathComboBox.getSelectedItem().toString();
+            if (FileTools.isFileExists(temp)) {
+                utilities.swapDestFolderPaths(recentSrcPaths, temp, sourceField.getText());
+                sourceField.setText(previousSrcPathComboBox.getSelectedItem().toString());
+                srcList = utilities.makeList(previousSrcPathComboBox.getSelectedItem().toString());
+                srcList = TaskUtils.removeNonExistsItems(srcList);
+                recentSrcPaths = utilities.updateRecentFolderPaths(recentSrcPaths, previousSrcPathComboBox.getSelectedItem().toString());
+                settings.setSourceFilePath(previousSrcPathComboBox.getSelectedItem().toString());
+                settings.setProperties(true);
+                refreshContent();
+                check();
+                utilities.setInfoLabel(AppColor.DARK_GREEN, "Source folder path is swapped.", InfoLabel);
+            } else {
+                utilities.setInfoLabel(Color.RED, "Selected Source path doesn't exist.", InfoLabel);
+            }
         } else {
             utilities.setInfoLabel(Color.RED, "Selected Source path doesn't exist.", InfoLabel);
         }
@@ -1099,22 +1106,11 @@ public class GUI extends javax.swing.JFrame {
 
         //ADD/MERGE BUTTON
 
-        if (sourceField == null || StringUtils.isStringEmpty(sourceField.getText())) {
-            boolean groupSelection = false;
-            addButton.setEnabled(groupSelection);
-            mergeButton.setEnabled(groupSelection);
-        } else {
-            boolean groupSelection = true;
-            addButton.setEnabled(groupSelection);
-            mergeButton.setEnabled(groupSelection);
-        }
+        boolean enabled = sourceField == null || StringUtils.isStringEmpty(sourceField.getText());
+        addButton.setEnabled(enabled);
+        mergeButton.setEnabled(enabled);
 
-        //REMOVE BUTTON
-        if (srcList.length == 0) {
-            removeButton.setEnabled(false);
-        } else {
-            removeButton.setEnabled(true);
-        }
+        removeButton.setEnabled(srcList.length != 0);
 
         //QUICK BACKUP MODE
         if (QuickBackupCheckBoxMenuItem.isSelected()) {

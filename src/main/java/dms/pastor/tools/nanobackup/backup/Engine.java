@@ -48,11 +48,7 @@ public class Engine extends AbstractTools {
         settings.setNonQuickPath(null);
         if (StringUtils.isStringEmpty(sourceField.getText())) {
             FileTools.delete("quickMode.nbd");
-            if (sourceField != null) {
-                sourceField.setText(settings.getNonQuickPath());
-            } else {
-                sourceField.setText("");
-            }
+            sourceField.setText(settings.getNonQuickPath());
         }
 
     }
@@ -187,7 +183,7 @@ public class Engine extends AbstractTools {
             temp.addAll(Arrays.asList(srcList));
             return temp.toArray(new String[temp.size()]);
         } else {
-            return null;
+            return new String[0];
         }
     }
 
@@ -274,7 +270,7 @@ public class Engine extends AbstractTools {
         } else if ("folder".equalsIgnoreCase(pathType)) {
             newSource = FileTools.chooseDirsToLoad();
         } else {
-            return null;
+            return new String[0];
         }
 
         if (newSource != null) {
@@ -285,7 +281,7 @@ public class Engine extends AbstractTools {
             }
             FileTools.saveListToFile(srcList, sourceField.getText());
         } else {
-            return null;
+            return new String[0];
         }
         return srcList;
     }

@@ -240,14 +240,12 @@ public final class MainGameGUI extends javax.swing.JFrame {
             int enemyDmg = battle.enemyAttack(player, enemy, console);
             antiExp += enemyDmg;
             console.setText(console.getText() + "\nPlayer does " + enemyDmg + " damage!");
-            player.PlayerShield -= enemyDmg;
-            if (player.PlayerShield < 0) {
-                player.PlayerHP += player.PlayerShield;
-                player.PlayerShield = 0;
+            player.setPlayerShield(player.getPlayerShield() - enemyDmg);
+            if (player.noShield()) {
+                player.addHp(player.getPlayerShield());
+                player.setShieldToZero();
             }
-            if (player.PlayerHP < 0) {
                 isAlive();
-            }
         }
 
         updateConsole();
@@ -271,23 +269,25 @@ public final class MainGameGUI extends javax.swing.JFrame {
 
     private void mana2ShieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Mana2ShieldActionPerformed
         //casting spell mana to shield
-        String result = spellBook.castMana2Shield(player.PlayerMana, player.PlayerHP);
+        String result = spellBook.castMana2Shield(player);
         console.setText(console.getText() + result);
         updateConsole();
 
     }//GEN-LAST:event_Mana2ShieldActionPerformed
 
     private void powerUPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PowerUPActionPerformed
-        if (player.PlayerMana >= 100) {
-            player.PlayerMana -= 100;
-            player.PlayerPower += 1;
+        final int manaCost = 100;
+        if (player.getPlayerMana() >= manaCost) {
+            player.setPlayerMana(player.getPlayerMana() - manaCost);
+            player.addPower();
             console.setText(console.getText() + "\n+1 to Power");
         }
     }//GEN-LAST:event_PowerUPActionPerformed
 
     private void quickerShieldRegenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuickerShieldRegenActionPerformed
-        if (player.PlayerMana >= 75) {
-            player.PlayerMana -= 75;
+        final int manaCost = 75;
+        if (player.getPlayerMana() >= manaCost) {
+            player.setPlayerMana(player.getPlayerMana() - manaCost);
             shieldRegen += 1;
             console.setText(console.getText() + "\n+1 to Mana shield regen");
         }
@@ -295,8 +295,9 @@ public final class MainGameGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_QuickerShieldRegenActionPerformed
 
     private void infoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoActionPerformed
-        if (player.PlayerMana >= 10) {
-            player.PlayerMana -= 10;
+        final int manaCost = 10;
+        if (player.getPlayerMana() >= manaCost) {
+            player.setPlayerMana(player.getPlayerMana() - manaCost);
             updateConsole();
             enemyConsole.setText(
                     "Level:" + lvl
@@ -321,16 +322,16 @@ public final class MainGameGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_lightingSpellActionPerformed
 
     private void shadowAttackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shadowAttackActionPerformed
-        boolean result = spellBook.castShadowAttack(player);
-        if (result) {
+        final int manaCost = 175;
+        if (player.getPlayerMana() >= manaCost) {
+            player.setPlayerMana(player.getPlayerMana() - manaCost);
             for (int i = 1; i <= 3; i++) {
                 int playerAttack = battle.playerAttack(player, enemy, console);
-                player.exp += playerAttack;
-                player.score += playerAttack;
+                player.addExp(playerAttack);
+                player.addScore(playerAttack);
                 console.setText(console.getText() + "In " + i + " attack:\nEnemy does " + playerAttack + " damage!");
                 enemy.setEnemyHP(enemy.getEnemyHP() - playerAttack);
                 isAlive();
-
             }
         }
     }//GEN-LAST:event_shadowAttackActionPerformed
@@ -360,14 +361,14 @@ public final class MainGameGUI extends javax.swing.JFrame {
 
     private void updateConsole() {
         playerConsole.setText(
-                "Player:(Level " + player.playerLevel
-                        + ")\nAttack: " + player.PlayerAttack
-                        + "\nDefence: " + player.PlayerDefence
-                        + "\nPower: " + player.PlayerPower
-                        + "\nHP: " + player.PlayerHP
-                        + "\nShield: " + player.PlayerShield
-                        + "\nMana: " + player.PlayerMana
-                        + "\nScore:" + player.score
+                "Player:(Level " + player.getPlayerLevel()
+                        + ")\nAttack: " + player.getPlayerAttack()
+                        + "\nDefence: " + player.getPlayerDefence()
+                        + "\nPower: " + player.getPlayerPower()
+                        + "\nHP: " + player.getPlayerHp()
+                        + "\nShield: " + player.getPlayerShield()
+                        + "\nMana: " + player.getPlayerMana()
+                        + "\nScore:" + player.getScore()
         );
 
         enemyConsole.setText(
@@ -378,16 +379,16 @@ public final class MainGameGUI extends javax.swing.JFrame {
     }
 
     private void endOfBattle() {
-        player.kills++;
-        console.setText("You kill " + player.kills + " unit" + isPlurar());
+        player.addKill();
+        console.setText("You kill " + player.getKills() + " unit" + isPlurar());
         RunTurn.setEnabled(false);
         nextEnemy.setEnabled(true);
-        player.PlayerHP += 1;
-        if (player.kills >= 75) {
+        player.addHp();
+        if (player.getKills() >= 75) {
             wave4();
-        } else if (player.kills >= 50) {
+        } else if (player.getKills() >= 50) {
             wave3();
-        } else if (player.kills >= 25) {
+        } else if (player.getKills() >= 25) {
             console.setText(console.getText() + "\nWave2");
             wave2();
         } else {
@@ -403,7 +404,7 @@ public final class MainGameGUI extends javax.swing.JFrame {
             lvl++;
             console.setText("Enemy level up! Current level:" + lvl);
         }
-        if (player.exp >= 1000) {
+        if (player.getExp() >= 1000) {
             player.levelUp();
             updateConsole();
         }
@@ -418,12 +419,12 @@ public final class MainGameGUI extends javax.swing.JFrame {
             return false;
         }
 
-        if (player.PlayerHP < 0) {
+        if (player.isDeath()) {
             //String temp = console.getText();
             System.out.println("Game Over");
             console.setText("\n\nGAME OVER");
-            System.out.println(player.score);
-            hs.addToHiScore(player.score);
+            System.out.println(player.getScore());
+            hs.addToHiScore(player.getScore());
             //hs.save2File(player.score);
             System.exit(0);
             return false;
@@ -461,12 +462,12 @@ public final class MainGameGUI extends javax.swing.JFrame {
                 break;
             case 4:
                 console.setText(console.getText() + "\n+1 to player Attack");
-                player.PlayerAttack++;
+                player.addAttack();
                 enemy = new Enemy();
                 break;
             case 13:
                 console.setText(console.getText() + "\n+1 to player Defence");
-                player.PlayerDefence++;
+                player.addDefence();
                 enemy = new Enemy();
                 break;
             case 8:
@@ -503,7 +504,7 @@ public final class MainGameGUI extends javax.swing.JFrame {
     }
 
     private String isPlurar() {
-        if (player.kills > 1) {
+        if (player.getKills() > 1) {
             return "s";
         }
         return EMPTY_STRING;
@@ -511,13 +512,13 @@ public final class MainGameGUI extends javax.swing.JFrame {
 
     private void status() {
         if (player.status.isItPoisoned()) {
-            player.PlayerHP -= 5 * (lvl + 1);
+            player.reduceHp(5 * (lvl + 1));
             console.setText(console.getText() + "\nPoison does " + (5 * (lvl + 1)) + " damage to Player.");
             isAlive();
         }
         if (enemy.statuses.isItPoisoned()) {
             int hp = enemy.getEnemyHP();
-            hp -= 5 * player.playerLevel;
+            hp -= 5;
             enemy.setEnemyHP(hp);
             console.setText(console.getText() + "\nPoison does " + (5 * (lvl + 1)) + " damage to Enemy.");
             isAlive();
@@ -525,42 +526,40 @@ public final class MainGameGUI extends javax.swing.JFrame {
     }
 
     private void isEnoughLevelToUnlockNewSpell() {
-        if (player.playerLevel >= 2) {
+        if (player.getPlayerLevel() >= 2) {
             magicVampire.setEnabled(true);
         }
 
-        if (player.playerLevel >= 5) {
+        if (player.getPlayerLevel() >= 5) {
             berserkAttack.setEnabled(true);
         }
 
-        if (player.playerLevel >= 8) {
+        if (player.getPlayerLevel() >= 8) {
             poisonEnemy.setVisible(true);
         }
 
-        if (player.playerLevel >= 10) {
+        if (player.getPlayerLevel() >= 10) {
             dispel.setVisible(true);
         }
 
-        if (player.playerLevel >= 13) {
+        if (player.getPlayerLevel() >= 13) {
             lightingSpell.setVisible(true);
         }
 
-        if (player.playerLevel >= 18) {
+        if (player.getPlayerLevel() >= 18) {
             shadowAttack.setVisible(true);
         }
 
-        if (player.playerLevel >= 24) {
+        if (player.getPlayerLevel() >= 24) {
             suddenDeath.setVisible(true);
         }
-
     }
 
     private void endOfTurn() {
-        player.PlayerShield += shieldRegen;
-        player.PlayerMana += player.playerManaRegen;
+        player.addShieldPoints(shieldRegen);
+        player.regenMana();
         enemy.setEnemyHP(enemy.getEnemyHP() + enemy.getRegen());
         isLevelUpForSomebody();
         player.status.decreaseLengthOfPoison();
-
     }
 }

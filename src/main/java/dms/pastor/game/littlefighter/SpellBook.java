@@ -12,62 +12,64 @@ package dms.pastor.game.littlefighter;
         //TOO OLD PROJECT  TO TAKE CARE OF MAGIC NUMBERS
 class SpellBook {
 
-    public String castMana2Shield(int playerMana, int playerShield) {
+    public String castMana2Shield(Player player) {
 
-        if (playerMana >= 17) {
-            playerMana -= 17;
-            playerShield += 13;
+        final int manaCost = 17;
+        if (player.getPlayerMana() >= manaCost) {
+            player.setPlayerMana(player.getPlayerMana() - manaCost);
+            player.setPlayerShield(player.getPlayerShield() + 13);
             return "\nRecharge Shield spell casted";
         }
         return "";
 
     }
 
-    public boolean castMagicVampire(Player p, Enemy e) {
-        if (p.PlayerMana >= 25) {
-            p.PlayerMana -= 25;
-            e.setEnemyHP(e.getEnemyHP() - 5);
-            p.PlayerHP++;
+    public boolean castMagicVampire(Player player, Enemy enemy) {
+        final int manaCost = 25;
+        if (player.getPlayerMana() >= manaCost) {
+            player.setPlayerMana(player.getPlayerMana() - manaCost);
+            enemy.setEnemyHP(enemy.getEnemyHP() - 5);
+            player.addHp();
             return true;
         }
         return false;
     }
 
     boolean castFireBall(Player player, Enemy enemy) {
-        if (player.PlayerMana >= 19) {
-            player.PlayerMana -= 19;
-            int x = enemy.getEnemyHP() - 41 * player.playerLevel;
+        final int manaCost = 19;
+        if (player.getPlayerMana() >= manaCost) {
+            player.setPlayerMana(player.getPlayerMana() - manaCost);
+            int x = enemy.getEnemyHP() - 41 * player.getPlayerLevel();
             enemy.setEnemyHP(x);
-            player.exp += x;
-            player.score += 15;
+            player.addExp(x);
+            player.addScore(15);
             return true;
         }
         return false;
     }
 
     boolean castLightingStrike(Player player, Enemy enemy) {
-        if (player.PlayerMana >= 27) {
-            player.PlayerMana -= 27;
-            int x = enemy.getEnemyHP() - 23 * player.playerLevel;
-            enemy.setEnemyHP(x);
-            player.exp += x;
-            player.score += 15;
+        final int manaCost = 27;
+        if (player.getPlayerMana() >= manaCost) {
+            player.setPlayerMana(player.getPlayerMana() - manaCost);
+
+            int enemyHp = enemy.getEnemyHP() - 23 * player.getPlayerLevel();
+            enemy.setEnemyHP(enemyHp);
+            player.addExp(enemyHp);
+            player.addScore(15);
             return true;
         }
         return false;
     }
 
     boolean castDispel(Player player) {
-        if (player.PlayerMana >= 20) {
+        final int manaCost = 20;
+        if (player.getPlayerMana() >= manaCost) {
+            player.setPlayerMana(player.getPlayerMana() - manaCost);
             player.status.purify();
             return true;
         }
         return false;
     }
-
-    boolean castShadowAttack(Player player) {
-        return player.PlayerMana >= 175;
-    }
-
 
 }

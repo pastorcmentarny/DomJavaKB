@@ -80,7 +80,7 @@ class HiScore {
     }
 
     private void checkScore(int exp, String t, int line) {
-        String[] temp = new String[line];
+        String[] temp;
         temp = t.split("\n");
         for (String aTemp : temp) {
             System.out.println(aTemp);
@@ -130,7 +130,7 @@ class HiScore {
 
     private void sortScoreList() {
         for (int i = 1; i < scoreList.size(); i++) {
-            int temp = 0;
+            int temp;
             int a = scoreList.get(i - 1);
             int b = scoreList.get(i);
             System.out.println("before>> a:" + a + " b:" + b);

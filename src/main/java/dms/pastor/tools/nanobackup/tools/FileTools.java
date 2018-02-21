@@ -14,11 +14,13 @@ import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Objects;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+import static dms.pastor.utils.ValidatorUtils.validateIfNotNull;
+import static java.lang.String.format;
+import static java.util.Objects.nonNull;
 
 /**
  * Author Dominik Symonowicz
@@ -204,7 +206,7 @@ public class FileTools {
             return;
         }
 
-        long size = -1;
+        long size;
         try (
                 FileInputStream fis = new FileInputStream(srcFile);
 
@@ -216,7 +218,7 @@ public class FileTools {
             size = input.size();
 
             long pos = 0;
-            long count = 0;
+            long count;
             while (pos < size) {
                 count = size - pos > FILE_COPY_BUFFER_SIZE ? FILE_COPY_BUFFER_SIZE : size - pos;
 
@@ -232,7 +234,7 @@ public class FileTools {
             }
         }
 
-        if (srcFile.length() != destFile.length()) {
+        if (nonNull(stats) && srcFile.length() != destFile.length()) {
             stats.addErrorCount("Something went wrong. Source and Destination files has different sizes.\n Source: '" + srcFile + "' has " + srcFile.length() + " Destination: '" + destFile + "' has " + destFile.length());
         }
     }
@@ -267,14 +269,16 @@ public class FileTools {
                 stats.addErrorCount("Destination '" + destDir + "' cannot be written to");
             }
         }
-        for (File srcFile : srcFiles) {
-            File dstFile = new File(destDir, srcFile.getName());
-            if (srcFile.isDirectory()) {
-                doCopyDirectory(srcFile, dstFile, stats);
-            } else {
-                doCopyFile(srcFile, dstFile, stats);
-            }
+        if (nonNull(srcFiles)) {
+            for (File srcFile : srcFiles) {
+                File dstFile = new File(destDir, srcFile.getName());
+                if (srcFile.isDirectory()) {
+                    doCopyDirectory(srcFile, dstFile, stats);
+                } else {
+                    doCopyFile(srcFile, dstFile, stats);
+                }
 
+            }
         }
     }
 
@@ -297,12 +301,8 @@ public class FileTools {
         File src, dest;
         src = new File(source);
         dest = new File(destinationFolder);
-        if (src == null) {
-            throw new NullPointerException("Source must not be null");
-        }
-        if (dest == null) {
-            throw new NullPointerException("Destination must not be null");
-        }
+        validateIfNotNull(src, "Source file");
+        validateIfNotNull(dest, "Destination file");
 
         if (src.isDirectory()) {
             doCopyDirectory(src, dest, stats);
@@ -356,6 +356,7 @@ public class FileTools {
                 LOGGER.warn("More than 1000 attempts to created file failed.It is quite likely something when terrible wrong");
                 return null;
             }
+            next++;
         }
         return file.getAbsolutePath();
     }
@@ -425,11 +426,11 @@ public class FileTools {
     }
 
     public static boolean isFileExists(String filePath) {
-        return Objects.nonNull(filePath) && file.isFile();
+        return nonNull(filePath) && file.isFile();
     }
 
     public static boolean isDirectoryExists(String filePath) {
-        return Objects.nonNull(filePath) && file.isDirectory();
+        return nonNull(filePath) && file.isDirectory();
     }
 
     public static boolean saveListToFile(String[] content, String file) {
@@ -550,7 +551,6 @@ public class FileTools {
     }
 
     //TODO IMPROVE THIS GARBAGE this method doesn't need a return ?
-
     private static boolean zipFolder(String[] folderPath, ZipOutputStream out, StringBuilder results, Statistic stats) {
         if (folderPath == null) {
             stats.addErrorCount("Problem source file/folder found.Backup cancelled.");
@@ -559,12 +559,17 @@ public class FileTools {
         stats.addFileCopied(1);
         for (String aFolderPath : folderPath) {
             if (isADirectory(aFolderPath)) {
-                String[] x = new File(aFolderPath).list();
-                String[] listInDir = new String[x.length];
-                for (int ix = 0; ix < x.length; ix++) {
-                    listInDir[ix] = aFolderPath + System.getProperty("file.separator") + x[ix];
+                String[] fileList = new File(aFolderPath).list();
+                if (fileList != null) {
+                    String[] listInDir = new String[fileList.length];
+                    for (int ix = 0; ix < fileList.length; ix++) {
+                        listInDir[ix] = aFolderPath + System.getProperty("file.separator") + fileList[ix];
+                    }
+                    zipFolder(listInDir, out, results, stats);
+                } else {
+                    LOGGER.error(format("List is null in %s", aFolderPath));
                 }
-                zipFolder(listInDir, out, results, stats);
+
             } else {
                 zipFile(aFolderPath, out, stats);
             }

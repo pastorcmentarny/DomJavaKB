@@ -67,6 +67,8 @@ public final class ValidatorUtils {
         validateIfPositiveNumber(number, DEFAULT_VALUE_NAME);
     }
 
+    @SuppressWarnings("ResultOfMethodCallIgnored")
+    //this check is add is valid without care about result //TODO need impove as it is duplicate
     public static void validateIfSumOfIntegerIsInIntegerValueRange(int minValue, int maxValue) {
         try {
             Math.addExact(minValue, maxValue);

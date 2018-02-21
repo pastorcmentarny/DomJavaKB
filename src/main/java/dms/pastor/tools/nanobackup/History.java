@@ -34,7 +34,7 @@ public class History {
     public void showHistoryOfMessages() {
         Dimension d = new Dimension(425, 550);
         msgWindow = new JFrame("History of messages");
-        msgWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        msgWindow.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         msgWindow.setSize(d);
         msgWindow.setResizable(false);
         JPanel msgPanel = new JPanel();

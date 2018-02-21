@@ -31,6 +31,7 @@ import static org.mockito.Mockito.verify;
 @RunWith(MockitoJUnitRunner.class)
 public class ScheduleTaskExampleRunnerTest {
 
+    @SuppressWarnings("StaticFieldReferencedViaSubclass") //Needed for testing purposes
     private static final Logger LOGGER = (Logger) LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 
     @Mock
