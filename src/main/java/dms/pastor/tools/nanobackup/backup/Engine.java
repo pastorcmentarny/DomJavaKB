@@ -33,15 +33,14 @@ public class Engine extends AbstractTools {
     private static final Logger LOGGER = LoggerFactory.getLogger(Engine.class);
     private final History history = History.getHistoryGUI();
 
-    public boolean activateQuickBackupMode(JTextField sourceField) {
+    public void activateQuickBackupMode(JTextField sourceField) {
         LOGGER.debug("Activating quick backup mode.");
         settings.setNonQuickPath(sourceField.getText());
         if (!FileTools.createAFile(Settings.QUICK_MODE_FILENAME)) {
             LOGGER.warn("Unable to activate Quick backup mode.");
-            return false;
+            return;
         }
         sourceField.setText(new File(Settings.QUICK_MODE_FILENAME).getAbsolutePath());
-        return true;
     }
 
     private void deactivateQuickBackupMode(JTextField sourceField) {
@@ -54,7 +53,7 @@ public class Engine extends AbstractTools {
 
     }
 
-    public String[] swapDestFolderPaths(String[] paths, String what, String with) {
+    public void swapDestFolderPaths(String[] paths, String what, String with) {
         List<String> swappedPaths = new ArrayList<>();
         for (String path : paths) {
             if (path.equals(what)) {
@@ -63,7 +62,7 @@ public class Engine extends AbstractTools {
                 swappedPaths.add(path);
             }
         }
-        return swappedPaths.toArray(new String[swappedPaths.size()]);
+        swappedPaths.toArray(new String[swappedPaths.size()]);
     }
 
     public String[] updateRecentFolderPaths(String[] paths, String newPath) {
@@ -113,30 +112,35 @@ public class Engine extends AbstractTools {
     public String[] itselfHealthScan() {
         ArrayList<String> result = new ArrayList<>();
         result.add(0, "OK");
-        if (!FileTools.isDirectoryExists("data")) {
-            result.add("Data folder doesn't exist!");
-            result.set(0, "ERROR");
+        checkIfDataFolderExists(result);
+        checkIfSettingsFileIsValid(result);
+        checkIfFileExistsFor(result, Settings.DATA_PATH + "changelog.txt", "Non important file changelog.txt doesn't exist. ");
+        checkIfFileExistsFor(result, Settings.DATA_PATH + "message.properties", "Important file message.properties doesn't exist.");
+        checkIfFileExistsFor(result, Settings.DATA_PATH + "eula.txt", "Important file (for law  reasons) eula.txt doesn't exist. ");
+        return result.toArray(new String[result.size()]);
+    }
+
+    private void checkIfFileExistsFor(ArrayList<String> result, String filePath, String errorMessage) {
+        if (!FileTools.isFileExists(filePath)) {
+            result.add(errorMessage);
+            Tools.changeToYellowStatus(result);
         }
+    }
+
+    private void checkIfSettingsFileIsValid(ArrayList<String> result) {
         if (!FileTools.isFileExists(Settings.DATA_PATH + "settings.properties")) {
             if (!settings.createDefaultSettings()) {
                 result.add("Unable to create settings.properties");
                 result.set(0, "ERROR");
             }
         }
-        if (!FileTools.isFileExists(Settings.DATA_PATH + "changelog.txt")) {
-            result.add("Non important file changelog.txt doesn't exist. ");
-            Tools.changeToYellowStatus(result);
-        }
-        if (!FileTools.isFileExists(Settings.DATA_PATH + "message.properties")) {
-            result.add("Important file message.properties doesn't exist.");
-            Tools.changeToYellowStatus(result);
-        }
-        if (!FileTools.isFileExists(Settings.DATA_PATH + "eula.txt")) {
-            result.add("Important file (for law  reasons) eula.txt doesn't exist. ");
-            Tools.changeToYellowStatus(result);
+    }
 
+    private void checkIfDataFolderExists(ArrayList<String> result) {
+        if (!FileTools.isDirectoryExists("data")) {
+            result.add("Data folder doesn't exist!");
+            result.set(0, "ERROR");
         }
-        return result.toArray(new String[result.size()]);
     }
 
 
@@ -212,20 +216,19 @@ public class Engine extends AbstractTools {
     }
 
 
-    public JLabel setInfoLabel(Color color, String message, JLabel infoLabel) {
+    public void setInfoLabel(Color color, String message, JLabel infoLabel) {
         infoLabel.setForeground(color);
         infoLabel.setText(message);
         history.addMessage(message);
-        return infoLabel;
     }
 
     //TODO improve confirm on exit,because current is temporary solution only
 
-    public boolean shutdown(final String reason) {
+    public void shutdown(final String reason) {
         if (settings.isConfirmOnExit()) {
             if (!"alreadyRun".equals(reason)) {
                 if (JOptionPane.showConfirmDialog(null, msg.getMsg("q.RUSure"), "Nooo.... YOU WANT EXIT.. why? why?", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE) == JOptionPane.NO_OPTION) {
-                    return false;
+                    return;
                 }
             }
         }
@@ -247,19 +250,20 @@ public class Engine extends AbstractTools {
         }
         FileTools.unlockFile();
         System.exit(0);
-        return true;
     }
 
-    public boolean deleteSourceAfterBackup(final String[] sourcesPath) {
-        boolean success;
-        for (String aSourcesPath : sourcesPath) {
-            success = FileTools.delete(aSourcesPath);
-            if (!success) {
-                return false;
-            }
-        }
-        return true;
-    }
+// --Commented out by Inspection START (21/02/2018 14:14):
+//    public boolean deleteSourceAfterBackup(final String[] sourcesPath) {
+//        boolean success;
+//        for (String aSourcesPath : sourcesPath) {
+//            success = FileTools.delete(aSourcesPath);
+//            if (!success) {
+//                return false;
+//            }
+//        }
+//        return true;
+//    }
+// --Commented out by Inspection STOP (21/02/2018 14:14)
 
     public String[] addItemsToItemsList(String[] srcList, final JTextField sourceField, final String pathType) {
         String[] newSource;

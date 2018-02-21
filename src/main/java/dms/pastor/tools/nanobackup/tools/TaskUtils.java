@@ -1,19 +1,19 @@
 package dms.pastor.tools.nanobackup.tools;
 
-import dms.pastor.tools.nanobackup.Settings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.util.ArrayList;
-import java.util.Properties;
 
 
-public class TaskUtils {
+public final class TaskUtils {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TaskUtils.class);
-    private Settings settings = Settings.getSettings();
+
+    private TaskUtils() {
+    }
+    // --Commented out by Inspection (21/02/2018 14:14):private Settings settings = Settings.getSettings();
 
     public static String[] removeDuplicateLines(String[] linesList) {
         LOGGER.debug("Removing duplicate lines from list ...");
@@ -56,36 +56,38 @@ public class TaskUtils {
         return true;
     }
 
-    public static boolean doJob(String jobsPath) {
-        Properties job = new Properties();
-        try (FileInputStream fis = new FileInputStream(jobsPath)) {
-            job.load(fis);
-            int size = Integer.parseInt(job.getProperty("tasks.size"));
-            for (int i = 1; i <= size; i++) {
-                System.out.println(i);
-                String type = job.getProperty("task." + i + ".name");
-                switch (type) {
-                    case "replace":
-                        FileTools.replace(job.getProperty("task." + i + ".what"), job.getProperty("task." + i + ".with"), job.getProperty("task." + i + ".file"));
-                        break;
-                    case "copyFile":
-                        FileTools.copyFile(job.getProperty("task." + i + ".from"), job.getProperty("task." + i + ".to"), null);
-                        break;
-                    case "copyFolder":
-                        FileTools.copyFolder(new File(job.getProperty("task." + i + ".from")), new File(job.getProperty("task." + i + ".to")), null);
-                        break;
-                    case "delete":
-                        FileTools.delete(job.getProperty("task." + i + ".path"));
-                        break;
-                    default:
-                        LOGGER.warn("Job: " + type + " is not implemented or you made childish typo error.");
-                        break;
-                }
-            }
-        } catch (Exception e) {
-            LOGGER.error("Something went wrong.\n" + e.getCause() + "\n" + e.getMessage());
-            return false;
-        }
-        return true;
-    }
+// --Commented out by Inspection START (21/02/2018 14:14):
+//    public static boolean doJob(String jobsPath) {
+//        Properties job = new Properties();
+//        try (FileInputStream fis = new FileInputStream(jobsPath)) {
+//            job.load(fis);
+//            int size = Integer.parseInt(job.getProperty("tasks.size"));
+//            for (int i = 1; i <= size; i++) {
+//                System.out.println(i);
+//                String type = job.getProperty("task." + i + ".name");
+//                switch (type) {
+//                    case "replace":
+//                        FileTools.replace(job.getProperty("task." + i + ".what"), job.getProperty("task." + i + ".with"), job.getProperty("task." + i + ".file"));
+//                        break;
+//                    case "copyFile":
+//                        FileTools.copyFile(job.getProperty("task." + i + ".from"), job.getProperty("task." + i + ".to"), null);
+//                        break;
+//                    case "copyFolder":
+//                        FileTools.copyFolder(new File(job.getProperty("task." + i + ".from")), new File(job.getProperty("task." + i + ".to")), null);
+//                        break;
+//                    case "delete":
+//                        FileTools.delete(job.getProperty("task." + i + ".path"));
+//                        break;
+//                    default:
+//                        LOGGER.warn("Job: " + type + " is not implemented or you made childish typo error.");
+//                        break;
+//                }
+//            }
+//        } catch (Exception e) {
+//            LOGGER.error("Something went wrong.\n" + e.getCause() + "\n" + e.getMessage());
+//            return false;
+//        }
+//        return true;
+//    }
+// --Commented out by Inspection STOP (21/02/2018 14:14)
 }

@@ -45,7 +45,6 @@ public final class Backup extends AbstractTools {
     private boolean inProgress = false;
     private Thread backupThread;
     private UpdateInfo updateInfo;
-    private StringBuilder results;
     private ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
     private final Statistic stats = new Statistic();
     private String destinationDir;
@@ -72,6 +71,7 @@ public final class Backup extends AbstractTools {
         return inProgress;
     }
 
+    @SuppressWarnings("OverlyLongMethod") //GUI setup
     public void backupGui(final String[] sources, final String destination, final JFrame guiFrame) {
 
         guiFrame.setVisible(false);
@@ -112,7 +112,7 @@ public final class Backup extends AbstractTools {
             Messenger.errorMessage("Setting priority for backup", "Priority is not in the range.(Please check your setting)", iae);
         } catch (SecurityException se) {
             Messenger.errorMessage("Setting priority for backup", "You cannot modify thread priority.(You quite likely need permission for that)\n", se);
-            infoTextArea.setText(infoTextArea.getText() + "Sorry.User's priority cannot be set for this backup(No perrmision?).Program will use default priority instead.");
+            infoTextArea.setText(infoTextArea.getText() + "Sorry.User's priority cannot be set for this backup(No permission?).Program will use default priority instead.");
 
         }
 
@@ -122,19 +122,21 @@ public final class Backup extends AbstractTools {
         backupThread.start();
     }
 
-    public String doCLIBackup(String source, String destination) {
-        LOGGER.debug("performing backup(CLI)");
-        Engine engine = new Engine();
-        String[] srcList = engine.makeList(source);
-        return doClassicBackup(srcList, destination, null);
-    }
+// --Commented out by Inspection START (21/02/2018 14:14):
+//    public String doCLIBackup(String source, String destination) {
+//        LOGGER.debug("performing backup(CLI)");
+//        Engine engine = new Engine();
+//        String[] srcList = engine.makeList(source);
+//        return doClassicBackup(srcList, destination, null);
+//    }
+// --Commented out by Inspection STOP (21/02/2018 14:14)
 
     public String doClassicBackup(String[] sources, String destination, JTextArea info) {
         LOGGER.info("performing backup(plain)");
         updateInfoText(info, "Start performing backup");
         boolean result;
         inProgress = true;
-        results = new StringBuilder();
+        StringBuilder results = new StringBuilder();
 
         stats.setBackupType("Uncompressed");
         stats.start();
@@ -190,7 +192,7 @@ public final class Backup extends AbstractTools {
         updateInfoText(info, Messenger.ITEM_COUNTING);
         countItemsCopied();
 
-        updateAll(info, false, false, Messenger.BACKUP_SIZE);
+        updateAll(info, false, Messenger.BACKUP_SIZE);
         stats.addSizeOfBackup(stats.getBackupSize());
 
         return results.append("\n").append(stats.display()).toString();
@@ -269,11 +271,11 @@ public final class Backup extends AbstractTools {
         } else {
             LOGGER.debug("Free space check skipped.");
         }
-        updateAll(info, false, false, Messenger.PRE_CHECK_COMPLETED);
+        updateAll(info, false, Messenger.PRE_CHECK_COMPLETED);
         return true;
     }
 
-    private void updateAll(JTextArea info, boolean addToResult, boolean isErrorMessage, String message) {
+    private void updateAll(JTextArea info, boolean isErrorMessage, String message) {
         LOGGER.debug(message);
 
         if (info != null) {
@@ -284,10 +286,11 @@ public final class Backup extends AbstractTools {
             stats.addErrorCount(message);
         }
 
-        if (addToResult) {//&& results != null) {
+/*
+        if (false) {//&& results != null) {
             results.append(message);
         }
-
+*/
     }
 
     /**
@@ -484,7 +487,7 @@ public final class Backup extends AbstractTools {
         private final JFrame GUIFrame;
         private final JTextArea infoTextArea;
 
-        public MyWindowListener(JFrame guiFrame, JTextArea infoTextArea) {
+        MyWindowListener(JFrame guiFrame, JTextArea infoTextArea) {
             this.GUIFrame = guiFrame;
             this.infoTextArea = infoTextArea;
         }
@@ -533,11 +536,11 @@ public final class Backup extends AbstractTools {
                             if (FileTools.isADirectory(destinationDir) || FileTools.isAFile(destinationDir)) {
                                 FileTools.delete(destinationDir);
                             } else {
-                                updateAll(infoTextArea, false, true, "Unable to delete,because destination zipped/folder doesn't exist.");
+                                updateAll(infoTextArea, true, "Unable to delete,because destination zipped/folder doesn't exist.");
                             }
 
                         } else {
-                            updateAll(infoTextArea, false, true, "Unable to delete,because destination path is invalid.");
+                            updateAll(infoTextArea, true, "Unable to delete,because destination path is invalid.");
                         }
                     }
                 } else {

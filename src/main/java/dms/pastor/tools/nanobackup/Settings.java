@@ -21,6 +21,7 @@ import static java.lang.String.format;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
+@SuppressWarnings({"ClassWithTooManyFields", "OverlyComplexClass", "ClassWithTooManyMethods"}) //because is settings
 public final class Settings {
 
     public static final String DATA_PATH = "data" + System.getProperty("file.separator");
@@ -50,12 +51,13 @@ public final class Settings {
     private boolean saveAsZip;
     private boolean saveResultsToFile;
     private boolean checkFreeSpaceBeforeBackup;
-    private final boolean shutdownAfterBackup = false; //TODO remove = false ,when feature will be implemented
     private boolean speedLightMode;
     private boolean encrypted;
     private int cpuPriority = Integer.MAX_VALUE;
-    //domMode settings
-    private boolean domJob;
+    // --Commented out by Inspection START (21/02/2018 14:14):
+//    //domMode settings
+//    private boolean domJob;
+// --Commented out by Inspection STOP (21/02/2018 14:14)
     private String sourceFilePath;// = null;
     private String destinationFolderPath;// = null;
 
@@ -75,16 +77,18 @@ public final class Settings {
         }
     }
 
-    public static String getDomJob(int number) {
-        switch (number) {
-            case 1:
-                return beforeBackupJobPath;
-            case 2:
-                return afterBackupJobPath;
-            default:
-                return "";
-        }
-    }
+// --Commented out by Inspection START (21/02/2018 14:14):
+//    public static String getDomJob(int number) {
+//        switch (number) {
+//            case 1:
+//                return beforeBackupJobPath;
+//            case 2:
+//                return afterBackupJobPath;
+//            default:
+//                return "";
+//        }
+//    }
+// --Commented out by Inspection STOP (21/02/2018 14:14)
 
     public static synchronized Settings getSettings() {
         if (settings == null) {
@@ -242,30 +246,30 @@ public final class Settings {
         happyMode = true;
     }
 
-    public boolean saveProperties() {
+    public void saveProperties() {
         try (FileOutputStream fos = new FileOutputStream(SETTINGS_PATH)) {
             properties.store(fos, "Settings for nanoBackup");
-            return true;
         } catch (IOException ex) {
             LOGGER.warn("Unable to save config file\n" + ex.getCause() + "\n\n" + ex.getMessage());
-            return false;
         }
     }
 
-    public boolean saveSettings() {
-
-        if (!FileTools.isFileExists(SETTINGS_PATH)) {
-            createDefaultSettings();
-        }
-        try (FileInputStream fis = new FileInputStream(SETTINGS_PATH)) {
-            properties.load(fis);
-        } catch (Exception ex) {
-            LOGGER.debug(ex.getCause() + "\n" + ex.getMessage());
-            return false;
-        }
-        setSettings();
-        return true;
-    }
+// --Commented out by Inspection START (21/02/2018 14:14):
+//    public boolean saveSettings() {
+//
+//        if (!FileTools.isFileExists(SETTINGS_PATH)) {
+//            createDefaultSettings();
+//        }
+//        try (FileInputStream fis = new FileInputStream(SETTINGS_PATH)) {
+//            properties.load(fis);
+//        } catch (Exception ex) {
+//            LOGGER.debug(ex.getCause() + "\n" + ex.getMessage());
+//            return false;
+//        }
+//        setSettings();
+//        return true;
+//    }
+// --Commented out by Inspection STOP (21/02/2018 14:14)
 
     public String saveSettingsWithDestSelection() {
         String path = FileTools.createSourceFile(Settings.SETTINGS_FILE_ENDING);
@@ -295,7 +299,7 @@ public final class Settings {
             properties.load(fis);
             setSettings();
             if (withValidateAndSave) {
-                validateProperties(withValidateAndSave);
+                validateProperties(true);
             }
         } catch (Exception ex) {
             LOGGER.debug(ex.getCause() + "\n" + ex.getMessage());
@@ -387,83 +391,120 @@ public final class Settings {
     }
 
     public void validateProperties(boolean withSave) {
+
+        validateConfirmOnExit();
+        validateExistAfterBackup();
+        validateDeleteSrcAfterBackupProperty();
+        validateQuickBackupProperty("settings.quickBackup", String.valueOf(isQuickBackup()));
+        validateSourceFileProperty("source.file", String.valueOf(getSourceFilePath()));
+        validateDestinationFolderProperty("destination.folder", String.valueOf(getDestinationFolderPath()));
+
+        validateHappyModeProperty();
+
+        validateSaveResultToFileProperty();
+
+        validateSaveAsZipProperty();
+        validateCheckFreeSpaceProperty();
+
+        validateSaveEncryptedProperty();
+
+        validateCpuPriorityProperty();
+
+        setProperties(withSave);
+
+    }
+
+    private void validateDeleteSrcAfterBackupProperty() {
         String temp;
-
-        temp = properties.getProperty("settings.confirmOnExit");
-        if (temp == null) {
-            setDefaultConfirmOnExit();
-            properties.setProperty("settings.confirmOnExit", String.valueOf(isConfirmOnExit()));
-        }
-
-        temp = properties.getProperty("settings.exitAfterBackup");
-        if (temp == null) {
-            setDefaultExitAfterBackup();
-            properties.setProperty("settings.exitAfterBackup", String.valueOf(isExitAfterBackup()));
-        }
-
         temp = properties.getProperty("settings.deleteSourceAfterBackup");
         if (temp == null) {
             setDefaultDeleteSourceAfterBackup();
             properties.setProperty("settings.deleteSourceAfterBackup", String.valueOf(isDeleteSourceAfterBackup()));
         }
+    }
 
-        temp = properties.getProperty("settings.quickBackup");
+    private void validateQuickBackupProperty(String key, String value) {
+        String temp;
+        temp = properties.getProperty(key);
         if (temp == null) {
             setDefaultQuickBackup();
-            properties.setProperty("settings.quickBackup", String.valueOf(isQuickBackup()));
+            properties.setProperty(key, value);
         }
+    }
 
+    private void validateSourceFileProperty(String key, String value) {
+        validateQuickBackupProperty(key, value);
+    }
 
-        temp = properties.getProperty("source.file");
-        if (temp == null) {
-            setDefaultQuickBackup();
-            properties.setProperty("source.file", String.valueOf(getSourceFilePath()));
-        }
+    private void validateDestinationFolderProperty(String key, String value) {
+        validateSourceFileProperty(key, value);
+    }
 
-        temp = properties.getProperty("destination.folder");
-        if (temp == null) {
-            setDefaultQuickBackup();
-            properties.setProperty("destination.folder", String.valueOf(getDestinationFolderPath()));
-        }
-
+    private void validateHappyModeProperty() {
+        String temp;
         temp = properties.getProperty("settings.happyMode");
         if (temp == null) {
             setDefaultHappyMode();
             properties.setProperty("settings.happyMode", String.valueOf(isHappyMode()));
         }
+    }
 
+    private void validateSaveResultToFileProperty() {
+        String temp;
         temp = properties.getProperty("settings.saveResultsToFile");
         if (temp == null) {
             setDefaultSaveResultsToFile();
             properties.setProperty("settings.saveResultsToFile", String.valueOf(isSaveResultsToFile()));
         }
+    }
 
-        temp = properties.getProperty("settings.saveAsZip");
-        if (temp == null) {
-            setDefaultQuickBackup();
-            properties.setProperty("settings.saveAsZip", String.valueOf(isSaveAsZip()));
-        }
+    private void validateSaveAsZipProperty() {
+        validateDestinationFolderProperty("settings.saveAsZip", String.valueOf(isSaveAsZip()));
+    }
 
+    private void validateCheckFreeSpaceProperty() {
+        String temp;
         temp = properties.getProperty("settings.checkFreeSpaceBeforeBackup");
         if (temp == null) {
             setDefaultCheckFreeSpaceBeforeBackup();
             properties.setProperty("settings.checkFreeSpaceBeforeBackup", String.valueOf(isCheckFreeSpaceBeforeBackup()));
         }
+    }
 
+    private void validateSaveEncryptedProperty() {
+        String temp;
         temp = properties.getProperty("settings.saveAsEncrypted");
         if (temp == null) {
             setDefaultSaveAsEncrypted();
             properties.setProperty("settings.saveAsEncrypted", String.valueOf(isSaveAsEncrypted()));
         }
+    }
 
+    private void validateCpuPriorityProperty() {
+        String temp;
         temp = properties.getProperty("settings.cpuPriority");
         if (temp == null) {
             setDefaultCpuPriority();
             properties.setProperty("settings.cpuPriority", String.valueOf(getCpuPriority()));
         }
+    }
 
-        setProperties(withSave);
+    private void validateExistAfterBackup() {
+        String temp;
+        temp = properties.getProperty("settings.exitAfterBackup");
+        if (temp == null) {
+            setDefaultExitAfterBackup();
+            properties.setProperty("settings.exitAfterBackup", String.valueOf(isExitAfterBackup()));
+        }
+    }
 
+    private void validateConfirmOnExit() {
+        String temp;
+        temp = properties.getProperty("settings.confirmOnExit");
+        if (temp == null) {
+            setDefaultConfirmOnExit();
+            properties.setProperty("settings.confirmOnExit", String.valueOf(isConfirmOnExit()));
+        }
     }
 
     public boolean isCheckFreeSpaceBeforeBackup() {
@@ -479,9 +520,8 @@ public final class Settings {
     }
 
     //TODO implement is shutdownAfterBackup
-
     public boolean isShutdownAfterBackup() {
-        return shutdownAfterBackup;
+        return false;
     }
 
     public boolean isSpeedLightMode() {

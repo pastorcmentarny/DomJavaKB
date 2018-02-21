@@ -14,6 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ import java.util.Properties;
 @SuppressWarnings("MagicNumber") //TOO OLD PROJECT  TO TAKE CARE OF MAGIC NUMBERS
 public class FaqGUI extends javax.swing.JFrame {
     private static final Logger LOGGER = LoggerFactory.getLogger(FaqGUI.class);
-    private static final int PREFERED_SIZE = 589;
+    private static final int PREFERRED_SIZE = 589;
     private static final Font DEFAULT_FONT = new Font("Verdana", Font.PLAIN, 14);
     private final Properties properties = new Properties();
     private String[] questions = {"Why I don't see FAQ?"};
@@ -91,9 +92,9 @@ public class FaqGUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, PREFERED_SIZE, Short.MAX_VALUE)
-                        .addComponent(questionComboBox, 0, PREFERED_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, PREFERED_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, PREFERRED_SIZE, Short.MAX_VALUE)
+                        .addComponent(questionComboBox, 0, PREFERRED_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, PREFERRED_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,7 +109,7 @@ public class FaqGUI extends javax.swing.JFrame {
         pack();
     }
 
-    private void questionComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_questionComboBoxActionPerformed
+    private void questionComboBoxActionPerformed(ActionEvent evt) {//GEN-FIRST:event_questionComboBoxActionPerformed
         answersField.setText(answers[questionComboBox.getSelectedIndex()]);
     }
 
@@ -141,10 +142,12 @@ public class FaqGUI extends javax.swing.JFrame {
         }
     }
 
-    //TODO implement this method!
-    private void validateFAQ() {
-        throw new UnsupportedOperationException("Not yet implemented");
-    }
+// --Commented out by Inspection START (21/02/2018 14:14):
+//    //TODO implement this method!
+//    private void validateFAQ() {
+//        throw new UnsupportedOperationException("Not yet implemented");
+//    }
+// --Commented out by Inspection STOP (21/02/2018 14:14)
 
 
 }

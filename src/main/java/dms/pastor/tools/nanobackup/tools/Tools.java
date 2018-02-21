@@ -6,7 +6,6 @@ import org.slf4j.LoggerFactory;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
@@ -22,7 +21,7 @@ import java.util.Random;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public final class Tools {
-    private static final String EMPTY = "";
+    // --Commented out by Inspection (21/02/2018 14:14):private static final String EMPTY = "";
     private static final Logger LOGGER = LoggerFactory.getLogger(Tools.class);
     private static final int HALF_OF_MAX_RGB_VALUE = 128;
 
@@ -46,33 +45,35 @@ public final class Tools {
         return currentTime;
     }
 
-    public static void shutdownComputerOnRequest() {
-        LOGGER.debug("shutting down computer");
-        Settings settings = Settings.getSettings();
-        //TODO implement utilities.shutdown after backup
-        if (settings.isShutdownAfterBackup()) {
-            String shutdownCmd = null;
-            String system = System.getProperty("os.name").toLowerCase();
-            if (system.contains("windows")) {
-                shutdownCmd = "shutdown -s";
-            }
-            if (system.contains("linux")) {
-                String pass = JOptionPane.showInputDialog(null, "Insert password", "password");
-                shutdownCmd = "sudo " + pass + " shutdown";
-            }
-            if (system.contains("Mac OS X")) {
-                String pass = JOptionPane.showInputDialog(null, "Insert password", "password");
-                shutdownCmd = "sudo " + pass + " shutdown";
-            }
-            try {
-                if (shutdownCmd != null) {
-                    Process systemKiller = Runtime.getRuntime().exec(shutdownCmd);
-                }
-            } catch (IOException ex) {
-                LOGGER.warn("Program was unable to shutdown OS");
-            }
-        }
-    }
+// --Commented out by Inspection START (21/02/2018 14:14):
+//    public static void shutdownComputerOnRequest() {
+//        LOGGER.debug("shutting down computer");
+//        Settings settings = Settings.getSettings();
+//        //TODO implement utilities.shutdown after backup
+//        if (settings.isShutdownAfterBackup()) {
+//            String shutdownCmd = null;
+//            String system = System.getProperty("os.name").toLowerCase();
+//            if (system.contains("windows")) {
+//                shutdownCmd = "shutdown -s";
+//            }
+//            if (system.contains("linux")) {
+//                String pass = JOptionPane.showInputDialog(null, "Insert password", "password");
+//                shutdownCmd = "sudo " + pass + " shutdown";
+//            }
+//            if (system.contains("Mac OS X")) {
+//                String pass = JOptionPane.showInputDialog(null, "Insert password", "password");
+//                shutdownCmd = "sudo " + pass + " shutdown";
+//            }
+//            try {
+//                if (shutdownCmd != null) {
+//                    Process systemKiller = Runtime.getRuntime().exec(shutdownCmd);
+//                }
+//            } catch (IOException ex) {
+//                LOGGER.warn("Program was unable to shutdown OS");
+//            }
+//        }
+//    }
+// --Commented out by Inspection STOP (21/02/2018 14:14)
 
     public static Color getRandomColor() {
         Random randomColor = new Random();

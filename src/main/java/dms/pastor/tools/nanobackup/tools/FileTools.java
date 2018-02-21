@@ -1,7 +1,6 @@
 package dms.pastor.tools.nanobackup.tools;
 
 import dms.pastor.domain.ShutdownHook;
-import dms.pastor.tools.nanobackup.Messenger;
 import dms.pastor.tools.nanobackup.backup.Statistic;
 import dms.pastor.utils.StringUtils;
 import org.apache.commons.io.FileUtils;
@@ -14,12 +13,9 @@ import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipOutputStream;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.ValidatorUtils.validateIfNotNull;
-import static java.lang.String.format;
 import static java.util.Objects.nonNull;
 
 /**
@@ -31,42 +27,49 @@ import static java.util.Objects.nonNull;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class FileTools {
+public final class FileTools {
 
     private static final long FILE_COPY_BUFFER_SIZE = 1024 * 1024 * 12;//12 megabyte
     private static final Logger LOGGER = LoggerFactory.getLogger(FileTools.class);
-    private static final int BUFFER_SIZE = 2048;
+    // --Commented out by Inspection (21/02/2018 15:49):private static final int BUFFER_SIZE = 2048;
     private static File f;
     private static FileChannel channel;
     private static FileLock lockFile;
     private static File file;
-    private final Messenger msg = new Messenger();
 
-    public static String displaySize(String path) {
-        String sizeMsg = "";
-        file = new File(path);
-        if (file.isFile()) {
-            sizeMsg = FileUtils.sizeOf(file) + " bytes.";
-        } else if (file.isDirectory()) {
-            sizeMsg = FileUtils.sizeOfDirectory(file) + " bytes.";
-        } else {
-            LOGGER.warn("N/A");
-        }
-        return sizeMsg;
+    private FileTools() {
     }
+    // --Commented out by Inspection (21/02/2018 14:14):private final Messenger msg = new Messenger();
 
-    public static long calcSize(String path) {
-        long size = 0;
-        file = new File(path);
-        if (file.isFile()) {
-            size = FileUtils.sizeOf(file);
-        } else if (file.isDirectory()) {
-            size = FileUtils.sizeOfDirectory(file);
-        } else {
-            LOGGER.warn("N/A");
-        }
-        return size;
-    }
+// --Commented out by Inspection START (21/02/2018 14:14):
+//    public static String displaySize(String path) {
+//        String sizeMsg = "";
+//        file = new File(path);
+//        if (file.isFile()) {
+//            sizeMsg = FileUtils.sizeOf(file) + " bytes.";
+//        } else if (file.isDirectory()) {
+//            sizeMsg = FileUtils.sizeOfDirectory(file) + " bytes.";
+//        } else {
+//            LOGGER.warn("N/A");
+//        }
+//        return sizeMsg;
+//    }
+// --Commented out by Inspection STOP (21/02/2018 14:14)
+
+// --Commented out by Inspection START (21/02/2018 14:14):
+//    public static long calcSize(String path) {
+//        long size = 0;
+//        file = new File(path);
+//        if (file.isFile()) {
+//            size = FileUtils.sizeOf(file);
+//        } else if (file.isDirectory()) {
+//            size = FileUtils.sizeOfDirectory(file);
+//        } else {
+//            LOGGER.warn("N/A");
+//        }
+//        return size;
+//    }
+// --Commented out by Inspection STOP (21/02/2018 14:14)
 
     public static boolean checkEnoughSpace(Statistic stats, String[] sources, String destination) {
         long srcSize = 0;
@@ -184,91 +187,112 @@ public class FileTools {
         return false;
     }
 
-    public static boolean copyFile(String sourceFile, String destinationFile, Statistic stats) {
-        LOGGER.debug("copy file from: " + sourceFile + " to " + destinationFile);
-        try {
-            FileUtils.copyFile(new File(sourceFile), new File(destinationFile));
-            return true;
-        } catch (IOException ex) {
-            if (!(stats == null)) {
-                stats.addErrorCount("Program was unable to copy from" + sourceFile + " to " + destinationFile + "during unexpected problem!PLEASE TRY AGAIN\n\n" + ex.getMessage());
-            }
-            return false;
-        }
-    }
+// --Commented out by Inspection START (21/02/2018 14:27):
+//    public static void copyFile(String sourceFile, String destinationFile, Statistic stats) {
+//        LOGGER.debug("copy file from: " + sourceFile + " to " + destinationFile);
+//        try {
+//            FileUtils.copyFile(new File(sourceFile), new File(destinationFile));
+//        } catch (IOException ex) {
+//            if (!(stats == null)) {
+//                stats.addErrorCount("Program was unable to copy from" + sourceFile + " to " + destinationFile + "during unexpected problem!PLEASE TRY AGAIN\n\n" + ex.getMessage());
+//            }
+//        }
+//    }
+// --Commented out by Inspection STOP (21/02/2018 14:27)
 
     private static void doCopyFile(File srcFile, File destFile, Statistic stats) {
         LOGGER.debug("copy file from: " + srcFile + " to " + destFile);
-        if (destFile.exists() && destFile.isDirectory()) {
-            if (stats != null) {
-                stats.addErrorCount("Destination '" + destFile + "' exists but is a directory");
-            }
+        if (isDirectoryExists(destFile)) {
+            addDestinationErrorCount(stats, "Destination '" + destFile + "' exists but is a directory");
             return;
         }
 
         long size;
         try (
                 FileInputStream fis = new FileInputStream(srcFile);
-
                 FileOutputStream fos = new FileOutputStream(destFile);
                 FileChannel input = fis.getChannel();
                 FileChannel output = fos.getChannel()
         ) {
-
-            size = input.size();
-
-            long pos = 0;
-            long count;
-            while (pos < size) {
-                count = size - pos > FILE_COPY_BUFFER_SIZE ? FILE_COPY_BUFFER_SIZE : size - pos;
-
-                pos += output.transferFrom(input, pos, count);
-            }
+            transferFile(input.size(), input, output);
         } catch (FileNotFoundException ex) {
-            if (stats != null) {
-                stats.addErrorCount("Unable to copy file.Source file '" + srcFile + "' not found.(network problem?device disconnected?)");
-            }
+            addDestinationErrorCount(stats, "Unable to copy file.Source file '" + srcFile + "' not found.(network problem?device disconnected?)");
         } catch (IOException ex) {
-            if (stats != null) {
-                stats.addErrorCount("Unable to copy file.IO error during coping file.\nPossible reasons:\nNetwork problem?Device disconnected?)");
-            }
+            addDestinationErrorCount(stats, "Unable to copy file.IO error during coping file.\nPossible reasons:\nNetwork problem?Device disconnected?)");
         }
 
+        addDestinationErrorCountIfSrcAndDestAreDifferentLength(srcFile, destFile, stats);
+    }
+
+    private static void transferFile(long size, FileChannel input, FileChannel output) throws IOException {
+        long pos = 0;
+        long count;
+        while (pos < size) {
+            count = size - pos > FILE_COPY_BUFFER_SIZE ? FILE_COPY_BUFFER_SIZE : size - pos;
+
+            pos += output.transferFrom(input, pos, count);
+        }
+    }
+
+    private static void addDestinationErrorCountIfSrcAndDestAreDifferentLength(File srcFile, File destFile, Statistic stats) {
         if (nonNull(stats) && srcFile.length() != destFile.length()) {
             stats.addErrorCount("Something went wrong. Source and Destination files has different sizes.\n Source: '" + srcFile + "' has " + srcFile.length() + " Destination: '" + destFile + "' has " + destFile.length());
         }
     }
 
+    private static void addDestinationErrorCount(Statistic stats, String errors) {
+        if (stats != null) {
+            stats.addErrorCount(errors);
+        }
+    }
+
+    private static boolean isDirectoryExists(File destFile) {
+        return destFile.exists() && destFile.isDirectory();
+    }
 
     private static void doCopyDirectory(File srcDir, File destDir, Statistic stats) {
         // recurse
         File[] srcFiles = srcDir.listFiles();
-        if (srcFiles == null) {
-            if (stats != null) {
-                stats.addErrorCount("Source path is not valid Directory(Folder).[list of files is null]");
-                return;
-            }
-        }
+        if (addErrorCountIfSourceIsInvalid(stats, srcFiles)) return;
 
         if (destDir.exists()) {
             if (!destDir.isDirectory()) {
-                if (stats != null) {
-                    stats.addErrorCount("Destination '" + destDir + "' exists but is not a directory");
-                }
+                addDestinationErrorCount(stats, "Destination '" + destDir + "' exists but is not a directory");
             }
         } else {
-            if (!destDir.mkdirs() && !destDir.isDirectory()) {
-                if (stats != null) {
-                    stats.addErrorCount("Destination '" + destDir + "' directory cannot be created");
-                    return;
-                }
-            }
+            if (addErrorCountIfDestinationFolderCannotBeCreated(destDir, stats)) return;
         }
-        if (!destDir.canWrite()) {
+        addErrorCountIfCannotWriteToDestinationFolder(destDir, stats);
+        copyAll(destDir, stats, srcFiles);
+    }
+
+    private static boolean addErrorCountIfDestinationFolderCannotBeCreated(File destDir, Statistic stats) {
+        if (!destDir.mkdirs() && !destDir.isDirectory()) {
             if (stats != null) {
-                stats.addErrorCount("Destination '" + destDir + "' cannot be written to");
+                stats.addErrorCount("Destination '" + destDir + "' directory cannot be created");
+                return true;
             }
         }
+        return false;
+    }
+
+    private static void addErrorCountIfCannotWriteToDestinationFolder(File destDir, Statistic stats) {
+        if (!destDir.canWrite()) {
+            addDestinationErrorCount(stats, "Destination '" + destDir + "' cannot be written to");
+        }
+    }
+
+    private static boolean addErrorCountIfSourceIsInvalid(Statistic stats, File[] srcFiles) {
+        if (srcFiles == null) {
+            if (stats != null) {
+                stats.addErrorCount("Source path is not valid Directory(Folder).[list of files is null]");
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static void copyAll(File destDir, Statistic stats, File[] srcFiles) {
         if (nonNull(srcFiles)) {
             for (File srcFile : srcFiles) {
                 File dstFile = new File(destDir, srcFile.getName());
@@ -314,16 +338,18 @@ public class FileTools {
 
     }
 
-    public static void copyFileToDirectory(File srcFile, File destDir, Statistic stats) {
-        if (destDir == null) {
-            throw new NullPointerException("Destination must not be null");
-        }
-        if (destDir.exists() && !destDir.isDirectory()) {
-            throw new IllegalArgumentException("Destination '" + destDir + "' is not a directory");
-        }
-        File destFile = new File(destDir, srcFile.getName());
-        doCopyFile(srcFile, destFile, stats);
-    }
+// --Commented out by Inspection START (21/02/2018 14:14):
+//    public static void copyFileToDirectory(File srcFile, File destDir, Statistic stats) {
+//        if (destDir == null) {
+//            throw new NullPointerException("Destination must not be null");
+//        }
+//        if (destDir.exists() && !destDir.isDirectory()) {
+//            throw new IllegalArgumentException("Destination '" + destDir + "' is not a directory");
+//        }
+//        File destFile = new File(destDir, srcFile.getName());
+//        doCopyFile(srcFile, destFile, stats);
+//    }
+// --Commented out by Inspection STOP (21/02/2018 14:14)
 
     public static boolean createAFile(String filePath) {
         LOGGER.debug("create file in path:" + filePath);
@@ -338,28 +364,30 @@ public class FileTools {
 
     //TODO improve this method
 
-    public static String createABackupZipPath(String path) {
-        LOGGER.debug("creating path for backup(compressed in zip)");
-        int year = Calendar.getInstance().get(Calendar.YEAR);
-        int month = Calendar.getInstance().get(Calendar.MONTH) + 1;
-        int day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
-        path = createPath(path, year);
-        path = createPath(path, month);
-        path = createPath(path, day);
-
-
-        file = new File(path + System.getProperty("file.separator") + "Backup_" + Tools.getCurrentDateWithTime() + ".zip");
-        int next = 1;
-        while (file.exists()) {
-            file = new File(path + System.getProperty("file.separator") + "Backup_" + Tools.getCurrentDateWithTime() + "_" + next + ".zip");
-            if (next == 1000) {
-                LOGGER.warn("More than 1000 attempts to created file failed.It is quite likely something when terrible wrong");
-                return null;
-            }
-            next++;
-        }
-        return file.getAbsolutePath();
-    }
+// --Commented out by Inspection START (21/02/2018 14:14):
+//    public static String createABackupZipPath(String path) {
+//        LOGGER.debug("creating path for backup(compressed in zip)");
+//        int year = Calendar.getInstance().get(Calendar.YEAR);
+//        int month = Calendar.getInstance().get(Calendar.MONTH) + 1;
+//        int day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+//        path = createPath(path, year);
+//        path = createPath(path, month);
+//        path = createPath(path, day);
+//
+//
+//        file = new File(path + System.getProperty("file.separator") + "Backup_" + Tools.getCurrentDateWithTime() + ".zip");
+//        int next = 1;
+//        while (file.exists()) {
+//            file = new File(path + System.getProperty("file.separator") + "Backup_" + Tools.getCurrentDateWithTime() + "_" + next + ".zip");
+//            if (next == 1000) {
+//                LOGGER.warn("More than 1000 attempts to created file failed.It is quite likely something when terrible wrong");
+//                return null;
+//            }
+//            next++;
+//        }
+//        return file.getAbsolutePath();
+//    }
+// --Commented out by Inspection STOP (21/02/2018 14:14)
 
     public static String createABackupDirectory(String path) {
         LOGGER.debug("create backup folder" + path);
@@ -399,19 +427,19 @@ public class FileTools {
         return path;
     }
 
-    public static boolean createADirectory(String filePath) {
+    public static void createADirectory(String filePath) {
         file = new File(filePath);
-        return file.mkdir();
+        final boolean created = file.mkdir();
+        LOGGER.debug(String.format("Directory was %s created.", created ? EMPTY_STRING : "not"));
     }
 
 
-    public static boolean delete(String filePath) {
+    public static void delete(String filePath) {
         file = new File(filePath);
         try {
             FileUtils.forceDelete(file);
-            return true;
         } catch (Exception ex) {
-            return false;
+            LOGGER.error(String.format("Unable to delete file due %s", ex.getMessage()));
         }
     }
 
@@ -454,10 +482,10 @@ public class FileTools {
         return true;
     }
 
-    public static boolean saveTextToFile(String text, String path2file) {
+    public static void saveTextToFile(String text, String path2file) {
         LOGGER.debug("Saving text to file: " + path2file);
         file = new File(path2file);
-        PrintWriter out = null;
+
         if (file.exists()) {
             boolean result = file.delete();
             if (!result) {
@@ -467,62 +495,55 @@ public class FileTools {
             try {
                 if (!file.createNewFile()) {
                     LOGGER.debug("Failed. (Program was unable to create file.)");
-                    return false;
+                    return;
                 } else {
                     LOGGER.debug("File created. Saving date into file...");
                 }
             } catch (IOException ex) {
                 LOGGER.info("Failed. (Program was unable to delete old text file.(Network problem?Device disconnected?not enough free space?)" + ex.getMessage());//TODO move message to message properties!
-                return false;
+                return;
             }
         }
-
-        try {
-            out = new PrintWriter(new FileWriter(path2file));
+        try (PrintWriter out = new PrintWriter(new FileWriter(path2file))) {
             out.print(text);
-
-        } catch (IOException ex) {
-            LOGGER.info("Failed. (Program was unable to delete old text file.(Network problem?Device disconnected?not enough free space?)" + ex.getMessage());//TODO move message to message properties!
-            return false;
-        } finally {
-            if (out != null) {
-                out.close();
-            }
+        } catch (IOException exception) {
+            LOGGER.info("Failed. (Program was unable to delete old text file.(Network problem?Device disconnected?not enough free space?)" + exception.getMessage());//TODO move message to message properties!
+            return;
         }
         LOGGER.debug("Success! Text saved to file.");
-        return true;
     }
 
-    public static boolean replace(String whatPath, String fromPath, String file) {
-        if (file != null) {
-            delete(whatPath + System.getProperty("file.separator") + file);
-        } else {
-            delete(whatPath);
-        }
-        try {
-            if (file == null) {
-                FileUtils.copyDirectory(new File(fromPath), new File(whatPath));
-            } else {
-                FileUtils.copyFile(new File(fromPath + System.getProperty("file.separator") + file), new File(whatPath + System.getProperty("file.separator") + file));
-            }
-        } catch (IOException ex) {
-            //TODO create a error message
-            LOGGER.info("Unable to replace file" + ex.getCause() + "\n" + ex.getMessage());
-            return false;
-        }
-        return true;
-    }
+// --Commented out by Inspection START (21/02/2018 14:27):
+//    public static void replace(String whatPath, String fromPath, String file) {
+//        if (file != null) {
+//            delete(whatPath + System.getProperty("file.separator") + file);
+//        } else {
+//            delete(whatPath);
+//        }
+//        try {
+//            if (file == null) {
+//                FileUtils.copyDirectory(new File(fromPath), new File(whatPath));
+//            } else {
+//                FileUtils.copyFile(new File(fromPath + System.getProperty("file.separator") + file), new File(whatPath + System.getProperty("file.separator") + file));
+//            }
+//        } catch (IOException ex) {
+//            //TODO create a error message
+//            LOGGER.info("Unable to replace file" + ex.getCause() + "\n" + ex.getMessage());
+//        }
+//    }
+// --Commented out by Inspection STOP (21/02/2018 14:27)
 
     //TODO improve this method by better error messages and etc
 
     public static void lock() {
-        try {
+
+        try (RandomAccessFile randomAccessFile = new RandomAccessFile(f, "rw")) {
+            channel = randomAccessFile.getChannel();
             f = new File("program.lock");
             if (f.exists() && !f.delete()) {
                 LOGGER.info("It seems like another instance of program is run ");
 
             }
-            channel = new RandomAccessFile(f, "rw").getChannel();
             lockFile = channel.tryLock();
             if (lockFile == null) {
                 channel.close();
@@ -550,51 +571,51 @@ public class FileTools {
         }
     }
 
-    //TODO IMPROVE THIS GARBAGE this method doesn't need a return ?
-    private static boolean zipFolder(String[] folderPath, ZipOutputStream out, StringBuilder results, Statistic stats) {
-        if (folderPath == null) {
-            stats.addErrorCount("Problem source file/folder found.Backup cancelled.");
-            return false;
-        }
-        stats.addFileCopied(1);
-        for (String aFolderPath : folderPath) {
-            if (isADirectory(aFolderPath)) {
-                String[] fileList = new File(aFolderPath).list();
-                if (fileList != null) {
-                    String[] listInDir = new String[fileList.length];
-                    for (int ix = 0; ix < fileList.length; ix++) {
-                        listInDir[ix] = aFolderPath + System.getProperty("file.separator") + fileList[ix];
-                    }
-                    zipFolder(listInDir, out, results, stats);
-                } else {
-                    LOGGER.error(format("List is null in %s", aFolderPath));
-                }
+// --Commented out by Inspection START (21/02/2018 14:14):
+//    //TODO IMPROVE THIS GARBAGE this method doesn't need a return ?
+//    private static void zipFolder(String[] folderPath, ZipOutputStream out, StringBuilder results, Statistic stats) {
+//        if (folderPath == null) {
+//            stats.addErrorCount("Problem source file/folder found.Backup cancelled.");
+//            return;
+//        }
+//        stats.addFileCopied(1);
+//        for (String aFolderPath : folderPath) {
+//            if (isADirectory(aFolderPath)) {
+//                String[] fileList = new File(aFolderPath).list();
+//                if (fileList != null) {
+//                    String[] listInDir = new String[fileList.length];
+//                    for (int ix = 0; ix < fileList.length; ix++) {
+//                        listInDir[ix] = aFolderPath + System.getProperty("file.separator") + fileList[ix];
+//                    }
+//                    zipFolder(listInDir, out, results, stats);
+//                } else {
+//                    LOGGER.error(format("List is null in %s", aFolderPath));
+//                }
+//
+//            } else {
+//                zipFile(aFolderPath, out, stats);
+//            }
+//        }
+//    }
+// --Commented out by Inspection STOP (21/02/2018 14:14)
 
-            } else {
-                zipFile(aFolderPath, out, stats);
-            }
-        }
-        return true;
-    }
-
-    private static boolean zipFile(String path, ZipOutputStream zos, Statistic stats) {
-        try {
-            BufferedInputStream bis = new BufferedInputStream(new FileInputStream(new File(path)), BUFFER_SIZE);
-            byte[] data = new byte[BUFFER_SIZE];
-            ZipEntry entry = new ZipEntry(new File(path).getAbsolutePath());
-            zos.putNextEntry(entry);
-            int count;
-            while ((count = bis.read(data, 0, BUFFER_SIZE)) != -1) {
-                zos.write(data, 0, count);
-            }
-            stats.addFileCopied(1);
-        } catch (Exception e) {
-            LOGGER.warn("Fail to save:" + path + " because: " + e.getMessage());
-            stats.addErrorCount("Failed to save:" + path);
-            return false;
-        }
-        return true;
-    }
+// --Commented out by Inspection START (21/02/2018 14:27):
+//    private static void zipFile(String path, ZipOutputStream zos, Statistic stats) {
+//        try (BufferedInputStream bis = new BufferedInputStream(new FileInputStream(new File(path)), BUFFER_SIZE)) {
+//            byte[] data = new byte[BUFFER_SIZE];
+//            ZipEntry entry = new ZipEntry(new File(path).getAbsolutePath());
+//            zos.putNextEntry(entry);
+//            int count;
+//            while ((count = bis.read(data, 0, BUFFER_SIZE)) != -1) {
+//                zos.write(data, 0, count);
+//            }
+//            stats.addFileCopied(1);
+//        } catch (Exception e) {
+//            LOGGER.warn("Fail to save:" + path + " because: " + e.getMessage());
+//            stats.addErrorCount("Failed to save:" + path);
+//        }
+//    }
+// --Commented out by Inspection STOP (21/02/2018 14:27)
 
     public static String createSourceFile(String ending) {
         LOGGER.debug("creating source file");
@@ -611,4 +632,10 @@ public class FileTools {
             return null;
         }
     }
+
+// --Commented out by Inspection START (21/02/2018 14:27):
+//    public static void setChannel(FileChannel channel) {
+//        FileTools.channel = channel;
+//    }
+// --Commented out by Inspection STOP (21/02/2018 14:27)
 }

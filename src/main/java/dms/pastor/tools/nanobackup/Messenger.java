@@ -45,12 +45,11 @@ public class Messenger {
     }
 
 
-    public static String errorMessage(String what, String message, Throwable e) {
+    public static void errorMessage(String what, String message, Throwable e) {
         String error = what + " encountered an error: '" + message + "'\n\tCause: '" + e.getCause()
                 + "'\n\tError message: '" + e.getMessage() + "'\n Exception message:\n\n ";
         //+ ExceptionUtils.getStackTrace(e) + "\n\n";
         LOGGER.warn(error, e);
-        return error;
     }
 
     public String getMsg(String type) {

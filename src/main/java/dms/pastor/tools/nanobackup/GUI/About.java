@@ -46,7 +46,7 @@ public class About extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> new About().setVisible(true));
     }
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({"unchecked", "OverlyLongMethod"}) // GUI setup
     private void initComponents() {
 
         JTabbedPane aboutTabbedPanel = new JTabbedPane();

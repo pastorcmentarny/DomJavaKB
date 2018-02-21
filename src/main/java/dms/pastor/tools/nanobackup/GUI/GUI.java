@@ -37,11 +37,12 @@ import static java.awt.Font.BOLD;
  * <p>
  * This is main window(GUI) of program .
  */
-@SuppressWarnings("MagicNumber") //TOO OLD PROJECT  TO TAKE CARE OF MAGIC NUMBERS
+@SuppressWarnings({"MagicNumber", "unused", "ClassWithTooManyFields", "CyclicClassDependency", "ClassWithTooManyMethods", "OverlyComplexClass"})
+//TOO OLD PROJECT  TO TAKE CARE OF MAGIC NUMBERS ,evt are not used as they are not needed blame Java
 public class GUI extends javax.swing.JFrame {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(GUI.class);
-    private static final int LARGE_FONT_SZIE = 18;
+    private static final int LARGE_FONT_SIZE = 18;
     private static final Dimension PREVIOUS_DESTINATION_DIMENSION = new Dimension(300, 20);
     private final Settings settings = Settings.getSettings();
     private final History history = History.getHistoryGUI();
@@ -82,7 +83,7 @@ public class GUI extends javax.swing.JFrame {
     private JCheckBoxMenuItem shutdownAfterBackupMenuItem;
     private JTextField sourceField;
     private JLabel sourceFileLabel;
-    private javax.swing.JList sourceList;
+    private javax.swing.JList<String> sourceList;
     private JCheckBoxMenuItem speedLightModeMenuItem;
     private JMenuItem statusMenuItem;
     private JButton swapDestinationFolderPathButton;
@@ -101,11 +102,12 @@ public class GUI extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> new GUI().setVisible(true));
     }
 
+    @SuppressWarnings("OverlyLongMethod") //UI setup
     private void initComponents() {
 
         JLabel jLabel1 = new JLabel();
         JScrollPane jScrollPane1 = new JScrollPane();
-        sourceList = new javax.swing.JList();
+        sourceList = new javax.swing.JList<>();
         JLabel jLabel2 = new JLabel();
         destinationField = new JTextField();
         addButton = new JButton();
@@ -172,7 +174,7 @@ public class GUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("nanoBackup by Pastor Cmentarny");
-        setFont(new Font("Corbel", BOLD, LARGE_FONT_SZIE));
+        setFont(new Font("Corbel", BOLD, LARGE_FONT_SIZE));
         setMinimumSize(new java.awt.Dimension(444, 444));
         setName("main GUI frame");
         setResizable(false);
@@ -184,17 +186,7 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel1.setText("What items (files and/or folders should be in backup?");
 
-        sourceList.setModel(new AbstractListModel() {
-            final String[] strings = srcList;
-
-            public int getSize() {
-                return strings.length;
-            }
-
-            public Object getElementAt(int i) {
-                return strings[i];
-            }
-        });
+        sourceList.setModel(new SourceListModel());
         sourceList.setToolTipText("Source items");
         sourceList.setMaximumSize(getSourceItemsDimensionSize());
         sourceList.setMinimumSize(getSourceItemsDimensionSize());
@@ -349,7 +341,7 @@ public class GUI extends javax.swing.JFrame {
         checkFreeSpaceBeforeBackupMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_8, java.awt.event.InputEvent.ALT_MASK));
         checkFreeSpaceBeforeBackupMenuItem.setSelected(settings.isCheckFreeSpaceBeforeBackup());
         checkFreeSpaceBeforeBackupMenuItem.setText("Check free space before backup");
-        checkFreeSpaceBeforeBackupMenuItem.addActionListener(this::checkfreespacebeforebackupmenuitemactionperformed);
+        checkFreeSpaceBeforeBackupMenuItem.addActionListener(this::checkFreeSpaceBeforeBackupMenuItemActionPerformed);
         settingsMenu.add(checkFreeSpaceBeforeBackupMenuItem);
 
         speedLightModeMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_9, java.awt.event.InputEvent.ALT_MASK));
@@ -455,7 +447,7 @@ public class GUI extends javax.swing.JFrame {
 
         usb2LapMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F6, java.awt.event.InputEvent.CTRL_MASK));
         usb2LapMenu.setText("ToLaptop");
-        usb2LapMenu.addActionListener(this::usb2Lapmenuactionperformed);
+        usb2LapMenu.addActionListener(this::usb2LapMenuActionPerformed);
         jMenu6.add(usb2LapMenu);
 
         tbpMenu.add(jMenu6);
@@ -591,6 +583,7 @@ public class GUI extends javax.swing.JFrame {
         return new Dimension(280, 160);
     }
 
+    @SuppressWarnings("unused") //don't need evt in this context
     private void doBackupButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_doBackupButtonActionPerformed
         if (backup.isInProgress()) {
             utilities.setInfoLabel(AppColor.DARK_ORANGE, "Another backup in progress.Please wait until previous backup is done", InfoLabel);
@@ -779,7 +772,7 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Lap2HDDMenuActionPerformed
 
-    private void usb2Lapmenuactionperformed(ActionEvent evt) {//GEN-FIRST:event_USB2LapMenuActionPerformed
+    private void usb2LapMenuActionPerformed(ActionEvent evt) {//GEN-FIRST:event_USB2LapMenuActionPerformed
         InfoLabel.setText("USB2LAP: doing backup");
         //TODO CHANGE IT!
         String tempResponse = backup.doClassicBackup(utilities.makeList(dom.getProperty("dom.source.usb.lap")), dom.getProperty("dom.destination.usb.lap"), null);
@@ -930,7 +923,7 @@ public class GUI extends javax.swing.JFrame {
         history.showHistoryOfMessages();
     }//GEN-LAST:event_InfoLabelMouseClicked
 
-    private void checkfreespacebeforebackupmenuitemactionperformed(ActionEvent evt) {//GEN-FIRST:event_checkFreeSpaceBeforeBackupMenuItemActionPerformed
+    private void checkFreeSpaceBeforeBackupMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_checkFreeSpaceBeforeBackupMenuItemActionPerformed
         settings.setCheckFreeSpaceBeforeBackup(checkFreeSpaceBeforeBackupMenuItem.isSelected());
         settings.setProperties(true);
         if (checkFreeSpaceBeforeBackupMenuItem.isSelected()) {
@@ -1066,17 +1059,7 @@ public class GUI extends javax.swing.JFrame {
     private void refreshContent() {
         LOGGER.debug("refreshing GUI content...");
         //SOURCE LIST
-        sourceList.setModel(new AbstractListModel() {
-            final String[] strings = srcList;
-
-            public int getSize() {
-                return strings.length;
-            }
-
-            public Object getElementAt(int element) {
-                return strings[element];
-            }
-        });
+        sourceList.setModel(new SourceListModel());
 
         //SOURCE AND DESTINATION PATHS LIST
         previousSrcPathComboBox.setModel(new DefaultComboBoxModel<>(recentSrcPaths));
@@ -1232,74 +1215,22 @@ public class GUI extends javax.swing.JFrame {
 
     private void setup() {
         LOGGER.debug("Program starting:\tSetup in progress...");
-        //STATUS for dom mode
-        if (status[0] == null) {
-            statusMenuItem.setForeground(AppColor.DARK_ORANGE);
-            statusMenuItem.setText("STATUS: UNKNOWN");
-        } else if ("ERROR".equalsIgnoreCase(status[0])) {
-            statusMenuItem.setForeground(Color.RED);
-        } else if ("WARNING".equalsIgnoreCase(status[0])) {
-            statusMenuItem.setForeground(AppColor.DARK_ORANGE);
-        } else if ("OK".equalsIgnoreCase(status[0])) {
-            statusMenuItem.setForeground(AppColor.DARK_GREEN);
-        } else {
-            statusMenuItem.setForeground(Color.DARK_GRAY);
-        }
-
-        //dom mode
-        try {
-            dom.load(new FileInputStream(System.getProperty("user.dir") + System.getProperty("file.separator") + "dom.properties"));
-            domMode.setSelected(true);
-        } catch (IllegalArgumentException | IOException ex) {
-            LOGGER.debug("dom mode deactivated:" + ex.getCause());
-            domMode.setVisible(false);
-            domMode.setEnabled(false);
-            domMode.setSelected(false);
-        }
-
-        //OS depended setup
-        if (System.getProperty("os.name").startsWith("Windows")) {
-            shutdownAfterBackupMenuItem.setEnabled(true);
-        } else {
-            shutdownAfterBackupMenuItem.setEnabled(true);
-            shutdownAfterBackupMenuItem.setSelected(false);
-        }
-
-        //Quick backup
-        if (settings.isQuickBackup()) {
-            utilities.activateQuickBackupMode(sourceField);
-            source = Settings.QUICK_MODE_FILENAME;
-            srcList = utilities.makeList(source);
-        }
-
+        setStatusForDomMode();
+        setDomMode();
+        setOsDependedSettings();
+        setQuickBackupMode();
 
         sourceField.setText(source);
         destinationField.setText(destination);
         utilities.setInfoLabel(Tools.getRandomColor(), source, InfoLabel);
 
 
-        if (StringUtils.isStringBlank(source)) {
-            for (String recentSrcPath : recentSrcPaths) {
-                if (FileTools.isFileExists(recentSrcPath)) {
-                    source = recentSrcPath;
-                    sourceField.setText(source);
-                }
-                InfoLabel.setForeground(AppColor.DARK_BLUE);
-                InfoLabel.setText("Source path doesn't exist.Program will use one of them from recent source list.");
-            }
-        }
+        checkSourcePath();
+        checkDestinationPath();
+        setCpuPriority();
+    }
 
-        if (StringUtils.isStringBlank(destination)) {
-            for (String recentDestPath : recentDestPaths) {
-                if (FileTools.isDirectoryExists(recentDestPath)) {
-                    destination = recentDestPath;
-                    destinationField.setText(destination);
-                }
-                InfoLabel.setForeground(AppColor.DARK_BLUE);
-                InfoLabel.setText("Destination path doesn't exist.Program will use one of them from recent destinations list.");
-            }
-        }
-
+    private void setCpuPriority() {
         //set radio button with priority
         //TODO Improve this code
         switch (settings.getCpuPriority()) {
@@ -1319,11 +1250,98 @@ public class GUI extends javax.swing.JFrame {
         }
     }
 
+    private void checkDestinationPath() {
+        if (StringUtils.isStringBlank(destination)) {
+            for (String recentDestPath : recentDestPaths) {
+                if (FileTools.isDirectoryExists(recentDestPath)) {
+                    destination = recentDestPath;
+                    destinationField.setText(destination);
+                }
+                InfoLabel.setForeground(AppColor.DARK_BLUE);
+                InfoLabel.setText("Destination path doesn't exist.Program will use one of them from recent destinations list.");
+            }
+        }
+    }
+
+    private void checkSourcePath() {
+        if (StringUtils.isStringBlank(source)) {
+            for (String recentSrcPath : recentSrcPaths) {
+                if (FileTools.isFileExists(recentSrcPath)) {
+                    source = recentSrcPath;
+                    sourceField.setText(source);
+                }
+                InfoLabel.setForeground(AppColor.DARK_BLUE);
+                InfoLabel.setText("Source path doesn't exist.Program will use one of them from recent source list.");
+            }
+        }
+    }
+
+    private void setQuickBackupMode() {
+        //Quick backup
+        if (settings.isQuickBackup()) {
+            utilities.activateQuickBackupMode(sourceField);
+            source = Settings.QUICK_MODE_FILENAME;
+            srcList = utilities.makeList(source);
+        }
+    }
+
+    private void setOsDependedSettings() {
+        //OS depended setup
+        if (System.getProperty("os.name").startsWith("Windows")) {
+            shutdownAfterBackupMenuItem.setEnabled(true);
+        } else {
+            shutdownAfterBackupMenuItem.setEnabled(true);
+            shutdownAfterBackupMenuItem.setSelected(false);
+        }
+    }
+
+    private void setDomMode() {
+        //dom mode
+        try {
+            dom.load(new FileInputStream(System.getProperty("user.dir") + System.getProperty("file.separator") + "dom.properties"));
+            domMode.setSelected(true);
+        } catch (IllegalArgumentException | IOException ex) {
+            LOGGER.debug("dom mode deactivated:" + ex.getCause());
+            domMode.setVisible(false);
+            domMode.setEnabled(false);
+            domMode.setSelected(false);
+        }
+    }
+
+    private void setStatusForDomMode() {
+        //STATUS for dom mode
+        if (status[0] == null) {
+            statusMenuItem.setForeground(AppColor.DARK_ORANGE);
+            statusMenuItem.setText("STATUS: UNKNOWN");
+        } else if ("ERROR".equalsIgnoreCase(status[0])) {
+            statusMenuItem.setForeground(Color.RED);
+        } else if ("WARNING".equalsIgnoreCase(status[0])) {
+            statusMenuItem.setForeground(AppColor.DARK_ORANGE);
+        } else if ("OK".equalsIgnoreCase(status[0])) {
+            statusMenuItem.setForeground(AppColor.DARK_GREEN);
+        } else {
+            statusMenuItem.setForeground(Color.DARK_GRAY);
+        }
+    }
+
     private void addonsForInitComponents() {
         //sets radio group for priority
         ButtonGroup group = new ButtonGroup();
         group.add(priority_max_radioItem);
         group.add(priority_normal_radioItem);
         group.add(priority_min_radioItem);
+    }
+
+    @SuppressWarnings("CyclicClassDependency")
+    private class SourceListModel extends AbstractListModel<String> {
+        final String[] strings = srcList;
+
+        public int getSize() {
+            return strings.length;
+        }
+
+        public String getElementAt(int element) {
+            return strings[element];
+        }
     }
 }

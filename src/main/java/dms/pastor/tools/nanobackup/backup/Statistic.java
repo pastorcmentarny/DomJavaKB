@@ -21,7 +21,7 @@ public class Statistic {
     //private static final Logger LOGGER = LoggerFactory.getLogger( log = Logger.getLogger(Statistic.class);
 
     private int fileCopied = 0;
-    private long sizeCopied = 0;
+    // --Commented out by Inspection (21/02/2018 14:14):private long sizeCopied = 0;
     private int error = 0;
     private long taskStart = 0;
     private long taskFinish = 0;
@@ -96,9 +96,11 @@ public class Statistic {
         this.backupSize = backupSize;
     }
 
-    public String getBackupType() {
-        return backupType;
-    }
+// --Commented out by Inspection START (21/02/2018 14:14):
+//    public String getBackupType() {
+//        return backupType;
+//    }
+// --Commented out by Inspection STOP (21/02/2018 14:14)
 
     public void setBackupType(String backupType) {
         this.backupType = backupType;
@@ -112,43 +114,63 @@ public class Statistic {
         this.backupSize = backupSize;
     }
 
-    public int getError() {
-        return error;
-    }
+// --Commented out by Inspection START (21/02/2018 14:14):
+//    public int getError() {
+//        return error;
+//    }
+// --Commented out by Inspection STOP (21/02/2018 14:14)
 
-    public void setError(int error) {
-        this.error = error;
-    }
+// --Commented out by Inspection START (21/02/2018 14:14):
+//    public void setError(int error) {
+//        this.error = error;
+//    }
+// --Commented out by Inspection STOP (21/02/2018 14:14)
 
-    public String getErrorMsgList() {
-        return errorMsgList;
-    }
+// --Commented out by Inspection START (21/02/2018 14:14):
+//    public String getErrorMsgList() {
+//        return errorMsgList;
+//    }
+// --Commented out by Inspection STOP (21/02/2018 14:14)
 
-    public void setErrorMsgList(String errorMsgList) {
-        this.errorMsgList = errorMsgList;
-    }
+// --Commented out by Inspection START (21/02/2018 14:14):
+//    public void setErrorMsgList(String errorMsgList) {
+//        this.errorMsgList = errorMsgList;
+//    }
+// --Commented out by Inspection STOP (21/02/2018 14:14)
 
-    public int getFileCopied() {
-        return fileCopied;
-    }
+// --Commented out by Inspection START (21/02/2018 14:14):
+//    public int getFileCopied() {
+//        return fileCopied;
+//    }
+// --Commented out by Inspection STOP (21/02/2018 14:14)
 
-    public void setFileCopied(int fileCopied) {
-        this.fileCopied = fileCopied;
-    }
+// --Commented out by Inspection START (21/02/2018 14:14):
+//    public void setFileCopied(int fileCopied) {
+//        this.fileCopied = fileCopied;
+//    }
+// --Commented out by Inspection STOP (21/02/2018 14:14)
 
-    public long getFinish() {
-        return taskFinish;
-    }
+// --Commented out by Inspection START (21/02/2018 14:14):
+//    public long getFinish() {
+//        return taskFinish;
+//    }
+// --Commented out by Inspection STOP (21/02/2018 14:14)
 
-    public void setFinish(long finish) {
-        this.taskFinish = finish;
-    }
+// --Commented out by Inspection START (21/02/2018 14:14):
+//    public void setFinish(long finish) {
+//        this.taskFinish = finish;
+//    }
+// --Commented out by Inspection STOP (21/02/2018 14:14)
 
-    public long getStart() {
-        return taskStart;
-    }
+// --Commented out by Inspection START (21/02/2018 14:14):
+//    public long getStart() {
+//        return taskStart;
+//    }
+// --Commented out by Inspection STOP (21/02/2018 14:14)
 
-    public void setStart(long start) {
-        this.taskStart = start;
-    }
+// --Commented out by Inspection START (21/02/2018 14:14):
+//    public void setStart(long start) {
+//        this.taskStart = start;
+//    }
+// --Commented out by Inspection STOP (21/02/2018 14:14)
 }
