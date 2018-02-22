@@ -7,11 +7,12 @@ package dms.pastor.game.littlefighter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import static java.lang.String.format;
 
 /**
  * Author Dominik Symonowicz
@@ -26,58 +27,59 @@ class HiScore {
 
     private final List<Integer> scoreList = new ArrayList<>();
     private final int[] score = new int[10];
-    private StringBuilder content = new StringBuilder();
-    private FileReader fileLoader;
-    private FileWriter fileSaver;
-    private final String fileName = "HiScore.txt";
+    // --Commented out by Inspection (21/02/2018 15:56):private StringBuilder content = new StringBuilder();
 
-    public void setHighScoreFor(int points) {
-        for (int i = 0; i < score.length; i++) {
-            if (points > score[i]) {
-                int tempI = score[i];
-                score[i] = points;
-                for (int j = i; j < score.length; i++) {
-                    int tempJ = score[j];
-                    score[j] = tempI;
-                }
-            }
-        }
-        displayHiScore();
-    }
+// --Commented out by Inspection START (21/02/2018 15:56):
+//    public void setHighScoreFor(int points) {
+//        for (int i = 0; i < score.length; i++) {
+//            if (points > score[i]) {
+//                int tempI = score[i];
+//                score[i] = points;
+//                for (int j = i; j < score.length; i++) {
+//                    int tempJ = score[j];
+//                    score[j] = tempI;
+//                }
+//            }
+//        }
+//        displayHiScore();
+//    }
+// --Commented out by Inspection STOP (21/02/2018 15:56)
 
-    private void displayHiScore() {
+/*    private void displayHiScore() {
         for (int i = 0; i < score.length; i++) {
             System.out.println(i + " place =" + score[i]);
         }
-    }
+    }*/
 
-    public void save2File(int exp) {
-        try {
-            fileLoader = new FileReader(fileName);
-            BufferedReader br = new BufferedReader(fileLoader);
-            StringBuilder allText = new StringBuilder();
-            String t;
-            int line = 0;
-            while ((t = br.readLine()) != null) {
-                System.out.println(t);
-                allText.append(t).append("\n");
-                line++;
-            }
-            System.out.println(allText);
-            allText.append(exp).append("\n");
-            System.out.println(allText);
-
-            fileLoader.close();
-            fileSaver = new FileWriter(fileName);
-            BufferedWriter bw = new BufferedWriter(fileSaver);
-            //checkScore(exp,singleScore,line);
-            fileSaver.write(allText.toString());
-            fileSaver.close();
-
-        } catch (IOException exception) {
-            LOGGER.warn(format("Unable save to file due %s", exception.getMessage()), exception);
-        }
-    }
+// --Commented out by Inspection START (21/02/2018 15:56):
+//    public void save2File(int exp) {
+//        try {
+//            fileLoader = new FileReader(fileName);
+//            BufferedReader br = new BufferedReader(fileLoader);
+//            StringBuilder allText = new StringBuilder();
+//            String t;
+//            int line = 0;
+//            while ((t = br.readLine()) != null) {
+//                System.out.println(t);
+//                allText.append(t).append("\n");
+//                line++;
+//            }
+//            System.out.println(allText);
+//            allText.append(exp).append("\n");
+//            System.out.println(allText);
+//
+//            fileLoader.close();
+//            fileSaver = new FileWriter(fileName);
+//            BufferedWriter bw = new BufferedWriter(fileSaver);
+//            //checkScore(exp,singleScore,line);
+//            fileSaver.write(allText.toString());
+//            fileSaver.close();
+//
+//        } catch (IOException exception) {
+//            LOGGER.warn(format("Unable save to file due %s", exception.getMessage()), exception);
+//        }
+//    }
+// --Commented out by Inspection STOP (21/02/2018 15:56)
 
 /*    private void checkScore(int exp, String t, int line) {
         String[] temp;
@@ -87,12 +89,14 @@ class HiScore {
         }
     }*/
 
-    public void addToHiScore(int score) {
-        try {
-            fileLoader = new FileReader(fileName);
-            BufferedReader br = new BufferedReader(fileLoader);
+    void addToHiScore(int score) {
+        String fileName = "HiScore.txt";
+        try (FileReader fileLoader = new FileReader(fileName); BufferedReader br = new BufferedReader(fileLoader);
+             FileWriter fileSaver = new FileWriter(fileName)
+             //BufferedWriter bw = new BufferedWriter(fileSaver)
+        ) {
+
             String singleScore;
-            int line = 0;
             while ((singleScore = br.readLine()) != null) {
                 if (singleScore.startsWith("0") ||
                         singleScore.startsWith("1") ||
@@ -107,15 +111,12 @@ class HiScore {
 
                     System.out.println(singleScore);
                     scoreList.add(Integer.parseInt(singleScore));
-                    line++;
                 }
             }
             scoreList.add(score);
             sortScoreList();
 
             fileLoader.close();
-            fileSaver = new FileWriter(fileName);
-            BufferedWriter bw = new BufferedWriter(fileSaver);
             for (Integer aScoreList : scoreList) {
                 String x = aScoreList.toString() + "\n";
                 fileSaver.write(x);

@@ -24,14 +24,14 @@ class Enemy {
     int enemyHP;
     //private int EnemyShield = 2*EnemyHP;
     int enemyArmor;
-    protected boolean isUseMagicShield;
+    // --Commented out by Inspection (21/02/2018 15:56):protected boolean isUseMagicShield;
     final Random random = new Random();
     String enemyName = "Effigy";
     final Status statuses = new Status();
     int regen;
-    boolean isPoisoned;
+    // --Commented out by Inspection (21/02/2018 15:56):boolean isPoisoned;
 
-    public Enemy() {
+    Enemy() {
         enemyAttack = random.nextInt(9) + 1;
         enemyDefence = random.nextInt(9) + 1;
         enemyPower = random.nextInt(5) + 1;

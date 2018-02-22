@@ -17,16 +17,17 @@ import static dms.pastor.game.littlefighter.Config.DEFAULT_HEALTH_POINTS;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
+@SuppressWarnings("ClassWithTooManyFields")
 class Player {
+    private static final int DEFAULT_PLAYER_MANA_ADDITION = 50;
     public final Status status = new Status();
     private final Random random = new Random();
-    String PlayerName = "Player";
+    private String playerName = "Player";
     private int playerAttack = random.nextInt(9) + 1;
     private int playerDefence = random.nextInt(9) + 1;
     private int playerPower = random.nextInt(5) + 1;
     private int playerHp = 2 * DEFAULT_HEALTH_POINTS + random.nextInt(2 * DEFAULT_HEALTH_POINTS);
     private int playerShield = 2 * playerHp;
-    private int playerArmor = random.nextInt(2);
     private int playerMana = 100;
     private int exp = 0;
     private int score = 0;
@@ -36,131 +37,165 @@ class Player {
     private int kills = 0;
     private String msg;
 
-    public Random getRandom() {
-        return random;
-    }
+// --Commented out by Inspection START (21/02/2018 15:56):
+//    public Random getRandom() {
+//        return random;
+//    }
+// --Commented out by Inspection STOP (21/02/2018 15:56)
 
-    public String getPlayerName() {
-        return PlayerName;
-    }
+// --Commented out by Inspection START (21/02/2018 15:56):
+//    public String getPlayerName() {
+//        return playerName;
+//    }
+// --Commented out by Inspection STOP (21/02/2018 15:56)
 
-    public void setPlayerName(String playerName) {
-        PlayerName = playerName;
-    }
+// --Commented out by Inspection START (21/02/2018 15:56):
+//    public void setPlayerName(String playerName) {
+//        playerName = playerName;
+//    }
+// --Commented out by Inspection STOP (21/02/2018 15:56)
 
-    public int getPlayerAttack() {
+    int getPlayerAttack() {
         return playerAttack;
     }
 
-    public void setPlayerAttack(int playerAttack) {
-        this.playerAttack = playerAttack;
-    }
+// --Commented out by Inspection START (21/02/2018 15:56):
+//    public void setPlayerAttack(int playerAttack) {
+//        this.playerAttack = playerAttack;
+//    }
+// --Commented out by Inspection STOP (21/02/2018 15:56)
 
-    public int getPlayerDefence() {
+    int getPlayerDefence() {
         return playerDefence;
     }
 
-    public void setPlayerDefence(int playerDefence) {
-        this.playerDefence = playerDefence;
-    }
+// --Commented out by Inspection START (21/02/2018 15:56):
+//    public void setPlayerDefence(int playerDefence) {
+//        this.playerDefence = playerDefence;
+//    }
+// --Commented out by Inspection STOP (21/02/2018 15:56)
 
-    public int getPlayerPower() {
+    int getPlayerPower() {
         return playerPower;
     }
 
-    public void setPlayerPower(int playerPower) {
-        this.playerPower = playerPower;
-    }
+// --Commented out by Inspection START (21/02/2018 15:56):
+//    public void setPlayerPower(int playerPower) {
+//        this.playerPower = playerPower;
+//    }
+// --Commented out by Inspection STOP (21/02/2018 15:56)
 
-    public int getPlayerHp() {
+    int getPlayerHp() {
         return playerHp;
     }
 
-    public void setPlayerHp(int playerHp) {
-        this.playerHp = playerHp;
-    }
+// --Commented out by Inspection START (21/02/2018 15:56):
+//    public void setPlayerHp(int playerHp) {
+//        this.playerHp = playerHp;
+//    }
+// --Commented out by Inspection STOP (21/02/2018 15:56)
 
-    public int getPlayerShield() {
+    int getPlayerShield() {
         return playerShield;
     }
 
-    public void setPlayerShield(int playerShield) {
+    void setPlayerShield(int playerShield) {
         this.playerShield = playerShield;
     }
 
-    public int getPlayerArmor() {
-        return playerArmor;
-    }
+// --Commented out by Inspection START (21/02/2018 15:56):
+//    public int getPlayerArmor() {
+//        return playerArmor;
+//    }
+// --Commented out by Inspection STOP (21/02/2018 15:56)
 
-    public void setPlayerArmor(int playerArmor) {
-        this.playerArmor = playerArmor;
-    }
+// --Commented out by Inspection START (21/02/2018 15:56):
+//    public void setPlayerArmor(int playerArmor) {
+//        this.playerArmor = playerArmor;
+//    }
+// --Commented out by Inspection STOP (21/02/2018 15:56)
 
-    public int getPlayerMana() {
+    int getPlayerMana() {
         return playerMana;
     }
 
-    public void setPlayerMana(int playerMana) {
+    void setPlayerMana(int playerMana) {
         this.playerMana = playerMana;
     }
 
-    public int getExp() {
+    int getExp() {
         return exp;
     }
 
-    public void setExp(int exp) {
-        this.exp = exp;
-    }
+// --Commented out by Inspection START (21/02/2018 15:56):
+//    public void setExp(int exp) {
+//        this.exp = exp;
+//    }
+// --Commented out by Inspection STOP (21/02/2018 15:56)
 
     public int getScore() {
         return score;
     }
 
-    public void setScore(int score) {
-        this.score = score;
-    }
+// --Commented out by Inspection START (21/02/2018 15:56):
+//    public void setScore(int score) {
+//        this.score = score;
+//    }
+// --Commented out by Inspection STOP (21/02/2018 15:56)
 
-    public int getPlayerLevel() {
+    int getPlayerLevel() {
         return playerLevel;
     }
 
-    public void setPlayerLevel(int playerLevel) {
-        this.playerLevel = playerLevel;
-    }
+// --Commented out by Inspection START (21/02/2018 15:56):
+//    public void setPlayerLevel(int playerLevel) {
+//        this.playerLevel = playerLevel;
+//    }
+// --Commented out by Inspection STOP (21/02/2018 15:56)
 
-    public int getPlayerShieldRegen() {
-        return playerShieldRegen;
-    }
+// --Commented out by Inspection START (21/02/2018 15:56):
+//    public int getPlayerShieldRegen() {
+//        return playerShieldRegen;
+//    }
+// --Commented out by Inspection STOP (21/02/2018 15:56)
 
-    public void setPlayerShieldRegen(int playerShieldRegen) {
-        this.playerShieldRegen = playerShieldRegen;
-    }
+// --Commented out by Inspection START (21/02/2018 15:56):
+//    public void setPlayerShieldRegen(int playerShieldRegen) {
+//        this.playerShieldRegen = playerShieldRegen;
+//    }
+// --Commented out by Inspection STOP (21/02/2018 15:56)
 
-    public int getPlayerManaRegen() {
+    private int getPlayerManaRegen() {
         return playerManaRegen;
     }
 
-    public void setPlayerManaRegen(int playerManaRegen) {
-        this.playerManaRegen = playerManaRegen;
-    }
+// --Commented out by Inspection START (21/02/2018 15:56):
+//    public void setPlayerManaRegen(int playerManaRegen) {
+//        this.playerManaRegen = playerManaRegen;
+//    }
+// --Commented out by Inspection STOP (21/02/2018 15:56)
 
-    public int getKills() {
+    int getKills() {
         return kills;
     }
 
-    public void setKills(int kills) {
-        this.kills = kills;
-    }
+// --Commented out by Inspection START (21/02/2018 15:56):
+//    public void setKills(int kills) {
+//        this.kills = kills;
+//    }
+// --Commented out by Inspection STOP (21/02/2018 15:56)
 
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
+// --Commented out by Inspection START (21/02/2018 15:56):
+//    public void setMsg(String msg) {
+//        this.msg = msg;
+//    }
+// --Commented out by Inspection STOP (21/02/2018 15:56)
 
     public Status getStatus() {
         return status;
     }
 
-    public String levelUp() {
+    void levelUp() {
         exp -= 1000;
         playerLevel++;
         playerShieldRegen++;
@@ -169,22 +204,21 @@ class Player {
             case 0:
                 playerAttack++;
                 playerDefence++;
-                return "Attack and Defence +1!";
+                return;
             case 1:
                 playerAttack++;
-                return "Attack +1";
+                return;
             case 2:
                 playerDefence++;
-                return "Defence +1";
+                return;
             case 3:
                 playerShieldRegen++;
-                return "Shield regeneration +1";
+                return;
             case 4:
                 playerManaRegen++;
-                return "quicker mana regen";
+                return;
             default:
-                playerMana += 50;
-                return "???";
+                playerMana += DEFAULT_PLAYER_MANA_ADDITION;
         }
     }
 
@@ -199,63 +233,63 @@ class Player {
 
     }
 
-    public void addHp() {
+    void addHp() {
         playerHp++;
     }
 
-    public void addExp(int value) {
+    void addExp(int value) {
         exp += value;
     }
 
-    public void addScore(int points) {
+    void addScore(int points) {
         score += points;
     }
 
-    public boolean hasNotShield() {
+    boolean hasNotShield() {
         return playerShield < 0;
     }
 
-    public void addHp(int points) {
+    void addHp(int points) {
         playerHp += points;
     }
 
-    public void setShieldToZero() {
+    void setShieldToZero() {
         playerShield = 0;
     }
 
-    public void addPower() {
+    void addPower() {
         playerPower++;
     }
 
-    public void addKill() {
+    void addKill() {
         kills++;
     }
 
-    public boolean isAlive() {
+    private boolean isAlive() {
         return playerHp > 0;
     }
 
-    public boolean isDeath() {
+    boolean isDeath() {
         return !isAlive();
     }
 
-    public void addAttack() {
+    void addAttack() {
         playerAttack++;
     }
 
-    public void addDefence() {
+    void addDefence() {
         playerDefence++;
     }
 
-    public void reduceHp(int value) {
+    void reduceHp(int value) {
         playerHp -= value;
     }
 
-    public void addShieldPoints(int shieldRegen) {
+    void addShieldPoints(int shieldRegen) {
         playerShield += shieldRegen;
     }
 
-    public void regenMana() {
+    void regenMana() {
         playerMana += getPlayerManaRegen();
     }
 }

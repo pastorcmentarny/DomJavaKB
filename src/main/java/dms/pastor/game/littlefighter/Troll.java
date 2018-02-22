@@ -17,7 +17,7 @@ import static dms.pastor.game.littlefighter.Config.DEFAULT_HEALTH_POINTS;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public class Troll extends Enemy {
-    public Troll() {
+    Troll() {
         enemyAttack = random.nextInt(8) + 1;
         enemyDefence = random.nextInt(8) + 1;
         enemyPower = random.nextInt(4) + 1;

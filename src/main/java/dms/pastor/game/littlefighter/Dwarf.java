@@ -16,7 +16,7 @@ import static dms.pastor.game.littlefighter.Config.DEFAULT_HEALTH_POINTS;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public class Dwarf extends Enemy {
-    public Dwarf() {
+    Dwarf() {
         enemyAttack = random.nextInt(9) + 1;
         enemyDefence = random.nextInt(9) + 1;
         enemyPower = random.nextInt(9) + 6;

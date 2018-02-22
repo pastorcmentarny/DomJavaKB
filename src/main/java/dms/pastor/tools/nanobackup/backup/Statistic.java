@@ -31,7 +31,6 @@ public class Statistic {
 
     public void start() {
         taskFinish = 0;
-        sizeCopied = 0;
         taskStart = Calendar.getInstance().getTimeInMillis();
     }
 
@@ -84,7 +83,6 @@ public class Statistic {
 
     public void resetStats() {
         fileCopied = 0;
-        sizeCopied = 0;
         error = 0;
         taskStart = 0;
         taskFinish = 0;

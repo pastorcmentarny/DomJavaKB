@@ -12,7 +12,7 @@ class Battle {
     //private int dmg;
 
 
-    public int playerAttack(Player player, Enemy enemy, JTextArea console) {
+    int playerAttack(Player player, Enemy enemy) {
         int dmg = (player.getPlayerAttack() * player.getPlayerPower()) - (enemy.getEnemyDefence() * enemy.getEnemyPower()) - enemy.getEnemyArmor();
         if (dmg < 0) {
             return 0;
@@ -26,7 +26,7 @@ class Battle {
 
     }
 
-    public int enemyAttack(Player player, Enemy enemy, JTextArea console) {
+    int enemyAttack(Player player, Enemy enemy, JTextArea console) {
         boolean isIt = enemy.addOnToAttack(player);
         if (isIt) {
             console.setText(console.getText() + player.getMsg());

@@ -11,8 +11,9 @@ package dms.pastor.game.littlefighter;
 @SuppressWarnings("MagicNumber")
         //TOO OLD PROJECT  TO TAKE CARE OF MAGIC NUMBERS
 class SpellBook {
+    private boolean isSuccess = false;
 
-    public String castMana2Shield(Player player) {
+    String castMana2Shield(Player player) {
 
         final int manaCost = 17;
         if (player.getPlayerMana() >= manaCost) {
@@ -24,18 +25,20 @@ class SpellBook {
 
     }
 
-    public boolean castMagicVampire(Player player, Enemy enemy) {
+    void castMagicVampire(Player player, Enemy enemy) {
+        isSuccess = false;
         final int manaCost = 25;
         if (player.getPlayerMana() >= manaCost) {
             player.setPlayerMana(player.getPlayerMana() - manaCost);
             enemy.setEnemyHP(enemy.getEnemyHP() - 5);
             player.addHp();
-            return true;
+            isSuccess = true;
         }
-        return false;
+        isSuccess = false;
     }
 
-    boolean castFireBall(Player player, Enemy enemy) {
+    void castFireBall(Player player, Enemy enemy) {
+        isSuccess = false;
         final int manaCost = 19;
         if (player.getPlayerMana() >= manaCost) {
             player.setPlayerMana(player.getPlayerMana() - manaCost);
@@ -43,12 +46,13 @@ class SpellBook {
             enemy.setEnemyHP(x);
             player.addExp(x);
             player.addScore(15);
-            return true;
+            isSuccess = true;
         }
-        return false;
+        isSuccess = false;
     }
 
-    boolean castLightingStrike(Player player, Enemy enemy) {
+    void castLightingStrike(Player player, Enemy enemy) {
+        isSuccess = false;
         final int manaCost = 27;
         if (player.getPlayerMana() >= manaCost) {
             player.setPlayerMana(player.getPlayerMana() - manaCost);
@@ -57,19 +61,22 @@ class SpellBook {
             enemy.setEnemyHP(enemyHp);
             player.addExp(enemyHp);
             player.addScore(15);
-            return true;
+            isSuccess = true;
         }
-        return false;
+        isSuccess = false;
     }
 
-    boolean castDispel(Player player) {
+    void castDispel(Player player) {
         final int manaCost = 20;
         if (player.getPlayerMana() >= manaCost) {
             player.setPlayerMana(player.getPlayerMana() - manaCost);
             player.status.purify();
-            return true;
+            isSuccess = true;
         }
-        return false;
+        isSuccess = false;
     }
 
+    public boolean isSuccess() {
+        return isSuccess;
+    }
 }

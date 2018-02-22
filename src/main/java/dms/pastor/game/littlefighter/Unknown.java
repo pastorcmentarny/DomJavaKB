@@ -11,7 +11,7 @@ package dms.pastor.game.littlefighter;
 @SuppressWarnings("MagicNumber") //TOO OLD PROJECT  TO TAKE CARE OF MAGIC NUMBERS
 public class Unknown extends Enemy {
 
-    public Unknown() {
+    Unknown() {
         enemyAttack = random.nextInt(9) + 1;
         enemyDefence = random.nextInt(9) + 1;
         enemyPower = random.nextInt(5) + 1;
