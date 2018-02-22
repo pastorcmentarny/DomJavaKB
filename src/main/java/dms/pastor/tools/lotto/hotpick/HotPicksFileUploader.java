@@ -15,6 +15,7 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 import static dms.pastor.tools.lotto.LottoFilePathValidator.validateFilePath;
+import static dms.pastor.tools.lotto.common.LottoValidator.validateDate;
 import static java.lang.String.format;
 
 /**
@@ -104,20 +105,6 @@ public class HotPicksFileUploader implements FileUploader {
         validateDate(drawDate);
         final String[] date = drawDate.split(DASH);
         return LocalDate.of(Integer.parseInt(date[2]), DateUtils.getMonthNumberFromShortedName(date[1]), Integer.parseInt(date[0]));
-    }
-
-    private void validateDate(String drawDate) {
-
-        if (drawDate == null || drawDate.isEmpty() || drawDate.split(DASH).length != 3) {
-            throw new IllegalArgumentException(format("Date format is not valid.It should be dd-MMM-YYYY (for example 01-JAN-2016) but it was %s", drawDate));
-        }
-        final String[] date = drawDate.split(DASH);
-        try {
-            LocalDate.of(Integer.parseInt(date[2]), DateUtils.getMonthNumberFromShortedName(date[1]), Integer.parseInt(date[0]));
-        } catch (Exception e) {
-            LOGGER.warn(format("validation failed due %s", e.getMessage()), e);
-            throw new IllegalArgumentException(e);
-        }
     }
 
     private int validateBall(String ball) {

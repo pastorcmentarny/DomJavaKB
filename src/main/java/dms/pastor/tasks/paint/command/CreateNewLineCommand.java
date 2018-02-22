@@ -6,6 +6,7 @@ import dms.pastor.tasks.paint.canvas.Point;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static dms.pastor.tasks.paint.PaintIsRangeValidator.validate;
 import static dms.pastor.tasks.paint.canvas.Coordinates.noCoordination;
 import static dms.pastor.tasks.paint.command.CommandValidator.validateParamsNumber;
 import static dms.pastor.tasks.paint.command.CommandValidator.validatePositiveLength;
@@ -98,16 +99,11 @@ public class CreateNewLineCommand implements Command {
     }
 
     private void validateAreParamsIsRange(Canvas canvas) {
-        if (startPoint.getHeight() < canvas.getBorder() || endPoint.getHeight() > canvas.getHeight() + canvas.getBorder()) {
-            LOGGER.warn("Start Point: " + startPoint.toString() + " End Point: " + endPoint.toString() + " Canvas: " + canvas.getCoordinatesAsString() + "Border: " + canvas.getBorder() + "\n" + canvas.getCanvasAsString());
-            throw new InvalidCommandSyntaxException("paint on border is not allowed");
-        }
+        validate(startPoint.getHeight() < canvas.getBorder() || endPoint.getHeight() > canvas.getHeight() + canvas.getBorder(), canvas, startPoint, endPoint);
+        validate(startPoint.getWidth() < canvas.getBorder() || endPoint.getWidth() > canvas.getWidth() + canvas.getBorder(), canvas, startPoint, endPoint);
 
-        if (startPoint.getWidth() < canvas.getBorder() || endPoint.getWidth() > canvas.getWidth() + canvas.getBorder()) {
-            LOGGER.warn("Start Point: " + startPoint.toString() + " End Point: " + endPoint.toString() + " Canvas: " + canvas.getCoordinatesAsString() + "Border: " + canvas.getBorder() + "\n" + canvas.getCanvasAsString());
-            throw new InvalidCommandSyntaxException("paint on border is not allowed");
-        }
     }
+
 
     private boolean isHorizontal() {
         return startPoint.getWidth() == endPoint.getWidth();
