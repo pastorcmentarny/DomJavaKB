@@ -22,7 +22,8 @@ import static java.util.stream.Collectors.toList;
  * <p>
  * Yes, Apache commons is better, but this class was created to learn TDD.
  */
-@SuppressWarnings("QuestionableName") // because string is valid name
+@SuppressWarnings({"QuestionableName", "ClassWithTooManyMethods"})
+// because string is valid name and this is utility class
 public final class StringUtils {
     public static final String EMPTY_STRING = "";
     public static final String WHITESPACE = " ";
@@ -213,10 +214,7 @@ public final class StringUtils {
     }
 
     public static String swapCaseLettersInString(String text) {
-        validateIfNotNull(text, "text");
-        if (text.isEmpty()) {
-            return EMPTY_STRING;
-        }
+        if (checkIfStringEmpty(text)) return EMPTY_STRING;
         StringBuilder stringBuilder = new StringBuilder(EMPTY_STRING);
         for (Character character : text.toCharArray()) {
             if (isUpperCase(character)) {
@@ -300,18 +298,20 @@ public final class StringUtils {
     }
 
     public static String getStringWithCapitalizedFirstCharacter(String string) {
-        validateIfNotNull(string, "text");
-        if (string.isEmpty()) {
+        if (checkIfStringEmpty(string)) {
             return string;
         }
         return string.substring(0, 1).toUpperCase() + string.substring(1, string.length());
     }
 
-    public static String capitalizeFirstCharacter(String string) {
+    //TODO rename it
+    private static boolean checkIfStringEmpty(String string) {
         validateIfNotNull(string, "text");
-        if (string.isEmpty()) {
-            return string;
-        }
+        return string.isEmpty();
+    }
+
+    public static String capitalizeFirstCharacter(String string) {
+        if (checkIfStringEmpty(string)) return string;
         return string.substring(0, 1).toUpperCase();
     }
 
