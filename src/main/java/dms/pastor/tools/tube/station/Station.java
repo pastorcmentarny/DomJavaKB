@@ -27,6 +27,7 @@ public class Station {
     private LocalDate visitedDate;
     private LocalDate thisYearVisitedDate;
 
+    @SuppressWarnings("ConstructorWithTooManyParameters") //not apply in this case
     public Station(String name, Status status, List<Line> lines, LocalDate passedDate, LocalDate visitedDate, LocalDate thisYearVisitedDate) {
         this.name = name;
         this.status = status;

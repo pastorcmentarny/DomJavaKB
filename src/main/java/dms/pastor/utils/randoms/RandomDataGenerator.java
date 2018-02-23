@@ -72,7 +72,11 @@ public final class RandomDataGenerator {
     }
 
     public static Character getRandomCharacterFromAlphabet() {
-        return ALPHABET.toCharArray()[RANDOM.nextInt(ALPHABET.length())];
+        return getRandomCharacterFrom(ALPHABET);
+    }
+
+    private static Character getRandomCharacterFrom(String array) {
+        return array.toCharArray()[RANDOM.nextInt(ALPHABET.length())];
     }
 
     public static String getRandomCharacterAsString() {
@@ -170,7 +174,7 @@ public final class RandomDataGenerator {
             throw new IllegalArgumentException("Size of string must be greater than zero");
         }
         for (int i = 0; i < maxRandomSize; i++) {
-            stringBuilder.append(NON_ALPHANUMERIC.toCharArray()[RANDOM.nextInt(NON_ALPHANUMERIC.length())]);
+            stringBuilder.append(getRandomCharacterFrom(NON_ALPHANUMERIC));
         }
         return stringBuilder.toString();
     }
