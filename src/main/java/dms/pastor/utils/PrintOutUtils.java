@@ -31,15 +31,18 @@ public final class PrintOutUtils {
     }
 
     public static void printIntArray(int[] values) {
-        StringBuilder sb = new StringBuilder(OPEN_ARRAY_WITH_SPACE);
-        IntStream.of(values).forEach(integer -> sb.append(integer).append(WHITESPACE_CHAR));
-        sb.append(CLOSE_ARRAY);
-        out.println(sb.toString());
+        StringBuilder stringBuilder = new StringBuilder(OPEN_ARRAY_WITH_SPACE);
+        IntStream.of(values).forEach(integer -> stringBuilder.append(integer).append(WHITESPACE_CHAR));
+        printInConsole(stringBuilder);
     }
 
     public static void printIntArray(Integer[] values) {
-        StringBuilder sb = new StringBuilder(OPEN_ARRAY_WITH_SPACE);
-        Arrays.asList(values).forEach(integer -> sb.append(integer).append(WHITESPACE_CHAR));
+        StringBuilder stringBuilder = new StringBuilder(OPEN_ARRAY_WITH_SPACE);
+        Arrays.asList(values).forEach(integer -> stringBuilder.append(integer).append(WHITESPACE_CHAR));
+        printInConsole(stringBuilder);
+    }
+
+    private static void printInConsole(StringBuilder sb) {
         sb.append(CLOSE_ARRAY);
         out.println(sb.toString());
     }

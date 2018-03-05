@@ -3,6 +3,7 @@ package dms.pastor.utils.string;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.function.Consumer;
 
 import static dms.pastor.utils.StringUtils.*;
 
@@ -36,13 +37,17 @@ public final class ToStringUtils {
             return EMPTY_STRING;
         }
         StringBuilder stringBuilder = new StringBuilder(EMPTY_STRING);
-        lines.forEach(line -> stringBuilder.append(line).append(NEW_LINE));
+        lines.forEach(addToStringBuilder(stringBuilder, NEW_LINE));
         return stringBuilder.toString().substring(0, stringBuilder.length() - 1);
+    }
+
+    private static Consumer<String> addToStringBuilder(StringBuilder stringBuilder, char character) {
+        return line -> stringBuilder.append(line).append(character);
     }
 
     public static String toString(List<String> stringList) {
         final StringBuilder stringBuilder = new StringBuilder(EMPTY_STRING);
-        stringList.forEach(element -> stringBuilder.append(element).append(COMMA));
+        stringList.forEach(addToStringBuilder(stringBuilder, COMMA));
         return stringBuilder.toString().substring(0, stringBuilder.length() - 1);
     }
 

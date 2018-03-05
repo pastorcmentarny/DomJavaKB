@@ -20,18 +20,19 @@ public class Status {
     // --Commented out by Inspection (21/02/2018 15:56):private boolean toBeGaga; //gaga - zdziecinnieć; zramoleć;
 
     public Status() {
-        isPoisoned = false;
-        isBerserk = false;
-        isWeak = false;
-        isBlind = false;
+        removeAllStatuses();
         //toBeGaga = false;
     }
 
-    void purify() {
+    private void removeAllStatuses() {
         isPoisoned = false;
         isBerserk = false;
         isWeak = false;
         isBlind = false;
+    }
+
+    void purify() {
+        removeAllStatuses();
         //toBeGaga = false;
     }
 
