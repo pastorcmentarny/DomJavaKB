@@ -190,4 +190,11 @@ public final class ValidatorUtils {
         }
     }
 
+    public static void validateIfArrayHasSizeOf(int size, String[] array, String what) {
+        validateIfNotNull(array, what);
+        if (size != array.length) {
+            throw new IllegalArgumentException(String.format("%s has incorrect size. It should be %d but was %d.", what, size, array.length));
+        }
+
+    }
 }

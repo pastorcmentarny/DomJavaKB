@@ -733,4 +733,47 @@ public class ValidatorUtilsTest {
         // then nothing happen if sum of 2 values in valid integer range.
     }
 
+    @Test
+    public void validateIfArrayHasSizeOfShouldThrowExceptionIfArrayIsNull() {
+        // expect
+        exception.expect(IllegalArgumentException.class);
+
+        // when
+        ValidatorUtils.validateIfArrayHasSizeOf(randomPositiveInteger(), null, generateString());
+    }
+
+    @Test
+    public void validateIfArrayHasSizeOfShouldThrowExceptionIfSizeIsNegative() {
+        // expect
+        exception.expect(IllegalArgumentException.class);
+
+        // when
+        ValidatorUtils.validateIfArrayHasSizeOf(randomNegativeInteger(), new String[]{generateString()}, generateString());
+    }
+
+    @Test
+    public void validateIfArrayHasSizeOfShouldNotThrowExceptionIfArrayLengthIsNotEqualsToSize() {
+        // given
+        final String what = generateString();
+
+        // expect
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage(what + " has incorrect size. It should be 2 but was 1");
+
+        // when
+        ValidatorUtils.validateIfArrayHasSizeOf(2, new String[]{generateString()}, what);
+    }
+
+    @Test
+    public void validateIfArrayHasSizeOfShouldNotThrowException() {
+
+        // given
+        final String[] array = {generateString()};
+        final String what = generateString();
+
+        // when
+        ValidatorUtils.validateIfArrayHasSizeOf(1, array, what);
+
+        // then no exception is thrown
+    }
 }
