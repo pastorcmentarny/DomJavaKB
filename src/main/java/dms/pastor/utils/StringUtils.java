@@ -156,7 +156,7 @@ public final class StringUtils {
 
     static String[] toStringArray(List<String> list) {
         validateIfNotNull(list);
-        String[] stringArray = new String[list.size()];
+        var stringArray = new String[list.size()];
         int counter = 0;
         for (String string : list) {
             stringArray[counter] = string;

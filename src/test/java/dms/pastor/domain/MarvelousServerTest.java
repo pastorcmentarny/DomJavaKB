@@ -13,7 +13,7 @@ import java.util.UUID;
 
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Matchers.eq;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.verify;
 
 /**
@@ -45,7 +45,7 @@ public class MarvelousServerTest {
     }
 
     @Test
-    public void shouldCreateTreasureTest() throws Exception {
+    public void shouldCreateTreasureTest() {
         // given
         final UUID id = UUID.randomUUID();
         final AwesomeRequest awesomeRequest = new AwesomeRequest(id, generateString(10));
