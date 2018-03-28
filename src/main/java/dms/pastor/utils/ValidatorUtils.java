@@ -24,6 +24,7 @@ public final class ValidatorUtils {
 
     private static final String ERROR_MESSAGE_VALUE_CANNOT_BE_NEGATIVE = " cannot be negative.";
     private static final String DEFAULT_VALUE_NAME = "Value";
+    private static final String INVALID_PATH = "Path to file is invalid.";
 
     private ValidatorUtils() {
     }
@@ -126,7 +127,7 @@ public final class ValidatorUtils {
     }
 
     public static void validateIfNotEmpty(String value) {
-        throwExceptionIfEmpty(value, "Value");
+        throwExceptionIfEmpty(value, DEFAULT_VALUE_NAME);
     }
 
     public static void validateIfNotEmpty(String object, String objectName) {
@@ -179,13 +180,13 @@ public final class ValidatorUtils {
 
     public static void validateIfPathExists(String path) {
         if (isStringEmpty(path)) {
-            throw new IllegalArgumentException("Path to file is invalid.");
+            throw new IllegalArgumentException(INVALID_PATH);
         }
 
         final File file = new File(path);
 
         if (!file.exists() || !file.isFile()) {
-            throw new IllegalArgumentException("Path to file is invalid.");
+            throw new IllegalArgumentException(INVALID_PATH);
         }
     }
 
