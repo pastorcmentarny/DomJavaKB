@@ -30,18 +30,18 @@ public class HotPicksStatsApplicationTest {
     private PrintStream printStream;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         printStream = System.out;
         System.setOut(new PrintStream(outputStream));
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         System.setOut(printStream);
     }
 
     @Test
-    public void shouldGenerateWiningNumbers() throws Exception {
+    public void shouldGenerateWiningNumbers() {
         // when
         HotPicksStatsApplication.main(new String[]{PATH + "lotto-hotpicks-draw-history.csv"});
 

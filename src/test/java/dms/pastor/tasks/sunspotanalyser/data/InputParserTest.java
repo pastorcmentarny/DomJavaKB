@@ -39,7 +39,7 @@ public class InputParserTest {
     }
 
     @Test
-    public void shouldThrowInvalidArgumentExceptionForInvalidFileTest() throws Exception {
+    public void shouldThrowInvalidArgumentExceptionForInvalidFileTest() {
         // expect
         exception.expect(IllegalArgumentException.class);
 

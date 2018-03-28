@@ -24,7 +24,7 @@ public class CountryTest {
 
     @SuppressWarnings("ConstantConditions") //because this is purpose of test
     @Test
-    public void shouldReturnNullIfCountryIsNullTest() throws Exception {
+    public void shouldReturnNullIfCountryIsNullTest() {
         // expect
         exception.expect(IllegalArgumentException.class);
 
@@ -33,7 +33,7 @@ public class CountryTest {
     }
 
     @Test
-    public void shouldReturnNullIfCountryIsInvalidTest() throws Exception {
+    public void shouldReturnNullIfCountryIsInvalidTest() {
         // expect
         exception.expect(IllegalArgumentException.class);
 
@@ -42,7 +42,7 @@ public class CountryTest {
     }
 
     @Test
-    public void shouldReturnUnitedKingdomTest() throws Exception {
+    public void shouldReturnUnitedKingdomTest() {
         // when
         final String country = getName(UNITED_KINGDOM);
 

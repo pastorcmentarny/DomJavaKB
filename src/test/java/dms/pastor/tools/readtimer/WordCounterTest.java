@@ -25,7 +25,7 @@ public class WordCounterTest {
     public final ExpectedException exception = ExpectedException.none();
 
     @Test
-    public void countFullWordsShouldThrowExceptionIfWordsIsNull() throws Exception {
+    public void countFullWordsShouldThrowExceptionIfWordsIsNull() {
         // expect
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("Input cannot be null or empty.");
@@ -36,7 +36,7 @@ public class WordCounterTest {
     }
 
     @Test
-    public void countFullWordsShouldThrowExceptionIfWordsIsEmpty() throws Exception {
+    public void countFullWordsShouldThrowExceptionIfWordsIsEmpty() {
         // expect
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("Input cannot be null or empty.");
@@ -46,7 +46,7 @@ public class WordCounterTest {
     }
 
     @Test
-    public void fullWordsShouldReturn1ForCollectionOfSingleWordTest() throws Exception {
+    public void fullWordsShouldReturn1ForCollectionOfSingleWordTest() {
         // given
         String[] oneWord = new String[]{"Test"};
 
@@ -58,7 +58,7 @@ public class WordCounterTest {
     }
 
     @Test
-    public void shouldReturn10WordsForCountFullWordsTest() throws Exception {
+    public void shouldReturn10WordsForCountFullWordsTest() {
         // given
         int size = 10;
         String[] tenWords = generateArray(size);
@@ -71,7 +71,7 @@ public class WordCounterTest {
     }
 
     @Test
-    public void fullWordsShouldNotCountSpaceAsWordTest() throws Exception {
+    public void fullWordsShouldNotCountSpaceAsWordTest() {
         // given
         String[] twoWordsOneSpace = new String[]{"Test", " ", "Test2"};
 
@@ -83,7 +83,7 @@ public class WordCounterTest {
     }
 
     @Test
-    public void fullWordsShouldNotCountNullAsWordTest() throws Exception {
+    public void fullWordsShouldNotCountNullAsWordTest() {
         // given
         String[] twoWordsOneNull = new String[]{"Test", null, "Test2"};
 
@@ -95,7 +95,7 @@ public class WordCounterTest {
     }
 
     @Test
-    public void fullWordsShouldCountNumberAsWordTest() throws Exception {
+    public void fullWordsShouldCountNumberAsWordTest() {
 
         // given
         String[] twoWordsOneNumber = new String[]{"Test", valueOf(randomPositiveInteger(MAX_RANDOM_SIZE)), "Test2"};
@@ -108,7 +108,7 @@ public class WordCounterTest {
     }
 
     @Test
-    public void fullWordsShouldNotCountWordThatDoesNotContainAtLeastOneAlphanumericCharacterTest() throws Exception {
+    public void fullWordsShouldNotCountWordThatDoesNotContainAtLeastOneAlphanumericCharacterTest() {
         // given
         String[] twoWordsOneNonAlphanumericWord = new String[]{"Test", generateNonAlphanumericString(MAX_RANDOM_SIZE), "Test2"};
 
@@ -121,7 +121,7 @@ public class WordCounterTest {
     }
 
     @Test
-    public void fullWordsShouldReturnSizeForCollectionTest() throws Exception {
+    public void fullWordsShouldReturnSizeForCollectionTest() {
         // given
         String[] manyWord = generateArray(MAX_RANDOM_SIZE);
 
@@ -133,7 +133,7 @@ public class WordCounterTest {
     }
 
     @Test
-    public void countFullWordShouldNotCountStopWords() throws Exception {
+    public void countFullWordShouldNotCountStopWords() {
         // given
         final String[] words = {"Dominik", "is", "awesome"};
 

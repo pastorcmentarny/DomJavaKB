@@ -17,7 +17,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class ElementsBuilderTest {
 
     @Test
-    public void buildWithoutSetCustomVariablesShouldReturnElementsWithZerosVariables() throws Exception {
+    public void buildWithoutSetCustomVariablesShouldReturnElementsWithZerosVariables() {
         // given
         final Elements expectedElements = new Elements(0, 0, 0, 0);
 
@@ -29,7 +29,7 @@ public class ElementsBuilderTest {
     }
 
     @Test
-    public void buildWithCustomVariablesShouldReturnElementsWithSetVariables() throws Exception {
+    public void buildWithCustomVariablesShouldReturnElementsWithSetVariables() {
         // given
         final int air = 1;
         final int earth = 2;

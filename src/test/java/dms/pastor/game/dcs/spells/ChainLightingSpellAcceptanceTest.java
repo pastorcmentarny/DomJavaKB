@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ChainLightingSpellAcceptanceTest {
 
     @Test
-    public void chainLightingSpellShouldCauseFullDamageToHp() throws Exception {
+    public void chainLightingSpellShouldCauseFullDamageToHp() {
         // given
         final Unit unit = unitBuilder().build();
         final Unit enemy = unitBuilder()
@@ -36,7 +36,7 @@ public class ChainLightingSpellAcceptanceTest {
     }
 
     @Test
-    public void chainLightingSpellShouldDoesDamageToSpAndHp() throws Exception {
+    public void chainLightingSpellShouldDoesDamageToSpAndHp() {
         // given
         final Unit unit = unitBuilder().build();
         final Unit enemy = unitBuilder()

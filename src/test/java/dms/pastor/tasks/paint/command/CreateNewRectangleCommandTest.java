@@ -68,7 +68,7 @@ public class CreateNewRectangleCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void setParamsIfValidAreInOrderShouldThrowExceptionIfHeightStartPointIsHigherThanEndPoint() throws Exception {
+    public void setParamsIfValidAreInOrderShouldThrowExceptionIfHeightStartPointIsHigherThanEndPoint() {
         // expect
         exception.expect(InvalidCommandSyntaxException.class);
         exception.expectMessage("Invalid Syntax because Start point must be smaller than end point. Please check your input and try again.");
@@ -79,7 +79,7 @@ public class CreateNewRectangleCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void setParamsIfValidAreInOrderShouldThrowExceptionIfLengthStartPointIsHigherThanEndPoint() throws Exception {
+    public void setParamsIfValidAreInOrderShouldThrowExceptionIfLengthStartPointIsHigherThanEndPoint() {
         // expect
         exception.expect(InvalidCommandSyntaxException.class);
         exception.expectMessage("Invalid Syntax because Start point must be smaller than end point. Please check your input and try again.");
@@ -90,7 +90,7 @@ public class CreateNewRectangleCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void setParamsIfValidShouldThrowExceptionIfStartPointIsOnBorder() throws Exception {
+    public void setParamsIfValidShouldThrowExceptionIfStartPointIsOnBorder() {
         // expect
         exception.expect(InvalidCommandSyntaxException.class);
         exception.expectMessage("Invalid Syntax because paint on border is not allowed. Please check your input and try again.");
@@ -107,7 +107,7 @@ public class CreateNewRectangleCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void setParamsIfValidShouldThrowExceptionIfEndPointIsOnBorder() throws Exception {
+    public void setParamsIfValidShouldThrowExceptionIfEndPointIsOnBorder() {
         // expect
         exception.expect(InvalidCommandSyntaxException.class);
         exception.expectMessage("Invalid Syntax because paint on border is not allowed. Please check your input and try again.");
@@ -124,7 +124,7 @@ public class CreateNewRectangleCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void getSyntaxShouldReturnCreateNewLine() throws Exception {
+    public void getSyntaxShouldReturnCreateNewLine() {
         // when
         final String syntax = createNewRectangleCommand.getSyntax();
 
@@ -133,7 +133,7 @@ public class CreateNewRectangleCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void isParamsRequiredReturnForCreateRectangle() throws Exception {
+    public void isParamsRequiredReturnForCreateRectangle() {
         // when
         final boolean result = createNewRectangleCommand.isParamsRequired();
 
@@ -142,7 +142,7 @@ public class CreateNewRectangleCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void setParamsIfValidShouldThrowExceptionIfParamsCountIsWrong() throws Exception {
+    public void setParamsIfValidShouldThrowExceptionIfParamsCountIsWrong() {
         // expect
         exception.expect(InvalidCommandSyntaxException.class);
         exception.expectMessage("Invalid Syntax because number of params are invalid. Should be 5 but was 1. Please check your input and try again.");
@@ -155,7 +155,7 @@ public class CreateNewRectangleCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void setParamsIfValidShouldThrowExceptionIfStartWidthIsNotANumber() throws Exception {
+    public void setParamsIfValidShouldThrowExceptionIfStartWidthIsNotANumber() {
         // expect
         exception.expect(InvalidCommandSyntaxException.class);
         exception.expectMessage("Invalid Syntax because start width is not a number. Please check your input and try again.");
@@ -169,7 +169,7 @@ public class CreateNewRectangleCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void setParamsIfValidShouldThrowExceptionIfStartHeightIsNotANumber() throws Exception {
+    public void setParamsIfValidShouldThrowExceptionIfStartHeightIsNotANumber() {
         // expect
         exception.expect(InvalidCommandSyntaxException.class);
         exception.expectMessage("Invalid Syntax because start height is not a number. Please check your input and try again.");
@@ -183,7 +183,7 @@ public class CreateNewRectangleCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void setParamsIfValidShouldThrowExceptionIfEndWidthIsNotANumber() throws Exception {
+    public void setParamsIfValidShouldThrowExceptionIfEndWidthIsNotANumber() {
         // expect
         exception.expect(InvalidCommandSyntaxException.class);
         exception.expectMessage("Invalid Syntax because end width is not a number. Please check your input and try again.");
@@ -196,7 +196,7 @@ public class CreateNewRectangleCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void setParamsIfValidShouldThrowExceptionIfEndHeightIsNotANumber() throws Exception {
+    public void setParamsIfValidShouldThrowExceptionIfEndHeightIsNotANumber() {
         // expect
         exception.expect(InvalidCommandSyntaxException.class);
         exception.expectMessage("Invalid Syntax because end height is not a number. Please check your input and try again.");
@@ -209,7 +209,7 @@ public class CreateNewRectangleCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void setParamsIfValidShouldValidateIfAllParamsAreValid() throws Exception {
+    public void setParamsIfValidShouldValidateIfAllParamsAreValid() {
         // given
         String[] params = {CREATE_RECTANGLE_COMMAND, START_NUMBER, START_NUMBER, END_NUMBER, END_NUMBER};
 
@@ -225,7 +225,7 @@ public class CreateNewRectangleCommandTest extends AbstractCommandTest {
 
 
     @Test
-    public void executeShouldDrawRectangleOnCanvas() throws Exception {
+    public void executeShouldDrawRectangleOnCanvas() {
         // given
         final Canvas canvas = Canvas.createCanvasFor(SQUARE_WITH_LENGTH_4, SQUARE_WITH_LENGTH_4);
         createNewRectangleCommand.setParam(new String[]{CREATE_RECTANGLE_COMMAND, NOT_USED_MEDIUM_VALUE_AS_STRING, START_NUMBER, "4", END_NUMBER});

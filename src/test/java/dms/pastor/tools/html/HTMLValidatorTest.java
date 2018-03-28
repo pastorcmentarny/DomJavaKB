@@ -25,7 +25,7 @@ public class HTMLValidatorTest {
     public final ExpectedException exception = ExpectedException.none();
 
     @Test
-    public void validateUrlShouldThrowIllegalArgumentExceptionIfUrlIsNull() throws Exception {
+    public void validateUrlShouldThrowIllegalArgumentExceptionIfUrlIsNull() {
         // expect
         exception.expect(IllegalArgumentException.class);
 
@@ -34,7 +34,7 @@ public class HTMLValidatorTest {
     }
 
     @Test
-    public void validateUrlShouldThrowIllegalArgumentExceptionIfUrlIsEmpty() throws Exception {
+    public void validateUrlShouldThrowIllegalArgumentExceptionIfUrlIsEmpty() {
         // expect
         exception.expect(IllegalArgumentException.class);
 
@@ -43,7 +43,7 @@ public class HTMLValidatorTest {
     }
 
     @Test
-    public void validateUrlShouldThrowIllegalArgumentExceptionIfUrlIsHasWhitespacesOnly() throws Exception {
+    public void validateUrlShouldThrowIllegalArgumentExceptionIfUrlIsHasWhitespacesOnly() {
         // expect
         exception.expect(IllegalArgumentException.class);
 
@@ -52,7 +52,7 @@ public class HTMLValidatorTest {
     }
 
     @Test
-    public void validateUrlShouldValidateForMyHomepage() throws Exception {
+    public void validateUrlShouldValidateForMyHomepage() {
 
         // when
         validateUrl("http://pastor.ovh.org");
@@ -61,7 +61,7 @@ public class HTMLValidatorTest {
     }
 
     @Test
-    public void validateContentTypeShouldThrowIllegalArgumentExceptionIfContentTypeIsNull() throws Exception {
+    public void validateContentTypeShouldThrowIllegalArgumentExceptionIfContentTypeIsNull() {
         // expect
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("Value cannot be null");
@@ -71,7 +71,7 @@ public class HTMLValidatorTest {
     }
 
     @Test
-    public void validateContentTypeShouldThrowIllegalArgumentExceptionIfContentTypeIsNotValid() throws Exception {
+    public void validateContentTypeShouldThrowIllegalArgumentExceptionIfContentTypeIsNotValid() {
         // expect
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(ERROR_MESSAGE);
@@ -81,7 +81,7 @@ public class HTMLValidatorTest {
     }
 
     @Test
-    public void validateContentTypeShouldValidateForTextHtmlContentType() throws Exception {
+    public void validateContentTypeShouldValidateForTextHtmlContentType() {
         // when
         validateContentType("text/html");
 

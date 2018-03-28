@@ -19,7 +19,7 @@ public class NumberConverterTest {
     private final Converter numberConverter = new NumberConverter();
 
     @Test
-    public void convertToPinyinShouldReturnEmptyIfInputIsNull() throws Exception {
+    public void convertToPinyinShouldReturnEmptyIfInputIsNull() {
         // when
         final String result = numberConverter.convertToPinyin(null);
 
@@ -28,7 +28,7 @@ public class NumberConverterTest {
     }
 
     @Test
-    public void convertToPinyinShouldReturnEmptyIfIsNotValidCharacterWithTone() throws Exception {
+    public void convertToPinyinShouldReturnEmptyIfIsNotValidCharacterWithTone() {
         // given
         final String text = generateString();
 
@@ -40,7 +40,7 @@ public class NumberConverterTest {
     }
 
     @Test
-    public void shouldReturnPinyinWithNeutralTone() throws Exception {
+    public void shouldReturnPinyinWithNeutralTone() {
         // given
         final String ma = "ma";
 
@@ -52,7 +52,7 @@ public class NumberConverterTest {
     }
 
     @Test
-    public void shouldReturnPinyinWithFirstTone() throws Exception {
+    public void shouldReturnPinyinWithFirstTone() {
         // given
         final String ma = "ma(1)";
         final String expectedResult = "mā";

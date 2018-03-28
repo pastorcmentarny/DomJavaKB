@@ -21,7 +21,7 @@ public class ToCommandTransformerTest {
     public final ExpectedException exception = ExpectedException.none();
 
     @Test
-    public void toCommandWithInputForQuitShouldReturnQuitCommand() throws Exception {
+    public void toCommandWithInputForQuitShouldReturnQuitCommand() {
         // given
         final String quitCommandInput = "Q";
 
@@ -33,7 +33,7 @@ public class ToCommandTransformerTest {
     }
 
     @Test
-    public void toCommandWithInputForCreateCanvasShouldReturnCreateCanvasCommand() throws Exception {
+    public void toCommandWithInputForCreateCanvasShouldReturnCreateCanvasCommand() {
         // given
         final String createCanvasCommandInput = "C 2 1";
 
@@ -45,7 +45,7 @@ public class ToCommandTransformerTest {
     }
 
     @Test
-    public void toCommandWithInputForClearCanvasShouldReturnClearCanvasCommand() throws Exception {
+    public void toCommandWithInputForClearCanvasShouldReturnClearCanvasCommand() {
         // given
         final String clearCanvasCommandInput = "C";
 
@@ -57,7 +57,7 @@ public class ToCommandTransformerTest {
     }
 
     @Test
-    public void toCommandWithInputForCreateNewLineShouldReturnCreateNewLineCommand() throws Exception {
+    public void toCommandWithInputForCreateNewLineShouldReturnCreateNewLineCommand() {
         // given
         final String createNewLineCommandInput = "L 1 1 3 1";
 
@@ -69,7 +69,7 @@ public class ToCommandTransformerTest {
     }
 
     @Test
-    public void toCommandWithInputForCreateNewRectangleShouldReturnCreateNewRectangleCommand() throws Exception {
+    public void toCommandWithInputForCreateNewRectangleShouldReturnCreateNewRectangleCommand() {
         // given
         final String createNewRectangleCommandInput = "R 2 2 3 3";
 
@@ -81,7 +81,7 @@ public class ToCommandTransformerTest {
     }
 
     @Test
-    public void toCommandWithInputForFillEntireAreaShouldReturnFillEntireAreaCommand() throws Exception {
+    public void toCommandWithInputForFillEntireAreaShouldReturnFillEntireAreaCommand() {
         // given
         final String fillEntireAreaCommandInput = "B 1 1 o";
 
@@ -93,7 +93,7 @@ public class ToCommandTransformerTest {
     }
 
     @Test
-    public void toCommandShouldThrowExceptionIfInputDoNotMatchAnyCommand() throws Exception {
+    public void toCommandShouldThrowExceptionIfInputDoNotMatchAnyCommand() {
         // expect
         exception.expect(InvalidCommandSyntaxException.class);
         exception.expectMessage("Invalid Syntax because command not found. Please check your input and try again.");

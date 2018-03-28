@@ -36,7 +36,7 @@ public class CollectionsUtilsTest {
     public ExpectedException exception = ExpectedException.none();
 
     @Test
-    public void testConvertListToIntArray() throws Exception {
+    public void testConvertListToIntArray() {
         List<Integer> numbers = new ArrayList<>();
         numbers.add(2);
         numbers.add(3);
@@ -48,20 +48,20 @@ public class CollectionsUtilsTest {
     }
 
     @Test
-    public void testEmptyArrayList() throws Exception {
+    public void testEmptyArrayList() {
         Assert.assertThat(CollectionsUtils.emptyArrayList().isEmpty(), is(true));
         Assert.assertThat(CollectionsUtils.emptyArrayList().size(), is(0));
     }
 
     @Test
-    public void testConvertArrayToSet() throws Exception {
+    public void testConvertArrayToSet() {
         char[] chars = new char[]{'a', 'b', 'c'};
         final Set<Character> testSet = CollectionsUtils.convertCharArrayToSet(chars);
         Assert.assertThat("dictSize", testSet.size(), is(chars.length));
     }
 
     @Test
-    public void testEmptyHashSet() throws Exception {
+    public void testEmptyHashSet() {
         Set<Object> expectedObjectSet = new HashSet<>(0);
         Assert.assertThat("Empty Object HashSet", emptyHashSet(), is(expectedObjectSet));
         Assert.assertThat(emptyHashSet().isEmpty(), is(true));
@@ -69,7 +69,7 @@ public class CollectionsUtilsTest {
 
     @SuppressWarnings("ConstantConditions") //because this is purpose of test
     @Test
-    public void isStringArrayEmptyShouldReturnFalseForNullArrayTest() throws Exception {
+    public void isStringArrayEmptyShouldReturnFalseForNullArrayTest() {
         // when
         final boolean isEmpty = isStringArrayEmpty(null);
 
@@ -78,7 +78,7 @@ public class CollectionsUtilsTest {
     }
 
     @Test
-    public void isStringArrayEmptyShouldReturnFalseForEmptyArrayTest() throws Exception {
+    public void isStringArrayEmptyShouldReturnFalseForEmptyArrayTest() {
         // when
         final boolean isEmpty = isStringArrayEmpty(EMPTY_ARRAY);
 
@@ -87,7 +87,7 @@ public class CollectionsUtilsTest {
     }
 
     @Test //FIXME assert in loop
-    public void isStringArrayEmptyShouldReturnTrueForNonEmptyArrayTest() throws Exception {
+    public void isStringArrayEmptyShouldReturnTrueForNonEmptyArrayTest() {
         // given
         Random random = new Random();
         final int size = random.nextInt(MAX_RANDOM_SIZE);
@@ -105,7 +105,7 @@ public class CollectionsUtilsTest {
 
     @SuppressWarnings("ConstantConditions") //as it is part of test
     @Test
-    public void shouldReturnFalseIfListIsNullTest() throws Exception {
+    public void shouldReturnFalseIfListIsNullTest() {
 
         // when
         final boolean result = isListNotEmpty(null);
@@ -115,7 +115,7 @@ public class CollectionsUtilsTest {
     }
 
     @Test
-    public void shouldReturnFalseIfListIsEmpty() throws Exception {
+    public void shouldReturnFalseIfListIsEmpty() {
 
         // when
         final boolean result = isListNotEmpty(emptyList());
@@ -125,7 +125,7 @@ public class CollectionsUtilsTest {
     }
 
     @Test
-    public void shouldReturnTrueIfListContainsElements() throws Exception {
+    public void shouldReturnTrueIfListContainsElements() {
         // given
         final List<String> stringList = Arrays.asList("Dom", "is", "hungry");
 
@@ -137,7 +137,7 @@ public class CollectionsUtilsTest {
     }
 
     @Test
-    public void convertSetToIntArrayShouldReturnIntArray() throws Exception {
+    public void convertSetToIntArrayShouldReturnIntArray() {
         // given
         final Set<Integer> integerSet = Stream.of(1, 2, 3).collect(Collectors.toSet());
         int[] expectedIntArray = new int[]{1, 2, 3};
@@ -150,7 +150,7 @@ public class CollectionsUtilsTest {
     }
 
     @Test
-    public void convertStringArrayToSetShouldReturnStringSet() throws Exception {
+    public void convertStringArrayToSetShouldReturnStringSet() {
         // given
         final String stringOne = generateString();
         final String stringTwo = generateString();
@@ -167,7 +167,7 @@ public class CollectionsUtilsTest {
     }
 
     @Test
-    public void toListShouldThrowIllegalArgumentExceptionIfEnumIsNull() throws Exception {
+    public void toListShouldThrowIllegalArgumentExceptionIfEnumIsNull() {
         // expected
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("Enum values cannot be null.");
@@ -178,7 +178,7 @@ public class CollectionsUtilsTest {
 
 
     @Test
-    public void toListShouldReturnListOfEnumsValues() throws Exception {
+    public void toListShouldReturnListOfEnumsValues() {
         // given
         final ConditionType[] enums = ConditionType.values();
 

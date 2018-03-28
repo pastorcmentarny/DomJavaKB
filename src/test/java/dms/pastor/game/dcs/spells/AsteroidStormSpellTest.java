@@ -43,7 +43,7 @@ public class AsteroidStormSpellTest {
 
     @Ignore // Expecting: <100>  to be less than: <100>
     @Test //TODO investigate failure of this test on 11.10'2017 ? Flaky ?
-    public void castAsteroidStormShouldCauseDamageToUnit() throws Exception {
+    public void castAsteroidStormShouldCauseDamageToUnit() {
         // given
         final int initHp = 100;
         final Unit unit = unitBuilder()
@@ -60,7 +60,7 @@ public class AsteroidStormSpellTest {
 
     @Ignore
     @Test //TODO improve this test as it does too much
-    public void castAsteroidStormShouldHitAtLeastOnceUnitOneUnitTwoAndMissOnce() throws Exception {
+    public void castAsteroidStormShouldHitAtLeastOnceUnitOneUnitTwoAndMissOnce() {
         // given
         final int initHp = 1000;
         final Unit unit1 = unitBuilder()

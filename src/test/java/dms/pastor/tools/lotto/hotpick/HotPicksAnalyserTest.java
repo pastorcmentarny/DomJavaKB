@@ -43,7 +43,7 @@ public class HotPicksAnalyserTest {
     private HotPicksAnalyser hotPicksAnalyser;
 
     @Test
-    public void shouldReturnNoResultsIfHotPicksDrawListIsNullTest() throws Exception {
+    public void shouldReturnNoResultsIfHotPicksDrawListIsNullTest() {
 
         // given
         hotPicksAnalyser = new HotPicksAnalyser(null);
@@ -56,7 +56,7 @@ public class HotPicksAnalyserTest {
     }
 
     @Test
-    public void shouldReturnNoResultIfHotPicksDrawListIsEmptyTest() throws Exception {
+    public void shouldReturnNoResultIfHotPicksDrawListIsEmptyTest() {
 
         // given
         List<HotPickDraw> hotPickDrawList = new ArrayList<>();
@@ -70,7 +70,7 @@ public class HotPicksAnalyserTest {
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionIfBallNumberIsTooLowTest() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionIfBallNumberIsTooLowTest() {
         // given
         final int tooHighValueBall = -1;
         List<HotPickDraw> hotPickDrawList = new ArrayList<>();
@@ -89,7 +89,7 @@ public class HotPicksAnalyserTest {
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionIfBallNumberIsHighHighTest() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionIfBallNumberIsHighHighTest() {
         // given
         final int tooHighValueBall = 60;
         List<HotPickDraw> hotPickDrawList = new ArrayList<>();
@@ -108,7 +108,7 @@ public class HotPicksAnalyserTest {
     }
 
     @Test
-    public void shouldReturn1ForEachNumberDrawnTest() throws Exception {
+    public void shouldReturn1ForEachNumberDrawnTest() {
         // given
         List<HotPickDraw> hotPickDrawList = new ArrayList<>();
         hotPickDrawList.add(HOT_PICK_DRAW_1);
@@ -123,7 +123,7 @@ public class HotPicksAnalyserTest {
     }
 
     @Test
-    public void shouldReturn3ForMostCommonDrawnNumberTest() throws Exception {
+    public void shouldReturn3ForMostCommonDrawnNumberTest() {
         // given
         List<HotPickDraw> hotPickDrawList = new ArrayList<>();
         hotPickDrawList.add(new HotPickDraw(now(), 1, 2, 3, 3, 3, 4, RandomDataGenerator.randomPositiveInteger(), generateString(), RandomDataGenerator.randomPositiveInteger()));
@@ -139,7 +139,7 @@ public class HotPicksAnalyserTest {
     }
 
     @Test
-    public void shouldFind2And3AsBallsThatWasDrown2TimesTest() throws Exception {
+    public void shouldFind2And3AsBallsThatWasDrown2TimesTest() {
         // given
         List<HotPickDraw> hotPickDrawList = new ArrayList<>();
         hotPickDrawList.add(new HotPickDraw(now(), 1, 2, 2, 3, 4, 4, RandomDataGenerator.randomPositiveInteger(), generateString(), RandomDataGenerator.randomPositiveInteger()));
@@ -156,7 +156,7 @@ public class HotPicksAnalyserTest {
     }
 
     @Test
-    public void shouldFind2And3AsBallsThatWasDrawn1TimesTest() throws Exception {
+    public void shouldFind2And3AsBallsThatWasDrawn1TimesTest() {
         // given
         List<HotPickDraw> hotPickDrawList = new ArrayList<>();
         hotPickDrawList.add(HOT_PICK_DRAW_1);
@@ -183,7 +183,7 @@ public class HotPicksAnalyserTest {
     }
 
     @Test
-    public void shouldReturnTrueWhenTwoNumbersWasFoundInTheSameDraw() throws Exception {
+    public void shouldReturnTrueWhenTwoNumbersWasFoundInTheSameDraw() {
         // given
         List<HotPickDraw> hotPickDrawList = new ArrayList<>();
         final HotPickDraw hotPickDraw = new HotPickDraw(now(), 1, 2, 3, 3, 3, 4, RandomDataGenerator.randomPositiveInteger(), generateString(), RandomDataGenerator.randomPositiveInteger());
@@ -199,7 +199,7 @@ public class HotPicksAnalyserTest {
     }
 
     @Test
-    public void shouldReturnFalseWhenOnlyOneNumbersWasFoundInTheSameDraw() throws Exception {
+    public void shouldReturnFalseWhenOnlyOneNumbersWasFoundInTheSameDraw() {
         // given
         List<HotPickDraw> hotPickDrawList = new ArrayList<>();
         final HotPickDraw hotPickDraw = new HotPickDraw(now(), 1, 2, 3, 3, 3, 4, RandomDataGenerator.randomPositiveInteger(), generateString(), RandomDataGenerator.randomPositiveInteger());
@@ -214,7 +214,7 @@ public class HotPicksAnalyserTest {
     }
 
     @Test
-    public void shouldReturnFalseWhenTwoNumbersAreFoundButNotInTheSameDraw() throws Exception {
+    public void shouldReturnFalseWhenTwoNumbersAreFoundButNotInTheSameDraw() {
         // given
         List<HotPickDraw> hotPickDrawList = new ArrayList<>();
         final HotPickDraw hotPickDraw = new HotPickDraw(now(), 1, 2, 3, 4, 5, 6, RandomDataGenerator.randomPositiveInteger(), generateString(), RandomDataGenerator.randomPositiveInteger());
@@ -231,7 +231,7 @@ public class HotPicksAnalyserTest {
     }
 
     @Test
-    public void getBallsCountListShouldReturnListOfCountedBalls() throws Exception {
+    public void getBallsCountListShouldReturnListOfCountedBalls() {
         // given
         List<HotPickDraw> hotPickDrawList = new ArrayList<>();
 
@@ -268,7 +268,7 @@ public class HotPicksAnalyserTest {
     }
 
     @Test
-    public void removeNumbersFromGamesShouldContains10NumbersToRemove() throws Exception {
+    public void removeNumbersFromGamesShouldContains10NumbersToRemove() {
 
         // given
         List<HotPickDraw> hotPickDrawList = new ArrayList<>(2);

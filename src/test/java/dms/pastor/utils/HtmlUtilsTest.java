@@ -24,7 +24,7 @@ public class HtmlUtilsTest {
     }
 
     @Test
-    public void shouldReturn1Nsbp() throws Exception {
+    public void shouldReturn1Nsbp() {
         // when
         final String result = getNbsp(1);
 

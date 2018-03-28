@@ -21,7 +21,7 @@ public class InfernoStrikeSpellTest {
     private final InfernoStrikeSpell infernoStrikeSpell = new InfernoStrikeSpell();
 
     @Test
-    public void castInfernoStrikeShouldDoesDamage() throws Exception {
+    public void castInfernoStrikeShouldDoesDamage() {
         // given
         final int initHp = 100;
         final Unit unit = UnitBuilder.unitBuilder()
@@ -36,7 +36,7 @@ public class InfernoStrikeSpellTest {
     }
 
     @Test
-    public void castInfernoStrikeShouldHitBothUnits() throws Exception {
+    public void castInfernoStrikeShouldHitBothUnits() {
         // given
         final int initHp = 200;
         final UnitBuilder unitBuilder = UnitBuilder.unitBuilder()

@@ -31,17 +31,17 @@ public class LegendaryServiceTest {
     private final LegendaryService legendaryService = new LegendaryService();
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         System.setOut(new PrintStream(outputStream));
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         System.setOut(original);
     }
 
     @Test
-    public void shouldCreateTest() throws Exception {
+    public void shouldCreateTest() {
         // given
         final UUID id = randomUUID();
         final Treasure treasure = getRandomTreasure();
@@ -54,7 +54,7 @@ public class LegendaryServiceTest {
     }
 
     @Test
-    public void shouldExecuteMethodTest() throws Exception {
+    public void shouldExecuteMethodTest() {
         // given
         final int size = 8;
 

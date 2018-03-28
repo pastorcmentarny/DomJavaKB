@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class PaintIsRangeValidator {
+public final class PaintIsRangeValidator {
     private static final Logger LOGGER = LoggerFactory.getLogger(PaintIsRangeValidator.class);
 
     private PaintIsRangeValidator() {

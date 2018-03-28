@@ -39,7 +39,7 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
     private final Command fillEntireAreaCommand = new FillEntireAreaCommand();
 
     @Test
-    public void getSyntaxShouldReturnCreateNewLine() throws Exception {
+    public void getSyntaxShouldReturnCreateNewLine() {
         // when
         final String syntax = fillEntireAreaCommand.getSyntax();
 
@@ -48,7 +48,7 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void isParamsRequiredReturnForCreateRectangle() throws Exception {
+    public void isParamsRequiredReturnForCreateRectangle() {
         // when
         final boolean result = fillEntireAreaCommand.isParamsRequired();
 
@@ -57,7 +57,7 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void executeShouldDrawSquareOfSizeOne() throws Exception {
+    public void executeShouldDrawSquareOfSizeOne() {
         // given
         final Canvas canvas = createCanvasFor(1, 1);
         final String[] params = {fillEntireAreaCommand.getSyntax(), SQUARE_WITH_LENGTH_1_AS_STRING, SQUARE_WITH_LENGTH_1_AS_STRING, FILL_CHARACTER};
@@ -73,7 +73,7 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void executeShouldDrawSquareOfSize3StartingFromCentre() throws Exception {
+    public void executeShouldDrawSquareOfSize3StartingFromCentre() {
         // given
         final Canvas canvas = createCanvasFor(SQUARE_WITH_LENGTH_3, SQUARE_WITH_LENGTH_3);
         final String length = "2";
@@ -88,7 +88,7 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void executeShouldDrawSquareOfSize3StartingFromTopLeftCorner() throws Exception {
+    public void executeShouldDrawSquareOfSize3StartingFromTopLeftCorner() {
         // given
         final Canvas canvas = createCanvasFor(SQUARE_WITH_LENGTH_3, SQUARE_WITH_LENGTH_3);
         final String[] params = {fillEntireAreaCommand.getSyntax(), SQUARE_WITH_LENGTH_1_AS_STRING, SQUARE_WITH_LENGTH_1_AS_STRING, FILL_CHARACTER};
@@ -102,7 +102,7 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void executeShouldDrawSquareOfSize3StartingFromTopRightCorner() throws Exception {
+    public void executeShouldDrawSquareOfSize3StartingFromTopRightCorner() {
         // given
         final Canvas canvas = createCanvasFor(SQUARE_WITH_LENGTH_3, SQUARE_WITH_LENGTH_3);
         final String[] params = {fillEntireAreaCommand.getSyntax(), SQUARE_WITH_LENGTH_1_AS_STRING, SQUARE_WITH_LENGTH_3_AS_STRING, FILL_CHARACTER};
@@ -116,7 +116,7 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void executeShouldDrawSquareOfSize3StartingFromBottomLeftCorner() throws Exception {
+    public void executeShouldDrawSquareOfSize3StartingFromBottomLeftCorner() {
         // given
         final Canvas canvas = createCanvasFor(SQUARE_WITH_LENGTH_3, SQUARE_WITH_LENGTH_3);
         final String[] params = {fillEntireAreaCommand.getSyntax(), SQUARE_WITH_LENGTH_3_AS_STRING, SQUARE_WITH_LENGTH_1_AS_STRING, FILL_CHARACTER};
@@ -130,7 +130,7 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void executeShouldDrawSquareOfSize3StartingFromBottomRightCorner() throws Exception {
+    public void executeShouldDrawSquareOfSize3StartingFromBottomRightCorner() {
         // given
         final Canvas canvas = createCanvasFor(SQUARE_WITH_LENGTH_3, SQUARE_WITH_LENGTH_3);
         final String[] params = {fillEntireAreaCommand.getSyntax(), SQUARE_WITH_LENGTH_3_AS_STRING, SQUARE_WITH_LENGTH_3_AS_STRING, FILL_CHARACTER};
@@ -144,7 +144,7 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void executeShouldFeelAreaInsideSquare() throws Exception {
+    public void executeShouldFeelAreaInsideSquare() {
         // given
         final Canvas canvas = createCanvasFor(SQUARE_WITH_LENGTH_5, SQUARE_WITH_LENGTH_5);
         String[][] image = canvas.getImage();
@@ -173,7 +173,7 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void executeShouldFillAreaOutsideSquare() throws Exception {
+    public void executeShouldFillAreaOutsideSquare() {
         // given
         final Canvas canvas = createCanvasFor(SQUARE_WITH_LENGTH_5, SQUARE_WITH_LENGTH_5);
         String[][] image = canvas.getImage();
@@ -202,7 +202,7 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void executeShouldFillAllSpacesExceptBottomLeftCorner() throws Exception {
+    public void executeShouldFillAllSpacesExceptBottomLeftCorner() {
         // given
         final Canvas canvas = createCanvasFor(SQUARE_WITH_LENGTH_5, SQUARE_WITH_LENGTH_5);
         String[][] image = canvas.getImage();
@@ -232,7 +232,7 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void executeShouldDontFillAnythingIfNoCanvas() throws Exception {
+    public void executeShouldDontFillAnythingIfNoCanvas() {
         // given
         final Canvas canvas = noCanvas();
 

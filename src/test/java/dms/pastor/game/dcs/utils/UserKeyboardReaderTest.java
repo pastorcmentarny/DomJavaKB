@@ -27,7 +27,7 @@ public class UserKeyboardReaderTest {
     Scanner scanner;
 
     @Test
-    public void getIntegerInputShouldReturnInteger() throws Exception {
+    public void getIntegerInputShouldReturnInteger() {
         // given
         final int expectedValue = 1;
         given(scanner.nextInt()).willReturn(expectedValue);

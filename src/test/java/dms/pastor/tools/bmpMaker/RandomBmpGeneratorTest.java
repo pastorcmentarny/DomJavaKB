@@ -30,7 +30,7 @@ public class RandomBmpGeneratorTest {
     public final ExpectedException exception = ExpectedException.none();
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionWhenWidthInputIsNegative() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionWhenWidthInputIsNegative() {
         // except
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("Width cannot be negative.");
@@ -43,7 +43,7 @@ public class RandomBmpGeneratorTest {
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionWhenHeightInputIsNegative() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionWhenHeightInputIsNegative() {
         // except
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("Height cannot be negative.");
@@ -56,7 +56,7 @@ public class RandomBmpGeneratorTest {
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionWhenPathIsNull() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionWhenPathIsNull() {
         // except
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("File path cannot be null.");

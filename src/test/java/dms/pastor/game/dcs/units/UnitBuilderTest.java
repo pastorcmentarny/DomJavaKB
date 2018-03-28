@@ -20,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class UnitBuilderTest {
 
     @Test
-    public void buildShouldReturnUnitWithoutShieldIfLastModificationWasWithoutShield() throws Exception {
+    public void buildShouldReturnUnitWithoutShieldIfLastModificationWasWithoutShield() {
 
         // when
         final Unit unit = UnitBuilder.unitBuilder()
@@ -34,7 +34,7 @@ public class UnitBuilderTest {
     }
 
     @Test
-    public void buildShouldReturnUnitShieldedIfLastStepIsShieldedIsSetToTrue() throws Exception {
+    public void buildShouldReturnUnitShieldedIfLastStepIsShieldedIsSetToTrue() {
 
         // when
         final Unit unit = UnitBuilder.unitBuilder()
@@ -48,7 +48,7 @@ public class UnitBuilderTest {
     }
 
     @Test
-    public void buildShouldReturnUnitWithoutShieldIfSpIsEqualOrLessZeroEvenShieldedIsSetToTrue() throws Exception {
+    public void buildShouldReturnUnitWithoutShieldIfSpIsEqualOrLessZeroEvenShieldedIsSetToTrue() {
 
         // when
         final Unit unit = UnitBuilder.unitBuilder()

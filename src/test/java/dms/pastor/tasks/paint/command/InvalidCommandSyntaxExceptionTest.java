@@ -18,7 +18,7 @@ public class InvalidCommandSyntaxExceptionTest {
     public final ExpectedException exception = ExpectedException.none();
 
     @Test
-    public void shouldReturnInvalidCommandSyntaxExceptionWithMessage() throws Exception {
+    public void shouldReturnInvalidCommandSyntaxExceptionWithMessage() {
         // given
         final String reason = "test";
 

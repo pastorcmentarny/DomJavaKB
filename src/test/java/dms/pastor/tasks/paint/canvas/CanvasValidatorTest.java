@@ -25,7 +25,7 @@ public class CanvasValidatorTest {
     public final ExpectedException exception = ExpectedException.none();
 
     @Test
-    public void validateIfCanvasIsSetShouldThrowExceptionIfCanvasIsNotSet() throws Exception {
+    public void validateIfCanvasIsSetShouldThrowExceptionIfCanvasIsNotSet() {
         // expect
         exception.expect(InvalidCanvasException.class);
 
@@ -34,7 +34,7 @@ public class CanvasValidatorTest {
     }
 
     @Test
-    public void validateIfCanvasIsSetShouldValidateIfCanvasIsSet() throws Exception {
+    public void validateIfCanvasIsSetShouldValidateIfCanvasIsSet() {
         // given
         final Canvas canvas = Canvas.createCanvasFor(CANVAS_WIDTH, CANVAS_HEIGHT);
 
@@ -69,7 +69,7 @@ public class CanvasValidatorTest {
     }
 
     @Test
-    public void validateIfImageSizeAreTheSameShouldValidateIfImageHasSameDimensionsAsCanvas() throws Exception {
+    public void validateIfImageSizeAreTheSameShouldValidateIfImageHasSameDimensionsAsCanvas() {
         // given
         final Canvas canvas = Canvas.createCanvasFor(CANVAS_WIDTH, CANVAS_HEIGHT);
         final int border = 2;
@@ -81,7 +81,7 @@ public class CanvasValidatorTest {
     }
 
     @Test
-    public void createCanvasForShouldInvalidCanvasExceptionIfWidthIsZero() throws Exception {
+    public void createCanvasForShouldInvalidCanvasExceptionIfWidthIsZero() {
         // expect
         exception.expect(InvalidCanvasException.class);
 
@@ -90,7 +90,7 @@ public class CanvasValidatorTest {
     }
 
     @Test
-    public void createCanvasForShouldInvalidCanvasExceptionIfHeightIsZero() throws Exception {
+    public void createCanvasForShouldInvalidCanvasExceptionIfHeightIsZero() {
         // expect
         exception.expect(InvalidCanvasException.class);
 

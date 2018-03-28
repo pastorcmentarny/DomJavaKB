@@ -23,7 +23,7 @@ public class AnalyserLauncherTest {
     public ExpectedException exception = ExpectedException.none();
 
     @Test
-    public void shouldReturnThisProjectPathWhenArgumentIsNullTest() throws Exception {
+    public void shouldReturnThisProjectPathWhenArgumentIsNullTest() {
         // when
         final String path = AnalyserLauncher.getPath(null);
 
@@ -33,7 +33,7 @@ public class AnalyserLauncherTest {
 
     @SuppressWarnings("ZeroLengthArrayAllocation")
     @Test
-    public void shouldReturnThisProjectPathWhenArgumentArrayIsEmptyArrayTest() throws Exception {
+    public void shouldReturnThisProjectPathWhenArgumentArrayIsEmptyArrayTest() {
         // when
         final String path = AnalyserLauncher.getPath(new String[0]);
 
@@ -42,7 +42,7 @@ public class AnalyserLauncherTest {
     }
 
     @Test
-    public void shouldReturnThisProjectPathWhenArgumentIsEmptyTest() throws Exception {
+    public void shouldReturnThisProjectPathWhenArgumentIsEmptyTest() {
 
         // when
         final String path = AnalyserLauncher.getPath(new String[]{EMPTY_STRING});
@@ -52,7 +52,7 @@ public class AnalyserLauncherTest {
     }
 
     @Test
-    public void shouldReturnPathTest() throws Exception {
+    public void shouldReturnPathTest() {
         // when
         final String randomPath = RandomDataGenerator.generateString();
         final String path = AnalyserLauncher.getPath(new String[]{randomPath});
@@ -62,7 +62,7 @@ public class AnalyserLauncherTest {
     }
 
     @Test
-    public void shouldAnalyseFile() throws Exception {
+    public void shouldAnalyseFile() {
 
         // when
         AnalyserLauncher.main(new String[]{THIS_PROJECT_PATH});

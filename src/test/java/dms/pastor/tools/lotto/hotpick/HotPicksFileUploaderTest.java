@@ -53,13 +53,13 @@ public class HotPicksFileUploaderTest {
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         new File(EMPTY_CSV_FILE).delete();
         new File(EMPTY_TEXT_FILE).delete();
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionWhenFileIsNull() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionWhenFileIsNull() {
         // expect
         exception.expect(IllegalArgumentException.class);
 
@@ -68,7 +68,7 @@ public class HotPicksFileUploaderTest {
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionWhenPathToFileIsEmpty() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionWhenPathToFileIsEmpty() {
         // expect
         exception.expect(IllegalArgumentException.class);
 
@@ -77,7 +77,7 @@ public class HotPicksFileUploaderTest {
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionWhenPathToFileIsInvalid() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionWhenPathToFileIsInvalid() {
         // expect
         exception.expect(IllegalArgumentException.class);
 
@@ -86,7 +86,7 @@ public class HotPicksFileUploaderTest {
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionWhenPathToFileIsDirectory() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionWhenPathToFileIsDirectory() {
         // expect
         exception.expect(IllegalArgumentException.class);
 
@@ -108,7 +108,7 @@ public class HotPicksFileUploaderTest {
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionWhenFileTypeIsNotACsvFile() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionWhenFileTypeIsNotACsvFile() {
         // expect
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("It must be a csv file.");
@@ -179,7 +179,7 @@ java.lang.IllegalArgumentException: Path is invalid or is not a file
 	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:147)
      */
     @Test
-    public void shouldReturnEmptyListIfLineIsEmpty() throws Exception {
+    public void shouldReturnEmptyListIfLineIsEmpty() {
         // when
         final List<HotPickDraw> hotPickDrawList = hotPicksFileUploader.loadDrawHistoryFile(EMPTY_CSV_FILE).getDrawList();
 
@@ -203,7 +203,7 @@ java.lang.IllegalArgumentException: Path is invalid or is not a file
     }
 
     @Test
-    public void shouldReturnEmptyListIfRowContainsNotValidBall() throws Exception {
+    public void shouldReturnEmptyListIfRowContainsNotValidBall() {
 
         // when
         final List<HotPickDraw> hotPickDrawList = hotPicksFileUploader.loadDrawHistoryFile(EMPTY_CSV_FILE).getDrawList();
@@ -334,7 +334,7 @@ java.lang.IllegalArgumentException: Path is invalid or is not a file
     }
 
     @Test
-    public void shouldNotValidateWhenDateIsNull() throws Exception {
+    public void shouldNotValidateWhenDateIsNull() {
         // given
         exception.expect(IllegalArgumentException.class);
 
@@ -343,7 +343,7 @@ java.lang.IllegalArgumentException: Path is invalid or is not a file
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionWhenWhenParsingDateIsEmpty() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionWhenWhenParsingDateIsEmpty() {
         // given
         exception.expect(IllegalArgumentException.class);
 
@@ -352,7 +352,7 @@ java.lang.IllegalArgumentException: Path is invalid or is not a file
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionWhenWhenParsingDateFormatIsWithoutDelimiter() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionWhenWhenParsingDateFormatIsWithoutDelimiter() {
         // given
         exception.expect(IllegalArgumentException.class);
 
@@ -361,7 +361,7 @@ java.lang.IllegalArgumentException: Path is invalid or is not a file
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionWhenParsingDateFormatHasTooManyDelimiters() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionWhenParsingDateFormatHasTooManyDelimiters() {
         // given
         exception.expect(IllegalArgumentException.class);
 
@@ -370,7 +370,7 @@ java.lang.IllegalArgumentException: Path is invalid or is not a file
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionWhenYearIsNotValid() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionWhenYearIsNotValid() {
         // given
         exception.expect(IllegalArgumentException.class);
 
@@ -380,7 +380,7 @@ java.lang.IllegalArgumentException: Path is invalid or is not a file
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionWhenMonthIsNotValid() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionWhenMonthIsNotValid() {
         // given
         exception.expect(IllegalArgumentException.class);
 
@@ -389,7 +389,7 @@ java.lang.IllegalArgumentException: Path is invalid or is not a file
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionWhenDayIsNotValid() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionWhenDayIsNotValid() {
         // given
         exception.expect(IllegalArgumentException.class);
 

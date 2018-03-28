@@ -17,7 +17,7 @@ public class CommandValidatorTest extends AbstractCommandTest {
     private static final String NAME = "name";
 
     @Test
-    public void validateCommandShouldValidateIfParamsAreNotRequired() throws Exception {
+    public void validateCommandShouldValidateIfParamsAreNotRequired() {
         // given
         final Command command = new QuitCommand();
 
@@ -28,7 +28,7 @@ public class CommandValidatorTest extends AbstractCommandTest {
     }
 
     @Test
-    public void validateCommandShouldNotValidateIfParamsAreRequiredButNotProvided() throws Exception {
+    public void validateCommandShouldNotValidateIfParamsAreRequiredButNotProvided() {
         // expect
         exception.expect(InvalidCommandSyntaxException.class);
 
@@ -40,7 +40,7 @@ public class CommandValidatorTest extends AbstractCommandTest {
     }
 
     @Test
-    public void validateCommandShouldNotValidateIfParamsAreRequiredAndProvidedButInvalid() throws Exception {
+    public void validateCommandShouldNotValidateIfParamsAreRequiredAndProvidedButInvalid() {
         // expect
         exception.expect(InvalidCommandSyntaxException.class);
 
@@ -53,7 +53,7 @@ public class CommandValidatorTest extends AbstractCommandTest {
     }
 
     @Test
-    public void validateCommandShouldValidateIfParamsAreRequiredProvidedAndValid() throws Exception {
+    public void validateCommandShouldValidateIfParamsAreRequiredProvidedAndValid() {
 
         // given
         final Command command = new CreateCanvasCommand();

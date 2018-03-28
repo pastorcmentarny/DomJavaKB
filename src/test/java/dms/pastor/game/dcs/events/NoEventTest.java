@@ -25,7 +25,7 @@ public class NoEventTest {
     private final Event noEvent = new NoEvent();
 
     @Test
-    public void canHaveEventForNotEventShouldReturnTrue() throws Exception {
+    public void canHaveEventForNotEventShouldReturnTrue() {
         // given
         final Unit unit = unitBuilder().build();
 
@@ -37,7 +37,7 @@ public class NoEventTest {
     }
 
     @Test
-    public void makeItHappenShouldReturnNothingHappenMessage() throws Exception {
+    public void makeItHappenShouldReturnNothingHappenMessage() {
 
         // when
         final String message = noEvent.makeItHappen(UNUSED_UNIT, UNUSED_UNIT);

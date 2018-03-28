@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class RegexUtilsTest {
 
     @Test
-    public void countOccurrencesOfShouldReturnZeroIfSearchWordTIsNull() throws Exception {
+    public void countOccurrencesOfShouldReturnZeroIfSearchWordTIsNull() {
         // given
         final String text = "A text in the text.";
 
@@ -28,7 +28,7 @@ public class RegexUtilsTest {
     }
 
     @Test
-    public void countOccurrencesOfShouldReturnZeroIfTextIsNull() throws Exception {
+    public void countOccurrencesOfShouldReturnZeroIfTextIsNull() {
         // given
         final String what = "text";
 
@@ -40,7 +40,7 @@ public class RegexUtilsTest {
     }
 
     @Test
-    public void countOccurrencesOfShouldReturnOneIfSearchWordOccurredOnceInText() throws Exception {
+    public void countOccurrencesOfShouldReturnOneIfSearchWordOccurredOnceInText() {
         // given
         final String what = "text";
         final String text = "A text in the String.";
@@ -54,7 +54,7 @@ public class RegexUtilsTest {
 
 
     @Test
-    public void countOccurrencesOfShouldReturnTwoIfSearchWordOccurredTwiceInText() throws Exception {
+    public void countOccurrencesOfShouldReturnTwoIfSearchWordOccurredTwiceInText() {
         // given
         final String what = "text";
         final String text = "A text in the text.";
@@ -67,7 +67,7 @@ public class RegexUtilsTest {
     }
 
     @Test
-    public void countOccurrencesOfShouldReturnOnceIfSearchWordOccurredTwiceButOneHasWrongCaseInText() throws Exception {
+    public void countOccurrencesOfShouldReturnOnceIfSearchWordOccurredTwiceButOneHasWrongCaseInText() {
         // given
         final String what = "text";
         final String text = "A text in the Text.";
@@ -80,7 +80,7 @@ public class RegexUtilsTest {
     }
 
     @Test
-    public void countOccurrencesOfShouldReturnThreeIfSearchWordOccurredThreeTimesInText() throws Exception {
+    public void countOccurrencesOfShouldReturnThreeIfSearchWordOccurredThreeTimesInText() {
         // given
         final String what = "text";
         final String text = "A text in the texttext.";

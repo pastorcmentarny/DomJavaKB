@@ -41,12 +41,12 @@ public class ScheduleTaskExampleRunnerTest {
     private ArgumentCaptor<ILoggingEvent> captorLoggingEvent;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         LOGGER.addAppender(mockAppender);
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         LOGGER.detachAppender(mockAppender);
     }
 

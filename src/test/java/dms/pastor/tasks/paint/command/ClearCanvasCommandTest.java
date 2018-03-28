@@ -22,7 +22,7 @@ public class ClearCanvasCommandTest extends AbstractCommandTest {
     private final Command clearCanvasCommand = new ClearCanvasCommand();
 
     @Test
-    public void getSyntaxShouldSyntaxForQuitCommand() throws Exception {
+    public void getSyntaxShouldSyntaxForQuitCommand() {
         // when
         final String syntax = clearCanvasCommand.getSyntax();
 
@@ -31,7 +31,7 @@ public class ClearCanvasCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void isParamsRequiredShouldReturnFalse() throws Exception {
+    public void isParamsRequiredShouldReturnFalse() {
         // when
         final boolean result = clearCanvasCommand.isParamsRequired();
 
@@ -40,7 +40,7 @@ public class ClearCanvasCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void setParamsIfValidShouldInvalidCommandSyntaxExceptionIfParamsAreInvalid() throws Exception {
+    public void setParamsIfValidShouldInvalidCommandSyntaxExceptionIfParamsAreInvalid() {
         // given
         exception.expect(InvalidCommandSyntaxException.class);
         exception.expectMessage("Invalid Syntax because number of params are invalid. Should be 1 but was 3. Please check your input and try again.");
@@ -51,7 +51,7 @@ public class ClearCanvasCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void setParamsIfValidShouldValidate() throws Exception {
+    public void setParamsIfValidShouldValidate() {
         // given
         final String[] params = {CLEAR_COMMAND_SYNTAX};
 
@@ -62,7 +62,7 @@ public class ClearCanvasCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void executeShouldReturnClearCanvas() throws Exception {
+    public void executeShouldReturnClearCanvas() {
         // given
         final int width = 8;
         final int height = 6;

@@ -50,7 +50,7 @@ public class ToPinyinApplicationTest {
     }
 
     @Test
-    public void shouldThrowExceptionWhenInputArgumentIsNull() throws Exception {
+    public void shouldThrowExceptionWhenInputArgumentIsNull() {
         // expect
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("Input arguments cannot be null.");
@@ -60,7 +60,7 @@ public class ToPinyinApplicationTest {
     }
 
     @Test
-    public void shouldThrowExceptionWhenInputArgumentsHas1Argument() throws Exception {
+    public void shouldThrowExceptionWhenInputArgumentsHas1Argument() {
         // expect
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("It should contains 2 arguments (type of pinyin (number,character) and text.");
@@ -70,7 +70,7 @@ public class ToPinyinApplicationTest {
     }
 
     @Test
-    public void shouldThrowExceptionWhenInputArgumentsHasMoreThan2Arguments() throws Exception {
+    public void shouldThrowExceptionWhenInputArgumentsHasMoreThan2Arguments() {
         // expect
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("It should contains 2 arguments (type of pinyin (number,character) and text.");
@@ -83,7 +83,7 @@ public class ToPinyinApplicationTest {
     }
 
     @Test
-    public void shouldThrowSomethingWentWrongExceptionWhenFirstArgumentIsNotValidConverterType() throws Exception {
+    public void shouldThrowSomethingWentWrongExceptionWhenFirstArgumentIsNotValidConverterType() {
         // except
         exception.expect(SomethingWentWrongException.class);
         exception.expectMessage("Whoops! Something went wrong. Invalid conversation type(can be: number,character). I apologize for any inconvenience caused by your mistake.");
@@ -96,7 +96,7 @@ public class ToPinyinApplicationTest {
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionWhenTextIsNull() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionWhenTextIsNull() {
         // except
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(TEXT_INVALID_MESSAGE);
@@ -109,7 +109,7 @@ public class ToPinyinApplicationTest {
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionWhenTextIsEmpty() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionWhenTextIsEmpty() {
         // except
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(TEXT_INVALID_MESSAGE);
@@ -122,7 +122,7 @@ public class ToPinyinApplicationTest {
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionWhenTextHasLessThan2Characters() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionWhenTextHasLessThan2Characters() {
         // except
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(TEXT_INVALID_MESSAGE);
@@ -135,7 +135,7 @@ public class ToPinyinApplicationTest {
     }
 
     @Test
-    public void shouldDisplayPinyinForMaWIthSecondToneAcceptanceTest() throws Exception {
+    public void shouldDisplayPinyinForMaWIthSecondToneAcceptanceTest() {
         // given
         final String[] arguments = new String[]{"number", "ma(2)"};
         final String expected = "má" + System.lineSeparator();

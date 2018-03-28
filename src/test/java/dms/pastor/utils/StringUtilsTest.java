@@ -47,7 +47,7 @@ public class StringUtilsTest {
     public final ExpectedException exception = ExpectedException.none();
 
     @Test
-    public void testGetRandomCharacter() throws Exception {
+    public void testGetRandomCharacter() {
         // given
         Character randomCharacter = getRandomCharacter();
 
@@ -59,7 +59,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void getUnknownWhenNullStringShouldReturnUnknownIfStringIsNull() throws Exception {
+    public void getUnknownWhenNullStringShouldReturnUnknownIfStringIsNull() {
         // when
         final String result = getUnknownWhenNullString(null);
 
@@ -68,7 +68,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void getUnknownWhenNullStringShouldReturnStringIfStringIsNotNull() throws Exception {
+    public void getUnknownWhenNullStringShouldReturnStringIfStringIsNotNull() {
         // given
         final String string = generateString();
         // when
@@ -79,7 +79,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void testStringShouldBePalindrome() throws Exception {
+    public void testStringShouldBePalindrome() {
         // when
         final boolean result = isPalindromeString(PALINDROME);
 
@@ -88,7 +88,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void testStringShouldNotBePalindrome() throws Exception {
+    public void testStringShouldNotBePalindrome() {
         // when
         final boolean result = isPalindromeString(NOT_A_PALINDROME);
 
@@ -97,7 +97,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void testShouldBeAPalindromeForPermutableString() throws Exception {
+    public void testShouldBeAPalindromeForPermutableString() {
         // when
         final boolean result = isPalindromeOfAnyPermutationString(PALINDROME_AFTER_PERMUTATION);
 
@@ -106,7 +106,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void testShouldBePalindromeString() throws Exception {
+    public void testShouldBePalindromeString() {
         // when
         final boolean result = isPalindromeOfAnyPermutationString(PALINDROME);
 
@@ -124,7 +124,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void testShouldBeLetterOnlyString() throws Exception {
+    public void testShouldBeLetterOnlyString() {
         // when
         final boolean result = isAlpha("ThisStringContainsLettersOnly");
 
@@ -133,7 +133,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void testShouldReturnFalseForStringWithNonLetterCharacters() throws Exception {
+    public void testShouldReturnFalseForStringWithNonLetterCharacters() {
         // when
         final boolean result = isAlpha("ThisStringHasNumbers1234567890asWell");
 
@@ -142,7 +142,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void testIsPangramsReturnTrue() throws Exception {
+    public void testIsPangramsReturnTrue() {
         // given
         final String panagram = "The quick brown fox jumps over the lazy dog";
 
@@ -154,7 +154,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void testIsPangramsReturnFalseForTextThatIsNotAPanagram() throws Exception {
+    public void testIsPangramsReturnFalseForTextThatIsNotAPanagram() {
         // given
         String notPanagram = "We promptly judged antique ivory buckles for the prize";
 
@@ -166,7 +166,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void testToStringArray() throws Exception {
+    public void testToStringArray() {
         // given
         String[] answer = new String[]{"London", "Tianjin", "Wrocław"};
         List<String> stringList = new ArrayList<>();
@@ -183,7 +183,7 @@ public class StringUtilsTest {
 
     //it is purpose of test
     @Test
-    public void testToStringArrayReturnIllegalArgumentException() throws Exception {
+    public void testToStringArrayReturnIllegalArgumentException() {
         // expect
         exception.expect(IllegalArgumentException.class);
 
@@ -193,7 +193,7 @@ public class StringUtilsTest {
 
     @SuppressWarnings("ConstantConditions")
     @Test
-    public void isStringEmptyShouldReturnTrueForNull() throws Exception {
+    public void isStringEmptyShouldReturnTrueForNull() {
         // when
         final boolean result = isStringBlank(null);
 
@@ -202,7 +202,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void isStringEmptyShouldReturnTrueForEmptyString() throws Exception {
+    public void isStringEmptyShouldReturnTrueForEmptyString() {
         // when
         final boolean result = isStringBlank(EMPTY_STRING);
 
@@ -211,7 +211,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void isStringEmptyShouldReturnTrueForOnlySpaceString() throws Exception {
+    public void isStringEmptyShouldReturnTrueForOnlySpaceString() {
         // when
         final boolean result = isStringBlank("   ");
         // then
@@ -220,7 +220,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void shouldReturnFalseForValidString() throws Exception {
+    public void shouldReturnFalseForValidString() {
         // when
         final boolean result = isStringBlank("String");
 
@@ -229,7 +229,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void shouldReturnFalseForRandomString() throws Exception {
+    public void shouldReturnFalseForRandomString() {
 
         final String randomText = RandomDataGenerator.getRandomText();
 
@@ -239,7 +239,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void shouldReturnTrueForNotEmptyStringTest() throws Exception {
+    public void shouldReturnTrueForNotEmptyStringTest() {
         // when
         final boolean result = StringUtils.isStringNotEmpty(generateString(128));
 
@@ -249,7 +249,7 @@ public class StringUtilsTest {
 
 
     @Test
-    public void getEmptyStringForNullStringExample() throws Exception {
+    public void getEmptyStringForNullStringExample() {
 
         // when
         final String nullSafeString = getNullSafeString(null);
@@ -259,7 +259,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void shouldReturnStringForNotNullStringExample() throws Exception {
+    public void shouldReturnStringForNotNullStringExample() {
         // given
         final String string = "string";
 
@@ -271,7 +271,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionWhenStringIsNullTest() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionWhenStringIsNullTest() {
         // except
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(INPUT_CANNOT_BE_EMPTY);
@@ -281,7 +281,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionWhenStringIsNullStringIsEmptyTest() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionWhenStringIsNullStringIsEmptyTest() {
         // except
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(INPUT_CANNOT_BE_EMPTY);
@@ -291,7 +291,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void shouldReturn2WordsTest() throws Exception {
+    public void shouldReturn2WordsTest() {
         // given
         String content = "Two words";
 
@@ -303,7 +303,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void shouldValidateStringWithNonAlphanumericCharactersOnlyTest() throws Exception {
+    public void shouldValidateStringWithNonAlphanumericCharactersOnlyTest() {
         // when
         final boolean isAlphanumeric = hasNonAlphanumericCharactersOnly(NON_ALPHANUMERIC);
 
@@ -312,7 +312,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void shouldReturnFalseForStringThatContainsSomeAlphanumericTest() throws Exception {
+    public void shouldReturnFalseForStringThatContainsSomeAlphanumericTest() {
         // given
         final String mixed = generateString(10) + generateNonAlphanumericString(5) + generateString(2, 10);
 
@@ -325,7 +325,7 @@ public class StringUtilsTest {
 
     @SuppressWarnings("ConstantConditions") // part of the test
     @Test
-    public void shouldThrowIllegalArgumentExceptionWhenStringIsEmptyForSwapCharactersTest() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionWhenStringIsEmptyForSwapCharactersTest() {
         // exception
         exception.expect(IllegalArgumentException.class);
 
@@ -334,7 +334,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void shouldReturnEmptyStringIfYouPassEmptyStringIsEmptyForSwapCharactersTest() throws Exception {
+    public void shouldReturnEmptyStringIfYouPassEmptyStringIsEmptyForSwapCharactersTest() {
         // when
         final String actualResult = swapCaseLettersInString(EMPTY_STRING);
 
@@ -344,7 +344,7 @@ public class StringUtilsTest {
 
     @SuppressWarnings("SpellCheckingInspection")
     @Test
-    public void shouldSwapCharactersInString() throws Exception {
+    public void shouldSwapCharactersInString() {
         // given
         final String text = "lowerUPPERcase";
         final String expectedResult = "LOWERupperCASE";
@@ -358,7 +358,7 @@ public class StringUtilsTest {
 
     @SuppressWarnings("SpellCheckingInspection")
     @Test
-    public void shouldSwapCharactersAndDisplayRestOfNonAlphabeticalCharactersInString() throws Exception {
+    public void shouldSwapCharactersAndDisplayRestOfNonAlphabeticalCharactersInString() {
         // given
         final String text = "plainTextExample#6688";
         final String expectedResult = "PLAINtEXTeXAMPLE#6688";
@@ -371,7 +371,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void shouldGetRandomTextTest() throws Exception {
+    public void shouldGetRandomTextTest() {
         // when
         final String randomText = getRandomText(128);
 
@@ -380,7 +380,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void getRandomTextShouldReturnEmptyStringForZeroSize() throws Exception {
+    public void getRandomTextShouldReturnEmptyStringForZeroSize() {
         // when
         final String randomText = getRandomText(0);
         System.out.println(randomText);
@@ -390,7 +390,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void removeAllNonAlphaNumericCharactersFromStringShouldReturnTheSameStringShouldReturnNullForNullString() throws Exception {
+    public void removeAllNonAlphaNumericCharactersFromStringShouldReturnTheSameStringShouldReturnNullForNullString() {
         // when
         final String result = StringUtils.removeAllNonAlphaNumericCharactersFromString(null);
 
@@ -400,7 +400,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void removeAllNonAlphaNumericCharactersFromStringShouldReturnTheSameString() throws Exception {
+    public void removeAllNonAlphaNumericCharactersFromStringShouldReturnTheSameString() {
         // given
         final String string = "An1Example!";
         final String expectedResult = "An1Example";
@@ -413,7 +413,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void shouldRemoveAllNonAlphaNumericCharactersFromString() throws Exception {
+    public void shouldRemoveAllNonAlphaNumericCharactersFromString() {
         // given
         final String string = "An1Example!\"\\£$%^&*()_+-={}[]@~:;'#<>?,./";
         final String expectedResult = "An1Example";
@@ -426,7 +426,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void shouldBeDeleted() throws Exception {
+    public void shouldBeDeleted() {
         // given
         LocalDate date = LocalDate.now();
 
@@ -438,7 +438,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void isStartWithUpperCaseShouldReturnTrueWhenIsTextStartsWithCapitalLetter() throws Exception {
+    public void isStartWithUpperCaseShouldReturnTrueWhenIsTextStartsWithCapitalLetter() {
         // given
         final String string = "String";
         // when
@@ -448,7 +448,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void isStartWithUpperCaseShouldReturnFalseWhenIsTextStartsWithLowerLetter() throws Exception {
+    public void isStartWithUpperCaseShouldReturnFalseWhenIsTextStartsWithLowerLetter() {
         // given
         final String string = "string";
         // when
@@ -458,7 +458,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void isStartWithUpperCaseShouldReturnFalseWhenIsTextStartsWithNumber() throws Exception {
+    public void isStartWithUpperCaseShouldReturnFalseWhenIsTextStartsWithNumber() {
         // given
         final String string = String.valueOf(randomPositiveInteger());
         // when
@@ -468,7 +468,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void trimAllWhiteSpacesShouldNullForNullText() throws Exception {
+    public void trimAllWhiteSpacesShouldNullForNullText() {
         // when
         final String result = trimAllWhiteSpaces(null);
 
@@ -477,7 +477,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void trimAllWhiteSpacesShouldEmptyStringForEmptyText() throws Exception {
+    public void trimAllWhiteSpacesShouldEmptyStringForEmptyText() {
         // when
         final String result = trimAllWhiteSpaces(EMPTY_STRING);
 
@@ -486,7 +486,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void trimAllWhiteSpacesShouldEmptyStringForWhitespacesOnlyText() throws Exception {
+    public void trimAllWhiteSpacesShouldEmptyStringForWhitespacesOnlyText() {
         // when
         final String result = trimAllWhiteSpaces(WHITESPACES_ONLY_STRING);
 
@@ -495,7 +495,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void trimAllWhiteSpacesShouldRemoveAllWhitespaces() throws Exception {
+    public void trimAllWhiteSpacesShouldRemoveAllWhitespaces() {
         // given
         final String text = "    Text With   Whitespaces.   ";
         final String expectedResult = "TextWithWhitespaces.";
@@ -509,7 +509,7 @@ public class StringUtilsTest {
 
 
     @Test
-    public void shouldReturnTrueWhenTextHasNonAlphabetCharactersOnly() throws Exception {
+    public void shouldReturnTrueWhenTextHasNonAlphabetCharactersOnly() {
         // when
         final boolean result = StringUtils.hasNonAlphabetCharactersOnly(NON_ALPHABETICAL_STRING);
 
@@ -518,7 +518,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void hasNonAlphabetCharactersOnlyShouldReturnFalseIfStringContainAlphabetCharacter() throws Exception {
+    public void hasNonAlphabetCharactersOnlyShouldReturnFalseIfStringContainAlphabetCharacter() {
 
         // when
         final boolean result = StringUtils.hasNonAlphabetCharactersOnly(NON_ALPHABETICAL_STRING);
@@ -529,7 +529,7 @@ public class StringUtilsTest {
 
 
     @Test
-    public void appendCharToCharArrayShouldReturnCharArrayWithAddedCharacter() throws Exception {
+    public void appendCharToCharArrayShouldReturnCharArrayWithAddedCharacter() {
         // given
         char character = 'z';
         char[] charArray = new char[]{'a', 'b', 'c'};
@@ -544,7 +544,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void everythingIsEmptyShouldReturnTrueIfAllStringsAreEmptyAcceptanceTest() throws Exception {
+    public void everythingIsEmptyShouldReturnTrueIfAllStringsAreEmptyAcceptanceTest() {
         // given
         final String string1 = generateString(MAX_SMALL_VALUE_RANGE);
         final String string2 = generateString(MAX_SMALL_VALUE_RANGE);
@@ -558,7 +558,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void everythingIsEmptyShouldReturnFalseIfAnyOfStringsIsNotEmptyAcceptanceTest() throws Exception {
+    public void everythingIsEmptyShouldReturnFalseIfAnyOfStringsIsNotEmptyAcceptanceTest() {
         // given
         final String string1 = generateString(MAX_SMALL_VALUE_RANGE);
         final String string2 = generateString(MAX_SMALL_VALUE_RANGE);
@@ -571,7 +571,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void everythingIsEmptyShouldReturnTrueIfNoArgumentProvided() throws Exception {
+    public void everythingIsEmptyShouldReturnTrueIfNoArgumentProvided() {
 
         // when
         final boolean result = isAllStringsAreNotEmpty();
@@ -581,7 +581,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void countOccurrenceOfShouldReturn0ForOccurrenceThatIsNull() throws Exception {
+    public void countOccurrenceOfShouldReturn0ForOccurrenceThatIsNull() {
         // when
         int result = StringUtils.countOccurrenceOf(null, generateString());
 
@@ -590,7 +590,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void countOccurrenceOfShouldReturn0ForWordThatIsNull() throws Exception {
+    public void countOccurrenceOfShouldReturn0ForWordThatIsNull() {
         // when
         int result = StringUtils.countOccurrenceOf(generateString(), null);
 
@@ -599,7 +599,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void countOccurrenceOfShouldReturn0ForOccurrenceThatIsEmpty() throws Exception {
+    public void countOccurrenceOfShouldReturn0ForOccurrenceThatIsEmpty() {
         // when
         int result = StringUtils.countOccurrenceOf(EMPTY_STRING, generateString());
 
@@ -608,7 +608,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void countOccurrenceOfShouldReturn0ForWordThatIsEmpty() throws Exception {
+    public void countOccurrenceOfShouldReturn0ForWordThatIsEmpty() {
         // when
         int result = StringUtils.countOccurrenceOf(generateString(), EMPTY_STRING);
 
@@ -617,7 +617,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void countOccurrenceOfShouldReturn0IfOccurrenceWordIsLongerThanTextItself() throws Exception {
+    public void countOccurrenceOfShouldReturn0IfOccurrenceWordIsLongerThanTextItself() {
         // given
         final String text = "text";
         // when
@@ -628,7 +628,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void countOccurrenceOfShouldReturn2ForOccurrenceOfLabInLabLab() throws Exception {
+    public void countOccurrenceOfShouldReturn2ForOccurrenceOfLabInLabLab() {
         // given
         final String text = "LabLab";
         final String occurrence = "lab";
@@ -641,7 +641,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void countOccurrenceOfShouldReturn5ForOccurrenceOfSixInSentence() throws Exception {
+    public void countOccurrenceOfShouldReturn5ForOccurrenceOfSixInSentence() {
         // given
         final String text = "sixty-four sixty-five sixty-six sixty-seven";
         final String occurrence = "six";
@@ -654,7 +654,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void printCountryListShouldDisplayListOfCountries() throws Exception {
+    public void printCountryListShouldDisplayListOfCountries() {
         // when
         final List<String> countryList = getCountryList();
 
@@ -666,7 +666,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void toCamelCaseShouldThrowIllegalArgumentExceptionWhenInputIsNull() throws Exception {
+    public void toCamelCaseShouldThrowIllegalArgumentExceptionWhenInputIsNull() {
         // expect
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("text cannot be null");
@@ -676,7 +676,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void capitalizeFirstCharacterShouldReturnEmptyStringWhenInputIsEmpty() throws Exception {
+    public void capitalizeFirstCharacterShouldReturnEmptyStringWhenInputIsEmpty() {
         // when
         final String result = capitalizeFirstCharacter(EMPTY_STRING);
 
@@ -685,7 +685,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void capitalizeFirstCharacterShouldReturnTheSameStringWhenInputHasCapitalCharacter() throws Exception {
+    public void capitalizeFirstCharacterShouldReturnTheSameStringWhenInputHasCapitalCharacter() {
         // given
         final String string = "STRING";
         final String expectedResult = "S";
@@ -698,7 +698,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void capitalizeFirstCharacterShouldReturnTheSameStringWhenInputHasFirstCapitalized() throws Exception {
+    public void capitalizeFirstCharacterShouldReturnTheSameStringWhenInputHasFirstCapitalized() {
         // given
         final String string = "STRING";
         final String expectedResult = "S";
@@ -713,7 +713,7 @@ public class StringUtilsTest {
 
 
     @Test
-    public void getStringWithCapitalizedFirstCharacterShouldReturnEmptyStringWhenInputIsEmpty() throws Exception {
+    public void getStringWithCapitalizedFirstCharacterShouldReturnEmptyStringWhenInputIsEmpty() {
         // when
         final String result = getStringWithCapitalizedFirstCharacter(EMPTY_STRING);
 
@@ -722,7 +722,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void getStringWithCapitalizedFirstCharacterShouldReturnTheSameStringWhenInputHasCapitalCharacterOnly() throws Exception {
+    public void getStringWithCapitalizedFirstCharacterShouldReturnTheSameStringWhenInputHasCapitalCharacterOnly() {
         // given
         final String string = "STRING";
 
@@ -735,7 +735,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void getStringWithCapitalizedFirstCharacterShouldReturnTheSameStringWhenInputHasFirstCharacterCapitalized() throws Exception {
+    public void getStringWithCapitalizedFirstCharacterShouldReturnTheSameStringWhenInputHasFirstCharacterCapitalized() {
         // given
         final String string = "String";
 
@@ -748,7 +748,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void getStringWithCapitalizedFirstCharacterShouldReturnStringWithFirstCharacterCapitalized() throws Exception {
+    public void getStringWithCapitalizedFirstCharacterShouldReturnStringWithFirstCharacterCapitalized() {
         // given
         final String string = "string";
         final String expectedResult = "String";

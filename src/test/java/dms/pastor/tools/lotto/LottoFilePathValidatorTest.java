@@ -28,7 +28,7 @@ public class LottoFilePathValidatorTest {
     public final ExpectedException exception = ExpectedException.none();
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionWhenFileIsNull() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionWhenFileIsNull() {
         // expect
         exception.expect(IllegalArgumentException.class);
 
@@ -37,7 +37,7 @@ public class LottoFilePathValidatorTest {
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionWhenPathToFileIsEmpty() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionWhenPathToFileIsEmpty() {
         // expect
         exception.expect(IllegalArgumentException.class);
 
@@ -46,7 +46,7 @@ public class LottoFilePathValidatorTest {
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionWhenPathToFileIsInvalid() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionWhenPathToFileIsInvalid() {
         // expect
         exception.expect(IllegalArgumentException.class);
 
@@ -55,7 +55,7 @@ public class LottoFilePathValidatorTest {
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionWhenPathToFileIsDirectory() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionWhenPathToFileIsDirectory() {
         // expect
         exception.expect(IllegalArgumentException.class);
 

@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class FireElementEventTest {
 
     @Test
-    public void performFireEventShouldCauseUnitToHasDamage() throws Exception {
+    public void performFireEventShouldCauseUnitToHasDamage() {
         // given
         final Condition conditions = new Condition();
         conditions.add(createTemporaryCondition(FIRE_SENSITIVE, 1));
@@ -41,7 +41,7 @@ public class FireElementEventTest {
     }
 
     @Test
-    public void performFireEventShouldGivesFireElement() throws Exception {
+    public void performFireEventShouldGivesFireElement() {
         // given
         final Condition conditions = new Condition();
         conditions.add(createTemporaryCondition(FIRE_IMMUNE, 1));

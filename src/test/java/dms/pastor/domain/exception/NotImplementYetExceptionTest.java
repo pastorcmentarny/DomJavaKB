@@ -28,7 +28,7 @@ public class NotImplementYetExceptionTest {
     public final ExpectedException exception = ExpectedException.none();
 
     @Test
-    public void shouldThrowNotImplementYetExceptionTest() throws Exception {
+    public void shouldThrowNotImplementYetExceptionTest() {
 
         // expect
         exception.expect(NotImplementYetException.class);

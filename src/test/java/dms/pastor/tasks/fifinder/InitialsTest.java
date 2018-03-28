@@ -32,7 +32,7 @@ public class InitialsTest {
     private Initials i;
 
     @Test
-    public void getInitialsAcceptanceCriteriaTest() throws Exception {
+    public void getInitialsAcceptanceCriteriaTest() {
         // given
         Name name = nameBuilder()
                 .first(FIRST_NAME)
@@ -50,7 +50,7 @@ public class InitialsTest {
     }
 
     @Test
-    public void getInitialsFromFirstAndLastNameAcceptanceCriteriaTest() throws Exception {
+    public void getInitialsFromFirstAndLastNameAcceptanceCriteriaTest() {
         // given
         Name name = nameBuilder()
                 .first(FIRST_NAME)
@@ -68,7 +68,7 @@ public class InitialsTest {
     }
 
     @Test
-    public void shouldReturnEmptyStringIfFirstMiddleAndLastNameIsNull() throws Exception {
+    public void shouldReturnEmptyStringIfFirstMiddleAndLastNameIsNull() {
         // given
         final Name name = nameBuilder()
                 .first(null)
@@ -86,7 +86,7 @@ public class InitialsTest {
     }
 
     @Test
-    public void shouldReturnInitialsForFirstNameOnly() throws Exception {
+    public void shouldReturnInitialsForFirstNameOnly() {
         // given
         final Name name = nameBuilder()
                 .first(FIRST_NAME)
@@ -103,7 +103,7 @@ public class InitialsTest {
     }
 
     @Test
-    public void shouldReturnInitialsForMiddleNameOnly() throws Exception {
+    public void shouldReturnInitialsForMiddleNameOnly() {
         // given
         final Name name = nameBuilder()
                 .withoutFirstName()
@@ -121,7 +121,7 @@ public class InitialsTest {
     }
 
     @Test
-    public void shouldReturnInitialsForMiddleNamesOnly() throws Exception {
+    public void shouldReturnInitialsForMiddleNamesOnly() {
         // given
         final Name name = nameBuilder()
                 .withoutFirstName()
@@ -139,7 +139,7 @@ public class InitialsTest {
     }
 
     @Test
-    public void shouldHaveSpaceBetweenFirstAndMiddleName() throws Exception {
+    public void shouldHaveSpaceBetweenFirstAndMiddleName() {
         // given
         final Name name = nameBuilder()
                 .first(FIRST_NAME)
@@ -157,7 +157,7 @@ public class InitialsTest {
     }
 
     @Test
-    public void shouldReturnInitialsForLastNameOnly() throws Exception {
+    public void shouldReturnInitialsForLastNameOnly() {
         // given
         final Name name = nameBuilder()
                 .withoutFirstName()
@@ -175,7 +175,7 @@ public class InitialsTest {
     }
 
     @Test
-    public void shouldReturnInitialsForLastNamesWithSpaceOnly() throws Exception {
+    public void shouldReturnInitialsForLastNamesWithSpaceOnly() {
         // given
         final Name name = nameBuilder()
                 .withoutFirstName()
@@ -193,7 +193,7 @@ public class InitialsTest {
     }
 
     @Test
-    public void shouldReturnInitialsForLastNamesWithDashOnly() throws Exception {
+    public void shouldReturnInitialsForLastNamesWithDashOnly() {
         // given
         final Name name = nameBuilder()
                 .withoutFirstName()
@@ -211,7 +211,7 @@ public class InitialsTest {
     }
 
     @Test
-    public void shouldReturnInitialsForFirstNameOnlyWithCapitalLetter() throws Exception {
+    public void shouldReturnInitialsForFirstNameOnlyWithCapitalLetter() {
         // given
         final Name name = nameBuilder()
                 .first(FIRST_NAME.toLowerCase())
@@ -229,7 +229,7 @@ public class InitialsTest {
     }
 
     @Test
-    public void shouldReturnFirstCharacterOfFirstAndLastName() throws Exception {
+    public void shouldReturnFirstCharacterOfFirstAndLastName() {
         // given
         final Name name = nameBuilder()
                 .first(FIRST_NAME)

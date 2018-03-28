@@ -15,7 +15,7 @@ import org.junit.Test;
 public class CureSpellAcceptanceTest {
 
     @Test
-    public void cureSpellShouldCurePoisonBlindAndWeaknessButNot() throws Exception {
+    public void cureSpellShouldCurePoisonBlindAndWeaknessButNot() {
         // given
         UnitBuilder.unitBuilder()
                 .condition(null)

@@ -19,17 +19,17 @@ public class CharacterExercisesTest {
     private CharacterExercises exercise;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         exercise = new CharacterExercises();
     }
 
     @Test
-    public void testShouldFound1DInDominik() throws Exception {
+    public void testShouldFound1DInDominik() {
         assertThat(exercise.countCharacterInString('D', "Dominik")).isEqualTo(1);
     }
 
     @Test
-    public void testShouldFound10LInLlanfairpwll() throws Exception {
+    public void testShouldFound10LInLlanfairpwll() {
         assertThat(exercise.countCharacterInString('L', LLANFARPWLL)).isEqualTo(11);
     }
 
@@ -41,14 +41,14 @@ public class CharacterExercisesTest {
 
     @SuppressWarnings("SpellCheckingInspection")
     @Test
-    public void testAlternatingCharacters() throws Exception {
+    public void testAlternatingCharacters() {
         String good = "ABABA";
         assertThat(exercise.alternatingCharacters(good)).isEqualTo(0);
     }
 
     //because there is one duplicate of the same letter bb
     @Test
-    public void testAlternatingCharactersWillReturn1() throws Exception {
+    public void testAlternatingCharactersWillReturn1() {
         String firstString = "BABB";
         assertThat(exercise.alternatingCharacters(firstString)).isEqualTo(1);
     }
@@ -56,7 +56,7 @@ public class CharacterExercisesTest {
     //because there are 3 the same character one after another so is 2
     @SuppressWarnings("SpellCheckingInspection")
     @Test
-    public void testAlteringCharactersWillReturn2() throws Exception {
+    public void testAlteringCharactersWillReturn2() {
         String secondString = "ABBBA";
         assertThat(exercise.alternatingCharacters(secondString)).isEqualTo(2);
     }

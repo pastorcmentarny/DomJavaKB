@@ -20,13 +20,13 @@ public final class AppLauncherTest {
     private PrintStream printStream;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         printStream = System.out;
         System.setOut(new PrintStream(outputStream));
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         System.setOut(printStream);
     }
 

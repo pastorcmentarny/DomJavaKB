@@ -35,7 +35,7 @@ public class NumberUtilsTest {
     public final ExpectedException exception = ExpectedException.none();
 
     @Test
-    public void getResultInRangeShouldReturn10For10InRangeBetween5And20() throws Exception {
+    public void getResultInRangeShouldReturn10For10InRangeBetween5And20() {
         // given
         final int value = 10;
 
@@ -47,7 +47,7 @@ public class NumberUtilsTest {
     }
 
     @Test
-    public void getResultInRangeShouldReturn5For5InRangeBetween5And20() throws Exception {
+    public void getResultInRangeShouldReturn5For5InRangeBetween5And20() {
         // given
         final int value = MIN_VALUE;
 
@@ -59,7 +59,7 @@ public class NumberUtilsTest {
     }
 
     @Test
-    public void getResultInRangeShouldReturn20For20InRangeBetween5And20() throws Exception {
+    public void getResultInRangeShouldReturn20For20InRangeBetween5And20() {
         // given
         final int value = MAX_VALUE;
 
@@ -71,7 +71,7 @@ public class NumberUtilsTest {
     }
 
     @Test
-    public void getResultInRangeShouldReturn5For0InRangeBetween5And20() throws Exception {
+    public void getResultInRangeShouldReturn5For0InRangeBetween5And20() {
         // given
         final int value = 0;
 
@@ -83,7 +83,7 @@ public class NumberUtilsTest {
     }
 
     @Test
-    public void getResultInRangeShouldReturn25For0InRangeBetween5And20() throws Exception {
+    public void getResultInRangeShouldReturn25For0InRangeBetween5And20() {
         // given
         final int value = 25;
 
@@ -95,80 +95,80 @@ public class NumberUtilsTest {
     }
 
     @Test
-    public void testShouldReturn100For104() throws Exception {
+    public void testShouldReturn100For104() {
         final int result = getResultIn0to100Range(104);
         assertThat(result).isEqualTo(100);
     }
 
     @Test
-    public void testShouldReturn0ForMinusTen() throws Exception {
+    public void testShouldReturn0ForMinusTen() {
         final int result = getResultIn0to100Range(-10);
         assertThat(result).isZero();
     }
 
     @Test
-    public void testShouldReturn20For20() throws Exception {
+    public void testShouldReturn20For20() {
         final int result = getResultIn0to100Range(20);
         assertThat(result).isEqualTo(20);
     }
 
     @Test
-    public void getFibonacciForShouldReturnZeroForZero() throws Exception {
+    public void getFibonacciForShouldReturnZeroForZero() {
         final long result = getFibonacciNumberFor(0);
         assertThat(result).isZero();
     }
 
     @Test
-    public void getFibonacciForShouldReturnOneForOne() throws Exception {
+    public void getFibonacciForShouldReturnOneForOne() {
         final long result = getFibonacciNumberFor(1);
         assertThat(result).isEqualTo(1);
     }
 
     @Test
-    public void getFibonacciForShouldReturnOneForTwo() throws Exception {
+    public void getFibonacciForShouldReturnOneForTwo() {
         final long result = getFibonacciNumberFor(2);
         assertThat(result).isEqualTo(1);
     }
 
     @Test
-    public void getFibonacciForShouldReturnTwoForThree() throws Exception {
+    public void getFibonacciForShouldReturnTwoForThree() {
         final long result = getFibonacciNumberFor(3);
         assertThat(result).isEqualTo(2);
     }
 
     @Test
-    public void getFibonacciForShouldReturnThreeForFour() throws Exception {
+    public void getFibonacciForShouldReturnThreeForFour() {
         final long result = getFibonacciNumberFor(4);
         assertThat(result).isEqualTo(3);
     }
 
     @Test
-    public void getFibonacciForShouldReturnFiveForFive() throws Exception {
+    public void getFibonacciForShouldReturnFiveForFive() {
         final long result = getFibonacciNumberFor(5);
         assertThat(result).isEqualTo(5);
     }
 
     @Test
-    public void getFibonacciForShouldReturnFiftyFiveForTen() throws Exception {
+    public void getFibonacciForShouldReturnFiftyFiveForTen() {
         final long result = getFibonacciNumberFor(10);
         assertThat(result).isEqualTo(55);
     }
 
     @Test
-    public void testShouldReturn120Factorial5() throws Exception {
+    public void testShouldReturn120Factorial5() {
         final int result = factorial(5);
         assertThat(result).isEqualTo(120);
     }
 
     @Test
-    public void testShouldReturnMinus120FactorialMinus5() throws Exception {
+    public void testShouldReturnMinus120FactorialMinus5() {
         final int result = factorial(5);
         assertThat(result).isEqualTo(120);
     }
 
     @SuppressWarnings("ResultOfMethodCallIgnored")// because result doesn't matter in this case
     @Test
-    public void testShouldThrowExceptionFor20() throws Exception {
+    public void testShouldThrowExceptionFor20() {
         //except
         exception.expect(IllegalArgumentException.class);
 
@@ -177,65 +177,65 @@ public class NumberUtilsTest {
     }
 
     @Test
-    public void testGetSmallestInt() throws Exception {
+    public void testGetSmallestInt() {
         final int result = getSmallestInt(new int[]{15, 12, 22, 10, 14, 20});
         assertThat(result).isEqualTo(10);
     }
 
     @Test
-    public void testGetSmallestIntForNegativeNumbers() throws Exception {
+    public void testGetSmallestIntForNegativeNumbers() {
         final int result = getSmallestInt(new int[]{-15, -12, -22, -10, -14, -20});
         assertThat(result).isEqualTo(-22);
     }
 
     @Test
-    public void testGetSmallestIntForMixedNumbers() throws Exception {
+    public void testGetSmallestIntForMixedNumbers() {
         final int result = getSmallestInt(new int[]{15, -12, 22, -10, 14, -20});
         assertThat(result).isEqualTo(-20);
     }
 
     @SuppressWarnings("ConstantConditions") // part of the test
     @Test(expected = IllegalArgumentException.class)
-    public void testGetIllegalExceptionForNullInputForSmallestInt() throws Exception {
+    public void testGetIllegalExceptionForNullInputForSmallestInt() {
         getSmallestInt(null);
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void testGetIllegalExceptionForEmptyInputForSmallestInt() throws Exception {
+    public void testGetIllegalExceptionForEmptyInputForSmallestInt() {
         getSmallestInt(EMPTY_INTEGER_ARRAY);
     }
 
     @Test
-    public void testGetLargestInt() throws Exception {
+    public void testGetLargestInt() {
         final int result = getLargestInt(new int[]{15, 12, 22, 10, 14, 20});
         assertThat(result).isEqualTo(22);
     }
 
     @Test
-    public void testGetLargestNegativeInt() throws Exception {
+    public void testGetLargestNegativeInt() {
         final int result = getLargestInt(new int[]{-15, -12, -22, -10, -14, -20});
         assertThat(result).isEqualTo(-10);
     }
 
     @Test
-    public void testGetLargestMixedInt() throws Exception {
+    public void testGetLargestMixedInt() {
         final int result = getLargestInt(new int[]{15, -12, 22, -10, 14, -20});
         assertThat(result).isEqualTo(22);
     }
 
     @SuppressWarnings("ConstantConditions") // part of the test
     @Test(expected = IllegalArgumentException.class)
-    public void testGetIllegalExceptionForNullInputForLargestInt() throws Exception {
+    public void testGetIllegalExceptionForNullInputForLargestInt() {
         getLargestInt(null);
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void testGetIllegalExceptionForEmptyInputForLargestInt() throws Exception {
+    public void testGetIllegalExceptionForEmptyInputForLargestInt() {
         getLargestInt(EMPTY_INTEGER_ARRAY);
     }
 
     @Test
-    public void testReverseANumber() throws Exception {
+    public void testReverseANumber() {
         // given
         int question = 12345;
         int answer = 54321;
@@ -248,7 +248,7 @@ public class NumberUtilsTest {
     }
 
     @Test //normally I will split loop into each test. This is just exception
-    public void testIsNumberPrime() throws Exception {
+    public void testIsNumberPrime() {
         // given
         int[] primes = new int[]{2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97};
 
@@ -260,7 +260,7 @@ public class NumberUtilsTest {
     }
 
     @Test //normally I will split loop into each test. This is just exception
-    public void testIsNotNumberPrime() throws Exception {
+    public void testIsNotNumberPrime() {
         int[] notPrimes = new int[]{4, 6, 8, 10, 20, 50, 100};
         for (int i : notPrimes) {
             assertThat(isPrime(i)).isFalse();
@@ -268,7 +268,7 @@ public class NumberUtilsTest {
     }
 
     @Test
-    public void testIsNotNumberWhenValueIsZeroPrime() throws Exception {
+    public void testIsNotNumberWhenValueIsZeroPrime() {
         final boolean result = isPrime(0);
         assertThat(result).isFalse();
     }
@@ -410,7 +410,7 @@ public class NumberUtilsTest {
     }
 
     @Test
-    public void shouldGetCurrentMaxValueTest() throws Exception {
+    public void shouldGetCurrentMaxValueTest() {
         // given
         final float newValue = 10f;
         final float currentMaxValue = 12f;
@@ -423,7 +423,7 @@ public class NumberUtilsTest {
     }
 
     @Test
-    public void shouldGetNewValueAsMaxValueTest() throws Exception {
+    public void shouldGetNewValueAsMaxValueTest() {
         // given
         final float newValue = 13f;
         final float currentMaxValue = 12f;
@@ -436,7 +436,7 @@ public class NumberUtilsTest {
     }
 
     @Test
-    public void shouldNotChangeMaxValueIfIsEqualToNewValueTest() throws Exception {
+    public void shouldNotChangeMaxValueIfIsEqualToNewValueTest() {
         // given
         final float newValue = 8f;
         final float currentMaxValue = 8f;
@@ -449,7 +449,7 @@ public class NumberUtilsTest {
     }
 
     @Test
-    public void shouldGetCurrentMinValueTest() throws Exception {
+    public void shouldGetCurrentMinValueTest() {
         // given
         final float newValue = 23f;
         final float currentMaxValue = 21f;
@@ -462,7 +462,7 @@ public class NumberUtilsTest {
     }
 
     @Test
-    public void shouldGetNewValueAsMinValueTest() throws Exception {
+    public void shouldGetNewValueAsMinValueTest() {
         // given
         final float newValue = 3f;
         final float currentMaxValue = 5f;
@@ -475,7 +475,7 @@ public class NumberUtilsTest {
     }
 
     @Test
-    public void shouldNotChangeMinValueIfIsEqualToNewValueTest() throws Exception {
+    public void shouldNotChangeMinValueIfIsEqualToNewValueTest() {
         // given
         final float newValue = 6f;
         final float currentMaxValue = 6f;
@@ -488,7 +488,7 @@ public class NumberUtilsTest {
     }
 
     @Test
-    public void shouldReturnTrueForPalindromeNumberTest() throws Exception {
+    public void shouldReturnTrueForPalindromeNumberTest() {
         // when
         final boolean isNumberPalindrome = isNumberPalindrome(143797341);
 
@@ -497,7 +497,7 @@ public class NumberUtilsTest {
     }
 
     @Test
-    public void shouldReturnFalseForNonPalindromeNumberTest() throws Exception {
+    public void shouldReturnFalseForNonPalindromeNumberTest() {
         // when
         final boolean isNumberPalindrome = isNumberPalindrome(987654321);
 
@@ -507,7 +507,7 @@ public class NumberUtilsTest {
 
     @SuppressWarnings("ConstantConditions")
     @Test
-    public void shouldReturnFalseIfBigDecimalIsNull() throws Exception {
+    public void shouldReturnFalseIfBigDecimalIsNull() {
         // when
         final boolean result = isBigDecimalAValidInteger(null);
 
@@ -516,7 +516,7 @@ public class NumberUtilsTest {
     }
 
     @Test
-    public void shouldReturnFalseIfBigDecimalIsNotInteger() throws Exception {
+    public void shouldReturnFalseIfBigDecimalIsNotInteger() {
         // given
         BigDecimal bigDecimal = new BigDecimal("1.23");
 
@@ -528,7 +528,7 @@ public class NumberUtilsTest {
     }
 
     @Test
-    public void shouldReturnTrueWhenBigDecimalIsInteger() throws Exception {
+    public void shouldReturnTrueWhenBigDecimalIsInteger() {
         // given
 
         // when
@@ -538,7 +538,7 @@ public class NumberUtilsTest {
     }
 
     @Test
-    public void parseIntNullSafeShouldReturnDefaultValueIfValueIsNotValidNumber() throws Exception {
+    public void parseIntNullSafeShouldReturnDefaultValueIfValueIsNotValidNumber() {
         // given
         final int defaultValue = randomPositiveInteger();
         final String invalidNumber = "Not A valid number";
@@ -555,7 +555,7 @@ public class NumberUtilsTest {
     }
 
     @Test
-    public void parseIntNullSafeShouldReturnValueForValidNumberAsString() throws Exception {
+    public void parseIntNullSafeShouldReturnValueForValidNumberAsString() {
         // given
         final int defaultValue = randomNegativeInteger();
         final String validValue = generateRandomIntegerAsString(10);

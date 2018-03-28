@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class FinderTest {
 
     @Test
-    public void shouldFindIn10AttemptsTest() throws Exception {
+    public void shouldFindIn10AttemptsTest() {
         // given
         Finder finder = new Finder();
 

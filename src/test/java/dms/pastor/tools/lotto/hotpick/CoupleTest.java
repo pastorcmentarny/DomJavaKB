@@ -21,7 +21,7 @@ public class CoupleTest {
     public final ExpectedException exception = ExpectedException.none();
 
     @Test
-    public void createCoupleShouldThrowExceptionIfBothNumbersAreEquals() throws Exception {
+    public void createCoupleShouldThrowExceptionIfBothNumbersAreEquals() {
         // expect
         exception.expect(IllegalArgumentException.class);
 
@@ -34,7 +34,7 @@ public class CoupleTest {
     }
 
     @Test
-    public void shouldGenerateCouple() throws Exception {
+    public void shouldGenerateCouple() {
         // given
         final int smallerNumber = 1;
         final int largerNumber = 2;
@@ -48,7 +48,7 @@ public class CoupleTest {
     }
 
     @Test //TODO improve test name
-    public void shouldGenerateCoupleAndSort() throws Exception {
+    public void shouldGenerateCoupleAndSort() {
         // given
         final int smallerNumber = 1;
         final int largerNumber = 2;

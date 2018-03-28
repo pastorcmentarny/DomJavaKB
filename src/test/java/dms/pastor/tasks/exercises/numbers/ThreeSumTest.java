@@ -24,7 +24,7 @@ public class ThreeSumTest {
     private final int[] testValues = {30, -40, -20, -10, 40, 0, 10, 5};
 
     @Test
-    public void threeSumAcceptanceTest() throws Exception {
+    public void threeSumAcceptanceTest() {
         // given
         final StopWatch timer = new StopWatch();
         timer.start();

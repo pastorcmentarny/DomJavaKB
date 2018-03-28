@@ -21,7 +21,7 @@ public class ResultsTest {
     private Result result;
 
     @Test
-    public void shouldCreateSuccessResultTest() throws Exception {
+    public void shouldCreateSuccessResultTest() {
         // when
         result = Result.success();
 
@@ -31,7 +31,7 @@ public class ResultsTest {
     }
 
     @Test
-    public void shouldCreateFailResultTest() throws Exception {
+    public void shouldCreateFailResultTest() {
         // when
         result = Result.fail();
 
@@ -41,7 +41,7 @@ public class ResultsTest {
     }
 
     @Test
-    public void shouldCreateSuccessResultWithMessageTest() throws Exception {
+    public void shouldCreateSuccessResultWithMessageTest() {
         // given
         final String message = generateString(20);
 
@@ -54,7 +54,7 @@ public class ResultsTest {
     }
 
     @Test
-    public void shouldCreateFailResultWithMessageTest() throws Exception {
+    public void shouldCreateFailResultWithMessageTest() {
         // given
         final String message = generateString();
 
@@ -67,7 +67,7 @@ public class ResultsTest {
     }
 
     @Test
-    public void shouldCreateSuccessResultWithMessageAndObjectTest() throws Exception {
+    public void shouldCreateSuccessResultWithMessageAndObjectTest() {
         // given
         final String message = generateString();
         final Object object = new Object();
@@ -82,7 +82,7 @@ public class ResultsTest {
     }
 
     @Test
-    public void shouldCreateFailResultWithMessageAndObjectTest() throws Exception {
+    public void shouldCreateFailResultWithMessageAndObjectTest() {
         // given
         final String message = generateString();
         final Object object = new Object();
@@ -96,7 +96,7 @@ public class ResultsTest {
     }
 
     @Test
-    public void shouldUpdateMessageTest() throws Exception {
+    public void shouldUpdateMessageTest() {
         // given
         final String test = "Test";
         final String item = "Item";
@@ -126,7 +126,7 @@ public class ResultsTest {
     }
 
     @Test
-    public void shouldGetNumberOfResultsTest() throws Exception {
+    public void shouldGetNumberOfResultsTest() {
         // given
         final Results results = new Results();
 

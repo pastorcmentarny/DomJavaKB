@@ -21,7 +21,7 @@ public class CreateShieldSpellAcceptanceTest {
     private static final Unit UNUSED_UNIT = null;
 
     @Test
-    public void createShieldSpellShouldNotCreateAShieldIfUnitAlreadyHasIt() throws Exception {
+    public void createShieldSpellShouldNotCreateAShieldIfUnitAlreadyHasIt() {
         // given
         final int shieldPoints = 10;
         final Unit unit = unitBuilder()
@@ -38,7 +38,7 @@ public class CreateShieldSpellAcceptanceTest {
     }
 
     @Test
-    public void createShieldSpellShouldCreateAShieldIfUnitDoNotHaveIt() throws Exception {
+    public void createShieldSpellShouldCreateAShieldIfUnitDoNotHaveIt() {
         // given
         final Unit unit = unitBuilder()
                 .withoutShield()

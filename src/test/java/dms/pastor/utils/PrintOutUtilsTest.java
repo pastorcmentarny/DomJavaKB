@@ -45,7 +45,7 @@ public class PrintOutUtilsTest {
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionWhenMinimumValueIsHigherThanMaximumTest() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionWhenMinimumValueIsHigherThanMaximumTest() {
         // except
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("MinValue (10) must be lower than MaxValue(7)");
@@ -55,7 +55,7 @@ public class PrintOutUtilsTest {
     }
 
     @Test
-    public void shouldThrowExceptionWhenByteArrayIsEmpty() throws Exception {
+    public void shouldThrowExceptionWhenByteArrayIsEmpty() {
         // exception
         exception.expect(IllegalArgumentException.class);
 
@@ -64,7 +64,7 @@ public class PrintOutUtilsTest {
     }
 
     @Test
-    public void shouldDisplayByteArrayTest() throws Exception {
+    public void shouldDisplayByteArrayTest() {
         // given
         final String expected = "[1,2,3]";
 
@@ -97,7 +97,7 @@ public class PrintOutUtilsTest {
     }
 
     @Test
-    public void shouldDisplayCharacterIntegerHashMapTest() throws Exception {
+    public void shouldDisplayCharacterIntegerHashMapTest() {
         // given
         HashMap<Character, Integer> hashMap = new HashMap<>();
         hashMap.put('A', 1);
@@ -111,7 +111,7 @@ public class PrintOutUtilsTest {
     }
 
     @Test
-    public void shouldDisplayOddNumbers() throws Exception {
+    public void shouldDisplayOddNumbers() {
         // given
         final String expected = "1 3 5 7 9 ";
         outputStream.reset();
@@ -123,7 +123,7 @@ public class PrintOutUtilsTest {
     }
 
     @Test
-    public void printIntArrayShouldPrintIntegers() throws Exception {
+    public void printIntArrayShouldPrintIntegers() {
         // given
         Integer[] integers = new Integer[]{1, 2, 3, null};
         final String expected = "[ 1 2 3 null ]" + System.lineSeparator();

@@ -7,9 +7,7 @@ import java.util.List;
 
 import static dms.pastor.tools.lotto.BallCount.createForSingleNumberWithCount;
 import static dms.pastor.tools.lotto.BallCountBuilder.ballCountBuilder;
-import static dms.pastor.tools.lotto.BallCountOperations.getLeast2PlayedBalls;
-import static dms.pastor.tools.lotto.BallCountOperations.getNumbersFromBallsCount;
-import static dms.pastor.tools.lotto.BallCountOperations.getTop2PlayedBalls;
+import static dms.pastor.tools.lotto.BallCountOperations.*;
 import static java.util.Arrays.asList;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -25,7 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class BallCountOperationsTest {
 
     @Test
-    public void getTopPlayedBallsShould3Balls() throws Exception {
+    public void getTopPlayedBallsShould3Balls() {
         // given
         List<BallCount> ballCountList = new ArrayList<>();
         ballCountList.add(createForSingleNumberWithCount(1, 5));
@@ -45,7 +43,7 @@ public class BallCountOperationsTest {
     }
 
     @Test
-    public void getLeastPlayedBallsShould3Balls() throws Exception {
+    public void getLeastPlayedBallsShould3Balls() {
         // given
         List<BallCount> ballCountList = new ArrayList<>();
         ballCountList.add(createForSingleNumberWithCount(1, 5));
@@ -67,7 +65,7 @@ public class BallCountOperationsTest {
     }
 
     @Test
-    public void getNumbersFromBallsCountShouldGet5NumbersWithoutDuplicates() throws Exception {
+    public void getNumbersFromBallsCountShouldGet5NumbersWithoutDuplicates() {
         // given
         final BallCount ballCount1 = ballCountBuilder().ballNumbers(asList(1, 3, 7)).build();
         final BallCount ballCount2 = ballCountBuilder().ballNumbers(asList(3, 4, 5)).build();

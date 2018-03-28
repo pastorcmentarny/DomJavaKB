@@ -30,7 +30,7 @@ public class HashToolsTest {
     public final ExpectedException exception = ExpectedException.none();
 
     @Test
-    public void shouldConvertStringToCharacterMapTest() throws Exception {
+    public void shouldConvertStringToCharacterMapTest() {
         // when
         final HashMap<Character, Integer> characterIntegerHashMap = stringToCharacterMap(ALPHABET + ALPHABET);
 
@@ -41,7 +41,7 @@ public class HashToolsTest {
     }
 
     @Test
-    public void stringToCharacterSetThrowIllegalArgumentExceptionIfNull() throws Exception {
+    public void stringToCharacterSetThrowIllegalArgumentExceptionIfNull() {
         // expect
         exception.expect(IllegalArgumentException.class);
 
@@ -50,7 +50,7 @@ public class HashToolsTest {
     }
 
     @Test
-    public void stringToCharacterSetThrowIllegalArgumentExceptionIfEmpty() throws Exception {
+    public void stringToCharacterSetThrowIllegalArgumentExceptionIfEmpty() {
         // expect
         exception.expect(IllegalArgumentException.class);
 
@@ -60,7 +60,7 @@ public class HashToolsTest {
 
     @SuppressWarnings({"ResultOfMethodCallIgnored", "QuestionableName"})
     @Test // because result doesn't matter in this case
-    public void stringToCharacterSetShouldConvertTextToListOfCharacters() throws Exception {
+    public void stringToCharacterSetShouldConvertTextToListOfCharacters() {
         // given
         final String string = generateString(10);
 
@@ -74,7 +74,7 @@ public class HashToolsTest {
     }
 
     @Test
-    public void shouldConvertStringToCharacterSetTest() throws Exception {
+    public void shouldConvertStringToCharacterSetTest() {
         // when
         final HashSet<Character> characters = stringToCharacterSet(ALPHABET);
 

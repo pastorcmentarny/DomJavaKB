@@ -20,13 +20,13 @@ public class SpellsCastTest {
     private Unit player2;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         player1 = new Dummy("Dummy 1");
         player2 = new Dummy("Dummy 2");
     }
 
     @Test
-    public void testFireball() throws Exception {
+    public void testFireball() {
         final Spell spell = new FireBallSpell();
         spell.castSpell(player1, player2);
     }

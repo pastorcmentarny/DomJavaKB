@@ -28,12 +28,12 @@ public class BerlinClockTest {
     private ClockInterface clock;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         clock = new BerlinClock();
     }
 
     @Test
-    public void berlinClockTask() throws Exception {
+    public void berlinClockTask() {
         // given
         ClockInterface berlinClock = new BerlinClock();
         LocalTime today = LocalTime.now();
@@ -52,7 +52,7 @@ public class BerlinClockTest {
     }
 
     @Test
-    public void testShowTime() throws Exception {
+    public void testShowTime() {
         // given
         final LocalTime today = LocalTime.now();
         final int hour = today.getHour();
@@ -70,44 +70,44 @@ public class BerlinClockTest {
     }
 
     @Test
-    public void shouldShow1103001() throws Exception {
+    public void shouldShow1103001() {
         final String answer = "11::03:01";
         final String result = clock.getTimeAsString(11, 3, 1);
         Assert.assertThat(result, is(answer));
     }
 
     @Test
-    public void shouldShow23456() throws Exception {
+    public void shouldShow23456() {
         final String answer = "02::34:56";
         final String result = clock.getTimeAsString(2, 34, 56);
         Assert.assertThat(result, is(answer));
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void shouldNotValidateIfForNegativeInput() throws Exception {
+    public void shouldNotValidateIfForNegativeInput() {
         final String result = clock.getTimeAsString(-2, -34, -56);
         System.out.println(result);
     }
 
     @Test
-    public void shouldValidate110301() throws Exception {
+    public void shouldValidate110301() {
         String time = "11::03:01";
         String answer = "11:03:01";
         Assert.assertThat(clock.validateTime(time).toString(), is(answer));
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void shouldThrowsExceptionForTextAsInput() throws Exception {
+    public void shouldThrowsExceptionForTextAsInput() {
         clock.validateTime("abc");
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void shouldThrowExceptionForNullInput() throws Exception {
+    public void shouldThrowExceptionForNullInput() {
         clock.validateTime(null);
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void shouldThrowExceptionForEmptyInput() throws Exception {
+    public void shouldThrowExceptionForEmptyInput() {
         clock.validateTime(EMPTY_STRING);
     }
 

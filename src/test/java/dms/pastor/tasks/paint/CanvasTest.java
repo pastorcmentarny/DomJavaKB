@@ -32,17 +32,17 @@ public class CanvasTest {
     private Canvas canvas = noCanvas();
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         canvas = noCanvas();
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         canvas = noCanvas();
     }
 
     @Test
-    public void createCanvasForShouldInvalidCanvasExceptionIfWidthIsZero() throws Exception {
+    public void createCanvasForShouldInvalidCanvasExceptionIfWidthIsZero() {
         // expect
         exception.expect(InvalidCanvasException.class);
 
@@ -51,7 +51,7 @@ public class CanvasTest {
     }
 
     @Test
-    public void createCanvasForShouldInvalidCanvasExceptionIfHeightIsZero() throws Exception {
+    public void createCanvasForShouldInvalidCanvasExceptionIfHeightIsZero() {
         // expect
         exception.expect(InvalidCanvasException.class);
 
@@ -60,7 +60,7 @@ public class CanvasTest {
     }
 
     @Test
-    public void shouldGenerateCanvas() throws Exception {
+    public void shouldGenerateCanvas() {
         // given
         final int width = DEFAULT_WIDTH;
         final int height = DEFAULT_HEIGHT;
@@ -74,7 +74,7 @@ public class CanvasTest {
     }
 
     @Test
-    public void drawShouldDrawCanvasRectangleWithHigherWidth() throws Exception {
+    public void drawShouldDrawCanvasRectangleWithHigherWidth() {
         // given
         final int width = 6;
         final Canvas canvas = createCanvasFor(width, DEFAULT_HEIGHT);
@@ -94,7 +94,7 @@ public class CanvasTest {
     }
 
     @Test
-    public void drawShouldDrawCanvasRectangleWithHigherHeight() throws Exception {
+    public void drawShouldDrawCanvasRectangleWithHigherHeight() {
         // given
         final int width = 2;
         final int height = 3;
@@ -114,7 +114,7 @@ public class CanvasTest {
     }
 
     @Test
-    public void drawShouldDrawCanvasSquareWithLengthOfOne() throws Exception {
+    public void drawShouldDrawCanvasSquareWithLengthOfOne() {
         // given
         final int width = 1;
         final int height = 1;
@@ -131,7 +131,7 @@ public class CanvasTest {
     }
 
     @Test
-    public void drawShouldDrawCanvasSquareWithLengthOfFive() throws Exception {
+    public void drawShouldDrawCanvasSquareWithLengthOfFive() {
         // given
         final int width = 5;
         final int height = 5;
@@ -152,7 +152,7 @@ public class CanvasTest {
     }
 
     @Test
-    public void noCanvasShouldGenerateCanvasWithoutLine() throws Exception {
+    public void noCanvasShouldGenerateCanvasWithoutLine() {
         // when
         final Canvas canvas = noCanvas();
 
@@ -162,7 +162,7 @@ public class CanvasTest {
     }
 
     @Test
-    public void drawShouldReturnEmptyStringForNoCanvas() throws Exception {
+    public void drawShouldReturnEmptyStringForNoCanvas() {
         // given
         Canvas canvas = noCanvas();
 
@@ -189,7 +189,7 @@ public class CanvasTest {
     }
 
     @Test
-    public void recreateCanvasShouldInvalidCanvasExceptionIfWidthIsZero() throws Exception {
+    public void recreateCanvasShouldInvalidCanvasExceptionIfWidthIsZero() {
         // expect
         exception.expect(InvalidCanvasException.class);
 
@@ -198,7 +198,7 @@ public class CanvasTest {
     }
 
     @Test
-    public void recreateCanvasShouldInvalidCanvasExceptionIfHeightIsZero() throws Exception {
+    public void recreateCanvasShouldInvalidCanvasExceptionIfHeightIsZero() {
         // expect
         exception.expect(InvalidCanvasException.class);
 
@@ -207,7 +207,7 @@ public class CanvasTest {
     }
 
     @Test
-    public void getCoordinatesAsStringShouldReturnEmptyStringIfCanvasIsNotSet() throws Exception {
+    public void getCoordinatesAsStringShouldReturnEmptyStringIfCanvasIsNotSet() {
         // given
         Canvas canvas = noCanvas();
 
@@ -219,7 +219,7 @@ public class CanvasTest {
     }
 
     @Test
-    public void getCoordinatesAsStringShouldReturnCoordinatesForCanvas() throws Exception {
+    public void getCoordinatesAsStringShouldReturnCoordinatesForCanvas() {
         // given
         final Canvas canvas = createCanvasFor(DEFAULT_WIDTH, DEFAULT_HEIGHT);
         final String expectedResult = "Width: 6 Height: 4";
@@ -232,7 +232,7 @@ public class CanvasTest {
     }
 
     @Test
-    public void isCanvasReturnsTrueForCreatedCanvas() throws Exception {
+    public void isCanvasReturnsTrueForCreatedCanvas() {
         // given
         final Canvas canvas = createCanvasFor(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 
@@ -244,7 +244,7 @@ public class CanvasTest {
     }
 
     @Test
-    public void isCanvasReturnsFalseIfCanvasWasNotCreated() throws Exception {
+    public void isCanvasReturnsFalseIfCanvasWasNotCreated() {
         // given
         final Canvas canvas = noCanvas();
 
@@ -256,7 +256,7 @@ public class CanvasTest {
     }
 
     @Test
-    public void isNoCanvasReturnsFalseForCreatedCanvas() throws Exception {
+    public void isNoCanvasReturnsFalseForCreatedCanvas() {
         // given
         final Canvas canvas = createCanvasFor(4, DEFAULT_HEIGHT);
 
@@ -268,7 +268,7 @@ public class CanvasTest {
     }
 
     @Test
-    public void isNoCanvasReturnsTrueIfCanvasWasNotCreated() throws Exception {
+    public void isNoCanvasReturnsTrueIfCanvasWasNotCreated() {
         // given
         final Canvas canvas = noCanvas();
 
@@ -280,7 +280,7 @@ public class CanvasTest {
     }
 
     @Test
-    public void undoShouldReturnPreviousStateOfImage() throws Exception {
+    public void undoShouldReturnPreviousStateOfImage() {
         // given
         canvas = createCanvasFor(8, 6);
         final String expectedImage = canvas.getCanvasAsString();
@@ -295,7 +295,7 @@ public class CanvasTest {
     }
 
     @Test
-    public void redoShouldReturnNextStateOfImage() throws Exception {
+    public void redoShouldReturnNextStateOfImage() {
         // given
         canvas = createCanvasFor(8, 6);
         canvas.saveState();

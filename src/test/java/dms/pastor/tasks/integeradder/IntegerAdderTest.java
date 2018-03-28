@@ -32,7 +32,7 @@ public class IntegerAdderTest {
     private IntegerAdder adder;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         adder = new IntegerAdder();
     }
 

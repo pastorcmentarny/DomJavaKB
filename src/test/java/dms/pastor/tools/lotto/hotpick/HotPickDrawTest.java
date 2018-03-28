@@ -32,7 +32,7 @@ public class HotPickDrawTest {
     private HotPickDraw hotPickDraw;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         hotPickDraw = hotPickDrawBuilder()
                 .ball1(BALL_1)
                 .ball2(BALL_2)
@@ -48,7 +48,7 @@ public class HotPickDrawTest {
     }
 
     @Test
-    public void shouldReturnFalseIfBallIsNotInBallDrawTest() throws Exception {
+    public void shouldReturnFalseIfBallIsNotInBallDrawTest() {
         // when
         final boolean result = hotPickDraw.containsBalls(9, 10);
 
@@ -57,7 +57,7 @@ public class HotPickDrawTest {
     }
 
     @Test
-    public void shouldReturnFalseIfSomeBallAreNotInBallDrawTest() throws Exception {
+    public void shouldReturnFalseIfSomeBallAreNotInBallDrawTest() {
         // when
         final boolean result = hotPickDraw.containsBalls(6, 7);
 
@@ -66,7 +66,7 @@ public class HotPickDrawTest {
     }
 
     @Test
-    public void shouldReturnTrueIfBallIsInBallDrawNotTest() throws Exception {
+    public void shouldReturnTrueIfBallIsInBallDrawNotTest() {
         // when
         final boolean result = hotPickDraw.containsBalls(1, 2);
 
@@ -98,7 +98,7 @@ public class HotPickDrawTest {
     }
 
     @Test
-    public void getAllBallsShouldReturnBallsForDraw() throws Exception {
+    public void getAllBallsShouldReturnBallsForDraw() {
         // given
         HotPickDraw draw = hotPickDrawBuilder()
                 .ball1(1)

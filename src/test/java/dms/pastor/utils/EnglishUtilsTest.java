@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class EnglishUtilsTest {
 
     @Test
-    public void isVowelReturnForA() throws Exception {
+    public void isVowelReturnForA() {
         // given
         final char vowel = 'a';
 
@@ -29,7 +29,7 @@ public class EnglishUtilsTest {
     }
 
     @Test
-    public void isVowelReturnForB() throws Exception {
+    public void isVowelReturnForB() {
         // given
         final char vowel = 'b';
 
@@ -40,7 +40,7 @@ public class EnglishUtilsTest {
     }
 
     @Test
-    public void isVowelReturnFalseForCapitalC() throws Exception {
+    public void isVowelReturnFalseForCapitalC() {
         // given
         final char vowel = 'C';
 
@@ -51,7 +51,7 @@ public class EnglishUtilsTest {
     }
 
     @Test
-    public void isVowelReturnTrueForCapitalE() throws Exception {
+    public void isVowelReturnTrueForCapitalE() {
         // given
         final char vowel = 'E';
 
@@ -62,7 +62,7 @@ public class EnglishUtilsTest {
     }
 
     @Test
-    public void isVowelReturnFalseForNumber() throws Exception {
+    public void isVowelReturnFalseForNumber() {
         // given
         final char vowel = '3';
 
@@ -74,7 +74,7 @@ public class EnglishUtilsTest {
     }
 
     @Test
-    public void isVowelReturnFalseForCharacter() throws Exception {
+    public void isVowelReturnFalseForCharacter() {
         // given
         final char vowel = '"';
 
@@ -86,7 +86,7 @@ public class EnglishUtilsTest {
     }
 
     @Test
-    public void isLetterVowelExcludingYReturnTrueForA() throws Exception {
+    public void isLetterVowelExcludingYReturnTrueForA() {
         // given
         final char vowel = 'a';
 
@@ -97,7 +97,7 @@ public class EnglishUtilsTest {
     }
 
     @Test
-    public void isLetterVowelExcludingYReturnFalseForY() throws Exception {
+    public void isLetterVowelExcludingYReturnFalseForY() {
         // given
         final char vowel = 'y';
 
@@ -108,7 +108,7 @@ public class EnglishUtilsTest {
     }
 
     @Test
-    public void isLetterConsonantReturnTrueForT() throws Exception {
+    public void isLetterConsonantReturnTrueForT() {
         // given
         final char vowel = 't';
 
@@ -120,7 +120,7 @@ public class EnglishUtilsTest {
     }
 
     @Test
-    public void isLetterConsonantReturnFalseForU() throws Exception {
+    public void isLetterConsonantReturnFalseForU() {
         // given
         final char vowel = 'u';
 
@@ -132,7 +132,7 @@ public class EnglishUtilsTest {
     }
 
     @Test
-    public void isLetterConsonantReturnTrueForCapitalN() throws Exception {
+    public void isLetterConsonantReturnTrueForCapitalN() {
         // given
         final char vowel = 'N';
 
@@ -144,7 +144,7 @@ public class EnglishUtilsTest {
     }
 
     @Test
-    public void isLetterConsonantReturnFalseForCapitalO() throws Exception {
+    public void isLetterConsonantReturnFalseForCapitalO() {
         // given
         final char vowel = 'O';
 
@@ -156,7 +156,7 @@ public class EnglishUtilsTest {
     }
 
     @Test
-    public void isLetterConsonantReturnFalseForNumber() throws Exception {
+    public void isLetterConsonantReturnFalseForNumber() {
         // given
         final char vowel = '3';
 
@@ -168,7 +168,7 @@ public class EnglishUtilsTest {
     }
 
     @Test
-    public void isLetterConsonantReturnFalseForCharacter() throws Exception {
+    public void isLetterConsonantReturnFalseForCharacter() {
         // given
         final char vowel = '"';
 
@@ -180,7 +180,7 @@ public class EnglishUtilsTest {
     }
 
     @Test
-    public void isStopWordShouldReturnTrueForIs() throws Exception {
+    public void isStopWordShouldReturnTrueForIs() {
         // given
         final String stopWord = "is";
 
@@ -192,7 +192,7 @@ public class EnglishUtilsTest {
     }
 
     @Test
-    public void isStopWordShouldReturnFalseForDominik() throws Exception {
+    public void isStopWordShouldReturnFalseForDominik() {
         // given
         final String notAStopWord = "Dominik";
 
@@ -204,7 +204,7 @@ public class EnglishUtilsTest {
     }
 
     @Test
-    public void isStopWordShouldReturnFalseForNull() throws Exception {
+    public void isStopWordShouldReturnFalseForNull() {
 
         // when
         final boolean word = isStopWord(null);
@@ -215,7 +215,7 @@ public class EnglishUtilsTest {
 
     @SuppressWarnings("UnnecessaryLocalVariable")
     @Test
-    public void isStopWordShouldReturnFalseForEmptyString() throws Exception {
+    public void isStopWordShouldReturnFalseForEmptyString() {
         // given
         final String notAStopWord = EMPTY_STRING;
 
@@ -227,7 +227,7 @@ public class EnglishUtilsTest {
     }
 
     @Test
-    public void isNotStopWordShouldReturnFalseForAre() throws Exception {
+    public void isNotStopWordShouldReturnFalseForAre() {
         // given
         final String stopWord = "are";
 
@@ -239,7 +239,7 @@ public class EnglishUtilsTest {
     }
 
     @Test
-    public void isNotStopWordShouldReturnTrueForCheesecake() throws Exception {
+    public void isNotStopWordShouldReturnTrueForCheesecake() {
         // given
         final String notAStopWord = "Cheesecake";
 

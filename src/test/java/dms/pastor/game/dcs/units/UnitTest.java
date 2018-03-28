@@ -34,7 +34,7 @@ public class UnitTest {
     private final PrintStream original = System.out;
 
     @Test
-    public void recreateShieldShouldSetSpToInitialSpIfCurrentSpIsHigher() throws Exception {
+    public void recreateShieldShouldSetSpToInitialSpIfCurrentSpIsHigher() {
         // given
         final Unit unit = unitBuilder()
                 .shielded()
@@ -49,7 +49,7 @@ public class UnitTest {
     }
 
     @Test
-    public void recreateShieldShouldDoNotChangeIfCurrentSpIsLower() throws Exception {
+    public void recreateShieldShouldDoNotChangeIfCurrentSpIsLower() {
         // given
         final Unit unit = unitBuilder()
                 .shielded()
@@ -64,7 +64,7 @@ public class UnitTest {
     }
 
     @Test
-    public void recreateShieldShouldCreateShield() throws Exception {
+    public void recreateShieldShouldCreateShield() {
         // given
         final Unit unit = unitBuilder()
                 .withoutShield()
@@ -79,7 +79,7 @@ public class UnitTest {
     }
 
     @Test
-    public void addHPBy5ShouldIncreaseHpBy5() throws Exception {
+    public void addHPBy5ShouldIncreaseHpBy5() {
         // given
         final int initialHp = 20;
         final int healBy = 5;
@@ -97,7 +97,7 @@ public class UnitTest {
     }
 
     @Test
-    public void addHPToHpMoreThanMaxHpShouldGivesMaxHp() throws Exception {
+    public void addHPToHpMoreThanMaxHpShouldGivesMaxHp() {
         // given
         final int initialHp = 20;
         final int healBy = 5;
@@ -114,7 +114,7 @@ public class UnitTest {
     }
 
     @Test
-    public void createShieldShouldEnableShieldAndSetInitialSPValue() throws Exception {
+    public void createShieldShouldEnableShieldAndSetInitialSPValue() {
         // given
         final Unit unit = unitBuilder()
                 .withoutShield()
@@ -152,7 +152,7 @@ public class UnitTest {
     }
 
     @Test
-    public void increaseShieldByShouldIncreaseSpBy5() throws Exception {
+    public void increaseShieldByShouldIncreaseSpBy5() {
         // given
         final Unit unit = unitBuilder()
                 .sp(DEFAULT_NUMBER_OF_ELEMENTS)

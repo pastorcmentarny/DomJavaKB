@@ -23,7 +23,7 @@ public class ReadSpeedTest {
     public ExpectedException exception = ExpectedException.none();
 
     @Test
-    public void shouldReturnSpeedAsString() throws Exception {
+    public void shouldReturnSpeedAsString() {
         // given
         final String expectedSpeedAsString = "130";
 
@@ -35,7 +35,7 @@ public class ReadSpeedTest {
     }
 
     @Test
-    public void getSpeedAsStringForShouldReturnAdultAverageIfValueNull() throws Exception {
+    public void getSpeedAsStringForShouldReturnAdultAverageIfValueNull() {
 
         // when
         final String defaultSpeed = getSpeedAsStringFor(null);

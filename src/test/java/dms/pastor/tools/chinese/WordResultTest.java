@@ -24,7 +24,7 @@ public class WordResultTest {
     private WordResult result;
 
     @Test
-    public void shouldCreateSuccessResultWithMessageAndObjectTest() throws Exception {
+    public void shouldCreateSuccessResultWithMessageAndObjectTest() {
         // given
         final String message = generateString();
         final List<Word> wordList = singletonList(defaultWord());
@@ -39,7 +39,7 @@ public class WordResultTest {
     }
 
     @Test
-    public void shouldCreateFailResultWithMessageAndObjectTest() throws Exception {
+    public void shouldCreateFailResultWithMessageAndObjectTest() {
         // given
         final String message = generateString();
         // when
@@ -51,7 +51,7 @@ public class WordResultTest {
     }
 
     @Test
-    public void shouldUpdateMessageTest() throws Exception {
+    public void shouldUpdateMessageTest() {
         // given
         final String test = "Test";
         final List<Word> wordList = singletonList(defaultWord());

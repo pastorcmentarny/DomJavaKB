@@ -122,8 +122,6 @@ class HiScore {
                 fileSaver.write(x);
             }
 
-            fileSaver.close();
-
         } catch (IOException ex) {
             LOGGER.error(String.format("Unable to save file due %s", ex.getMessage()));
         }

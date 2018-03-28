@@ -25,7 +25,7 @@ public class MathTasksTest {
     private MathTasks tasks;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         tasks = new MathTasks();
     }
 
@@ -43,7 +43,7 @@ public class MathTasksTest {
     }
 
     @Test
-    public void testRemoveRandomNumberFromArray() throws Exception {
+    public void testRemoveRandomNumberFromArray() {
         int[] numbers = new int[]{1, 2, 3, 4, 5};
         int[] numbersWithoutNumber2 = tasks.removeRandomNumberFromArray(numbers);
         printIntArray(numbers);
@@ -52,7 +52,7 @@ public class MathTasksTest {
     }
 
     @Test
-    public void testFindMissingNumberInArrayWithoutDuplicates() throws Exception {
+    public void testFindMissingNumberInArrayWithoutDuplicates() {
         int[] numbers = new int[]{1, 2, 3, 4, 5};
         int[] numbersWithoutNumber2 = new int[]{1, 3, 4, 5};
         Assert.assertThat(tasks.findMissingNumberInArrayWithoutDuplicates(NumberUtils.calcTotal(numbers), NumberUtils.calcTotal(numbersWithoutNumber2)), is(2));

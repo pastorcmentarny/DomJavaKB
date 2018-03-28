@@ -18,7 +18,7 @@ public class AppRunnerTest {
     public final ExpectedException exception = ExpectedException.none();
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionWhenRunningAppWithoutArgumentsTest() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionWhenRunningAppWithoutArgumentsTest() {
         // expect
         exception.expect(IllegalArgumentException.class);
 
@@ -27,7 +27,7 @@ public class AppRunnerTest {
     }
 
     @Test
-    public void shouldAppRunnerTest() throws Exception {
+    public void shouldAppRunnerTest() {
         // expect
         exception.expect(IllegalArgumentException.class);
         String[] stringList = new String[]{"a", "b"};

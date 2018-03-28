@@ -22,7 +22,7 @@ public class FirstPrimeFinderTest {
     public final ExpectedException exception = ExpectedException.none();
 
     @Test
-    public void findShouldReturnPrimeNumberIfInputWithPrimeNumberAcceptanceCriteria() throws Exception {
+    public void findShouldReturnPrimeNumberIfInputWithPrimeNumberAcceptanceCriteria() {
 
         // given
         final int primeNumber = 7;
@@ -36,7 +36,7 @@ public class FirstPrimeFinderTest {
     }
 
     @Test
-    public void findShouldReturn0IfInputWithNonPrimeNumberAcceptanceCriteria() throws Exception {
+    public void findShouldReturn0IfInputWithNonPrimeNumberAcceptanceCriteria() {
 
         // given
         final int primeNumber = 4;
@@ -49,7 +49,7 @@ public class FirstPrimeFinderTest {
     }
 
     @Test
-    public void findShouldReturn7IfInputWith7AcceptanceCriteria() throws Exception {
+    public void findShouldReturn7IfInputWith7AcceptanceCriteria() {
 
         // given
         final int primeNumber = 7;
@@ -63,7 +63,7 @@ public class FirstPrimeFinderTest {
     }
 
     @Test
-    public void findShouldReturn79ForInputThanSumWillHavePrimeNumberAcceptanceCriteria() throws Exception {
+    public void findShouldReturn79ForInputThanSumWillHavePrimeNumberAcceptanceCriteria() {
 
         // given
         final int[] primeNumbers = new int[]{4, 5, 17, 2, 51, 17, 32, 54, 2, 4, 6, 108};
@@ -77,7 +77,7 @@ public class FirstPrimeFinderTest {
     }
 
     @Test
-    public void findShouldReturn0ForInputThanSumWillNotHavePrimeNumberAcceptanceCriteria() throws Exception {
+    public void findShouldReturn0ForInputThanSumWillNotHavePrimeNumberAcceptanceCriteria() {
 
         // given
         final int[] primeNumbers = new int[]{62, 3, 25, 2, 78, 7, 44, 28, 19, 774};
@@ -90,7 +90,7 @@ public class FirstPrimeFinderTest {
     }
 
     @Test
-    public void findShouldThrowExceptionIfAnyNumberIsNotPositiveAcceptanceCriteria() throws Exception {
+    public void findShouldThrowExceptionIfAnyNumberIsNotPositiveAcceptanceCriteria() {
         // expect
         exception.expect(IllegalArgumentException.class);
 

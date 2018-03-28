@@ -23,7 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CoupleOperationsTest {
 
     @Test
-    public void deleteDiscardedCouplesShouldDelete2Items() throws Exception {
+    public void deleteDiscardedCouplesShouldDelete2Items() {
         // given
         final Couple couple1 = coupleBuilder()
                 .smallerNumber(1)

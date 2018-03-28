@@ -27,7 +27,7 @@ public class TaxCalculatorTest {
     public final ExpectedException thrown = ExpectedException.none();
 
     @Test
-    public void shouldThrowExceptionWhenSalaryIsBelowZeroTest() throws Exception {
+    public void shouldThrowExceptionWhenSalaryIsBelowZeroTest() {
         // given
         final int salary = (random.nextInt(BOUND) + 1) * (-1);
 
@@ -40,7 +40,7 @@ public class TaxCalculatorTest {
     }
 
     @Test
-    public void shouldReturnSalaryTest() throws Exception {
+    public void shouldReturnSalaryTest() {
         // given
         final int salary = random.nextInt(BOUND);
 
@@ -52,7 +52,7 @@ public class TaxCalculatorTest {
     }
 
     @Test
-    public void shouldReturnNetSalaryReducedByBasicRateTest() throws Exception {
+    public void shouldReturnNetSalaryReducedByBasicRateTest() {
         // given
         final int salary = 30600;
         final int expectedNetSalary = 26600;
@@ -69,7 +69,7 @@ public class TaxCalculatorTest {
         You pay basic rate tax at 20% on £24,400 (£35,000 minus £10,600).
      */
     @Test
-    public void shouldReturnNetSalaryBasedOnGovUkExample() throws Exception {
+    public void shouldReturnNetSalaryBasedOnGovUkExample() {
         // given
         final int salary = 35000;
         final int expectedNetSalary = 30120;
@@ -82,7 +82,7 @@ public class TaxCalculatorTest {
     }
 
     @Test
-    public void shouldReturnNetSalaryForHighRateSalary() throws Exception {
+    public void shouldReturnNetSalaryForHighRateSalary() {
         // given
         final int salary = 45000;
         final int expectedNetSalary = 37597;
@@ -95,7 +95,7 @@ public class TaxCalculatorTest {
     }
 
     @Test
-    public void shouldReturnNetSalaryForHighRateSalaryWithoutPersonalAllowance() throws Exception {
+    public void shouldReturnNetSalaryForHighRateSalaryWithoutPersonalAllowance() {
         // given
         final int salary = 121200;
         final int expectedNetSalary = 79077;
@@ -108,7 +108,7 @@ public class TaxCalculatorTest {
     }
 
     @Test
-    public void shouldReturnNetSalaryForTopRateSalary() throws Exception {
+    public void shouldReturnNetSalaryForTopRateSalary() {
         // given
         final int salary = 200000;
         final int expectedNetSalary = 123857;
@@ -145,7 +145,7 @@ public class TaxCalculatorTest {
     }
 
     @Test
-    public void shouldReturnReducedPersonalAllowanceTest() throws Exception {
+    public void shouldReturnReducedPersonalAllowanceTest() {
         // given
         final int salary = 100002;
         final int salary2 = 110000;

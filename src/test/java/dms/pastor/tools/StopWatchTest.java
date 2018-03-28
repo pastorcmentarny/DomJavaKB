@@ -27,7 +27,7 @@ public class StopWatchTest {
     private StopWatch stopWatch;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         stopWatch = new StopWatch();
     }
 
@@ -66,7 +66,7 @@ public class StopWatchTest {
     }
 
     @Test
-    public void calcTotalTimeShouldReturnCalculatedTime() throws Exception {
+    public void calcTotalTimeShouldReturnCalculatedTime() {
         // given
         stopWatch.setStart(200);
         stopWatch.setFinish(400);
@@ -79,7 +79,7 @@ public class StopWatchTest {
     }
 
     @Test
-    public void shouldDisplayTime() throws Exception {
+    public void shouldDisplayTime() {
         // given
         stopWatch.setStart(TW0_SECOND);
         stopWatch.setFinish(FIVE_SECONDS);
@@ -92,7 +92,7 @@ public class StopWatchTest {
     }
 
     @Test
-    public void shouldResultTimeAsString() throws Exception {
+    public void shouldResultTimeAsString() {
         // given
         stopWatch.setStart(TW0_SECOND);
         stopWatch.setFinish(FIVE_SECONDS);
@@ -105,7 +105,7 @@ public class StopWatchTest {
     }
 
     @Test
-    public void shouldResetTimer() throws Exception {
+    public void shouldResetTimer() {
         // given
         stopWatch.setStart(TW0_SECOND);
         stopWatch.setFinish(FIVE_SECONDS);

@@ -21,7 +21,7 @@ public class BloodlustSpellTest {
     private static final Unit UNUSED_UNIT = null;
 
     @Test
-    public void castBloodlustShouldAddBloodlustToPlayer() throws Exception {
+    public void castBloodlustShouldAddBloodlustToPlayer() {
         // given
         final BloodlustSpell bloodlustSpell = new BloodlustSpell();
         final Unit unit = unitBuilder()

@@ -20,7 +20,7 @@ public class QuitCommandTest extends AbstractCommandTest {
     private final Command quitCommand = new QuitCommand();
 
     @Test
-    public void getSyntaxShouldSyntaxForQuitCommand() throws Exception {
+    public void getSyntaxShouldSyntaxForQuitCommand() {
         // when
         final String syntax = quitCommand.getSyntax();
 
@@ -29,7 +29,7 @@ public class QuitCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void isParamsRequiredShouldReturnFalse() throws Exception {
+    public void isParamsRequiredShouldReturnFalse() {
         // when
         final boolean result = quitCommand.isParamsRequired();
 
@@ -38,7 +38,7 @@ public class QuitCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void setParamsIfValidShouldInvalidCommandSyntaxExceptionIfParamsAreInvalid() throws Exception {
+    public void setParamsIfValidShouldInvalidCommandSyntaxExceptionIfParamsAreInvalid() {
         // given
         exception.expect(InvalidCommandSyntaxException.class);
         exception.expectMessage("Invalid Syntax because number of params are invalid. Should be 1 but was 3. Please check your input and try again.");
@@ -49,7 +49,7 @@ public class QuitCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void setParamsIfValidShouldValidate() throws Exception {
+    public void setParamsIfValidShouldValidate() {
         // given
         final String[] params = {QUIT_COMMAND_SYNTAX};
 
@@ -60,7 +60,7 @@ public class QuitCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void executeShouldThrowExceptionForQuitCommand() throws Exception {
+    public void executeShouldThrowExceptionForQuitCommand() {
         // expect
         exception.expect(SomethingWentWrongException.class);
         exception.expectMessage(("Bug detected. execute method in quit command should not be called."));

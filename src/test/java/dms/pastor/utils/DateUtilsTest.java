@@ -28,7 +28,7 @@ public class DateUtilsTest {
 
     @SuppressWarnings("SpellCheckingInspection")
     @Test
-    public void shouldReturnTimeZoneListExample() throws Exception {
+    public void shouldReturnTimeZoneListExample() {
         // when
         final String displayTimeZoneList = displayTimeZoneList();
 
@@ -39,7 +39,7 @@ public class DateUtilsTest {
 
     @SuppressWarnings("ConstantConditions") //because this is purpose of test
     @Test
-    public void shouldThrowExceptionWhenAcronymIsNull() throws Exception {
+    public void shouldThrowExceptionWhenAcronymIsNull() {
         // expect
         exception.expect(IllegalArgumentException.class);
 
@@ -48,7 +48,7 @@ public class DateUtilsTest {
     }
 
     @Test
-    public void shouldThrowExceptionWhenAcronymDoesNotMatchMonth() throws Exception {
+    public void shouldThrowExceptionWhenAcronymDoesNotMatchMonth() {
         // expect
         exception.expect(IllegalArgumentException.class);
 
@@ -66,7 +66,7 @@ public class DateUtilsTest {
     }
 
     @Test
-    public void shouldConvertJodaDateToJava8Date() throws Exception {
+    public void shouldConvertJodaDateToJava8Date() {
         // given
         final String date = "2016-11-30";
         org.joda.time.LocalDate jodaDate = LocalDate.parse(date);
@@ -80,7 +80,7 @@ public class DateUtilsTest {
 
     @SuppressWarnings("UseOfObsoleteDateTimeApi")
     @Test
-    public void shouldConvertDateToLocalDate() throws Exception {
+    public void shouldConvertDateToLocalDate() {
         // given
         Date date = new Date();
 
@@ -94,7 +94,7 @@ public class DateUtilsTest {
     }
 
     @Test
-    public void getDayOfTheYearShouldThrowIllegalArgumentExceptionForNull() throws Exception {
+    public void getDayOfTheYearShouldThrowIllegalArgumentExceptionForNull() {
         // expect
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("Date cannot be null.");
@@ -106,7 +106,7 @@ public class DateUtilsTest {
     }
 
     @Test
-    public void getDayOfTheYearForShouldGetOneForFirstJanuary() throws Exception {
+    public void getDayOfTheYearForShouldGetOneForFirstJanuary() {
         // when
         final long days = getDayOfTheYearFor(of(2017, 1, 1));
 
@@ -115,7 +115,7 @@ public class DateUtilsTest {
     }
 
     @Test
-    public void getDayOfTheYearForShouldGetOneForFirstFebruary() throws Exception {
+    public void getDayOfTheYearForShouldGetOneForFirstFebruary() {
         // when
         final long days = getDayOfTheYearFor(of(2017, 2, 1));
 
@@ -124,7 +124,7 @@ public class DateUtilsTest {
     }
 
     @Test
-    public void getDayOfTheYearForShouldGet365ForLeapYear() throws Exception {
+    public void getDayOfTheYearForShouldGet365ForLeapYear() {
         // when
         final long days = getDayOfTheYearFor(of(2017, 12, 31));
 
@@ -133,7 +133,7 @@ public class DateUtilsTest {
     }
 
     @Test
-    public void getDayOfTheYearForShouldGet366ForLeapYear() throws Exception {
+    public void getDayOfTheYearForShouldGet366ForLeapYear() {
         // given
 
         // when
@@ -144,7 +144,7 @@ public class DateUtilsTest {
     }
 
     @Test
-    public void countLeapYearBetweenShouldIllegalArgumentExceptionIfStartDateIsNull() throws Exception {
+    public void countLeapYearBetweenShouldIllegalArgumentExceptionIfStartDateIsNull() {
         // expect
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("Start date cannot be null.");
@@ -154,7 +154,7 @@ public class DateUtilsTest {
     }
 
     @Test
-    public void countLeapYearBetweenShouldIllegalArgumentExceptionIfEndDateIsNull() throws Exception {
+    public void countLeapYearBetweenShouldIllegalArgumentExceptionIfEndDateIsNull() {
         // expect
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("End date cannot be null.");
@@ -164,7 +164,7 @@ public class DateUtilsTest {
     }
 
     @Test
-    public void countLeapYearBetweenShouldThrowIllegalArgumentExceptionWhenEndDateIsBeforeStartDate() throws Exception {
+    public void countLeapYearBetweenShouldThrowIllegalArgumentExceptionWhenEndDateIsBeforeStartDate() {
         // expect
         exception.expect(IllegalArgumentException.class);
 
@@ -177,7 +177,7 @@ public class DateUtilsTest {
     }
 
     @Test
-    public void countLeapYearBetweenShouldReturn1ForYearsBetween2016And2016() throws Exception {
+    public void countLeapYearBetweenShouldReturn1ForYearsBetween2016And2016() {
         // given
         final java.time.LocalDate leapYear = java.time.LocalDate.of(2016, 1, 1);
 
@@ -189,7 +189,7 @@ public class DateUtilsTest {
     }
 
     @Test
-    public void countLeapYearBetweenShouldReturn1ForYearsBetween2015And2017() throws Exception {
+    public void countLeapYearBetweenShouldReturn1ForYearsBetween2015And2017() {
         // given
         final java.time.LocalDate start = java.time.LocalDate.of(2015, 1, 1);
         final java.time.LocalDate end = java.time.LocalDate.of(2017, 12, 31);
@@ -202,7 +202,7 @@ public class DateUtilsTest {
     }
 
     @Test
-    public void countLeapYearBetweenShouldReturn5ForYearsBetween2000And2016() throws Exception {
+    public void countLeapYearBetweenShouldReturn5ForYearsBetween2000And2016() {
         // given
         final java.time.LocalDate start = java.time.LocalDate.of(2000, 1, 1);
         final java.time.LocalDate end = java.time.LocalDate.of(2016, 12, 31);

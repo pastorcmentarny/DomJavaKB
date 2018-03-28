@@ -22,7 +22,7 @@ import static java.util.Objects.isNull;
 public class Image {
     private int width;
     private int height;
-    private String[][] image = new String[0][0];
+    private String[][] image;
 
     public Image(int width, int height) {
         this.width = width;

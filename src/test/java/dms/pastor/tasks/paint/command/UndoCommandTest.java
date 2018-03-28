@@ -21,7 +21,7 @@ public class UndoCommandTest extends AbstractCommandTest {
     private final Command undoCommand = new UndoCommand();
 
     @Test
-    public void getSyntaxShouldSyntaxForUndoCommand() throws Exception {
+    public void getSyntaxShouldSyntaxForUndoCommand() {
         // when
         final String syntax = undoCommand.getSyntax();
 
@@ -30,7 +30,7 @@ public class UndoCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void isParamsRequiredShouldReturnFalse() throws Exception {
+    public void isParamsRequiredShouldReturnFalse() {
         // when
         final boolean result = undoCommand.isParamsRequired();
 
@@ -39,7 +39,7 @@ public class UndoCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void setParamsIfValidShouldInvalidCommandSyntaxExceptionIfParamsAreInvalid() throws Exception {
+    public void setParamsIfValidShouldInvalidCommandSyntaxExceptionIfParamsAreInvalid() {
         // given
         exception.expect(InvalidCommandSyntaxException.class);
         exception.expectMessage("Invalid Syntax because number of params are invalid. Should be 1 but was 3. Please check your input and try again.");
@@ -50,7 +50,7 @@ public class UndoCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void setParamsIfValidShouldValidate() throws Exception {
+    public void setParamsIfValidShouldValidate() {
         // given
         final String[] params = {UNDO_COMMAND};
 
@@ -61,7 +61,7 @@ public class UndoCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void executeShouldUndoLastChange() throws Exception {
+    public void executeShouldUndoLastChange() {
         // given
         final Canvas canvas = createCanvasFor(8, 6);
         canvas.saveState();

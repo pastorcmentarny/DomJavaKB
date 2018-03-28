@@ -27,7 +27,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
     private final CreateNewLineCommand createNewLineCommand = new CreateNewLineCommand();
 
     @Test
-    public void getSyntaxShouldReturnCreateNewLine() throws Exception {
+    public void getSyntaxShouldReturnCreateNewLine() {
         // when
         final String syntax = createNewLineCommand.getSyntax();
 
@@ -36,7 +36,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void setParamsIfValidShouldThrowExceptionIfStartWidthIsEmpty() throws Exception {
+    public void setParamsIfValidShouldThrowExceptionIfStartWidthIsEmpty() {
         // expect
         exception.expect(InvalidCommandSyntaxException.class);
         exception.expectMessage("Invalid Syntax because start width is not a number. Please check your input and try again.");
@@ -49,7 +49,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void setParamsIfValidShouldThrowExceptionIfStartWidthIsNotANumber() throws Exception {
+    public void setParamsIfValidShouldThrowExceptionIfStartWidthIsNotANumber() {
         // expect
         exception.expect(InvalidCommandSyntaxException.class);
         exception.expectMessage("Invalid Syntax because start width is not a number. Please check your input and try again.");
@@ -63,7 +63,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void setParamsIfValidShouldThrowExceptionIfStartHeightIsEmpty() throws Exception {
+    public void setParamsIfValidShouldThrowExceptionIfStartHeightIsEmpty() {
         // expect
         exception.expect(InvalidCommandSyntaxException.class);
         exception.expectMessage("Invalid Syntax because start height is not a number. Please check your input and try again.");
@@ -77,7 +77,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void setParamsIfValidShouldThrowExceptionIfStartHeightIsNotANumber() throws Exception {
+    public void setParamsIfValidShouldThrowExceptionIfStartHeightIsNotANumber() {
         // expect
         exception.expect(InvalidCommandSyntaxException.class);
         exception.expectMessage("Invalid Syntax because start height is not a number. Please check your input and try again.");
@@ -91,7 +91,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void setParamsIfValidShouldThrowExceptionIfEndWidthIsEmpty() throws Exception {
+    public void setParamsIfValidShouldThrowExceptionIfEndWidthIsEmpty() {
         // expect
         exception.expect(InvalidCommandSyntaxException.class);
         exception.expectMessage("Invalid Syntax because end width is not a number. Please check your input and try again.");
@@ -105,7 +105,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void setParamsIfValidShouldThrowExceptionIfEndWidthIsNotANumber() throws Exception {
+    public void setParamsIfValidShouldThrowExceptionIfEndWidthIsNotANumber() {
         // expect
         exception.expect(InvalidCommandSyntaxException.class);
         exception.expectMessage("Invalid Syntax because end width is not a number. Please check your input and try again.");
@@ -119,7 +119,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void setParamsIfValidShouldThrowExceptionIfEndHeightIsEmpty() throws Exception {
+    public void setParamsIfValidShouldThrowExceptionIfEndHeightIsEmpty() {
         // expect
         exception.expect(InvalidCommandSyntaxException.class);
         exception.expectMessage("Invalid Syntax because end height is not a number. Please check your input and try again.");
@@ -133,7 +133,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void setParamsIfValidShouldThrowExceptionIfEndHeightIsNotANumber() throws Exception {
+    public void setParamsIfValidShouldThrowExceptionIfEndHeightIsNotANumber() {
         // expect
         exception.expect(InvalidCommandSyntaxException.class);
         exception.expectMessage("Invalid Syntax because end height is not a number. Please check your input and try again.");
@@ -238,7 +238,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void setParamsIfValidShouldValidateIfAllParamsAreValid() throws Exception {
+    public void setParamsIfValidShouldValidateIfAllParamsAreValid() {
         // given
         String[] params = {CREATE_LINE_COMMAND, "1", "1", "3", "1"};
 
@@ -253,7 +253,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void validateIfParamsAreInOrderShouldThrowExceptionIfHeightStartPointIsHigherThanEndPoint() throws Exception {
+    public void validateIfParamsAreInOrderShouldThrowExceptionIfHeightStartPointIsHigherThanEndPoint() {
         // expect
         exception.expect(InvalidCommandSyntaxException.class);
         exception.expectMessage("Invalid Syntax because Start point must be smaller than end point. Please check your input and try again.");
@@ -264,7 +264,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void validateIfParamsAreInOrderShouldThrowExceptionIfLengthStartPointIsHigherThanEndPoint() throws Exception {
+    public void validateIfParamsAreInOrderShouldThrowExceptionIfLengthStartPointIsHigherThanEndPoint() {
         // expect
         exception.expect(InvalidCommandSyntaxException.class);
         exception.expectMessage("Invalid Syntax because Start point must be smaller than end point. Please check your input and try again.");
@@ -275,7 +275,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void isParamsRequiredShouldReturnTrue() throws Exception {
+    public void isParamsRequiredShouldReturnTrue() {
         // when
         final boolean result = createNewLineCommand.isParamsRequired();
 
@@ -284,7 +284,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void setParamsIfValidShouldThrowExceptionIfParamsCountIsWrong() throws Exception {
+    public void setParamsIfValidShouldThrowExceptionIfParamsCountIsWrong() {
         // expect
         exception.expect(InvalidCommandSyntaxException.class);
         exception.expectMessage("Invalid Syntax because number of params are invalid. Should be 5 but was 1. Please check your input and try again.");
@@ -298,7 +298,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void executeShouldDrawHorizontalLineOnCanvas() throws Exception {
+    public void executeShouldDrawHorizontalLineOnCanvas() {
         // given
         final Canvas canvas = Canvas.createCanvasFor(4, 4);
         createNewLineCommand.setParam(new String[]{CREATE_LINE_COMMAND, "1", "1", "3", "1"});
@@ -317,7 +317,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void executeShouldDrawVerticalLineOnCanvas() throws Exception {
+    public void executeShouldDrawVerticalLineOnCanvas() {
         // given
         final Canvas canvas = Canvas.createCanvasFor(4, 4);
         createNewLineCommand.setParam(new String[]{CREATE_LINE_COMMAND, "2", "1", "2", "3"});
@@ -336,7 +336,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void executeShouldNotDrawAnythingIfCanvasIsNotCreated() throws Exception {
+    public void executeShouldNotDrawAnythingIfCanvasIsNotCreated() {
         // given
         final Canvas canvas = Canvas.noCanvas();
 
@@ -349,7 +349,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void executeShouldThrowExceptionIfLineWillBeDrawnOnTopBorder() throws Exception {
+    public void executeShouldThrowExceptionIfLineWillBeDrawnOnTopBorder() {
         // expect
         exception.expect(InvalidCommandSyntaxException.class);
         exception.expectMessage("Invalid Syntax because paint on border is not allowed. Please check your input and try again.");
@@ -363,7 +363,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void executeShouldThrowExceptionIfLineWillBeDrawnOnBottomBorder() throws Exception {
+    public void executeShouldThrowExceptionIfLineWillBeDrawnOnBottomBorder() {
         // expect
         exception.expect(InvalidCommandSyntaxException.class);
         exception.expectMessage("Invalid Syntax because paint on border is not allowed. Please check your input and try again.");
@@ -377,7 +377,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void executeShouldThrowExceptionIfLineWillBeDrawnOnLeftBorder() throws Exception {
+    public void executeShouldThrowExceptionIfLineWillBeDrawnOnLeftBorder() {
         // expect
         exception.expect(InvalidCommandSyntaxException.class);
         exception.expectMessage("Invalid Syntax because paint on border is not allowed. Please check your input and try again.");
@@ -391,7 +391,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void executeShouldThrowExceptionIfLineWillBeDrawnOnRightBorder() throws Exception {
+    public void executeShouldThrowExceptionIfLineWillBeDrawnOnRightBorder() {
         // expect
         exception.expect(InvalidCommandSyntaxException.class);
         exception.expectMessage("Invalid Syntax because paint on border is not allowed. Please check your input and try again.");

@@ -17,62 +17,62 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class RomanNumberValidatorTest {
 
     @Test
-    public void testIfIWorks() throws Exception {
+    public void testIfIWorks() {
         assertThat(RomanNumberValidator.isValidRomanNumber("I")).isTrue();
     }
 
     @Test
-    public void testIfValidRomanNumberWorks() throws Exception {
+    public void testIfValidRomanNumberWorks() {
         assertThat(RomanNumberValidator.isValidRomanNumber("IV")).isTrue();
     }
 
     @Test
-    public void testIfMDCLXIVWorks() throws Exception {
+    public void testIfMDCLXIVWorks() {
         assertThat(RomanNumberValidator.isValidRomanNumber("MDCLXIV")).isTrue();//1664
     }
 
     @Test
-    public void testIfNullStringProduceFalse() throws Exception {
+    public void testIfNullStringProduceFalse() {
         assertThat(RomanNumberValidator.isValidRomanNumber(null)).isFalse();
     }
 
     @Test
-    public void testIfEmptyStringProduceFalse() throws Exception {
+    public void testIfEmptyStringProduceFalse() {
         assertThat(RomanNumberValidator.isValidRomanNumber(EMPTY_STRING)).isFalse();
     }
 
     @Test
-    public void testIfNonRomanCharacterOnlyProduceFalse() throws Exception {
+    public void testIfNonRomanCharacterOnlyProduceFalse() {
         assertThat(RomanNumberValidator.isValidRomanNumber("UFO")).isFalse();
     }
 
     @Test
-    public void testIFMixedRomanAndNonRomanCharactersProducesFalse() throws Exception {
+    public void testIFMixedRomanAndNonRomanCharactersProducesFalse() {
         assertThat(RomanNumberValidator.isValidRomanNumber("VIXEN")).isFalse();
     }
 
     @Test
-    public void testIfNumberProducesFalse() throws Exception {
+    public void testIfNumberProducesFalse() {
         assertThat(RomanNumberValidator.isValidRomanNumber("100")).isFalse();
     }
 
     @Test
-    public void testValidArabicNumber() throws Exception {
+    public void testValidArabicNumber() {
         assertThat(RomanNumberValidator.isIntCanBeRomanNumber(256)).isTrue();
     }
 
     @Test
-    public void testIfNegativeNumberProduceFail() throws Exception {
+    public void testIfNegativeNumberProduceFail() {
         assertThat(RomanNumberValidator.isIntCanBeRomanNumber(-1)).isFalse();
     }
 
     @Test
-    public void testIfZeroProduceFail() throws Exception {
+    public void testIfZeroProduceFail() {
         assertThat(RomanNumberValidator.isIntCanBeRomanNumber(0)).isFalse();
     }
 
     @Test
-    public void testIfTooBigNumberProduceFail() throws Exception {
+    public void testIfTooBigNumberProduceFail() {
         assertThat(RomanNumberValidator.isIntCanBeRomanNumber(4000)).isFalse();
     }
 

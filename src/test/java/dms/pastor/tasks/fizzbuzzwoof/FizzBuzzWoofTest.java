@@ -19,7 +19,7 @@ public class FizzBuzzWoofTest {
     private static final String WOOF = "Woof";
 
     @Test
-    public void getResultFor1shouldReturn1() throws Exception {
+    public void getResultFor1shouldReturn1() {
         // when
         final String result = FizzBuzzWoof.getResultFor(1);
 
@@ -28,7 +28,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor2shouldReturn2() throws Exception {
+    public void getResultFor2shouldReturn2() {
         // when
         final String result = FizzBuzzWoof.getResultFor(2);
 
@@ -37,7 +37,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor3shouldReturnFizzFizz() throws Exception {
+    public void getResultFor3shouldReturnFizzFizz() {
         // when
         final String result = FizzBuzzWoof.getResultFor(3);
 
@@ -46,7 +46,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor4shouldReturn4() throws Exception {
+    public void getResultFor4shouldReturn4() {
         // when
         final String result = FizzBuzzWoof.getResultFor(4);
 
@@ -55,7 +55,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor5shouldReturnBuzzBuzz() throws Exception {
+    public void getResultFor5shouldReturnBuzzBuzz() {
         // when
         final String result = FizzBuzzWoof.getResultFor(5);
 
@@ -64,7 +64,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor6shouldReturnFizz() throws Exception {
+    public void getResultFor6shouldReturnFizz() {
         // when
         final String result = FizzBuzzWoof.getResultFor(6);
 
@@ -73,7 +73,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor7shouldReturnWoofWoof() throws Exception {
+    public void getResultFor7shouldReturnWoofWoof() {
         // when
         final String result = FizzBuzzWoof.getResultFor(7);
 
@@ -82,7 +82,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor8shouldReturn8() throws Exception {
+    public void getResultFor8shouldReturn8() {
         // when
         final String result = FizzBuzzWoof.getResultFor(8);
 
@@ -91,7 +91,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor9shouldReturnFizz() throws Exception {
+    public void getResultFor9shouldReturnFizz() {
         // when
         final String result = FizzBuzzWoof.getResultFor(9);
 
@@ -100,7 +100,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor10shouldReturnBuzz() throws Exception {
+    public void getResultFor10shouldReturnBuzz() {
         // when
         final String result = FizzBuzzWoof.getResultFor(10);
 
@@ -109,7 +109,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor11shouldReturn11() throws Exception {
+    public void getResultFor11shouldReturn11() {
         // when
         final String result = FizzBuzzWoof.getResultFor(11);
 
@@ -118,7 +118,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor12shouldReturnFizz() throws Exception {
+    public void getResultFor12shouldReturnFizz() {
         // when
         final String result = FizzBuzzWoof.getResultFor(12);
 
@@ -127,7 +127,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor13shouldReturnFizz() throws Exception {
+    public void getResultFor13shouldReturnFizz() {
         // when
         final String result = FizzBuzzWoof.getResultFor(13);
 
@@ -136,7 +136,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor14shouldReturnWoof() throws Exception {
+    public void getResultFor14shouldReturnWoof() {
         // when
         final String result = FizzBuzzWoof.getResultFor(14);
 
@@ -145,7 +145,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor15shouldReturnFizzBuzzBuzz() throws Exception {
+    public void getResultFor15shouldReturnFizzBuzzBuzz() {
         // when
         final String result = FizzBuzzWoof.getResultFor(15);
 
@@ -154,7 +154,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor17shouldReturnWoof() throws Exception {
+    public void getResultFor17shouldReturnWoof() {
         // when
         final String result = FizzBuzzWoof.getResultFor(17);
 
@@ -163,7 +163,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor18shouldReturnFizz() throws Exception {
+    public void getResultFor18shouldReturnFizz() {
         // when
         final String result = FizzBuzzWoof.getResultFor(18);
 
@@ -172,7 +172,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor19shouldReturn19() throws Exception {
+    public void getResultFor19shouldReturn19() {
         // when
         final String result = FizzBuzzWoof.getResultFor(19);
 
@@ -181,7 +181,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor20shouldReturnBuzz() throws Exception {
+    public void getResultFor20shouldReturnBuzz() {
         // when
         final String result = FizzBuzzWoof.getResultFor(20);
 
@@ -190,7 +190,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor21shouldReturnFizzWoof() throws Exception {
+    public void getResultFor21shouldReturnFizzWoof() {
         // when
         final String result = FizzBuzzWoof.getResultFor(21);
 
@@ -199,7 +199,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor23shouldReturnFizz() throws Exception {
+    public void getResultFor23shouldReturnFizz() {
         // when
         final String result = FizzBuzzWoof.getResultFor(23);
 
@@ -208,7 +208,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor25shouldReturnBuzzBuzz() throws Exception {
+    public void getResultFor25shouldReturnBuzzBuzz() {
         // when
         final String result = FizzBuzzWoof.getResultFor(25);
 
@@ -217,7 +217,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor27shouldReturnFizzWoof() throws Exception {
+    public void getResultFor27shouldReturnFizzWoof() {
         // when
         final String result = FizzBuzzWoof.getResultFor(27);
 
@@ -226,7 +226,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor31shouldReturnFizz() throws Exception {
+    public void getResultFor31shouldReturnFizz() {
         // when
         final String result = FizzBuzzWoof.getResultFor(31);
 
@@ -235,7 +235,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor33shouldReturnFizzFizzFizz() throws Exception {
+    public void getResultFor33shouldReturnFizzFizzFizz() {
         // when
         final String result = FizzBuzzWoof.getResultFor(33);
 
@@ -244,7 +244,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor35shouldReturnFizzBuzzBuzzWoof() throws Exception {
+    public void getResultFor35shouldReturnFizzBuzzBuzzWoof() {
         // when
         final String result = FizzBuzzWoof.getResultFor(35);
 
@@ -253,7 +253,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor37shouldReturnFizzWoof() throws Exception {
+    public void getResultFor37shouldReturnFizzWoof() {
         // when
         final String result = FizzBuzzWoof.getResultFor(37);
 
@@ -262,7 +262,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor42shouldReturnFizzWoof() throws Exception {
+    public void getResultFor42shouldReturnFizzWoof() {
         // when
         final String result = FizzBuzzWoof.getResultFor(42);
 
@@ -271,7 +271,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor55shouldReturnBuzzBuzzBuzz() throws Exception {
+    public void getResultFor55shouldReturnBuzzBuzzBuzz() {
 
         // when
         final String result = FizzBuzzWoof.getResultFor(55);
@@ -281,7 +281,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor63shouldReturnFizzFizzWoof() throws Exception {
+    public void getResultFor63shouldReturnFizzFizzWoof() {
 
         // when
         final String result = FizzBuzzWoof.getResultFor(63);
@@ -291,7 +291,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor70shouldReturnBuzzWoofWoof() throws Exception {
+    public void getResultFor70shouldReturnBuzzWoofWoof() {
         // when
         final String result = FizzBuzzWoof.getResultFor(70);
 
@@ -300,7 +300,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor77shouldReturnWoofWoofWoof() throws Exception {
+    public void getResultFor77shouldReturnWoofWoofWoof() {
         // when
         final String result = FizzBuzzWoof.getResultFor(77);
 
@@ -309,7 +309,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor99shouldReturnFizz() throws Exception {
+    public void getResultFor99shouldReturnFizz() {
         // when
         final String result = FizzBuzzWoof.getResultFor(99);
 
@@ -318,7 +318,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor105shouldReturnFizzBuzzBuzzWoof() throws Exception {
+    public void getResultFor105shouldReturnFizzBuzzBuzzWoof() {
         // when
         final String result = FizzBuzzWoof.getResultFor(105);
 
@@ -327,7 +327,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor210shouldReturnFizzBuzzWoof() throws Exception {
+    public void getResultFor210shouldReturnFizzBuzzWoof() {
         // when
         final String result = FizzBuzzWoof.getResultFor(210);
 
@@ -336,7 +336,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor211shouldReturn211() throws Exception {
+    public void getResultFor211shouldReturn211() {
         // when
         final String result = FizzBuzzWoof.getResultFor(211);
 
@@ -345,7 +345,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor333shouldReturnFizzFizzFizzFizz() throws Exception {
+    public void getResultFor333shouldReturnFizzFizzFizzFizz() {
         // when
         final String result = FizzBuzzWoof.getResultFor(333);
 
@@ -354,7 +354,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor357shouldReturnFizzFizzBuzzWoofWoof() throws Exception {
+    public void getResultFor357shouldReturnFizzFizzBuzzWoofWoof() {
 
         // when
         final String result = FizzBuzzWoof.getResultFor(357);
@@ -364,7 +364,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor555shouldReturnFizzBuzzBuzzBuzzBuzz() throws Exception {
+    public void getResultFor555shouldReturnFizzBuzzBuzzBuzzBuzz() {
         // when
         final String result = FizzBuzzWoof.getResultFor(555);
 
@@ -373,7 +373,7 @@ public class FizzBuzzWoofTest {
     }
 
     @Test
-    public void getResultFor777shouldReturnWoofWoofWoofWoof() throws Exception {
+    public void getResultFor777shouldReturnWoofWoofWoofWoof() {
         // when
         final String result = FizzBuzzWoof.getResultFor(777);
 

@@ -25,7 +25,7 @@ public class CollectionExercisesTest {
     private static final int MAX_STRING_SIZE = 10;
 
     @Test
-    public final void shouldReturnNullIfListIsNullTest() throws Exception {
+    public final void shouldReturnNullIfListIsNullTest() {
         // when
         final Map<Integer, String> integerStringMap = convertListToMapUsingJava8(null);
 
@@ -34,7 +34,7 @@ public class CollectionExercisesTest {
     }
 
     @Test
-    public void shouldReturnMapWith3ElementsForListWith3ElementsTest() throws Exception {
+    public void shouldReturnMapWith3ElementsForListWith3ElementsTest() {
         // given
         List<String> stringArrayList = new ArrayList<>();
         final String stringOne = generateString(MAX_STRING_SIZE);

@@ -41,18 +41,18 @@ public class RandomDataGeneratorTest {
     public final ExpectedException exception = ExpectedException.none();
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         printStream = System.out;
         System.setOut(new PrintStream(outputStream));
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         System.setOut(printStream);
     }
 
     @Test
-    public void testGenerateRandomIntValues() throws Exception {
+    public void testGenerateRandomIntValues() {
         // given
         int size = 10;
 
@@ -64,7 +64,7 @@ public class RandomDataGeneratorTest {
     }
 
     @Test
-    public void testGetRandomCharacter() throws Exception {
+    public void testGetRandomCharacter() {
         // when
         Character randomCharacter = getRandomCharacterFromAlphabet();
 
@@ -73,7 +73,7 @@ public class RandomDataGeneratorTest {
     }
 
     @Test
-    public void testGetRandomCharacterAsString() throws Exception {
+    public void testGetRandomCharacterAsString() {
         // when
         String randomCharacterAsString = getRandomCharacterAsString();
 
@@ -82,7 +82,7 @@ public class RandomDataGeneratorTest {
     }
 
     @Test
-    public void testGetRandomTextWithoutMaxLength() throws Exception {
+    public void testGetRandomTextWithoutMaxLength() {
         // when
         final String text = getRandomText();
 
@@ -92,7 +92,7 @@ public class RandomDataGeneratorTest {
 
     @SuppressWarnings("QuestionableName") // because string is valid name
     @Test
-    public void shouldGenerateRandomStringOfLengthBetween4And10Test() throws Exception {
+    public void shouldGenerateRandomStringOfLengthBetween4And10Test() {
         // when
         final String string = generateString(4, 10);
 
@@ -102,7 +102,7 @@ public class RandomDataGeneratorTest {
     }
 
     @Test //FIXME failed once on 1.9'2017. Added log so i can see error next time.
-    public void shouldThrowIllegalArgumentExceptionWhenMinValueIsHigherThanMinForGenerateStringTest() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionWhenMinValueIsHigherThanMinForGenerateStringTest() {
         // except
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("Value must be higher than zero and min value must be smaller is larger than max value");
@@ -153,7 +153,7 @@ public class RandomDataGeneratorTest {
 	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:147)
      */
     @Test //TODO FIX IT
-    public void shouldThrowIllegalArgumentExceptionForNegativeMinValueTest() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionForNegativeMinValueTest() {
         // except
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("Value must be higher than zero and min value must be smaller is larger than max value");
@@ -164,7 +164,7 @@ public class RandomDataGeneratorTest {
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionForNegativeMaxValueTest() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionForNegativeMaxValueTest() {
         // except
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("Value must be higher than zero and min value must be smaller is larger than max value");
@@ -175,7 +175,7 @@ public class RandomDataGeneratorTest {
     }
 
     @Test
-    public void shouldGenerateIntArrayTest() throws Exception {
+    public void shouldGenerateIntArrayTest() {
         // given
         int size = 10;
 
@@ -189,7 +189,7 @@ public class RandomDataGeneratorTest {
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionForNegativeSizeTest() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionForNegativeSizeTest() {
         // except
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("Size cannot be negative.");
@@ -200,7 +200,7 @@ public class RandomDataGeneratorTest {
 
     @SuppressWarnings("QuestionableName") // because string is valid name
     @Test
-    public void generateStringShouldReturnStringList() throws Exception {
+    public void generateStringShouldReturnStringList() {
         // given
         final int arraySize = 10;
 
@@ -216,7 +216,7 @@ public class RandomDataGeneratorTest {
 
     @Ignore
     @Test //TODO improve it this rubbish
-    public void generateStringListTest() throws Exception {
+    public void generateStringListTest() {
 
         // when
         final List<String> stringList = generateStringList(0);
@@ -226,7 +226,7 @@ public class RandomDataGeneratorTest {
     }
 
     @Test
-    public void generateStringArrayShouldThrowIllegalArgumentExceptionForNegativeTest() throws Exception {
+    public void generateStringArrayShouldThrowIllegalArgumentExceptionForNegativeTest() {
         // except
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("Size cannot be negative.");
@@ -237,7 +237,7 @@ public class RandomDataGeneratorTest {
 
     @SuppressWarnings("QuestionableName") // because string is valid name
     @Test
-    public void generateStringArrayShouldReturnStringArray() throws Exception {
+    public void generateStringArrayShouldReturnStringArray() {
         // given
         final int arraySize = 10;
 
@@ -252,7 +252,7 @@ public class RandomDataGeneratorTest {
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionIfSizeIsBelowZeroTest() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionIfSizeIsBelowZeroTest() {
         // except
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("Size of string must be greater than zero");
@@ -263,7 +263,7 @@ public class RandomDataGeneratorTest {
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionIfSizeIsZeroTest() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionIfSizeIsZeroTest() {
         // except
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("Size of string must be greater than zero");
@@ -274,7 +274,7 @@ public class RandomDataGeneratorTest {
     }
 
     @Test
-    public void shouldReturnStringWithNonAlphanumericCharactersTest() throws Exception {
+    public void shouldReturnStringWithNonAlphanumericCharactersTest() {
         // except
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("Size of string must be greater than zero");
@@ -299,7 +299,7 @@ public class RandomDataGeneratorTest {
     }
 
     @Test
-    public void shouldGenerateStringListTest() throws Exception {
+    public void shouldGenerateStringListTest() {
         // when
         final List<String> stringList = generateStringList();
 
@@ -309,7 +309,7 @@ public class RandomDataGeneratorTest {
     }
 
     @Test //TODO investigate as length was 6 that is not greater than 10
-    public void shouldReturnParagraph() throws Exception {
+    public void shouldReturnParagraph() {
 
         // when
         final String result = generateRandomParagraph();
@@ -324,7 +324,7 @@ public class RandomDataGeneratorTest {
     //TODO @Test public void randomIntegerExcludingShouldReturnUniqueNumber() throws Exception {
     @Ignore
     @Test
-    public void randomIntegerWithMinAndMaxValueShouldThrowExceptionWhenMinValueIsHigherThanMaxValue() throws Exception {
+    public void randomIntegerWithMinAndMaxValueShouldThrowExceptionWhenMinValueIsHigherThanMaxValue() {
         // given
         int maxValue = randomPositiveInteger(MAX_SMALL_VALUE_RANGE);
         int minValue = maxValue + randomInteger(1, MAX_SMALL_VALUE_RANGE);
@@ -338,7 +338,7 @@ public class RandomDataGeneratorTest {
     }
 
     @Test
-    public void randomIntegerWithMinAndMaxValueShouldReturnValueInRange() throws Exception {
+    public void randomIntegerWithMinAndMaxValueShouldReturnValueInRange() {
         // given
         int minValue = randomPositiveInteger(MAX_SMALL_VALUE_RANGE);
         int maxValue = minValue + randomInteger(1, 1 + MAX_SMALL_VALUE_RANGE);
@@ -351,7 +351,7 @@ public class RandomDataGeneratorTest {
     }
 
     @Test
-    public void randomIntegerWithEqualMinAndMaxValueShouldReturnThatValue() throws Exception {
+    public void randomIntegerWithEqualMinAndMaxValueShouldReturnThatValue() {
         // given
         int value = randomPositiveInteger(MAX_SMALL_VALUE_RANGE);
 
@@ -363,7 +363,7 @@ public class RandomDataGeneratorTest {
     }
 
     @Test
-    public void randomNegativeIntegerShouldReturnNegativeInteger() throws Exception {
+    public void randomNegativeIntegerShouldReturnNegativeInteger() {
 
         // when
         final int negativeInteger = randomNegativeInteger();
@@ -374,7 +374,7 @@ public class RandomDataGeneratorTest {
     }
 
     @Test
-    public void generateNonAlphanumericStringShouldGenerateString() throws Exception {
+    public void generateNonAlphanumericStringShouldGenerateString() {
         // when
         final String nonAlphanumericString = generateNonAlphanumericString(2);
 
@@ -387,7 +387,7 @@ public class RandomDataGeneratorTest {
     }
 
     @Test
-    public void shouldGetRandomPositiveBigDecimal() throws Exception {
+    public void shouldGetRandomPositiveBigDecimal() {
         // when
         final BigDecimal positiveBigDecimal = RandomDataGenerator.randomPositiveBigDecimal();
 
@@ -396,7 +396,7 @@ public class RandomDataGeneratorTest {
     }
 
     @Test
-    public void shouldGetRandomNegativeBigDecimal() throws Exception {
+    public void shouldGetRandomNegativeBigDecimal() {
         // when
         final BigDecimal negativeBigDecimal = RandomDataGenerator.randomNegativeBigDecimal();
 
@@ -405,7 +405,7 @@ public class RandomDataGeneratorTest {
     }
 
     @Test
-    public void shouldReturnRandomInteger() throws Exception {
+    public void shouldReturnRandomInteger() {
 
         // when
         final int integer = RandomDataGenerator.randomInteger();
@@ -417,7 +417,7 @@ public class RandomDataGeneratorTest {
     }
 
     @Test
-    public void generateWordsShouldThrowIllegalArgumentExceptionIfValueIsNegative() throws Exception {
+    public void generateWordsShouldThrowIllegalArgumentExceptionIfValueIsNegative() {
         // expect
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("Value cannot be negative");
@@ -427,7 +427,7 @@ public class RandomDataGeneratorTest {
     }
 
     @Test
-    public void generateWordsShouldReturnEmptyStringForSizeZero() throws Exception {
+    public void generateWordsShouldReturnEmptyStringForSizeZero() {
         // given
         final int zeroSize = 0;
         // when
@@ -438,7 +438,7 @@ public class RandomDataGeneratorTest {
     }
 
     @Test
-    public void generateWordsShouldReturnEmptyStringForSizeOne() throws Exception {
+    public void generateWordsShouldReturnEmptyStringForSizeOne() {
         // given
         final int size = 1;
 
@@ -451,7 +451,7 @@ public class RandomDataGeneratorTest {
     }
 
     @Test
-    public void generateWordsShouldReturnEmptyStringForFiveWords() throws Exception {
+    public void generateWordsShouldReturnEmptyStringForFiveWords() {
         // given
         final int size = 5;
 
@@ -465,7 +465,7 @@ public class RandomDataGeneratorTest {
     }
 
     @Test
-    public void generateWordWithoutStopWordShouldReturnPseudoWordThatIsNotStopWord() throws Exception {
+    public void generateWordWithoutStopWordShouldReturnPseudoWordThatIsNotStopWord() {
 
         // when
         final String word = generateWordWithoutStopWord(MAX_SMALL_VALUE_RANGE);

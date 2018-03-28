@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class BackstabSpellAcceptanceTest {
 
     @Test
-    public void castBacktabSpellShouldReduceHpBy2EvenIfHasShield() throws Exception {
+    public void castBacktabSpellShouldReduceHpBy2EvenIfHasShield() {
         // given
         final BackstabSpell backstabSpell = new BackstabSpell();
         final Unit unit = unitBuilder()
@@ -36,7 +36,7 @@ public class BackstabSpellAcceptanceTest {
     }
 
     @Test
-    public void castBacktabSpellShouldReduceHpBy2() throws Exception {
+    public void castBacktabSpellShouldReduceHpBy2() {
         // given
         final BackstabSpell backstabSpell = new BackstabSpell();
         final Unit unit = unitBuilder()

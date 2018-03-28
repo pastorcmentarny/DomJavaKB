@@ -33,12 +33,12 @@ public class CodecAppRunnerTest {
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         new File(PATH).delete();
     }
 
     @Test
-    public void shouldThrowSomethingWentWrongErrorIfInputIsNull() throws Exception {
+    public void shouldThrowSomethingWentWrongErrorIfInputIsNull() {
         // except
         exception.expect(SomethingWentTerribleWrongError.class);
 
@@ -47,7 +47,7 @@ public class CodecAppRunnerTest {
     }
 
     @Test
-    public void shouldThrowSomethingWentWrongErrorIfHasTooManyArgumentsIsNull() throws Exception {
+    public void shouldThrowSomethingWentWrongErrorIfHasTooManyArgumentsIsNull() {
         // except
         exception.expect(SomethingWentTerribleWrongError.class);
 
@@ -56,7 +56,7 @@ public class CodecAppRunnerTest {
     }
 
     @Test
-    public void shouldThrowSomethingWentWrongErrorIfArgumentsDoesNotMatchTaskName() throws Exception {
+    public void shouldThrowSomethingWentWrongErrorIfArgumentsDoesNotMatchTaskName() {
         // except
         exception.expect(SomethingWentTerribleWrongError.class);
 
@@ -65,14 +65,14 @@ public class CodecAppRunnerTest {
     }
 
     @Test
-    public void shouldDisplayEncodedMessageReadFromFile() throws Exception {
+    public void shouldDisplayEncodedMessageReadFromFile() {
 
         // when
         CodecAppRunner.main(new String[]{"e"});
     }
 
     @Test
-    public void shouldDisplayDecodedMessageReadFromFile() throws Exception {
+    public void shouldDisplayDecodedMessageReadFromFile() {
 
         // when
         CodecAppRunner.main(new String[]{"d"});

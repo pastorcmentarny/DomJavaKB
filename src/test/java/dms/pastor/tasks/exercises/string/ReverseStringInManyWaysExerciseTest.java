@@ -27,7 +27,7 @@ public class ReverseStringInManyWaysExerciseTest {
     public final ExpectedException exception = ExpectedException.none();
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionIfInputIsNullForReverseViaStringBuilderTest() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionIfInputIsNullForReverseViaStringBuilderTest() {
         // expect
         exception.expect(IllegalArgumentException.class);
 
@@ -36,7 +36,7 @@ public class ReverseStringInManyWaysExerciseTest {
     }
 
     @Test
-    public void shouldReversStringViaStringBuilderTest() throws Exception {
+    public void shouldReversStringViaStringBuilderTest() {
 
         // when
         final String result = reversStringViaStringBuilder(TEST_STRING);
@@ -46,7 +46,7 @@ public class ReverseStringInManyWaysExerciseTest {
     }
 
     @Test
-    public void shouldReturnNullIfInputIsNullForReverseViaStringBufferTest() throws Exception {
+    public void shouldReturnNullIfInputIsNullForReverseViaStringBufferTest() {
         // expect
         exception.expect(IllegalArgumentException.class);
 
@@ -55,7 +55,7 @@ public class ReverseStringInManyWaysExerciseTest {
     }
 
     @Test
-    public void shouldReversStringViaStringBufferTest() throws Exception {
+    public void shouldReversStringViaStringBufferTest() {
 
         // when
         final String result = reversStringViaStringBuffer(TEST_STRING);
@@ -65,7 +65,7 @@ public class ReverseStringInManyWaysExerciseTest {
     }
 
     @Test
-    public void shouldReturnNullIfInputIsNullForReverseViaNoLibraryImplementationTest() throws Exception {
+    public void shouldReturnNullIfInputIsNullForReverseViaNoLibraryImplementationTest() {
         // expect
         exception.expect(IllegalArgumentException.class);
 
@@ -74,7 +74,7 @@ public class ReverseStringInManyWaysExerciseTest {
     }
 
     @Test
-    public void reverseStringWithoutLibrariesShouldReturnEmptyStringIfInputIsEmpty() throws Exception {
+    public void reverseStringWithoutLibrariesShouldReturnEmptyStringIfInputIsEmpty() {
         // when
         final String result = reverseStringWithoutLibraries(EMPTY_STRING);
 
@@ -83,7 +83,7 @@ public class ReverseStringInManyWaysExerciseTest {
     }
 
     @Test
-    public void reverseStringWithoutLibrariesShouldReturnSameStringIfLengthIsOne() throws Exception {
+    public void reverseStringWithoutLibrariesShouldReturnSameStringIfLengthIsOne() {
         // given
         final String oneCharacterString = getRandomCharacterAsString();
 
@@ -95,7 +95,7 @@ public class ReverseStringInManyWaysExerciseTest {
     }
 
     @Test
-    public void reverseStringWithoutLibrariesShouldReturnPotIfInputIsTop() throws Exception {
+    public void reverseStringWithoutLibrariesShouldReturnPotIfInputIsTop() {
         // when
         final String result = reverseStringWithoutLibraries(TEST_STRING);
 
@@ -104,7 +104,7 @@ public class ReverseStringInManyWaysExerciseTest {
     }
 
     @Test
-    public void shouldThrowExceptionIfInputIsNullTest() throws Exception {
+    public void shouldThrowExceptionIfInputIsNullTest() {
         // except
         exception.expect(IllegalArgumentException.class);
 
@@ -113,7 +113,7 @@ public class ReverseStringInManyWaysExerciseTest {
     }
 
     @Test
-    public void shouldReversStringViaCharTest() throws Exception {
+    public void shouldReversStringViaCharTest() {
         // given
         final String string = "dOg";
         final String reversedString = "gOd";

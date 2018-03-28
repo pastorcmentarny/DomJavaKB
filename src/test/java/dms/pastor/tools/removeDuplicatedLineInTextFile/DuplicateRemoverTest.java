@@ -28,7 +28,7 @@ public class DuplicateRemoverTest {
     public final ExpectedException exception = ExpectedException.none();
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionForNullFilePathTest() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionForNullFilePathTest() {
         // except
         exception.expect(IllegalArgumentException.class);
 
@@ -37,7 +37,7 @@ public class DuplicateRemoverTest {
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionForEmptyFilePathTest() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionForEmptyFilePathTest() {
         // except
         exception.expect(IllegalArgumentException.class);
 
@@ -46,7 +46,7 @@ public class DuplicateRemoverTest {
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionWhenFileDoesNotExist() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionWhenFileDoesNotExist() {
         // except
         exception.expect(IllegalArgumentException.class);
 
@@ -61,7 +61,7 @@ public class DuplicateRemoverTest {
     }
 
     @Test
-    public void acceptanceCriteria() throws Exception {
+    public void acceptanceCriteria() {
         // given
         final String filePath = System.getProperty("user.dir") +
                 separator + "src" + separator + "test" +

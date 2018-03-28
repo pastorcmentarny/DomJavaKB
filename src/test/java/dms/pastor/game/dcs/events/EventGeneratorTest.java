@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class EventGeneratorTest {
 
     @Test
-    public void eventShouldReturnAnEvent() throws Exception {
+    public void eventShouldReturnAnEvent() {
         // when
         final Event randomEvent = getRandomEvent();
 

@@ -25,7 +25,7 @@ public class CodeForBlogConverterTest {
     private CodeForBlogConverter converter;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         converter = new CodeForBlogConverter();
     }
 

@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class GenreTest {
 
     @Test
-    public void fromStringShouldReturnFemaleFromFemaleString() throws Exception {
+    public void fromStringShouldReturnFemaleFromFemaleString() {
         // when
         final Genre result = Genre.fromString("FEMALE");
 
@@ -27,7 +27,7 @@ public class GenreTest {
     }
 
     @Test
-    public void fromStringShouldReturnMaleFromMaleString() throws Exception {
+    public void fromStringShouldReturnMaleFromMaleString() {
         // when
         final Genre result = Genre.fromString("MALE");
 

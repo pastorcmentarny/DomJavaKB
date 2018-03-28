@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class DuplicateCharacterInStringRemoveTest {
 
     @Test
-    public void shouldGetAFromStringWithACharactersOnlyAcceptanceCriteriaTest() throws Exception {
+    public void shouldGetAFromStringWithACharactersOnlyAcceptanceCriteriaTest() {
         // given
         final String stringWithACharacterOnly = "aaaa";
 
@@ -31,7 +31,7 @@ public class DuplicateCharacterInStringRemoveTest {
 
     @SuppressWarnings("SpellCheckingInspection")
     @Test
-    public void shouldGetABFromStringWithABCharactersOnlyAcceptanceCriteriaTest() throws Exception {
+    public void shouldGetABFromStringWithABCharactersOnlyAcceptanceCriteriaTest() {
         // given
         final String stringWithACharacterOnly = "aabb";
 
@@ -43,7 +43,7 @@ public class DuplicateCharacterInStringRemoveTest {
     }
 
     @Test
-    public void shouldGetABCFromStringWithContainsManyABCAcceptanceCriteriaTest() throws Exception {
+    public void shouldGetABCFromStringWithContainsManyABCAcceptanceCriteriaTest() {
         // given
         final String stringWithACharacterOnly = "abcabcacbcab";
 
@@ -56,7 +56,7 @@ public class DuplicateCharacterInStringRemoveTest {
 
     @Test
     @SuppressWarnings("ConstantConditions") //because this is purpose of test
-    public void shouldReturnNullWhenStringIsNull() throws Exception {
+    public void shouldReturnNullWhenStringIsNull() {
         // when
         final String result = removeDuplicateCharacterFromString(null);
 
@@ -65,7 +65,7 @@ public class DuplicateCharacterInStringRemoveTest {
     }
 
     @Test
-    public void shouldReturnEmptyStringWhenStringIsEmpty() throws Exception {
+    public void shouldReturnEmptyStringWhenStringIsEmpty() {
         // when
         final String result = removeDuplicateCharacterFromString(EMPTY_STRING);
 

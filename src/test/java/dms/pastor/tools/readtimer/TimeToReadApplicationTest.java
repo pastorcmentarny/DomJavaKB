@@ -44,17 +44,17 @@ public class TimeToReadApplicationTest {
     private ArgumentCaptor<ILoggingEvent> captorLoggingEvent;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         LOGGER.addAppender(mockAppender);
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         LOGGER.detachAppender(mockAppender);
     }
 
     @Test
-    public void shouldRunDemoWhenRunningWithoutArgumentsAcceptanceTest() throws Exception {
+    public void shouldRunDemoWhenRunningWithoutArgumentsAcceptanceTest() {
         // given
         final String[] args = {generateString(), String.valueOf(randomPositiveInteger())};
 

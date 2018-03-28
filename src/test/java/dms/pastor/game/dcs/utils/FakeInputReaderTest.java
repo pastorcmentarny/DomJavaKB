@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class FakeInputReaderTest {
 
     @Test
-    public void getIntegerInputShouldReturnZero() throws Exception {
+    public void getIntegerInputShouldReturnZero() {
         // given
         UserInputReader fakeInputReader = new FakeInputReader();
 

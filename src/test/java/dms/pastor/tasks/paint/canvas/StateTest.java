@@ -23,7 +23,7 @@ public class StateTest {
     private State state;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         state = new State();
     }
 
@@ -84,7 +84,7 @@ public class StateTest {
 
     @SuppressWarnings({"ConstantConditions", "SpellCheckingInspection"})
     @Test
-    public void saveFirstState() throws Exception {
+    public void saveFirstState() {
         // given
         Image image = getImage();
         final int width = 0;
@@ -109,7 +109,7 @@ public class StateTest {
     }
 
     @Test
-    public void saveShouldReturnLastSavedState() throws Exception {
+    public void saveShouldReturnLastSavedState() {
         // given
         Image image = getImage();
         final int width1 = 1;
@@ -127,7 +127,7 @@ public class StateTest {
 
 
     @Test
-    public void undoShouldRestorePreviousState() throws Exception {
+    public void undoShouldRestorePreviousState() {
         // given
         Image image = getImage();
         final String pixelFill = getRandomCharacterAsString();
@@ -146,7 +146,7 @@ public class StateTest {
     }
 
     @Test
-    public void callUndoTwiceShouldReturnEmptyImagedRestorePreviousState() throws Exception {
+    public void callUndoTwiceShouldReturnEmptyImagedRestorePreviousState() {
         // given
         Image image = getImage();
         final String pixelFill = getRandomCharacterAsString();

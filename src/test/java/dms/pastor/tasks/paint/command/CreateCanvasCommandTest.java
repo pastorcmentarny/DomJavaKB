@@ -25,7 +25,7 @@ public class CreateCanvasCommandTest extends AbstractCommandTest {
 
 
     @Test
-    public void getSyntaxShouldSyntaxForCreateCanvasCommand() throws Exception {
+    public void getSyntaxShouldSyntaxForCreateCanvasCommand() {
 
         // when
         final String syntax = createCanvasCommand.getSyntax();
@@ -35,7 +35,7 @@ public class CreateCanvasCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void isParamsRequiredShouldReturnTrue() throws Exception {
+    public void isParamsRequiredShouldReturnTrue() {
         // when
         final boolean result = createCanvasCommand.isParamsRequired();
 
@@ -44,7 +44,7 @@ public class CreateCanvasCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void setParamsIfValidShouldThrowExceptionIfParamsCountIsWrong() throws Exception {
+    public void setParamsIfValidShouldThrowExceptionIfParamsCountIsWrong() {
         // expect
         exception.expect(InvalidCommandSyntaxException.class);
         exception.expectMessage("Invalid Syntax because number of params are invalid. Should be 3 but was 1. Please check your input and try again.");
@@ -57,7 +57,7 @@ public class CreateCanvasCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void setParamsIfValidShouldThrowExceptionIfWidthIsEmpty() throws Exception {
+    public void setParamsIfValidShouldThrowExceptionIfWidthIsEmpty() {
         // expect
         exception.expect(InvalidCommandSyntaxException.class);
         exception.expectMessage("Invalid Syntax because width is not a number. Please check your input and try again.");
@@ -70,7 +70,7 @@ public class CreateCanvasCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void setParamsIfValidShouldThrowExceptionIfHeightIsEmpty() throws Exception {
+    public void setParamsIfValidShouldThrowExceptionIfHeightIsEmpty() {
         // expect
         exception.expect(InvalidCommandSyntaxException.class);
         exception.expectMessage("Invalid Syntax because height is not a number. Please check your input and try again.");
@@ -83,7 +83,7 @@ public class CreateCanvasCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void setParamsIfValidShouldThrowExceptionIfWidthIsNotNumber() throws Exception {
+    public void setParamsIfValidShouldThrowExceptionIfWidthIsNotNumber() {
         // expect
         exception.expect(InvalidCommandSyntaxException.class);
         exception.expectMessage("Invalid Syntax because width is not a number. Please check your input and try again.");
@@ -96,7 +96,7 @@ public class CreateCanvasCommandTest extends AbstractCommandTest {
     }
 
     @Test
-    public void setParamsIfValidShouldThrowExceptionIfHeightIsNotNumber() throws Exception {
+    public void setParamsIfValidShouldThrowExceptionIfHeightIsNotNumber() {
         // expect
         exception.expect(InvalidCommandSyntaxException.class);
         exception.expectMessage("Invalid Syntax because height is not a number. Please check your input and try again.");

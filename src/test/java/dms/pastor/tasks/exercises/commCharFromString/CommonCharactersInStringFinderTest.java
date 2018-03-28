@@ -22,7 +22,7 @@ public class CommonCharactersInStringFinderTest {
     private CommonCharactersInStringFinder finder;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         finder = new CommonCharactersInStringFinder();
     }
 
@@ -37,7 +37,7 @@ public class CommonCharactersInStringFinderTest {
     }
 
     @Test
-    public void testGetCommonCharN() throws Exception {
+    public void testGetCommonCharN() {
 
         // when
         final String actual = finder.getCommonCharN(STRING_A, STRING_B);
@@ -47,7 +47,7 @@ public class CommonCharactersInStringFinderTest {
     }
 
     @Test
-    public void testGetCommonCharNSquared() throws Exception {
+    public void testGetCommonCharNSquared() {
 
         // when
         final String actual = finder.getCommonCharNSquared(STRING_A, STRING_B);

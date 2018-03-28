@@ -28,17 +28,17 @@ public class MessageTest {
     private final PrintStream original = System.err;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         System.setErr(new PrintStream(outputStream));
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         System.setErr(original);
     }
 
     @Test
-    public void displayErrorTest() throws Exception {
+    public void displayErrorTest() {
         // given
         final String errorMessage = "Test";
 

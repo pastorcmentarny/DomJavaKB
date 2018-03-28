@@ -27,7 +27,7 @@ public class HotPickLeastPlayedCoupleFinderTest {
     private final HotPickLeastPlayedCoupleFinder leastPlayedCoupleFinder = new HotPickLeastPlayedCoupleFinder();
 
     @Test
-    public void generateAllCombinationForRange1To10() throws Exception {
+    public void generateAllCombinationForRange1To10() {
         // given
         final int[] numberRange = IntStream.rangeClosed(1, 10).toArray();
 
@@ -40,7 +40,7 @@ public class HotPickLeastPlayedCoupleFinderTest {
     }
 
     @Test
-    public void generateAllCombinationForRange1To59() throws Exception {
+    public void generateAllCombinationForRange1To59() {
 
         // when
         final Set<Couple> numberCouple = leastPlayedCoupleFinder.generateAllUniqueCombinationFor(HOT_PICK_NUMBERS);
@@ -51,7 +51,7 @@ public class HotPickLeastPlayedCoupleFinderTest {
     }
 
     @Test
-    public void generateCouplesShouldReturnListOf15Couples() throws Exception {
+    public void generateCouplesShouldReturnListOf15Couples() {
         // given
         final HotPickDraw hotPickDraw = hotPickDrawBuilder()
                 .ball1(1)
@@ -71,7 +71,7 @@ public class HotPickLeastPlayedCoupleFinderTest {
     }
 
     @Test
-    public void countCouplesInAllDrawsShouldReturnCountedCouple() throws Exception {
+    public void countCouplesInAllDrawsShouldReturnCountedCouple() {
         // given
         final List<HotPickDraw> hotPickDraws = new ArrayList<>();
         hotPickDraws.add(hotPickDrawBuilder()
@@ -112,7 +112,7 @@ public class HotPickLeastPlayedCoupleFinderTest {
     }
 
     @Test
-    public void getLeastPlayedCoupleShouldReturnSomething() throws Exception {
+    public void getLeastPlayedCoupleShouldReturnSomething() {
         // given
         final List<HotPickDraw> hotPickDraws = new ArrayList<>();
         hotPickDraws.add(hotPickDrawBuilder()

@@ -24,7 +24,7 @@ public class ProjectAnalyserTest {
     public final ExpectedException exception = ExpectedException.none();
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionWhenPathIsNull() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionWhenPathIsNull() {
         // Expect
         exception.expect(IllegalArgumentException.class);
 
@@ -33,7 +33,7 @@ public class ProjectAnalyserTest {
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionWhenPathIsEmpty() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionWhenPathIsEmpty() {
         // Expect
         exception.expect(IllegalArgumentException.class);
 
@@ -42,7 +42,7 @@ public class ProjectAnalyserTest {
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionWhenPathIsInvalid() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionWhenPathIsInvalid() {
         // Expect
         exception.expect(IllegalArgumentException.class);
 
@@ -52,7 +52,7 @@ public class ProjectAnalyserTest {
 
     @SuppressWarnings("AccessOfSystemProperties")
     @Test
-    public void shouldGetResults() throws Exception {
+    public void shouldGetResults() {
 
         // when
         String path = System.getProperty("user.dir") +

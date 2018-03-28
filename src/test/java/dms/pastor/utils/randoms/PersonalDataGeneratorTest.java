@@ -30,7 +30,7 @@ public class PersonalDataGeneratorTest {
     public final ExpectedException exception = ExpectedException.none();
 
     @Test
-    public void shouldGenerateFirstNameAcceptanceTest() throws Exception {
+    public void shouldGenerateFirstNameAcceptanceTest() {
         // when
         final String result = generateFirstName();
 
@@ -43,7 +43,7 @@ public class PersonalDataGeneratorTest {
     }
 
     @Test
-    public void shouldGenerateSurnameAcceptanceTest() throws Exception {
+    public void shouldGenerateSurnameAcceptanceTest() {
         // when
         final String result = generateSurname();
 
@@ -55,7 +55,7 @@ public class PersonalDataGeneratorTest {
     }
 
     @Test
-    public void shouldGenerateRandomEmailTest() throws Exception {
+    public void shouldGenerateRandomEmailTest() {
         // when
         final String email = generateEmail();
 
@@ -69,7 +69,7 @@ public class PersonalDataGeneratorTest {
     }
 
     @Test
-    public void shouldReturnRandomCountryTest() throws Exception {
+    public void shouldReturnRandomCountryTest() {
         // when
         Country country = getRandomCountry();
 
@@ -81,7 +81,7 @@ public class PersonalDataGeneratorTest {
     }
 
     @Test
-    public void generatePhoneFromPatternShouldReturnPhoneNumberAcceptanceCriteria() throws Exception {
+    public void generatePhoneFromPatternShouldReturnPhoneNumberAcceptanceCriteria() {
         // given
         final String pattern = "(+44)XXX-XX-XX";
 
@@ -102,7 +102,7 @@ public class PersonalDataGeneratorTest {
     }
 
     @Test
-    public void generatePhoneNumberForPatternShouldThrowIllegalArgumentExceptionForNull() throws Exception {
+    public void generatePhoneNumberForPatternShouldThrowIllegalArgumentExceptionForNull() {
         // expect
         exception.expect(IllegalArgumentException.class);
 
@@ -111,7 +111,7 @@ public class PersonalDataGeneratorTest {
     }
 
     @Test
-    public void generatePhoneNumberForPatternShouldThrowIllegalArgumentExceptionIfStringContainsInvalidCharacter() throws Exception {
+    public void generatePhoneNumberForPatternShouldThrowIllegalArgumentExceptionIfStringContainsInvalidCharacter() {
         // expect
         exception.expect(IllegalArgumentException.class);
 
@@ -122,7 +122,7 @@ public class PersonalDataGeneratorTest {
     }
 
     @Test
-    public void generatePhoneNumberForPatternShouldReturnEmptyStringForEmptyInput() throws Exception {
+    public void generatePhoneNumberForPatternShouldReturnEmptyStringForEmptyInput() {
         // when
         final String result = generatePhoneNumberForPattern(EMPTY_STRING);
 
@@ -132,7 +132,7 @@ public class PersonalDataGeneratorTest {
     }
 
     @Test
-    public void generatePhoneNumberForPatternShouldReplaceCapitalXWithRandomNumber() throws Exception {
+    public void generatePhoneNumberForPatternShouldReplaceCapitalXWithRandomNumber() {
         // given
         final String x = "X";
 
@@ -147,7 +147,7 @@ public class PersonalDataGeneratorTest {
     }
 
     @Test
-    public void generatePhoneNumberForPatternShouldReturnTheSameNumberForGivenNumber() throws Exception {
+    public void generatePhoneNumberForPatternShouldReturnTheSameNumberForGivenNumber() {
         // given
         final String x = "732";
 

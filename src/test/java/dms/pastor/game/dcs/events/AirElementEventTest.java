@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public final class AirElementEventTest {
 
     @Test
-    public void performFireEventShouldGivesFireElement() throws Exception {
+    public void performFireEventShouldGivesFireElement() {
         // given
         final Unit unit = unitBuilder()
                 .build();

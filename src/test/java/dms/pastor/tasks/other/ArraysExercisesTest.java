@@ -23,13 +23,13 @@ public class ArraysExercisesTest {
     private final ArraysExercises exercise = new ArraysExercises();
 
     @Test
-    public void testLargestAndSmallest() throws Exception {
+    public void testLargestAndSmallest() {
         String answer = "Min:" + MIN_POSITIVE_VALUE + " Max:" + MAX_POSITIVE_VALUE;
         assertThat(exercise.findLargestAndSmallest(NUMBERS)).isEqualTo(answer);
     }
 
     @Test
-    public void findLargestAndSmallestShouldReturnTheSameNumberIfArrayContainsOneNumber() throws Exception {
+    public void findLargestAndSmallestShouldReturnTheSameNumberIfArrayContainsOneNumber() {
         // given
         final int answerNumber = 6;
         final int[] oneNumberArray = new int[]{answerNumber};
@@ -43,7 +43,7 @@ public class ArraysExercisesTest {
     }
 
     @Test
-    public void getMaximumValueShouldReturnLargerPositiveValueWhenSmallerPositiveValueIsComparedToLargerPositiveValue() throws Exception {
+    public void getMaximumValueShouldReturnLargerPositiveValueWhenSmallerPositiveValueIsComparedToLargerPositiveValue() {
         // when
         final int result = exercise.getMaximumValue(MIN_POSITIVE_VALUE, MAX_POSITIVE_VALUE);
 
@@ -52,7 +52,7 @@ public class ArraysExercisesTest {
     }
 
     @Test
-    public void getMaximumValueShouldReturnLargerPositiveValueWhenSmallerNegativeValueIsComparedToLargerPositiveValue() throws Exception {
+    public void getMaximumValueShouldReturnLargerPositiveValueWhenSmallerNegativeValueIsComparedToLargerPositiveValue() {
         // when
         final int result = exercise.getMaximumValue(MIN_NEGATIVE_VALUE, MAX_POSITIVE_VALUE);
 
@@ -62,7 +62,7 @@ public class ArraysExercisesTest {
     }
 
     @Test
-    public void getMaximumValueShouldReturnSmallerNegativeValueWhenLargerNegativeValueIsComparedToSmallerNegativeValue() throws Exception {
+    public void getMaximumValueShouldReturnSmallerNegativeValueWhenLargerNegativeValueIsComparedToSmallerNegativeValue() {
         // when
         final int result = exercise.getMaximumValue(MAX_NEGATIVE_VALUE, MIN_NEGATIVE_VALUE);
 
@@ -72,7 +72,7 @@ public class ArraysExercisesTest {
     }
 
     @Test
-    public void getMaximumValueShouldReturnLargerPositiveValueWhenLargerPositiveValueIsComparedToSmallerPositiveValue() throws Exception {
+    public void getMaximumValueShouldReturnLargerPositiveValueWhenLargerPositiveValueIsComparedToSmallerPositiveValue() {
         // when
         final int result = exercise.getMaximumValue(MAX_POSITIVE_VALUE, MIN_POSITIVE_VALUE);
 
@@ -81,7 +81,7 @@ public class ArraysExercisesTest {
     }
 
     @Test
-    public void getMaximumValueShouldReturnLargerPositiveValueWhenComparedToSmallerNegativeValue() throws Exception {
+    public void getMaximumValueShouldReturnLargerPositiveValueWhenComparedToSmallerNegativeValue() {
         // when
         final int result = exercise.getMaximumValue(MAX_POSITIVE_VALUE, MIN_NEGATIVE_VALUE);
 
@@ -90,7 +90,7 @@ public class ArraysExercisesTest {
     }
 
     @Test
-    public void getMaximumValueShouldReturnSmallerNegativeValueWhenSmallerNegativeValueIsComparedToLargerNegativeValue() throws Exception {
+    public void getMaximumValueShouldReturnSmallerNegativeValueWhenSmallerNegativeValueIsComparedToLargerNegativeValue() {
         // when
         final int result = exercise.getMaximumValue(MIN_NEGATIVE_VALUE, MAX_NEGATIVE_VALUE);
 
@@ -99,7 +99,7 @@ public class ArraysExercisesTest {
     }
 
     @Test
-    public void getMinimumValueShouldReturnSmallerPositiveValueWhenYouCompareLargerPositiveValueToSmallerPositiveValue() throws Exception {
+    public void getMinimumValueShouldReturnSmallerPositiveValueWhenYouCompareLargerPositiveValueToSmallerPositiveValue() {
         // when
         final int result = exercise.getMinimumValue(MAX_POSITIVE_VALUE, MIN_POSITIVE_VALUE);
 
@@ -108,7 +108,7 @@ public class ArraysExercisesTest {
     }
 
     @Test
-    public void getMinimumValueShouldReturnLargerNegativeValueWhenLargerNegativeValueIsComparedToSmallerPositiveValue() throws Exception {
+    public void getMinimumValueShouldReturnLargerNegativeValueWhenLargerNegativeValueIsComparedToSmallerPositiveValue() {
         // when
         final int result = exercise.getMinimumValue(MAX_NEGATIVE_VALUE, MIN_POSITIVE_VALUE);
 
@@ -117,7 +117,7 @@ public class ArraysExercisesTest {
     }
 
     @Test
-    public void getMinimumValueShouldReturnLargerNegativeValueWhenLargerNegativeValueIsComparedToSmallerNegativeValue() throws Exception {
+    public void getMinimumValueShouldReturnLargerNegativeValueWhenLargerNegativeValueIsComparedToSmallerNegativeValue() {
         // when
         final int result = exercise.getMinimumValue(MAX_NEGATIVE_VALUE, MIN_NEGATIVE_VALUE);
 
@@ -126,7 +126,7 @@ public class ArraysExercisesTest {
     }
 
     @Test
-    public void getMinimumValueShouldReturnSmallerPositiveValueWhenLargerPositiveValueIsComparedToSmallerPositiveValue() throws Exception {
+    public void getMinimumValueShouldReturnSmallerPositiveValueWhenLargerPositiveValueIsComparedToSmallerPositiveValue() {
         // when
         final int result = exercise.getMinimumValue(MAX_POSITIVE_VALUE, MIN_POSITIVE_VALUE);
 
@@ -135,7 +135,7 @@ public class ArraysExercisesTest {
     }
 
     @Test
-    public void getMinimumValueShouldReturnLargerNegativeValueWhenSmallerNegativeValueIsComparedToLargerNegativeValue() throws Exception {
+    public void getMinimumValueShouldReturnLargerNegativeValueWhenSmallerNegativeValueIsComparedToLargerNegativeValue() {
         // when
         final int result = exercise.getMinimumValue(MIN_NEGATIVE_VALUE, MAX_NEGATIVE_VALUE);
 

@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class PinyinTransformerTest {
 
     @Test
-    public void transformToPinyinShouldReturnEmptyIfCharacterWithWordIsNull() throws Exception {
+    public void transformToPinyinShouldReturnEmptyIfCharacterWithWordIsNull() {
         // when
         final String pinyin = transformToPinyin(null);
 
@@ -27,7 +27,7 @@ public class PinyinTransformerTest {
     }
 
     @Test
-    public void transformToPinyinShouldReturnEmptyIfCharacterWithWordIsUnknown() throws Exception {
+    public void transformToPinyinShouldReturnEmptyIfCharacterWithWordIsUnknown() {
         // given
         final String randomText = generateString(250);
         final CharacterWithTone characterWithTone = CharacterWithTone.fromString(randomText);
@@ -40,7 +40,7 @@ public class PinyinTransformerTest {
     }
 
     @Test
-    public void transformToPinyinShouldReturnMaWithFirstToneForMa1() throws Exception {
+    public void transformToPinyinShouldReturnMaWithFirstToneForMa1() {
         // given
         final CharacterWithTone characterWithTone = CharacterWithTone.fromString("ma(2)");
         final String result = "má";

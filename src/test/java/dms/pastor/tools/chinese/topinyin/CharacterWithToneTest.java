@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CharacterWithToneTest {
 
     @Test
-    public void fromStringShouldReturnWordWithTone() throws Exception {
+    public void fromStringShouldReturnWordWithTone() {
         // given
         final String input = "ma(1)";
         final CharacterWithTone expectedResult = new CharacterWithTone("ma", 1);

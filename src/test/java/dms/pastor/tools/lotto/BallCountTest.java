@@ -21,7 +21,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class BallCountTest {
 
     @Test
-    public void createForNumberShouldBallCountWithNumberAndCount0() throws Exception {
+    public void createForNumberShouldBallCountWithNumberAndCount0() {
         // given
         final int number = randomPositiveInteger(59);
         final BallCount expectedBallCount = new BallCount(singletonList(number), 0);
@@ -34,7 +34,7 @@ public class BallCountTest {
     }
 
     @Test
-    public void isDummyBallShouldReturnTrueForDummyBall() throws Exception {
+    public void isDummyBallShouldReturnTrueForDummyBall() {
         // when
         final boolean dummyBall = isDummyBall(dummyBall());
 
@@ -43,7 +43,7 @@ public class BallCountTest {
     }
 
     @Test
-    public void isDummyBallShouldReturnFalseForNonDummyBall() throws Exception {
+    public void isDummyBallShouldReturnFalseForNonDummyBall() {
         // given
         final BallCount ballCount = ballCountBuilder().build();
 

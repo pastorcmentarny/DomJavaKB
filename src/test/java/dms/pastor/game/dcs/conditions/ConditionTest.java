@@ -39,12 +39,12 @@ public class ConditionTest {
     private Condition conditions;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         conditions = new Condition();
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         conditions.clear();
     }
 
@@ -58,7 +58,7 @@ public class ConditionTest {
     }
 
     @Test
-    public void addShouldAddNewConditionWithSpecifiedTurnLeft() throws Exception {
+    public void addShouldAddNewConditionWithSpecifiedTurnLeft() {
         // given
         final ConditionEntry conditionEntry = conditionEntryBuilder()
                 .condition(STUNNED)
@@ -74,7 +74,7 @@ public class ConditionTest {
     }
 
     @Test
-    public void addWithoutSpecifiedTurnsShouldAddNewConditionWithDefaultTurnLeft() throws Exception {
+    public void addWithoutSpecifiedTurnsShouldAddNewConditionWithDefaultTurnLeft() {
         // given
         final ConditionEntry conditionEntry = conditionEntryBuilder()
                 .condition(STUNNED)
@@ -98,7 +98,7 @@ public class ConditionTest {
     }
 
     @Test
-    public void addShouldAddNotConditionIfExistButShouldUpdateTurnLeft() throws Exception {
+    public void addShouldAddNotConditionIfExistButShouldUpdateTurnLeft() {
         // given
         final ConditionEntry originalConditionEntry = createTemporaryCondition(STUNNED, 2);
         final ConditionEntry newConditionEntry = createTemporaryCondition(STUNNED, 3);
@@ -113,7 +113,7 @@ public class ConditionTest {
     }
 
     @Test
-    public void removeShouldRemoveConditionFromConditions() throws Exception {
+    public void removeShouldRemoveConditionFromConditions() {
         // given
         final ConditionEntry condition = createTemporaryConditionWithDefaultDuration(POISONED);
         final ConditionEntry conditionThatWillBeDeleted = createTemporaryConditionWithDefaultDuration(STUNNED);
@@ -131,7 +131,7 @@ public class ConditionTest {
     }
 
     @Test
-    public void removeShouldNotRemoveAnythingFromListFromConditions() throws Exception {
+    public void removeShouldNotRemoveAnythingFromListFromConditions() {
         // given
         final ConditionEntry condition = conditionEntryBuilder()
                 .condition(POISONED)
@@ -156,7 +156,7 @@ public class ConditionTest {
     }
 
     @Test
-    public void hasShouldReturnTrueConditionIsOnList() throws Exception {
+    public void hasShouldReturnTrueConditionIsOnList() {
         // given
         final ConditionEntry conditionEntry = conditionEntryBuilder()
                 .condition(STUNNED)
@@ -170,7 +170,7 @@ public class ConditionTest {
     }
 
     @Test
-    public void hasShouldReturnFalseConditionIsNotOnList() throws Exception {
+    public void hasShouldReturnFalseConditionIsNotOnList() {
         // given
         final ConditionEntry conditionEntry = conditionEntryBuilder()
                 .condition(STUNNED)
@@ -184,7 +184,7 @@ public class ConditionTest {
     }
 
     @Test
-    public void hasNotShouldReturnFalseConditionIsOnList() throws Exception {
+    public void hasNotShouldReturnFalseConditionIsOnList() {
         // given
         final ConditionEntry conditionEntry = conditionEntryBuilder()
                 .condition(STUNNED)
@@ -199,7 +199,7 @@ public class ConditionTest {
     }
 
     @Test
-    public void hasNotShouldReturnTrueConditionIsNotOnList() throws Exception {
+    public void hasNotShouldReturnTrueConditionIsNotOnList() {
         // given
         final ConditionEntry conditionEntry = conditionEntryBuilder()
                 .condition(STUNNED)
@@ -214,7 +214,7 @@ public class ConditionTest {
     }
 
     @Test
-    public void reduceByOneTurnShouldReduceConditionByOneTurn() throws Exception {
+    public void reduceByOneTurnShouldReduceConditionByOneTurn() {
         // given
         final ConditionEntry condition = conditionEntryBuilder()
                 .condition(STUNNED)
@@ -232,7 +232,7 @@ public class ConditionTest {
     }
 
     @Test
-    public void reduceByOneTurnShouldRemoveTemporaryConditionIfTurnsLeftIsZero() throws Exception {
+    public void reduceByOneTurnShouldRemoveTemporaryConditionIfTurnsLeftIsZero() {
         // given
         final ConditionEntry condition = conditionEntryBuilder()
                 .condition(STUNNED)
@@ -250,7 +250,7 @@ public class ConditionTest {
     }
 
     @Test
-    public void reduceByOneTurnShouldRemoveTemporaryConditionIfTurnsLeftBelowZero() throws Exception {
+    public void reduceByOneTurnShouldRemoveTemporaryConditionIfTurnsLeftBelowZero() {
         // given
         final ConditionEntry condition = conditionEntryBuilder()
                 .condition(STUNNED)
@@ -267,7 +267,7 @@ public class ConditionTest {
     }
 
     @Test
-    public void getConditionEntryShouldReturnConditionForGivenType() throws Exception {
+    public void getConditionEntryShouldReturnConditionForGivenType() {
         // given
         final ConditionEntry condition = conditionEntryBuilder()
                 .condition(POISONED)
@@ -293,7 +293,7 @@ public class ConditionTest {
     }
 
     @Test
-    public void removeAllTemporaryConditionsShouldRemoveTemporaryConditions() throws Exception {
+    public void removeAllTemporaryConditionsShouldRemoveTemporaryConditions() {
         // given
         final ConditionEntry condition = conditionEntryBuilder()
                 .condition(POISONED)
@@ -315,7 +315,7 @@ public class ConditionTest {
     }
 
     @Test
-    public void isImmuneReturnsTrueIfHasAirImmuneToAir() throws Exception {
+    public void isImmuneReturnsTrueIfHasAirImmuneToAir() {
         // given
         final ConditionEntry airImmuneCondition = createPersistentCondition(AIR_IMMUNE);
         conditions.add(airImmuneCondition);
@@ -328,7 +328,7 @@ public class ConditionTest {
     }
 
     @Test
-    public void isImmuneReturnsTrueIfHasEarthImmuneToEarth() throws Exception {
+    public void isImmuneReturnsTrueIfHasEarthImmuneToEarth() {
         // given
         final ConditionEntry earthImmuneCondition = createPersistentCondition(EARTH_IMMUNE);
         conditions.add(earthImmuneCondition);
@@ -341,7 +341,7 @@ public class ConditionTest {
     }
 
     @Test
-    public void isImmuneReturnsTrueIfHasFireImmuneToFire() throws Exception {
+    public void isImmuneReturnsTrueIfHasFireImmuneToFire() {
         // given
         final ConditionEntry fireImmuneCondition = createPersistentCondition(FIRE_IMMUNE);
         conditions.add(fireImmuneCondition);
@@ -354,7 +354,7 @@ public class ConditionTest {
     }
 
     @Test
-    public void isImmuneReturnsTrueIfHasWaterImmuneToWater() throws Exception {
+    public void isImmuneReturnsTrueIfHasWaterImmuneToWater() {
         // given
         final ConditionEntry waterImmuneCondition = createPersistentCondition(WATER_IMMUNE);
         conditions.add(waterImmuneCondition);
@@ -367,7 +367,7 @@ public class ConditionTest {
     }
 
     @Test
-    public void isImmuneReturnsTrueIfHasNotAirImmuneToAir() throws Exception {
+    public void isImmuneReturnsTrueIfHasNotAirImmuneToAir() {
         // given
         final ConditionEntry fireImmuneCondition = createPersistentCondition(FIRE_IMMUNE);
         conditions.add(fireImmuneCondition);
@@ -380,7 +380,7 @@ public class ConditionTest {
     }
 
     @Test
-    public void isNotImmuneReturnsFalseIfHasAirImmuneToAir() throws Exception {
+    public void isNotImmuneReturnsFalseIfHasAirImmuneToAir() {
         // given
         final ConditionEntry airImmuneCondition = createPersistentCondition(AIR_IMMUNE);
         conditions.add(airImmuneCondition);
@@ -393,7 +393,7 @@ public class ConditionTest {
     }
 
     @Test
-    public void isNotImmuneReturnsTrueIfHasNotAirImmuneToAir() throws Exception {
+    public void isNotImmuneReturnsTrueIfHasNotAirImmuneToAir() {
         // given
         final ConditionEntry fireImmuneCondition = createPersistentCondition(FIRE_IMMUNE);
         conditions.add(fireImmuneCondition);
@@ -406,7 +406,7 @@ public class ConditionTest {
     }
 
     @Test
-    public void isImmuneReturnsFalseIfElementTypeIsNull() throws Exception {
+    public void isImmuneReturnsFalseIfElementTypeIsNull() {
 
         // when
         final boolean result = conditions.isImmuneTo(null);
@@ -442,7 +442,7 @@ public class ConditionTest {
     }
 
     @Test
-    public void addShouldReplaceTemporaryConditionWithPersistentCondition() throws Exception {
+    public void addShouldReplaceTemporaryConditionWithPersistentCondition() {
         // when
         conditions.add(temporaryConditionEntry);
         conditions.add(persistentCondition);
@@ -452,7 +452,7 @@ public class ConditionTest {
     }
 
     @Test
-    public void addShouldNotReplacePersistentConditionWithTemporaryCondition() throws Exception {
+    public void addShouldNotReplacePersistentConditionWithTemporaryCondition() {
         // when
         conditions.add(persistentCondition);
         conditions.add(temporaryConditionEntry);

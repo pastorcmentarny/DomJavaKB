@@ -21,7 +21,7 @@ public class ShieldRechargeEventTest {
     private final ShieldRechargeEvent shieldRechargeEvent = new ShieldRechargeEvent();
 
     @Test
-    public void shieldRechargeEventShouldStartShieldRegenerationIfUnitHasShield() throws Exception {
+    public void shieldRechargeEventShouldStartShieldRegenerationIfUnitHasShield() {
         // given
         final Unit unitOne = UnitBuilder.unitBuilder()
                 .sp(DEFAULT_SHIELD_POINTS)

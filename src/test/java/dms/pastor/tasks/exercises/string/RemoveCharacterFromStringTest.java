@@ -27,7 +27,7 @@ public class RemoveCharacterFromStringTest {
     public final ExpectedException exception = ExpectedException.none();
 
     @Test
-    public void shouldRemoveCharacterFromStringUsingIterativeTest() throws Exception {
+    public void shouldRemoveCharacterFromStringUsingIterativeTest() {
         // when
         final String result = removeCharacterFromStringUsingIterative(TEST);
 
@@ -36,7 +36,7 @@ public class RemoveCharacterFromStringTest {
     }
 
     @Test
-    public void removeCharacterFromStringUsingIterativeShouldThrowExceptionWhenTextIsNullTest() throws Exception {
+    public void removeCharacterFromStringUsingIterativeShouldThrowExceptionWhenTextIsNullTest() {
         // expect
         exception.expect(IllegalArgumentException.class);
 
@@ -45,7 +45,7 @@ public class RemoveCharacterFromStringTest {
     }
 
     @Test
-    public void shouldRemoveCharacterFromStringUsingRecursiveTest() throws Exception {
+    public void shouldRemoveCharacterFromStringUsingRecursiveTest() {
         // when
         final String result = RemoveCharacterFromString.removeCharacterFromStringUsingRecursive(TEST, CHARACTER_T);
 

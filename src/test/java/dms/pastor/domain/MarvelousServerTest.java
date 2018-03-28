@@ -40,7 +40,7 @@ public class MarvelousServerTest {
     private MarvelousServer marvelousServer;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         marvelousServer = new MarvelousServer(legendaryService);
     }
 

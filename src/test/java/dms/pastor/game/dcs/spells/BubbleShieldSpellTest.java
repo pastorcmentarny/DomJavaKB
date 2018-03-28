@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class BubbleShieldSpellTest {
 
     @Test
-    public void castBubbleShieldSpellShouldAddBBubbleShieldToPlayer() throws Exception {
+    public void castBubbleShieldSpellShouldAddBBubbleShieldToPlayer() {
         // given
         final Spell bubbleShieldSpell = new BubbleShieldSpell();
         final Unit unit = unitBuilder()

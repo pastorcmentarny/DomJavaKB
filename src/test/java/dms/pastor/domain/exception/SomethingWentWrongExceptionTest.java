@@ -22,7 +22,7 @@ public class SomethingWentWrongExceptionTest {
     public final ExpectedException exception = ExpectedException.none();
 
     @Test
-    public void shouldThrowNotImplementYetExceptionTest() throws Exception {
+    public void shouldThrowNotImplementYetExceptionTest() {
 
         // expect
         exception.expect(SomethingWentWrongException.class);
@@ -33,7 +33,7 @@ public class SomethingWentWrongExceptionTest {
     }
 
     @Test
-    public void shouldThrowNotImplementYetExceptionWithMessageTest() throws Exception {
+    public void shouldThrowNotImplementYetExceptionWithMessageTest() {
 
         // given
         final String whatWentWrongMessage = generateString();

@@ -23,7 +23,7 @@ public class DomEncoderTest {
     private DomEncoder encoder;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         String data = "plainString#256";
         encoder = new DomEncoder(data);
     }
@@ -42,7 +42,7 @@ public class DomEncoderTest {
 
     @SuppressWarnings("SpellCheckingInspection")
     @Test
-    public void shouldEncodeData() throws Exception {
+    public void shouldEncodeData() {
         // given
         final String expectedEncodedData = "2uJmJCMBPjhDt5wAHXgC";
 

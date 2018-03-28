@@ -22,7 +22,7 @@ public class TimeToReadApplicationInputValidatorTest {
     public final ExpectedException exception = ExpectedException.none();
 
     @Test
-    public void shouldThrowExceptionIfYouRunApplicationWith1Argument() throws Exception {
+    public void shouldThrowExceptionIfYouRunApplicationWith1Argument() {
         // expect
         exception.expect(IllegalArgumentException.class);
 
@@ -35,7 +35,7 @@ public class TimeToReadApplicationInputValidatorTest {
     }
 
     @Test
-    public void shouldThrowExceptionIfYouRunApplicationWithWithNegativeSpeedArgument() throws Exception {
+    public void shouldThrowExceptionIfYouRunApplicationWithWithNegativeSpeedArgument() {
         // expect
         exception.expect(IllegalArgumentException.class);
 
@@ -47,7 +47,7 @@ public class TimeToReadApplicationInputValidatorTest {
     }
 
     @Test
-    public void shouldThrowExceptionWhenTextIsNull() throws Exception {
+    public void shouldThrowExceptionWhenTextIsNull() {
         // except
         exception.expect(IllegalArgumentException.class);
 
@@ -60,7 +60,7 @@ public class TimeToReadApplicationInputValidatorTest {
     }
 
     @Test
-    public void shouldThrowExceptionWhenTextIsEmpty() throws Exception {
+    public void shouldThrowExceptionWhenTextIsEmpty() {
         // except
         exception.expect(IllegalArgumentException.class);
 
@@ -72,7 +72,7 @@ public class TimeToReadApplicationInputValidatorTest {
     }
 
     @Test
-    public void shouldThrowExceptionWhenSpeedIsNotAValidNumber() throws Exception {
+    public void shouldThrowExceptionWhenSpeedIsNotAValidNumber() {
         // except
         exception.expect(IllegalArgumentException.class);
 
@@ -85,7 +85,7 @@ public class TimeToReadApplicationInputValidatorTest {
     }
 
     @Test
-    public void getReadSpeedShouldThrowIllegalArgumentException() throws Exception {
+    public void getReadSpeedShouldThrowIllegalArgumentException() {
         // expect
         exception.expect(IllegalArgumentException.class);
 

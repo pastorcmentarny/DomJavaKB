@@ -18,7 +18,7 @@ public class NumberConverterAcceptanceCriteriaTest {
     private final Converter numberConverter = new NumberConverter();
 
     @Test
-    public void shouldConvertTextWithTonesAsNumberIntoPinyin() throws Exception {
+    public void shouldConvertTextWithTonesAsNumberIntoPinyin() {
         // given
         final String input = "ma ma(1) ma(2) ma(3) ma(4) " +
                 "le le(1) le(2) le(3) le(4) " +

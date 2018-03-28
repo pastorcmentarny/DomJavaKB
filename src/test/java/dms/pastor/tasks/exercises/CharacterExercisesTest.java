@@ -17,7 +17,7 @@ public class CharacterExercisesTest {
 
     @SuppressWarnings("InstanceMethodNamingConvention")
     @Test
-    public void shouldBe10LInWordLlanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch() throws Exception {
+    public void shouldBe10LInWordLlanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch() {
         CharacterExercises test = new CharacterExercises();
         char character = 'l';
         final String word = "Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch";

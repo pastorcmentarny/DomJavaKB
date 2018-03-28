@@ -29,7 +29,7 @@ public class ContainsInStringUtilsTest {
     public final ExpectedException exception = ExpectedException.none();
 
     @Test
-    public void containsOnlyShouldReturnTrueIfAAAContainsOnlyA() throws Exception {
+    public void containsOnlyShouldReturnTrueIfAAAContainsOnlyA() {
         // when
         final boolean hasSpaceOnly = containsOnly("AAA", new char[]{'A'});
 
@@ -38,7 +38,7 @@ public class ContainsInStringUtilsTest {
     }
 
     @Test
-    public void shouldReturnFalseForSaraInSarah() throws Exception {
+    public void shouldReturnFalseForSaraInSarah() {
         // when
         final boolean hasSpaceOnly = containsOnly("Sarah", new char[]{'S', 'a', 'r', 'a'});
 
@@ -47,7 +47,7 @@ public class ContainsInStringUtilsTest {
     }
 
     @Test
-    public void shouldReturnFalseForNullInputString() throws Exception {
+    public void shouldReturnFalseForNullInputString() {
         // when
         final boolean hasSpaceOnly = containsOnly(null, new char[]{'S', 'a', 'r', 'a'});
 
@@ -57,7 +57,7 @@ public class ContainsInStringUtilsTest {
     }
 
     @Test
-    public void shouldReturnFalseForNullCharacterArray() throws Exception {
+    public void shouldReturnFalseForNullCharacterArray() {
         // when
         final boolean hasSpaceOnly = containsOnly("Word", null);
 
@@ -66,7 +66,7 @@ public class ContainsInStringUtilsTest {
     }
 
     @Test
-    public void shouldReturnTrueForSpaceCharacterOnlyInStringTest() throws Exception {
+    public void shouldReturnTrueForSpaceCharacterOnlyInStringTest() {
         // when
         final boolean hasSpaceOnly = isContainSpace(WHITESPACE);
 
@@ -75,7 +75,7 @@ public class ContainsInStringUtilsTest {
     }
 
     @Test
-    public void shouldReturnTrueForSpaceCharactersOnlyInStringTest() throws Exception {
+    public void shouldReturnTrueForSpaceCharactersOnlyInStringTest() {
         // when
         final boolean hasSpaceOnly = isContainSpace(WHITESPACES_ONLY_STRING);
 
@@ -84,7 +84,7 @@ public class ContainsInStringUtilsTest {
     }
 
     @Test
-    public void shouldReturnFalseIfYouPassNullToHasSpaceOnlyTest() throws Exception {
+    public void shouldReturnFalseIfYouPassNullToHasSpaceOnlyTest() {
         // when
         final boolean hasSpaceOnly = isContainSpace(null);
 
@@ -93,7 +93,7 @@ public class ContainsInStringUtilsTest {
     }
 
     @Test
-    public void shouldReturnFalseIfYouPassEmptyStringToHasSpaceOnlyTest() throws Exception {
+    public void shouldReturnFalseIfYouPassEmptyStringToHasSpaceOnlyTest() {
         // when
         final boolean hasSpaceOnly = isContainSpace(EMPTY_STRING);
 
@@ -102,7 +102,7 @@ public class ContainsInStringUtilsTest {
     }
 
     @Test
-    public void shouldReturnFalseIfInputContainsNotOnlySpaceInHasSpaceOnlyTest() throws Exception {
+    public void shouldReturnFalseIfInputContainsNotOnlySpaceInHasSpaceOnlyTest() {
         // given
         final String space = " A B  CC   Garlic ";
 
@@ -114,7 +114,7 @@ public class ContainsInStringUtilsTest {
     }
 
     @Test
-    public void containsPinyinCharacterShouldReturnFalseIfTextIsNull() throws Exception {
+    public void containsPinyinCharacterShouldReturnFalseIfTextIsNull() {
         // when
         final boolean result = containsPinyinCharacter(null);
 
@@ -123,7 +123,7 @@ public class ContainsInStringUtilsTest {
     }
 
     @Test
-    public void containsPinyinCharacterShouldReturnFalseIfTextIsEmpty() throws Exception {
+    public void containsPinyinCharacterShouldReturnFalseIfTextIsEmpty() {
         // when
         final boolean result = containsPinyinCharacter(EMPTY_STRING);
 
@@ -132,7 +132,7 @@ public class ContainsInStringUtilsTest {
     }
 
     @Test
-    public void containsPinyinCharacterShouldReturnTrueIfTextHasPinyinOnly() throws Exception {
+    public void containsPinyinCharacterShouldReturnTrueIfTextHasPinyinOnly() {
         // given
         final String textWithPinyinOnly = PinyinUtils.getAllPinyinFromFirstToFourthToneWithoutNeutralTone();
 
@@ -144,7 +144,7 @@ public class ContainsInStringUtilsTest {
     }
 
     @Test
-    public void containsPinyinCharacterShouldReturnTrueIfTextHasPinyin() throws Exception {
+    public void containsPinyinCharacterShouldReturnTrueIfTextHasPinyin() {
         // given
         final String textWithPinyin = "dò字1";
 
@@ -157,7 +157,7 @@ public class ContainsInStringUtilsTest {
 
 
     @Test
-    public void containsAnyAlphanumericCharactersShouldReturnFalseIfStringIsNull() throws Exception {
+    public void containsAnyAlphanumericCharactersShouldReturnFalseIfStringIsNull() {
         // when
         final boolean result = containsAnyAlphanumericCharacter(null);
 
@@ -166,7 +166,7 @@ public class ContainsInStringUtilsTest {
     }
 
     @Test
-    public void containsAnyAlphanumericCharactersShouldReturnFalseIfStringIsEmpty() throws Exception {
+    public void containsAnyAlphanumericCharactersShouldReturnFalseIfStringIsEmpty() {
         // when
         final boolean result = containsAnyAlphanumericCharacter(EMPTY_STRING);
 
@@ -175,7 +175,7 @@ public class ContainsInStringUtilsTest {
     }
 
     @Test
-    public void shouldReturnFalseIfStringContainsAnyAlphanumericCharacters() throws Exception {
+    public void shouldReturnFalseIfStringContainsAnyAlphanumericCharacters() {
         // given
         final String characters = "字字字字字字";
 
@@ -187,7 +187,7 @@ public class ContainsInStringUtilsTest {
     }
 
     @Test
-    public void containsAnyAlphanumericCharactersShouldReturnTrueIfStringContainNumber() throws Exception {
+    public void containsAnyAlphanumericCharactersShouldReturnTrueIfStringContainNumber() {
         // given
         final String characters = "字1字";
 
@@ -199,7 +199,7 @@ public class ContainsInStringUtilsTest {
     }
 
     @Test
-    public void containsAnyAlphanumericCharactersShouldReturnTrueIfStringContainLetter() throws Exception {
+    public void containsAnyAlphanumericCharactersShouldReturnTrueIfStringContainLetter() {
         // given
         final String characters = "字a字B字";
 
@@ -212,7 +212,7 @@ public class ContainsInStringUtilsTest {
 
     @SuppressWarnings("ConstantConditions") // part of the test
     @Test
-    public void shouldThrowIllegalArgumentExceptionIfKeywordIsNullTest() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionIfKeywordIsNullTest() {
         // except
         exception.expect(IllegalArgumentException.class);
 
@@ -222,7 +222,7 @@ public class ContainsInStringUtilsTest {
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionIfTextIsNullTest() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionIfTextIsNullTest() {
         // except
         exception.expect(IllegalArgumentException.class);
 
@@ -231,7 +231,7 @@ public class ContainsInStringUtilsTest {
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionIfKeywordIsEmptyTest() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionIfKeywordIsEmptyTest() {
         // except
         exception.expect(IllegalArgumentException.class);
 
@@ -241,7 +241,7 @@ public class ContainsInStringUtilsTest {
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionIfTextIsEmptyTest() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionIfTextIsEmptyTest() {
         // except
         exception.expect(IllegalArgumentException.class);
 
@@ -250,7 +250,7 @@ public class ContainsInStringUtilsTest {
     }
 
     @Test
-    public void shouldVerifyThatAllKeywordsExistsInTextTest() throws Exception {
+    public void shouldVerifyThatAllKeywordsExistsInTextTest() {
         // given
         final List<String> keywords = Arrays.asList("brown", "fox", "dog", "panagram");
         final String text = "The quick brown fox jumps over a lazy dog.";
@@ -264,7 +264,7 @@ public class ContainsInStringUtilsTest {
 
 
     @Test
-    public void containsUpperCaseShouldReturnFalseIfTextIsNull() throws Exception {
+    public void containsUpperCaseShouldReturnFalseIfTextIsNull() {
         // when
         final boolean result = containsUpperCase(null);
 
@@ -273,7 +273,7 @@ public class ContainsInStringUtilsTest {
     }
 
     @Test
-    public void containsUpperCaseShouldReturnFalseIfTextIsEmpty() throws Exception {
+    public void containsUpperCaseShouldReturnFalseIfTextIsEmpty() {
         // when
         final boolean result = containsUpperCase(EMPTY_STRING);
 
@@ -282,7 +282,7 @@ public class ContainsInStringUtilsTest {
     }
 
     @Test
-    public void containsUpperCaseShouldReturnFalseIfTextHasNumbersOnly() throws Exception {
+    public void containsUpperCaseShouldReturnFalseIfTextHasNumbersOnly() {
         // when
         final boolean result = containsUpperCase(String.valueOf(randomInteger()));
 
@@ -291,7 +291,7 @@ public class ContainsInStringUtilsTest {
     }
 
     @Test
-    public void containsUpperCaseShouldReturnFalseIfTextHasLowerLetterOnly() throws Exception {
+    public void containsUpperCaseShouldReturnFalseIfTextHasLowerLetterOnly() {
         // when
         final boolean result = containsUpperCase(ALPHABET);
 
@@ -300,7 +300,7 @@ public class ContainsInStringUtilsTest {
     }
 
     @Test
-    public void containsUpperCaseShouldReturnTrueIfTextHasUpperCaseLetter() throws Exception {
+    public void containsUpperCaseShouldReturnTrueIfTextHasUpperCaseLetter() {
         // when
         final boolean result = containsUpperCase("Dominik");
 

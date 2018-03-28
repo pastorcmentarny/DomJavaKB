@@ -25,7 +25,7 @@ public class DomDecoderTest {
 
     @SuppressWarnings("SpellCheckingInspection")
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         String data = "2uJmJCMBPjhDt5wAHXgC";
         decoder = new DomDecoder(data);
     }
@@ -43,7 +43,7 @@ public class DomDecoderTest {
     }
 
     @Test
-    public void shouldDecodeData() throws Exception {
+    public void shouldDecodeData() {
         // given
         final String expectedEncodedData = "plainString#256";
 

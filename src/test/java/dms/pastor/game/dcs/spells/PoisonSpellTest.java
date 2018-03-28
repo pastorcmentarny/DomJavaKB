@@ -21,7 +21,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class PoisonSpellTest {
 
     @Test
-    public void castSpellShouldPoisonUnit() throws Exception {
+    public void castSpellShouldPoisonUnit() {
         // given
         PoisonSpell poisonSpell = new PoisonSpell();
         Unit unit = unitBuilder().build();
@@ -34,7 +34,7 @@ public class PoisonSpellTest {
     }
 
     @Test
-    public void castSpellShouldNotPoisonUnitIfIsImmuneToPoison() throws Exception {
+    public void castSpellShouldNotPoisonUnitIfIsImmuneToPoison() {
         // given
         PoisonSpell poisonSpell = new PoisonSpell();
         Condition condition = new Condition();

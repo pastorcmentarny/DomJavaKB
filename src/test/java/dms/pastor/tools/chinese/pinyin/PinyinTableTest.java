@@ -22,7 +22,7 @@ public class PinyinTableTest {
     private static final int FOURTH_TONE = 4;
 
     @Test
-    public void getPinyinCharacterFromLetterWithToneShouldReturnAWithNoToneWhenInputWasLetterAWithZero() throws Exception {
+    public void getPinyinCharacterFromLetterWithToneShouldReturnAWithNoToneWhenInputWasLetterAWithZero() {
         // given
         final String letter = "a";
 
@@ -34,7 +34,7 @@ public class PinyinTableTest {
     }
 
     @Test
-    public void getPinyinCharacterFromLetterWithToneShouldReturnEWithFirstToneWhenInputWasLetterEWithOne() throws Exception {
+    public void getPinyinCharacterFromLetterWithToneShouldReturnEWithFirstToneWhenInputWasLetterEWithOne() {
         // given
         final String letter = "e";
         final String expectedPinyinCharacter = "ē";
@@ -47,7 +47,7 @@ public class PinyinTableTest {
     }
 
     @Test
-    public void getPinyinCharacterFromLetterWithToneShouldReturnOWithSecondToneWhenInputWasLetterOWithTwo() throws Exception {
+    public void getPinyinCharacterFromLetterWithToneShouldReturnOWithSecondToneWhenInputWasLetterOWithTwo() {
         // given
         final String letter = "o";
         final String expectedPinyinCharacter = "ó";
@@ -60,7 +60,7 @@ public class PinyinTableTest {
     }
 
     @Test
-    public void getPinyinCharacterFromLetterWithToneShouldReturnIWithThirdToneWhenInputWasLetterIWithThree() throws Exception {
+    public void getPinyinCharacterFromLetterWithToneShouldReturnIWithThirdToneWhenInputWasLetterIWithThree() {
         // given
         final String letter = "i";
         final String expectedPinyinCharacter = "ǐ";
@@ -73,7 +73,7 @@ public class PinyinTableTest {
     }
 
     @Test
-    public void getPinyinCharacterFromLetterWithToneShouldReturnUWithFourthToneWhenInputWasLetterUWithFourth() throws Exception {
+    public void getPinyinCharacterFromLetterWithToneShouldReturnUWithFourthToneWhenInputWasLetterUWithFourth() {
         // given
         final String letter = "u";
         final String expectedPinyinCharacter = "ù";
@@ -86,7 +86,7 @@ public class PinyinTableTest {
     }
 
     @Test
-    public void getPinyinCharacterFromLetterWithToneShouldReturnEmptyStringWhenInputHasInvalidLetterWithValidThirdTone() throws Exception {
+    public void getPinyinCharacterFromLetterWithToneShouldReturnEmptyStringWhenInputHasInvalidLetterWithValidThirdTone() {
         // given
         final String letter = "ą";
 

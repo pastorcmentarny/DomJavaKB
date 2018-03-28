@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class PseudoPinyinTypeTest {
 
     @Test
-    public void containsShouldReturnTrueIfPseudoTypeIsValid() throws Exception {
+    public void containsShouldReturnTrueIfPseudoTypeIsValid() {
         // given
         String type = PseudoPinyinType.CHARACTER.name();
 
@@ -30,7 +30,7 @@ public class PseudoPinyinTypeTest {
     }
 
     @Test
-    public void containsShouldReturnTrueIfPseudoTypeIsNotValid() throws Exception {
+    public void containsShouldReturnTrueIfPseudoTypeIsNotValid() {
         // given
         String type = generateString();
 
@@ -42,7 +42,7 @@ public class PseudoPinyinTypeTest {
     }
 
     @Test
-    public void notContainsShouldReturnFalseIfPseudoTypeIsValid() throws Exception {
+    public void notContainsShouldReturnFalseIfPseudoTypeIsValid() {
         // given
         String type = PseudoPinyinType.CHARACTER.name();
 
@@ -54,7 +54,7 @@ public class PseudoPinyinTypeTest {
     }
 
     @Test
-    public void notContainsShouldReturnTrueIfPseudoTypeIsNotValid() throws Exception {
+    public void notContainsShouldReturnTrueIfPseudoTypeIsNotValid() {
         // given
         String type = generateString();
 
@@ -66,7 +66,7 @@ public class PseudoPinyinTypeTest {
     }
 
     @Test
-    public void shouldDisplayAllTypes() throws Exception {
+    public void shouldDisplayAllTypes() {
         // given
         final String expectedResult = "number,character";
 
@@ -78,7 +78,7 @@ public class PseudoPinyinTypeTest {
     }
 
     @Test
-    public void getConverterForShouldReturnNumberConverterToNumber() throws Exception {
+    public void getConverterForShouldReturnNumberConverterToNumber() {
 
         // when
         final Converter converter = PseudoPinyinType.getConverterFor("number");

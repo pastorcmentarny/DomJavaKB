@@ -46,12 +46,12 @@ public class ReadTimeCalculatorTest {
     private ReadTimeCalculator readTimeCalculator;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         readTimeCalculator = new ReadTimeCalculator(generateRandomParagraph(), ADULT_AVERAGE.speed());
     }
 
     @Test
-    public void acceptanceCriteria() throws Exception {
+    public void acceptanceCriteria() {
 
         // when
         final String text = readTimeCalculator.displayTimeNeededToRead();
@@ -63,7 +63,7 @@ public class ReadTimeCalculatorTest {
     }
 
     @Test
-    public void shouldReturnIllegalArgumentExceptionForNullInputTest() throws Exception {
+    public void shouldReturnIllegalArgumentExceptionForNullInputTest() {
         // given
         readTimeCalculator = new ReadTimeCalculator(null, randomInteger());
 
@@ -76,7 +76,7 @@ public class ReadTimeCalculatorTest {
     }
 
     @Test
-    public void shouldReturnIllegalArgumentExceptionForZeroWordPerMinutes() throws Exception {
+    public void shouldReturnIllegalArgumentExceptionForZeroWordPerMinutes() {
         // given
         readTimeCalculator = new ReadTimeCalculator(generateString(), randomNegativeInteger());
 
@@ -92,7 +92,7 @@ public class ReadTimeCalculatorTest {
     @Test
     @Repeat(times = REPEAT_TEST_TIMES)
     //check for few random values, this is used as part of learning using own Rule(check RepeaterRule class)
-    public void shouldThrowIllegalArgumentExceptionForTooSlowReadingTest() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionForTooSlowReadingTest() {
         // given
         int lessThan60WordsPerMinutes = randomNegativeInteger() + 59;
         readTimeCalculator = new ReadTimeCalculator(generateRandomParagraph(), lessThan60WordsPerMinutes);
@@ -107,7 +107,7 @@ public class ReadTimeCalculatorTest {
     }
 
     @Test
-    public void itShouldTake6SecondToRead60WordsWithSpeed1WordPerSecondTest() throws Exception {
+    public void itShouldTake6SecondToRead60WordsWithSpeed1WordPerSecondTest() {
         // given
         String sentence = "one two three four five six.";
         readTimeCalculator = new ReadTimeCalculator(sentence, ONE_WORD_PER_SECOND);
@@ -120,7 +120,7 @@ public class ReadTimeCalculatorTest {
     }
 
     @Test
-    public void shouldReadOneWordPerSecond() throws Exception {
+    public void shouldReadOneWordPerSecond() {
         // given
         StringBuilder stringBuilder = new StringBuilder(EMPTY_STRING);
         for (int i = 0; i < 60; i++) {
@@ -139,7 +139,7 @@ public class ReadTimeCalculatorTest {
     //running test few time for various negative numbers
     @Test
     @Repeat(times = REPEAT_TEST_TIMES)
-    public void shouldDisplayEmptyStringForDisplayTimeNeededToReadWhenTimeIsInvalidTest() throws Exception {
+    public void shouldDisplayEmptyStringForDisplayTimeNeededToReadWhenTimeIsInvalidTest() {
         // expect
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage(ERROR_READING_SPEED_EQUAL_OR_HIGHER);
@@ -152,7 +152,7 @@ public class ReadTimeCalculatorTest {
     }
 
     @Test
-    public void shouldReturn59SecondsTest() throws Exception {
+    public void shouldReturn59SecondsTest() {
         // given
         readTimeCalculator = new ReadTimeCalculator(generateWords(59), MINUTE);
 
@@ -165,7 +165,7 @@ public class ReadTimeCalculatorTest {
     }
 
     @Test
-    public void shouldReturn1MinuteTest() throws Exception {
+    public void shouldReturn1MinuteTest() {
         // given
         readTimeCalculator = new ReadTimeCalculator(generateWords(60), MINUTE);
 
@@ -178,7 +178,7 @@ public class ReadTimeCalculatorTest {
     }
 
     @Test
-    public void shouldReturn1MinuteAnd1SecondTest() throws Exception {
+    public void shouldReturn1MinuteAnd1SecondTest() {
         // given
         int minuteAndOneSecond = MINUTE + 1;
         readTimeCalculator = new ReadTimeCalculator(generateWords(minuteAndOneSecond), MINUTE);
@@ -192,7 +192,7 @@ public class ReadTimeCalculatorTest {
     }
 
     @Test
-    public void shouldReturn1HourTest() throws Exception {
+    public void shouldReturn1HourTest() {
         // given
         readTimeCalculator = new ReadTimeCalculator(generateWords(HOUR), MINUTE);
 
@@ -205,7 +205,7 @@ public class ReadTimeCalculatorTest {
     }
 
     @Test
-    public void shouldReturn1Hour1MinuteAnd1SecondTest() throws Exception {
+    public void shouldReturn1Hour1MinuteAnd1SecondTest() {
         // given
         int hourMinuteAndOneSecond = HOUR + MINUTE + 1;
         readTimeCalculator = new ReadTimeCalculator(generateWords(hourMinuteAndOneSecond), MINUTE);
@@ -219,7 +219,7 @@ public class ReadTimeCalculatorTest {
     }
 
     @Test
-    public void shouldReturn1HourAnd1SecondTest() throws Exception {
+    public void shouldReturn1HourAnd1SecondTest() {
         // given
         int hourAndOneSecond = HOUR + 1;
         readTimeCalculator = new ReadTimeCalculator(generateWords(hourAndOneSecond), MINUTE);
@@ -233,7 +233,7 @@ public class ReadTimeCalculatorTest {
     }
 
     @Test
-    public void shouldReturn6Hours6MinutesAnd6SecondsTest() throws Exception {
+    public void shouldReturn6Hours6MinutesAnd6SecondsTest() {
         // given
         int minuteAndOneSecond = 6 * HOUR + 6 * MINUTE + 6;
         readTimeCalculator = new ReadTimeCalculator(generateWords(minuteAndOneSecond), MINUTE);
@@ -247,7 +247,7 @@ public class ReadTimeCalculatorTest {
     }
 
     @Test
-    public void shouldDisplayTimeNeededToReadTest() throws Exception {
+    public void shouldDisplayTimeNeededToReadTest() {
         // given
         int randomTime = random.nextInt(MAX_VALUE);
         readTimeCalculator = new ReadTimeCalculator(generateRandomParagraph(), randomTime);

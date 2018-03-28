@@ -37,12 +37,12 @@ public final class NoSpellTest {
     private ArgumentCaptor<ILoggingEvent> captorLoggingEvent;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         LOGGER.addAppender(mockAppender);
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         LOGGER.detachAppender(mockAppender);
     }
 
@@ -84,7 +84,7 @@ public final class NoSpellTest {
     }
 
     @Test
-    public void isASpellShouldReturnFalseForNoSpell() throws Exception {
+    public void isASpellShouldReturnFalseForNoSpell() {
         // when
         final boolean result = NoSpell.getInstance().isASpell(elementsBuilder().build());
 
@@ -94,7 +94,7 @@ public final class NoSpellTest {
 
 
     @Test
-    public void hasEnoughElementsToCovertToSpellShouldReturnFalseForNoSpell() throws Exception {
+    public void hasEnoughElementsToCovertToSpellShouldReturnFalseForNoSpell() {
         // when
         final boolean result = NoSpell.getInstance().hasEnoughElementsToCovertToSpell(elementsBuilder().build());
 
@@ -103,7 +103,7 @@ public final class NoSpellTest {
     }
 
     @Test
-    public void getElementsShouldReturnNoElementsForNoSpell() throws Exception {
+    public void getElementsShouldReturnNoElementsForNoSpell() {
         // when
         final Elements result = NoSpell.getInstance().getElements();
 
@@ -112,7 +112,7 @@ public final class NoSpellTest {
     }
 
     @Test
-    public void castSpellShouldLogMessage() throws Exception {
+    public void castSpellShouldLogMessage() {
         // when
         NoSpell.getInstance().castSpell(UNUSED_UNIT, UNUSED_UNIT);
 
@@ -125,7 +125,7 @@ public final class NoSpellTest {
     }
 
     @Test
-    public void setElementsShouldLogWarnMessage() throws Exception {
+    public void setElementsShouldLogWarnMessage() {
         // when
         NoSpell.getInstance().setElements(elementsBuilder().build());
 

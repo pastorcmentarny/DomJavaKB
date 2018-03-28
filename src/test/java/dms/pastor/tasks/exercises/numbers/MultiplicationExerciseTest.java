@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class MultiplicationExerciseTest {
 
     @Test
-    public void shouldReturnEmptyStringForNegativeNumberTest() throws Exception {
+    public void shouldReturnEmptyStringForNegativeNumberTest() {
         // when
         final String result = generateMultiplicationSquareTable(randomNegativeInteger());
 
@@ -29,7 +29,7 @@ public class MultiplicationExerciseTest {
 
     @Ignore // need to fix new line problem
     @Test
-    public void shouldReturnMultiplicationSquareTableTest() throws Exception {
+    public void shouldReturnMultiplicationSquareTableTest() {
         // given
         final String expectedResult = "\n    1    2    3    4    5" + lineSeparator() +
                 "    2    4    6    8   10" + lineSeparator() +

@@ -4,9 +4,7 @@ import org.junit.Test;
 
 import static dms.pastor.game.dcs.Config.DEFAULT_CONDITION_DURATION;
 import static dms.pastor.game.dcs.Config.INFINITIVE_TURNS_LEFT;
-import static dms.pastor.game.dcs.conditions.ConditionEntry.createPersistentCondition;
-import static dms.pastor.game.dcs.conditions.ConditionEntry.createTemporaryCondition;
-import static dms.pastor.game.dcs.conditions.ConditionEntry.createTemporaryConditionWithDefaultDuration;
+import static dms.pastor.game.dcs.conditions.ConditionEntry.*;
 import static dms.pastor.game.dcs.conditions.ConditionType.POISONED;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -27,7 +25,7 @@ public class ConditionEntryTest {
     private final ConditionEntry persistentCondition = createPersistentCondition(CONDITION_TYPE);
 
     @Test
-    public void updateTurnsLeftShouldUpdateTurnsIsHigherThanTurnsLeft() throws Exception {
+    public void updateTurnsLeftShouldUpdateTurnsIsHigherThanTurnsLeft() {
         // given
         final int newTurnsLeft = 4;
 
@@ -39,7 +37,7 @@ public class ConditionEntryTest {
     }
 
     @Test
-    public void updateTurnsLeftShouldNotUpdateTurnsIsLowerThanTurnsLeft() throws Exception {
+    public void updateTurnsLeftShouldNotUpdateTurnsIsLowerThanTurnsLeft() {
         // given
         final int newTurnsLeft = 2;
 
@@ -51,7 +49,7 @@ public class ConditionEntryTest {
     }
 
     @Test
-    public void reduceTurnShouldReduceTurnLeftByOne() throws Exception {
+    public void reduceTurnShouldReduceTurnLeftByOne() {
 
         // when
         temporaryCondition.reduceTurn();

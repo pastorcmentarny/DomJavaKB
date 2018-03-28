@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class NameBuilderTest {
 
     @Test
-    public void shouldCreateNameWithRandomData() throws Exception {
+    public void shouldCreateNameWithRandomData() {
 
         // when
         final Name result = nameBuilder().build();
@@ -31,7 +31,7 @@ public class NameBuilderTest {
     }
 
     @Test
-    public void shouldCreateNameWithSetValues() throws Exception {
+    public void shouldCreateNameWithSetValues() {
         // given
         final String first = generateString();
         final String middles = generateString();

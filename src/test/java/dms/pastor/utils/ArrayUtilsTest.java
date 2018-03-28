@@ -30,21 +30,21 @@ public class ArrayUtilsTest {
     private static final String[] EMPTY_STRING_ARRAY = new String[0];
 
     @Test
-    public void testGetSingleIntArrayAsString() throws Exception {
+    public void testGetSingleIntArrayAsString() {
         int[] testSequence = new int[]{0};
         final String intArrayAsString = ArrayUtils.getIntArrayAsString(testSequence);
         Assert.assertThat("int as array", intArrayAsString, is("[{0 = 0}]"));
     }
 
     @Test
-    public void testGetIntArrayAsString() throws Exception {
+    public void testGetIntArrayAsString() {
         int[] testSequence = new int[]{0, 1, 2, 3, 4};
         final String intArrayAsString = ArrayUtils.getIntArrayAsString(testSequence);
         Assert.assertThat("int as array", intArrayAsString, is("[{0 = 0}{1 = 1}{2 = 2}{3 = 3}{4 = 4}]"));
     }
 
     @Test
-    public void generateIntSequenceArray() throws Exception {
+    public void generateIntSequenceArray() {
         int[] testSequence = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
         final int[] intSequenceArray = ArrayUtils.generateIntSequenceArray(testSequence.length);
 
@@ -56,13 +56,13 @@ public class ArrayUtilsTest {
 
     @SuppressWarnings("ConstantConditions") // it tests if fails
     @Test(expected = IllegalArgumentException.class)
-    public void testThrowExceptionIfYouConvertNullToSet() throws Exception {
+    public void testThrowExceptionIfYouConvertNullToSet() {
         final Set<Character> testSet = ArrayUtils.convertCharArrayToSet(null);
         Assert.assertThat("dictSize", testSet.size(), is(0));
     }
 
     @Test
-    public void testConvertEmptyArrayToSet() throws Exception {
+    public void testConvertEmptyArrayToSet() {
         int size = CollectionsUtils.emptyHashSet().size();
         final Set<Character> testSet = ArrayUtils.convertCharArrayToSet(CHARS_ARRAY);
         Assert.assertThat("dictSize", testSet.size(), is(size));
@@ -70,7 +70,7 @@ public class ArrayUtilsTest {
     }
 
     @Test
-    public void testConvertCharArrayToSet() throws Exception {
+    public void testConvertCharArrayToSet() {
         char[] chars = new char[]{'a', 'b', 'c'};
         Set<Character> characterSet = new HashSet<>();
         characterSet.add(chars[0]);
@@ -82,7 +82,7 @@ public class ArrayUtilsTest {
     }
 
     @Test
-    public void testGenerateRandomByteArray() throws Exception {
+    public void testGenerateRandomByteArray() {
         final int size = 10;
         final byte[] bytes = generateRandomByteArray(size);
         assertThat(bytes).isNotEmpty();
@@ -90,7 +90,7 @@ public class ArrayUtilsTest {
     }
 
     @Test
-    public void shouldReverseStringArrayAcceptanceTest() throws Exception {
+    public void shouldReverseStringArrayAcceptanceTest() {
         // given
         final String firstWord = "Dominik";
         final String secondWord = "Sarcastic";
@@ -109,7 +109,7 @@ public class ArrayUtilsTest {
 
     @SuppressWarnings("ConstantConditions") //part of the test
     @Test
-    public void reverseStringArrayShouldReturnNullForNullInput() throws Exception {
+    public void reverseStringArrayShouldReturnNullForNullInput() {
         // when
         final String[] result = reverseStringArray(null);
 
@@ -118,7 +118,7 @@ public class ArrayUtilsTest {
     }
 
     @Test
-    public void reverseStringArrayShouldReturnEmptyForEmptyInput() throws Exception {
+    public void reverseStringArrayShouldReturnEmptyForEmptyInput() {
         // when
         final String[] result = reverseStringArray(EMPTY_STRING_ARRAY);
 
@@ -127,7 +127,7 @@ public class ArrayUtilsTest {
     }
 
     @Test
-    public void clone2DArrayOfIntsShouldThrowIllegalArgumentExceptionIfSourceIsNull() throws Exception {
+    public void clone2DArrayOfIntsShouldThrowIllegalArgumentExceptionIfSourceIsNull() {
         // expect
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("2D Array of integers cannot be null.");

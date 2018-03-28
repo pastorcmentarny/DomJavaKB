@@ -13,7 +13,7 @@ import static java.util.UUID.randomUUID;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class MultiGuidGenerator {
+public final class MultiGuidGenerator {
 
     @SuppressWarnings("ConstantConditions")
     public static void main(String[] args) {
