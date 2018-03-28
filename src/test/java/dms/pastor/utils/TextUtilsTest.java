@@ -46,7 +46,7 @@ public class TextUtilsTest {
     }
 
     @Test
-    public void getTextInParagrapsShouldReturnArrayOfParagraphs() {
+    public void getTextInParagraphShouldReturnArrayOfParagraphs() {
         // given
         final String expectedParagraph = "This is a default test file" + System.lineSeparator() + "test" + System.lineSeparator();
 

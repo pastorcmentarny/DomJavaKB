@@ -16,6 +16,8 @@ import java.io.ObjectOutputStream;
 @SuppressWarnings({"WeakerAccess", "unused"})
 public class NotImplementYetException extends RuntimeException {
 
+    private static final String CANNOT_BE_DESERIALIZED_MESSAGE = "Cannot be deserialized";
+
     public NotImplementYetException() {
         super("Not Implemented yet, so move your ass and implement this. I apologize for any inconvenience caused by my laziness");
     }
@@ -23,11 +25,11 @@ public class NotImplementYetException extends RuntimeException {
     //https://www.owasp.org/index.php/Deserialization_Cheat_Sheet
     @SuppressWarnings("FinalPrivateMethod")
     private final void readObject(ObjectInputStream in) throws IOException {
-        throw new IOException("Cannot be deserialized");
+        throw new IOException(CANNOT_BE_DESERIALIZED_MESSAGE);
     }
 
     @SuppressWarnings("FinalPrivateMethod")
     private final void writeObject(ObjectOutputStream out) throws IOException {
-        throw new IOException("Cannot be deserialized");
+        throw new IOException(CANNOT_BE_DESERIALIZED_MESSAGE);
     }
 }

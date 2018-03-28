@@ -7,13 +7,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ResultTest {
 
-    private static final int NOT_USEDACCURACY = randomPositiveInteger(1, 100);
+    private static final int NOT_USED_ACCURACY = randomPositiveInteger(1, 100);
 
     @Test
     public void getBalanceInPenniesShouldReturn100ForBalanceEqualsTo100() {
         // given
         final int onePound = 100;
-        final Result result = new Result(NOT_USEDACCURACY, onePound);
+        final Result result = new Result(NOT_USED_ACCURACY, onePound);
 
         // when
         final int resultInPennies = result.getBalanceInPennies();
@@ -25,8 +25,8 @@ public class ResultTest {
     @Test
     public void getBalanceInPenniesShouldReturnNineForBalanceEqualsTo9() {
         // given
-        final int ninePennnies = 9;
-        final Result result = new Result(NOT_USEDACCURACY, ninePennnies);
+        final int ninePennies = 9;
+        final Result result = new Result(NOT_USED_ACCURACY, ninePennies);
         final String balance = "£0.09";
 
         // when
@@ -40,7 +40,7 @@ public class ResultTest {
     public void getBalanceInPenniesShouldReturnMinusTenThousandAndOnePoundFiftyForBalanceEqualsToMinus10000150() {
         // given
         final int tenThousandAndPoundFifty = -1000150;
-        final Result result = new Result(NOT_USEDACCURACY, tenThousandAndPoundFifty);
+        final Result result = new Result(NOT_USED_ACCURACY, tenThousandAndPoundFifty);
         final String balance = "- £10001.50";
 
         // when
