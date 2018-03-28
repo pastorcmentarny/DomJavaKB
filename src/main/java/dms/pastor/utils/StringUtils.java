@@ -29,6 +29,7 @@ public final class StringUtils {
     public static final String WHITESPACE = " ";
     public static final char WHITESPACE_CHAR = ' ';
     public static final char NEW_LINE = '\n'; //TODO replace with System.lineSeparator()
+    public static final CharSequence CHAR_SEQUENCE_NEW_LINE = "\n";
     public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
     public static final String ALPHANUMERIC = ALPHABET.toUpperCase() + ALPHABET + "0123456789";
     public static final char COMMA = ',';
@@ -71,7 +72,7 @@ public final class StringUtils {
      * A palindrome is a word, phrase, number, or other sequence of symbols or elements that reads the same forward or reversed,
      */
     public static boolean isPalindromeOfAnyPermutationString(String word) {
-        char[] characters = word.toCharArray();
+        var characters = word.toCharArray();
         Map<Character, Integer> characterCounter = new HashMap<>();
         for (char character : characters) {
             increaseByOne(characterCounter, character);
@@ -114,7 +115,7 @@ public final class StringUtils {
     }
 
     static boolean isAlpha(String string) {
-        char[] stringAsCharArray = string.toCharArray();
+        var stringAsCharArray = string.toCharArray();
         for (char ch : stringAsCharArray) {
             if (!Character.isLetter(ch)) {
                 return false;
@@ -128,7 +129,7 @@ public final class StringUtils {
      */
     static boolean isPangrams(String sentence) {
         Map<Character, Integer> alphabet = StringUtils.getAlphabetAsMap();
-        char[] sentenceAsCharArray = sentence.toLowerCase().toCharArray();
+        var sentenceAsCharArray = sentence.toLowerCase().toCharArray();
 
         for (char character : sentenceAsCharArray) {
             if (Character.isLetter(character)) {
@@ -190,7 +191,7 @@ public final class StringUtils {
     }
 
     public static boolean hasNonAlphanumericCharactersOnly(String string) {
-        char[] charArray = string.toCharArray();
+        var charArray = string.toCharArray();
         for (char character : charArray) {
             for (char letterOrNumber : ALPHANUMERIC.toCharArray()) {
                 if (character == letterOrNumber) {
@@ -202,7 +203,7 @@ public final class StringUtils {
     }
 
     public static boolean hasNonAlphabetCharactersOnly(String string) {
-        char[] charArray = string.toCharArray();
+        var charArray = string.toCharArray();
         for (char character : charArray) {
             for (char letterOrNumber : ALPHABET_BOTH_CASE.toCharArray()) {
                 if (character == letterOrNumber) {
@@ -215,7 +216,7 @@ public final class StringUtils {
 
     public static String swapCaseLettersInString(String text) {
         if (checkIfStringEmpty(text)) return EMPTY_STRING;
-        StringBuilder stringBuilder = new StringBuilder(EMPTY_STRING);
+        var stringBuilder = new StringBuilder(EMPTY_STRING);
         for (Character character : text.toCharArray()) {
             if (isUpperCase(character)) {
                 stringBuilder.append(toLowerCase(character));
@@ -253,7 +254,7 @@ public final class StringUtils {
             return text;
         }
         final char[] charArray = text.trim().toCharArray();
-        StringBuilder stringBuilder = new StringBuilder(EMPTY_STRING);
+        var stringBuilder = new StringBuilder(EMPTY_STRING);
         for (char character : charArray) {
             if (isNotWhitespaceCharacter(character)) {
                 stringBuilder.append(character);

@@ -1,6 +1,7 @@
 package dms.pastor.tools.tube.data;
 
 import dms.pastor.tools.tube.station.Station;
+import dms.pastor.utils.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -10,7 +11,6 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.sun.xml.internal.ws.policy.privateutil.PolicyUtils.Text.NEW_LINE;
 import static dms.pastor.utils.ValidatorUtils.validateIfPathExists;
 import static java.lang.String.format;
 
@@ -27,7 +27,7 @@ public class DataWriter {
 
     public void save(String path, List<Station> stationList) {
         validateIfPathExists(path);
-        final String content = stationList.stream().map(Station::asLine).collect(Collectors.joining(NEW_LINE));
+        final String content = stationList.stream().map(Station::asLine).collect(Collectors.joining(StringUtils.CHAR_SEQUENCE_NEW_LINE));
         try {
             Files.write(Paths.get(path), content.getBytes());
             LOGGER.info("Date saved to file :" + path);

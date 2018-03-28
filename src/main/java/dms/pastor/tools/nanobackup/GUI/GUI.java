@@ -273,7 +273,7 @@ public class GUI extends javax.swing.JFrame {
         aboutMenuItem.addActionListener(this::aboutMenuItemActionPerformed);
         statusMenu.add(aboutMenuItem);
 
-        exitMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
+        exitMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_DOWN_MASK));
         exitMenuItem.setText("Exit");
         exitMenuItem.addActionListener(this::exitMenuItemActionPerformed);
         statusMenu.add(exitMenuItem);
@@ -286,45 +286,45 @@ public class GUI extends javax.swing.JFrame {
 
         settingsMenu.setText("Settings");
 
-        exitProgramAfterBackupMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_1, java.awt.event.InputEvent.ALT_MASK));
+        exitProgramAfterBackupMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_1, java.awt.event.InputEvent.ALT_DOWN_MASK));
         exitProgramAfterBackupMenuItem.setSelected(settings.isExitAfterBackup());
         exitProgramAfterBackupMenuItem.setText("Exit program after backup");
         exitProgramAfterBackupMenuItem.setToolTipText("If is selected,program will exit after finish backup (in all cases)");
         exitProgramAfterBackupMenuItem.addActionListener(this::exitProgramAfterBackupMenuItemActionPerformed);
         settingsMenu.add(exitProgramAfterBackupMenuItem);
 
-        deleteSourceCheckBoxMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_2, java.awt.event.InputEvent.ALT_MASK));
+        deleteSourceCheckBoxMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_2, java.awt.event.InputEvent.ALT_DOWN_MASK));
         deleteSourceCheckBoxMenuItem.setText("Clear source after backup");
         deleteSourceCheckBoxMenuItem.setSelected(settings.isDeleteSourceAfterBackup());
         deleteSourceCheckBoxMenuItem.addActionListener(this::deleteSourceCheckBoxMenuItemActionPerformed);
         settingsMenu.add(deleteSourceCheckBoxMenuItem);
 
-        QuickBackupCheckBoxMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_3, java.awt.event.InputEvent.ALT_MASK));
+        QuickBackupCheckBoxMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_3, java.awt.event.InputEvent.ALT_DOWN_MASK));
         QuickBackupCheckBoxMenuItem.setText("Quick Backup Only");
         QuickBackupCheckBoxMenuItem.setSelected(settings.isQuickBackup());
         QuickBackupCheckBoxMenuItem.addActionListener(this::quickBackupCheckBoxMenuItemActionPerformed);
         settingsMenu.add(QuickBackupCheckBoxMenuItem);
 
-        confirmExitCheckBoxMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_4, java.awt.event.InputEvent.ALT_MASK));
+        confirmExitCheckBoxMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_4, java.awt.event.InputEvent.ALT_DOWN_MASK));
         confirmExitCheckBoxMenuItem.setText("Confirm on exit");
         confirmExitCheckBoxMenuItem.setSelected(settings.isConfirmOnExit());
         confirmExitCheckBoxMenuItem.addActionListener(this::confirmExitCheckBoxMenuItemActionPerformed);
         settingsMenu.add(confirmExitCheckBoxMenuItem);
 
-        shutdownAfterBackupMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_5, java.awt.event.InputEvent.ALT_MASK));
+        shutdownAfterBackupMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_5, java.awt.event.InputEvent.ALT_DOWN_MASK));
         shutdownAfterBackupMenuItem.setForeground(AppColor.DARK_ORANGE);
         shutdownAfterBackupMenuItem.setText("Shutdown a PC after backup(beta!)");
         shutdownAfterBackupMenuItem.setEnabled(false);
         settingsMenu.add(shutdownAfterBackupMenuItem);
 
-        saveAsZipCheckBoxMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_6, java.awt.event.InputEvent.ALT_MASK));
+        saveAsZipCheckBoxMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_6, java.awt.event.InputEvent.ALT_DOWN_MASK));
         saveAsZipCheckBoxMenuItem.setSelected(settings.isSaveAsZip());
         saveAsZipCheckBoxMenuItem.setText("Save a zip file (beta!)");
         saveAsZipCheckBoxMenuItem.setForeground(AppColor.DARK_ORANGE);
         saveAsZipCheckBoxMenuItem.addActionListener(this::saveAsZipCheckBoxMenuItemActionPerformed);
         settingsMenu.add(saveAsZipCheckBoxMenuItem);
 
-        saveAsEncryptedCheckBoxMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_0, java.awt.event.InputEvent.ALT_MASK));
+        saveAsEncryptedCheckBoxMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_0, java.awt.event.InputEvent.ALT_DOWN_MASK));
         saveAsEncryptedCheckBoxMenuItem.setSelected(settings.isSaveAsEncrypted());
         saveAsZipCheckBoxMenuItem.setForeground(AppColor.DARK_ORANGE);
         saveAsEncryptedCheckBoxMenuItem.setText("Save as paranoid encrypted zip file");
@@ -332,19 +332,19 @@ public class GUI extends javax.swing.JFrame {
         saveAsEncryptedCheckBoxMenuItem.addActionListener(this::saveAsEncryptedCheckBoxMenuItemActionPerformed);
         settingsMenu.add(saveAsEncryptedCheckBoxMenuItem);
 
-        saveResultToFileCheckBoxMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_7, java.awt.event.InputEvent.ALT_MASK));
+        saveResultToFileCheckBoxMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_7, java.awt.event.InputEvent.ALT_DOWN_MASK));
         saveResultToFileCheckBoxMenuItem.setSelected(settings.isSaveResultsToFile());
         saveResultToFileCheckBoxMenuItem.setText("Save results to file");
         saveResultToFileCheckBoxMenuItem.addActionListener(this::saveResultToFileCheckBoxMenuItemActionPerformed);
         settingsMenu.add(saveResultToFileCheckBoxMenuItem);
 
-        checkFreeSpaceBeforeBackupMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_8, java.awt.event.InputEvent.ALT_MASK));
+        checkFreeSpaceBeforeBackupMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_8, java.awt.event.InputEvent.ALT_DOWN_MASK));
         checkFreeSpaceBeforeBackupMenuItem.setSelected(settings.isCheckFreeSpaceBeforeBackup());
         checkFreeSpaceBeforeBackupMenuItem.setText("Check free space before backup");
         checkFreeSpaceBeforeBackupMenuItem.addActionListener(this::checkFreeSpaceBeforeBackupMenuItemActionPerformed);
         settingsMenu.add(checkFreeSpaceBeforeBackupMenuItem);
 
-        speedLightModeMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_9, java.awt.event.InputEvent.ALT_MASK));
+        speedLightModeMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_9, java.awt.event.InputEvent.ALT_DOWN_MASK));
         speedLightModeMenuItem.setText("Speed Light mode");
         speedLightModeMenuItem.setForeground(AppColor.DARK_ORANGE);
         speedLightModeMenuItem.setSelected(settings.isSpeedLightMode());
@@ -352,13 +352,13 @@ public class GUI extends javax.swing.JFrame {
         settingsMenu.add(speedLightModeMenuItem);
         settingsMenu.add(jSeparator2);
 
-        happyModeCheckBoxMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        happyModeCheckBoxMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
         happyModeCheckBoxMenuItem.setText("happy mode");
         happyModeCheckBoxMenuItem.setSelected(settings.isHappyMode());
         happyModeCheckBoxMenuItem.addActionListener(this::happyModeCheckBoxMenuItemActionPerformed);
         settingsMenu.add(happyModeCheckBoxMenuItem);
 
-        domMode.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        domMode.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
         domMode.setText("dom mode");
         domMode.addItemListener(this::domModeItemStateChanged);
         settingsMenu.add(domMode);
@@ -385,23 +385,23 @@ public class GUI extends javax.swing.JFrame {
 
         jMenu5.setText("Task");
 
-        createDefaultConfigMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, java.awt.event.InputEvent.ALT_MASK));
+        createDefaultConfigMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, java.awt.event.InputEvent.ALT_DOWN_MASK));
         createDefaultConfigMenuItem.setText("Create default config");
         createDefaultConfigMenuItem.setEnabled(!settings.isQuickBackup());
         createDefaultConfigMenuItem.addActionListener(this::createDefaultConfigMenuItemActionPerformed);
         jMenu5.add(createDefaultConfigMenuItem);
 
-        clearSourceMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, java.awt.event.InputEvent.ALT_MASK));
+        clearSourceMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, java.awt.event.InputEvent.ALT_DOWN_MASK));
         clearSourceMenuItem.setText("Clear non exist files");
         clearSourceMenuItem.addActionListener(this::clearSourceMenuItemActionPerformed);
         jMenu5.add(clearSourceMenuItem);
 
-        removeDuplicatesMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F6, java.awt.event.InputEvent.ALT_MASK));
+        removeDuplicatesMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F6, java.awt.event.InputEvent.ALT_DOWN_MASK));
         removeDuplicatesMenuItem.setText("Remove duplicates");
         removeDuplicatesMenuItem.addActionListener(this::removeDuplicatesMenuItemActionPerformed);
         jMenu5.add(removeDuplicatesMenuItem);
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F7, java.awt.event.InputEvent.ALT_MASK));
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F7, java.awt.event.InputEvent.ALT_DOWN_MASK));
         jMenuItem2.setText("TaskEditor");
         jMenuItem2.setEnabled(false);
         jMenu5.add(jMenuItem2);
@@ -411,12 +411,12 @@ public class GUI extends javax.swing.JFrame {
 
         jMenu3.setText("Work");
 
-        workStartMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, java.awt.event.InputEvent.CTRL_MASK));
+        workStartMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         workStartMenu.setText("Work(Start)");
         workStartMenu.addActionListener(this::workStartMenuActionPerformed);
         jMenu3.add(workStartMenu);
 
-        workEndMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, java.awt.event.InputEvent.CTRL_MASK));
+        workEndMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         workEndMenu.setText("Work(End)");
         workEndMenu.addActionListener(this::workEndMenuActionPerformed);
         jMenu3.add(workEndMenu);
@@ -426,12 +426,12 @@ public class GUI extends javax.swing.JFrame {
 
         jMenu4.setText("Home(Laptop)");
 
-        lap2USBMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, java.awt.event.InputEvent.CTRL_MASK));
+        lap2USBMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         lap2USBMenu.setText("To USB");
         lap2USBMenu.addActionListener(this::lap2USBMenuActionPerformed);
         jMenu4.add(lap2USBMenu);
 
-        lap2HDDMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.CTRL_MASK));
+        lap2HDDMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         lap2HDDMenu.setText("To HDD");
         lap2HDDMenu.addActionListener(this::lap2HDDMenuActionPerformed);
         jMenu4.add(lap2HDDMenu);
@@ -440,12 +440,12 @@ public class GUI extends javax.swing.JFrame {
 
         jMenu6.setText("Home(USB)");
 
-        lap2ArchMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, java.awt.event.InputEvent.CTRL_MASK));
+        lap2ArchMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         lap2ArchMenu.setText("To Archive");
         lap2ArchMenu.addActionListener(this::lap2ArchMenuActionPerformed);
         jMenu6.add(lap2ArchMenu);
 
-        usb2LapMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F6, java.awt.event.InputEvent.CTRL_MASK));
+        usb2LapMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F6, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         usb2LapMenu.setText("ToLaptop");
         usb2LapMenu.addActionListener(this::usb2LapMenuActionPerformed);
         jMenu6.add(usb2LapMenu);
@@ -456,18 +456,18 @@ public class GUI extends javax.swing.JFrame {
 
         jMenu1.setText("Save/Load settings");
 
-        saveSettingsMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F10, java.awt.event.InputEvent.ALT_MASK));
+        saveSettingsMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F10, java.awt.event.InputEvent.ALT_DOWN_MASK));
         saveSettingsMenuItem.setText("save settings (beta!)");
         saveSettingsMenuItem.setForeground(AppColor.DARK_ORANGE);
         saveSettingsMenuItem.addActionListener(this::saveSettingsMenuItemActionPerformed);
         jMenu1.add(saveSettingsMenuItem);
 
-        loadSettingsMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F11, java.awt.event.InputEvent.ALT_MASK));
+        loadSettingsMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F11, java.awt.event.InputEvent.ALT_DOWN_MASK));
         loadSettingsMenuItem.setText("load settings(beta!)");
         loadSettingsMenuItem.addActionListener(this::loadSettingsMenuItemActionPerformed);
         jMenu1.add(loadSettingsMenuItem);
 
-        refreshSettingsMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F12, java.awt.event.InputEvent.ALT_MASK));
+        refreshSettingsMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F12, java.awt.event.InputEvent.ALT_DOWN_MASK));
         refreshSettingsMenuItem.setText("refresh settings(beta!)");
         refreshSettingsMenuItem.setEnabled(false);
         refreshSettingsMenuItem.addActionListener(this::refreshSettingsMenuItemActionPerformed);
@@ -479,12 +479,12 @@ public class GUI extends javax.swing.JFrame {
 
         jMenu2.setText("Help");
 
-        faqMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, java.awt.event.InputEvent.ALT_MASK));
+        faqMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, java.awt.event.InputEvent.ALT_DOWN_MASK));
         faqMenuItem.setText("FAQ");
         faqMenuItem.addActionListener(this::fAQMenuItemActionPerformed);
         jMenu2.add(faqMenuItem);
 
-        tutorialMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, java.awt.event.InputEvent.ALT_MASK));
+        tutorialMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, java.awt.event.InputEvent.ALT_DOWN_MASK));
         tutorialMenuItem.setText("Tutorial");
         tutorialMenuItem.addActionListener(this::tutorialMenuItemActionPerformed);
         jMenu2.add(tutorialMenuItem);

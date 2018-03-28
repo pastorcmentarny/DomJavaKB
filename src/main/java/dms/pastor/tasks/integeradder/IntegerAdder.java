@@ -1,7 +1,5 @@
 package dms.pastor.tasks.integeradder;
 
-import com.sun.istack.internal.NotNull;
-
 import java.io.*;
 
 /**
@@ -25,7 +23,7 @@ import java.io.*;
 
 class IntegerAdder {
 
-    public int add(@NotNull String path) throws IOException {
+    public int add(String path) throws IOException {
         validatePath(path);
         File inputFile = new File(path);
         return loadIntegers(inputFile);
@@ -44,7 +42,7 @@ class IntegerAdder {
         return sum;
     }
 
-    private void validatePath(@NotNull String path) {
+    private void validatePath(String path) {
         if (path == null || path.isEmpty() || !new File(path).isFile()) {
             throw new IllegalArgumentException("Path is crap");
         }

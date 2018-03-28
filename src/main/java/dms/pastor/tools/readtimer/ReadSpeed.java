@@ -1,5 +1,7 @@
 package dms.pastor.tools.readtimer;
 
+import java.util.Objects;
+
 /**
  * Author Dominik Symonowicz
  * Created 20/04/2016
@@ -20,10 +22,7 @@ public enum ReadSpeed {
     }
 
     public static String getSpeedAsStringFor(ReadSpeed readSpeed) {
-        if (readSpeed == null) {
-            return String.valueOf(ADULT_AVERAGE.speed());
-        }
-        return String.valueOf(readSpeed.speed());
+        return String.valueOf(Objects.requireNonNullElse(readSpeed, ADULT_AVERAGE).speed());
     }
 
     public int speed() {

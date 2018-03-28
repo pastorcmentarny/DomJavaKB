@@ -95,11 +95,7 @@ public final class Word {
     }
 
     private void setNotes(String note) {
-        if (note == null) {
-            this.notes = DEFAULT_NOTE;
-        } else {
-            this.notes = note;
-        }
+        this.notes = Objects.requireNonNullElse(note, DEFAULT_NOTE);
     }
 
     public String toShortString() {

@@ -1,7 +1,5 @@
 package dms.pastor.tools.guid;
 
-import dms.pastor.utils.ValidatorUtils;
-
 import java.util.stream.IntStream;
 
 import static dms.pastor.utils.NumberUtils.parseNullSafeIntegerAsString;
@@ -19,12 +17,11 @@ public class MultiGuidGenerator {
 
     @SuppressWarnings("ConstantConditions")
     public static void main(String[] args) {
-        int quantity = 0; // SET quantity
-        if (quantity > 0) {
-            generateGuids(Integer.valueOf(args[0]));
+        int quantity = 2; // SET quantity
+        if (args != null && args.length == 1) {
+            generateGuids(parseNullSafeIntegerAsString(args[0], quantity));
         } else {
-            ValidatorUtils.validateIfArrayHasSizeOf(1, args, "Args");
-            parseNullSafeIntegerAsString(args[0], 1);
+            generateGuids(quantity);
         }
     }
 

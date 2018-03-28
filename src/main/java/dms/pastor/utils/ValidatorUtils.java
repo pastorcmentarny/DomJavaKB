@@ -68,7 +68,7 @@ public final class ValidatorUtils {
     }
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
-    //this check is add is valid without care about result //TODO need impove as it is duplicate
+    //this check is add is valid without care about result //TODO need improve as it is duplicate
     public static void validateIfSumOfIntegerIsInIntegerValueRange(int minValue, int maxValue) {
         try {
             Math.addExact(minValue, maxValue);
@@ -176,7 +176,6 @@ public final class ValidatorUtils {
         validateMinValueIsSmallerThanMaxValue(min, max);
         return number >= min && number <= max;
     }
-
 
     public static void validateIfPathExists(String path) {
         if (isStringEmpty(path)) {

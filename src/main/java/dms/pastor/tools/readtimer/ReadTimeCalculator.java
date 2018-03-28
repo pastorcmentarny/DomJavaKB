@@ -82,7 +82,7 @@ class ReadTimeCalculator {
             throw new IllegalArgumentException("Speed of reading must be equal or higher than 60  words per minute");
         }
         double wordsPerSeconds = wordsPerMinute / MINUTE;
-        return new Double(words / wordsPerSeconds).intValue();
+        return Double.valueOf(words / wordsPerSeconds).intValue();
     }
 
     private String addAnd(int time) {

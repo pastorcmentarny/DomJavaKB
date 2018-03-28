@@ -36,7 +36,7 @@ public final class NumberUtils {
     }
 
     public static int calcTotal(int[] numbers) {
-        int total = 0;
+        var total = 0;
         for (int number : numbers) {
             total += number;
         }
@@ -46,7 +46,7 @@ public final class NumberUtils {
 
     public static int getSmallestInt(int[] values) {
         validateIfNotEmpty(values, "values");
-        int smallestInt = Integer.MAX_VALUE;
+        var smallestInt = Integer.MAX_VALUE;
         for (int i : values) {
             if (i < smallestInt) {
                 smallestInt = i;
@@ -57,7 +57,7 @@ public final class NumberUtils {
 
     public static int getLargestInt(int[] values) {
         validateIfNotEmpty(values, "values");
-        int largestInt = Integer.MIN_VALUE;
+        var largestInt = Integer.MIN_VALUE;
         for (int value : values) {
             if (value > largestInt) {
                 largestInt = value;
@@ -71,7 +71,7 @@ public final class NumberUtils {
     }
 
     public static int reverseANumber(int number) {
-        int reversedNumber = 0, remainder;
+        int reversedNumber = 0, remainder; //tag-var var is not allowed in compound declaration
         do {
             remainder = number % 10;
             reversedNumber = reversedNumber * 10 + remainder;

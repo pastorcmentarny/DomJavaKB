@@ -25,7 +25,7 @@ public class FindFirstNonRepeatedCharacterTest {
     public final ExpectedException exception = ExpectedException.none();
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionWhenTextIsNullTest() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionWhenTextIsNullTest() {
 
         // expect
         exception.expect(IllegalArgumentException.class);
@@ -37,13 +37,13 @@ public class FindFirstNonRepeatedCharacterTest {
 
     @Test
     @SuppressWarnings("SpellCheckingInspection")
-    public void testFindFirstNonRepeatedCharacter() throws Exception {
+    public void testFindFirstNonRepeatedCharacter() {
         // when
         final Optional<Character> characters = findFirst.findFirstNonRepeatedCharacter("aabbcddefg");
 
         // then
         assertThat(characters.isPresent()).isTrue();
-        assertThat(new Character('c')).isEqualTo(characters.orElse(null));
+        assertThat(Character.valueOf('c')).isEqualTo(characters.orElse(null));
 
     }
 }
