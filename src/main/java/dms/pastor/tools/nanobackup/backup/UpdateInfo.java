@@ -15,9 +15,9 @@ import java.util.Random;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 class UpdateInfo implements Runnable {
-    private JTextArea label = null;
+    private JTextArea label;
     private final Random randomText = new Random();
-    private ArrayList<String> lolText = new ArrayList<>();
+    private ArrayList<String> lolText;
 
     //TODO solve problem with using , Backup outer because of issue with GUI
 

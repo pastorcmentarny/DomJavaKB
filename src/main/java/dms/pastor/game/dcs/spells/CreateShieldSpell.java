@@ -17,13 +17,13 @@ import static dms.pastor.game.dcs.Config.INITIAL_SHIELD_POINTS;
 public class CreateShieldSpell extends Spell {
 
     public CreateShieldSpell() {
-        name = "Create a shield";
+        setName("Create a shield");
         setElements(new Elements(0, 2, 0, 2));
     }
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        castSpellMessage(attacker.getName(), name, attacker.getName());
+        castSpellMessage(attacker.getName(), getName(), attacker.getName());
         if (attacker.isShielded()) {
             System.out.println("You have magic shield already.");
         } else {

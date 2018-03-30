@@ -23,13 +23,13 @@ import static dms.pastor.game.dcs.utils.random.InGameRandomUtils.TWO_THIRD;
 public class CometStrikeSpell extends Spell {
 
     public CometStrikeSpell() {
-        name = "Comet Spell";
+        setName("Comet Spell");
         setElements(new Elements(0, 3, 0, 1));
     }
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        castSpellMessage(attacker.getName(), name, defender.getName());
+        castSpellMessage(attacker.getName(), getName(), defender.getName());
         attacker.doesDamageTo(defender, COMMENT_DAMAGE);
         if (randomUtils.isWillHappenWithProbabilityOf(TWO_THIRD)) {
             defender.getConditions().add(createTemporaryCondition(FROZEN, FREEZING_TURNS));

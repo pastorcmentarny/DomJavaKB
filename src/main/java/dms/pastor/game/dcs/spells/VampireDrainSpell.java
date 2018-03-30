@@ -18,13 +18,13 @@ import static dms.pastor.game.dcs.Config.VAMPIRE_DRAIN_HEAL_HP;
 public class VampireDrainSpell extends Spell {
 
     public VampireDrainSpell() {
-        name = "Vampire Drain";
+        setName("Vampire Drain");
         setElements(new Elements(2, 2, 2, 0));
     }
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        castSpellMessage(attacker.getName(), name, defender.getName());
+        castSpellMessage(attacker.getName(), getName(), defender.getName());
         int dmg = attacker.doesDamageTo(defender, VAMPIRE_DRAIN_DMG);
         if (dmg >= 5 && !defender.isStrongShield()) {
             attacker.addHP(VAMPIRE_DRAIN_HEAL_HP);

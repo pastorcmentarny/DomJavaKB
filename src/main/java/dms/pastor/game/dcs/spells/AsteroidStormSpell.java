@@ -24,13 +24,13 @@ public class AsteroidStormSpell extends Spell {
     private static final Logger LOGGER = LoggerFactory.getLogger(AsteroidStormSpell.class);
 
     AsteroidStormSpell() {
-        name = "Asteroid Storm";
+        setName("Asteroid Storm");
         setElements(new Elements(1, 4, 0, 0));
     }
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        castSpellMessage(attacker.getName(), name, defender.getName());
+        castSpellMessage(attacker.getName(), getName(), defender.getName());
         int dmg = ASTEROID_STORM_MIN_DAMAGE + random.nextInt(ASTEROID_STORM_MAX_DAMAGE - ASTEROID_STORM_MIN_DAMAGE);
         int asteroids = ASTEROID_STORM_MIN_ASTEROIDS + random.nextInt(ASTEROID_STORM_MAX_ASTEROIDS - ASTEROID_STORM_MIN_ASTEROIDS);
         LOGGER.debug(asteroids + " asteroid(s) will do " + dmg + " dmg each that will hit.");

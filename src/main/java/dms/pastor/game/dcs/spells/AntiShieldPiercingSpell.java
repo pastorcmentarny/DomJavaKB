@@ -16,13 +16,13 @@ import dms.pastor.game.dcs.units.Unit;
 public class AntiShieldPiercingSpell extends Spell {
 
     public AntiShieldPiercingSpell() {
-        name = "Anti shield piercing spell";
+        setName("Anti shield piercing spell");
         setElements(new Elements(2, 1, 1, 1));
     }
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        castSpellMessage(attacker.getName(), name, defender.getName());
+        castSpellMessage(attacker.getName(), getName(), defender.getName());
         if (defender.isNotShielded()) {
             defender.doesShieldDamage(Config.ASP_DMG);
         } else {

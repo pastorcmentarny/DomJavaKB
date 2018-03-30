@@ -16,13 +16,13 @@ import dms.pastor.game.dcs.units.Unit;
 public class BackstabSpell extends Spell {
 
     public BackstabSpell() {
-        name = "Backstab spell";
+        setName("Backstab spell");
         setElements(new Elements(1, 2, 0, 0));
     }
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        castSpellMessage(attacker.getName(), name, defender.getName());
+        castSpellMessage(attacker.getName(), getName(), defender.getName());
         defender.doesDirectDamage(Config.BACKSTABBING_DMG);
     }
 }

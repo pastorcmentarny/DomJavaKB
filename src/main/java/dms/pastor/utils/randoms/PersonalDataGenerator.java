@@ -69,6 +69,7 @@ public final class PersonalDataGenerator {
     }
 
     // It is pseudo generator.
+    @SuppressWarnings("MagicNumber")
     public static String generateEmail() {
         return generateString(16) + '@' + generateString(8) + '.' + getRandomCountry().code().toLowerCase();
     }

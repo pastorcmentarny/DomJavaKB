@@ -20,13 +20,13 @@ import static dms.pastor.game.dcs.utils.random.InGameRandomUtils.HALF;
 public class LightingBoltSpell extends Spell {
 
     public LightingBoltSpell() {
-        name = "Lighting Bolt";
+        setName("Lighting Bolt");
         setElements(new Elements(4, 0, 0, 0));
     }
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        castSpellMessage(attacker.getName(), name, defender.getName());
+        castSpellMessage(attacker.getName(), getName(), defender.getName());
         defender.doesDamageTo(attacker, Config.LIGHTING_BOLT_DAMAGE);
         if (randomUtils.isWillHappenWithProbabilityOf(HALF)) {
             System.out.println(defender.getName() + "  is stunned after being hit by lighting.");

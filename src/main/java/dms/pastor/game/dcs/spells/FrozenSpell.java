@@ -21,13 +21,13 @@ import static dms.pastor.game.dcs.conditions.ConditionType.FROZEN;
 public class FrozenSpell extends Spell {
 
     public FrozenSpell() {
-        name = "Freezing Spell";
+        setName("Freezing Spell");
         setElements(new Elements(1, 0, 0, 2));
     }
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        castSpellMessage(attacker.getName(), name, defender.getName());
+        castSpellMessage(attacker.getName(), getName(), defender.getName());
         defender.doesDamageTo(attacker, Config.FREEZING_DAMAGE);
         if (defender.isStrongShield()) {
             System.out.println("StrongShield  protect " + defender.getName() + " from being frozen.");

@@ -19,13 +19,13 @@ import static dms.pastor.game.dcs.conditions.ConditionType.REGENERATION;
 public class RegenSpell extends Spell {
 
     public RegenSpell() {
-        name = "Regeneration";
+        setName("Regeneration");
         setElements(new Elements(2, 0, 0, 2));
     }
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        castSpellMessage(attacker.getName(), name, attacker.getName());
+        castSpellMessage(attacker.getName(), getName(), attacker.getName());
         attacker.getConditions().add(createTemporaryCondition(REGENERATION, REGEN_TURNS));
     }
 }

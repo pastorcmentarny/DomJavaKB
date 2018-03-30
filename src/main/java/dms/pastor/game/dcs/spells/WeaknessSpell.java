@@ -20,13 +20,13 @@ import static dms.pastor.game.dcs.utils.random.InGameRandomUtils.THREE_QUARTERS;
 public class WeaknessSpell extends Spell {
 
     public WeaknessSpell() {
-        name = "Weakness Spell";
+        setName("Weakness Spell");
         setElements(new Elements(0, 1, 0, 0));
     }
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        castSpellMessage(attacker.getName(), name, defender.getName());
+        castSpellMessage(attacker.getName(), getName(), defender.getName());
         if (randomUtils.isWillHappenWithProbabilityOf(THREE_QUARTERS)) {
             defender.getConditions().add(createTemporaryConditionWithDefaultDuration(WEAKNESS));
             System.out.println(defender.getName() + " is weak for " + DEFAULT_CONDITION_DURATION + " turns.");

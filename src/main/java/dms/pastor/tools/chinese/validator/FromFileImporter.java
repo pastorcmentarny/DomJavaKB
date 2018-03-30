@@ -58,15 +58,15 @@ public class FromFileImporter implements Importer {
             return fail(errorMessage);
         }
 
-        BufferedReader br;
-        InputStreamReader isr;
 
-        try (FileInputStream fileInputStream = new FileInputStream(file)) {
+        try (FileInputStream fileInputStream = new FileInputStream(file);
+             InputStreamReader isr = new InputStreamReader(fileInputStream);
+             BufferedReader br = new BufferedReader(isr)
+
+        ) {
             String line;
             String[] data;
 
-            isr = new InputStreamReader(fileInputStream);
-            br = new BufferedReader(isr);
             while ((line = br.readLine()) != null) {
                 if (isLineNotIgnored(line)) {
                     data = line.split(COLUMN_SEPARATOR);
@@ -84,8 +84,6 @@ public class FromFileImporter implements Importer {
         } catch (ArrayIndexOutOfBoundsException aioobe) {
             return returnFailResultOnException("ArrayIndexOutOfBoundsException", nr, aioobe);
         }
-        closeReaderQuietly(isr);
-        closeReaderQuietly(br);
         return success(format("Dictionary loaded successfully.(Words loaded: %d, Ignored: %d)", wordsList.size(), ignored), wordsList);
     }
 

@@ -20,13 +20,13 @@ import static dms.pastor.game.dcs.conditions.ConditionType.POISON_IMMUNITY;
 public class PoisonSpell extends Spell {
 
     public PoisonSpell() {
-        name = "Poison";
+        setName("Poison");
         setElements(new Elements(0, 2, 0, 1));
     }
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        castSpellMessage(attacker.getName(), name, defender.getName());
+        castSpellMessage(attacker.getName(), getName(), defender.getName());
         if (defender.getConditions().hasNot(POISON_IMMUNITY)) {
             defender.getConditions().add(createTemporaryCondition(POISONED, POISON_TURNS));
             System.out.println(defender.getName() + " got poisoned for " + POISON_TURNS + " turns.");

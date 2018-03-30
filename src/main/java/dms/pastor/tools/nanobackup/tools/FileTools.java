@@ -116,7 +116,7 @@ public final class FileTools {
             for (File file1 : files) {
                 path.add(file1.getPath());
             }
-            return path.toArray(new String[path.size()]);
+            return path.toArray(new String[0]);
         } else {
             return null;
         }

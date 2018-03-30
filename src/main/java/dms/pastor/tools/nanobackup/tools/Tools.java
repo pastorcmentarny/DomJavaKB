@@ -88,7 +88,7 @@ public final class Tools {
 
     public static void showStatus(String[] status) {
         Settings settings = Settings.getSettings();
-        StringBuilder temp = new StringBuilder("");
+        StringBuilder temp = new StringBuilder();
         if (status.length > 1) {
             for (int i = 1; i < status.length; i++) {
                 temp.append(status[i]);

@@ -15,13 +15,13 @@ import dms.pastor.game.dcs.units.Unit;
 public class CursedEventSpell extends Spell {
 
     public CursedEventSpell() {
-        name = "Draw an event";
+        setName("Draw an event");
         setElements(new Elements(2, 0, 2, 0));
     }
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        castSpellMessage(attacker.getName(), name, defender.getName());
+        castSpellMessage(attacker.getName(), getName(), defender.getName());
         //EventGenerator.badEvent(defender);
     }
 }

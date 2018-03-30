@@ -19,13 +19,13 @@ import static dms.pastor.game.dcs.conditions.ConditionType.BLOODLUST;
 public class BloodlustSpell extends Spell {
 
     public BloodlustSpell() {
-        name = "Bloodlust";
+        setName("Bloodlust");
         setElements(new Elements(0, 0, 0, 4));
     }
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        castSpellMessage(attacker.getName(), name, attacker.getName());
+        castSpellMessage(attacker.getName(), getName(), attacker.getName());
         attacker.getConditions().add(createTemporaryCondition(BLOODLUST, BLOODLUST_TURNS));
     }
 }

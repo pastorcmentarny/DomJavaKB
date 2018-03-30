@@ -15,13 +15,13 @@ import dms.pastor.game.dcs.units.Unit;
 public class ChainLightingSpell extends Spell {
 
     public ChainLightingSpell() {
-        name = "Chain Lighting";
+        setName("Chain Lighting");
         setElements(new Elements(3, 0, 1, 0));
     }
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        castSpellMessage(attacker.getName(), name, defender.getName());
+        castSpellMessage(attacker.getName(), getName(), defender.getName());
         attacker.doesDamageTo(defender, 6);
         attacker.doesDamageTo(attacker, 3);
         attacker.doesDamageTo(defender, 2);

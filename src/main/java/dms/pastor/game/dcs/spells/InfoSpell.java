@@ -15,13 +15,13 @@ import dms.pastor.game.dcs.units.Unit;
 public class InfoSpell extends Spell {
 
     public InfoSpell() {
-        name = "Show Info";
+        setName("Show Info");
         setElements(new Elements(1, 0, 0, 0));
     }
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        castSpellMessage(attacker.getName(), name, defender.getName());
+        castSpellMessage(attacker.getName(), getName(), defender.getName());
         defender.displayStats();
     }
 }

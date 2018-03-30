@@ -16,13 +16,13 @@ import dms.pastor.game.dcs.units.Unit;
 public class DrawEventSpell extends Spell {
 
     public DrawEventSpell() {
-        name = "Draw an event";
+        setName("Draw an event");
         setElements(new Elements(1, 0, 1, 1));
     }
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        castSpellMessage(attacker.getName(), name, defender.getName());
+        castSpellMessage(attacker.getName(), getName(), defender.getName());
         EventGenerator.event(attacker, attacker);
         EventGenerator.event(attacker, attacker);
         EventGenerator.event(attacker, attacker);

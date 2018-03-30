@@ -20,13 +20,13 @@ import static dms.pastor.game.dcs.conditions.ElementType.WATER;
 public class IceBoltSpell extends Spell {
 
     public IceBoltSpell() {
-        name = "Ice Bolt";
+        setName("Ice Bolt");
         setElements(new Elements(0, 0, 0, 3));
     }
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        castSpellMessage(attacker.getName(), name, defender.getName());
+        castSpellMessage(attacker.getName(), getName(), defender.getName());
         if (defender.getConditions().isNotImmuneTo(WATER)) {
             if (defender.getConditions().has(FROZEN)) {
                 System.out.println(defender.getName() + " will get double damage as it is frozen.");

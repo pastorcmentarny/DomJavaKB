@@ -20,13 +20,13 @@ public class BubbleShieldSpell extends Spell {
     private static final int INITIAL_TURNS_LEFT = 20;
 
     public BubbleShieldSpell() {
-        name = "Bubble shield";
+        setName("Bubble shield");
         setElements(new Elements(3, 1, 1, 1));
     }
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        castSpellMessage(attacker.getName(), name, defender.getName());
+        castSpellMessage(attacker.getName(), getName(), defender.getName());
         attacker.getConditions().add(createTemporaryCondition(BUBBLE_SHIELD, INITIAL_TURNS_LEFT));
     }
 }

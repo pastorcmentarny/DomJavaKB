@@ -19,7 +19,7 @@ import static java.util.Collections.emptyList;
  */
 public final class WordResult extends Result {
 
-    private List<Word> wordList = emptyList();
+    private List<Word> wordList;
 
     private WordResult(boolean success, String message, List<Word> wordList) {
         super(success, message);

@@ -50,9 +50,7 @@ public final class CoupleOperations {
 
     public static Set<Couple> deleteDiscardedCouples(Set<Couple> couples, Set<Couple> couplesToDelete) {
         for (Couple couple : couplesToDelete) {
-            if (couples.contains(couple)) {
-                couples.remove(couple);
-            }
+            couples.remove(couple);
         }
         return couples;
     }

@@ -12,7 +12,7 @@ public class MagneticDrainSpell extends Spell {
     private static final Logger LOGGER = LoggerFactory.getLogger(MagneticDrainSpell.class);
 
     public MagneticDrainSpell() {
-        name = "Magnetic Drain";
+        setName("Magnetic Drain");
         setElements(new Elements(1, 1, 1, 1));
     }
 

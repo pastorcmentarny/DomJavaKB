@@ -18,13 +18,13 @@ import dms.pastor.game.dcs.units.Unit;
 public class FireBallSpell extends Spell {
 
     public FireBallSpell() {
-        name = "Fireball";
+        setName("Fireball");
         setElements(new Elements(0, 0, 3, 0));
     }
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        Spell.castSpellMessage(attacker.getName(), name, defender.getName());
+        Spell.castSpellMessage(attacker.getName(), getName(), defender.getName());
         if (defender.getConditions().isNotImmuneTo(ElementType.FIRE)) {
             attacker.doesDamageTo(defender, Config.FIREBALL_DMG);
         } else {

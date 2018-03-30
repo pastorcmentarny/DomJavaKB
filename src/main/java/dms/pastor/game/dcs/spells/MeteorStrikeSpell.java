@@ -21,13 +21,13 @@ import static dms.pastor.game.dcs.utils.random.InGameRandomUtils.HALF;
 public class MeteorStrikeSpell extends Spell {
 
     public MeteorStrikeSpell() {
-        name = "Meteor Strike";
+        setName("Meteor Strike");
         setElements(new Elements(0, 2, 3, 0));
     }
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        castSpellMessage(attacker.getName(), name, defender.getName());
+        castSpellMessage(attacker.getName(), getName(), defender.getName());
         for (int i = 1; i <= METEOR_STRIKE_NO; i++) {
             if (randomUtils.isWillHappenWithProbabilityOf(HALF)) {
                 System.out.println("Meteor hit " + defender.getName());

@@ -62,7 +62,7 @@ public class Engine extends AbstractTools {
                 swappedPaths.add(path);
             }
         }
-        swappedPaths.toArray(new String[swappedPaths.size()]);
+        swappedPaths.toArray(new String[0]);
     }
 
     public String[] updateRecentFolderPaths(String[] paths, String newPath) {
@@ -76,7 +76,7 @@ public class Engine extends AbstractTools {
             } else {
                 ArrayList<String> newPaths = new ArrayList<>(Arrays.asList(paths));
                 newPaths.add(newPath);
-                return newPaths.toArray(new String[newPaths.size()]);
+                return newPaths.toArray(new String[0]);
             }
         }
 
@@ -117,7 +117,7 @@ public class Engine extends AbstractTools {
         checkIfFileExistsFor(result, Settings.DATA_PATH + "changelog.txt", "Non important file changelog.txt doesn't exist. ");
         checkIfFileExistsFor(result, Settings.DATA_PATH + "message.properties", "Important file message.properties doesn't exist.");
         checkIfFileExistsFor(result, Settings.DATA_PATH + "eula.txt", "Important file (for law  reasons) eula.txt doesn't exist. ");
-        return result.toArray(new String[result.size()]);
+        return result.toArray(new String[0]);
     }
 
     private void checkIfFileExistsFor(ArrayList<String> result, String filePath, String errorMessage) {
@@ -186,7 +186,7 @@ public class Engine extends AbstractTools {
                 }
             }
             temp.addAll(Arrays.asList(srcList));
-            return temp.toArray(new String[temp.size()]);
+            return temp.toArray(new String[0]);
         } else {
             return new String[0];
         }
@@ -212,7 +212,7 @@ public class Engine extends AbstractTools {
                 }
             }
         }
-        return newList.toArray(new String[newList.size()]);
+        return newList.toArray(new String[0]);
     }
 
 

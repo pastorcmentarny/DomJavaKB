@@ -32,7 +32,7 @@ public class Messenger {
     public static final String ENOUGH_SPACE_CHECK = "(Check is it enough space for backup)";
     public static final String PRE_CHECK_COMPLETED = "Pre-check is completed.";
     private final Properties properties = new Properties();
-    private boolean missingMessageFile = false;
+    private boolean missingMessageFile;
 
     public Messenger() {
         try (FileInputStream fis = new FileInputStream(PATH)) {

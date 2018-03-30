@@ -21,13 +21,13 @@ import static dms.pastor.game.dcs.utils.random.InGameRandomUtils.THREE_QUARTERS;
 public class MagicStoneSpell extends Spell {
 
     public MagicStoneSpell() {
-        name = "Magic Stone";
+        setName("Magic Stone");
         setElements(new Elements(0, 2, 0, 0));
     }
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        castSpellMessage(attacker.getName(), name, defender.getName());
+        castSpellMessage(attacker.getName(), getName(), defender.getName());
         if (defender.getConditions().has(EARTH_IMMUNE)) {
             System.out.println(defender.getName() + " is immune to " + getName());
         } else {

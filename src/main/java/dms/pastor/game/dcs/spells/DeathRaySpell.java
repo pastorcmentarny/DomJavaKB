@@ -17,14 +17,14 @@ import static dms.pastor.game.dcs.Config.DEATH_RAY_DMG;
 public class DeathRaySpell extends Spell {
 
     public DeathRaySpell() {
-        name = "Death ray";
+        setName("Death ray");
         setElements(new Elements(2, 4, 1, 0));
     }
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        castSpellMessage(attacker.getName(), name, defender.getName());
+        castSpellMessage(attacker.getName(), getName(), defender.getName());
         defender.doesDirectDamage(DEATH_RAY_DMG);
-        System.out.println(name + " does " + DEATH_RAY_DMG + " dmg.");
+        System.out.println(getName() + " does " + DEATH_RAY_DMG + " dmg.");
     }
 }

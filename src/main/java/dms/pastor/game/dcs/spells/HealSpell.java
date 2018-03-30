@@ -17,13 +17,13 @@ import static dms.pastor.game.dcs.Config.HEAL;
 public class HealSpell extends Spell {
 
     public HealSpell() {
-        name = "Heal";
+        setName("Heal");
         setElements(new Elements(2, 0, 0, 1));
     }
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        castSpellMessage(attacker.getName(), name, defender.getName());
+        castSpellMessage(attacker.getName(), getName(), defender.getName());
         attacker.addHP(HEAL);
     }
 

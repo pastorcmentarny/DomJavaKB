@@ -21,13 +21,13 @@ public class InfernoStrikeSpell extends Spell {
     private static final String HIT_MESSAGE = "It hits ";
 
     public InfernoStrikeSpell() {
-        name = "Inferno Strike";
+        setName("Inferno Strike");
         setElements(new Elements(1, 2, 2, 0));
     }
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        castSpellMessage(attacker.getName(), name, defender.getName());
+        castSpellMessage(attacker.getName(), getName(), defender.getName());
         for (int i = 1; i <= Config.INFERNO_STRIKE_NO; i++) {
             if (randomUtils.isWillHappenWithProbabilityOf(TWO_THIRD)) {
                 System.out.println(HIT_MESSAGE + defender.getName());

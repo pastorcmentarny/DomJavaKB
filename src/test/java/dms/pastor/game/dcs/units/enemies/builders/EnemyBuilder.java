@@ -45,7 +45,7 @@ public final class EnemyBuilder {
         dummy.setArm(arm);
         dummy.setConditions(condition);
         dummy.setCards(cards);
-        dummy.setHpRegenRate(hpRegenRate);
+        dummy.getHealth().setHpRegenRate(hpRegenRate);
         return dummy;
     }
 

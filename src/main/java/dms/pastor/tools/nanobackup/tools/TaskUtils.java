@@ -24,7 +24,7 @@ public final class TaskUtils {
             }
         }
         LOGGER.debug("Duplicate lines from list was removed.");
-        return singles.toArray(new String[singles.size()]);
+        return singles.toArray(new String[0]);
     }
 
     public static String[] removeNonExistsItems(String[] sources) {
@@ -39,7 +39,7 @@ public final class TaskUtils {
             return new String[0];
         }
         LOGGER.debug("...List is cleaned from non exists elements.");
-        return clearedList.toArray(new String[clearedList.size()]);
+        return clearedList.toArray(new String[0]);
     }
 
     public static boolean deleteSourceAfterBackup(String[] sources) {

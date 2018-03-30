@@ -17,7 +17,7 @@ import static dms.pastor.game.dcs.conditions.ConditionType.*;
 public class CureSpell extends Spell {
 
     public CureSpell() {
-        name = "Draw an event";
+        setName("Draw an event");
         setElements(new Elements(0, 1, 0, 1));
     }
 
@@ -28,7 +28,7 @@ public class CureSpell extends Spell {
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        castSpellMessage(attacker.getName(), name, defender.getName());
+        castSpellMessage(attacker.getName(), getName(), defender.getName());
         attacker.getConditions().removeByConditionName(POISONED);
         attacker.getConditions().removeByConditionName(WEAKNESS);
         attacker.getConditions().removeByConditionName(BLIND);

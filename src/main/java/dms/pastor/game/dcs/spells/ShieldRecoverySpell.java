@@ -17,13 +17,13 @@ import static dms.pastor.game.dcs.Config.SHIELD_HEAL;
 public class ShieldRecoverySpell extends Spell {
 
     public ShieldRecoverySpell() {
-        name = "Strengthening shield";
+        setName("Strengthening shield");
         setElements(new Elements(2, 1, 1, 2));
     }
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        castSpellMessage(attacker.getName(), name, defender.getName());
+        castSpellMessage(attacker.getName(), getName(), defender.getName());
         if (attacker.isShielded()) {
             attacker.increaseShieldBy(SHIELD_HEAL);
             System.out.println("Shield increased by" + SHIELD_HEAL);

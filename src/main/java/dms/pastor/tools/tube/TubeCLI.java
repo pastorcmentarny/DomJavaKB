@@ -21,7 +21,11 @@ class TubeCLI {
 
     private final Stations stations;
     private final OptionsFactory options;
-    private Scanner scanner = new Scanner(System.in);
+    private Scanner scanner;
+
+    static {
+        new Scanner(System.in);
+    }
 
 
     TubeCLI(Stations stations, Scanner scanner) {

@@ -24,6 +24,7 @@ public final class DateUtils {
     private static final int SECOND = 1;
     public static final int MINUTE = 60 * SECOND;
     public static final int HOUR = 60 * MINUTE;
+    private static final int HOURS_PER_DAY = 24;
 
     private DateUtils() {
         //Utility class
@@ -39,7 +40,7 @@ public final class DateUtils {
     }
 
     public static boolean isInHoursRange(int value) {
-        return isInRange(value, 24);
+        return isInRange(value, HOURS_PER_DAY);
     }
 
     public static boolean isInMinutesRange(int value) {

@@ -56,7 +56,7 @@ public final class RandomDataGenerator {
 
     public static void addRandomCharacterToStringBuilder(StringBuilder text) {
         int character = (int) (Math.random() * ALPHABET_WITH_ALL_CASES_AND_NUMBERS.length());
-        text.append(ALPHABET_WITH_ALL_CASES_AND_NUMBERS.substring(character, character + 1));
+        text.append(ALPHABET_WITH_ALL_CASES_AND_NUMBERS, character, character + 1);
     }
 
     public static String getRandomText() {
@@ -83,6 +83,7 @@ public final class RandomDataGenerator {
         return getRandomCharacterFromAlphabet().toString();
     }
 
+    @SuppressWarnings("MagicNumber")
     public static String generateRandomParagraph() {
         StringBuilder stringBuilder = new StringBuilder(EMPTY_STRING);
 

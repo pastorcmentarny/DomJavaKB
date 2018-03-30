@@ -1,6 +1,7 @@
 package dms.pastor.game.dcs.units;
 
 import dms.pastor.game.dcs.Elements;
+import dms.pastor.game.dcs.Entity;
 import dms.pastor.game.dcs.cards.Card;
 import dms.pastor.game.dcs.conditions.Condition;
 import dms.pastor.game.dcs.conditions.ElementType;
@@ -27,14 +28,12 @@ import static java.lang.String.format;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class Unit {
+public class Unit extends Entity {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Unit.class);
     protected final RandomUtils randomUtils = new InGameRandomUtils();
     protected final Random random = new Random();
 
-    private String name = "Name";
-    private String description = "Description";
 
     private Health health = new Health();
 
@@ -44,20 +43,18 @@ public class Unit {
     private List<Card> cards = new ArrayList<>();
     private boolean player = false;
     private Condition conditions = new Condition();
-    private int hpRegenRate;
 
     protected Unit() {
     }
 
     @SuppressWarnings("ConstructorWithTooManyParameters")
     public Unit(int sp, Elements elements, Health health, ArrayList<Card> cards, String name, Condition conditions, String description) {
+        super(name, description);
         this.sp = sp;
         this.elements = elements;
         this.health = health;
         this.cards = cards;
-        this.name = name;
         this.conditions = conditions;
-        this.description = description;
     }
 
     public Health getHealth() {
@@ -81,9 +78,6 @@ public class Unit {
         this.player = true;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     public void setCards(List<Card> cards) {
         this.cards = cards;
@@ -147,13 +141,6 @@ public class Unit {
         CLI.lineSeparator();
     }
 
-    public String getName() {
-        return name;
-    }
-
-    protected void setName(String name) {
-        this.name = name;
-    }
 
     public Elements getElements() {
         return elements;
@@ -257,13 +244,11 @@ public class Unit {
         if (isNotShielded()) {
             sp = initialShieldPoints;
         } else {
-            System.out.println(name + " has shield already.");
+            System.out.println(getName() + " has shield already.");
         }
     }
 
-    public String getDescription() {
-        return description;
-    }
+
 
     public void shieldRegen(int regenShieldPoints) {
         if (isShielded()) {
@@ -288,8 +273,8 @@ public class Unit {
     @Override
     public String toString() {
         return format("Unit{randomUtils=%s, random=%s, name='%s', description='%s', health=%s, sp=%d, elements=%s," +
-                        " cards=%s, player=%s, conditions=%s, hpRegenRate=%d}",
-                randomUtils, random, name, description, health, sp, elements, cards, player, conditions, hpRegenRate);
+                        " cards=%s, player=%s, conditions=%s}",
+                randomUtils, random, getName(), getDescription(), health, sp, elements, cards, player, conditions);
     }
 
     public int getElementsFor(ElementType elementsType) {
@@ -333,7 +318,4 @@ public class Unit {
         }
     }
 
-    public void setHpRegenRate(int hpRegenRate) {
-        this.hpRegenRate = hpRegenRate;
-    }
 }

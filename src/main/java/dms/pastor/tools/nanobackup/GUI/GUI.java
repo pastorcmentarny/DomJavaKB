@@ -1183,6 +1183,7 @@ public class GUI extends javax.swing.JFrame {
         }
     }
 
+
     private boolean quickBackupMode(boolean activate) {
         if (activate) {
             LOGGER.debug("Activating quick backup mode.");

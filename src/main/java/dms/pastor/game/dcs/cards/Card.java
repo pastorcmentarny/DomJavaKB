@@ -1,5 +1,7 @@
 package dms.pastor.game.dcs.cards;
 
+import dms.pastor.game.dcs.Entity;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,10 +15,8 @@ import java.util.List;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 @SuppressWarnings("AbstractClassWithoutAbstractMethods") // Class is abstract to prevent init
-public abstract class Card {
+public abstract class Card extends Entity {
 
-    protected String name;
-    private String description = "No description";
     private CardType cardType;
 
     public static List<Card> getAllCardsFor(CardType type, List<Card> cards) {
@@ -33,22 +33,6 @@ public abstract class Card {
 
     private static boolean isCardListNotEmpty(List<Card> cards) {
         return cards != null && !cards.isEmpty();
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    protected void setName(String name) {
-        this.name = name;
-    }
-
-    protected String getDescription() {
-        return description;
-    }
-
-    protected void setDescription(String description) {
-        this.description = description;
     }
 
     protected CardType getCardType() {

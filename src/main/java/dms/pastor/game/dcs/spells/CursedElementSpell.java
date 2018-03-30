@@ -15,13 +15,13 @@ import dms.pastor.game.dcs.units.Unit;
 public class CursedElementSpell extends Spell {
 
     public CursedElementSpell() {
-        name = "Cursed Element Missile";
+        setName("Cursed Element Missile");
         setElements(new Elements(2, 2, 1, 2));
     }
 
     @Override
     public void castSpell(Unit attacker, Unit defender) {
-        castSpellMessage(attacker.getName(), name, defender.getName());
+        castSpellMessage(attacker.getName(), getName(), defender.getName());
         defender.getElements().getAndUseRandomElements();
         final int dmg = defender.getElements().getAndUseRandomElements();
         attacker.doesDamageTo(defender, dmg);
