@@ -43,10 +43,10 @@ public final class VampireTest {
         // given
         Vampire vampire = new Vampire();
 
-        vampire.setElementsFor(AIR, 6);
-        vampire.setElementsFor(EARTH, 6);
-        vampire.setElementsFor(FIRE, 6);
-        vampire.setElementsFor(WATER, 3);
+        vampire.getElements().setElementsFor(AIR, 6);
+        vampire.getElements().setElementsFor(EARTH, 6);
+        vampire.getElements().setElementsFor(FIRE, 6);
+        vampire.getElements().setElementsFor(WATER, 3);
 
         Unit enemy = unitBuilder()
                 .withoutShield()

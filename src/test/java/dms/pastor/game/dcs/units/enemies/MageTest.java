@@ -1,5 +1,6 @@
 package dms.pastor.game.dcs.units.enemies;
 
+import dms.pastor.game.dcs.Elements;
 import dms.pastor.game.dcs.spells.CreateShieldSpell;
 import dms.pastor.game.dcs.spells.ShieldRecoverySpell;
 import dms.pastor.game.dcs.units.Unit;
@@ -48,8 +49,8 @@ public class MageTest {
         // given
         Unit mage = new Mage();
         mage.setSp(0);
-        mage.setElementsFor(EARTH, 2);
-        mage.setElementsFor(WATER, 2);
+        mage.getElements().setElementsFor(EARTH, 2);
+        mage.getElements().setElementsFor(WATER, 2);
 
         // verify
         assertThat(mage.isShielded()).isFalse();
@@ -68,10 +69,11 @@ public class MageTest {
         Unit mage = new Mage();
         final int lowSp = mage.getSp() / 4;
         mage.setSp(lowSp);
-        mage.setElementsFor(AIR, 10);
-        mage.setElementsFor(EARTH, 5);
-        mage.setElementsFor(FIRE, 5);
-        mage.setElementsFor(WATER, 10);
+        final Elements elements = mage.getElements();
+        elements.setElementsFor(AIR, 10);
+        elements.setElementsFor(EARTH, 5);
+        elements.setElementsFor(FIRE, 5);
+        elements.setElementsFor(WATER, 10);
 
         // verify
         assertThat(mage.isShielded()).isTrue();

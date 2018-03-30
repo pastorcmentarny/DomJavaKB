@@ -65,10 +65,11 @@ public class FireElement extends Unit {
 
     private void convertToFireElementFrom(ElementType type) {
         final int elementsNeeded = 3;
-        if (getElementsFor(type) >= elementsNeeded) {
-            int elementToAdd = getElementsFor(type) / elementsNeeded;
+        final int elements = getElements().getElementsFor(type);
+        if (elements >= elementsNeeded) {
+            int elementToAdd = elements / elementsNeeded;
             System.out.println("Morphing " + type.name().toLowerCase() + " elements into " + elementToAdd + " fire elements.");
-            setElementsFor(type, getElementsFor(type) % elementsNeeded);
+            getElements().setElementsFor(type, elements % elementsNeeded);
         }
     }
 }

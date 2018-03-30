@@ -90,6 +90,47 @@ public class Elements {
         return stringBuilder.toString().trim();
     }
 
+    public int getElementsFor(ElementType elementsType) {
+        if (elementsType == null) {
+            LOGGER.warn("getElementsFor method was passed with null.");
+            return 0;
+        }
+
+        switch (elementsType) {
+            case AIR:
+                return getAir();
+            case EARTH:
+                return getEarth();
+            case FIRE:
+                return getFire();
+            case WATER:
+                return getWater();
+            default:
+                LOGGER.warn("getElementsFor method is not implemented for " + elementsType);
+                return 0;
+        }
+    }
+
+    public void setElementsFor(ElementType elementsType, int number) {
+        switch (elementsType) {
+            case AIR:
+                setAir(number);
+                break;
+            case EARTH:
+                setEarth(number);
+                break;
+            case FIRE:
+                setFire(number);
+                break;
+            case WATER:
+                setWater(number);
+                break;
+            default:
+                LOGGER.warn("getElementsFor method is not implemented for " + elementsType + " with number of elements equals to " + number);
+                break;
+        }
+    }
+
     private String getElementName(ElementType elementType) {
         return getStringWithCapitalizedFirstCharacter(elementType.name());
     }
@@ -205,20 +246,6 @@ public class Elements {
         return air + earth + fire + water;
     }
 
-    int getElementsFor(ElementType elementType) {
-        switch (elementType) {
-            case AIR:
-                return air;
-            case EARTH:
-                return earth;
-            case FIRE:
-                return fire;
-            case WATER:
-                return water;
-            default:
-                throw new SomethingWentWrongException("No implementation for " + elementType);
-        }
-    }
 
     public int useElement(ElementType elementType, int number) {
         switch (elementType) {

@@ -4,7 +4,6 @@ import dms.pastor.game.dcs.Elements;
 import dms.pastor.game.dcs.Entity;
 import dms.pastor.game.dcs.cards.Card;
 import dms.pastor.game.dcs.conditions.Condition;
-import dms.pastor.game.dcs.conditions.ElementType;
 import dms.pastor.game.dcs.utils.CLI;
 import dms.pastor.game.dcs.utils.random.InGameRandomUtils;
 import dms.pastor.game.dcs.utils.random.RandomUtils;
@@ -61,10 +60,6 @@ public class Unit extends Entity {
         return health;
     }
 
-    public void setHealth(Health health) {
-        this.health = health;
-    }
-
     public boolean isAlive() {
         return getHealth().getHp() > 0;
     }
@@ -73,11 +68,9 @@ public class Unit extends Entity {
         return !isAlive();
     }
 
-
     void setPlayer() {
         this.player = true;
     }
-
 
     public void setCards(List<Card> cards) {
         this.cards = cards;
@@ -162,10 +155,6 @@ public class Unit extends Entity {
         getHealth().setHp(hp);
     }
 
-    protected int getMaxHp() {
-        return getHealth().getMaxHp();
-    }
-
     public void setMaxHp(int maxHp) {
         getHealth().setMaxHp(maxHp);
     }
@@ -248,8 +237,6 @@ public class Unit extends Entity {
         }
     }
 
-
-
     public void shieldRegen(int regenShieldPoints) {
         if (isShielded()) {
             sp += regenShieldPoints;
@@ -275,47 +262,6 @@ public class Unit extends Entity {
         return format("Unit{randomUtils=%s, random=%s, name='%s', description='%s', health=%s, sp=%d, elements=%s," +
                         " cards=%s, player=%s, conditions=%s}",
                 randomUtils, random, getName(), getDescription(), health, sp, elements, cards, player, conditions);
-    }
-
-    public int getElementsFor(ElementType elementsType) {
-        if (elementsType == null) {
-            LOGGER.warn("getElementsFor method was passed with null.");
-            return 0;
-        }
-
-        switch (elementsType) {
-            case AIR:
-                return elements.getAir();
-            case EARTH:
-                return elements.getEarth();
-            case FIRE:
-                return elements.getFire();
-            case WATER:
-                return elements.getWater();
-            default:
-                LOGGER.warn("getElementsFor method is not implemented for " + elementsType);
-                return 0;
-        }
-    }
-
-    public void setElementsFor(ElementType elementsType, int number) {
-        switch (elementsType) {
-            case AIR:
-                elements.setAir(number);
-                break;
-            case EARTH:
-                elements.setEarth(number);
-                break;
-            case FIRE:
-                elements.setFire(number);
-                break;
-            case WATER:
-                elements.setWater(number);
-                break;
-            default:
-                LOGGER.warn("getElementsFor method is not implemented for " + elementsType + " with number of elements equals to " + number);
-                break;
-        }
     }
 
 }

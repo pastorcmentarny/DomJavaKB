@@ -179,7 +179,7 @@ public class UnitTest {
                 .build();
 
         // when
-        final int elements = unit.getElementsFor(AIR);
+        final int elements = unit.getElements().getElementsFor(AIR);
 
         // then
         assertThat(elements).isEqualTo(airElements);
@@ -197,7 +197,7 @@ public class UnitTest {
                 .build();
 
         // when
-        final int elements = unit.getElementsFor(EARTH);
+        final int elements = unit.getElements().getElementsFor(EARTH);
 
         // then
         assertThat(elements).isEqualTo(earthElements);
@@ -215,7 +215,7 @@ public class UnitTest {
                 .build();
 
         // when
-        final int elements = unit.getElementsFor(FIRE);
+        final int elements = unit.getElements().getElementsFor(FIRE);
 
         // then
         assertThat(elements).isEqualTo(fireElements);
@@ -233,7 +233,7 @@ public class UnitTest {
                 .build();
 
         // when
-        final int elements = unit.getElementsFor(WATER);
+        final int elements = unit.getElements().getElementsFor(WATER);
 
         // then
         assertThat(elements).isEqualTo(waterElements);
@@ -247,7 +247,7 @@ public class UnitTest {
                 .build();
 
         // when
-        final int elements = unit.getElementsFor(null);
+        final int elements = unit.getElements().getElementsFor(null);
 
         // then
         assertThat(elements).isZero();
@@ -264,7 +264,7 @@ public class UnitTest {
                 .build();
 
         // when
-        unit.setElementsFor(AIR, DEFAULT_NUMBER_OF_ELEMENTS);
+        unit.getElements().setElementsFor(AIR, DEFAULT_NUMBER_OF_ELEMENTS);
 
         // then
         assertThat(unit.getElements().getAir()).isEqualTo(DEFAULT_NUMBER_OF_ELEMENTS);
@@ -280,7 +280,7 @@ public class UnitTest {
                 .build();
 
         // when
-        unit.setElementsFor(EARTH, DEFAULT_NUMBER_OF_ELEMENTS);
+        unit.getElements().setElementsFor(EARTH, DEFAULT_NUMBER_OF_ELEMENTS);
 
         // then
         assertThat(unit.getElements().getEarth()).isEqualTo(DEFAULT_NUMBER_OF_ELEMENTS);
@@ -296,7 +296,7 @@ public class UnitTest {
                 .build();
 
         // when
-        unit.setElementsFor(FIRE, DEFAULT_NUMBER_OF_ELEMENTS);
+        unit.getElements().setElementsFor(FIRE, DEFAULT_NUMBER_OF_ELEMENTS);
 
         // then
         assertThat(unit.getElements().getFire()).isEqualTo(DEFAULT_NUMBER_OF_ELEMENTS);
@@ -312,7 +312,7 @@ public class UnitTest {
                 .build();
 
         // when
-        unit.setElementsFor(WATER, DEFAULT_NUMBER_OF_ELEMENTS);
+        unit.getElements().setElementsFor(WATER, DEFAULT_NUMBER_OF_ELEMENTS);
 
         // then
         assertThat(unit.getElements().getWater()).isEqualTo(DEFAULT_NUMBER_OF_ELEMENTS);
