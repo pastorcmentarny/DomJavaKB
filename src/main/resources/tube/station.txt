@@ -35,7 +35,7 @@ Caledonian Road;;X;;none;;none;;none;;none
 Camden Town;;P;;none;;2017-05-26;;none;;none
 Canada Water;;P;;none;;2017-02-11;;none;;none
 Canary Wharf;;P;;none;;2017-02-11;;none;;none
-Canning Town;;V;;none;;2017-02-11;;2017-02-11;;none
+Canning Town;;V;;none;;2017-02-11;;2017-02-11;;2018-03-30
 Cannon Street;;V;;none;;2017-02-02;;2017-07-06;;none
 Canons Park;;X;;none;;none;;none;;none
 Chalfont & Latimer;;P;;none;;2017-06-25;;none;;none
@@ -217,9 +217,8 @@ Stanmore;;X;;none;;none;;none;;none
 Stepney Green;;X;;none;;none;;none;;none
 Stockwell;;P;;none;;2017-11-01;;none;;none
 Stonebridge Park;;P;;none;;2017-06-19;;none;;none
-Stratford;;V;;none;;2017-05-09;;2017-05-09;;none
+Stratford;;V;;none;;2017-05-09;;2017-05-09;;2018-03-30
 Sudbury Hill;;P;;none;;2017-06-10;;none;;none
-Harrow;;X;;none;;none;;none;;none
 Sudbury Town;;P;;none;;2017-06-10;;none;;none
 Ealing;;X;;none;;none;;none;;none
 Swiss Cottage;;V;;none;;2017-10-30;;2017-03-15;;none
@@ -245,7 +244,7 @@ Walthamstow Wanstead;;X;;none;;none;;none;;none
 Warren Street;;P;;none;;2017-11-19;;none;;none
 Warwick Avenue;;P;;none;;2017-06-19;;none;;none
 Waterloo;;P;;none;;2017-02-11;;none;;none
-Watford;;X;;none;;none;;none;;none
+Watford;;V;;none;;2018-04-06;;2018-04-06;;2018-02-16
 Wembley Central;;V;;none;;2017-06-19;;none;;none
 Wembley Park;;V;;none;;2017-01-03;;2017-02-06;;none
 West Acton;;X;;none;;none;;none;;none
