@@ -41,7 +41,7 @@ public final class ToStringUtils {
         return stringBuilder.toString().substring(0, stringBuilder.length() - 1);
     }
 
-    private static Consumer<String> addToStringBuilder(StringBuilder stringBuilder, char character) {
+    private static Consumer<String> addToStringBuilder(StringBuilder stringBuilder, String character) {
         return line -> stringBuilder.append(line).append(character);
     }
 

@@ -5,6 +5,7 @@ import dms.pastor.game.dcs.units.enemies.*;
 import org.junit.Test;
 
 //TODO generator for all possible 1 vs 1
+@SuppressWarnings("ClassWithTooManyMethods")
 public final class UnitVsUnitBattleSimulationTest {
 
     @Test

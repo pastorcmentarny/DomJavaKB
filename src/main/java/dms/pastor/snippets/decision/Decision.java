@@ -11,7 +11,7 @@ package dms.pastor.snippets.decision;
  * tag-decision
  */
 public interface Decision {
-    boolean isPassed = false;
+    boolean IS_PASSED = false;
 
     String getReasons(String[] reasons);
 

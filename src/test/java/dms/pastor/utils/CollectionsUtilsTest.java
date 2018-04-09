@@ -86,7 +86,7 @@ public class CollectionsUtilsTest {
         Assert.assertThat(isEmpty, is(true));
     }
 
-    @Test //FIXME assert in loop
+    @Test
     public void isStringArrayEmptyShouldReturnTrueForNonEmptyArrayTest() {
         // given
         Random random = new Random();
@@ -98,9 +98,7 @@ public class CollectionsUtilsTest {
 
         // then
         assertThat(isEmpty).isFalse();
-        for (String element : array) {
-            assertThat(isStringBlank(element)).isFalse();
-        }
+        Arrays.stream(array).forEach(element -> assertThat(isStringBlank(element)).isFalse());
     }
 
     @SuppressWarnings("ConstantConditions") //as it is part of test

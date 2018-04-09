@@ -1,6 +1,5 @@
 package dms.pastor.tasks.exercises.numbers;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static dms.pastor.tasks.exercises.numbers.MultiplicationExercise.generateMultiplicationSquareTable;
@@ -27,11 +26,10 @@ public class MultiplicationExerciseTest {
         assertThat(result).isEmpty();
     }
 
-    @Ignore // need to fix new line problem
     @Test
     public void shouldReturnMultiplicationSquareTableTest() {
         // given
-        final String expectedResult = "\n    1    2    3    4    5" + lineSeparator() +
+        final String expectedResult = "    1    2    3    4    5" + lineSeparator() +
                 "    2    4    6    8   10" + lineSeparator() +
                 "    3    6    9   12   15" + lineSeparator() +
                 "    4    8   12   16   20" + lineSeparator() +

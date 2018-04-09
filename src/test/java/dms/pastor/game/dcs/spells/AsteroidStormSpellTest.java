@@ -1,12 +1,16 @@
 package dms.pastor.game.dcs.spells;
 
 import dms.pastor.game.dcs.units.Unit;
-import org.junit.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.util.stream.IntStream;
 
 import static dms.pastor.game.dcs.units.enemies.builders.UnitBuilder.unitBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -41,8 +45,8 @@ public class AsteroidStormSpellTest {
         System.setOut(original);
     }
 
-    @Ignore // Expecting: <100>  to be less than: <100>
-    @Test //TODO investigate failure of this test on 11.10'2017 ? Flaky ?
+
+    @Test
     public void castAsteroidStormShouldCauseDamageToUnit() {
         // given
         final int initHp = 100;
@@ -52,14 +56,13 @@ public class AsteroidStormSpellTest {
                 .build();
 
         // when
-        asteroidStormSpell.castSpell(unit, unit);
+        IntStream.rangeClosed(1, 10).forEach(it -> asteroidStormSpell.castSpell(unit, unit));
 
         // then
         assertThat(unit.getHp()).isLessThan(initHp);
     }
 
-    @Ignore
-    @Test //TODO improve this test as it does too much
+    @Test
     public void castAsteroidStormShouldHitAtLeastOnceUnitOneUnitTwoAndMissOnce() {
         // given
         final int initHp = 1000;
@@ -75,9 +78,7 @@ public class AsteroidStormSpellTest {
                 .build();
 
         // when
-        for (int i = 0; i < NUMBER_OF_TIMES_TO_CAST_SPELL; i++) {
-            asteroidStormSpell.castSpell(unit1, unit2);
-        }
+        IntStream.rangeClosed(1, 20).forEach(it -> asteroidStormSpell.castSpell(unit1, unit2));
 
         // then
         assertThat(unit1.getHp()).isLessThan(initHp);

@@ -92,12 +92,12 @@ public class StateTest {
         final String pixel = "X";
         image.setPixel(width, height, pixel);
 
-        final String expectedImage = "Image{width=8, height=6, image=Xnullnullnullnullnullnullnull\n" +
-                "nullnullnullnullnullnullnullnull\n" +
-                "nullnullnullnullnullnullnullnull\n" +
-                "nullnullnullnullnullnullnullnull\n" +
-                "nullnullnullnullnullnullnullnull\n" +
-                "nullnullnullnullnullnullnullnull\n" +
+        final String expectedImage = "Image{width=8, height=6, image=Xnullnullnullnullnullnullnull" + System.lineSeparator() +
+                "nullnullnullnullnullnullnullnull" + System.lineSeparator() +
+                "nullnullnullnullnullnullnullnull" + System.lineSeparator() +
+                "nullnullnullnullnullnullnullnull" + System.lineSeparator() +
+                "nullnullnullnullnullnullnullnull" + System.lineSeparator() +
+                "nullnullnullnullnullnullnullnull" + System.lineSeparator() +
                 "}";
 
         // when

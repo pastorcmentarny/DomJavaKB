@@ -79,12 +79,12 @@ public class CanvasTest {
         final int width = 6;
         final Canvas canvas = createCanvasFor(width, DEFAULT_HEIGHT);
         final String expectedImage =
-                "--------\n" +
-                        "|      |\n" +
-                        "|      |\n" +
-                        "|      |\n" +
-                        "|      |\n" +
-                        "--------\n";
+                "--------" + System.lineSeparator() +
+                        "|      |" + System.lineSeparator() +
+                        "|      |" + System.lineSeparator() +
+                        "|      |" + System.lineSeparator() +
+                        "|      |" + System.lineSeparator() +
+                        "--------" + System.lineSeparator();
 
         // when
         final String image = canvas.getCanvasAsString();
@@ -100,11 +100,11 @@ public class CanvasTest {
         final int height = 3;
         final Canvas canvas = createCanvasFor(width, height);
         final String expectedImage =
-                "----\n" +
-                        "|  |\n" +
-                        "|  |\n" +
-                        "|  |\n" +
-                        "----\n";
+                "----" + System.lineSeparator() +
+                        "|  |" + System.lineSeparator() +
+                        "|  |" + System.lineSeparator() +
+                        "|  |" + System.lineSeparator() +
+                        "----" + System.lineSeparator();
 
         // when
         final String image = canvas.getCanvasAsString();
@@ -120,9 +120,9 @@ public class CanvasTest {
         final int height = 1;
         final Canvas canvas = createCanvasFor(width, height);
         final String expectedImage =
-                "---\n" +
-                        "| |\n" +
-                        "---\n";
+                "---" + System.lineSeparator() +
+                        "| |" + System.lineSeparator() +
+                        "---" + System.lineSeparator();
         // when
         final String image = canvas.getCanvasAsString();
 
@@ -137,13 +137,13 @@ public class CanvasTest {
         final int height = 5;
         final Canvas canvas = createCanvasFor(width, height);
         final String expectedImage =
-                "-------\n" +
-                        "|     |\n" +
-                        "|     |\n" +
-                        "|     |\n" +
-                        "|     |\n" +
-                        "|     |\n" +
-                        "-------\n";
+                "-------" + System.lineSeparator() +
+                        "|     |" + System.lineSeparator() +
+                        "|     |" + System.lineSeparator() +
+                        "|     |" + System.lineSeparator() +
+                        "|     |" + System.lineSeparator() +
+                        "|     |" + System.lineSeparator() +
+                        "-------" + System.lineSeparator();
         // when
         final String image = canvas.getCanvasAsString();
 
@@ -327,11 +327,11 @@ public class CanvasTest {
         final String result = canvas.getCanvasAsString();
         // then
         assertThat(result).isEqualTo(
-                "-----\n" +
-                        "|DOM|\n" +
-                        "|  I|\n" +
-                        "|KIN|\n" +
-                        "-----\n"
+                "-----" + System.lineSeparator() +
+                        "|DOM|" + System.lineSeparator() +
+                        "|  I|" + System.lineSeparator() +
+                        "|KIN|" + System.lineSeparator() +
+                        "-----" + System.lineSeparator()
         );
     }
 

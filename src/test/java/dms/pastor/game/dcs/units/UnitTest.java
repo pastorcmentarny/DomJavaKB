@@ -362,7 +362,7 @@ public class UnitTest {
         assertThat(unit.getSp()).isZero();
     }
 
-    @Test //TODO failed once add
+    @Test //TODO flake test. fix it
     public void increaseHpPerTurnShouldIncreaseHpIfIsBelowMaxHp() {
         // given
         final int regenHpRate = 2;

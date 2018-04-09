@@ -3,7 +3,6 @@ package dms.pastor.utils;
 import dms.pastor.domain.ExampleObject;
 import dms.pastor.domain.exception.SomethingWentTerribleWrongError;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -163,15 +162,14 @@ public class ValidatorUtilsTest {
         validateTwoIntsNotEqual(number1, number2);
     }
 
-    @Test //TODO fix test hang up (infinitive loop ?
-    @Ignore //Need to fixed
+    @Test
     public void twoIntsNotEqualShouldPassWhenBothIntsAreNotEqual() {
         // given
         int number1 = randomPositiveInteger(9);
         int number2 = randomIntegerExcluding(0, 10, new int[]{number1});
 
         // debug info
-        LOGGER.debug(":) " + number1 + " and " + number2);
+        LOGGER.debug(String.format("Number1: %d and Number2: %d", number1, number2));
 
         // when
         validateTwoIntsNotEqual(number1, number2);

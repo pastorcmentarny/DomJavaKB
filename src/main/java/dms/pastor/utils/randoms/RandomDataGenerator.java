@@ -201,16 +201,19 @@ public final class RandomDataGenerator {
         return RANDOM.nextInt(maxValue);
     }
 
+    //TODO need improve .. for example check there are more numbers
     public static int randomIntegerExcluding(int min, int max, int[] numbers) {
         validateIfValuesIsInRange(min, max, numbers);
         int randomNumber = randomInteger(min, max);
         boolean repeat = true;
         while (repeat) {
-            repeat = false;
             for (int number : numbers) {
                 if (randomNumber == number) {
                     repeat = true;
                     break;
+                } else {
+                    repeat = false;
+                    randomNumber = randomInteger(min, max);
                 }
             }
         }

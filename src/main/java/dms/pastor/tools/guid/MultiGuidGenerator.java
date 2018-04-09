@@ -15,6 +15,9 @@ import static java.util.UUID.randomUUID;
  */
 public final class MultiGuidGenerator {
 
+    private MultiGuidGenerator() {
+    }
+
     @SuppressWarnings("ConstantConditions")
     public static void main(String[] args) {
         int quantity = 2; // SET quantity

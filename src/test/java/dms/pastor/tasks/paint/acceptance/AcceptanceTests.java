@@ -31,11 +31,11 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class AcceptanceTests {
 
-    private static final String EMPTY_CANVAS = "----------------------\n" +
-            "|                    |\n" +
-            "|                    |\n" +
-            "|                    |\n" +
-            "|                    |\n" +
+    private static final String EMPTY_CANVAS = "----------------------" + System.lineSeparator() +
+            "|                    |" + System.lineSeparator() +
+            "|                    |" + System.lineSeparator() +
+            "|                    |" + System.lineSeparator() +
+            "|                    |" + System.lineSeparator() +
             "----------------------";
 
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
@@ -86,12 +86,12 @@ public class AcceptanceTests {
 
         // then
         assertThat(outputStream.toString()).contains(
-                "----------------------\n" +
-                        "|                    |\n" +
-                        "|xxxxxx              |\n" +
-                        "|     x              |\n" +
-                        "|     x              |\n" +
-                        "----------------------\n");
+                "----------------------" + System.lineSeparator() +
+                        "|                    |" + System.lineSeparator() +
+                        "|xxxxxx              |" + System.lineSeparator() +
+                        "|     x              |" + System.lineSeparator() +
+                        "|     x              |" + System.lineSeparator() +
+                        "----------------------" + System.lineSeparator());
     }
 
     @Test
@@ -110,12 +110,12 @@ public class AcceptanceTests {
 
         // then
         assertThat(outputStream.toString()).contains(
-                "----------------------\n" +
-                        "|               xxxxx|\n" +
-                        "|xxxxxx         x   x|\n" +
-                        "|     x         xxxxx|\n" +
-                        "|     x              |\n" +
-                        "----------------------\n");
+                "----------------------" + System.lineSeparator() +
+                        "|               xxxxx|" + System.lineSeparator() +
+                        "|xxxxxx         x   x|" + System.lineSeparator() +
+                        "|     x         xxxxx|" + System.lineSeparator() +
+                        "|     x              |" + System.lineSeparator() +
+                        "----------------------" + System.lineSeparator());
     }
 
     @Test
@@ -135,11 +135,11 @@ public class AcceptanceTests {
 
         // then
         assertThat(outputStream.toString()).contains(
-                "----------------------\n" +
-                        "|oooooooooooooooxxxxx|\n" +
-                        "|xxxxxxooooooooox   x|\n" +
-                        "|     xoooooooooxxxxx|\n" +
-                        "|     xoooooooooooooo|\n" +
+                "----------------------" + System.lineSeparator() +
+                        "|oooooooooooooooxxxxx|" + System.lineSeparator() +
+                        "|xxxxxxooooooooox   x|" + System.lineSeparator() +
+                        "|     xoooooooooxxxxx|" + System.lineSeparator() +
+                        "|     xoooooooooooooo|" + System.lineSeparator() +
                         "----------------------");
     }
 
@@ -170,12 +170,12 @@ public class AcceptanceTests {
         commandLineUI.runApplication();
 
         // then
-        assertThat(outputStream.toString()).contains("----------------------\n" +
-                "|                    |\n" +
-                "| ooooooooo          |\n" +
-                "| ooooooooo          |\n" +
-                "|                    |\n" +
-                "----------------------\n");
+        assertThat(outputStream.toString()).contains("----------------------" + System.lineSeparator() +
+                "|                    |" + System.lineSeparator() +
+                "| ooooooooo          |" + System.lineSeparator() +
+                "| ooooooooo          |" + System.lineSeparator() +
+                "|                    |" + System.lineSeparator() +
+                "----------------------" + System.lineSeparator());
     }
 
     @Test
@@ -213,12 +213,12 @@ public class AcceptanceTests {
 
         // then
         assertThat(outputStream.toString()).contains("Enter command:Q" + System.lineSeparator() +
-                "----------------------\n" +
-                "|xxx                 |\n" +
-                "| xxx                |\n" +
-                "|                    |\n" +
-                "|                    |\n" +
-                "----------------------\n"
+                "----------------------" + System.lineSeparator() +
+                "|xxx                 |" + System.lineSeparator() +
+                "| xxx                |" + System.lineSeparator() +
+                "|                    |" + System.lineSeparator() +
+                "|                    |" + System.lineSeparator() +
+                "----------------------" + System.lineSeparator()
         );
 
     }
@@ -248,12 +248,12 @@ public class AcceptanceTests {
 
         // then
         assertThat(outputStream.toString()).contains("Enter command:Q" + System.lineSeparator() +
-                "----------------------\n" +
-                "|xxx                 |\n" +
-                "| xxx                |\n" +
-                "| x x                |\n" +
-                "| xxx                |\n" +
-                "----------------------\n"
+                "----------------------" + System.lineSeparator() +
+                "|xxx                 |" + System.lineSeparator() +
+                "| xxx                |" + System.lineSeparator() +
+                "| x x                |" + System.lineSeparator() +
+                "| xxx                |" + System.lineSeparator() +
+                "----------------------" + System.lineSeparator()
         );
 
     }
