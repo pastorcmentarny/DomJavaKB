@@ -3,6 +3,7 @@ package dms.pastor.tasks.paint.command;
 import dms.pastor.tasks.paint.canvas.Canvas;
 import org.junit.Test;
 
+import static java.lang.System.lineSeparator;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -229,12 +230,12 @@ public class CreateNewRectangleCommandTest extends AbstractCommandTest {
         // given
         final Canvas canvas = Canvas.createCanvasFor(SQUARE_WITH_LENGTH_4, SQUARE_WITH_LENGTH_4);
         createNewRectangleCommand.setParam(new String[]{CREATE_RECTANGLE_COMMAND, NOT_USED_MEDIUM_VALUE_AS_STRING, START_NUMBER, "4", END_NUMBER});
-        final String result = "------\n" +
-                "| xxx|\n" +
-                "| x x|\n" +
-                "| xxx|\n" +
-                "|    |\n" +
-                "------\n";
+        final String result = "------" + lineSeparator() +
+                "| xxx|" + lineSeparator() +
+                "| x x|" + lineSeparator() +
+                "| xxx|" + lineSeparator() +
+                "|    |" + lineSeparator() +
+                "------" + lineSeparator();
 
         // when
         createNewRectangleCommand.execute(canvas);

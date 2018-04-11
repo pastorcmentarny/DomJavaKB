@@ -5,10 +5,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.UUID;
+import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import static dms.pastor.tools.chinese.pinyin.PinyinUtils.getAllPinyinFromFirstToFourthToneWithoutNeutralTone;
@@ -201,21 +199,22 @@ public final class RandomDataGenerator {
         return RANDOM.nextInt(maxValue);
     }
 
-    //TODO need improve .. for example check there are more numbers
     public static int randomIntegerExcluding(int min, int max, int[] numbers) {
         validateIfValuesIsInRange(min, max, numbers);
+
         int randomNumber = randomInteger(min, max);
         boolean repeat = true;
         while (repeat) {
-            for (int number : numbers) {
-                if (randomNumber == number) {
-                    repeat = true;
-                    break;
-                } else {
-                    repeat = false;
-                    randomNumber = randomInteger(min, max);
-                }
+            int numberToCheck = randomNumber;
+            repeat = Arrays.stream(numbers)
+                    .boxed()
+                    .collect(Collectors.toList())
+                    .stream()
+                    .anyMatch(number -> numberToCheck == number);
+            if (repeat) {
+                randomNumber = randomInteger(min, max);
             }
+
         }
         return randomNumber;
     }

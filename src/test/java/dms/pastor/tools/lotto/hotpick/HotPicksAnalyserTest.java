@@ -13,6 +13,7 @@ import java.util.Optional;
 import static dms.pastor.tools.lotto.BallCount.createForSingleNumberWithCount;
 import static dms.pastor.tools.lotto.hotpick.HotPickDrawBuilder.hotPickDrawBuilder;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
+import static java.lang.System.lineSeparator;
 import static java.time.LocalDate.now;
 import static org.assertj.core.api.Java6Assertions.assertThat;
 
@@ -112,7 +113,7 @@ public class HotPicksAnalyserTest {
         // given
         List<HotPickDraw> hotPickDrawList = new ArrayList<>();
         hotPickDrawList.add(HOT_PICK_DRAW_1);
-        String expectedResult = "1: 1\n2: 1\n3: 1\n4: 1\n5: 1\n6: 1\n";
+        String expectedResult = "1: 1" + lineSeparator() + "2: 1" + lineSeparator() + "3: 1" + lineSeparator() + "4: 1" + lineSeparator() + "5: 1" + lineSeparator() + "6: 1" + lineSeparator() + "";
         hotPicksAnalyser = new HotPicksAnalyser(hotPickDrawList);
 
         // when

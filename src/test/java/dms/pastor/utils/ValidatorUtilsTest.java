@@ -10,8 +10,8 @@ import org.junit.rules.Timeout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
 import java.math.BigDecimal;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -582,8 +582,12 @@ public class ValidatorUtilsTest {
     @Test
     public void shouldValidateIfPathExists() {
         // given
-        final String path = BASE_PATH + File.separator + "example.txt";
+        final String path = BASE_PATH + "example.txt";
 
+        // debug
+        System.out.println(Paths.get(".").toAbsolutePath().normalize().toString());
+        System.out.println(BASE_PATH);
+        System.out.println(path);
         // when
         validateIfPathExists(path);
 

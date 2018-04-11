@@ -4,6 +4,7 @@ import dms.pastor.tasks.paint.canvas.Canvas;
 import org.junit.Test;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+import static java.lang.System.lineSeparator;
 import static org.assertj.core.api.Assertions.assertThat;
 
 
@@ -302,12 +303,12 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
         // given
         final Canvas canvas = Canvas.createCanvasFor(4, 4);
         createNewLineCommand.setParam(new String[]{CREATE_LINE_COMMAND, "1", "1", "3", "1"});
-        final String result = "------\n" +
-                "|xxx |\n" +
-                "|    |\n" +
-                "|    |\n" +
-                "|    |\n" +
-                "------\n";
+        final String result = "------" + lineSeparator() +
+                "|xxx |" + lineSeparator() +
+                "|    |" + lineSeparator() +
+                "|    |" + lineSeparator() +
+                "|    |" + lineSeparator() +
+                "------" + lineSeparator();
 
         // when
         createNewLineCommand.execute(canvas);
@@ -321,12 +322,12 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
         // given
         final Canvas canvas = Canvas.createCanvasFor(4, 4);
         createNewLineCommand.setParam(new String[]{CREATE_LINE_COMMAND, "2", "1", "2", "3"});
-        final String result = "------\n" +
-                "| x  |\n" +
-                "| x  |\n" +
-                "| x  |\n" +
-                "|    |\n" +
-                "------\n";
+        final String result = "------" + lineSeparator() +
+                "| x  |" + lineSeparator() +
+                "| x  |" + lineSeparator() +
+                "| x  |" + lineSeparator() +
+                "|    |" + lineSeparator() +
+                "------" + lineSeparator();
 
         // when
         createNewLineCommand.execute(canvas);
