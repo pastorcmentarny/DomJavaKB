@@ -206,12 +206,12 @@ public class ValidatorUtilsTest {
         validateMinValueIsSmallerThanMaxValue(value, value);
     }
 
-    @Test //TODO fix java.lang.IllegalArgumentException: MinValue (7) must be lower than MaxValue(7) test fail
+    @Test
     public void validateMinValueIsSmallerThanMaxValueShouldBeValidatedWhenMinValueIsSmallerThanMaxValue() {
 
         // given
         int minValue = randomPositiveInteger(MAX_SMALL_VALUE_RANGE);
-        int maxValue = minValue + randomPositiveInteger(MAX_SMALL_VALUE_RANGE);
+        int maxValue = minValue + randomPositiveInteger(MAX_SMALL_VALUE_RANGE) + 1;
 
         // when
         validateMinValueIsSmallerThanMaxValue(minValue, maxValue);
