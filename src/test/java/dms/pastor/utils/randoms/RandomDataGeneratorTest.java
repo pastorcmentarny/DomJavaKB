@@ -321,8 +321,6 @@ public class RandomDataGeneratorTest {
 
     }
 
-    //TODO @Test public void randomIntegerExcludingShouldReturnUniqueNumber() throws Exception {
-    @Ignore
     @Test
     public void randomIntegerWithMinAndMaxValueShouldThrowExceptionWhenMinValueIsHigherThanMaxValue() {
         // given
@@ -331,7 +329,7 @@ public class RandomDataGeneratorTest {
 
         // expect
         exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("MinValue (" + minValue + ") must be lower than MaxValue(" + maxValue + ")");
+        exception.expectMessage("Value (" + minValue + ") must be lower or equals to than Other Value(" + maxValue + ")");
 
         // when
         randomInteger(minValue, maxValue);
