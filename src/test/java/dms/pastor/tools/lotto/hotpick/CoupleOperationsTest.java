@@ -1,6 +1,5 @@
 package dms.pastor.tools.lotto.hotpick;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.HashSet;
@@ -56,7 +55,6 @@ public class CoupleOperationsTest {
     }
 
     @Test
-    @Ignore //fix  issue
     public void removeAllCouplesThatDoNotContainsNumbersShouldRemove1CoupleThatDoNotContainsNumbers() {
         // given
         final Couple couple1 = coupleBuilder()
@@ -71,7 +69,7 @@ public class CoupleOperationsTest {
                 .smallerNumber(5)
                 .largerNumber(7)
                 .build();
-        Set<Couple> coupleSet = new HashSet<>(asList(couple1, couple2));
+        Set<Couple> coupleSet = new HashSet<>(asList(couple1, couple2, couple3));
 
         // when
         final Set<Couple> result = removeAllCouplesThatDoNotContainsNumbers(coupleSet, new int[]{4, 5, 6, 7});
