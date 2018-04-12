@@ -330,7 +330,7 @@ public class ValidatorUtilsTest {
     public void validatePositiveBigDecimalShouldThrowExceptionIfValueIsNegative() {
         // expect
         exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Value cannot be negative.");
+        exception.expectMessage("Value must be positive value.");
 
         // given
         BigDecimal value = new BigDecimal(1 + new Random().nextInt(MAX_SMALL_VALUE_RANGE)).negate();
@@ -355,7 +355,7 @@ public class ValidatorUtilsTest {
     public void validateIfPositiveNumberShouldThrowExceptionIfIntegerValueIsNegative() {
         // expect
         exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Value cannot be negative.");
+        exception.expectMessage("Value must be positive value.");
 
         // given
         final int negativeInteger = -1;
@@ -380,7 +380,7 @@ public class ValidatorUtilsTest {
     public void validateIfPositiveNumberShouldThrowExceptionIfIntegerValueWithCustomValueNameIsNegative() {
         // expect
         exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("CustomValueName cannot be negative.");
+        exception.expectMessage("CustomValueName must be positive value.");
 
         // given
         final int negativeInteger = -1;

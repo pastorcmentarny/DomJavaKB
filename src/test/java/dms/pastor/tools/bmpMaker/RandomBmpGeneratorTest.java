@@ -33,7 +33,7 @@ public class RandomBmpGeneratorTest {
     public void shouldThrowIllegalArgumentExceptionWhenWidthInputIsNegative() {
         // except
         exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Width cannot be negative.");
+        exception.expectMessage("Width must be positive value.");
 
         // given
         RandomBmpGenerator randomBmpGenerator = new RandomBmpGenerator(randomNegativeInteger(), randomPositiveInteger(), UNUSED_PATH);
@@ -46,7 +46,7 @@ public class RandomBmpGeneratorTest {
     public void shouldThrowIllegalArgumentExceptionWhenHeightInputIsNegative() {
         // except
         exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Height cannot be negative.");
+        exception.expectMessage("Height must be positive value.");
 
         // given
         RandomBmpGenerator randomBmpGenerator = new RandomBmpGenerator(randomPositiveInteger(), randomNegativeInteger(), UNUSED_PATH);

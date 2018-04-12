@@ -22,7 +22,7 @@ import static java.lang.String.format;
  */
 public final class ValidatorUtils {
 
-    private static final String ERROR_MESSAGE_VALUE_CANNOT_BE_NEGATIVE = " cannot be negative.";
+    private static final String ERROR_MESSAGE_VALUE_CANNOT_BE_NEGATIVE = " must be positive value.";
     private static final String DEFAULT_VALUE_NAME = "Value";
     private static final String INVALID_PATH = "Path to file is invalid.";
 

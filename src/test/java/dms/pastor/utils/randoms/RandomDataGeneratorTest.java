@@ -192,7 +192,7 @@ public class RandomDataGeneratorTest {
     public void shouldThrowIllegalArgumentExceptionForNegativeSizeTest() {
         // except
         exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Size cannot be negative.");
+        exception.expectMessage("Size must be positive value.");
 
         // when
         generateStringList(-1);
@@ -214,9 +214,11 @@ public class RandomDataGeneratorTest {
         }
     }
 
-    @Ignore
-    @Test //TODO improve it this rubbish
+    @Test
     public void generateStringListTest() {
+        // except
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("Size must be positive value.");
 
         // when
         final List<String> stringList = generateStringList(0);
@@ -229,7 +231,7 @@ public class RandomDataGeneratorTest {
     public void generateStringArrayShouldThrowIllegalArgumentExceptionForNegativeTest() {
         // except
         exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Size cannot be negative.");
+        exception.expectMessage("Size must be positive value.");
 
         // when
         generateArray(-1);
@@ -418,7 +420,7 @@ public class RandomDataGeneratorTest {
     public void generateWordsShouldThrowIllegalArgumentExceptionIfValueIsNegative() {
         // expect
         exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Value cannot be negative");
+        exception.expectMessage("Value must be positive value.");
 
         // when
         generateWords(-1);
