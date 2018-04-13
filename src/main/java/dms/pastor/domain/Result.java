@@ -12,18 +12,18 @@ import static dms.pastor.utils.StringUtils.getUnknownWhenNullString;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class Result {
+public class Result<T> {
 
     private boolean success;
     private String message;
-    private Object item;
+    private T item;
 
-    protected Result(boolean success, String message) {
+    public Result(boolean success, String message) {
         this.success = success;
         this.message = message;
     }
 
-    public Result(boolean success, String message, Object item) {
+    public Result(boolean success, String message, T item) {
         this.success = success;
         this.message = message;
         this.item = item;
@@ -31,10 +31,6 @@ public class Result {
 
     public static Result success(String message) {
         return new Result(true, message);
-    }
-
-    public static Result success(String message, Object item) {
-        return new Result(true, message, item);
     }
 
     public static Result success() {
@@ -73,7 +69,7 @@ public class Result {
         return item;
     }
 
-    public void setItem(Object item) {
+    public void setItem(T item) {
         this.item = item;
     }
 

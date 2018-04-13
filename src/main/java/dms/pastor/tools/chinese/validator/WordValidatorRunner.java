@@ -21,7 +21,6 @@ final class WordValidatorRunner {
     private static final Logger LOGGER = LoggerFactory.getLogger(WordValidatorRunner.class);
 
     //TODO improve it
-
     private static final String PATH = "D:\\GitHub\\LearningChineseGame\\res\\raw\\dictionary.txt";
 
     private WordValidatorRunner() {

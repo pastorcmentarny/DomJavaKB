@@ -48,7 +48,7 @@ class InMemoryDictionary {
 
     private void setWordListFromResult(List<Word> wordListAsObject) {
         if (Objects.nonNull(wordListAsObject)) {
-            wordsList = wordListAsObject;  //TODO improve it
+            wordsList = wordListAsObject;
         } else {
             dictionaryStatus = fail("Unable to retrieve word list.");
             LOGGER.error("Unable to retrieve word list.");

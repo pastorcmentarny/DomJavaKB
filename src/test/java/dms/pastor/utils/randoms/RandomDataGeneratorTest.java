@@ -274,7 +274,7 @@ public class RandomDataGeneratorTest {
         assertThat(stringList.size()).isGreaterThanOrEqualTo(4);
     }
 
-    @Test //TODO investigate as length was 6 that is not greater than 10
+    @Test
     public void shouldReturnParagraph() {
 
         // when

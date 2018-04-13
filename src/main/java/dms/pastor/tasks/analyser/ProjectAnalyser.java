@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 
@@ -127,20 +128,20 @@ class ProjectAnalyser {
 
     }
 
-    //TODO remove 1 highest and 1 smallest
     private int calculateAverageWidth() {
-        final int sum = averageWidth
-                .stream()
-                .mapToInt(width -> width)
-                .filter(width -> width > 0)
-                .sum();
-        return BigDecimal.valueOf(sum / averageWidth.size()).intValue();
+        int[] intStream = averageWidth.stream().mapToInt(width -> width).toArray();
+        final int max = IntStream.of(intStream).max().orElse(0);
+        final int min = IntStream.of(intStream).min().orElse(0);
+        final int sum = IntStream.of(intStream).filter(width -> width > 0).sum();
+        return BigDecimal.valueOf(sum - max - min / averageWidth.size() - 2).intValue();
     }
 
-    //TODO remove 1 highest and 1 smallest
     private int calculateAverageLinesPerFile() {
-        final int sum = averageLines.stream().mapToInt(width -> width).sum();
-        return BigDecimal.valueOf(sum / averageLines.size()).intValue();
+        int[] intStream = averageLines.stream().mapToInt(width -> width).toArray();
+        final int max = IntStream.of(intStream).max().orElse(0);
+        final int min = IntStream.of(intStream).min().orElse(0);
+        final int sum = IntStream.of(intStream).sum();
+        return BigDecimal.valueOf(sum - max - min / averageLines.size() - 2).intValue();
     }
 
     int getLinesOfCode() {

@@ -84,7 +84,7 @@ public class FromFileImporter implements Importer {
         } catch (ArrayIndexOutOfBoundsException aioobe) {
             return returnFailResultOnException("ArrayIndexOutOfBoundsException", nr, aioobe);
         }
-        return success(format("Dictionary loaded successfully.(Words loaded: %d, Ignored: %d)", wordsList.size(), ignored), wordsList);
+        return new Result<List<Word>>(true, format("Dictionary loaded successfully.(Words loaded: %d, Ignored: %d)", wordsList.size(), ignored), wordsList);
     }
 
     @SuppressWarnings("ProhibitedExceptionCaught") // Catch this exception to show error to user
@@ -154,7 +154,7 @@ public class FromFileImporter implements Importer {
         if (requestedCategories != null) {
             addWordIfExistsInRequestedCategories(requestedCategories, wordCategoriesList, word);
         } else {
-            add(word);
+            addWordToList(word);
         }
     }
 
@@ -167,13 +167,12 @@ public class FromFileImporter implements Importer {
     private void addWordIfExistInRequestedCategory(String[] wordCategoriesList, Word word, String requestedCategory) {
         for (String wordCategory : wordCategoriesList) {
             if (wordCategory.equals(requestedCategory)) {
-                add(word);
+                addWordToList(word);
             }
         }
     }
 
-    //TODO improve name
-    private void add(Word word) {
+    private void addWordToList(Word word) {
         wordsList.add(word);
         addLineNumber();
     }
