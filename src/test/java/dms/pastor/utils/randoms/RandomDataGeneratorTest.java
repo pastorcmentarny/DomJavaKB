@@ -116,50 +116,14 @@ public class RandomDataGeneratorTest {
         generateString(min, max);
     }
 
-    /*
-    java.lang.AssertionError: Expected test to throw (an instance of java.lang.IllegalArgumentException and exception with message a string containing "Value must be higher than zero and min value must be smaller is larger than max value")
-
-	at org.junit.Assert.fail(Assert.java:88)
-	at org.junit.rules.ExpectedException.failDueToMissingException(ExpectedException.java:263)
-	at org.junit.rules.ExpectedException.access$200(ExpectedException.java:106)
-	at org.junit.rules.ExpectedException$ExpectedExceptionStatement.evaluate(ExpectedException.java:245)
-	at org.junit.rules.RunRules.evaluate(RunRules.java:20)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.junit.runners.Suite.runChild(Suite.java:128)
-	at org.junit.runners.Suite.runChild(Suite.java:27)
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
-	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68)
-	at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:58)
-	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:237)
-	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:497)
-	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:147)
-     */
-    @Test //TODO FIX IT
+    @Test
     public void shouldThrowIllegalArgumentExceptionForNegativeMinValueTest() {
         // except
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("Value must be higher than zero and min value must be smaller is larger than max value");
 
         // when
-        final int negativeNumber = new BigDecimal(random.nextInt(RANDOM_STRING_LENGTH)).negate().intValue();
+        final int negativeNumber = new BigDecimal(random.nextInt(1 + RANDOM_STRING_LENGTH)).negate().intValue();
         generateString(negativeNumber, 4);
     }
 
