@@ -101,13 +101,13 @@ public class RandomDataGeneratorTest {
         assertThat(string.length()).isLessThanOrEqualTo(10);
     }
 
-    @Test //FIXME failed once on 1.9'2017. Added log so i can see error next time.
+    @Test
     public void shouldThrowIllegalArgumentExceptionWhenMinValueIsHigherThanMinForGenerateStringTest() {
         // except
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("Value must be higher than zero and min value must be smaller is larger than max value");
-        final int max = random.nextInt(RANDOM_STRING_LENGTH);
-        final int min = random.nextInt(RANDOM_STRING_LENGTH) + max;
+        final int max = random.nextInt(1 + RANDOM_STRING_LENGTH);
+        final int min = random.nextInt(1 + RANDOM_STRING_LENGTH) + max;
 
         // debug info
         LOGGER.info("Generated. Min:" + min + " Max:" + max);
