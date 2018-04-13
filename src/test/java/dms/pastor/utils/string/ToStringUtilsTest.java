@@ -1,6 +1,5 @@
 package dms.pastor.utils.string;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -44,7 +43,6 @@ public class ToStringUtilsTest {
 
     }
 
-    @Ignore //TODO fix new line problem // not implement yet and it is here due accidental middle of the night merge
     @Test
     public void linkedHashSetToStringShouldReturnLinkedHashSetAsString() {
         // given
@@ -58,7 +56,7 @@ public class ToStringUtilsTest {
         final String result = ToStringUtils.toString(characterSet);
 
         // then
-        assertThat(result).isEqualToIgnoringCase(stringOne + System.lineSeparator() + stringTwo);
+        assertThat(result).isEqualToIgnoringCase(stringOne + stringTwo);
 
     }
 

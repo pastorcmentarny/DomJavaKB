@@ -5,7 +5,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.function.Consumer;
 
-import static dms.pastor.utils.StringUtils.*;
+import static dms.pastor.utils.StringUtils.COMMA;
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 
 /**
  * Author Dominik Symonowicz
@@ -37,8 +38,8 @@ public final class ToStringUtils {
             return EMPTY_STRING;
         }
         StringBuilder stringBuilder = new StringBuilder(EMPTY_STRING);
-        lines.forEach(addToStringBuilder(stringBuilder, NEW_LINE));
-        return stringBuilder.toString().substring(0, stringBuilder.length() - 1);
+        lines.forEach(stringBuilder::append);
+        return stringBuilder.toString();
     }
 
     private static Consumer<String> addToStringBuilder(StringBuilder stringBuilder, String character) {
