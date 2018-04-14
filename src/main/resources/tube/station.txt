@@ -133,7 +133,7 @@ Latimer Road;;X;;none;;none;;none;;none
 Leicester Square;;X;;none;;none;;none;;none
 Leyton;;X;;none;;none;;none;;none
 Leytonstone;;X;;none;;none;;none;;none
-Liverpool Street;;P;;none;;2017-02-02;;none;;none
+Liverpool Street;;V;;none;;2017-02-02;;2018-04-14;;2018-04-14
 London Bridge;;P;;none;;2017-02-11;;none;;none
 Loughton;;X;;none;;none;;none;;none
 Maida Vale;;P;;none;;2017-06-19;;none;;none
