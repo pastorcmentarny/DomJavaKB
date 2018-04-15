@@ -84,7 +84,7 @@ public class FromFileImporter implements Importer {
         } catch (ArrayIndexOutOfBoundsException aioobe) {
             return returnFailResultOnException("ArrayIndexOutOfBoundsException", nr, aioobe);
         }
-        return new Result<List<Word>>(true, format("Dictionary loaded successfully.(Words loaded: %d, Ignored: %d)", wordsList.size(), ignored), wordsList);
+        return new Result<>(true, format("Dictionary loaded successfully.(Words loaded: %d, Ignored: %d)", wordsList.size(), ignored), wordsList);
     }
 
     @SuppressWarnings("ProhibitedExceptionCaught") // Catch this exception to show error to user

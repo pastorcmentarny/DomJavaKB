@@ -65,7 +65,7 @@ public class Result<T> {
         this.message = message;
     }
 
-    public Object getItem() {
+    public T getItem() {
         return item;
     }
 

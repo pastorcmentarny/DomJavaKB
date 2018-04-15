@@ -20,20 +20,19 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class DummyImporterTest {
 
-    @SuppressWarnings("unchecked")
     @Test
     public void importDictionaryShouldReturnResultWithDefaultWord() {
         // given
-        Importer importer = new DummyImporter();
+        Importer<List<Word>> importer = new DummyImporter();
 
         // when
-        final Result result = importer.importDictionary(generateString(), noCategories());
+        final Result<List<Word>> result = importer.importDictionary(generateString(), noCategories());
 
         // then
         assertThat(result.isSuccess()).isTrue();
         assertThat(result.getMessage()).isNotEmpty();
 
-        List<Word> dictionary = (List<Word>) result.getItem(); //TODO improve it
+        List<Word> dictionary = result.getItem();
         assertThat(dictionary.get(0)).isEqualTo(Word.defaultWord());
     }
 }

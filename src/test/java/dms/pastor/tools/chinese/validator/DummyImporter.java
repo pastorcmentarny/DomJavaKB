@@ -14,11 +14,11 @@ import java.util.List;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class DummyImporter implements Importer {
+public class DummyImporter implements Importer<List<Word>> {
     @Override
-    public Result importDictionary(String source, String[] requestedCategories) {
+    public Result<List<Word>> importDictionary(String source, String[] requestedCategories) {
         List<Word> wordList = new ArrayList<>();
         wordList.add(Word.defaultWord());
-        return new Result(true, "Dummy", wordList);
+        return new Result<>(true, "Dummy", wordList);
     }
 }

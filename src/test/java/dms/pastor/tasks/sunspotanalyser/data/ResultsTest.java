@@ -23,7 +23,7 @@ public class ResultsTest {
     @Test
     public void shouldCreateSuccessResultTest() {
         // when
-        result = Result.success();
+        result = Result.<Object>success();
 
         // then
         assertThat(result.isSuccess()).isTrue();
@@ -33,7 +33,7 @@ public class ResultsTest {
     @Test
     public void shouldCreateFailResultTest() {
         // when
-        result = Result.fail();
+        result = Result.<Object>fail();
 
         // then
         assertThat(result.isFail()).isTrue();
@@ -59,7 +59,7 @@ public class ResultsTest {
         final String message = generateString();
 
         // when
-        result = Result.fail(message);
+        result = Result.<String>fail(message);
 
         // then
         assertThat(result.isFail()).isTrue();
@@ -73,7 +73,7 @@ public class ResultsTest {
         final Object object = new Object();
 
         // when
-        result = new Result(true, message, object);
+        result = new Result<>(true, message, object);
 
         // then
         assertThat(result.isSuccess()).isTrue();
@@ -88,7 +88,7 @@ public class ResultsTest {
         final Object object = new Object();
 
         // when
-        result = new Result(false, message, object);
+        result = new Result<>(false, message, object);
 
         // then
         assertThat(result.isFail()).isTrue();
@@ -107,22 +107,21 @@ public class ResultsTest {
                 "\n}";
 
         // when
-        result = Result.fail();
-        result.setSuccess();
-        result.setMessage(null);
+        var resultWithMessage = Result.<String>fail();
+        resultWithMessage.setSuccess();
+        resultWithMessage.setMessage(null);
 
         // then
-        assertThat(result.getMessage()).isEqualTo("Unknown");
+        assertThat(resultWithMessage.getMessage()).isEqualTo("Unknown");
 
         // when
-        result.setMessage(test);
-        result.setItem(item);
+        resultWithMessage.setMessage(test);
+        resultWithMessage.setItem(item);
 
         // then
-        assertThat(result.getMessage()).isEqualTo(test);
-        assertThat(result.getItem()).isInstanceOf(String.class);
-        assertThat(result.toString()).isEqualTo(asString);
-
+        assertThat(resultWithMessage.getMessage()).isEqualTo(test);
+        assertThat(resultWithMessage.getItem()).isInstanceOf(String.class);
+        assertThat(resultWithMessage.toString()).isEqualTo(asString);
     }
 
     @Test
