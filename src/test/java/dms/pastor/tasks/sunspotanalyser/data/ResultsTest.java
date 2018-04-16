@@ -107,7 +107,7 @@ public class ResultsTest {
                 "\n}";
 
         // when
-        var resultWithMessage = Result.<String>fail();
+        Result<String> resultWithMessage = new Result<>(false, "Unknown", null);
         resultWithMessage.setSuccess();
         resultWithMessage.setMessage(null);
 
