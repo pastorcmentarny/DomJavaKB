@@ -26,7 +26,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SuppressWarnings("resource") // auto closable not essential
 public class AsteroidStormSpellTest {
 
-    private static final int NUMBER_OF_TIMES_TO_CAST_SPELL = 25;
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private final PrintStream original = System.out;
     private final AsteroidStormSpell asteroidStormSpell = new AsteroidStormSpell();

@@ -14,7 +14,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -75,7 +74,7 @@ public class FaqGUI extends javax.swing.JFrame {
         questionComboBox.setFont(DEFAULT_FONT);
         questionComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(questions));
         questionComboBox.setToolTipText("Place,where you can select question");
-        questionComboBox.addActionListener(this::questionComboBoxActionPerformed);
+        questionComboBox.addActionListener(evt -> questionComboBoxActionPerformed());
 
         jLabel1.setText("Choose question to see answer:");
 
@@ -109,7 +108,7 @@ public class FaqGUI extends javax.swing.JFrame {
         pack();
     }
 
-    private void questionComboBoxActionPerformed(ActionEvent evt) {//GEN-FIRST:event_questionComboBoxActionPerformed
+    private void questionComboBoxActionPerformed() {//GEN-FIRST:event_questionComboBoxActionPerformed
         answersField.setText(answers[questionComboBox.getSelectedIndex()]);
     }
 

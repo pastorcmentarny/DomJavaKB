@@ -53,10 +53,12 @@ public final class PlayerBuilder {
         return this;
     }
 
-    public PlayerBuilder cards(ArrayList<Card> cards) {
-        this.cards = cards;
-        return this;
-    }
+// --Commented out by Inspection START (15/04/2018 17:20):
+//    public PlayerBuilder cards(ArrayList<Card> cards) {
+//        this.cards = cards;
+//        return this;
+//    }
+// --Commented out by Inspection STOP (15/04/2018 17:20)
 
     public PlayerBuilder elements(Elements elements) {
         this.elements = elements;

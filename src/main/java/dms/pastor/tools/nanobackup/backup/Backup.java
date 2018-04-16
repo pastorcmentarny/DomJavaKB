@@ -134,7 +134,6 @@ public final class Backup extends AbstractTools {
     public String doClassicBackup(String[] sources, String destination, JTextArea info) {
         LOGGER.info("performing backup(plain)");
         updateInfoText(info, "Start performing backup");
-        boolean result;
         inProgress = true;
         StringBuilder results = new StringBuilder();
 
@@ -389,7 +388,6 @@ public final class Backup extends AbstractTools {
             info.setText("(Backup in progress)  Please wait with patience.\n to cancel backup, simply close this window.");
 
             activateHappyModeForBackup();
-            String domJobTemp = null;
 
             String results = "";
             try {

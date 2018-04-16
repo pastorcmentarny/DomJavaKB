@@ -26,7 +26,7 @@ class HiScore {
     private static final Logger LOGGER = LoggerFactory.getLogger(HiScore.class);
 
     private final List<Integer> scoreList = new ArrayList<>();
-    private final int[] score = new int[10];
+    //   private final int[] score = new int[10];
     // --Commented out by Inspection (21/02/2018 15:56):private StringBuilder content = new StringBuilder();
 
 // --Commented out by Inspection START (21/02/2018 15:56):

@@ -10,7 +10,6 @@ import static dms.pastor.game.dcs.utils.Names.getRandomMummyName;
 public class Witch extends Unit {
 
     private static final int INITIAL_HP = 200;
-    private static final double QUARTER = 0.25;
 
     public Witch() {
         setName(getRandomMummyName());

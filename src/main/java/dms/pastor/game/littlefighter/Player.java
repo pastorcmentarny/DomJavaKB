@@ -22,7 +22,7 @@ class Player {
     private static final int DEFAULT_PLAYER_MANA_ADDITION = 50;
     public final Status status = new Status();
     private final Random random = new Random();
-    private String playerName = "Player";
+    // --Commented out by Inspection (15/04/2018 17:20):private String playerName = "Player";
     private int playerAttack = random.nextInt(9) + 1;
     private int playerDefence = random.nextInt(9) + 1;
     private int playerPower = random.nextInt(5) + 1;

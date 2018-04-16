@@ -85,7 +85,7 @@ public class About extends javax.swing.JFrame {
 
         aboutTabbedPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                aboutTabbedPanelMouseClicked(evt);
+                aboutTabbedPanelMouseClicked();
             }
         });
 
@@ -297,7 +297,7 @@ public class About extends javax.swing.JFrame {
         return new Font("Lucida Sans", Font.PLAIN, 12);
     }
 
-    private void aboutTabbedPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AboutTabbedPanelMouseClicked
+    private void aboutTabbedPanelMouseClicked() {//GEN-FIRST:event_AboutTabbedPanelMouseClicked
         try {
             String changelog = FileUtils.readFileToString(new File("data" + System.getProperty("file.separator") + "changelog.txt"), UTF_8);
             changelogTextArea.setText(changelog);

@@ -171,7 +171,7 @@ public class CollectionsUtilsTest {
         exception.expectMessage("Enum values cannot be null.");
 
         // when
-        final List<ConditionType> result = CollectionsUtils.toList(null);
+        CollectionsUtils.toList(null);
     }
 
 

@@ -91,7 +91,6 @@ public final class FileTools {
 
     public static String chooseFileToLoad() {
         LOGGER.debug("select file to Load");
-        ArrayList<String> path = new ArrayList<>();
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setMultiSelectionEnabled(false);
         fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
