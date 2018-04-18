@@ -69,7 +69,7 @@ public class Unit extends Entity {
     }
 
     void setPlayer() {
-        this.player = true;
+        setPlayer(true);
     }
 
     public void setCards(List<Card> cards) {
@@ -168,10 +168,6 @@ public class Unit extends Entity {
             sp = 0;
         }
         this.sp = sp;
-    }
-
-    public int getArm() {
-        return getHealth().getArm();
     }
 
     public void setArm(int arm) {

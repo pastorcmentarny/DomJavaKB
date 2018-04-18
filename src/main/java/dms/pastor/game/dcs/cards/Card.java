@@ -35,7 +35,7 @@ public abstract class Card extends Entity {
         return cards != null && !cards.isEmpty();
     }
 
-    protected CardType getCardType() {
+    private CardType getCardType() {
         return cardType;
     }
 

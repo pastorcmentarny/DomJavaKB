@@ -33,13 +33,15 @@ public class FromFileImporter implements Importer {
     private int ignored = 0;
 
 
-    private static void closeReaderQuietly(Reader reader) {
-        try {
-            reader.close();
-        } catch (IOException e) {
-            LOGGER.warn("Unable to close  due " + e.getMessage(), e);
-        }
-    }
+// --Commented out by Inspection START (18/04/2018 16:13): //TODO remove it
+//    private static void closeReaderQuietly(Reader reader) {
+//        try {
+//            reader.close();
+//        } catch (IOException e) {
+//            LOGGER.warn("Unable to close  due " + e.getMessage(), e);
+//        }
+//    }
+// --Commented out by Inspection STOP (18/04/2018 16:13)
 
     private static String getLine(String line) {
         return line != null ? "[" + line + "]" : "line is empty.";

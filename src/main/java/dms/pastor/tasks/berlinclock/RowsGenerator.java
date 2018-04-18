@@ -1,4 +1,4 @@
-package dms.pastor.tasks.berlinclock.clocks.berlinclock;
+package dms.pastor.tasks.berlinclock;
 
 import dms.pastor.tasks.berlinclock.data.Light;
 import dms.pastor.tasks.berlinclock.data.Time;

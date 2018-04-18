@@ -15,7 +15,7 @@ import java.util.Random;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 class UpdateInfo implements Runnable {
-    private JTextArea label;
+    private final JTextArea label;
     private final Random randomText = new Random();
     private ArrayList<String> lolText;
 

@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Objects;
 import java.util.function.Consumer;
 
-import static dms.pastor.utils.StringUtils.COMMA;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 
 /**
@@ -42,13 +41,13 @@ public final class ToStringUtils {
         return stringBuilder.toString();
     }
 
-    private static Consumer<String> addToStringBuilder(StringBuilder stringBuilder, String character) {
-        return line -> stringBuilder.append(line).append(character);
+    private static Consumer<String> addToStringBuilder(StringBuilder stringBuilder) {
+        return line -> stringBuilder.append(line).append(dms.pastor.utils.StringUtils.COMMA);
     }
 
     public static String toString(List<String> stringList) {
         final StringBuilder stringBuilder = new StringBuilder(EMPTY_STRING);
-        stringList.forEach(addToStringBuilder(stringBuilder, COMMA));
+        stringList.forEach(addToStringBuilder(stringBuilder));
         return stringBuilder.toString().substring(0, stringBuilder.length() - 1);
     }
 

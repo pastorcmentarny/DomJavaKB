@@ -14,10 +14,6 @@ public class InvalidCommandSyntaxException extends RuntimeException {
 
     private static final String INVALID_SYNTAX_ERROR_MESSAGE = "Invalid Syntax because %s. Please check your input and try again.";
 
-    public InvalidCommandSyntaxException() {
-        super("Invalid Syntax. Please check your input and try again.");
-    }
-
     public InvalidCommandSyntaxException(String reason) {
         super(format(INVALID_SYNTAX_ERROR_MESSAGE, reason));
     }

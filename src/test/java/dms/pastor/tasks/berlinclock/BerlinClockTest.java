@@ -1,4 +1,4 @@
-package dms.pastor.tasks.berlinclock.clocks.berlinclock;
+package dms.pastor.tasks.berlinclock;
 
 import org.junit.Assert;
 import org.junit.Before;

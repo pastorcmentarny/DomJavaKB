@@ -45,6 +45,7 @@ public class DuplicateCharacterInStringRemoveTest {
     @Test
     public void shouldGetABCFromStringWithContainsManyABCAcceptanceCriteriaTest() {
         // given
+        //noinspection SpellCheckingInspection
         final String stringWithACharacterOnly = "abcabcacbcab";
 
         // when

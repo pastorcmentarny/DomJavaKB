@@ -13,10 +13,10 @@ public class Entity {
     private String name = "Name";
     private String description = "Description";
 
-    public Entity() {
+    protected Entity() {
     }
 
-    public Entity(String name, String description) {
+    protected Entity(String name, String description) {
         this.name = name;
         this.description = description;
     }

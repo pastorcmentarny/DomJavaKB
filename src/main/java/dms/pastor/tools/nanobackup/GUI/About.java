@@ -186,7 +186,7 @@ public class About extends javax.swing.JFrame {
         messagePanel.setViewportView(messageTextArea);
 
         goToButton.setText("Go to my page");
-        goToButton.addActionListener(this::goToButtonActionPerformed);
+        goToButton.addActionListener(evt -> goToButtonActionPerformed());
 
         pictureOfMe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nanobackup/me.jpg"))); 
 
@@ -310,7 +310,7 @@ public class About extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_AboutTabbedPanelMouseClicked
 
-    private void goToButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goToButtonActionPerformed
+    private void goToButtonActionPerformed() {//GEN-FIRST:event_goToButtonActionPerformed
         try {
             java.awt.Desktop.getDesktop().browse(new URI("http://pastor.ovh.org"));
         } catch (Exception ex) {

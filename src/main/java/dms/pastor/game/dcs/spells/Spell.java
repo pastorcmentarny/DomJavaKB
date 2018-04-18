@@ -2,12 +2,13 @@ package dms.pastor.game.dcs.spells;
 
 import dms.pastor.game.dcs.Elements;
 import dms.pastor.game.dcs.cards.Card;
-import dms.pastor.game.dcs.cards.CardType;
 import dms.pastor.game.dcs.units.Unit;
 import dms.pastor.game.dcs.utils.random.InGameRandomUtils;
 import dms.pastor.game.dcs.utils.random.RandomUtils;
 
 import java.util.Random;
+
+import static dms.pastor.game.dcs.cards.CardType.SPELL;
 
 /**
  * Author Dominik Symonowicz
@@ -23,15 +24,14 @@ public abstract class Spell extends Card {
     final RandomUtils randomUtils = new InGameRandomUtils();
     final Random random = new Random();
 
-    private final CardType cardType = CardType.SPELL;
+    Spell() {
+        setCardType(SPELL);
+    }
+
     private Elements elements;
 
     static void castSpellMessage(String attackerName, String spellName, String defenderName) {
         System.out.println(attackerName + " casting " + spellName + " on " + defenderName);
-    }
-
-    public CardType getCardType() {
-        return cardType;
     }
 
     public boolean hasEnoughElementsToCovertToSpell(Elements elements) {

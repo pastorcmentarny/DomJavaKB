@@ -98,8 +98,8 @@ public class Status {
         }
     }
 
-    void setLengthOfPoison(int length) {
-        this.lengthOfPoison = length + 2;
+    void setLengthOfPoison() {
+        this.lengthOfPoison = 7;
     }
 
 
