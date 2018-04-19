@@ -7,13 +7,15 @@ package dms.pastor.snippets.decision;
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
- *
- * tag-decision
  */
-public interface Decision {
-    boolean isPositiveDecision = false;
+public class IsInternationalStudentVoter implements Vote {
+    @Override
+    public boolean vote(Citizen citizen) {
+        return !citizen.isResident() && citizen.getAge() >= 16 && citizen.getAge() <= 26;
+    }
 
-    String getReasons();
-
-    boolean makeDecision();
+    @Override
+    public String getRejectionReason() {
+        return "You need be an international student.";
+    }
 }

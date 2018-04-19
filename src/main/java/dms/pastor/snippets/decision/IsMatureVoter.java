@@ -7,13 +7,17 @@ package dms.pastor.snippets.decision;
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
- *
- * tag-decision
  */
-public interface Decision {
-    boolean isPositiveDecision = false;
+public class IsMatureVoter implements Vote {
+    private static final int MATURITY_AGE = 18;
 
-    String getReasons();
+    @Override
+    public boolean vote(Citizen citizen) {
+        return citizen.getAge() >= MATURITY_AGE;
+    }
 
-    boolean makeDecision();
+    @Override
+    public String getRejectionReason() {
+        return String.format("You need to be %d years old.", MATURITY_AGE);
+    }
 }
