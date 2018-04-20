@@ -29,19 +29,7 @@ public class Wizard extends Unit {
         new BubbleShieldSpell().castSpell(this, this);
 
         if (hasInfoAboutEnemy) {
-            if (enemy.getConditions().has(AIR_SENSITIVE)) {
-                new LightingBoltSpell().castSpellAsLongAsItHasEnoughElements(this, enemy);
-            }
-            if (enemy.getConditions().has(EARTH_SENSITIVE)) {
-                new MagicStoneSpell().castSpellAsLongAsItHasEnoughElements(this, enemy);
-            }
-            if (enemy.getConditions().has(FIRE_SENSITIVE)) {
-                new FireBallSpell().castSpellAsLongAsItHasEnoughElements(this, enemy);
-            }
-            if (enemy.getConditions().has(WATER_SENSITIVE)) {
-                new IceBoltSpell().castSpellIfHasEnoughElements(this, enemy);
-            }
-
+            CommonTurnActions.castElementSensitveSpellOnEnemy(this, enemy);
             if (random.nextBoolean()) {
                 new VampireDrainSpell().castSpellIfHasEnoughElements(this, enemy);
             }

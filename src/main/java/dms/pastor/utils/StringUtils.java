@@ -191,21 +191,17 @@ public final class StringUtils {
     }
 
     public static boolean hasNonAlphanumericCharactersOnly(String string) {
-        var charArray = string.toCharArray();
-        for (char character : charArray) {
-            for (char letterOrNumber : ALPHANUMERIC.toCharArray()) {
-                if (character == letterOrNumber) {
-                    return false;
-                }
-            }
-        }
-        return true;
+        return hasSelectedCharactersOnly(string, ALPHANUMERIC);
     }
 
     public static boolean hasNonAlphabetCharactersOnly(String string) {
+        return hasSelectedCharactersOnly(string, ALPHABET_BOTH_CASE);
+    }
+
+    private static boolean hasSelectedCharactersOnly(String string, String characterSet) {
         var charArray = string.toCharArray();
         for (char character : charArray) {
-            for (char letterOrNumber : ALPHABET_BOTH_CASE.toCharArray()) {
+            for (char letterOrNumber : characterSet.toCharArray()) {
                 if (character == letterOrNumber) {
                     return false;
                 }
