@@ -2,6 +2,8 @@ package dms.pastor.utils;
 
 import org.junit.Test;
 
+import java.util.UUID;
+
 import static dms.pastor.utils.RegexUtils.countOccurrencesOf;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -90,5 +92,15 @@ public class RegexUtilsTest {
 
         // then
         assertThat(result).isEqualTo(3);
+    }
+
+
+    @Test
+    public void regexForGuidTest() {
+        // given
+        final String uuid = UUID.randomUUID().toString();
+
+        // when
+
     }
 }

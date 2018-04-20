@@ -1,21 +1,28 @@
-package dms.pastor.tools.guid;
+package dms.pastor.utils;
 
+import java.util.UUID;
 import java.util.stream.IntStream;
 
 import static dms.pastor.utils.NumberUtils.parseNullSafeIntegerAsString;
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static java.util.UUID.randomUUID;
 
 /**
  * Author Dominik Symonowicz
+ * Created 19/04/2018
  * WWW:	https://dominiksymonowicz.com/welcome
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public final class MultiGuidGenerator {
+public final class GuidTools {
 
-    private MultiGuidGenerator() {
+    private GuidTools() {
+    }
+
+    static String generateGuid() {
+        return UUID.randomUUID().toString().replaceAll("-", EMPTY_STRING);
     }
 
     @SuppressWarnings("ConstantConditions")
