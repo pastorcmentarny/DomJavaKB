@@ -22,6 +22,11 @@ public class NotImplementYetException extends RuntimeException {
         super("Not Implemented yet, so move your ass and implement this. I apologize for any inconvenience caused by my laziness");
     }
 
+    public NotImplementYetException(String name) {
+        super(name + "Not Implemented yet, so move your ass and implement this. I apologize for any inconvenience caused by my laziness");
+    }
+
+
     //https://www.owasp.org/index.php/Deserialization_Cheat_Sheet
     @SuppressWarnings("FinalPrivateMethod")
     private final void readObject(ObjectInputStream in) throws IOException {

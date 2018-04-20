@@ -1,12 +1,12 @@
 package dms.pastor.tools.tube.options;
 
-import dms.pastor.domain.exception.NotFoundException;
-import dms.pastor.tools.tube.station.Station;
 import dms.pastor.tools.tube.station.Stations;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Scanner;
+
+import static dms.pastor.tools.tube.options.StationUpdater.Action.VISITED;
 
 /**
  * Author Dominik Symonowicz
@@ -33,14 +33,6 @@ public class UpdateStationStatusToVisitedOption implements Option {
 
         final String option = scanner.nextLine();
         LOGGER.debug(String.format("Updating status to visited for %s", option));
-        try {
-            final Station station = stations.findStation(option);
-            stations.setVisitedFor(station);
-            final Station updatedStation = stations.findStation(station.getName());
-            System.out.println("You set " + updatedStation.getName() + " status to " + updatedStation.getStatus().asName() + ".");
-        } catch (NotFoundException nfe) {
-            System.out.println("Station " + option + " not found.");
-            scanner.next();
-        }
+        StationUpdater.updateStationTo(stations, option, VISITED);
     }
 }

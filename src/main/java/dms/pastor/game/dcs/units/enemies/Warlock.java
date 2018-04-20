@@ -5,7 +5,8 @@ import dms.pastor.game.dcs.units.Unit;
 
 import static dms.pastor.game.dcs.Config.INITIAL_SHIELD_POINTS;
 import static dms.pastor.game.dcs.conditions.ConditionEntry.createPersistentCondition;
-import static dms.pastor.game.dcs.conditions.ConditionType.*;
+import static dms.pastor.game.dcs.conditions.ConditionType.EARTH_RESISTANT;
+import static dms.pastor.game.dcs.conditions.ConditionType.FIRE_RESISTANT;
 
 public class Warlock extends Unit {
 
@@ -24,18 +25,7 @@ public class Warlock extends Unit {
         InfoSpell infoSpell = new InfoSpell();
 
         if (hasInfoAboutEnemy) {
-            if (enemy.getConditions().has(AIR_SENSITIVE)) {
-                new LightingBoltSpell().castSpellAsLongAsItHasEnoughElements(this, enemy);
-            }
-            if (enemy.getConditions().has(EARTH_SENSITIVE)) {
-                new MagicStoneSpell().castSpellAsLongAsItHasEnoughElements(this, enemy);
-            }
-            if (enemy.getConditions().has(FIRE_SENSITIVE)) {
-                new FireBallSpell().castSpellAsLongAsItHasEnoughElements(this, enemy);
-            }
-            if (enemy.getConditions().has(WATER_SENSITIVE)) {
-                new IceBoltSpell().castSpellIfHasEnoughElements(this, enemy);
-            }
+            CommonTurnActions.castElementSensitveSpellOnEnemy(this, enemy);
 
             if (random.nextBoolean()) {
                 new MagneticDrainSpell().castSpellIfHasEnoughElements(this, enemy);
