@@ -120,9 +120,7 @@ public final class NumberUtils {
     }
 
     static float getMinValue(float currentValue, float minValue) {
-
         int comparisonResult = Float.compare(minValue, currentValue);
-
         return getResult(currentValue, minValue, comparisonResult);
 
     }

@@ -70,4 +70,13 @@ public final class CollectionsUtils {
         return Arrays.asList(enums);
     }
 
+    static boolean isCharInCharArray(char[] charArray, char character) {
+        for (char charElement : charArray) {
+            if (Character.toLowerCase(character) == charElement) {
+                return true;
+            }
+        }
+        return false;
+
+    }
 }

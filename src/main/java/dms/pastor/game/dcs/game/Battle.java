@@ -86,20 +86,20 @@ class Battle {
 
     private void round() {
         System.out.println("Round: " + ++round);
-        if (player1.getConditions().has(ConditionType.STUNNED)) {
-            displayUnitIsStunnedMessageFor(player1.getName());
-        } else {
-            player1.turn(player2);
-        }
+        doRoundFor(player1, player2);
 
         if (player2.isAlive()) {
-            if (player2.getConditions().has(ConditionType.STUNNED)) {
-                displayUnitIsStunnedMessageFor(player2.getName());
-            } else {
-                player2.turn(player1);
-            }
+            doRoundFor(player2, player1);
         }
         System.out.println("End of round: " + round);
+    }
+
+    private void doRoundFor(Unit unit, Unit enemy) {
+        if (unit.getConditions().has(ConditionType.STUNNED)) {
+            displayUnitIsStunnedMessageFor(unit.getName());
+        } else {
+            unit.turn(enemy);
+        }
     }
 
     private void displayUnitIsStunnedMessageFor(String name) {

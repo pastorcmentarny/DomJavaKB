@@ -1,5 +1,6 @@
 package dms.pastor.utils;
 
+import static dms.pastor.utils.CollectionsUtils.isCharInCharArray;
 import static dms.pastor.utils.StringUtils.isStringBlank;
 
 /**
@@ -30,23 +31,13 @@ public final class EnglishUtils {
     }
 
     public static boolean isLetterVowelExcludingY(char letter) {
-
-        for (char vowel : VOWELS) {
-            if (Character.toLowerCase(letter) == vowel) {
-                return true;
-            }
-        }
-        return false;
+        return isCharInCharArray(VOWELS, letter);
     }
 
     static boolean isLetterConsonant(char letter) {
-        for (char consonant : CONSONANTS) {
-            if (Character.toLowerCase(letter) == consonant) {
-                return true;
-            }
-        }
-        return false;
+        return isCharInCharArray(CONSONANTS, letter);
     }
+
 
     public static boolean isStopWord(String word) {
         if (isStringBlank(word)) {

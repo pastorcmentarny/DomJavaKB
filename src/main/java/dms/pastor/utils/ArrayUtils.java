@@ -1,6 +1,5 @@
 package dms.pastor.utils;
 
-import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -46,15 +45,6 @@ public final class ArrayUtils {
         new Random().nextBytes(bytes);
         printArray(bytes);
         return bytes;
-    }
-
-    public static Set<Character> convertCharArrayToSet(char[] chars) {
-        validateIfNotNull(chars);
-        Set<Character> result = new HashSet<>();
-        for (char aChar : chars) {
-            result.add(aChar);
-        }
-        return result;
     }
 
     @SuppressWarnings("ReturnOfNull") // valid case as if you pass null , you should get null

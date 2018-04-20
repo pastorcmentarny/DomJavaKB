@@ -5,9 +5,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import static dms.pastor.utils.ArrayUtils.*;
 import static org.assertj.core.api.Java6Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
@@ -52,33 +49,6 @@ public class ArrayUtilsTest {
         for (int i = 0; i < 10; i++) {
             Assert.assertThat("i:" + i, intSequenceArray[i], is(testSequence[i]));
         }
-    }
-
-    @SuppressWarnings("ConstantConditions") // it tests if fails
-    @Test(expected = IllegalArgumentException.class)
-    public void testThrowExceptionIfYouConvertNullToSet() {
-        final Set<Character> testSet = ArrayUtils.convertCharArrayToSet(null);
-        Assert.assertThat("dictSize", testSet.size(), is(0));
-    }
-
-    @Test
-    public void testConvertEmptyArrayToSet() {
-        int size = CollectionsUtils.emptyHashSet().size();
-        final Set<Character> testSet = ArrayUtils.convertCharArrayToSet(CHARS_ARRAY);
-        Assert.assertThat("dictSize", testSet.size(), is(size));
-        Assert.assertThat(testSet.size(), is(size));
-    }
-
-    @Test
-    public void testConvertCharArrayToSet() {
-        char[] chars = new char[]{'a', 'b', 'c'};
-        Set<Character> characterSet = new HashSet<>();
-        characterSet.add(chars[0]);
-        characterSet.add(chars[1]);
-        characterSet.add(chars[2]);
-        final Set<Character> testSet = ArrayUtils.convertCharArrayToSet(chars);
-        Assert.assertThat("dictSize", testSet.size(), is(characterSet.size()));
-        Assert.assertThat(testSet.size(), is(characterSet.size()));
     }
 
     @Test
