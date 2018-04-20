@@ -16,6 +16,7 @@ import java.util.List;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.StringUtils.NEW_LINE;
 import static java.lang.Runtime.getRuntime;
+import static java.util.Objects.nonNull;
 
 /**
  * Author Dominik Symonowicz
@@ -26,17 +27,25 @@ import static java.lang.Runtime.getRuntime;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  * tag-try-with-resources
  */
-public final class FileTools {
+public final class FileUtils {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(FileTools.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(FileUtils.class);
     private static FileChannel channel;
     private static FileLock lockFile;
     private static File file;
 
-    private FileTools() {
+    private FileUtils() {
     }
 
-    static boolean isFilesExists(String[] filesPath) {
+    public static boolean isFileNotExists(String filePath) {
+        return !isFilesExists(new String[]{filePath});
+    }
+
+    public static boolean isFileExists(String filePath) {
+        return isFilesExists(new String[]{filePath});
+    }
+
+    public static boolean isFilesExists(String[] filesPath) {
         if (filesPath == null || filesPath.length == 0) {
             return false;
         }
@@ -46,6 +55,14 @@ public final class FileTools {
             }
         }
         return true;
+    }
+
+    public static boolean isDirectoryExists(String filePath) {
+        return nonNull(filePath) && file.isDirectory();
+    }
+
+    public static boolean isDirectoryNotExists(String filePath) {
+        return !isDirectoryExists(filePath);
     }
 
     //TODO create TextFileSaver
@@ -106,7 +123,7 @@ public final class FileTools {
     /**
      * Lock program,so it can be run once per time.
      */
-    static void lock() {
+    public static void lock() {
         file = new File("program.lock");
         try (RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw")) {
             if (file.exists() && !file.delete()) {
@@ -178,6 +195,21 @@ public final class FileTools {
     private static void validateIfFileAccessible(File filePath) {
         if (filePath == null || !filePath.exists() || !filePath.canRead()) {
             throw new IllegalArgumentException("File doesn't exist or cannot be read");
+        }
+    }
+
+    public static void unlockFile(File f) {
+        try {
+            if (lockFile != null) {
+                lockFile.release();
+                channel.close();
+                boolean pass = f.delete();
+                if (!pass) {
+                    LOGGER.warn("Unable to unlock program.It cans cause problem with running program.\nProgram should work after restart of your computer.");
+                }
+            }
+        } catch (IOException e) {
+            LOGGER.warn("Unable to unlock program.It cans cause problem with running program.\nProgram should work after restart of your computer.");
         }
     }
 }

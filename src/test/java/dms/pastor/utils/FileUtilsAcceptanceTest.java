@@ -12,7 +12,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-import static dms.pastor.utils.FileTools.saveListToFile;
+import static dms.pastor.utils.FileUtils.saveListToFile;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.Java6Assertions.assertThat;
 
@@ -25,7 +25,7 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class FileToolsAcceptanceTest {
+public class FileUtilsAcceptanceTest {
 
     private static final int MAX_STRING_LENGTH = 20;
     private static final String FILE_PATH = TestConfig.PATH + "savesListToFile.txt";

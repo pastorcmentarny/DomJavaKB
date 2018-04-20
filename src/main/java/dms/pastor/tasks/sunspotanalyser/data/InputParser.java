@@ -2,7 +2,7 @@ package dms.pastor.tasks.sunspotanalyser.data;
 
 import java.io.File;
 
-import static dms.pastor.utils.FileTools.readRawData;
+import static dms.pastor.utils.FileUtils.readRawData;
 import static java.lang.Integer.valueOf;
 
 /**

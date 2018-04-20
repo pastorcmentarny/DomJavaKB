@@ -2,6 +2,8 @@ package dms.pastor.tools.nanobackup.backup;
 
 import java.util.Calendar;
 
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+
 
 /**
  * Author Dominik Symonowicz
@@ -25,8 +27,8 @@ public class Statistic {
     private int error = 0;
     private long taskStart = 0;
     private long taskFinish = 0;
-    private String errorMsgList = "";
-    private String backupSize = "";
+    private String errorMsgList = EMPTY_STRING;
+    private String backupSize = EMPTY_STRING;
     private String backupType;
 
     public void start() {
@@ -66,7 +68,7 @@ public class Statistic {
         if (backupSize != null && !backupSize.isEmpty()) {
             result.append("\nBackup size: ").append(backupSize);
         }
-        if (!"".equalsIgnoreCase(errorMsgList)) {
+        if (!EMPTY_STRING.equalsIgnoreCase(errorMsgList)) {
             result.append("\n\nError messages:\n\n").append(errorMsgList).append("\n\nPlease:\n\t- Use\" clear non existing files\" from menu to solve above errors \n\t- Check do you have access/permissions to resources");
         }
         return result.toString();
@@ -86,8 +88,8 @@ public class Statistic {
         error = 0;
         taskStart = 0;
         taskFinish = 0;
-        errorMsgList = "";
-        backupSize = "";
+        errorMsgList = EMPTY_STRING;
+        backupSize = EMPTY_STRING;
     }
 
     public void addSizeOfBackup(String backupSize) {

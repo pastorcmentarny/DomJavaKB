@@ -1,6 +1,6 @@
 package dms.pastor.tools.removeDuplicatedLineInTextFile;
 
-import dms.pastor.utils.FileTools;
+import dms.pastor.utils.FileUtils;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -71,13 +71,13 @@ public class DuplicateRemoverTest {
         final String testLine = "test";
         String[] stringList = new String[]{randomLine, testLine, testLine};
 
-        FileTools.saveListToFile(stringList, filePath);
+        FileUtils.saveListToFile(stringList, filePath);
 
         // when
         duplicateRemover.performTask(filePath);
 
         // then
-        final String result = FileTools.readRawData(new File(filePath));
+        final String result = FileUtils.readRawData(new File(filePath));
 
         assertThat(result).isEqualTo(randomLine + testLine);
 
@@ -86,7 +86,4 @@ public class DuplicateRemoverTest {
         assertThat(deleted).isTrue();
 
     }
-
-    //                System.err.println("WHOOPS!\n\n\tI am not \"your brain waves\" reader(anyway how i can read from empty brain ?),so you need give me a bloody path to existing file or run program with path ,to do my job.\n\tFor example:\n\t java -jar \"C:\\dsSTUFF\\soft\\dev\\nanoBackup\\dist\\nanoBackup.jar\"  C:\\myAwesomeFile.txt");
-
 }

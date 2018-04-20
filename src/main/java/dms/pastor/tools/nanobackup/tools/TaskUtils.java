@@ -1,5 +1,6 @@
 package dms.pastor.tools.nanobackup.tools;
 
+import dms.pastor.utils.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -45,7 +46,7 @@ public final class TaskUtils {
     public static boolean deleteSourceAfterBackup(String[] sources) {
         LOGGER.debug("deleting source's file/folders after backup...");
         for (String source : sources) {
-            if (FileTools.isAFile(source) || FileTools.isADirectory(source)) {
+            if (FileUtils.isFileExists(source) || FileUtils.isDirectoryExists(source)) {
                 FileTools.delete(source);
             } else {
                 LOGGER.debug("Unable to delete all/some source's file/folders.");

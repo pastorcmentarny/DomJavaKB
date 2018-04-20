@@ -8,8 +8,8 @@ import dms.pastor.tools.nanobackup.tools.AbstractTools;
 import dms.pastor.tools.nanobackup.tools.FileTools;
 import dms.pastor.tools.nanobackup.tools.TaskUtils;
 import dms.pastor.tools.nanobackup.tools.Tools;
+import dms.pastor.utils.FileUtils;
 import dms.pastor.utils.StringUtils;
-import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,6 +21,8 @@ import java.io.File;
 import java.util.Collection;
 import java.util.concurrent.*;
 
+import static dms.pastor.utils.FileUtils.isFileExists;
+import static dms.pastor.utils.FileUtils.saveTextToFile;
 import static java.awt.Color.DARK_GRAY;
 
 /**
@@ -164,7 +166,7 @@ public final class Backup extends AbstractTools {
                     log.debug(infoMsg);
                 }
 
-            } else if (FileTools.isADirectory(sources[i])) {
+            } else if (FileUtils.isDirectoryExists(sources[i])) {
                 result = FileTools.copyFolder(new File(sources[i]), new File(destinationDir), stats);
                 if (result) {
                     String infoMsg = Messenger.COPIED + sources[i];
@@ -245,7 +247,7 @@ public final class Backup extends AbstractTools {
 
         LOGGER.debug("preCheck: check destination folder ...");
         updateInfoText(info, Messenger.PRE_CHECK + Messenger.DESTINATION_PATH_CHECK);
-        if (!FileTools.isADirectory(destination)) {
+        if (FileUtils.isDirectoryNotExists(destination)) {
             JOptionPane.showConfirmDialog(null, "Destination path is not a folder.Please correct it.!", "WHOOPS", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
             LOGGER.info("Path to destination folder is incorrect");
             killBackupThread();
@@ -315,7 +317,7 @@ public final class Backup extends AbstractTools {
 
     private void countItemsCopied() {
         if (!settings.isSpeedLightMode()) {
-            Collection<File> counter = FileUtils.listFiles(new File(destinationDir), null, true);//TODO add throw exception
+            Collection<File> counter = org.apache.commons.io.FileUtils.listFiles(new File(destinationDir), null, true);//TODO add throw exception
             int filesNumber = counter.size();
             LOGGER.debug("\nItems copied: " + filesNumber);
             stats.addFileCopied(filesNumber);
@@ -368,7 +370,7 @@ public final class Backup extends AbstractTools {
             BackupTaskFrame.toBack();
             //killBackupThread();
             //TODO improve this code 
-                /*
+            /*
              * } else { if (FileTools.checkEnoughSpace(src, dest)) {
              * processBackup(); } else { info.setForeground(Color.RED);
              * info.setText("Unable to do Backup due lack of free space on
@@ -475,7 +477,7 @@ public final class Backup extends AbstractTools {
                 LOGGER.debug("saving  results to file");
                 String sr2f = Settings.DATA_PATH + Tools.getCurrentDateWithTime() + ".txt";
                 updateInfoText(info, "Saving results to file:" + sr2f);
-                FileTools.saveTextToFile(results, sr2f);
+                saveTextToFile(results, sr2f);
             }
         }
     }
@@ -531,7 +533,7 @@ public final class Backup extends AbstractTools {
                         infoTextArea.setText("Deleting what was already copied.Program may freeze for while");
                         LOGGER.debug("deleting already copied files to backup...");
                         if (!StringUtils.isStringBlank(destinationDir)) {
-                            if (FileTools.isADirectory(destinationDir) || FileTools.isAFile(destinationDir)) {
+                            if (FileUtils.isDirectoryExists(destinationDir) || isFileExists(destinationDir)) {
                                 FileTools.delete(destinationDir);
                             } else {
                                 updateAll(infoTextArea, true, "Unable to delete,because destination zipped/folder doesn't exist.");

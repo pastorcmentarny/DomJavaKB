@@ -6,6 +6,7 @@ import dms.pastor.tools.nanobackup.tools.AbstractTools;
 import dms.pastor.tools.nanobackup.tools.FileTools;
 import dms.pastor.tools.nanobackup.tools.TaskUtils;
 import dms.pastor.tools.nanobackup.tools.Tools;
+import dms.pastor.utils.FileUtils;
 import dms.pastor.utils.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -121,14 +122,14 @@ public class Engine extends AbstractTools {
     }
 
     private void checkIfFileExistsFor(ArrayList<String> result, String filePath, String errorMessage) {
-        if (!FileTools.isFileExists(filePath)) {
+        if (!FileUtils.isFileExists(filePath)) {
             result.add(errorMessage);
             Tools.changeToYellowStatus(result);
         }
     }
 
     private void checkIfSettingsFileIsValid(ArrayList<String> result) {
-        if (!FileTools.isFileExists(Settings.DATA_PATH + "settings.properties")) {
+        if (FileUtils.isFileNotExists(Settings.DATA_PATH + "settings.properties")) {
             if (!settings.createDefaultSettings()) {
                 result.add("Unable to create settings.properties");
                 result.set(0, "ERROR");
@@ -137,7 +138,7 @@ public class Engine extends AbstractTools {
     }
 
     private void checkIfDataFolderExists(ArrayList<String> result) {
-        if (!FileTools.isDirectoryExists("data")) {
+        if (FileUtils.isDirectoryNotExists("data")) {
             result.add("Data folder doesn't exist!");
             result.set(0, "ERROR");
         }
@@ -178,7 +179,7 @@ public class Engine extends AbstractTools {
         if (tempSource != null && tempSource.length != 0) {
             String[] itemsList;
             for (String aTempSource : tempSource) {
-                if (FileTools.isFileExists(aTempSource)) {
+                if (FileUtils.isFileNotExists(aTempSource)) {
                     itemsList = makeList(aTempSource);
                     itemsList = TaskUtils.removeNonExistsItems(itemsList);
                     temp.addAll(Arrays.asList(itemsList));
@@ -248,7 +249,7 @@ public class Engine extends AbstractTools {
         if (settings.isQuickBackup() && !"alreadyRun".equalsIgnoreCase(reason)) {
             deactivateQuickBackupMode(new JTextField());
         }
-        FileTools.unlockFile();
+        FileUtils.unlockFile();
         System.exit(0);
     }
 
@@ -284,7 +285,7 @@ public class Engine extends AbstractTools {
             for (int i = 0; i < temp.size(); i++) {
                 srcList[i] = temp.get(i);
             }
-            FileTools.saveListToFile(srcList, sourceField.getText());
+            FileUtils.saveListToFile(srcList, sourceField.getText());
         } else {
             return new String[0];
         }

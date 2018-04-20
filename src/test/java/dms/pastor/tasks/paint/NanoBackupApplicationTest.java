@@ -34,7 +34,7 @@ import static org.mockito.Mockito.verify;
  */
 @SuppressWarnings("resource") // auto closable not essential
 @RunWith(MockitoJUnitRunner.class)
-public class MainTest {
+public class NanoBackupApplicationTest {
 
     @SuppressWarnings("StaticFieldReferencedViaSubclass") // used for testing
     private static final Logger LOGGER = (Logger) LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);

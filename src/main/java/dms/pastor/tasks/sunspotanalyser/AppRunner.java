@@ -6,7 +6,7 @@ import dms.pastor.tasks.sunspotanalyser.data.InputParser;
 
 import java.io.File;
 
-import static dms.pastor.utils.FileTools.isFileValid;
+import static dms.pastor.utils.FileUtils.isFileValid;
 
 /**
  * author: Dominik Symonowicz

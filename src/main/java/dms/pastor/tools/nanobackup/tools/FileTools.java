@@ -1,6 +1,5 @@
 package dms.pastor.tools.nanobackup.tools;
 
-import dms.pastor.domain.ShutdownHook;
 import dms.pastor.tools.nanobackup.backup.Statistic;
 import dms.pastor.utils.StringUtils;
 import org.apache.commons.io.FileUtils;
@@ -10,10 +9,10 @@ import org.slf4j.LoggerFactory;
 import javax.swing.*;
 import java.io.*;
 import java.nio.channels.FileChannel;
-import java.nio.channels.FileLock;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import static dms.pastor.utils.FileUtils.isDirectoryExists;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.ValidatorUtils.validateIfNotNull;
 import static java.util.Objects.nonNull;
@@ -32,9 +31,7 @@ public final class FileTools {
     private static final long FILE_COPY_BUFFER_SIZE = 1024 * 1024 * 12;//12 megabyte
     private static final Logger LOGGER = LoggerFactory.getLogger(FileTools.class);
     // --Commented out by Inspection (21/02/2018 15:49):private static final int BUFFER_SIZE = 2048;
-    private static File f;
-    private static FileChannel channel;
-    private static FileLock lockFile;
+
     private static File file;
 
     private FileTools() {
@@ -201,7 +198,7 @@ public final class FileTools {
 
     private static void doCopyFile(File srcFile, File destFile, Statistic stats) {
         LOGGER.debug("copy file from: " + srcFile + " to " + destFile);
-        if (isDirectoryExists(destFile)) {
+        if (isDirectoryExists(destFile.getAbsolutePath())) {
             addDestinationErrorCount(stats, "Destination '" + destFile + "' exists but is a directory");
             return;
         }
@@ -243,10 +240,6 @@ public final class FileTools {
         if (stats != null) {
             stats.addErrorCount(errors);
         }
-    }
-
-    private static boolean isDirectoryExists(File destFile) {
-        return destFile.exists() && destFile.isDirectory();
     }
 
     private static void doCopyDirectory(File srcDir, File destDir, Statistic stats) {
@@ -442,75 +435,9 @@ public final class FileTools {
         }
     }
 
-    //TODO remove it
-    public static boolean isAFile(String path) {
-        return isFileExists(path);
-    }
 
-    //TODO remove it
-    public static boolean isADirectory(String path) {
-        return isDirectoryExists(path);
-    }
 
-    public static boolean isFileExists(String filePath) {
-        return nonNull(filePath) && file.isFile();
-    }
 
-    public static boolean isDirectoryExists(String filePath) {
-        return nonNull(filePath) && file.isDirectory();
-    }
-
-    public static boolean saveListToFile(String[] content, String file) {
-        StringBuilder list = new StringBuilder();
-        for (int i = 0; i < content.length; i++) {
-            if (i == content.length - 1) {
-                list.append(content[i]);
-            } else {
-                list.append(content[i]);
-                list.append("\n");
-            }
-        }
-        try (FileWriter fileWriter = new FileWriter(file);
-             BufferedWriter out = new BufferedWriter(fileWriter)
-        ) {
-            out.write(list.toString());
-        } catch (IOException e) {
-            LOGGER.error("Unable to save source list to file: " + file);
-            return false;
-        }
-        return true;
-    }
-
-    public static void saveTextToFile(String text, String path2file) {
-        LOGGER.debug("Saving text to file: " + path2file);
-        file = new File(path2file);
-
-        if (file.exists()) {
-            boolean result = file.delete();
-            if (!result) {
-                LOGGER.info("Failed. (Program was unable to delete old text file!)");
-            }
-        } else {
-            try {
-                if (!file.createNewFile()) {
-                    LOGGER.debug("Failed. (Program was unable to create file.)");
-                    return;
-                } else {
-                    LOGGER.debug("File created. Saving date into file...");
-                }
-            } catch (IOException ex) {
-                LOGGER.info("Failed. (Program was unable to delete old text file.(Network problem?Device disconnected?not enough free space?)" + ex.getMessage());//TODO move message to message properties!
-                return;
-            }
-        }
-        try (PrintWriter out = new PrintWriter(new FileWriter(path2file))) {
-            out.print(text);
-        } catch (IOException exception) {
-            LOGGER.info("Failed. (Program was unable to delete old text file.(Network problem?Device disconnected?not enough free space?)" + exception.getMessage());//TODO move message to message properties!
-            return;
-        }
-        LOGGER.debug("Success! Text saved to file.");
-    }
 
 // --Commented out by Inspection START (21/02/2018 14:27):
 //    public static void replace(String whatPath, String fromPath, String file) {
@@ -534,41 +461,6 @@ public final class FileTools {
 
     //TODO improve this method by better error messages and etc
 
-    public static void lock() {
-
-        try (RandomAccessFile randomAccessFile = new RandomAccessFile(f, "rw")) {
-            channel = randomAccessFile.getChannel();
-            f = new File("program.lock");
-            if (f.exists() && !f.delete()) {
-                LOGGER.info("It seems like another instance of program is run ");
-
-            }
-            lockFile = channel.tryLock();
-            if (lockFile == null) {
-                channel.close();
-                throw new RuntimeException("Two instance cant run at a time.");
-            }
-            ShutdownHook shutdownHook = new ShutdownHook();
-            Runtime.getRuntime().addShutdownHook(shutdownHook);
-        } catch (IOException e) {
-            throw new RuntimeException("Could not start process.", e);
-        }
-    }
-
-    public static void unlockFile() {
-        try {
-            if (lockFile != null) {
-                lockFile.release();
-                channel.close();
-                boolean pass = f.delete();
-                if (!pass) {
-                    LOGGER.warn("Unable to unlock program.It cans cause problem with running program.\nProgram should work after restart of your computer.");
-                }
-            }
-        } catch (IOException e) {
-            LOGGER.warn("Unable to unlock program.It cans cause problem with running program.\nProgram should work after restart of your computer.");
-        }
-    }
 
 // --Commented out by Inspection START (21/02/2018 14:14):
 //    //TODO IMPROVE THIS GARBAGE this method doesn't need a return ?
@@ -632,9 +524,4 @@ public final class FileTools {
         }
     }
 
-// --Commented out by Inspection START (21/02/2018 14:27):
-//    public static void setChannel(FileChannel channel) {
-//        FileTools.channel = channel;
-//    }
-// --Commented out by Inspection STOP (21/02/2018 14:27)
 }

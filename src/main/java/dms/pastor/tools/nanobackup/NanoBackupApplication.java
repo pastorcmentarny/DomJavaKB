@@ -1,7 +1,7 @@
 package dms.pastor.tools.nanobackup;
 
 import dms.pastor.tools.nanobackup.GUI.GUI;
-import dms.pastor.tools.nanobackup.tools.FileTools;
+import dms.pastor.utils.FileUtils;
 
 import javax.swing.*;
 
@@ -14,18 +14,18 @@ import javax.swing.*;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public final class Main {
+public final class NanoBackupApplication {
 
-    // --Commented out by Inspection (21/02/2018 14:14):private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
+    // --Commented out by Inspection (21/02/2018 14:14):private static final Logger LOGGER = LoggerFactory.getLogger(NanoBackupApplication.class);
 
-    private Main() {
+    private NanoBackupApplication() {
     }
 
     public static void main(String[] args) {
         final GUI start = new GUI();
         try {
             javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName());
-            FileTools.lock();
+            FileUtils.lock();
             if (args.length != 0) {
                 System.out.println(args[0]);
             } else {

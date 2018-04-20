@@ -2,7 +2,7 @@ package dms.pastor.tools.coder;
 
 import java.io.File;
 
-import static dms.pastor.utils.FileTools.readRawData;
+import static dms.pastor.utils.FileUtils.readRawData;
 import static dms.pastor.utils.StringUtils.reverseString;
 import static dms.pastor.utils.StringUtils.swapCaseLettersInString;
 import static java.io.File.separator;

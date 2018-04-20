@@ -21,7 +21,6 @@ import java.util.Random;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public final class Tools {
-    // --Commented out by Inspection (21/02/2018 14:14):private static final String EMPTY = "";
     private static final Logger LOGGER = LoggerFactory.getLogger(Tools.class);
     private static final int HALF_OF_MAX_RGB_VALUE = 128;
 
@@ -39,41 +38,12 @@ public final class Tools {
         return LocalDateTime.now().toString();
     }
 
-    public static String getCurrentTime() {
+    static String getCurrentTime() {
         String currentTime = LocalTime.now().toString();
         LOGGER.debug("Program:\tCurrent date and  time used for sitemap is:  " + currentTime);
         return currentTime;
     }
 
-// --Commented out by Inspection START (21/02/2018 14:14):
-//    public static void shutdownComputerOnRequest() {
-//        LOGGER.debug("shutting down computer");
-//        Settings settings = Settings.getSettings();
-//        //TODO implement utilities.shutdown after backup
-//        if (settings.isShutdownAfterBackup()) {
-//            String shutdownCmd = null;
-//            String system = System.getProperty("os.name").toLowerCase();
-//            if (system.contains("windows")) {
-//                shutdownCmd = "shutdown -s";
-//            }
-//            if (system.contains("linux")) {
-//                String pass = JOptionPane.showInputDialog(null, "Insert password", "password");
-//                shutdownCmd = "sudo " + pass + " shutdown";
-//            }
-//            if (system.contains("Mac OS X")) {
-//                String pass = JOptionPane.showInputDialog(null, "Insert password", "password");
-//                shutdownCmd = "sudo " + pass + " shutdown";
-//            }
-//            try {
-//                if (shutdownCmd != null) {
-//                    Process systemKiller = Runtime.getRuntime().exec(shutdownCmd);
-//                }
-//            } catch (IOException ex) {
-//                LOGGER.warn("Program was unable to shutdown OS");
-//            }
-//        }
-//    }
-// --Commented out by Inspection STOP (21/02/2018 14:14)
 
     public static Color getRandomColor() {
         Random randomColor = new Random();
@@ -96,36 +66,5 @@ public final class Tools {
         }
         JOptionPane.showMessageDialog(null, temp.toString() + settings.displayCurrentSettings("STATUS"), "Info", JOptionPane.INFORMATION_MESSAGE);
     }
-
-    //TODO remove it
-//    public static String[] generateArray() {
-//        populateCharArray();
-//        SecureRandom random = new SecureRandom();
-//        char currChar;
-//        String[] s = new String[random.nextInt(4000) + 1000];
-//        for (int i = 0; i < s.length; i++) {
-//            s[i] = "";
-//            for (int j = 0; j < random.nextInt(49) + 1; j++) {
-//                currChar = charArray[random.nextInt(35)];
-//                if (currChar == ' ') {
-//                    j--;
-//                    continue;
-//                }
-//                s[i] += currChar;
-//            }
-//        }
-//        return s;
-//    }
-
-    //TODO remove it or move to utils
-//    private static void populateCharArray() {
-//        int j = 0;
-//
-//        for (char i = 'A'; i <= 'Z'; i++, j++)
-//            charArray[j] = i;
-//
-//        for (char i = '0'; i <= '9'; i++, j++)
-//            charArray[j] = i;
-//    }
 
 }

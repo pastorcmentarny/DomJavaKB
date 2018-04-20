@@ -10,7 +10,7 @@ import java.io.File;
 
 import static dms.pastor.TestConfig.EMPTY_STRING_ARRAY;
 import static dms.pastor.TestConfig.PATH;
-import static dms.pastor.utils.FileTools.*;
+import static dms.pastor.utils.FileUtils.*;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -23,7 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class FileToolsTest {
+public class FileUtilsTest {
 
     private static final String TEST_FILE = "test.txt";
     private static final String LOCK_FILE = "program.lock";

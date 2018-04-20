@@ -9,6 +9,7 @@ import dms.pastor.tools.nanobackup.tools.AppColor;
 import dms.pastor.tools.nanobackup.tools.FileTools;
 import dms.pastor.tools.nanobackup.tools.TaskUtils;
 import dms.pastor.tools.nanobackup.tools.Tools;
+import dms.pastor.utils.FileUtils;
 import dms.pastor.utils.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -598,14 +599,14 @@ public class GUI extends javax.swing.JFrame {
 
     private void selectSourceButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_selectSourceButtonActionPerformed
         String tempSource = utilities.chooseFileToLoad();
-        if (FileTools.isFileExists(tempSource)) {
+        if (FileUtils.isFileExists(tempSource)) {
             sourceField.setText(tempSource);
             srcList = utilities.makeList(tempSource);
             srcList = TaskUtils.removeNonExistsItems(srcList);
             settings.setSourceFilePath(tempSource);
             settings.setProperties(true);
             recentSrcPaths = utilities.updateRecentFolderPaths(recentSrcPaths, tempSource);
-            FileTools.saveListToFile(recentSrcPaths, Settings.RECENT_SRC_PATHS_FILE);
+            FileUtils.saveListToFile(recentSrcPaths, Settings.RECENT_SRC_PATHS_FILE);
             utilities.setInfoLabel(AppColor.DARK_GREEN, "Source file set to " + tempSource, InfoLabel);
         } else {
             utilities.setInfoLabel(Color.RED, "Action cancelled", InfoLabel);
@@ -622,7 +623,7 @@ public class GUI extends javax.swing.JFrame {
             settings.setDestinationFolderPath(tempSource);
             settings.setProperties(true);
             recentDestPaths = utilities.updateRecentFolderPaths(recentDestPaths, tempSource);
-            FileTools.saveListToFile(recentDestPaths, Settings.RECENT_DEST_PATHS_FILE);
+            FileUtils.saveListToFile(recentDestPaths, Settings.RECENT_DEST_PATHS_FILE);
 
             InfoLabel.setForeground(AppColor.DARK_GREEN);
             InfoLabel.setText("Destination folder is set to: " + tempSource);
@@ -662,7 +663,7 @@ public class GUI extends javax.swing.JFrame {
         String[] addFileResult = utilities.addItemsToItemsList(srcList, sourceField, "item");
         if (addFileResult != null) {
             srcList = addFileResult;
-            if (FileTools.saveListToFile(srcList, sourceField.getText())) {
+            if (FileUtils.saveListToFile(srcList, sourceField.getText())) {
                 InfoLabel.setText("List was saved to file.");
             } else {
                 InfoLabel.setText("List was NOT saved to file.");
@@ -691,7 +692,7 @@ public class GUI extends javax.swing.JFrame {
         srcList = utilities.removeItemsFromList(srcList, sourceList);
         if (srcList != null) {
             //change ?
-            FileTools.saveListToFile(srcList, sourceField.getText());
+            FileUtils.saveListToFile(srcList, sourceField.getText());
             removeButton.setEnabled(true);
             refreshContent();
             setGui();
@@ -751,7 +752,7 @@ public class GUI extends javax.swing.JFrame {
         } else {
             utilities.setInfoLabel(AppColor.DARK_GREEN, "Source file: " + result + " was created.", InfoLabel);
             recentSrcPaths = utilities.updateRecentFolderPaths(recentSrcPaths, sourceField.getText());
-            FileTools.saveListToFile(recentSrcPaths, Settings.RECENT_SRC_PATHS_FILE);
+            FileUtils.saveListToFile(recentSrcPaths, Settings.RECENT_SRC_PATHS_FILE);
             sourceField.setText(result);
             settings.setSourceFilePath(result);
             settings.setProperties(true);
@@ -786,7 +787,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void clearSourceMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_clearSourceMenuItemActionPerformed
         srcList = TaskUtils.removeNonExistsItems(srcList);
-        FileTools.saveListToFile(srcList, sourceField.getText());
+        FileUtils.saveListToFile(srcList, sourceField.getText());
         removeButton.setEnabled(true);
         refreshContent();
         setGui();
@@ -806,7 +807,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void removeDuplicatesMenuItemActionPerformed(ActionEvent evt) {
         srcList = TaskUtils.removeDuplicateLines(srcList);
-        FileTools.saveListToFile(srcList, source);
+        FileUtils.saveListToFile(srcList, source);
         utilities.setInfoLabel(AppColor.DARK_GREEN, "Duplicate lines in source file are removed.", InfoLabel);
         refreshContent();
         setGui();
@@ -859,7 +860,7 @@ public class GUI extends javax.swing.JFrame {
         String[] itemsList = utilities.merge2Source(srcList);
         if (itemsList != null) {
             srcList = TaskUtils.removeDuplicateLines(itemsList);
-            FileTools.saveListToFile(srcList, sourceField.getText());
+            FileUtils.saveListToFile(srcList, sourceField.getText());
             settings.setProperties(true);
             utilities.setInfoLabel(AppColor.DARK_GREEN, "Selected source file was merged into item list.", InfoLabel);
         } else {
@@ -893,7 +894,7 @@ public class GUI extends javax.swing.JFrame {
     private void swapDestinationFolderPathButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_swapDestinationFolderPathButtonActionPerformed
         if (Objects.nonNull(previousDestPathComboBox) && Objects.nonNull(previousDestPathComboBox.getSelectedItem())) {
             String temp = previousDestPathComboBox.getSelectedItem().toString();
-            if (FileTools.isDirectoryExists(temp)) {
+            if (FileUtils.isDirectoryExists(temp)) {
                 utilities.swapDestFolderPaths(recentDestPaths, temp, destinationField.getText());
                 destinationField.setText(previousDestPathComboBox.getSelectedItem().toString());
                 settings.setDestinationFolderPath(previousDestPathComboBox.getSelectedItem().toString());
@@ -963,7 +964,7 @@ public class GUI extends javax.swing.JFrame {
     private void swapSourceFolderPathButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_swapSourceFolderPathButtonActionPerformed
         if (Objects.nonNull(previousSrcPathComboBox) && Objects.nonNull(previousSrcPathComboBox.getSelectedItem())) {
             String temp = previousSrcPathComboBox.getSelectedItem().toString();
-            if (FileTools.isFileExists(temp)) {
+            if (FileUtils.isFileExists(temp)) {
                 utilities.swapDestFolderPaths(recentSrcPaths, temp, sourceField.getText());
                 sourceField.setText(previousSrcPathComboBox.getSelectedItem().toString());
                 srcList = utilities.makeList(previousSrcPathComboBox.getSelectedItem().toString());
@@ -1142,7 +1143,7 @@ public class GUI extends javax.swing.JFrame {
             LOGGER.warn("Program is damaged.");
         }
 
-        if (!FileTools.isFileExists(Settings.SETTINGS_PATH)) {
+        if (!FileUtils.isFileExists(Settings.SETTINGS_PATH)) {
             settings.createDefaultSettings();
         }
 
@@ -1156,7 +1157,7 @@ public class GUI extends javax.swing.JFrame {
 
         settings.loadSettings(true);
 
-        if (settings.getSourceFilePath() != null && FileTools.isFileExists(settings.getSourceFilePath())) {
+        if (settings.getSourceFilePath() != null && FileUtils.isFileExists(settings.getSourceFilePath())) {
             source = settings.getSourceFilePath();
             srcList = utilities.makeList(source);
         } else {
@@ -1170,13 +1171,13 @@ public class GUI extends javax.swing.JFrame {
         }
 
 
-        if (FileTools.isFileExists(Settings.RECENT_SRC_PATHS_FILE)) {
+        if (FileUtils.isFileExists(Settings.RECENT_SRC_PATHS_FILE)) {
             recentSrcPaths = utilities.makeList(Settings.RECENT_SRC_PATHS_FILE);
         } else {
             FileTools.createAFile(Settings.RECENT_SRC_PATHS_FILE);
         }
 
-        if (FileTools.isFileExists(Settings.RECENT_DEST_PATHS_FILE)) {
+        if (FileUtils.isFileExists(Settings.RECENT_DEST_PATHS_FILE)) {
             recentDestPaths = utilities.makeList(Settings.RECENT_DEST_PATHS_FILE);
         } else {
             FileTools.createAFile(Settings.RECENT_DEST_PATHS_FILE);
@@ -1254,7 +1255,7 @@ public class GUI extends javax.swing.JFrame {
     private void checkDestinationPath() {
         if (StringUtils.isStringBlank(destination)) {
             for (String recentDestPath : recentDestPaths) {
-                if (FileTools.isDirectoryExists(recentDestPath)) {
+                if (FileUtils.isDirectoryExists(recentDestPath)) {
                     destination = recentDestPath;
                     destinationField.setText(destination);
                 }
@@ -1267,7 +1268,7 @@ public class GUI extends javax.swing.JFrame {
     private void checkSourcePath() {
         if (StringUtils.isStringBlank(source)) {
             for (String recentSrcPath : recentSrcPaths) {
-                if (FileTools.isFileExists(recentSrcPath)) {
+                if (FileUtils.isFileExists(recentSrcPath)) {
                     source = recentSrcPath;
                     sourceField.setText(source);
                 }

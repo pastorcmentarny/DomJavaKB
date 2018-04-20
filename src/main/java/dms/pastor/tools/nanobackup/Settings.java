@@ -1,6 +1,7 @@
 package dms.pastor.tools.nanobackup;
 
 import dms.pastor.tools.nanobackup.tools.FileTools;
+import dms.pastor.utils.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -274,7 +275,7 @@ public final class Settings {
     public String saveSettingsWithDestSelection() {
         String path = FileTools.createSourceFile(Settings.SETTINGS_FILE_ENDING);
         validateIfNotNull(path, "Path to file"); //TODO add catch exception
-        if (!FileTools.isFileExists(path)) {
+        if (FileUtils.isFileNotExists(path)) {
             createDefaultSettings();
         }
         try (FileOutputStream fos = new FileOutputStream(path)) {
@@ -292,7 +293,7 @@ public final class Settings {
 
     public boolean loadSettings(String path, boolean withValidateAndSave) {
 
-        if (!FileTools.isFileExists(path)) {
+        if (FileUtils.isFileNotExists(path)) {
             createDefaultSettings();
         }
         try (FileInputStream fis = new FileInputStream(path)) {
@@ -363,7 +364,7 @@ public final class Settings {
     public boolean createDefaultSettings() {
         LOGGER.debug("creating new settings file");
         //recreate settings.properties 
-        if (FileTools.isFileExists(SETTINGS_PATH)) {
+        if (FileUtils.isFileExists(SETTINGS_PATH)) {
             FileTools.delete(SETTINGS_PATH);
         }
 
