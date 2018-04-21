@@ -1,0 +1,546 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+INFORMATION:
+	This changelog contain both relase information and developer information.
+	You must feel really bored to read this things.
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+toDo:After next release:
+v?.? [ABANDONED FEATURES: Only ideas,No plans to develop]
+    ~-=nOTHiNg=-~
+	
+toDo:Next Release:
+v1.7 NO planned release date : (it will developed, when I need use java 7 for any of my project)
+	(4) Java7 (nio2,zip)
+	(4) .nbd format for
+		- change source file (change ending from .txt to .nbd(nano backup data) 
+		- (change source file should look only for .nbd file)
+		- include info about dest dir
+		(only nbd and txt file will be supported)
+		save2NBD,loadFromNBD,validateNBD,
+        (4) implement joda time instead of calendar in java
+
+1.5 (planned release date : 08.06'2012)
+    (4) solve bug     (critical) When you do backup and try save as zip,then if your destination folder is part of backup ,then program will trap into infinitive loop!!!!
+    (4) Improve start of program by better boot sequence and self-check and self-repair
+    (4) improve zipFolder folder
+    (4) speedLightMode (it do backup as quick as possible without checking freespace,calc progress ... etc.)
+    (2) how much MB was copierd
+    (1) TaskEditor for dom mode.
+    (0) improve dom mode
+    (0) [target nb v1.4]Results are saved to file even if backup was cancelled.
+    (*) solve all bugs
+    (?) fix undetected yet bugs.
+
+1.4 (planned release date : 05.02'2012)
+    (?) fix undetected yet bugs.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Known Bugs:
+    (critical) [target nb v1.4] When you do backup and try save as zip,then if your destination folder is part of backup ,then program will trap into infinitive loop!!!!
+    (major) NullPointerException in non existing theard happen after file with result is saved.
+        File saved.
+        Exception in thread "backup" java.lang.NullPointerException
+            at nanobackup.Backup$BackupTask.run(Backup.java:267)
+            at java.lang.Thread.run(Thread.java:619)
+        (I was unable to reproduce this bug so far)
+        (it happens when user close program when too quickly :/)
+
+    (minor) Results are displayed incorrectly.(old results 
+        Copied Folder from: C:\dsSTUFF  
+        Everything was copied to C:\BACKUP\test\2012\1\6\1003_1
+        Copied Folder from: C:\dsSTUFF  <- this line was repeated
+        Everything was copied to C:\BACKUP\test\2012\1\6\1003_1 <- this line was repeated
+        Summary.Time needed: 0 days, 0 hours, 1 minutes and 15 seconds.
+        BackupType: Uncompressed
+        Files copied: 3656
+        Erros: 0
+        Backup size: 197513600 bytes.
+        
+    or
+        Summary.Time needed: -15351 days, -9 hours, -21 minutes and -20 seconds. <- WOW
+        BackupType: Uncompressed
+        Files copied: 2
+        Erros: 0
+        Backup size: 0 bytes.
+        Error messages:
+        Program was unable to copy fromC:\dsSTUFF to C:\BACKUP\2012\1\12\0921_1during unexpected problem!
+        nullProgram was unable to copy fromC:\dev to C:\BACKUP\2012\1\12\0921_1during unexpected problem!
+        null
+
+        (I was unable to reproduce this bug so far)
+
+    (minor) [target nb v1.3.1]Results are saved to file even if backup was cancelled.
+    <solved?>(minor) log level is not change correctly (should be debug for dom mode and warn for normal mode)
+    (minor) When you run program first time.You need run program twice.
+	
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2012-03-03
+ ^update changelog with new ideas
+
+2012-02-05 v1.4 (official relesase)
+ # fix issue with comfirm on exit
+ # fix issue with git
+
+
+2012-02-02 v1.4.dev.4->beta1
+ + sketch of speed light mode (add settings and menu)
+ + on startup if destination doesn't exist try to replace with any from recent destinations if exist (0)
+ ~ colour redesign 
+ ~ change from 1.3.1 to 1.4 ,because i add lots of stuff,not only bug fixes
+ # minor type fixes
+ # fix  check free space before backup doesn't work!(major)
+
+2012-02-01 v1.3.1.dev.3
+ + make backup a singleton,so can be run only once.(4) 
+ + display what setting are in use during backup. (1)
+ + in About/changelog and About/eula  text is display from begining (not from end as was before) (0)
+ ^ improve cli backup (cli will support 2 types of command .. 1) 1arg doJob 2) 2args from/to backup )     (4) 
+ ~ major package redesign that match my design
+ ~ code refactoring in statistic
+ ~ redesign test suite (split manualGUI test to external test class,etc)    (2) 
+ # fix If CPU is under heavy usage it is possible that user press makeBackup few times. (critical)
+ # fix minor code bugs
+ # fix log level is not change correctly (should be debug for dom mode and warn for normal mode)(minor) 
+ # fix Swap if not empty should be possible to swap with empty destination path (trace)
+ 
+
+2012-01-30 v1.3.1.dev.2
+ # fix some GUI issues.
+ 
+
+2012-01-27 v1.3.1.dev.1
+ + add logo
+ ^update about information
+ # fix minor About issue
+
+
+2012-01-17 v1.4.dev.0
+= release version 1.3
+= found bug     (0) in About/changelog and About/eula display end of the file not begining
+
+
+2012-01-16 v1.3 final release
+
+  
+2012-01-16 v1.3_rc1.2 -> final release,if nothing crap found
+ = daily basis tests
+ = add feature to implement: (1) cli will support 2 types of command .. 1) 1arg doJob 2) 2args from/to backup 
+ = found bug "(minor) log level is not change correctly (should be debug for dom mode and warn for normal mode)"
+ = found bug "(trace) info for debug is incorrect 16:01:48,484 DEBUG FileTools:360 - Program:    Current date and time used for sitemap is: 1601  ~ disable domTBP mode at the moment (until 1.4 where proper domTBp will be implemented
+
+
+2012-01-13 v1.3_beta.4 -> v1.3.rc1.1
+ ^~ refactor code (clean,improve) using quality tools
+
+
+2012-01-12 v1.3_beta.3
+ # found and fix bug (trace) logging doesn't work.
+ # found and fix issure with status check doesn't work.
+ = to do:(1) display what setting are in use during backup.
+ = do some planning for next release
+
+
+2012-01-11 v1.3_beta.2
+= automatic test passed (But not all are implemented yet)
+= i attempted to solve bug "    (minor) When you run program first time.You need run program twice. " but i failed.
+= found (trace) Swap if not empty should be possible to swap with empty destination path
+
+
+2012-01-10 v1.3_beta.1
+ + add lots tests
+ ~ reduce duplicated code in FileTools
+ = found few doggy code pieces which works,but they are need to be improved
+
+
+2012-01-09 v1.3_AlphaTest.8 > beta.1
+ ^ history of message is  updated now in real time in current opened window (you need reopen History of messages,to see current history).
+ ~ refactoring 
+ = found bug (critical) [target nb v1.3.1] If CPU is under heavy usage it is possible that user press makeBackup few times. 
+ # fix gui glitches (major) backupGUI glitches
+ # fix bug (critical) Program create some random folders during create backup folder
+
+
+2012-01-06 v1.3_AlphaTest.6
+
+ + add scrollbar to result,BUT it cause major glitches on whole backup GUI
+ ~ clean up unused code
+ ~ solve most GUI glitches
+ # fix bugs in settings (check free space before backup and save file to file)
+ # fix bug (minor) save results to file doesn't work.
+ # fix bug (trace) If program is running twice at the same time and in settings is set confirm on exit),then second program display error (which is correct) BUT it asks for confirmation as well)
+ # fix bug by adding scroll bar  (trace) result cannot be displayed completely ,because window is not resize correctly.
+ = found bug (trace) If program is running twice at the same time and in settings is set confirm on exit),then second program display error (which is correct) BUT it asks for confirmation as well)
+ = found bug (major) NullPointerException in non existing theard happen after file with result is saved.
+        File saved.
+        Exception in thread "backup" java.lang.NullPointerException
+            at nanobackup.Backup$BackupTask.run(Backup.java:267)
+            at java.lang.Thread.run(Thread.java:619)
+    (I was unable to reproduce this bug so far)
+
+ = found bug        (major) Results are displayed incorrectly.(old results 
+        Copied Folder from: C:\dsSTUFF  
+        Everything was copied to C:\BACKUP\test\2012\1\6\1003_1
+        Copied Folder from: C:\dsSTUFF  <- this line was repeated
+        Everything was copied to C:\BACKUP\test\2012\1\6\1003_1 <- this line was repeated
+        Summary.Time needed: 0 days, 0 hours, 1 minutes and 15 seconds.
+        BackupType: Uncompressed
+        Files copied: 3656
+        Erros: 0
+        Backup size: 197513600 bytes.
+ = found bug   (minor) Results are saved to file even if backup was cancelled.
+
+2012-01-05 v1.3_AlphaTest.5
+ + add test of messages
+ - remove tests that cause disaster
+ - remove unused code from backup class
+ = testing various part of program
+ = found bug (critical) Program create some random folders during create backup folder
+ = found bug (trace) history of message is not updated in real time in current opened window (you need reopen History of messages,to see current history)
+ = found bug (minor) save results to file doesn't work (Not implement completly???).
+ = found bug (minor) backupGUI glitches
+
+2011-12-19 v1.3_AlphaTest.4
+ + add some tests
+ = file test cause deletion of whole partion  :(
+
+
+2011-12-15 v1.3_AlphaTest.3
+# null pointer exeception when program try using happy mode for more than one backup
+= bugs found yesterday doesn't exist,because problem is caused by weird bug of calendar which give weird months.
++    I consider using yoda time instead of.
+= this bug "(trace) main window is cut from right after create new source file added." cannot be reproduced.Self fixed? one time issue?
+
+2011-12-15 v1.3_AlphaTest.2
+# fix weird issue with class not found exception
+! zip backup doesn't work
+! zip backup use old implementation of path!
+
+
+2011-12-12 v1.3_AlphaTest.1
+# fix minor issue with "check enough space option".
+
+2011-12-05 v1.3_dev.9
++ do not calculate enough space option  (1) 
+= start testing
+
+2011-12-05 v1.3_dev.8
+~ minor changes in dom script 
+~ improve thread handling (based on solutions from oracle's java site about killing thread correctly) (2)
+
+2011-11-30 v1.3_dev.*
+- remove  commons zip because all benefits from commons zip are not for my case.
+^ update commons-lang library to 3.1 
+
+2011-11-16 v1.3_dev.6
+~ improve history of messages
+
+2011-11-15 v1.3_dev.5
++ restructurise way how backup is done (2011 as folder,mm as folder , day (with time) as zip file (1)
+
+2011-11-14 v1.3_dev.4
++ when you click on InfoBack then you will history of messages(0)
++ delete to doJob
++ shutdown computer after backup [implement only for windows,linux and mac os x implementation] (1)
+~ minor refactoring of backup process
+
+2011-11-11 v1.3_dev.3
++ setting "save results to file"
++ destination to recent destination
++ autoSave/autoLoad recent destination
+~ update some settings
+~ minor refactoring 
+# minor GUI glitches
+
+2011-11-10 v1.3_dev.2
++ multidestination (as possibilty to choose recent selected backup)(1)
++ recent destination can be selected only if exists.(1)
++ add posibilty to add multiple source file to merge(1) 
+~ refactor  backuptask should be as seperate task
+~ refactor engine should contain only method that will do job from GUI (use C# pattern)
+
+2011-11-08 v1.3_dev.1
++ zip library
+~ change statistic (backup typce: Compressed/Uncopressed).Remove useless sentences.
+~ refactor
+
+2011-11-08 v1.2 Official release.
+
+2011-11-07 v1.2_rc1
+# merge  can be choose only from root path. (folders and subfolder was not displayed).
+# inccorect count of  files/folder when during backup saved to zip.
+# when settings exitAfterBackup and deleteSourceAfterBackup was ticked ... then program exits too quickly without deleting all source(or not delete at all)
+# confirm on exit works everywhere now.
+
+
+2011-11-06 v1.2_b3
+# bug with log .
+# 	(minor) Another problem caused by quickbackup mode (add/remove button was not activated,when program starts in quickbackup mode)
+
+
+2011-11-05 b1.2.0.2 
++ add file filter (text file only) when merge button will be pressed 
+- remove zip support (butit will remain as beta) and be included in version 1.3)
+# bug with loading incomplete settings
+# bug when program  crash during shutting down when other istnance is already running when quickbackup was set in settings.
+# you cannot create default config file when you are qucikbackup mode ,because in cause disasters ;P
+# Minor bugs with	 QuickbackupMode
+# minor bug fixes
+
+2011-11-04 b1.2.0.1 (Beta starts,all feautres implemented,bug fixing and improvments only)
+~ refactor remove item from list
+- remove unused events handler from GUI
++ program can be run once per time (if somebody tried run more than one instance,then program will display error
++ add qa to faq  What happen if source file will be deleted when program running?" ,"Program will recreate source file  with actual list of items.So... if you add items, merge items from other so program will recreate source file and save updated items list.".
++ zip file support (it means backup can be compressed to zip file),but is 
+~ Improve test suites
+
+2011-11-03 d1.2.0.10
+~major refactoring
+~ Quick backup mode (Add proper) 	(2)
+~ change exiting behave
+# minor bug fixing
++ shtudown menu and implementation for shutdown but i deactivate them.
+~ delete source after backup (Program ask question to confirm what you trying to do(except when settings "exit after backup" is ticked))
+~ minor GUI (change from eyef*king green to dark green in few places)
+
+2011-11-02 d1.2.0.9
+= found few bugs,which delayed start of beta
++ status to menu to signal if any program stuff are missing.
+~ more clever refactoring 
+# bug create default config problem
+# clear fixer fail
+# (major) It is possible to do backup without destination! [solved?])
+# minor bugs fixing  caused by crap refactoring....
+
+
+2011-11-01 d1.2.0.8
++ Multi deletions from items to backup list (2) 
+~ statistic/results (0)
+# it seems java.util.concurrent.RejectedExecutionException is not appear (critical)
+# About me doesn't work again 	(minor) 
+
+2011-10-31 d1.2.0.6
++ if backup is aborted, then all already copied stuff are deleted.
+# minor bug fixing
+
+2011-10-28 d1.2.0.5
+
+# (major) Exception in thread "backup" java.lang.IllegalArgumentException: D:\projects\nanoBackup does not exist
+# (minor) IF you start do another backup without closing summary window,then behave is weird. (program will back to main window after summary window is closed)	
+# (minor) wrong message where file/folder was not added
+# minor GUI bug fixes
+# fix bug with create default settings
+= (minor) weird behave during run from USB .Because,it is depend on OS/USB quality and mood ,so i wrote FAQ to explain a little bit
+
+2011-10-27 d1.2.0.4
++ setting: on/off happy mode 	(0) 
++ Engine class (split into 2 classes backup and file utils) (1) 
++ new step to backup "fix any possible problems before backup". (1)
+		- remove duplicated items
+		- remove non exist items
++ Merge button (1) 
++ implementing better dom mode. (0)
+~ put all program files into jar(eula,pictures,etc),except settings. (0)
+~ settings managment improved (0) (create settings class to manage all sort of stuff related to it.
+~ adjust error logging~
+# (critical) closing window doesn't end backup task;
+# fix bugs after crap refactoring of Engine class
+# (critical) if you run program "first time" then if you choose source,then you can do backup without choosing dest!
+	{Program will display error : "Unable to do Backup due lack of freespace on destination drive")
+
+2011-10-26 d1.2.0.3
++ settings 
+= new major bug : java.util.concurrent.RejectedExecutionException error
+= new major bug : source and destination path are not saved on exit or load on start up
+~ refactor Engine class
+~ improve settings.properites
+~ improve error logging
+# minor bug fixing
+
+2011-10-25 d1.2.0.2
++ merge add file(s) and add dir(s) into generic add (2) 
++ add many files/folders support (multi-selection) (4)
++ funny messages  during backup (0)
++ message after finish task remove duplicate and etc (1)
+# minor typo error
+# on the end of backup, result are display on front (main program window is in back)
+
+2011-10-24 d1.2.0.1
++ Task menu ,where will be selection to simple task
++ check,if destination has enough space,before backup happen.
++ setting confirm exit.
++ implement FAQ (Combobox with question and textarea with answer)
++ Possibility to do backup without file with source (quickbackup)
+#  issue with clear non exists files that result are not save to file.
+# (major) when user remove item which is duplicated (all items are deleted).
+#  typo errors.
+~ minor redesign
+~ improve about me (message from about program should be read from message.properties)
+
+2011-10-23 v1.1
+Official release
+
+2011-10-22 v1.1.rc.1
+= find bug: 	(minor) wrong message where file/folder was not added
+# fix GUI issue.
+~ minor changes in FAQ and Tutorial.
+
+2011-10-21 v1.1.beta.6 (last,before first RC)
+= perform test of using git on home computer.
+
+
+2011-10-20 v1.1.beta.5
+# fix a bug with display correct message when source file is selected(or not)
+? bug	(critical)"issues with check()  (make backup stays deactivated even if it shouldn't)" seems doesn't exist anymore.
+? bug	(major) "if everything is empty and you add source ... without destination ,then is possible to make backup!" seems doesn't exist anymore.
++ add Settings menu (but stays deactivated until implementation will be finished
++ add Task menu ,where will be selection to simple task
+~ move menu domTBP to task
+- remove information about free space on drive
+- remove exit button from main GUI (from few reasons)
+~ move "Make Backup
+	
+2011-10-19 v1.1.beta.4
+# fix a name bug ( i used relase candidate instead of beta)
+~ refactoring code
++ usage of Git as a distributed revision control system
++ backup size in result
++ improve changelog legend
+= add task:improve about me (message from about program should be read from message.properties) 
+
+2011-10-18 v1.1.beta.3
+= found bugs
+	* when user remove item which is duplicated (all items are deleted).
+	* closing window doesn't about backup task;
+# weird error appear.
+	Exception in thread "Thread-3" java.lang.NullPointerException
+	at nanobackup.Engine$BackupTask.run(Engine.java:468)
+	at java.lang.Thread.run(Thread.java:619)
+
+	
+2011-10-16 v.1.1.beta.2
+# fix about me font issue in EULA
+
+	
+2011-10-14 d1.0.1.4/v1.1.beta.1
+~ modify performing backup task
+# fix about me problem
+~ refactoring
+~ change number from v1.0.1 to v1.1(because it contain lots of new stuff and improvments)
+
+2011-10-13 d1.0.1.3
++ better performing backup task window
+
+2011-10-12 d1.0.1.2
++ clean non existing files
+~ improve result message
+~ improve statistic information (add how many files was copied , how many error occur and what errors was)
++ add command line (just run program with parameters (file with list of items to copy,destination).
+
+
+2011-10-11 d1.0.1.1
+- fix that program use empty field in source/destination instead of weird error message
+
+2011-08-18 v1.0
+First stable release
+
+
+2011-08-15(Relase Candidate 2) 
+- fix issue that program exit if source file doesn't exist during startup
+- i use ugly replacement for about window,because my orginal one doesn't work for some unknown reasons.
+- fix during create new file in 2 steps process when user press cancel ,then program still go to step 20
+
+2011-08-12
+- fix issue that "Create new button" is not desabled during backup
+
+2011-08-11(Relase Candidate 1) 
+- fix issue with messages implementation
+- add file/dir are disabled when user doesn't have correct path to source ,but they cannot be re-enabled again
+- finish dom mode
+- fix  minor bugs (suggested by findbugs)
+- code clean up
+ 
+
+
+2011-08-10(beta4)
+-fixing bugs based on findbugs feedback
+-fix bug with create default configuration
+-fix bug with create new source file
+-improve dom mode
+
+2011-08-09(beta3)
+-testing
+-minor bug fixing
+
+2011-08-08(beta2)
+- testing
+- refactoring
+- optimisation
+- fix bug with make backup button.
+
+17:20 2011-08-07(beta1.1)
+-refactoring code
+
+2011-08-06(beta.1.0)
+-add about
+-Add count of total time for backup.
+
+2011-08-04 a.5
+-continue implementation
+
+
+2010-12-15 a.4
+-implement temp domTBP (WorkStart)  (for personal use)
+
+
+
+2010-12-14 a.3
+-implement temp domTBP (Work2Archive,Laptop2USB,Netbook2USB)  (for personal use)
+
+
+
+2010-12-14 a.2
+-if list is empty,then user can NOT press  Remove. (however program will ignore remove button if list is empty anyway
+-add dom mode (for my personal use)
+-solve issue with "destination folder" that should exist but didn't.
+
+
+2010-12-13 a.1
+
+-first alpha version
+
+=======================================
+InfoLabel color meaning
+red - error
+orange - warning
+blue - information
+great - success
+black - misc
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+changelog legend
++ add
+# fix
+- remove
+~ change
+= message
+^ update
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+changelog priority
+4 1st class
+2 high
+1 medium
+0 low
+? unknown
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+changelog bug priority
+4 critical
+2 major
+1 minor
+0 trace
