@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.awt.*;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -25,8 +26,8 @@ import static java.lang.String.format;
 @SuppressWarnings({"ClassWithTooManyFields", "OverlyComplexClass", "ClassWithTooManyMethods"}) //because is settings
 public final class Settings {
 
-    public static final String DATA_PATH = "data" + System.getProperty("file.separator");
-    private static final String DEFAULT_PATH = System.getProperty("user.dir") + System.getProperty("file.separator");
+    public static final String DATA_PATH = "data" + File.separator;
+    private static final String DEFAULT_PATH = System.getProperty("user.dir") + File.separator + "nanobackup" + File.separator;
     public static final String SETTINGS_PATH = DATA_PATH + "settings.properties";
     public static final String RECENT_SRC_PATHS_FILE = DATA_PATH + "recentSrcPaths.nbd";
     public static final String RECENT_DEST_PATHS_FILE = DATA_PATH + "recentDestPaths.nbd";

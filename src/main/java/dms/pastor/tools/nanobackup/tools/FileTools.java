@@ -367,10 +367,10 @@ public final class FileTools {
 //        path = createPath(path, day);
 //
 //
-//        file = new File(path + System.getProperty("file.separator") + "Backup_" + Tools.getCurrentDateWithTime() + ".zip");
+//        file = new File(path + File.separator + "Backup_" + Tools.getCurrentDateWithTime() + ".zip");
 //        int next = 1;
 //        while (file.exists()) {
-//            file = new File(path + System.getProperty("file.separator") + "Backup_" + Tools.getCurrentDateWithTime() + "_" + next + ".zip");
+//            file = new File(path + File.separator + "Backup_" + Tools.getCurrentDateWithTime() + "_" + next + ".zip");
 //            if (next == 1000) {
 //                LOGGER.warn("More than 1000 attempts to created file failed.It is quite likely something when terrible wrong");
 //                return null;
@@ -390,7 +390,7 @@ public final class FileTools {
         path = createPath(path, year);
         path = createPath(path, month);
         path = createPath(path, day);
-        path += System.getProperty("file.separator") + Tools.getCurrentTime();
+        path += File.separator + Tools.getCurrentTime();
 
         File dir = new File(path);
         int next = 1;
@@ -411,10 +411,10 @@ public final class FileTools {
 
     private static String createPath(String path, int unitOfTime) {
         if (!new File(path + unitOfTime).exists()) {
-            path += System.getProperty("file.separator") + unitOfTime;
+            path += File.separator + unitOfTime;
             createADirectory(path);
         } else {
-            path += System.getProperty("file.separator") + unitOfTime;
+            path += File.separator + unitOfTime;
         }
         return path;
     }
@@ -442,7 +442,7 @@ public final class FileTools {
 // --Commented out by Inspection START (21/02/2018 14:27):
 //    public static void replace(String whatPath, String fromPath, String file) {
 //        if (file != null) {
-//            delete(whatPath + System.getProperty("file.separator") + file);
+//            delete(whatPath + File.separator + file);
 //        } else {
 //            delete(whatPath);
 //        }
@@ -450,7 +450,7 @@ public final class FileTools {
 //            if (file == null) {
 //                FileUtils.copyDirectory(new File(fromPath), new File(whatPath));
 //            } else {
-//                FileUtils.copyFile(new File(fromPath + System.getProperty("file.separator") + file), new File(whatPath + System.getProperty("file.separator") + file));
+//                FileUtils.copyFile(new File(fromPath + File.separator + file), new File(whatPath + File.separator + file));
 //            }
 //        } catch (IOException ex) {
 //            //TODO create a error message
@@ -476,7 +476,7 @@ public final class FileTools {
 //                if (fileList != null) {
 //                    String[] listInDir = new String[fileList.length];
 //                    for (int ix = 0; ix < fileList.length; ix++) {
-//                        listInDir[ix] = aFolderPath + System.getProperty("file.separator") + fileList[ix];
+//                        listInDir[ix] = aFolderPath + File.separator + fileList[ix];
 //                    }
 //                    zipFolder(listInDir, out, results, stats);
 //                } else {
@@ -517,8 +517,8 @@ public final class FileTools {
         String path = FileTools.chooseDirToLoad();
         if (StringUtils.isStringBlank(fileName) || StringUtils.isStringBlank(path)) {
             return null;
-        } else if (FileTools.createAFile(path + System.getProperty("file.separator") + fileName + ending)) {
-            return path + System.getProperty("file.separator") + fileName + ending;
+        } else if (FileTools.createAFile(path + File.separator + fileName + ending)) {
+            return path + File.separator + fileName + ending;
         } else {
             return null;
         }

@@ -58,7 +58,7 @@ public final class FileUtils {
     }
 
     public static boolean isDirectoryExists(String filePath) {
-        return nonNull(filePath) && file.isDirectory();
+        return nonNull(filePath) && new File(filePath).isDirectory();
     }
 
     public static boolean isDirectoryNotExists(String filePath) {

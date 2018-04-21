@@ -1300,7 +1300,7 @@ public class GUI extends javax.swing.JFrame {
     private void setDomMode() {
         //dom mode
         try {
-            dom.load(new FileInputStream(System.getProperty("user.dir") + System.getProperty("file.separator") + "dom.properties"));
+            dom.load(new FileInputStream(System.getProperty("user.dir") + File.separator + "dom.properties"));
             domMode.setSelected(true);
         } catch (IllegalArgumentException | IOException ex) {
             LOGGER.debug("dom mode deactivated:" + ex.getCause());

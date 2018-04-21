@@ -150,10 +150,10 @@ public final class Backup extends AbstractTools {
 
         for (String source : sources) {
             updateInfoText(info, "Coping file:" + source);
-            FileTools.copy(source, destinationDir + System.getProperty("file.separator") + new File(source).getName(), stats);
+            FileTools.copy(source, destinationDir + File.separator + new File(source).getName(), stats);
            /*
             if (FileTools.isAFile(sources[i])) {
-                result = FileTools.copyFile(sources[i], destinationDir + System.getProperty("file.separator") + new File(sources[i]).getName(), stats);
+                result = FileTools.copyFile(sources[i], destinationDir + File.separator + new File(sources[i]).getName(), stats);
                 if (result) {
                     String infoMsg = Messenger.COPIED + sources[i];
                     updateInfoText(info, infoMsg);

@@ -299,10 +299,10 @@ public class About extends javax.swing.JFrame {
 
     private void aboutTabbedPanelMouseClicked() {//GEN-FIRST:event_AboutTabbedPanelMouseClicked
         try {
-            String changelog = FileUtils.readFileToString(new File("data" + System.getProperty("file.separator") + "changelog.txt"), UTF_8);
+            String changelog = FileUtils.readFileToString(new File("data" + File.separator + "changelog.txt"), UTF_8);
             changelogTextArea.setText(changelog);
             changelogTextArea.setCaretPosition(0);
-            String eula = FileUtils.readFileToString(new File("data" + System.getProperty("file.separator") + "eula.txt"), UTF_8);
+            String eula = FileUtils.readFileToString(new File("data" + File.separator + "eula.txt"), UTF_8);
             eulaTextArea.setText(eula);
             eulaTextArea.setCaretPosition(0);
         } catch (IOException ex) {
@@ -320,7 +320,7 @@ public class About extends javax.swing.JFrame {
 
 
     private void setup() {
-        try (FileInputStream fis = new FileInputStream("data" + System.getProperty("file.separator") + "message.properties")) {
+        try (FileInputStream fis = new FileInputStream("data" + File.separator + "message.properties")) {
             properties.load(fis);
         } catch (FileNotFoundException ex) {
             LOGGER.warn("Unexpected error due load properties for About." + ex.getCause() + ("\n" + ex.getMessage()));

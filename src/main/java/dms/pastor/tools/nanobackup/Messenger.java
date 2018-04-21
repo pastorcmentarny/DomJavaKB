@@ -3,6 +3,7 @@ package dms.pastor.tools.nanobackup;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.util.Properties;
 
@@ -20,7 +21,7 @@ public class Messenger {
 
     public static final String PRE_CHECK = "Doing pre-check... ";
 
-    private static final String PATH = "data" + System.getProperty("file.separator") + "\\message.properties";
+    private static final String PATH = "data" + File.separator + "message.properties";
     public static final String CREATING_BACKUP_DIR = "Creating backup folder...";
     public static final String BACKUP_IN_PROGRESS = "Backup in progress...\n";
     public static final String ITEM_COUNTING = "Calculating total item copied...";

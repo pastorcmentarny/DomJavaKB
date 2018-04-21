@@ -14,6 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.awt.*;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -116,7 +117,7 @@ public class FaqGUI extends javax.swing.JFrame {
         ArrayList<String> question = new ArrayList<>();
         ArrayList<String> answer = new ArrayList<>();
 
-        final String path = "data" + System.getProperty("file.separator") + "message.properties";
+        final String path = "data" + File.separator + "message.properties";
         try (FileInputStream fis = new FileInputStream(path)) {
             properties.load(fis);
             for (int i = 0; i < Integer.parseInt(properties.getProperty("faq.counter")); i++) {
