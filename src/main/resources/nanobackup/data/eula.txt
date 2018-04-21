@@ -1,27 +1,30 @@
-EULA v2011-09-10
+EULA v2018-04-21
 
 NOTICE TO USER:
-	Please, please PLEEEEASE read this document carefully!
-	
-So... folks.. By using all or any  (even single line or) portion of the Software or Source Code you voluntarily  accept all the terms and conditions of this Agreement.
+    Please, please PLEEEEASE read this document carefully!
 
-Do NOT use this software , if you do not agree with agreement.
-If you do NOT understand any part of this EULA or you think that it something is missing here, you need contact with author for explanation,before you can use this software.
+So... folks. By using all or any  (even single line or) portion of the Software or Source Code you voluntarily accept all the terms and conditions of this Agreement.
 
-Please use your brain and logic as best as you can to ensure that you use program for what program is design for,because you will not find any warning like Milk (Allergy warning: contains Milk) as you can find on carton in shops.
+Do NOT use this software, if you do not agree with the agreement.
+If you do NOT understand any part of this EULA or you think that it something is missing here, you need contact with the author for an explanation, before you can use this software.
 
-Software is Freeware(it means FREE OF CHARGE) but it will not harm me,if you would love to give some tiny donation.
+Please use your brain and logic as best as you can to ensure that you use program for what program is designed for, because you will not find any warning like Milk (Allergy warning: contains Milk) as you can find on carton in shops.
 
-You can alter , copy, clone, modify or everse-engineer in any way as you want of this software and you are NOT forced in any way to mention who was orginal author but it will be nice if you do that.
+The software is Freeware(it means FREE OF CHARGE) but it will not harm me if you would love to give some tiny donation.
+
+You can alter, copy, clone, modify or reverse-engineer in any way as you want of this software and you are NOT forced in any way to mention who was the original author but it will be nice if you do that.
 
 
 LIMITATION OF LIABILITY
 This software is provided 'AS-IS' and I do NOT take any liability for any damages or results of using/modify this software.
-The Software may be installed and used for any legal purpose.( I do NOT take any liability for illegal usage of this software).
+The Software may be installed and used for any legal purpose.( I do NOT take any liability for illegal use of this software).
 
 Changelog
+v2018-04-21
+    Correct some grammar mistakes.
+
 v2011-09-10
-	Minor changes
-	
+    Minor changes
+
 v2011-08-08
-	First release
+    First release
