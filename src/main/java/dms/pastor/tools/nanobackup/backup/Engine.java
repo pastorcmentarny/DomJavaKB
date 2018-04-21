@@ -1,7 +1,7 @@
 package dms.pastor.tools.nanobackup.backup;
 
+import dms.pastor.tools.nanobackup.Constants;
 import dms.pastor.tools.nanobackup.History;
-import dms.pastor.tools.nanobackup.Settings;
 import dms.pastor.tools.nanobackup.tools.AbstractTools;
 import dms.pastor.tools.nanobackup.tools.FileTools;
 import dms.pastor.tools.nanobackup.tools.TaskUtils;
@@ -19,6 +19,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
+import static dms.pastor.tools.nanobackup.Constants.DATA_PATH;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 
 /**
@@ -37,11 +38,11 @@ public class Engine extends AbstractTools {
     public void activateQuickBackupMode(JTextField sourceField) {
         LOGGER.debug("Activating quick backup mode.");
         settings.setNonQuickPath(sourceField.getText());
-        if (!FileTools.createAFile(Settings.QUICK_MODE_FILENAME)) {
+        if (!FileTools.createAFile(Constants.QUICK_MODE_FILENAME)) {
             LOGGER.warn("Unable to activate Quick backup mode.");
             return;
         }
-        sourceField.setText(new File(Settings.QUICK_MODE_FILENAME).getAbsolutePath());
+        sourceField.setText(new File(Constants.QUICK_MODE_FILENAME).getAbsolutePath());
     }
 
     private void deactivateQuickBackupMode(JTextField sourceField) {
@@ -115,21 +116,21 @@ public class Engine extends AbstractTools {
         result.add(0, "OK");
         checkIfDataFolderExists(result);
         checkIfSettingsFileIsValid(result);
-        checkIfFileExistsFor(result, Settings.DATA_PATH + "changelog.txt", "Non important file changelog.txt doesn't exist. ");
-        checkIfFileExistsFor(result, Settings.DATA_PATH + "message.properties", "Important file message.properties doesn't exist.");
-        checkIfFileExistsFor(result, Settings.DATA_PATH + "eula.txt", "Important file (for law  reasons) eula.txt doesn't exist. ");
+        checkIfFileExistsFor(result, DATA_PATH + "changelog.txt", "Non important file changelog.txt doesn't exist. ");
+        checkIfFileExistsFor(result, DATA_PATH + "message.properties", "Important file message.properties doesn't exist.");
+        checkIfFileExistsFor(result, DATA_PATH + "eula.txt", "Important file (for law  reasons) eula.txt doesn't exist. ");
         return result.toArray(new String[0]);
     }
 
     private void checkIfFileExistsFor(ArrayList<String> result, String filePath, String errorMessage) {
-        if (!FileUtils.isFileExists(filePath)) {
+        if (FileUtils.isFileNotExists(filePath)) {
             result.add(errorMessage);
             Tools.changeToYellowStatus(result);
         }
     }
 
     private void checkIfSettingsFileIsValid(ArrayList<String> result) {
-        if (FileUtils.isFileNotExists(Settings.DATA_PATH + "settings.properties")) {
+        if (FileUtils.isFileNotExists(DATA_PATH + "settings.properties")) {
             if (!settings.createDefaultSettings()) {
                 result.add("Unable to create settings.properties");
                 result.set(0, "ERROR");
@@ -138,7 +139,7 @@ public class Engine extends AbstractTools {
     }
 
     private void checkIfDataFolderExists(ArrayList<String> result) {
-        if (FileUtils.isDirectoryNotExists("data")) {
+        if (FileUtils.isDirectoryNotExists(DATA_PATH)) {
             result.add("Data folder doesn't exist!");
             result.set(0, "ERROR");
         }

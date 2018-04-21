@@ -21,6 +21,7 @@ import java.io.File;
 import java.util.Collection;
 import java.util.concurrent.*;
 
+import static dms.pastor.tools.nanobackup.Constants.DATA_PATH;
 import static dms.pastor.utils.FileUtils.isFileExists;
 import static dms.pastor.utils.FileUtils.saveTextToFile;
 import static java.awt.Color.DARK_GRAY;
@@ -475,7 +476,7 @@ public final class Backup extends AbstractTools {
         private void saveResultsToFile(String results) {
             if (!inProgress && settings.isSaveResultsToFile()) {
                 LOGGER.debug("saving  results to file");
-                String sr2f = Settings.DATA_PATH + Tools.getCurrentDateWithTime() + ".txt";
+                String sr2f = DATA_PATH + Tools.getCurrentDateWithTime() + ".txt";
                 updateInfoText(info, "Saving results to file:" + sr2f);
                 saveTextToFile(results, sr2f);
             }

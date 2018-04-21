@@ -6,12 +6,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.awt.*;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+import static dms.pastor.tools.nanobackup.Constants.DEFAULT_PATH;
+import static dms.pastor.tools.nanobackup.Constants.SETTINGS_PATH;
 import static dms.pastor.utils.ValidatorUtils.validateIfNotNull;
 import static java.lang.String.format;
 
@@ -26,15 +27,9 @@ import static java.lang.String.format;
 @SuppressWarnings({"ClassWithTooManyFields", "OverlyComplexClass", "ClassWithTooManyMethods"}) //because is settings
 public final class Settings {
 
-    public static final String DATA_PATH = "data" + File.separator;
-    private static final String DEFAULT_PATH = System.getProperty("user.dir") + File.separator + "nanobackup" + File.separator;
-    public static final String SETTINGS_PATH = DATA_PATH + "settings.properties";
-    public static final String RECENT_SRC_PATHS_FILE = DATA_PATH + "recentSrcPaths.nbd";
-    public static final String RECENT_DEST_PATHS_FILE = DATA_PATH + "recentDestPaths.nbd";
-    public static final String QUICK_MODE_FILENAME = "quickMode.nbd";
-    public static final String SRC_FILE_ENDING = ".txt";
     private static final String SETTINGS_FILE_ENDING = ".properties";
-    private static final Logger LOGGER = LoggerFactory.getLogger(Settings.class);
+    public static final String SRC_FILE_ENDING = ".txt";
+    private static final Logger LOGGER = LoggerFactory.getLogger(Constants.class);
     private static Settings settings;
 
     //GUI settings
@@ -274,7 +269,7 @@ public final class Settings {
 // --Commented out by Inspection STOP (21/02/2018 14:14)
 
     public String saveSettingsWithDestSelection() {
-        String path = FileTools.createSourceFile(Settings.SETTINGS_FILE_ENDING);
+        String path = FileTools.createSourceFile(SETTINGS_FILE_ENDING);
         validateIfNotNull(path, "Path to file"); //TODO add catch exception
         if (FileUtils.isFileNotExists(path)) {
             createDefaultSettings();

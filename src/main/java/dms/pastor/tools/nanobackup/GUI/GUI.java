@@ -1,5 +1,6 @@
 package dms.pastor.tools.nanobackup.GUI;
 
+import dms.pastor.tools.nanobackup.Constants;
 import dms.pastor.tools.nanobackup.History;
 import dms.pastor.tools.nanobackup.Messenger;
 import dms.pastor.tools.nanobackup.Settings;
@@ -606,7 +607,7 @@ public class GUI extends javax.swing.JFrame {
             settings.setSourceFilePath(tempSource);
             settings.setProperties(true);
             recentSrcPaths = utilities.updateRecentFolderPaths(recentSrcPaths, tempSource);
-            FileUtils.saveListToFile(recentSrcPaths, Settings.RECENT_SRC_PATHS_FILE);
+            FileUtils.saveListToFile(recentSrcPaths, Constants.RECENT_SRC_PATHS_FILE);
             utilities.setInfoLabel(AppColor.DARK_GREEN, "Source file set to " + tempSource, InfoLabel);
         } else {
             utilities.setInfoLabel(Color.RED, "Action cancelled", InfoLabel);
@@ -623,7 +624,7 @@ public class GUI extends javax.swing.JFrame {
             settings.setDestinationFolderPath(tempSource);
             settings.setProperties(true);
             recentDestPaths = utilities.updateRecentFolderPaths(recentDestPaths, tempSource);
-            FileUtils.saveListToFile(recentDestPaths, Settings.RECENT_DEST_PATHS_FILE);
+            FileUtils.saveListToFile(recentDestPaths, Constants.RECENT_DEST_PATHS_FILE);
 
             InfoLabel.setForeground(AppColor.DARK_GREEN);
             InfoLabel.setText("Destination folder is set to: " + tempSource);
@@ -752,7 +753,7 @@ public class GUI extends javax.swing.JFrame {
         } else {
             utilities.setInfoLabel(AppColor.DARK_GREEN, "Source file: " + result + " was created.", InfoLabel);
             recentSrcPaths = utilities.updateRecentFolderPaths(recentSrcPaths, sourceField.getText());
-            FileUtils.saveListToFile(recentSrcPaths, Settings.RECENT_SRC_PATHS_FILE);
+            FileUtils.saveListToFile(recentSrcPaths, Constants.RECENT_SRC_PATHS_FILE);
             sourceField.setText(result);
             settings.setSourceFilePath(result);
             settings.setProperties(true);
@@ -996,7 +997,7 @@ public class GUI extends javax.swing.JFrame {
                     settings.setDestinationFolderPath(destinationField.getText());
                 }
 
-                recentDestPaths = utilities.makeList(Settings.RECENT_DEST_PATHS_FILE);
+                recentDestPaths = utilities.makeList(Constants.RECENT_DEST_PATHS_FILE);
                 settings.setProperties(true);
                 settings.saveProperties();
                 refreshContent();
@@ -1143,7 +1144,7 @@ public class GUI extends javax.swing.JFrame {
             LOGGER.warn("Program is damaged.");
         }
 
-        if (!FileUtils.isFileExists(Settings.SETTINGS_PATH)) {
+        if (!FileUtils.isFileExists(Constants.SETTINGS_PATH)) {
             settings.createDefaultSettings();
         }
 
@@ -1171,16 +1172,16 @@ public class GUI extends javax.swing.JFrame {
         }
 
 
-        if (FileUtils.isFileExists(Settings.RECENT_SRC_PATHS_FILE)) {
-            recentSrcPaths = utilities.makeList(Settings.RECENT_SRC_PATHS_FILE);
+        if (FileUtils.isFileExists(Constants.RECENT_SRC_PATHS_FILE)) {
+            recentSrcPaths = utilities.makeList(Constants.RECENT_SRC_PATHS_FILE);
         } else {
-            FileTools.createAFile(Settings.RECENT_SRC_PATHS_FILE);
+            FileTools.createAFile(Constants.RECENT_SRC_PATHS_FILE);
         }
 
-        if (FileUtils.isFileExists(Settings.RECENT_DEST_PATHS_FILE)) {
-            recentDestPaths = utilities.makeList(Settings.RECENT_DEST_PATHS_FILE);
+        if (FileUtils.isFileExists(Constants.RECENT_DEST_PATHS_FILE)) {
+            recentDestPaths = utilities.makeList(Constants.RECENT_DEST_PATHS_FILE);
         } else {
-            FileTools.createAFile(Settings.RECENT_DEST_PATHS_FILE);
+            FileTools.createAFile(Constants.RECENT_DEST_PATHS_FILE);
         }
     }
 
@@ -1189,10 +1190,10 @@ public class GUI extends javax.swing.JFrame {
         if (activate) {
             LOGGER.debug("Activating quick backup mode.");
             settings.setNonQuickPath(sourceField.getText());
-            if (!FileTools.createAFile(Settings.QUICK_MODE_FILENAME)) {
+            if (!FileTools.createAFile(Constants.QUICK_MODE_FILENAME)) {
                 return false;
             }
-            source = new File(Settings.QUICK_MODE_FILENAME).getAbsolutePath();
+            source = new File(Constants.QUICK_MODE_FILENAME).getAbsolutePath();
             sourceField.setText(source);
             srcList = new String[0];
             srcList = utilities.makeList(source);
@@ -1202,8 +1203,8 @@ public class GUI extends javax.swing.JFrame {
 
         } else {
             LOGGER.debug("Deactivating quick backup mode.");
-            if (new File(Settings.QUICK_MODE_FILENAME).exists()) {
-                FileTools.delete(new File(Settings.QUICK_MODE_FILENAME).getAbsolutePath());
+            if (new File(Constants.QUICK_MODE_FILENAME).exists()) {
+                FileTools.delete(new File(Constants.QUICK_MODE_FILENAME).getAbsolutePath());
             }
             source = settings.getNonQuickPath();
             sourceField.setText(source);
@@ -1282,7 +1283,7 @@ public class GUI extends javax.swing.JFrame {
         //Quick backup
         if (settings.isQuickBackup()) {
             utilities.activateQuickBackupMode(sourceField);
-            source = Settings.QUICK_MODE_FILENAME;
+            source = Constants.QUICK_MODE_FILENAME;
             srcList = utilities.makeList(source);
         }
     }

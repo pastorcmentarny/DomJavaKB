@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.util.Properties;
 
+import static dms.pastor.tools.nanobackup.Constants.DATA_PATH;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static javax.swing.LayoutStyle.ComponentPlacement.RELATED;
 
@@ -188,7 +189,7 @@ public class About extends javax.swing.JFrame {
         goToButton.setText("Go to my page");
         goToButton.addActionListener(evt -> goToButtonActionPerformed());
 
-        pictureOfMe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nanobackup/me.jpg"))); 
+        pictureOfMe.setIcon(new javax.swing.ImageIcon(DATA_PATH + "me.jpg"));
 
         javax.swing.GroupLayout aboutMePanelLayout = new javax.swing.GroupLayout(aboutMePanel);
         aboutMePanel.setLayout(aboutMePanelLayout);
@@ -299,10 +300,10 @@ public class About extends javax.swing.JFrame {
 
     private void aboutTabbedPanelMouseClicked() {//GEN-FIRST:event_AboutTabbedPanelMouseClicked
         try {
-            String changelog = FileUtils.readFileToString(new File("data" + File.separator + "changelog.txt"), UTF_8);
+            String changelog = FileUtils.readFileToString(new File(DATA_PATH + "changelog.txt"), UTF_8);
             changelogTextArea.setText(changelog);
             changelogTextArea.setCaretPosition(0);
-            String eula = FileUtils.readFileToString(new File("data" + File.separator + "eula.txt"), UTF_8);
+            String eula = FileUtils.readFileToString(new File(DATA_PATH + File.separator + "eula.txt"), UTF_8);
             eulaTextArea.setText(eula);
             eulaTextArea.setCaretPosition(0);
         } catch (IOException ex) {
@@ -312,7 +313,7 @@ public class About extends javax.swing.JFrame {
 
     private void goToButtonActionPerformed() {//GEN-FIRST:event_goToButtonActionPerformed
         try {
-            java.awt.Desktop.getDesktop().browse(new URI("http://pastor.ovh.org"));
+            java.awt.Desktop.getDesktop().browse(new URI("https://dominiksymonowicz.com/about/"));
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "It is something wrong with web address.\nPossible reasons:\nIt is possible that you have weird problem with internet connection.\nFirewall blocks Java to access to internet\nAddress is incorrect.", "BAD NEWS!", JOptionPane.ERROR_MESSAGE);
         }
@@ -320,7 +321,7 @@ public class About extends javax.swing.JFrame {
 
 
     private void setup() {
-        try (FileInputStream fis = new FileInputStream("data" + File.separator + "message.properties")) {
+        try (FileInputStream fis = new FileInputStream(DATA_PATH + "message.properties")) {
             properties.load(fis);
         } catch (FileNotFoundException ex) {
             LOGGER.warn("Unexpected error due load properties for About." + ex.getCause() + ("\n" + ex.getMessage()));

@@ -3,11 +3,11 @@ package dms.pastor.tools.nanobackup;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.util.Properties;
 
 import static ch.qos.logback.core.util.OptionHelper.isEmpty;
+import static dms.pastor.tools.nanobackup.Constants.MESSAGE_PATH;
 
 /**
  * Author Dominik Symonowicz
@@ -20,15 +20,14 @@ import static ch.qos.logback.core.util.OptionHelper.isEmpty;
 public class Messenger {
 
     public static final String PRE_CHECK = "Doing pre-check... ";
+    private static final Logger LOGGER = LoggerFactory.getLogger(Messenger.class);
 
-    private static final String PATH = "data" + File.separator + "message.properties";
     public static final String CREATING_BACKUP_DIR = "Creating backup folder...";
     public static final String BACKUP_IN_PROGRESS = "Backup in progress...\n";
     public static final String ITEM_COUNTING = "Calculating total item copied...";
     public static final String BACKUP_SIZE = "Calculating total size of backup...";
     public static final String REMOVING_NON_EXIST_ITEMS = "(Removing non exist items))";
     public static final String REMOVE_DUPLICATES = "(Removing duplicate entries)";
-    private static final Logger LOGGER = LoggerFactory.getLogger(Messenger.class);
     public static final String DESTINATION_PATH_CHECK = "(Checking is destination path exists)";
     public static final String ENOUGH_SPACE_CHECK = "(Check is it enough space for backup)";
     public static final String PRE_CHECK_COMPLETED = "Pre-check is completed.";
@@ -36,7 +35,7 @@ public class Messenger {
     private boolean missingMessageFile;
 
     public Messenger() {
-        try (FileInputStream fis = new FileInputStream(PATH)) {
+        try (FileInputStream fis = new FileInputStream(MESSAGE_PATH)) {
             properties.load(fis);
             missingMessageFile = false;
         } catch (Exception ex) {
