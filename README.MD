@@ -24,3 +24,6 @@ I use this project to:
   
 Enjoy your time here and if you fancy in contact with me feel free to do so.
 
+./gradlew dependencyCheckAnalyze
+and check
+The reports will be generated automatically under build/reports folder.
