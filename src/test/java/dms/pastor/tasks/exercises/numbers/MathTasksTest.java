@@ -9,6 +9,7 @@ import org.junit.Test;
 import java.util.stream.IntStream;
 
 import static dms.pastor.utils.PrintOutUtils.printIntArray;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.number.OrderingComparison.greaterThan;
 
@@ -56,6 +57,6 @@ public class MathTasksTest {
     public void testFindMissingNumberInArrayWithoutDuplicates() {
         int[] numbers = new int[]{1, 2, 3, 4, 5};
         int[] numbersWithoutNumber2 = new int[]{1, 3, 4, 5};
-        Assert.assertThat(tasks.findMissingNumberInArrayWithoutDuplicates(NumberUtils.calcTotal(numbers), NumberUtils.calcTotal(numbersWithoutNumber2)), is(2));
+        assertThat(tasks.findMissingNumberInArrayWithoutDuplicates(numbers, numbersWithoutNumber2)).isEqualTo(2);
     }
 }

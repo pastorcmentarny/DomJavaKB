@@ -1,5 +1,7 @@
 package dms.pastor.tasks.exercises.numbers;
 
+import dms.pastor.utils.NumberUtils;
+
 import java.util.Random;
 
 /**
@@ -26,7 +28,7 @@ class MathTasks {
         return almostAll;
     }
 
-    int findMissingNumberInArrayWithoutDuplicates(int all, int almostAll) {
-        return all - almostAll;
+    int findMissingNumberInArrayWithoutDuplicates(int[] all, int[] almostAll) {
+        return NumberUtils.calcTotal(all) - NumberUtils.calcTotal(almostAll);
     }
 }
