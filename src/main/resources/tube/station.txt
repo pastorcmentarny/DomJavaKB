@@ -163,7 +163,7 @@ Northwood;;X;;none;;none;;none;;none
 Northwood Hills;;X;;none;;none;;none;;none
 Notting Hill Gate;;P;;none;;2017-07-06;;none;;none
 Oakwood;;X;;none;;none;;none;;none
-Old Street;;P;;none;;2017-05-26;;none;;none
+Old Street;;V;;none;;2017-05-26;;2018-04-24;;2018-04-24
 Hackney;;X;;none;;none;;none;;none
 Osterley;;P;;none;;2017-10-30;;none;;none
 Oval;;P;;none;;2017-11-01;;none;;none
@@ -173,7 +173,7 @@ Park Royal;;P;;none;;2017-06-10;;none;;none
 Parsons Green;;X;;none;;none;;none;;none
 Perivale;;X;;none;;none;;none;;none
 Piccadilly Circus;;V;;none;;2017-01-28;;2017-01-28;;none
-Pimlico;;V;;none;;2017-11-19;;2017-12-21;;none
+Pimlico;;V;;none;;2017-11-19;;2017-12-21;;2018-04-24
 Pinner;;X;;none;;none;;none;;none
 Plaistow;;X;;none;;none;;none;;none
 Preston Road;;X;;none;;none;;none;;none
