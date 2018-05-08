@@ -1,5 +1,5 @@
 Acton Town;;V;;none;;2017-06-10;;2017-06-10;;none
-Aldgate;;P;;none;;2017-02-02;;none;;none
+Aldgate;;V;;none;;2017-02-02;;2018-05-01;;2018-05-01
 Aldgate East;;V;;none;;2017-09-01;;2017-09-01;;none
 Alperton;;P;;none;;2017-06-10;;none;;none
 Amersham;;X;;none;;none;;none;;none
@@ -77,19 +77,19 @@ Euston;;P;;none;;2017-05-26;;none;;none
 Euston Square;;V;;none;;2017-01-03;;2017-09-02;;none
 Fairlop;;X;;none;;none;;none;;none
 Farringdon;;V;;none;;2017-01-03;;2018-01-12;;2018-01-12
-Finchley Road;;P;;none;;2017-01-03;;2017-03-03;;none
+Finchley Road;;V;;none;;2017-01-03;;2018-05-06;;2018-05-06
 Finsbury Park;;P;;none;;2017-01-03;;none;;none
 Fulham Broadway;;X;;none;;none;;none;;none
 Gants Hill;;X;;none;;none;;none;;none
 Gloucester Road;;P;;none;;2017-02-02;;none;;none
-Golders Green;;P;;none;;2017-05-26;;none;;none
+Golders Green;;V;;none;;2017-05-26;;2018-05-06;;2018-05-06
 Goldhawk Road;;X;;none;;none;;none;;none
 Goodge Street;;X;;none;;none;;none;;none
 Grange Hill;;X;;none;;none;;none;;none
 Great Portland Street;;P;;none;;2017-01-03;;none;;none
 Greenford;;X;;none;;none;;none;;none
 Green Park;;V;;none;;2017-10-30;;2017-10-30;;none
-Gunnersbury;;X;;none;;none;;none;;none
+Gunnersbury;;P;;none;;2018-05-06;;none;;none
 Hainault;;X;;none;;none;;none;;none
 Hammersmith;;P;;none;;2017-06-10;;none;;none
 Hampstead;;P;;none;;2017-05-26;;none;;none
@@ -120,7 +120,7 @@ Kensal Green;;X;;none;;none;;none;;none
 Kensington (Olympia);;X;;none;;none;;none;;none
 Kentish Town;;X;;none;;none;;none;;none
 Kenton;;X;;none;;none;;none;;none
-Kew Gardens;;X;;none;;none;;none;;none
+Kew Gardens;;V;;none;;2018-05-06;;2018-05-06;;2018-05-06
 Kilburn;;X;;none;;none;;none;;none
 Kilburn Park;;P;;none;;2017-06-19;;none;;none
 Kingsbury;;X;;none;;none;;none;;none
@@ -148,7 +148,7 @@ Monument;;P;;none;;2017-02-02;;none;;none
 Moorgate;;V;;none;;2017-01-03;;2017-01-03;;2018-01-05
 Moor Park;;P;;none;;2017-01-03;;none;;2018-01-04
 Morden;;X;;none;;none;;none;;none
-Mornington Crescent;;X;;none;;none;;none;;none
+Mornington Crescent;;P;;none;;2018-05-06;;none;;none
 Neasden;;X;;none;;none;;none;;none
 Newbury Park;;X;;none;;none;;none;;none
 North Acton;;X;;none;;none;;none;;none
@@ -251,7 +251,7 @@ West Acton;;X;;none;;none;;none;;none
 West Brompton;;X;;none;;none;;none;;none
 West Finchley;;X;;none;;none;;none;;none
 West Ham;;P;;none;;2017-05-10;;none;;none
-West Hampstead;;X;;none;;none;;none;;none
+West Hampstead;;P;;none;;2018-05-06;;none;;none
 West Harrow;;P;;none;;2017-06-10;;none;;none
 West Kensington;;P;;none;;2017-06-10;;none;;none
 West Ruislip;;X;;none;;none;;none;;none
