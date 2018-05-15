@@ -22,7 +22,7 @@ Bethnal Green;;P;;none;;2017-05-09;;none;;none
 Blackfriars;;P;;none;;2017-02-02;;none;;none
 Blackhorse Road;;X;;none;;none;;none;;none
 Bond Street;;P;;none;;2017-10-30;;none;;none
-Borough;;P;;none;;2017-11-01;;none;;none
+Borough;;V;;none;;2017-11-01;;2018-05-15;;2018-05-15
 Boston Manor;;P;;none;;2017-10-30;;none;;none
 Bounds Green;;X;;none;;none;;none;;none
 Bow Road;;X;;none;;none;;none;;none
@@ -184,7 +184,7 @@ Queensway;;X;;none;;none;;none;;none
 Ravenscourt Park;;P;;none;;2017-06-10;;none;;none
 Rayners Lane;;P;;none;;2017-06-10;;none;;none
 Redbridge;;X;;none;;none;;none;;none
-Regent's Park;;V;;none;;2017-01-28;;none;;none
+Regent's Park;;P;;none;;2017-01-28;;none;;none
 Richmond;;X;;none;;none;;none;;none
 Rickmansworth;;V;;none;;2017-01-03;;2017-01-03;;2018-01-02
 Roding Valley;;X;;none;;none;;none;;none
@@ -200,7 +200,7 @@ St. Paul's;;X;;none;;none;;none;;none
 Seven Sisters;;P;;none;;2017-11-19;;none;;none
 Shepherd's Bush;;X;;none;;none;;none;;none
 Shepherd's Bush Market;;X;;none;;none;;none;;none
-Sloane Square;;P;;none;;2017-02-02;;none;;none
+Sloane Square;;V;;none;;2017-02-02;;2018-05-08;;2018-05-08
 Snaresbrook;;X;;none;;none;;none;;none
 South Ealing;;P;;none;;2017-10-30;;none;;none
 South Harrow;;P;;none;;2017-06-10;;none;;none
@@ -229,7 +229,7 @@ Tooting Broadway;;X;;none;;none;;none;;none
 Tottenham Court Road;;X;;none;;none;;none;;none
 Tottenham Hale;;V;;none;;2017-11-19;;2017-11-19;;none
 Totteridge & Whetstone;;X;;none;;none;;none;;none
-Tower Hill;;P;;none;;2017-02-02;;none;;none
+Tower Hill;;V;;none;;2017-02-02;;2018-05-08;;2018-05-08
 Tufnell Park;;X;;none;;none;;none;;none
 Turnham Green;;P;;none;;2017-06-10;;none;;none
 Turnpike Lane;;X;;none;;none;;none;;none
