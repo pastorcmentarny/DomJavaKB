@@ -54,7 +54,7 @@ Cockfosters;;X;;none;;none;;none;;none
 Colindale;;X;;none;;none;;none;;none
 Colliers Wood;;X;;none;;none;;none;;none
 Covent Garden;;X;;none;;none;;none;;none
-Croxley;;V;;none;;2017-06-15;;2017-06-15;;none
+Croxley;;V;;none;;2017-06-15;;2017-06-15;;2018-05-21
 Dagenham East;;X;;none;;none;;none;;none
 Dagenham Heathway;;X;;none;;none;;none;;none
 Debden;;X;;none;;none;;none;;none
