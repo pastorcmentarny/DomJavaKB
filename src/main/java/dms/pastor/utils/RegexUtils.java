@@ -18,9 +18,14 @@ import static java.lang.String.format;
  */
 public final class RegexUtils {
     private static final Logger LOGGER = LoggerFactory.getLogger(RegexUtils.class);
+    private static final String BLANK_LINE = "^(?:[\\t ]*(?:\\r?\\n|\\r))+\n";
+
 
     private RegexUtils() {
     }
+
+    //    private static final String regex
+    //            .*(55).*
 
     public static int countOccurrencesOf(String what, String text) {
         LOGGER.debug("counting occurrence of " + what + " in " + text);
