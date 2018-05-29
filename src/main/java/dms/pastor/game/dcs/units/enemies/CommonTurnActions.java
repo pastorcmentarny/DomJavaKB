@@ -17,9 +17,9 @@ import static dms.pastor.game.dcs.conditions.ConditionType.*;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class CommonTurnActions {
+class CommonTurnActions {
 
-    public static void castElementSensitveSpellOnEnemy(Unit attacker, Unit enemy) {
+    public static void castElementSensitiveSpellOnEnemy(Unit attacker, Unit enemy) {
         if (enemy.getConditions().has(AIR_SENSITIVE)) {
             new LightingBoltSpell().castSpellAsLongAsItHasEnoughElements(attacker, enemy);
         }

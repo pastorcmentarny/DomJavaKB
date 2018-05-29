@@ -76,7 +76,7 @@ public class Unit extends Entity {
         this.cards = cards;
     }
 
-    public void setPlayer(boolean player) {
+    private void setPlayer(boolean player) {
         this.player = player;
     }
 

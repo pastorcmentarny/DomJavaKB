@@ -29,7 +29,7 @@ public class Wizard extends Unit {
         new BubbleShieldSpell().castSpell(this, this);
 
         if (hasInfoAboutEnemy) {
-            CommonTurnActions.castElementSensitveSpellOnEnemy(this, enemy);
+            CommonTurnActions.castElementSensitiveSpellOnEnemy(this, enemy);
             if (random.nextBoolean()) {
                 new VampireDrainSpell().castSpellIfHasEnoughElements(this, enemy);
             }

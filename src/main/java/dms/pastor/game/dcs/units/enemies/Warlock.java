@@ -25,7 +25,7 @@ public class Warlock extends Unit {
         InfoSpell infoSpell = new InfoSpell();
 
         if (hasInfoAboutEnemy) {
-            CommonTurnActions.castElementSensitveSpellOnEnemy(this, enemy);
+            CommonTurnActions.castElementSensitiveSpellOnEnemy(this, enemy);
 
             if (random.nextBoolean()) {
                 new MagneticDrainSpell().castSpellIfHasEnoughElements(this, enemy);
