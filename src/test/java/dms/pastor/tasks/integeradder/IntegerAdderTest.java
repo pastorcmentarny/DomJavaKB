@@ -1,6 +1,5 @@
 package dms.pastor.tasks.integeradder;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -10,7 +9,7 @@ import java.io.IOException;
 
 import static dms.pastor.TestConfig.BASE_PATH;
 import static java.io.File.separator;
-import static org.hamcrest.CoreMatchers.is;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Author Dominik Symonowicz
@@ -26,6 +25,7 @@ public class IntegerAdderTest {
     private static final String DEMO_FILE_1 = PATH + "test1.txt";
     private static final String DEMO_FILE_2 = PATH + "test2.txt";
     private static final String DEMO_FILE_3 = PATH + "test3.txt";
+    private static final String DEMO_FILE_4 = PATH + "test4.txt";
 
     @Rule
     public final ExpectedException exception = ExpectedException.none();
@@ -39,14 +39,14 @@ public class IntegerAdderTest {
     @Test
     public void testAdd() throws Exception {
         final int result = adder.add(DEMO_FILE_1);
-        Assert.assertThat(result, is(36));
+        assertThat(result).isEqualTo(36);
     }
 
     @Test
     public void testCalculateTotalSum() throws Exception {
         String[] paths = new String[]{DEMO_FILE_1};
         int sum = adder.calculateTotalSum(paths);
-        Assert.assertThat(sum, is(36));
+        assertThat(sum).isEqualTo(36);
     }
 
     @Test
@@ -63,7 +63,7 @@ public class IntegerAdderTest {
     public void basicTest() throws IOException {
         String[] paths = new String[]{DEMO_FILE_1, DEMO_FILE_2, DEMO_FILE_3};
         int sum = adder.calculateTotalSum(paths);
-        Assert.assertThat(sum, is(47));
+        assertThat(sum).isEqualTo(47);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -76,5 +76,16 @@ public class IntegerAdderTest {
         adder.add("FakePath");
     }
 
+    @Test
+    public void addTooBigNumbersShouldThrowException() throws IOException {
+        // expect
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("Out od range");
+
+        // given
+        String path = DEMO_FILE_4;
+        // when
+        adder.add(path);
+    }
     //TODO test for too large int and negative
 }
