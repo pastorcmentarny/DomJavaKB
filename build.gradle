@@ -48,3 +48,8 @@ allprojects {
     }
 
 }
+
+task wrapper(type: Wrapper) {
+    println("Creating tasks for application")
+    gradleVersion = '4.7'
+}
