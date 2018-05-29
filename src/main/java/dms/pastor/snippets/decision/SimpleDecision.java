@@ -14,7 +14,7 @@ import static dms.pastor.utils.StringUtils.NEW_LINE;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class SimpleDecision implements Decision {
-    private List<Vote> votes;
+    private final List<Vote> votes;
     private Citizen citizen;
 
     public SimpleDecision(List<Vote> voters, Citizen citizen) {

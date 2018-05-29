@@ -17,7 +17,7 @@ public final class TestConfig {
     public static final int[] EMPTY_INTEGER_ARRAY = {};
     private static final String SRC = "src" + separator;
     private static final String RESOURCES = "resources" + separator;
-    public static final String PATH = SRC + "test" + separator + RESOURCES;
+    public static final String PATH = SRC + "test" + separator + RESOURCES + separator;
     public static final String BASE_PATH = System.getProperty("user.dir") +
             separator + SRC + "main" +
             separator + RESOURCES;

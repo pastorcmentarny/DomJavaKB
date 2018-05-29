@@ -2,6 +2,7 @@ package dms.pastor.tasks.manipulatedataapplication.utls;
 
 import dms.pastor.tasks.manipulatedataapplication.data.Genre;
 import dms.pastor.tasks.manipulatedataapplication.data.Person;
+import dms.pastor.utils.ValidatorUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -48,11 +49,10 @@ public final class Utils {
         }
     }
 
-    //TODO improve this!
     public static List<Person> loadPeople(String filename) throws IOException {
         List<Person> people = new ArrayList<>();
+        ValidatorUtils.validateIfPathExists(filename);
         File file = new File(filename);
-        //TODO add validator for check if file exists
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = bufferedReader.readLine()) != null) {

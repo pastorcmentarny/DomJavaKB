@@ -9,9 +9,9 @@ package dms.pastor.snippets.decision;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class Citizen {
-    private String name;
-    private int age;
-    private boolean isResident;
+    private final String name;
+    private final int age;
+    private final boolean isResident;
 
     public Citizen(String name, int age, boolean isResident) {
         this.name = name;

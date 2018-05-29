@@ -1,12 +1,16 @@
 package dms.pastor.tasks.analyser;
 
 import dms.pastor.utils.ValidatorUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
@@ -24,6 +28,8 @@ import static dms.pastor.utils.StringUtils.EMPTY_STRING;
  */
 class ProjectAnalyser {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(ProjectAnalyser.class);
+
     private final List<File> javaFiles = new ArrayList<>();
     private final List<Integer> averageLines = new ArrayList<>();
     private final List<Integer> averageWidth = new ArrayList<>();
@@ -36,9 +42,20 @@ class ProjectAnalyser {
 
     void analyse(String path) {
         validate(path);
+        displayAllFilesInProject(path);
         collectAllJavaFiles(new File(path));
         analyseFiles();
         System.out.println(getResultAsText());
+    }
+
+    private void displayAllFilesInProject(String path) {
+        try {
+            Files.list(Paths.get("."))
+                    .filter(Files::isRegularFile)
+                    .forEach(System.out::println);
+        } catch (IOException e) {
+            LOGGER.error(String.format("Unable to list of all files due %s", e.getMessage()), e);
+        }
     }
 
     private void analyseFiles() {
