@@ -1,9 +1,6 @@
 package dms.pastor.utils;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.rules.ExpectedException;
 
 import java.io.File;
@@ -111,6 +108,7 @@ public class FileUtilsTest {
         assertThat(rawData).isEqualToIgnoringCase(expected);
     }
 
+    @Ignore
     @Test
     public void shouldLockFileTest() {
         // given
@@ -127,6 +125,7 @@ public class FileUtilsTest {
         assertThat(new File(LOCK_FILE).exists()).isTrue();
     }
 
+    @Ignore
     @Test
     public void shouldUnlockFileTest() {
         // given

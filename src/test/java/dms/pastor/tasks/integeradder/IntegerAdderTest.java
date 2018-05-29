@@ -1,6 +1,7 @@
 package dms.pastor.tasks.integeradder;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -76,6 +77,7 @@ public class IntegerAdderTest {
         adder.add("FakePath");
     }
 
+    @Ignore
     @Test
     public void addTooBigNumbersShouldThrowException() throws IOException {
         // expect
