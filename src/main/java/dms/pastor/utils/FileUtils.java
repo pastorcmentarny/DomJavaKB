@@ -10,6 +10,8 @@ import java.io.*;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 import java.nio.channels.OverlappingFileLockException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 
@@ -125,6 +127,9 @@ public final class FileUtils {
      */
     public static void lock() {
         file = new File("program.lock");
+        if (file.exists() && !file.delete()) {
+            LOGGER.info("It seems like another instance of program is run ");
+        }
         try (RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw")) {
             if (file.exists() && !file.delete()) {
                 LOGGER.info("It seems like another instance of program is run ");
@@ -159,7 +164,7 @@ public final class FileUtils {
                 }
             }
         } catch (IOException e) {
-            LOGGER.warn("Unable to unlock program.It cans cause problem with running program.\nProgram should work after restart of your computer.");
+            LOGGER.warn("Exception occurred. Unable to unlock program. It cans cause problem with running program.\nProgram should work after restart of your computer. " + e.getMessage(), e);
         }
     }
 
@@ -211,5 +216,18 @@ public final class FileUtils {
         } catch (IOException e) {
             LOGGER.warn("Unable to unlock program.It cans cause problem with running program.\nProgram should work after restart of your computer.");
         }
+    }
+
+    public static String getTextInFileAsString(String path) {
+        StringBuilder stringBuilder = new StringBuilder("");
+        try {
+            Files.lines(Paths.get(path))
+                    .map(s -> s.trim())
+                    .filter(s -> !s.isEmpty())
+                    .forEach(stringBuilder::append);
+        } catch (IOException e) {
+            LOGGER.error(String.format("Unable to read text from file due %s", e.getMessage()), e);
+        }
+        return stringBuilder.toString();
     }
 }

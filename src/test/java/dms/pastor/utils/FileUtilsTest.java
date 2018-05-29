@@ -1,7 +1,7 @@
 package dms.pastor.utils;
 
 import org.junit.After;
-import org.junit.Ignore;
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -26,18 +26,21 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class FileUtilsTest {
 
     private static final String TEST_FILE = "test.txt";
-    private static final String LOCK_FILE = "program.lock";
     private static final String DEFAULT_PATH = PATH + TEST_FILE;
+    private static final String LOCK_FILE = PATH + "program.lock";
 
     @Rule
     public final ExpectedException exception = ExpectedException.none();
 
-    @SuppressWarnings("ResultOfMethodCallIgnored")
+    @Before
+    public void setUp() {
+        new File(LOCK_FILE).delete();
+    }
+
     @After
     public void tearDown() {
         new File(TEST_FILE).delete();
         new File(LOCK_FILE).delete();
-
     }
 
     @SuppressWarnings("ConstantConditions") // part of the test
@@ -124,7 +127,6 @@ public class FileUtilsTest {
         assertThat(new File(LOCK_FILE).exists()).isTrue();
     }
 
-    @Ignore //TODO need to fix it
     @Test
     public void shouldUnlockFileTest() {
         // given
