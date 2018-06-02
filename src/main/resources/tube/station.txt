@@ -36,7 +36,7 @@ Camden Town;;P;;none;;2017-05-26;;none;;none
 Canada Water;;P;;none;;2017-02-11;;none;;none
 Canary Wharf;;P;;none;;2017-02-11;;none;;none
 Canning Town;;V;;none;;2017-02-11;;2017-02-11;;2018-03-30
-Cannon Street;;V;;none;;2017-02-02;;2017-07-06;;none
+Cannon Street;;V;;none;;2017-02-02;;2017-07-06;;2018-06-01
 Canons Park;;X;;none;;none;;none;;none
 Chalfont & Latimer;;P;;none;;2017-06-25;;none;;none
 Chalk Farm;;P;;none;;2017-05-26;;none;;none
@@ -194,7 +194,7 @@ Ruislip;;P;;none;;2017-03-21;;none;;none
 Ruislip Gardens;;X;;none;;none;;none;;none
 Ruislip Manor;;P;;none;;2017-03-21;;none;;none
 Russell Square;;P;;none;;2017-06-15;;none;;none
-St. James's Park;;P;;none;;2017-02-02;;none;;none
+St. James's Park;;V;;none;;2017-02-02;;2018-06-01;;2018-06-01
 St. John's Wood;;V;;none;;2017-10-30;;2018-05-28;;2018-05-26
 St. Paul's;;X;;none;;none;;none;;none
 Seven Sisters;;P;;none;;2017-11-19;;none;;none
