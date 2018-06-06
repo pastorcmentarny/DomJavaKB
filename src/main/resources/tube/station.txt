@@ -119,7 +119,7 @@ Kennington;;P;;none;;2017-11-01;;none;;none
 Kensal Green;;X;;none;;none;;none;;none
 Kensington (Olympia);;X;;none;;none;;none;;none
 Kentish Town;;X;;none;;none;;none;;none
-Kenton;;X;;none;;none;;none;;none
+Kenton;;X;;none;;2017-06-19;;none;;none
 Kew Gardens;;V;;none;;2018-05-06;;2018-05-06;;2018-05-06
 Kilburn;;X;;none;;none;;none;;none
 Kilburn Park;;P;;none;;2017-06-19;;none;;none
@@ -241,7 +241,7 @@ Uxbridge;;V;;none;;2017-03-21;;2017-03-21;;none
 Vauxhall;;V;;none;;2017-11-01;;2017-12-14;;none
 Victoria;;V;;none;;2017-02-02;;2017-11-19;;2018-01-02
 Walthamstow Wanstead;;X;;none;;none;;none;;none
-Warren Street;;P;;none;;2017-11-19;;none;;none
+Warren Street;;V;;none;;2017-11-19;;2018-06-05;;2018-06-05
 Warwick Avenue;;P;;none;;2017-06-19;;none;;none
 Waterloo;;P;;none;;2017-02-11;;none;;none
 Watford;;V;;none;;2018-04-06;;2018-04-06;;2018-02-16
