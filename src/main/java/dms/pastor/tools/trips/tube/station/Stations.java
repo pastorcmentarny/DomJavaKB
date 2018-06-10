@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 import static dms.pastor.tools.trips.tube.station.Status.PASSED;
 import static dms.pastor.tools.trips.tube.station.Status.VISITED;
@@ -86,6 +87,10 @@ public class Stations {
                 .count();
     }
 
+    public boolean isStationWasPassed() {
+        return tubeStationList.stream()
+                .anyMatch(s -> s.getStatus().equals(PASSED) || s.getStatus().equals(VISITED));
+    }
 
     private long countStationThatHasStatusOf(String statusValue) {
         return tubeStationList.stream()
@@ -99,11 +104,25 @@ public class Stations {
             LOGGER.warn(String.format("Unable to find station as search query is invalid. User typed: %s", searchFor));
             throw notFoundException;
         }
+
         return tubeStationList.stream()
                 .filter(station -> station.getName().equalsIgnoreCase(searchFor))
                 .findFirst()
                 .orElseThrow(() -> notFoundException);
     }
+
+    public Optional<TubeStation> getStation(String searchFor) {
+        final NotFoundException notFoundException = new NotFoundException("TubeStation");
+        if (isStringEmpty(searchFor)) {
+            LOGGER.warn(String.format("Unable to find station as search query is invalid. User typed: %s", searchFor));
+            throw notFoundException;
+        }
+
+        return tubeStationList.stream()
+                .filter(station -> station.getName().equalsIgnoreCase(searchFor))
+                .findFirst();
+    }
+
 
     public int totalNumber() {
         return tubeStationList.size();
