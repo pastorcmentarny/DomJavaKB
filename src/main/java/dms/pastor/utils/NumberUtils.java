@@ -8,6 +8,7 @@ import java.math.BigDecimal;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.ValidatorUtils.validateIfNotEmpty;
+import static java.math.RoundingMode.HALF_UP;
 
 /**
  * Author Dominik Symonowicz
@@ -79,6 +80,11 @@ public final class NumberUtils {
 
         } while (number > 0);
         return reversedNumber;
+    }
+
+    //TODO do this properly
+    public static String getPercentage(int number, int total) {
+        return new BigDecimal(number * 100 / total).setScale(0, HALF_UP).toPlainString();
     }
 
     public static boolean isPrime(int number) {

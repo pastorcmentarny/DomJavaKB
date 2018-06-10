@@ -570,4 +570,55 @@ public class NumberUtilsTest {
         assertThat(result).isEqualTo(Integer.parseInt(validValue));
         assertThat(result).isNotEqualTo(defaultValue);
     }
+
+    @Test
+    public void getPercentageShouldReturnZero() {
+
+        // when
+        final String result = getPercentage(0, 1);
+
+        // then
+        assertThat(result).isEqualTo("0");
+    }
+
+    @Test
+    public void getPercentageShouldReturnTwentyFive() {
+
+        // when
+        final String result = getPercentage(1, 4);
+
+        // then
+        assertThat(result).isEqualTo("25");
+    }
+
+    @Test
+    public void getPercentageShouldReturnOne() {
+
+        // when
+        final String result = getPercentage(1, 100);
+
+        // then
+        assertThat(result).isEqualTo("1");
+    }
+
+    @Test
+    public void getPercentageShouldReturn13() {
+
+        // when
+        final String result = getPercentage(1, 8);
+
+        // then
+        assertThat(result).isEqualTo("12");
+    }
+
+    @Test
+    public void getPercentageShouldReturnFifty() {
+
+        // when
+        final String result = getPercentage(50, 100);
+
+        // then
+        assertThat(result).isEqualTo("50");
+    }
+
 }
