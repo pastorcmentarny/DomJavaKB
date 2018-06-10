@@ -18,6 +18,7 @@ public class Lines {
     public static List<Line> getLines() {
         var lines = new ArrayList<Line>();
         lines.add(new Circle());
+        lines.add(new HammesmithAndCity());
         lines.add(new Metropolitan());
         lines.add(new Victoria());
         lines.add(new WaterlooAndCity());

@@ -4,7 +4,6 @@ import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-
 /**
  * Author Dominik Symonowicz
  * Created 08/06/2018
@@ -14,15 +13,11 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class LinesTest {
+public class HammesmithAndCityTest {
+    HammesmithAndCity line = new HammesmithAndCity();
 
     @Test
-    public void getLinesShouldReturnAllLines() {
-        // when
-        final var lines = Lines.getLines();
-
-        // then
-        assertThat(lines).hasSize(5);
-        //assertThat(lines).hasSize(11);
+    public void getSizeShouldReturn2() {
+        assertThat(line.getSize()).isEqualTo(29);
     }
 }
