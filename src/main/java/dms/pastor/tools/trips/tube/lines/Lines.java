@@ -19,6 +19,7 @@ public class Lines {
         var lines = new ArrayList<Line>();
         lines.add(new Bakerloo());
         lines.add(new Circle());
+        lines.add(new District());
         lines.add(new HammesmithAndCity());
         lines.add(new Jubilee());
         lines.add(new Metropolitan());
