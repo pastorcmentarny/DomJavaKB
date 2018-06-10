@@ -246,6 +246,7 @@ public enum Station {
     VAUXHALL("Vauxhall"),
     VICTORIA("Victoria"),
     WALTHAMSTOW_CENTRAL("Walthamstow Central"),
+    WANSTEAD("Wanstead"),
     WARREN_STREET("Warren Street"),
     WARWICK_AVENUE("Warwick Avenue"),
     WATERLOO("Waterloo"),
