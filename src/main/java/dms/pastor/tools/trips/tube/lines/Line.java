@@ -14,7 +14,7 @@ import java.util.List;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public abstract class Line {
-    private List<Station> tubeStations = getStations();
+    private final List<Station> tubeStations = getStations();
 
     public String name() {
         return getClass().getSimpleName();

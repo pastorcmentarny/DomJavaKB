@@ -24,6 +24,7 @@ public class Lines {
         lines.add(new HammesmithAndCity());
         lines.add(new Jubilee());
         lines.add(new Metropolitan());
+        lines.add(new Northern());
         lines.add(new Piccadilly());
         lines.add(new Victoria());
         lines.add(new WaterlooAndCity());

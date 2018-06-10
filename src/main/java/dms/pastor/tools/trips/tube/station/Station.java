@@ -82,6 +82,7 @@ public enum Station {
     EUSTON_SQUARE("Euston Square"),
     FAIRLOP("Fairlop"),
     FARRINGDON("Farringdon"),
+    FINCHLEY_CENTRAL("Finchley Central"),
     FINCHLEY_ROAD("Finchley Road"),
     FINSBURY_PARK("Finsbury Park"),
     FULHAM_BROADWAY("Fulham Broadway"),
@@ -97,7 +98,7 @@ public enum Station {
     GUNNERSBURY("Gunnersbury"),
     HAINAULT("Hainault"),
     HAMMERSMITH("Hammersmith"),
-    HAMMERSMITHHAMPSTEAD("HammersmithHampstead"),
+    HAMPSTEAD("Hampstead"),
     HANGER_LANE("Hanger Lane"),
     HARLESDEN("Harlesden"),
     HARROW_AND_WEALDSTONE("Harrow & Wealdstone"),
@@ -106,7 +107,8 @@ public enum Station {
     HEATHROW_TERMINALS_1_2_3("Heathrow Terminals 1, 2, 3"),
     HEATHROW_TERMINAL_4("Heathrow Terminal 4"),
     HEATHROW_TERMINAL_5("Heathrow Terminal 5"),
-    HENDON_HIGH_BARNET("Hendon High Barnet"),
+    HENDON_CENTRAL("Hendon Central"),
+    HIGH_BARNET("High Barnet"),
     HIGHBURY_AND_ISLINGTON("Highbury & Islington"),
     HIGHGATE("Highgate"),
     HIGH_STREET_KENSINGTON("High Street Kensington"),
@@ -274,7 +276,7 @@ public enum Station {
     WOODFORD("Woodford"),
     WOODSIDE_PARK("Woodside Park");
 
-    private String stationName;
+    private final String stationName;
 
     Station(String stationName) {
         this.stationName = stationName;
