@@ -24,7 +24,6 @@ public class HammesmithAndCity extends Line {
         stationList.add(Station.GOLDHAWK_ROAD);
         stationList.add(Station.SHEPHERDS_BUSH_MARKET);
         stationList.add(Station.WOOD_LANE);
-        stationList.add(Station.WHITE_CITY);
         stationList.add(Station.LATIMER_ROAD);
         stationList.add(Station.LADBROKE_GROVE);
         stationList.add(Station.WESTBOURNE_PARK);
@@ -51,6 +50,5 @@ public class HammesmithAndCity extends Line {
         stationList.add(Station.WHITECHAPEL);
         stationList.add(Station.ALDGATE_EAST);
         return stationList;
-
     }
 }

@@ -17,7 +17,7 @@ public class HammesmithAndCityTest {
     HammesmithAndCity line = new HammesmithAndCity();
 
     @Test
-    public void getSizeShouldReturn2() {
+    public void getSizeShouldReturn29() {
         assertThat(line.getSize()).isEqualTo(29);
     }
 }
