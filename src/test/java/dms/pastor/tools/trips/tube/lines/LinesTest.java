@@ -22,7 +22,7 @@ public class LinesTest {
         final var lines = Lines.getLines();
 
         // then
-        assertThat(lines).hasSize(7);
+        assertThat(lines).hasSize(8);
         //assertThat(lines).hasSize(11);
     }
 }
