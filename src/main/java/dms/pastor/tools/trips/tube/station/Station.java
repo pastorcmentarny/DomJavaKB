@@ -42,7 +42,7 @@ public enum Station {
     CANARY_WHARF("Canary Wharf"),
     CANNING_TOWN("Canning Town"),
     CANNON_STREET("Cannon Street"),
-    CANONS_PARK("Canons Park"),
+    CANNONS_PARK("Cannons Park"),
     CHALFONT_AND_LATIMER("Chalfont & Latimer"),
     CHALK_FARM("Chalk Farm"),
     CHANCERY_LANE("Chancery Lane"),

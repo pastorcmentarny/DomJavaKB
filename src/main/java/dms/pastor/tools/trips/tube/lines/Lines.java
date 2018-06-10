@@ -20,6 +20,7 @@ public class Lines {
         lines.add(new Bakerloo());
         lines.add(new Circle());
         lines.add(new HammesmithAndCity());
+        lines.add(new Jubilee());
         lines.add(new Metropolitan());
         lines.add(new Victoria());
         lines.add(new WaterlooAndCity());

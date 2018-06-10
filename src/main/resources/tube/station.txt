@@ -37,7 +37,7 @@ Canada Water;;P;;none;;2017-02-11;;none;;none
 Canary Wharf;;P;;none;;2017-02-11;;none;;none
 Canning Town;;V;;none;;2017-02-11;;2017-02-11;;2018-03-30
 Cannon Street;;V;;none;;2017-02-02;;2017-07-06;;2018-06-01
-Canons Park;;X;;none;;none;;none;;none
+Cannons Park;;X;;none;;none;;none;;none
 Chalfont & Latimer;;P;;none;;2017-06-25;;none;;none
 Chalk Farm;;P;;none;;2017-05-26;;none;;none
 Chancery Lane;;X;;none;;none;;none;;none
