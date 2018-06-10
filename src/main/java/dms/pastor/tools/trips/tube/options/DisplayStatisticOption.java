@@ -57,7 +57,7 @@ public class DisplayStatisticOption implements Option {
                     count++;
                 }
             }
-            stringBuilder.append(line.name()).append(' ').append(NumberUtils.getPercentage(count, lineStations.size())).append(NEW_LINE);
+            stringBuilder.append(line.name()).append(' ').append(NumberUtils.getPercentage(count, lineStations.size())).append("%").append(NEW_LINE);
         }
         return stringBuilder.toString();
     }
