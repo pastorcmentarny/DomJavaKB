@@ -19,6 +19,18 @@ import org.slf4j.LoggerFactory;
 public class StationUpdater {
     public static final Logger LOGGER = LoggerFactory.getLogger(StationUpdater.class);
 
+    static void setStationBlogged(Stations stations, String option) {
+        try {
+            final TubeStation tubeStation = stations.findStation(option);
+
+            tubeStation.setBlogged();
+
+            System.out.println("You set " + tubeStation.getName() + " was blogged.");
+        } catch (NotFoundException nfe) {
+            System.out.println("TubeStation " + option + " not found.");
+        }
+    }
+
     static void updateStationTo(Stations stations, String option, Action action) {
         try {
             final TubeStation tubeStation = stations.findStation(option);

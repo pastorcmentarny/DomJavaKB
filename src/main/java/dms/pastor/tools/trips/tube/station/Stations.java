@@ -128,4 +128,7 @@ public class Stations {
         return tubeStationList.size();
     }
 
+    public void setStationBloggedFor(TubeStation tubeStation) {
+        tubeStation.setBlogged();
+    }
 }

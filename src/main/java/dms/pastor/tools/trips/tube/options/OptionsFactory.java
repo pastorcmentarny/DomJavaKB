@@ -35,6 +35,7 @@ public final class OptionsFactory {
         options.addOptions(2, new DisplayStatusForOption(scanner));
         options.addOptions(3, new UpdateStationStatusToPassedOption(scanner));
         options.addOptions(4, new UpdateStationStatusToVisitedOption(scanner));
+        options.addOptions(5, new BloggedOption(scanner));
         options.addOptions(6, new SaveOption());
         options.addOptions(7, new LoadStationOption());
         options.addOptions(8, new DisplayAllStationsNameOption());
@@ -61,6 +62,7 @@ public final class OptionsFactory {
         System.out.println("2. Current Status for selected station");
         System.out.println("3. Update Status to Passed for station");
         System.out.println("4. Update Status to Visited for station");
+        System.out.println("5. Set station is blogged");
         System.out.println("6. Save changes (with Backup)");
         System.out.println("7. Discard unsaved changes");
         System.out.println("8. Display list of all stations");

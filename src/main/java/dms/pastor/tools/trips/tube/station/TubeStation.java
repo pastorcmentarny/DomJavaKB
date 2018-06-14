@@ -26,7 +26,7 @@ public class TubeStation {//implements Station {
     private LocalDate passedDate;
     private LocalDate visitedDate;
     private LocalDate thisYearVisitedDate;
-    private final boolean blogged;
+    private boolean blogged;
 
     @SuppressWarnings("ConstructorWithTooManyParameters") //not apply in this case
     public TubeStation(String name, Status status, List<Line> lines, LocalDate passedDate, LocalDate visitedDate, LocalDate thisYearVisitedDate, boolean blogged) {
@@ -97,6 +97,10 @@ public class TubeStation {//implements Station {
 
     public String getBloggedAsString() {
         return blogged ? "Y" : "N";
+    }
+
+    public void setBlogged() {
+        blogged = true;
     }
 
     @Override
