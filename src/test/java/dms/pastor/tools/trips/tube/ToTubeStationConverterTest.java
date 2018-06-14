@@ -8,6 +8,7 @@ import org.junit.Test;
 import java.time.LocalDate;
 
 import static dms.pastor.tools.trips.tube.station.Status.VISITED;
+import static dms.pastor.tools.trips.tube.station.TubeStation.SEPARATOR;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -23,12 +24,14 @@ public class ToTubeStationConverterTest {
     private static final LocalDate PASSED_DATE = LocalDate.now();
     private static final LocalDate VISITED_DATE = LocalDate.now();
     private static final LocalDate THIS_YEAR_VISITED_DATE = LocalDate.now();
+    private static final boolean BLOGGED = true;
 
     @Test
     public void convertShouldConvertStationAsStringToObject() {
         // given
-        final String stationAsString = "Chesham;;V;;none;;" + PASSED_DATE + TubeStation.SEPARATOR + VISITED_DATE + TubeStation.SEPARATOR + THIS_YEAR_VISITED_DATE;
-        final TubeStation expectedTubeStation = new TubeStation("Chesham", VISITED, Line.noLine(), PASSED_DATE, VISITED_DATE, THIS_YEAR_VISITED_DATE);
+
+        final String stationAsString = "Chesham;;V;;none;;" + PASSED_DATE + SEPARATOR + VISITED_DATE + SEPARATOR + THIS_YEAR_VISITED_DATE + SEPARATOR + "Y";
+        final TubeStation expectedTubeStation = new TubeStation("Chesham", VISITED, Line.noLine(), PASSED_DATE, VISITED_DATE, THIS_YEAR_VISITED_DATE, BLOGGED);
 
         // when
         final TubeStation tubeStation = ToStationConverter.convert(stationAsString);
@@ -40,7 +43,7 @@ public class ToTubeStationConverterTest {
     @Test
     public void getStatusAsValue() {
         // given
-        final TubeStation tubeStation = new TubeStation("Amersham", VISITED, null, PASSED_DATE, VISITED_DATE, THIS_YEAR_VISITED_DATE);
+        final TubeStation tubeStation = new TubeStation("Amersham", VISITED, null, PASSED_DATE, VISITED_DATE, THIS_YEAR_VISITED_DATE, BLOGGED);
 
         // when
         final String result = tubeStation.getStatusAsValue();
@@ -52,7 +55,7 @@ public class ToTubeStationConverterTest {
     @Test
     public void asLine() {
         // given
-        final TubeStation tubeStation = new TubeStation("Amersham", VISITED, null, PASSED_DATE, VISITED_DATE, THIS_YEAR_VISITED_DATE);
+        final TubeStation tubeStation = new TubeStation("Amersham", VISITED, null, PASSED_DATE, VISITED_DATE, THIS_YEAR_VISITED_DATE, BLOGGED);
 
         // when
         final String result = tubeStation.getStatusAsValue();

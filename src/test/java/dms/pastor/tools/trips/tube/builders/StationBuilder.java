@@ -10,6 +10,7 @@ import java.util.Random;
 
 import static dms.pastor.tools.trips.tube.station.TubeStation.notVisited;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
+import static java.util.Collections.emptyList;
 import static java.util.Collections.singletonList;
 
 public final class StationBuilder {
@@ -19,6 +20,7 @@ public final class StationBuilder {
     private LocalDate passedDate = LocalDate.now();
     private LocalDate visitedDate = LocalDate.now();
     private LocalDate thisYearVisitedDate = LocalDate.now();
+    private boolean blogged = true;
 
     private StationBuilder() {
     }
@@ -28,7 +30,7 @@ public final class StationBuilder {
     }
 
     public TubeStation build() {
-        return new TubeStation(name, status, lines, passedDate, visitedDate, thisYearVisitedDate);
+        return new TubeStation(name, status, lines, passedDate, visitedDate, thisYearVisitedDate, blogged);
     }
 
     public TubeStation buildNotVisitedStation() {
@@ -45,6 +47,11 @@ public final class StationBuilder {
         return this;
     }
 
+    public StationBuilder noLines() {
+        this.lines = emptyList();
+        return this;
+    }
+
     public StationBuilder status(Status status) {
         this.status = status;
         return this;
@@ -57,6 +64,11 @@ public final class StationBuilder {
 
     public StationBuilder visitedDate(LocalDate visitedDate) {
         this.visitedDate = visitedDate;
+        return this;
+    }
+
+    public StationBuilder blogged(boolean blogged) {
+        this.blogged = blogged;
         return this;
     }
 }

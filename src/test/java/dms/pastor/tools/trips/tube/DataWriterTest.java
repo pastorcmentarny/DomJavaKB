@@ -39,7 +39,7 @@ public class DataWriterTest {
 
         // given
         DataWriter writer = new DataWriter();
-        final TubeStation amershamTubeStation = new TubeStation("Amersham", null, null, null, null, null);
+        final TubeStation amershamTubeStation = new TubeStation("Amersham", null, null, null, null, null, true);
         List<TubeStation> tubeStations = Collections.singletonList(amershamTubeStation);
 
         // when
@@ -61,7 +61,7 @@ public class DataWriterTest {
         file.createNewFile();
         file.deleteOnExit(); //comment this out if you need see file
 
-        final TubeStation amershamTubeStation = new TubeStation("Amersham", VISITED, noLine(), LocalDate.now(), LocalDate.now(), LocalDate.now());
+        final TubeStation amershamTubeStation = new TubeStation("Amersham", VISITED, noLine(), LocalDate.now(), LocalDate.now(), LocalDate.now(), true);
         final TubeStation cheshamTubeStation = TubeStation.passed("Pinner", noLine(), LocalDate.now());
         List<TubeStation> tubeStations = new ArrayList<>();
         tubeStations.add(amershamTubeStation);

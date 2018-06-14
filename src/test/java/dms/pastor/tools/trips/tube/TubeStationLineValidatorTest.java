@@ -61,13 +61,12 @@ public class TubeStationLineValidatorTest {
     public void shouldThrowIllegalArgumentExceptionIfStatusDoNotExists() {
         // expect
         exception.expect(NotFoundException.class);
-        exception.expectMessage("Status was not found.");
 
         // given
         final String invalidStatus = "D";
 
         // when
-        StationLineValidator.validate("Acton Town" + SEPARATOR + invalidStatus + SEPARATOR + TUBE_LINE_NAME + SEPARATOR + LocalDate.now() + SEPARATOR + LocalDate.now() + SEPARATOR + LocalDate.now());
+        StationLineValidator.validate("Acton Town" + SEPARATOR + invalidStatus + SEPARATOR + TUBE_LINE_NAME + SEPARATOR + LocalDate.now() + SEPARATOR + LocalDate.now() + SEPARATOR + LocalDate.now() + SEPARATOR + "Y");
 
 
     }

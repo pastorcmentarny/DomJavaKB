@@ -34,10 +34,11 @@ public class StationsTest {
 
     private static final LocalDate THIS_YEAR_VISITED_DATE = LocalDate.now();
 
-    private static final TubeStation WEMBLEY_PARK = new TubeStation("Wembley Park", Status.VISITED, noLine(), PASSED_DATE, VISITED_DATE, THIS_YEAR_VISITED_DATE);
+    private static final TubeStation WEMBLEY_PARK = new TubeStation("Wembley Park", Status.VISITED, noLine(), PASSED_DATE, VISITED_DATE, THIS_YEAR_VISITED_DATE, true);
     private static final String STATION_NOT_FOUND_ERROR_MESSAGE = "TubeStation was not found.";
     private static final String STATION_NAME = "Amersham";
     private final List<Line> lines = Collections.singletonList(new Line("none"));
+    private static final boolean BLOGGED = false;
     @Rule
     public final ExpectedException exception = ExpectedException.none();
     private final Stations stations = generateStations();
@@ -77,7 +78,7 @@ public class StationsTest {
         // given
         final String stationName = STATION_NAME;
         final LocalDate today = LocalDate.now();
-        final TubeStation amersham = new TubeStation(stationName, VISITED, lines, today, today, today);
+        final TubeStation amersham = new TubeStation(stationName, VISITED, lines, today, today, today, false);
         Stations stations = new Stations(Collections.singletonList(amersham));
 
         // when
@@ -92,7 +93,7 @@ public class StationsTest {
         // given
         final String stationName = STATION_NAME;
         final LocalDate today = LocalDate.now();
-        final TubeStation amersham = new TubeStation(stationName, NOT_VISITED, lines, today, today, today);
+        final TubeStation amersham = new TubeStation(stationName, NOT_VISITED, lines, today, today, today, BLOGGED);
         Stations stations = new Stations(Collections.singletonList(amersham));
 
         // when
@@ -205,7 +206,7 @@ public class StationsTest {
     @Test
     public void passedShouldReturnStationWithPassedDateButWithoutVisitedDate() {
         // given
-        final TubeStation expectedTubeStation = new TubeStation(STATION_NAME, PASSED, noLine(), PASSED_DATE, null, null);
+        final TubeStation expectedTubeStation = new TubeStation(STATION_NAME, PASSED, noLine(), PASSED_DATE, null, null, BLOGGED);
 
         // when
         final TubeStation result = TubeStation.passed(STATION_NAME, noLine(), PASSED_DATE);
@@ -217,7 +218,7 @@ public class StationsTest {
     @Test
     public void notVisitedShouldReturnStationWithoutPassedAndOrVisitedDate() {
         // given
-        final TubeStation expectedTubeStation = new TubeStation(STATION_NAME, NOT_VISITED, noLine(), null, null, null);
+        final TubeStation expectedTubeStation = new TubeStation(STATION_NAME, NOT_VISITED, noLine(), null, null, null, BLOGGED);
 
         // when
         final TubeStation result = TubeStation.notVisited(STATION_NAME, noLine());

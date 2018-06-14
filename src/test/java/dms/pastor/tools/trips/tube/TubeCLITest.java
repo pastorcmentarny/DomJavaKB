@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import static dms.pastor.tools.trips.tube.builders.StationBuilder.stationBuilder;
 import static dms.pastor.tools.trips.tube.station.Line.noLine;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -188,7 +189,7 @@ public class TubeCLITest {
 
     private Stations generateStations() {
         List<TubeStation> tubeStationList = new ArrayList<>();
-        tubeStationList.add(new TubeStation("Wembley Park", Status.VISITED, noLine(), LocalDate.now(), LocalDate.now(), LocalDate.now()));
+        tubeStationList.add(stationBuilder().name("Wembley Park").status(Status.VISITED).build());
         tubeStationList.add(TubeStation.passed("Green Park", noLine(), LocalDate.now()));
         tubeStationList.add(TubeStation.notVisited(ELM_PARK_VALID_STATION, noLine()));
         return new Stations(tubeStationList);

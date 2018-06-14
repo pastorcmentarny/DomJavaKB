@@ -3,6 +3,7 @@ package dms.pastor.tools.trips.tube.station;
 import java.util.Objects;
 
 import static dms.pastor.tools.trips.tube.station.TubeStation.SEPARATOR;
+import static dms.pastor.utils.PrintOutUtils.printArray;
 import static dms.pastor.utils.ValidatorUtils.validateIfNotEmpty;
 
 /**
@@ -14,7 +15,7 @@ import static dms.pastor.utils.ValidatorUtils.validateIfNotEmpty;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public final class StationLineValidator {
-    private static final int COLUMNS_NUMBER = 6;
+    private static final int COLUMNS_NUMBER = 7;
 
     private StationLineValidator() {
     }
@@ -24,7 +25,7 @@ public final class StationLineValidator {
         validateIfNotEmpty(stationAsString, "TubeStation as string");
         String[] columns = stationAsString.split(SEPARATOR);
         if (columns.length != COLUMNS_NUMBER) {
-            throw new IllegalArgumentException("Invalid number of columns. Expect " + COLUMNS_NUMBER + " but was " + columns.length);
+            throw new IllegalArgumentException("Invalid number of columns. Expect " + COLUMNS_NUMBER + " but was " + columns.length + "Line:" + printArray(columns));
         }
         final Status status = Status.fromValue(columns[1]);
         verifyPassedDate(columns, status);

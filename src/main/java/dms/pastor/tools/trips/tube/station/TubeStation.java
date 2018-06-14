@@ -26,23 +26,25 @@ public class TubeStation {//implements Station {
     private LocalDate passedDate;
     private LocalDate visitedDate;
     private LocalDate thisYearVisitedDate;
+    private final boolean blogged;
 
     @SuppressWarnings("ConstructorWithTooManyParameters") //not apply in this case
-    public TubeStation(String name, Status status, List<Line> lines, LocalDate passedDate, LocalDate visitedDate, LocalDate thisYearVisitedDate) {
+    public TubeStation(String name, Status status, List<Line> lines, LocalDate passedDate, LocalDate visitedDate, LocalDate thisYearVisitedDate, boolean blogged) {
         this.name = name;
         this.status = status;
         this.lines = lines;
         this.passedDate = passedDate;
         this.visitedDate = visitedDate;
         this.thisYearVisitedDate = thisYearVisitedDate;
+        this.blogged = blogged;
     }
 
     public static TubeStation notVisited(String name, List<Line> lines) {
-        return new TubeStation(name, NOT_VISITED, lines, null, null, null);
+        return new TubeStation(name, NOT_VISITED, lines, null, null, null, false);
     }
 
     public static TubeStation passed(String name, List<Line> lines, LocalDate passedDate) {
-        return new TubeStation(name, PASSED, lines, passedDate, null, null);
+        return new TubeStation(name, PASSED, lines, passedDate, null, null, false);
     }
 
     public String getName() {
@@ -89,22 +91,32 @@ public class TubeStation {//implements Station {
         return lines;
     }
 
+    public boolean isBlogged() {
+        return blogged;
+    }
+
+    public String getBloggedAsString() {
+        return blogged ? "Y" : "N";
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        TubeStation tubeStation = (TubeStation) o;
-        return Objects.equals(getName(), tubeStation.getName()) &&
-                Objects.equals(getLines(), tubeStation.getLines()) &&
-                getStatus() == tubeStation.getStatus() &&
-                Objects.equals(getPassedDate(), tubeStation.getPassedDate()) &&
-                Objects.equals(getVisitedDate(), tubeStation.getVisitedDate()) &&
-                Objects.equals(thisYearVisitedDate, tubeStation.thisYearVisitedDate);
+        if (!(o instanceof TubeStation)) return false;
+        TubeStation that = (TubeStation) o;
+        return isBlogged() == that.isBlogged() &&
+                Objects.equals(getName(), that.getName()) &&
+                Objects.equals(getLines(), that.getLines()) &&
+                getStatus() == that.getStatus() &&
+                Objects.equals(getPassedDate(), that.getPassedDate()) &&
+                Objects.equals(getVisitedDate(), that.getVisitedDate()) &&
+                Objects.equals(thisYearVisitedDate, that.thisYearVisitedDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getName(), getLines(), getStatus(), getPassedDate(), getVisitedDate(), thisYearVisitedDate);
+
+        return Objects.hash(getName(), getLines(), getStatus(), getPassedDate(), getVisitedDate(), thisYearVisitedDate, isBlogged());
     }
 
     @Override
@@ -116,6 +128,7 @@ public class TubeStation {//implements Station {
                 ", passedDate=" + passedDate +
                 ", visitedDate=" + visitedDate +
                 ", thisYearVisitedDate=" + thisYearVisitedDate +
+                ", blogged=" + blogged +
                 '}';
     }
 
@@ -135,8 +148,8 @@ public class TubeStation {//implements Station {
                 getLinesAsString() + SEPARATOR +
                 getDate(passedDate) + SEPARATOR +
                 getDate(visitedDate) + SEPARATOR +
-                getDate(thisYearVisitedDate);
-
+                getDate(thisYearVisitedDate) + SEPARATOR +
+                getBloggedAsString();
     }
 
     private String getDate(LocalDate date) {
