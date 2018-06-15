@@ -1,6 +1,6 @@
 Acton Town;;V;;none;;2017-06-10;;2017-06-10;;none;;N
-Aldgate;;V;;none;;2017-02-02;;2018-05-01;;2018-05-01;;N
-Aldgate East;;V;;none;;2017-09-01;;2017-09-01;;2018-05-24;;N
+Aldgate;;V;;none;;2017-02-02;;2018-05-01;;2018-05-01;;Y
+Aldgate East;;V;;none;;2017-09-01;;2017-09-01;;2018-05-24;;Y
 Alperton;;P;;none;;2017-06-10;;none;;none;;N
 Amersham;;X;;none;;none;;none;;none;;N
 Angel;;P;;none;;2017-05-26;;none;;none;;N
@@ -22,7 +22,7 @@ Bethnal Green;;P;;none;;2017-05-09;;none;;none;;N
 Blackfriars;;P;;none;;2017-02-02;;none;;none;;N
 Blackhorse Road;;X;;none;;none;;none;;none;;N
 Bond Street;;P;;none;;2017-10-30;;none;;none;;N
-Borough;;V;;none;;2017-11-01;;2018-05-15;;2018-05-15;;N
+Borough;;V;;none;;2017-11-01;;2018-05-15;;2018-05-15;;Y
 Boston Manor;;P;;none;;2017-10-30;;none;;none;;N
 Bounds Green;;X;;none;;none;;none;;none;;N
 Bow Road;;X;;none;;none;;none;;none;;N
@@ -43,7 +43,7 @@ Chalk Farm;;P;;none;;2017-05-26;;none;;none;;N
 Chancery Lane;;X;;none;;none;;none;;none;;N
 Camden;;X;;none;;none;;none;;none;;N
 Charing Cross;;X;;none;;none;;none;;none;;N
-Chesham;;V;;none;;2017-06-25;;2017-06-25;;none;;N
+Chesham;;V;;none;;2017-06-25;;2017-06-25;;none;;Y
 Chigwell;;X;;none;;none;;none;;none;;N
 Chiswick Park;;P;;none;;2017-06-10;;none;;none;;N
 Chorleywood;;P;;none;;2017-06-25;;none;;none;;N
@@ -173,7 +173,7 @@ Park Royal;;P;;none;;2017-06-10;;none;;none;;N
 Parsons Green;;X;;none;;none;;none;;none;;N
 Perivale;;P;;none;;2018-06-06;;none;;none;;N
 Piccadilly Circus;;V;;none;;2017-01-28;;2017-01-28;;2018-05-29;;N
-Pimlico;;V;;none;;2017-11-19;;2017-12-21;;2018-04-24;;N
+Pimlico;;V;;none;;2017-11-19;;2017-12-21;;2018-04-24;;Y
 Pinner;;P;;none;;2018-05-26;;none;;none;;N
 Plaistow;;X;;none;;none;;none;;none;;N
 Preston Road;;P;;none;;2018-05-26;;none;;none;;N
@@ -190,7 +190,7 @@ Roding Valley;;X;;none;;none;;none;;none;;N
 Redbridge;;X;;none;;none;;none;;none;;N
 Royal Oak;;X;;none;;none;;none;;none;;N
 Ruislip;;P;;none;;2017-03-21;;none;;none;;N
-Ruislip Gardens;;X;;none;;none;;none;;none;;N
+Ruislip Gardens;;X;;none;;none;;none;;none;;Y
 Ruislip Manor;;V;;none;;2017-03-21;;2018-06-06;;2018-06-06;;N
 Russell Square;;P;;none;;2017-06-15;;none;;none;;N
 St. James's Park;;V;;none;;2017-02-02;;2018-06-01;;2018-06-01;;N

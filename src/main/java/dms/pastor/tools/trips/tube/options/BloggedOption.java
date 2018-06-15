@@ -28,7 +28,7 @@ public class BloggedOption implements Option {
 
     @Override
     public void choose(Stations stations) {
-        System.out.println("What station did you passed?");
+        System.out.println("What station did you post about it?");
 
         final String option = scanner.nextLine();
         LOGGER.debug(String.format("Updating status to passed for %s", option));

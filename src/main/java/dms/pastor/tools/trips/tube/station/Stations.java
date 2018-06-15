@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import static dms.pastor.tools.trips.tube.station.Status.PASSED;
 import static dms.pastor.tools.trips.tube.station.Status.VISITED;
@@ -96,6 +97,19 @@ public class Stations {
         return tubeStationList.stream()
                 .filter(station -> station.getStatus().value().equalsIgnoreCase(statusValue))
                 .count();
+    }
+
+    public long countStationsBlogged() {
+        return tubeStationList.stream()
+                .filter(TubeStation::isBlogged)
+                .count();
+    }
+
+    public List<String> displayAllStationsBlogged() {
+        return tubeStationList.stream()
+                .filter(TubeStation::isBlogged)
+                .map(TubeStation::getName)
+                .collect(Collectors.toList());
     }
 
     public TubeStation findStation(String searchFor) {

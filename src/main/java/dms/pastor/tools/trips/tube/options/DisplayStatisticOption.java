@@ -37,9 +37,18 @@ public class DisplayStatisticOption implements Option {
         System.out.println("You passed " + stations.countStationPassed() + " station(s). (" +
                 countPercentageOfAllStationFor(stations.getTubeStationList().size(), stations.countStationPassed()));
         System.out.println(getStatsForLines(stations));
+        System.out.println(displayStationsBlogged(stations));
     }
 
-    private String countPercentageOfAllStationFor(int stationSize, long what) {
+    private String displayStationsBlogged(Stations stations) {
+        final List<TubeStation> tubeStationList = stations.getTubeStationList();
+        var result = new StringBuilder(EMPTY_STRING);
+        stations.displayAllStationsBlogged().forEach(result::append);
+        result.append(countPercentageOfAllStationFor(stations.countStationsBlogged(), tubeStationList.size()));
+        return result.toString();
+    }
+
+    private String countPercentageOfAllStationFor(long stationSize, long what) {
         return (what * 100 / stationSize) + "%)";
     }
 
