@@ -22,7 +22,7 @@ public class BloggedOption implements Option {
     private static final Logger LOGGER = LoggerFactory.getLogger(UpdateStationStatusToPassedOption.class);
     private final Scanner scanner;
 
-    public BloggedOption(Scanner scanner) {
+    BloggedOption(Scanner scanner) {
         this.scanner = scanner;
     }
 

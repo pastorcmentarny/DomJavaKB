@@ -69,15 +69,11 @@ public class Unit extends Entity {
     }
 
     void setPlayer() {
-        setPlayer(true);
+        player = true;
     }
 
     public void setCards(List<Card> cards) {
         this.cards = cards;
-    }
-
-    private void setPlayer(boolean player) {
-        this.player = player;
     }
 
     public void setConditions(Condition conditions) {

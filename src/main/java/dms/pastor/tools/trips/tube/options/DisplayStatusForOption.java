@@ -24,7 +24,7 @@ public class DisplayStatusForOption implements Option {
     private static final Logger LOGGER = LoggerFactory.getLogger(DisplayStatusForOption.class);
     private final Scanner scanner;
 
-    public DisplayStatusForOption(Scanner scanner) {
+    DisplayStatusForOption(Scanner scanner) {
         this.scanner = scanner;
     }
 

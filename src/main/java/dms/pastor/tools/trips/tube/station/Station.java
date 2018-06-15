@@ -281,7 +281,7 @@ public enum Station {
     }
 
     public static boolean has(String stationName) {
-        return Arrays.asList(Station.values()).stream().anyMatch(it -> it.getStationName().equalsIgnoreCase(stationName));
+        return Arrays.stream(Station.values()).anyMatch(it -> it.getStationName().equalsIgnoreCase(stationName));
     }
 
     public String getStationName() {

@@ -95,7 +95,7 @@ public class TubeStation {//implements Station {
         return blogged;
     }
 
-    public String getBloggedAsString() {
+    private String getBloggedAsString() {
         return blogged ? "Y" : "N";
     }
 

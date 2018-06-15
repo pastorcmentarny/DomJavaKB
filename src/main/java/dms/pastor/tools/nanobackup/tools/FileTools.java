@@ -203,7 +203,6 @@ public final class FileTools {
             return;
         }
 
-        long size;
         try (
                 FileInputStream fis = new FileInputStream(srcFile);
                 FileOutputStream fos = new FileOutputStream(destFile);

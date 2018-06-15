@@ -24,7 +24,7 @@ public class UpdateStationStatusToVisitedOption implements Option {
     private static final Logger LOGGER = LoggerFactory.getLogger(UpdateStationStatusToVisitedOption.class);
     private final Scanner scanner;
 
-    public UpdateStationStatusToVisitedOption(Scanner scanner) {
+    UpdateStationStatusToVisitedOption(Scanner scanner) {
         this.scanner = scanner;
     }
 

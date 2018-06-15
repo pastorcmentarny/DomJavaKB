@@ -4,8 +4,6 @@ import dms.pastor.domain.exception.NotFoundException;
 import dms.pastor.domain.exception.NotImplementYetException;
 import dms.pastor.tools.trips.tube.station.Stations;
 import dms.pastor.tools.trips.tube.station.TubeStation;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * Author Dominik Symonowicz
@@ -16,8 +14,7 @@ import org.slf4j.LoggerFactory;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class StationUpdater {
-    public static final Logger LOGGER = LoggerFactory.getLogger(StationUpdater.class);
+class StationUpdater {
 
     static void setStationBlogged(Stations stations, String option) {
         try {

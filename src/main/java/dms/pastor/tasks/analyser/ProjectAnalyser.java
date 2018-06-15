@@ -42,13 +42,13 @@ class ProjectAnalyser {
 
     void analyse(String path) {
         validate(path);
-        displayAllFilesInProject(path);
+        displayAllFilesInProject();
         collectAllJavaFiles(new File(path));
         analyseFiles();
         System.out.println(getResultAsText());
     }
 
-    private void displayAllFilesInProject(String path) {
+    private void displayAllFilesInProject() {
         try {
             Files.list(Paths.get("."))
                     .filter(Files::isRegularFile)

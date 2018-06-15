@@ -160,7 +160,7 @@ public class Elements {
         return earth;
     }
 
-    public void setEarth(int earth) {
+    private void setEarth(int earth) {
         this.earth = earth;
     }
 

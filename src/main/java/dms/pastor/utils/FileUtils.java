@@ -222,7 +222,7 @@ public final class FileUtils {
         StringBuilder stringBuilder = new StringBuilder();
         try {
             Files.lines(Paths.get(path))
-                    .map(s -> s.trim())
+                    .map(String::trim)
                     .filter(s -> !s.isEmpty())
                     .forEach(stringBuilder::append);
         } catch (IOException e) {
