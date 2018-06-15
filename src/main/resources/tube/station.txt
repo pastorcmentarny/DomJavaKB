@@ -1,268 +1,268 @@
-Acton Town;;V;;none;;2017-06-10;;2017-06-10;;none;;N
-Aldgate;;V;;none;;2017-02-02;;2018-05-01;;2018-05-01;;Y
-Aldgate East;;V;;none;;2017-09-01;;2017-09-01;;2018-05-24;;Y
-Alperton;;P;;none;;2017-06-10;;none;;none;;N
-Amersham;;X;;none;;none;;none;;none;;N
-Angel;;P;;none;;2017-05-26;;none;;none;;N
-Archway;;X;;none;;none;;none;;none;;N
-Arnos Grove;;X;;none;;none;;none;;none;;N
-Arsenal;;X;;none;;none;;none;;none;;N
-Baker Street;;V;;none;;2017-01-03;;2017-12-21;;2018-05-26;;N
-Balham;;X;;none;;none;;none;;none;;N
-Bank;;P;;none;;2017-11-01;;none;;none;;N
-Barbican;;P;;none;;2017-01-03;;2017-06-05;;none;;N
-Barking;;X;;none;;none;;none;;none;;N
-Barkingside;;X;;none;;none;;none;;none;;N
-Barons Court;;P;;none;;2017-06-10;;none;;none;;N
-Bayswater;;P;;none;;2017-07-06;;none;;none;;N
-Becontree;;X;;none;;none;;none;;none;;N
-Belsize Park;;P;;none;;2017-05-26;;none;;none;;N
-Bermondsey;;P;;none;;2017-02-11;;none;;none;;N
-Bethnal Green;;P;;none;;2017-05-09;;none;;none;;N
-Blackfriars;;P;;none;;2017-02-02;;none;;none;;N
-Blackhorse Road;;X;;none;;none;;none;;none;;N
-Bond Street;;P;;none;;2017-10-30;;none;;none;;N
-Borough;;V;;none;;2017-11-01;;2018-05-15;;2018-05-15;;Y
-Boston Manor;;P;;none;;2017-10-30;;none;;none;;N
-Bounds Green;;X;;none;;none;;none;;none;;N
-Bow Road;;X;;none;;none;;none;;none;;N
-Brent Cross;;V;;none;;2017-05-26;;2017-05-26;;none;;N
-Brixton;;X;;none;;none;;none;;none;;N
-Bromley-by-Bow;;X;;none;;none;;none;;none;;N
-Buckhurst Hill;;X;;none;;none;;none;;none;;N
-Burnt Oak;;X;;none;;none;;none;;none;;N
-Caledonian Road;;X;;none;;none;;none;;none;;N
-Camden Town;;P;;none;;2017-05-26;;none;;none;;N
-Canada Water;;P;;none;;2017-02-11;;none;;none;;N
-Canary Wharf;;P;;none;;2017-02-11;;none;;none;;N
-Canning Town;;V;;none;;2017-02-11;;2017-02-11;;2018-03-30;;N
-Cannon Street;;V;;none;;2017-02-02;;2017-07-06;;2018-06-01;;N
-Cannons Park;;X;;none;;none;;none;;none;;N
-Chalfont & Latimer;;P;;none;;2017-06-25;;none;;none;;N
-Chalk Farm;;P;;none;;2017-05-26;;none;;none;;N
-Chancery Lane;;X;;none;;none;;none;;none;;N
-Camden;;X;;none;;none;;none;;none;;N
-Charing Cross;;X;;none;;none;;none;;none;;N
-Chesham;;V;;none;;2017-06-25;;2017-06-25;;none;;Y
-Chigwell;;X;;none;;none;;none;;none;;N
-Chiswick Park;;P;;none;;2017-06-10;;none;;none;;N
-Chorleywood;;P;;none;;2017-06-25;;none;;none;;N
-Clapham Common;;X;;none;;none;;none;;none;;N
-Clapham North;;X;;none;;none;;none;;none;;N
-Clapham South;;X;;none;;none;;none;;none;;N
-Cockfosters;;X;;none;;none;;none;;none;;N
-Colindale;;X;;none;;none;;none;;none;;N
-Colliers Wood;;X;;none;;none;;none;;none;;N
-Covent Garden;;V;;none;;2018-05-29;;2018-05-29;;2018-05-29;;N
-Croxley;;V;;none;;2017-06-15;;2017-06-15;;2018-05-21;;N
-Dagenham East;;X;;none;;none;;none;;none;;N
-Dagenham Heathway;;X;;none;;none;;none;;none;;N
-Debden;;X;;none;;none;;none;;none;;N
-Dollis Hill;;X;;none;;none;;none;;none;;N
-Ealing Broadway;;V;;none;;2017-07-10;;2017-07-10;;none;;N
-Ealing Common;;P;;none;;2017-06-10;;none;;none;;N
-Earl's Court;;V;;none;;2017-02-02;;2017-02-02;;none;;N
-East Acton;;P;;none;;2018-06-06;;none;;none;;N
-East Finchley;;X;;none;;none;;none;;none;;N
-East Ham;;X;;none;;none;;none;;none;;N
-East Putney;;X;;none;;none;;none;;none;;N
-Eastcote;;P;;none;;2017-03-21;;none;;none;;N
-Edgware;;X;;none;;none;;none;;none;;N
-Edgware Road;;P;;none;;2017-06-19;;none;;none;;N
-Elephant & Castle;;P;;none;;2017-11-01;;none;;none;;N
-Elm Park;;X;;none;;none;;none;;none;;N
-Embankment;;P;;none;;2017-02-02;;none;;none;;N
-Epping;;X;;none;;none;;none;;none;;N
-Euston;;P;;none;;2017-05-26;;none;;none;;N
-Euston Square;;V;;none;;2017-01-03;;2017-09-02;;none;;N
-Fairlop;;X;;none;;none;;none;;none;;N
-Farringdon;;V;;none;;2017-01-03;;2018-01-12;;2018-01-12;;N
-Finchley Road;;V;;none;;2017-01-03;;2018-05-06;;2018-05-06;;N
-Finsbury Park;;P;;none;;2017-01-03;;none;;none;;N
-Fulham Broadway;;X;;none;;none;;none;;none;;N
-Gants Hill;;X;;none;;none;;none;;none;;N
-Gloucester Road;;P;;none;;2017-02-02;;none;;none;;N
-Golders Green;;V;;none;;2017-05-26;;2018-05-06;;2018-05-06;;N
-Goldhawk Road;;X;;none;;none;;none;;none;;N
-Goodge Street;;V;;none;;2018-06-06;;2018-06-06;;2018-06-06;;N
-Grange Hill;;X;;none;;none;;none;;none;;N
-Great Portland Street;;P;;none;;2017-01-03;;none;;none;;N
-Greenford;;P;;none;;2018-06-06;;none;;none;;N
-Green Park;;V;;none;;2017-10-30;;2017-10-30;;none;;N
-Gunnersbury;;P;;none;;2018-05-06;;none;;none;;N
-Hainault;;X;;none;;none;;none;;none;;N
-Hammersmith;;P;;none;;2017-06-10;;none;;none;;N
-Hampstead;;P;;none;;2017-05-26;;none;;none;;N
-Hanger Lane;;P;;none;;2018-06-06;;none;;none;;N
-Harlesden;;P;;none;;2017-06-19;;none;;none;;N
-Harrow & Wealdstone;;P;;none;;2017-06-19;;none;;none;;N
-Harrow-on-the-Hill;;V;;none;;none;;2017-11-16;;2018-01-04;;N
-Hatton Cross;;P;;none;;2017-10-30;;none;;none;;N
-Heathrow Terminals 123;;P;;none;;2017-10-30;;none;;none;;N
-Heathrow Terminal 4;;X;;none;;none;;none;;none;;N
-Heathrow Terminal 5;;V;;none;;2017-10-30;;2017-10-30;;none;;N
-Hendon High Barnet;;X;;none;;none;;none;;none;;N
-Highbury & Islington;;P;;none;;2017-11-19;;none;;none;;N
-Highgate;;X;;none;;none;;none;;none;;N
-High Street Kensington;;P;;none;;2017-07-06;;none;;none;;N
-Hillingdon;;P;;none;;2017-03-21;;none;;none;;N
-Holborn;;V;;none;;2017-06-15;;2017-06-15;;none;;N
-Holland Park;;P;;none;;2018-06-06;;none;;none;;N
-Holloway Road;;X;;none;;none;;none;;none;;N
-Hornchurch;;X;;none;;none;;none;;none;;N
-Hounslow Central;;P;;none;;2017-10-30;;none;;none;;N
-Hounslow East;;P;;none;;2017-10-30;;none;;none;;N
-Hounslow West;;P;;none;;2017-10-30;;none;;none;;N
-Hyde Park Corner;;X;;none;;none;;none;;none;;N
-Ickenham;;P;;none;;2017-03-21;;none;;none;;N
-Kennington;;P;;none;;2017-11-01;;none;;none;;N
-Kensal Green;;X;;none;;none;;none;;none;;N
-Kensington (Olympia);;X;;none;;none;;none;;none;;N
-Kentish Town;;X;;none;;none;;none;;none;;N
-Kenton;;X;;none;;2017-06-19;;none;;none;;N
-Kew Gardens;;V;;none;;2018-05-06;;2018-05-06;;2018-05-06;;N
-Kilburn;;X;;none;;none;;none;;none;;N
-Kilburn Park;;P;;none;;2017-06-19;;none;;none;;N
-Kingsbury;;X;;none;;none;;none;;none;;N
-King's Cross St. Pancras;;V;;none;;2017-01-03;;2017-11-19;;none;;N
-Knightsbridge;;X;;none;;none;;none;;none;;N
-Ladbroke Grove;;X;;none;;none;;none;;none;;N
-Lambeth North;;X;;none;;none;;none;;none;;N
-Lancaster Gate;;P;;none;;2018-06-06;;none;;none;;N
-Latimer Road;;X;;none;;none;;none;;none;;N
-Leicester Square;;V;;none;;2018-05-29;;2018-05-29;;2018-05-29;;N
-Leyton;;X;;none;;none;;none;;none;;N
-Leytonstone;;X;;none;;none;;none;;none;;N
-Liverpool Street;;V;;none;;2017-02-02;;2018-04-14;;2018-04-14;;N
-London Bridge;;P;;none;;2017-02-11;;none;;none;;N
-Loughton;;X;;none;;none;;none;;none;;N
-Maida Vale;;P;;none;;2017-06-19;;none;;none;;N
-Manor House;;X;;none;;none;;none;;none;;N
-Haringey;;X;;none;;none;;none;;none;;N
-Mansion House;;P;;none;;2017-02-02;;none;;none;;N
-Marble Arch;;X;;none;;none;;none;;none;;N
-Marylebone;;V;;none;;2017-01-28;;2017-01-28;;none;;N
-Mile End;;P;;none;;2017-05-09;;none;;none;;N
-Mill Hill East;;X;;none;;none;;none;;none;;N
-Monument;;P;;none;;2017-02-02;;none;;none;;N
-Moorgate;;V;;none;;2017-01-03;;2017-01-03;;2018-01-05;;N
-Moor Park;;P;;none;;2017-01-03;;none;;2018-01-04;;N
-Morden;;X;;none;;none;;none;;none;;N
-Mornington Crescent;;P;;none;;2018-05-06;;none;;none;;N
-Neasden;;X;;none;;none;;none;;none;;N
-Newbury Park;;X;;none;;none;;none;;none;;N
-North Acton;;P;;none;;2018-06-06;;none;;none;;N
-North Ealing;;P;;none;;2017-06-10;;none;;none;;N
-North Greenwich;;P;;none;;2017-02-11;;none;;none;;N
-North Harrow;;P;;none;;2018-05-26;;none;;none;;N
-North Wembley;;P;;none;;2017-06-19;;none;;none;;N
-Northfields;;P;;none;;2017-10-30;;none;;none;;N
-Northolt;;P;;none;;2018-06-06;;none;;none;;N
-Northwick Park;;P;;none;;2018-05-26;;none;;none;;N
-Northwood;;P;;none;;2018-05-26;;none;;none;;N
-Northwood Hills;;P;;none;;2018-05-26;;none;;none;;N
-Notting Hill Gate;;P;;none;;2017-07-06;;none;;none;;N
-Oakwood;;X;;none;;none;;none;;none;;N
-Old Street;;V;;none;;2017-05-26;;2018-04-24;;2018-04-24;;N
-Hackney;;X;;none;;none;;none;;none;;N
-Osterley;;P;;none;;2017-10-30;;none;;none;;N
-Oval;;P;;none;;2017-11-01;;none;;none;;N
-Oxford Circus;;V;;none;;2017-01-28;;2017-11-19;;none;;N
-Paddington;;P;;none;;2017-07-06;;none;;none;;N
-Park Royal;;P;;none;;2017-06-10;;none;;none;;N
-Parsons Green;;X;;none;;none;;none;;none;;N
-Perivale;;P;;none;;2018-06-06;;none;;none;;N
-Piccadilly Circus;;V;;none;;2017-01-28;;2017-01-28;;2018-05-29;;N
-Pimlico;;V;;none;;2017-11-19;;2017-12-21;;2018-04-24;;Y
-Pinner;;P;;none;;2018-05-26;;none;;none;;N
-Plaistow;;X;;none;;none;;none;;none;;N
-Preston Road;;P;;none;;2018-05-26;;none;;none;;N
-Putney Bridge;;X;;none;;none;;none;;none;;N
-Queen's Park;;X;;none;;none;;none;;none;;N
-Queensbury;;X;;none;;none;;none;;none;;N
-Queensway;;P;;none;;2018-06-06;;none;;none;;N
-Ravenscourt Park;;P;;none;;2017-06-10;;none;;none;;N
-Rayners Lane;;P;;none;;2017-06-10;;none;;none;;N
-Regent's Park;;P;;none;;2017-01-28;;none;;none;;N
-Richmond;;X;;none;;none;;none;;none;;N
-Rickmansworth;;V;;none;;2017-01-03;;2017-01-03;;2018-01-02;;N
-Roding Valley;;X;;none;;none;;none;;none;;N
-Redbridge;;X;;none;;none;;none;;none;;N
-Royal Oak;;X;;none;;none;;none;;none;;N
-Ruislip;;P;;none;;2017-03-21;;none;;none;;N
-Ruislip Gardens;;X;;none;;none;;none;;none;;Y
-Ruislip Manor;;V;;none;;2017-03-21;;2018-06-06;;2018-06-06;;N
-Russell Square;;P;;none;;2017-06-15;;none;;none;;N
-St. James's Park;;V;;none;;2017-02-02;;2018-06-01;;2018-06-01;;N
-St. John's Wood;;V;;none;;2017-10-30;;2018-05-28;;2018-05-26;;N
-St. Paul's;;X;;none;;none;;none;;none;;N
-Seven Sisters;;P;;none;;2017-11-19;;none;;none;;N
-Shepherd's Bush;;P;;none;;2018-06-06;;none;;none;;N
-Shepherd's Bush Market;;X;;none;;none;;none;;none;;N
-Sloane Square;;V;;none;;2017-02-02;;2018-05-08;;2018-05-08;;N
-Snaresbrook;;X;;none;;none;;none;;none;;N
-South Ealing;;P;;none;;2017-10-30;;none;;none;;N
-South Harrow;;P;;none;;2017-06-10;;none;;none;;N
-South Kensington;;P;;none;;2017-02-02;;none;;none;;N
-South Kenton;;P;;none;;2017-06-19;;none;;none;;N
-South Ruislip;;X;;none;;none;;none;;none;;N
-South Wimbledon;;X;;none;;none;;none;;none;;N
-South Woodford;;X;;none;;none;;none;;none;;N
-Southfields;;X;;none;;none;;none;;none;;N
-Southgate;;X;;none;;none;;none;;none;;N
-Southwark;;P;;none;;2017-02-11;;none;;none;;N
-Stamford Brook;;P;;none;;2017-06-10;;none;;none;;N
-Stanmore;;X;;none;;none;;none;;none;;N
-Stepney Green;;X;;none;;none;;none;;none;;N
-Stockwell;;P;;none;;2017-11-01;;none;;none;;N
-Stonebridge Park;;P;;none;;2017-06-19;;none;;none;;N
-Stratford;;V;;none;;2017-05-09;;2017-05-09;;2018-03-30;;N
-Sudbury Hill;;P;;none;;2017-06-10;;none;;none;;N
-Sudbury Town;;P;;none;;2017-06-10;;none;;none;;N
-Ealing;;X;;none;;none;;none;;none;;N
-Swiss Cottage;;V;;none;;2017-10-30;;2017-03-15;;none;;N
-Temple;;P;;none;;2017-02-02;;none;;none;;N
-Theydon Bois;;X;;none;;none;;none;;none;;N
-Tooting Bec;;X;;none;;none;;none;;none;;N
-Tooting Broadway;;X;;none;;none;;none;;none;;N
-Tottenham Court Road;;P;;none;;2018-05-29;;none;;none;;N
-Tottenham Hale;;V;;none;;2017-11-19;;2017-11-19;;none;;N
-Totteridge & Whetstone;;X;;none;;none;;none;;none;;N
-Tower Hill;;V;;none;;2017-02-02;;2018-05-08;;2018-05-08;;N
-Tufnell Park;;X;;none;;none;;none;;none;;N
-Turnham Green;;P;;none;;2017-06-10;;none;;none;;N
-Turnpike Lane;;X;;none;;none;;none;;none;;N
-Upminster;;X;;none;;none;;none;;none;;N
-Upminster Bridge;;X;;none;;none;;none;;none;;N
-Upney;;X;;none;;none;;none;;none;;N
-Upton Park;;X;;none;;none;;none;;none;;N
-Uxbridge;;V;;none;;2017-03-21;;2017-03-21;;2018-06-06;;N
-Vauxhall;;V;;none;;2017-11-01;;2017-12-14;;none;;N
-Victoria;;V;;none;;2017-02-02;;2017-11-19;;2018-01-02;;N
-Walthamstow Central;;X;;none;;none;;none;;none;;N
-Warren Street;;V;;none;;2017-11-19;;2018-06-05;;2018-06-05;;N
-Warwick Avenue;;P;;none;;2017-06-19;;none;;none;;N
-Waterloo;;P;;none;;2017-02-11;;none;;none;;N
-Watford;;V;;none;;2018-04-06;;2018-04-06;;2018-02-16;;N
-Wembley Central;;V;;none;;2017-06-19;;none;;none;;N
-Wembley Park;;V;;none;;2017-01-03;;2017-02-06;;none;;N
-West Acton;;X;;none;;none;;none;;none;;N
-West Brompton;;X;;none;;none;;none;;none;;N
-West Finchley;;X;;none;;none;;none;;none;;N
-West Ham;;P;;none;;2017-05-10;;none;;none;;N
-West Hampstead;;P;;none;;2018-05-06;;none;;none;;N
-West Harrow;;P;;none;;2017-06-10;;none;;none;;N
-West Kensington;;P;;none;;2017-06-10;;none;;none;;N
-West Ruislip;;X;;none;;none;;none;;none;;N
-Westbourne Park;;X;;none;;none;;none;;none;;N
-Westminster;;P;;none;;2017-02-02;;none;;none;;N
-White City;;P;;none;;2018-06-06;;none;;none;;N
-Whitechapel;;V;;none;;2017-09-01;;2017-09-01;;none;;N
-Willesden Green;;X;;none;;none;;none;;none;;N
-Willesden Junction;;P;;none;;2017-06-19;;none;;none;;N
-Wimbledon;;X;;none;;none;;none;;none;;N
-Wimbledon Park;;X;;none;;none;;none;;none;;N
-Wood Green;;X;;none;;none;;none;;none;;N
-Wood Lane;;X;;none;;none;;none;;none;;N
-Woodford;;X;;none;;none;;none;;none;;N
-Woodside Park;;X;;none;;none;;none;;none;;N
+Acton Town;;V;;2017-06-10;;2017-06-10;;none;;N
+Aldgate;;V;;2017-02-02;;2018-05-01;;2018-05-01;;Y
+Aldgate East;;V;;2017-09-01;;2017-09-01;;2018-05-24;;Y
+Alperton;;P;;2017-06-10;;none;;none;;N
+Amersham;;X;;none;;none;;none;;N
+Angel;;P;;2017-05-26;;none;;none;;N
+Archway;;X;;none;;none;;none;;N
+Arnos Grove;;X;;none;;none;;none;;N
+Arsenal;;X;;none;;none;;none;;N
+Baker Street;;V;;2017-01-03;;2017-12-21;;2018-05-26;;N
+Balham;;X;;none;;none;;none;;N
+Bank;;P;;2017-11-01;;none;;none;;N
+Barbican;;P;;2017-01-03;;2017-06-05;;none;;N
+Barking;;X;;none;;none;;none;;N
+Barkingside;;X;;none;;none;;none;;N
+Barons Court;;P;;2017-06-10;;none;;none;;N
+Bayswater;;P;;2017-07-06;;none;;none;;N
+Becontree;;X;;none;;none;;none;;N
+Belsize Park;;P;;2017-05-26;;none;;none;;N
+Bermondsey;;P;;2017-02-11;;none;;none;;N
+Bethnal Green;;P;;2017-05-09;;none;;none;;N
+Blackfriars;;P;;2017-02-02;;none;;none;;N
+Blackhorse Road;;X;;none;;none;;none;;N
+Bond Street;;P;;2017-10-30;;none;;none;;N
+Borough;;V;;2017-11-01;;2018-05-15;;2018-05-15;;Y
+Boston Manor;;P;;2017-10-30;;none;;none;;N
+Bounds Green;;X;;none;;none;;none;;N
+Bow Road;;X;;none;;none;;none;;N
+Brent Cross;;V;;2017-05-26;;2017-05-26;;none;;N
+Brixton;;X;;none;;none;;none;;N
+Bromley-by-Bow;;X;;none;;none;;none;;N
+Buckhurst Hill;;X;;none;;none;;none;;N
+Burnt Oak;;X;;none;;none;;none;;N
+Caledonian Road;;X;;none;;none;;none;;N
+Camden Town;;P;;2017-05-26;;none;;none;;N
+Canada Water;;P;;2017-02-11;;none;;none;;N
+Canary Wharf;;P;;2017-02-11;;none;;none;;N
+Canning Town;;V;;2017-02-11;;2017-02-11;;2018-03-30;;N
+Cannon Street;;V;;2017-02-02;;2017-07-06;;2018-06-01;;N
+Cannons Park;;X;;none;;none;;none;;N
+Chalfont & Latimer;;P;;2017-06-25;;none;;none;;N
+Chalk Farm;;P;;2017-05-26;;none;;none;;N
+Chancery Lane;;X;;none;;none;;none;;N
+Camden;;X;;none;;none;;none;;N
+Charing Cross;;X;;none;;none;;none;;N
+Chesham;;V;;2017-06-25;;2017-06-25;;none;;Y
+Chigwell;;X;;none;;none;;none;;N
+Chiswick Park;;P;;2017-06-10;;none;;none;;N
+Chorleywood;;P;;2017-06-25;;none;;none;;N
+Clapham Common;;X;;none;;none;;none;;N
+Clapham North;;X;;none;;none;;none;;N
+Clapham South;;X;;none;;none;;none;;N
+Cockfosters;;X;;none;;none;;none;;N
+Colindale;;X;;none;;none;;none;;N
+Colliers Wood;;X;;none;;none;;none;;N
+Covent Garden;;V;;2018-05-29;;2018-05-29;;2018-05-29;;N
+Croxley;;V;;2017-06-15;;2017-06-15;;2018-05-21;;N
+Dagenham East;;X;;none;;none;;none;;N
+Dagenham Heathway;;X;;none;;none;;none;;N
+Debden;;X;;none;;none;;none;;N
+Dollis Hill;;X;;none;;none;;none;;N
+Ealing Broadway;;V;;2017-07-10;;2017-07-10;;none;;N
+Ealing Common;;P;;2017-06-10;;none;;none;;N
+Earl's Court;;V;;2017-02-02;;2017-02-02;;none;;N
+East Acton;;P;;2018-06-06;;none;;none;;N
+East Finchley;;X;;none;;none;;none;;N
+East Ham;;X;;none;;none;;none;;N
+East Putney;;X;;none;;none;;none;;N
+Eastcote;;P;;2017-03-21;;none;;none;;N
+Edgware;;X;;none;;none;;none;;N
+Edgware Road;;P;;2017-06-19;;none;;none;;N
+Elephant & Castle;;P;;2017-11-01;;none;;none;;N
+Elm Park;;X;;none;;none;;none;;N
+Embankment;;P;;2017-02-02;;none;;none;;N
+Epping;;X;;none;;none;;none;;N
+Euston;;P;;2017-05-26;;none;;none;;N
+Euston Square;;V;;2017-01-03;;2017-09-02;;none;;N
+Fairlop;;X;;none;;none;;none;;N
+Farringdon;;V;;2017-01-03;;2018-01-12;;2018-01-12;;N
+Finchley Road;;V;;2017-01-03;;2018-05-06;;2018-05-06;;N
+Finsbury Park;;P;;2017-01-03;;none;;none;;N
+Fulham Broadway;;X;;none;;none;;none;;N
+Gants Hill;;X;;none;;none;;none;;N
+Gloucester Road;;P;;2017-02-02;;none;;none;;N
+Golders Green;;V;;2017-05-26;;2018-05-06;;2018-05-06;;N
+Goldhawk Road;;X;;none;;none;;none;;N
+Goodge Street;;V;;2018-06-06;;2018-06-06;;2018-06-06;;N
+Grange Hill;;X;;none;;none;;none;;N
+Great Portland Street;;P;;2017-01-03;;none;;none;;N
+Greenford;;P;;2018-06-06;;none;;none;;N
+Green Park;;V;;2017-10-30;;2017-10-30;;none;;N
+Gunnersbury;;P;;2018-05-06;;none;;none;;N
+Hainault;;X;;none;;none;;none;;N
+Hammersmith;;P;;2017-06-10;;none;;none;;N
+Hampstead;;P;;2017-05-26;;none;;none;;N
+Hanger Lane;;P;;2018-06-06;;none;;none;;N
+Harlesden;;P;;2017-06-19;;none;;none;;N
+Harrow & Wealdstone;;P;;2017-06-19;;none;;none;;N
+Harrow-on-the-Hill;;V;;none;;2017-11-16;;2018-01-04;;N
+Hatton Cross;;P;;2017-10-30;;none;;none;;N
+Heathrow Terminals 123;;P;;2017-10-30;;none;;none;;N
+Heathrow Terminal 4;;X;;none;;none;;none;;N
+Heathrow Terminal 5;;V;;2017-10-30;;2017-10-30;;none;;N
+Hendon High Barnet;;X;;none;;none;;none;;N
+Highbury & Islington;;P;;2017-11-19;;none;;none;;N
+Highgate;;X;;none;;none;;none;;N
+High Street Kensington;;P;;2017-07-06;;none;;none;;N
+Hillingdon;;P;;2017-03-21;;none;;none;;N
+Holborn;;V;;2017-06-15;;2017-06-15;;none;;N
+Holland Park;;P;;2018-06-06;;none;;none;;N
+Holloway Road;;X;;none;;none;;none;;N
+Hornchurch;;X;;none;;none;;none;;N
+Hounslow Central;;P;;2017-10-30;;none;;none;;N
+Hounslow East;;P;;2017-10-30;;none;;none;;N
+Hounslow West;;P;;2017-10-30;;none;;none;;N
+Hyde Park Corner;;X;;none;;none;;none;;N
+Ickenham;;P;;2017-03-21;;none;;none;;N
+Kennington;;P;;2017-11-01;;none;;none;;N
+Kensal Green;;X;;none;;none;;none;;N
+Kensington (Olympia);;X;;none;;none;;none;;N
+Kentish Town;;X;;none;;none;;none;;N
+Kenton;;X;;2017-06-19;;none;;none;;N
+Kew Gardens;;V;;2018-05-06;;2018-05-06;;2018-05-06;;N
+Kilburn;;X;;none;;none;;none;;N
+Kilburn Park;;P;;2017-06-19;;none;;none;;N
+Kingsbury;;X;;none;;none;;none;;N
+King's Cross St. Pancras;;V;;2017-01-03;;2017-11-19;;none;;N
+Knightsbridge;;X;;none;;none;;none;;N
+Ladbroke Grove;;X;;none;;none;;none;;N
+Lambeth North;;X;;none;;none;;none;;N
+Lancaster Gate;;P;;2018-06-06;;none;;none;;N
+Latimer Road;;X;;none;;none;;none;;N
+Leicester Square;;V;;2018-05-29;;2018-05-29;;2018-05-29;;N
+Leyton;;X;;none;;none;;none;;N
+Leytonstone;;X;;none;;none;;none;;N
+Liverpool Street;;V;;2017-02-02;;2018-04-14;;2018-04-14;;N
+London Bridge;;P;;2017-02-11;;none;;none;;N
+Loughton;;X;;none;;none;;none;;N
+Maida Vale;;P;;2017-06-19;;none;;none;;N
+Manor House;;X;;none;;none;;none;;N
+Haringey;;X;;none;;none;;none;;N
+Mansion House;;P;;2017-02-02;;none;;none;;N
+Marble Arch;;X;;none;;none;;none;;N
+Marylebone;;V;;2017-01-28;;2017-01-28;;none;;N
+Mile End;;P;;2017-05-09;;none;;none;;N
+Mill Hill East;;X;;none;;none;;none;;N
+Monument;;P;;2017-02-02;;none;;none;;N
+Moorgate;;V;;2017-01-03;;2017-01-03;;2018-01-05;;N
+Moor Park;;P;;2017-01-03;;none;;2018-01-04;;N
+Morden;;X;;none;;none;;none;;N
+Mornington Crescent;;P;;2018-05-06;;none;;none;;N
+Neasden;;X;;none;;none;;none;;N
+Newbury Park;;X;;none;;none;;none;;N
+North Acton;;P;;2018-06-06;;none;;none;;N
+North Ealing;;P;;2017-06-10;;none;;none;;N
+North Greenwich;;P;;2017-02-11;;none;;none;;N
+North Harrow;;P;;2018-05-26;;none;;none;;N
+North Wembley;;P;;2017-06-19;;none;;none;;N
+Northfields;;P;;2017-10-30;;none;;none;;N
+Northolt;;P;;2018-06-06;;none;;none;;N
+Northwick Park;;P;;2018-05-26;;none;;none;;N
+Northwood;;P;;2018-05-26;;none;;none;;N
+Northwood Hills;;P;;2018-05-26;;none;;none;;N
+Notting Hill Gate;;P;;2017-07-06;;none;;none;;N
+Oakwood;;X;;none;;none;;none;;N
+Old Street;;V;;2017-05-26;;2018-04-24;;2018-04-24;;N
+Hackney;;X;;none;;none;;none;;N
+Osterley;;P;;2017-10-30;;none;;none;;N
+Oval;;P;;2017-11-01;;none;;none;;N
+Oxford Circus;;V;;2017-01-28;;2017-11-19;;none;;N
+Paddington;;P;;2017-07-06;;none;;none;;N
+Park Royal;;P;;2017-06-10;;none;;none;;N
+Parsons Green;;X;;none;;none;;none;;N
+Perivale;;P;;2018-06-06;;none;;none;;N
+Piccadilly Circus;;V;;2017-01-28;;2017-01-28;;2018-05-29;;N
+Pimlico;;V;;2017-11-19;;2017-12-21;;2018-04-24;;Y
+Pinner;;P;;2018-05-26;;none;;none;;N
+Plaistow;;X;;none;;none;;none;;N
+Preston Road;;P;;2018-05-26;;none;;none;;N
+Putney Bridge;;X;;none;;none;;none;;N
+Queen's Park;;X;;none;;none;;none;;N
+Queensbury;;X;;none;;none;;none;;N
+Queensway;;P;;2018-06-06;;none;;none;;N
+Ravenscourt Park;;P;;2017-06-10;;none;;none;;N
+Rayners Lane;;P;;2017-06-10;;none;;none;;N
+Regent's Park;;P;;2017-01-28;;none;;none;;N
+Richmond;;X;;none;;none;;none;;N
+Rickmansworth;;V;;2017-01-03;;2017-01-03;;2018-01-02;;N
+Roding Valley;;X;;none;;none;;none;;N
+Redbridge;;X;;none;;none;;none;;N
+Royal Oak;;X;;none;;none;;none;;N
+Ruislip;;P;;2017-03-21;;none;;none;;N
+Ruislip Gardens;;X;;none;;none;;none;;Y
+Ruislip Manor;;V;;2017-03-21;;2018-06-06;;2018-06-06;;N
+Russell Square;;P;;2017-06-15;;none;;none;;N
+St. James's Park;;V;;2017-02-02;;2018-06-01;;2018-06-01;;N
+St. John's Wood;;V;;2017-10-30;;2018-05-28;;2018-05-26;;N
+St. Paul's;;X;;none;;none;;none;;N
+Seven Sisters;;P;;2017-11-19;;none;;none;;N
+Shepherd's Bush;;P;;2018-06-06;;none;;none;;N
+Shepherd's Bush Market;;X;;none;;none;;none;;N
+Sloane Square;;V;;2017-02-02;;2018-05-08;;2018-05-08;;N
+Snaresbrook;;X;;none;;none;;none;;N
+South Ealing;;P;;2017-10-30;;none;;none;;N
+South Harrow;;P;;2017-06-10;;none;;none;;N
+South Kensington;;P;;2017-02-02;;none;;none;;N
+South Kenton;;P;;2017-06-19;;none;;none;;N
+South Ruislip;;X;;none;;none;;none;;N
+South Wimbledon;;X;;none;;none;;none;;N
+South Woodford;;X;;none;;none;;none;;N
+Southfields;;X;;none;;none;;none;;N
+Southgate;;X;;none;;none;;none;;N
+Southwark;;P;;2017-02-11;;none;;none;;N
+Stamford Brook;;P;;2017-06-10;;none;;none;;N
+Stanmore;;X;;none;;none;;none;;N
+Stepney Green;;X;;none;;none;;none;;N
+Stockwell;;P;;2017-11-01;;none;;none;;N
+Stonebridge Park;;P;;2017-06-19;;none;;none;;N
+Stratford;;V;;2017-05-09;;2017-05-09;;2018-03-30;;N
+Sudbury Hill;;P;;2017-06-10;;none;;none;;N
+Sudbury Town;;P;;2017-06-10;;none;;none;;N
+Ealing;;X;;none;;none;;none;;N
+Swiss Cottage;;V;;2017-10-30;;2017-03-15;;none;;N
+Temple;;P;;2017-02-02;;none;;none;;N
+Theydon Bois;;X;;none;;none;;none;;N
+Tooting Bec;;X;;none;;none;;none;;N
+Tooting Broadway;;X;;none;;none;;none;;N
+Tottenham Court Road;;P;;2018-05-29;;none;;none;;N
+Tottenham Hale;;V;;2017-11-19;;2017-11-19;;none;;N
+Totteridge & Whetstone;;X;;none;;none;;none;;N
+Tower Hill;;V;;2017-02-02;;2018-05-08;;2018-05-08;;N
+Tufnell Park;;X;;none;;none;;none;;N
+Turnham Green;;P;;2017-06-10;;none;;none;;N
+Turnpike Lane;;X;;none;;none;;none;;N
+Upminster;;X;;none;;none;;none;;N
+Upminster Bridge;;X;;none;;none;;none;;N
+Upney;;X;;none;;none;;none;;N
+Upton Park;;X;;none;;none;;none;;N
+Uxbridge;;V;;2017-03-21;;2017-03-21;;2018-06-06;;N
+Vauxhall;;V;;2017-11-01;;2017-12-14;;none;;N
+Victoria;;V;;2017-02-02;;2017-11-19;;2018-01-02;;N
+Walthamstow Central;;X;;none;;none;;none;;N
+Warren Street;;V;;2017-11-19;;2018-06-05;;2018-06-05;;N
+Warwick Avenue;;P;;2017-06-19;;none;;none;;N
+Waterloo;;P;;2017-02-11;;none;;none;;N
+Watford;;V;;2018-04-06;;2018-04-06;;2018-02-16;;N
+Wembley Central;;V;;2017-06-19;;none;;none;;N
+Wembley Park;;V;;2017-01-03;;2017-02-06;;none;;N
+West Acton;;X;;none;;none;;none;;N
+West Brompton;;X;;none;;none;;none;;N
+West Finchley;;X;;none;;none;;none;;N
+West Ham;;P;;2017-05-10;;none;;none;;N
+West Hampstead;;P;;2018-05-06;;none;;none;;N
+West Harrow;;P;;2017-06-10;;none;;none;;N
+West Kensington;;P;;2017-06-10;;none;;none;;N
+West Ruislip;;X;;none;;none;;none;;N
+Westbourne Park;;X;;none;;none;;none;;N
+Westminster;;P;;2017-02-02;;none;;none;;N
+White City;;P;;2018-06-06;;none;;none;;N
+Whitechapel;;V;;2017-09-01;;2017-09-01;;none;;N
+Willesden Green;;X;;none;;none;;none;;N
+Willesden Junction;;P;;2017-06-19;;none;;none;;N
+Wimbledon;;X;;none;;none;;none;;N
+Wimbledon Park;;X;;none;;none;;none;;N
+Wood Green;;X;;none;;none;;none;;N
+Wood Lane;;X;;none;;none;;none;;N
+Woodford;;X;;none;;none;;none;;N
+Woodside Park;;X;;none;;none;;none;;N

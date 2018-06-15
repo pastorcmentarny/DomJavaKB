@@ -23,8 +23,8 @@ public class ToStationConverterTest {
     public void shouldConvertToTubeStation() {
         final LocalDate date = LocalDate.of(2017, 1, 1);
         // given
-        final var stationAsString = "Moorgate;;V;;none;;2017-01-01;;2017-01-01;;2017-01-01;;Y";
-        final TubeStation expectedResult = new TubeStation(Station.MOORGATE.getStationName(), Status.VISITED, Line.noLine(), date, date, date, true);
+        final var stationAsString = "Moorgate;;V;;2017-01-01;;2017-01-01;;2017-01-01;;Y";
+        final TubeStation expectedResult = new TubeStation(Station.MOORGATE.getStationName(), Status.VISITED, date, date, date, true);
         // when
         final TubeStation result = convert(stationAsString);
 

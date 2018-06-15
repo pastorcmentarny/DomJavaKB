@@ -1,6 +1,5 @@
 package dms.pastor.tools.trips.tube;
 
-import dms.pastor.tools.trips.tube.station.Line;
 import dms.pastor.tools.trips.tube.station.ToStationConverter;
 import dms.pastor.tools.trips.tube.station.TubeStation;
 import org.junit.Test;
@@ -30,8 +29,8 @@ public class ToTubeStationConverterTest {
     public void convertShouldConvertStationAsStringToObject() {
         // given
 
-        final String stationAsString = "Chesham;;V;;none;;" + PASSED_DATE + SEPARATOR + VISITED_DATE + SEPARATOR + THIS_YEAR_VISITED_DATE + SEPARATOR + "Y";
-        final TubeStation expectedTubeStation = new TubeStation("Chesham", VISITED, Line.noLine(), PASSED_DATE, VISITED_DATE, THIS_YEAR_VISITED_DATE, BLOGGED);
+        final String stationAsString = "Chesham;;V;;" + PASSED_DATE + SEPARATOR + VISITED_DATE + SEPARATOR + THIS_YEAR_VISITED_DATE + SEPARATOR + "Y";
+        final TubeStation expectedTubeStation = new TubeStation("Chesham", VISITED, PASSED_DATE, VISITED_DATE, THIS_YEAR_VISITED_DATE, BLOGGED);
 
         // when
         final TubeStation tubeStation = ToStationConverter.convert(stationAsString);
@@ -43,7 +42,7 @@ public class ToTubeStationConverterTest {
     @Test
     public void getStatusAsValue() {
         // given
-        final TubeStation tubeStation = new TubeStation("Amersham", VISITED, null, PASSED_DATE, VISITED_DATE, THIS_YEAR_VISITED_DATE, BLOGGED);
+        final TubeStation tubeStation = new TubeStation("Amersham", VISITED, PASSED_DATE, VISITED_DATE, THIS_YEAR_VISITED_DATE, BLOGGED);
 
         // when
         final String result = tubeStation.getStatusAsValue();
@@ -55,7 +54,7 @@ public class ToTubeStationConverterTest {
     @Test
     public void asLine() {
         // given
-        final TubeStation tubeStation = new TubeStation("Amersham", VISITED, null, PASSED_DATE, VISITED_DATE, THIS_YEAR_VISITED_DATE, BLOGGED);
+        final TubeStation tubeStation = new TubeStation("Amersham", VISITED, PASSED_DATE, VISITED_DATE, THIS_YEAR_VISITED_DATE, BLOGGED);
 
         // when
         final String result = tubeStation.getStatusAsValue();

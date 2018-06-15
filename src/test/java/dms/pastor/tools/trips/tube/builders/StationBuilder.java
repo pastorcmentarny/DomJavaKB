@@ -30,11 +30,11 @@ public final class StationBuilder {
     }
 
     public TubeStation build() {
-        return new TubeStation(name, status, lines, passedDate, visitedDate, thisYearVisitedDate, blogged);
+        return new TubeStation(name, status, passedDate, visitedDate, thisYearVisitedDate, blogged);
     }
 
     public TubeStation buildNotVisitedStation() {
-        return notVisited(name, lines);
+        return notVisited(name);
     }
 
     public StationBuilder name(String name) {

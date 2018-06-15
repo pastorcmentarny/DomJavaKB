@@ -20,7 +20,7 @@ public final class ToStationConverter {
 
     public static TubeStation convert(String stationAsString) {
         final String[] validatedLine = StationLineValidator.validate(stationAsString);
-        return new TubeStation(validatedLine[0], Status.fromValue(validatedLine[1]), Line.noLine(), setDateFor(validatedLine[3]), setDateFor(validatedLine[4]), setDateFor(validatedLine[5]), wasBlogged(validatedLine[6]));
+        return new TubeStation(validatedLine[0], Status.fromValue(validatedLine[1]), setDateFor(validatedLine[2]), setDateFor(validatedLine[3]), setDateFor(validatedLine[4]), wasBlogged(validatedLine[5]));
     }
 
     private static boolean wasBlogged(String value) {

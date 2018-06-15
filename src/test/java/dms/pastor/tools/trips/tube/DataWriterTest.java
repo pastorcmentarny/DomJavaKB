@@ -15,7 +15,6 @@ import java.util.Collections;
 import java.util.List;
 
 import static dms.pastor.TestConfig.TEST_BASE_PATH;
-import static dms.pastor.tools.trips.tube.station.Line.noLine;
 import static dms.pastor.tools.trips.tube.station.Status.VISITED;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -39,7 +38,7 @@ public class DataWriterTest {
 
         // given
         DataWriter writer = new DataWriter();
-        final TubeStation amershamTubeStation = new TubeStation("Amersham", null, null, null, null, null, true);
+        final TubeStation amershamTubeStation = new TubeStation("Amersham", null, null, null, null, true);
         List<TubeStation> tubeStations = Collections.singletonList(amershamTubeStation);
 
         // when
@@ -61,8 +60,8 @@ public class DataWriterTest {
         file.createNewFile();
         file.deleteOnExit(); //comment this out if you need see file
 
-        final TubeStation amershamTubeStation = new TubeStation("Amersham", VISITED, noLine(), LocalDate.now(), LocalDate.now(), LocalDate.now(), true);
-        final TubeStation cheshamTubeStation = TubeStation.passed("Pinner", noLine(), LocalDate.now());
+        final TubeStation amershamTubeStation = new TubeStation("Amersham", VISITED, LocalDate.now(), LocalDate.now(), LocalDate.now(), true);
+        final TubeStation cheshamTubeStation = TubeStation.passed("Pinner", LocalDate.now());
         List<TubeStation> tubeStations = new ArrayList<>();
         tubeStations.add(amershamTubeStation);
         tubeStations.add(cheshamTubeStation);

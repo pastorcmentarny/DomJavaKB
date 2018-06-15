@@ -2,6 +2,7 @@ package dms.pastor.tools.trips.tube.options;
 
 
 import dms.pastor.tools.trips.tube.station.Stations;
+import dms.pastor.tools.trips.tube.station.TubeStation;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -9,7 +10,9 @@ import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.util.List;
 
+import static dms.pastor.tools.trips.tube.builders.StationBuilder.stationBuilder;
 import static dms.pastor.tools.trips.tube.builders.StationsBuilder.stationsBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -50,5 +53,25 @@ public class DisplayStatisticOptionTest {
                 "You passed 1 station(s). (33%)");
 
     }
+
+    @Test
+    public void shouldDisplayInfoAboutBloggedStation() {
+        // given
+        final DisplayStatisticOption displayStatisticOption = new DisplayStatisticOption();
+        final TubeStation station1 = stationBuilder().blogged(true).build();
+        final TubeStation station2 = stationBuilder().blogged(false).build();
+        final TubeStation station3 = stationBuilder().blogged(false).build();
+        final TubeStation station4 = stationBuilder().blogged(false).build();
+        final List<TubeStation> stationlist = List.of(station1, station2, station3, station4);
+        final Stations stations = stationsBuilder().stationList(stationlist).build();
+
+        // when
+        displayStatisticOption.choose(stations);
+
+        // then
+        assertThat(outputStream.toString()).contains(" (Total station blogged: 25%)");
+
+    }
+
 
 }

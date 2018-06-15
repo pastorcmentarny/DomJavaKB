@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static dms.pastor.tools.trips.tube.builders.StationBuilder.stationBuilder;
-import static dms.pastor.tools.trips.tube.station.Line.noLine;
 import static dms.pastor.tools.trips.tube.station.Status.VISITED;
 
 public final class StationsBuilder {
@@ -34,8 +33,8 @@ public final class StationsBuilder {
     private List<TubeStation> generateStations() {
         List<TubeStation> tubeStationList = new ArrayList<>();
         tubeStationList.add(stationBuilder().name(Station.WEMBLEY_PARK.getStationName()).status(VISITED).noLines().build());
-        tubeStationList.add(TubeStation.passed("Green Park", noLine(), LocalDate.now()));
-        tubeStationList.add(TubeStation.notVisited("Elm Park", noLine()));
+        tubeStationList.add(TubeStation.passed("Green Park", LocalDate.now()));
+        tubeStationList.add(TubeStation.notVisited("Elm Park"));
         return tubeStationList;
     }
 }

@@ -43,8 +43,11 @@ public class DisplayStatisticOption implements Option {
     private String displayStationsBlogged(Stations stations) {
         final List<TubeStation> tubeStationList = stations.getTubeStationList();
         var result = new StringBuilder(EMPTY_STRING);
-        stations.displayAllStationsBlogged().forEach(result::append);
-        result.append(countPercentageOfAllStationFor(stations.countStationsBlogged(), tubeStationList.size()));
+        result.append("{");
+        stations.displayAllStationsBlogged().forEach(station -> result.append(station).append(","));
+        result.deleteCharAt(result.length() - 1);
+        result.append(") ");
+        result.append("(Total station blogged: ").append(countPercentageOfAllStationFor(tubeStationList.size(), stations.countStationsBlogged()));
         return result.toString();
     }
 
