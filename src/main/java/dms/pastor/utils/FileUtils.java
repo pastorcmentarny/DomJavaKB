@@ -219,7 +219,7 @@ public final class FileUtils {
     }
 
     public static String getTextInFileAsString(String path) {
-        StringBuilder stringBuilder = new StringBuilder("");
+        StringBuilder stringBuilder = new StringBuilder();
         try {
             Files.lines(Paths.get(path))
                     .map(s -> s.trim())

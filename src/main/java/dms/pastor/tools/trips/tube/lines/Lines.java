@@ -21,7 +21,7 @@ public class Lines {
         lines.add(new Central());
         lines.add(new Circle());
         lines.add(new District());
-        lines.add(new HammesmithAndCity());
+        lines.add(new HammersmithAndCity());
         lines.add(new Jubilee());
         lines.add(new Metropolitan());
         lines.add(new Northern());
