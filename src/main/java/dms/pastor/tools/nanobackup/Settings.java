@@ -51,10 +51,6 @@ public final class Settings {
     private boolean speedLightMode;
     private boolean encrypted;
     private int cpuPriority = Integer.MAX_VALUE;
-    // --Commented out by Inspection START (21/02/2018 14:14):
-//    //domMode settings
-//    private boolean domJob;
-// --Commented out by Inspection STOP (21/02/2018 14:14)
     private String sourceFilePath;// = null;
     private String destinationFolderPath;// = null;
 
@@ -73,19 +69,6 @@ public final class Settings {
 
         }
     }
-
-// --Commented out by Inspection START (21/02/2018 14:14):
-//    public static String getDomJob(int number) {
-//        switch (number) {
-//            case 1:
-//                return beforeBackupJobPath;
-//            case 2:
-//                return afterBackupJobPath;
-//            default:
-//                return "";
-//        }
-//    }
-// --Commented out by Inspection STOP (21/02/2018 14:14)
 
     public static synchronized Settings getSettings() {
         if (settings == null) {

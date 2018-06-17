@@ -24,7 +24,7 @@ public final class NanoBackupApplication {
     public static void main(String[] args) {
         final GUI start = new GUI();
         try {
-            javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName());
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
             FileUtils.lock();
             if (args.length != 0) {
                 System.out.println(args[0]);

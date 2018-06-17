@@ -20,10 +20,7 @@ public class Statistic {
     private static final long HOUR_IN_SECONDS = 3600L;
     private static final long DAY_IN_SECONDS = 86400L;
 
-    //private static final Logger LOGGER = LoggerFactory.getLogger( log = Logger.getLogger(Statistic.class);
-
     private int fileCopied = 0;
-    // --Commented out by Inspection (21/02/2018 14:14):private long sizeCopied = 0;
     private int error = 0;
     private long taskStart = 0;
     private long taskFinish = 0;
@@ -63,7 +60,7 @@ public class Statistic {
         result.append(hours).append(" hours, ").append(minutes);
         result.append(" minutes and ").append(seconds).append(" seconds.");
         result.append("\nBackupType: ").append(backupType);
-        result.append("\nFiles copied: ").append(fileCopied);
+        result.append("\nFiles copied: ").append(getFileCopied());
         result.append("\nErrors: ").append(error);
         if (backupSize != null && !backupSize.isEmpty()) {
             result.append("\nBackup size: ").append(backupSize);
@@ -114,23 +111,13 @@ public class Statistic {
         this.backupSize = backupSize;
     }
 
-// --Commented out by Inspection START (21/02/2018 14:14):
-//    public int getError() {
-//        return error;
-//    }
-// --Commented out by Inspection STOP (21/02/2018 14:14)
+    public int getError() {
+        return error;
+    }
 
-// --Commented out by Inspection START (21/02/2018 14:14):
-//    public void setError(int error) {
-//        this.error = error;
-//    }
-// --Commented out by Inspection STOP (21/02/2018 14:14)
-
-// --Commented out by Inspection START (21/02/2018 14:14):
-//    public String getErrorMsgList() {
-//        return errorMsgList;
-//    }
-// --Commented out by Inspection STOP (21/02/2018 14:14)
+    public String getErrorMsgList() {
+        return errorMsgList;
+    }
 
 // --Commented out by Inspection START (21/02/2018 14:14):
 //    public void setErrorMsgList(String errorMsgList) {
@@ -138,11 +125,9 @@ public class Statistic {
 //    }
 // --Commented out by Inspection STOP (21/02/2018 14:14)
 
-// --Commented out by Inspection START (21/02/2018 14:14):
-//    public int getFileCopied() {
-//        return fileCopied;
-//    }
-// --Commented out by Inspection STOP (21/02/2018 14:14)
+    public int getFileCopied() {
+        return fileCopied;
+    }
 
 // --Commented out by Inspection START (21/02/2018 14:14):
 //    public void setFileCopied(int fileCopied) {

@@ -1,6 +1,5 @@
 package dms.pastor.tools.nanobackup.backup;
 
-import dms.pastor.tools.nanobackup.Constants;
 import dms.pastor.tools.nanobackup.History;
 import dms.pastor.tools.nanobackup.tools.AbstractTools;
 import dms.pastor.tools.nanobackup.tools.FileTools;
@@ -20,6 +19,7 @@ import java.util.List;
 import java.util.Objects;
 
 import static dms.pastor.tools.nanobackup.Constants.DATA_PATH;
+import static dms.pastor.tools.nanobackup.Constants.QUICK_MODE_FILENAME;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 
 /**
@@ -38,14 +38,14 @@ public class Engine extends AbstractTools {
     public void activateQuickBackupMode(JTextField sourceField) {
         LOGGER.debug("Activating quick backup mode.");
         settings.setNonQuickPath(sourceField.getText());
-        if (!FileTools.createAFile(Constants.QUICK_MODE_FILENAME)) {
+        if (!FileTools.createAFile(QUICK_MODE_FILENAME)) {
             LOGGER.warn("Unable to activate Quick backup mode.");
             return;
         }
-        sourceField.setText(new File(Constants.QUICK_MODE_FILENAME).getAbsolutePath());
+        sourceField.setText(new File(QUICK_MODE_FILENAME).getAbsolutePath());
     }
 
-    private void deactivateQuickBackupMode(JTextField sourceField) {
+    public void deactivateQuickBackupMode(JTextField sourceField) {
         LOGGER.debug("Deactivating quick backup mode.");
         settings.setNonQuickPath(null);
         if (StringUtils.isStringEmpty(sourceField.getText())) {
@@ -55,6 +55,7 @@ public class Engine extends AbstractTools {
 
     }
 
+    //TODO figure out what this mysterious method does
     public void swapDestFolderPaths(String[] paths, String what, String with) {
         List<String> swappedPaths = new ArrayList<>();
         for (String path : paths) {
