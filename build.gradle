@@ -45,6 +45,7 @@ allprojects {
         testCompile 'org.mockito:mockito-core:2.17.0'
         testCompile 'org.assertj:assertj-core:3.9.1'
         testCompile 'com.github.stefanbirkner:system-rules:1.18.0' //junit rules for system package
+        //https://stefanbirkner.github.io/system-rules/index.html
     }
 
 }
