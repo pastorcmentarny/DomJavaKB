@@ -51,9 +51,13 @@ public class ToStringUtilsTest {
         // when
         final String result = ToStringUtils.toString(characterSet);
 
+        // debug
+        System.out.println(result);
+        System.out.println(character);
+        System.out.println(character2);
+
         // then
         assertThat(result).isEqualToIgnoringCase(String.valueOf(character) + String.valueOf(character2));
 
     }
-
 }

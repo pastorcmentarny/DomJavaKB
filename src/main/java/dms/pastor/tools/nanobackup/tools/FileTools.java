@@ -30,8 +30,6 @@ public final class FileTools {
 
     private static final long FILE_COPY_BUFFER_SIZE = 1024 * 1024 * 12;//12 megabyte
     private static final Logger LOGGER = LoggerFactory.getLogger(FileTools.class);
-    // --Commented out by Inspection (21/02/2018 15:49):private static final int BUFFER_SIZE = 2048;
-
     private static File file;
 
     private FileTools() {

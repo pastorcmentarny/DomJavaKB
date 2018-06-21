@@ -19,7 +19,7 @@ public class SimpleDecisionTest {
     private final List<Vote> voters = List.of(new IsMatureVoter(), new IsInternationalStudentVoter());
 
     @Test
-    public void shouldReturnPositiveDesicion() {
+    public void shouldReturnPositiveDecision() {
         // given
         final Citizen citizen = new Citizen("Terry", 20, false);
 

@@ -4,6 +4,7 @@ import dms.pastor.tools.nanobackup.tools.Tools;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -17,12 +18,11 @@ import java.util.Random;
 class UpdateInfo implements Runnable {
     private final JTextArea label;
     private final Random randomText = new Random();
-    private ArrayList<String> lolText;
+    private List<String> lolText = getfillText();
 
     //TODO solve problem with using , Backup outer because of issue with GUI
 
-    public UpdateInfo(JTextArea label) {
-        lolText = fillText(lolText);
+    UpdateInfo(JTextArea label) {
         this.label = label;
     }
 
@@ -31,7 +31,8 @@ class UpdateInfo implements Runnable {
         label.setText(lolText.get(randomText.nextInt(lolText.size())));
     }
 
-    private ArrayList<String> fillText(ArrayList<String> lolText) {
+    private static List<String> getfillText() {
+        var lolText = new ArrayList<String>();
         lolText.add("(Backup in progress)\n Zzzz .... ....");
         lolText.add("(Backup in progress)\n .... Zzzz ....");
         lolText.add("(Backup in progress)\n .... .... Zzzz");

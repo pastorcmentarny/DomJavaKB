@@ -30,6 +30,7 @@ public final class Settings {
     private static final String SETTINGS_FILE_ENDING = ".properties";
     public static final String SRC_FILE_ENDING = ".txt";
     private static final Logger LOGGER = LoggerFactory.getLogger(Constants.class);
+    private static final Dimension NO_DIMENSION = new Dimension(0, 0);
     private static Settings settings;
 
     //GUI settings
@@ -65,7 +66,7 @@ public final class Settings {
             case "backupGui":
                 return BACKUP_GUI_DIMENSION;
             default:
-                return null; //TODO NoDimension object
+                return NO_DIMENSION; //TODO NoDimension object
 
         }
     }

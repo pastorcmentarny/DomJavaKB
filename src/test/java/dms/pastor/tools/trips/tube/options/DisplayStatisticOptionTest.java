@@ -62,8 +62,8 @@ public class DisplayStatisticOptionTest {
         final TubeStation station2 = stationBuilder().blogged(false).build();
         final TubeStation station3 = stationBuilder().blogged(false).build();
         final TubeStation station4 = stationBuilder().blogged(false).build();
-        final List<TubeStation> stationlist = List.of(station1, station2, station3, station4);
-        final Stations stations = stationsBuilder().stationList(stationlist).build();
+        final List<TubeStation> tubeStationList = List.of(station1, station2, station3, station4);
+        final Stations stations = stationsBuilder().stationList(tubeStationList).build();
 
         // when
         displayStatisticOption.choose(stations);
