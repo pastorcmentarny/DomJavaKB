@@ -19,7 +19,7 @@ Becontree;;X;;none;;none;;none;;N
 Belsize Park;;P;;2017-05-26;;none;;none;;N
 Bermondsey;;P;;2017-02-11;;none;;none;;N
 Bethnal Green;;P;;2017-05-09;;none;;none;;N
-Blackfriars;;P;;2017-02-02;;none;;none;;N
+Blackfriars;;V;;2017-02-02;;2018-06-26;;2018-06-26;;N
 Blackhorse Road;;X;;none;;none;;none;;N
 Bond Street;;P;;2017-10-30;;none;;none;;N
 Borough;;V;;2017-11-01;;2018-05-15;;2018-05-15;;Y
