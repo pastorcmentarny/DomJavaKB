@@ -92,16 +92,22 @@ public class GUI extends javax.swing.JFrame {
     private JButton swapSourceFolderPathButton;
 
     public GUI() {
-        LOGGER.info("Program: Start.");
+        LOGGER.info("Starting a program.");
         boot();
         initComponents();
         addonsForInitComponents();
         setup();
         setGui();
+        LOGGER.info("Program started.");
+
     }
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> new GUI().setVisible(true));
+    }
+
+    void closeWindow() {
+        this.dispose();
     }
 
     @SuppressWarnings("OverlyLongMethod") //UI setup

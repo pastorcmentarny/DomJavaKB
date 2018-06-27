@@ -8,6 +8,11 @@ package dms.pastor.tools.nanobackup;
 import javax.swing.*;
 import java.awt.*;
 
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+import static dms.pastor.utils.StringUtils.NEW_LINE;
+import static java.awt.Color.BLACK;
+import static java.awt.Color.GREEN;
+
 /**
  * Author Dominik Symonowicz
  * Created: 09-Jan-2012 10:49:45
@@ -20,7 +25,7 @@ import java.awt.*;
 @SuppressWarnings("MagicNumber") //TOO OLD PROJECT  TO TAKE CARE OF MAGIC NUMBERS
 public class History {
     private static History history;
-    private String messageHistory = ""; //TODO change that
+    private String messageHistory = EMPTY_STRING;
     private JFrame msgWindow;
     private JTextArea messages;
 
@@ -45,9 +50,9 @@ public class History {
         msgWindow.getContentPane().add(sp);
         messages.setSize(400, 500);
         messages.setRows(30);
-        messages.setFont(new java.awt.Font("Tahoma", Font.PLAIN, 14));
-        messages.setBackground(Color.BLACK);
-        messages.setForeground(Color.GREEN);
+        messages.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        messages.setBackground(BLACK);
+        messages.setForeground(GREEN);
         messages.setEditable(false);
         messages.setWrapStyleWord(true);
         messages.setLineWrap(true);
@@ -58,7 +63,7 @@ public class History {
     }
 
     public void addMessage(String message) {
-        messageHistory += message + "\n";
+        messageHistory += message + NEW_LINE;
         if (msgWindow != null) {
             updateMessages();
         }
@@ -68,4 +73,12 @@ public class History {
         messages.setText(messageHistory);
     }
 
+    public void closeWindow() {
+        msgWindow.dispose();
+        msgWindow = null;
+    }
+
+    public String getMessages() {
+        return messageHistory;
+    }
 }

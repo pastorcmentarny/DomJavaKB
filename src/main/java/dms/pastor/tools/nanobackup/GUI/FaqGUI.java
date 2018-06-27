@@ -13,12 +13,15 @@ package dms.pastor.tools.nanobackup.GUI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Properties;
+
+import static java.lang.String.format;
 
 /**
  * Author Dominik Symonowicz
@@ -29,7 +32,7 @@ import java.util.Properties;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 @SuppressWarnings("MagicNumber") //TOO OLD PROJECT  TO TAKE CARE OF MAGIC NUMBERS
-public class FaqGUI extends javax.swing.JFrame {
+public class FaqGUI extends JFrame {
     private static final Logger LOGGER = LoggerFactory.getLogger(FaqGUI.class);
     private static final int PREFERRED_SIZE = 589;
     private static final Font DEFAULT_FONT = new Font("Verdana", Font.PLAIN, 14);
@@ -39,12 +42,11 @@ public class FaqGUI extends javax.swing.JFrame {
     private javax.swing.JTextArea answersField;
     private javax.swing.JComboBox<String> questionComboBox;
 
-    /**
-     * Creates new form FaqGUI
-     */
     public FaqGUI() {
+        LOGGER.debug("Displaying FAQ GUI.");
         setup();
         initComponents();
+        LOGGER.debug("FAQ GUI displayed.");
     }
 
     public static void main(String args[]) {
@@ -70,7 +72,7 @@ public class FaqGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("FAQ");
-        setName("faqFrame");
+        setName("FAQFrame");
 
         questionComboBox.setFont(DEFAULT_FONT);
         questionComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(questions));
@@ -119,6 +121,7 @@ public class FaqGUI extends javax.swing.JFrame {
 
         final String path = "data" + File.separator + "message.properties";
         try (FileInputStream fis = new FileInputStream(path)) {
+            LOGGER.info(format("Loading FAQ file from : %s", path));
             properties.load(fis);
             for (int i = 0; i < Integer.parseInt(properties.getProperty("faq.counter")); i++) {
                 if (properties.getProperty("faq.q." + i) != null && properties.getProperty("faq.a." + i) != null) {
@@ -134,20 +137,16 @@ public class FaqGUI extends javax.swing.JFrame {
             questions = question.toArray(sq);
             answers = answer.toArray(sa);
         } catch (NumberFormatException ex) {
-            LOGGER.warn("Error cause due author screwed up update faq section in message.properties or somebody \"innocent\" had crap idea to mess up with message.properties");
+            LOGGER.warn("Error cause due author screwed up update FAQ section in message.properties or somebody \"innocent\" had crap idea to mess up with message.properties");
             this.dispose();
         } catch (IOException ex) {
-            LOGGER.warn("Unexpected error due load properties for About." + ex.getCause() + ("\n" + ex.getMessage()));
+            LOGGER.warn("Unexpected error due load properties for FAQ." + ex.getCause() + ("\n" + ex.getMessage()));
             this.dispose();
         }
     }
 
-// --Commented out by Inspection START (21/02/2018 14:14):
-//    //TODO implement this method!
-//    private void validateFAQ() {
-//        throw new UnsupportedOperationException("Not yet implemented");
-//    }
-// --Commented out by Inspection STOP (21/02/2018 14:14)
-
+    void closeWindow() {
+        this.dispose();
+    }
 
 }

@@ -54,6 +54,7 @@ public class SettingsTest {
         final Settings settings = Settings.getSettings();
 
         // check
+        settings.createDefaultSettings();
         assertThat(settings.isQuickBackup()).isFalse();
 
         // set

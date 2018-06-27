@@ -39,12 +39,18 @@ public class About extends javax.swing.JFrame {
     private javax.swing.JScrollPane messagePanel;
 
     public About() {
+        LOGGER.debug("Displaying About GUI.");
         setup();
         initComponents();
+        LOGGER.debug("About GUI displayed.");
     }
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> new About().setVisible(true));
+    }
+
+    void closeWindow() {
+        this.dispose();
     }
 
     @SuppressWarnings({"unchecked", "OverlyLongMethod"}) // GUI setup

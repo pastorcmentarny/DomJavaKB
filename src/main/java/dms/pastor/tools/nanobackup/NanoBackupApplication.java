@@ -16,8 +16,6 @@ import javax.swing.*;
  */
 public final class NanoBackupApplication {
 
-    // --Commented out by Inspection (21/02/2018 14:14):private static final Logger LOGGER = LoggerFactory.getLogger(NanoBackupApplication.class);
-
     private NanoBackupApplication() {
     }
 
