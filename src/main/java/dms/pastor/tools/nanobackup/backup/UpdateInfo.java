@@ -18,7 +18,7 @@ import java.util.Random;
 class UpdateInfo implements Runnable {
     private final JTextArea label;
     private final Random randomText = new Random();
-    private List<String> lolText = getfillText();
+    private final List<String> lolText = getFillText();
 
     //TODO solve problem with using , Backup outer because of issue with GUI
 
@@ -31,7 +31,7 @@ class UpdateInfo implements Runnable {
         label.setText(lolText.get(randomText.nextInt(lolText.size())));
     }
 
-    private static List<String> getfillText() {
+    private static List<String> getFillText() {
         var lolText = new ArrayList<String>();
         lolText.add("(Backup in progress)\n Zzzz .... ....");
         lolText.add("(Backup in progress)\n .... Zzzz ....");
