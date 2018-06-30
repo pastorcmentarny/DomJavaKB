@@ -304,7 +304,7 @@ public class About extends javax.swing.JFrame {
         return new Font("Lucida Sans", Font.PLAIN, 12);
     }
 
-    private void aboutTabbedPanelMouseClicked() {//GEN-FIRST:event_AboutTabbedPanelMouseClicked
+    private void aboutTabbedPanelMouseClicked() {
         try {
             String changelog = FileUtils.readFileToString(new File(DATA_PATH + "changelog.txt"), UTF_8);
             changelogTextArea.setText(changelog);
@@ -315,15 +315,15 @@ public class About extends javax.swing.JFrame {
         } catch (IOException ex) {
             LOGGER.warn("IOException occur during clicking on tab" + ex.getMessage());
         }
-    }//GEN-LAST:event_AboutTabbedPanelMouseClicked
+    }
 
-    private void goToButtonActionPerformed() {//GEN-FIRST:event_goToButtonActionPerformed
+    private void goToButtonActionPerformed() {
         try {
             java.awt.Desktop.getDesktop().browse(new URI("https://dominiksymonowicz.com/about/"));
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "It is something wrong with web address.\nPossible reasons:\nIt is possible that you have weird problem with internet connection.\nFirewall blocks Java to access to internet\nAddress is incorrect.", "BAD NEWS!", JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_goToButtonActionPerformed
+    }
 
 
     private void setup() {

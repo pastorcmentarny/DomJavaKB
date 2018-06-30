@@ -12,9 +12,9 @@ import java.io.File;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public final class Constants {
-    public static final String DEFAULT_PATH = System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "resources" + File.separator + "nanobackup" + File.separator;
+    static final String DEFAULT_PATH = System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "resources" + File.separator + "nanobackup" + File.separator;
     public static final String DATA_PATH = DEFAULT_PATH + "data" + File.separator;
-    public static final String MESSAGE_PATH = DATA_PATH + File.separator + "message.properties";
+    static final String MESSAGE_PATH = DATA_PATH + File.separator + "message.properties";
     public static final String SETTINGS_PATH = DATA_PATH + "settings.properties";
     public static final String RECENT_SRC_PATHS_FILE = DATA_PATH + "recentSrcPaths.nbd";
     public static final String RECENT_DEST_PATHS_FILE = DATA_PATH + "recentDestPaths.nbd";

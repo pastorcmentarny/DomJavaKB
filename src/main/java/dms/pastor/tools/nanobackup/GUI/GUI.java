@@ -592,7 +592,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unused") //don't need evt in this context
-    private void doBackupButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_doBackupButtonActionPerformed
+    private void doBackupButtonActionPerformed(ActionEvent evt) {
         if (backup.isInProgress()) {
             utilities.setInfoLabel(AppColor.DARK_ORANGE, "Another backup in progress.Please wait until previous backup is done", InfoLabel);
         } else {
@@ -604,7 +604,7 @@ public class GUI extends javax.swing.JFrame {
         }
     }
 
-    private void selectSourceButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_selectSourceButtonActionPerformed
+    private void selectSourceButtonActionPerformed(ActionEvent evt) {
         String tempSource = utilities.chooseFileToLoad();
         if (FileUtils.isFileExists(tempSource)) {
             sourceField.setText(tempSource);
@@ -623,7 +623,7 @@ public class GUI extends javax.swing.JFrame {
 
     }
 
-    private void selectDestinationButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_selectDestinationButtonActionPerformed
+    private void selectDestinationButtonActionPerformed(ActionEvent evt) {
         String tempSource = FileTools.chooseDirToLoad();
         if (tempSource != null) {
             destinationField.setText(tempSource);
@@ -643,7 +643,7 @@ public class GUI extends javax.swing.JFrame {
 
     }
 
-    private void createDefaultConfigMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_createDefaultConfigMenuItemActionPerformed
+    private void createDefaultConfigMenuItemActionPerformed(ActionEvent evt) {
         if (settings.createDefaultSettings()) {
             sourceField.setText(settings.getSourceFilePath());
             srcList = utilities.makeList(settings.getSourceFilePath());
@@ -657,16 +657,16 @@ public class GUI extends javax.swing.JFrame {
         setGui();
     }
 
-    private void exitMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
+    private void exitMenuItemActionPerformed(ActionEvent evt) {
         settings.setProperties(true);
         utilities.shutdown("exitByUser");
-    }//GEN-LAST:event_exitMenuItemActionPerformed
+    }
 
-    private void aboutMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_AboutMenuItemActionPerformed
+    private void aboutMenuItemActionPerformed(ActionEvent evt) {
         new About().setVisible(true);
-    }//GEN-LAST:event_AboutMenuItemActionPerformed
+    }
 
-    private void addButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
+    private void addButtonActionPerformed(ActionEvent evt) {
         String[] addFileResult = utilities.addItemsToItemsList(srcList, sourceField, "item");
         if (addFileResult != null) {
             srcList = addFileResult;
@@ -687,14 +687,14 @@ public class GUI extends javax.swing.JFrame {
         } else {
             utilities.setInfoLabel(Color.RED, "I'm afraid.Item(s) were NOT added.", InfoLabel);
         }
-    }//GEN-LAST:event_addButtonActionPerformed
+    }
 
-    private void fAQMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_FAQMenuItemActionPerformed
+    private void fAQMenuItemActionPerformed(ActionEvent evt) {
         FaqGUI faq = new FaqGUI();
         faq.setVisible(true);
-    }//GEN-LAST:event_FAQMenuItemActionPerformed
+    }
 
-    private void removeButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
+    private void removeButtonActionPerformed(ActionEvent evt) {
         String[] temp = srcList;
         srcList = utilities.removeItemsFromList(srcList, sourceList);
         if (srcList != null) {
@@ -710,49 +710,49 @@ public class GUI extends javax.swing.JFrame {
         } else {
             utilities.setInfoLabel(AppColor.DARK_GREEN, "Item(s) was removed from list.", InfoLabel);
         }
-    }//GEN-LAST:event_removeButtonActionPerformed
+    }
 
-    private void domModeItemStateChanged(ItemEvent evt) {//GEN-FIRST:event_domModeItemStateChanged
+    private void domModeItemStateChanged(ItemEvent evt) {
         if (domMode.isSelected()) {
             utilities.setInfoLabel(Tools.getRandomColor(), "dom Mode activated.", InfoLabel);
         } else {
             utilities.setInfoLabel(Tools.getRandomColor(), "dom Mode deactivated.", InfoLabel);
         }
         setGui();
-    }//GEN-LAST:event_domModeItemStateChanged
+    }
 
-    private void workEndMenuActionPerformed(ActionEvent evt) {//GEN-FIRST:event_workEndMenuActionPerformed
+    private void workEndMenuActionPerformed(ActionEvent evt) {
         utilities.setInfoLabel(Color.BLACK, "WORK.END: doing backup...", InfoLabel);
         backup.backupGui(utilities.makeList(dom.getProperty("dom.source.work.end")), dom.getProperty("dom.destination.word.end"), this);
         utilities.setInfoLabel(Color.BLACK, "WORK.END backup task ended.", InfoLabel);
-        InfoLabel.setText("");
+        InfoLabel.setText(StringUtils.EMPTY_STRING);
 
-    }//GEN-LAST:event_workEndMenuActionPerformed
+    }
 
-    private void lap2ArchMenuActionPerformed(ActionEvent evt) {//GEN-FIRST:event_Lap2ArchMenuActionPerformed
+    private void lap2ArchMenuActionPerformed(ActionEvent evt) {
         utilities.setInfoLabel(Color.BLACK, "USB2HDD: doing backup", InfoLabel);
         backup.backupGui(utilities.makeList(dom.getProperty("dom.source.usb.hdd")), dom.getProperty("dom.destination.usb.hdd"), this);
         utilities.setInfoLabel(Color.BLACK, "USB2HDD backup task ended.", InfoLabel);
-    }//GEN-LAST:event_Lap2ArchMenuActionPerformed
+    }
 
-    private void lap2USBMenuActionPerformed(ActionEvent evt) {//GEN-FIRST:event_Lap2USBMenuActionPerformed
+    private void lap2USBMenuActionPerformed(ActionEvent evt) {
         utilities.setInfoLabel(Color.BLACK, "LAP2USB: doing backup", InfoLabel);
         backup.backupGui(utilities.makeList(dom.getProperty("dom.source.lap.usb")), dom.getProperty("dom.destination.lap.usb"), this);
         utilities.setInfoLabel(Color.BLACK, "LAP2USB backup task ended.", InfoLabel);
-    }//GEN-LAST:event_Lap2USBMenuActionPerformed
+    }
 
-    private void workStartMenuActionPerformed(ActionEvent evt) {//GEN-FIRST:event_WorkStartMenuActionPerformed
+    private void workStartMenuActionPerformed(ActionEvent evt) {
         utilities.setInfoLabel(Color.BLACK, "WORK.START: job started.", InfoLabel);
         settings.setDomJobs(dom.getProperty("dom.source.work.start.before"), dom.getProperty("dom.source.work.start.after"));
         backup.backupGui(utilities.makeList(dom.getProperty("dom.source.work.start")), dom.getProperty("dom.destination.work.start"), this);
         utilities.setInfoLabel(Color.BLACK, "WORK.START  job ended.", InfoLabel);
     }
 
-    private void tutorialMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_tutorialMenuItemActionPerformed
+    private void tutorialMenuItemActionPerformed(ActionEvent evt) {
         JOptionPane.showMessageDialog(null, msg.getMsg("tutorial"), "Tutorial", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    private void createSourceFileButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_createSourceFileButtonActionPerformed
+    private void createSourceFileButtonActionPerformed(ActionEvent evt) {
         String result = FileTools.createSourceFile(Settings.SRC_FILE_ENDING);
         if (result == null) {
             utilities.setInfoLabel(Color.RED, "File was NOT created.", InfoLabel);
@@ -767,9 +767,9 @@ public class GUI extends javax.swing.JFrame {
         }
         refreshContent();
         setGui();
-    }//GEN-LAST:event_createSourceFileButtonActionPerformed
+    }
 
-    private void lap2HDDMenuActionPerformed(ActionEvent evt) {//GEN-FIRST:event_Lap2HDDMenuActionPerformed
+    private void lap2HDDMenuActionPerformed(ActionEvent evt) {
         InfoLabel.setForeground(Color.BLACK);
         InfoLabel.setText("LAP2HDD: doing backup");
         boolean result = FileTools.copyFolder(new File(dom.getProperty("dom.source.lap.hdd")), new File(dom.getProperty("dom.destination.lap.hdd")), null);
@@ -778,30 +778,30 @@ public class GUI extends javax.swing.JFrame {
         } else {
             utilities.setInfoLabel(Color.RED, "Program was unable to create backup", InfoLabel);
         }
-    }//GEN-LAST:event_Lap2HDDMenuActionPerformed
+    }
 
-    private void usb2LapMenuActionPerformed(ActionEvent evt) {//GEN-FIRST:event_USB2LapMenuActionPerformed
+    private void usb2LapMenuActionPerformed(ActionEvent evt) {
         InfoLabel.setText("USB2LAP: doing backup");
         //TODO CHANGE IT!
         String tempResponse = backup.doClassicBackup(utilities.makeList(dom.getProperty("dom.source.usb.lap")), dom.getProperty("dom.destination.usb.lap"), null);
         JOptionPane.showMessageDialog(null, tempResponse, "Results", JOptionPane.INFORMATION_MESSAGE);
         utilities.setInfoLabel(AppColor.DARK_GREEN, "USB2LAP backup was done successfully.", InfoLabel);
-    }//GEN-LAST:event_USB2LapMenuActionPerformed
+    }
 
-    private void aboutMenuItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AboutMenuItemMouseClicked
+    private void aboutMenuItemMouseClicked(java.awt.event.MouseEvent evt) {
         new About().setVisible(true);
-    }//GEN-LAST:event_AboutMenuItemMouseClicked
+    }
 
-    private void clearSourceMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_clearSourceMenuItemActionPerformed
+    private void clearSourceMenuItemActionPerformed(ActionEvent evt) {
         srcList = TaskUtils.removeNonExistsItems(srcList);
         FileUtils.saveListToFile(srcList, sourceField.getText());
         removeButton.setEnabled(true);
         refreshContent();
         setGui();
         utilities.setInfoLabel(Color.BLUE, "Source list is cleaned from non existing files/folders.", InfoLabel);
-    }//GEN-LAST:event_clearSourceMenuItemActionPerformed
+    }
 
-    private void exitProgramAfterBackupMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_exitProgramAfterBackupMenuItemActionPerformed
+    private void exitProgramAfterBackupMenuItemActionPerformed(ActionEvent evt) {
         settings.setExitAfterBackup(exitProgramAfterBackupMenuItem.isSelected());
         settings.setProperties(true);
         if (exitProgramAfterBackupMenuItem.isSelected()) {
@@ -818,9 +818,9 @@ public class GUI extends javax.swing.JFrame {
         utilities.setInfoLabel(AppColor.DARK_GREEN, "Duplicate lines in source file are removed.", InfoLabel);
         refreshContent();
         setGui();
-    }//GEN-LAST:event_removeDuplicatesMenuItemActionPerformed
+    }
 
-    private void quickBackupCheckBoxMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_QuickBackupCheckBoxMenuItemActionPerformed
+    private void quickBackupCheckBoxMenuItemActionPerformed(ActionEvent evt) {
         settings.setQuickBackup(QuickBackupCheckBoxMenuItem.isSelected());
         if (quickBackupMode(QuickBackupCheckBoxMenuItem.isSelected())) {
             utilities.setInfoLabel(Color.BLUE, "Quick backup enabled.(Source file is NOT needed to make Backup)", InfoLabel);
@@ -829,9 +829,9 @@ public class GUI extends javax.swing.JFrame {
         }
         refreshContent();
         setGui();
-    }//GEN-LAST:event_QuickBackupCheckBoxMenuItemActionPerformed
+    }
 
-    private void deleteSourceCheckBoxMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_deleteSourceCheckBoxMenuItemActionPerformed
+    private void deleteSourceCheckBoxMenuItemActionPerformed(ActionEvent evt) {
         settings.setDeleteSourceAfterBackup(deleteSourceCheckBoxMenuItem.isSelected());
         settings.setProperties(true);
         if (deleteSourceCheckBoxMenuItem.isSelected()) {
@@ -839,9 +839,9 @@ public class GUI extends javax.swing.JFrame {
         } else {
             utilities.setInfoLabel(AppColor.DARK_GREEN, "Source item(s) will stay untouched after backup.", InfoLabel);
         }
-    }//GEN-LAST:event_deleteSourceCheckBoxMenuItemActionPerformed
+    }
 
-    private void confirmExitCheckBoxMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_confirmExitCheckBoxMenuItemActionPerformed
+    private void confirmExitCheckBoxMenuItemActionPerformed(ActionEvent evt) {
         settings.setConfirmOnExit(confirmExitCheckBoxMenuItem.isSelected());
         settings.setProperties(true);
         if (exitProgramAfterBackupMenuItem.isSelected()) {
@@ -863,7 +863,7 @@ public class GUI extends javax.swing.JFrame {
 
     }
 
-    private void mergeButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_mergeButtonActionPerformed
+    private void mergeButtonActionPerformed(ActionEvent evt) {
         String[] itemsList = utilities.merge2Source(srcList);
         if (itemsList != null) {
             srcList = TaskUtils.removeDuplicateLines(itemsList);
@@ -875,18 +875,18 @@ public class GUI extends javax.swing.JFrame {
         }
         refreshContent();
         setGui();
-    }//GEN-LAST:event_mergeButtonActionPerformed
+    }
 
-    private void statusMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_statusMenuItemActionPerformed
+    private void statusMenuItemActionPerformed(ActionEvent evt) {
         Tools.showStatus(status);
-    }//GEN-LAST:event_statusMenuItemActionPerformed
+    }
 
-    private void formWindowClosing(WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+    private void formWindowClosing(WindowEvent evt) {
         //log.debug();
-        utilities.shutdown("");
-    }//GEN-LAST:event_formWindowClosing
+        utilities.shutdown(StringUtils.EMPTY_STRING);
+    }
 
-    private void saveAsZipCheckBoxMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_saveAsZipCheckBoxMenuItemActionPerformed
+    private void saveAsZipCheckBoxMenuItemActionPerformed(ActionEvent evt) {
         settings.setSaveAsZip(saveAsZipCheckBoxMenuItem.isSelected());
         settings.setProperties(true);
         if (deleteSourceCheckBoxMenuItem.isSelected()) {
@@ -896,9 +896,9 @@ public class GUI extends javax.swing.JFrame {
         } else {
             utilities.setInfoLabel(AppColor.DARK_GREEN, "Backup will be saved as folder.", InfoLabel);
         }
-    }//GEN-LAST:event_saveAsZipCheckBoxMenuItemActionPerformed
+    }
 
-    private void swapDestinationFolderPathButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_swapDestinationFolderPathButtonActionPerformed
+    private void swapDestinationFolderPathButtonActionPerformed(ActionEvent evt) {
         if (Objects.nonNull(previousDestPathComboBox) && Objects.nonNull(previousDestPathComboBox.getSelectedItem())) {
             String temp = previousDestPathComboBox.getSelectedItem().toString();
             if (FileUtils.isDirectoryExists(temp)) {
@@ -915,9 +915,9 @@ public class GUI extends javax.swing.JFrame {
         } else {
             utilities.setInfoLabel(Color.RED, "Selected destination path doesn't exist.", InfoLabel);
         }
-    }//GEN-LAST:event_swapDestinationFolderPathButtonActionPerformed
+    }
 
-    private void saveResultToFileCheckBoxMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_saveResultToFileCheckBoxMenuItemActionPerformed
+    private void saveResultToFileCheckBoxMenuItemActionPerformed(ActionEvent evt) {
         settings.setSaveResultsToFile(saveResultToFileCheckBoxMenuItem.isSelected());
         settings.setProperties(true);
         if (saveResultToFileCheckBoxMenuItem.isSelected()) {
@@ -925,13 +925,13 @@ public class GUI extends javax.swing.JFrame {
         } else {
             utilities.setInfoLabel(Color.BLUE, "Program will NOT save results to file.", InfoLabel);
         }
-    }//GEN-LAST:event_saveResultToFileCheckBoxMenuItemActionPerformed
+    }
 
-    private void infoLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_InfoLabelMouseClicked
+    private void infoLabelMouseClicked(java.awt.event.MouseEvent evt) {
         history.showHistoryOfMessages();
-    }//GEN-LAST:event_InfoLabelMouseClicked
+    }
 
-    private void checkFreeSpaceBeforeBackupMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_checkFreeSpaceBeforeBackupMenuItemActionPerformed
+    private void checkFreeSpaceBeforeBackupMenuItemActionPerformed(ActionEvent evt) {
         settings.setCheckFreeSpaceBeforeBackup(checkFreeSpaceBeforeBackupMenuItem.isSelected());
         settings.setProperties(true);
         if (checkFreeSpaceBeforeBackupMenuItem.isSelected()) {
@@ -939,9 +939,9 @@ public class GUI extends javax.swing.JFrame {
         } else {
             utilities.setInfoLabel(AppColor.DARK_ORANGE, "Program will NOT check free space before backup.(Quicker backup).", InfoLabel);
         }
-    }//GEN-LAST:event_checkFreeSpaceBeforeBackupMenuItemActionPerformed
+    }
 
-    private void saveSettingsMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_saveSettingsMenuItemActionPerformed
+    private void saveSettingsMenuItemActionPerformed(ActionEvent evt) {
         String result = settings.saveSettingsWithDestSelection();
         if (result != null) {
             settings.setProperties(true);
@@ -955,9 +955,9 @@ public class GUI extends javax.swing.JFrame {
         }
 
 
-    }//GEN-LAST:event_saveSettingsMenuItemActionPerformed
+    }
 
-    private void speedLightModeMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_speedLightModeMenuItemActionPerformed
+    private void speedLightModeMenuItemActionPerformed(ActionEvent evt) {
         settings.setSpeedLightMode(speedLightModeMenuItem.isSelected());
         settings.setProperties(true);
         settings.saveProperties();
@@ -966,9 +966,9 @@ public class GUI extends javax.swing.JFrame {
         } else {
             utilities.setInfoLabel(Color.BLUE, "Speed light mode deactivated.", InfoLabel);        // TODO add your handling code here:
         }
-    }//GEN-LAST:event_speedLightModeMenuItemActionPerformed
+    }
 
-    private void swapSourceFolderPathButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_swapSourceFolderPathButtonActionPerformed
+    private void swapSourceFolderPathButtonActionPerformed(ActionEvent evt) {
         if (Objects.nonNull(previousSrcPathComboBox) && Objects.nonNull(previousSrcPathComboBox.getSelectedItem())) {
             String temp = previousSrcPathComboBox.getSelectedItem().toString();
             if (FileUtils.isFileExists(temp)) {
@@ -988,9 +988,9 @@ public class GUI extends javax.swing.JFrame {
         } else {
             utilities.setInfoLabel(Color.RED, "Selected Source path doesn't exist.", InfoLabel);
         }
-    }//GEN-LAST:event_swapSourceFolderPathButtonActionPerformed
+    }
 
-    private void loadSettingsMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_loadSettingsMenuItemActionPerformed
+    private void loadSettingsMenuItemActionPerformed(ActionEvent evt) {
         //TODO test it!
         String path = FileTools.chooseFileToLoad();
         if (path != null) {
@@ -1016,9 +1016,9 @@ public class GUI extends javax.swing.JFrame {
         } else {
             utilities.setInfoLabel(AppColor.DARK_ORANGE, "Load settings was cancelled", InfoLabel);
         }
-    }//GEN-LAST:event_loadSettingsMenuItemActionPerformed
+    }
 
-    private void refreshSettingsMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_refreshSettingsMenuItemActionPerformed
+    private void refreshSettingsMenuItemActionPerformed(ActionEvent evt) {
 
         boolean loaded = settings.loadSettings(true);
         if (loaded) {
@@ -1030,9 +1030,9 @@ public class GUI extends javax.swing.JFrame {
             utilities.setInfoLabel(AppColor.DARK_ORANGE, "Unable to refresh settings!", InfoLabel);
         }
 
-    }//GEN-LAST:event_refreshSettingsMenuItemActionPerformed
+    }
 
-    private void saveAsEncryptedCheckBoxMenuItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_saveAsEncryptedCheckBoxMenuItemActionPerformed
+    private void saveAsEncryptedCheckBoxMenuItemActionPerformed(ActionEvent evt) {
         settings.setSaveAsEncrypted(saveAsEncryptedCheckBoxMenuItem.isSelected());
         settings.setProperties(true);
         if (saveAsEncryptedCheckBoxMenuItem.isSelected()) {
@@ -1043,25 +1043,25 @@ public class GUI extends javax.swing.JFrame {
         } else {
             utilities.setInfoLabel(AppColor.DARK_GREEN, "Backup will be saved as encrypted archive file.", InfoLabel);
         }
-    }//GEN-LAST:event_saveAsEncryptedCheckBoxMenuItemActionPerformed
+    }
 
-    private void priorityMaxRadioItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_priority_max_radioItemActionPerformed
+    private void priorityMaxRadioItemActionPerformed(ActionEvent evt) {
         settings.setCpuPriority(2);
         settings.setProperties(true);
         utilities.setInfoLabel(AppColor.DARK_BLUE, "Backup will used highest cpu priority.", InfoLabel);
-    }//GEN-LAST:event_priority_max_radioItemActionPerformed
+    }
 
-    private void priorityNormalRadioItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_priority_normal_radioItemActionPerformed
+    private void priorityNormalRadioItemActionPerformed(ActionEvent evt) {
         settings.setCpuPriority(1);
         settings.setProperties(true);
         utilities.setInfoLabel(AppColor.DARK_BLUE, "Backup will used normal cpu priority.", InfoLabel);
-    }//GEN-LAST:event_priority_normal_radioItemActionPerformed
+    }
 
-    private void priorityMinRadioItemActionPerformed(ActionEvent evt) {//GEN-FIRST:event_priority_min_radioItemActionPerformed
+    private void priorityMinRadioItemActionPerformed(ActionEvent evt) {
         settings.setCpuPriority(0);
         settings.setProperties(true);
         utilities.setInfoLabel(AppColor.DARK_BLUE, "Backup will used lowest priority.", InfoLabel);
-    }//GEN-LAST:event_priority_min_radioItemActionPerformed
+    }
 
 
     private void refreshContent() {
@@ -1168,13 +1168,13 @@ public class GUI extends javax.swing.JFrame {
             source = settings.getSourceFilePath();
             srcList = utilities.makeList(source);
         } else {
-            source = "";
+            source = StringUtils.EMPTY_STRING;
         }
         if (settings.getDestinationFolderPath() != null &&
                 new File(settings.getDestinationFolderPath()).exists()) {
             destination = settings.getDestinationFolderPath();
         } else {
-            destination = "";
+            destination = StringUtils.EMPTY_STRING;
         }
 
 

@@ -111,7 +111,7 @@ public class FaqGUI extends JFrame {
         pack();
     }
 
-    private void questionComboBoxActionPerformed() {//GEN-FIRST:event_questionComboBoxActionPerformed
+    private void questionComboBoxActionPerformed() {
         answersField.setText(answers[questionComboBox.getSelectedIndex()]);
     }
 

@@ -45,15 +45,15 @@ public final class Settings {
     private boolean deleteSourceAfterBackup;
     private boolean quickBackup;
     private boolean happyMode;
-    private String nonQuickPath;//
+    private String nonQuickPath;
     private boolean saveAsZip;
     private boolean saveResultsToFile;
     private boolean checkFreeSpaceBeforeBackup;
     private boolean speedLightMode;
     private boolean encrypted;
     private int cpuPriority = Integer.MAX_VALUE;
-    private String sourceFilePath;// = null;
-    private String destinationFolderPath;// = null;
+    private String sourceFilePath;
+    private String destinationFolderPath;
 
     private Settings() {
         //loadSettings();
@@ -66,8 +66,7 @@ public final class Settings {
             case "backupGui":
                 return BACKUP_GUI_DIMENSION;
             default:
-                return NO_DIMENSION; //TODO NoDimension object
-
+                return NO_DIMENSION;
         }
     }
 
@@ -235,26 +234,9 @@ public final class Settings {
         }
     }
 
-// --Commented out by Inspection START (21/02/2018 14:14):
-//    public boolean saveSettings() {
-//
-//        if (!FileTools.isFileExists(SETTINGS_PATH)) {
-//            createDefaultSettings();
-//        }
-//        try (FileInputStream fis = new FileInputStream(SETTINGS_PATH)) {
-//            properties.load(fis);
-//        } catch (Exception ex) {
-//            LOGGER.debug(ex.getCause() + "\n" + ex.getMessage());
-//            return false;
-//        }
-//        setSettings();
-//        return true;
-//    }
-// --Commented out by Inspection STOP (21/02/2018 14:14)
-
     public String saveSettingsWithDestSelection() {
         String path = FileTools.createSourceFile(SETTINGS_FILE_ENDING);
-        validateIfNotNull(path, "Path to file"); //TODO add catch exception
+        validateIfNotNull(path, "Path to file");
         if (FileUtils.isFileNotExists(path)) {
             createDefaultSettings();
         }
@@ -500,7 +482,7 @@ public final class Settings {
         setCheckFreeSpaceBeforeBackup(true);
     }
 
-    //TODO implement is shutdownAfterBackup
+    @Deprecated
     public boolean isShutdownAfterBackup() {
         return false;
     }

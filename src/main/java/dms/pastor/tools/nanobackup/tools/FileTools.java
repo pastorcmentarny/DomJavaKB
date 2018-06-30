@@ -38,7 +38,7 @@ public final class FileTools {
 
 // --Commented out by Inspection START (21/02/2018 14:14):
 //    public static String displaySize(String path) {
-//        String sizeMsg = "";
+//        String sizeMsg = StringUtils.EMPTY_STRING;
 //        file = new File(path);
 //        if (file.isFile()) {
 //            sizeMsg = FileUtils.sizeOf(file) + " bytes.";
@@ -351,33 +351,6 @@ public final class FileTools {
         }
     }
 
-    //TODO improve this method
-
-// --Commented out by Inspection START (21/02/2018 14:14):
-//    public static String createABackupZipPath(String path) {
-//        LOGGER.debug("creating path for backup(compressed in zip)");
-//        int year = Calendar.getInstance().get(Calendar.YEAR);
-//        int month = Calendar.getInstance().get(Calendar.MONTH) + 1;
-//        int day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
-//        path = createPath(path, year);
-//        path = createPath(path, month);
-//        path = createPath(path, day);
-//
-//
-//        file = new File(path + File.separator + "Backup_" + Tools.getCurrentDateWithTime() + ".zip");
-//        int next = 1;
-//        while (file.exists()) {
-//            file = new File(path + File.separator + "Backup_" + Tools.getCurrentDateWithTime() + "_" + next + ".zip");
-//            if (next == 1000) {
-//                LOGGER.warn("More than 1000 attempts to created file failed.It is quite likely something when terrible wrong");
-//                return null;
-//            }
-//            next++;
-//        }
-//        return file.getAbsolutePath();
-//    }
-// --Commented out by Inspection STOP (21/02/2018 14:14)
-
     public static String createABackupDirectory(String path) {
         LOGGER.debug("create backup folder" + path);
         int year = Calendar.getInstance().get(Calendar.YEAR);
@@ -431,79 +404,6 @@ public final class FileTools {
             LOGGER.error(String.format("Unable to delete file due %s", ex.getMessage()));
         }
     }
-
-
-
-
-
-// --Commented out by Inspection START (21/02/2018 14:27):
-//    public static void replace(String whatPath, String fromPath, String file) {
-//        if (file != null) {
-//            delete(whatPath + File.separator + file);
-//        } else {
-//            delete(whatPath);
-//        }
-//        try {
-//            if (file == null) {
-//                FileUtils.copyDirectory(new File(fromPath), new File(whatPath));
-//            } else {
-//                FileUtils.copyFile(new File(fromPath + File.separator + file), new File(whatPath + File.separator + file));
-//            }
-//        } catch (IOException ex) {
-//            //TODO create a error message
-//            LOGGER.info("Unable to replace file" + ex.getCause() + "\n" + ex.getMessage());
-//        }
-//    }
-// --Commented out by Inspection STOP (21/02/2018 14:27)
-
-    //TODO improve this method by better error messages and etc
-
-
-// --Commented out by Inspection START (21/02/2018 14:14):
-//    //TODO IMPROVE THIS GARBAGE this method doesn't need a return ?
-//    private static void zipFolder(String[] folderPath, ZipOutputStream out, StringBuilder results, Statistic stats) {
-//        if (folderPath == null) {
-//            stats.addErrorCount("Problem source file/folder found.Backup cancelled.");
-//            return;
-//        }
-//        stats.addFileCopied(1);
-//        for (String aFolderPath : folderPath) {
-//            if (isADirectory(aFolderPath)) {
-//                String[] fileList = new File(aFolderPath).list();
-//                if (fileList != null) {
-//                    String[] listInDir = new String[fileList.length];
-//                    for (int ix = 0; ix < fileList.length; ix++) {
-//                        listInDir[ix] = aFolderPath + File.separator + fileList[ix];
-//                    }
-//                    zipFolder(listInDir, out, results, stats);
-//                } else {
-//                    LOGGER.error(format("List is null in %s", aFolderPath));
-//                }
-//
-//            } else {
-//                zipFile(aFolderPath, out, stats);
-//            }
-//        }
-//    }
-// --Commented out by Inspection STOP (21/02/2018 14:14)
-
-// --Commented out by Inspection START (21/02/2018 14:27):
-//    private static void zipFile(String path, ZipOutputStream zos, Statistic stats) {
-//        try (BufferedInputStream bis = new BufferedInputStream(new FileInputStream(new File(path)), BUFFER_SIZE)) {
-//            byte[] data = new byte[BUFFER_SIZE];
-//            ZipEntry entry = new ZipEntry(new File(path).getAbsolutePath());
-//            zos.putNextEntry(entry);
-//            int count;
-//            while ((count = bis.read(data, 0, BUFFER_SIZE)) != -1) {
-//                zos.write(data, 0, count);
-//            }
-//            stats.addFileCopied(1);
-//        } catch (Exception e) {
-//            LOGGER.warn("Fail to save:" + path + " because: " + e.getMessage());
-//            stats.addErrorCount("Failed to save:" + path);
-//        }
-//    }
-// --Commented out by Inspection STOP (21/02/2018 14:27)
 
     public static String createSourceFile(String ending) {
         LOGGER.debug("creating source file");

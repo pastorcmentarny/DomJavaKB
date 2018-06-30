@@ -125,15 +125,6 @@ public final class Backup extends AbstractTools {
         backupThread.start();
     }
 
-// --Commented out by Inspection START (21/02/2018 14:14):
-//    public String doCLIBackup(String source, String destination) {
-//        LOGGER.debug("performing backup(CLI)");
-//        Engine engine = new Engine();
-//        String[] srcList = engine.makeList(source);
-//        return doClassicBackup(srcList, destination, null);
-//    }
-// --Commented out by Inspection STOP (21/02/2018 14:14)
-
     public String doClassicBackup(String[] sources, String destination, JTextArea info) {
         LOGGER.info("performing backup(plain)");
         updateInfoText(info, "Start performing backup");
@@ -392,7 +383,7 @@ public final class Backup extends AbstractTools {
 
             activateHappyModeForBackup();
 
-            String results = "";
+            String results = StringUtils.EMPTY_STRING;
             try {
                 results = performBackup();
 

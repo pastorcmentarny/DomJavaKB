@@ -20,8 +20,6 @@ class UpdateInfo implements Runnable {
     private final Random randomText = new Random();
     private final List<String> lolText = getFillText();
 
-    //TODO solve problem with using , Backup outer because of issue with GUI
-
     UpdateInfo(JTextArea label) {
         this.label = label;
     }
