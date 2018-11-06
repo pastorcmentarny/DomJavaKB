@@ -20,7 +20,6 @@ final class Scratchpad {
     }
 
 
-
     private void runAll() {
         interfaces();
         lambdas();
@@ -104,7 +103,7 @@ final class Scratchpad {
         displayEndLine();
 
         Predicate<String> predicate = (text) -> text.startsWith("B");
-        for(String city : getStringArray()){
+        for (String city : getStringArray()) {
             System.out.println("City: " + city + " is: " + predicate.test(city) + " and negation will be " + predicate.negate().test(city));
         }
 
@@ -126,7 +125,7 @@ final class Scratchpad {
         });
 
         //lambda with 2 elements
-        stringList.sort((s1,s2) -> s1.compareTo(s2));
+        stringList.sort((s1, s2) -> s1.compareTo(s2));
 
         //using method reference instead of lambda
         stringList.sort(String::compareTo);

@@ -1,7 +1,7 @@
 package dms.pastor.game.rpg.items.potions;
 
-import dms.pastor.game.rpg.units.Hero;
 import dms.pastor.game.rpg.items.Item;
+import dms.pastor.game.rpg.units.Hero;
 
 /**
  * @author dominiksymonowicz

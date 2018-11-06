@@ -20,11 +20,10 @@ import static org.hamcrest.CoreMatchers.is;
  */
 public class ArrayUtilsTest {
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
-
     private static final char[] CHARS_ARRAY = {};
     private static final String[] EMPTY_STRING_ARRAY = new String[0];
+    @Rule
+    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void testGetSingleIntArrayAsString() {

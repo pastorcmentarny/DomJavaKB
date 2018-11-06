@@ -24,11 +24,6 @@ class UpdateInfo implements Runnable {
         this.label = label;
     }
 
-    public void run() {
-        label.setForeground(Tools.getRandomColor());
-        label.setText(lolText.get(randomText.nextInt(lolText.size())));
-    }
-
     private static List<String> getFillText() {
         var lolText = new ArrayList<String>();
         lolText.add("(Backup in progress)\n Zzzz .... ....");
@@ -51,5 +46,10 @@ class UpdateInfo implements Runnable {
         lolText.add("(Backup in progress)\n Time for joke.\nAfter riots John ask his friend from London.\nHow looks London after Riots?\nIt looks better in my new plasma 3D TV.");
         lolText.add("(Backup in progress)\n It seems like, it will be Endlessly job.");
         return lolText;
+    }
+
+    public void run() {
+        label.setForeground(Tools.getRandomColor());
+        label.setText(lolText.get(randomText.nextInt(lolText.size())));
     }
 }

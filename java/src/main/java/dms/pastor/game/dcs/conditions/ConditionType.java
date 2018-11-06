@@ -29,10 +29,6 @@ public enum ConditionType {
         this.group = group;
     }
 
-    public ConditionGroup group() {
-        return group;
-    }
-
     public static String getText(ConditionType conditionType) {
         throwExceptionIfNull(conditionType);
         return conditionType.name().replaceAll("_", " ").toLowerCase();
@@ -42,5 +38,9 @@ public enum ConditionType {
         if (conditionType == null) {
             throw new SomethingWentWrongException();
         }
+    }
+
+    public ConditionGroup group() {
+        return group;
     }
 }

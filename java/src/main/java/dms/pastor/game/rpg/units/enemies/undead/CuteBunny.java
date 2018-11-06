@@ -1,9 +1,9 @@
 package dms.pastor.game.rpg.units.enemies.undead;
 
-import dms.pastor.game.rpg.units.Hero;
-import dms.pastor.game.rpg.units.Unit;
 import dms.pastor.game.rpg.characteristics.Skills;
 import dms.pastor.game.rpg.characteristics.Stats;
+import dms.pastor.game.rpg.units.Hero;
+import dms.pastor.game.rpg.units.Unit;
 import dms.pastor.game.rpg.units.enemies.Enemy;
 
 import java.util.Random;

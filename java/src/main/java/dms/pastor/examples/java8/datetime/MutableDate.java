@@ -1,12 +1,6 @@
 package dms.pastor.kb.java8.datetime;
 
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.Month;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
+import java.time.*;
 import java.util.Date;
 
 final class MutableDate {
@@ -53,9 +47,9 @@ final class MutableDate {
 
     private void calendarMisconceptions() {
         //given date and time
-        LocalDate localDate = LocalDate.of(2016, Month.AUGUST,5);
-        LocalTime localTime = LocalTime.of(10,22);
-        LocalDateTime localDateTime = LocalDateTime.of(localDate,localTime);
+        LocalDate localDate = LocalDate.of(2016, Month.AUGUST, 5);
+        LocalTime localTime = LocalTime.of(10, 22);
+        LocalDateTime localDateTime = LocalDateTime.of(localDate, localTime);
         System.out.println("Local Date and Time is: " + localDateTime);
 
         //set date and time in Warsaw and Sydney
@@ -63,7 +57,7 @@ final class MutableDate {
         System.out.println("Warsaw's Date and Time is: " + warsaw);
         ZonedDateTime sydney = ZonedDateTime.of(localDateTime, ZoneId.of(AUSTRALIA));
         System.out.println("Sydney's Date and Time is: " + sydney);
-        System.out.println("Time difference :"  );
+        System.out.println("Time difference :");
 
         //move date to February
         localDateTime = localDateTime.minusMonths(6);

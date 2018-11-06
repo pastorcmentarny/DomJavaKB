@@ -71,6 +71,10 @@ public class Unit {
         return getHealth().getHp();
     }
 
+    public void setHp(int hp) {
+        getHealth().setHp(hp);
+    }
+
     public boolean isAlive() {
         return getHealth().getHp() > 0;
     }
@@ -79,13 +83,8 @@ public class Unit {
         return !isAlive();
     }
 
-
     void setPlayer() {
         this.player = true;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public void setCards(List<Card> cards) {
@@ -94,10 +93,6 @@ public class Unit {
 
     public void setPlayer(boolean player) {
         this.player = player;
-    }
-
-    public void setConditions(Condition conditions) {
-        this.conditions = conditions;
     }
 
     public void turn(Unit unit) {
@@ -168,6 +163,10 @@ public class Unit {
 
     public Condition getConditions() {
         return conditions;
+    }
+
+    public void setConditions(Condition conditions) {
+        this.conditions = conditions;
     }
 
     public int getSp() {
@@ -244,6 +243,10 @@ public class Unit {
         return description;
     }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public void shieldRegen(int regenShieldPoints) {
         if (isShielded()) {
             sp += regenShieldPoints;
@@ -308,10 +311,6 @@ public class Unit {
                 LOGGER.warn("getElementsFor method is not implemented for " + elementsType + " with number of elements equals to " + number);
                 break;
         }
-    }
-
-    public void setHp(int hp) {
-        getHealth().setHp(hp);
     }
 
     public void setMaxHp(int maxHp) {

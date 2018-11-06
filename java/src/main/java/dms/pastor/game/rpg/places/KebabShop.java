@@ -1,9 +1,9 @@
 package dms.pastor.game.rpg.places;
 
-import dms.pastor.game.rpg.units.Hero;
 import dms.pastor.game.rpg.HygieneRating;
 import dms.pastor.game.rpg.cfg.Config;
 import dms.pastor.game.rpg.items.food.Kebab;
+import dms.pastor.game.rpg.units.Hero;
 
 import java.util.Scanner;
 

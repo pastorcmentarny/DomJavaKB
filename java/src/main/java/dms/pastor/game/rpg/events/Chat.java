@@ -1,7 +1,7 @@
 package dms.pastor.game.rpg.events;
 
-import dms.pastor.game.rpg.commons.Result;
 import dms.pastor.game.rpg.commons.Msg;
+import dms.pastor.game.rpg.commons.Result;
 import dms.pastor.game.rpg.units.npc.*;
 
 import java.util.Random;

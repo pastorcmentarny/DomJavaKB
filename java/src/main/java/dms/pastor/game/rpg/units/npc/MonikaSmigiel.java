@@ -1,9 +1,9 @@
 package dms.pastor.game.rpg.units.npc;
 
-import dms.pastor.game.rpg.units.Hero;
 import dms.pastor.game.rpg.cfg.Config;
 import dms.pastor.game.rpg.quests.QuestMonitor;
 import dms.pastor.game.rpg.quests.QuestState;
+import dms.pastor.game.rpg.units.Hero;
 
 import java.util.Random;
 

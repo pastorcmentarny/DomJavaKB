@@ -3,9 +3,9 @@ package dms.pastor.game.rpg.events;
 import dms.pastor.game.rpg.Bonus;
 import dms.pastor.game.rpg.Game;
 import dms.pastor.game.rpg.actions.BattleAction;
+import dms.pastor.game.rpg.commons.Msg;
 import dms.pastor.game.rpg.units.Hero;
 import dms.pastor.game.rpg.units.Unit;
-import dms.pastor.game.rpg.commons.Msg;
 import dms.pastor.game.rpg.units.enemies.Enemy;
 
 import java.util.InputMismatchException;
@@ -14,7 +14,6 @@ import java.util.Scanner;
 
 
 public class BattleManual implements BattleAction {
-
 
 
     private final Random random = new Random();

@@ -1,13 +1,13 @@
 package dms.pastor.game.rpg.places;
 
-import dms.pastor.game.rpg.commons.Result;
-import dms.pastor.game.rpg.units.Hero;
 import dms.pastor.game.rpg.Game;
 import dms.pastor.game.rpg.Money;
 import dms.pastor.game.rpg.cfg.Config;
 import dms.pastor.game.rpg.characteristics.Attribute;
+import dms.pastor.game.rpg.commons.Result;
 import dms.pastor.game.rpg.exceptions.NoEnoughMoneyException;
 import dms.pastor.game.rpg.items.potions.*;
+import dms.pastor.game.rpg.units.Hero;
 
 /**
  * @author dominiksymonowicz

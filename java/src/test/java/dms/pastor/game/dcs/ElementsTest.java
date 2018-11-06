@@ -27,12 +27,10 @@ import static org.slf4j.LoggerFactory.getLogger;
 @SuppressWarnings("resource") // auto closable not essential
 public class ElementsTest {
     private static final Logger LOGGER = getLogger(ElementsTest.class);
-
-    private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private static final int INIT_ELEMENTS = 10;
     private static final int USED_ELEMENTS = 4;
     private static final int ELEMENTS_LEFT = 6;
-
+    private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private PrintStream printStream;
 
     @Before

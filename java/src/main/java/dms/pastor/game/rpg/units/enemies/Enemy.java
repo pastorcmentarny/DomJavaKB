@@ -1,9 +1,9 @@
 package dms.pastor.game.rpg.units.enemies;
 
-import dms.pastor.game.rpg.actions.BattleAction;
-import dms.pastor.game.rpg.units.Unit;
 import dms.pastor.game.rpg.Money;
+import dms.pastor.game.rpg.actions.BattleAction;
 import dms.pastor.game.rpg.characteristics.Skills;
+import dms.pastor.game.rpg.units.Unit;
 
 
 public abstract class Enemy extends Unit implements BattleAction {

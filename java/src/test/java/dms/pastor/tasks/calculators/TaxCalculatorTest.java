@@ -22,9 +22,9 @@ import static org.hamcrest.CoreMatchers.is;
 public class TaxCalculatorTest {
 
     private static final int BOUND = 10000;
-    private final Random random = new Random();
     @Rule
     public final ExpectedException thrown = ExpectedException.none();
+    private final Random random = new Random();
 
     @Test
     public void shouldThrowExceptionWhenSalaryIsBelowZeroTest() {

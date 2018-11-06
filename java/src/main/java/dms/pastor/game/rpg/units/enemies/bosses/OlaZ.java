@@ -1,7 +1,5 @@
 package dms.pastor.game.rpg.units.enemies.bosses;
 
-import dms.pastor.game.rpg.units.Hero;
-import dms.pastor.game.rpg.units.Unit;
 import dms.pastor.game.rpg.armor.SportShoes;
 import dms.pastor.game.rpg.armor.SportTrousers;
 import dms.pastor.game.rpg.armor.TShirt;
@@ -9,6 +7,8 @@ import dms.pastor.game.rpg.characteristics.Skills;
 import dms.pastor.game.rpg.characteristics.Stats;
 import dms.pastor.game.rpg.items.weapons.*;
 import dms.pastor.game.rpg.spells.AcidRainSpell;
+import dms.pastor.game.rpg.units.Hero;
+import dms.pastor.game.rpg.units.Unit;
 
 import java.util.Random;
 

@@ -20,6 +20,7 @@ import static dms.pastor.game.dcs.events.Rarity.COMMON;
 abstract class Event extends Card {
 
     Rarity rarity = COMMON;
+
     Event() {
         setCardType(EVENT);
     }

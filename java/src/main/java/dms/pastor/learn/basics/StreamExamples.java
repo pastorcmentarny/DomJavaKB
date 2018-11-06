@@ -21,7 +21,7 @@ public class StreamExamples {
 
     // Sort a Map by Value example
     // TODO convert to java11, add test for this
-    public static Map<String, Integer> sortByPrice(Map<String, Integer> items){
+    public static Map<String, Integer> sortByPrice(Map<String, Integer> items) {
         return items.entrySet().stream().sorted(Comparator.comparing(Map.Entry::getValue)).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
     }
 }

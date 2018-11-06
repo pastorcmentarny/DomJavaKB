@@ -1,8 +1,8 @@
 package dms.pastor.game.rpg.items;
 
+import dms.pastor.game.rpg.characteristics.Attribute;
 import dms.pastor.game.rpg.commons.Result;
 import dms.pastor.game.rpg.units.Hero;
-import dms.pastor.game.rpg.characteristics.Attribute;
 
 
 public class ToiletPaper extends Item {

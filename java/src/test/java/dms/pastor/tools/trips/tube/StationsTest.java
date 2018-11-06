@@ -36,10 +36,10 @@ public class StationsTest {
     private static final TubeStation WEMBLEY_PARK = new TubeStation("Wembley Park", Status.VISITED, PASSED_DATE, VISITED_DATE, THIS_YEAR_VISITED_DATE, true);
     private static final String STATION_NOT_FOUND_ERROR_MESSAGE = "TubeStation was not found.";
     private static final String STATION_NAME = "Amersham";
-    private final List<Line> lines = Collections.singletonList(new Line("none"));
     private static final boolean BLOGGED = false;
     @Rule
     public final ExpectedException exception = ExpectedException.none();
+    private final List<Line> lines = Collections.singletonList(new Line("none"));
     private final Stations stations = generateStations();
 
     @Test

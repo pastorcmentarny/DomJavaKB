@@ -32,6 +32,10 @@ import static org.mockito.BDDMockito.given;
 public class DisplayStatusForOptionTest {
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private final PrintStream original = System.out;
+    @Mock
+    private Scanner scanner;
+    @InjectMocks
+    private DisplayStatusForOption displayStatusForAllStationsOption;
 
     @Before
     public void setUpStreams() {
@@ -43,12 +47,6 @@ public class DisplayStatusForOptionTest {
         outputStream.close();
         System.setOut(original);
     }
-
-    @Mock
-    private Scanner scanner;
-
-    @InjectMocks
-    private DisplayStatusForOption displayStatusForAllStationsOption;
 
     @Test
     public void shouldDisplayStatusForSpecifiedStation() {

@@ -1,10 +1,10 @@
 package dms.pastor.game.rpg.items.potions;
 
-import dms.pastor.game.rpg.commons.Result;
-import dms.pastor.game.rpg.units.Unit;
-import dms.pastor.game.rpg.*;
+import dms.pastor.game.rpg.Money;
 import dms.pastor.game.rpg.cfg.Config;
 import dms.pastor.game.rpg.characteristics.Stats;
+import dms.pastor.game.rpg.commons.Result;
+import dms.pastor.game.rpg.units.Unit;
 
 /**
  * @author dominiksymonowicz

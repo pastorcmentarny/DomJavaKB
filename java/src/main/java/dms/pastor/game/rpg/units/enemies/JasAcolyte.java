@@ -1,13 +1,13 @@
 package dms.pastor.game.rpg.units.enemies;
 
-import dms.pastor.game.rpg.units.Hero;
-import dms.pastor.game.rpg.units.Unit;
 import dms.pastor.game.rpg.cfg.Config;
 import dms.pastor.game.rpg.characteristics.Skills;
 import dms.pastor.game.rpg.characteristics.Stats;
 import dms.pastor.game.rpg.items.Book;
 import dms.pastor.game.rpg.items.Inventory;
 import dms.pastor.game.rpg.spells.Fireball;
+import dms.pastor.game.rpg.units.Hero;
+import dms.pastor.game.rpg.units.Unit;
 
 
 public class JasAcolyte extends Enemy {

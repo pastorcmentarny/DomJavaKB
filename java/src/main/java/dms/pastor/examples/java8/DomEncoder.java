@@ -77,21 +77,20 @@ final class DomEncoder {
     }
 
 
-    private String swapCapitalization( ) {
+    private String swapCapitalization() {
         StringBuilder stringBuilder = new StringBuilder();
-        for(Character character : data.toCharArray())
-            if(Character.isLowerCase(character)){
+        for (Character character : data.toCharArray())
+            if (Character.isLowerCase(character)) {
                 stringBuilder.append(Character.toUpperCase(character));
-            }else if(!Character.isUpperCase(character)){
+            } else if (!Character.isUpperCase(character)) {
 
             }
         return null;
     }
 
 
-
     private void encodeInBase64() throws UnsupportedEncodingException {
-        data =  new String(Base64.getEncoder().encode(data.getBytes(ENCODING)));
+        data = new String(Base64.getEncoder().encode(data.getBytes(ENCODING)));
     }
 
     private String reverse() {

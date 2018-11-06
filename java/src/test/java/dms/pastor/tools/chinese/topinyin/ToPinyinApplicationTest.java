@@ -33,10 +33,10 @@ public class ToPinyinApplicationTest {
 
     private static final String TEXT_INVALID_MESSAGE = "Text cannot be null or empty. It must be at least 2 characters or more.";
     private static final String PSEUDO_PINYIN_TYPE = "character";
-    private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-    private final PrintStream original = System.out;
     @Rule
     public final ExpectedException exception = ExpectedException.none();
+    private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    private final PrintStream original = System.out;
 
     @Before
     public void setUpStreams() {

@@ -1,8 +1,8 @@
 package dms.pastor.game.rpg.units.npc;
 
+import dms.pastor.game.rpg.characteristics.Location;
 import dms.pastor.game.rpg.units.Hero;
 import dms.pastor.game.rpg.units.Unit;
-import dms.pastor.game.rpg.characteristics.Location;
 
 
 public abstract class NPC extends Unit {

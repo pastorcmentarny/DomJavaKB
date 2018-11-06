@@ -10,6 +10,7 @@ public class Result {
     private boolean success;
     private String message = "";
     private Object data = null;
+
     public Result(boolean success) {
         this.success = success;
         if (success) {

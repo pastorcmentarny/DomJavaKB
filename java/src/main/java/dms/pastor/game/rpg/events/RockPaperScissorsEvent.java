@@ -8,7 +8,6 @@ import java.util.Scanner;
 
 public class RockPaperScissorsEvent implements EventInterface {
 
-    Result result;
     //1 Rock , 2 Paper , 3 Scissor
     private final String rockWin = "Rock crushes scissors.";
     private final String paperWin = "paper covers rock.";
@@ -16,6 +15,7 @@ public class RockPaperScissorsEvent implements EventInterface {
     private final String win = "You won!";
     private final String lose = "You lost!";
     private final String draw = "DRAW!";
+    Result result;
 
     @Override
     public void doEvent() {

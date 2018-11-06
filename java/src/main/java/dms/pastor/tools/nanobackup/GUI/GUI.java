@@ -46,11 +46,11 @@ public class GUI extends javax.swing.JFrame {
     private static final Logger LOGGER = LoggerFactory.getLogger(GUI.class);
     private static final int LARGE_FONT_SIZE = 18;
     private static final Dimension PREVIOUS_DESTINATION_DIMENSION = new Dimension(300, 20);
+    public final Engine utilities = new Engine();
     private final Settings settings = Settings.getSettings();
     private final History history = History.getHistoryGUI();
     private final Properties dom = new Properties();
     private final Messenger msg = new Messenger();
-    public final Engine utilities = new Engine();
     private final Backup backup = Backup.getBackup();
     private String source;
     private String destination;

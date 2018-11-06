@@ -16,11 +16,11 @@ public enum Rarity {
 
     private final int chance;
 
-    public int chance() {
-        return chance;
-    }
-
     Rarity(int chance) {
         this.chance = chance;
+    }
+
+    public int chance() {
+        return chance;
     }
 }

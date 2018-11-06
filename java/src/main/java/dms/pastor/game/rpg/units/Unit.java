@@ -73,8 +73,8 @@ public abstract class Unit extends Element implements Cloneable, Comparable<Unit
     @Override
     public String toString() {
         return name + "{" +
-            //", description=" + description + //TODO undo it
-            ", psycho=" + psycho + ", skills=" + skills.toString() + ", stats=" + plainStats.toString() + ", bonusStats=" + bonusPerLevelStats + ", lvl=" + lvl + ", exp=" + exp + '}';
+                //", description=" + description + //TODO undo it
+                ", psycho=" + psycho + ", skills=" + skills.toString() + ", stats=" + plainStats.toString() + ", bonusStats=" + bonusPerLevelStats + ", lvl=" + lvl + ", exp=" + exp + '}';
     }
 
     //STATS SECTION

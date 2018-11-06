@@ -1,8 +1,8 @@
 package dms.pastor.game.rpg;
 
+import dms.pastor.game.rpg.items.Item;
 import dms.pastor.game.rpg.units.Hero;
 import dms.pastor.game.rpg.units.Unit;
-import dms.pastor.game.rpg.items.Item;
 
 import java.util.ArrayList;
 

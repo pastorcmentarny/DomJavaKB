@@ -19,10 +19,9 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class FindFirstNonRepeatedCharacterTest {
 
-    private final FindFirstNonRepeatedCharacter findFirst = new FindFirstNonRepeatedCharacter();
-
     @Rule
     public final ExpectedException exception = ExpectedException.none();
+    private final FindFirstNonRepeatedCharacter findFirst = new FindFirstNonRepeatedCharacter();
 
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenTextIsNullTest() {

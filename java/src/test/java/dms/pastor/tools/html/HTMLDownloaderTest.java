@@ -35,7 +35,8 @@ public class HTMLDownloaderTest {
         // when
         final boolean fileSaved = saveTextToFile(content, "example.txt");
 
-        assertThat(fileSaved).isTrue(); }
+        assertThat(fileSaved).isTrue();
+    }
 
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenUrlIsNullTest() throws Exception {

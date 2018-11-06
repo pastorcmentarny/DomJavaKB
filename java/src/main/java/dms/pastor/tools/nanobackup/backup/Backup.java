@@ -44,12 +44,12 @@ public final class Backup extends AbstractTools {
     private static Backup backup;
 
     private final Engine utilities = new Engine();
+    private final Statistic stats = new Statistic();
     private JFrame BackupTaskFrame;
     private boolean inProgress = false;
     private Thread backupThread;
     private UpdateInfo updateInfo;
     private ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
-    private final Statistic stats = new Statistic();
     private String destinationDir;
 
     private Backup() {

@@ -32,12 +32,10 @@ public class WordValidatorTest {
     private static final String[] DEFAULT_GROUP = {"hsk1"};
     private static final String DEFAULT_NOTES = "note";
     private static final int DEFAULT_DIFFICULTY = 2;
-
-    private final Word validWord = new Word(DEFAULT_ID, DEFAULT_CHINESE_CHARACTER, DEFAULT_PINYIN, DEFAULT_STROKES,
-            DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
-
     @Rule
     public final ExpectedException exception = ExpectedException.none();
+    private final Word validWord = new Word(DEFAULT_ID, DEFAULT_CHINESE_CHARACTER, DEFAULT_PINYIN, DEFAULT_STROKES,
+            DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
     @Test
     public void validateWordShouldReturnTrueForValidWord() {

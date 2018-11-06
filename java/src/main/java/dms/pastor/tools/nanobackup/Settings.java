@@ -27,15 +27,14 @@ import static java.lang.String.format;
 @SuppressWarnings({"ClassWithTooManyFields", "OverlyComplexClass", "ClassWithTooManyMethods"}) //because is settings
 public final class Settings {
 
-    private static final String SETTINGS_FILE_ENDING = ".properties";
     public static final String SRC_FILE_ENDING = ".txt";
+    private static final String SETTINGS_FILE_ENDING = ".properties";
     private static final Logger LOGGER = LoggerFactory.getLogger(Constants.class);
     private static final Dimension NO_DIMENSION = new Dimension(0, 0);
-    private static Settings settings;
-
     //GUI settings
     private static final Dimension MESSAGE_HISTORY_DIMENSION = new Dimension(425, 550);
     private static final Dimension BACKUP_GUI_DIMENSION = new Dimension(500, 200);
+    private static Settings settings;
     private static String beforeBackupJobPath = null;
     private static String afterBackupJobPath = null;
     private final Properties properties = new Properties();

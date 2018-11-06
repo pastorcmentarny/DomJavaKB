@@ -36,11 +36,9 @@ public class CommandLineUITest {
 
     @Rule
     public final ExpectedException exception = ExpectedException.none();
-
+    private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     @Rule
     public Timeout globalTimeout = Timeout.seconds(3); // global time out for all tests
-
-    private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private PrintStream printStream;
 
     @Mock

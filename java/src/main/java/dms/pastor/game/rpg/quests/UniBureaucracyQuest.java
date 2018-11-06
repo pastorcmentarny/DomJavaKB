@@ -1,9 +1,9 @@
 package dms.pastor.game.rpg.quests;
 
-import dms.pastor.game.rpg.units.Hero;
 import dms.pastor.game.rpg.Bonus;
 import dms.pastor.game.rpg.Game;
 import dms.pastor.game.rpg.places.Castle;
+import dms.pastor.game.rpg.units.Hero;
 
 import java.util.Scanner;
 

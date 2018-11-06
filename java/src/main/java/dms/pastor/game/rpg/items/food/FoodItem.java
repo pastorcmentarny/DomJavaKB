@@ -1,8 +1,8 @@
 package dms.pastor.game.rpg.items.food;
 
-import dms.pastor.game.rpg.units.Hero;
 import dms.pastor.game.rpg.items.Action;
 import dms.pastor.game.rpg.items.Item;
+import dms.pastor.game.rpg.units.Hero;
 
 
 public abstract class FoodItem extends Item {

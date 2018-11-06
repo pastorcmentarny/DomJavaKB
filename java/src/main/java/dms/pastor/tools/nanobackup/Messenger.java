@@ -20,8 +20,6 @@ import static dms.pastor.tools.nanobackup.Constants.MESSAGE_PATH;
 public class Messenger {
 
     public static final String PRE_CHECK = "Doing pre-check... ";
-    private static final Logger LOGGER = LoggerFactory.getLogger(Messenger.class);
-
     public static final String CREATING_BACKUP_DIR = "Creating backup folder...";
     public static final String BACKUP_IN_PROGRESS = "Backup in progress...\n";
     public static final String ITEM_COUNTING = "Calculating total item copied...";
@@ -31,6 +29,7 @@ public class Messenger {
     public static final String DESTINATION_PATH_CHECK = "(Checking is destination path exists)";
     public static final String ENOUGH_SPACE_CHECK = "(Check is it enough space for backup)";
     public static final String PRE_CHECK_COMPLETED = "Pre-check is completed.";
+    private static final Logger LOGGER = LoggerFactory.getLogger(Messenger.class);
     private final Properties properties = new Properties();
     private boolean missingMessageFile;
 

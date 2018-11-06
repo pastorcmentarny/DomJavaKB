@@ -1,5 +1,13 @@
 package dms.pastor.kb.java8.newIn8;
 
+interface Formula {
+    double calculate(int number);
+
+    default double sqrt(int number) {
+        return Math.sqrt(number);
+    }
+}
+
 final class Java8Basics {
 
     public static void main(String[] args) {
@@ -13,20 +21,12 @@ final class Java8Basics {
         System.out.println("Implemented method : " + formula.sqrt(9));
     }
 
-    class CubicFormula implements Formula{
+    class CubicFormula implements Formula {
 
         @Override
         public double calculate(final int number) {
-            return sqrt(number)*number;
+            return sqrt(number) * number;
         }
     }
 
-}
-
-interface Formula {
-    double calculate(int number);
-
-    default double sqrt(int number){
-        return  Math.sqrt(number);
-    }
 }

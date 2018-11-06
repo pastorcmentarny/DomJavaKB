@@ -1,6 +1,9 @@
 package dms.pastor.kb.java8.stream;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -17,7 +20,7 @@ final class StreamBasics {
     public static void main(String[] args) {
         tutorial();
 
-        if(runAll){
+        if (runAll) {
             hr(3);
             example();
             kindOfStreams();
@@ -27,7 +30,7 @@ final class StreamBasics {
 
     private static void tutorial() {
         hr();
-        final List<String> aList = Arrays.asList("a1", "a2","c3","c4", "b1", "c2", "c1");
+        final List<String> aList = Arrays.asList("a1", "a2", "c3", "c4", "b1", "c2", "c1");
         aList.stream().filter(s -> s.startsWith("c")).map(String::toUpperCase).forEach(System.out::println);
         hr();
         streamExamples();
@@ -36,7 +39,7 @@ final class StreamBasics {
 
     private static void streamExamples() {
         hr("find first and ifPresent");
-        Arrays.asList("garlic","lemon","pepper").stream().findFirst().ifPresent(System.out::println);
+        Arrays.asList("garlic", "lemon", "pepper").stream().findFirst().ifPresent(System.out::println);
         final int[] randomNumbers = getRandomNumbers();
         displayIntArray(randomNumbers);
 
@@ -46,7 +49,7 @@ final class StreamBasics {
     }
 
     private static void displayIntArray(final int[] randomNumbers) {
-        for(int i : randomNumbers){
+        for (int i : randomNumbers) {
             System.out.println(i);
         }
     }
@@ -75,17 +78,17 @@ final class StreamBasics {
         listOfString.stream().sorted().forEach(s -> System.out.print(": " + s + " :"));
 
         hr();
-        Stream.of("aa","bb","cc").findFirst().ifPresent(System.out::println);
+        Stream.of("aa", "bb", "cc").findFirst().ifPresent(System.out::println);
     }
 
 
-    public static void hr(){
+    public static void hr() {
         System.out.println();
-        IntStream.range(1,20).forEach(s ->System.out.print("--"));
+        IntStream.range(1, 20).forEach(s -> System.out.print("--"));
         System.out.println();
     }
 
-    private static  void hr(String title){
+    private static void hr(String title) {
         System.out.println("-- -- --\n" + title);
         hr();
     }
@@ -98,18 +101,18 @@ final class StreamBasics {
     }
 
 
-    private static void sketchMethod(){
+    private static void sketchMethod() {
         hr();
         Arrays.asList("af", "aa", "ba", "ac", "uu", "xa", "ab", "ad", "ae").stream().map(s -> s = "?").forEach(System.out::print);
 
     }
 
 
-    private static List<String> getList(){
-        return  Arrays.asList("Acceptance criteria","Daily Stand up","Epic","Grooming","Impediment","Kanban","Scrum","Product owner","Retrospective","Sprint","Timeboxed","User Story");
+    private static List<String> getList() {
+        return Arrays.asList("Acceptance criteria", "Daily Stand up", "Epic", "Grooming", "Impediment", "Kanban", "Scrum", "Product owner", "Retrospective", "Sprint", "Timeboxed", "User Story");
     }
 
-    private static int[] getRandomNumbers(){
+    private static int[] getRandomNumbers() {
         System.out.println("Generating random numbers..");
         final IntStream ints = new Random().ints(10, 10, 100).distinct();
         return ints.toArray();

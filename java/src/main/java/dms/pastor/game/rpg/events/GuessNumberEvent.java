@@ -1,8 +1,8 @@
 package dms.pastor.game.rpg.events;
 
-import dms.pastor.game.rpg.commons.Result;
 import dms.pastor.game.rpg.cfg.Config;
 import dms.pastor.game.rpg.commons.Msg;
+import dms.pastor.game.rpg.commons.Result;
 
 import java.util.Random;
 import java.util.Scanner;

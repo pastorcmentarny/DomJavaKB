@@ -1,8 +1,8 @@
 package dms.pastor.game.rpg.places;
 
-import dms.pastor.game.rpg.units.Hero;
 import dms.pastor.game.rpg.commons.Msg;
 import dms.pastor.game.rpg.items.Item;
+import dms.pastor.game.rpg.units.Hero;
 
 import java.util.ArrayList;
 import java.util.Scanner;

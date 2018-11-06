@@ -1,7 +1,7 @@
 package dms.pastor.game.rpg.places;
 
-import dms.pastor.game.rpg.units.Hero;
 import dms.pastor.game.rpg.Element;
+import dms.pastor.game.rpg.units.Hero;
 
 import java.util.Random;
 import java.util.Scanner;

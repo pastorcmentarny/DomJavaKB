@@ -33,10 +33,10 @@ public final class StringUtils {
     public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
     public static final String ALPHANUMERIC = ALPHABET.toUpperCase() + ALPHABET + "0123456789";
     public static final String COMMA = ",";
+    public static final String UNDERSCORE = "_";
     static final String NON_ALPHANUMERIC = "~#&@£$^'`\".,:;*–+=(){}[]<>?!\\|/";
     private static final String ALPHABET_BOTH_CASE = ALPHABET + ALPHABET.toUpperCase();
     private static final String ALPHANUMERIC_REGEX = "[^a-zA-Z0-9]";
-    public static final String UNDERSCORE = "_";
 
     private StringUtils() {
     }

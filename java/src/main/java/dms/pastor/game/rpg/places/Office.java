@@ -1,7 +1,7 @@
 package dms.pastor.game.rpg.places;
 
-import dms.pastor.game.rpg.units.Hero;
 import dms.pastor.game.rpg.quests.QuestMonitor;
+import dms.pastor.game.rpg.units.Hero;
 
 
 public class Office extends Place {

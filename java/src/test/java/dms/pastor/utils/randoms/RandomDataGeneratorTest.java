@@ -33,12 +33,11 @@ public class RandomDataGeneratorTest {
 
     private static final int RANDOM_STRING_LENGTH = 1024;
     private static final String SPACE = " ";
+    @Rule
+    public final ExpectedException exception = ExpectedException.none();
     private final Random random = new Random();
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private PrintStream printStream;
-
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     @Before
     public void setUp() {

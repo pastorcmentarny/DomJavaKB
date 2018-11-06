@@ -3,7 +3,6 @@ package dms.pastor.game.rpg.characteristics;
 import dms.pastor.game.rpg.cfg.Config;
 import dms.pastor.game.rpg.items.weapons.BaseballBat;
 
-
 import java.util.Random;
 
 
@@ -23,9 +22,11 @@ public class Stats {
     private int karma = 0;
     private int criticalChance = Config.DEFAULT_CRITICAL_CHANCE; //TODO move criticalChance from unit to stats;
     private Random random = new Random();
+
     public Stats() {
 
     }
+
     public Stats(int minDMG, int maxDMG, int accuracy, int evasion, int HP, int maxHP, int SP, int maxSP, int ARM, int mana, int maxMana, int karma) {
         this.minDMG = minDMG;
         this.maxDMG = maxDMG;

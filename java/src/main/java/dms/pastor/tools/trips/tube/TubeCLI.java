@@ -19,13 +19,13 @@ class TubeCLI {
     private static final Logger LOGGER = LoggerFactory.getLogger(TubeCLI.class);
     private static final String INVALID_CHOICE_MESSAGE = "Invalid choice. Try again";
 
-    private final Stations stations;
-    private final OptionsFactory options;
-    private Scanner scanner;
-
     static {
         new Scanner(System.in);
     }
+
+    private final Stations stations;
+    private final OptionsFactory options;
+    private Scanner scanner;
 
 
     TubeCLI(Stations stations, Scanner scanner) {

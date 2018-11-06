@@ -18,16 +18,16 @@ import static dms.pastor.game.littlefighter.Config.DEFAULT_HEALTH_POINTS;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 class Enemy {
+    // --Commented out by Inspection (21/02/2018 15:56):protected boolean isUseMagicShield;
+    final Random random = new Random();
+    final Status statuses = new Status();
     int enemyAttack;
     int enemyDefence;
     int enemyPower;
     int enemyHP;
     //private int EnemyShield = 2*EnemyHP;
     int enemyArmor;
-    // --Commented out by Inspection (21/02/2018 15:56):protected boolean isUseMagicShield;
-    final Random random = new Random();
     String enemyName = "Effigy";
-    final Status statuses = new Status();
     int regen;
     // --Commented out by Inspection (21/02/2018 15:56):boolean isPoisoned;
 

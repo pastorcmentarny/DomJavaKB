@@ -1,14 +1,14 @@
 package dms.pastor.game.rpg.units.enemies.animals;
 
-import dms.pastor.game.rpg.commons.Result;
-import dms.pastor.game.rpg.units.Hero;
-import dms.pastor.game.rpg.units.Unit;
 import dms.pastor.game.rpg.characteristics.Skills;
 import dms.pastor.game.rpg.characteristics.Stats;
+import dms.pastor.game.rpg.commons.Result;
 import dms.pastor.game.rpg.items.Inventory;
 import dms.pastor.game.rpg.items.UnicornsHorn;
 import dms.pastor.game.rpg.spells.RainbowVomitSpell;
 import dms.pastor.game.rpg.spells.Spell;
+import dms.pastor.game.rpg.units.Hero;
+import dms.pastor.game.rpg.units.Unit;
 import dms.pastor.game.rpg.units.enemies.Enemy;
 
 import java.util.Random;

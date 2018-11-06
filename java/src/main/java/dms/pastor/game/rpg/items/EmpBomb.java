@@ -1,9 +1,9 @@
 package dms.pastor.game.rpg.items;
 
 import dms.pastor.game.rpg.commons.Result;
+import dms.pastor.game.rpg.events.BattleManual;
 import dms.pastor.game.rpg.units.Hero;
 import dms.pastor.game.rpg.units.Unit;
-import dms.pastor.game.rpg.events.BattleManual;
 
 import java.util.Random;
 

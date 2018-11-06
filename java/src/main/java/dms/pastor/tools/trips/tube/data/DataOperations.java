@@ -26,7 +26,7 @@ public final class DataOperations {
     private static final String SRC = "src" + separator;
     private static final String RESOURCES = "resources" + separator;
     private static final String BASE_PATH = System.getProperty("user.dir") +
-            separator +  "java" +
+            separator + "java" +
             separator + SRC + "main" +
             separator + RESOURCES;
     private static final String STATION_PATH = System.getProperty("user.dir") +

@@ -27,6 +27,7 @@ public class State {
     //CURSE
     private boolean curse = false;
     private int curseTurns;
+
     public State(ArrayList<Attribute> currentAttributes) {
         this.currentAttributes = currentAttributes;
     }

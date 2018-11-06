@@ -1,8 +1,8 @@
 package dms.pastor.game.rpg.places;
 
-import dms.pastor.game.rpg.units.Hero;
 import dms.pastor.game.rpg.HygieneRating;
 import dms.pastor.game.rpg.events.Chat;
+import dms.pastor.game.rpg.units.Hero;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

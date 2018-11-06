@@ -1,14 +1,14 @@
 package dms.pastor.game.rpg.menu;
 
+import dms.pastor.game.rpg.armor.Armor;
 import dms.pastor.game.rpg.cfg.Config;
 import dms.pastor.game.rpg.commons.Result;
 import dms.pastor.game.rpg.items.Action;
 import dms.pastor.game.rpg.items.Inventory;
 import dms.pastor.game.rpg.items.Item;
 import dms.pastor.game.rpg.items.food.FoodItem;
-import dms.pastor.game.rpg.units.Hero;
-import dms.pastor.game.rpg.armor.Armor;
 import dms.pastor.game.rpg.items.weapons.Weapon;
+import dms.pastor.game.rpg.units.Hero;
 
 import java.util.Scanner;
 
@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class InventoryMenu implements Menu {
 
     static //FIXME log.er //FIXME log.= //FIXME log.er.get//FIXME log.er(Game.class);
-        Scanner scanner = new Scanner(System.in);
+            Scanner scanner = new Scanner(System.in);
     Hero hero = Hero.getHero();
 
     Inventory inventory;

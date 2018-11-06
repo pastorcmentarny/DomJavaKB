@@ -26,6 +26,7 @@ public class QuestMonitor {
     private boolean zombieTalkPassed = false;
     private boolean officeQuestCompleted = false;
     private boolean monikaQuestCompleted = false;
+
     private QuestMonitor() {
 
     }

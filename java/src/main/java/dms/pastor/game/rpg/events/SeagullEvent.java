@@ -1,8 +1,8 @@
 package dms.pastor.game.rpg.events;
 
+import dms.pastor.game.rpg.commons.Msg;
 import dms.pastor.game.rpg.commons.Result;
 import dms.pastor.game.rpg.units.Hero;
-import dms.pastor.game.rpg.commons.Msg;
 import dms.pastor.game.rpg.units.enemies.animals.Seagull;
 
 import java.util.Random;
@@ -19,6 +19,7 @@ public class SeagullEvent implements EventInterface {
     Seagull seagull;
     Scanner scanner = new Scanner(System.in);
     Random random = new Random();
+
     public SeagullEvent(Hero hero, Seagull seagull) {
         this.hero = hero;
         this.seagull = seagull;

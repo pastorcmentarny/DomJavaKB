@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
- *
+ * <p>
  * I supress 2 warnings because:
  * off as test contains lots text as graphic elements
  * test tests algorithm that in many edge cases that uses similar condition

@@ -1,8 +1,8 @@
 package dms.pastor.game.rpg.units.enemies;
 
-import dms.pastor.game.rpg.units.Unit;
 import dms.pastor.game.rpg.characteristics.Skills;
 import dms.pastor.game.rpg.characteristics.Stats;
+import dms.pastor.game.rpg.units.Unit;
 
 
 public class One extends Enemy {

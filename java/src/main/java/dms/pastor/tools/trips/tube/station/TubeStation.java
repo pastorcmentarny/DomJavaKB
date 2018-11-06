@@ -52,6 +52,10 @@ public class TubeStation {//implements Station {
         return status;
     }
 
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
     public LocalDate getPassedDate() {
         return passedDate;
     }
@@ -74,10 +78,6 @@ public class TubeStation {//implements Station {
 
     void setVisitedStationThisYearToNow() {
         this.thisYearVisitedDate = LocalDate.now();
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
     }
 
     public String getStatusAsValue() {

@@ -134,7 +134,7 @@ public final class FileUtils {
             if (lockFile != null) {
                 lockFile.release();
                 channel.close();
-                if(file.exists()){
+                if (file.exists()) {
                     boolean pass = file.delete();
                     if (!pass) {
                         LOGGER.warn("Unable to unlock program.It cans cause problem with running program.\nProgram should work after restart of your computer.");

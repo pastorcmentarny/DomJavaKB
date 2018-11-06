@@ -1,6 +1,5 @@
 package dms.pastor.game.rpg.places;
 
-import dms.pastor.game.rpg.units.Hero;
 import dms.pastor.game.rpg.Game;
 import dms.pastor.game.rpg.commons.Msg;
 import dms.pastor.game.rpg.events.BattleManual;
@@ -9,6 +8,7 @@ import dms.pastor.game.rpg.items.AnesthesiaFlower;
 import dms.pastor.game.rpg.items.HealingHerbs;
 import dms.pastor.game.rpg.quests.QuestMonitor;
 import dms.pastor.game.rpg.quests.QuestState;
+import dms.pastor.game.rpg.units.Hero;
 import dms.pastor.game.rpg.units.enemies.Enemy;
 import dms.pastor.game.rpg.units.enemies.animals.Seagull;
 import dms.pastor.game.rpg.units.enemies.animals.Sheep;
@@ -44,9 +44,9 @@ class ConstitutionHill extends Place {
         boolean stay = true;
         while (stay) {
             System.out.println("You can:\n 1.Go to Darian Luna Park\n"
-                + "2. Use Cliff Railway\n"
-                + "3.Walk around\n"
-                + "0.Back\n");
+                    + "2. Use Cliff Railway\n"
+                    + "3.Walk around\n"
+                    + "0.Back\n");
             try {
                 int choice = scanner.nextInt();
                 switch (choice) {

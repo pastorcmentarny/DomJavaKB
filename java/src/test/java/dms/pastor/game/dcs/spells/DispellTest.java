@@ -15,7 +15,7 @@ public final class DispellTest {
     public void castDispellShouldRemoveAllConditionOnUnit() {
         // given
         final Dispell dispell = new Dispell();
-        final ConditionEntry conditionEntry1 = ConditionEntry.createTemporaryCondition(EARTH_IMMUNE,3);
+        final ConditionEntry conditionEntry1 = ConditionEntry.createTemporaryCondition(EARTH_IMMUNE, 3);
         final ConditionEntry conditionEntry2 = ConditionEntry.createTemporaryConditionWithDefaultDuration(FIRE_IMMUNE);
         final ConditionEntry conditionEntry3 = ConditionEntry.createPersistentCondition(AIR_IMMUNE);
 

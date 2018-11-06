@@ -10,7 +10,7 @@ package dms.pastor.domain;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  * <p>
  * Example of test of System.out
- *
+ * <p>
  * tag-test-system.out
  */
 public final class Message {

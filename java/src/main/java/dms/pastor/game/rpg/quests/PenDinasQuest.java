@@ -1,15 +1,14 @@
 package dms.pastor.game.rpg.quests;
 
-import dms.pastor.game.rpg.units.Hero;
-import dms.pastor.game.rpg.units.Unit;
 import dms.pastor.game.rpg.Bonus;
 import dms.pastor.game.rpg.Game;
 import dms.pastor.game.rpg.cfg.Config;
 import dms.pastor.game.rpg.events.BattleManual;
+import dms.pastor.game.rpg.units.Hero;
+import dms.pastor.game.rpg.units.Unit;
 import dms.pastor.game.rpg.units.enemies.Enemy;
 import dms.pastor.game.rpg.units.enemies.JasAcolyte;
 import dms.pastor.game.rpg.units.enemies.bosses.JamesClarke;
-
 
 import java.util.Scanner;
 

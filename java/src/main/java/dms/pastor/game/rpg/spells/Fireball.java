@@ -1,9 +1,9 @@
 package dms.pastor.game.rpg.spells;
 
+import dms.pastor.game.rpg.characteristics.Attribute;
 import dms.pastor.game.rpg.commons.Result;
 import dms.pastor.game.rpg.units.Hero;
 import dms.pastor.game.rpg.units.Unit;
-import dms.pastor.game.rpg.characteristics.Attribute;
 
 
 public class Fireball extends Spell {

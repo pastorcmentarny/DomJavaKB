@@ -87,7 +87,7 @@ public class About extends javax.swing.JFrame {
 
         setTitle("ABOUT ME");
         setAlwaysOnTop(true);
-        setName("about"); 
+        setName("about");
         setResizable(false);
 
         aboutTabbedPanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -106,7 +106,7 @@ public class About extends javax.swing.JFrame {
         jScrollPane5.setFont(getDefaultFont());
 
         jTextArea2.setColumns(COLUMNS_SIZE);
-        jTextArea2.setFont(getDefaultFont()); 
+        jTextArea2.setFont(getDefaultFont());
         jTextArea2.setLineWrap(true);
         jTextArea2.setRows(5);
         jTextArea2.setText(properties.getProperty("about.program"));
@@ -153,7 +153,7 @@ public class About extends javax.swing.JFrame {
 
         changelogTextArea.setColumns(COLUMNS_SIZE);
         changelogTextArea.setEditable(false);
-        changelogTextArea.setFont(getDefaultFont()); 
+        changelogTextArea.setFont(getDefaultFont());
         changelogTextArea.setLineWrap(true);
         changelogTextArea.setRows(5);
         changelogTextArea.setWrapStyleWord(true);
@@ -186,7 +186,7 @@ public class About extends javax.swing.JFrame {
 
         messageTextArea.setColumns(COLUMNS_SIZE);
         messageTextArea.setEditable(false);
-        messageTextArea.setFont(getDefaultFont()); 
+        messageTextArea.setFont(getDefaultFont());
         messageTextArea.setLineWrap(true);
         messageTextArea.setRows(5);
         messageTextArea.setText(properties.getProperty("about.me"));
@@ -246,7 +246,7 @@ public class About extends javax.swing.JFrame {
 
         thanksTextArea.setColumns(COLUMNS_SIZE);
         thanksTextArea.setEditable(false);
-        thanksTextArea.setFont(getDefaultFont()); 
+        thanksTextArea.setFont(getDefaultFont());
         thanksTextArea.setLineWrap(true);
         thanksTextArea.setRows(5);
         thanksTextArea.setText(properties.getProperty("about.thanks"));

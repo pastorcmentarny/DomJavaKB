@@ -26,12 +26,10 @@ import static org.hamcrest.CoreMatchers.containsString;
 public class PrintOutUtilsTest {
 
     private static final byte[] BYTES = new byte[]{};
-
-    private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-    private final PrintStream original = System.out;
-
     @Rule
     public final ExpectedException exception = ExpectedException.none();
+    private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    private final PrintStream original = System.out;
 
     @Before
     public void setUpStreams() {

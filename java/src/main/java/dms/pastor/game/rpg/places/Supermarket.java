@@ -1,7 +1,7 @@
 package dms.pastor.game.rpg.places;
 
-import dms.pastor.game.rpg.commons.Result;
 import dms.pastor.game.rpg.commons.Msg;
+import dms.pastor.game.rpg.commons.Result;
 import dms.pastor.game.rpg.items.EmpBomb;
 import dms.pastor.game.rpg.items.weapons.BaseballBat;
 

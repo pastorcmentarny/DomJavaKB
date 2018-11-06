@@ -35,11 +35,9 @@ public class ReadTimeCalculatorTest {
     private static final int REPEAT_TEST_TIMES = 10;
     private static final int ONE_WORD_PER_SECOND = 60;
     private static final String ERROR_READING_SPEED_EQUAL_OR_HIGHER = "Speed of reading must be equal or higher than 60  words per minute";
-    private final Random random = new Random();
-
     @Rule
     public final ExpectedException exception = ExpectedException.none();
-
+    private final Random random = new Random();
     @Rule
     public RepeaterRule repeater = RepeaterRule.use();
 

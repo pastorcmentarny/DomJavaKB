@@ -1,11 +1,11 @@
 package dms.pastor.game.rpg.units.enemies.animals;
 
-import dms.pastor.game.rpg.units.Hero;
-import dms.pastor.game.rpg.units.Unit;
 import dms.pastor.game.rpg.cfg.Config;
 import dms.pastor.game.rpg.characteristics.Attribute;
 import dms.pastor.game.rpg.characteristics.Skills;
 import dms.pastor.game.rpg.characteristics.Stats;
+import dms.pastor.game.rpg.units.Hero;
+import dms.pastor.game.rpg.units.Unit;
 import dms.pastor.game.rpg.units.enemies.Enemy;
 import dms.pastor.game.rpg.utils.RandomUtils;
 

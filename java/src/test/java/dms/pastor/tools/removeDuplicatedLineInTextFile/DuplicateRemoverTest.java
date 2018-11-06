@@ -22,10 +22,9 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
  */
 public class DuplicateRemoverTest {
 
-    private final DuplicateRemover duplicateRemover = new DuplicateRemover();
-
     @Rule
     public final ExpectedException exception = ExpectedException.none();
+    private final DuplicateRemover duplicateRemover = new DuplicateRemover();
 
     @Test
     public void shouldThrowIllegalArgumentExceptionForNullFilePathTest() {

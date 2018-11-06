@@ -1,11 +1,11 @@
 package dms.pastor.game.rpg.places;
 
-import dms.pastor.game.rpg.units.Hero;
 import dms.pastor.game.rpg.Game;
 import dms.pastor.game.rpg.commons.Msg;
 import dms.pastor.game.rpg.events.BattleManual;
 import dms.pastor.game.rpg.events.Chat;
 import dms.pastor.game.rpg.quests.QuestMonitor;
+import dms.pastor.game.rpg.units.Hero;
 import dms.pastor.game.rpg.units.npc.Day9;
 import dms.pastor.game.rpg.units.nylonKnights.Dresiarz;
 

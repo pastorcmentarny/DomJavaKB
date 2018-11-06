@@ -26,6 +26,7 @@ public class StationTest {
         // then
         assertThat(uniqueStations).hasSize(270);
     }
+
     @Test
     public void hasShouldReturnTrueForExistingStation() {
         assertThat(Station.has("Wembley Park")).isTrue();

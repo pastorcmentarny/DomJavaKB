@@ -1,8 +1,8 @@
 package dms.pastor.game.rpg.items;
 
+import dms.pastor.game.rpg.Element;
 import dms.pastor.game.rpg.commons.Result;
 import dms.pastor.game.rpg.units.Unit;
-import dms.pastor.game.rpg.Element;
 
 import java.util.EnumSet;
 

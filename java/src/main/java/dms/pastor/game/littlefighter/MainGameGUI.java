@@ -26,11 +26,11 @@ public final class MainGameGUI extends javax.swing.JFrame {
     private static final int PREFERRED_SIZE = 113;
     private static final int DEFAULT_GAP_SIZE = 274;
     private final Player player = new Player();
-    private Enemy enemy = new Unknown();
     private final Battle battle = new Battle();
     private final SpellBook spellBook = new SpellBook();
     private final HiScore hs = new HiScore();
     private final Random random = new Random();
+    private Enemy enemy = new Unknown();
     private int lvl = 0;
     private int shieldRegen = 2;
     private int antiExp = 0;

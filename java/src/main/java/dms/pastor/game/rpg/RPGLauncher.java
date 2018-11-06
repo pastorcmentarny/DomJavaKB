@@ -1,6 +1,5 @@
 package dms.pastor.game.rpg;
 
-import ch.qos.logback.classic.BasicConfigurator;
 import dms.pastor.game.rpg.events.GuessNumberEvent;
 import dms.pastor.game.rpg.lab.UnitLab;
 import dms.pastor.game.rpg.utils.BalanceCheckerUtils;

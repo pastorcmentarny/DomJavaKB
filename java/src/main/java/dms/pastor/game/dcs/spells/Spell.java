@@ -23,12 +23,11 @@ public abstract class Spell extends Card {
 
     final RandomUtils randomUtils = new InGameRandomUtils();
     final Random random = new Random();
+    private Elements elements;
 
     Spell() {
         setCardType(SPELL);
     }
-
-    private Elements elements;
 
     static void castSpellMessage(String attackerName, String spellName, String defenderName) {
         System.out.println(attackerName + " casting " + spellName + " on " + defenderName);

@@ -1,9 +1,9 @@
 package dms.pastor.game.rpg.events;
 
-import dms.pastor.game.rpg.commons.Result;
-import dms.pastor.game.rpg.units.Hero;
 import dms.pastor.game.rpg.commons.Msg;
+import dms.pastor.game.rpg.commons.Result;
 import dms.pastor.game.rpg.items.Items;
+import dms.pastor.game.rpg.units.Hero;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class BagFoundEvent implements EventInterface {
     static //FIXME log.er //FIXME log.= //FIXME log.er.get//FIXME log.er(RPGLauncher.class);
 
-        Scanner scanner = new Scanner(System.in);
+            Scanner scanner = new Scanner(System.in);
 
     Result result = new Result(false);
     Hero hero;
