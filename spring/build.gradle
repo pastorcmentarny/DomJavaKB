@@ -1,0 +1,65 @@
+import org.codehaus.groovy.runtime.GStringImpl
+
+project.ext {
+    //All non-gradle (extra )properties must be defined through the "ext" namespace.
+    // Once defined, it is available directly on the owning object
+    gradleDir = "${project(':').rootDir}/gradle" as GStringImpl
+}
+
+apply from: "$gradleDir/dependecies.gradle"
+
+buildscript {
+    ext {
+        springBootVersion = '2.0.4.RELEASE'
+        kafkaVersion = '1.3.2.RELEASE'
+        embeddedMongoVersion = '1.3.1'
+        dependencyCheck = '3.1.2'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("org.owasp:dependency-check-gradle:${dependencyCheck}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea' //allows clean intellij idea projects from gradle
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'org.owasp.dependencycheck'
+
+apply from: "$gradleDir/tasks.gradle/"
+
+compileJava {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+    options.encoding = 'UTF-8' //to ensure that I always use UTF-8 in project
+}
+
+jar {
+    baseName = project.name
+    version = '' // removed as i do not use version
+}
+
+
+//move to dependencies folder
+dependencies {
+    compile("joda-time:joda-time:2.9.3")
+    compile project(':java')
+    compile libraries.log
+    compile("org.springframework.boot:spring-boot-starter-actuator:$springBootVersion")
+    compile("org.springframework.boot:spring-boot-starter-data-mongodb:$springBootVersion")
+    compile("org.springframework.boot:spring-boot-devtools:$springBootVersion")
+    compile("org.springframework.boot:spring-boot-starter-mail:$springBootVersion")
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf:$springBootVersion")
+    compile("org.springframework.boot:spring-boot-starter-web:$springBootVersion")
+    compile("org.springframework.boot:spring-boot-starter-web-services:$springBootVersion")
+    //compile("org.springframework.kafka:spring-kafka:$kafkaVersion")
+    compile('com.fasterxml.jackson.datatype:jackson-datatype-jsr310')
+    compile("cz.jirutka.spring:embedmongo-spring:$embeddedMongoVersion")
+    //compile("org.springframework.kafka:spring-kafka-test:$kafkaVersion")
+    compile("org.slf4j:slf4j-api:1.7.25")
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}

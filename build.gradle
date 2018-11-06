@@ -3,6 +3,8 @@ import org.codehaus.groovy.runtime.GStringImpl
 project.ext {
     gradleDir = "${project(':').rootDir}/gradle" as GStringImpl
 }
+apply plugin: 'java'
+apply plugin: 'org.owasp.dependencycheck'
 
 buildscript {
     repositories {
@@ -13,21 +15,20 @@ buildscript {
     }
 }
 
-apply plugin: 'java'
-apply plugin: 'idea'
-apply plugin: 'org.owasp.dependencycheck'
-compileJava.options.encoding = 'UTF-8'
+compileJava {
+    sourceCompatibility = JavaVersion.VERSION_1_10
+    targetCompatibility = JavaVersion.VERSION_1_10
+    options.encoding = 'UTF-8' //to ensure that I always use UTF-8 in project
+}
 
-//noinspection GroovyUnusedAssignment
-targetCompatibility = JavaVersion.VERSION_1_10
+compileTestJava.options.encoding = 'UTF-8'
 
-//noinspection GroovyUnusedAssignment
-sourceCompatibility = JavaVersion.VERSION_1_10
 
 allprojects {
+    apply plugin: 'idea'
+
     repositories {
         mavenLocal()
-        mavenCentral()
         maven {
             url('https://mvnrepository.com/artifact/ch.qos.logback/logback-classic')
         }
@@ -36,21 +37,9 @@ allprojects {
         }
     }
 
-    dependencies {
-        compile 'commons-io:commons-io:2.6'
-        compile 'joda-time:joda-time:2.9.3'
-        compile 'ch.qos.logback:logback-classic:1.2.3'
-        testCompile 'junit:junit:4.12'
-        testCompile 'org.hamcrest:hamcrest-all:1.3'
-        testCompile 'org.mockito:mockito-core:2.17.0'
-        testCompile 'org.assertj:assertj-core:3.9.1'
-        testCompile 'com.github.stefanbirkner:system-rules:1.18.0' //junit rules for system package
-        //https://stefanbirkner.github.io/system-rules/index.html
+    //to display which project is build
+    afterEvaluate { project ->
+        println "I'm building $project.name with version $project.version"
     }
 
-}
-
-task wrapper(type: Wrapper) {
-    println("Creating tasks for application")
-    gradleVersion = '4.8'
 }

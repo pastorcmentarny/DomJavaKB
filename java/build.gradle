@@ -1,0 +1,49 @@
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+apply plugin: 'java'
+
+compileJava {
+    sourceCompatibility = JavaVersion.VERSION_1_10
+    targetCompatibility = JavaVersion.VERSION_1_10
+    options.encoding = 'UTF-8' //to ensure that I always use UTF-8 in project
+}
+
+jar {
+    baseName = project.name
+    version = '' // removed as i do not use version
+}
+
+
+allprojects {
+
+    apply plugin: 'idea'
+    
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven {
+            url('https://mvnrepository.com/artifact/ch.qos.logback/logback-classic')
+        }
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+
+    dependencies {
+        compile 'commons-io:commons-io:2.6'
+        compile 'joda-time:joda-time:2.9.3'
+        compile 'ch.qos.logback:logback-classic:1.2.3'
+        compileOnly 'org.projectlombok:lombok:1.18.4'
+        testCompile 'junit:junit:4.12'
+        testCompile 'org.hamcrest:hamcrest-all:1.3'
+        testCompile 'org.mockito:mockito-core:2.17.0'
+        testCompile 'org.assertj:assertj-core:3.9.1'
+        testCompile 'com.github.stefanbirkner:system-rules:1.18.0' //junit rules for system package
+    }
+
+}

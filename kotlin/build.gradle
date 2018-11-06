@@ -1,0 +1,46 @@
+buildscript {
+    ext {
+        kotlin_version = '1.2.71'
+
+    }
+    repositories {
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+    group 'dms.pastor'
+    version '1.0-SNAPSHOT'
+
+    apply plugin: 'java'
+    apply plugin: 'kotlin'
+
+//-Xjsr305=strict
+// To report as nullability problems reported as error we add the command line parameter -Xjsr305=strict.
+// By default they are reported as warning To disable the warnings, use -Xjsr305=ignore.
+    compileKotlin {
+        kotlinOptions {
+            freeCompilerArgs = ["-Xjsr305=strict"]
+            jvmTarget = "1.8"
+        }
+    }
+    compileTestKotlin {
+        kotlinOptions {
+            freeCompilerArgs = ["-Xjsr305=strict"]
+            jvmTarget = "1.8"
+        }
+    }
+repositories {
+    mavenCentral()
+}
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    compile "com.fasterxml.jackson.module:jackson-module-kotlin:2.9.+"
+
+}

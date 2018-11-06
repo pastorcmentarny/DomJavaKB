@@ -1,0 +1,19 @@
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+apply plugin: 'idea'
+
+/*
+plugins {
+    id "ru.vyarus.use-python" version "1.2.0"
+}
+ */
+idea {
+    module {
+        sourceDirs += file('src')
+        testSourceDirs += file('test')
+    }
+}

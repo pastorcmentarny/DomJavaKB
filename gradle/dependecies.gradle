@@ -1,0 +1,19 @@
+project.ext {
+    springBootVersion = '2.0.4.RELEASE'
+
+    libraries = [
+            log: [
+                dependencies.create('ch.qos.logback:logback-classic:1.2.3')
+            ],
+            springBoot: [
+                    dependencies.create("org.springframework.boot:spring-boot-starter-actuator:$springBootVersion"),
+                    dependencies.create("org.springframework.boot:spring-boot-starter-data-mongodb:$springBootVersion"),
+                    dependencies.create("org.springframework.boot:spring-boot-devtools:$springBootVersion"),
+                    dependencies.create("org.springframework.boot:spring-boot-starter-mail:$springBootVersion"),
+                    dependencies.create("org.springframework.boot:spring-boot-starter-thymeleaf:$springBootVersion"),
+                    dependencies.create("org.springframework.boot:spring-boot-starter-web:$springBootVersion"),
+                    dependencies.create("org.springframework.boot:spring-boot-starter-web-services:$springBootVersion")
+            ]
+
+    ]
+}

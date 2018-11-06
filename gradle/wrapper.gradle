@@ -1,0 +1,4 @@
+task wrapper(type: Wrapper) {
+    println("Creating tasks for application")
+    gradleVersion = '4.10.2'
+}

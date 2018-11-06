@@ -1,0 +1,33 @@
+//TODO AT THE MOMENT THIS PROJECT WORKS WITH JAVA 8!
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+apply plugin: 'groovy'
+apply plugin: 'idea'
+
+allprojects {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven {
+            url('https://mvnrepository.com/artifact/ch.qos.logback/logback-classic')
+        }
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+
+}
+
+compileJava {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+    options.encoding = 'UTF-8' //to ensure that I always use UTF-8 in project
+}
+
+dependencies {
+    compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.0'
+}

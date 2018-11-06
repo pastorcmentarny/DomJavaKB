@@ -14,6 +14,7 @@ I use this project to:
 - improve my code quality.
 - store various code snippet that I used or I would like to use in future.
 - write prototypes of various code snippets that I am intended to use in other projects.
+- keep kb where i keep best definitions
 
 ### **HONEST WARNING**:
 * Code quality is shocking and depressing because the purpose of this project is not to write code that is "production awesome".

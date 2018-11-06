@@ -1,0 +1,4 @@
+Selenium methods:
+findElement
+clickElement
+waitUntilVisible
