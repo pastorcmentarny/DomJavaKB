@@ -390,6 +390,7 @@ public class ValidatorUtilsTest {
         ValidatorUtils.validateIfPositiveNumber(negativeInteger, customName);
     }
 
+    //FIXME flaky
     @Test
     public void validateIfPositiveNumberWithCustomValueNameShouldPassWithoutExceptionForPositiveIntegerValue() {
         // given
