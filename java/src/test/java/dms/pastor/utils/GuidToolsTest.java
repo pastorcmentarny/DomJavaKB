@@ -36,7 +36,7 @@ public class GuidToolsTest {
 
         // then
         assertThat(guid).isNotEmpty();
-        assertThat(guid).hasSize(32);
+        assertThat(guid).hasSize(36);
     }
 
     @Before
