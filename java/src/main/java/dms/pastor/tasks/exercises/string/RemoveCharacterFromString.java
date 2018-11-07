@@ -26,7 +26,7 @@ final class RemoveCharacterFromString {
         if (index == -1) {
             return text;
         }
-        return removeCharacterFromStringUsingRecursive(text.substring(0, index) + text.substring(index + 1, text.length()), character);
+        return removeCharacterFromStringUsingRecursive(text.substring(0, index) + text.substring(index + 1), character);
     }
 
 }

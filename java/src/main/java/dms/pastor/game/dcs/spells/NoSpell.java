@@ -71,7 +71,7 @@ public final class NoSpell extends Spell implements Serializable, Cloneable {
 
 
     @Override //clone return the same instance
-    protected Object clone() throws CloneNotSupportedException {
+    protected Object clone() {
         return NoSpell.getInstance();
     }
 

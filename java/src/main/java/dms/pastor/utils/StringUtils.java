@@ -298,7 +298,7 @@ public final class StringUtils {
         if (checkIfStringEmpty(string)) {
             return string;
         }
-        return string.substring(0, 1).toUpperCase() + string.substring(1, string.length());
+        return string.substring(0, 1).toUpperCase() + string.substring(1);
     }
 
     //TODO rename it

@@ -1,6 +1,7 @@
 package dms.pastor.tasks.integeradder;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 /**
  * Author Dominik Symonowicz
@@ -32,7 +33,7 @@ class IntegerAdder {
     private int loadIntegers(File inputFile) throws IOException {
         int sum = 0;
         try (FileInputStream fis = new FileInputStream(inputFile);
-             InputStreamReader isr = new InputStreamReader(fis, "UTF-8");
+             InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.UTF_8);
              BufferedReader br = new BufferedReader(isr)) {
             String strLine;
             while ((strLine = br.readLine()) != null) {

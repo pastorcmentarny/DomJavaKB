@@ -10,6 +10,7 @@ import java.io.*;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 import java.nio.channels.OverlappingFileLockException;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.List;
 
@@ -160,7 +161,7 @@ public final class FileUtils {
 
         StringBuilder sb = new StringBuilder(EMPTY_STRING);
         try (FileInputStream fis = new FileInputStream(filePath);
-             InputStreamReader isr = new InputStreamReader(fis, "UTF-8");
+             InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.UTF_8);
              BufferedReader br = new BufferedReader(isr)) {
 
             String strLine;
