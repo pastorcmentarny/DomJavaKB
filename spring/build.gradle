@@ -43,7 +43,6 @@ jar {
     version = '' // removed as i do not use version
 }
 
-
 //move to dependencies folder
 dependencies {
     compile("joda-time:joda-time:2.9.3")

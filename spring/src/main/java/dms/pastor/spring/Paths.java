@@ -1,6 +1,6 @@
 package dms.pastor.spring;
 
-public class Paths {
+class Paths {
 
     private static final String LEARNING_URL = "/learning";
     public static final String SAVINGS = LEARNING_URL + "/savings";

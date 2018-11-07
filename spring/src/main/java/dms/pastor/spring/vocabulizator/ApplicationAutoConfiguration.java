@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Configuration;
 public class ApplicationAutoConfiguration {
 
     @Bean
-    public DefinitionService definitionService(DefinitionRepository definitionRepository){
+    public DefinitionService definitionService(DefinitionRepository definitionRepository) {
         return new DefaultDefinitionService(definitionRepository);
     }
 }

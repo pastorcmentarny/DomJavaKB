@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 @ControllerAdvice
 public class CalculatorErrorController {
 
-    static final Logger logger = LoggerFactory.getLogger(CalculatorErrorController.class);
+    private static final Logger logger = LoggerFactory.getLogger(CalculatorErrorController.class);
 
     @ExceptionHandler(Exception.class)
     @ResponseBody

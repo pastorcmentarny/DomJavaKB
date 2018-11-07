@@ -28,11 +28,11 @@ public class Message {
         this.created = created;
     }
 
-    public long getId() {
+    private long getId() {
         return id;
     }
 
-    public String getMessage() {
+    private String getMessage() {
         return message;
     }
 

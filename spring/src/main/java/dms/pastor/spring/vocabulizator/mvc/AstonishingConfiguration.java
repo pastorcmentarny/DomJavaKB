@@ -19,7 +19,7 @@ public class AstonishingConfiguration {
 
     @Bean
     @Scope(value = SCOPE_SINGLETON) //if you need set scope for bean (Singleton is a default , I left here as an example
-    public ServiceInterface legendaryService(){
+    public ServiceInterface legendaryService() {
         return new LegendaryService();
     }
 

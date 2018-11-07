@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @Component
 public class TaskServiceDummy implements TaskServiceI {
     private static final Logger LOGGER = LoggerFactory.getLogger(ErrorController.class);
-    ArrayList<Task> tasks = new ArrayList<>();
+    private ArrayList<Task> tasks = new ArrayList<>();
 
     @Override
     public Task createTask(int userId) {

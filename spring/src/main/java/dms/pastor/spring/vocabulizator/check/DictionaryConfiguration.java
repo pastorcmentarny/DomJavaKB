@@ -11,12 +11,12 @@ import org.springframework.context.annotation.Configuration;
 public class DictionaryConfiguration {
 
     @Bean
-    public DefinitionRepository definitionRepository(){
+    public DefinitionRepository definitionRepository() {
         return new DefinitionDb();
     }
 
     @Bean
-    public SearchService searchService(DefinitionRepository definitionRepository){
+    public SearchService searchService(DefinitionRepository definitionRepository) {
         return new DemoSearchService(definitionRepository);
     }
 }

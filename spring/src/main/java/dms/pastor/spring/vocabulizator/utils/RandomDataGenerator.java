@@ -10,7 +10,7 @@ import java.util.Random;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
-public class RandomDataGenerator {
+class RandomDataGenerator {
     private static final Random random = new Random();
 
     private static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
@@ -23,7 +23,7 @@ public class RandomDataGenerator {
         return generateString(random.nextInt(MAX_LARGE_VALUE + 1));
     }
 
-    public static String generateString(int max) {
+    private static String generateString(int max) {
 
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < max; i++) {
@@ -32,7 +32,7 @@ public class RandomDataGenerator {
         return stringBuilder.toString();
     }
 
-    public static Character getRandomCharacterFromAlphanumericValues() {
+    private static Character getRandomCharacterFromAlphanumericValues() {
         return ALPHABET_WITH_LOWER_UPPER_CASES_AND_NUMBERS.toCharArray()[random.nextInt(ALPHABET_WITH_LOWER_UPPER_CASES_AND_NUMBERS.length())];
     }
 }

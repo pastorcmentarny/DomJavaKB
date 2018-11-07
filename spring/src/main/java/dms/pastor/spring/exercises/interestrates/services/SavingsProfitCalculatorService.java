@@ -10,7 +10,7 @@ import java.math.BigDecimal;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public interface SavingsProfitCalculatorService {
+interface SavingsProfitCalculatorService {
 
     BigDecimal calculateAnnualProfitFor(BigDecimal savings, BigDecimal interestRate);
 }

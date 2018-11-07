@@ -30,7 +30,7 @@ public class JsonObject {
     @JsonIgnore
     private String ignoredField;
 
-    public String getName() {
+    private String getName() {
         return name;
     }
 
@@ -38,7 +38,7 @@ public class JsonObject {
         this.name = name;
     }
 
-    public int getVersion() {
+    private int getVersion() {
         return version;
     }
 
@@ -46,7 +46,7 @@ public class JsonObject {
         this.version = version;
     }
 
-    public boolean isOk() {
+    private boolean isOk() {
         return ok;
     }
 
@@ -54,7 +54,7 @@ public class JsonObject {
         this.ok = ok;
     }
 
-    public String getIgnoredField() {
+    private String getIgnoredField() {
         return ignoredField;
     }
 

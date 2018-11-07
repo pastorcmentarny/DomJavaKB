@@ -20,7 +20,7 @@ import static java.lang.String.format;
  * <p>
  * Some utils to help you validate data
  */
-public final class ValidatorUtils {
+final class ValidatorUtils {
 
     private static final String ERROR_MESSAGE_VALUE_CANNOT_BE_NEGATIVE = " must be positive value.";
     private static final String DEFAULT_VALUE_NAME = "Value";
@@ -78,7 +78,7 @@ public final class ValidatorUtils {
         }
     }
 
-    public static void validateIfPositiveNumber(int number, String valueName) {
+    private static void validateIfPositiveNumber(int number, String valueName) {
         if (number <= 0) {
             throw new IllegalArgumentException(valueName + ERROR_MESSAGE_VALUE_CANNOT_BE_NEGATIVE);
         }
@@ -98,11 +98,11 @@ public final class ValidatorUtils {
         }
     }
 
-    public static void validateIfNotNull(Object value) {
+    private static void validateIfNotNull(Object value) {
         validateIfNotNull(value, "Value");
     }
 
-    public static void validateIfNotNull(Object value, String valueName) {
+    private static void validateIfNotNull(Object value, String valueName) {
         if (value == null) {
             throw new IllegalArgumentException(valueName + " cannot be null.");
         }
@@ -114,7 +114,7 @@ public final class ValidatorUtils {
         }
     }
 
-    public static void validateMinValueIsSmallerThanMaxValue(int minValue, int maxValue) {
+    private static void validateMinValueIsSmallerThanMaxValue(int minValue, int maxValue) {
         if (minValue >= maxValue) {
             throw new IllegalArgumentException(format("MinValue (%d) must be lower than MaxValue(%d)", minValue, maxValue));
         }
@@ -173,7 +173,7 @@ public final class ValidatorUtils {
         }
     }
 
-    public static boolean isValueInRange(int min, int max, int number) {
+    private static boolean isValueInRange(int min, int max, int number) {
         validateMinValueIsSmallerThanMaxValue(min, max);
         return number >= min && number <= max;
     }

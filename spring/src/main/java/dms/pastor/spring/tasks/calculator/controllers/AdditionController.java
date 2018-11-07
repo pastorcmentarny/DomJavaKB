@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 public class AdditionController {
-    static final Logger logger = LoggerFactory.getLogger(AdditionController.class);
+    private static final Logger logger = LoggerFactory.getLogger(AdditionController.class);
 
     @RequestMapping(value = "/add", method = RequestMethod.POST, produces = "application/json", consumes = "application/json")
     public Result add(@RequestBody Addition name) {

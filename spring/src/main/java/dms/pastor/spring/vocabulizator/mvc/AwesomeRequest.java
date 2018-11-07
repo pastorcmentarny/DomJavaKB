@@ -12,7 +12,7 @@ import java.util.UUID;
  */
 
 
-public class AwesomeRequest {
+class AwesomeRequest {
 
     private final UUID id;
     private final String data;

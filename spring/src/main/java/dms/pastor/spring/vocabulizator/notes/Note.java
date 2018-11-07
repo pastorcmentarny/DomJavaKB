@@ -10,7 +10,7 @@ import org.springframework.data.annotation.Id;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
-public class Note {
+class Note {
     @Id
     private String id;
 
@@ -18,7 +18,7 @@ public class Note {
     private final String content;
     private final String tags;
     private final String date;
-    
+
     public Note(String title, String content, String tags, String date) {
         this.title = title;
         this.content = content;

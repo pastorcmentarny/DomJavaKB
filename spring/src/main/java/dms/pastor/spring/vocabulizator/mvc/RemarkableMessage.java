@@ -22,7 +22,7 @@ public class RemarkableMessage {
     private final String message;
     private final boolean important;
 
-    public RemarkableMessage(LocalDateTime created, UUID id, String title, String message, boolean important) {
+    private RemarkableMessage(LocalDateTime created, UUID id, String title, String message, boolean important) {
         this.created = created;
         this.id = id;
         this.title = title;
@@ -51,6 +51,6 @@ public class RemarkableMessage {
     }
 
     public static RemarkableMessage generateRandomMessage() {
-        return new RemarkableMessage(LocalDateTime.now(), UUID.randomUUID(),generateString(10),generateString(128),new Random().nextBoolean());
+        return new RemarkableMessage(LocalDateTime.now(), UUID.randomUUID(), generateString(10), generateString(128), new Random().nextBoolean());
     }
 }

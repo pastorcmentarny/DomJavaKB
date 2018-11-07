@@ -20,13 +20,14 @@ public class DefinitionBuilder {
     private String meaning = generateString();
     private List<Tag> tags = Collections.singletonList(Tag.IT);
 
-    private DefinitionBuilder(){}
+    private DefinitionBuilder() {
+    }
 
-    public static DefinitionBuilder definitionBuilder(){
+    public static DefinitionBuilder definitionBuilder() {
         return new DefinitionBuilder();
     }
 
-    public Definition build(){
+    public Definition build() {
         return new Definition(UUID.randomUUID(), word, meaning, tags);
     }
 

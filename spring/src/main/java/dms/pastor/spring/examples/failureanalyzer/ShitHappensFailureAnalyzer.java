@@ -12,7 +12,7 @@ import org.springframework.boot.diagnostics.FailureAnalysis;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class ShitHappensFailureAnalyzer extends AbstractFailureAnalyzer<SomethingWentWrongException> {
+class ShitHappensFailureAnalyzer extends AbstractFailureAnalyzer<SomethingWentWrongException> {
 
     @Override
     protected FailureAnalysis analyze(Throwable rootFailure, SomethingWentWrongException cause) {

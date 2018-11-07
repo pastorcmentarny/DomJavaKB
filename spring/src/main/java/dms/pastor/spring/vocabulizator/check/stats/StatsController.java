@@ -15,9 +15,9 @@ public class StatsController {
     private static final Logger LOG = LoggerFactory.getLogger(StatsController.class);
 
     @GetMapping(DICTIONARY_STATISTIC)
-    public Map<String,String> getStatisticForDictionary() {
+    public Map<String, String> getStatisticForDictionary() {
         LOG.info("Getting stats for dictionary");
-        final HashMap<String,String> summary = new HashMap<>();
+        final HashMap<String, String> summary = new HashMap<>();
         summary.put("words", "0");
         LOG.info("Returning stats for dictionary");
         return summary;

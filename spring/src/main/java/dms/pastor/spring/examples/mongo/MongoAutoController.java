@@ -24,8 +24,12 @@ import static java.math.BigDecimal.TEN;
 public class MongoAutoController {
     private static final Logger LOGGER = LoggerFactory.getLogger(MongoAutoController.class);
 
+    private final CustomerRepository customerRepository;
+
     @Autowired
-    private CustomerRepository customerRepository;
+    public MongoAutoController(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
+    }
 
 
     @GetMapping("/mongo-example")

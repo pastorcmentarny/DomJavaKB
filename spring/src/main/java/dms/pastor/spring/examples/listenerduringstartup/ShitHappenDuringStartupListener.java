@@ -15,7 +15,7 @@ import java.util.Random;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class ShitHappenDuringStartupListener implements ApplicationListener<ApplicationPreparedEvent> {
+class ShitHappenDuringStartupListener implements ApplicationListener<ApplicationPreparedEvent> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ShitHappenDuringStartupListener.class);
     private static final String NAME = ShitHappenDuringStartupListener.class.getSimpleName();

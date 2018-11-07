@@ -17,10 +17,10 @@ import static java.lang.String.format;
 public class Customer {
 
     @Id
-    public String id;
+    private String id;
 
-    public String firstName;
-    public String lastName;
+    private String firstName;
+    private String lastName;
     private BigDecimal value;
 
     public Customer(String firstName, String lastName, BigDecimal value) {

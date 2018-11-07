@@ -22,11 +22,15 @@ import java.util.ArrayList;
 @RestController
 @RequestMapping("/task")
 public class TaskController {
-    static final Logger logger = LoggerFactory.getLogger(TaskController.class);
+    private static final Logger logger = LoggerFactory.getLogger(TaskController.class);
 
+
+    private final TaskServiceI taskService;
 
     @Autowired
-    private TaskServiceI taskService;
+    public TaskController(TaskServiceI taskService) {
+        this.taskService = taskService;
+    }
 
 
     @RequestMapping(value = "/create", method = RequestMethod.PUT)
@@ -43,7 +47,7 @@ public class TaskController {
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST, produces = "application/json", consumes = "application/json")
-    public StatusMessage tasktest(@RequestParam(value = "userId") int userId, @RequestBody Task task) {
+    public StatusMessage taskTest(@RequestParam(value = "userId") int userId, @RequestBody Task task) {
         if (taskService.save(task)) {
             return new StatusMessage(Status.OK.name(), "OK", "So far,so good.");
         } else {

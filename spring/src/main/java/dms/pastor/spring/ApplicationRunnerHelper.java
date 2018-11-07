@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
  * <p>
  * if you need do something with arguments that you are passing to application before it runs, use this ApplicationRunner interface
  * <p>
- * tag-applicationRunnerInteface
+ * tag-applicationRunnerInterface
  */
 @Component
 public class ApplicationRunnerHelper implements ApplicationRunner {

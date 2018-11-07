@@ -13,12 +13,12 @@ import java.util.concurrent.atomic.AtomicLong;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class Task {
-    int userId;
-    long id;
-    String state;//State (CREATED,DRAFT,DELETED,BACKLOG,PLANNED,INPROGRESS,COMPLETED,ARCHIVED)
-    String title;
-    String message;
-    long timeStamp;
+    private int userId;
+    private long id;
+    private String state;//State (CREATED,DRAFT,DELETED,BACKLOG,PLANNED,IN_PROGRESS,COMPLETED,ARCHIVED)
+    private String title;
+    private String message;
+    private long timeStamp;
     private static final AtomicLong counter = new AtomicLong();
 
     public Task(int userId) {

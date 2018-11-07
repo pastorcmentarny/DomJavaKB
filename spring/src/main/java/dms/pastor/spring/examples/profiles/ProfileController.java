@@ -20,8 +20,12 @@ import static dms.pastor.spring.examples.Paths.PROFILE_EXAMPLE;
 public class ProfileController {
     private static final Logger LOGGER = LoggerFactory.getLogger(ProfileController.class);
 
+    private final String luckyNumber;
+
     @Autowired
-    private String luckyNumber;
+    public ProfileController(String luckyNumber) {
+        this.luckyNumber = luckyNumber;
+    }
 
     @RequestMapping(PROFILE_EXAMPLE)
     public String profileExample() {

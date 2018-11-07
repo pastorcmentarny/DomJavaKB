@@ -1,12 +1,8 @@
 package dms.pastor.spring.utils;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.stream.IntStream;
-
-import static dms.pastor.spring.utils.PrintOutUtils.printIntArray;
 //import static org.apache.kafka.test.TestUtils.RANDOM;
 
 /**
@@ -58,7 +54,7 @@ public class RandomDataGenerator {
         return text.toString();
     }
 
-    public static void addRandomCharacterToStringBuilder(StringBuilder text) {
+    private static void addRandomCharacterToStringBuilder(StringBuilder text) {
         int character = (int) (Math.random() * 62);
         text.append(ALPHABET_WITH_LOWER_UPPER_CASES_AND_NUMBERS, character, character + 1);
     }
@@ -75,42 +71,12 @@ public class RandomDataGenerator {
         return values;
     }
 
-    public static Character getRandomCharacterFromAlphabet() {
+    private static Character getRandomCharacterFromAlphabet() {
         return ALPHABET.toCharArray()[random.nextInt(ALPHABET.length())];
     }
 
     public static String getRandomCharacterAsString() {
         return getRandomCharacterFromAlphabet().toString();
-    }
-
-
-    public static String generateRandomParagraph() {
-        StringBuilder stringBuilder = new StringBuilder();
-
-        IntStream.range(10, random.nextInt(100) + 10).forEach(s -> stringBuilder.append(getRandomText(12)).append(' '));
-
-        return '\t' + getRandomCharacterAsString().toUpperCase() + getRandomText(12) + ' ' + stringBuilder.toString() + ".\n";
-    }
-
-    static int[] generateIntArray(int size, int numberRange) {
-        Random random = new Random();
-        int[] intArray = new int[size];
-        for (int i = 0; i < size; i++) {
-            intArray[i] = random.nextInt(numberRange);
-        }
-        printIntArray(intArray);
-        return intArray;
-    }
-
-    public static String[] generateArray(int size) {
-        if (size < 0) {
-            throw new IllegalArgumentException("Size must be zero or higher in order to create an array.");
-        }
-        String[] array = new String[size];
-        for (int i = 0; i < size; i++) {
-            array[i] = generateString(4, MAX_LARGE_VALUE);
-        }
-        return array;
     }
 
     public static String generateString() {
@@ -139,10 +105,6 @@ public class RandomDataGenerator {
 
     public static int randomInteger(int maxValue) {
         return random.nextInt(maxValue);
-    }
-
-    public static BigDecimal randomPositiveBigDecimal() {
-        return new BigDecimal(random.nextInt(Integer.MAX_VALUE));
     }
 
 

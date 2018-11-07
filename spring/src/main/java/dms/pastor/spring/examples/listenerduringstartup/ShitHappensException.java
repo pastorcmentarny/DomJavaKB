@@ -9,7 +9,7 @@ package dms.pastor.spring.examples.listenerduringstartup;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class ShitHappensException extends RuntimeException {
+class ShitHappensException extends RuntimeException {
     public ShitHappensException(String message) {
     }
 }

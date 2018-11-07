@@ -14,7 +14,7 @@ public enum State {
     DELETED(2),
     BACKLOG(3),
     PLANNED(4),
-    INPROGRESS(5),
+    IN_PROGRESS(5),
     COMPLETED(6),
     ARCHIVED(7);
 

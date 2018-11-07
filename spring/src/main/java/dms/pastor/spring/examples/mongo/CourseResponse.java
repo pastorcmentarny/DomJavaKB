@@ -24,7 +24,7 @@ public class CourseResponse {
         this.courses = courses;
     }
 
-    public List<Course> getCourses() {
+    private List<Course> getCourses() {
         return courses;
     }
 

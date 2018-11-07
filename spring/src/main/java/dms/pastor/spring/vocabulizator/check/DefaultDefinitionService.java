@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 @Service
-public class DefaultDefinitionService implements DefinitionService{
+public class DefaultDefinitionService implements DefinitionService {
 
     private final DefinitionRepository definitionRepository;
 

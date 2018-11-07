@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 @ControllerAdvice
 public class ErrorController {
 
-    static final Logger logger = LoggerFactory.getLogger(ErrorController.class);
+    private static final Logger logger = LoggerFactory.getLogger(ErrorController.class);
 
     @ExceptionHandler(Exception.class)
     @ResponseBody

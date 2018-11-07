@@ -1,6 +1,5 @@
 package dms.pastor.spring.examples.mongo;
 
-import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
 import cz.jirutka.spring.embedmongo.EmbeddedMongoFactoryBean;
 import org.springframework.context.annotation.Bean;
@@ -25,7 +24,7 @@ public class MongoAutoConfiguration extends AbstractMongoConfiguration {
 
     private static final String MONGO_DB_URL = "localhost";
 
-    private static final String MONGO_DB_NAME = "embeded_db";
+    private static final String MONGO_DB_NAME = "embedded_db";
 
     @Bean
     public MongoTemplate mongoTemplate() throws IOException {

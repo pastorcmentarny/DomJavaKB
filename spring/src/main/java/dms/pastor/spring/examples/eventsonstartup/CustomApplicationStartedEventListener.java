@@ -20,7 +20,7 @@ public class CustomApplicationStartedEventListener implements ApplicationListene
 
     @Override
     public void onApplicationEvent(ApplicationStartingEvent event) {
-        LOG.info("))]}> CustomApplicationStartedEventListener. Application started. This is running after registration of listeners and initializers and before but before any processing.");
+        LOG.info("))]}> CustomApplicationStartedEventListener. Application started. This is running after registration of listeners and initializer and before but before any processing.");
     }
 }
 

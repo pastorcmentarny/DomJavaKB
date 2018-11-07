@@ -13,7 +13,7 @@ import static java.lang.System.out;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class PrintOutUtils {
+class PrintOutUtils {
 
     private static final char SPACE = ' ';
 

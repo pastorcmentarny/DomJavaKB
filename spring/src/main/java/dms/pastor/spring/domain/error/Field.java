@@ -33,7 +33,7 @@ class Field {
         if (!(o instanceof Field)) return false;
         Field field = (Field) o;
         return Objects.equals(name, field.name) &&
-            Objects.equals(message, field.message);
+                Objects.equals(message, field.message);
     }
 
     @Override
@@ -44,8 +44,8 @@ class Field {
     @Override
     public String toString() {
         return "Field{" +
-            "name='" + name + '\'' +
-            ", message='" + message + '\'' +
-            '}';
+                "name='" + name + '\'' +
+                ", message='" + message + '\'' +
+                '}';
     }
 }

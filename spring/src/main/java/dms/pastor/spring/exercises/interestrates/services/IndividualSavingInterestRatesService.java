@@ -14,12 +14,12 @@ import static java.math.BigDecimal.ZERO;
  */
 public class IndividualSavingInterestRatesService implements SavingInterestRatesService {
 
-    static final BigDecimal LOW_INTEREST_RATE = new BigDecimal("0.50");
-    static final BigDecimal MEDIUM_INTEREST_RATE = new BigDecimal("1.75");
-    static final BigDecimal HIGH_INTEREST_RATE = new BigDecimal("5.00");
+    private static final BigDecimal LOW_INTEREST_RATE = new BigDecimal("0.50");
+    private static final BigDecimal MEDIUM_INTEREST_RATE = new BigDecimal("1.75");
+    private static final BigDecimal HIGH_INTEREST_RATE = new BigDecimal("5.00");
 
-    static final BigDecimal HIGH_SAVINGS = new BigDecimal("250000.00");
-    static final BigDecimal MEDIUM_SAVINGS = new BigDecimal("75000.00");
+    private static final BigDecimal HIGH_SAVINGS = new BigDecimal("250000.00");
+    private static final BigDecimal MEDIUM_SAVINGS = new BigDecimal("75000.00");
 
     @Override
     public BigDecimal calculateSavingInterestRates(BigDecimal saving) {

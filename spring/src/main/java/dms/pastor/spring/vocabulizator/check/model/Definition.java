@@ -31,7 +31,7 @@ public class Definition {
     }
 
     public static Definition getTestDefinition() {
-        return new Definition(UUID.randomUUID(),"Test", "Test is a procedure for evaluation or check truth of something;", getTagAsSingleList(GENERAL));
+        return new Definition(UUID.randomUUID(), "Test", "Test is a procedure for evaluation or check truth of something;", getTagAsSingleList(GENERAL));
     }
 
     public String getWord() {
@@ -43,7 +43,7 @@ public class Definition {
         return this;
     }
 
-    public String getDefinition() {
+    private String getDefinition() {
         return definition;
     }
 
@@ -52,7 +52,7 @@ public class Definition {
         return this;
     }
 
-    public List<Tag> getTags() {
+    private List<Tag> getTags() {
         return tags;
     }
 

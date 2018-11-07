@@ -16,7 +16,7 @@ import static dms.pastor.spring.utils.RandomDataGenerator.randomInteger;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class CourseBuilder {
-    public static final int MAX = 8;
+    private static final int MAX = 8;
     private Random random = new Random();
 
     private UUID courseId = UUID.randomUUID();
