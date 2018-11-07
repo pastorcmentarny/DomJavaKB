@@ -3,19 +3,17 @@ package dms.pastor.groovy.sclinescounter
 import groovy.io.FileType
 
 /**
- *
- * @author: Pastor cmentarny
- * @WWW:	http://pastor.ovh.org
- * @Github:	https://github.com/pastorcmentarny
- * @Google Play:
- * https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * @LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
- * @Email: email can be found on my website
- *
+ * Author Dominik Symonowicz
  * Created 2.11'2013 at 13.00
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  *
  * Run application to calculate how many lines of code you have in your source code.
- */class Counter {
+ */
+class Counter {
 
     static main(args) {
         def PATH_TO_DIRECTORY = ""
@@ -24,7 +22,7 @@ import groovy.io.FileType
 
         if (args != null && args.size() > 0) {
             try {
-                PATH_TO_DIRECTORY = args[0]
+                PATH_TO_DIRECTORY = args[0 as String]
             } catch (Exception e) {
                 println(e.message)
                 error()
@@ -49,7 +47,11 @@ import groovy.io.FileType
         }
 
         //display result
-        println "This project has  " + num + " lines of code in " + list.size() + " file(s)."
+        displayResult(num, list)
+    }
+
+    private static displayResult(int num, List list) {
+        println "This project has  $num lines of code in ${list.size()} file(s)."
     }
 
     static int countFor(String filePath) {
@@ -81,7 +83,10 @@ import groovy.io.FileType
     }
 
     static void error() {
-        println("Woops!\n\tPlease specify path (and must be CORRECT one) to folder for example: \"C\\mySecretProject\\MindControl\"\n\nGoodbye")
+        println("""Whoops!
+\tPlease specify path (and must be CORRECT one) to folder for example: "C\\mySecretProject\\MindControl"
+
+Goodbye""")
         System.exit(13)
 
     }

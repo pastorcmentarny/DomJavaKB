@@ -53,28 +53,32 @@ class Stats {
 	
 		}
 
-
         //display result
+        displayResult(num, list, target, daysSinceStart)
+    }
+
+    private static void displayResult(int num, List list, int target, int daysSinceStart) {
         println "I wrote " + num + " lines of code in " + list.size() + " files."
         println "My target is " + target + " lines of code."
         println "Progress " + new DecimalFormat("#.##").format(num / target * 100) + " % in " + daysSinceStart + " days."
-		println getHistoryOfProgress()
+        println getHistoryOfProgress()
     }
 
     static int countFor(String filePath){
-        def num = 0
+        def counter = 0
         try{
-            new File(filePath).eachLine { num++ }
-        }catch(Exception e){
+            new File(filePath).eachLine { counter++ }
+        } catch (Exception ignored) {
             println("You mess something with path: " + filePath)
         }
 
-        return num
+        return counter
     }
 	
 	static String getHistoryOfProgress(){
 		def history = new StringBuilder("\nHistory of progress:\n")
-		history.append("04-11-2013 ' 75 lines '\n")
+        history.append($/04-11-2013 ' 75 lines '\n/$)
+        history.append($/04-11-2013 ' 206589 lines  in 4585 files'\n/$)
 		history
 	}
 }
