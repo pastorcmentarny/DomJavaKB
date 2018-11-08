@@ -12,10 +12,6 @@ public class SearchResponse {
         this.result = result;
     }
 
-    public List<Definition> getResult() {
-        return result;
-    }
-
     @Override
     public String toString() {
         return "SearchResponse{" +

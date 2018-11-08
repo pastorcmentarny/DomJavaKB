@@ -1,6 +1,6 @@
 package dms.pastor.spring.tasks.calculator.models;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import dms.pastor.utils.randoms.RandomDataGenerator;
 
 import javax.validation.constraints.NotNull;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -15,32 +15,10 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class Addition {
     private static final AtomicInteger counter = new AtomicInteger();
-    private final long id;
+    private final long id = RandomDataGenerator.randomPositiveInteger();
     @NotNull
     private String[] numbers;
 
-    public Addition(@JsonProperty("name") String[] numbers) {
-        this.id = counter.incrementAndGet();
-        this.numbers = numbers;
-    }
-
-
-    public long getId() {
-        return id;
-    }
-
-
-    public static AtomicInteger getCounter() {
-        return counter;
-    }
-
-    public String[] getNumbers() {
-        return numbers;
-    }
-
-    public void setNumbers(String[] numbers) {
-        this.numbers = numbers;
-    }
 
     public Result getAnswer() {
         int counter = 0;

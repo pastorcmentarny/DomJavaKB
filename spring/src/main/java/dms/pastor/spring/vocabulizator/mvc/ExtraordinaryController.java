@@ -16,11 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ExtraordinaryController {
 
-    private final MarvelousServer server;
-
     @Autowired
     public ExtraordinaryController(MarvelousServer server) {
-        this.server = server;
     }
 
     @RequestMapping(ExamplesURL.MVC)

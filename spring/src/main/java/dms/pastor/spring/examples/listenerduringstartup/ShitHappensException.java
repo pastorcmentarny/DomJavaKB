@@ -10,6 +10,4 @@ package dms.pastor.spring.examples.listenerduringstartup;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 class ShitHappensException extends RuntimeException {
-    public ShitHappensException(String message) {
-    }
 }

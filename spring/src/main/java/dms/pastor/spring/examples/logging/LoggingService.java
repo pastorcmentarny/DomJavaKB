@@ -10,11 +10,4 @@ package dms.pastor.spring.examples.logging;
  */
 interface LoggingService {
 
-    void logDebug(String message);
-
-    void logInfo(String message);
-
-    void logError(String message);
-
-    void logWarn(String message);
 }

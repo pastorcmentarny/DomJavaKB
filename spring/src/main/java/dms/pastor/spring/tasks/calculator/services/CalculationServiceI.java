@@ -1,7 +1,5 @@
 package dms.pastor.spring.tasks.calculator.services;
 
-import dms.pastor.spring.tasks.calculator.models.Result;
-
 /**
  * Author Dominik Symonowicz
  * WWW:	https://dominiksymonowicz.com/welcome
@@ -12,5 +10,4 @@ import dms.pastor.spring.tasks.calculator.models.Result;
  */
 public interface CalculationServiceI {
 
-    Result calcAddition(long id, String[] numbers);
 }

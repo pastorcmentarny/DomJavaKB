@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @Controller
 public class ThymeleafController {
-    private static Logger LOG = LoggerFactory.getLogger(ThymeleafController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ThymeleafController.class);
 
     @RequestMapping("/thymeleaf")
     public String thymeleaf(@RequestParam(value = "name", required = false, defaultValue = ":)") String name, Model model) {

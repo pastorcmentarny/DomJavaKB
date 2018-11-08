@@ -9,5 +9,5 @@ package dms.pastor.spring.tools.getdone.commons;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public enum Status {
-    OK, ERROR, WARNING, UNKNOWN
+    OK, ERROR
 }

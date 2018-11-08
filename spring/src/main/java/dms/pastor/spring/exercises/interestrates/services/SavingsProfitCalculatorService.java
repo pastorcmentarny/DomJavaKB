@@ -1,7 +1,5 @@
 package dms.pastor.spring.exercises.interestrates.services;
 
-import java.math.BigDecimal;
-
 /**
  * Author Dominik Symonowicz
  * WWW:	https://dominiksymonowicz.com/welcome
@@ -12,5 +10,4 @@ import java.math.BigDecimal;
  */
 interface SavingsProfitCalculatorService {
 
-    BigDecimal calculateAnnualProfitFor(BigDecimal savings, BigDecimal interestRate);
 }

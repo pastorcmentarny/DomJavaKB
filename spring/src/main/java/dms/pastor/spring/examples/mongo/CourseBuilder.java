@@ -17,7 +17,7 @@ import static dms.pastor.spring.utils.RandomDataGenerator.randomInteger;
  */
 public class CourseBuilder {
     private static final int MAX = 8;
-    private Random random = new Random();
+    private final Random random = new Random();
 
     private UUID courseId = UUID.randomUUID();
     private String name = generateString(MAX);

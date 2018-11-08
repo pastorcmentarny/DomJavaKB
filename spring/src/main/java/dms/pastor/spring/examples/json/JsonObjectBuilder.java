@@ -15,7 +15,7 @@ import java.util.Random;
  */
 public class JsonObjectBuilder {
     private static final int MAX = 32;
-    private Random random = new Random();
+    private final Random random = new Random();
     private String name = RandomDataGenerator.generateString(MAX);
     private int version = random.nextInt(MAX);
     private boolean ok = random.nextBoolean();
@@ -37,30 +37,4 @@ public class JsonObjectBuilder {
         return jsonObject;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public JsonObjectBuilder name(String name) {
-        this.name = name;
-        return this;
-    }
-
-    public int getVersion() {
-        return version;
-    }
-
-    public JsonObjectBuilder version(int version) {
-        this.version = version;
-        return this;
-    }
-
-    public boolean isOk() {
-        return ok;
-    }
-
-    public JsonObjectBuilder ok(boolean ok) {
-        this.ok = ok;
-        return this;
-    }
 }

@@ -1,7 +1,5 @@
 package dms.pastor.spring.vocabulizator.check.model;
 
-import org.springframework.data.annotation.Id;
-
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
@@ -12,19 +10,11 @@ import static java.lang.String.format;
 
 public class Definition {
 
-    @Id
-    private String id;
-
-    private UUID guid;
     private String word;
     private String definition;
     private List<Tag> tags;
 
-    public Definition() {
-    }
-
     public Definition(UUID guid, String word, String definition, List<Tag> tags) {
-        this.guid = guid;
         this.word = word;
         this.definition = definition;
         this.tags = tags;
@@ -38,27 +28,12 @@ public class Definition {
         return word;
     }
 
-    public Definition setWord(String word) {
-        this.word = word;
-        return this;
-    }
-
     private String getDefinition() {
         return definition;
     }
 
-    public Definition setDefinition(String definition) {
-        this.definition = definition;
-        return this;
-    }
-
     private List<Tag> getTags() {
         return tags;
-    }
-
-    public Definition setTags(List<Tag> tags) {
-        this.tags = tags;
-        return this;
     }
 
     @Override

@@ -2,9 +2,6 @@ package dms.pastor.spring;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import dms.pastor.spring.examples.accessingApplicationArguments.AccessAppArgsComponent;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,7 +19,6 @@ import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 //@EnableKafka
 @Configuration
 public class ApplicationConfiguration {
-    private static final Logger LOGGER = LoggerFactory.getLogger(AccessAppArgsComponent.class);
 
     @Value("kafka.bootstrap.servers")
     private String bootstrapServers;

@@ -30,53 +30,13 @@ public class Task {
         this.message = "NEW MESSAGE";
     }
 
-    public Task() {
-        System.out.println("Oh cock!");
-    }
-
-    public Task(int userId, long id, String title,
-                String message) {
-        this.userId = userId;
-        this.id = id;
-        this.title = title;
-        this.message = message;
-        this.state = State.CREATED.name();
-        timeStamp = System.currentTimeMillis();
-
-    }
-
 
     public long getId() {
         return id;
     }
 
-    public Task(int userId, String title, String message) {
-        this.userId = userId;
-        this.id = counter.incrementAndGet();
-        this.title = title;
-        this.message = message;
-        this.state = State.CREATED.name();
-        timeStamp = System.currentTimeMillis();
-    }
-
     public int getUserId() {
         return userId;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public long getTimeStamp() {
-        return timeStamp;
     }
 
 

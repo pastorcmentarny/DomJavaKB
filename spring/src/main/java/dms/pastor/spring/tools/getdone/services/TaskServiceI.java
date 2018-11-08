@@ -1,6 +1,5 @@
 package dms.pastor.spring.tools.getdone.services;
 
-import dms.pastor.spring.tools.getdone.commons.NotFoundException;
 import dms.pastor.spring.tools.getdone.model.Task;
 
 import java.util.ArrayList;
@@ -17,15 +16,12 @@ public interface TaskServiceI {
 
     Task createTask(int userId);
 
-    Task editTask(int userId, long id) throws NotFoundException;
-
     boolean deleteTask(int userId, long id);
 
     Task getTask(int userId, int taskId);
 
-    ArrayList<Task> getAllTaskForUser(int userId);
+    ArrayList<Task> getAllTaskForUser();
 
     boolean save(Task task);
 
-    boolean updateState(int taskId, String state);
 }

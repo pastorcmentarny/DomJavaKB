@@ -16,7 +16,4 @@ public class AwesomeResponse {
         this.success = success;
     }
 
-    public boolean isSuccess() {
-        return success;
-    }
 }

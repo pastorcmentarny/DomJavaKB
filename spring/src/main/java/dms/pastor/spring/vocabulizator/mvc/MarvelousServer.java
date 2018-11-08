@@ -21,9 +21,4 @@ public class MarvelousServer {
         this.legendaryService = legendaryService;
     }
 
-    public AwesomeResponse send(AwesomeRequest awesomeRequest) {
-        RemarkableMessage remarkableMessage = RemarkableMessage.generateRandomMessage();
-        legendaryService.send(awesomeRequest.getId(), remarkableMessage);
-        return new AwesomeResponse(true);
-    }
 }

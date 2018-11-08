@@ -10,33 +10,20 @@ package dms.pastor.spring.tools.getdone.model;
  */
 public class StatusMessage {
 
-    private String status;
-    private String message;
-    private String advice = "";
-    private static String DEFAULT_ADVICE = "So far,so good!";
+    private final String status;
+    private final String message;
+    private String advice;
 
     public StatusMessage(String status, String message) {
         this.status = status;
         this.message = message;
-        advice = DEFAULT_ADVICE;
+        advice = "So far,so good!";
     }
 
     public StatusMessage(String status, String message, String advice) {
         this.status = status;
         this.message = message;
         this.advice = advice;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public String getAdvice() {
-        return advice;
     }
 
 }

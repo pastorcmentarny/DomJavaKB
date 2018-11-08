@@ -1,12 +1,11 @@
 package dms.pastor.spring.vocabulizator.check.search;
 
-import dms.pastor.spring.vocabulizator.check.model.exception.ResultNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.*;
-
-import static org.springframework.http.HttpStatus.NOT_FOUND;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class SearchController {
@@ -25,12 +24,6 @@ public class SearchController {
         final SearchResponse response = searchService.getResultFor(searchPhrase);
         LOGGER.info("Got definition for word {}", searchPhrase);
         return response.toString();
-    }
-
-    @ExceptionHandler(ResultNotFoundException.class)
-    @ResponseStatus(NOT_FOUND)
-    void handleNotFoundException(final ResultNotFoundException uncaughtException) {
-        LOGGER.error("Result not found ", uncaughtException);
     }
 
 }

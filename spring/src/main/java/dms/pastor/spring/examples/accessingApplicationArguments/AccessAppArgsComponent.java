@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class AccessAppArgsComponent {
     private static final Logger LOGGER = LoggerFactory.getLogger(AccessAppArgsComponent.class);
-    private String[] argsList;
+    private final String[] argsList;
 
     @Autowired
     public AccessAppArgsComponent(ApplicationArguments args) {

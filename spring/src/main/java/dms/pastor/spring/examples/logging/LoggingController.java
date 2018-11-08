@@ -3,13 +3,8 @@ package dms.pastor.spring.examples.logging;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import static dms.pastor.spring.examples.TemplatePaths.LOGGING_TEMPLATE;
 
 /**
  * Author Dominik Symonowicz
@@ -32,28 +27,6 @@ public class LoggingController {
     private static final String WARN = "warn";
     private static final String ERROR = "ERROR";
     private final Logger LOGGER = LoggerFactory.getLogger(LoggingController.class);
-
-    @RequestMapping("/logging")
-    String logging(Model model) {
-        List<String> logTypes = new ArrayList<>();
-
-        addLog(logTypes);
-
-        LOGGER.debug(ADDING_TO_LOG, DEBUG);
-        logTypes.add(DEBUG);
-
-        LOGGER.info(ADDING_TO_LOG, INFO);
-        logTypes.add(INFO);
-
-        LOGGER.warn(ADDING_TO_LOG, WARN);
-        logTypes.add(WARN);
-
-        LOGGER.error(ADDING_TO_LOG, ERROR);
-        logTypes.add(ERROR);
-
-        model.addAttribute("logs", logTypes);
-        return LOGGING_TEMPLATE;
-    }
 
     private void addLog(List<String> logTypes) {
         LOGGER.trace(ADDING_TO_LOG, TRACE);

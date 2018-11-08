@@ -1,7 +1,5 @@
 package dms.pastor.spring.examples.mongo;
 
-import org.springframework.data.annotation.Id;
-
 import java.math.BigDecimal;
 import java.util.UUID;
 
@@ -19,13 +17,11 @@ import static java.lang.String.format;
  */
 public class Course {
 
-    @Id //needed by mongodb as primary key
-    private String id;
-    private UUID courseId;
-    private String name;
-    private int points;
-    private BigDecimal cost;
-    private boolean mandatory;
+    private final UUID courseId;
+    private final String name;
+    private final int points;
+    private final BigDecimal cost;
+    private final boolean mandatory;
 
     @Deprecated  //jackson serialization use only
     public Course() {
@@ -46,26 +42,6 @@ public class Course {
         this.points = points;
         this.cost = cost;
         this.mandatory = mandatory;
-    }
-
-    public UUID getCourseId() {
-        return courseId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getPoints() {
-        return points;
-    }
-
-    public BigDecimal getCost() {
-        return cost;
-    }
-
-    public boolean isMandatory() {
-        return mandatory;
     }
 
     @Override

@@ -26,7 +26,4 @@ class AwesomeRequest {
         return id;
     }
 
-    public String getData() {
-        return data;
-    }
 }

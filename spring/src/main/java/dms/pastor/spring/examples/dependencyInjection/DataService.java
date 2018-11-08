@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 @Service
 class DataService {
 
-    private DataValidator dataValidator;
+    private final DataValidator dataValidator;
 
     @Autowired
     public DataService(DataValidator dataValidator) {

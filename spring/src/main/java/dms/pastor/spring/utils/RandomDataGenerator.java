@@ -17,11 +17,6 @@ import java.util.Random;
  */
 public class RandomDataGenerator {
     private static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
-    private static final String ALPHABET_WITH_LOWER_AND_UPPER = ALPHABET.toUpperCase() + ALPHABET;
-    private static final String ALPHABET_WITH_LOWER_UPPER_CASES_AND_NUMBERS = ALPHABET_WITH_LOWER_AND_UPPER + "0123456789";
-    private static final String NON_ALPHANUMERIC = "~#&@£$^'`\".,:;*–+=(){}[]<>?!\\|/";
-    private static final int NOT_SPECIFIED = -1;
-    private static final int MAX_SMALL_VALUE = 10;
     private static final int MAX_LARGE_VALUE = 4096;
 
     private static final List<String> firstName;
@@ -43,40 +38,8 @@ public class RandomDataGenerator {
     private RandomDataGenerator() {
     }
 
-    private static String getRandomText(int length) {
-        if (length == NOT_SPECIFIED) {
-            length = MAX_LARGE_VALUE;
-        }
-        StringBuilder text = new StringBuilder();
-        for (int i = 0; i < random.nextInt(length); i++) {
-            addRandomCharacterToStringBuilder(text);
-        }
-        return text.toString();
-    }
-
-    private static void addRandomCharacterToStringBuilder(StringBuilder text) {
-        int character = (int) (Math.random() * 62);
-        text.append(ALPHABET_WITH_LOWER_UPPER_CASES_AND_NUMBERS, character, character + 1);
-    }
-
-    public static String getRandomText() {
-        return getRandomText(NOT_SPECIFIED);
-    }
-
-    public static int[] generateRandomIntValues(int qty) {
-        int[] values = new int[qty];
-        for (int i = 0; i < values.length; i++) {
-            values[i] = random.nextInt(Integer.MAX_VALUE - 1);
-        }
-        return values;
-    }
-
     private static Character getRandomCharacterFromAlphabet() {
         return ALPHABET.toCharArray()[random.nextInt(ALPHABET.length())];
-    }
-
-    public static String getRandomCharacterAsString() {
-        return getRandomCharacterFromAlphabet().toString();
     }
 
     public static String generateString() {
@@ -99,13 +62,8 @@ public class RandomDataGenerator {
         return stringBuilder.toString();
     }
 
-    public static int randomInteger() {
-        return randomInteger(Integer.MAX_VALUE);
-    }
-
     public static int randomInteger(int maxValue) {
         return random.nextInt(maxValue);
     }
-
 
 }

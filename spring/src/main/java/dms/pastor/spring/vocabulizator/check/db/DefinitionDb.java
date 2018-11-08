@@ -1,11 +1,9 @@
 package dms.pastor.spring.vocabulizator.check.db;
 
 import dms.pastor.spring.vocabulizator.check.model.Definition;
-import dms.pastor.spring.vocabulizator.check.model.Tag;
 import dms.pastor.spring.vocabulizator.check.model.exception.ResultNotFoundException;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
@@ -21,7 +19,6 @@ import static dms.pastor.spring.vocabulizator.check.model.Tag.getTagAsSingleList
 public class DefinitionDb implements DefinitionRepository {
 
     private List<Definition> definitionList;
-    private List<Tag> allTags = Arrays.asList(Tag.values());
 
     public DefinitionDb() {
         generateDummyData();

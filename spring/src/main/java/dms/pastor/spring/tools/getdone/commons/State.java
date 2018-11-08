@@ -18,23 +18,10 @@ public enum State {
     COMPLETED(6),
     ARCHIVED(7);
 
-    private int state;
-
-    public int state() {
-        return state;
-    }
+    private final int state;
 
     State(int state) {
         this.state = state;
     }
 
-    //TODO temp validator method only
-    public boolean isStateExists(String state) {
-        for (State s : State.values()) {
-            if (s.name().equalsIgnoreCase(state)) {
-                return true;
-            }
-        }
-        return false;
-    }
 }

@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-import static java.lang.String.format;
-
 /**
  * Author Dominik Symonowicz
  * WWW:	https://dominiksymonowicz.com/welcome
@@ -19,14 +17,6 @@ import static java.lang.String.format;
 @SuppressWarnings("WeakerAccess")
 public class SomethingWentWrongException extends RuntimeException {
     private static final String ERROR = "Whoops! Something went wrong. %s. I apologize for any inconvenience caused by your mistake.";
-
-    public SomethingWentWrongException() {
-        super(format(ERROR, "I didn't bother to specify what"));
-    }
-
-    public SomethingWentWrongException(String whatWentWrongMessage) {
-        super(format(ERROR, whatWentWrongMessage));
-    }
 
 
     //https://www.owasp.org/index.php/Deserialization_Cheat_Sheet

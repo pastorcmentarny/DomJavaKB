@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class DependencyInjectionExampleController {
 
-    private DataService dataService;
+    private final DataService dataService;
 
     @Autowired
     public DependencyInjectionExampleController(DataService dataService) {

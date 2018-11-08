@@ -9,11 +9,7 @@ package dms.pastor.spring.examples.rest;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class CuteDomainObject {
-    private final String text;
-    private final int number;
 
     public CuteDomainObject(String text, int number) {
-        this.text = text;
-        this.number = number;
     }
 }

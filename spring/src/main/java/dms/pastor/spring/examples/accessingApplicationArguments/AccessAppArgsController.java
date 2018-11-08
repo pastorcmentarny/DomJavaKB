@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class AccessAppArgsController {
 
-    private AccessAppArgsComponent accessAppArgsComponent;
+    private final AccessAppArgsComponent accessAppArgsComponent;
 
     @Autowired
     public AccessAppArgsController(AccessAppArgsComponent accessAppArgsComponent) {

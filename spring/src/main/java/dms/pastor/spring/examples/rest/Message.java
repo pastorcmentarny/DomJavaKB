@@ -36,10 +36,6 @@ public class Message {
         return message;
     }
 
-    public LocalDate getCreated() {
-        return created;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

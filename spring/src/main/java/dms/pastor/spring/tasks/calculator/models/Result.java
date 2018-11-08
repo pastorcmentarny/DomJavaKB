@@ -18,13 +18,5 @@ public class Result {
         this.answer = answer;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public long getAnswer() {
-        return answer;
-    }
-
 
 }
