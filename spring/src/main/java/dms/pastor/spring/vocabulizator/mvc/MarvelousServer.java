@@ -14,11 +14,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class MarvelousServer {
 
-    private final ServiceInterface legendaryService;
-
     @Autowired
     public MarvelousServer(ServiceInterface legendaryService) {
-        this.legendaryService = legendaryService;
+        ServiceInterface legendaryService1 = legendaryService;
     }
 
 }

@@ -9,14 +9,11 @@ package dms.pastor.spring.tasks.calculator.models;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class Error {
-    private final int errorCode;
-    private final String message;
-    private final long timestamp;
 
     public Error(int errorCode, String message) {
-        this.errorCode = errorCode;
-        this.message = message;
-        this.timestamp = System.currentTimeMillis();
+        int errorCode1 = errorCode;
+        String message1 = message;
+        long timestamp = System.currentTimeMillis();
     }
 
 

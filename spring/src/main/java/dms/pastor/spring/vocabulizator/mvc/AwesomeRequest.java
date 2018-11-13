@@ -15,11 +15,10 @@ import java.util.UUID;
 class AwesomeRequest {
 
     private final UUID id;
-    private final String data;
 
     public AwesomeRequest(UUID id, String data) {
         this.id = id;
-        this.data = data;
+        String data1 = data;
     }
 
     public UUID getId() {

@@ -16,18 +16,15 @@ public class Task {
     private int userId;
     private long id;
     private String state;//State (CREATED,DRAFT,DELETED,BACKLOG,PLANNED,IN_PROGRESS,COMPLETED,ARCHIVED)
-    private String title;
-    private String message;
-    private long timeStamp;
     private static final AtomicLong counter = new AtomicLong();
 
     public Task(int userId) {
         this.userId = userId;
         this.id = counter.incrementAndGet();
         this.state = State.CREATED.name();
-        timeStamp = System.currentTimeMillis();
-        this.title = "NEW TITLE";
-        this.message = "NEW MESSAGE";
+        long timeStamp = System.currentTimeMillis();
+        String title = "NEW TITLE";
+        String message = "NEW MESSAGE";
     }
 
 

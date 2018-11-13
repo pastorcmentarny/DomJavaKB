@@ -11,8 +11,6 @@ import java.util.List;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class JsonExampleWrapper {
-    private final String description;
-    private final List<JsonObject> jsonObjectList;
 
     //Jackson use only
     @Deprecated
@@ -21,8 +19,8 @@ public class JsonExampleWrapper {
     }
 
     public JsonExampleWrapper(String description, List<JsonObject> jsonObjectList) {
-        this.description = description;
-        this.jsonObjectList = jsonObjectList;
+        String description1 = description;
+        List<JsonObject> jsonObjectList1 = jsonObjectList;
     }
 
 }

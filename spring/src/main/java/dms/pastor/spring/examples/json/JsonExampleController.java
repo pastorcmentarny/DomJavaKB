@@ -40,8 +40,7 @@ public class JsonExampleController {
         JsonObject jsonObject2 = jsonObjectBuilder().build();
         JsonObject jsonObject3 = jsonObjectBuilder().build();
 
-        List<JsonObject> jsonObjectList = new ArrayList<>();
-        jsonObjectList.addAll(Arrays.asList(jsonObject, jsonObject2, jsonObject3));
+        List<JsonObject> jsonObjectList = new ArrayList<>(Arrays.asList(jsonObject, jsonObject2, jsonObject3));
 
         return new JsonExampleWrapper("Example", jsonObjectList);
     }

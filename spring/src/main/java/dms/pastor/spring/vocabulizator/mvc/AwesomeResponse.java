@@ -10,10 +10,8 @@ package dms.pastor.spring.vocabulizator.mvc;
  */
 public class AwesomeResponse {
 
-    private final boolean success;
-
     public AwesomeResponse(boolean success) {
-        this.success = success;
+        boolean success1 = success;
     }
 
 }
