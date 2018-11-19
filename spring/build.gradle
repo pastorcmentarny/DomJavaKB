@@ -33,8 +33,14 @@ apply plugin: 'org.owasp.dependencycheck'
 apply from: "$gradleDir/tasks.gradle/"
 
 compileJava {
-    sourceCompatibility = 1.8
-    targetCompatibility = 1.8
+    sourceCompatibility = JavaVersion.VERSION_1_10
+    targetCompatibility = JavaVersion.VERSION_1_10
+    options.encoding = 'UTF-8' //to ensure that I always use UTF-8 in project
+}
+
+compileTestJava {
+    sourceCompatibility = JavaVersion.VERSION_1_10
+    targetCompatibility = JavaVersion.VERSION_1_10
     options.encoding = 'UTF-8' //to ensure that I always use UTF-8 in project
 }
 
