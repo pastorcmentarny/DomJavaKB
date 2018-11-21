@@ -25,7 +25,7 @@ public class Puffin extends Enemy {
         skills.setDexterity(skills.getDexterity());
         setup();
         plainStats.setARM(0);
-        bonusPerLevelStats = Stats.generateSmalltBonusStats();
+        bonusPerLevelStats = Stats.generateSmallBonusStats();
         plainStats = Stats.generateStatsFromSkills(skills);
 
         nativeAttributes.add(Attribute.BIRD);

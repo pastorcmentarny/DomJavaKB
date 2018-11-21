@@ -11,11 +11,11 @@ import java.util.ArrayList;
 /**
  * @author dominiksymonowicz
  */
-public class AntitodePotion extends Potion {
+public class AntidotePotion extends Potion {
 
-    public AntitodePotion(PotionSize size) {
+    public AntidotePotion(PotionSize size) {
         super(size);
-        name = "Antitode";
+        name = "Antidote";
         description = "A potion that solves problems with any poison";
         value = Money.getValueChangedByPercent(size.pricePercent(), Config.PRICE_HEAL_POTION);
     }

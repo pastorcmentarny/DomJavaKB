@@ -33,7 +33,7 @@ public class EmpBomb extends Item {
         } else {
             unit.battleStats.setMana(unit.battleStats.getMana() * 4 / 5);
             unit.battleStats.setSP(unit.battleStats.getSP() * 4 / 5);
-            return new Result(false, Hero.getHero().getName() + " missed and exploed near " + unit.getName() + " and drains 20% of  mana " + (unit.psycho == true ? " and 20% of shield." : "."));
+            return new Result(false, Hero.getHero().getName() + " missed and exploded near " + unit.getName() + " and drains 20% of  mana " + (unit.psycho == true ? " and 20% of shield." : "."));
         }
 
     }

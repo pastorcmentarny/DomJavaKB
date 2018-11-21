@@ -22,7 +22,7 @@ public class Ring extends Item {
         this.value = value;
     }
 
-    public String getAtrributesAsList() {
+    public String getAttributesAsList() {
         if (attributes.isEmpty()) {
             return "Normal Ring";
         } else {

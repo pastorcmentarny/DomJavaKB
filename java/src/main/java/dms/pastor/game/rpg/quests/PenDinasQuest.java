@@ -31,7 +31,7 @@ public class PenDinasQuest extends Quest {
     @Override
     public void startAQuest() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("You arrived to Pen Dinas Castle..  near enterance ,you can see a sleeping Nicolas - one of the strongest warrior in this part of universe when he is sober.Luckly ... he is hardly ever sober as he always try drink with polish people and he losing everybody battle in vodka competition." + Config.ANY_KEY_TO_CONTINUE);
+        System.out.println("You arrived to Pen Dinas Castle..  near entrance ,you can see a sleeping Nicolas - one of the strongest warrior in this part of universe when he is sober.Luckly ... he is hardly ever sober as he always try drink with polish people and he losing everybody battle in vodka competition." + Config.ANY_KEY_TO_CONTINUE);
         scanner.nextLine();
         while (questInProgress) {
             System.out.println(getStoryForLevel(level));

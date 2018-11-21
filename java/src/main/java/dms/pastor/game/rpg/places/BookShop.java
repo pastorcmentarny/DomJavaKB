@@ -28,10 +28,10 @@ public class BookShop extends Place {
                 int choice = scanner.nextInt();
                 switch (choice) {
                     case 1:
-                        System.out.println("You look through shelfs and you didn't find any interesting book,because ..you don't like read books.");
+                        System.out.println("You look through shelf and you didn't find any interesting book,because ..you don't like read books.");
                         break;
                     case 2:
-                        System.out.println("I will be extremly happy to buy all of them");
+                        System.out.println("I will be extremely happy to buy all of them");
                         ArrayList<Item> items = Hero.getHero().inventory.getAllInventoryItems();
                         ArrayList<Item> itemsToDelete = new ArrayList<>();
                         int cashBack = 0;

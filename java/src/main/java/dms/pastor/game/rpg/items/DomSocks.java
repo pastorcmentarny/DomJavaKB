@@ -15,7 +15,7 @@ public class DomSocks extends Item {
 
     @Override
     public Result use() {
-        return new Result(false, "You don't wear them... You don't eat radiactive food ,because it will kill.The same with Dom's socks ,you don't want wear them,if you want be alive ");
+        return new Result(false, "You don't wear them... You don't eat radioactive food ,because it will kill.The same with Dom's socks ,you don't want wear them,if you want be alive ");
     }
 
 

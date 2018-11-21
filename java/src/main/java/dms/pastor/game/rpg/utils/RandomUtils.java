@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * Created with IntelliJ IDEA.
- * User: dsymonowicz
- * Date: 01/03/13
- * Time: 15:44
- * To change this template use File | Settings | File Templates.
+ * Author Dominik Symonowicz
+ * Created 01.03.2013 at 15.44
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class RandomUtils {
     private static ArrayList<String> studentName;

@@ -22,7 +22,7 @@ public class Zombie extends Enemy {
         setup();
         bonusPerLevelStats = new Stats(lvl / 2, 2 * lvl, 5, 0, lvl * 5, lvl * 5, 0, 0, 2, 0, 0, 0);
         plainStats = Stats.generateStatsFromSkills(skills);
-        plainStats.addHPandMaxHP(new Random().nextInt(5 * lvl));
+        plainStats.addHPAndMaxHP(new Random().nextInt(5 * lvl));
 
         if (random.nextBoolean()) {
             inventory = new Inventory(1);
@@ -41,8 +41,8 @@ public class Zombie extends Enemy {
     @Override
     public void beforeBattle() {
         if (random.nextInt(101) <= 40) {
-            System.out.println("Zombie vomitted on you and you got minor disease");
-            specialAttack(null);// imporve it            
+            System.out.println("Zombie vomited on you and you got minor disease");
+            specialAttack(null);// improve it
         }
 
     }

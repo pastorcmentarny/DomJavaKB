@@ -36,10 +36,10 @@ public class JeweleryShop extends Place {
                 switch (choice) {
                     case 1:
                         //TODO implement it
-                        System.out.println("You look through display shelfs you didn't find any interesting ring as they are not too magical.");
+                        System.out.println("You look through display shelf you didn't find any interesting ring as they are not too magical.");
                         break;
                     case 2:
-                        System.out.println("I will be extremly happy to buy all of them");
+                        System.out.println("I will be extremely happy to buy all of them");
                         ArrayList<Item> items = Hero.getHero().inventory.getAllInventoryItems();
                         ArrayList<Item> itemsToDelete = new ArrayList<>();
                         int cashBack = 0;

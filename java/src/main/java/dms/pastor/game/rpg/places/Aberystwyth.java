@@ -24,7 +24,7 @@ public class Aberystwyth {
         boolean stay = true;
         while (stay) {
             System.out.println("What do you want to do ?");
-            System.out.println("1.Go to Kebab Shop\n2.Go to Bank\n3.Go for clubing\n4.Talk to somebody");
+            System.out.println("1.Go to Kebab Shop\n2.Go to Bank\n3.Go for clubbing\n4.Talk to somebody");
             System.out.println("5.Go to train station\n6.Go to BookShop.7.Go to Jewelery Shop\n8.Go to supermarket");
             System.out.println("0.Exit");
 

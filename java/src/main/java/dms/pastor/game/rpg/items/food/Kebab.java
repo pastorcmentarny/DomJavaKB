@@ -11,7 +11,7 @@ public class Kebab extends FoodItem {
     public Kebab(int energy, int poisonChance, int value) {
         super(energy, poisonChance, value);
         setName("Kebab");
-        setDescription("A tasty junk food.Lots of everything ... lot's of caloeirs ,lot's of chance to get poison and etc.");
+        setDescription("A tasty junk food.Lots of everything ... lot's of calories ,lot's of chance to get poison and etc.");
     }
 
 
@@ -20,7 +20,7 @@ public class Kebab extends FoodItem {
         Random random = new Random();
         int chance = random.nextInt(101);
         poisonChance += 10;
-        System.out.println("You got " + poisonChance + "% to get posionsed(+10% as it is kebab)");
+        System.out.println("You got " + poisonChance + "% to get poisoned(+10% as it is kebab)");
         if (chance > poisonChance) {
             //FIXME log.info("Player get poisoned after eat food.");
             hero.plainStats.setHP(hero.plainStats.getHP() - (hero.plainStats.getHP() / 8));

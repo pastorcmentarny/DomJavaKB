@@ -20,7 +20,7 @@ public class Wraith extends Enemy {
         bonusPerLevelStats = Stats.generateDefaultBonusStats(psycho);
         //bonusStats.addToAllStats(lvl,psycho);
         plainStats = Stats.generateStatsFromSkills(skills);
-        extraStats.addSPandMaxSP(lvl * 8);
+        extraStats.addSPAndMaxSP(lvl * 8);
         extraStats.addEvasion(33);
 
         inventory = new Inventory(1);

@@ -23,7 +23,7 @@ public abstract class Unit extends Element implements Cloneable, Comparable<Unit
 
     public int lvl = 1;
     public int exp = 0;
-    public int critalChance = Config.DEFAULT_CRITICAL_CHANCE;
+    public int criticalChance = Config.DEFAULT_CRITICAL_CHANCE;
     public int criticalMultiplyer = Config.DEFAULT_CRITICAL_MULTIPLAYER;
     public int nextLvlExp = Config.DEFAULT_FIRST_NEXT_LEVEL_EXP;
 
@@ -168,7 +168,7 @@ public abstract class Unit extends Element implements Cloneable, Comparable<Unit
 
 
     public boolean isCriticalChance() {
-        return critalChance > new Random().nextInt(101);
+        return criticalChance > new Random().nextInt(101);
     }
 
     public boolean canAttack() {

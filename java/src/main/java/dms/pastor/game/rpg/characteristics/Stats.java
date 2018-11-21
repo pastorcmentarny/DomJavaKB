@@ -86,14 +86,14 @@ public class Stats {
         stats.addAccuracy(bonus);
         stats.addEvasion(skills.getDexterity() / 9);
         bonus = (skills.getStrength() * 3 / 4) + skills.getVitality() * 4;
-        stats.addHPandMaxHP(bonus);
+        stats.addHPAndMaxHP(bonus);
         bonus = skills.getPsychokinesis() * 3 + skills.getIntelligence();
         if (psycho) {
             stats.addManaAndMaxMana(bonus);
         }
         bonus = skills.getPsychokinesis() * 4;
         if (magicShield) {
-            stats.addSPandMaxSP(bonus);
+            stats.addSPAndMaxSP(bonus);
         }
         stats.addMinDMG(skills.getStrength() / 2);
         stats.addMaxDMG(((skills.getStrength() * 3 / 4) + 2) + skills.getIntelligence() / 5);
@@ -108,7 +108,7 @@ public class Stats {
         return new Stats(1, 3, 2, 2, 24, 24, 0, 0, 0, psychoBonus, psychoBonus, 1);
     }
 
-    public static Stats generateSmalltBonusStats() {
+    public static Stats generateSmallBonusStats() {
         return new Stats(1, 2, 2, 2, 10, 10, 0, 0, 0, 0, 0, 0);
     }
 
@@ -282,7 +282,7 @@ public class Stats {
             mana += pts;
             maxMana += pts;
         }
-        //karma is not part of standart stats
+        //karma is not part of standard stats
     }
 
     void addRandomPointsToStats(int pts, boolean psycho) {
@@ -397,7 +397,7 @@ public class Stats {
     }
 
 
-    public void addHPandMaxHP(int value) {
+    public void addHPAndMaxHP(int value) {
         if (value < 0) {
             //log.warn("CAN'T DO. Increase of hp and max hp by negative value" + value + " is not allowed.");
             return;
@@ -434,7 +434,7 @@ public class Stats {
     }
 
     public void addMaxDMG(int i) {
-        //log.debug("Max dmg " + maxDMG +"will beincreased by " + i);
+        //log.debug("Max dmg " + maxDMG +"will be increased by " + i);
         maxDMG += i;
     }
 
@@ -477,7 +477,7 @@ public class Stats {
 
     }
 
-    public void addSPandMaxSP(int value) {
+    public void addSPAndMaxSP(int value) {
         if (value < 0) {
             //FIXME log.warn("CAN'T DO. Increase of hp and max hp by negative value" + value + " is not allowed.");
             return;

@@ -43,7 +43,7 @@ public class WitchTower extends Place {
                         System.out.println("You left city...");
                 }
             } catch (InputMismatchException ime) {
-                System.out.println("You get lost at university .Shame on you!I understand as if you study tourist managament as for your trip at uni is trip of your life ,but otherwise ..COME ON ... press number!");
+                System.out.println("You get lost at university .Shame on you!I understand as if you study tourist management as for your trip at uni is trip of your life ,but otherwise ..COME ON ... press number!");
             }
         }
     }
@@ -56,7 +56,7 @@ public class WitchTower extends Place {
 
     private void visitQueen() {
         /*
-        if(story.winWithOlaAtTower.equals(QuestState.AVALIABLE) || story.winWithOlaAtTower.equals(QuestState.INPROGRESS)){
+        if(story.winWithOlaAtTower.equals(QuestState.AVAILABLE) || story.winWithOlaAtTower.equals(QuestState.INPROGRESS)){
             System.out.println("You ha");
             
         }

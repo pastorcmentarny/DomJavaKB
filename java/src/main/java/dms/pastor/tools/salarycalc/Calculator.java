@@ -13,19 +13,19 @@ public class Calculator {
     public static void main(String[] args) {
 
     }
-    /**
-     * 45,000
-     *
-     * Zone 1 + 3200
-     *
-     * WFH -2500
-     *
-     * 25 Days 0  For 1 Day less +2000, For 1 Day more -750
-     * For ability to buy day -500 per day
-     *
-     * 45 minutes off-peak ±750 per minute
-     *
-     * Oxford, Victoria, Picadilly + 1000
-     * 37.5hr is 0  ±1200 per 0.5h
+    /*
+      45,000
+
+      Zone 1 + 3200
+
+      WFH -2500
+
+      25 Days 0  For 1 Day less +2000, For 1 Day more -750
+      For ability to buy day -500 per day
+
+      45 minutes off-peak ±750 per minute
+
+      Oxford, Victoria, Piccadilly + 1000
+      37.5hr is 0  ±1200 per 0.5h
      */
 }

@@ -1,7 +1,7 @@
 package dms.pastor.game.rpg.units.enemies.monsters;
 
 /**
- * @author domhome
+ * @author dominik symonowicz
  * <p>
  * Alek's ex-girlfriend that lives in undergroungs of Uni
  */

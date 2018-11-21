@@ -22,7 +22,7 @@ public class DomSocksSword extends Weapon {
         evasion = 50;
         attributes = new ArrayList<>();
         attributes.add(Attribute.LEGENDARY);
-        attributes.add(Attribute.MEELE_WEAPON);
+        attributes.add(Attribute.MELEE_WEAPON);
         attributes.add(Attribute.WEAPON);
     }
 

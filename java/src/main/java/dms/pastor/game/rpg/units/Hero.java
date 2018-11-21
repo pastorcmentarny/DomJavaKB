@@ -45,7 +45,7 @@ public class Hero extends Unit implements BattleAction {
     private Hero() {
         //FIXME log.setLevel(Config.//FIXME log.LEVEL);
         setName("YOU");
-        setDescription("You are a hero who apperently is on the way to home and during your jouney you will  discover new life and ");
+        setDescription("You are a hero who apparently is on the way to home and during your journey you will  discover new life and ");
         this.lvl = 1;
         exp += new Random().nextInt(10000);
         armors = new UnitArmors(Config.HUMAN_ARMOR_TYPE);
@@ -158,7 +158,7 @@ public class Hero extends Unit implements BattleAction {
                         System.out.println("Woops! You broke " + item.getName() + "and you can't add this to inventory.");
                     }
                 } else {
-                    System.out.println("As typical student,you take what you could and abaddon rest without evaluate value of items.");
+                    System.out.println("As typical student,you take what you could and abandon rest without evaluate value of items.");
                 }
             }
         }
@@ -257,7 +257,7 @@ public class Hero extends Unit implements BattleAction {
         }
     }
 
-    public Result equiptWeapon(Item item) {
+    public Result equipWeapon(Item item) {
         try {
             Weapon weapon = (Weapon) item;
             if (weapon.hand.equals(Hands.LEFT)) {
@@ -335,7 +335,7 @@ public class Hero extends Unit implements BattleAction {
                 //castLight();
 
         }
-        return new Result(false, "Unable to cast unknwon spell");
+        return new Result(false, "Unable to cast unknown spell");
     }
 
     //public hero.castBattleSpell(6,new Unit[]{enemy});

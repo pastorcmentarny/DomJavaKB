@@ -33,7 +33,7 @@ public class FingersInventory {
         } else {
             int counter = 1;
             for (Ring ring : fingerList) {
-                sb.append(counter).append(". ").append(ring.getName()).append(" \t").append(ring.getDescription()).append(" \t").append(ring.getValue()).append(" \t").append(ring.getAtrributesAsList());
+                sb.append(counter).append(". ").append(ring.getName()).append(" \t").append(ring.getDescription()).append(" \t").append(ring.getValue()).append(" \t").append(ring.getAttributesAsList());
             }
         }
 

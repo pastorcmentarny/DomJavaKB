@@ -18,7 +18,7 @@ public class Castle extends Place {
 
     @Override
     public void goToPlace() {
-        if (hasPermissionForEnterance()) {
+        if (hasPermissionForEntrance()) {
             goToMainSquare();
         } else {
             System.out.println();
@@ -31,7 +31,7 @@ public class Castle extends Place {
         }
     }
 
-    private boolean hasPermissionForEnterance() {
+    private boolean hasPermissionForEntrance() {
         return hero.hasCastlePermission();
     }
 
@@ -52,7 +52,7 @@ public class Castle extends Place {
                     if (isKingInTheCastle()) {
 
                     } else {
-                        System.out.println("You came to the door,but you saw to overmuscled knights who said frinedly.. GO AWAY PESANT! NO ENTRY!");
+                        System.out.println("You came to the door,but you saw to overmuscled knights who said friendly.. GO AWAY PESANT! NO ENTRY!");
                     }
                     break;
                 case 2:

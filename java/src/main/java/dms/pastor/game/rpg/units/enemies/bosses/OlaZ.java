@@ -53,13 +53,13 @@ public class OlaZ extends Boss {
         Weapon bb;
         if (lvl > 70) {
             bb = new MeteorFiberBasketballBall();
-            plainStats.addHPandMaxHP(lvl * lvl * 100);
+            plainStats.addHPAndMaxHP(lvl * lvl * 100);
         } else if (lvl >= 40) {
             bb = new CarbonFiberBaseballBat();
-            plainStats.addHPandMaxHP(lvl * 100);
+            plainStats.addHPAndMaxHP(lvl * 100);
         } else if (lvl > 10) {
             bb = new AluminiumBaseballBat();
-            plainStats.addHPandMaxHP(1000);
+            plainStats.addHPAndMaxHP(1000);
         } else {
             bb = new BaseballBat();
         }

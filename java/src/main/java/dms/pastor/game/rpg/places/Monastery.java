@@ -236,7 +236,7 @@ public class Monastery extends Place {
     }
 
     private void buyAnitodePotion() {
-        Result r = hero.pay(Config.PRICE_ANTIDOTE_POTION, new AntitodePotion(PotionSize.MINOR));
+        Result r = hero.pay(Config.PRICE_ANTIDOTE_POTION, new AntidotePotion(PotionSize.MINOR));
         System.out.println(r.getMessage());
     }
 

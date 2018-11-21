@@ -8,10 +8,10 @@ import java.util.ArrayList;
 public class UnitArmors {
     static //FIXME log.er //FIXME log.= //FIXME log.er.get//FIXME log.er(UnitArmors.class);
             ArrayList<Armor> armorList = new ArrayList<>();
-    ArmorType[] avaliableTypes;
+    private ArmorType[] availableTypes;
 
     public UnitArmors(ArmorType[] types) {
-        this.avaliableTypes = types;
+        this.availableTypes = types;
     }
 
     public int getTotalARM() {
@@ -54,7 +54,7 @@ public class UnitArmors {
     }
 
     private boolean canWearIt(ArmorType type) {
-        for (ArmorType armorType : avaliableTypes) {
+        for (ArmorType armorType : availableTypes) {
             if (type.equals(armorType)) {
                 return true;
             }

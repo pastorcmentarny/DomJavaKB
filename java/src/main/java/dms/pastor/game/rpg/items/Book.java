@@ -30,7 +30,7 @@ public class Book extends Item {
     }
 
     public static Book getJamesClarkBook() {
-        return new Book("James Clarke", "For godsake I am diamond man not a Iron lady", -1, "This book is about why James is awesome and should rule the world.");
+        return new Book("James Clarke", "For god's sake I am diamond man not a Iron lady", -1, "This book is about why James is awesome and should rule the world.");
     }
 
     public static Book generateRandomBook() {
@@ -44,12 +44,12 @@ public class Book extends Item {
     }
 
     private static String getRandomDescription() {
-        String[] desc = {"No description availiable."};
+        String[] desc = {"No description available."};
         return desc[new Random().nextInt(desc.length)];
     }
 
     public static Book getJamesBook() {
-        return new Book("Book of Jaems", "Bla bla bla to brainwash innocent young mind to do evil things.It has value only as it's can be to make fire in fireplace or emergency toilet paper.", 10, "");
+        return new Book("Book of James", "Bla bla bla to brainwash innocent young mind to do evil things.It has value only as it's can be to make fire in fireplace or emergency toilet paper.", 10, "");
     }
 
     public String getAuthor() {

@@ -21,7 +21,7 @@ public class JasAcolyte extends Enemy {
         //bonusStats.addToAllStats(lvl,psycho);
         plainStats = Stats.generateStatsFromSkills(skills);
         bonusPerLevelStats = Stats.generateDefaultBonusStatsFromSkills(skills);
-        plainStats.addHPandMaxHP(10 * lvl);
+        plainStats.addHPAndMaxHP(10 * lvl);
         extraStats.addArm(lvl);
         inventory = new Inventory(1);
         inventory.addItem(Book.getJamesBook());

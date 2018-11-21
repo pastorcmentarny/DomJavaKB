@@ -20,7 +20,7 @@ public class Seagull extends Enemy {
         psycho = false;
         skills = Skills.generateRandomSkills(18, Config.DEFAULT_INIT_MAX_POINTS_FOR_SKILLS, false, null);        //TODO replace null with init skills
         setup();
-        bonusPerLevelStats = Stats.generateSmalltBonusStats();
+        bonusPerLevelStats = Stats.generateSmallBonusStats();
         bonusPerLevelStats.addToAllStats(lvl, psycho);
         plainStats = Stats.generateStatsFromSkills(skills);
 

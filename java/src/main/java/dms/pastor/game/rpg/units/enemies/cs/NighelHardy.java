@@ -21,10 +21,10 @@ public class NighelHardy extends Boss {
         psycho = true;
         skills = new Skills(4, 10, 9, 3, 5, 9);
         setup();
-        bonusPerLevelStats = Stats.generateSmalltBonusStats();
+        bonusPerLevelStats = Stats.generateSmallBonusStats();
         bonusPerLevelStats.addToAllStats(lvl, psycho);
         plainStats = Stats.generateStatsFromSkills(skills);
-        extraStats.addHPandMaxHP(2000);
+        extraStats.addHPAndMaxHP(2000);
         inventory = new Inventory(2);
         inventory.addItem(new FloppyDisk());
         for (int i = 2; i < inventory.getSize(); i++) {

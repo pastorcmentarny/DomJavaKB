@@ -1078,7 +1078,7 @@ public class GUI extends javax.swing.JFrame {
         deleteSourceCheckBoxMenuItem.setSelected(settings.isDeleteSourceAfterBackup());
         QuickBackupCheckBoxMenuItem.setSelected(settings.isQuickBackup());
         confirmExitCheckBoxMenuItem.setSelected(settings.isConfirmOnExit());
-        shutdownAfterBackupMenuItem.setSelected(settings.isShutdownAfterBackup());
+        shutdownAfterBackupMenuItem.setSelected(false);
         saveAsZipCheckBoxMenuItem.setSelected(settings.isSaveAsZip());
         saveAsEncryptedCheckBoxMenuItem.setSelected(settings.isSaveAsEncrypted());
         saveResultToFileCheckBoxMenuItem.setSelected(settings.isSaveResultsToFile());

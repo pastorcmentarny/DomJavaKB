@@ -75,7 +75,7 @@ public class InventoryMenu implements Menu {
                     counter++;
                 }
             }
-            sb.append(Config.LINE_SEPERATOR);
+            sb.append(Config.LINE_SEPARATOR);
             sb.append("0. Exit");
             System.out.println(sb.toString());
             try {
@@ -101,8 +101,8 @@ public class InventoryMenu implements Menu {
                             }
                             displayMenu = false;
                         }
-                        if (action.equals(Action.EQUIPT)) {
-                            Result r = hero.equiptWeapon(item);
+                        if (action.equals(Action.EQUIP)) {
+                            Result r = hero.equipWeapon(item);
                             if (r.isSuccess()) {
                                 inventory.swap(item, (r.getData()));
                                 displayMenu = false;
@@ -145,7 +145,7 @@ public class InventoryMenu implements Menu {
                 }
             }
         }
-        sb.append(Config.LINE_SEPERATOR);
+        sb.append(Config.LINE_SEPARATOR);
         sb.append("0. Exit");
         return sb.toString();
     }

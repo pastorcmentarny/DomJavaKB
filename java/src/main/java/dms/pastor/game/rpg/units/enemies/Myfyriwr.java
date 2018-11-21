@@ -24,7 +24,7 @@ public class Myfyriwr extends Enemy {
         skills = new Skills(4, 4, 4, 4, 4, 4);
         setup();
         extraStats = new Stats(4, 8, 20, 0, 40, 40, 0, 0, 0, 0, 0, 0);
-        bonusPerLevelStats = Stats.generateSmalltBonusStats();
+        bonusPerLevelStats = Stats.generateSmallBonusStats();
         //bonusStats.addToAllStats(lvl,psycho);
 
 

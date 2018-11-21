@@ -55,7 +55,7 @@ public class CuteBunny extends Enemy {
         Random r = new Random();
         if (r.nextInt(100) > 80) {
             int turns = 2;
-            System.out.println("Cute eyes of " + name + "hipnotise you. You are stunned for " + turns + "turn(s).");
+            System.out.println("Cute eyes of " + name + "hypnotise you. You are stunned for " + turns + "turn(s).");
             Hero.getHero().state.setStunned(turns);
         }
         super.afterTurn();

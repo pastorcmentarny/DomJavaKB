@@ -481,11 +481,6 @@ public final class Settings {
         setCheckFreeSpaceBeforeBackup(true);
     }
 
-    @Deprecated
-    public boolean isShutdownAfterBackup() {
-        return false;
-    }
-
     public boolean isSpeedLightMode() {
         return speedLightMode;
     }

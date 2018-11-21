@@ -157,8 +157,8 @@ public class ExamQuest extends Quest {
     }
 
     private void penaltyFare() throws GameOverException {
-        System.out.println("You failed your exam.You need redo exam and " + Config.EXAM_FAIL_PENTALTY + " coins will be added to your loan");
-        Bank.getBank().addLoad(Config.EXAM_FAIL_PENTALTY);
+        System.out.println("You failed your exam.You need redo exam and " + Config.EXAM_FAIL_PENALTY + " coins will be added to your loan");
+        Bank.getBank().addLoad(Config.EXAM_FAIL_PENALTY);
     }
 
     @Override

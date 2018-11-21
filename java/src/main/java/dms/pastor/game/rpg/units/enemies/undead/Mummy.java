@@ -23,7 +23,7 @@ public class Mummy extends Enemy {
         setup();
         bonusPerLevelStats = new Stats(lvl / 2, 2 * lvl, 5, 0, lvl * 5, lvl * 5, 0, 0, 2, 0, 0, 0);
         plainStats = Stats.generateStatsFromSkills(skills);
-        plainStats.addHPandMaxHP(new Random().nextInt(5 * lvl));
+        plainStats.addHPAndMaxHP(new Random().nextInt(5 * lvl));
         int madeFrom = r.nextInt(4) + 1;
         inventory = new Inventory(madeFrom);
         for (int i = 1; i <= madeFrom; i++) {

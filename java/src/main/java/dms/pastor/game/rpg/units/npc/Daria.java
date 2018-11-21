@@ -7,7 +7,7 @@ import java.util.Random;
 
 
 public class Daria extends NPC {
-    private static String[] dariaPreTalks = {"You went to Daria's place.She was in the middle od reading article \"A terrorist tried to kidnamp bus with Japanese Tourists .Police has 8192 picturs of suspect\"", "D"};
+    private static String[] dariaPreTalks = {"You went to Daria's place.She was in the middle od reading article \"A terrorist tried to kidnap bus with Japanese Tourists .Police has 8192 pictures of suspect\"", "D"};
     QuestMonitor sp = QuestMonitor.getQuestMonitor();
     Random random = new Random();
 

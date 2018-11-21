@@ -17,7 +17,7 @@ public class Day9Quests extends Quest {
     String[] tutorials = {"This is a RPG game", "About buttons", "How to configure  character", "Warnings and other small prints"};
 
     //==//
-    String startOftutorialText = "In today's episode...";
+    String startOfTutorialText = "In today's episode...";
     //==//
 
     public void talk() {
@@ -71,7 +71,7 @@ public class Day9Quests extends Quest {
                         System.out.println("You left city...");
                 }
             } catch (InputMismatchException ime) {
-                //FIXME log.info("user type sometwhing weird ... " + ime.getMessage());
+                //FIXME log.info("user type something weird ... " + ime.getMessage());
                 System.out.println("You get lost in the city ... press number!");
             }
         }

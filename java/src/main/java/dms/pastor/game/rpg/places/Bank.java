@@ -55,7 +55,7 @@ public class Bank extends Place {
             System.out.println("3.Borrow money from Bank\n4.Pay loan");
             System.out.println("5.Check balance");
             System.out.println("0.Exit");
-            System.out.println("Smallprint: We charge  small fee (" + transactionCharge + ") for each transaction (add/remove/borrow pay back).");
+            System.out.println("Small print: We charge  small fee (" + transactionCharge + ") for each transaction (add/remove/borrow pay back).");
 
             try {
                 int choice = scanner.nextInt();
@@ -75,7 +75,7 @@ public class Bank extends Place {
                         if (loan > 0) {
                             payBackLoan();
                         } else {
-                            System.out.println("Are you drunk?You don't have loan.Be good students ,waste your money on alkocholic beverages !");
+                            System.out.println("Are you drunk?You don't have loan.Be good students ,waste your money on alcoholic beverages !");
                         }
                         break;
                     case 5:
@@ -124,7 +124,7 @@ public class Bank extends Place {
     }
 
     private void displayBalance() {
-        System.out.println("====BANK's MONEY MANAGMENT SYSTEM====");
+        System.out.println("====BANK's MONEY MANAGEMENT SYSTEM====");
         System.out.println("You have: " + hero.money.showMoney() + "\nYour Saving balance is: " + deposit + "(Interest rate:" + interestRate + "%)\nYour loan balance is: " + loan + "(Loan Interest rate:" + loanRate + "%)");
         System.out.println("====================================");
     }
@@ -148,7 +148,7 @@ public class Bank extends Place {
             }
         } catch (Exception e) {
             //FIXME log.warn("Invalid input from user or other shit happens while adding money to savings. " + e.getMessage());
-            System.out.println("Nice junk,but we are bank not srapyard.");
+            System.out.println("Nice junk,but we are bank not scrapyard.");
         }
     }
 
@@ -173,7 +173,7 @@ public class Bank extends Place {
             }
         } catch (Exception e) {
             //FIXME log.warn("Invalid input from user or other shit happens while adding money to savings. " + e.getMessage());
-            System.out.println("Nice junk,but we are bank not srapyard.");
+            System.out.println("Nice junk,but we are bank not scrapyard.");
         }
     }
 
@@ -204,7 +204,7 @@ public class Bank extends Place {
             }
         } catch (Exception e) {
             //FIXME log.warn("Invalid input from user or other shit happens while adding money to savings. " + e.getMessage());
-            System.out.println("Nice junk,but we are bank not srapyard.");
+            System.out.println("Nice junk,but we are bank not scrapyard.");
         }
     }
 

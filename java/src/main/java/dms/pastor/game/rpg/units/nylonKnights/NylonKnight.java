@@ -16,7 +16,7 @@ public class NylonKnight extends Enemy {
         description = name + " are trained 'dresiarz ";//TODO implement id
         this.lvl = level;
         psycho = false;
-        critalChance = lvl / 2;
+        criticalChance = lvl / 2;
         skills = new Skills(10, 2, 2, 6, 6, 0);
         setup();
         bonusPerLevelStats = new Stats(3, 10, 2, 1, 25, 25, 0, 0, 1, 0, 0, 0);

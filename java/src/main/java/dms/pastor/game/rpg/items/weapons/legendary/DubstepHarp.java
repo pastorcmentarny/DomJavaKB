@@ -7,9 +7,9 @@ import dms.pastor.game.rpg.items.weapons.Weapon;
 import java.util.ArrayList;
 
 
-public class DupstepHarp extends Weapon {
+public class DubstepHarp extends Weapon {
 
-    public DupstepHarp() {
+    public DubstepHarp() {
         super(Hands.RIGHT);
         setName("Dupstep harp");
         setDescription("The harp is a stringed musical instrument which has a number of individual strings running at an angle to its soundboard, which are plucked with the fingers.It helps as well in fighting with undead");//TODO improve it

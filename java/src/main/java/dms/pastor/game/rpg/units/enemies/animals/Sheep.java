@@ -31,7 +31,7 @@ public class Sheep extends Enemy {
         bonusPerLevelStats = new Stats(1, lvl, 2, 0, 25, 25, 0, 0, 0, 0, 0, 0);
         //bonusStats.addToAllStats(lvl,psycho);
         plainStats = Stats.generateStatsFromSkills(skills);
-        plainStats.addHPandMaxHP(5 * lvl);
+        plainStats.addHPAndMaxHP(5 * lvl);
         plainStats.addArm(lvl);
 
         inventory = new Inventory(0);

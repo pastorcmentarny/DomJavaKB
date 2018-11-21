@@ -50,7 +50,7 @@ public class Game {
     }
 
     public static void gameOver(String reason, String heroName) {
-        System.out.println("\n\n" + Config.GAMEOVER_SPLIT + "\n\tGAMEOVER!\n" + heroName + " " + reason + ".\n" + Config.GAMEOVER_SPLIT);
+        System.out.println("\n\n" + Config.GAME_OVER_SPLIT + "\n\tGAMEOVER!\n" + heroName + " " + reason + ".\n" + Config.GAME_OVER_SPLIT);
         System.exit(1);
     }
 
@@ -231,14 +231,14 @@ public class Game {
             levelUpCheckUp();
             if (isReachDestination()) {
 
-                System.out.println(Config.GAMEOVER_SPLIT + "\n{  ( [YOU GET INTO DESTINATION!] )  }\n" + Config.GAMEOVER_SPLIT);
+                System.out.println(Config.GAME_OVER_SPLIT + "\n{  ( [YOU GET INTO DESTINATION!] )  }\n" + Config.GAME_OVER_SPLIT);
             }
         }
         return false;
     }
 
     public boolean gameOver(String reason) {
-        System.out.println("\n\n" + Config.GAMEOVER_SPLIT + "\n\tGAMEOVER!\n" + hero.getName() + " " + reason + ".\nYou walked " + distance + "/" + Config.DESTINATION_DISTANCE + ".\n" + Config.GAMEOVER_SPLIT);
+        System.out.println("\n\n" + Config.GAME_OVER_SPLIT + "\n\tGAMEOVER!\n" + hero.getName() + " " + reason + ".\nYou walked " + distance + "/" + Config.DESTINATION_DISTANCE + ".\n" + Config.GAME_OVER_SPLIT);
         return false;
     }
 
@@ -276,10 +276,10 @@ public class Game {
         while (enemyExp > enemyNextLvlExp) {
             enemyLevelUp();
         }
-        System.out.println(Config.lineSeperatorBefore);
+        System.out.println(Config.lineSeparatorBefore);
         System.out.println(hero.getName() + " has " + hero.exp + " exp. Next level at: " + hero.nextLvlExp);
         System.out.println("Enemies  has " + enemyExp + " exp. They will be at next level at: " + enemyNextLvlExp);
-        System.out.println(Config.lineSeperatorAfter);
+        System.out.println(Config.lineSeparatorAfter);
     }
 
     private void heroLevelUp() {

@@ -12,14 +12,14 @@ public class Yogi extends Boss {
 
     public Yogi() {
         setName("Yogi");
-        setDescription("He is one of the biggest villian in this game.Full of hate and passion to take control over the world");//TODO replace with proper description        
+        setDescription("He is one of the biggest villain in this game.Full of hate and passion to take control over the world");//TODO replace with proper description
         psycho = true;
         skills = new Skills(2, 14, 12, 3, 3, 8);
         setup();
-        bonusPerLevelStats = Stats.generateSmalltBonusStats();
+        bonusPerLevelStats = Stats.generateSmallBonusStats();
         bonusPerLevelStats.addToAllStats(lvl, psycho);
         plainStats = Stats.generateStatsFromSkills(skills);
-        extraStats.addHPandMaxHP(4000);
+        extraStats.addHPAndMaxHP(4000);
         inventory = new Inventory(9);
         inventory.addItem(new JamesConstitution());
         inventory.addItem(Book.getJamesClarkBook());

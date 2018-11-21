@@ -24,7 +24,7 @@ public class Vampire extends Enemy {
         bonusPerLevelStats = Stats.generateDefaultBonusStats(psycho);
         //bonusStats.addToAllStats(lvl,psycho);
         plainStats = Stats.generateStatsFromSkills(skills);
-        extraStats.addHPandMaxHP(5 * lvl);
+        extraStats.addHPAndMaxHP(5 * lvl);
 
         inventory = new Inventory(1);
         inventory.addItem(Book.getJamesBook());

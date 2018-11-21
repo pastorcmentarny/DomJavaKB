@@ -17,13 +17,13 @@ public class Mannequin extends Enemy {
         name = RandomUtils.getRandomName(RandomUtils.getNameList()) + " - Mannequin";
         description = name + " .it is used for practice purposes.";
         this.lvl = lvl;
-        critalChance = 10;
+        criticalChance = 10;
         psycho = false;
         skills = new Skills(2, 0, 0, 1, 1, 0);
         setup();
-        bonusPerLevelStats = Stats.generateSmalltBonusStats();
+        bonusPerLevelStats = Stats.generateSmallBonusStats();
         plainStats = Stats.generateStatsFromSkills(skills);
-        plainStats.addHPandMaxHP(lvl * 10);
+        plainStats.addHPAndMaxHP(lvl * 10);
 
         inventory = new Inventory(0);
         updateLevelFromTo(1, lvl);

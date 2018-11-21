@@ -7,7 +7,7 @@ import dms.pastor.game.rpg.commons.Result;
  * Created Feb 17, 2015 at 7:39:48 PM
  */
 public enum RPS {
-    ROCK(1), PAPPER(2), SCISSORS(3);
+    ROCK(1), PAPER(2), SCISSORS(3);
     String rockWin = "Rock crushes scissors.";
     String paperWin = "paper covers rock.";
     String scissorWin = "Scissors cuts papers.";

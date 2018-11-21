@@ -21,7 +21,7 @@ public class Dummy extends Enemy {
         psycho = false;
         skills = Skills.generateRandomSkills(Config.DEFAULT_POINTS_FOR_SKILLS, Config.DEFAULT_INIT_MAX_POINTS_FOR_SKILLS, false, null);        //TODO replace null with init skills
         setup();
-        bonusPerLevelStats = Stats.generateSmalltBonusStats();
+        bonusPerLevelStats = Stats.generateSmallBonusStats();
         bonusPerLevelStats.addToAllStats(lvl, psycho);
         plainStats = new Stats(lvl, lvl, 40, 0, 30, 30, 0, 0, lvl, 0, 0, 0);
 

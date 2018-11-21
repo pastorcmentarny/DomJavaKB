@@ -63,15 +63,15 @@ public class BagFoundEvent implements EventInterface {
 
     public void WalletStory() {
         System.out.println("You found a wallet on the road with some coins inside as it didn't look ");
-        result = new Result(true, "You found money", new Integer(new Random().nextInt(hero.lvl * 13 + 1)));
+        result = new Result(true, "You found money", Integer.valueOf(new Random().nextInt(hero.lvl * 13 + 1)));
     }
 
     public void KarmaStory() {
                /* TODO
         "You found a bag.
-        1. Trying to idetify owner
+        1. Trying to identify owner
             1.1 if successful,you will get karma +1
-            1.2 if unsuccesful ,then take stuff
+            1.2 if unsuccessful ,then take stuff
         2. Take stuff (-5 karma)
         
         */
@@ -91,7 +91,7 @@ public class BagFoundEvent implements EventInterface {
 
     //TODO improve it
     public void WomanBagStory() {
-        System.out.println("Woman bags always contains black hole that sucks all things that women belives they really needs.. You spent ages to find anything ,but you didn't find anything valuable or useful... ");
+        System.out.println("Woman bags always contains black hole that sucks all things that women believes they really needs.. You spent ages to find anything ,but you didn't find anything valuable or useful... ");
         result = new Result(true, "You found 1 coin", 1);
     }
 

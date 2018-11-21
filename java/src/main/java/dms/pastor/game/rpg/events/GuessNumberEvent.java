@@ -53,7 +53,7 @@ public class GuessNumberEvent implements EventInterface {
     }
 
     public Result getReward() {
-        return new Result(true, " got reward ", new Integer(reward));
+        return new Result(true, " got reward ", Integer.valueOf(reward));
     }
 
     public boolean isAnswered() {

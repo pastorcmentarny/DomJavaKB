@@ -70,7 +70,7 @@ public class KebabShop extends Place {
         Kebab kebab = new Kebab(40, rating.poisonChance() + 10, Config.PRICE_KEBAB);
         if (hero.money.hasEnoughMoney(kebab.getValue())) {
             hero.inventory.addItem(kebab);
-            System.out.println("You bouth a kebab");
+            System.out.println("You bought a kebab");
         } else {
             System.out.println("You are too poor to buy this.");
         }

@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class Config {
     public static final int DEFAULT_POINTS_FOR_SKILLS = 25;
-    public static final int EXAM_FAIL_PENTALTY = 1500;
+    public static final int EXAM_FAIL_PENALTY = 1500;
     //PRICES
     public static final int PRICE_KEBAB = 42;
     public static final int PRICE_CURE_POTION = 550;
@@ -29,17 +29,17 @@ public class Config {
     public static int ENEMY_LEARNING_SKILLS_EASY = 70;
     public static int ENEMY_LEARNING_SKILLS_NORMAL = 50;
     //CLI
-    public static String lineSeperatorBefore = "\n====== ======== ====== ======== ======";
-    public static String lineSeperatorAfter = "====== ======== ====== ======== ======\n\n";
+    public static String lineSeparatorBefore = "\n====== ======== ====== ======== ======";
+    public static String lineSeparatorAfter = "====== ======== ====== ======== ======\n\n";
     public static int DEFAULT_INIT_MAX_POINTS_FOR_SKILLS = 10;
-    public static String GAMEOVER_SPLIT = "8X 8X 8X 8X GAME OVER X8 X8 X8 X8";
+    public static String GAME_OVER_SPLIT = "8X 8X 8X 8X GAME OVER X8 X8 X8 X8";
     public static String GUESS_NUMBER_EVENT_LINE = "} }}  }}}}   }}}GUESS NUMBER EVENT }}}";
     public static ArmorType[] HUMAN_ARMOR_TYPE = new ArmorType[]{ArmorType.HEAD, ArmorType.CHEST, ArmorType.GLOVES, ArmorType.FEET};
     public static String ANY_KEY_TO_CONTINUE = "\nPress any key to continue..";
     public static String LINE_SEPARATOR_INVENTORY = "==I=-=V==TOR===Y=-=--";
     public static int DEFAULT_CRITICAL_CHANCE = 1;
     public static int DEFAULT_CRITICAL_MULTIPLAYER = 3;
-    public static String LINE_SEPERATOR = "--------\n";
+    public static String LINE_SEPARATOR = "--------\n";
     public static int MINOR_EXP_REWARD = 100;
     public static int AVERAGE_EXP_REWARD = 360;
     public static int MAJOR_EXP_REWARD = 1200;

@@ -1,6 +1,6 @@
 package dms.pastor.game.rpg.characteristics;
 
-//TODO add descrption
+//TODO add description
 public enum Attribute {
     /*
 
@@ -22,7 +22,7 @@ public enum Attribute {
     BIRD,
     HORSE,
     //ITEM
-    FOURLEAF_CLOVER,
+    FOUR_LEAF_CLOVER,
     //TYPE
     MECHANIC,
     MAGIC,
@@ -30,8 +30,8 @@ public enum Attribute {
     MASSIVE,
     //MAGIC
     SPELL_QUICKNESS,
-    SPELL_TUTRLE,
-    SPELL_DRAGONPOWER,
+    SPELL_TURTLE,
+    SPELL_DRAGON_POWER,
     MAGIC_RESISTANCE100,
     MAGIC_RESISTANCE50,
     MAGIC_RESISTANCE10,
@@ -48,17 +48,17 @@ public enum Attribute {
     NORMAL_WEAPON,
     MAGIC_WEAPON,
     RANGE_WEAPON,
-    MEELE_WEAPON,
+    MELEE_WEAPON,
     //STUDENT TYPES
     STUDENT_SPORT,
-    STUDENT_COMPSCI,
+    STUDENT_COMP_SCI,
     STUDENT_INTERPOL,
 
     //OTHER    
-    PERIOD, //Period jest atrybutem dodanym to paru kobiet
+    PERIOD, //Period is attribute added to a few woman
     LEGENDARY,
     UNDEAD_KILLER, //It does 1000 dmg per turn
     NONE, HERBALIST,
-    DIPLOMACY, // People who study intenral politics
+    DIPLOMACY, // People who study internal politics
     ;
 }
