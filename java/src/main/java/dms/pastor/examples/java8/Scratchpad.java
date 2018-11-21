@@ -1,4 +1,4 @@
-package dms.pastor.kb.java8;
+package dms.pastor.examples.java8;
 
 import dms.pastor.kb.java8.interfaces.defaultmethod.Admin;
 import dms.pastor.kb.java8.interfaces.defaultmethod.User;

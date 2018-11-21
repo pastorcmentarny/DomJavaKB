@@ -1,4 +1,4 @@
-package dms.pastor.kb.java8.interfaces.functional;
+package dms.pastor.examples.java8.interfaces.functional;
 
 final class FunctionalInterfaceExample {
 

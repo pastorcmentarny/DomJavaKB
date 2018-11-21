@@ -1,4 +1,4 @@
-package dms.pastor.kb.java8;
+package dms.pastor.examples.java8;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Base64;

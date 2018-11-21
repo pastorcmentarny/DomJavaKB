@@ -1,4 +1,4 @@
-package dms.pastor.kb.java8.time;
+package dms.pastor.examples.java8.time;
 
 import java.time.LocalDate;
 import java.time.LocalTime;

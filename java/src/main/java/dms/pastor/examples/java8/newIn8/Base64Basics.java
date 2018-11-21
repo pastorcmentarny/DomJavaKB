@@ -1,4 +1,4 @@
-package dms.pastor.kb.java8.newIn8;
+package dms.pastor.examples.java8.newIn8;
 
 import java.io.IOException;
 import java.nio.file.FileSystems;

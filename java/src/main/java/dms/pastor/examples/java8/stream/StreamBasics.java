@@ -1,4 +1,4 @@
-package dms.pastor.kb.java8.stream;
+package dms.pastor.examples.java8.stream;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -55,7 +55,7 @@ final class StreamBasics {
     }
 
 
-    private static final void example() {
+    private static void example() {
         List<String> myList = Arrays.asList("af", "aa", "ba", "ac", "uu", "xa", "ab", "ad", "ae");
         myList.stream().filter(s -> s.startsWith("a")).map(String::toUpperCase).sorted().forEach(System.out::println);
     }

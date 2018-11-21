@@ -1,4 +1,4 @@
-package dms.pastor.kb.java.exceptions;
+package dms.pastor.examples;
 
 public class AutoClosableExample {
 /*

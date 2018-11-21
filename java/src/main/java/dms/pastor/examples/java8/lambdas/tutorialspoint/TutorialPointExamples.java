@@ -1,4 +1,4 @@
-package dms.pastor.kb.java8.lambdas.tutorialspoint;
+package dms.pastor.examples.java8.lambdas.tutorialspoint;
 
 /*
 http://www.tutorialspoint.com/java8/java8_lambda_expressions.htm

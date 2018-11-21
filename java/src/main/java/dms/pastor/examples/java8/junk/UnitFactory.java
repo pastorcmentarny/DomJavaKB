@@ -1,4 +1,4 @@
-package dms.pastor.kb.java8.junk;
+package dms.pastor.examples.java8.junk;
 
 //U in this case is type parameter
 public interface UnitFactory<U extends Unit> {

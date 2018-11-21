@@ -1,4 +1,4 @@
-package dms.pastor.kb.java8.interfaces.defaultmethod;
+package dms.pastor.examples.java8.interfaces.defaultmethod;
 
 public final class User implements Account {
 

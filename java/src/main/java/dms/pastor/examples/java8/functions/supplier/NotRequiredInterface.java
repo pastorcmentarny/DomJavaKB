@@ -1,4 +1,4 @@
-package dms.pastor.kb.java8.functions.supplier;
+package dms.pastor.examples.java8.functions.supplier;
 
 import java.util.function.Supplier;
 

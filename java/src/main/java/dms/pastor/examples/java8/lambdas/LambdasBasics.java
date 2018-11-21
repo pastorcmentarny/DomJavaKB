@@ -1,4 +1,4 @@
-package dms.pastor.kb.java8.lambdas;
+package dms.pastor.examples.java8.lambdas;
 
 import java.util.Arrays;
 import java.util.Collections;

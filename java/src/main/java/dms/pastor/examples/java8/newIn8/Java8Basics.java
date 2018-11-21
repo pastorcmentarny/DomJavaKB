@@ -1,4 +1,4 @@
-package dms.pastor.kb.java8.newIn8;
+package dms.pastor.examples.java8.newIn8;
 
 interface Formula {
     double calculate(int number);

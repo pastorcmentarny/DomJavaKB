@@ -1,6 +1,6 @@
-package dms.pastor.kb.java8.functions.supplier;
+package dms.pastor.examples.java8.functions.supplier;
 
-public final class NotRequiredOverridenImplementation implements NotRequiredInterface {
+public final class NotRequiredOverriddenImplementation implements NotRequiredInterface {
 
     private static final String NOT_REQUIRED = "Overridden not required implementation ";
 

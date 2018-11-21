@@ -1,4 +1,4 @@
-package dms.pastor.kb.java8.functions;
+package dms.pastor.examples.java8.functions;
 
 import dms.pastor.kb.java8.functions.supplier.NotRequiredDefaultImplementation;
 import dms.pastor.kb.java8.functions.supplier.NotRequiredInterface;

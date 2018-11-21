@@ -1,4 +1,4 @@
-package dms.pastor.kb.java8;
+package dms.pastor.examples.java8;
 
 final class ShadowingClass {
 

@@ -1,4 +1,4 @@
-package dms.pastor.kb.java8;
+package dms.pastor.examples.java8;
 
 import java.util.Objects;
 import java.util.Random;
@@ -26,7 +26,7 @@ final class Autoboxing {
         int test = new Random().nextInt(Integer.MAX_VALUE);
         /*
             compiler will choose widening over boxing,
-            According to IntellIJ second method is not used, but as compiler will choose widening over boxing,
+            According to IntelliJ second method is not used, but as compiler will choose widening over boxing,
              then actually overloadedMethod will be used instead :)
          */
         overloadedMethod(test);
@@ -37,7 +37,7 @@ final class Autoboxing {
         unboxing of 'testNPE' may produce 'java.lang.NullPointerException
         Boolean testNPE = null;
         if(testNPE){
-            System.out.println("Unreach statement");
+            System.out.println("Unreached statement");
         }
         */
     }

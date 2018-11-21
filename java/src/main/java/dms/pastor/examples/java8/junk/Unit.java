@@ -1,4 +1,4 @@
-package dms.pastor.kb.java8.junk;
+package dms.pastor.examples.java8.junk;
 
 public final class Unit {
     private final String name;
