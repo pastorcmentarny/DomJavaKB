@@ -26,11 +26,12 @@ public final class DataOperations {
     private static final String SRC = "src" + separator;
     private static final String RESOURCES = "resources" + separator;
     private static final String BASE_PATH = System.getProperty("user.dir") +
-            separator + "java" +
             separator + SRC + "main" +
             separator + RESOURCES;
     private static final String STATION_PATH = System.getProperty("user.dir") +
-            separator + SRC + "main" +
+            separator + "java" +
+            separator + SRC + "java" +
+            separator + "main" +
             separator + RESOURCES + "tube" + File.separator + "station.txt";
     private static final String PATH = BASE_PATH + "tube" + File.separator + "station" + Timestamp.valueOf(LocalDateTime.now()) + ".txt";
 
@@ -45,7 +46,7 @@ public final class DataOperations {
 
     public static List<TubeStation> loadFromFile() {
         DataUploader dataUploader = new DataUploader();
-        return dataUploader.load(STATION_PATH);
+        return dataUploader.load("/Users/symonowd/IdeaProjects/DomJavaKB/java/src/main/resources/tube/station.txt");
     }
 
     public static void backup() {

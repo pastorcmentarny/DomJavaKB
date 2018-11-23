@@ -27,8 +27,10 @@ import static org.springframework.http.HttpStatus.OK;
 @RunWith(MockitoJUnitRunner.class)
 public class DefinitionSearchControllerTest {
 
+/*
     @Rule
     public ExpectedException exception = ExpectedException.none();
+*/
 
     @Mock
     private DefaultDefinitionService defaultDefinitionService;

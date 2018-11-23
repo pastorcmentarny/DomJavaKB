@@ -37,12 +37,13 @@ public final class FileUtils {
     private FileUtils() {
     }
 
-    static boolean isFilesExists(String[] filesPath) {
+    public static boolean isFilesExists(String[] filesPath) {
         if (filesPath == null || filesPath.length == 0) {
             return false;
         }
         for (String aFilesPath : filesPath) {
             if (!new File(aFilesPath).exists()) { //TODO replace with checkIfFileIsAccessible() ?
+                System.out.println("Invalid path:" + aFilesPath);
                 return false;
             }
         }
