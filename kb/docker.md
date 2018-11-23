@@ -38,6 +38,18 @@ Useful commands:
 * ```docker run landoop/fast-data-dev``` running Kafka and other services that Kafka needs
 * ``` docker system prune -a``` Remove all unused containers and so on.
 
+command
+what it does
+docker restart $(docker ps -aq)
+it restarts all dockers containers
+docker rm $(docker ps -aq) 
+It deletes all containers
+docker rmi $(docker images -q)
+It deletes all images
+docker stop $(docker ps -aq)
+stop all containers
+
+
 
 
 * A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image.
