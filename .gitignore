@@ -34,3 +34,4 @@ build/
 !/gradle/wrapper.gradle
 !/gradle/dependecies.gradle
 !/gradle/
+!/codestyle/livetemplate.jar
