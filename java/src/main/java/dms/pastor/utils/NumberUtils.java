@@ -82,8 +82,15 @@ public final class NumberUtils {
         return reversedNumber;
     }
 
-    //TODO do this properly
     public static String getPercentage(int number, int total) {
+        if (total <= 0) {
+            return EMPTY_STRING;
+        }
+
+        if (number == 0) {
+            return "0";
+        }
+
         return new BigDecimal(number * 100 / total).setScale(0, HALF_UP).toPlainString();
     }
 

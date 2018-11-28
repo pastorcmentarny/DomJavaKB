@@ -621,4 +621,24 @@ public class NumberUtilsTest {
         assertThat(result).isEqualTo("50");
     }
 
+    @Test
+    public void getPercentageShouldReturnEmptyStringIfTotalNumberIsZero() {
+
+        // when
+        final String result = getPercentage(1, 0);
+
+        // then
+        assertThat(result).isEmpty();
+    }
+
+    @Test
+    public void getPercentageShouldReturnEmptyStringIfTotalNumberIsBelowZero() {
+
+        // when
+        final String result = getPercentage(1, -1);
+
+        // then
+        assertThat(result).isEmpty();
+    }
+
 }
