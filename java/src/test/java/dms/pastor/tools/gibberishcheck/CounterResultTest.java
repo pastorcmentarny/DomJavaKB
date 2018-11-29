@@ -13,7 +13,7 @@ public class CounterResultTest {
         CounterResult counterResult = new CounterResult(1, 2);
 
         // when
-        String result = counterResult.getPercentage();
+        String result = counterResult.getPercentageAsString();
 
         // then
         assertThat(result).isEqualTo("50");
@@ -25,7 +25,7 @@ public class CounterResultTest {
         CounterResult counterResult = new CounterResult(1, 0);
 
         // when
-        String result = counterResult.getPercentage();
+        String result = counterResult.getPercentageAsString();
 
         // then
         assertThat(result).isEmpty();

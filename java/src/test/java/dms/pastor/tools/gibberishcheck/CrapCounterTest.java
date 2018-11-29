@@ -40,7 +40,7 @@ public class CrapCounterTest {
         CounterResult counterResult = counter.count();
 
         // then
-        assertThat(counterResult.getPercentage()).isEqualTo("100");
+        assertThat(counterResult.getPercentageAsString()).isEqualTo("100");
     }
 
     @Test
@@ -56,7 +56,7 @@ public class CrapCounterTest {
         CounterResult counterResult = counter.count();
 
         // then
-        assertThat(counterResult.getPercentage()).isEqualTo("50");
+        assertThat(counterResult.getPercentageAsString()).isEqualTo("50");
     }
 
     @Test
@@ -72,7 +72,7 @@ public class CrapCounterTest {
         CounterResult counterResult = counter.count();
 
         // then
-        assertThat(counterResult.getPercentage()).isEqualTo("33");
+        assertThat(counterResult.getPercentageAsString()).isEqualTo("33");
     }
 
     @Test
@@ -88,6 +88,6 @@ public class CrapCounterTest {
         CounterResult counterResult = counter.count();
 
         // then
-        assertThat(counterResult.getPercentage()).isEqualTo("0");
+        assertThat(counterResult.getPercentageAsString()).isEqualTo("0");
     }
 }
