@@ -1,28 +1,34 @@
 package dms.pastor.tools.gibberishcheck;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-
-import java.nio.file.FileSystems;
 import java.util.List;
 
-@Data
-public class JobOpportunityAnalyser {
+class JobOpportunityAnalyser {
+    private CrapCounter crapCounter;
+    private Data data;
 
-    private List<String> dictionary;
-    private String job;
-
-    public JobOpportunityAnalyser(String[] args){
-       load(args);
+    public JobOpportunityAnalyser(String[] args) {
+        load(args);
     }
 
     private void load(String[] args) {
-        dictionary = DataLoader.loadDictionary(args[0]);
-        job = DataLoader.loadEmailFromRecruiter(args[1]);
+        var email = DataLoader.loadEmailFromRecruiter(args[1]);
+        List<String> words = JobDescriptionToWordsConverter.convert(email);
+        data = new Data(DataLoader.loadDictionary(args[0]), words);
     }
 
     public String analyse() {
-        List<String> words = JobDescriptionToWordsConverter.convert(job);
-        return null;
+        crapCounter = new CrapCounter(data);
+        final CounterResult result = crapCounter.count();
+        return getResult(result);
+    }
+
+    private String getResult(CounterResult result) {
+        if (result.getPercentage() > 30) {
+            return String.format("This job description contains too much recruiter's gibberish to be worth consider. Result %s%%.", result.getPercentageAsString());
+        }
+        if (result.getPercentage() > 5) {
+            return String.format("This job description do not contains too much recruiter's gibberish. It is worth to be read. Result %s %%.", result.getPercentageAsString());
+        }
+        return "Job description is gibberish free!";
     }
 }
