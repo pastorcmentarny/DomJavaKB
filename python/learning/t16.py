@@ -23,10 +23,6 @@ while True:
 
 print('Access granted. You needed ' + str(counter) + ' times to hack into this system. Enjoy reset of your mission...')
 
-
-#There are some values in other data types that conditions will consider equivalent to True and False. When used in conditions, 0, 0.0, and '' (the empty string) are considered False, while all other values are considered True.
-
-
 unit = None
 while not unit:
     print('type anything on keyboard to continue:')
@@ -199,7 +195,6 @@ varOfIntStringOrFloat = float(piNumber)
 print(varOfIntStringOrFloat)
 varOfIntStringOrFloat = float(10)
 
-# to use # comment use ctrl+/ shortcut
 # print('type number 1:')
 # a = int(input())
 # print('type number 2:')

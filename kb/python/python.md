@@ -5,7 +5,7 @@ List of basics that it is worth to remember
   * install all libs from file
 * name = None #Python is dynamic, so you don't need to declare things;
 * Although the string value of a number is considered a completely different value from the integer or floating-point version, an integer can be equal to a floating point.
-* name = None  # Python is dynamic, so you don't need to declare things;
+* #There are some values in other data types that conditions will consider equivalent to True and False. When used in conditions, 0, 0.0, and '' (the empty string) are considered False, while all other values are considered True.
 * There are some values in other data types that conditions will consider equivalent to True and False. When used in conditions, 0, 0.0, and '' (the empty string) are considered False, while all other values are considered True.
 * Data types: Integer, Floating-Point, and String
 * ```not True```   not operate on only single value
@@ -26,6 +26,7 @@ print(table)
 ```
 * All Python programs can call a basic set of functions called built-in functions, including the print(), input(), and len() functions you’ve seen before. Python also comes with a set of modules called the standard library. Each module is a Python program that contains a related group of functions that can be embedded in your programs.
 An alternative form of the import statement is composed of the from keyword, followed by the module name, the import keyword, and a star; for example, from random import *.
+* # to use # comment use ctrl+/ shortcut
 
  With this form of import statement, calls to functions in random will not need the random. prefix. However, using the full name makes for more readable code, so it is better to use the normal form of the import statement.
 
@@ -45,6 +46,13 @@ An alternative form of the import statement is composed of the from keyword, fol
 ```python
 @staticmethod
 ```
+* # String literals can span multiple lines. One way is using triple-quotes: """...""" or '''...'''.
+  
+  print('''This is first line
+  This is second line
+  It is hard to belive but this is third line
+  
+  This is fifth line. Where is 4th line ? I didn't bother to write it''')
 
 ### The Operators
 

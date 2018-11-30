@@ -2,6 +2,7 @@ package dms.pastor.tools.trips.tube.station;
 
 import org.junit.Test;
 
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -21,7 +22,7 @@ public class StationTest {
     @Test //FIXME MY DATA IS WRONG. NEED BE FIXED
     public void shouldBe270Stations() {
         // given
-        final var uniqueStations = Stream.of(Station.values()).collect(Collectors.toSet());
+        Set<Station> uniqueStations = Stream.of(Station.values()).collect(Collectors.toSet());
 
         // then
         assertThat(uniqueStations).hasSize(270);

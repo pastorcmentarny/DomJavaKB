@@ -24,13 +24,7 @@ print(result)
 print(r'C:\to\nowhere')
 print('C:\to\nowhere')
 
-# String literals can span multiple lines. One way is using triple-quotes: """...""" or '''...'''.
 
-print('''This is first line
-This is second line
-It is hard to belive but this is third line
-
-This is fifth line. Where is 4th line ? I didn't bother to write it''')
 
 print('moon' * 10)
 

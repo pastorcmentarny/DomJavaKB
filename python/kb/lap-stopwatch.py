@@ -4,6 +4,7 @@ print('Press ENTER to begin.\n\t Afterwards, press ENTER to "click" the stopwatc
 
 input()
 print('Start .. ')
+startTime = time.time()
 lastTime = startTime
 lap_number = 1
 carryOn = True
@@ -11,7 +12,7 @@ carryOn = True
 try:
     while carryOn:
         s = input()
-        if s == 'X':
+        if s.lower() == 'x':
             carryOn = False
         lapTime = round(time.time() - lastTime, 2)
         totalTime = round(time.time() - startTime, 2)
