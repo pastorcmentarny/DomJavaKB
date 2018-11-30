@@ -27,7 +27,7 @@ Boston Manor;;P;;2017-10-30;;none;;none;;N
 Bounds Green;;X;;none;;none;;none;;N
 Bow Road;;X;;none;;none;;none;;N
 Brent Cross;;V;;2017-05-26;;2017-05-26;;none;;N
-Brixton;;X;;none;;none;;none;;N
+Brixton;;V;;2018-11-29;;2018-11-29;;2018-11-29;;N
 Bromley-by-Bow;;X;;none;;none;;none;;N
 Buckhurst Hill;;X;;none;;none;;none;;N
 Burnt Oak;;P;;2018-08-22;;none;;none;;N
