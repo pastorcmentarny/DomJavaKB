@@ -1,7 +1,6 @@
 package dms.pastor.game.rpg.items.weapons;
 
 import dms.pastor.game.rpg.characteristics.Attribute;
-import dms.pastor.game.rpg.characteristics.BattleStats;
 import dms.pastor.game.rpg.characteristics.Stats;
 import dms.pastor.game.rpg.items.Action;
 import dms.pastor.game.rpg.items.Item;
@@ -42,15 +41,6 @@ public class Weapon extends Item {
     }
 
     public Stats addToStats(Stats stats) {
-        stats.addMinDMG(minDMG);
-        stats.addMaxDMG(maxDMG);
-        stats.addAccuracy(accuracy);
-        stats.addEvasion(evasion);
-        return stats;
-    }
-
-
-    public BattleStats addToBattleStats(BattleStats stats) {
         stats.addMinDMG(minDMG);
         stats.addMaxDMG(maxDMG);
         stats.addAccuracy(accuracy);

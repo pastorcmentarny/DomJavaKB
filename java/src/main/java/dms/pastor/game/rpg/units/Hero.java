@@ -308,10 +308,10 @@ public class Hero extends Unit implements BattleAction {
         battleStats.addStats(extraStats);
         battleStats.addArm(armors.getTotalARM());
         if (leftHand != null) {
-            leftHand.addToBattleStats(battleStats);
+            leftHand.addToStats(battleStats);
         }
         if (rightHand != null) {
-            rightHand.addToBattleStats(battleStats);
+            rightHand.addToStats(battleStats);
         }
     }
 
