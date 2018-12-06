@@ -1,3 +1,9 @@
+## **HONEST WARNING**
+**Content in this KB is for me ONLY.**
+It contains definitions that explain things in the way that is easiest for me to understand.
+_I am not the author of these definitions so check resources section for the origin of definitions._ 
+
+
 List of basics that it is worth to remember
 * break get out from loop
 * continue go back to beginning to loop
@@ -176,4 +182,5 @@ if __name__ == '__main__':
 
 
 Resources:
-https://www.youtube.com/watch?v=sugvnHA7ElY
+* https://www.youtube.com/watch?v=sugvnHA7ElY
+* book: automate boring stuff

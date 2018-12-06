@@ -1,3 +1,9 @@
+## **HONEST WARNING**
+**Content in this KB is for me ONLY.**
+It contains definitions that explain things in the way that is easiest for me to understand.
+_I am not the author of these definitions so check resources section for the origin of definitions._ 
+
+
 **Finally** is _not executed_ if the** System.exit** method is called _inside_ a try block. 
 
 **Single Responsibility Principle**

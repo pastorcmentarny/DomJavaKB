@@ -1,3 +1,10 @@
+ ## **HONEST WARNING**
+ **Content in this KB is for me ONLY.**
+ It contains definitions that explain things in the way that is easiest for me to understand.
+ _I am not the author of these definitions so check resources section for the origin of definitions._ 
+ 
+ 
+
  * Note that boxing of numbers does not necessarily preserve identity. On the other hand, it preserves equality.
  * You cannot assign a value of type Byte to an Int variable without an explicit conversion. Use toInt() and other method for that.
  * Arrays in Kotlin are represented by the Array class, that has get and set functions (that turn into [] by operator overloading conventions), and size property, 
@@ -51,7 +58,9 @@ inline fun <feified T> foo(value: Any) = value is T
 * map A -> B 
 . It's important to know, that inline functions with reified types are not callable from Java code, whereas normal inline functions are. That's probably the reason why not every type parameter used in inline functions is reified by default.
 
-
+* Things get nasty when your Kotlin code has to get along with Java code (libraries are written in Java, so it happens pretty often I guess). Then, the third kind of type jumps in — T!. It’s called platform type, and somehow it means T or T?. 
+* NOTE! Declaring an object property as lateinit also makes its backing field public (while keeping all accessors), which may not be what you want for a public API, so pay attention.
+ * Builders. Usually, in Kotlin there is no such thing as builders, because we have default and named parameters and apply function
 Reify make info a thing, make real
 
 TODO Searled Classes

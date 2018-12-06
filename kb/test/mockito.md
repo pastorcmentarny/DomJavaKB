@@ -1,3 +1,9 @@
+## **HONEST WARNING**
+**Content in this KB is for me ONLY.**
+It contains definitions that explain things in the way that is easiest for me to understand.
+_I am not the author of these definitions so check resources section for the origin of definitions._ 
+
+
 MockitoAnnotations.initMocks(this); initializes fields annotated with Mockito annotations.
 
 NullPointerException auto-unboxing caveat. In rare cases when matching primitive parameter types you *must* use relevant intThat(), floatThat(), etc. method. This way you will avoid NullPointerException during auto-unboxing. Due to how java works we don't really have a clean way of detecting this scenario and protecting the user from this problem. 

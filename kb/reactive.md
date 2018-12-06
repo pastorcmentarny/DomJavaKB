@@ -1,3 +1,9 @@
+## **HONEST WARNING**
+**Content in this KB is for me ONLY.**
+It contains definitions that explain things in the way that is easiest for me to understand.
+_I am not the author of these definitions so check resources section for the origin of definitions._ 
+
+
 This two-way connection between a publisher and a subscriber is called a subscription. 
 
 Reactive Streams are made up of four main entities: (1) publishers, (2) subscribers, (3) subscriptions, and (4) processors. 

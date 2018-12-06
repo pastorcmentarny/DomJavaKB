@@ -1,6 +1,8 @@
 ## **HONEST WARNING**
 Content in this KB is for me ONLY.
-It contains definition that explain things and eastiest ot understand for me.
+It contains definitions that explain things in the way that is easiest for me to understand.
+I am not the author of these definitions so check resources section for the origin of definitions. 
+
 # AGILE
 
 Agile is type of software development method based on interactive and incremental development.
