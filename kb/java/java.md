@@ -942,6 +942,51 @@ _I am not the author of these definitions so check resources section for the ori
   This is an example of how to use the AtomicInteger class of Java. The java.util.concurrent.atomic package provides very useful classes that support lock-free and thread-safe programming on single variables. Among them, the AtomicInteger class is a wrapper class for an int value that allows it to be updated atomically. The class provides useful methods, some of which will be shown in the code snippet below. The most common use of the AtomicInteger is to handle a counter that is accessed by different threads simultaneously. (https://examples.javacodegeeks.com/core-java/util/concurrent/atomic/atomicinteger/java-atomicinteger-example/)
  
  
+  
+wwrite referenceThis is my current and updated CV
+
+Read more: http://javarevisited.blogspot.com/2012/03/10-object-oriented-design-principles.html#ixzz3EjBs0YFQ
+class (http://docs.oracle.com/javase/tutorial/java/concepts/class.html)
+	is a blueprint for object.Template that describe what variables(and  initial values ), methods, and data structures object should have .
+
+method (http://docs.oracle.com/javase/tutorial/java/javaOO/methods.html)
+	method is a collection of statements that are grouped together  which is referred to by name and can be called.	
+		(difference from function in C is that in method in java is associated with an object[source:http://stackoverflow.com/questions/155609/what-is-the-difference-between-a-method-and-a-function]	
+	
+object
+	it is a particular instance of a class (with own variables, methods, and data structures)
+
+OOP concepts:
+	abstraction , encapsulation , inheritance and polymorphism
+	DRY (Don't repeat yourself)
+	
+static
+	 
+
+		
+###### ###### ######
+instantiation
+virtual method, pure virtual method
+static/class initializer
+
+destructor/finalizer
+superclass or base class
+subclass or derived class
+inheritance
+multiple inheritance (and give an example)
+delegation/forwarding
+composition/aggregation
+abstract class
+interface/protocol (and different from abstract class)
+
+polymorphism (without resorting to examples)
+is-a versus has-a relationships (with examples)
+method signatures (what's included in one)
+method visibility (e.g. public/private/other)
+
+###### ###### ######
+
+ 
  RESOURCES:
  http://en.wikipedia.org/wiki/Anti-pattern#Programming_anti-patterns
  http://www.antipatterns.com/antipatt.htm

@@ -5,3 +5,4 @@ _I am not the author of these definitions so check resources section for the ori
 
 
 * ```./gradlew printProjectName functionalTest --rerun-tasks``` rerun-tasks as flag name suggested
+* ```gradle wrapper --gradle-version 5.0 --distribution-type bin```
