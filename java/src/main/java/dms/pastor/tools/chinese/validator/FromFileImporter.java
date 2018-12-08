@@ -82,6 +82,9 @@ public class FromFileImporter implements Importer {
     private Result processLine(String[] requestedCategories, String line, String[] data) {
         Word word;
         try {
+            if (data.length < 10) {
+                LOGGER.error(String.format("wrong number of elements. Should be 10 but was %d", data.length));
+            }
             word = parseWord(data);
             if (isWordValid(word)) {
                 addWordToWordList(requestedCategories, getWordCategories(data), word); //TODO improve nr

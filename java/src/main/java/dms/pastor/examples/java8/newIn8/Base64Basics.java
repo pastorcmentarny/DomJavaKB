@@ -8,17 +8,17 @@ import java.util.Base64;
 
 final class Base64Basics {
 
-    public static final String encrypt(String source) {
+    public static String encrypt(String source) {
         final byte[] encodedMessage = Base64.getEncoder().encode(source.getBytes());
         return new String(encodedMessage);
     }
 
-    public static final String decrypt(String source) {
+    public static String decrypt(String source) {
         final byte[] decodedMessage = Base64.getDecoder().decode(source.getBytes());
         return new String(decodedMessage);
     }
 
-    public static final String loadFile(Path path) {
+    public static String loadFile(Path path) {
         StringBuilder builder = new StringBuilder();
         try {
             Files.lines(path).forEach(line -> builder.append(line).append("\n"));

@@ -34,7 +34,7 @@ public class FileUtilsTest {
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         new File(TEST_FILE).delete();
         new File(LOCK_FILE).delete();
 
@@ -42,7 +42,7 @@ public class FileUtilsTest {
 
     @SuppressWarnings("ConstantConditions") // part of the test
     @Test
-    public void isFileValidShouldReturnFalseWhenFilePathIsNull() throws Exception {
+    public void isFileValidShouldReturnFalseWhenFilePathIsNull() {
         // when
         final boolean result = isFileValid(null);
 
@@ -51,7 +51,7 @@ public class FileUtilsTest {
     }
 
     @Test
-    public void isFileValidShouldReturnFalseIfFilePathIsEmptyTest() throws Exception {
+    public void isFileValidShouldReturnFalseIfFilePathIsEmptyTest() {
         // when
         final boolean result = isFileValid(EMPTY_STRING);
 
@@ -60,7 +60,7 @@ public class FileUtilsTest {
     }
 
     @Test
-    public void shouldThrowExceptionIfUnableToAccessFileTest() throws Exception {
+    public void shouldThrowExceptionIfUnableToAccessFileTest() {
         // when
         final boolean result = isFileValid("text.txt");
 
@@ -69,7 +69,7 @@ public class FileUtilsTest {
     }
 
     @Test
-    public void shouldReturnTrueForExistingFileTest() throws Exception {
+    public void shouldReturnTrueForExistingFileTest() {
         // when
         final boolean result = isFileValid(DEFAULT_PATH);
 
@@ -79,7 +79,7 @@ public class FileUtilsTest {
 
     @SuppressWarnings("ConstantConditions") // part of the test
     @Test
-    public void shouldThrowIllegalArgumentExceptionIfPathIsNullInReadRawDataTest() throws Exception {
+    public void shouldThrowIllegalArgumentExceptionIfPathIsNullInReadRawDataTest() {
         // except
         exception.expect(IllegalArgumentException.class);
 
@@ -88,7 +88,7 @@ public class FileUtilsTest {
     }
 
     @Test
-    public void shouldThrowExceptionIfFileNotExistsInRawDataReadTest() throws Exception {
+    public void shouldThrowExceptionIfFileNotExistsInRawDataReadTest() {
         // except
         exception.expect(IllegalArgumentException.class);
 
@@ -98,7 +98,7 @@ public class FileUtilsTest {
 
     @SuppressWarnings("SpellCheckingInspection")
     @Test
-    public void shouldRawDataReadTest() throws Exception {
+    public void shouldRawDataReadTest() {
         // given
         final String expected = "This is a default test filetesttest";
         // when
@@ -109,7 +109,7 @@ public class FileUtilsTest {
     }
 
     @Test
-    public void shouldLockFileTest() throws Exception {
+    public void shouldLockFileTest() {
         // given
         if (new File(LOCK_FILE).exists()) {
             final boolean deleted = new File(LOCK_FILE).delete();
@@ -126,7 +126,7 @@ public class FileUtilsTest {
 
     @Ignore //TODO need to fix it
     @Test
-    public void shouldUnlockFileTest() throws Exception {
+    public void shouldUnlockFileTest() {
         // given
         if (!new File(LOCK_FILE).exists()) {
             lock();
@@ -143,7 +143,7 @@ public class FileUtilsTest {
     }
 
     @Test
-    public void shouldListToFileTest() throws Exception {
+    public void shouldListToFileTest() {
         // given
         final String[] stringList = new String[]{"1", "2", "3"};
 

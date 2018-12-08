@@ -48,6 +48,7 @@ public class KebabShop extends Place {
                         break;
                     case 0:
                         goToMenu = false;
+                        break;
                     default:
                         //FIXME log.debug("There is no action for input" + selection);
                         System.out.println("You look on menu and get so confused that you decided to exit,because you don't know what you want and you did you do in this place");

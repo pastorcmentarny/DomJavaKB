@@ -398,15 +398,10 @@ public class Stats {
 
 
     public void addHPAndMaxHP(int value) {
-        if (value < 0) {
-            //log.warn("CAN'T DO. Increase of hp and max hp by negative value" + value + " is not allowed.");
-            return;
-        } else {
+        if (value >= 0) {
             maxHP += value;
             HP = maxHP;
         }
-        //log.debug("icreasing HP and max HP by " + value);
-
     }
 
     public void useMP(int manaCost) {
@@ -478,14 +473,10 @@ public class Stats {
     }
 
     public void addSPAndMaxSP(int value) {
-        if (value < 0) {
-            //FIXME log.warn("CAN'T DO. Increase of hp and max hp by negative value" + value + " is not allowed.");
-            return;
-        } else {
+        if (value >= 0) {
             maxSP += value;
             SP = maxSP;
         }
-        //FIXME log.debug("icreasing SP and max SP by " + value);
     }
 
     public int getKarma() {
