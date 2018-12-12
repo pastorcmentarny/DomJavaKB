@@ -38,3 +38,4 @@
 31. I don’t think there is any value in spending time wrapping the whole of a legacy system in unit  Tests as this can be very costly in developer’s time let along financially expensive. When you do need to change/modify older code though, it is worth trying to write characterization tests that document the behaviour of the code you are trying to modify. 
 32. Stimulus and response have to go together in order for an association to be made. If Pavlov rang the bell then fed his dogs an hour later they'd never make the connection. That's why we don't make the connection between the bugs we write when they're found, weeks later, by QA.
 33. Run stability tests. Close to average load should be produced against the system for at least 12 hours. This is the real test of how the GC behaves.
+0.  Don't let your tests micromanage your code. 

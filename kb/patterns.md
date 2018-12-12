@@ -467,6 +467,11 @@ Use When
 Example
 Sometimes the information displayed in a shopping cart is the product of a single item while other times it is an aggregation of multiple items. By implementing items as composites we can treat the aggregates and the items in the same way, allowing us to simply iterate over the tree and invoke functionality on each item. By calling the getCost() method on any given node we would get the cost of that item plus the cost of all child items, allowing items to be uniformly treated whether they were single items or groups of items.
 
+## The Aggregator pattern TODO stub 
+The Aggregator pattern helps to address this. It talks about how we can aggregate the data from different services and then send the final response to the consumer. This can be done in two ways:
+* 1. A composite microservice will make calls to all the required microservices, consolidate the data, and transform the data before sending back.
+* 2. An API Gateway can also partition the request to multiple microservices and aggregate the data before sending it to the consumer.
+It is recommended if any business logic is to be applied, then choose a composite microservice. Otherwise, the API Gateway is the established solution.
 
 
 DECORATOR {STRUCTURAL} TODO improve it
@@ -537,7 +542,17 @@ Use When
 Example
 Ledger applications often provide a way for users to reconcile their bank statements with their ledger data on demand, automating much of the process. The actual operation of communicating with a third party is a relatively expensive operation that should be limited. By using a proxy to represent the communications object we can limit the number of times or the intervals the communication is invoked. In addition, we can wrap the complex instantiation of the communication object inside the proxy class, decoupling calling code from the implementation details.
 
+##STRANGLER PATTERN TODO rewrite it
 
+###Problem.
+So far, the design patterns we talked about were decomposing applications for greenfield, but 80% of the work we do is with brownfield applications, which are big, monolithic applications. Applying all the above design patterns to them will be difficult because breaking them into smaller pieces at the same time it's being used live is a big task.
+
+### Solution
+The Strangler pattern comes to the rescue. The Strangler pattern is based on an analogy to a vine that strangles a tree that it’s wrapped around. This solution works well with web applications, where a call goes back and forth, and for each URI call, a service can be broken into different domains and hosted as separate services. The idea is to do it one domain at a time. This creates two separate applications that live side by side in the same URI space. Eventually, the newly refactored application “strangles” or replaces the original application until finally you can shut off the monolithic application.Strangler Pattern.
+
+
+### Explanation of name of the pattern by Martin Flower
+They seed in the upper branches of a fig tree and gradually work their way down the tree until they root in the soil. Over many years they grow into fantastic and beautiful shapes, meanwhile strangling and killing the tree that was their host. An alternative route is to gradually create a new system around the edges of the old, letting it grow slowly over several years until the old system is strangled. The most important reason to consider a strangler application over a cut-over rewrite is reduced risk. A strangler can give value steadily and the frequent releases allow you to monitor its progress more carefully. Many people still don't consider a strangler since they think it will cost more - I'm not convinced about that. Since you can use shorter release cycles with a stranger you can avoid a lot of the unnecessary features that cut over rewrites often generate. https://martinfowler.com/bliki/StranglerApplication.html
 
 STATE TODO improve it
 TODO improve it , [Example code needed] 
@@ -550,6 +565,7 @@ Use When
 ⦁	Transitions between states need to be explicit.
 Example
 An email object can have various states, all of which will change how the object handles different functions. If the state is "not sent" then the call to send() is going to send the message while a call to recallMessage() will either throw an error or do nothing. However, if the state is "sent" then the call to send() would either throw an error or do nothing while the call to recallMessage() would attempt to send a recall notification to recipients. To avoid conditional statements in most or all methods there would be multiple state objects that handle the implementation with respect to their particular state. The calls within the Email object would then be delegated down to the appropriate state object for handling.
+
 
 
 ANTIPATTERNS
