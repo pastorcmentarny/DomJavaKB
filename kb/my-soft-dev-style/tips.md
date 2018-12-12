@@ -10,3 +10,16 @@
 9.  Building context can take hours, only to be lost by a random interruption.
 10. Information Security is always flashing their badges at people and making urgent demands, regardless of the consequences to the rest of the organisation, which is why we don’t invite them to many meetings. 
 11. We begin with the first available story in Pivotal Tracker. Let’s say that it’s #3275: User Can Add A Comment To a Post. First, check out a feature branch named with the story id and a short, descriptive title: git checkout -b 3275-add-commenting.  The id allows us to easily track this branch back to the story that spawned it. The title is there to give us humans a little hint as to what’s in it.
+
+
+
+## RANDOM OTHER QUOTES
+
+0.  The truth is everything is breaking all the time, everywhere, for everyone.
+0.  When you developing "Act locally. Think Globally."
+0.  Progress not perfection.
+0.  We need help of theirs because we are limited in what we can see.
+0.  Today's demands are simply not met by yesterday’s software architectures.
+0.  Databases which don't enforce schema do not lead to schemaless systems - they just mean that schema tends to be managed at the application level, rather than the database level.
+0.  Everything takes three times a longer than it should even if you know about it and take it into account. Robert C. Martin
+0.  The biggest problem in software dev is a misconception 
