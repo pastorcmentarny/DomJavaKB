@@ -54,7 +54,6 @@ public class Game {
         System.exit(1);
     }
 
-    @SuppressWarnings("CloneDoesntCallSuperClone")
     @Override
     public final Object clone() throws CloneNotSupportedException {
         //FIXME log.error("Clone not supported exception!");

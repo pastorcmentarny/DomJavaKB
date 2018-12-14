@@ -53,7 +53,7 @@ public class About extends javax.swing.JFrame {
         this.dispose();
     }
 
-    @SuppressWarnings({"unchecked", "OverlyLongMethod"}) // GUI setup
+    @SuppressWarnings({"OverlyLongMethod"}) // GUI setup
     private void initComponents() {
 
         JTabbedPane aboutTabbedPanel = new JTabbedPane();

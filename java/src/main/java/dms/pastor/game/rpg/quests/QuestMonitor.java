@@ -43,7 +43,6 @@ public class QuestMonitor {
         return adamAlive;
     }
 
-    @SuppressWarnings("CloneDoesntCallSuperClone")
     @Override
     public final Object clone() throws CloneNotSupportedException {
         //FIXME log.error("Clone not supported exception!");

@@ -33,7 +33,6 @@ public final class GuidTools {
         return UUID.randomUUID().toString().replaceAll("-", EMPTY_STRING).substring(0, 8);
     }
 
-    @SuppressWarnings("ConstantConditions")
     public static void main(String[] args) {
         int quantity = 2; // SET quantity
         if (args != null && args.length == 1) {

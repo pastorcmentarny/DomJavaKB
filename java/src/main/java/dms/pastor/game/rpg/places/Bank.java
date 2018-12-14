@@ -39,7 +39,6 @@ public class Bank extends Place {
         return bank;
     }
 
-    @SuppressWarnings("CloneDoesntCallSuperClone")
     @Override
     public final Object clone() throws CloneNotSupportedException {
         //FIXME log.error("Clone not supported exception!");

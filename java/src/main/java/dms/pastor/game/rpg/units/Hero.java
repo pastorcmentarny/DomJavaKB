@@ -78,7 +78,6 @@ public class Hero extends Unit implements BattleAction {
         return hero;
     }
 
-    @SuppressWarnings("CloneDoesntCallSuperClone")
     @Override
     public final Object clone() throws CloneNotSupportedException {
         //FIXME log.error("Clone not supported exception!");

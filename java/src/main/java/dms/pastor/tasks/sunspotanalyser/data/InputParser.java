@@ -34,7 +34,6 @@ public class InputParser {
         return new Grid(data);
     }
 
-    @SuppressWarnings("ResultOfMethodCallIgnored")
     final void validateData() {
         for (String number : data) {
             try {

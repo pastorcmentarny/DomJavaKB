@@ -63,7 +63,7 @@ public final class Backup extends AbstractTools {
         return backup;
     }
 
-    @SuppressWarnings("MethodDoesntCallSuperMethod") //because call this method is prohibited for security reasons.
+    //because call this method is prohibited for security reasons.
     @Override
     public Object clone() throws CloneNotSupportedException {
         LOGGER.error("Unable to clone Backup class");

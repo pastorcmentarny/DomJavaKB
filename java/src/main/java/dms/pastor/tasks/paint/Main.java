@@ -15,7 +15,6 @@ import java.util.Scanner;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-@SuppressWarnings("UtilityClassWithoutPrivateConstructor")
 final class Main {
     private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
     private static final String STARTING_APPLICATION_MESSAGE = "Starting application ...";
