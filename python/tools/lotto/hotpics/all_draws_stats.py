@@ -2,7 +2,8 @@ import csv
 import os
 
 print(os.getcwd())
-lotto_hotpicks_history_path = 'lotto-hotpicks-all-draws.csv'
+base_dir = '../../../../data/lotto/'
+lotto_hotpicks_history_path = base_dir + 'lotto-hotpicks-all-draws.csv'
 lotto_hotpics_draw_history_file = open(lotto_hotpicks_history_path)
 
 # load data

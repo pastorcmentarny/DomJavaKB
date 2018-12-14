@@ -3,11 +3,13 @@ TODO:
         make game playable
         improve main (game,in,out)
         accept AAEFW as way to input
-    4. Complete Lotto tools  
     5. Create TextFileSaver   
-    6. Add gradle task to generate domUtils.jar   
-    7. Combine lotto examples into one 
-    8. Add kotlin project
+    9. FilePath
+    Dom Digital Assistant
+    Written in Python
+    * Generate numbers
+    * do a backup by copy pictures from phone to dropbox and copy to hdd
+    * xml compressor remove all spaces and new spaces replace names of tag with shorter version 
 
 Enemies:
     0. (Done)   Dummy

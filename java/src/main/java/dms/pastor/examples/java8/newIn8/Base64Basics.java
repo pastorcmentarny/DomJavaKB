@@ -1,24 +1,27 @@
 package dms.pastor.examples.java8.newIn8;
 
 import java.io.IOException;
-import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Base64;
 
+/**
+ * Note: Example is run from tests
+ */
 final class Base64Basics {
 
-    public static String encrypt(String source) {
+    static String encrypt(String source) {
         final byte[] encodedMessage = Base64.getEncoder().encode(source.getBytes());
         return new String(encodedMessage);
     }
 
-    public static String decrypt(String source) {
+    static String decrypt(String source) {
         final byte[] decodedMessage = Base64.getDecoder().decode(source.getBytes());
         return new String(decodedMessage);
     }
 
-    public static String loadFile(Path path) {
+    //TODO move to FileUtils
+    static String loadFile(Path path) {
         StringBuilder builder = new StringBuilder();
         try {
             Files.lines(path).forEach(line -> builder.append(line).append("\n"));
@@ -29,25 +32,4 @@ final class Base64Basics {
     }
 
 
-    public static void main(String[] args) {
-        runBasics();
-        boolean run = true;
-        String source = "aGFydGxpbms6c2VjcmV0";
-        final byte[] decodedMessage = Base64.getDecoder().decode(source.getBytes());
-        System.out.println(new String(decodedMessage));
-
-    }
-
-    public static void runBasics() {
-
-        System.out.println("...START...");
-
-        String originalMessage = loadFile(FileSystems.getDefault().getPath("C:\\file.txt"));
-        System.out.println("... ... O MESSAGE: " + originalMessage);
-        String encrypted = encrypt(originalMessage);
-        System.out.println("... ... E MESSAGE: " + encrypted);
-        final String decrypted = decrypt(encrypted);
-        System.out.println("... ... D MESSAGE: " + decrypted);
-
-    }
 }
