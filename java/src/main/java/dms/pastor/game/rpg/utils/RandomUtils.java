@@ -35,7 +35,7 @@ public class RandomUtils {
     }
 
     public static ArrayList<String> getList() {
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         list.add("Czego?");
         list.add("I co sie kurwa gapisz?//FIXME log.w nie widziales?");
         return list;
@@ -47,14 +47,14 @@ public class RandomUtils {
     }
 
     public static ArrayList<String> getNameList() {
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         list.addAll(getFemaleNameList());
         list.addAll(getMaleNameList());
         return list;
     }
 
     public static ArrayList<String> getFemaleNameList() {
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         list.add("Arlais");         //Arlais Female From the temple.
         list.add("Bubble");
         list.add("Genowefa");
@@ -69,7 +69,7 @@ public class RandomUtils {
     }
 
     public static ArrayList<String> getMaleNameList() {
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         list.add("Ynyr");//Honor
         list.add("Culhwych");//possibly means "pig-lord.")
         list.add("Gwylan");//Gwylan	GWI lan	"seagull"
@@ -85,7 +85,7 @@ public class RandomUtils {
     }
 
     public static ArrayList<String> getAnimalNameList() {
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         list.add("Porky");
         list.add("Otto");
         list.add("Dick");
@@ -112,7 +112,7 @@ public class RandomUtils {
 
 
     public static ArrayList<String> getUniqueNameList() {
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         list.add("Dosichwaradynaina");     //Dos i chwarady nain 	 Go finger your granny         ;
         list.add("Cocoen");
         list.add("Anwsblewoga");
@@ -137,7 +137,7 @@ public class RandomUtils {
     }
 
     public static ArrayList<String> getStudentList() {
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         list.add("Dosichwaradynaina");     //Dos i chwarady nain 	 Go finger your granny         ;
         list.add("Cocoen");
         list.add("Anwsblewoga");

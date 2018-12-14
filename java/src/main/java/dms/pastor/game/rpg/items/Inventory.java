@@ -41,8 +41,7 @@ public class Inventory {
     }
 
     public ArrayList<Item> getAllInventoryItems() {
-        ArrayList<Item> all = new ArrayList<>();
-        all.addAll(items);
+        ArrayList<Item> all = new ArrayList<>(items);
         return all;
     }
 
@@ -88,7 +87,7 @@ public class Inventory {
     }
 
     public Item getItemByName(String itemName) {
-        if (items == null || items.isEmpty()) {
+        if (items.isEmpty()) {
             return null;
         } else {
             Item tmp = null;

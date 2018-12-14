@@ -32,11 +32,9 @@ final class Base64Basics {
     public static void main(String[] args) {
         runBasics();
         boolean run = true;
-        if (run) {
-            String source = "aGFydGxpbms6c2VjcmV0";
-            final byte[] decodedMessage = Base64.getDecoder().decode(source.getBytes());
-            System.out.println(new String(decodedMessage));
-        }
+        String source = "aGFydGxpbms6c2VjcmV0";
+        final byte[] decodedMessage = Base64.getDecoder().decode(source.getBytes());
+        System.out.println(new String(decodedMessage));
 
     }
 

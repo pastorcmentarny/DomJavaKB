@@ -26,12 +26,12 @@ public class Ring extends Item {
         if (attributes.isEmpty()) {
             return "Normal Ring";
         } else {
-            String attrs = "[ ";
+            StringBuilder attrs = new StringBuilder("[ ");
             for (Attribute a : attributes) {
-                attrs += a.name() + " ";
+                attrs.append(a.name()).append(" ");
             }
-            attrs += "]";
-            return attrs;
+            attrs.append("]");
+            return attrs.toString();
         }
     }
 }

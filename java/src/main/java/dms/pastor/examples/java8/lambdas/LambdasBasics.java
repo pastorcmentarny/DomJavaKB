@@ -1,7 +1,7 @@
 package dms.pastor.examples.java8.lambdas;
 
 import java.util.Arrays;
-import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /*
@@ -33,7 +33,7 @@ final class LambdasBasics {
 
     private static void basics() {
         List<String> names = Arrays.asList("dom", "xu", "bobo", "mama", "tata", "alek");
-        Collections.sort(names, (a, b) -> b.compareTo(a));
+        names.sort(Comparator.reverseOrder());
         names.stream().forEach(System.out::println);
     }
 }

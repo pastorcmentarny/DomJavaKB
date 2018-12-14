@@ -76,7 +76,7 @@ final class DomEncoder {
 
     }
 
-
+    //TODO finish it
     private String swapCapitalization() {
         StringBuilder stringBuilder = new StringBuilder();
         for (Character character : data.toCharArray())

@@ -84,7 +84,7 @@ public class Day9Quests extends Quest {
 
     @Override
     public Bonus getReward() {
-        ArrayList<Item> items = new ArrayList<Item>();
+        ArrayList<Item> items = new ArrayList<>();
         items.add(new YamatoGun());
         return new Bonus(items);
     }

@@ -6,7 +6,7 @@ project.ext {
 apply plugin: 'java'
 apply plugin: 'org.owasp.dependencycheck'
 apply from: "$gradleDir/tasks.gradle/"
-apply from: "$gradleDir/wrapper.gradle/"
+//apply from: "$gradleDir/wrapper.gradle/"
 
 buildscript {
     repositories {

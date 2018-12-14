@@ -12,7 +12,7 @@ public class Peasant extends Enemy {
     public Peasant(int level) {
         name = RandomUtils.getRandomName(RandomUtils.getStudentList());
         description = "a foolish and gullible farmer of low social status.";
-        this.lvl = lvl;
+        this.lvl = level;
         psycho = false;
         skills = Skills.generateRandomSkills(18, Config.DEFAULT_INIT_MAX_POINTS_FOR_SKILLS, false, null);        //TODO replace null with init skills
         setup();

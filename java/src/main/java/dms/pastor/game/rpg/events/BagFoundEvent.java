@@ -63,7 +63,7 @@ public class BagFoundEvent implements EventInterface {
 
     public void WalletStory() {
         System.out.println("You found a wallet on the road with some coins inside as it didn't look ");
-        result = new Result(true, "You found money", Integer.valueOf(new Random().nextInt(hero.lvl * 13 + 1)));
+        result = new Result(true, "You found money", new Random().nextInt(hero.lvl * 13 + 1));
     }
 
     public void KarmaStory() {

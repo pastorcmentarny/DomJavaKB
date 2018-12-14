@@ -49,7 +49,7 @@ public class AcidRainSpell extends Spell {
     @Override
     public Result cast(Hero hero, Unit[] units) {
         //20% for miss , each rain does 3dmg/psychokinesis
-        ArrayList<Unit> allUnits = new ArrayList<Unit>(units.length + 1);
+        ArrayList<Unit> allUnits = new ArrayList<>(units.length + 1);
         allUnits.addAll(Arrays.asList(units));
         allUnits.addAll(Arrays.asList(units)); //increase chance of rainbow will hit enemy
         allUnits.add(hero);

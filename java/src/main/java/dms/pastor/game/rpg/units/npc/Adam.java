@@ -14,7 +14,7 @@ public class Adam extends NPC {
     @Override
     public void talk() {
         if (QuestMonitor.getQuestMonitor().isAdamAlive()) {
-
+            System.out.println("I have nothing to say :)");
         } else {
             System.out.println(hero.getName() + " - Have you seen Adam?\nHe died.\n" + hero.getName() + "- How?\nHe discovers invisible spell ,so he tried and stand of railway track ... so train hit him and he died as driver didn't see him.What an idiot!" + hero.getName() + " - Eee... Agreed.Thanks.");
         }

@@ -3,7 +3,7 @@
 It contains definitions that explain things in the way that is easiest for me to understand.
 _I am not the author of these definitions so check resources section for the origin of definitions._ 
 
-
+DynamoDB is fully manage NoSQL db service that provides fast and predictable perfomance with seamless scalability
 Table (Table in SQL)
 Item (known as Item in SQL)
 Column (Attribute)

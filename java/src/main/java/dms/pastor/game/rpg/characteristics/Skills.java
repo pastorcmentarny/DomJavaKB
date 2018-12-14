@@ -2,6 +2,7 @@ package dms.pastor.game.rpg.characteristics;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.Random;
 
 public class Skills {
@@ -33,8 +34,7 @@ public class Skills {
         Random random = new Random();
         boolean notAdded = true;
         SkillsType[] tmp = SkillsType.values();
-        ArrayList<SkillsType> skillsType = new ArrayList<>();
-        skillsType.addAll(Arrays.asList(tmp));
+        ArrayList<SkillsType> skillsType = new ArrayList<>(Arrays.asList(tmp));
 
         if (!psycho) {
             skillsType.remove(SkillsType.psychokinesis);
@@ -155,11 +155,7 @@ public class Skills {
 
         Skills skills;
 
-        if (initSkills != null) {
-            skills = initSkills;
-        } else {
-            skills = new Skills(1, 1, 1, 1, 1, 0);
-        }
+        skills = Objects.requireNonNullElseGet(initSkills, () -> new Skills(1, 1, 1, 1, 1, 0));
 
         if (psycho) {
             skills.setPsychokinesis(2);
