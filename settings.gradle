@@ -1,3 +1,3 @@
 rootProject.name = 'DomKB'
 
-include 'blog','java','spring','groovy','kotlin','python'
+include 'blog','dictionary','java','spring','groovy','kotlin','python'

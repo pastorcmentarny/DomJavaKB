@@ -14,9 +14,7 @@ logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - 
 sys.path.insert(0, '../utils')
 import past_result_checker
 
-
-# numbers = ['2 ', '5 ', '14', '22', '44']
-numbers = ['51', '46', '59', '31', '22']
+numbers = ['2', '25', '57', '0', '0']
 
 
 def main():
@@ -31,7 +29,7 @@ def main():
     euro_hotpics_history_csv = csv.reader(lotto_hotpics_draw_history_file)
     data = list(euro_hotpics_history_csv)
 
-    past_result_checker.check_for(True,numbers, data)
+    past_result_checker.check_for(True, numbers, data)
 
 
 def validate():
