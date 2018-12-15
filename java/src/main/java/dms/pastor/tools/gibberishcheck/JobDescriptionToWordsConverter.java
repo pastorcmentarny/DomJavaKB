@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class JobDescriptionToWordsConverter {
+class JobDescriptionToWordsConverter {
     public static List<String> convert(String job) {
         List<String> wordList = Arrays.asList(job.toLowerCase().replaceAll("[.,;:_]", "").split(" "));
 

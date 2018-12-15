@@ -5,9 +5,9 @@ import dms.pastor.game.rpg.commons.Result;
 import java.util.ArrayList;
 
 
-public class Bag extends Item {
+class Bag extends Item {
     private final ArrayList<Item> bagItems;
-    private int maxSize = 9;
+    private final int maxSize = 9;
 
     public Bag() {
         bagItems = new ArrayList<>(maxSize);

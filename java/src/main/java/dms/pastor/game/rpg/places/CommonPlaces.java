@@ -8,7 +8,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 
-public class CommonPlaces {
+class CommonPlaces {
 
     public static void vendingMachine(boolean isWorks) {
         Hero hero = Hero.getHero();

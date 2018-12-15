@@ -7,10 +7,10 @@ import java.util.Random;
 import java.util.Scanner;
 
 
-public abstract class Place extends Element {
-    protected Random random = new Random();
-    protected Scanner scanner = new Scanner(System.in);
-    Hero hero = Hero.getHero();
+abstract class Place extends Element {
+    final Random random = new Random();
+    final Scanner scanner = new Scanner(System.in);
+    final Hero hero = Hero.getHero();
 
 
     /*

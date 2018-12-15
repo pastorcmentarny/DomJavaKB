@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class CircleTest {
-    Circle line = new Circle();
+    private final Circle line = new Circle();
 
     @Test
     public void getSizeShouldReturn2() {

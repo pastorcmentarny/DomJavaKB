@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class VictoriaTest {
-    Victoria line = new Victoria();
+    private final Victoria line = new Victoria();
 
     @Test
     public void getSizeShouldReturn16() {

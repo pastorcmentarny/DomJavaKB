@@ -12,7 +12,7 @@ import java.util.concurrent.Flow;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 
-public class PrintSubscriber implements Flow.Subscriber<Integer> {
+class PrintSubscriber implements Flow.Subscriber<Integer> {
     private Flow.Subscription subscription;
 
     @Override

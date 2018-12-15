@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class JubileeTest {
-    Jubilee line = new Jubilee();
+    private final Jubilee line = new Jubilee();
 
     @Test
     public void getSizeShouldReturn27() {

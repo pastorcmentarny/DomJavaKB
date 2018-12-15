@@ -10,8 +10,8 @@ import java.util.Scanner;
 public class World {
 
     private final Game game;
-    Scanner scanner = new Scanner(System.in);
-    QuestMonitor quests = QuestMonitor.getQuestMonitor();
+    private final Scanner scanner = new Scanner(System.in);
+    private final QuestMonitor quests = QuestMonitor.getQuestMonitor();
 
     public World(Game game) {
         this.game = game;

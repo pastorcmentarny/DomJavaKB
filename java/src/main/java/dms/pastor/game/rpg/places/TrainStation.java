@@ -4,9 +4,10 @@ import java.util.Random;
 
 
 public class TrainStation extends Place {
-    Random random = new Random();
-    String question, reason;
-    String[] reasons = {
+    private final Random random = new Random();
+    private final String question;
+    private final String reason;
+    private final String[] reasons = {
             "Signal failure",
             "Train is broken down .",
             "Shortage of stuff .",
@@ -17,7 +18,7 @@ public class TrainStation extends Place {
             "Track melt due 2 days of sunny weather and need to be replaced",
             "Train is stuck in the middle of the field ,because drive hit  stado owiec",
             "Track is frozen because is -0.005 degrees ,which means winter of the century"};
-    String[] questionForReason = {"Why", "What happen", "Eee?"};
+    private final String[] questionForReason = {"Why", "What happen", "Eee?"};
 
     public TrainStation() {
         question = (questionForReason[random.nextInt(questionForReason.length)]);

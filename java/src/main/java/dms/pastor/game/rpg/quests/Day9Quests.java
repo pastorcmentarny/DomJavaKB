@@ -11,10 +11,10 @@ import java.util.Scanner;
 
 
 public class Day9Quests extends Quest {
-    QuestMonitor progress = QuestMonitor.getQuestMonitor();
+    private final QuestMonitor progress = QuestMonitor.getQuestMonitor();
 
-    Scanner scanner = new Scanner(System.in);
-    String[] tutorials = {"This is a RPG game", "About buttons", "How to configure  character", "Warnings and other small prints"};
+    private final Scanner scanner = new Scanner(System.in);
+    private final String[] tutorials = {"This is a RPG game", "About buttons", "How to configure  character", "Warnings and other small prints"};
 
     //==//
     String startOfTutorialText = "In today's episode...";
@@ -78,7 +78,7 @@ public class Day9Quests extends Quest {
     }
 
     //TODO implement tutorial,when will be ready
-    public void runTutorial(int chapter) {
+    private void runTutorial(int chapter) {
         System.out.println(tutorials[chapter]);
     }
 

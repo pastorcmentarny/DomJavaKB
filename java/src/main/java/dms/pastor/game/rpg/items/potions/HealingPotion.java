@@ -11,9 +11,9 @@ import dms.pastor.game.rpg.units.Unit;
  * @author dominiksymonowicz
  */
 public class HealingPotion extends Potion {
-    Hero hero = Hero.getHero();
-    PotionSize size;
-    int heal = 4000;
+    private final Hero hero = Hero.getHero();
+    private PotionSize size;
+    private final int heal = 4000;
 
     public HealingPotion(PotionSize size) {
         super(size);

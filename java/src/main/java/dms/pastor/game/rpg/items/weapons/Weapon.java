@@ -14,15 +14,15 @@ import java.util.ArrayList;
  */
 public class Weapon extends Item {
 
-    public int minDMG;
-    public int maxDMG;
-    public int accuracy;
-    public int evasion;
-    public int criticalChance;
-    public ArrayList<Attribute> attributes;
+    protected int minDMG;
+    protected int maxDMG;
+    protected int accuracy;
+    protected int evasion;
+    private int criticalChance;
+    protected ArrayList<Attribute> attributes;
     public Hands hand = Hands.RIGHT;
 
-    public Weapon(Hands hand) {
+    protected Weapon(Hands hand) {
         attributes = new ArrayList<>();
         attributes.add(Attribute.WEAPON);
         actions = Action.weapon;

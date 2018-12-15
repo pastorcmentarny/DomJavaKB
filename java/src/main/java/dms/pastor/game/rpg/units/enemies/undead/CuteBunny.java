@@ -13,7 +13,7 @@ public class CuteBunny extends Enemy {
     public CuteBunny(int level) {
         name = this.getClass().getSimpleName();
         description = " It looks cute,but it is deadly undead animal who sucks your life . ";//TODO implement id
-        this.lvl = lvl;
+        this.lvl = level;
         psycho = false;
         skills = new Skills(5, 0, 1, 6, 3, 0);
         setup();

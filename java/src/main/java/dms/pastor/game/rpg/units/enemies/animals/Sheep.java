@@ -19,7 +19,7 @@ import java.util.Random;
  * To change this template use File | Settings | File Templates.
  */
 public class Sheep extends Enemy {
-    Random random = new Random();
+    private final Random random = new Random();
 
     public Sheep(int lvl) {
         name = RandomUtils.getRandomName(RandomUtils.getAnimalNameList()) + " - A sheep.";

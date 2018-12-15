@@ -8,8 +8,8 @@ import java.util.Random;
 
 
 public class HealingHerbs extends Item {
-    int poisonChance = 20;
-    Hero hero = Hero.getHero();
+    private final int poisonChance = 20;
+    private final Hero hero = Hero.getHero();
 
     public HealingHerbs() {
         setName("Healing Herbs");

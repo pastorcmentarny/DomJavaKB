@@ -3,7 +3,7 @@ package dms.pastor.game.rpg.units.enemies.cs;
 /**
  * @author dominiksymonowicz
  */
-public class XParry {
+class XParry {
     //most heavy armored unit
     //strong attack
     // resistance to magic

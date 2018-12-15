@@ -14,7 +14,7 @@ public enum RPS {
     String win = "You won!";
     String lose = "You lost!";
     String draw = "DRAW!";
-    private int number;
+    private final int number;
 
     RPS(int number) {
         this.number = number;

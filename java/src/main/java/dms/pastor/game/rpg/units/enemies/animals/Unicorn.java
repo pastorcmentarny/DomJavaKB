@@ -32,7 +32,7 @@ public class Unicorn extends Enemy {
     }
 
 
-    public void castBattleSpell() {
+    private void castBattleSpell() {
         Spell spell = new RainbowVomitSpell(this);
         System.out.println(name + " casting " + spell.getDescription());
         Result result = spell.cast(Hero.getHero());

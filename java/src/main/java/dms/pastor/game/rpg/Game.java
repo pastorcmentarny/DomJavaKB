@@ -24,7 +24,7 @@ public class Game {
     //private final Stats enemyBonusStats;
     private final Hero hero;
     private final Random random = new Random();
-    Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in);
     private int enemyExp;
     private int enemyNextLvlExp;
     private int enemyLvl;
@@ -60,7 +60,7 @@ public class Game {
         throw new CloneNotSupportedException();
     }
 
-    public boolean nextEvent(Events event) {
+    private boolean nextEvent(Events event) {
         switch (event) {
             case BATTLE:
                 Enemy enemy = RandomUnit.generateRandomUnit(enemyLvl);
@@ -320,11 +320,11 @@ public class Game {
         return distance;
     }
 
-    public void step() {
+    private void step() {
         hero.state.afterStep();
     }
 
-    public void walkFewSteps(int steps) {
+    private void walkFewSteps(int steps) {
         for (int i = 1; i <= steps; i++) {
             step();
         }

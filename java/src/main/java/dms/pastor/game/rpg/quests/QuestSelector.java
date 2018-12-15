@@ -6,7 +6,7 @@ import java.util.Random;
 
 
 public class QuestSelector {
-    int noOfQuests = 2;
+    private final int noOfQuests = 2;
 
     public void menu(Game game) {
         int quests = new Random().nextInt(noOfQuests);

@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class JobDescriptionToWordsConverterTest {
 
-    public static final String JOB_DESCRIPTION = "A Sarcastic Java Developer. Call me +44 0 712 345 6789";
+    private static final String JOB_DESCRIPTION = "A Sarcastic Java Developer. Call me +44 0 712 345 6789";
 
     @Test
     public void shouldBe8Words() {

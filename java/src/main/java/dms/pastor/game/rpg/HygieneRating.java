@@ -28,7 +28,7 @@ public enum HygieneRating {
         return posionChance;
     }
 
-    public String description() {
+    private String description() {
         return description;
     }
 

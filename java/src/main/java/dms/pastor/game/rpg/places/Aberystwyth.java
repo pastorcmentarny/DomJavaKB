@@ -8,14 +8,12 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
-public class Aberystwyth {
+class Aberystwyth {
 
-    Scanner scanner = new Scanner(System.in);
-    //---
-    TrainStation station = new TrainStation();
-    //---
-    boolean stationVisited = false;
-    private Hero hero = Hero.getHero();
+    private final Scanner scanner = new Scanner(System.in);
+    private final TrainStation station = new TrainStation();
+    private boolean stationVisited = false;
+    private final Hero hero = Hero.getHero();
 
     public Aberystwyth() {
     }

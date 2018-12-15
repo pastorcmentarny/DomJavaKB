@@ -8,7 +8,7 @@ import dms.pastor.game.rpg.units.Unit;
 
 public class Fireball extends Spell {
 
-    Unit caster;
+    private final Unit caster;
 
     public Fireball(Unit caster) {
         this.caster = caster;

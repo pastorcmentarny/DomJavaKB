@@ -10,7 +10,7 @@ import dms.pastor.game.rpg.units.Unit;
  * @author dominiksymonowicz
  */
 public class ManaPotion extends Potion {
-    int mana = 1000;
+    private final int mana = 1000;
 
     public ManaPotion(PotionSize size) {
         super(size);

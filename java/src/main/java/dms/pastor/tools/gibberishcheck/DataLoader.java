@@ -13,7 +13,7 @@ import java.util.stream.Stream;
 import static java.nio.file.Files.readAllLines;
 
 
-public class DataLoader {
+class DataLoader {
 
 
     public static List<String> loadDictionary(String path){

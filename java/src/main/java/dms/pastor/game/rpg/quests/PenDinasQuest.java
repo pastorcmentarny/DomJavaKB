@@ -15,12 +15,12 @@ import java.util.Scanner;
 
 public class PenDinasQuest extends Quest {
     //static Logger log = Logger.getLogger(PenDinasQuest.class);
-    Unit boss = new JamesClarke();
-    Hero hero = Hero.getHero();
-    Game game;
-    int level = 1;
-    int topLevel = 20;
-    boolean questInProgress = true;
+    private final Unit boss = new JamesClarke();
+    private final Hero hero = Hero.getHero();
+    private final Game game;
+    private int level = 1;
+    private final int topLevel = 20;
+    private boolean questInProgress = true;
 
     public PenDinasQuest(Game game) {
         this.game = game;
@@ -60,7 +60,7 @@ public class PenDinasQuest extends Quest {
         scanner.nextLine();
     }
 
-    public void battle() {
+    private void battle() {
         System.out.println("Floor: " + level + ". Battle no." + game.increaceBattleCounter());
         Enemy enemy;
         if (level != 20) {

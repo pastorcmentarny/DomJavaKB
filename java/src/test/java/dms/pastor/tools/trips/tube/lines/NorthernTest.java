@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class NorthernTest {
-    Northern line = new Northern();
+    private final Northern line = new Northern();
 
     @Test
     public void getSizeShouldReturn50() {

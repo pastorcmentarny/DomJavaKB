@@ -46,8 +46,7 @@ public class Inventory {
     }
 
     public ArrayList<Item> takeAllItems() {
-        ArrayList<Item> all = new ArrayList<>();
-        all.addAll(items);
+        ArrayList<Item> all = new ArrayList<>(items);
         items.clear();
         return all;
     }

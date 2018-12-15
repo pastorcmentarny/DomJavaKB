@@ -8,24 +8,27 @@ package dms.pastor.game.rpg.lab;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
-public class Frankenstain {
-    String name;
-    int lvl;
-    int strength;
-    int charisma;
-    int intelligence;
-    int vitality;
-    int dexterity;
-    int psychokinesis;
+class Frankenstain {
+    private final String name;
+    private int lvl;
+    private final int strength;
+    private final int charisma;
+    private final int intelligence;
+    private final int vitality;
+    private final int dexterity;
+    private final int psychokinesis;
     //--//
-    int minDMG;
-    int maxDMG;
-    int accuracy;
-    int evasion;
-    int HP, maxHP;
-    int SP, maxSP;
-    int mana, maxMana;
-    int ARM;
+    private int minDMG;
+    private int maxDMG;
+    private int accuracy;
+    private int evasion;
+    private int HP;
+    private int maxHP;
+    private int SP;
+    private int maxSP;
+    private int mana;
+    private int maxMana;
+    private int ARM;
 
     public Frankenstain(String name, int strength, int charisma, int intelligence, int vitality, int dexterity, int psychokinesis) {
         this.name = name;

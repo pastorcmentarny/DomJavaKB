@@ -10,10 +10,10 @@ import java.util.Scanner;
 
 public class KebabShop extends Place {
 
-    protected HygieneRating rating;
-    protected int priceBand;
-    Scanner scanner = new Scanner(System.in);
-    Hero hero;
+    private final HygieneRating rating;
+    private final int priceBand;
+    private final Scanner scanner = new Scanner(System.in);
+    private final Hero hero;
 
     public KebabShop(Hero hero, String name, HygieneRating rating, int priceBand) {
         setName(name);

@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class PiccadillyTest {
-    Piccadilly line = new Piccadilly();
+    private final Piccadilly line = new Piccadilly();
 
     @Test
     public void getSizeShouldReturn2() {

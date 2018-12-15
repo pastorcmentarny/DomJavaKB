@@ -3,8 +3,8 @@ package dms.pastor.game.rpg.spells;
 import java.util.ArrayList;
 
 
-public class Spells {
-    ArrayList<Spell> spells = new ArrayList<>();
+class Spells {
+    private final ArrayList<Spell> spells = new ArrayList<>();
 
 
     public String displayListOfSpells() {

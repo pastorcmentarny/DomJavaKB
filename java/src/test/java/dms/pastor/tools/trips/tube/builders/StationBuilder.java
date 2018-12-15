@@ -19,7 +19,7 @@ public final class StationBuilder {
     private Status status = Status.values()[new Random().nextInt(Status.values().length)];
     private LocalDate passedDate = LocalDate.now();
     private LocalDate visitedDate = LocalDate.now();
-    private LocalDate thisYearVisitedDate = LocalDate.now();
+    private final LocalDate thisYearVisitedDate = LocalDate.now();
     private boolean blogged = true;
 
     private StationBuilder() {

@@ -19,7 +19,7 @@ public class BattleManual implements BattleAction {
     private final Random random = new Random();
     private final Scanner scanner = new Scanner(System.in);
 
-    private Hero hero;
+    private final Hero hero;
     private Enemy enemy;
     private int round = 1;
 
@@ -85,7 +85,7 @@ public class BattleManual implements BattleAction {
         enemy.generateBattleStats();
     }
 
-    public void selectAction() {
+    private void selectAction() {
         System.out.println("You can:\n");
         if (hero.canAttack()) {
             System.out.println("1.Attack");
@@ -141,7 +141,7 @@ public class BattleManual implements BattleAction {
 
     }
 
-    public boolean fight() {
+    private boolean fight() {
         Unit[] units;
         //while (isAllAlive()) {
         units = getUnitsSortedByInitiative();
@@ -246,7 +246,7 @@ public class BattleManual implements BattleAction {
     }
 
 
-    public Unit[] getUnitsSortedByInitiative() {
+    private Unit[] getUnitsSortedByInitiative() {
         String msg = "Checking who will be first to start round..";
         if ((hero.skills.getInitiative() > enemy.skills.getInitiative())) {
             //FIXME log.info(msg + hero.getName());

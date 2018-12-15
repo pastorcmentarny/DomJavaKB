@@ -6,25 +6,25 @@ public class QuestMonitor {
     private static QuestMonitor questMonitor;
     public QuestState bureaucrracy = QuestState.AVALIABLE;
     public QuestState winWithOlaAtTower = QuestState.NOT_AVALIABLE;
-    public QuestState zombie = QuestState.NOT_AVALIABLE;
+    public final QuestState zombie = QuestState.NOT_AVALIABLE;
     public QuestState devilBridge = QuestState.AVALIABLE;
     public QuestState win100inRPSGame = QuestState.AVALIABLE;
-    public QuestState kittenQuestState = QuestState.NOT_AVALIABLE;
+    public final QuestState kittenQuestState = QuestState.NOT_AVALIABLE;
     public QuestState mutaSpiderQuestState = QuestState.NOT_AVALIABLE;
     public QuestState sleepingMonika = QuestState.AVALIABLE;
 
 
     //=========================////
     //\\SIDE QUESTS            \\\\
-    public boolean adamAlive = true;
-    boolean alienQuestAvailable = false;
-    boolean coffeeStory = false;
-    boolean penDinasQuest = false;
-    boolean zombieKilled = false;
-    private boolean toiletLevelAvailable = false;
-    private boolean zombieQuestInProgress = false;
+    private final boolean adamAlive = true;
+    private final boolean alienQuestAvailable = false;
+    private boolean coffeeStory = false;
+    private boolean penDinasQuest = false;
+    private boolean zombieKilled = false;
+    private final boolean toiletLevelAvailable = false;
+    private final boolean zombieQuestInProgress = false;
     private boolean zombieTalkPassed = false;
-    private boolean officeQuestCompleted = false;
+    private final boolean officeQuestCompleted = false;
     private boolean monikaQuestCompleted = false;
 
     private QuestMonitor() {

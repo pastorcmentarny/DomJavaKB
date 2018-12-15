@@ -12,9 +12,9 @@ public class State {
 
     //POISON
     public boolean isPoisoned = false;
-    public int poisonedTurnLeft = 0;
-    public int poisonDamage = 0;
-    ArrayList<Attribute> currentAttributes;
+    private int poisonedTurnLeft = 0;
+    private int poisonDamage = 0;
+    private final ArrayList<Attribute> currentAttributes;
     //STUNNED
     private boolean stunned = false;
     private int stunnedTurns = 0;
@@ -98,7 +98,7 @@ public class State {
         currentAttributes.add(Attribute.POISONED);
     }
 
-    public void clearPoison() {
+    private void clearPoison() {
         isPoisoned = false;
         poisonedTurnLeft = -1;
         poisonDamage = 0;

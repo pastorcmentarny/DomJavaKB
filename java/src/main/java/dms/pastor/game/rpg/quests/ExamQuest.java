@@ -15,17 +15,19 @@ public class ExamQuest extends Quest {
 //TODO mini gra w ktorej trzeba odpowiedziec na 10 pytan z 100
 
     //static Logger log = Logger.getLogger(ExamQuest.class);
-    Random random = new Random();
-    Scanner scanner = new Scanner(System.in);
-    int a, b, answer;
-    int NUMBER_OF_POSSIBLE_QUESTIONS = 3;
-    int question = 0;
-    int questions = 10;
-    int RANGE_EASY = 100;
-    int RANGE_HARD = 1000;
-    int corrects = 0;
-    int wrongs = 0;
-    boolean passed = false;
+    private final Random random = new Random();
+    private final Scanner scanner = new Scanner(System.in);
+    private int a;
+    private int b;
+    private int answer;
+    private final int NUMBER_OF_POSSIBLE_QUESTIONS = 3;
+    private int question = 0;
+    private final int questions = 10;
+    private final int RANGE_EASY = 100;
+    private final int RANGE_HARD = 1000;
+    private int corrects = 0;
+    private int wrongs = 0;
+    private final boolean passed = false;
 
     //if fail student loan increase by 1000
     private void question(int range) {

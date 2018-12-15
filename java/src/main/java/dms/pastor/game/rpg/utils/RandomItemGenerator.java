@@ -11,12 +11,12 @@ import java.util.Random;
  * @author Pastor
  * Created Feb 20, 2015 at 10:13:57 PM
  */
-public class RandomItemGenerator {
-    Random random = new Random();
+class RandomItemGenerator {
+    private final Random random = new Random();
 
-    int common = 278;
-    int rare = 19;
-    int legendary = 3;
+    private final int common = 278;
+    private final int rare = 19;
+    private final int legendary = 3;
     //COMMON(278),RARE(19),LEGENDARY(3)
 
     public Item getRandomItem() {
@@ -30,15 +30,15 @@ public class RandomItemGenerator {
         }
     }
 
-    public Item getRandomCommonItem() {
+    private Item getRandomCommonItem() {
         return new Ring("Valualbe Ring", random.nextInt(1000) + 1);//TODO implement it
     }
 
-    public Item getRandomRareItem() {
+    private Item getRandomRareItem() {
         return new Ring("Very valuable Ring", random.nextInt(25000) + 1000);//TODO implement it
     }
 
-    public Item getRandomLegendaryItem() {
+    private Item getRandomLegendaryItem() {
         return new DomSocksSword(Hands.RIGHT);//TODO implement it
     }
 }

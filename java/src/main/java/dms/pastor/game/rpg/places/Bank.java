@@ -14,18 +14,18 @@ public class Bank extends Place {
 
     private static Bank bank = null;
     private final Hero hero = Hero.getHero();
-    int deposit = 1;
-    int loan = 306552;
+    private int deposit = 1;
+    private int loan = 306552;
     int loanLimit = 15000;
     int borrowCharge = 249;
-    int transactionCharge = 49;
-    int maxLoanLimit = 10000;
-    double interestRate = 1.8; //economic students +1
-    double loanRate = 2.2; //economic students -1
-    int lastVisit = 0;
-    Scanner scanner = new Scanner(System.in);
+    private final int transactionCharge = 49;
+    private final int maxLoanLimit = 10000;
+    private final double interestRate = 1.8; //economic students +1
+    private final double loanRate = 2.2; //economic students -1
+    private int lastVisit = 0;
+    private final Scanner scanner = new Scanner(System.in);
     //===//
-    String transactionChargeError = "Transaction Charge is higher that amount money you want to pay back.";
+    private final String transactionChargeError = "Transaction Charge is higher that amount money you want to pay back.";
     //===//
 
     private Bank() {

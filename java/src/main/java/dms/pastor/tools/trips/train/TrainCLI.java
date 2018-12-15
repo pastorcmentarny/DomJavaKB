@@ -15,7 +15,7 @@ import java.util.Scanner;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class TrainCLI {
+class TrainCLI {
     private static final Logger LOGGER = LoggerFactory.getLogger(TrainCLI.class);
     private static final String INVALID_CHOICE_MESSAGE = "Invalid choice. Try again";
 
@@ -28,7 +28,7 @@ public class TrainCLI {
     private Scanner scanner;
 
 
-    TrainCLI(TrainStation stations, Scanner scanner) {
+    private TrainCLI(TrainStation stations, Scanner scanner) {
         this.stations = stations;
         this.scanner = scanner;
         options = OptionsFactory.getOptions(scanner);

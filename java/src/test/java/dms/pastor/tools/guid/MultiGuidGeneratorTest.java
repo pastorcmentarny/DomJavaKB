@@ -9,7 +9,7 @@ package dms.pastor.tools.guid;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class MultiGuidGeneratorTest {
+class MultiGuidGeneratorTest {
 
 
 }

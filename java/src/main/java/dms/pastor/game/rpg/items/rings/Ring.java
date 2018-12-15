@@ -7,8 +7,8 @@ import java.util.HashSet;
 
 
 public class Ring extends Item {
-    protected int value = 0;
-    protected HashSet<Attribute> attributes = new HashSet<>();
+    private int value = 0;
+    private final HashSet<Attribute> attributes = new HashSet<>();
 
     public Ring() {
         setName("Ring");

@@ -9,11 +9,11 @@ import dms.pastor.game.rpg.units.Unit;
 public abstract class Enemy extends Unit implements BattleAction {
     public Money money = new Money(0);
 
-    public Enemy() {
+    protected Enemy() {
         super();
     }
 
-    public Enemy(int lvl) {
+    protected Enemy(int lvl) {
         super(lvl);
     }
 

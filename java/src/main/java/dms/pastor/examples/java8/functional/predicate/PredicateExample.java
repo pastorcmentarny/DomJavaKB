@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class PredicateExample {
+class PredicateExample {
     private static List<String> getStringArray() {
         return Arrays.asList("Wroclaw", "Tianjin", "London", "Aberystwyth", "Bangor", "York", "Beijing");
     }

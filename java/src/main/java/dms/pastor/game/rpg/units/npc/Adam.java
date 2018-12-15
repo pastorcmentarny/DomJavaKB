@@ -9,7 +9,7 @@ import dms.pastor.game.rpg.units.Hero;
  * Created Mar 15, 2015 at 12:16:32 PM
  */
 public class Adam extends NPC {
-    Hero hero = Hero.getHero();
+    private final Hero hero = Hero.getHero();
 
     @Override
     public void talk() {

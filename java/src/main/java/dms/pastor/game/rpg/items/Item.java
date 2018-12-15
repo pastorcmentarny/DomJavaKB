@@ -10,15 +10,15 @@ import java.util.EnumSet;
 public abstract class Item extends Element {
     public EnumSet<Action> actions = Action.item;
     public int value = 0;
-    protected boolean isQuestItem;
+    boolean isQuestItem;
     protected boolean isUsableInBattle = false;
 
-    public Item() {
+    protected Item() {
         isQuestItem = false;
     }
 
 
-    public Item(boolean questItem) {
+    protected Item(boolean questItem) {
         this.isQuestItem = questItem;
         if (isQuestItem) {
             value = -1;//all quest values are negative

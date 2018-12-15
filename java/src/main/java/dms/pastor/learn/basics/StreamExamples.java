@@ -6,7 +6,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class StreamExamples {
+class StreamExamples {
 
     public static Map<String, Integer> getExampleData() {
         final Map<String, Integer> itemsPrice = new HashMap<>();

@@ -18,8 +18,8 @@ import java.util.Random;
 
 
 public class RandomUnit {
-    private static Random random = new Random();
-    private static ArrayList<Units> undeads = new ArrayList<>(Arrays.asList(Units.BUNNY, Units.MUMMY, Units.WRAITH, Units.VAMPIRE, Units.ZOMBIE));
+    private static final Random random = new Random();
+    private static final ArrayList<Units> undeads = new ArrayList<>(Arrays.asList(Units.BUNNY, Units.MUMMY, Units.WRAITH, Units.VAMPIRE, Units.ZOMBIE));
 
     public static Unit generateRandomUnit() {
         Units[] unit = Units.values();

@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class BakerlooTest {
-    Bakerloo line = new Bakerloo();
+    private final Bakerloo line = new Bakerloo();
 
     @Test
     public void getSizeShouldReturn25() {

@@ -4,7 +4,7 @@ import dms.pastor.game.rpg.Bonus;
 import dms.pastor.game.rpg.Element;
 
 
-public abstract class Quest extends Element {
+abstract class Quest extends Element {
 
     public abstract void startAQuest();
 

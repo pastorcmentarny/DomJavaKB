@@ -1,7 +1,7 @@
 package dms.pastor.game.rpg.items.weapons;
 
 
-public class CrapWeapon extends Weapon {
+class CrapWeapon extends Weapon {
 
     public CrapWeapon() {
         super(Hands.RIGHT);

@@ -14,7 +14,7 @@ import java.util.stream.Stream;
     TODO list and practice Stream operations are either intermediate or terminal.
  */
 final class StreamBasics {
-    private static boolean runAll = false;
+    private static final boolean runAll = false;
 
 
     public static void main(String[] args) {
@@ -39,7 +39,7 @@ final class StreamBasics {
 
     private static void streamExamples() {
         hr("find first and ifPresent");
-        Arrays.asList("garlic", "lemon", "pepper").stream().findFirst().ifPresent(System.out::println);
+        Stream.of("garlic", "lemon", "pepper").findFirst().ifPresent(System.out::println);
         final int[] randomNumbers = getRandomNumbers();
         displayIntArray(randomNumbers);
 
@@ -63,7 +63,7 @@ final class StreamBasics {
     private static void kindOfStreams() {
 
         hr();
-        Arrays.asList("a", "bb", "ccc").stream().findFirst().ifPresent(System.out::println);
+        Stream.of("a", "bb", "ccc").findFirst().ifPresent(System.out::println);
 
         hr();
         final ArrayList<String> listOfString = new ArrayList<>();
@@ -82,7 +82,7 @@ final class StreamBasics {
     }
 
 
-    public static void hr() {
+    private static void hr() {
         System.out.println();
         IntStream.range(1, 20).forEach(s -> System.out.print("--"));
         System.out.println();
@@ -103,7 +103,7 @@ final class StreamBasics {
 
     private static void sketchMethod() {
         hr();
-        Arrays.asList("af", "aa", "ba", "ac", "uu", "xa", "ab", "ad", "ae").stream().map(s -> s = "?").forEach(System.out::print);
+        Stream.of("af", "aa", "ba", "ac", "uu", "xa", "ab", "ad", "ae").map(s -> s = "?").forEach(System.out::print);
 
     }
 

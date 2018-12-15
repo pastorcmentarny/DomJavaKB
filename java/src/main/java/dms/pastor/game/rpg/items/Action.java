@@ -14,10 +14,10 @@ public enum Action {
     WEAR;
 
     public static EnumSet<Action> junk = EnumSet.of(INFO, DROP);
-    public static EnumSet<Action> item = EnumSet.of(INFO, USE, DROP);
-    public static EnumSet<Action> weapon = EnumSet.of(EQUIP, INFO, DROP);
-    public static EnumSet<Action> food = EnumSet.of(EAT, INFO, DROP);
-    public static EnumSet<Action> armor = EnumSet.of(WEAR, INFO, DROP);
-    public static EnumSet<Action> quest = EnumSet.of(INFO);
+    public static final EnumSet<Action> item = EnumSet.of(INFO, USE, DROP);
+    public static final EnumSet<Action> weapon = EnumSet.of(EQUIP, INFO, DROP);
+    public static final EnumSet<Action> food = EnumSet.of(EAT, INFO, DROP);
+    public static final EnumSet<Action> armor = EnumSet.of(WEAR, INFO, DROP);
+    public static final EnumSet<Action> quest = EnumSet.of(INFO);
 
 }

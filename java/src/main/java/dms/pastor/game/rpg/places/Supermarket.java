@@ -11,7 +11,7 @@ import dms.pastor.game.rpg.items.weapons.BaseballBat;
 public class Supermarket extends Place {
 
 
-    Result r;
+    private Result r;
 
     public Supermarket() {
         setName("Supermarket");

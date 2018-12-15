@@ -2,7 +2,7 @@ package dms.pastor.examples.java8;
 
 final class ShadowingClass {
 
-    private int number = 6;
+    private final int number = 6;
 
     public static void main(String[] args) {
         ShadowingClass shadowingClass = new ShadowingClass();
@@ -13,7 +13,7 @@ final class ShadowingClass {
 
     private class InnerClass {
 
-        private int number = 8;
+        private final int number = 8;
 
         void displayNumbers(int number) {
             System.out.println("passed number:" + number);

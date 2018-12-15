@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class Selienta extends NPC {
 
-    String[] dishes = {"Sichuan Beef", "Kung pao Chicken", "Bigos", "Gularz", "Lasagne"};
+    private final String[] dishes = {"Sichuan Beef", "Kung pao Chicken", "Bigos", "Gularz", "Lasagne"};
 
     public Selienta() {
         setName("Lynn");

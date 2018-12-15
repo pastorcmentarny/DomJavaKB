@@ -3,7 +3,7 @@ package dms.pastor.game.rpg.armor;
 import dms.pastor.game.rpg.characteristics.Stats;
 
 
-public class HighheelShoes extends Armor {
+class HighheelShoes extends Armor {
 
     public HighheelShoes() {
         setName("High Heel Shoes");

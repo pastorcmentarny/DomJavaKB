@@ -14,7 +14,7 @@ import java.util.Random;
 
 
 public class OlaZ extends Boss {
-    int updateTo;
+    private int updateTo;
 
     public OlaZ(int stage) {
         switch (stage) {

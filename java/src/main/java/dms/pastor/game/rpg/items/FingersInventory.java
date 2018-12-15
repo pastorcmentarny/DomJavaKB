@@ -5,9 +5,9 @@ import dms.pastor.game.rpg.items.rings.Ring;
 import java.util.ArrayList;
 
 
-public class FingersInventory {
-    int fingers;
-    ArrayList<Ring> fingerList = new ArrayList<>();
+class FingersInventory {
+    private final int fingers;
+    private final ArrayList<Ring> fingerList = new ArrayList<>();
 
     public FingersInventory(int fingers) {
         this.fingers = fingers;

@@ -7,7 +7,7 @@ import dms.pastor.game.rpg.items.weapons.Weapon;
 import java.util.ArrayList;
 
 
-public class DubstepHarp extends Weapon {
+class DubstepHarp extends Weapon {
 
     public DubstepHarp() {
         super(Hands.RIGHT);

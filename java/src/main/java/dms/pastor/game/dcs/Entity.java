@@ -21,11 +21,11 @@ public class Entity {
         this.description = description;
     }
 
-    public String getDescription() {
+    protected String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    protected void setDescription(String description) {
         this.description = description;
     }
 

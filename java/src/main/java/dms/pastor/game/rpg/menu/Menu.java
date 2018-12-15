@@ -1,7 +1,7 @@
 package dms.pastor.game.rpg.menu;
 
 
-public interface Menu {
+interface Menu {
 
 
     void displayMenu();

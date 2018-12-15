@@ -6,9 +6,9 @@ import java.util.ArrayList;
 
 
 public class UnitArmors {
-    static //FIXME log.er //FIXME log.= //FIXME log.er.get//FIXME log.er(UnitArmors.class);
+    private static final //FIXME log.er //FIXME log.= //FIXME log.er.get//FIXME log.er(UnitArmors.class);
             ArrayList<Armor> armorList = new ArrayList<>();
-    private ArmorType[] availableTypes;
+    private final ArmorType[] availableTypes;
 
     public UnitArmors(ArmorType[] types) {
         this.availableTypes = types;

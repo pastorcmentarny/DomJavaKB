@@ -34,7 +34,7 @@ public class Mannequin extends Enemy {
         updateTolvl(lvl);
     }
 
-    public void updateTolvl(int lvl) {
+    private void updateTolvl(int lvl) {
         for (int i = 1; i <= lvl; i++) {
             levelUp();
         }

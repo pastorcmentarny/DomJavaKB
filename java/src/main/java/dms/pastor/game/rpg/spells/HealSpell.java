@@ -6,7 +6,7 @@ import dms.pastor.game.rpg.units.Unit;
 
 
 public class HealSpell extends Spell {
-    boolean inBattle;
+    private final boolean inBattle;
 
     public HealSpell(boolean inBattle) {
         name = "Heal";

@@ -4,11 +4,11 @@ import java.time.*;
 import java.util.Date;
 import java.util.LinkedHashSet;
 
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.ValidatorUtils.validateIfNotNull;
 import static dms.pastor.utils.ValidatorUtils.validateValueIsSmallerOrEqualsThatOtherValue;
 import static java.time.ZoneId.getAvailableZoneIds;
 import static java.time.temporal.ChronoUnit.DAYS;
-import static java.util.stream.Collectors.joining;
 
 /**
  * Author Dominik Symonowicz
@@ -32,7 +32,7 @@ public final class DateUtils {
 
     static String displayTimeZoneList() {
         LinkedHashSet<String> allTimeZones = new LinkedHashSet<>(getAvailableZoneIds());
-        return allTimeZones.stream().collect(joining());
+        return String.join(EMPTY_STRING, allTimeZones);
     }
 
     private static boolean isInRange(int value, int max) {

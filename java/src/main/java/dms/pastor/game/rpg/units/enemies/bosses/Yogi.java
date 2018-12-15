@@ -7,7 +7,7 @@ import dms.pastor.game.rpg.items.Inventory;
 import dms.pastor.game.rpg.items.questsitems.JamesConstitution;
 
 
-public class Yogi extends Boss {
+class Yogi extends Boss {
     private static String[] dariaPreTalks = {"Diana - I dropped 2 kilo! Yogi - Don't forget flush the toilet after that!",};
 
     public Yogi() {

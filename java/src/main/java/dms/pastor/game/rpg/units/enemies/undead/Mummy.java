@@ -12,12 +12,12 @@ import java.util.Random;
 
 public class Mummy extends Enemy {
 
-    Random r = new Random();
+    private final Random r = new Random();
 
     public Mummy(int level) {
         name = this.getClass().getSimpleName();
         description = " A dead body covers filled with magic oil and cover with toilets for fashion reasons. ";//TODO implement id
-        this.lvl = lvl;
+        this.lvl = level;
         psycho = false;
         skills = new Skills(5, 0, 1, 6, 3, 0);
         setup();

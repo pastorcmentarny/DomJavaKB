@@ -9,7 +9,7 @@ public class Element {
     protected String name;
     protected String description;
 
-    public Element() {
+    protected Element() {
     }
 
     public Element(String name, String description) {
@@ -21,7 +21,7 @@ public class Element {
         return name;
     }
 
-    public void setName(String name) {
+    protected void setName(String name) {
         this.name = name;
     }
 
@@ -29,7 +29,7 @@ public class Element {
         return description;
     }
 
-    public void setDescription(String description) {
+    protected void setDescription(String description) {
         this.description = description;
     }
 

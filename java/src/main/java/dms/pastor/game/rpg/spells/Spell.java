@@ -10,7 +10,7 @@ import java.util.Random;
 
 
 public abstract class Spell extends Element {
-    Random random = new Random();
+    final Random random = new Random();
     int manaCost;
     boolean usedInBattle = false;
     boolean usedInWorld = false;
@@ -30,7 +30,7 @@ public abstract class Spell extends Element {
         this.manaCost = manaCost;
     }
 
-    public boolean canCastSpell(Stats stats) {
+    private boolean canCastSpell(Stats stats) {
         return stats.getHP() >= manaCost;
     }
 

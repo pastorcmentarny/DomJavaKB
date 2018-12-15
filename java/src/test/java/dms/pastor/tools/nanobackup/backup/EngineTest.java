@@ -27,7 +27,7 @@ public class EngineTest {
     @Rule
     public final ExpectedSystemExit exit = ExpectedSystemExit.none();
 
-    private Engine engine = new Engine();
+    private final Engine engine = new Engine();
 
     @Test
     public void shouldActivateQuickBackupMode() {

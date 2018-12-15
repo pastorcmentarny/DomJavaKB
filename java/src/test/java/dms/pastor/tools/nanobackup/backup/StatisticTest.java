@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * tag-system-rules-for-junit-example
  */
 public class StatisticTest {
-    private Statistic statistic = new Statistic();
+    private final Statistic statistic = new Statistic();
 
     @Test
     public void shouldDisplayStatistic() {

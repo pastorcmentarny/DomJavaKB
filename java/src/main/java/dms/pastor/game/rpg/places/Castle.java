@@ -7,9 +7,9 @@ import java.util.Scanner;
 
 
 public class Castle extends Place {
-    Scanner scanner = new Scanner(System.in);
-    Hero hero = Hero.getHero();
-    int saidNo = 0;
+    private final Scanner scanner = new Scanner(System.in);
+    private final Hero hero = Hero.getHero();
+    private final int saidNo = 0;
 
     @Override
     public void description() {

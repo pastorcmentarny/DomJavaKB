@@ -5,6 +5,6 @@ package dms.pastor.game.rpg.quests;
  * <p>
  * It is like detective story
  */
-public class PenparcauQuest {
+class PenparcauQuest {
 
 }

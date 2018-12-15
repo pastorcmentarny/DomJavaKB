@@ -13,12 +13,12 @@ import java.util.Scanner;
  */
 public class SeagullEvent implements EventInterface {
 
-    public EVENT_Result result = EVENT_Result.NOTHING;
-    Hero hero;
+    private EVENT_Result result = EVENT_Result.NOTHING;
+    private final Hero hero;
     int reward = 0; //1 - luckly shit ,it gives you +1karma +**%
-    Seagull seagull;
-    Scanner scanner = new Scanner(System.in);
-    Random random = new Random();
+    private final Seagull seagull;
+    private final Scanner scanner = new Scanner(System.in);
+    private final Random random = new Random();
 
     public SeagullEvent(Hero hero, Seagull seagull) {
         this.hero = hero;

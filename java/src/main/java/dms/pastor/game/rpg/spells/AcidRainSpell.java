@@ -13,8 +13,8 @@ import java.util.Random;
  */
 public class AcidRainSpell extends Spell {
 
-    Random random = new Random();
-    Unit caster;
+    private final Random random = new Random();
+    private final Unit caster;
 
     public AcidRainSpell(Unit unit) {
         caster = unit;

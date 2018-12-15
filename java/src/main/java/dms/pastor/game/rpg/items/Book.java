@@ -6,10 +6,10 @@ import java.util.Random;
 
 
 public class Book extends Item {
-    String author;
-    String title;
+    private final String author;
+    private final String title;
 
-    public Book(String author, String title, int value, String description) {
+    private Book(String author, String title, int value, String description) {
         this.author = author;
         this.title = title;
         this.value = value;

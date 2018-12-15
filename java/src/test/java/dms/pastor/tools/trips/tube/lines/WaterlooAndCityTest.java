@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class WaterlooAndCityTest {
-    WaterlooAndCity line = new WaterlooAndCity();
+    private final WaterlooAndCity line = new WaterlooAndCity();
 
     @Test
     public void getSizeShouldReturn2() {

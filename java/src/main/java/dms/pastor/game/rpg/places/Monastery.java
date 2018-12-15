@@ -13,7 +13,7 @@ import dms.pastor.game.rpg.units.Hero;
  * @author dominiksymonowicz
  */
 public class Monastery extends Place {
-    Hero hero = Hero.getHero();
+    private final Hero hero = Hero.getHero();
 
     public Monastery() {
         name = "Monastery";
@@ -58,7 +58,7 @@ public class Monastery extends Place {
         }
     }
 
-    public int calcFee() {
+    private int calcFee() {
         int fee = hero.lvl * 10;
         if (hero.nativeAttributes.contains(Attribute.ECONOMICS)) {
             fee = Money.getDisccountedPrice(fee, 25);

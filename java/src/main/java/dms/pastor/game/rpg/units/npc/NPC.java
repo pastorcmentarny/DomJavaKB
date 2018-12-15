@@ -7,7 +7,7 @@ import dms.pastor.game.rpg.units.Unit;
 
 public abstract class NPC extends Unit {
     public Hero hero = Hero.getHero();
-    public Location location;
+    Location location;
 
     public abstract void talk();
 

@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class MetropolitanTest {
-    Metropolitan line = new Metropolitan();
+    private final Metropolitan line = new Metropolitan();
 
     @Test
     public void getSizeShouldReturn2() {

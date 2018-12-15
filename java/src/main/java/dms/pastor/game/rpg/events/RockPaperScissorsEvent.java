@@ -15,7 +15,7 @@ public class RockPaperScissorsEvent implements EventInterface {
     private final String win = "You won!";
     private final String lose = "You lost!";
     private final String draw = "DRAW!";
-    Result result;
+    private Result result;
 
     @Override
     public void doEvent() {
@@ -25,7 +25,7 @@ public class RockPaperScissorsEvent implements EventInterface {
 
     //int[] levels =[2,3,5,8,13,16,21,28,34,55,64,89];
 
-    public boolean game() {
+    private boolean game() {
         System.out.println("1. Rock\n2.Paper\n3.Scissors.");
         Scanner scanner = new Scanner(System.in);
         try {

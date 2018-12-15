@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class CentralTest {
-    Central line = new Central();
+    private final Central line = new Central();
 
     @Test
     public void getSizeShouldReturn2() {

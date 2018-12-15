@@ -8,7 +8,7 @@ import java.util.Random;
 
 
 public class RainbowVomitSpell extends Spell {
-    Unit unit;
+    private final Unit unit;
 
     public RainbowVomitSpell(Unit unit) {
         name = "Rainbow Vomit";

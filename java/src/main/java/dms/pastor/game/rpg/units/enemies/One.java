@@ -6,8 +6,8 @@ import dms.pastor.game.rpg.units.Unit;
 
 
 public class One extends Enemy {
-    private Skills xskills = new Skills(1, 1, 1, 1, 1, 1);
-    private Stats xstats = new Stats(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
+    private final Skills xskills = new Skills(1, 1, 1, 1, 1, 1);
+    private final Stats xstats = new Stats(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
 
 
     public One() {
@@ -21,7 +21,7 @@ public class One extends Enemy {
         generateUnitData();
     }
 
-    public final void generateUnitData() {
+    private void generateUnitData() {
         setName("one");
         psycho = false;
 

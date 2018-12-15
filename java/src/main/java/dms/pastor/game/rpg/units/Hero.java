@@ -32,14 +32,14 @@ import static dms.pastor.game.rpg.Game.gameOver;
  */
 public class Hero extends Unit implements BattleAction {
     private static Hero hero;
-    public Weapon leftHand;
-    public Weapon rightHand;
-    public Money money = new Money(1000);
-    public UnitArmors armors;
-    Scanner scanner = new Scanner(System.in);
+    private Weapon leftHand;
+    private Weapon rightHand;
+    public final Money money = new Money(1000);
+    private final UnitArmors armors;
+    private final Scanner scanner = new Scanner(System.in);
     private boolean castlePermission;
     private boolean wantFight = true;
-    private SkillsType[] skillTypes;
+    private final SkillsType[] skillTypes;
 
 
     private Hero() {
@@ -106,23 +106,23 @@ public class Hero extends Unit implements BattleAction {
 
 
     //@Override
-    public void calcExpForNextLevel() {
+    private void calcExpForNextLevel() {
         nextLvlExp = Config.getExpNeededForLevel(lvl);//TODO different type of hear will have different level of learning
 
     }
 
     //TODO remove it,when spell will be implement
-    public Result castMinorHealing() {
+    private Result castMinorHealing() {
         addHealth(battleStats, lvl);
         return new Result(true, getName() + " was heal by " + lvl);
     }
 
-    public Result castAcidRain(Unit[] units) {
+    private Result castAcidRain(Unit[] units) {
         AcidRainSpell rain = new AcidRainSpell(this);
         return rain.cast(this, units);
     }
 
-    public void addHealth(Stats stat, int hp) {
+    private void addHealth(Stats stat, int hp) {
         //System.out.println("Health before cast minor health..." + stat.getHP() + "restore health by" + hp + "MaxHP" + stat.getMaxHP());
         if (stat.getHP() + hp > stat.getMaxHP()) {
             stat.setHP(stat.getMaxHP());
@@ -406,6 +406,7 @@ public class Hero extends Unit implements BattleAction {
             System.out.println("0. Go back.");
             int selection = scanner.nextInt();
             if (selection == 0) {
+                //noinspection UnnecessaryReturnStatement
                 return;
             } else if (selection > itemToUse.length) {
                 System.out.println("Do you have illusion ? You can't use item that you don't have");

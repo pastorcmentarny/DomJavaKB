@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class Skills {
 
-    private static int noa = 6;
+    private static final int noa = 6;
     private int strength;
     private int charisma;
     private int intelligence;
@@ -143,7 +143,7 @@ public class Skills {
         return generateOneNumberForAllSkills(0, false);
     }
 
-    public static Skills generateOneNumberForAllSkills(int i, boolean psycho) {
+    private static Skills generateOneNumberForAllSkills(int i, boolean psycho) {
         if (psycho) {
             return new Skills(i, i, i, i, i, i);
         } else {
@@ -234,7 +234,7 @@ public class Skills {
         return intelligence;
     }
 
-    public void setIntelligence(int intelligence) {
+    private void setIntelligence(int intelligence) {
         this.intelligence = intelligence;
     }
 
@@ -242,7 +242,7 @@ public class Skills {
         return vitality;
     }
 
-    public void setVitality(int vitality) {
+    private void setVitality(int vitality) {
         this.vitality = vitality;
     }
 
@@ -258,7 +258,7 @@ public class Skills {
         return psychokinesis;
     }
 
-    public void setPsychokinesis(int psychokinesis) {
+    private void setPsychokinesis(int psychokinesis) {
         this.psychokinesis = psychokinesis;
     }
 
@@ -274,7 +274,7 @@ public class Skills {
         return charisma;
     }
 
-    public void setCharisma(int charisma) {
+    private void setCharisma(int charisma) {
         this.charisma = charisma;
     }
 

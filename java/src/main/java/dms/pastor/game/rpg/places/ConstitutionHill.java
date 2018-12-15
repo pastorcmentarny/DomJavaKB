@@ -22,11 +22,11 @@ import java.util.Scanner;
 
 class ConstitutionHill extends Place {
 
-    Scanner scanner = new Scanner(System.in);
-    Random random = new Random();
-    Hero hero = Hero.getHero();
-    Game game;
-    QuestMonitor sp = QuestMonitor.getQuestMonitor();
+    private final Scanner scanner = new Scanner(System.in);
+    private final Random random = new Random();
+    private final Hero hero = Hero.getHero();
+    private final Game game;
+    private final QuestMonitor sp = QuestMonitor.getQuestMonitor();
 
     public ConstitutionHill(Game game) {
         setName("Constitution Hill");

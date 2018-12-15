@@ -1,6 +1,6 @@
 package dms.pastor.learn.basics;
 
-public class Java11StringNewMethodsExample {
+class Java11StringNewMethodsExample {
 
 
     //TODO String#repeat

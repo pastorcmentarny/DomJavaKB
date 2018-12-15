@@ -18,7 +18,7 @@ public class UniBureaucracyQuest extends Quest {
 
     private static String[] locked = {"Door is locked.", "Knock,knock... no response", "There is message on door that said .I will back in 5 minutes.. After 1 hour of waiting you notice few skeleton siting on chair next to room.You abaddon idea to go to this room."};
     String[] stories = {"You pass room and you saw few skeletons .It was some students still waiting for resonse from univesristy regards (...)", "You met a pissed off student.You asked ... what happen? She responsed: I went to wrong rooms 3 times and now i must do my application again!", " "};
-    Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in);
     int floor = 0;
 
     @Override

@@ -373,7 +373,7 @@ public class Stats {
         return maxMana;
     }
 
-    public void setMaxMana(int maxMana) {
+    private void setMaxMana(int maxMana) {
         this.maxMana = maxMana;
     }
 
@@ -456,15 +456,15 @@ public class Stats {
         restoreSP();
     }
 
-    public void restoreHP() {
+    private void restoreHP() {
         HP = maxHP;
     }
 
-    public void restoreMP() {
+    private void restoreMP() {
         mana = maxMana;
     }
 
-    public void restoreSP() {
+    private void restoreSP() {
         SP = maxSP;
     }
 
@@ -479,11 +479,11 @@ public class Stats {
         }
     }
 
-    public int getKarma() {
+    private int getKarma() {
         return karma;
     }
 
-    public void setKarma(int karma) {
+    private void setKarma(int karma) {
         this.karma = karma;
     }
 

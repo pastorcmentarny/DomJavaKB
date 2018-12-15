@@ -10,7 +10,7 @@ public class Msg {
 
     private static final String[] pubStories = {"A pub story 1",
             "A pub story 2", "A pub story 3", "A pub story 4", "A pub story 5"}; //TODO improve it
-    private static String[] sorryMessages = {"We apologize any inconvenience this may cause to you.", "Sorry for any troubles that,it will cause to you.", "I would like to apologise for any inconvenience caused."};
+    private static final String[] sorryMessages = {"We apologize any inconvenience this may cause to you.", "Sorry for any troubles that,it will cause to you.", "I would like to apologise for any inconvenience caused."};
 
     public static String sayHelloDependsOnHour() {
         Date date = new Date();   // given date

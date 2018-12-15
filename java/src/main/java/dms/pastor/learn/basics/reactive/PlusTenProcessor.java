@@ -12,7 +12,7 @@ import java.util.concurrent.SubmissionPublisher;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class PlusTenProcessor extends SubmissionPublisher<Integer> implements Flow.Subscriber<Integer> {
+class PlusTenProcessor extends SubmissionPublisher<Integer> implements Flow.Subscriber<Integer> {
     private Flow.Subscription subscription;
 
     @Override

@@ -34,7 +34,7 @@ public class RandomUtils {
         return swearWords.get(new Random().nextInt(swearWords.size()));
     }
 
-    public static ArrayList<String> getList() {
+    private static ArrayList<String> getList() {
         ArrayList<String> list = new ArrayList<>();
         list.add("Czego?");
         list.add("I co sie kurwa gapisz?//FIXME log.w nie widziales?");
@@ -53,7 +53,7 @@ public class RandomUtils {
         return list;
     }
 
-    public static ArrayList<String> getFemaleNameList() {
+    private static ArrayList<String> getFemaleNameList() {
         ArrayList<String> list = new ArrayList<>();
         list.add("Arlais");         //Arlais Female From the temple.
         list.add("Bubble");
@@ -68,7 +68,7 @@ public class RandomUtils {
         return list;
     }
 
-    public static ArrayList<String> getMaleNameList() {
+    private static ArrayList<String> getMaleNameList() {
         ArrayList<String> list = new ArrayList<>();
         list.add("Ynyr");//Honor
         list.add("Culhwych");//possibly means "pig-lord.")

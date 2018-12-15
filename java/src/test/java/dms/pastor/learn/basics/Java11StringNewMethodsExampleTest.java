@@ -1,6 +1,6 @@
 package dms.pastor.learn.basics;
 
-public class Java11StringNewMethodsExampleTest {
+class Java11StringNewMethodsExampleTest {
 
 /*
     @Test

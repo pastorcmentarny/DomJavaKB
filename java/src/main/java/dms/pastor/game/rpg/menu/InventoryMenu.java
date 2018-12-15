@@ -15,11 +15,11 @@ import java.util.Scanner;
 
 public class InventoryMenu implements Menu {
 
-    static //FIXME log.er //FIXME log.= //FIXME log.er.get//FIXME log.er(Game.class);
+    private static final //FIXME log.er //FIXME log.= //FIXME log.er.get//FIXME log.er(Game.class);
             Scanner scanner = new Scanner(System.in);
-    Hero hero = Hero.getHero();
+    private final Hero hero = Hero.getHero();
 
-    Inventory inventory;
+    private final Inventory inventory;
 
     public InventoryMenu(Inventory inventory) {
         this.inventory = inventory;
@@ -45,7 +45,7 @@ public class InventoryMenu implements Menu {
         }
     }
 
-    public void itemMenu(Item item) {
+    private void itemMenu(Item item) {
         if (item instanceof Weapon) {
             Weapon weapon = (Weapon) item;
             genreateActionList(weapon);
@@ -60,7 +60,7 @@ public class InventoryMenu implements Menu {
         }
     }
 
-    public void genreateActionList(Item item) {
+    private void genreateActionList(Item item) {
         boolean displayMenu = true;
         while (displayMenu) {
             StringBuilder sb = new StringBuilder("Actions:\n");
@@ -130,7 +130,7 @@ public class InventoryMenu implements Menu {
         }
     }
 
-    public String generateInventoryList() {
+    private String generateInventoryList() {
         StringBuilder sb = new StringBuilder("Inventory:\n");
         if (inventory == null || inventory.isInventoryEmpty()) {
             sb.append("You don't have anything in your inventory");

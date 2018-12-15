@@ -10,13 +10,13 @@ import dms.pastor.game.rpg.items.Item;
  * //TODO change to abstract when finish implementing full version of armor
  */
 public class Armor extends Item {
-    public ArmorType type;
+    ArmorType type;
     public int armorPoints;
-    public int durability;
-    protected Stats bonusStats;
+    int durability;
+    Stats bonusStats;
     protected Skills bonusSkills;
 
-    public Armor() {
+    Armor() {
         actions = Action.armor;
     }
 

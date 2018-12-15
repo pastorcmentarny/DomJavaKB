@@ -10,7 +10,7 @@ import dms.pastor.game.rpg.units.enemies.bosses.Boss;
 /**
  * @author dominiksymonowicz
  */
-public class NighelHardy extends Boss {
+class NighelHardy extends Boss {
     //60% to make you sleep,(20% if you are resist to sleep
     // cast random offensive and defensive spell every turn
     // low HP ,but  very high 

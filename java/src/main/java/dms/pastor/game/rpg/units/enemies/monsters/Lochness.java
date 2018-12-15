@@ -5,6 +5,6 @@ package dms.pastor.game.rpg.units.enemies.monsters;
  * <p>
  * Alek's ex-girlfriend that lives in undergroungs of Uni
  */
-public class Lochness {
+class Lochness {
 
 }

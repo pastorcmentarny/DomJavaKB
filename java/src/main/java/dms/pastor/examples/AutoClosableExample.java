@@ -1,6 +1,6 @@
 package dms.pastor.examples;
 
-public class AutoClosableExample {
+class AutoClosableExample {
 /*
 I’d say, this looks a lot better. To use this syntax, any class that participates in the try-with-resources statement should implement interface AutoCloseable, which looks like this:
 

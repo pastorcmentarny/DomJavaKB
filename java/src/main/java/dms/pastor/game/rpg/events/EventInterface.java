@@ -2,7 +2,7 @@ package dms.pastor.game.rpg.events;
 
 import dms.pastor.game.rpg.commons.Result;
 
-public interface EventInterface {
+interface EventInterface {
 
     void doEvent();
 

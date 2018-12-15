@@ -10,8 +10,8 @@ import java.util.Scanner;
 
 public class Tavern extends Place {
 
-    Scanner scanner = new Scanner(System.in);
-    QuestMonitor qm = QuestMonitor.getQuestMonitor();
+    private final Scanner scanner = new Scanner(System.in);
+    private final QuestMonitor qm = QuestMonitor.getQuestMonitor();
 
     public Tavern() {
         setName("Roland's Tavern");

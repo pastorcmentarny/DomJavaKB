@@ -39,21 +39,21 @@ final class TimeBasics {
         System.out.println("Time: [London " + londonTime + " ][ Wroclaw " + wroclawTime + " ][ Tianjin " + tianjinTime + " ]");
     }
 
-    public static String getCurrentTimeAsString() {
+    private static String getCurrentTimeAsString() {
         LocalDate currentTime = LocalDate.now();
         final String result = String.format("Current time is %s", currentTime);
         System.out.println(result);
         return result;
     }
 
-    public static void gettingCurrentDateTimeInJava() {
+    private static void gettingCurrentDateTimeInJava() {
         LocalDate todayDate = LocalDate.now();
         System.out.println(todayDate);
         LocalTime todayTime = LocalTime.now();
         System.out.println(todayTime);
     }
 
-    public static void getCurrentTimeWithOffset() {
+    private static void getCurrentTimeWithOffset() {
         ZoneOffset zoneOffset = ZoneOffset.of("-08:00");
         ZoneId offsetZoneId = ZoneId.ofOffset("UTC", zoneOffset);
         LocalTime time = LocalTime.now(offsetZoneId);

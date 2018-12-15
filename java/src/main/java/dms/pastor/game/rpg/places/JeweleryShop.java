@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class JeweleryShop extends Place {
 
-    Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in);
 
     public JeweleryShop() {
         setName("Julian's Shop");

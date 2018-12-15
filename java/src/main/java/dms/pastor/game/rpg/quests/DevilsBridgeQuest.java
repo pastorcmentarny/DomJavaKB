@@ -1,7 +1,7 @@
 package dms.pastor.game.rpg.quests;
 
 
-public class DevilsBridgeQuest {
+class DevilsBridgeQuest {
 
 
     //objectives: find a hamster

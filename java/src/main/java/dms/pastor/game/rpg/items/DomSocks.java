@@ -5,7 +5,7 @@ import dms.pastor.game.rpg.units.Unit;
 
 
 public class DomSocks extends Item {
-    int dmg = 8192;
+    private final int dmg = 8192;
 
     public DomSocks() {
         name = "Dom's socks";

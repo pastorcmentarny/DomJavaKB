@@ -1,7 +1,7 @@
 package dms.pastor.game.rpg.lab;
 
 
-public class ProgressViewer {
+class ProgressViewer {
 
     public void run() {
         System.out.println("Starting..\n");
@@ -9,7 +9,7 @@ public class ProgressViewer {
         System.out.println("Job DONE.");
     }
 
-    public void generateProgressFor(int initValue, double percentPerLevel) {
+    private void generateProgressFor(int initValue, double percentPerLevel) {
         genrateProgress(initValue, percentPerLevel - 1);
         genrateProgress(initValue, percentPerLevel - 0.1);
         genrateProgress(initValue, percentPerLevel);
@@ -17,7 +17,7 @@ public class ProgressViewer {
         genrateProgress(initValue, percentPerLevel + 1);
     }
 
-    public void genrateProgress(int initValue, double percentPerLevel) {
+    private void genrateProgress(int initValue, double percentPerLevel) {
         int value = initValue;
         StringBuilder sb = new StringBuilder("||VALUE: " + value + " ||!! Percent: " + percentPerLevel);
         for (int i = 1; i <= 100; i++) {

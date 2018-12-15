@@ -5,7 +5,7 @@ import dms.pastor.utils.FileUtils;
 
 import java.util.Objects;
 
-public class InputValidator {
+class InputValidator {
     static void validateInput(String[] args) {
         if (Objects.isNull(args) || args.length != 2) {
             throw new SomethingWentWrongException("You need provide args with paths");

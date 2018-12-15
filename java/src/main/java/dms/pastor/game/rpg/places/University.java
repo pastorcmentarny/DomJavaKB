@@ -16,14 +16,14 @@ import java.util.Scanner;
 
 public class University extends Place {
 
-    Hero hero = Hero.getHero();
-    Game game = Game.getGame();
-    Scanner scanner = new Scanner(System.in);
+    private final Hero hero = Hero.getHero();
+    private final Game game = Game.getGame();
+    private final Scanner scanner = new Scanner(System.in);
 
     public University() {
     }
 
-    public void uni() {
+    private void uni() {
         boolean stay = true;
         while (stay) {
             System.out.println("What do you want to do ?");

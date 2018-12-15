@@ -11,12 +11,12 @@ import java.util.Scanner;
 public class GuessNumberEvent implements EventInterface {
 
 
-    boolean answeredCorrectly = false;
-    int answer;
-    int chances;
-    int bonus = 100;
-    int reward = 0;
-    Scanner scanner = new Scanner(System.in);
+    private boolean answeredCorrectly = false;
+    private final int answer;
+    private final int chances;
+    private final int bonus = 100;
+    private int reward = 0;
+    private final Scanner scanner = new Scanner(System.in);
 
 
     public GuessNumberEvent(int min, int max, int chances) {

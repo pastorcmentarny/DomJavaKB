@@ -1,6 +1,7 @@
 package dms.pastor.tools.trips.tube.station;
 
 import java.util.List;
+import java.util.Objects;
 
 import static java.util.Collections.singletonList;
 
@@ -34,7 +35,7 @@ public class Line {
 
         Line line = (Line) o;
 
-        return name != null ? name.equals(line.name) : line.name == null;
+        return Objects.equals(name, line.name);
     }
 
     @Override

@@ -20,7 +20,7 @@ public class Chat implements EventInterface {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public NPC getRandomPerson() {
+    private NPC getRandomPerson() {
         Random random = new Random();
         switch (random.nextInt(3) + 1) {
             case 1:

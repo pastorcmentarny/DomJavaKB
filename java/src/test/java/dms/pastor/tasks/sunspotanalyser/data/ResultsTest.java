@@ -23,7 +23,7 @@ public class ResultsTest {
     @Test
     public void shouldCreateSuccessResultTest() {
         // when
-        result = Result.<Object>success();
+        result = Result.success();
 
         // then
         assertThat(result.isSuccess()).isTrue();
@@ -33,7 +33,7 @@ public class ResultsTest {
     @Test
     public void shouldCreateFailResultTest() {
         // when
-        result = Result.<Object>fail();
+        result = Result.fail();
 
         // then
         assertThat(result.isFail()).isTrue();
@@ -59,7 +59,7 @@ public class ResultsTest {
         final String message = generateString();
 
         // when
-        result = Result.<String>fail(message);
+        result = Result.fail(message);
 
         // then
         assertThat(result.isFail()).isTrue();

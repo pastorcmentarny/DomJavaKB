@@ -6,12 +6,12 @@ import dms.pastor.game.rpg.units.Hero;
 
 
 public abstract class FoodItem extends Item {
-    protected int energy;
-    protected int poisonChance;
-    protected int value;
+    private final int energy;
+    int poisonChance;
+    private final int value;
 
 
-    public FoodItem(int energy, int poisonChance, int value) {
+    FoodItem(int energy, int poisonChance, int value) {
         this.energy = energy;
         this.poisonChance = poisonChance;
         this.value = value;

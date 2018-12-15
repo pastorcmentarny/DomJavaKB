@@ -10,8 +10,8 @@ import java.util.Random;
 
 public class MonikaSmigiel extends NPC {
 
-    QuestMonitor progress = QuestMonitor.getQuestMonitor();
-    String[] reasons = {"zupa byla za slona.", " bo dzis", "bo jest brzydka.", "my nail is broken", "I tried to rush my bf to go to valentine's dinner and his response was ... 'give me a second darling I just finishing  m.. ting "};
+    private final QuestMonitor progress = QuestMonitor.getQuestMonitor();
+    private final String[] reasons = {"zupa byla za slona.", " bo dzis", "bo jest brzydka.", "my nail is broken", "I tried to rush my bf to go to valentine's dinner and his response was ... 'give me a second darling I just finishing  m.. ting "};
 
     public MonikaSmigiel() {
         setName("Monika");

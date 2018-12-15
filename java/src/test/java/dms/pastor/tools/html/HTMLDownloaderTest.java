@@ -21,7 +21,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class HTMLDownloaderTest {
 
-    public static final String URL = "http://dominiksymonowicz.com/about/";
+    private static final String URL = "http://dominiksymonowicz.com/about/";
     @Rule
     public final ExpectedException exception = ExpectedException.none();
 

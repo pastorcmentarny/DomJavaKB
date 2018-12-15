@@ -1,7 +1,7 @@
 package dms.pastor.game.rpg.events;
 
 
-public class SmallTalkGenerator {
+class SmallTalkGenerator {
     /*
      * 1."Are you working on any charity initiatives?
      * 2. What are some of your hobbies?

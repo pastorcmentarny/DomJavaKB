@@ -14,8 +14,8 @@ public class BagFoundEvent implements EventInterface {
 
             Scanner scanner = new Scanner(System.in);
 
-    Result result = new Result(false);
-    Hero hero;
+    private Result result = new Result(false);
+    private final Hero hero;
 
     public BagFoundEvent(Hero hero) {
         this.hero = hero;
@@ -61,12 +61,12 @@ public class BagFoundEvent implements EventInterface {
         return result;
     }
 
-    public void WalletStory() {
+    private void WalletStory() {
         System.out.println("You found a wallet on the road with some coins inside as it didn't look ");
         result = new Result(true, "You found money", new Random().nextInt(hero.lvl * 13 + 1));
     }
 
-    public void KarmaStory() {
+    private void KarmaStory() {
                /* TODO
         "You found a bag.
         1. Trying to identify owner
@@ -90,7 +90,7 @@ public class BagFoundEvent implements EventInterface {
     }
 
     //TODO improve it
-    public void WomanBagStory() {
+    private void WomanBagStory() {
         System.out.println("Woman bags always contains black hole that sucks all things that women believes they really needs.. You spent ages to find anything ,but you didn't find anything valuable or useful... ");
         result = new Result(true, "You found 1 coin", 1);
     }

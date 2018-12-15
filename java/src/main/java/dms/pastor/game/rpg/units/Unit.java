@@ -18,41 +18,41 @@ import java.util.Random;
  */
 public abstract class Unit extends Element implements Cloneable, Comparable<Unit> {
 
-    static //FIXME log.er //FIXME log.= //FIXME log.er.get//FIXME log.er(Unit.class);
-    public Random random = new Random();
+    protected static //FIXME log.er //FIXME log.= //FIXME log.er.get//FIXME log.er(Unit.class);
+    final Random random = new Random();
 
     public int lvl = 1;
     public int exp = 0;
-    public int criticalChance = Config.DEFAULT_CRITICAL_CHANCE;
-    public int criticalMultiplyer = Config.DEFAULT_CRITICAL_MULTIPLAYER;
+    protected int criticalChance = Config.DEFAULT_CRITICAL_CHANCE;
+    public final int criticalMultiplyer = Config.DEFAULT_CRITICAL_MULTIPLAYER;
     public int nextLvlExp = Config.DEFAULT_FIRST_NEXT_LEVEL_EXP;
 
     public boolean isPlayer = false;
     public boolean psycho = false;
 
     public Skills skills;
-    public SkillsType[] skillBonusTypes;
+    private SkillsType[] skillBonusTypes;
 
     public Stats plainStats;
     public Stats bonusPerLevelStats;
-    public Stats extraStats; // TODO implement it    
+    protected Stats extraStats; // TODO implement it
 
     public BattleStats battleStats;
-    public ArrayList<Attribute> nativeAttributes = new ArrayList<>();
-    public ArrayList<Attribute> currentAttributes = new ArrayList<>();
+    public final ArrayList<Attribute> nativeAttributes = new ArrayList<>();
+    public final ArrayList<Attribute> currentAttributes = new ArrayList<>();
 
     public Inventory inventory = new Inventory(0);
-    public State state = new State(currentAttributes);
+    public final State state = new State(currentAttributes);
 
-    public Unit() {
+    protected Unit() {
 
     }
 
-    public Unit(int level) {
+    protected Unit(int level) {
         this.lvl = level;
     }
 
-    public Unit(String name, Skills skills, boolean psycho, int lvl) {
+    protected Unit(String name, Skills skills, boolean psycho, int lvl) {
         this.lvl = lvl;
         this.name = name;
         this.skills = skills;
@@ -79,7 +79,7 @@ public abstract class Unit extends Element implements Cloneable, Comparable<Unit
 
     //STATS SECTION
 
-    public void regenerateCurrentStatsFromSkills() {
+    protected void regenerateCurrentStatsFromSkills() {
         plainStats = null;
         plainStats = Stats.generateStatsFromSkills(skills);
         //plainStats.addStats(bonusPerLevelStats); //TODO ???
@@ -120,7 +120,7 @@ public abstract class Unit extends Element implements Cloneable, Comparable<Unit
         return name + "{ Level:" + lvl + " ][ Exp/NxtLvlAt: " + exp + "/" + nextLvlExp + "][ Stats:" + (inBattle ? battleStats.getShortInfo() : plainStats.getShortInfo()) + " ][ Skills: " + skills.getShortInfo() + "]}";
     }
 
-    public void levelUp() {
+    protected void levelUp() {
         if (lvl < Config.MAX_LEVEL) {
             lvl++;
             Config.getExpNeededForEnemyLevel(lvl);
@@ -139,7 +139,7 @@ public abstract class Unit extends Element implements Cloneable, Comparable<Unit
     }
 
 
-    public void updateLevelFromTo(int from, int to) {
+    protected void updateLevelFromTo(int from, int to) {
         if (from >= to) {
             //FIXME log.warn("You can't update " + name + " from higher level to lower.");
         }
