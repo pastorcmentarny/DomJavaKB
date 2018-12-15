@@ -143,7 +143,7 @@ public final class FileTools {
 
         if (addPaths(path, fileChooser, returnVal)) return null;
 
-        String results[] = new String[path.size()];
+        String[] results = new String[path.size()];
 
         for (int i = 0; i < path.size(); i++) {
             results[i] = path.get(i);
@@ -160,7 +160,7 @@ public final class FileTools {
 
         if (addPaths(path, fileChooser, returnVal)) return null;
 
-        String results[] = new String[path.size()];
+        String[] results = new String[path.size()];
 
         for (int i = 0; i < path.size(); i++) {
             results[i] = path.get(i);

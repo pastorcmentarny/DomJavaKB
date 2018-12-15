@@ -57,7 +57,7 @@ public class ToStringUtilsTest {
         System.out.println(character2);
 
         // then
-        assertThat(result).isEqualToIgnoringCase(String.valueOf(character) + String.valueOf(character2));
+        assertThat(result).isEqualToIgnoringCase(String.valueOf(character) + character2);
 
     }
 }

@@ -85,7 +85,7 @@ public class StopWatch {
     public String getResultTimeAsString() {
         int sec = (int) calcTotalTime() / SECOND_IN_MILLISECONDS;
         int dot = (int) calcTotalTime() % SECOND_IN_MILLISECONDS;
-        return String.valueOf(sec) + '.' + String.valueOf(dot) + "s.";
+        return String.valueOf(sec) + '.' + dot + "s.";
     }
 
 }

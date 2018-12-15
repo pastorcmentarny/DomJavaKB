@@ -35,7 +35,7 @@ final class RankJournalViewer {
         int counter = 1;
         requestedList.sort(new ScoreComparator());
         for (Journal journal : requestedList) {
-            list.append(String.valueOf(counter)).append(TAB).append(journal.getName()).append(TAB).append(journal.getScore()).append('\n');
+            list.append(counter).append(TAB).append(journal.getName()).append(TAB).append(journal.getScore()).append('\n');
             counter++;
         }
         System.out.println(list.toString());
@@ -57,7 +57,7 @@ final class RankJournalViewer {
     }
 
     private static void addJournalToList(StringBuilder list, int counter, Journal journal) {
-        list.append(String.valueOf(counter))
+        list.append(counter)
                 .append(TAB)
                 .append(journal.getName())
                 .append(TAB)

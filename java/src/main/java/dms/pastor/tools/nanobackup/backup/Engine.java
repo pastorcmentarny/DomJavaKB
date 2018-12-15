@@ -159,7 +159,7 @@ public class Engine extends AbstractTools {
             while ((text = reader.readLine()) != null) {
                 itemsList.add(text);
             }
-            String temp[] = new String[itemsList.size()];
+            String[] temp = new String[itemsList.size()];
 
             for (int i = 0; i < itemsList.size(); i++) {
                 temp[i] = itemsList.get(i);

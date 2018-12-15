@@ -16,7 +16,7 @@ import static dms.pastor.utils.StringUtils.WHITESPACE_CHAR;
  */
 public class Grid {
 
-    private Integer grid[][];
+    private Integer[][] grid;
     private int gridSize;
 
     Grid(String[] data) {
