@@ -9,7 +9,7 @@ import java.util.ArrayList;
 /**
  * Author Dominik Symonowicz
  * WWW:	https://dominiksymonowicz.com/welcome
- * IT B//FIXME log.	https://dominiksymonowicz.b//FIXME log.pot.co.uk
+ * IT Blog: http://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
@@ -25,7 +25,7 @@ public class Bonus {
     }
 
     public Bonus(ArrayList<Item> items) {
-        this.items.addAll(items);
+        items.addAll(items);
     }
 
     public Bonus(int money, int exp) {

@@ -172,17 +172,17 @@ public abstract class Unit extends Element implements Cloneable, Comparable<Unit
     }
 
     public boolean canAttack() {
-        return !state.isStunned();
+        return state.isNotStunned();
     }
 
 
     public boolean canCastSpell() {
-        return psycho && !state.isStunned();
+        return psycho && state.isNotStunned();
     }
 
 
     public boolean canUseItem() {
-        return !state.isStunned();
+        return state.isNotStunned();
     }
 
     public Unit[] getUnitsSortedByInitiative(Unit[] units) {

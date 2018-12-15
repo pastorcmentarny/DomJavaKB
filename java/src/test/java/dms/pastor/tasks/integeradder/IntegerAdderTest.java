@@ -84,10 +84,8 @@ public class IntegerAdderTest {
         exception.expect(IllegalArgumentException.class);
         exception.expectMessage("Out od range");
 
-        // given
-        String path = DEMO_FILE_4;
         // when
-        adder.add(path);
+        adder.add(DEMO_FILE_4);
     }
     //TODO test for too large int and negative
 }

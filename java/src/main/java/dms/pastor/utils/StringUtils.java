@@ -274,7 +274,7 @@ public final class StringUtils {
             return 0;
         }
 
-        if (occurrence.length() > occurrence.length()) {
+        if (occurrence.length() > string.length()) {
             return 0;
         }
 

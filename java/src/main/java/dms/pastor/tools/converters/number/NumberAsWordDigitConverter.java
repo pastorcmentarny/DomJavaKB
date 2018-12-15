@@ -26,9 +26,8 @@ final class NumberAsWordDigitConverter {
     //as they are meaningful in this context
     private static int getNumberFor(String partOfNumber) {
 
-        switch (partOfNumber) {
-            case "hundred":
-                return 100;
+        if ("hundred".equals(partOfNumber)) {
+            return 100;
         }
 
         Integer tensOfNumber = getTensOfNumber(partOfNumber);

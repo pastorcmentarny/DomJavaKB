@@ -41,8 +41,7 @@ public class Inventory {
     }
 
     public ArrayList<Item> getAllInventoryItems() {
-        ArrayList<Item> all = new ArrayList<>(items);
-        return all;
+        return new ArrayList<>(items);
     }
 
     public ArrayList<Item> takeAllItems() {

@@ -16,6 +16,7 @@ import static dms.pastor.game.dcs.Config.*;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
+@SuppressWarnings("FieldCanBeLocal")
 public final class EnemyBuilder {
     private final int hp = DEFAULT_HEALTH_POINTS;
     private final int sp = DEFAULT_MANA_POINTS;

@@ -109,6 +109,10 @@ public class State {
         return stunned;
     }
 
+    public boolean isNotStunned() {
+        return !isStunned();
+    }
+
     public void setStunned(int turns) {
         stunned = true;
         stunnedTurns = turns;

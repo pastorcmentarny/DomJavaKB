@@ -90,7 +90,7 @@ public class UnitArmors {
         for (Armor armor : armorList) {
             armors.append(armor.getName()).append(" ");
         }
-        return "UnitArmors{" + "armorList=" + armorList + '}';
+        return "UnitArmors{" + "armorList=" + armors.toString() + '}';
     }
 
 

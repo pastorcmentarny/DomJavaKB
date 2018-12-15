@@ -36,7 +36,7 @@ final class CommandValidator {
 
     static void validatePositiveLength(String param, String name) {
         try {
-            final Integer integer = Integer.valueOf(param);
+            final int integer = Integer.parseInt(param);
             validatePositiveNumber(integer);
         } catch (NumberFormatException nfe) {
             final String errorMessage = name + " is not a number";
