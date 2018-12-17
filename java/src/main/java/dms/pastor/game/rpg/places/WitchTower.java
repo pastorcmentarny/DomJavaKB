@@ -36,7 +36,7 @@ public class WitchTower extends Place {
                         break;
                     case 4:
                         Chat chat = new Chat();
-                        chat.withPolysterKnights().talk();
+                        chat.withPolyesterKnights().talk();
                         break;
                     case 0:
                         stay = false;
@@ -63,7 +63,7 @@ public class WitchTower extends Place {
         */
         Game game = Game.getGame();
         Enemy enemy = new OlaZ(1);
-        game.increaceBattleCounter();
+        game.increaseBattleCounter();
         System.out.println("Battle no." + game.getBattleNo());
         BattleManual battle = new BattleManual(hero, enemy);
         battle.begin();

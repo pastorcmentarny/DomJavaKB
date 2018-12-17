@@ -11,7 +11,7 @@ class DubstepHarp extends Weapon {
 
     public DubstepHarp() {
         super(Hands.RIGHT);
-        setName("Dupstep harp");
+        setName("Dubstep harp");
         setDescription("The harp is a stringed musical instrument which has a number of individual strings running at an angle to its soundboard, which are plucked with the fingers.It helps as well in fighting with undead");//TODO improve it
         minDMG = 0;
         maxDMG = 1;

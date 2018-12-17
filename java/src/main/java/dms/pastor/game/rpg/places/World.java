@@ -17,6 +17,7 @@ public class World {
         this.game = game;
     }
 
+    //TODO Generate names from class name
     public void map() {
 
         boolean stay = true;
@@ -31,7 +32,7 @@ public class World {
             System.out.println(" 7. Go to Graveyard");
             System.out.println(" 8. Go to Library");
             System.out.println(" 9. Go to Roland's Tavern");
-            System.out.println("10. Go to Monstery");
+            System.out.println("10. Go to Monastery");
             System.out.println("0.Walk around");
             if (isLlanbadarnVisible()) {
                 System.out.println("11. Go to Llanbadarn");

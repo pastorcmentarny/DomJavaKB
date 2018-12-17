@@ -34,7 +34,7 @@ public class OlaZ extends Boss {
                 lvl = Hero.getHero().lvl;
         }
         setName("Ola Z");
-        setDescription("Ola - a pure evil and perfect vilian.");
+        setDescription("Ola - a pure evil and perfect villain.");
         psycho = true;
         skills = new Skills(15, 6, 7, 4, 4, 4);
         bonusPerLevelStats = new Stats(2, 4, 5, 0, 25, 25, 10, 10, 1, 10, 10, 0);
@@ -97,10 +97,10 @@ public class OlaZ extends Boss {
 
     public void useAbility(Hero hero, Unit enemy) {
         if (new Random().nextInt(100) < 7) {
-            int noOfFatdrops = new Random().nextInt(28);
+            int noOfFatDrops = new Random().nextInt(28);
             int dmg = 0;
             int totalDmg = 0;
-            for (int i = 0; i < noOfFatdrops; i++) {
+            for (int i = 0; i < noOfFatDrops; i++) {
                 dmg = new Random().nextInt(2 * enemy.lvl);
                 totalDmg += dmg;
             }

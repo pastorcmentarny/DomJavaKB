@@ -3,9 +3,9 @@ package dms.pastor.game.rpg.armor;
 import dms.pastor.game.rpg.characteristics.Stats;
 
 
-class HighheelShoes extends Armor {
+class HighHeelsShoes extends Armor {
 
-    public HighheelShoes() {
+    public HighHeelsShoes() {
         setName("High Heel Shoes");
         setDescription("In theory.");
         type = ArmorType.FEET;

@@ -6,7 +6,7 @@ public class OctopusXL extends NPC {
     //Sty - chlew - http://en.wikipedia.org/wiki/Sty
     @Override
     public void talk() {
-        System.out.println("You arrived to Royal Sty.In front of you see massive gentlen with hand that are size of bread. ");
+        System.out.println("You arrived to Royal Sty.In front of you see massive gentleman with hand that are size of bread. ");
         System.out.println("I want go to club");
     }
 

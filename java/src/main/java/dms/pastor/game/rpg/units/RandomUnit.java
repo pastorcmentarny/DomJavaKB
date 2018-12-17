@@ -80,7 +80,7 @@ public class RandomUnit {
                 return new Zombie(level);
             case DRESIARZ:
                 return new Dresiarz(level);
-            case POLYSTER_KNIGHT:
+            case POLYESTER_KNIGHT:
                 return new NylonKnight(level);
             default:
                 System.err.println("Unknown selection (" + unit.name() + ") for Random Unit. Generating Dummy instead");
@@ -93,7 +93,7 @@ public class RandomUnit {
 
         AVERAGE_MAN, ONE, DUMMY, DUMMY_RANDOM,// dummy units
         BUNNY, MUMMY, WRAITH, VAMPIRE, ZOMBIE, //undead
-        DRESIARZ, POLYSTER_KNIGHT, // armia Oli
+        DRESIARZ, POLYESTER_KNIGHT, // Ola army
         ACOLYTE, MANNEQUIN, PEASANT, PUFFIN, SEAGULL, SHEEP, UNICORN
     }
 

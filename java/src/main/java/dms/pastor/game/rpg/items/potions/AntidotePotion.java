@@ -7,6 +7,7 @@ import dms.pastor.game.rpg.commons.Result;
 import dms.pastor.game.rpg.units.Unit;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * @author dominiksymonowicz
@@ -32,7 +33,14 @@ public class AntidotePotion extends Potion {
     }
 
     private boolean heal(ArrayList<Attribute> attrs) {
-        attrs.remove(Attribute.POISONED);
-        return true; //TODO it should be 85% that it works
+        if (new Random().nextInt(100) > 15) {
+            attrs.remove(Attribute.POISONED);
+            return true;
+        } else {
+            //TODO display antidote didn't work
+            return false;
+        }
+
+
     }
 }

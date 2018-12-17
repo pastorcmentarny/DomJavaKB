@@ -13,7 +13,6 @@ import java.util.Random;
 
 /**
  * Created with IntelliJ IDEA.
- * User: dsymonowicz
  * Date: 13/03/13
  * Time: 14:58
  * To change this template use File | Settings | File Templates.
@@ -64,7 +63,7 @@ public class Sheep extends Enemy {
         Hero hero = Hero.getHero();
         if (random.nextInt(100) > hero.battleStats.getEvasion()) {
             int dmg = battleStats.getMaxHP() / 100;
-            System.out.println("Sheep exploed and caused " + dmg + " to you.(your Armor will give you 50% person of normal protection)");
+            System.out.println("Sheep exploded and caused " + dmg + " to you.(your Armor will give you 50% person of normal protection)");
             hero.battleStats.doesDMG(dmg, hero.battleStats.getARM() / 2);
         }
 

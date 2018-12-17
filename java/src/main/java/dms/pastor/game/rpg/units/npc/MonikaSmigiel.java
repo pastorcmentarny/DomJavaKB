@@ -11,11 +11,11 @@ import java.util.Random;
 public class MonikaSmigiel extends NPC {
 
     private final QuestMonitor progress = QuestMonitor.getQuestMonitor();
-    private final String[] reasons = {"zupa byla za slona.", " bo dzis", "bo jest brzydka.", "my nail is broken", "I tried to rush my bf to go to valentine's dinner and his response was ... 'give me a second darling I just finishing  m.. ting "};
+    private final String[] reasons = {"soup was too salty.", " because today.", "is ugly.", "my nail is broken", "I tried to rush my bf to go to valentine's dinner and his response was ... 'give me a second darling I just finishing  m.. ting "};
 
     public MonikaSmigiel() {
         setName("Monika");
-        setDescription("A mystirious lady that is connect to virtual world to be able to share pictures ... of food.What slim people knows about delicious food?");
+        setDescription("A mysterious lady that is connect to virtual world to be able to share pictures ... of food.What slim people knows about delicious food?");
     }
 
     @Override
@@ -26,7 +26,7 @@ public class MonikaSmigiel extends NPC {
             System.out.println("You meet Monika.You asked ... how are you ?");
             System.out.println("She replied : " + getDepressionReason());
             System.out.println(" You -  ... ");
-            if (progress.sleepingMonika.equals(QuestState.AVALIABLE)) {
+            if (progress.sleepingMonika.equals(QuestState.AVAILABLE)) {
                 System.out.println("Somebody just pass you and monika and said ...I wish she just stop moaning.");
                 progress.sleepingMonika = QuestState.INPROGRESS;
 

@@ -10,7 +10,7 @@ public class GoldenFish implements EventInterface {
 
     @Override
     public void doEvent() {
-        /*You found golden fish... you heard legend that golden will listen to your 3 wishes,so you said them and .... fish starts laughing on you and ... disapear... */
+        /*You found golden fish... you heard legend that golden will listen to your 3 wishes,so you said them and .... fish starts laughing on you and ... disappear... */
 
     }
 

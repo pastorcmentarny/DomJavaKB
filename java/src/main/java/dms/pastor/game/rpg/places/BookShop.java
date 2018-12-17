@@ -46,7 +46,7 @@ public class BookShop extends Place {
                         System.out.println("You sold your books for:");
                         break;
                     case 0:
-                        System.out.println("Goodbye and see you next time and remember READ MORE BOOKS.");//reference to wil whiton
+                        System.out.println("Goodbye and see you next time and remember READ MORE BOOKS.");//reference to Will Wheaton
                         stay = false;
                         break;
                     default:

@@ -11,7 +11,7 @@ public class Lotto implements EventInterface {
 
     @Override
     public void help() {
-        System.out.println("Just in case. Gambing problem ? Go to http://www.gambleaware.co.uk/ .Althrough this game will not cause any lost of real money.");
+        System.out.println("Just in case. Gambling problem ? Go to http://www.gambleaware.co.uk/ .Although this game will not cause any lost of real money.");
     }
 
     @Override
@@ -20,7 +20,7 @@ public class Lotto implements EventInterface {
     }
     /*
      * Generate 10000 fields (*10)
-     * 40% wygrane 40000
+     * 40% win 40000
      * 10000,2000*4,1000*5,50*4,,10*10
      */
 

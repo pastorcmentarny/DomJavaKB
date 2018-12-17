@@ -89,9 +89,9 @@ public class Hero extends Unit implements BattleAction {
         if (lvl < Config.MAX_LEVEL) {
             lvl++;
             calcExpForNextLevel();
-            System.out.println(CLI.CuteLineSeperator);
+            System.out.println(CLI.CUTE_LINE_SEPARATOR);
             System.out.println(getName() + " is leveled up and is on level: " + lvl);
-            System.out.println(CLI.CuteLineSeperator);
+            System.out.println(CLI.CUTE_LINE_SEPARATOR);
             if (lvl % Config.DEFAULT_SKILL_BONUS_FREQUENCY == 0) {
                 Skills.addRandomSkillFromSkillType(skills, skillTypes);
                 bonusPerLevelStats = Stats.generateDefaultBonusStatsFromSkills(skills);
@@ -141,7 +141,7 @@ public class Hero extends Unit implements BattleAction {
 
     }
 
-    public void addHealthByPecent(int i) {
+    public void addHealthByPercent(int i) {
         plainStats.setHP(i);
     }
 
@@ -154,7 +154,7 @@ public class Hero extends Unit implements BattleAction {
                     if (inventory.addItem(item)) {
                         System.out.println(item.getName() + " was added to your inventory.");
                     } else {
-                        System.out.println("Woops! You broke " + item.getName() + "and you can't add this to inventory.");
+                        System.out.println("Whoops! You broke " + item.getName() + "and you can't add this to inventory.");
                     }
                 } else {
                     System.out.println("As typical student,you take what you could and abandon rest without evaluate value of items.");
@@ -266,7 +266,7 @@ public class Hero extends Unit implements BattleAction {
                     return new Result(true, "You swap " + old.getName() + " with " + weapon.getName(), old);
                 } else {
                     leftHand = weapon;
-                    return new Result(true, "You equipt with " + weapon.getName());
+                    return new Result(true, "You equipped with " + weapon.getName());
                 }
             } else {
                 if (rightHand != null) {
@@ -275,18 +275,18 @@ public class Hero extends Unit implements BattleAction {
                     return new Result(true, "You swap " + old.getName() + " with " + weapon.getName(), old);
                 } else {
                     rightHand = weapon;
-                    return new Result(true, "You equipt with " + weapon.getName());
+                    return new Result(true, "You equipped with " + weapon.getName());
                 }
             }
         } catch (ClassCastException cce) {
-            String msg = "This ttem is not a weapon!" + cce.getMessage();
+            String msg = "This item is not a weapon!" + cce.getMessage();
             //FIXME log.error(msg);
             return new Result(false, msg);
         }
         //return new Result(false,"not implemented");
     }
 
-    public Weapon unequiptWeapon(Hands hand) {
+    public Weapon unequippedWeapon(Hands hand) {
         Weapon weapon;
         if (hand.equals(Hands.LEFT)) {
             weapon = leftHand;
@@ -349,17 +349,17 @@ public class Hero extends Unit implements BattleAction {
             case 3:
                 //return cast
             case 4:
-                return castElecticAura();
+                return castElectricAura();
             case 5:
                 return castBlur(); //add evasion                                
             case 6:
                 return castAcidRain(units); // TODO if null then it should return false;                
             case 7:
-                return castBlidness();
+                return castBlindness();
             case 8:
                 return castFreeze();
             case 9:
-                //return  castImpossion();
+                //return  castImplosion();
             default:
                 //FIXME log.warn("unable to cast unknown spell");
 
@@ -416,7 +416,7 @@ public class Hero extends Unit implements BattleAction {
                 if (r.isSuccess()) {
                     System.out.println("You used an item." + r.getMessage());
                 } else {
-                    System.out.println("Woops." + r.getMessage());
+                    System.out.println("Whoops." + r.getMessage());
                 }
             }
         } else {
@@ -437,7 +437,7 @@ public class Hero extends Unit implements BattleAction {
         return false; //TODO implement whe student type is implemented
     }
 
-    private Result castBlidness() {
+    private Result castBlindness() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -445,7 +445,7 @@ public class Hero extends Unit implements BattleAction {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private Result castElecticAura() {
+    private Result castElectricAura() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

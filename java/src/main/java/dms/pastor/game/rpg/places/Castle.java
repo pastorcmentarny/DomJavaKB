@@ -52,7 +52,7 @@ public class Castle extends Place {
                     if (isKingInTheCastle()) {
 
                     } else {
-                        System.out.println("You came to the door,but you saw to overmuscled knights who said friendly.. GO AWAY PESANT! NO ENTRY!");
+                        System.out.println("You came to the door,but you saw to overmuscled knights who said friendly.. GO AWAY PEASANT! NO ENTRY!");
                     }
                     break;
                 case 2:
@@ -68,7 +68,7 @@ public class Castle extends Place {
                     break;
                 default:
                     displayMenu = false;
-                    System.out.println("You was kick out from castle as you just walk like chicken without head,so it looks too suspciious for guards");
+                    System.out.println("You was kick out from castle as you just walk like chicken without head,so it looks too suspicious for guards");
                     break;
 
             }

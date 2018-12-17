@@ -19,7 +19,7 @@ public class ToiletPaper extends Item {
         Hero hero = Hero.getHero();
         hero.currentAttributes.remove(Attribute.POISONED);
         hero.plainStats.addHealth(hero.plainStats.getMaxHP() / 10);
-        return new Result(true, "Using toilet paper after do your 'chat with shell' makes you cleaner as result your restore some health and get rid of posion ");
+        return new Result(true, "Using toilet paper after do your 'chat with shell' makes you cleaner as result your restore some health and get rid of poison ");
     }
 
     @Override

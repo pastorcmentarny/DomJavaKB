@@ -31,7 +31,7 @@ class RandomItemGenerator {
     }
 
     private Item getRandomCommonItem() {
-        return new Ring("Valualbe Ring", random.nextInt(1000) + 1);//TODO implement it
+        return new Ring("Valuable Ring", random.nextInt(1000) + 1);//TODO implement it
     }
 
     private Item getRandomRareItem() {

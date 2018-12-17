@@ -17,7 +17,7 @@ public class QuestSelector {
                 eq.startAQuest();
                 break;
             default:
-                //FIXME og.error("Unimplementet selection in quest selector?bug?");
+                //FIXME og.error("bug?");
         }
     }
 

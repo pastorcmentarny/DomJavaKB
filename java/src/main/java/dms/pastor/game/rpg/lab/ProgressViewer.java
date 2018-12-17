@@ -10,14 +10,14 @@ class ProgressViewer {
     }
 
     private void generateProgressFor(int initValue, double percentPerLevel) {
-        genrateProgress(initValue, percentPerLevel - 1);
-        genrateProgress(initValue, percentPerLevel - 0.1);
-        genrateProgress(initValue, percentPerLevel);
-        genrateProgress(initValue, percentPerLevel + 0.1);
-        genrateProgress(initValue, percentPerLevel + 1);
+        generateProgress(initValue, percentPerLevel - 1);
+        generateProgress(initValue, percentPerLevel - 0.1);
+        generateProgress(initValue, percentPerLevel);
+        generateProgress(initValue, percentPerLevel + 0.1);
+        generateProgress(initValue, percentPerLevel + 1);
     }
 
-    private void genrateProgress(int initValue, double percentPerLevel) {
+    private void generateProgress(int initValue, double percentPerLevel) {
         int value = initValue;
         StringBuilder sb = new StringBuilder("||VALUE: " + value + " ||!! Percent: " + percentPerLevel);
         for (int i = 1; i <= 100; i++) {

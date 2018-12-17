@@ -12,7 +12,7 @@ import dms.pastor.game.rpg.utils.RandomUtils;
 import java.util.Random;
 
 /**
- * User: dsymonowicz Date: 08/03/13 Time: 11:27
+ *  Date: 08/03/13 Time: 11:27
  */
 public class Puffin extends Enemy {
 

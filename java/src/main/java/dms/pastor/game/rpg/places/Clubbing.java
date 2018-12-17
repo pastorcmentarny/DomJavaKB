@@ -6,8 +6,8 @@ import dms.pastor.game.rpg.units.Hero;
 public class Clubbing extends Place {
 
     Clubbing(Hero hero) {
-        setName("Uniclub");
-        setDescription("Aging Mature people belives that current generations sucks as they only drinking ,procreating and waste they precious time when they go club,which is not true,because they are many culturar events like Comedy Works, Biggest burger challende and other intelectual events.");
+        setName("UniClub");
+        setDescription("Aging Mature people believes that current generations sucks as they only drinking ,procreating and waste they precious time when they go club,which is not true,because they are many cultures events like Comedy Works, Biggest burger challenge and other intellectual events.");
     }
 
     @Override

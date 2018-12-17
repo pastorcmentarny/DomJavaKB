@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  * <p>
- * Orginally used sometimes ago as part of learning aspectJ.
+ * Originally used sometimes ago as part of learning aspectJ.
  * <p>
  * tag-test-assertj-collection
  * <p>

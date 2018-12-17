@@ -37,7 +37,7 @@ public class Supermarket extends Place {
                         buyBaseball();
                         break;
                     case 0:
-                        System.out.println("Goodbye and see you next time and remember READ MORE BOOKS.");//reference to wil whiton
+                        System.out.println("Goodbye and see you next time and remember READ MORE BOOKS.");
                         stay = false;
                         break;
                     default:

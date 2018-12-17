@@ -16,8 +16,8 @@ import java.util.Scanner;
  */
 public class UniBureaucracyQuest extends Quest {
 
-    private static String[] locked = {"Door is locked.", "Knock,knock... no response", "There is message on door that said .I will back in 5 minutes.. After 1 hour of waiting you notice few skeleton siting on chair next to room.You abaddon idea to go to this room."};
-    String[] stories = {"You pass room and you saw few skeletons .It was some students still waiting for resonse from univesristy regards (...)", "You met a pissed off student.You asked ... what happen? She responsed: I went to wrong rooms 3 times and now i must do my application again!", " "};
+    private static String[] locked = {"Door is locked.", "Knock,knock... no response", "There is message on door that said .I will back in 5 minutes.. After 1 hour of waiting you notice few skeleton siting on chair next to room.You abandon idea to go to this room."};
+    String[] stories = {"You pass room and you saw few skeletons .It was some students still waiting for response from the university regards (...)", "You met a pissed off student.You asked ... what happen? She responded: I went to wrong rooms 3 times and now i must do my application again!", " "};
     private final Scanner scanner = new Scanner(System.in);
     int floor = 0;
 
@@ -33,7 +33,7 @@ public class UniBureaucracyQuest extends Quest {
             System.out.println("4.Go to floor 4");
             System.out.println("5.Go to floor 5");
             System.out.println("6.Go to Reception");
-            if (QuestMonitor.getQuestMonitor().isToiletLevelAvaliable()) {
+            if (QuestMonitor.getQuestMonitor().isToiletLevelAvailable()) {
                 System.out.println("1337. Go to toilet");
             }
             System.out.println("0.Exit");
@@ -47,14 +47,14 @@ public class UniBureaucracyQuest extends Quest {
                         break;
 
                     case 1337:
-                        if (isToiletLevelAvaliable()) {
+                        if (isToiletLevelAvailable()) {
                             toilet();
                         } else {
                             System.out.println("You see sign \'NO ENTRY!\' Are you sure, you want enter? ");
                             System.out.println("YES");//implement decision
                             System.out.println("You see more NO ENTRY and DANGER OF DEATH sings on corridors , are you really sure?");
                             System.out.println("YES");//implement decision
-                            System.out.println("You was tempted to go to this small corridor that with stars  going down ... you saw warnings.. \'Don't use these toilets - out of order\' , \'Danger! You can be killed! NO ENTRY\' , but you ignored these signs and go downstairs and enter into darkness ... then you feel strange pulling sensetion ... you was sucked by liquid into pipes and drop into sewer where you was devoured by mystirious monster. You last though was 'I wish I read with understanding and follow these instructions ");
+                            System.out.println("You was tempted to go to this small corridor that with stars  going down ... you saw warnings.. \'Don't use these toilets - out of order\' , \'Danger! You can be killed! NO ENTRY\' , but you ignored these signs and go downstairs and enter into darkness ... then you feel strange pulling sensation ... you was sucked by liquid into pipes and drop into sewer where you was devoured by mysterious monster. You last though was 'I wish I read with understanding and follow these instructions ");
                             Game.gameOver("sucked by toilet", Hero.getHero().getName());
                         }
 
@@ -75,19 +75,19 @@ public class UniBureaucracyQuest extends Quest {
     public boolean canQuestBeActivated() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    //TODO  Application form will starts  from shortcut  Wtf015 wta Fo100  Będzie 20 zadań  Each application will be 10 simple question
+    //TODO  Application form will starts  from shortcut  Wtf015 wta Fo100  it will be 20 tasks. Each application will be 10 simple question
 
     @Override
     public void updateQuestState() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private boolean isToiletLevelAvaliable() {
+    private boolean isToiletLevelAvailable() {
         return false;// TODO implement wc-level
     }
 
     private void toilet() {
-        //toilet with tressures and hidden passage to cave where lochness monster lives
+        //toilet with treasures and hidden passage to cave where lochness monster lives
     }
 
     public void floor(int floor) {
@@ -98,7 +98,7 @@ public class UniBureaucracyQuest extends Quest {
                 System.out.println("1.Check room " + floor + (i > 11 ? i : "0" + i));
             }
 
-            if (QuestMonitor.getQuestMonitor().isToiletLevelAvaliable()) {
+            if (QuestMonitor.getQuestMonitor().isToiletLevelAvailable()) {
                 System.out.println("1337. Go to toilet");
             }
             System.out.println("0.Exit");

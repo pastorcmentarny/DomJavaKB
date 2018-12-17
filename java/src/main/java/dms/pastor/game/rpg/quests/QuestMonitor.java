@@ -4,14 +4,14 @@ package dms.pastor.game.rpg.quests;
 public class QuestMonitor {
 
     private static QuestMonitor questMonitor;
-    public QuestState bureaucrracy = QuestState.AVALIABLE;
-    public QuestState winWithOlaAtTower = QuestState.NOT_AVALIABLE;
-    public final QuestState zombie = QuestState.NOT_AVALIABLE;
-    public QuestState devilBridge = QuestState.AVALIABLE;
-    public QuestState win100inRPSGame = QuestState.AVALIABLE;
-    public final QuestState kittenQuestState = QuestState.NOT_AVALIABLE;
-    public QuestState mutaSpiderQuestState = QuestState.NOT_AVALIABLE;
-    public QuestState sleepingMonika = QuestState.AVALIABLE;
+    public QuestState bureaucracy = QuestState.AVAILABLE;
+    public QuestState winWithOlaAtTower = QuestState.NOT_AVAILABLE;
+    public final QuestState zombie = QuestState.NOT_AVAILABLE;
+    public QuestState devilBridge = QuestState.AVAILABLE;
+    public QuestState win100inRPSGame = QuestState.AVAILABLE;
+    public final QuestState kittenQuestState = QuestState.NOT_AVAILABLE;
+    public QuestState mutaSpiderQuestState = QuestState.NOT_AVAILABLE;
+    public QuestState sleepingMonika = QuestState.AVAILABLE;
 
 
     //=========================////
@@ -86,7 +86,7 @@ public class QuestMonitor {
         //TODO implement
     }
 
-    public boolean isToiletLevelAvaliable() {
+    public boolean isToiletLevelAvailable() {
         return toiletLevelAvailable;
     }
 

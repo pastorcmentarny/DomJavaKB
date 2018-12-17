@@ -8,7 +8,7 @@ import dms.pastor.game.rpg.units.Unit;
 import dms.pastor.game.rpg.utils.RandomUtils;
 
 /**
- * Created with IntelliJ IDEA. User: dsymonowicz Date: 05/03/13 Time: 15:56 To
+ * Created with IntelliJ IDEA.  Date: 05/03/13 Time: 15:56 To
  * change this template use File | Settings | File Templates.
  */
 public class Mannequin extends Enemy {
@@ -31,11 +31,11 @@ public class Mannequin extends Enemy {
         nativeAttributes.add(Attribute.UNDEAD);
         nativeAttributes.add(Attribute.MAGIC_RESISTANCE10);
         currentAttributes.addAll(nativeAttributes);
-        updateTolvl(lvl);
+        updateToLevel(lvl);
     }
 
-    private void updateTolvl(int lvl) {
-        for (int i = 1; i <= lvl; i++) {
+    private void updateToLevel(int lvl) {
+        for (int currentLevel = 1; currentLevel <= lvl; currentLevel++) {
             levelUp();
         }
     }

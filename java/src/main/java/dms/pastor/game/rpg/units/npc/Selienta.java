@@ -5,11 +5,11 @@ import java.util.Random;
 
 public class Selienta extends NPC {
 
-    private final String[] dishes = {"Sichuan Beef", "Kung pao Chicken", "Bigos", "Gularz", "Lasagne"};
+    private final String[] dishes = {"Sichuan Beef", "Kung pao Chicken", "Bigos", "Gularz", "Lasagna"};
 
     public Selienta() {
         setName("Lynn");
-        setDescription("A mystirious lady that is connect to virtual world to be able to share pictures ... of food.What slim people knows about delicious food?");
+        setDescription("A mysterious lady that is connect to virtual world to be able to share pictures ... of food.What slim people knows about delicious food?");
     }
 
 

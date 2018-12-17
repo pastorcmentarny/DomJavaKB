@@ -10,7 +10,7 @@ import dms.pastor.game.rpg.utils.RandomUtils;
 
 /**
  * Created with IntelliJ IDEA.
- * User: dsymonowicz
+ * User:
  * Date: 13/03/13
  * Time: 17:19
  * To change this template use File | Settings | File Templates.
@@ -33,12 +33,6 @@ public class Myfyriwr extends Enemy {
         updateLevelFromTo(1, lvl);
 
 
-    }
-
-    public void updateTolvl(int lvl) {
-        for (int i = 1; i <= lvl; i++) {
-            levelUp();
-        }
     }
 
     public void levelUp() {

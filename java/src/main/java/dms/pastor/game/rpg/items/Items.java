@@ -27,9 +27,9 @@ public class Items {
             case 2:
                 return new RubbishItem("basketball player's trainers", "A basketball player's size-17 trainers found in Zombie's bag that you killed.", 25);
             case 3:
-                return new RubbishItem("Umbrella", "An ubrella", 4);
+                return new RubbishItem("Umbrella", "An umbrella", 4);
             case 4:
-                return new RubbishItem("A stuffed fish", "A stuffed puffa fish", 9);
+                return new RubbishItem("A stuffed fish", "A stuffed puff fish", 9);
             case 5:
                 return new RubbishItem("False teeth", "It belongs to Zombie", 9);
 

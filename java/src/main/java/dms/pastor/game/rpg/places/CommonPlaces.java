@@ -51,7 +51,7 @@ class CommonPlaces {
     }
 
     private static void buyCoffee() throws InterruptedException {
-        String[] failureReasons = {"coffee machine did give cup so coffe went to stink", "coffee machine didn't give change", "cofffee machine gave only hot water"};
+        String[] failureReasons = {"coffee machine did give cup so coffee went to stink", "coffee machine didn't give change", "coffee machine gave only hot water"};
         Hero hero = Hero.getHero();
         if (hero.money.hasEnoughMoney(50)) {
             try {
@@ -63,7 +63,7 @@ class CommonPlaces {
             Thread.sleep(500);
             System.out.println("You select coffee");
             Thread.sleep(500);
-            System.out.println(" .. and then ... ufortunately .." + failureReasons[new Random().nextInt(failureReasons.length)]);
+            System.out.println(" .. and then ... unfortunately .." + failureReasons[new Random().nextInt(failureReasons.length)]);
             System.out.println("It seems this bloody mechanical toys must be cursed.");
         } else {
             System.out.println("F*** You! - You said fondly to vending machine ,you have enough money,but coins are not accepting some of your coins.Bloody technology.");
@@ -71,12 +71,12 @@ class CommonPlaces {
     }
 
     private static void buyHealthPotion() {
-        //TODO implment it
+        //TODO implement it
         Errors.outOfStock();
     }
 
     private static void buyManaPotion() {
-        //TODO implment it
+        //TODO implement it
         Errors.outOfStock();
     }
 

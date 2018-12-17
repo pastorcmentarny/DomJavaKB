@@ -31,7 +31,7 @@ public class PenDinasQuest extends Quest {
     @Override
     public void startAQuest() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("You arrived to Pen Dinas Castle..  near entrance ,you can see a sleeping Nicolas - one of the strongest warrior in this part of universe when he is sober.Luckly ... he is hardly ever sober as he always try drink with polish people and he losing everybody battle in vodka competition." + Config.ANY_KEY_TO_CONTINUE);
+        System.out.println("You arrived to Pen Dinas Castle..  near entrance ,you can see a sleeping Nicolas - one of the strongest warrior in this part of universe when he is sober.Luckily ... he is hardly ever sober as he always try drink with polish people and he losing everybody battle in vodka competition." + Config.ANY_KEY_TO_CONTINUE);
         scanner.nextLine();
         while (questInProgress) {
             System.out.println(getStoryForLevel(level));
@@ -61,7 +61,7 @@ public class PenDinasQuest extends Quest {
     }
 
     private void battle() {
-        System.out.println("Floor: " + level + ". Battle no." + game.increaceBattleCounter());
+        System.out.println("Floor: " + level + ". Battle no." + game.increaseBattleCounter());
         Enemy enemy;
         if (level != 20) {
             enemy = new JasAcolyte(level + game.getEnemyLevel());
@@ -99,15 +99,15 @@ public class PenDinasQuest extends Quest {
             case 3:
                 return "I really should start do some exercises .This stairs killing me. Don't worry - said acolyte - it is last floor for you. You answered : Hmm.. I heard that before.";
             case 5:
-                return "You walk upstair and you have a dejavu. Another acolyte talking nonsense about it's  last floor for me ";
+                return "You walk upstairs and you have a Déjà vu. Another acolyte talking nonsense about it's  last floor for me ";
             case 8:
                 return "When you was about to get to another floor,You start screaming \" YES I KNOW IT'S MY LAST FLOOR and you will kill me like all others on previous floors\" ";
             case 7:
-                return "This akward moment,when you get to the floor and you see restrooms and vending machine instead of acolyte who is about to kill you because you are on 'last floor'";
+                return "This awkward moment,when you get to the floor and you see restrooms and vending machine instead of acolyte who is about to kill you because you are on 'last floor'";
             case 11:
                 return "Everything backs to normal .Another stronger acolyte talking gibberish about last floor  and death for me.";
             case 12:
-                return " No hope.It's another acolytee with the same vocabulary capabilities as previous ones .. just death on last floor at this floor";
+                return " No hope.It's another acolyte with the same vocabulary capabilities as previous ones .. just death on last floor at this floor";
             case 13:
                 return "Meditation room ... this tower needs some visit from  acolyte-pest control company as without acolytes ,it is quite cozy place for parties.";
             case 14:
@@ -121,7 +121,7 @@ public class PenDinasQuest extends Quest {
             case 20:
                 return "You get into top floor,where " + boss.getName() + " awaiting you.";
             default:
-                return "You walk upstair to level " + lvl + " when you see another horny acolyte who is ready to destroy you";
+                return "You walk upstairs to level " + lvl + " when you see another horny acolyte who is ready to destroy you";
         }
     }
 

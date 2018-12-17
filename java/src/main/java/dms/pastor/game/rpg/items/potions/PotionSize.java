@@ -22,7 +22,7 @@ public enum PotionSize {
         return sizeName;
     }
 
-    public int pecent() {
+    public int percent() {
         return percent;
     }
 

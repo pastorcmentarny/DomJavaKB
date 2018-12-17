@@ -6,6 +6,6 @@ package dms.pastor.game.rpg.commons;
  */
 public class CLI {
 
-    public static final String CuteLineSeperator = "~-~+~@~+~-~";
+    public static final String CUTE_LINE_SEPARATOR = "~-~+~@~+~-~";
 
 }

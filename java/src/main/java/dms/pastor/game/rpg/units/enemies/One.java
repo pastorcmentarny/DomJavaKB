@@ -6,8 +6,8 @@ import dms.pastor.game.rpg.units.Unit;
 
 
 public class One extends Enemy {
-    private final Skills xskills = new Skills(1, 1, 1, 1, 1, 1);
-    private final Stats xstats = new Stats(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
+    private final Skills oneSkills = new Skills(1, 1, 1, 1, 1, 1);
+    private final Stats oneStats = new Stats(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
 
 
     public One() {
@@ -26,10 +26,10 @@ public class One extends Enemy {
         psycho = false;
 
         bonusPerLevelStats = Stats.generateDefaultBonusStats(psycho);
-        this.skills = xskills;
+        this.skills = oneSkills;
         setup();
 
-        bonusPerLevelStats = new Stats(xstats.getMinDMG(), xstats.getMaxDMG(), xstats.getAccuracy(), xstats.getEvasion(), xstats.getHP(), xstats.getMaxHP(), xstats.getSP(), xstats.getMaxSP(), xstats.getARM(), xstats.getMana(), xstats.getMaxMana(), 0);
+        bonusPerLevelStats = new Stats(oneStats.getMinDMG(), oneStats.getMaxDMG(), oneStats.getAccuracy(), oneStats.getEvasion(), oneStats.getHP(), oneStats.getMaxHP(), oneStats.getSP(), oneStats.getMaxSP(), oneStats.getARM(), oneStats.getMana(), oneStats.getMaxMana(), 0);
         regenerateCurrentStatsFromSkills();
 
     }

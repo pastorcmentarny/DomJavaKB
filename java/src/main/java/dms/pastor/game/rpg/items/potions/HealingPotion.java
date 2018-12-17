@@ -24,17 +24,17 @@ public class HealingPotion extends Potion {
 
     public Result use() {
         heal(hero.plainStats);
-        return new Result(true, name + " was healed by " + (size.pecent() * heal) + " hp.");
+        return new Result(true, name + " was healed by " + (size.percent() * heal) + " hp.");
     }
 
     @Override
     public Result useInBattle(Unit unit) {
         heal(hero.battleStats);
-        return new Result(true, name + " was healed by " + (size.pecent() * heal) + " hp.");
+        return new Result(true, name + " was healed by " + (size.percent() * heal) + " hp.");
     }
 
 
     private void heal(Stats stats) {
-        stats.addHealth(size.pecent() * heal);
+        stats.addHealth(size.percent() * heal);
     }
 }

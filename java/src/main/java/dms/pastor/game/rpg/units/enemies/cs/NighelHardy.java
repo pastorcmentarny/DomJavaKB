@@ -17,7 +17,7 @@ class NighelHardy extends Boss {
 
     public NighelHardy() {
         setName("Nighel H.");
-        setDescription("He is a famous teacher as he is always challange,there ");//TODO
+        setDescription("He is a famous teacher as he is always challenge,there ");//TODO
         psycho = true;
         skills = new Skills(4, 10, 9, 3, 5, 9);
         setup();

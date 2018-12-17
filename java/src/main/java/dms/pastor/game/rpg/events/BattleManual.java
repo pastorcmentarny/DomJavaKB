@@ -50,7 +50,7 @@ public class BattleManual implements BattleAction {
         if (getChance(one, two) > random.nextInt(101)) {
             int dmg;
             if (one.isCriticalChance()) {
-                dmg = one.battleStats.getMaxDMG() * one.criticalMultiplyer;
+                dmg = one.battleStats.getMaxDMG() * one.criticalMultiplayer;
                 System.out.println("-- CRITICAL CHANCE -- " + dmg + " dmg!");
             } else {
                 dmg = one.battleStats.getRandomDmg() - two.battleStats.getARM();

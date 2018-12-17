@@ -20,7 +20,7 @@ public class Office extends Place {
 
     @Override
     public void goToPlace() {
-        System.out.println("Welcome in catherdal of bureaucracy.");
+        System.out.println("Welcome in cathedral of bureaucracy.");
 
     }
 

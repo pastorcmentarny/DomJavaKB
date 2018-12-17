@@ -24,7 +24,7 @@ public abstract class Unit extends Element implements Cloneable, Comparable<Unit
     public int lvl = 1;
     public int exp = 0;
     protected int criticalChance = Config.DEFAULT_CRITICAL_CHANCE;
-    public final int criticalMultiplyer = Config.DEFAULT_CRITICAL_MULTIPLAYER;
+    public final int criticalMultiplayer = Config.DEFAULT_CRITICAL_MULTIPLAYER;
     public int nextLvlExp = Config.DEFAULT_FIRST_NEXT_LEVEL_EXP;
 
     public boolean isPlayer = false;
@@ -124,9 +124,9 @@ public abstract class Unit extends Element implements Cloneable, Comparable<Unit
         if (lvl < Config.MAX_LEVEL) {
             lvl++;
             Config.getExpNeededForEnemyLevel(lvl);
-            System.out.println(CLI.CuteLineSeperator);
+            System.out.println(CLI.CUTE_LINE_SEPARATOR);
             System.out.println(name + " is leveled up and is on level: " + lvl);
-            System.out.println(CLI.CuteLineSeperator);
+            System.out.println(CLI.CUTE_LINE_SEPARATOR);
             if (lvl % Config.DEFAULT_SKILL_BONUS_FREQUENCY == 0) {
                 Skills.addRandomSkill(skills, SkillsType.values());
                 regenerateCurrentStatsFromSkills();

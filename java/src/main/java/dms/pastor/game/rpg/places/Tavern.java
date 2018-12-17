@@ -15,7 +15,7 @@ public class Tavern extends Place {
 
     public Tavern() {
         setName("Roland's Tavern");
-        setDescription("Typical tavern in the middle of nowhere. Cheap alkocholic beverages, action packed figths between locals and tourist  and legend  ");
+        setDescription("Typical tavern in the middle of nowhere. Cheap alcoholic beverages, action packed fights between locals and tourist  and legend  ");
     }
 
     @Override
@@ -26,7 +26,7 @@ public class Tavern extends Place {
     @Override
     public void goToPlace() {
         /*
-         1. Buy drink (+1 charisma/verbal -2 inteligence)
+         1. Buy drink (+1 charisma/verbal -2 intelligence)
          2. Buy food
          3. Stay at hotel
          4. Play a game 
@@ -42,7 +42,7 @@ public class Tavern extends Place {
             System.out.println("4.Play a game");
             System.out.println("5.Talk to somebody");
             if (qm.isZombieQuestStarted()) {
-                System.out.println("3. Go to underground buchery ");
+                System.out.println("3. Go to underground butchery ");
             }
             System.out.println("0.Exit");
 

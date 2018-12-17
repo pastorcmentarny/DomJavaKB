@@ -30,7 +30,7 @@ public class Monastery extends Place {
         System.out.println("Warm welcome to " + name + "!.Would you like to make voluntary donation?");
         boolean stay = true;
         while (stay) {
-            System.out.println("1. Pay donatation (Cost:" + calcFee() + ")");
+            System.out.println("1. Pay donation (Cost:" + calcFee() + ")");
             System.out.println("2. Ignore zakonnice and enter into " + name);
             System.out.println("3. Start argue about ,why donation is so expensive..");
             System.out.println("0. Exit");
@@ -53,7 +53,7 @@ public class Monastery extends Place {
                         break;
                 }
             } catch (Exception e) {
-                System.out.println("You trying to explain what you want but you sounds like homeless ,so they gave you a bread and kindly say they are FULL and they can't acept any more homeless student at the moment ." + e.getMessage());
+                System.out.println("You trying to explain what you want but you sounds like homeless ,so they gave you a bread and kindly say they are FULL and they can't accept any more homeless student at the moment ." + e.getMessage());
             }
         }
     }
@@ -61,7 +61,7 @@ public class Monastery extends Place {
     private int calcFee() {
         int fee = hero.lvl * 10;
         if (hero.nativeAttributes.contains(Attribute.ECONOMICS)) {
-            fee = Money.getDisccountedPrice(fee, 25);
+            fee = Money.getDiscountedPrice(fee, 25);
         }
         return fee;
     }
@@ -135,10 +135,10 @@ public class Monastery extends Place {
                         stay = false;
                         break;
                     default:
-                        System.out.println("You couldn't decide what you want,so you leave monastey.");
+                        System.out.println("You couldn't decide what you want,so you leave Monastery.");
                 }
             } catch (Exception e) {
-                System.out.println("You couldn't decide what you want,so you leave monastey." + e.getMessage());
+                System.out.println("You couldn't decide what you want,so you leave Monastery." + e.getMessage());
             }
         }
     }
@@ -159,7 +159,7 @@ public class Monastery extends Place {
             price += 150;
         }
         if (hero.nativeAttributes.contains(Attribute.ECONOMICS)) {
-            price = Money.getDisccountedPrice(price, Config.DEFAULT_DISCOUNT * 2);
+            price = Money.getDiscountedPrice(price, Config.DEFAULT_DISCOUNT * 2);
         }
         return price;
     }
@@ -182,7 +182,7 @@ public class Monastery extends Place {
             //TODO implement , show prices
             System.out.println("What you would like to buy?\n");
             System.out.println("1.Buy healing potion\n2.Buy mana potion.");
-            System.out.println("3.Buy Anitode \n4.buy cure potion");
+            System.out.println("3.Buy Antidote \n4.buy cure potion");
             System.out.println("5.Make donation\n0.Exit");
             try {
                 int selection = scanner.nextInt();
@@ -194,7 +194,7 @@ public class Monastery extends Place {
                         buyManaPotion();
                         break;
                     case 3:
-                        buyAnitodePotion();
+                        buyAntidotePotion();
                         break;
                     case 4:
                         buyCurePotion();
@@ -235,7 +235,7 @@ public class Monastery extends Place {
         System.out.println(r.getMessage());
     }
 
-    private void buyAnitodePotion() {
+    private void buyAntidotePotion() {
         Result r = hero.pay(Config.PRICE_ANTIDOTE_POTION, new AntidotePotion(PotionSize.MINOR));
         System.out.println(r.getMessage());
     }

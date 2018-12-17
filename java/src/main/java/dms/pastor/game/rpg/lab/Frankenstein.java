@@ -8,7 +8,7 @@ package dms.pastor.game.rpg.lab;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
-class Frankenstain {
+class Frankenstein {
     private final String name;
     private int lvl;
     private final int strength;
@@ -30,7 +30,7 @@ class Frankenstain {
     private int maxMana;
     private int ARM;
 
-    public Frankenstain(String name, int strength, int charisma, int intelligence, int vitality, int dexterity, int psychokinesis) {
+    public Frankenstein(String name, int strength, int charisma, int intelligence, int vitality, int dexterity, int psychokinesis) {
         this.name = name;
         lvl = 1;
         this.strength = strength;
@@ -46,7 +46,7 @@ class Frankenstain {
         return 5 * dexterity + 2 * psychokinesis + intelligence;
     }
 
-    //each class has modif
+    //each class has modifier
     public void generateStatsForLevel(int lvl) {
         this.lvl = lvl;
         int s = strength;

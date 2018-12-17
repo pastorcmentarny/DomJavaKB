@@ -33,7 +33,7 @@ public class Game {
 
 
     private Game() {
-        //TODO move to seperate method
+        //TODO move to separate method
         //FIXME log.setLevel(Config.//FIXME log.LEVEL);
         hero = Hero.getHero();
         distance = 0;
@@ -50,7 +50,7 @@ public class Game {
     }
 
     public static void gameOver(String reason, String heroName) {
-        System.out.println("\n\n" + Config.GAME_OVER_SPLIT + "\n\tGAMEOVER!\n" + heroName + " " + reason + ".\n" + Config.GAME_OVER_SPLIT);
+        System.out.println("\n\n" + Config.GAME_OVER_SPLIT + "\n\tGAME OVER!\n" + heroName + " " + reason + ".\n" + Config.GAME_OVER_SPLIT);
         System.exit(1);
     }
 
@@ -174,7 +174,7 @@ public class Game {
             System.out.println("9.Check inventory");
             System.out.println("0.Display Hero's status");
             System.out.println("11. Go to Fight Club Arena.");
-            System.out.println("12. Change attitute of Hero to fight.");
+            System.out.println("12. Change attitude of Hero to fight.");
             //try {
             switch (scanner.nextInt()) {
                 case 1:
@@ -237,7 +237,7 @@ public class Game {
     }
 
     public boolean gameOver(String reason) {
-        System.out.println("\n\n" + Config.GAME_OVER_SPLIT + "\n\tGAMEOVER!\n" + hero.getName() + " " + reason + ".\nYou walked " + distance + "/" + Config.DESTINATION_DISTANCE + ".\n" + Config.GAME_OVER_SPLIT);
+        System.out.println("\n\n" + Config.GAME_OVER_SPLIT + "\n\tGAME OVER!\n" + hero.getName() + " " + reason + ".\nYou walked " + distance + "/" + Config.DESTINATION_DISTANCE + ".\n" + Config.GAME_OVER_SPLIT);
         return false;
     }
 
@@ -263,7 +263,7 @@ public class Game {
 
     private void enemyLevelUp() {
         enemyLvl += 1;
-        System.out.println("\n~~~~~~~~\n!BADNEWS!\n\tENEMY is leveling up to level:" + enemyLvl + "\n~~~~ ~~~~~~~~");
+        System.out.println("\n~~~~~~~~\n!BAD NEWS!\n\tENEMY is leveling up to level:" + enemyLvl + "\n~~~~ ~~~~~~~~");
         enemyNextLvlExp = Config.getExpNeededForEnemyLevel(enemyLvl);
 
     }
@@ -289,7 +289,7 @@ public class Game {
         return battleNo;
     }
 
-    public int increaceBattleCounter() {
+    public int increaseBattleCounter() {
         battleNo++;
         return battleNo;
     }

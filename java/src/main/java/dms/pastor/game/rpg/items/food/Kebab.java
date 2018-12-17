@@ -26,7 +26,7 @@ public class Kebab extends FoodItem {
             hero.plainStats.setHP(hero.plainStats.getHP() - (hero.plainStats.getHP() / 8));
         } else {
             System.out.println("You enjoyed a delicious kebab that get you some health");
-            hero.addHealthByPecent(10);
+            hero.addHealthByPercent(10);
         }
     }
 

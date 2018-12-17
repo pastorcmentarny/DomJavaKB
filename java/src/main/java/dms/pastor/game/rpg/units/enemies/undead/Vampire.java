@@ -16,7 +16,7 @@ public class Vampire extends Enemy {
 
     public Vampire(int level) {
         name = "Vampire";
-        description = "Each student morph into vampire in order survive  infinite amount of assigments and prepare to endless exams.";
+        description = "Each student morph into vampire in order survive  infinite amount of assigment and prepare to endless exams.";
         this.lvl = level;
         psycho = false;
         skills = new Skills(6, 4, 7, 15, 6, 2);
@@ -55,7 +55,7 @@ public class Vampire extends Enemy {
 
     @Override
     public void specialAttack(Unit unit) {
-        System.out.println("Life sucks... and Vampier drain ");
+        System.out.println("Life sucks... and Vampire drain ");
         int dmg = unit.battleStats.getMaxHP() / 33;
         unit.battleStats.doesDirectDMGtoHP(dmg);
         System.out.print(dmg + " hp from you and Vampire gain " + (dmg / 3) + " hp.\n");

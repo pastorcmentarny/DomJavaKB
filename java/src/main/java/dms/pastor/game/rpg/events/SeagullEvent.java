@@ -15,7 +15,7 @@ public class SeagullEvent implements EventInterface {
 
     private EVENT_Result result = EVENT_Result.NOTHING;
     private final Hero hero;
-    int reward = 0; //1 - luckly shit ,it gives you +1karma +**%
+    int reward = 0; //1 - luckily shit ,it gives you +1karma +**%
     private final Seagull seagull;
     private final Scanner scanner = new Scanner(System.in);
     private final Random random = new Random();
@@ -40,7 +40,7 @@ public class SeagullEvent implements EventInterface {
             Seagull.shitAttack(Hero.getHero());
             boolean notAnswered = true;
             while (notAnswered) {
-                System.out.println("What do you want to do?\n 1.Throw a stone in revange.\n2.Do nothing.");
+                System.out.println("What do you want to do?\n 1.Throw a stone in revenge.\n2.Do nothing.");
                 try {
                     System.out.println("Type number  on keyboard..");
                     int guess = scanner.nextInt();
@@ -66,7 +66,7 @@ public class SeagullEvent implements EventInterface {
 
     }
 //you can throw stone
-//poo can double your luckq
+//poo can double your luck
 
     public EVENT_Result gerResult() {
         return result;

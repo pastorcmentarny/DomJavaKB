@@ -48,19 +48,19 @@ public class InventoryMenu implements Menu {
     private void itemMenu(Item item) {
         if (item instanceof Weapon) {
             Weapon weapon = (Weapon) item;
-            genreateActionList(weapon);
+            generateActionList(weapon);
         } else if (item instanceof FoodItem) {
             FoodItem food = (FoodItem) item;
-            genreateActionList(food);
+            generateActionList(food);
         } else if (item instanceof Armor) {
             Armor armor = (Armor) item;
-            genreateActionList(armor);
+            generateActionList(armor);
         } else {
-            genreateActionList(item);
+            generateActionList(item);
         }
     }
 
-    private void genreateActionList(Item item) {
+    private void generateActionList(Item item) {
         boolean displayMenu = true;
         while (displayMenu) {
             StringBuilder sb = new StringBuilder("Actions:\n");

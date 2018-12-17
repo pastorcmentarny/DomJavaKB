@@ -7,7 +7,7 @@ public class MeteorFiberBasketballBall extends Weapon {
     public MeteorFiberBasketballBall() {
         super(Hands.RIGHT);
         name = "Meteor Baseball bat";
-        description = "Most painfull version of baseball bat";
+        description = "Most painful version of baseball bat";
         minDMG = 396;
         maxDMG = 828;
         accuracy = 50;

@@ -4,9 +4,9 @@ import dms.pastor.game.rpg.units.Unit;
 import dms.pastor.game.rpg.units.enemies.Enemy;
 
 
-public class MartaTokarska extends Enemy {
+public class Tokar extends Enemy {
 
-    public MartaTokarska(int lvl) {
+    public Tokar(int lvl) {
         super(lvl);
         //TODO implement Marta (she will be on 
     }

@@ -20,7 +20,7 @@ class FingersInventory {
         return tmp;
     }
 
-    public Ring unWearRing(int fingerNumber) {
+    public Ring takeOffRing(int fingerNumber) {
         return fingerList.get(fingerNumber);
     }
 
@@ -29,7 +29,7 @@ class FingersInventory {
         StringBuilder sb = new StringBuilder();
 
         if (fingerList.isEmpty()) {
-            sb.append("No rings on your finges");
+            sb.append("No rings on your fingers");
         } else {
             int counter = 1;
             for (Ring ring : fingerList) {

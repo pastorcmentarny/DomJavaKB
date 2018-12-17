@@ -27,13 +27,13 @@ public class Day9Quests extends Quest {
             System.out.println("What do you want to do ?");
             System.out.println("1.Tutorial");
             System.out.println("2. Tell me more about your show..");
-            if (progress.kittenQuestState.equals(QuestState.AVALIABLE)) {
+            if (progress.kittenQuestState.equals(QuestState.AVAILABLE)) {
                 System.out.println("3. Where are kittens?");
             } else if (progress.kittenQuestState.equals(QuestState.INPROGRESS)) {
                 System.out.println("3. I have some news about your kittens.");
             }
 
-            if (progress.mutaSpiderQuestState.equals(QuestState.AVALIABLE)) {
+            if (progress.mutaSpiderQuestState.equals(QuestState.AVAILABLE)) {
                 System.out.println("3. I can tell you story");
             } else if (progress.mutaSpiderQuestState.equals(QuestState.INPROGRESS)) {
                 System.out.println("3. I have some news about mutaspider.");
@@ -51,13 +51,13 @@ public class Day9Quests extends Quest {
                         aboutDay9();
                         break;
                     case 3:
-                        if (progress.mutaSpiderQuestState.equals(QuestState.AVALIABLE)) {
+                        if (progress.mutaSpiderQuestState.equals(QuestState.AVAILABLE)) {
                             System.out.println("3. Where are kittens?");
                         } else if (progress.mutaSpiderQuestState.equals(QuestState.INPROGRESS)) {
                             System.out.println("3. I have some news about your kittens.");
                         }
 
-                        if (progress.mutaSpiderQuestState.equals(QuestState.AVALIABLE)) {
+                        if (progress.mutaSpiderQuestState.equals(QuestState.AVAILABLE)) {
                             System.out.println("3. I can tell you story");
                         } else if (progress.mutaSpiderQuestState.equals(QuestState.INPROGRESS)) {
                             System.out.println("3. I have some news about mutaspider.");
@@ -96,8 +96,8 @@ public class Day9Quests extends Quest {
 
     @Override
     public void updateQuestState() {
-        if (progress.kittenQuestState.equals(QuestState.COMPLETED) && progress.mutaSpiderQuestState.equals(QuestState.NOT_AVALIABLE)) {
-            progress.mutaSpiderQuestState = QuestState.AVALIABLE;
+        if (progress.kittenQuestState.equals(QuestState.COMPLETED) && progress.mutaSpiderQuestState.equals(QuestState.NOT_AVAILABLE)) {
+            progress.mutaSpiderQuestState = QuestState.AVAILABLE;
         }
 
     }

@@ -117,7 +117,7 @@ class ConstitutionHill extends Place {
                 //bonus
                 break;
             case ATTACK:
-                game.increaceBattleCounter();
+                game.increaseBattleCounter();
                 System.out.println("Battle no." + game.getBattleNo());
                 BattleManual seagullBattle = new BattleManual(hero, seagull);
                 seagullBattle.begin();
@@ -150,7 +150,7 @@ class ConstitutionHill extends Place {
 
     private void sheepEvent() {
         Enemy enemy = new Sheep(game.getEnemyLevel());
-        game.increaceBattleCounter();
+        game.increaseBattleCounter();
         System.out.println("Battle no." + game.getBattleNo());
         BattleManual battle = new BattleManual(hero, enemy);
         battle.begin();
@@ -166,7 +166,7 @@ class ConstitutionHill extends Place {
 
     private void bunnyEvent() {
         Enemy enemy = new CuteBunny(game.getEnemyLevel());
-        game.increaceBattleCounter();
+        game.increaseBattleCounter();
         System.out.println("Battle no." + game.getBattleNo());
         BattleManual battle = new BattleManual(hero, enemy);
         battle.begin();

@@ -41,16 +41,16 @@ public class UnitArmors {
         }
     }
 
-    public Result unwearArmor(ArmorType type) {
+    public Result takeOffArmor(ArmorType type) {
         Armor temp = null;
         if (isWearThisTypeOfArmor(type)) {
             temp = removeArmorByType(type);
         }
         if (temp != null) {
-            return new Result(true, " unwear " + temp.getName(), temp);
+            return new Result(true, "  take Off " + temp.getName(), temp);
         }
-        //FIXME log.warn("Unable to unwear this armor as it wasn't found. That's shouldn't happen.");
-        return new Result(false, "Unable to unwear this armor.");
+        //FIXME log.warn("Unable to  take off this armor as it wasn't found. That's shouldn't happen.");
+        return new Result(false, "Unable to  take off this armor.");
     }
 
     private boolean canWearIt(ArmorType type) {

@@ -42,7 +42,7 @@ public class Chat implements EventInterface {
         Msg.noHelp();
     }
 
-    public NPC withPolysterKnights() {
+    public NPC withPolyesterKnights() {
         Random random = new Random();
         switch (random.nextInt(3) + 1) {
             case 1:

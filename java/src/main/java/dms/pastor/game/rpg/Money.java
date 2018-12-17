@@ -16,7 +16,7 @@ public class Money {
         return (int) newValue;
     }
 
-    public static int getDisccountedPrice(int value, int discountInPercent) {
+    public static int getDiscountedPrice(int value, int discountInPercent) {
         if (value <= 0) {
             throw new IllegalArgumentException("value must be positive");
         }

@@ -21,17 +21,17 @@ public class ManaPotion extends Potion {
 
     public Result use() {
         heal(hero.plainStats);
-        return new Result(true, name + " restore mana by " + (size.pecent() * mana) + " mp.");
+        return new Result(true, name + " restore mana by " + (size.percent() * mana) + " mp.");
     }
 
     @Override
     public Result useInBattle(Unit unit) {
         heal(hero.battleStats);
-        return new Result(true, name + " restore mana by " + (size.pecent() * mana) + " mp.");
+        return new Result(true, name + " restore mana by " + (size.percent() * mana) + " mp.");
     }
 
 
     private void heal(Stats stats) {
-        stats.addHealth(size.pecent() * mana);
+        stats.addHealth(size.percent() * mana);
     }
 }

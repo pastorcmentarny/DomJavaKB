@@ -26,7 +26,7 @@ public class HealingHerbs extends Item {
             int chance = new Random().nextInt(101);
             if (chance <= poisonChance) {
                 hero.plainStats.doesDirectDMGtoHP(heal);
-                return new Result(false, "Woops. This was a posioned herbs.");
+                return new Result(false, "Whoops. This was a poisoned herbs.");
             }
         }
 
