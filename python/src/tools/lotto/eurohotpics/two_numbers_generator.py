@@ -1,5 +1,7 @@
 import logging
 import sys
+from src.tools.lotto import config
+
 
 sys.path.insert(0, '../utils')
 
@@ -10,11 +12,10 @@ import lotto_utils
 
 # SETTINGS
 url = 'https://www.national-lottery.co.uk/results/euromillions-hotpicks/draw-history/csv'
-base_dir = '../../../../data/lotto/'
-path = lotto_hotpics_history_path = base_dir + 'euro-hotpics-draws.csv'
-all_draws = base_dir + 'euro-hotpicks-all-draws.csv'
+path = lotto_hotpics_history_path = config.path["base"] + 'euro-hotpics-draws.csv'
+all_draws = config.path["base"] + 'euro-hotpicks-all-draws.csv'
 logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s',
-                    filename=base_dir + 'log.txt')
+                    filename=config.path["base"] + 'log.txt')
 
 data = draws_downloader.get_draws_for(url, path)
 draws_downloader.update_all_draws(data, all_draws)

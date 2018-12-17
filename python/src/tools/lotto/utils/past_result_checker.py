@@ -1,5 +1,6 @@
 import logging
 import os
+from src.tools.lotto import config
 
 # this app is used to provide information for given numbers how many times you won. it will check for 3,4,5,5+ and 6 number
 # validate numbers to ensure is 6 of them and they are unique
@@ -7,9 +8,9 @@ import os
 # load all results
 # scan for hit for each combination
 # result
-base_dir = '../../../../data/lotto/'
+
 logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s',
-                    filename=base_dir + 'log.txt')
+                    filename=config.path["base"] + 'log.txt')
 
 
 def check_for(display_info: bool, numbers, data: list):

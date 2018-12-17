@@ -6,6 +6,8 @@ sys.path.insert(0, '../utils')
 import draws_downloader
 import output
 import lotto_utils
+from src.tools.lotto import config
+
 
 number_1 = 5
 number_2 = 11
@@ -29,12 +31,11 @@ that was second most played
 
 # SETTINGS
 url = 'https://www.national-lottery.co.uk/results/thunderball/draw-history/csv'
-base_dir = '../../../../data/lotto/'
-path = thunderball_history_path = base_dir + 'thunderball-draws.csv'
-all_draws = base_dir + 'thunderball-all-draws.csv'
+path = thunderball_history_path = config.path["base"] + 'thunderball-draws.csv'
+all_draws = config.path["base"] + 'thunderball-all-draws.csv'
 
 logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s',
-                    filename=base_dir + 'log.txt')
+                    filename=config.path["base"] + 'log.txt')
 
 data = draws_downloader.get_draws_for(url, path)
 print('number counter')
