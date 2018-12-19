@@ -22,6 +22,15 @@ def check_for(display_info: bool, numbers, data: list):
         print(str(n) + "'s : " + str(count_hits(data, n, numbers)))
 
 
+def check_for_with_bonus(display_info: bool, numbers, data: list,bonus: int):
+    logging.debug("checking if numbers you selected won in the past results")
+    if display_info:
+        info(numbers)
+
+    for n in range(len(numbers), 0, -1):
+        print(str(n) + "'s : " + str(count_hits(data, n, numbers,bonus)))
+
+
 def info(numbers: list):
     print('Numbers' + str(numbers))
     print(os.getcwd())
@@ -29,6 +38,29 @@ def info(numbers: list):
 
 # improve it
 def count_hits(data: list, must_hit: int, numbers: list):
+    counter = 0
+    for draw in data:
+        hit = 0
+        for n in range(0, len(numbers)):
+            if numbers[n] in draw:
+                hit += 1
+        if hit >= must_hit:
+            counter += 1
+    return counter
+
+# improve it
+# Prize breakdown listed below.
+# No. of matches	All winners	Prize per winner	Prize fund
+# Match 5 + Thunderball	0	£0	£0
+# Match 5	10	£5,000	£50,000
+# Match 4 + Thunderball	88	£250	£22,000
+# Match 4	1,056	£100	£105,600
+# Match 3 + Thunderball	1,761	£20	£35,220
+# Match 3	22,467	£10	£224,670
+# Match 2 + Thunderball	17,989	£10	£179,890
+# Match 1 + Thunderball	69,168	£5	£345,840
+# Match 0 + Thunderbal
+def count_hits_with_bonus(data: list, must_hit: int, numbers: list, bonus_drawn: int,bonus_your:int):
     counter = 0
     for draw in data:
         hit = 0

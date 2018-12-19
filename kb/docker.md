@@ -35,24 +35,17 @@ http://javarevisited.blogspot.co.uk/2013/05/10-hibernate-interview-questions-ans
 http://www.java67.com/2016/02/top-20-hibernate-interview-questions.html
 DOCKER SURIVING GUIDE
 
-Useful commands:
+##Useful commands:
 
 * ```docker build .```    Build docker image (```docker build -f Build_Dockerfile -t build-env```)
 * ```docker ps``` Display currently running docker images … (useful if you want know container id to stop it
 * ```docker stop (containerId)``` stops docker instance
 * ```docker run landoop/fast-data-dev``` running Kafka and other services that Kafka needs
-* ``` docker system prune -a``` Remove all unused containers and so on.
-
-command
-what it does
-docker restart $(docker ps -aq)
-it restarts all dockers containers
-docker rm $(docker ps -aq) 
-It deletes all containers
-docker rmi $(docker images -q)
-It deletes all images
-docker stop $(docker ps -aq)
-stop all containers
+* ```docker system prune -a``` Remove all unused containers and so on.
+* ```docker restart $(docker ps -aq)``` it restarts all dockers containers
+* ```docker rm $(docker ps -aq)```   It deletes all containers
+* ```docker rmi $(docker images -q)``` It deletes all images
+* ```docker stop $(docker ps -aq)```  stop all containers
 
 
 

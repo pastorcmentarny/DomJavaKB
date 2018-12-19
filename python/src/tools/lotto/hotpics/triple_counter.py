@@ -62,7 +62,7 @@ def main():
     total = int(len(list(all_sorted_combinations)) * len(triples_list))
     step = int(total / 2500000)
 
-    print("INFO. total" + str(total) + " progress should be display every " + str(step) + " elements.")
+    print("INFO. total: " + str(total) + " progress should be display every " + str(step) + " elements.")
 
     count_all_triples_drawn(all_sorted_combinations, start, step, total, triples_list)
 
@@ -109,7 +109,7 @@ def count_all_triples_drawn(all_sorted_combinations, start, step, total, triples
         if counter % step == 0:
             progress = counter / total * 100
             print("it took " + str(int(time.time() - start)) + " seconds to processed " + str(
-                counter) + " of total:" + str(total) + " Progress: " + str(percentage_format % progress))
+                counter) + " of total: " + str(total) + ". Progress: " + str(percentage_format % progress))
 
         sorted_list = [sc[0], sc[1], sc[2]]
         sorted_list = list(sorted_list)

@@ -1,4 +1,5 @@
 import domain.Definition
+import utils.UIUtils.Companion.line
 import java.util.*
 
 class PernamentScratchNotes {
@@ -87,14 +88,7 @@ A vary vary very long description so it can be cut so it can fit nicely on conso
 
 
 
-        line("switch")
-        val age = Random().nextInt(20)
-        when (age) {
-            0, 1, 2, 3, 4 -> println("Go to nursery")
-            5 -> println("Go to Kindergarden")
-            in 6..17 -> goToGrade(age)
-            else -> println("Go to collage")
-        }
+
 
         line("map loop")
 
@@ -319,20 +313,7 @@ A vary vary very long description so it can be cut so it can fit nicely on conso
     }
 
 
-    private fun goToGrade(age: Int) {
-        val grade = age - 5
-        println("Go to grade $grade")
-    }
 
-    private fun line(comment: String) {
-        println()
-        for (i in 1..40) {
-            print("-")
-        }
-        println(comment)
-        println()
-
-    }
 
     private fun max(a: Int, b: Int): Int = if (a > b) a else b
 
