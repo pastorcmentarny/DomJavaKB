@@ -38,13 +38,13 @@ public class FromFileImporter implements Importer {
 
     @SuppressWarnings("ProhibitedExceptionCaught") //it catch malformed line
     public Result importDictionary(String filePath, String[] requestedCategories) {
-        LOGGER.info("Loading words to dictionary from file");
+        LOGGER.info("Loading words to rpg from file");
         clear();
 
         //TODO extract this
         File file = new File(filePath);
         if (!file.exists()) {
-            final String errorMessage = "File to dictionary not found";
+            final String errorMessage = "File to rpg not found";
             LOGGER.error(errorMessage);
             return fail(errorMessage);
         }

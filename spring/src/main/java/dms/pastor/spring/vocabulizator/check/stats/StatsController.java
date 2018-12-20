@@ -16,10 +16,10 @@ public class StatsController {
 
     @GetMapping(DICTIONARY_STATISTIC)
     public Map<String, String> getStatisticForDictionary() {
-        LOG.info("Getting stats for dictionary");
+        LOG.info("Getting stats for rpg");
         final HashMap<String, String> summary = new HashMap<>();
         summary.put("words", "0");
-        LOG.info("Returning stats for dictionary");
+        LOG.info("Returning stats for rpg");
         return summary;
     }
 

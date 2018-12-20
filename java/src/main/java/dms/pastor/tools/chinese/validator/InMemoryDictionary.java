@@ -65,7 +65,7 @@ class InMemoryDictionary {
                 return word;
             }
         }
-        LOGGER.warn("Word not found in dictionary for id: " + id);
+        LOGGER.warn("Word not found in rpg for id: " + id);
         return Word.noWord();
     }
 

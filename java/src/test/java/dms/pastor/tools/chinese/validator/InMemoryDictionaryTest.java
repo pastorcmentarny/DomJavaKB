@@ -35,7 +35,7 @@ public class InMemoryDictionaryTest {
         // when
         dictionary.load();
         // then
-        assertThat(dictionary.getStatus()).isEqualTo("ERROR (File to dictionary not found)");
+        assertThat(dictionary.getStatus()).isEqualTo("ERROR (File to rpg not found)");
     }
 
     @Test

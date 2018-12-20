@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  * <p>
  * This tool is used to validate words
- * while they are loaded to dictionary database in Doms learn Chinese from file
+ * while they are loaded to rpg database in Doms learn Chinese from file
  * This is slightly modified version of Word class from my game Dom Learn Chinese
  * Validator is here not in App due fact that testing in Android is pain in the ass
  */
@@ -21,13 +21,13 @@ final class WordValidatorRunner {
     private static final Logger LOGGER = LoggerFactory.getLogger(WordValidatorRunner.class);
 
     //TODO improve it
-    private static final String PATH = "D:\\GitHub\\LearningChineseGame\\res\\raw\\dictionary.txt";
+    private static final String PATH = "D:\\GitHub\\LearningChineseGame\\res\\raw\\rpg.txt";
 
     private WordValidatorRunner() {
     }
 
     public static void main(String[] args) {
-        LOGGER.info("Validating dictionary in  this path: " + PATH);
+        LOGGER.info("Validating rpg in  this path: " + PATH);
         InMemoryDictionary dictionary = new InMemoryDictionary(PATH, new FromFileImporter());
         dictionary.load();
         LOGGER.info("Dictionary Status: " + dictionary.getStatus());

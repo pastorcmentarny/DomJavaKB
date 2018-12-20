@@ -140,7 +140,7 @@ counter[1] = "1 1 1"
 print('counter:' + str(counter) + ' digits: ' + str(digits))
 
 
-# copy() can be used to make a duplicate copy of a mutable value like a list or dictionary,
+rpg
 # not just a copy of a reference.
 
 cats = [{'age': 13, 'name': 'Puszek'}, {'age': 9, 'name': 'Reksio'}]

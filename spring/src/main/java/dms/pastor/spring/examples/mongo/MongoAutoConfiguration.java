@@ -38,7 +38,7 @@ public class MongoAutoConfiguration extends AbstractMongoConfiguration {
 
     @Override
     protected String getDatabaseName() {
-        return "dictionary";
+        return "rpg";
     }
 
     @Override
