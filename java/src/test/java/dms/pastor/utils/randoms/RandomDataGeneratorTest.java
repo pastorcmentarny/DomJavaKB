@@ -485,4 +485,19 @@ public class RandomDataGeneratorTest {
 
 
     }
+
+    @Test //TODO tool to generate random numbers in lotto
+    public void shouldGenerateNumbersForLotto() {
+        // given
+        int start = 1;
+        int stop = 59;
+        int[] lastDraw = new int[]{12, 24, 33, 34, 39, 56, 38}; // number including bonus
+
+        // when
+        final List<Integer> result = generateRandomNumberSequenceExcludingSpecificNumber(start, stop, lastDraw);
+
+        // then
+        System.out.println(result.size());
+        result.forEach(number -> System.out.println(number + ","));
+    }
 }
