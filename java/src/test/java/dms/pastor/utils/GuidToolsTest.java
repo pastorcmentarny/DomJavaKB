@@ -64,4 +64,34 @@ public class GuidToolsTest {
         final String lastLog = output[output.length - 1];
         assertThat(lastLog).matches(Pattern.compile(GUID_REGEX));
     }
+
+
+    @Test
+    public void generateGuidWithoutDashAcceptanceTest() {
+
+        // when
+        final String result = GuidTools.generateGuidWithoutDash();
+
+        // debug
+        System.out.println(result);
+
+        // then
+        assertThat(result).isNotEmpty();
+        assertThat(result).hasSize(32);
+    }
+
+    @Test
+    public void generateShortGuidAcceptanceTest() {
+
+        // when
+        final String result = GuidTools.generateShortGuid();
+
+        // debug
+        System.out.println(result);
+
+        // then
+        assertThat(result).isNotEmpty();
+        assertThat(result).hasSize(8);
+    }
+
 }

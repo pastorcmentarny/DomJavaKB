@@ -23,10 +23,10 @@ final class LambdasBasics {
     private static void scopeBasics() {
         final int adder = 3;
         List<Integer> numbers = Arrays.asList(1, 2, 3, 5, 8, 13);
-        numbers.forEach((n) -> {
-            n += adder;
-            System.out.println(n);
-            n -= CONST_MODIFIER;
+        numbers.forEach((number) -> {
+            number += adder;
+            System.out.println(number);
+            number -= CONST_MODIFIER;
         });
 
     }

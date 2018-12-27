@@ -23,13 +23,11 @@ class TrainCLI {
         new Scanner(System.in);
     }
 
-    private final TrainStation stations;
     private final OptionsFactory options;
     private Scanner scanner;
 
 
     private TrainCLI(TrainStation stations, Scanner scanner) {
-        this.stations = stations;
         this.scanner = scanner;
         options = OptionsFactory.getOptions(scanner);
     }

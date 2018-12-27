@@ -68,8 +68,6 @@ final class DomEncoder {
     }
 
     private void encode() throws UnsupportedEncodingException {
-
-
         encodeInBase64();
         swapCapitalization();
         reverse();
