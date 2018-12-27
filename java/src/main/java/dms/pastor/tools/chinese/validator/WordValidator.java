@@ -4,6 +4,8 @@ import dms.pastor.utils.string.ContainsInStringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.List;
+
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.StringUtils.isStringEmpty;
 import static dms.pastor.utils.ValidatorUtils.validateIfNotNull;
@@ -25,7 +27,7 @@ final class WordValidator {
     private WordValidator() {
     }
 
-    public static boolean isWordValid(Word word) {
+    static boolean isWordValid(Word word) {
         validateIfNotNull(word, "Word");
 
         if (word.getId() <= 0) {
@@ -39,8 +41,7 @@ final class WordValidator {
         }
 
         if (isNotValidChineseCharacter(word)) {
-            //TODO it is temp fix, i need improve it
-            if (isStringEmpty(word.getChineseCharacter()) || !"T恤".equalsIgnoreCase(word.getChineseCharacter())) {
+            if (isStringEmpty(word.getChineseCharacter()) ||  isContainsAllowedWords(word.getChineseCharacter())) {
                 LOGGER.error(generateErrorMessage(word.getId(), "Chinese character", "It does't contain chinese character,"));
                 return false;
             }
@@ -73,6 +74,19 @@ final class WordValidator {
 
         return true;
     }
+    private static final List<String> allowedChineseWordsWithEnglishCharactersList = List.of("T恤","Java 开发人员");
+
+    private static boolean isContainsAllowedWords(String word) {
+
+        for(String allowedWord : allowedChineseWordsWithEnglishCharactersList){
+            if (allowedWord.equalsIgnoreCase(word)){
+                return false;
+            }
+        }
+
+        return true;
+
+    }
 
     private static boolean isNotValidChineseCharacter(Word word) {
         return isStringEmpty(word.getChineseCharacter()) || containsAnyAlphanumericCharacter(word.getChineseCharacter()) || containsPinyinCharacter(word.getChineseCharacter());
@@ -83,7 +97,6 @@ final class WordValidator {
     }
 
     //pinyin should be lowered case only
-
     private static boolean isNotValidPinyin(Word word) {
         return isStringEmpty(word.getPinyin()) || ContainsInStringUtils.containsUpperCase(word.getPinyin());
     }
