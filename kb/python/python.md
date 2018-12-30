@@ -32,6 +32,7 @@ print(table)
 ```
 * All Python programs can call a basic set of functions called built-in functions, including the print(), input(), and len() functions you’ve seen before. Python also comes with a set of modules called the standard library. Each module is a Python program that contains a related group of functions that can be embedded in your programs.
 An alternative form of the import statement is composed of the from keyword, followed by the module name, the import keyword, and a star; for example, from random import *.
+* About functions. Important warning: The default value is evaluated only once.
 * # to use # comment use ctrl+/ shortcut
 
  With this form of import statement, calls to functions in random will not need the random. prefix. However, using the full name makes for more readable code, so it is better to use the normal form of the import statement.
@@ -167,7 +168,7 @@ for i in range (-5,-1,1):
 ```
 
 
-main method in python:
+* main method in python:
 ```python
 # when python run a file it set a few attributes for example file that is run __name__ 
 # for file that it starts from give name main -> __main__ that
@@ -177,10 +178,13 @@ def main():
     
 if __name__ == '__main__':
     main()
-
 ```
 
-
+* type (that are optional) in Python
+```python
+def bye(name: str) -> str:
+    return 'Goodbye ' + name + '!'
+```
 Resources:
 * https://www.youtube.com/watch?v=sugvnHA7ElY
 * book: automate boring stuff

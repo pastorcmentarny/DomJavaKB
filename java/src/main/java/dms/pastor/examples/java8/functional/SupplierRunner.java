@@ -6,12 +6,8 @@ import dms.pastor.examples.java8.functional.supplier.NotRequiredInterface;
 
 final class SupplierRunner {
 
-    public static void main(String[] args) {
+    public String supplierExample() {
         final NotRequiredInterface notRequiredInterface = NotRequiredInterface.create(NotRequiredDefaultImplementation::new);
-        System.out.println(notRequiredInterface.notRequired());
-
-        //       final NotRequiredInterface notRequiredInterfaceOverridden = NotRequiredInterface.create(NotRequiredOverriddenImplementation::new);
-        //       System.out.println(notRequiredInterfaceOverridden.notRequired());
-
+        return notRequiredInterface.notRequired();
     }
 }

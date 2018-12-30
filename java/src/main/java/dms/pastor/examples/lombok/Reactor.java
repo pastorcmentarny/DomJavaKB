@@ -2,6 +2,9 @@ package dms.pastor.examples.lombok;
 
 import lombok.ToString;
 
+/*
+ See test for example
+ */
 @ToString
 final class Reactor {
     private Core[] cores = new Core[]{new Core(), new Core()};

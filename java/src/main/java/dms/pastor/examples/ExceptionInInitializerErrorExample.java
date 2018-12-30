@@ -16,7 +16,4 @@ public class ExceptionInInitializerErrorExample {
         throw new SomethingWentWrongException("Exception occurred in static block");
     }
 
-    public static void main(String[] args) {
-        System.out.println("RunningExceptionInInitializerError Example");
-    }
 }

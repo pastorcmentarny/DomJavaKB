@@ -17,8 +17,6 @@ _I am not the author of these definitions so check resources section for the ori
 
 
 
- Source:
- https://dzone.com/articles/single-responsibility
  
  
  TODO: 
@@ -44,7 +42,6 @@ _I am not the author of these definitions so check resources section for the ori
  ⦁	It increases usability.
  ⦁	It improve maintenance of code.
  ⦁	It helps object to interact with each other in correct way. 
- http://examples.javacodegeeks.com/java-basics/encapsulation-in-java/
  
  Polymorphism (State of having many shapes) is the ability a method can perform task in different ways. Subclasses of a class can define their own unique behaviours and/or re-use one of the same functionality of the parent class.
  In Java it is done for example in Method overriding.
@@ -83,22 +80,21 @@ _I am not the author of these definitions so check resources section for the ori
  	How does Java handle a class that implements two interfaces, both of which describe a default method with the same signature?
  	this is a compilation error.
  
- What is JVM?
+### What is JVM?
  A Java virtual machine (JVM) is a process that can execute Java bytecode. 
  
- What does the “static” keyword mean?
+#### What does the “static” keyword mean?
  	It indicates that field, method or class has a single instance for the whole class that defines it and A static variable in Java belongs to its class and its value remains the same for all its instances.
  
- Can you access non static variable in static context?
+#### Can you access non static variable in static context?
  No.
  A static variable in Java belongs to its class and its value remains the same for all its instances. A static variable is initialized when the class is loaded by the JVM. If your code tries to access a non-static variable, without any instance, the compiler will complain, because those variables are not created yet and they are not associated with any instance. 
  
- Can you override static method in Java?
+#### Can you override static method in Java?
  	No. 
  Note: you can declare and define static method of same name and signature in child class, this will hide the static method from parent class 
- source: http://java67.blogspot.co.uk/2015/03/top-40-core-java-interview-questions-answers-telephonic-round.html
  
- What are the Data Types supported by Java?
+#### What are the Data Types supported by Java?
  Java has 8 types (boolean, byte, char, double, float, int, long, short).
  
  What is Autoboxing and Unboxing?
@@ -306,9 +302,6 @@ _I am not the author of these definitions so check resources section for the ori
  
  Note: To avoid ConcurrentModificationException we can use concurrent collection classes to avoid ConcurrentModificationException while iterating over a collection, for example CopyOnWriteArrayList instead of ArrayList.
  
- Resource: http://javahungry.blogspot.com/2014/04/fail-fast-iterator-vs-fail-safe-iterator-difference-with-example-in-java.html
- http://www.javacodegeeks.com/2013/02/40-java-collections-interview-questions-and-answers.html
- 
  
  How HashMap works in Java? 
  	A HashMap is a data structure that stores key-value pairs.   Key need to be unique. 
@@ -335,18 +328,10 @@ _I am not the author of these definitions so check resources section for the ori
  
  
  
- Source : 
- https://www.quora.com/How-is-Hashmap-in-Java-implemented-internally-What-are-the-pros-and-cons-to-use-it-What-are-the-complexities-it-provides-for-insert-delete-and-lookup
- http://javarevisited.blogspot.co.uk/2016/01/how-does-java-hashmap-or-linkedhahsmap-handles.html
- http://netjs.blogspot.co.uk/2015/05/how-hashmap-internally-works-in-java.html
  
  
  How HashMap, ConcurrentHashMap, and LinkedHashMap handles collisions ?
  A collision occurs when a hash function returns same bucket location for two different keys. HashMap handles collision by using linked list to store map entries ended up in same array location or bucket location. However if worst case scenario when there are many collisions, performance drop from O(1) to O(n),to address this HashMap has a threshold when they reach  they switch to  balanced tree from  linked list to handle frequently hash collisions.   (Default is TREEIFY_THRESHOLD = 8) . This will improve the worst case performance from O(n) to O(log n).
- 
- Source:
- http://javarevisited.blogspot.com/2016/01/how-does-java-hashmap-or-linkedhahsmap-handles.html#ixzz4YenTvj7S
- 
  
  What is the importance of hashCode() and equals() methods?
  
@@ -356,10 +341,6 @@ _I am not the author of these definitions so check resources section for the ori
  	A hashcode() is a method that returns integer number. It is used some data structure (like the HashMap): because it is one of the fastest solution around for random-access key-value storage which means it allows objects to be stored/retrieved quickly in a HashMap. 
  ⦁	Objects that are equal must have the same hash code within a running process 
  Note: An alternative: SHA1. Objects with the same hash code NOT MUST be equal hashCode does not guarantee the same result in different executions. You may know that cryptographic hash codes such as SHA1 are sometimes used to identify objects (Git does this, for example).
- 
-  Source:
- http://eclipsesource.com/blogs/2012/09/04/the-3-things-you-should-know-about-hashcode/
- http://www.javacodegeeks.com/2014/03/how-hashmap-works-in-java.html
  
  
  
@@ -435,8 +416,6 @@ _I am not the author of these definitions so check resources section for the ori
  Duplicate object are not allowed.
  Duplicate object are allowed(for value only).
  
- Source: http://java67.blogspot.sg/2012/08/difference-between-treemap-and-treeset-java.html
- 
  How to decide between HashMap and TreeMap?  TODO improve it
  For inserting, deleting, and locating elements in a Map, the HashMap offers the best alternative. If however, you need to traverse the keys in a sorted order, then TreeMap is your better alternative. Depending upon the size of your collection, it may be faster to add elements to a HashMap, then convert the map to a TreeMap for sorted key traversal.
  
@@ -476,8 +455,6 @@ _I am not the author of these definitions so check resources section for the ori
  
  Main difference between these two is that, you could create multiple Comparator to define multiple sorting order based upon different attribute of object. 
  
- Source:
- http://www.wellho.net/mouth/1062_Java-sorting-comparable-v-comparator.html
  
  
  How can we sort a list of Objects? TODO improve it
@@ -536,7 +513,6 @@ _I am not the author of these definitions so check resources section for the ori
  
  What is an exception?
  	Exception is an error event that can happen during the execution of a program and disrupts its normal flow.  When an error occurs while executing a statement, creates an exception object and then the normal flow of the program halts and JVM tries to find someone that can handle the raised exception. 
- Source: http://www.javacodegeeks.com/2013/07/java-exception-handling-tutorial-with-examples-and-best-practices.html
  
  Is Java Exception framework handles compile time errors? 
  No. It is used to handle runtime errors only.
@@ -572,7 +548,6 @@ _I am not the author of these definitions so check resources section for the ori
  When to use them? TODO improve it
  1) All Operation where chances of failure is more e.g. IO Operation, Database Access or Networking operation can be handled with Checked Exception.
  2) Checked Exception is a reminder by compiler to programmer to handle failure scenario.
- Source: http://beginnersbook.com/2013/04/java-checked-unchecked-exceptions-with-examples/
  
  Unchecked (Runtime) Exceptions 
  	Runtime Exceptions are exceptions caused by mistakes in programming. There called a bug. it’s not required to specify them in the method signature throws clause.
@@ -584,10 +559,6 @@ _I am not the author of these definitions so check resources section for the ori
  ⦁	IllegalArgumentException
  
  “Runtime exceptions represent problems that are the result of a programming problem, and as such, the API client code cannot reasonably be expected to recover from them or to handle them in any way. Such problems include arithmetic exceptions, such as dividing by zero; pointer exceptions, such as trying to access an object through a null reference; and indexing exceptions, such as attempting to access an array element through an index that is too large or too small. “
-  Oracle 
- (http://docs.oracle.com/javase/tutorial/essential/exceptions/runtime.html)
- 
- Source: http://beginnersbook.com/2013/04/java-checked-unchecked-exceptions-with-examples/
  
  What are the two types of Exceptions in Java? Which are the differences between them? TODO improve it
  	Java has two types of exceptions: checked exceptions and unchecked exceptions. Unchecked exceptions do not need to be declared in a method or a constructor’s throws clause, if they can be thrown by the execution of the method or the constructor, and propagate outside the method or constructor boundary. On the other hand, checked exceptions must be declared in a method or a constructor’s throws clause. 
@@ -727,9 +698,6 @@ _I am not the author of these definitions so check resources section for the ori
  O(logn)
  
  
- Sources:
-  http://bigocheatsheet.com
- http://www.javacodegeeks.com/2011/04/simple-big-o-notation-post.html
  
  
  Remote Method Invocation (RMI)
@@ -773,8 +741,8 @@ _I am not the author of these definitions so check resources section for the ori
  Why SerialVersionUID  is important ?
  You should always define SerialVersionUID for a serializable class and you should always define it. If you don't define then JVM will calculate it for you but if you modify anything you will get a different SerialVersionUID which means you won't be able to restore object saved by previous version of your program. 
  
- JSP
-  What is a JSP Page? 
+### JSP
+#### What is a JSP Page? 
  	A Java Server Page (JSP) is a text document that contains two types of text: static data and JSP elements. Static data can be expressed in any text-based format, such as HTML or XML. JSP is a technology that mixes static content with dynamically-generated content. Advantages of using the JSP technology:
  ⦁	JSP pages are dynamically compiled into servlets and thus, the developers can easily make updates to presentation code.
  ⦁	JSP pages can be pre-compiled.
@@ -882,8 +850,6 @@ _I am not the author of these definitions so check resources section for the ori
  It is a language design decision and I didn't found 
  From  what I read 
  notify and wait are 'communication mechanism' between thread In Java
- http://javarevisited.blogspot.co.uk/2012/02/why-wait-notify-and-notifyall-is.html
- 
   What is difference between wait and notify in Java? TODO improve it
  Both wait and notify methods are used for inter thread communication, where wait is used to pause the thread on a condition and notify is used to send notification to waiting threads. Both must be called from synchronized context e.g. synchronized method or block. 
  
@@ -931,10 +897,7 @@ _I am not the author of these definitions so check resources section for the ori
  The System class maintains a set of properties--key/value pairs--that define traits or attributes of the current working environment. When the runtime system first starts up, the system properties are initialized to contain information about the runtime environment. including information about the current user, the current version of the Java runtime, and even the character used to separate components of a filename. 
  
  
- 
- JAVA9
- 
- _ is not allowed as it will reuse as part of language syntax
+
  
  
  
@@ -944,9 +907,6 @@ _I am not the author of these definitions so check resources section for the ori
  
   
 wwrite referenceThis is my current and updated CV
-
-Read more: http://javarevisited.blogspot.com/2012/03/10-object-oriented-design-principles.html#ixzz3EjBs0YFQ
-class (http://docs.oracle.com/javase/tutorial/java/concepts/class.html)
 	is a blueprint for object.Template that describe what variables(and  initial values ), methods, and data structures object should have .
 
 method (http://docs.oracle.com/javase/tutorial/java/javaOO/methods.html)
@@ -984,26 +944,9 @@ is-a versus has-a relationships (with examples)
 method signatures (what's included in one)
 method visibility (e.g. public/private/other)
 
-###### ###### ######
 
  
- RESOURCES:
- http://en.wikipedia.org/wiki/Anti-pattern#Programming_anti-patterns
- http://www.antipatterns.com/antipatt.htm
- https://glenndejaeger.wordpress.com/2010/04/05/programming-antipatterns/
- http://www.javacodegeeks.com/2011/10/programming-antipatterns.html
- http://stackoverflow.com/questions/4343202/difference-between-super-t-and-extends-t-in-java
- http://javarevisited.blogspot.co.uk/2012/02/why-wait-notify-and-notifyall-is.html
- http://javarevisited.blogspot.com/2012/10/difference-between-notify-and-notifyall-java-example.html
- http://javarevisited.blogspot.sg/2011/04/synchronization-in-java-synchronized.html
- www.javacodegeeks.com/2014/04/java-interview-questions-and-answers.html
- http://javarevisited.blogspot.com/2016/09/how-to-serialize-object-in-java-serialization-example.html
- https://dzone.com/articles/what-you-need-to-know-about-serialization
- http://www.javacodegeeks.com/2013/07/java-exception-handling-tutorial-with-examples-and-best-practices.html
- http://docs.oracle.com/javase/tutorial/essential/exceptions/runtime.html
- http://javarevisited.blogspot.co.uk/2011/04/garbage-collection-in-java.html
- http://www.odi.ch/prog/design/newbies.php
- 
+
  
  
  
@@ -1044,3 +987,44 @@ Things to add:
    Equals() method is used for checking the equality of two objects defined by business logic.
   
    == or the equality operator is used to compare primitives and objects.  
+
+## RESOURCES:
+0.  http://en.wikipedia.org/wiki/Anti-pattern#Programming_anti-patterns
+0.  http://www.antipatterns.com/antipatt.htm
+0.  https://glenndejaeger.wordpress.com/2010/04/05/programming-antipatterns/
+0.  http://www.javacodegeeks.com/2011/10/programming-antipatterns.html
+0.  http://stackoverflow.com/questions/4343202/difference-between-super-t-and-extends-t-in-java
+0.  http://javarevisited.blogspot.co.uk/2012/02/why-wait-notify-and-notifyall-is.html
+0.  http://javarevisited.blogspot.com/2012/10/difference-between-notify-and-notifyall-java-example.html
+0.  http://javarevisited.blogspot.sg/2011/04/synchronization-in-java-synchronized.html
+0.  www.javacodegeeks.com/2014/04/java-interview-questions-and-answers.html
+0.  http://javarevisited.blogspot.com/2016/09/how-to-serialize-object-in-java-serialization-example.html
+0.  https://dzone.com/articles/what-you-need-to-know-about-serialization
+0.  http://www.javacodegeeks.com/2013/07/java-exception-handling-tutorial-with-examples-and-best-practices.html
+0.  http://docs.oracle.com/javase/tutorial/essential/exceptions/runtime.html
+0.  http://javarevisited.blogspot.co.uk/2011/04/garbage-collection-in-java.html
+0.  http://www.odi.ch/prog/design/newbies.php
+0.  https://dzone.com/articles/single-responsibility
+0.  http://examples.javacodegeeks.com/java-basics/encapsulation-in-java/
+0.  http://java67.blogspot.co.uk/2015/03/top-40-core-java-interview-questions-answers-telephonic-round.html
+0.  http://javahungry.blogspot.com/2014/04/fail-fast-iterator-vs-fail-safe-iterator-difference-with-example-in-java.html
+0.  http://www.javacodegeeks.com/2013/02/40-java-collections-interview-questions-and-answers.html
+0.  https://www.quora.com/How-is-Hashmap-in-Java-implemented-internally-What-are-the-pros-and-cons-to-use-it-What-are-the-complexities-it-provides-for-insert-delete-and-lookup
+0.  http://javarevisited.blogspot.co.uk/2016/01/how-does-java-hashmap-or-linkedhahsmap-handles.html
+0.  http://netjs.blogspot.co.uk/2015/05/how-hashmap-internally-works-in-java.html
+0.  http://javarevisited.blogspot.com/2016/01/how-does-java-hashmap-or-linkedhahsmap-handles.html#ixzz4YenTvj7S
+0.  http://eclipsesource.com/blogs/2012/09/04/the-3-things-you-should-know-about-hashcode/
+0.  http://www.javacodegeeks.com/2014/03/how-hashmap-works-in-java.html
+0.  http://docs.oracle.com/javase/tutorial/essential/exceptions/runtime.html)
+0.  http://www.wellho.net/mouth/1062_Java-sorting-comparable-v-comparator.html
+0.  http://www.javacodegeeks.com/2013/07/java-exception-handling-tutorial-with-examples-and-best-practices.html
+0.  http://beginnersbook.com/2013/04/java-checked-unchecked-exceptions-with-examples/
+0.  http://beginnersbook.com/2013/04/java-checked-unchecked-exceptions-with-examples/
+0.  http://bigocheatsheet.com
+0.  http://www.javacodegeeks.com/2011/04/simple-big-o-notation-post.html
+0.  http://javarevisited.blogspot.co.uk/2012/02/why-wait-notify-and-notifyall-is.html
+0.  http://javarevisited.blogspot.com/2012/03/10-object-oriented-design-principles.html#ixzz3EjBs0YFQ
+0.  http://docs.oracle.com/javase/tutorial/java/concepts/class.html)
+
+ Source: http://java67.blogspot.sg/2012/08/difference-between-treemap-and-treeset-java.html
+ 
