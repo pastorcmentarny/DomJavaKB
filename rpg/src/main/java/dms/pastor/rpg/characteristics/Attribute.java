@@ -36,12 +36,13 @@ public enum Attribute {
     MAGIC_RESISTANCE50,
     MAGIC_RESISTANCE10,
     //STATE
-    BLIND,
+    BLIND, //blind reduce accuracy to 2%
     POISON,
     DEPRESS,
     WEAKNESS,
     CURSE, // curse caused minimum damage, reduce accuracy by half and bad luck
     DRUNK, //DRUNK  random accuracy% ,
+    VEGETERIAN, //It cannot attack animals. It cannot eat meat . Dom cause double dmg to vegeterians.
     //DRUG
     TRIPLE_BOOST,
     //WEAPONS.

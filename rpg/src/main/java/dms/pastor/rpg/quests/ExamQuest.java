@@ -13,6 +13,7 @@ import java.util.Scanner;
  */
 public class ExamQuest extends Quest {
 //TODO mini gra w ktorej trzeba odpowiedziec na 10 pytan z 100
+    //TODO if you fail exams "It is a humiliating blunder that u fail exam.We are holding your feet to the fire on needed improvements".
 
     //static Logger log = Logger.getLogger(ExamQuest.class);
     private final Random random = new Random();

@@ -109,6 +109,7 @@ public class Monastery extends Place {
     }
 
     private void enterToMonastery() {
+        System.out.println(hero.getName() + " entered to the monsteray. He feels like the only atheist in a gigantic monastery.");
         boolean stay = true;
         while (stay) {
             System.out.println("1.Pray (Free)");

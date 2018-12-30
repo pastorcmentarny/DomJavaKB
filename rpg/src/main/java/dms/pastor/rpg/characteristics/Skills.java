@@ -5,6 +5,39 @@ import java.util.Arrays;
 import java.util.Objects;
 import java.util.Random;
 
+/**
+ *
+ PERSON's Character
+ Manual
+ Add +5% to dmg
+ Verbal
+
+
+ How you can speak to people ,which affect
+
+
+ Intelligence
+
+
+
+ A,D+15% mp+10%
+ Vitality  (Witalno
+
+
+ Each  point of vitality add +6% to max hp
+ Dexterity (zręczność,sprawność,zwinność)
+ It responses for who starts fight first
+ it responses  for accuracy and evasion
+ it responses
+ psychokinesis
+ Magic skills
+ karma
+ is a bar which shouws howw
+ Karma +za dobro -za zło
+
+
+
+ */
 public class Skills {
 
     private static final int noa = 6;

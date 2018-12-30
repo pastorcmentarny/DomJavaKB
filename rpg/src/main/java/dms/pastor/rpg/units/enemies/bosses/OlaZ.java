@@ -12,7 +12,10 @@ import dms.pastor.rpg.units.Unit;
 
 import java.util.Random;
 
+/*
+Ola's attacks : warkocz Jak maczuga , spell acid spot attack(DMG + 10% ze zniszczy bron)... ola ma tyle pryszczy,
 
+ */
 public class OlaZ extends Boss {
     private int updateTo;
 

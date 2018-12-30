@@ -14,4 +14,11 @@ class SmallTalkGenerator {
 
     //20 generic question , 4-5 will be NPC specific , 1 rare question with correct answer will gives you a bonus
 
+
+    /*
+    When you are near train station ,they will smalltalk
+What's that?
+This is a bus. Normally is used to transport people, but in this town they using to transport .. air as ticket prices are ridiculous.
+
+     */
 }

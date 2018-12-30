@@ -7,7 +7,16 @@ import dms.pastor.rpg.events.Chat;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-
+/**
+ * . "No-one told us there would be fish in the water. The children were scared."
+ * "Although the brochure said that there was a fully equipped kitchen, there was no egg-slicer in the drawers."
+ *  "On my holiday to Goa in India, I was disgusted to find that almost every restaurant served curry. I don't like spicy food."
+ *   "We found the sand was not like the sand in the brochure. Your brochure shows the sand as white but it was more yellow."
+ *   "I was bitten by a mosquito. The brochure did not mention mosquitoes."
+ *
+ *   Xmas event between 24 and 26 Remember
+ * xmas tree in aber is ugiliest tree in UK.
+ */
 class Aberystwyth {
 
     private final Scanner scanner = new Scanner(System.in);
@@ -80,5 +89,9 @@ class Aberystwyth {
                 System.out.println("You get lost in the city ... press number!");
             }
         }
+    }
+
+    private static void getImprovementWorksMessage(){
+        //Many roads will be closed due to improvements work and characters will complain about how lazy developer is to do this game
     }
 }

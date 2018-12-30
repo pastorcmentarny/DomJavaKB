@@ -19,7 +19,7 @@ public class RPGLauncher {
         //runLab();
         //runDiagnostic();
     }
-` `
+
     public static void playGame() {
         //FIXME log.info("Starting new game");
         Game game = Game.getGame();

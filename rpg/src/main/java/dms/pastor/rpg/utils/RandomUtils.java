@@ -64,7 +64,15 @@ public class RandomUtils {
         list.add("Amber");
         list.add("Adolfina");
         list.add("Rosemary");
-
+        list.add("Akuji");//The meaning of this African name is "dead and awake" – not very cheery for a new life!
+        list.add("Desdemona"); //Never mind that this Greek name means "of the devil", "ill-fated one" and "misery".
+        list.add("Dolores");//From Spanish name, means "lady of sorrows"
+        list.add("Kennedy");//A unisex name of Celtic and Gaelic origin, means "deformed head".
+        list.add("Nerezza");//This Italian name means "darkness". Which isn't necessarily a BAD thing, but...
+        list.add("Persephone"); //Again, there are two ways to think about this name. Yes, the first is the meanings of "to destroy" and "murder". But bear in mind that Persephone was the Greek goddess of Spring
+        list.add("Sloane");// Gaelic name is slightly ambiguous – yes, it means "warrior" or "fighter", but that's not ALWAYS a bad thing, is it?
+        list.add("Thana");   //Sounds lovely doesn't it? But Thana actually means "death" in Arabic. Gulp.
+        list.add("Tristana");  //This Celtic name means "sorrowful" or "sad". Poor Tristana!
         return list;
     }
 
@@ -80,7 +88,13 @@ public class RandomUtils {
         list.add("Cierpisław");
         list.add("Meilyr");  //man of iron (welsh)
         list.add("Llyr"); //grey-haired  (welsh)
-
+        list.add("Abaddon");// from Hebrew,means Abaddon means "Angel of death".
+        list.add("Byron");// Byron is derived from Old English "byre", which means "cowshed".
+        list.add("Das"); //This Indian name derives from the Sanskrit word Dasa, which means "servant" or "slave".
+        list.add("Doyle");// From Irish name, means "dark stranger".
+        list.add("Huxley");//This well-sounding name is of English origin – but it means "inhospitable place"
+        list.add("Oleander");// - "poisonous flower".
+        list.add("Little Sweetmeat");//"Swear to God."
         return list;
     }
 

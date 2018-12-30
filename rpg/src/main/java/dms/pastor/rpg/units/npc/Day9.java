@@ -5,7 +5,14 @@ import dms.pastor.rpg.units.Hero;
 
 import java.util.Scanner;
 
+/*
 
+What's day today ?
+It's DAY[9] today.
+day 9 lost his kitties ...help find him
+Yamato gun can be obtained from Day(9) for kill mutaspider ...it's a mythical creature created by famous albratur. mutaspider will have 6 attack each of them can cause acid damage to armor , can poison
+
+ */
 public class Day9 extends NPC {
 
     public static void displayCoffeeStory() {
