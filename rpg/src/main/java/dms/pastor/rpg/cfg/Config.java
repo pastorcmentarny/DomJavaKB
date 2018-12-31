@@ -29,8 +29,8 @@ public class Config {
     private static final int ENEMY_LEARNING_SKILLS_EASY = 70;
     public static int ENEMY_LEARNING_SKILLS_NORMAL = 50;
     //CLI
-    public static final String lineSeparatorBefore = "\n====== ======== ====== ======== ======";
-    public static final String lineSeparatorAfter = "====== ======== ====== ======== ======\n\n";
+    public static final String LINE_SEPARATOR_BEFORE = "\n====== ======== ====== ======== ======";
+    public static final String LINE_SEPARATOR_AFTER = "====== ======== ====== ======== ======\n\n";
     public static final int DEFAULT_INIT_MAX_POINTS_FOR_SKILLS = 10;
     public static final String GAME_OVER_SPLIT = "8X 8X 8X 8X GAME OVER X8 X8 X8 X8";
     public static final String GUESS_NUMBER_EVENT_LINE = "} }}  }}}}   }}}GUESS NUMBER EVENT }}}";
@@ -65,9 +65,6 @@ public class Config {
                 return cost;
         }
     }
-
-
-    //Random stuff
 
     public static String getPersonName() {
         String[] names = {""};
@@ -108,7 +105,6 @@ public class Config {
     public static int getExpNeededForVerySlowLearner(int level) {
         return getExpNeededForLevel(level, HERO_LEARNING_SKILLS_VERY_SLOW);
     }
-
 
     //TODO it use easy mode atm
     public static int getExpNeededForEnemyLevel(int level) {

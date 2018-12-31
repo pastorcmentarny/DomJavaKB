@@ -21,11 +21,11 @@ public class ExamQuest extends Quest {
     private int a;
     private int b;
     private int answer;
-    private final int NUMBER_OF_POSSIBLE_QUESTIONS = 3;
+    private static final int NUMBER_OF_POSSIBLE_QUESTIONS = 3;
     private int question = 0;
-    private final int questions = 10;
-    private final int RANGE_EASY = 100;
-    private final int RANGE_HARD = 1000;
+    private static final int questions = 10;
+    private static final int RANGE_EASY = 100;
+    private static final int RANGE_HARD = 1000;
     private int corrects = 0;
     private int wrongs = 0;
     private final boolean passed = false;
@@ -134,7 +134,7 @@ public class ExamQuest extends Quest {
     public void startAQuest() {
         System.out.println("Are you ready for exams? No? Lazy bastard!You lazy cows are never prepared,but it's your problem .. BUAHAHAHA.");
         System.out.println("Rules:\n\t10 Questions!\n\tYou make 3 mistakes and you FAIL. No mercy!\n\tYou have 5 seconds for response.");
-        System.out.println("GOOD LUCK LOOOSERS!");
+        System.out.println("GOOD LUCK LOSERS!");
         boolean hasNextQuestion = true;
         question = 1;
         while (hasNextQuestion) {

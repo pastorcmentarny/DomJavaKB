@@ -56,7 +56,16 @@ Nonsense ending ...when you pay back your student loan Ending You can bring hams
 - mc'zombi You can do forensic scan on your armour
 -   some events will happen only if some people friedly/neutral/hostile/alive
 -   After finish game you can switch off in game ads
-
+-   Stats 
+    0.  acc
+    0.  dodge
+    0.  dmg
+-   weapon experience 
+    -   more hit more  damage it does
+    -   enemy kills
+        -   more % to hit
+        -   much more % to critical hit
+    
 GENERAL STORIES (applied to Campaign and Adventure
 you dancing near hot chicks when some students hit u .
 if.MOC >7 i IQ <3 fight

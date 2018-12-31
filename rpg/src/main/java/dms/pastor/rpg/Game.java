@@ -16,12 +16,10 @@ import dms.pastor.rpg.units.enemies.animals.Seagull;
 import java.util.Random;
 import java.util.Scanner;
 
-
 public class Game {
 
 
     private static Game game;
-    //private final Stats enemyBonusStats;
     private final Hero hero;
     private final Random random = new Random();
     private final Scanner scanner = new Scanner(System.in);
@@ -190,7 +188,7 @@ public class Game {
                     break;
                 case 3:
                     if (hero.psycho) {
-                        castSpell();
+                        // cast spell
                     } else {
                         System.out.println(Msg.selectionNotAllowed());
                     }
@@ -258,7 +256,6 @@ public class Game {
         } else {
             System.err.print("You can't walk backward in this game :)");
         }
-
     }
 
     private void enemyLevelUp() {
@@ -272,17 +269,15 @@ public class Game {
         while (hero.exp > hero.nextLvlExp) {
             hero.levelUp();
         }
+
         while (enemyExp > enemyNextLvlExp) {
             enemyLevelUp();
         }
-        System.out.println(Config.lineSeparatorBefore);
+
+        System.out.println(Config.LINE_SEPARATOR_BEFORE);
         System.out.println(hero.getName() + " has " + hero.exp + " exp. Next level at: " + hero.nextLvlExp);
         System.out.println("Enemies  has " + enemyExp + " exp. They will be at next level at: " + enemyNextLvlExp);
-        System.out.println(Config.lineSeparatorAfter);
-    }
-
-    private void heroLevelUp() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println(Config.LINE_SEPARATOR_AFTER);
     }
 
     public int getBattleNo() {
@@ -310,10 +305,6 @@ public class Game {
         if (enemyExp > enemyNextLvlExp) {
             enemyLevelUp();
         }
-    }
-
-    private void castSpell() {
-
     }
 
     public int getSteps() {
