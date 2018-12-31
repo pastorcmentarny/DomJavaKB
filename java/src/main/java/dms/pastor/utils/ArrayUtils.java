@@ -5,7 +5,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import static dms.pastor.utils.CollectionsUtils.convertSetToIntArray;
+import static dms.pastor.utils.CollectionsUtils.convertToIntArray;
 import static dms.pastor.utils.PrintOutUtils.printArray;
 import static dms.pastor.utils.ValidatorUtils.validateIfNotNull;
 
@@ -83,7 +83,7 @@ public final class ArrayUtils {
         for (int value : y) {
             result.remove(value);
         }
-        return convertSetToIntArray(result);
+        return convertToIntArray(result);
     }
 
 }

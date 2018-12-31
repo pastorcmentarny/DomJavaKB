@@ -28,7 +28,6 @@ public class WaterElementEvent extends Event {
         return unit.getConditions().hasNot(WATER_SENSITIVE);
     }
 
-    //TODO refactor this with better name
     private String addElementOrFroze(Unit unit) {
         if (canHaveEvent(unit)) {
             unit.getElements().addElement(WATER);

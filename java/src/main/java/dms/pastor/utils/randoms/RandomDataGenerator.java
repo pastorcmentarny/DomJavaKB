@@ -166,7 +166,6 @@ public final class RandomDataGenerator {
         throw new SomethingWentWrongException("Tried to generate word " + maxAttemptsToCreate + " times ,but I failed, because somebody screw up something {Size of word" + size + "}");
     }
 
-    //TODO how to write test for this ?
     public static String generateNonAlphanumericString(int maxRandomSize) {
         StringBuilder stringBuilder = new StringBuilder(EMPTY_STRING);
         if (maxRandomSize <= 0) {

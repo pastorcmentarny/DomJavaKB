@@ -44,7 +44,7 @@ public class CollectionsUtilsTest {
         numbers.add(8);
         numbers.add(13);
         int[] answer = new int[]{2, 3, 5, 8, 13};
-        Assert.assertThat(CollectionsUtils.convertListToIntArray(numbers), is(answer));
+        Assert.assertThat(CollectionsUtils.convertToIntArray(numbers), is(answer));
     }
 
     @Test
@@ -101,7 +101,6 @@ public class CollectionsUtilsTest {
         Arrays.stream(array).forEach(element -> assertThat(isStringBlank(element)).isFalse());
     }
 
-    @SuppressWarnings("ConstantConditions") //as it is part of test
     @Test
     public void shouldReturnFalseIfListIsNullTest() {
 
@@ -141,7 +140,7 @@ public class CollectionsUtilsTest {
         int[] expectedIntArray = new int[]{1, 2, 3};
 
         // when
-        final int[] ints = convertSetToIntArray(integerSet);
+        final int[] ints = convertToIntArray(integerSet);
 
         // then
         assertThat(ints).isEqualTo(expectedIntArray);

@@ -51,7 +51,6 @@ public class ChainLightingSpellAcceptanceTest {
 
         // then
         assertThat(enemy.getHp()).isEqualTo(5);
-        //TODO check attacker hp
     }
 
 }

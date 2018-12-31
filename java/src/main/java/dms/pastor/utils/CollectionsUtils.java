@@ -18,20 +18,11 @@ final class CollectionsUtils {
     private CollectionsUtils() {
     }
 
-    public static int[] convertListToIntArray(List<Integer> integersList) {
+    public static int[] convertToIntArray(Collection<Integer> integersList) {
         int[] intArray = new int[integersList.size()];
-        int i = 0;
-        for (Integer n : integersList) {
-            intArray[i++] = n;
-        }
-        return intArray;
-    }
-
-    public static int[] convertSetToIntArray(Set<Integer> integersSet) {
-        int[] intArray = new int[integersSet.size()];
-        int i = 0;
-        for (Integer n : integersSet) {
-            intArray[i++] = n;
+        int index = 0;
+        for (Integer integer : integersList) {
+            intArray[index++] = integer;
         }
         return intArray;
     }

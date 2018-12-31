@@ -17,6 +17,7 @@ import static java.lang.String.format;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public final class RegexUtils {
+    public static final String GUID_REGEX = "[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}";
     private static final Logger LOGGER = LoggerFactory.getLogger(RegexUtils.class);
     private static final String BLANK_LINE = "^(?:[\\t ]*(?:\\r?\\n|\\r))+\n";
     private static final String MORE_THAN_ONE_SPACE_BETWEEN_WORDS = "\\w([ ]{1,})\\w";
@@ -24,8 +25,6 @@ public final class RegexUtils {
     private RegexUtils() {
     }
 
-    //    private static final String regex
-    //            .*(55).*
 
     public static int countOccurrencesOf(String what, String text) {
         LOGGER.debug("counting occurrence of " + what + " in " + text);

@@ -500,4 +500,19 @@ public class RandomDataGeneratorTest {
         System.out.println(result.size());
         result.forEach(number -> System.out.println(number + ","));
     }
+
+    @Test
+    public void generateNonAlphanumericStringAcceptanceTest(){
+        // given
+
+        // when
+        final String result = generateNonAlphanumericString(100);
+
+        // debug
+        System.out.println(result);
+
+        // then
+        assertThat(result.length()).isGreaterThan(0);
+        assertThat(result).isNotEmpty();
+    }
 }
