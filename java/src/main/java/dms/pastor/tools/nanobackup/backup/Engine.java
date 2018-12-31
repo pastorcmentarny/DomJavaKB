@@ -5,6 +5,7 @@ import dms.pastor.tools.nanobackup.tools.AbstractTools;
 import dms.pastor.tools.nanobackup.tools.FileTools;
 import dms.pastor.tools.nanobackup.tools.TaskUtils;
 import dms.pastor.tools.nanobackup.tools.Tools;
+import dms.pastor.utils.CollectionsUtils;
 import dms.pastor.utils.FileUtils;
 import dms.pastor.utils.StringUtils;
 import org.slf4j.Logger;
@@ -159,12 +160,7 @@ public class Engine extends AbstractTools {
             while ((text = reader.readLine()) != null) {
                 itemsList.add(text);
             }
-            String[] temp = new String[itemsList.size()];
-
-            for (int i = 0; i < itemsList.size(); i++) {
-                temp[i] = itemsList.get(i);
-            }
-            return temp;
+            return CollectionsUtils.convertToStringArray(itemsList);
         } catch (FileNotFoundException ex) {
             LOGGER.warn(ex.getCause() + " occurred with messaged" + ex.getMessage());
             return new String[0];
@@ -174,6 +170,7 @@ public class Engine extends AbstractTools {
             return new String[0];
         }
     }
+
 
     public String[] merge2Source(final String[] srcList) {
         final List<String> temp = new ArrayList<>();

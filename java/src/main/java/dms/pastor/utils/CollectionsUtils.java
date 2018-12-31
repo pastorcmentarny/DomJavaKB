@@ -13,7 +13,7 @@ import static dms.pastor.utils.ValidatorUtils.validateIfNotNull;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-final class CollectionsUtils {
+public final class CollectionsUtils {
 
     private CollectionsUtils() {
     }
@@ -26,6 +26,19 @@ final class CollectionsUtils {
         }
         return intArray;
     }
+
+    public static String[] convertToStringArray(ArrayList<String> itemsList) {
+        if(Objects.isNull(itemsList) || itemsList.isEmpty()){
+            return new String[0];
+        }
+        String[] temp = new String[itemsList.size()];
+
+        for (int i = 0; i < itemsList.size(); i++) {
+            temp[i] = itemsList.get(i);
+        }
+        return temp;
+    }
+
 
     public static Set<Character> convertCharArrayToSet(char[] charsArray) {
         Set<Character> characterSet = new HashSet<>();

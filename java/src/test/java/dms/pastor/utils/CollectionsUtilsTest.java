@@ -191,4 +191,35 @@ public class CollectionsUtilsTest {
 
     }
 
+    @Test
+    public void convertToStringArrayShouldReturnEmptyStringArrayForNull() {
+        // when
+        final String[] result = convertToStringArray(null);
+
+        // then
+        assertThat(result).isEmpty();
+    }
+
+    @Test
+    public void convertToStringArrayShouldReturnEmptyStringArrayIfListEmpty() {
+        // when
+        final String[] result = convertToStringArray(new ArrayList<>());
+
+        // then
+        assertThat(result).isEmpty();
+    }
+
+    @Test
+    public void convertToStringArrayAcceptanceTest(){
+        // given
+        final List<String> example = List.of("one", "two", "three");
+        final String[] expectedResult = new String[]{"one", "two", "three"};
+
+        // when
+        final String[] result = convertToStringArray(new ArrayList<>(example));
+
+        // then
+        assertThat(result).isEqualTo(expectedResult);
+    }
+
 }

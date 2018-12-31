@@ -1,6 +1,7 @@
 package dms.pastor.tools.nanobackup.tools;
 
 import dms.pastor.tools.nanobackup.backup.Statistic;
+import dms.pastor.utils.CollectionsUtils;
 import dms.pastor.utils.StringUtils;
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
@@ -143,12 +144,7 @@ public final class FileTools {
 
         if (addPaths(path, fileChooser, returnVal)) return null;
 
-        String[] results = new String[path.size()];
-
-        for (int i = 0; i < path.size(); i++) {
-            results[i] = path.get(i);
-        }
-        return results;
+        return CollectionsUtils.convertToStringArray(path);
     }
 
     public static String[] chooseItemsToLoad() {
@@ -160,12 +156,8 @@ public final class FileTools {
 
         if (addPaths(path, fileChooser, returnVal)) return null;
 
-        String[] results = new String[path.size()];
+        return CollectionsUtils.convertToStringArray(path);
 
-        for (int i = 0; i < path.size(); i++) {
-            results[i] = path.get(i);
-        }
-        return results;
     }
 
     private static boolean addPaths(ArrayList<String> path, JFileChooser fileChooser, int returnVal) {
