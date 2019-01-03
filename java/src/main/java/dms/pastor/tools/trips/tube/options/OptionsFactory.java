@@ -67,8 +67,8 @@ public final class OptionsFactory {
         System.out.println("6. Save changes (with Backup)");
         System.out.println("7. Discard unsaved changes");
         System.out.println("8. Display list of all stations");
-        System.out.println("9. Exit");
         System.out.println("101. Clear this year");
+        System.out.println("9. Exit");
     }
 
 }
