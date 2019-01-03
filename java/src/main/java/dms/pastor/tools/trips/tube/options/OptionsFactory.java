@@ -39,6 +39,7 @@ public final class OptionsFactory {
         options.addOptions(6, new SaveOption());
         options.addOptions(7, new LoadStationOption());
         options.addOptions(8, new DisplayAllStationsNameOption());
+        options.addOptions(101, new ClearThisYearOption());
 
         return options;
     }
@@ -67,6 +68,7 @@ public final class OptionsFactory {
         System.out.println("7. Discard unsaved changes");
         System.out.println("8. Display list of all stations");
         System.out.println("9. Exit");
+        System.out.println("101. Clear this year");
     }
 
 }

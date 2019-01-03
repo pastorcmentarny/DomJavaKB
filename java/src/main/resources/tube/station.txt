@@ -1,13 +1,13 @@
 Acton Town;;V;;2017-06-10;;2017-06-10;;none;;N
-Aldgate;;V;;2017-02-02;;2018-05-01;;2018-05-01;;Y
-Aldgate East;;V;;2017-09-01;;2017-09-01;;2018-05-24;;Y
+Aldgate;;V;;2017-02-02;;2018-05-01;;none;;Y
+Aldgate East;;V;;2017-09-01;;2017-09-01;;none;;Y
 Alperton;;P;;2017-06-10;;none;;none;;N
 Amersham;;X;;none;;none;;none;;N
 Angel;;P;;2017-05-26;;none;;none;;N
 Archway;;X;;none;;none;;none;;N
 Arnos Grove;;X;;none;;none;;none;;N
 Arsenal;;X;;none;;none;;none;;N
-Baker Street;;V;;2017-01-03;;2017-12-21;;2018-05-26;;N
+Baker Street;;V;;2017-01-03;;2017-12-21;;none;;N
 Balham;;X;;none;;none;;none;;N
 Bank;;P;;2017-11-01;;none;;none;;N
 Barbican;;P;;2017-01-03;;2017-06-05;;none;;N
@@ -19,15 +19,15 @@ Becontree;;X;;none;;none;;none;;N
 Belsize Park;;P;;2017-05-26;;none;;none;;N
 Bermondsey;;P;;2017-02-11;;none;;none;;N
 Bethnal Green;;P;;2017-05-09;;none;;none;;N
-Blackfriars;;V;;2017-02-02;;2018-06-26;;2018-06-26;;N
+Blackfriars;;V;;2017-02-02;;2018-06-26;;none;;N
 Blackhorse Road;;X;;none;;none;;none;;N
 Bond Street;;P;;2017-10-30;;none;;none;;N
-Borough;;V;;2017-11-01;;2018-05-15;;2018-05-15;;Y
+Borough;;V;;2017-11-01;;2018-05-15;;none;;Y
 Boston Manor;;P;;2017-10-30;;none;;none;;N
 Bounds Green;;X;;none;;none;;none;;N
 Bow Road;;X;;none;;none;;none;;N
 Brent Cross;;V;;2017-05-26;;2017-05-26;;none;;N
-Brixton;;V;;2018-11-29;;2018-11-29;;2018-11-29;;N
+Brixton;;V;;2018-11-29;;2018-11-29;;none;;Y
 Bromley-by-Bow;;X;;none;;none;;none;;N
 Buckhurst Hill;;X;;none;;none;;none;;N
 Burnt Oak;;P;;2018-08-22;;none;;none;;N
@@ -35,10 +35,10 @@ Caledonian Road;;X;;none;;none;;none;;N
 Camden Town;;P;;2017-05-26;;none;;none;;N
 Canada Water;;P;;2017-02-11;;none;;none;;N
 Canary Wharf;;P;;2017-02-11;;none;;none;;N
-Canning Town;;V;;2017-02-11;;2017-02-11;;2018-03-30;;N
-Cannon Street;;V;;2017-02-02;;2017-07-06;;2018-06-01;;N
-Canons Park;;V;;2018-08-22;;2018-08-22;;2018-08-22;;N
-Chalfont & Latimer;;V;;2017-06-25;;2018-08-18;;2018-08-18;;Y
+Canning Town;;V;;2017-02-11;;2017-02-11;;none;;N
+Cannon Street;;V;;2017-02-02;;2017-07-06;;none;;N
+Canons Park;;V;;2018-08-22;;2018-08-22;;none;;N
+Chalfont & Latimer;;V;;2017-06-25;;2018-08-18;;none;;Y
 Chalk Farm;;P;;2017-05-26;;none;;none;;N
 Chancery Lane;;X;;none;;none;;none;;N
 Camden;;X;;none;;none;;none;;N
@@ -46,15 +46,15 @@ Charing Cross;;X;;none;;none;;none;;N
 Chesham;;V;;2017-06-25;;2017-06-25;;none;;Y
 Chigwell;;X;;none;;none;;none;;N
 Chiswick Park;;P;;2017-06-10;;none;;none;;N
-Chorleywood;;V;;2017-06-25;;2018-08-18;;2018-08-18;;N
+Chorleywood;;V;;2017-06-25;;2018-08-18;;none;;N
 Clapham Common;;X;;none;;none;;none;;N
 Clapham North;;X;;none;;none;;none;;N
 Clapham South;;X;;none;;none;;none;;N
 Cockfosters;;X;;none;;none;;none;;N
 Colindale;;P;;2018-08-22;;none;;none;;N
 Colliers Wood;;X;;none;;none;;none;;N
-Covent Garden;;V;;2018-05-29;;2018-05-29;;2018-05-29;;N
-Croxley;;V;;2017-06-15;;2017-06-15;;2018-05-21;;Y
+Covent Garden;;V;;2018-05-29;;2018-05-29;;none;;N
+Croxley;;V;;2017-06-15;;2017-06-15;;none;;Y
 Dagenham East;;X;;none;;none;;none;;N
 Dagenham Heathway;;X;;none;;none;;none;;N
 Debden;;X;;none;;none;;none;;N
@@ -67,24 +67,24 @@ East Finchley;;X;;none;;none;;none;;N
 East Ham;;X;;none;;none;;none;;N
 East Putney;;X;;none;;none;;none;;N
 Eastcote;;P;;2017-03-21;;none;;none;;N
-Edgware;;V;;2018-08-22;;2018-08-22;;2018-08-22;;N
+Edgware;;V;;2018-08-22;;2018-08-22;;none;;N
 Edgware Road;;P;;2017-06-19;;none;;none;;N
 Elephant & Castle;;P;;2017-11-01;;none;;none;;N
 Elm Park;;X;;none;;none;;none;;N
-Embankment;;P;;2017-02-02;;none;;none;;N
+Embankment;;V;;2017-02-02;;2019-01-03;;2019-01-03;;N
 Epping;;X;;none;;none;;none;;N
 Euston;;P;;2017-05-26;;none;;none;;N
 Euston Square;;V;;2017-01-03;;2017-09-02;;none;;N
 Fairlop;;X;;none;;none;;none;;N
-Farringdon;;V;;2017-01-03;;2018-01-12;;2018-01-12;;N
-Finchley Road;;V;;2017-01-03;;2018-05-06;;2018-05-06;;N
+Farringdon;;V;;2017-01-03;;2018-01-12;;none;;N
+Finchley Road;;V;;2017-01-03;;2018-05-06;;none;;N
 Finsbury Park;;P;;2017-01-03;;none;;none;;N
 Fulham Broadway;;X;;none;;none;;none;;N
 Gants Hill;;X;;none;;none;;none;;N
 Gloucester Road;;P;;2017-02-02;;none;;none;;N
-Golders Green;;V;;2017-05-26;;2018-05-06;;2018-05-06;;N
+Golders Green;;V;;2017-05-26;;2018-05-06;;none;;N
 Goldhawk Road;;X;;none;;none;;none;;N
-Goodge Street;;V;;2018-06-06;;2018-06-06;;2018-06-06;;N
+Goodge Street;;V;;2018-06-06;;2018-06-06;;none;;N
 Grange Hill;;X;;none;;none;;none;;N
 Great Portland Street;;P;;2017-01-03;;none;;none;;N
 Greenford;;P;;2018-06-06;;none;;none;;N
@@ -96,7 +96,7 @@ Hampstead;;P;;2017-05-26;;none;;none;;N
 Hanger Lane;;P;;2018-06-06;;none;;none;;N
 Harlesden;;P;;2017-06-19;;none;;none;;N
 Harrow & Wealdstone;;P;;2017-06-19;;none;;none;;N
-Harrow-on-the-Hill;;V;;none;;2017-11-16;;2018-01-04;;Y
+Harrow-on-the-Hill;;V;;none;;2017-11-16;;none;;Y
 Hatton Cross;;P;;2017-10-30;;none;;none;;N
 Heathrow Terminals 123;;P;;2017-10-30;;none;;none;;N
 Heathrow Terminal 4;;X;;none;;none;;none;;N
@@ -117,11 +117,11 @@ Hounslow West;;P;;2017-10-30;;none;;none;;N
 Hyde Park Corner;;X;;none;;none;;none;;N
 Ickenham;;P;;2017-03-21;;none;;none;;N
 Kennington;;P;;2017-11-01;;none;;none;;N
-Kensal Green;;V;;2018-07-28;;2018-07-28;;2018-07-28;;Y
+Kensal Green;;V;;2018-07-28;;2018-07-28;;none;;Y
 Kensington (Olympia);;X;;none;;none;;none;;N
 Kentish Town;;X;;none;;none;;none;;N
-Kenton;;V;;2017-06-19;;2018-07-28;;2018-07-28;;Y
-Kew Gardens;;V;;2018-05-06;;2018-05-06;;2018-05-06;;N
+Kenton;;V;;2017-06-19;;2018-07-28;;none;;Y
+Kew Gardens;;V;;2018-05-06;;2018-05-06;;none;;N
 Kilburn;;X;;none;;none;;none;;N
 Kilburn Park;;P;;2017-06-19;;none;;none;;N
 Kingsbury;;P;;2018-08-22;;none;;none;;N
@@ -131,10 +131,10 @@ Ladbroke Grove;;X;;none;;none;;none;;N
 Lambeth North;;X;;none;;none;;none;;N
 Lancaster Gate;;P;;2018-06-06;;none;;none;;N
 Latimer Road;;X;;none;;none;;none;;N
-Leicester Square;;V;;2018-05-29;;2018-05-29;;2018-05-29;;N
+Leicester Square;;V;;2018-05-29;;2018-05-29;;none;;N
 Leyton;;X;;none;;none;;none;;N
 Leytonstone;;X;;none;;none;;none;;N
-Liverpool Street;;V;;2017-02-02;;2018-04-14;;2018-04-14;;N
+Liverpool Street;;V;;2017-02-02;;2018-04-14;;none;;N
 London Bridge;;P;;2017-02-11;;none;;none;;N
 Loughton;;X;;none;;none;;none;;N
 Maida Vale;;P;;2017-06-19;;none;;none;;N
@@ -142,12 +142,12 @@ Manor House;;X;;none;;none;;none;;N
 Haringey;;X;;none;;none;;none;;N
 Mansion House;;P;;2017-02-02;;none;;none;;N
 Marble Arch;;X;;none;;none;;none;;N
-Marylebone;;V;;2017-01-28;;2017-01-28;;2018-08-04;;N
+Marylebone;;V;;2017-01-28;;2017-01-28;;none;;N
 Mile End;;P;;2017-05-09;;none;;none;;N
 Mill Hill East;;X;;none;;none;;none;;N
 Monument;;P;;2017-02-02;;none;;none;;N
-Moorgate;;V;;2017-01-03;;2017-01-03;;2018-01-05;;N
-Moor Park;;P;;2017-01-03;;none;;2018-01-04;;Y
+Moorgate;;V;;2017-01-03;;2017-01-03;;2019-01-03;;N
+Moor Park;;P;;2017-01-03;;none;;none;;Y
 Morden;;X;;none;;none;;none;;N
 Mornington Crescent;;P;;2018-05-06;;none;;none;;N
 Neasden;;X;;none;;none;;none;;N
@@ -159,12 +159,12 @@ North Harrow;;P;;2018-05-26;;none;;none;;N
 North Wembley;;P;;2017-06-19;;none;;none;;N
 Northfields;;P;;2017-10-30;;none;;none;;N
 Northolt;;P;;2018-06-06;;none;;none;;N
-Northwick Park;;V;;2018-05-26;;2018-07-28;;2018-07-28;;Y
+Northwick Park;;V;;2018-05-26;;2018-07-28;;none;;Y
 Northwood;;P;;2018-05-26;;none;;none;;N
 Northwood Hills;;P;;2018-05-26;;none;;none;;N
 Notting Hill Gate;;P;;2017-07-06;;none;;none;;N
 Oakwood;;X;;none;;none;;none;;N
-Old Street;;V;;2017-05-26;;2018-04-24;;2018-04-24;;N
+Old Street;;V;;2017-05-26;;2018-04-24;;none;;N
 Hackney;;X;;none;;none;;none;;N
 Osterley;;P;;2017-10-30;;none;;none;;N
 Oval;;P;;2017-11-01;;none;;none;;N
@@ -173,8 +173,8 @@ Paddington;;P;;2017-07-06;;none;;none;;N
 Park Royal;;P;;2017-06-10;;none;;none;;N
 Parsons Green;;X;;none;;none;;none;;N
 Perivale;;P;;2018-06-06;;none;;none;;N
-Piccadilly Circus;;V;;2017-01-28;;2017-01-28;;2018-05-29;;N
-Pimlico;;V;;2017-11-19;;2017-12-21;;2018-04-24;;Y
+Piccadilly Circus;;V;;2017-01-28;;2017-01-28;;none;;N
+Pimlico;;V;;2017-11-19;;2017-12-21;;none;;Y
 Pinner;;P;;2018-05-26;;none;;none;;N
 Plaistow;;X;;none;;none;;none;;N
 Preston Road;;P;;2018-05-26;;none;;none;;N
@@ -186,21 +186,21 @@ Ravenscourt Park;;P;;2017-06-10;;none;;none;;N
 Rayners Lane;;P;;2017-06-10;;none;;none;;N
 Regent's Park;;P;;2017-01-28;;none;;none;;N
 Richmond;;X;;none;;none;;none;;N
-Rickmansworth;;V;;2017-01-03;;2017-01-03;;2018-01-02;;N
+Rickmansworth;;V;;2017-01-03;;2017-01-03;;none;;N
 Roding Valley;;X;;none;;none;;none;;N
 Redbridge;;X;;none;;none;;none;;N
 Royal Oak;;X;;none;;none;;none;;N
 Ruislip;;P;;2017-03-21;;none;;none;;N
 Ruislip Gardens;;X;;none;;none;;none;;Y
-Ruislip Manor;;V;;2017-03-21;;2018-06-06;;2018-06-06;;N
+Ruislip Manor;;V;;2017-03-21;;2018-06-06;;none;;N
 Russell Square;;P;;2017-06-15;;none;;none;;N
-St. James's Park;;V;;2017-02-02;;2018-06-01;;2018-06-01;;Y
-St. John's Wood;;V;;2017-10-30;;2018-05-28;;2018-05-26;;N
+St. James's Park;;V;;2017-02-02;;2018-06-01;;none;;Y
+St. John's Wood;;V;;2017-10-30;;2018-05-28;;none;;N
 St. Paul's;;X;;none;;none;;none;;N
 Seven Sisters;;P;;2017-11-19;;none;;none;;N
 Shepherd's Bush;;P;;2018-06-06;;none;;none;;N
 Shepherd's Bush Market;;X;;none;;none;;none;;N
-Sloane Square;;V;;2017-02-02;;2018-05-08;;2018-05-08;;N
+Sloane Square;;V;;2017-02-02;;2018-05-08;;none;;N
 Snaresbrook;;X;;none;;none;;none;;N
 South Ealing;;P;;2017-10-30;;none;;none;;N
 South Harrow;;P;;2017-06-10;;none;;none;;N
@@ -213,11 +213,11 @@ Southfields;;X;;none;;none;;none;;N
 Southgate;;X;;none;;none;;none;;N
 Southwark;;P;;2017-02-11;;none;;none;;N
 Stamford Brook;;P;;2017-06-10;;none;;none;;N
-Stanmore;;V;;2018-08-22;;2018-08-22;;2018-08-22;;N
+Stanmore;;V;;2018-08-22;;2018-08-22;;none;;N
 Stepney Green;;X;;none;;none;;none;;N
 Stockwell;;P;;2017-11-01;;none;;none;;N
 Stonebridge Park;;P;;2017-06-19;;none;;none;;N
-Stratford;;V;;2017-05-09;;2017-05-09;;2018-03-30;;N
+Stratford;;V;;2017-05-09;;2017-05-09;;none;;N
 Sudbury Hill;;P;;2017-06-10;;none;;none;;N
 Sudbury Town;;P;;2017-06-10;;none;;none;;N
 Ealing;;X;;none;;none;;none;;N
@@ -229,7 +229,7 @@ Tooting Broadway;;X;;none;;none;;none;;N
 Tottenham Court Road;;P;;2018-05-29;;none;;none;;N
 Tottenham Hale;;V;;2017-11-19;;2017-11-19;;none;;N
 Totteridge & Whetstone;;X;;none;;none;;none;;N
-Tower Hill;;V;;2017-02-02;;2018-05-08;;2018-05-08;;N
+Tower Hill;;V;;2017-02-02;;2018-05-08;;none;;N
 Tufnell Park;;X;;none;;none;;none;;N
 Turnham Green;;P;;2017-06-10;;none;;none;;N
 Turnpike Lane;;X;;none;;none;;none;;N
@@ -237,16 +237,16 @@ Upminster;;X;;none;;none;;none;;N
 Upminster Bridge;;X;;none;;none;;none;;N
 Upney;;X;;none;;none;;none;;N
 Upton Park;;X;;none;;none;;none;;N
-Uxbridge;;V;;2017-03-21;;2017-03-21;;2018-06-06;;N
+Uxbridge;;V;;2017-03-21;;2017-03-21;;none;;N
 Vauxhall;;V;;2017-11-01;;2017-12-14;;none;;N
-Victoria;;V;;2017-02-02;;2017-11-19;;2018-01-02;;N
+Victoria;;V;;2017-02-02;;2017-11-19;;2019-01-03;;N
 Walthamstow Central;;X;;none;;none;;none;;N
-Warren Street;;V;;2017-11-19;;2018-06-05;;2018-06-05;;N
+Warren Street;;V;;2017-11-19;;2018-06-05;;none;;N
 Warwick Avenue;;P;;2017-06-19;;none;;none;;N
 Waterloo;;P;;2017-02-11;;none;;none;;N
-Watford;;V;;2018-04-06;;2018-04-06;;2018-02-16;;N
+Watford;;V;;2018-04-06;;2018-04-06;;none;;Y
 Wembley Central;;V;;2017-06-19;;none;;none;;N
-Wembley Park;;V;;2017-01-03;;2017-02-06;;2018-07-29;;N
+Wembley Park;;V;;2017-01-03;;2017-02-06;;none;;N
 West Acton;;X;;none;;none;;none;;N
 West Brompton;;X;;none;;none;;none;;N
 West Finchley;;X;;none;;none;;none;;N

@@ -41,7 +41,7 @@ public final class DataOperations {
     public static void saveToFile(List<TubeStation> tubeStationList) {
         LOGGER.info("Saving data..");
         DataWriter dataWriter = new DataWriter();
-        dataWriter.save(STATION_PATH, tubeStationList);
+        dataWriter.save("/Users/symonowd/IdeaProjects/DomJavaKB/java/src/main/resources/tube/station.txt", tubeStationList);
     }
 
     public static List<TubeStation> loadFromFile() {

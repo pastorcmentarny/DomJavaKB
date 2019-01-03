@@ -156,4 +156,11 @@ public class TubeStation {//implements Station {
                 throw new NotImplementYetException();
         }
     }
+
+    public void clearVisitedThisYear() {
+        if(Objects.nonNull(thisYearVisitedDate)){
+            System.out.println("You visited  " + name+ " station in 2018 at " + thisYearVisitedDate.toString());
+            thisYearVisitedDate = null;
+        }
+    }
 }
