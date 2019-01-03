@@ -10,7 +10,7 @@ import static org.hamcrest.CoreMatchers.is;
  * Author Dominik Symonowicz
  * * WWW:	http://pastor.ovh.org  * Github:	https://github.com/pastorcmentarny  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-@SuppressWarnings("ConstantConditions") // part of the test
+// part of the test
 public class GridTest {
 
     /**

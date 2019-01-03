@@ -20,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * off as test contains lots text as graphic elements
  * test tests algorithm that in many edge cases that uses similar condition
  */
-@SuppressWarnings({"Duplicates", "SpellCheckingInspection"})
+@SuppressWarnings({"SpellCheckingInspection"})
 public class FillEntireAreaCommandTest extends AbstractCommandTest {
     private static final String FILL_ENTIRE_AREA_COMMAND = "B";
     private static final String FILL_CHARACTER = "o";

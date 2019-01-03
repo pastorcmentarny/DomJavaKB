@@ -13,7 +13,7 @@ import org.junit.Test;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-@SuppressWarnings({"MagicNumber", "SpellCheckingInspection"})// they are actual values
+@SuppressWarnings({"MagicNumber"})// they are actual values
 public class ArabicToRomanConverterTest {
 
     private RomanArabicConverter converter;

@@ -26,7 +26,6 @@ public class DateUtilsTest {
     @Rule
     public final ExpectedException exception = ExpectedException.none();
 
-    @SuppressWarnings("SpellCheckingInspection")
     @Test
     public void shouldReturnTimeZoneListExample() {
         // when
@@ -37,7 +36,7 @@ public class DateUtilsTest {
         assertThat(displayTimeZoneList).contains("Europe/Warsaw");
     }
 
-    @SuppressWarnings("ConstantConditions") //because this is purpose of test
+    //because this is purpose of test
     @Test
     public void shouldThrowExceptionWhenAcronymIsNull() {
         // expect

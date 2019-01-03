@@ -48,7 +48,6 @@ public class FaqGUIAcceptanceTest {
         LOGGER.detachAppender(mockAppender);
     }
 
-    @SuppressWarnings("AccessStaticViaInstance")
     @Test
     public void shouldDisplayFaqGui() {
         // when

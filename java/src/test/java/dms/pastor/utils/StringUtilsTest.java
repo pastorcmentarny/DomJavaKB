@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static dms.pastor.domain.Message.INPUT_CANNOT_BE_EMPTY;
-import static dms.pastor.utils.StringUtils.*;
 import static dms.pastor.utils.StringUtils.getRandomText;
+import static dms.pastor.utils.StringUtils.*;
 import static dms.pastor.utils.randoms.RandomDataGenerator.*;
 import static java.lang.Character.isLetter;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
@@ -33,11 +33,8 @@ public class StringUtilsTest {
     public static final String WHITESPACES_ONLY_STRING = "                    ";
     private static final Logger LOGGER = LoggerFactory.getLogger(StringUtilsTest.class);
     private static final String NON_ALPHABETICAL_STRING = "&07";
-    @SuppressWarnings("SpellCheckingInspection")
     private static final String PALINDROME = "abcdcba";
-    @SuppressWarnings("SpellCheckingInspection")
     private static final String NOT_A_PALINDROME = "abcdef";
-    @SuppressWarnings("SpellCheckingInspection")
     private static final String PALINDROME_AFTER_PERMUTATION = "abcdabcd";
     @Rule
     public final ExpectedException exception = ExpectedException.none();
@@ -319,7 +316,7 @@ public class StringUtilsTest {
         assertThat(isAlphanumeric).isFalse();
     }
 
-    @SuppressWarnings("ConstantConditions") // part of the test
+    // part of the test
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenStringIsEmptyForSwapCharactersTest() {
         // exception

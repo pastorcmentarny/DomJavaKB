@@ -15,7 +15,6 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class CharacterExercisesTest {
 
-    @SuppressWarnings("InstanceMethodNamingConvention")
     @Test
     public void shouldBe10LInWordLlanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch() {
         CharacterExercises test = new CharacterExercises();

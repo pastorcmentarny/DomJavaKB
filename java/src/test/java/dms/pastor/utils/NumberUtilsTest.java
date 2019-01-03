@@ -166,7 +166,7 @@ public class NumberUtilsTest {
         assertThat(result).isEqualTo(120);
     }
 
-    @SuppressWarnings("ResultOfMethodCallIgnored")// because result doesn't matter in this case
+    // because result doesn't matter in this case
     @Test
     public void testShouldThrowExceptionFor20() {
         //except
@@ -194,7 +194,7 @@ public class NumberUtilsTest {
         assertThat(result).isEqualTo(-20);
     }
 
-    @SuppressWarnings("ConstantConditions") // part of the test
+    // part of the test
     @Test(expected = IllegalArgumentException.class)
     public void testGetIllegalExceptionForNullInputForSmallestInt() {
         getSmallestInt(null);
@@ -223,7 +223,7 @@ public class NumberUtilsTest {
         assertThat(result).isEqualTo(22);
     }
 
-    @SuppressWarnings("ConstantConditions") // part of the test
+    // part of the test
     @Test(expected = IllegalArgumentException.class)
     public void testGetIllegalExceptionForNullInputForLargestInt() {
         getLargestInt(null);

@@ -59,24 +59,6 @@ public class EngineTest {
         assertThat(jTextField.getText()).endsWith(sourceFilePath);
     }
 
-
-    @Test
-    public void swapDestFolderPaths() {
-        // given
-
-        // when
-
-        // then
-    }
-
-    @Test
-    public void updateRecentFolderPaths() {
-    }
-
-    @Test
-    public void chooseFileToLoad() {
-    }
-
     @Test
     public void itselfHealthScan() {
 
@@ -85,18 +67,6 @@ public class EngineTest {
 
         // then
         assertThat(result[0]).isEqualTo("OK");
-    }
-
-    @Test
-    public void makeList() {
-    }
-
-    @Test
-    public void merge2Source() {
-    }
-
-    @Test
-    public void removeItemsFromList() {
     }
 
     @Test
@@ -125,7 +95,4 @@ public class EngineTest {
         engine.shutdown("test");
     }
 
-    @Test
-    public void addItemsToItemsList() {
-    }
 }

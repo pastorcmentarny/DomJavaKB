@@ -22,7 +22,7 @@ public class CountryTest {
     @Rule
     public final ExpectedException exception = ExpectedException.none();
 
-    @SuppressWarnings("ConstantConditions") //because this is purpose of test
+    //because this is purpose of test
     @Test
     public void shouldReturnNullIfCountryIsNullTest() {
         // expect

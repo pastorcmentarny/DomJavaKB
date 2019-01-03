@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
-@SuppressWarnings("Duplicates") //testing various edge cases
+//testing various edge cases
 public class CreateCanvasCommandTest extends AbstractCommandTest {
 
     private static final String NOT_A_NUMBER = "THREE";

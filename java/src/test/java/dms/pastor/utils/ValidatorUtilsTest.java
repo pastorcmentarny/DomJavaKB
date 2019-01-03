@@ -110,6 +110,7 @@ public class ValidatorUtilsTest {
         // then if valid then no exception was thrown
     }
 
+    @SuppressWarnings("ConstantConditions") // used for test only
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenForValidatingNotNullPropertiesWithCustomMessages() {
         // given

@@ -210,7 +210,7 @@ public class ContainsInStringUtilsTest {
         assertThat(result).isTrue();
     }
 
-    @SuppressWarnings("ConstantConditions") // part of the test
+    // part of the test
     @Test
     public void shouldThrowIllegalArgumentExceptionIfKeywordIsNullTest() {
         // except

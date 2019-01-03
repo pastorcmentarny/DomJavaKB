@@ -34,11 +34,4 @@ public class TaskUtilsAcceptanceTest {
         assertThat(result).isEqualTo(expectedResult);
     }
 
-    @Test
-    public void removeNonExistsItems() {
-    }
-
-    @Test
-    public void deleteSourceAfterBackup() {
-    }
 }

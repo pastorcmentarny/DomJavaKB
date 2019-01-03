@@ -29,7 +29,6 @@ public class DuplicateCharacterInStringRemoveTest {
         assertThat(result).isEqualToIgnoringCase("a");
     }
 
-    @SuppressWarnings("SpellCheckingInspection")
     @Test
     public void shouldGetABFromStringWithABCharactersOnlyAcceptanceCriteriaTest() {
         // given
@@ -45,7 +44,6 @@ public class DuplicateCharacterInStringRemoveTest {
     @Test
     public void shouldGetABCFromStringWithContainsManyABCAcceptanceCriteriaTest() {
         // given
-        //noinspection SpellCheckingInspection
         final String stringWithACharacterOnly = "abcabcacbcab";
 
         // when

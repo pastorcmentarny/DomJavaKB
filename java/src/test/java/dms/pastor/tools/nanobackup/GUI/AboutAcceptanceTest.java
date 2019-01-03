@@ -48,7 +48,6 @@ public class AboutAcceptanceTest {
         LOGGER.detachAppender(mockAppender);
     }
 
-    @SuppressWarnings("AccessStaticViaInstance")
     @Test
     public void shouldGui() {
         // when
