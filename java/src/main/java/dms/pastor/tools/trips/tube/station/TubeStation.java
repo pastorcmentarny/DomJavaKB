@@ -72,7 +72,7 @@ public class TubeStation {//implements Station {
         this.visitedDate = visitedDate;
     }
 
-    LocalDate getVisitedThisYearDate() {
+    public LocalDate getVisitedThisYearDate() {
         return thisYearVisitedDate;
     }
 
