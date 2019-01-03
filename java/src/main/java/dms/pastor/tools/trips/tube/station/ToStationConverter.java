@@ -1,7 +1,5 @@
 package dms.pastor.tools.trips.tube.station;
 
-import dms.pastor.domain.exception.SomethingWentWrongException;
-
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -24,13 +22,7 @@ public final class ToStationConverter {
     }
 
     private static boolean wasBlogged(String value) {
-        if (value == null || !value.equals("Y")) {
-            return false;
-        } else if (value.equalsIgnoreCase("Y")) {
-            return true;
-        } else {
-            throw new SomethingWentWrongException("Eee... what's that? " + value + " ??? It should be Y or N.");
-        }
+        return value != null && value.equals("Y");
     }
 
     private static LocalDate setDateFor(String date) {
