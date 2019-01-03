@@ -93,6 +93,7 @@ Context determines type of the lambdas is.
 Effectively final is a concept that compiler worked out for you that variable is don't change it .
 
 ## STREAMS
+Streams are another feature that were added with Java 8. It provides a different way of performing operations on a Collection. 
 
 Stream operations are divided into intermediate and terminal operations, and are combined to form stream pipelines. A stream pipeline consists of a source (such as a Collection, an array, a generator function, or an I/O channel); followed by zero or more intermediate operations such as Stream.filter or Stream.map; and a terminal operation such as Stream.forEach or Stream.reduce.
 Intermediate operations return a new stream. They are always lazy; executing an intermediate operation such as filter() does not actually perform any filtering, but instead creates a new stream that, when traversed, contains the elements of the initial stream that match the given predicate. Traversal of the pipeline source does not begin until the terminal operation of the pipeline is executed.
@@ -281,17 +282,14 @@ Add @FunctionalInterface to Your Functional Interface
 Please don't use it as the field of a Java-Bean.
 
 
-Sources:
+##Resources
 * https://www.javacodegeeks.com/2014/05/java-8-features-tutorial.html
 * https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html
 * http://blog.joda.org/2014/11/optional-in-java-se-8.html
-
-
-
-Source:
 * https://www.youtube.com/watch?v=wOks4LW6I24
 * https://blog.jooq.org/2014/06/13/java-8-friday-10-subtle-mistakes-when-using-the-streams-api/
-* file:///C:/Users/PastorCmentarny/Downloads/Java-8-best-practices-Stephen-Colebourne.pdffile:///C:/Users/PastorCmentarny/Downloads/Java-8-best-practices-Stephen-Colebourne.pdf
+* Java-8-best-practices by Stephen-Colebourne
 * http://zeroturnaround.com/rebellabs/how-your-addiction-to-java-8-default-methods-may-make-pandas-sad-and-your-teammates-angry/
 * https://blog.jooq.org/2014/06/13/java-8-friday-10-subtle-mistakes-when-using-the-streams-api/
 * https://aboullaite.me/java-9-enhancements-optional-stream/
+* https://dzone.com/articles/dipping-into-java-8-streams

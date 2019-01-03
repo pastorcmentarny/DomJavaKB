@@ -1,25 +1,11 @@
-
-algorithm
-	is a step-by-step procedure for 'recipe' like calculations. 
-
-An abstract data structure
-	is a collection of data. The data may be booleans, numbers, characters, or other data structures. 
-	
-A sorting algorithm
-	is an algorithm that puts elements of a list in a certain order.
-	
-Access ?
-	an Array allows random access
-	a list, allows sequential access only
-	
-big O notation 
+# big O notation 
 	describes the limiting behavior of a function when the argument tends towards a particular value or infinity, usually in terms of simpler functions. big O notation is used to classify algorithms by how they respond (e.g., in their processing time or working space requirements) to changes in input size.
 
-O(1) add item to array
+## O(1) add item to array
 	
 	theArray[itemsInArray++] = newItem;
 
-O(N) linear search for value
+## O(N) linear search for value
 	
 	boolean valueInArray = false;
 	StringBuilder indexsWithValue = new StringBuilder("");
@@ -29,47 +15,44 @@ O(N) linear search for value
 		indexsWithValue.append(i).append(" ");
 	}
 
-O(N^2)
+## O(N^2)
 
 	bubblesort
-	
+		
+## O(logN)  binary search
 
-	
-O(logN)  binary search
-
-
-O(NlogN) 
+## O(NlogN) 
 	comparisons  = log n!
 	comaprisons  = log n + log(n-1) + ... + log(1)
 	comparisons = n log n
 
-O(n^2)
-O(n^3)
-O(2^N)
+## O(n^2)
+
+## O(n^3)
+
+## O(2^N)
 	
-data structure
+# data structure
 	is a particular way of organizing data in a computer so that it can be used efficiently. efficient data structures are a key in designing efficient algorithms. 
 	Array,Records(Tuples),map
 		
-array /number of elements in specific order/
+## array /number of elements in specific order/
 	array is a data structure consisting of a collection of elements ,identified by at least one array index/key. (String is example of array as it stores array of chars).
 	http://en.wikipedia.org/wiki/Array_data_structure
 	indexing o(1) (Good)
 	insertion is not avaliable (Bad)
 	waste space 0 (Good)
 	
-record
-	is a value that contains other values
 
-map(for example: A hash table)
+## map(for example: A hash table)
 	name-value pairs can be added and deleted freely. 
 	You can add,reassign,remove or lookup
 	http://en.wikipedia.org/wiki/Associative_array
 
-set
+## set
 	is an abstract data structure that can store specific values, without any particular order, and with no repeated values.(It is a computer implementation of the mathematical concept of a finite set. )Unlike most other collection types, rather than retrieving a specific element from a set, one typically tests a value for membership in a set.	
 	
-Graphs and trees
+## Graphs and trees
 	are linked abstract data structures composed of nodes. Each node contains a value and also one or more pointers to other nodes. 	
 
 A tree
@@ -130,8 +113,6 @@ tree doesn't have loops (isographic
 
  HashMap class is roughly equivalent to Hashtable, except that it is unsynchronized and permits nulls
 
-Encapsulation encapsulation is the
-hiding of data implementation by restricting access
 
 Abstraction
 is used to manage complexity. Software developers use abstraction to

@@ -15,4 +15,7 @@
   * methods from Tread Class destroy()and  stop(Throwable obj)
 * Epsilon Garbage Collector. Lazy as Dom Garbage Collector as he do not reclaim memory.
    * Good for performance testing
+*   Z Garbage Collector is a scallable low-latency GC
+    * Aim is ZGC pause time **do not** increase with the heap or live-set size but **do** increase with the root-set size (for example treads )
+    
    
