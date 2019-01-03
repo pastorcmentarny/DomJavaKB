@@ -9,10 +9,8 @@ package dms.pastor.tools.salarycalc;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class Calculator {
-    public static void main(String[] args) {
+class Calculator {
 
-    }
     /*
       45,000
 

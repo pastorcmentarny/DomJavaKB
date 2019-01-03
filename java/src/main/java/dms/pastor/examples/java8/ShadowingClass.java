@@ -15,6 +15,8 @@ final class ShadowingClass {
 
         private final int number = 8;
 
+        @SuppressWarnings("SameParameterValue")
+            //used as example
         void displayNumbers(int number) {
             System.out.println("passed number:" + number);
             System.out.println("local number:" + this.number);
