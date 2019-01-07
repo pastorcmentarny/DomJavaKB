@@ -16,19 +16,6 @@ number_4 = 23
 number_5 = 37
 thunderball = 4
 
-'''
-TODO:
-1.  download file from lotto website
-2. save them
-3.  convert it into drawlist
-4 add new numbers to global list
-2b. save it to file
-3. run generator
-check is any number I selected played and replace with one
-that was second most played
-    select numbers that didn't play for ages
-'''
-
 # SETTINGS
 url = 'https://www.national-lottery.co.uk/results/thunderball/draw-history/csv'
 path = thunderball_history_path = config.path["base"] + 'thunderball-draws.csv'
