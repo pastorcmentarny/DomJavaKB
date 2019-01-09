@@ -500,4 +500,22 @@ public class Stats {
         this.maxMana += bonus;
     }
 
+    public void addToDmg(int dmg, int extension) {
+        if (extension < 0) {
+            throw new IllegalArgumentException("Extension should be 0 or bigger");
+        } else if (extension == 0) {
+            minDMG += dmg;
+            maxDMG += dmg;
+        } else {
+            int difference = dmg - (2 * extension);
+            if (difference < 0) {
+                maxDMG += dmg;
+            } else {
+                minDMG += (dmg - (2 * extension));
+                maxDMG += dmg + extension;
+            }
+
+        }
+    }
+
 }
