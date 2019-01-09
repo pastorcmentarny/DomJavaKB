@@ -3,7 +3,6 @@ package dms.pastor.tools.gibberishcheck;
 import java.util.List;
 
 class JobOpportunityAnalyser {
-    private CrapCounter crapCounter;
     private Data data;
 
     public JobOpportunityAnalyser(String[] args) {
@@ -17,7 +16,7 @@ class JobOpportunityAnalyser {
     }
 
     public String analyse() {
-        crapCounter = new CrapCounter(data);
+        CrapCounter crapCounter = new CrapCounter(data);
         final CounterResult result = crapCounter.count();
         return getResult(result);
     }

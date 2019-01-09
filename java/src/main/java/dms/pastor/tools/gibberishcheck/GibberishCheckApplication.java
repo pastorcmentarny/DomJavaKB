@@ -8,6 +8,7 @@ import java.nio.file.FileSystems;
 public class GibberishCheckApplication {
     static final String BASE_PATH = FileSystems.getDefault().getPath(".").toAbsolutePath().toString();
 
+    @SuppressWarnings("ParameterCanBeLocal")
     public static void main(String[] args) {
         args = new String[]{BASE_PATH + "/data/dict/recruiter-db.txt", BASE_PATH + "/src/test/resources/job-example.txt"};
         InputValidator.validateInput(args);

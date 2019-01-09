@@ -192,11 +192,11 @@ public final class FileUtils {
         return !isFilesExists(new String[]{path});
     }
 
-    public static boolean isDirectoryExists(String pathToDirectroy) {
-        return new File(pathToDirectroy).isDirectory();
+    public static boolean isDirectoryExists(String pathToDirectory) {
+        return new File(pathToDirectory).isDirectory();
     }
 
-    public static boolean isDirectoryNotExists(String pathToDirectroy) {
-        return !isDirectoryExists(pathToDirectroy);
+    public static boolean isDirectoryNotExists(String pathToDirectory) {
+        return !isDirectoryExists(pathToDirectory);
     }
 }

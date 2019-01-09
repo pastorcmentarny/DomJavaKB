@@ -1,7 +1,6 @@
 package dms.pastor.examples.java8.lambdas;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 
 /*
@@ -16,7 +15,6 @@ final class LambdasBasics {
     private static final int CONST_MODIFIER = 1;
 
     public static void main(String[] args) {
-        basics();
         scopeBasics();
     }
 
@@ -31,9 +29,4 @@ final class LambdasBasics {
 
     }
 
-    private static void basics() {
-        List<String> names = Arrays.asList("dom", "xu", "bobo", "mama", "tata", "alek");
-        names.sort(Comparator.reverseOrder());
-        names.forEach(System.out::println);
-    }
 }
