@@ -99,7 +99,7 @@ public class Tavern extends Place {
                         }
                         break;
                     case 5:
-                        if (qm.zombie.equals(QuestState.INPROGRESS)) {
+                        if (qm.zombie.equals(QuestState.IN_PROGRESS)) {
                             ZombieQuest zq = new ZombieQuest();
                             zq.resumeQuest();
                         }

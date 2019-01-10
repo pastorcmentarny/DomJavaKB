@@ -29,13 +29,13 @@ public class Day9Quests extends Quest {
             System.out.println("2. Tell me more about your show..");
             if (progress.kittenQuestState.equals(QuestState.AVAILABLE)) {
                 System.out.println("3. Where are kittens?");
-            } else if (progress.kittenQuestState.equals(QuestState.INPROGRESS)) {
+            } else if (progress.kittenQuestState.equals(QuestState.IN_PROGRESS)) {
                 System.out.println("3. I have some news about your kittens.");
             }
 
             if (progress.mutaSpiderQuestState.equals(QuestState.AVAILABLE)) {
                 System.out.println("3. I can tell you story");
-            } else if (progress.mutaSpiderQuestState.equals(QuestState.INPROGRESS)) {
+            } else if (progress.mutaSpiderQuestState.equals(QuestState.IN_PROGRESS)) {
                 System.out.println("3. I have some news about mutaspider.");
             }
             System.out.println("4.What's  day today?");
@@ -53,13 +53,13 @@ public class Day9Quests extends Quest {
                     case 3:
                         if (progress.mutaSpiderQuestState.equals(QuestState.AVAILABLE)) {
                             System.out.println("3. Where are kittens?");
-                        } else if (progress.mutaSpiderQuestState.equals(QuestState.INPROGRESS)) {
+                        } else if (progress.mutaSpiderQuestState.equals(QuestState.IN_PROGRESS)) {
                             System.out.println("3. I have some news about your kittens.");
                         }
 
                         if (progress.mutaSpiderQuestState.equals(QuestState.AVAILABLE)) {
                             System.out.println("3. I can tell you story");
-                        } else if (progress.mutaSpiderQuestState.equals(QuestState.INPROGRESS)) {
+                        } else if (progress.mutaSpiderQuestState.equals(QuestState.IN_PROGRESS)) {
                             System.out.println("3. I have some news about mutaspider.");
                         }
                         break;

@@ -28,9 +28,9 @@ public class MonikaSmigiel extends NPC {
             System.out.println(" You -  ... ");
             if (progress.sleepingMonika.equals(QuestState.AVAILABLE)) {
                 System.out.println("Somebody just pass you and monika and said ...I wish she just stop moaning.");
-                progress.sleepingMonika = QuestState.INPROGRESS;
+                progress.sleepingMonika = QuestState.IN_PROGRESS;
 
-            } else if (progress.sleepingMonika.equals(QuestState.INPROGRESS)) {
+            } else if (progress.sleepingMonika.equals(QuestState.IN_PROGRESS)) {
                 if (Hero.getHero().inventory.hasItem("Anesthesia Flower")) {
                     System.out.println("I understand you,but no worries .I have a flower for you");
                     Hero.getHero().inventory.getItemByName("Anesthesia Flower");

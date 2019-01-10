@@ -1,9 +1,9 @@
 package dms.pastor.rpg.places;
 
 import dms.pastor.rpg.Game;
-import dms.pastor.rpg.quests.QuestMonitor;
 import dms.pastor.rpg.events.BattleManual;
 import dms.pastor.rpg.events.Chat;
+import dms.pastor.rpg.quests.QuestMonitor;
 import dms.pastor.rpg.units.enemies.Enemy;
 import dms.pastor.rpg.units.enemies.bosses.OlaZ;
 
@@ -56,7 +56,7 @@ public class WitchTower extends Place {
 
     private void visitQueen() {
         /*
-        if(story.winWithOlaAtTower.equals(QuestState.AVAILABLE) || story.winWithOlaAtTower.equals(QuestState.INPROGRESS)){
+        if(story.winWithOlaAtTower.equals(QuestState.AVAILABLE) || story.winWithOlaAtTower.equals(QuestState.IN_PROGRESS)){
             System.out.println("You ha");
             
         }
