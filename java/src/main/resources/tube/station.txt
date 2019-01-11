@@ -9,7 +9,7 @@ Arnos Grove;;X;;none;;none;;none;;N
 Arsenal;;X;;none;;none;;none;;N
 Baker Street;;V;;2017-01-03;;2017-12-21;;none;;N
 Balham;;X;;none;;none;;none;;N
-Bank;;P;;2017-11-01;;none;;none;;N
+Bank;;V;;2017-11-01;;2019-01-08;;2019-01-08;;N
 Barbican;;P;;2017-01-03;;2017-06-05;;none;;N
 Barking;;X;;none;;none;;none;;N
 Barkingside;;X;;none;;none;;none;;N
@@ -40,7 +40,7 @@ Cannon Street;;V;;2017-02-02;;2017-07-06;;none;;N
 Canons Park;;V;;2018-08-22;;2018-08-22;;none;;N
 Chalfont & Latimer;;V;;2017-06-25;;2018-08-18;;none;;Y
 Chalk Farm;;P;;2017-05-26;;none;;none;;N
-Chancery Lane;;X;;none;;none;;none;;N
+Chancery Lane;;P;;2019-01-08;;none;;none;;N
 Camden;;X;;none;;none;;none;;N
 Charing Cross;;X;;none;;none;;none;;N
 Chesham;;V;;2017-06-25;;2017-06-25;;none;;Y
@@ -182,7 +182,7 @@ Putney Bridge;;X;;none;;none;;none;;N
 Queen's Park;;X;;none;;none;;none;;N
 Queensbury;;P;;2018-08-22;;none;;none;;N
 Queensway;;P;;2018-06-06;;none;;none;;N
-Ravenscourt Park;;P;;2017-06-10;;none;;none;;N
+Ravenscourt Park;;V;;2017-06-10;;2019-01-08;;2019-01-08;;N
 Rayners Lane;;P;;2017-06-10;;none;;none;;N
 Regent's Park;;P;;2017-01-28;;none;;none;;N
 Richmond;;X;;none;;none;;none;;N
@@ -196,7 +196,7 @@ Ruislip Manor;;V;;2017-03-21;;2018-06-06;;none;;N
 Russell Square;;P;;2017-06-15;;none;;none;;N
 St. James's Park;;V;;2017-02-02;;2018-06-01;;none;;Y
 St. John's Wood;;V;;2017-10-30;;2018-05-28;;none;;N
-St. Paul's;;X;;none;;none;;none;;N
+St. Paul's;;V;;2019-01-08;;2019-01-08;;2019-01-08;;N
 Seven Sisters;;P;;2017-11-19;;none;;none;;N
 Shepherd's Bush;;P;;2018-06-06;;none;;none;;N
 Shepherd's Bush Market;;X;;none;;none;;none;;N
