@@ -113,6 +113,15 @@ public final class NumberUtils {
         return true;
     }
 
+    public static int increaseByPercent(double value, double percent) {
+        double result = value + (value * (percent / 100));
+
+        if (result - value < 1) {
+            return (int) value + 1;
+        }
+        return (int) Math.round(result);
+    }
+
     static int getResultIn0to100Range(int result) {
         return getResultInRange(result, 0, 100);
     }

@@ -3,7 +3,7 @@ package dms.pastor.rpg.places;
 import dms.pastor.rpg.commons.Msg;
 import dms.pastor.rpg.exceptions.GameOverException;
 import dms.pastor.rpg.units.Hero;
-import dms.pastor.rpg.utils.MathUtils;
+import dms.pastor.utils.NumberUtils;
 
 import java.util.InputMismatchException;
 import java.util.Random;
@@ -99,8 +99,8 @@ public class Bank extends Place {
         for (int i = lastVisit; i < today; i++) {
             if (i % 10 == 0) {
                 System.out.println("Before status: SAVINGS=" + deposit + " :LOAN=" + loan);
-                deposit = MathUtils.increaseByPercent(deposit, interestRate);
-                loan = MathUtils.increaseByPercent(loan, loanRate);
+                deposit = NumberUtils.increaseByPercent(deposit, interestRate);
+                loan = NumberUtils.increaseByPercent(loan, loanRate);
                 System.out.println("After status: SAVINGS=" + deposit + " :LOAN=" + loan);
             }
             if (i % 31 == 0) {
