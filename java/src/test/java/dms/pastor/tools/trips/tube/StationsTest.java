@@ -3,7 +3,7 @@ package dms.pastor.tools.trips.tube;
 import dms.pastor.domain.exception.NotFoundException;
 import dms.pastor.tools.trips.tube.station.Line;
 import dms.pastor.tools.trips.tube.station.Stations;
-import dms.pastor.tools.trips.tube.station.Status;
+import dms.pastor.tools.trips.common.options.Status;
 import dms.pastor.tools.trips.tube.station.TubeStation;
 import org.junit.Rule;
 import org.junit.Test;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static dms.pastor.tools.trips.tube.station.Status.*;
+import static dms.pastor.tools.trips.common.options.Status.*;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.Assertions.assertThat;

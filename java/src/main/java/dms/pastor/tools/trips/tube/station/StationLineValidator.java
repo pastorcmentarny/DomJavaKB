@@ -1,5 +1,7 @@
 package dms.pastor.tools.trips.tube.station;
 
+import dms.pastor.tools.trips.common.options.Status;
+
 import java.util.Objects;
 
 import static dms.pastor.tools.trips.tube.station.TubeStation.SEPARATOR;

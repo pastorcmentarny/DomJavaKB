@@ -1,13 +1,13 @@
 package dms.pastor.tools.trips.tube;
 
 import dms.pastor.domain.exception.NotFoundException;
-import dms.pastor.tools.trips.tube.station.Status;
+import dms.pastor.tools.trips.common.options.Status;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import static dms.pastor.tools.trips.tube.station.Status.PASSED;
-import static dms.pastor.tools.trips.tube.station.Status.VISITED;
+import static dms.pastor.tools.trips.common.options.Status.PASSED;
+import static dms.pastor.tools.trips.common.options.Status.VISITED;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static org.assertj.core.api.Assertions.assertThat;
 

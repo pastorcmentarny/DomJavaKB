@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 import static dms.pastor.tools.trips.tube.builders.StationBuilder.stationBuilder;
 import static dms.pastor.tools.trips.tube.builders.StationsBuilder.stationsBuilder;
-import static dms.pastor.tools.trips.tube.station.Status.PASSED;
+import static dms.pastor.tools.trips.common.options.Status.PASSED;
 import static java.util.Collections.singletonList;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;

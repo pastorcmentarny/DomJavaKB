@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static dms.pastor.tools.trips.tube.builders.StationBuilder.stationBuilder;
-import static dms.pastor.tools.trips.tube.station.Status.VISITED;
+import static dms.pastor.tools.trips.common.options.Status.VISITED;
 
 public final class StationsBuilder {
     private List<TubeStation> tubeStationList = generateStations();

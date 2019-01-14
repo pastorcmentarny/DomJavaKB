@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import java.time.LocalDate;
 
-import static dms.pastor.tools.trips.tube.station.Status.VISITED;
+import static dms.pastor.tools.trips.common.options.Status.VISITED;
 import static dms.pastor.tools.trips.tube.station.TubeStation.SEPARATOR;
 import static org.assertj.core.api.Assertions.assertThat;
 

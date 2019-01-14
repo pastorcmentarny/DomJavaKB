@@ -9,8 +9,8 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import static dms.pastor.tools.trips.tube.station.Status.PASSED;
-import static dms.pastor.tools.trips.tube.station.Status.VISITED;
+import static dms.pastor.tools.trips.common.options.Status.PASSED;
+import static dms.pastor.tools.trips.common.options.Status.VISITED;
 import static dms.pastor.utils.StringUtils.isStringEmpty;
 import static java.util.Collections.unmodifiableList;
 

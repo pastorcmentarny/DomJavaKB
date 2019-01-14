@@ -1,7 +1,7 @@
 package dms.pastor.tools.trips.tube;
 
 import dms.pastor.tools.trips.tube.station.Stations;
-import dms.pastor.tools.trips.tube.station.Status;
+import dms.pastor.tools.trips.common.options.Status;
 import dms.pastor.tools.trips.tube.station.TubeStation;
 import org.junit.After;
 import org.junit.Before;

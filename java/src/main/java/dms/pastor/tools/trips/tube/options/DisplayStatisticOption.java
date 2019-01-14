@@ -5,7 +5,7 @@ import dms.pastor.tools.trips.tube.lines.Line;
 import dms.pastor.tools.trips.tube.lines.Lines;
 import dms.pastor.tools.trips.tube.station.Station;
 import dms.pastor.tools.trips.tube.station.Stations;
-import dms.pastor.tools.trips.tube.station.Status;
+import dms.pastor.tools.trips.common.options.Status;
 import dms.pastor.tools.trips.tube.station.TubeStation;
 import dms.pastor.utils.NumberUtils;
 

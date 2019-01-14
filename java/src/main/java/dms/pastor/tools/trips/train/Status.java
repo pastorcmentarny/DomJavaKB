@@ -29,11 +29,11 @@ public enum Status {
         this.code = code;
     }
 
-    public static dms.pastor.tools.trips.tube.station.Status fromValue(String statusShortcut) {
+    public static dms.pastor.tools.trips.common.options.Status fromValue(String statusShortcut) {
         validateIfNotEmpty(statusShortcut);
 
         return Arrays
-                .stream(dms.pastor.tools.trips.tube.station.Status.values())
+                .stream(dms.pastor.tools.trips.common.options.Status.values())
                 .filter(status -> status.value().equalsIgnoreCase(statusShortcut))
                 .findFirst()
                 .orElseThrow(() -> new NotFoundException("Status"));

@@ -1,4 +1,4 @@
-package dms.pastor.tools.trips.tube.station;
+package dms.pastor.tools.trips.common.options;
 
 import dms.pastor.domain.exception.NotFoundException;
 
@@ -19,8 +19,7 @@ import static dms.pastor.utils.ValidatorUtils.validateIfNotEmpty;
 
 public enum Status {
     NOT_VISITED("X"),
-    /*    PASSED_2018("M"), // minąć
-        VISITED_2018("B"), // byłem*/
+    CHANGE("S"), // I use S from switch
     PASSED("P"),
     VISITED("V");
 

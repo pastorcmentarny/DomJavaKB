@@ -15,7 +15,7 @@ import java.util.Collections;
 import java.util.List;
 
 import static dms.pastor.TestConfig.TEST_BASE_PATH;
-import static dms.pastor.tools.trips.tube.station.Status.VISITED;
+import static dms.pastor.tools.trips.common.options.Status.VISITED;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**

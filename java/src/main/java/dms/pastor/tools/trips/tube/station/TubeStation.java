@@ -1,12 +1,13 @@
 package dms.pastor.tools.trips.tube.station;
 
 import dms.pastor.domain.exception.NotImplementYetException;
+import dms.pastor.tools.trips.common.options.Status;
 
 import java.time.LocalDate;
 import java.util.Objects;
 
-import static dms.pastor.tools.trips.tube.station.Status.NOT_VISITED;
-import static dms.pastor.tools.trips.tube.station.Status.PASSED;
+import static dms.pastor.tools.trips.common.options.Status.NOT_VISITED;
+import static dms.pastor.tools.trips.common.options.Status.PASSED;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 
 /**

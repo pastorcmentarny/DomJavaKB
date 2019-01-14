@@ -1,5 +1,9 @@
 package dms.pastor.tools.trips.train.station;
 
+import dms.pastor.tools.trips.common.options.Status;
+
+import java.time.LocalDate;
+
 /**
  * Author Dominik Symonowicz
  * Created 23/05/2018
@@ -10,7 +14,13 @@ package dms.pastor.tools.trips.train.station;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class TrainStation {//} implements Station {
+    public static final String SEPARATOR = ";;";
     private final String name;
+    private Status status;
+    private LocalDate passedDate;
+    private LocalDate visitedDate;
+    private LocalDate thisYearVisitedDate;
+    private boolean blogged;
 
     public TrainStation(String name) {
         this.name = name;
