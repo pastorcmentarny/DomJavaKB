@@ -59,7 +59,7 @@ Dagenham East;;X;;none;;none;;none;;N
 Dagenham Heathway;;X;;none;;none;;none;;N
 Debden;;X;;none;;none;;none;;N
 Dollis Hill;;X;;none;;none;;none;;N
-Ealing Broadway;;V;;2017-07-10;;2017-07-10;;none;;N
+Ealing Broadway;;V;;2017-07-10;;2017-07-10;;2019-01-12;;N
 Ealing Common;;P;;2017-06-10;;none;;none;;N
 Earl's Court;;V;;2017-02-02;;2017-02-02;;none;;N
 East Acton;;P;;2018-06-06;;none;;none;;N
@@ -98,9 +98,9 @@ Harlesden;;P;;2017-06-19;;none;;none;;N
 Harrow & Wealdstone;;P;;2017-06-19;;none;;none;;N
 Harrow-on-the-Hill;;V;;none;;2017-11-16;;none;;Y
 Hatton Cross;;P;;2017-10-30;;none;;none;;N
-Heathrow Terminals 123;;P;;2017-10-30;;none;;none;;N
+Heathrow Terminals 123;;V;;2017-10-30;;2019-01-12;;2019-01-12;;N
 Heathrow Terminal 4;;X;;none;;none;;none;;N
-Heathrow Terminal 5;;V;;2017-10-30;;2017-10-30;;none;;N
+Heathrow Terminal 5;;V;;2017-10-30;;2017-10-30;;2019-01-12;;N
 Hendon Central;;P;;2018-08-22;;none;;none;;N
 High Barnet;;X;;none;;none;;none;;N
 Highbury & Islington;;P;;2017-11-19;;none;;none;;N
@@ -153,7 +153,7 @@ Mornington Crescent;;P;;2018-05-06;;none;;none;;N
 Neasden;;X;;none;;none;;none;;N
 Newbury Park;;X;;none;;none;;none;;N
 North Acton;;P;;2018-06-06;;none;;none;;N
-North Ealing;;P;;2017-06-10;;none;;none;;N
+North Ealing;;V;;2017-06-10;;2019-01-12;;2019-01-12;;N
 North Greenwich;;P;;2017-02-11;;none;;none;;N
 North Harrow;;P;;2018-05-26;;none;;none;;N
 North Wembley;;P;;2017-06-19;;none;;none;;N
@@ -237,7 +237,7 @@ Upminster;;X;;none;;none;;none;;N
 Upminster Bridge;;X;;none;;none;;none;;N
 Upney;;X;;none;;none;;none;;N
 Upton Park;;X;;none;;none;;none;;N
-Uxbridge;;V;;2017-03-21;;2017-03-21;;none;;N
+Uxbridge;;V;;2017-03-21;;2017-03-21;;2019-01-12;;N
 Vauxhall;;V;;2017-11-01;;2017-12-14;;none;;N
 Victoria;;V;;2017-02-02;;2017-11-19;;2019-01-03;;N
 Walthamstow Central;;X;;none;;none;;none;;N
@@ -247,7 +247,7 @@ Waterloo;;P;;2017-02-11;;none;;none;;N
 Watford;;V;;2018-04-06;;2018-04-06;;none;;Y
 Wembley Central;;V;;2017-06-19;;none;;none;;N
 Wembley Park;;V;;2017-01-03;;2017-02-06;;none;;N
-West Acton;;X;;none;;none;;none;;N
+West Acton;;V;;2019-01-12;;2019-01-12;;2019-01-12;;N
 West Brompton;;X;;none;;none;;none;;N
 West Finchley;;X;;none;;none;;none;;N
 West Ham;;P;;2017-05-10;;none;;none;;N
