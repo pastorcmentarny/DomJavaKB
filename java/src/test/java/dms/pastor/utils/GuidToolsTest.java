@@ -10,7 +10,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.regex.Pattern;
 
-import static dms.pastor.utils.RegexConstants.GUID_REGEX;
+import static dms.pastor.utils.RegexUtils.GUID_REGEX;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
