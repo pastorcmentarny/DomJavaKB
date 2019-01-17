@@ -10,11 +10,13 @@ package dms.pastor.tools.salarycalc;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 class Vacanacy {
-    private int salary = 45000;
+    private int salary = 40000;
     private boolean inZone1 = true;
     private int annualLeaveDays = 25;
     private int timeTravel = 45;
     private boolean wfh = false;
     private boolean remote = false;
     private int hours = 375;
+
+
 }

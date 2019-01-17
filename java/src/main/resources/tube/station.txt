@@ -153,7 +153,7 @@ Mornington Crescent;;P;;2018-05-06;;none;;none;;N
 Neasden;;X;;none;;none;;none;;N
 Newbury Park;;X;;none;;none;;none;;N
 North Acton;;P;;2018-06-06;;none;;none;;N
-North Ealing;;V;;2017-06-10;;2019-01-12;;2019-01-12;;N
+North Ealing;;V;;2017-06-10;;2019-01-12;;2019-01-12;;Y
 North Greenwich;;P;;2017-02-11;;none;;none;;N
 North Harrow;;P;;2018-05-26;;none;;none;;N
 North Wembley;;P;;2017-06-19;;none;;none;;N
@@ -182,7 +182,7 @@ Putney Bridge;;X;;none;;none;;none;;N
 Queen's Park;;X;;none;;none;;none;;N
 Queensbury;;P;;2018-08-22;;none;;none;;N
 Queensway;;P;;2018-06-06;;none;;none;;N
-Ravenscourt Park;;V;;2017-06-10;;2019-01-08;;2019-01-08;;N
+Ravenscourt Park;;V;;2017-06-10;;2019-01-08;;2019-01-08;;Y
 Rayners Lane;;P;;2017-06-10;;none;;none;;N
 Regent's Park;;P;;2017-01-28;;none;;none;;N
 Richmond;;X;;none;;none;;none;;N
@@ -247,7 +247,7 @@ Waterloo;;P;;2017-02-11;;none;;none;;N
 Watford;;V;;2018-04-06;;2018-04-06;;none;;Y
 Wembley Central;;V;;2017-06-19;;none;;none;;N
 Wembley Park;;V;;2017-01-03;;2017-02-06;;none;;N
-West Acton;;V;;2019-01-12;;2019-01-12;;2019-01-12;;N
+West Acton;;V;;2019-01-12;;2019-01-12;;2019-01-12;;Y
 West Brompton;;X;;none;;none;;none;;N
 West Finchley;;X;;none;;none;;none;;N
 West Ham;;P;;2017-05-10;;none;;none;;N

@@ -213,4 +213,16 @@ public class DateUtilsTest {
         assertThat(leapYearsCounter).isEqualTo(5);
     }
 
+    @Test
+    public void monthBetweenNowAndShouldReturnOneForOneMonthDifference() {
+        // given
+        final java.time.LocalDate date = now().minusMonths(1);
+
+        // when
+        final long result = getMonthBetweenNowAnd(date);
+
+        // then
+        assertThat(result).isEqualTo(1);
+    }
+
 }

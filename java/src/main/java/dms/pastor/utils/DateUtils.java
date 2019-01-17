@@ -1,6 +1,7 @@
 package dms.pastor.utils;
 
 import java.time.*;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.LinkedHashSet;
 
@@ -112,5 +113,9 @@ public final class DateUtils {
     @SuppressWarnings("UseOfObsoleteDateTimeApi") //it is used for conversion purposes
     static LocalDate convertDateToLocalDate(Date date) {
         return LocalDateTime.ofInstant(Instant.ofEpochMilli(date.getTime()), ZoneId.systemDefault()).toLocalDate();
+    }
+
+    public static int getMonthBetweenNowAnd(LocalDate date) {
+        return Math.toIntExact(ChronoUnit.MONTHS.between(date, LocalDate.now()));
     }
 }
