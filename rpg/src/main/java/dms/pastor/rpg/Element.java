@@ -1,9 +1,14 @@
 package dms.pastor.rpg;
 
 /**
- * Everything extends from Element
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  *
- * @author domhome
+ * Everything extends from Element
  */
 public class Element {
     protected String name;

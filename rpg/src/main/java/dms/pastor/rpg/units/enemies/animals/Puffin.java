@@ -6,13 +6,19 @@ import dms.pastor.rpg.characteristics.Skills;
 import dms.pastor.rpg.characteristics.Stats;
 import dms.pastor.rpg.units.Hero;
 import dms.pastor.rpg.units.Unit;
-import dms.pastor.rpg.utils.RandomUtils;
 import dms.pastor.rpg.units.enemies.Enemy;
+import dms.pastor.rpg.utils.RandomUtils;
 
 import java.util.Random;
 
 /**
- *  Date: 08/03/13 Time: 11:27
+ * Author Dominik Symonowicz
+ * Created   08/03/13
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class Puffin extends Enemy {
 

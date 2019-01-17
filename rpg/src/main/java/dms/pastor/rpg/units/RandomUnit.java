@@ -4,11 +4,11 @@ import dms.pastor.rpg.cfg.Config;
 import dms.pastor.rpg.characteristics.Skills;
 import dms.pastor.rpg.characteristics.Stats;
 import dms.pastor.rpg.units.enemies.*;
-import dms.pastor.rpg.units.enemies.undead.*;
 import dms.pastor.rpg.units.enemies.animals.Puffin;
 import dms.pastor.rpg.units.enemies.animals.Seagull;
 import dms.pastor.rpg.units.enemies.animals.Sheep;
 import dms.pastor.rpg.units.enemies.animals.Unicorn;
+import dms.pastor.rpg.units.enemies.undead.*;
 import dms.pastor.rpg.units.nylonKnights.Dresiarz;
 import dms.pastor.rpg.units.nylonKnights.NylonKnight;
 
@@ -16,7 +16,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
-
+/**
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+ */
 public class RandomUnit {
     private static final Random random = new Random();
     private static final ArrayList<Units> undeads = new ArrayList<>(Arrays.asList(Units.BUNNY, Units.MUMMY, Units.WRAITH, Units.VAMPIRE, Units.ZOMBIE));

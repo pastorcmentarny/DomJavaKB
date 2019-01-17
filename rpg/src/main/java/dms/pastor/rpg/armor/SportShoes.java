@@ -1,8 +1,12 @@
 package dms.pastor.rpg.armor;
 
 /**
- * @author Pastor
- * Created Mar 14, 2015 at 11:22:09 PM
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class SportShoes extends Armor {
     public SportShoes() {

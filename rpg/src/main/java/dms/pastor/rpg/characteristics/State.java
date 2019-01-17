@@ -5,8 +5,16 @@ import java.util.ArrayList;
 /**
  * @author domhome
  * <p>
- * you need set set/get , update , add to afterTurn and afterStep setXXX - set
- * state clearXXX - clear state updateXXXafterTurn - update state
+
+ */
+
+/**
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class State {
 

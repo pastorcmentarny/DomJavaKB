@@ -135,4 +135,5 @@ MINI GAME: guess day of the year. LocalDate seventhOfJuly = LocalDate.ofYearDay(
 -   Dupstep harp
     -   Sorry :(.why dupstep ...? that's sounds like mix of most crap noises that has sense only if u overdose poison and drugs.
     -   when you attack using dupstep harp it will make noise of drill
-
+ * you need set set/get , update , add to afterTurn and afterStep setXXX - set
+ * state clearXXX - clear state updateXXXafterTurn - update state

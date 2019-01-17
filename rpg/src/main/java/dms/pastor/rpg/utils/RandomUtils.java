@@ -15,20 +15,6 @@ import java.util.Random;
 public class RandomUtils {
     private static ArrayList<String> studentName;
 
-
-    //private static ArrayList<String> nameList;
-
-    public static int generateNumberFromRange(int min, int max) {
-        if (max - min > 0) {
-            return min + new Random().nextInt(max - min);
-        } else {
-            return 1;//TODO remove it
-        }
-
-
-    }
-
-
     public static String getRandomWord() {
         ArrayList<String> swearWords = getList();
         return swearWords.get(new Random().nextInt(swearWords.size()));

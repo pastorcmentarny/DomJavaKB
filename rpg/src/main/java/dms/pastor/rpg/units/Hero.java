@@ -28,7 +28,12 @@ import static dms.pastor.rpg.Game.gameOver;
 
 
 /**
- * @author Pastor Created Jan 6, 2015 at 9:16:29 PM
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class Hero extends Unit implements BattleAction {
     private static Hero hero;

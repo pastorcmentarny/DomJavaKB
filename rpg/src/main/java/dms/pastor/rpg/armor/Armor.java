@@ -1,12 +1,18 @@
 package dms.pastor.rpg.armor;
 
-import dms.pastor.rpg.items.Action;
-import dms.pastor.rpg.items.Item;
 import dms.pastor.rpg.characteristics.Skills;
 import dms.pastor.rpg.characteristics.Stats;
+import dms.pastor.rpg.items.Action;
+import dms.pastor.rpg.items.Item;
 
 /**
- * @author domhome
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+ *
  * //TODO change to abstract when finish implementing full version of armor
  */
 public class Armor extends Item {

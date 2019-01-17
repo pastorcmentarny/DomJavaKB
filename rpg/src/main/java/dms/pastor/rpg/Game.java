@@ -2,20 +2,28 @@ package dms.pastor.rpg;
 
 
 import dms.pastor.rpg.cfg.Config;
-import dms.pastor.rpg.events.*;
-import dms.pastor.rpg.menu.InventoryMenu;
-import dms.pastor.rpg.units.Hero;
-import dms.pastor.rpg.units.RandomUnit;
 import dms.pastor.rpg.commons.Msg;
 import dms.pastor.rpg.commons.Result;
+import dms.pastor.rpg.events.*;
+import dms.pastor.rpg.menu.InventoryMenu;
 import dms.pastor.rpg.places.World;
 import dms.pastor.rpg.quests.QuestSelector;
+import dms.pastor.rpg.units.Hero;
+import dms.pastor.rpg.units.RandomUnit;
 import dms.pastor.rpg.units.enemies.Enemy;
 import dms.pastor.rpg.units.enemies.animals.Seagull;
 
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+ */
 public class Game {
 
 

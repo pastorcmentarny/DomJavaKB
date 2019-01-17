@@ -12,7 +12,12 @@ import java.util.Random;
 
 
 /**
- * @author Pastor Created Jan 4, 2015 at 5:16:49 PM
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  * if you idientify yourself with any of these character,then .. go to psychiatra.
  * He should solve your dillusion problems
  */

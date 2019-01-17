@@ -1,11 +1,16 @@
 package dms.pastor.rpg;
 
-import dms.pastor.rpg.lab.UnitLab;
 import dms.pastor.rpg.events.GuessNumberEvent;
+import dms.pastor.rpg.lab.UnitLab;
 import dms.pastor.rpg.utils.BalanceCheckerUtils;
 
 /**
- * @author Pastor Created Jan 4, 2015 at 5:10:59 PM
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class RPGLauncher {
 
