@@ -212,7 +212,7 @@ public final class StringUtils {
     }
 
     public static String swapCaseLettersInString(String text) {
-        if (checkIfStringEmpty(text)) return EMPTY_STRING;
+        if (isStringBlank(text)) return EMPTY_STRING;
         var stringBuilder = new StringBuilder(EMPTY_STRING);
         for (Character character : text.toCharArray()) {
             if (isUpperCase(character)) {
@@ -291,29 +291,20 @@ public final class StringUtils {
 
     static List<String> getCountryList() {
         return Arrays.stream(Locale.getISOCountries())
-                .map(countryCode -> new Locale("", countryCode).getDisplayCountry())
-                .collect(toList());
+            .map(countryCode -> new Locale("", countryCode).getDisplayCountry())
+            .collect(toList());
     }
 
     public static String getStringWithCapitalizedFirstCharacter(String string) {
-        if (checkIfStringEmpty(string)) {
+        if (isStringEmpty(string)) {
             return string;
         }
         return string.substring(0, 1).toUpperCase() + string.substring(1);
     }
 
-    //TODO rename it
-    private static boolean checkIfStringEmpty(String string) {
-        validateIfNotNull(string, "text");
-        return string.isEmpty();
-    }
-
     public static String capitalizeFirstCharacter(String string) {
-        if (checkIfStringEmpty(string)) return string;
+        if (isStringEmpty(string)) return string;
         return string.substring(0, 1).toUpperCase();
     }
 
-    public static boolean isNotBlank(String text) {
-        return !isStringBlank(text);
-    }
 }
