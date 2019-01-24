@@ -988,6 +988,21 @@ Things to add:
   
    == or the equality operator is used to compare primitives and objects.  
 
+##FAQ:
+
+### Objects.isNull vs object == null
+Objects.isNull is intended for use within Java 8 lambda filtering.
+However value is limited to helps readability for some style preference
+For example some guides prefere this:
+```java
+.stream().filter(Objects::isNull) 
+```
+than:
+```java
+.stream().filter(x -> x == null)
+```
+
+
 ## RESOURCES:
 0.  http://en.wikipedia.org/wiki/Anti-pattern#Programming_anti-patterns
 0.  http://www.antipatterns.com/antipatt.htm
