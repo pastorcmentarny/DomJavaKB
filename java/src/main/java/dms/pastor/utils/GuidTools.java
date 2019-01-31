@@ -4,6 +4,7 @@ import java.util.UUID;
 import java.util.stream.IntStream;
 
 import static dms.pastor.utils.NumberUtils.parseNullSafeIntegerAsString;
+import static dms.pastor.utils.StringUtils.DASH;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 
 /**
@@ -25,12 +26,12 @@ public final class GuidTools {
     }
 
     static String generateGuidWithoutDash() {
-        return UUID.randomUUID().toString().replaceAll("-", EMPTY_STRING);
+        return UUID.randomUUID().toString().replaceAll(DASH, EMPTY_STRING);
     }
 
 
     static String generateShortGuid() {
-        return UUID.randomUUID().toString().replaceAll("-", EMPTY_STRING).substring(0, 8);
+        return UUID.randomUUID().toString().replaceAll(DASH, EMPTY_STRING).substring(0, 8);
     }
 
     public static void main(String[] args) {

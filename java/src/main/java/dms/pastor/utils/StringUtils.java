@@ -282,11 +282,16 @@ public final class StringUtils {
         Pattern pattern = Pattern.compile(occurrence.toLowerCase());
         Matcher matcher = pattern.matcher(string.toLowerCase());
 
+        int counter = countOccurrences(matcher);
+        return counter >= 0 ? counter : 0;
+    }
+
+    private static int countOccurrences(Matcher matcher) {
         int counter = 0;
         while (matcher.find()) {
             counter++;
         }
-        return counter >= 0 ? counter : 0;
+        return counter;
     }
 
     static List<String> getCountryList() {
