@@ -61,7 +61,7 @@
 10. Threads are overwhelming. For teams that end up spending much of their time corresponding via email, you miss the human element. Nuances such as intonation and body language can communicate a lot, but email doesn’t give you much of a chance to pick up on that. What’s more is that brainstorming sessions are best done as a group, so you may be missing out on ingenuity as well.
 11. the idea of the “two-pizza team” rule made famous by Jeff Bezos at Amazon, meaning if you can’t feed a team with two pizzas, then the team is too large.
 12. PDUs are complete units that own a set of microservices. This helps keep smaller teams focused on specific projects and avoids complications that come with having too many hands on one set of microservices. 
-
+13. The basic rule of thumb is don’t give feedback without permission first.
 
 ##  COMPANY RULES:
 1.  The performance-based bonus is counterproductive. If a company has a performance-based bonus, try to reduce harm as much as possible like a move from personal to the team . Performance-based bonus is pure evil.
@@ -69,8 +69,8 @@
     -   Employee first , customer second.
 2.  You don’t need HR or corporate communications, we have the pub instead (tough luck if you have a family).
 3.  A broken, dysfunctional organization driven by meeting unhealthy goals and metrics will produce broken, dysfunctional systems @ Jimmy Bogard
-
-
+4.  Encouraging people to use sick days for mental health when they need them.
+5.  40 days paid vacation per year: True disconnection is fundamental to help people de-stress and recharge.
 ## TDD:
 1.  The Golden Rule of Test-Driven Development: Never write new functionality without a failing test.
     -   We always watch the test fail before writing the code to make it pass, and check the diagnostic message. If the test fails in a way we didn’t expect, we know we’ve misunderstood something or the code is incomplete, so we ﬁx that.
