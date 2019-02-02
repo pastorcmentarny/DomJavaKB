@@ -404,7 +404,7 @@ _I am not the author of these definitions so check resources section for the ori
  	
  
  Note: LinkedHashSet is in some sense intermediate between HashSet and TreeSet. Implemented as a hash table with a linked list running through it, however it provides insertion-ordered iteration which is not same as sorted traversal guaranteed by TreeSet.
- 
+ Also, since we used a LinkedHashSet, the iteration order is the same as the insertion order. If you do not need this behavior, use a HashSet for more efficiency.
  Difference between TreeSet and TreeMap in Java? 
  
  TreeSet
@@ -984,6 +984,8 @@ Things to add:
 * Java Management Extensions (JMX) is a Java technology that supplies tools for managing and monitoring applications, system objects, devices (such as printers) and service-oriented networks.Those resources are represented by objects called MBeans (for Managed Bean)
 * A managed bean - sometimes simply referred to as an MBean - is a type of JavaBean, created with dependency injection. The MBean represents a resource running in the Java virtual machine, such as an application or a Java EE technical service (transactional monitor, JDBC driver, etc.). They can be used for collecting statistics on concerns like performance, resources usage, or problems (pull); for getting and setting application configurations or properties (push/pull); and notifying events like faults or state changes (push).
 *  What Is the Difference Between equals() and = =  ?
+   Equals() method is used for checking the equality of two objects defined by business logic.     == or the equality operator is used to compare primitives and objects.  
+* The List returned by Arrays.asList() is an immutable list. Attempting to remove (or add) items to such a list results in an UnsupportedOperationException as shown below:
    Equals() method is used for checking the equality of two objects defined by business logic.
   
    == or the equality operator is used to compare primitives and objects.  
