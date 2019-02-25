@@ -995,11 +995,11 @@ public class GUI extends javax.swing.JFrame {
         String path = FileTools.chooseFileToLoad();
         if (path != null) {
             if (settings.loadSettings(path, rootPaneCheckingEnabled)) {
-                if (StringUtils.isNotBlank(sourceField.getText())) {
+                if (StringUtils.isStringBlank(sourceField.getText())) {
                     settings.setSourceFilePath(sourceField.getText());
                 }
 
-                if (StringUtils.isNotBlank(destinationField.getText())) {
+                if (StringUtils.isStringBlank(destinationField.getText())) {
                     settings.setDestinationFolderPath(destinationField.getText());
                 }
 
