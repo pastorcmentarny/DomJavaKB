@@ -25,8 +25,10 @@ color_options = {
     'blue': '蓝色',
     'green': '绿色',
     'black': '黑色',
-    'purple': '紫色'
+    'purple': '紫色',
+    'grey':'灰色'
 }
+
 rating_options = {
     'horrible': '恐怖',
     'not good': '不好',
