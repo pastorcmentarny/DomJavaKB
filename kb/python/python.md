@@ -30,11 +30,20 @@ table = ['apples', 'oranges', 'cherries', 'banana']
 table[1:3] = ['mango', 'blueberry', 'blackberry'] # change multipe elements in list
 print(table)
 ```
+* # to use # comment use ctrl+/ shortcut
+
+### **Functions**
 * All Python programs can call a basic set of functions called built-in functions, including the print(), input(), and len() functions you’ve seen before. Python also comes with a set of modules called the standard library. Each module is a Python program that contains a related group of functions that can be embedded in your programs.
 An alternative form of the import statement is composed of the from keyword, followed by the module name, the import keyword, and a star; for example, from random import *.
 * About functions. Important warning: The default value is evaluated only once.
-* # to use # comment use ctrl+/ shortcut
+* When calling functions in Python, you’ll often have to choose between using keyword arguments or positional arguments. 
+```python
+def get_result(a: int, b: int):
+    return a + (2 * b) - 3
 
+get_result(a=11,b=12)   #keyword arguments
+get_result(33,b=34)     #positional arguments
+```
  With this form of import statement, calls to functions in random will not need the random. prefix. However, using the full name makes for more readable code, so it is better to use the normal form of the import statement.
 
 
