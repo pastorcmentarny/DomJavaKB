@@ -26,7 +26,7 @@ color_options = {
     'green': '绿色',
     'black': '黑色',
     'purple': '紫色',
-    'grey':'灰色'
+    'grey': '灰色'
 }
 
 rating_options = {
@@ -313,10 +313,10 @@ def generate_info_about_today(weather_rating,
     today_info += '伦敦的天气' + weather_rating + '.这是' + weather_description_1
     if weather_description_2 is not '':
         today_info += '和' + weather_description_2
-    today_info += dot + '今天是' + get_temp_from_internet() + dot
+    today_info += dot + '今天气温是' + get_temp_from_internet() + dot
     #  today_info += get_text_based_on_time(time,meal)
     today_info += '我穿' + upper_wear_color_1 + upper_wear_type_1 + '和' + upper_wear_color_2 + upper_wear_type_2 + dot
-    today_info += '我走了' + str(steps) + '相当于' + get_distance_from_steps(steps) + '公里左右' + dot
+    today_info += '我走了' + str(steps) + '步相当于' + get_distance_from_steps(steps) + '公里左右' + dot
     today_info += run_sentence(run_distance, run_time)
     today_info += generate_random_sentence(with_random_sentences)
     print(today_info)
@@ -339,7 +339,7 @@ def get_last_element():
 
 def run_sentence(run_distance, run_time):
     if run_distance > 0 and run_time > 0:
-        return '我在晚上去了慢跑。我做了' + get_distance_from_run(run_distance) + '公里。跑了这个距离花了我' + get_time_from_run(run_time) + dot
+        return '我在晚上去了慢跑。我跑了' + get_distance_from_run(run_distance) + '公里。跑了这个距离花了我' + get_time_from_run(run_time) + dot
     else:
         return ''
 
