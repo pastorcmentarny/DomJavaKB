@@ -55,6 +55,22 @@ food_option = {
     'vegetable': '菜'
 }
 
+main_food_option = [
+    '牛肉',  # beef
+    '鸡肉',  # 'chicken':
+    '鱼',  # 'fish'
+    '土豆',  # 'potato':
+    '素'  # 'vegeterian':
+]
+
+type_food_option = [
+    '米饭',  # 'rice'
+    '土豆',  # 'potato'
+    '薯条',  # 'fries'
+    '汤',  # 'soup'
+    '面条'  # 'noodles'
+]
+
 drink_option = {
     'orange juice': '橙汁',
     'tea': '茶',
@@ -300,7 +316,8 @@ def generate_info_about_today(weather_rating,
                               run_distance,
                               run_time,
                               with_random_sentences,
-                              entry: int
+                              entry: int,
+                              random_meal: str
                               ):
     chinese_month = get_chinese_number(date.month)
     chinese_day = get_chinese_number(date.day)
@@ -315,6 +332,8 @@ def generate_info_about_today(weather_rating,
         today_info += '和' + weather_description_2
     today_info += dot + '今天气温是' + get_temp_from_internet() + dot
     #  today_info += get_text_based_on_time(time,meal)
+    if random_meal:
+        today_info += get_random_meal()
     today_info += '我穿' + upper_wear_color_1 + upper_wear_type_1 + '和' + upper_wear_color_2 + upper_wear_type_2 + dot
     today_info += '我走了' + str(steps) + '步相当于' + get_distance_from_steps(steps) + '公里左右' + dot
     today_info += run_sentence(run_distance, run_time)
@@ -375,3 +394,10 @@ def get_entry_number(entry: int) -> str:
         return "Dom's entry: " + get_chinese_number_for(entry) + dot
     else:
         return ''
+
+
+def get_random_meal():
+    meal = "我吃了"
+    meal += main_food_option[random.randint(0, len(main_food_option) - 1)]
+    meal += type_food_option[random.randint(0, len(type_food_option) - 1)]
+    return meal + dot
