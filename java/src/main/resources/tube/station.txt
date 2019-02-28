@@ -168,12 +168,12 @@ Old Street;;V;;2017-05-26;;2018-04-24;;none;;N
 Hackney;;X;;none;;none;;none;;N
 Osterley;;P;;2017-10-30;;none;;none;;N
 Oval;;P;;2017-11-01;;none;;none;;N
-Oxford Circus;;V;;2017-01-28;;2017-11-19;;none;;N
+Oxford Circus;;V;;2017-01-28;;2017-11-19;;2019-02-27;;N
 Paddington;;P;;2017-07-06;;none;;none;;N
 Park Royal;;P;;2017-06-10;;none;;none;;N
 Parsons Green;;X;;none;;none;;none;;N
 Perivale;;P;;2018-06-06;;none;;none;;N
-Piccadilly Circus;;V;;2017-01-28;;2017-01-28;;none;;N
+Piccadilly Circus;;V;;2017-01-28;;2017-01-28;;2019-02-27;;N
 Pimlico;;V;;2017-11-19;;2017-12-21;;none;;Y
 Pinner;;P;;2018-05-26;;none;;none;;N
 Plaistow;;P;;2019-01-19;;none;;none;;N
