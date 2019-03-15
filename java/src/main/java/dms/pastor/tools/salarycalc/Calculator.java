@@ -38,7 +38,7 @@ class Calculator {
     }
 
     // 45 minutes off-peak ±750 per minute
-    public int getTravelTimeSalaryAdjustemt(int travelTimeInMinutes) {
+    public int getTravelTimeSalaryAdjustment(int travelTimeInMinutes) {
         final int maxAllowedTime = 45;
         if (travelTimeInMinutes <= maxAllowedTime) {
             return -250 * (maxAllowedTime - travelTimeInMinutes);

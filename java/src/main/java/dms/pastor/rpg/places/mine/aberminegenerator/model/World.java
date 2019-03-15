@@ -9,8 +9,6 @@ import java.util.Objects;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.StringUtils.NEW_LINE;
 import static dms.pastor.utils.ValidatorUtils.validateIfNotNull;
-import static java.lang.String.format;
-import static java.util.Objects.isNull;
 
 public class World {
     private int width;
@@ -86,11 +84,11 @@ public class World {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Image)) return false;
-        Image image1 = (Image) o;
-        return getWidth() == image1.getWidth() &&
-            getHeight() == image1.getHeight() &&
-            Arrays.equals(getImage(), image1.getImage());
+        if (!(o instanceof World)) return false;
+        World world1 = (World) o;
+        return getWidth() == world1.getWidth() &&
+                getHeight() == world1.getHeight() &&
+                Arrays.equals(world, world1.world);
     }
 
     public String getImageAsString() {

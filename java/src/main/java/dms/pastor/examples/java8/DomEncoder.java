@@ -81,9 +81,9 @@ final class DomEncoder {
             if (Character.isLowerCase(character)) {
                 stringBuilder.append(Character.toUpperCase(character));
             } else if (!Character.isUpperCase(character)) {
-
+                stringBuilder.append(Character.toLowerCase(character));
             }
-        return null;
+        return stringBuilder.toString();
     }
 
 
