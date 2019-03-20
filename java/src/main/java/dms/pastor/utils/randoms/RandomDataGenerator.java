@@ -1,6 +1,7 @@
 package dms.pastor.utils.randoms;
 
 import dms.pastor.domain.exception.SomethingWentWrongException;
+import dms.pastor.utils.PrintOutUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -68,6 +69,14 @@ public final class RandomDataGenerator {
         }
         return values;
     }
+
+    public static byte[] generateRandomByteArray(int size) {
+        byte[] bytes = new byte[size];
+        new Random().nextBytes(bytes);
+        PrintOutUtils.printArray(bytes);
+        return bytes;
+    }
+
 
     public static Character getRandomCharacterFromAlphabet() {
         return getRandomCharacterFrom(ALPHABET);

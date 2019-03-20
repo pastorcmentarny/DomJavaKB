@@ -1,12 +1,10 @@
 package dms.pastor.utils;
 
-import java.util.Random;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import static dms.pastor.utils.CollectionsUtils.convertToIntArray;
-import static dms.pastor.utils.PrintOutUtils.printArray;
 import static dms.pastor.utils.ValidatorUtils.validateIfNotNull;
 
 /**
@@ -40,13 +38,6 @@ public final class ArrayUtils {
         return newArray;
     }
 
-    public static byte[] generateRandomByteArray(int size) {
-        byte[] bytes = new byte[size];
-        new Random().nextBytes(bytes);
-        printArray(bytes);
-        return bytes;
-    }
-
     @SuppressWarnings("ReturnOfNull") // valid case as if you pass null , you should get null
     public static String[] reverseStringArray(String[] stringArray) {
         if (stringArray == null) {
@@ -78,9 +69,9 @@ public final class ArrayUtils {
         return destination;
     }
 
-    public static int[] subtractIntArray(int[] x, int[] y) {
-        Set<Integer> result = IntStream.of(x).boxed().collect(Collectors.toSet());
-        for (int value : y) {
+    public static int[] subtractIntArray(int[] intArray, int[] valuesToExtract) {
+        Set<Integer> result = IntStream.of(intArray).boxed().collect(Collectors.toSet());
+        for (int value : valuesToExtract) {
             result.remove(value);
         }
         return convertToIntArray(result);

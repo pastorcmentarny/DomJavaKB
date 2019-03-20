@@ -87,7 +87,7 @@ public final class PrintOutUtils {
         }
     }
 
-    static void printArray(byte[] bytes) {
+    public static void printArray(byte[] bytes) {
         StringBuilder stringBuilder = new StringBuilder(OPEN_ARRAY);
         if (bytes.length == 0) {
             throw new IllegalArgumentException("byte array is empty");
