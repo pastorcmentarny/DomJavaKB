@@ -127,7 +127,6 @@ It contains the metadata and settings about the response message.
 <Response Body> 
 It contains the representation if the request was successful.
 
-
 # S
 ## SL4J
 SLF4J is a façade for various logging frameworks
@@ -189,8 +188,6 @@ The basic purpose of query parameters is to provide parameters to an operation t
 
 ttp://MyService/Persons/1?format=xml&encoding=UTF8
 
-
-
 TIPS and Tricks:
 
 
@@ -203,6 +200,10 @@ Documenting a RESTful Service RESTful services do not necessarily require a docu
 Source:
 http://www.drdobbs.com/web-development/restful-web-services-a-tutorial/240169069
 http://javarevisited.blogspot.com/2016/04/what-is-purpose-of-http-request-types-in-RESTful-web-service.html
+
+# T
+## (Database) Transaction 
+A "_unit of work_" that need be performed **together** or **not at all**. 
 
 
 
