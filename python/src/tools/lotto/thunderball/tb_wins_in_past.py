@@ -26,14 +26,5 @@ def main():
 
     past_result_checker.check_for(True, numbers, data,thunderbaall)
 
-
-
-def validate():
-    if len(numbers) > len(set(numbers)):
-        raise ValueError("Numbers are not equal")
-    else:
-        print("Validation done. Given numbers are unique.")
-
-
 if __name__ == '__main__':
     main()
