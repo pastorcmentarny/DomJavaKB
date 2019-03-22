@@ -1,30 +1,20 @@
 TODO:
-    3. DCG
+- ORGANISE to do as it is this file is just scrapyard for ideas
+- DCG
         make game playable
         improve main (game,in,out)
         accept AAEFW as way to input
-    5. Create TextFileSaver   
-    9. FilePath
-    Dom Digital Assistant
-    Written in Python
-    * Generate numbers
-    * do a backup by copy pictures from phone to dropbox and copy to hdd
-    * xml compressor remove all spaces and new spaces replace names of tag with shorter version 
+- Create TextFileSaver   
+- FilePath
+- Dom Digital Assistant
+- Written in Python
+- Generate numbers
+- do a backup by copy pictures from phone to dropbox and copy to hdd
+- xml compressor remove all spaces and new spaces replace names of tag with shorter version 
+- Idea -html - clean all attributes in tag and display only text and tags
 
 Enemies:
-    0. (Done)   Dummy
-    1. (Done)   Cleric
-    2. (Done)   Conjuror
-    3. (Done)   Mage
-    4. (Done)   Clairvoyant (jasnowidz)
     5. Priest
-    6. (Done) Warlock
-    8. (Done) Witch
-    9. (Done) Genie
-    10. (Done)Wizard
-    11 (Done) Vampire
-    12,13,14,15 -4 Elements
-    16 (Done) Dragon
 
 Location
 where you get bonus for using specific elements
@@ -279,9 +269,13 @@ Do example of :
 
 tantrum - an uncontrolled outburst of anger and frustration,
 
-//TODO add exlude run test for groovy in build.gradle
+//TODO add exclude run test for groovy in build.gradle
 
 the app that will all definitions as I use them in my text (Spring based project)
 
 dict service
 data processor
+
+lotto number generator
+
+select randomly all combination numbers time
