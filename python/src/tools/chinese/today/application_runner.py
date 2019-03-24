@@ -1,21 +1,26 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import generator
+import config
 
 # SETTINGS:
-weather_rating = generator.rating_options['not good']
-weather_description_1 = generator.weather_option['rain']
-weather_description_2 = generator.weather_option['windy']
-upper_wear_color_1 = generator.color_options['black']
-upper_wear_type_1 = generator.wear_option['t-shirt']
-upper_wear_color_2 = generator.color_options['blue']
-upper_wear_type_2 = generator.wear_option['jeans']
-steps = 14230
-time = '7.00'
+weather_rating = config.rating['so-so']
+weather_description_1 = config.weather['cloudy']
+weather_description_2 = '' + config.weather['windy']
+upper_wear_color_1 = config.color['black']
+upper_wear_type_1 = config.wear['t-shirt']
+upper_wear_color_2 = config.color['grey']
+upper_wear_type_2 = config.wear['jeans']
+steps = 11080
+time = '8.00'
 run_distance = 0  # meters
 run_time = 0  # seconds
-meal = [generator.food_option['beef'], generator.food_option['potato']]
-yesterday_diary = True
+#//FIXME need fix it: meal = [config.dish['sweet and sour pork']] #, config.food['fries']] # set to meal = []  to generate random meal sentence
+meal = []
+yesterday_diary = False
 with_random_sentences = False
-entry = 372
+entry = 377
 # END OF SETTINGS
 
 generator.generate_info_about_today(weather_rating,

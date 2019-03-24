@@ -95,6 +95,7 @@ def update_all_draws_v2(recent_draws_list, all_draws_file_path):
     all_draws_file = update_file_for(all_draws_file, all_draws_list)
     all_draws_file.close()
 
+
 def update_file_for(file, list):
     for draw in list:
         file.write(', '.join(draw))

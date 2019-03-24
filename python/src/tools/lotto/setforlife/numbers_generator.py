@@ -9,11 +9,15 @@ from src.tools.lotto import config
 sys.path.insert(0, '../utils')
 
 import draws_downloader
+import lotto_utils
+import output
 
 game_name = 'set-for-life'
 set_for_life_url = 'https://www.national-lottery.co.uk/results/' + game_name + '/draw-history/csv'
 path = config.path["base"] + game_name + '.csv'
 all_draws = config.path["base"] + game_name +'-all-draws.csv'
+
+WRITABLE = 'w'  # move to config
 
 
 def update_all_draws(recent_draws_list, all_draws_file_path):
@@ -34,8 +38,8 @@ def update_all_draws(recent_draws_list, all_draws_file_path):
 
     print(draw_to_add)
     all_draws_file = open(all_draws_file_path, WRITABLE)
-    all_draws_file = update_file_for(all_draws_file, draw_to_add)
-    all_draws_file = update_file_for(all_draws_file, all_draws_list)
+    all_draws_file = draws_downloader.update_file_for(all_draws_file, draw_to_add)
+    all_draws_file = draws_downloader.update_file_for(all_draws_file, all_draws_list)
     all_draws_file.close()
 
 
@@ -52,8 +56,16 @@ def main():
     logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s',
                         filename=config.path["base"] + 'log.txt')
 
-    for x in data:
-        print(x)
+    print('number counter')
+    numbers = {}
+    for i in range(1, lotto_utils.get_last(47)):
+        numbers[str(i)] = 0
+
+    for line in data[1: len(data)]:
+        for i in range(1, lotto_utils.get_last(5)):
+            numbers[line[i]] = numbers.get(line[i], 0) + 1
+
+    output.display_numbers(numbers)
 
 
 if __name__ == '__main__':
