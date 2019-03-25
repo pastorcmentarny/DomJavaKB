@@ -3,6 +3,9 @@
 It contains definitions that explain things in the way that is easiest for me to understand.
 _I am not the author of these definitions so check resources section for the origin of definitions._ 
 
+# SPRING FRAMEWORK
+Spring framework is a set of projects that allow you to create a software platform using modular and flexible approach to develop your enterprise application by hiding complexity and allow you focus follow pattern that helps learn, re-learn 
+
 
 # ANNOTATIONS
 
@@ -365,3 +368,4 @@ Style Guide
 2 empty lines in the end
 
 Spring Data is an umbrella that takes care of SQL and NoSQL databases and reduces the effort to use them.
+
