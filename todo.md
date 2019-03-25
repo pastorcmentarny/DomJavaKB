@@ -285,3 +285,15 @@ the app that will all definitions as I use them in my text (Spring based project
 
 dict service
 data processor
+
+java http://www.javapractices.com/home/HomeAction.do
+multi stoper ..allow u to measure various time spent on different activity
+for example read 25h/month
+run 35min/day
+it will show u graph how.do.u achieve
+
+Diggers level
+you will race against other team and nemesis team
+
+it should be 5 layers semi autogenearwd
+
