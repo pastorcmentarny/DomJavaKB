@@ -92,9 +92,19 @@ def get_time_from_run(run_time):
     return str(minuts) + '分' + str(seconds) + '秒'
 
 
-def generate_meal(today_info: str, meals: list):
+def generate_meal(meals: list):
+    meals_setnece = ''
     for meal in meals:
-        today_info += config.main_food[meal]
+        meals_setnece += config.main_food[meal]
+
+
+def add_meal_sentence(meal):
+    #  today_info += get_text_based_on_time(time,meal)
+    if len(meal) == 0:
+        return get_random_meal()
+    else:
+        return generate_meal(meal)
+
 
 
 def generate_info_about_today(weather_rating,
@@ -110,40 +120,50 @@ def generate_info_about_today(weather_rating,
                               entry: int,
                               ):
 
-    chinese_month = get_chinese_number(date.month)
-    chinese_day = get_chinese_number(date.day)
-    chinese_day_of_the_week = get_chinese_number(date.weekday() + 1)
     today_info = get_entry_number(entry)
-    today_info += '今天是' + year + '年' + chinese_month + '月' + chinese_day + '日,星期' + chinese_day_of_the_week + dot
+
+    today_info = add_today_date(today_info)
+
     if yesterday_diary:
         today_info += '这是昨天的日记。'
 
-    today_info += '伦敦的天气' + weather_rating + '.这是' + weather_description_1
-    if weather_description_2 is not '':
-        today_info += '和' + weather_description_2
-    today_info += dot + '今天气温是' + get_temp_from_internet() + dot
-    #  today_info += get_text_based_on_time(time,meal)
+    today_info = add_weather_sentence(today_info, weather_description_1, weather_description_2, weather_rating)
 
-    if len(meal) == 0:
-        today_info += get_random_meal()
-    else:
-        today_info += generate_meal(today_info, meal)
+    today_info += add_meal_sentence(meal)
 
     today_info += '我穿' + upper_wear_color_1 + upper_wear_type_1 + '和' + upper_wear_color_2 + upper_wear_type_2 + dot
+
     today_info += '我走了' + str(steps) + '步相当于' + get_distance_from_steps(steps) + '公里左右' + dot
+
     today_info += run_sentence(run_distance, run_time)
+
     today_info += generate_random_sentence(with_random_sentences)
+
     print(today_info)
     pyperclip.copy(today_info)  # copy to clipboard
 
 
+def add_today_date(today_info):
+    chinese_month = get_chinese_number(date.month)
+    chinese_day = get_chinese_number(date.day)
+    chinese_day_of_the_week = get_chinese_number(date.weekday() + 1)
+    today_info += '今天是' + year + '年' + chinese_month + '月' + chinese_day + '日,星期' + chinese_day_of_the_week + dot
+    return today_info
+
+
+def add_weather_sentence(today_info, weather_description_1, weather_description_2, weather_rating):
+    today_info += '伦敦的天气' + weather_rating + '.这是' + weather_description_1
+    if weather_description_2 is not '':
+        today_info += '和' + weather_description_2
+    today_info += dot + '今天气温是' + get_temp_from_internet() + dot
+    return today_info
+
+
 def generate_random_sentence(with_random_sentence):
+    today_info = ''
     if with_random_sentence:
-        today_info = config.sentences[random.randint(0, get_last_element())] + next_line
-        today_info += config.sentences[random.randint(0, get_last_element())] + next_line
-        today_info += config.sentences[random.randint(0, get_last_element())] + next_line
-    else:
-        today_info = ''
+        for i in range(0, 3):
+            today_info += config.sentences[random.randint(0, get_last_element())] + next_line
     return today_info
 
 
@@ -205,3 +225,19 @@ def get_daily_activity_for(day: str):
     # lunch
 
 
+def generate_lunch_walk(weather_description_1, weather_description_2) -> str:
+    if weather_description_1 == '雨' or weather_description_2 == '雨':
+        return "因为正在下雨，我没有在午休时散步。"  # I didn't go for a walk at lunch break as it was raining.
+    else:
+        walk = get_distance_from_run(random.randint(1000,4501))
+        return "我午休时走了" + walk + "公里。"
+'''
+lunch break options
+因为正在下雨，我没有在午休时散步。
+我午休时走了3公里。
+我感觉不舒服，所以我在午休期间待在办公室。
+
+I didn't go for a walk at lunch break as it was raining.
+I walked 3 km at lunch break.
+I don't feel very well, so I stay in the office during lunch break.
+'''

@@ -214,3 +214,12 @@ sentences = [
     '你在生活中的最终目标是什么？',
     '我想享受日常生活，我想让人们开心。',
 ]
+
+
+daily_activities = [
+    # I pick up a son from the nursery.
+    # I drop off my son to the nursery.
+    # I walk to the station.
+    # I took taxi to the station.
+    # I went to park with my son.
+]
