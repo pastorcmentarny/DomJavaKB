@@ -7,6 +7,7 @@ import bs4
 import pyperclip
 import requests
 import config
+import data_generator
 
 date = datetime.datetime.now()
 
@@ -116,8 +117,9 @@ def generate_info_about_today(weather_rating,
                               yesterday_diary,
                               run_distance,
                               run_time,
-                              with_random_sentences,
-                              entry: int,
+                              with_random_sentences: bool = True,
+                              entry: int = 0,
+                              is_a_for_online: bool = True
                               ):
 
     today_info = get_entry_number(entry)
@@ -138,6 +140,10 @@ def generate_info_about_today(weather_rating,
     today_info += run_sentence(run_distance, run_time)
 
     today_info += generate_random_sentence(with_random_sentences)
+
+    today_info += '我在晚上' + data_generator.generate_random_non_alkocholic_drink()
+    if is_a_for_online:
+        today_info += '谢谢你更正我所有的错' + dot
 
     print(today_info)
     pyperclip.copy(today_info)  # copy to clipboard
@@ -217,7 +223,18 @@ def get_random_meal():
     meal += config.type_food[random.randint(0, len(config.type_food) - 1)]
     return meal + dot
 
-
+'''
+今天早上七点整起床。
+我在早饭喝了咖啡。
+我在七点半去了通过地铁上班。
+我在午饭吃了意大利的三明治。
+我在工作忙了。
+我六点五分回到家
+我在晚饭吃了蔬菜和蘑菇。
+我在晚上去了慢跑。我做了2.1公里。
+跑了这个距离花了我24分15秒。
+我在十一点去了睡觉。
+'''
 def get_daily_activity_for(day: str):
     pass
     # woke up time
