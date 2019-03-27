@@ -4,23 +4,22 @@ import datetime
 import random
 
 import bs4
+import chinese_number
+import chinese_time
+import config
 import pyperclip
 import requests
-import config
 
 date = datetime.datetime.now()
 
 dot = '。\n'
 next_line = '\n'
-
-
-def get_chinese_number(num):
-    numbers = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十',
-               '十一', '十二', '十三', '十四', '十五', '十六', '十七', '十八', '十九', '二十',
-               '二十一', '二十二', '二十三', '二十四', '二十五', '二十六', '二十七', '二十八', '二十九', '三十',
-               '三十一'
-               ]
-    return numbers[num]
+monday = 0
+tuesday = 1
+wednesday = 2
+friday = 4
+saturday = 5
+sunday = 6
 
 
 def get_distance_from_steps(steps_counter):
@@ -41,44 +40,15 @@ def get_temp_from_internet():
     return temp
 
 
-def get_time_in_chinese(time):
-    result = ''
-    print(time)
-    splited_time = time.split('.')
-    result += get_chinese_number(int(splited_time[0]))
-
-    return result
-
-
 '''
     print()  # I woke up/went to sleep at [time]
     print()  # For breakast/lunch/dinner I ate (meat + filling ) and drink (beer,tea,coffee,wine)
 '''
 
-
-def get_text_based_on_time(time, meal):
-    day_info = ''
-    if time > 17:
-        day_info += ''
-        # went to sleep at 我在凌晨一点一分睡觉。
-        # back from work at
-        # ate at dinner
-    elif time > 12:
-        day_info += ''
-        # woke up
-        # went to work at
-        # ate at lunch
-    else:
-        day_info += ''
-        # woke up
-        # ate at breakfast
-    return day_info
-
-
 year = ''
 
 for i in list(str(date.year)):
-    year += get_chinese_number(int(i))
+    year += chinese_number.get_chinese_number(int(i))
 
 
 def get_distance_from_run(run_distance):
@@ -99,12 +69,10 @@ def generate_meal(meals: list):
 
 
 def add_meal_sentence(meal):
-    #  today_info += get_text_based_on_time(time,meal)
     if len(meal) == 0:
         return get_random_meal()
     else:
         return generate_meal(meal)
-
 
 
 def generate_info_about_today(weather_rating,
@@ -119,7 +87,6 @@ def generate_info_about_today(weather_rating,
                               with_random_sentences,
                               entry: int,
                               ):
-
     today_info = get_entry_number(entry)
 
     today_info = add_today_date(today_info)
@@ -138,15 +105,16 @@ def generate_info_about_today(weather_rating,
     today_info += run_sentence(run_distance, run_time)
 
     today_info += generate_random_sentence(with_random_sentences)
+    today_info += get_daily_activity_for(weather_description_1, weather_description_2,) + dot
 
     print(today_info)
     pyperclip.copy(today_info)  # copy to clipboard
 
 
 def add_today_date(today_info):
-    chinese_month = get_chinese_number(date.month)
-    chinese_day = get_chinese_number(date.day)
-    chinese_day_of_the_week = get_chinese_number(date.weekday() + 1)
+    chinese_month = chinese_number.get_chinese_number(date.month)
+    chinese_day = chinese_number.get_chinese_number(date.day)
+    chinese_day_of_the_week = chinese_number.get_chinese_number(date.weekday() + 1)
     today_info += '今天是' + year + '年' + chinese_month + '月' + chinese_day + '日,星期' + chinese_day_of_the_week + dot
     return today_info
 
@@ -178,35 +146,9 @@ def run_sentence(run_distance, run_time):
         return ''
 
 
-def get_chinese_number_for(entry):
-    number = ''
-    thousands = entry // 1000
-    if thousands > 0:
-        number += get_chinese_number(thousands) + '千'
-
-    entry = entry % 1000
-    hundreds = entry // 100
-
-    if hundreds > 0:
-        number += get_chinese_number(hundreds) + '百'
-
-    entry = entry % 100
-    tens = entry // 10
-
-    if tens > 0:
-        number += get_chinese_number(tens) + '十'
-
-    ones = entry % 10
-
-    if ones > 0:
-        number += get_chinese_number(ones)
-
-    return number
-
-
 def get_entry_number(entry: int) -> str:
     if entry != 0:
-        return "Dom's entry: " + get_chinese_number_for(entry) + dot
+        return "Dom's entry: " + chinese_number.get_chinese_number_for(entry) + dot
     else:
         return ''
 
@@ -218,19 +160,51 @@ def get_random_meal():
     return meal + dot
 
 
-def get_daily_activity_for(day: str):
-    pass
-    # woke up time
+def thursday()-> int:
+    return 4
+
+
+def get_daily_activity_for(weather_description_1, weather_description_2):
+    day_of_the_week = date.weekday()
+
+    day = '现在的时间是' + chinese_time.get_current_time_in_chinese() + dot
+
+    hour = 0
+    minute = 0
+    breakfast = ''
+    go_to_work = ''
+    sleep_time = [0, 0]
+
+    if day_of_the_week in range(monday, thursday()):
+        hour = 6
+        minute = 15
+        breakfast = "我没有吃早饭但是我喝了咖啡"
+    elif day_of_the_week == friday:
+        hour = 7
+        minute = 30
+        breakfast = "我没有吃早饭"
+    elif day_of_the_week == saturday or day_of_the_week == sunday:
+        hour = 8
+        minute = 45
+        breakfast = "我在早饭吃" + config.breakfast('british')
+
+    day += "我早上" + chinese_time.get_time_in_chinese_for(hour, minute) + "起床" + dot  # woke up time
+    day += breakfast + dot
+    day += generate_lunch_walk(weather_description_1, weather_description_2) + dot
+
     # go to work
     # lunch
+    return day
 
 
 def generate_lunch_walk(weather_description_1, weather_description_2) -> str:
     if weather_description_1 == '雨' or weather_description_2 == '雨':
         return "因为正在下雨，我没有在午休时散步。"  # I didn't go for a walk at lunch break as it was raining.
     else:
-        walk = get_distance_from_run(random.randint(1000,4501))
+        walk = get_distance_from_run(random.randint(1000, 4501))
         return "我午休时走了" + walk + "公里。"
+
+
 '''
 lunch break options
 因为正在下雨，我没有在午休时散步。
@@ -241,3 +215,22 @@ I didn't go for a walk at lunch break as it was raining.
 I walked 3 km at lunch break.
 I don't feel very well, so I stay in the office during lunch break.
 '''
+
+
+def get_text_based_on_time(time, meal):
+    day_info = ''
+    if time > 17:
+        day_info += ''
+        # went to sleep at 我在凌晨一点一分睡觉。
+        # back from work at
+        # ate at dinner
+    elif time > 12:
+        day_info += ''
+        # woke up
+        # went to work at
+        # ate at lunch
+    else:
+        day_info += ''
+        # woke up
+        # ate at breakfast
+    return day_info
