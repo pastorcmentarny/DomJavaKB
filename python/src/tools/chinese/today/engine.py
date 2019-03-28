@@ -9,6 +9,7 @@ import chinese_time
 import config
 import pyperclip
 import requests
+import data_generator
 
 date = datetime.datetime.now()
 
