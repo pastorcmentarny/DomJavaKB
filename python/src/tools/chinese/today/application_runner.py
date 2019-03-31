@@ -7,23 +7,23 @@ import engine
 # it used to generate random note entry and for practice chinese
 
 # SETTINGS:
-weather_rating = config.rating['not good']
-weather_description_1 = config.weather['cloudy']
-weather_description_2 = config.weather['cold']
-upper_wear_color = config.color['blue']
+weather_rating = config.rating['excellent']
+weather_description_1 = config.weather['sunny']
+weather_description_2 = ''  # config.weather['cold']
+upper_wear_color = config.color['grey']
 upper_wear_type = config.wear['t-shirt']
-lower_wear_color = config.color['grey']
+lower_wear_color = config.color['black']
 lower_wear_type = config.wear['jeans']
-steps = 11080
-time = '13.20'
-run_distance = 2400  # meters
-run_time = 22 * 60 + 57  # seconds
-# //FIXME need fix it: meal = [config.dish['sweet and sour pork']] #, config.food['fries']] # set to meal = []  to generate random meal sentence
-meal = []
-yesterday_diary = False
-with_random_sentences = False
+steps = 11200
+time = ''  # ''15.15'
+run_distance = 5010  # meters
+run_time = 43 * 60 + 22  # seconds
+meal = '' # '[config.dish['cheeseburger'], config.dish['hamburger']]
+yesterday_diary = True
+with_random_sentences = True
 is_a_for_online = True
-entry = 380
+health = config.health['good']
+entry = 382
 # END OF SETTINGS
 
 engine.generate_info_about_today(weather_rating,

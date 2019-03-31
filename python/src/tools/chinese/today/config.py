@@ -35,11 +35,47 @@ wear = {
     '': '睡衣'
 }
 
+polish_dish = {
+    'barszcz czerwony,': '红罗宋汤',
+    'żurek': 'żurek',
+    'barszcz biały': '白罗宋汤',
+    'bigos': 'bigos',
+    'grochówka': '豌豆汤',
+    'galareta drobiowa': '鸡肉冻',
+    'galareta wieprzowa,': '猪肉冻',
+    'zupa warzywna': '',
+    'karp, sandacz po polsku, węgorz i inne ryby słodkowodne,,': '',
+    'kapuśniak': '',
+    'zupa grzybowa': '蘑菇汤',
+    'zupa ogórkowa': '黄瓜汤',
+    'rosół': '肉汤',
+    'kluski': '面条',
+    'racuchy': '煎饼',
+    'kaszanka': '黑布丁',
+    'polskie pierogi': '波兰饺子'
+}
+
 dish = {
     'kung pao chicken': '宫保鸡丁',
     'mapo tofu': '麻婆豆腐)',
-    'sweet and sour pork': '咕咾肉'
+    'sweet and sour pork': '咕咾肉',
+    'cheeseburger': '乳酪汉堡',
+    'hamburger': '汉堡',
+    'Fish & Chips': '鱼片',
+    'Yorkshire Pudding': '约克郡布丁',
+    'Sausage & Mash': '香肠和马什'
 }
+
+prefix_food = [
+    '辣',  # spicy
+    '糖醋',  # sweet & sour
+    '四川',  # sichuan
+    '湖南',  # húnán
+    '广东',  # guǎngdōng
+    '福建',  # fújiàn
+    '黑胡椒',  # black pepper
+
+]
 
 main_food = [
     '牛肉',  # beef
@@ -67,10 +103,18 @@ drink = {
     'red wine': '红酒'
 }
 
+health = {
+    'good': '',
+    'sick': '',
+    'sleepy': '',  # add random reason
+    'tired': '',
+    'sad': ''  # add random reason
+}
+
 breakfast = {
     'coffee': drink['coffee'],
     'kefir': 'kefir',
-    'british': '英国的早饭(香肠,烽火,拼字蛋,烤豆,番茄,蘑菇和炸土豆饼).',
+    'british': '英国的早饭(香肠,烽火,拼字蛋,烤豆,番茄,蘑菇和炸土豆饼)',
     'sandwich': '三明治(火腿,起司,番茄,黄瓜和生菜)'
 }
 
@@ -124,8 +168,6 @@ sentences = [
     '是的。它有一个惊人的情节。',
     '你喜欢什么样的电影？',
     '我喜欢科幻电影。',
-    '七点一刻：慢跑',
-    '七点三刻：早饭',
     '天气多云和且刮风。',
     '谁放的屁？',
     '我做到了。',
@@ -163,7 +205,8 @@ sentences = [
     '这是关于醉酒的学生。',
     '我想睡更多但是我必须起床，否则工作我会迟到的。',
     '唐人街看起来很漂亮因为很多地方都为即将到来的中秋节而装扮一新。',
-    '上周二我收到通知函。我将在十一月份开始新的工作。',
+    '上周二我收到通知函。',
+    '我将在十一月份开始新的工作。',
     '我要换工作，因为我要学习新技能。',
     '我应该在6.30醒来，因为我要跑。',
     '我又在晚上跑了两公里。',
@@ -173,7 +216,8 @@ sentences = [
     '科学技术中最酷的事项是什么',
     '你看的最后一部电影是什么？',
     '怎么样？好看吗？',
-    '电影马马虎虎。我喜欢但它并不像我想象的那么好。',
+    '电影马马虎虎。',
+    '我喜欢但它并不像我想象的那么好。',
     '她考上驾驶证吗？',
     '我的肚子比你的大得多。',
     '我觉得我生病了，但我还是去工作了。',
@@ -188,7 +232,9 @@ sentences = [
     '这本书是关于什么的？',
     '这书是关于醉酒的学生。',
     '我晚饭喝一杯茶。',
-    '我很睏。昨天我回天津。天津的天气很好。',
+    '我很睏。',
+    '昨天我回天津。',
+    '天津的天气很好。',
     '我睡了十个小时。',
     '我妹妹有狗。',
     '我喜欢走路的狗。',
@@ -239,13 +285,23 @@ sentences = [
     '它是喜剧的电视剧。',
     '你喜欢吃辛辣食物吗？',
     '我喜欢吃辛辣食物。 ',
-    '我经常吃四川菜。', ','
-                '在苏格兰这儿/里/冬天不下雪。',
+    '我经常吃四川菜。',
+    '在苏格兰这儿/里/冬天不下雪。',
     '我现在有大麻烦了。',
     '你会推荐它吗？为什么呢？',
     '是的。它有一段惊人的情节。',
     '你喜欢什么样的电影？',
+    '我待在家里。',
+    '我和我的儿子一起玩。',
+    '我待在家里。',
+    '我和我的儿子一起玩。',
     '我喜欢科幻电影。'
+]
+
+weekend_activity = [
+    '我去散步去停车。',  # i went for a walk to park.
+    '我待在家里和儿子一起玩。',  # i stayed at home and I played with my son.
+    '我玩游戏。' # i played games.
 ]
 
 daily_activities = [
