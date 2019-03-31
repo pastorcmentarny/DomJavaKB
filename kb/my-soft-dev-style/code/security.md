@@ -35,3 +35,7 @@
     -   Use HTTPS in Production
     -   Test Your Dependencies. Ensure your application does not use dependencies with known vulnerabilities.
     -   Spring Security enables CSRF support by default. If you use a JavaScript framework, configure the CookieCsrfTokenRepository so cookies are not HTTP-only
+0.  Protect the integrity of logs. Forward them to another system so they can be archived and can't be modified.
+0.  Protect your keys! Never store symmetric keys, asymmetric private keys, or passwords unencrypted on disk, in databases, or in source code repositories.
+0.  Authentication and authorisation. Deny by default, permit when necessary.
+0.  Always Escape, encode, and parameterize user input so it can't be interpreted maliciously. 

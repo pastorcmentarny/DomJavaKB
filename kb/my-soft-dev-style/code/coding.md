@@ -25,6 +25,11 @@
 6.  A comment may be used to amplify the importance of something.
 7.  Don't comment bad code, rewrite it.
 
+
+## VCS (GIT only)
+
+1.  A Git commit message is the best way to communicate context about why code was changed, while diff tells you what. 
+
 ##  DEBUGGING:
 1.  Debugging issues is the skill of diving into only those component parts that might possibly be causing the observed undesirable behavior. 
 2.  Spend more time trying to figure things out for yourself before asking for help. Ask for help regards Design or Product Discussions . If you’re debugging, then you need to learn how to find your own bugs. 
