@@ -19,4 +19,6 @@ class InfoUtils(text: String) {
     fun displayAllProviders() {
         Providers.getProviders().forEach { provider -> provider.forEach { key, value -> println("$key : $value") } }
     }
+
 }
+
