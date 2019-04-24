@@ -212,7 +212,7 @@ public final class StringUtils {
     }
 
     public static String swapCaseLettersInString(String text) {
-        if (isStringBlank(text)) return EMPTY_STRING;
+        if (isStringBlank(text)) return text;
         var stringBuilder = new StringBuilder(EMPTY_STRING);
         for (Character character : text.toCharArray()) {
             if (isUpperCase(character)) {

@@ -316,14 +316,14 @@ public class StringUtilsTest {
         assertThat(isAlphanumeric).isFalse();
     }
 
-    // part of the test
+
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenStringIsEmptyForSwapCharactersTest() {
-        // exception
-        exception.expect(IllegalArgumentException.class);
-
         // when
-        swapCaseLettersInString(null);
+        final String result = swapCaseLettersInString(null);
+
+        // then
+        assertThat(result).isNull();
     }
 
     @Test
@@ -659,13 +659,13 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void toCamelCaseShouldThrowIllegalArgumentExceptionWhenInputIsNull() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("text cannot be null");
+    public void toCamelCaseShouldReturnNullWhenStringIsNull() {
 
         // when
-        getStringWithCapitalizedFirstCharacter(null);
+        final String result = getStringWithCapitalizedFirstCharacter(null);
+
+        // then
+        assertThat(result).isNull();
     }
 
     @Test
