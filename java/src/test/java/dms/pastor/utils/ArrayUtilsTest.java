@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import static dms.pastor.utils.ArrayUtils.*;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateRandomByteArray;
 import static org.assertj.core.api.Java6Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 

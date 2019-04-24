@@ -1,4 +1,7 @@
-package dms.pastor.utils;
+package dms.pastor.utils.transformers;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.function.Function;
 
@@ -12,6 +15,8 @@ import java.util.function.Function;
  * tag-lambada tag-checked-exception
  */
 public interface ToUncheckedExceptionTransformer<T, R, E extends Throwable> {
+    Logger LOGGER = LoggerFactory.getLogger(ToUncheckedExceptionTransformer.class);
+
     R apply(T t) throws E;
 
     static <T, R, E extends Throwable> Function<T, R> transformToUncheckedException(ToUncheckedExceptionTransformer<T, R, E> function) {
@@ -19,7 +24,7 @@ public interface ToUncheckedExceptionTransformer<T, R, E extends Throwable> {
             try {
                 return function.apply(t);
             } catch (Throwable exception) {
-                System.out.println(exception.getMessage());
+                LOGGER.error(exception.getMessage());
                 throw new RuntimeException(exception);
             }
         };

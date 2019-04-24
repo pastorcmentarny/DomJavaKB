@@ -1,5 +1,6 @@
 package dms.pastor.utils;
 
+import dms.pastor.utils.transformers.ToUncheckedExceptionTransformer;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
