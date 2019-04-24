@@ -1,9 +1,12 @@
 package dms.pastor.tools.salarycalc;
 
 import dms.pastor.utils.DateUtils;
+import dms.pastor.utils.NumberUtils;
 
 import java.time.LocalDate;
 import java.time.Month;
+
+import static dms.pastor.utils.NumberUtils.toIntFromDouble;
 
 /**
  * Author Dominik Symonowicz
@@ -15,6 +18,10 @@ import java.time.Month;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 class Calculator {
+
+    public Calculator(int travelTimeInMinutes, int annualLeave){
+
+    }
 
 /*
       Zone 1 + 3200
@@ -48,16 +55,24 @@ class Calculator {
     }
 
 
-    public int getHolidayAdjustemt(int annualLeave) {
+    public int getHolidayAdjustment(int annualLeave) {
         final int minimumHolidayAllowance = 25;
-        if (annualLeave <= minimumHolidayAllowance) {
-            return 2000 * (annualLeave - minimumHolidayAllowance);
+        if (minimumHolidayAllowance == annualLeave) {
+            return 0;
+        }
+
+        if (annualLeave < minimumHolidayAllowance) {
+            return (minimumHolidayAllowance - annualLeave) * 2000;
         } else {
-            return (minimumHolidayAllowance - annualLeave) * -750;
+            return (annualLeave - minimumHolidayAllowance) * -750;
         }
     }
 
     public int zoneOneAddon() {
         return 1000 + 15 * agingBonus();
+    }
+
+    public int getSeniorPenalty() {
+        return toIntFromDouble(Math.round(getBasicSalary()*1.5));
     }
 }
