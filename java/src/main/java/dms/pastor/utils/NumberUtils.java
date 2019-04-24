@@ -203,6 +203,10 @@ public final class NumberUtils {
         return number > 255 || number < 0;
     }
 
+    public static int toIntFromDouble(double number) {
+        return (int) Math.round(number);
+    }
+
     private static float getResult(float currentValue, float value, int comparisonResult) {
         if (comparisonResult > 0) {
             return currentValue;

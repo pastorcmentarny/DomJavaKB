@@ -641,4 +641,40 @@ public class NumberUtilsTest {
         assertThat(result).isEmpty();
     }
 
+    @Test
+    public void toIntFromDoubleFor1AcceptanceTest() {
+        // when
+        final int result = toIntFromDouble(1.0d);
+
+        // then
+        assertThat(result).isEqualTo(1);
+    }
+
+    @Test
+    public void toIntFromDoubleShouldReturnOneForOneDotFortyNineAcceptanceTest() {
+        // when
+        final int result = toIntFromDouble(1.49d);
+
+        // then
+        assertThat(result).isEqualTo(1);
+    }
+
+    @Test
+    public void toIntFromDoubleShouldReturnTwoForOneAndHalfAcceptanceTest() {
+        // when
+        final int result = toIntFromDouble(1.5d);
+
+        // then
+        assertThat(result).isEqualTo(2);
+    }
+
+    @Test
+    public void toIntFromDoubleShouldReturnTwoForOneDotNinetyNineAcceptanceTest() {
+        // when
+        final int result = toIntFromDouble(1.99d);
+
+        // then
+        assertThat(result).isEqualTo(2);
+    }
+
 }
