@@ -101,10 +101,10 @@ public class ResultsTest {
         final String test = "Test";
         final String item = "Item";
         final String asString = "Result{" +
-                "\n\tsuccess: true" +
-                "\n\tmessage: \'" + test + '\'' +
-                "\n\thasItem: " + item +
-                "\n}";
+            "\n\tsuccess: true" +
+            "\n\tmessage: \'" + test + '\'' +
+            "\n\thasItem: " + item +
+            "\n}";
 
         // when
         Result<String> resultWithMessage = new Result<>(false, "Unknown", null);

@@ -502,7 +502,7 @@ public class RandomDataGeneratorTest {
     }
 
     @Test
-    public void generateNonAlphanumericStringAcceptanceTest(){
+    public void generateNonAlphanumericStringAcceptanceTest() {
         // given
 
         // when

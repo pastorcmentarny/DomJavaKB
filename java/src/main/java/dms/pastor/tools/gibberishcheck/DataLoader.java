@@ -16,7 +16,7 @@ import static java.nio.file.Files.readAllLines;
 class DataLoader {
 
 
-    public static List<String> loadDictionary(String path){
+    public static List<String> loadDictionary(String path) {
         String base = FileSystems.getDefault().getPath(".").toAbsolutePath().toString();
         var dictionary = new ArrayList<String>();
         try (Stream<String> stream = Files.lines(Paths.get(base + path))) {
@@ -32,7 +32,7 @@ class DataLoader {
     public static String loadEmailFromRecruiter(String path) {
         String base = FileSystems.getDefault().getPath(".").toAbsolutePath().toString();
         System.out.println(Paths.get(base + path).toAbsolutePath());
-        try{
+        try {
             List<String> lines = readAllLines(Paths.get(path));
             return lines.toString();
         } catch (IOException e) {

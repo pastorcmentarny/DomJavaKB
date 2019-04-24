@@ -36,9 +36,9 @@ class Name {
     @Override
     public String toString() {
         return "Name{" +
-                "first='" + first + '\'' +
-                ", middles='" + middles + '\'' +
-                ", last='" + last + '\'' +
-                '}';
+            "first='" + first + '\'' +
+            ", middles='" + middles + '\'' +
+            ", last='" + last + '\'' +
+            '}';
     }
 }

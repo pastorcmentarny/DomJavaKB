@@ -31,21 +31,21 @@ public final class PlayerBuilder {
 
     public Unit build() {
         return new Player(
-                sp,
-                elements,
-                health,
-                cards,
-                name,
-                condition,
-                description
+            sp,
+            elements,
+            health,
+            cards,
+            name,
+            condition,
+            description
         );
     }
 
     public Player buildDeathPlayer() {
         return new Player(0, null, healthBuilder()
-                .hp(0)
-                .build(),
-                null, "Death Unit", null, "This unit is death.");
+            .hp(0)
+            .build(),
+            null, "Death Unit", null, "This unit is death.");
     }
 
     public PlayerBuilder sp(int sp) {

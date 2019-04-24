@@ -85,8 +85,8 @@ public class ConditionEntry {
         if (!(otherConditionEntry instanceof ConditionEntry)) return false;
         ConditionEntry conditionEntry = (ConditionEntry) otherConditionEntry;
         return getTurnsLeft() == conditionEntry.getTurnsLeft() &&
-                isPersistent() == conditionEntry.isPersistent() &&
-                condition == conditionEntry.condition;
+            isPersistent() == conditionEntry.isPersistent() &&
+            condition == conditionEntry.condition;
     }
 
     @Override

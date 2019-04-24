@@ -19,8 +19,8 @@ public class DisplayStatusForAllStationsOption implements Option {
     @Override
     public void choose(Stations stations) {
         stations.getTubeStationList().stream()
-                .map(TubeStation::asFormattedString)
-                .forEach(System.out::println);
+            .map(TubeStation::asFormattedString)
+            .forEach(System.out::println);
 
     }
 }

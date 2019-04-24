@@ -43,7 +43,7 @@ public class SimpleDecisionTest {
         // then
         assertThat(result).isFalse();
         assertThat(decision.getReasons()).isEqualToIgnoringNewLines(name + " was rejected due:\nYou need to be 18 years old.\n" +
-                "You need be an international student.");
+            "You need be an international student.");
     }
 
 }

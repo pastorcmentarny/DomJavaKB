@@ -5,7 +5,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import static dms.pastor.utils.ArrayUtils.*;
+import static dms.pastor.utils.ArrayUtils.clone2DArrayOfInts;
+import static dms.pastor.utils.ArrayUtils.reverseStringArray;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateRandomByteArray;
 import static org.assertj.core.api.Java6Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;

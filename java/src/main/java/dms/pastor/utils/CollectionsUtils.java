@@ -28,7 +28,7 @@ public final class CollectionsUtils {
     }
 
     public static String[] convertToStringArray(ArrayList<String> itemsList) {
-        if(Objects.isNull(itemsList) || itemsList.isEmpty()){
+        if (Objects.isNull(itemsList) || itemsList.isEmpty()) {
             return new String[0];
         }
         String[] temp = new String[itemsList.size()];

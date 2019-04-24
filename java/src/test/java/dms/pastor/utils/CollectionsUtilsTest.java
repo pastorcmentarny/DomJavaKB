@@ -210,7 +210,7 @@ public class CollectionsUtilsTest {
     }
 
     @Test
-    public void convertToStringArrayAcceptanceTest(){
+    public void convertToStringArrayAcceptanceTest() {
         // given
         final List<String> example = List.of("one", "two", "three");
         final String[] expectedResult = new String[]{"one", "two", "three"};

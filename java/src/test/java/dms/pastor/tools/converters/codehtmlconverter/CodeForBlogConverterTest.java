@@ -26,26 +26,26 @@ public class CodeForBlogConverterTest {
 
     private static String getResult() {
         return "<blockquote>\n" +
-                "<code>\n" + "package dms.pastor.tools.codeToHTMLConverter;<br/>" + '\n' +
-                "<br/>" + '\n' +
-                "import org.junit.Before;<br/>" + '\n' +
-                "import org.junit.Test;<br/>" + '\n' +
-                "import java.util.ArrayList;<br/>" + '\n' +
-                "<br/>" + '\n' +
-                "import static org.junit.Assert.assertEquals;<br/>" + '\n' +
-                "/**<br/>\n" +
-                " * Author Dominik Symonowicz<br/>\n" +
-                " */<br/>\n" +
-                "public class CodeForBlogConverterTest {<br/>\n" +
-                HtmlUtils.getNbsp(4) +
-                "public static void main(String[] args) {<br/>\n" +
-                HtmlUtils.getNbsp(8) +
-                "System.out.println(\"I AM HUNGRY\");<br/>\n" +
-                HtmlUtils.getNbsp(4) +
-                "}<br/>\n" +
-                "}<br/>\n" +
-                "</code>\n" +
-                "</blockquote>\n";
+            "<code>\n" + "package dms.pastor.tools.codeToHTMLConverter;<br/>" + '\n' +
+            "<br/>" + '\n' +
+            "import org.junit.Before;<br/>" + '\n' +
+            "import org.junit.Test;<br/>" + '\n' +
+            "import java.util.ArrayList;<br/>" + '\n' +
+            "<br/>" + '\n' +
+            "import static org.junit.Assert.assertEquals;<br/>" + '\n' +
+            "/**<br/>\n" +
+            " * Author Dominik Symonowicz<br/>\n" +
+            " */<br/>\n" +
+            "public class CodeForBlogConverterTest {<br/>\n" +
+            HtmlUtils.getNbsp(4) +
+            "public static void main(String[] args) {<br/>\n" +
+            HtmlUtils.getNbsp(8) +
+            "System.out.println(\"I AM HUNGRY\");<br/>\n" +
+            HtmlUtils.getNbsp(4) +
+            "}<br/>\n" +
+            "}<br/>\n" +
+            "</code>\n" +
+            "</blockquote>\n";
     }
 
     private static List<String> generateSourceData() {

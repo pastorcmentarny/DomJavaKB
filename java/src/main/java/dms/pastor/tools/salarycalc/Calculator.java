@@ -1,7 +1,6 @@
 package dms.pastor.tools.salarycalc;
 
 import dms.pastor.utils.DateUtils;
-import dms.pastor.utils.NumberUtils;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -19,7 +18,7 @@ import static dms.pastor.utils.NumberUtils.toIntFromDouble;
  */
 class Calculator {
 
-    public Calculator(int travelTimeInMinutes, int annualLeave){
+    public Calculator(int travelTimeInMinutes, int annualLeave) {
 
     }
 
@@ -73,6 +72,6 @@ class Calculator {
     }
 
     public int getSeniorPenalty() {
-        return toIntFromDouble(Math.round(getBasicSalary()*1.5));
+        return toIntFromDouble(Math.round(getBasicSalary() * 1.5));
     }
 }

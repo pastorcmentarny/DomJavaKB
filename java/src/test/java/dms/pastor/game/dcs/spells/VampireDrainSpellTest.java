@@ -17,9 +17,9 @@ public final class VampireDrainSpellTest {
         Vampire vampire = new Vampire();
         final int initialHp = 10;
         final Unit enemy = UnitBuilder.unitBuilder()
-                .hp(initialHp)
-                .withoutShield()
-                .build();
+            .hp(initialHp)
+            .withoutShield()
+            .build();
 
         // when
         vampireDrainSpell.castSpell(vampire, enemy);

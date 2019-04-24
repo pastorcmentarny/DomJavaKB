@@ -31,8 +31,8 @@ public final class RegexUtils {
         if (isStringNotEmpty(what) && isStringNotEmpty(text)) {
             try {
                 return Pattern.compile(what)
-                        .split(text)
-                        .length - 1;
+                    .split(text)
+                    .length - 1;
             } catch (RuntimeException exception) {
                 LOGGER.error(format("Unable to calculate occurrence of %s in %s due expression's syntax is invalid", what, text), exception);
             }

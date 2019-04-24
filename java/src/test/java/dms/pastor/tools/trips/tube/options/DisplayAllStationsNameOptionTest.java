@@ -48,8 +48,8 @@ public class DisplayAllStationsNameOptionTest {
 
         // then
         assertThat(outputStream.toString()).contains("Wembley Park" + System.lineSeparator() +
-                "Green Park" + System.lineSeparator() +
-                "Elm Park");
+            "Green Park" + System.lineSeparator() +
+            "Elm Park");
 
     }
 
@@ -58,8 +58,8 @@ public class DisplayAllStationsNameOptionTest {
         // given
         final DisplayAllStationsNameOption displayAllStationsNameOption = new DisplayAllStationsNameOption();
         final Stations stations = stationsBuilder()
-                .stationList(singletonList(stationBuilder().build()))
-                .build();
+            .stationList(singletonList(stationBuilder().build()))
+            .build();
 
         // when
         displayAllStationsNameOption.choose(stations);

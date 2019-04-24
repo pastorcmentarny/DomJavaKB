@@ -1,7 +1,7 @@
 package dms.pastor.tools.trips.tube;
 
-import dms.pastor.tools.trips.tube.station.Stations;
 import dms.pastor.tools.trips.common.options.Status;
+import dms.pastor.tools.trips.tube.station.Stations;
 import dms.pastor.tools.trips.tube.station.TubeStation;
 import org.junit.After;
 import org.junit.Before;
@@ -81,37 +81,37 @@ public class TubeCLITest {
     public void shouldDisplayAllStationStats() {
         //given
         when(scanner.nextInt()).thenReturn(8)
-                .thenReturn(9);
+            .thenReturn(9);
 
         //when
         cli.mainMenu();
 
         //then
         assertThat(outputStream.toString()).contains("Wembley Park" + System.lineSeparator() +
-                "Green Park" + System.lineSeparator() +
-                ELM_PARK_VALID_STATION + System.lineSeparator());
+            "Green Park" + System.lineSeparator() +
+            ELM_PARK_VALID_STATION + System.lineSeparator());
     }
 
     @Test
     public void shouldDisplayStatusForAllStations() {
         //given
         when(scanner.nextInt()).thenReturn(1)
-                .thenReturn(9);
+            .thenReturn(9);
 
         //when
         cli.mainMenu();
 
         //then
         assertThat(outputStream.toString()).contains("Wembley Park was visited at " + LocalDate.now() + System.lineSeparator() +
-                "Green Park was passed at " + LocalDate.now() + System.lineSeparator() +
-                "Elm Park was not visited" + System.lineSeparator());
+            "Green Park was passed at " + LocalDate.now() + System.lineSeparator() +
+            "Elm Park was not visited" + System.lineSeparator());
     }
 
     @Test
     public void findStationShouldDisplayInfoAboutWembleyPark() {
         //given
         when(scanner.nextInt()).thenReturn(2)
-                .thenReturn(9);
+            .thenReturn(9);
         when(scanner.next()).thenReturn("Wembley Park");
 
         //when
@@ -127,7 +127,7 @@ public class TubeCLITest {
         // given
         final String invalidStationName = generateString(10);
         when(scanner.nextInt()).thenReturn(3).thenReturn(2)
-                .thenReturn(9);
+            .thenReturn(9);
         when(scanner.next()).thenReturn(invalidStationName);
 
         //when
@@ -141,7 +141,7 @@ public class TubeCLITest {
     public void updateStationStatusToPassedShouldUpdateNotVisitedStationToPassed() {
         // given
         when(scanner.nextInt()).thenReturn(3).thenReturn(2)
-                .thenReturn(9);
+            .thenReturn(9);
         when(scanner.next()).thenReturn(ELM_PARK_VALID_STATION);
         when(scanner.nextLine()).thenReturn(ELM_PARK_VALID_STATION);
 
@@ -159,7 +159,7 @@ public class TubeCLITest {
         // given
         final String invalidStationName = generateString(10);
         when(scanner.nextInt()).thenReturn(4).thenReturn(2)
-                .thenReturn(9);
+            .thenReturn(9);
         when(scanner.next()).thenReturn(invalidStationName);
 
         //when
@@ -173,7 +173,7 @@ public class TubeCLITest {
     public void updateStationStatusToVisitedShouldUpdateNotVisitedStationToVisited() {
         // given
         when(scanner.nextInt()).thenReturn(4).thenReturn(2)
-                .thenReturn(9);
+            .thenReturn(9);
         when(scanner.next()).thenReturn(ELM_PARK_VALID_STATION);
         when(scanner.nextLine()).thenReturn(ELM_PARK_VALID_STATION);
 

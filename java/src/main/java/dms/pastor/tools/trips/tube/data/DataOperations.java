@@ -26,13 +26,13 @@ public final class DataOperations {
     private static final String SRC = "src" + separator;
     private static final String RESOURCES = "resources" + separator;
     private static final String BASE_PATH = System.getProperty("user.dir") +
-            separator + SRC + "main" +
-            separator + RESOURCES;
+        separator + SRC + "main" +
+        separator + RESOURCES;
     private static final String STATION_PATH = System.getProperty("user.dir") +
-            separator + "java" +
-            separator + SRC +// "java" +
-            separator + "main" +
-            separator + RESOURCES + "tube" + File.separator + "station.txt";
+        separator + "java" +
+        separator + SRC +// "java" +
+        separator + "main" +
+        separator + RESOURCES + "tube" + File.separator + "station.txt";
     private static final String PATH = BASE_PATH + "tube" + File.separator + "station" + Timestamp.valueOf(LocalDateTime.now()) + ".txt";
     private static final String STATION_FILE_PATH = STATION_PATH;
     //D:\GitHub\DomJavaKB\java\src\main\resources\tube\station.txt

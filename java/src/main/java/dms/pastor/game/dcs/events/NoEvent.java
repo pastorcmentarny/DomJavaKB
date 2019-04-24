@@ -16,8 +16,8 @@ import java.util.Random;
 public class NoEvent extends Event {
     private static final Random RANDOM = new Random();
     private static final String[] DESCRIPTION = new String[]{
-            "Another round, where nothing seems to happen.",
-            "Wind of boredom pass through this round"
+        "Another round, where nothing seems to happen.",
+        "Wind of boredom pass through this round"
     };
 
     public NoEvent() {

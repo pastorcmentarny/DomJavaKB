@@ -80,9 +80,9 @@ public class Health {
         if (o == null || getClass() != o.getClass()) return false;
         Health health = (Health) o;
         return getHp() == health.getHp() &&
-                getMaxHp() == health.getMaxHp() &&
-                getArm() == health.getArm() &&
-                getHpRegenRate() == health.getHpRegenRate();
+            getMaxHp() == health.getMaxHp() &&
+            getArm() == health.getArm() &&
+            getHpRegenRate() == health.getHpRegenRate();
     }
 
     @Override
@@ -93,10 +93,10 @@ public class Health {
     @Override
     public String toString() {
         return "Health{" +
-                "hp=" + hp +
-                ", maxHp=" + maxHp +
-                ", arm=" + arm +
-                ", hpRegenRate=" + hpRegenRate +
-                '}';
+            "hp=" + hp +
+            ", maxHp=" + maxHp +
+            ", arm=" + arm +
+            ", hpRegenRate=" + hpRegenRate +
+            '}';
     }
 }

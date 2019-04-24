@@ -56,7 +56,7 @@ public class ProjectAnalyserTest {
 
         // when
         String path = System.getProperty("user.dir") +
-                separator + "src" + separator + "main" + separator;
+            separator + "src" + separator + "main" + separator;
         final ProjectAnalyser projectAnalyser = new ProjectAnalyser();
         projectAnalyser.analyse(path);
 

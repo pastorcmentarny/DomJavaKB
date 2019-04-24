@@ -28,8 +28,8 @@ public class FireElementEventTest {
         conditions.add(createTemporaryCondition(FIRE_SENSITIVE, 1));
 
         final Unit unit = unitBuilder()
-                .condition(conditions)
-                .build();
+            .condition(conditions)
+            .build();
 
         FireElementEvent fireElementEvent = new FireElementEvent();
 
@@ -47,8 +47,8 @@ public class FireElementEventTest {
         conditions.add(createTemporaryCondition(FIRE_IMMUNE, 1));
 
         final Unit unit = unitBuilder()
-                .condition(conditions)
-                .build();
+            .condition(conditions)
+            .build();
 
         FireElementEvent fireElementEvent = new FireElementEvent();
 

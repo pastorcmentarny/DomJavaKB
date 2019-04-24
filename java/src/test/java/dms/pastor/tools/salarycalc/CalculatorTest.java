@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public class CalculatorTest {
-    final Calculator calculator = new Calculator(0,0);
+    final Calculator calculator = new Calculator(0, 0);
 
     @Test //TODO do proper test
     public void shouldGetBasicSalary() throws Exception {
@@ -30,7 +30,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void shouldZoneOneAddonAcceptanceTest(){
+    public void shouldZoneOneAddonAcceptanceTest() {
 
         // when
         final int result = calculator.zoneOneAddon();

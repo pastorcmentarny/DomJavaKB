@@ -103,6 +103,6 @@ public class AssertJCollectionExampleTest {
 
         // then
         assertThat(enemies).extracting(Unit::getSp)
-                .containsExactly(24, 240, 200, 48);
+            .containsExactly(24, 240, 200, 48);
     }
 }

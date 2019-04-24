@@ -25,13 +25,13 @@ public class WordTest {
     private static final int DEFAULT_DIFFICULTY = 2;
 
     private final Word word = new Word(DEFAULT_ID, DEFAULT_CHINESE_CHARACTER, DEFAULT_PINYIN, DEFAULT_STROKES,
-            DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
+        DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
     @Test
     public void noWordShouldCreateNoWordObject() {
         // given
         final Word expectedWord = new Word(-1, null, null, -1,
-                null, null, null, null, -1);
+            null, null, null, null, -1);
 
         // when
         final Word word = Word.noWord();
@@ -44,8 +44,8 @@ public class WordTest {
     public void toShortStringShouldReturnBasicInformationAboutWord() {
         // given
         final String expectedWordWithBasicInformation = word.getChineseCharacter() + " - '" +
-                word.getPinyin() + "' - [ " +
-                word.getWordInEnglish() + " ]";
+            word.getPinyin() + "' - [ " +
+            word.getWordInEnglish() + " ]";
 
         // when
         final String wordWithBasicInformation = word.toShortString();
@@ -58,9 +58,9 @@ public class WordTest {
     public void asWordShouldReturnWordAsString() {
         // given
         final String expectedWordAsStringWithAllInformation = "ID: " + word.getId()
-                + "\nChinese: " + word.getChineseCharacter() + "\nPinyin: " + word.getPinyin() + "(" + word.getStrokes()
-                + ")\nEnglish: " + word.getWordInEnglish() + "\nPolish:" + word.getWordInPolish()
-                + "\nNotes: " + word.getNotes() + "\nDifficulty: " + word.getDifficulty();
+            + "\nChinese: " + word.getChineseCharacter() + "\nPinyin: " + word.getPinyin() + "(" + word.getStrokes()
+            + ")\nEnglish: " + word.getWordInEnglish() + "\nPolish:" + word.getWordInPolish()
+            + "\nNotes: " + word.getNotes() + "\nDifficulty: " + word.getDifficulty();
 
         // when
         final String wordAsString = word.asWord();
@@ -77,8 +77,8 @@ public class WordTest {
         final String expectedNote = "none";
 
         final Word wordWithNullNote = new Word(DEFAULT_ID, DEFAULT_CHINESE_CHARACTER, DEFAULT_PINYIN,
-                DEFAULT_STROKES, DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH,
-                DEFAULT_GROUP, nullNote, DEFAULT_DIFFICULTY);
+            DEFAULT_STROKES, DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH,
+            DEFAULT_GROUP, nullNote, DEFAULT_DIFFICULTY);
 
         // when
         final String notes = wordWithNullNote.getNotes();

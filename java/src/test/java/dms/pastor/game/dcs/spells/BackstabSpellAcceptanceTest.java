@@ -23,12 +23,12 @@ public class BackstabSpellAcceptanceTest {
         // given
         final BackstabSpell backstabSpell = new BackstabSpell();
         final Unit unit = unitBuilder()
-                .build();
+            .build();
         final int initialHp = 10;
         final Unit unit2 = unitBuilder()
-                .hp(initialHp)
-                .sp(10)
-                .build();
+            .hp(initialHp)
+            .sp(10)
+            .build();
         // when
         backstabSpell.castSpell(unit, unit2);
         // then
@@ -40,13 +40,13 @@ public class BackstabSpellAcceptanceTest {
         // given
         final BackstabSpell backstabSpell = new BackstabSpell();
         final Unit unit = unitBuilder()
-                .build();
+            .build();
         final int initialHp = 10;
         final Unit unit2 = unitBuilder()
-                .hp(initialHp)
-                .withoutShield()
-                .sp(0)
-                .build();
+            .hp(initialHp)
+            .withoutShield()
+            .sp(0)
+            .build();
         // when
         backstabSpell.castSpell(unit, unit2);
         // then

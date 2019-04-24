@@ -38,9 +38,9 @@ public class UnitTest {
     public void recreateShieldShouldSetSpToInitialSpIfCurrentSpIsHigher() {
         // given
         final Unit unit = unitBuilder()
-                .shielded()
-                .sp(LARGE_SHIELD_POINTS)
-                .build();
+            .shielded()
+            .sp(LARGE_SHIELD_POINTS)
+            .build();
         // when
         unit.recreateShield();
 
@@ -53,9 +53,9 @@ public class UnitTest {
     public void recreateShieldShouldDoNotChangeIfCurrentSpIsLower() {
         // given
         final Unit unit = unitBuilder()
-                .shielded()
-                .sp(1)
-                .build();
+            .shielded()
+            .sp(1)
+            .build();
         // when
         unit.recreateShield();
 
@@ -68,9 +68,9 @@ public class UnitTest {
     public void recreateShieldShouldCreateShield() {
         // given
         final Unit unit = unitBuilder()
-                .withoutShield()
-                .sp(0)
-                .build();
+            .withoutShield()
+            .sp(0)
+            .build();
         // when
         unit.recreateShield();
 
@@ -86,9 +86,9 @@ public class UnitTest {
         final int healBy = 5;
         final int maxHp = initialHp + healBy + 1;
         final Unit unit = unitBuilder()
-                .hp(initialHp)
-                .maxHp(maxHp)
-                .build();
+            .hp(initialHp)
+            .maxHp(maxHp)
+            .build();
 
         // when
         unit.addHP(healBy);
@@ -103,9 +103,9 @@ public class UnitTest {
         final int initialHp = 20;
         final int healBy = 5;
         final Unit unit = unitBuilder()
-                .hp(initialHp)
-                .maxHp(initialHp)
-                .build();
+            .hp(initialHp)
+            .maxHp(initialHp)
+            .build();
 
         // when
         unit.addHP(healBy);
@@ -118,9 +118,9 @@ public class UnitTest {
     public void createShieldShouldEnableShieldAndSetInitialSPValue() {
         // given
         final Unit unit = unitBuilder()
-                .withoutShield()
-                .sp(0)
-                .build();
+            .withoutShield()
+            .sp(0)
+            .build();
         final int initialShieldPoints = 20;
 
         // when
@@ -137,8 +137,8 @@ public class UnitTest {
         // given
         System.setOut(new PrintStream(outputStream));
         final Unit unit = unitBuilder()
-                .shielded()
-                .build();
+            .shielded()
+            .build();
 
         // when
         unit.createShield(INITIAL_SHIELD_POINTS);
@@ -156,8 +156,8 @@ public class UnitTest {
     public void increaseShieldByShouldIncreaseSpBy5() {
         // given
         final Unit unit = unitBuilder()
-                .sp(DEFAULT_NUMBER_OF_ELEMENTS)
-                .build();
+            .sp(DEFAULT_NUMBER_OF_ELEMENTS)
+            .build();
         final int expectedSp = 15;
 
         // when
@@ -173,11 +173,11 @@ public class UnitTest {
         // given
         final int airElements = DEFAULT_NUMBER_OF_ELEMENTS;
         final Unit unit = unitBuilder()
-                .elements(elementsBuilder()
-                        .setToOneForAllElements()
-                        .air(airElements)
-                        .build())
-                .build();
+            .elements(elementsBuilder()
+                .setToOneForAllElements()
+                .air(airElements)
+                .build())
+            .build();
 
         // when
         final int elements = unit.getElements().getElementsFor(AIR);
@@ -191,11 +191,11 @@ public class UnitTest {
         // given
         final int earthElements = DEFAULT_NUMBER_OF_ELEMENTS;
         final Unit unit = unitBuilder()
-                .elements(elementsBuilder()
-                        .setToOneForAllElements()
-                        .earth(earthElements)
-                        .build())
-                .build();
+            .elements(elementsBuilder()
+                .setToOneForAllElements()
+                .earth(earthElements)
+                .build())
+            .build();
 
         // when
         final int elements = unit.getElements().getElementsFor(EARTH);
@@ -209,11 +209,11 @@ public class UnitTest {
         // given
         final int fireElements = DEFAULT_NUMBER_OF_ELEMENTS;
         final Unit unit = unitBuilder()
-                .elements(elementsBuilder()
-                        .setToOneForAllElements()
-                        .fire(fireElements)
-                        .build())
-                .build();
+            .elements(elementsBuilder()
+                .setToOneForAllElements()
+                .fire(fireElements)
+                .build())
+            .build();
 
         // when
         final int elements = unit.getElements().getElementsFor(FIRE);
@@ -227,11 +227,11 @@ public class UnitTest {
         // given
         final int waterElements = DEFAULT_NUMBER_OF_ELEMENTS;
         final Unit unit = unitBuilder()
-                .elements(elementsBuilder()
-                        .setToOneForAllElements()
-                        .water(waterElements)
-                        .build())
-                .build();
+            .elements(elementsBuilder()
+                .setToOneForAllElements()
+                .water(waterElements)
+                .build())
+            .build();
 
         // when
         final int elements = unit.getElements().getElementsFor(WATER);
@@ -244,8 +244,8 @@ public class UnitTest {
     public void getElementForShouldReturnZeroForNull() {
         // given
         final Unit unit = unitBuilder()
-                .elements(ElementsBuilder.elementsBuilder().setToOneForAllElements().build())
-                .build();
+            .elements(ElementsBuilder.elementsBuilder().setToOneForAllElements().build())
+            .build();
 
         // when
         final int elements = unit.getElements().getElementsFor(null);
@@ -259,10 +259,10 @@ public class UnitTest {
     public void setElementForShouldSetAirElementsForAirType() {
         // given
         final Unit unit = unitBuilder()
-                .elements(elementsBuilder()
-                        .setToOneForAllElements()
-                        .build())
-                .build();
+            .elements(elementsBuilder()
+                .setToOneForAllElements()
+                .build())
+            .build();
 
         // when
         unit.getElements().setElementsFor(AIR, DEFAULT_NUMBER_OF_ELEMENTS);
@@ -275,10 +275,10 @@ public class UnitTest {
     public void setElementForShouldReturnEarthElementsForEarthType() {
         // given
         final Unit unit = unitBuilder()
-                .elements(elementsBuilder()
-                        .setToOneForAllElements()
-                        .build())
-                .build();
+            .elements(elementsBuilder()
+                .setToOneForAllElements()
+                .build())
+            .build();
 
         // when
         unit.getElements().setElementsFor(EARTH, DEFAULT_NUMBER_OF_ELEMENTS);
@@ -291,10 +291,10 @@ public class UnitTest {
     public void setElementForShouldReturnFireElementsForFireType() {
         // given
         final Unit unit = unitBuilder()
-                .elements(elementsBuilder()
-                        .setToOneForAllElements()
-                        .build())
-                .build();
+            .elements(elementsBuilder()
+                .setToOneForAllElements()
+                .build())
+            .build();
 
         // when
         unit.getElements().setElementsFor(FIRE, DEFAULT_NUMBER_OF_ELEMENTS);
@@ -307,10 +307,10 @@ public class UnitTest {
     public void setElementForShouldReturnWaterElementsForWaterType() {
         // given
         final Unit unit = unitBuilder()
-                .elements(elementsBuilder()
-                        .setToOneForAllElements()
-                        .build())
-                .build();
+            .elements(elementsBuilder()
+                .setToOneForAllElements()
+                .build())
+            .build();
 
         // when
         unit.getElements().setElementsFor(WATER, DEFAULT_NUMBER_OF_ELEMENTS);
@@ -323,8 +323,8 @@ public class UnitTest {
     public void isNotShieldedShouldReturnTrueIfUnitDoNotHaveShield() {
         // given
         final Unit unit = unitBuilder()
-                .withoutShield()
-                .build();
+            .withoutShield()
+            .build();
 
         // when
         final boolean isNotShielded = unit.isNotShielded();
@@ -337,8 +337,8 @@ public class UnitTest {
     public void isNotShieldedShouldReturnFalseIfUnitDoHaveShield() {
         // given
         final Unit unit = unitBuilder()
-                .shielded()
-                .build();
+            .shielded()
+            .build();
 
         // when
         final boolean isNotShielded = unit.isNotShielded();
@@ -351,8 +351,8 @@ public class UnitTest {
     public void setShieldToFalseShouldSetSpValueToZero() {
         // given
         final Unit unit = unitBuilder()
-                .sp(LARGE_SHIELD_POINTS)
-                .build();
+            .sp(LARGE_SHIELD_POINTS)
+            .build();
 
         // when
         unit.setShielded(false);
@@ -370,10 +370,10 @@ public class UnitTest {
         final int regenHpRate = 2;
 
         final Unit unit = unitBuilder()
-                .hp(1)
-                .hpRegenPerTurn(regenHpRate)
-                .withoutShield()
-                .build();
+            .hp(1)
+            .hpRegenPerTurn(regenHpRate)
+            .withoutShield()
+            .build();
 
         // debug
         LOGGER.info(unit.toString());
@@ -394,11 +394,11 @@ public class UnitTest {
         final int regenHpRate = 2;
 
         final Unit unit = unitBuilder()
-                .hp(9)
-                .maxHp(maxHp)
-                .hpRegenPerTurn(regenHpRate)
-                .withoutShield()
-                .build();
+            .hp(9)
+            .maxHp(maxHp)
+            .hpRegenPerTurn(regenHpRate)
+            .withoutShield()
+            .build();
 
         // when
         final int increase = unit.getHealth().increaseHpPerTurn();
@@ -416,11 +416,11 @@ public class UnitTest {
         final int currentHp = 11;
 
         final Unit unit = unitBuilder()
-                .hp(currentHp)
-                .maxHp(maxHp)
-                .hpRegenPerTurn(regenHpRate)
-                .withoutShield()
-                .build();
+            .hp(currentHp)
+            .maxHp(maxHp)
+            .hpRegenPerTurn(regenHpRate)
+            .withoutShield()
+            .build();
 
         // when
         final int increase = unit.getHealth().increaseHpPerTurn();
@@ -436,8 +436,8 @@ public class UnitTest {
 
         final int initialHp = 10;
         final Unit unit = unitBuilder()
-                .hp(initialHp)
-                .build();
+            .hp(initialHp)
+            .build();
         unit.getConditions().add(createTemporaryConditionWithDefaultDuration(BUBBLE_SHIELD));
 
         // when
@@ -455,9 +455,9 @@ public class UnitTest {
         final int initialHp = 10;
         final int initialSp = 20;
         final Unit unit = unitBuilder()
-                .hp(initialHp)
-                .sp(initialSp)
-                .build();
+            .hp(initialHp)
+            .sp(initialSp)
+            .build();
         unit.getConditions().add(createTemporaryConditionWithDefaultDuration(BUBBLE_SHIELD));
 
         // when
@@ -475,9 +475,9 @@ public class UnitTest {
         final int initialHp = 10;
         final int initialSp = 20;
         final Unit unit = unitBuilder()
-                .hp(initialHp)
-                .sp(initialSp)
-                .build();
+            .hp(initialHp)
+            .sp(initialSp)
+            .build();
         unit.getConditions().add(createTemporaryConditionWithDefaultDuration(BUBBLE_SHIELD));
 
         // when

@@ -39,10 +39,10 @@ public class NameBuilderTest {
 
         // when
         final Name result = nameBuilder()
-                .first(first)
-                .middles(middles)
-                .last(last)
-                .build();
+            .first(first)
+            .middles(middles)
+            .last(last)
+            .build();
 
         // then
         assertThat(result.getFirst()).isEqualTo(first);

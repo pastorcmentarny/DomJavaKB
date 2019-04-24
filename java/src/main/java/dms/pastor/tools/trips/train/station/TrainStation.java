@@ -13,7 +13,7 @@ import java.time.LocalDate;
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
- *
+ * <p>
  * Aberystwyth;;none;;none;;none;;X;;O;;N
  */
 public class TrainStation {

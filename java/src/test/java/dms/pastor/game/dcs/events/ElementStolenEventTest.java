@@ -13,10 +13,10 @@ public final class ElementStolenEventTest {
         // given
         ElementStolenEvent elementStolenEvent = new ElementStolenEvent();
         final Unit unit = UnitBuilder.unitBuilder()
-                .elements(elementsBuilder()
-                        .setToOneForAllElements()
-                        .build()
-                ).build();
+            .elements(elementsBuilder()
+                .setToOneForAllElements()
+                .build()
+            ).build();
         // when
         elementStolenEvent.makeItHappen(unit, unit);
 

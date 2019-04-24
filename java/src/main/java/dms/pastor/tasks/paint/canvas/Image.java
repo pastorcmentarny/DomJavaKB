@@ -94,8 +94,8 @@ public class Image {
         if (!(o instanceof Image)) return false;
         Image image1 = (Image) o;
         return getWidth() == image1.getWidth() &&
-                getHeight() == image1.getHeight() &&
-                Arrays.equals(getImage(), image1.getImage());
+            getHeight() == image1.getHeight() &&
+            Arrays.equals(getImage(), image1.getImage());
     }
 
     public String getImageAsString() {
@@ -121,10 +121,10 @@ public class Image {
     @Override
     public String toString() {
         return "Image{" +
-                "width=" + width +
-                ", height=" + height +
-                ", image=" + getImageAsString() +
-                '}';
+            "width=" + width +
+            ", height=" + height +
+            ", image=" + getImageAsString() +
+            '}';
     }
 
 }

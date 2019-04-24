@@ -7,7 +7,6 @@ import org.junit.rules.ExpectedException;
 
 import static dms.pastor.utils.HtmlUtils.HTML_SPACE;
 import static dms.pastor.utils.HtmlUtils.getNbsp;
-import static dms.pastor.utils.StringUtils.DASH;
 import static dms.pastor.utils.randoms.RandomDataGenerator.randomNegativeInteger;
 import static org.assertj.core.api.Assertions.assertThat;
 

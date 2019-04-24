@@ -27,10 +27,10 @@ class RowsGenerator {
 
     String generateRows() {
         return EMPTY_STRING + firstRow() + NEW_LINE +
-                secondRow() + NEW_LINE +
-                thirdRow() + NEW_LINE +
-                fourthRow() + NEW_LINE +
-                fifthRow() + NEW_LINE;
+            secondRow() + NEW_LINE +
+            thirdRow() + NEW_LINE +
+            fourthRow() + NEW_LINE +
+            fifthRow() + NEW_LINE;
     }
 
     private String firstRow() {

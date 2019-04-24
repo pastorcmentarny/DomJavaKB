@@ -304,11 +304,11 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
         final Canvas canvas = Canvas.createCanvasFor(4, 4);
         createNewLineCommand.setParam(new String[]{CREATE_LINE_COMMAND, "1", "1", "3", "1"});
         final String result = "------" + lineSeparator() +
-                "|xxx |" + lineSeparator() +
-                "|    |" + lineSeparator() +
-                "|    |" + lineSeparator() +
-                "|    |" + lineSeparator() +
-                "------" + lineSeparator();
+            "|xxx |" + lineSeparator() +
+            "|    |" + lineSeparator() +
+            "|    |" + lineSeparator() +
+            "|    |" + lineSeparator() +
+            "------" + lineSeparator();
 
         // when
         createNewLineCommand.execute(canvas);
@@ -323,11 +323,11 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
         final Canvas canvas = Canvas.createCanvasFor(4, 4);
         createNewLineCommand.setParam(new String[]{CREATE_LINE_COMMAND, "2", "1", "2", "3"});
         final String result = "------" + lineSeparator() +
-                "| x  |" + lineSeparator() +
-                "| x  |" + lineSeparator() +
-                "| x  |" + lineSeparator() +
-                "|    |" + lineSeparator() +
-                "------" + lineSeparator();
+            "| x  |" + lineSeparator() +
+            "| x  |" + lineSeparator() +
+            "| x  |" + lineSeparator() +
+            "|    |" + lineSeparator() +
+            "------" + lineSeparator();
 
         // when
         createNewLineCommand.execute(canvas);

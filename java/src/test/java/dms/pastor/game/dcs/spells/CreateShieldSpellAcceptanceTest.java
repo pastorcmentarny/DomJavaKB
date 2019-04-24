@@ -25,8 +25,8 @@ public class CreateShieldSpellAcceptanceTest {
         // given
         final int shieldPoints = 10;
         final Unit unit = unitBuilder()
-                .sp(shieldPoints)
-                .build();
+            .sp(shieldPoints)
+            .build();
 
         final CreateShieldSpell createShieldSpell = new CreateShieldSpell();
         // when
@@ -41,8 +41,8 @@ public class CreateShieldSpellAcceptanceTest {
     public void createShieldSpellShouldCreateAShieldIfUnitDoNotHaveIt() {
         // given
         final Unit unit = unitBuilder()
-                .withoutShield()
-                .build();
+            .withoutShield()
+            .build();
         assertThat(unit.isShielded()).isFalse();
 
         final CreateShieldSpell createShieldSpell = new CreateShieldSpell();

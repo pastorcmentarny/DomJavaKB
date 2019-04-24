@@ -51,10 +51,10 @@ public final class WordResult extends Result {
     @Override
     public String toString() {
         return "Result{" +
-                "\n\tsuccess: " + isSuccess() +
-                "\n\tmessage: \'" + getMessage() + '\'' +
-                (wordList != null ? "\n\thasItem: " + wordList.toString() : EMPTY_STRING) +
-                "\n}";
+            "\n\tsuccess: " + isSuccess() +
+            "\n\tmessage: \'" + getMessage() + '\'' +
+            (wordList != null ? "\n\thasItem: " + wordList.toString() : EMPTY_STRING) +
+            "\n}";
     }
 
 

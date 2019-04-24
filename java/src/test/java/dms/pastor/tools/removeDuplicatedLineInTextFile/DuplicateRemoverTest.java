@@ -51,9 +51,9 @@ public class DuplicateRemoverTest {
 
         // given
         final String nonExistingFile = System.getProperty("user.dir") +
-                separator + "src" + separator + "main" +
-                separator + "resources" +
-                separator + "fileThatDoesNotExist.lol";
+            separator + "src" + separator + "main" +
+            separator + "resources" +
+            separator + "fileThatDoesNotExist.lol";
         // when
         duplicateRemover.performTask(nonExistingFile);
 
@@ -63,9 +63,9 @@ public class DuplicateRemoverTest {
     public void acceptanceCriteria() {
         // given
         final String filePath = System.getProperty("user.dir") +
-                separator + "src" + separator + "test" +
-                separator + "resources" +
-                separator + "fileWithDuplicatedLines.txt";
+            separator + "src" + separator + "test" +
+            separator + "resources" +
+            separator + "fileWithDuplicatedLines.txt";
         final String randomLine = generateString(32);
         final String testLine = "test";
         String[] stringList = new String[]{randomLine, testLine, testLine};

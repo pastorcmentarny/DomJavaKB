@@ -36,10 +36,10 @@ public class BloggedOptionTest {
     public void shouldSetBloggedForStation() {
         // given
         final Stations stations = stationsBuilder()
-                .stationList(singletonList(stationBuilder()
-                        .blogged(false).build()
-                ))
-                .build();
+            .stationList(singletonList(stationBuilder()
+                .blogged(false).build()
+            ))
+            .build();
         given(scanner.nextLine()).willReturn(stations.getTubeStationList().get(0).getName());
 
         // check

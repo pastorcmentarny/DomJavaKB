@@ -30,8 +30,8 @@ public final class BattleTest {
         // given
         final Unit deathUnit = unitBuilder().buildDeathUnit();
         final Unit aliveUnit = unitBuilder()
-                .name("Alive")
-                .build();
+            .name("Alive")
+            .build();
 
         Battle battle = new Battle(aliveUnit, deathUnit);
 
@@ -46,24 +46,24 @@ public final class BattleTest {
     public void isInFightShouldReturnFalseIfAllUnitsAreAlive() {
         // given
         final ConditionEntry poisonCondition = ConditionEntryBuilder.conditionEntryBuilder()
-                .condition(POISONED)
-                .build();
+            .condition(POISONED)
+            .build();
         final ConditionEntry regenerationCondition = ConditionEntryBuilder.conditionEntryBuilder()
-                .condition(REGENERATION)
-                .build();
+            .condition(REGENERATION)
+            .build();
         final ConditionEntry stunnedCondition = ConditionEntryBuilder.conditionEntryBuilder()
-                .condition(STUNNED)
-                .turnsLeft(1)
-                .build();
+            .condition(STUNNED)
+            .turnsLeft(1)
+            .build();
         Condition condition = new Condition();
         condition.add(poisonCondition);
         condition.add(regenerationCondition);
         condition.add(stunnedCondition);
 
         final Unit aliveUnit = unitBuilder()
-                .condition(condition)
-                .name("Alive")
-                .build();
+            .condition(condition)
+            .name("Alive")
+            .build();
 
         Battle battle = new Battle(aliveUnit, aliveUnit);
 

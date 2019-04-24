@@ -39,12 +39,12 @@ public class PoisonSpellTest {
         PoisonSpell poisonSpell = new PoisonSpell();
         Condition condition = new Condition();
         condition.add(conditionEntryBuilder()
-                .condition(POISON_IMMUNITY)
-                .build());
+            .condition(POISON_IMMUNITY)
+            .build());
 
         Unit unit = unitBuilder()
-                .condition(condition)
-                .build();
+            .condition(condition)
+            .build();
 
         // when
         poisonSpell.castSpell(unit, unit);

@@ -58,12 +58,12 @@ final class RankJournalViewer {
 
     private static void addJournalToList(StringBuilder list, int counter, Journal journal) {
         list.append(counter)
-                .append(TAB)
-                .append(journal.getName())
-                .append(TAB)
-                .append(journal.getScore())
-                .append(TAB).append(journal.getYear())
-                .append('\n');
+            .append(TAB)
+            .append(journal.getName())
+            .append(TAB)
+            .append(journal.getScore())
+            .append(TAB).append(journal.getYear())
+            .append('\n');
     }
 
     private static boolean isJournalNotExcluded(List<JournalType> excluded, Journal journal) {

@@ -215,10 +215,10 @@ public final class RandomDataGenerator {
         while (repeat) {
             int numberToCheck = randomNumber;
             repeat = Arrays.stream(numbers)
-                    .boxed()
-                    .collect(Collectors.toList())
-                    .stream()
-                    .anyMatch(number -> numberToCheck == number);
+                .boxed()
+                .collect(Collectors.toList())
+                .stream()
+                .anyMatch(number -> numberToCheck == number);
             if (repeat) {
                 randomNumber = randomInteger(min, max);
             }
@@ -272,15 +272,15 @@ public final class RandomDataGenerator {
         return String.valueOf(allPinyinWithTones.charAt(RANDOM.nextInt(allPinyinWithTones.length())));
     }
 
-    public static List<Integer> generateRandomNumberSequenceExcludingSpecificNumber(int start,int stop,int[] excluded){
+    public static List<Integer> generateRandomNumberSequenceExcludingSpecificNumber(int start, int stop, int[] excluded) {
         final List<Integer> numberList = IntStream.rangeClosed(start, stop).filter(number -> !contains(number, excluded)).boxed().collect(Collectors.toList());
         Collections.shuffle(numberList);
         return numberList;
     }
 
-    private static boolean contains(int number,int[] list){
-        for(int i : list){
-            if(i == number){
+    private static boolean contains(int number, int[] list) {
+        for (int i : list) {
+            if (i == number) {
                 return true;
             }
         }

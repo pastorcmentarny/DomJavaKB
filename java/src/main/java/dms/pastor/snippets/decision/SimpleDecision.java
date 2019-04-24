@@ -25,9 +25,9 @@ public class SimpleDecision implements Decision {
     @Override
     public String getReasons() {
         final List<String> result = votes.stream()
-                .filter(it -> !it.vote(citizen))
-                .map(Vote::getRejectionReason)
-                .collect(Collectors.toList());
+            .filter(it -> !it.vote(citizen))
+            .map(Vote::getRejectionReason)
+            .collect(Collectors.toList());
         StringBuilder stringBuilder = new StringBuilder(citizen.getName());
         stringBuilder.append(" was rejected due:\n");
         result.forEach(reason -> stringBuilder.append(reason).append(NEW_LINE));

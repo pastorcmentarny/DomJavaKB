@@ -1,11 +1,11 @@
 package dms.pastor.tools.trips.tube.options;
 
 import dms.pastor.tools.trips.common.options.Option;
+import dms.pastor.tools.trips.common.options.Status;
 import dms.pastor.tools.trips.tube.lines.Line;
 import dms.pastor.tools.trips.tube.lines.Lines;
 import dms.pastor.tools.trips.tube.station.Station;
 import dms.pastor.tools.trips.tube.station.Stations;
-import dms.pastor.tools.trips.common.options.Status;
 import dms.pastor.tools.trips.tube.station.TubeStation;
 import dms.pastor.utils.NumberUtils;
 
@@ -31,11 +31,11 @@ public class DisplayStatisticOption implements Option {
     @Override
     public void choose(Stations stations) {
         System.out.println("You visited " + stations.countStationVisitedThisYear() + " station(s) this year. (" +
-                countPercentageOfAllStationFor(stations.getTubeStationList().size(), stations.countStationVisitedThisYear()));
+            countPercentageOfAllStationFor(stations.getTubeStationList().size(), stations.countStationVisitedThisYear()));
         System.out.println("You visited " + stations.countStationVisited() + " station(s). (" +
-                countPercentageOfAllStationFor(stations.getTubeStationList().size(), stations.countStationVisited()));
+            countPercentageOfAllStationFor(stations.getTubeStationList().size(), stations.countStationVisited()));
         System.out.println("You passed " + stations.countStationPassed() + " station(s). (" +
-                countPercentageOfAllStationFor(stations.getTubeStationList().size(), stations.countStationPassed()));
+            countPercentageOfAllStationFor(stations.getTubeStationList().size(), stations.countStationPassed()));
         System.out.println(getStatsForLines(stations));
         System.out.println(displayStationsBlogged(stations));
     }

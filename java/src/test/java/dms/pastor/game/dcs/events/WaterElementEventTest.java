@@ -19,13 +19,13 @@ public final class WaterElementEventTest {
         // given
         WaterElementEvent waterElementEvent = new WaterElementEvent();
         final ConditionEntry conditionEntry = conditionEntryBuilder()
-                .condition(WATER_SENSITIVE)
-                .build();
+            .condition(WATER_SENSITIVE)
+            .build();
         Condition condition = new Condition();
         condition.add(conditionEntry);
         final Unit unit = unitBuilder()
-                .condition(condition)
-                .build();
+            .condition(condition)
+            .build();
 
         // when
         final String result = waterElementEvent.makeItHappen(unit, unit);
@@ -40,10 +40,10 @@ public final class WaterElementEventTest {
         // given
         WaterElementEvent waterElementEvent = new WaterElementEvent();
         final Unit unit = unitBuilder()
-                .elements(elementsBuilder()
-                        .setToOneForAllElements()
-                        .build())
-                .build();
+            .elements(elementsBuilder()
+                .setToOneForAllElements()
+                .build())
+            .build();
 
         // when
         final String result = waterElementEvent.makeItHappen(unit, unit);

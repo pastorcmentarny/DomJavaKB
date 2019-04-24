@@ -33,10 +33,10 @@ public enum Status {
         validateIfNotEmpty(statusShortcut);
 
         return Arrays
-                .stream(Status.values())
-                .filter(status -> status.value().equalsIgnoreCase(statusShortcut))
-                .findFirst()
-                .orElseThrow(() -> new NotFoundException("Status"));
+            .stream(Status.values())
+            .filter(status -> status.value().equalsIgnoreCase(statusShortcut))
+            .findFirst()
+            .orElseThrow(() -> new NotFoundException("Status"));
     }
 
     public String value() {

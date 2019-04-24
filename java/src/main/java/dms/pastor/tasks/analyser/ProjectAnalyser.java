@@ -51,8 +51,8 @@ class ProjectAnalyser {
     private void displayAllFilesInProject() {
         try {
             Files.list(Paths.get("."))
-                    .filter(Files::isRegularFile)
-                    .forEach(System.out::println);
+                .filter(Files::isRegularFile)
+                .forEach(System.out::println);
         } catch (IOException e) {
             LOGGER.error(String.format("Unable to list of all files due %s", e.getMessage()), e);
         }
@@ -135,13 +135,13 @@ class ProjectAnalyser {
 
     private String getResultAsText() {
         return "RESULT:\n" +
-                "\nFiles: " + getNumberOfFiles() +
-                "\nLines of code: " + getLinesOfCode() +
-                "\nCharacters: " + getCharacterNumbers() +
-                "\nWidest line: " + getWidestLine() + " in " + getWidestLineText() +
-                "\nFile with highest lines: " + getHighestLineCount() + " in " + getHighestLinesFileName() +
-                "\nAverage width line per file: " + calculateAverageWidth() +
-                "\nAverage lines per file: " + calculateAverageLinesPerFile();
+            "\nFiles: " + getNumberOfFiles() +
+            "\nLines of code: " + getLinesOfCode() +
+            "\nCharacters: " + getCharacterNumbers() +
+            "\nWidest line: " + getWidestLine() + " in " + getWidestLineText() +
+            "\nFile with highest lines: " + getHighestLineCount() + " in " + getHighestLinesFileName() +
+            "\nAverage width line per file: " + calculateAverageWidth() +
+            "\nAverage lines per file: " + calculateAverageLinesPerFile();
 
     }
 

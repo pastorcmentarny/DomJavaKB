@@ -41,7 +41,7 @@ final class WordValidator {
         }
 
         if (isNotValidChineseCharacter(word)) {
-            if (isStringEmpty(word.getChineseCharacter()) ||  isContainsAllowedWords(word.getChineseCharacter())) {
+            if (isStringEmpty(word.getChineseCharacter()) || isContainsAllowedWords(word.getChineseCharacter())) {
                 LOGGER.error(generateErrorMessage(word.getId(), "Chinese character", "It does't contain chinese character,"));
                 return false;
             }
@@ -74,12 +74,13 @@ final class WordValidator {
 
         return true;
     }
-    private static final List<String> allowedChineseWordsWithEnglishCharactersList = List.of("T恤","Java 开发人员");
+
+    private static final List<String> allowedChineseWordsWithEnglishCharactersList = List.of("T恤", "Java 开发人员");
 
     private static boolean isContainsAllowedWords(String word) {
 
-        for(String allowedWord : allowedChineseWordsWithEnglishCharactersList){
-            if (allowedWord.equalsIgnoreCase(word)){
+        for (String allowedWord : allowedChineseWordsWithEnglishCharactersList) {
+            if (allowedWord.equalsIgnoreCase(word)) {
                 return false;
             }
         }

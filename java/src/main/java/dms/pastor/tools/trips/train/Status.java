@@ -33,10 +33,10 @@ public enum Status {
         validateIfNotEmpty(statusShortcut);
 
         return Arrays
-                .stream(dms.pastor.tools.trips.common.options.Status.values())
-                .filter(status -> status.value().equalsIgnoreCase(statusShortcut))
-                .findFirst()
-                .orElseThrow(() -> new NotFoundException("Status"));
+            .stream(dms.pastor.tools.trips.common.options.Status.values())
+            .filter(status -> status.value().equalsIgnoreCase(statusShortcut))
+            .findFirst()
+            .orElseThrow(() -> new NotFoundException("Status"));
     }
 
     public String code() {

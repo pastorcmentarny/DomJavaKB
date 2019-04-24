@@ -1,9 +1,9 @@
 package dms.pastor.tools.trips.tube;
 
 import dms.pastor.domain.exception.NotFoundException;
+import dms.pastor.tools.trips.common.options.Status;
 import dms.pastor.tools.trips.tube.station.Line;
 import dms.pastor.tools.trips.tube.station.Stations;
-import dms.pastor.tools.trips.common.options.Status;
 import dms.pastor.tools.trips.tube.station.TubeStation;
 import org.junit.Rule;
 import org.junit.Test;

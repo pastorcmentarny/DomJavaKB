@@ -50,7 +50,7 @@ public final class Word {
     @SuppressWarnings("MagicNumber")
     public static Word defaultWord() {
         return new Word(292, "字", "zì", 6,
-                "character", "znak", new String[]{"hsk1"}, "note", 2);
+            "character", "znak", new String[]{"hsk1"}, "note", 2);
     }
 
     @SuppressWarnings("SameReturnValue") // no categories is represented as null should wrap this with object
@@ -100,8 +100,8 @@ public final class Word {
 
     public String toShortString() {
         return chineseCharacter + " - '" +
-                pinyin + "' - [ " +
-                englishMeaning + " ]";
+            pinyin + "' - [ " +
+            englishMeaning + " ]";
     }
 
     @Override
@@ -110,14 +110,14 @@ public final class Word {
         if (!(o instanceof Word)) return false;
         Word word = (Word) o;
         return getId() == word.getId() &&
-                getStrokes() == word.getStrokes() &&
-                getDifficulty() == word.getDifficulty() &&
-                Objects.equals(getChineseCharacter(), word.getChineseCharacter()) &&
-                Objects.equals(getPinyin(), word.getPinyin()) &&
-                Objects.equals(englishMeaning, word.englishMeaning) &&
-                Objects.equals(polish, word.polish) &&
-                Arrays.equals(getGroups(), word.getGroups()) &&
-                Objects.equals(getNotes(), word.getNotes());
+            getStrokes() == word.getStrokes() &&
+            getDifficulty() == word.getDifficulty() &&
+            Objects.equals(getChineseCharacter(), word.getChineseCharacter()) &&
+            Objects.equals(getPinyin(), word.getPinyin()) &&
+            Objects.equals(englishMeaning, word.englishMeaning) &&
+            Objects.equals(polish, word.polish) &&
+            Arrays.equals(getGroups(), word.getGroups()) &&
+            Objects.equals(getNotes(), word.getNotes());
     }
 
     @Override
@@ -128,16 +128,16 @@ public final class Word {
     @Override
     public String toString() {
         return "Word{" +
-                "id=" + id +
-                ", chineseCharacter='" + chineseCharacter + '\'' +
-                ", pinyin='" + pinyin + '\'' +
-                ", strokes=" + strokes +
-                ", englishMeaning='" + englishMeaning + '\'' +
-                ", polish='" + polish + '\'' +
-                ", groups=" + Arrays.toString(groups) +
-                ", notes='" + notes + '\'' +
-                ", difficulty=" + difficulty +
-                '}';
+            "id=" + id +
+            ", chineseCharacter='" + chineseCharacter + '\'' +
+            ", pinyin='" + pinyin + '\'' +
+            ", strokes=" + strokes +
+            ", englishMeaning='" + englishMeaning + '\'' +
+            ", polish='" + polish + '\'' +
+            ", groups=" + Arrays.toString(groups) +
+            ", notes='" + notes + '\'' +
+            ", difficulty=" + difficulty +
+            '}';
     }
 
     public String asWord() {

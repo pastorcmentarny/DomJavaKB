@@ -10,9 +10,9 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.Scanner;
 
+import static dms.pastor.tools.trips.common.options.Status.PASSED;
 import static dms.pastor.tools.trips.tube.builders.StationBuilder.stationBuilder;
 import static dms.pastor.tools.trips.tube.builders.StationsBuilder.stationsBuilder;
-import static dms.pastor.tools.trips.common.options.Status.PASSED;
 import static java.util.Collections.singletonList;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
@@ -38,9 +38,9 @@ public class UpdateTubeStationStatusToPassedOptionTest {
     public void shouldUpdateStationStatusToPassed() {
         // given
         final Stations stations = stationsBuilder()
-                .stationList(singletonList(stationBuilder()
-                        .buildNotVisitedStation()))
-                .build();
+            .stationList(singletonList(stationBuilder()
+                .buildNotVisitedStation()))
+            .build();
         given(scanner.nextLine()).willReturn(stations.getTubeStationList().get(0).getName());
 
         // when

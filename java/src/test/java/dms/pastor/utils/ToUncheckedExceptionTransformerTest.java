@@ -29,8 +29,8 @@ public class ToUncheckedExceptionTransformerTest {
         // given
         // when
         urlsToCrawl.stream()
-                .map(ToUncheckedExceptionTransformer.transformToUncheckedException(FileWriter::new))
-                .forEach(fileWriter -> System.out.println(fileWriter.toString()));
+            .map(ToUncheckedExceptionTransformer.transformToUncheckedException(FileWriter::new))
+            .forEach(fileWriter -> System.out.println(fileWriter.toString()));
 
         // then
 

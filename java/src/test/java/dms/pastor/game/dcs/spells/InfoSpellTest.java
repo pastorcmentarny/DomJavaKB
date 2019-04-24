@@ -34,10 +34,10 @@ public final class InfoSpellTest {
         // given
         InfoSpell infoSpell = new InfoSpell();
         final Unit unit = UnitBuilder.unitBuilder()
-                .hp(24)
-                .sp(24)
-                .maxHp(32)
-                .build();
+            .hp(24)
+            .sp(24)
+            .maxHp(32)
+            .build();
 
         // when
         infoSpell.castSpell(unit, unit);

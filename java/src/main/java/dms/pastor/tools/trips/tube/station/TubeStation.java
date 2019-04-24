@@ -103,11 +103,11 @@ public class TubeStation {//implements Station {
         if (!(o instanceof TubeStation)) return false;
         TubeStation that = (TubeStation) o;
         return isBlogged() == that.isBlogged() &&
-                Objects.equals(getName(), that.getName()) &&
-                getStatus() == that.getStatus() &&
-                Objects.equals(getPassedDate(), that.getPassedDate()) &&
-                Objects.equals(getVisitedDate(), that.getVisitedDate()) &&
-                Objects.equals(thisYearVisitedDate, that.thisYearVisitedDate);
+            Objects.equals(getName(), that.getName()) &&
+            getStatus() == that.getStatus() &&
+            Objects.equals(getPassedDate(), that.getPassedDate()) &&
+            Objects.equals(getVisitedDate(), that.getVisitedDate()) &&
+            Objects.equals(thisYearVisitedDate, that.thisYearVisitedDate);
     }
 
     @Override
@@ -118,13 +118,13 @@ public class TubeStation {//implements Station {
     @Override
     public String toString() {
         return "TubeStation{" +
-                "name='" + name + '\'' +
-                ", status=" + status +
-                ", passedDate=" + passedDate +
-                ", visitedDate=" + visitedDate +
-                ", thisYearVisitedDate=" + thisYearVisitedDate +
-                ", blogged=" + blogged +
-                '}';
+            "name='" + name + '\'' +
+            ", status=" + status +
+            ", passedDate=" + passedDate +
+            ", visitedDate=" + visitedDate +
+            ", thisYearVisitedDate=" + thisYearVisitedDate +
+            ", blogged=" + blogged +
+            '}';
     }
 
     //TODO extract this method
@@ -134,11 +134,11 @@ public class TubeStation {//implements Station {
 
     public String asLine() {
         return name + SEPARATOR +
-                getStatusAsValue() + SEPARATOR +
-                getDate(passedDate) + SEPARATOR +
-                getDate(visitedDate) + SEPARATOR +
-                getDate(thisYearVisitedDate) + SEPARATOR +
-                getBloggedAsString();
+            getStatusAsValue() + SEPARATOR +
+            getDate(passedDate) + SEPARATOR +
+            getDate(visitedDate) + SEPARATOR +
+            getDate(thisYearVisitedDate) + SEPARATOR +
+            getBloggedAsString();
     }
 
     private String getDate(LocalDate date) {
@@ -159,8 +159,8 @@ public class TubeStation {//implements Station {
     }
 
     public void clearVisitedThisYear() {
-        if(Objects.nonNull(thisYearVisitedDate)){
-            System.out.println("You visited  " + name+ " station in 2018 at " + thisYearVisitedDate.toString());
+        if (Objects.nonNull(thisYearVisitedDate)) {
+            System.out.println("You visited  " + name + " station in 2018 at " + thisYearVisitedDate.toString());
             thisYearVisitedDate = null;
         }
     }

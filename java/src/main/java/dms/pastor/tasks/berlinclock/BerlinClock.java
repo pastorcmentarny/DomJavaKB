@@ -28,8 +28,8 @@ public class BerlinClock implements ClockInterface {
         Time time = getTimeFromString(givenTime);
         RowsGenerator rowsGenerator = new RowsGenerator(time);
         timeBuilder.append(time.toString())
-                .append('\n')
-                .append(rowsGenerator.generateRows());
+            .append('\n')
+            .append(rowsGenerator.generateRows());
         return timeBuilder.toString();
     }
 

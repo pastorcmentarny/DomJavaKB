@@ -76,10 +76,10 @@ public class Result<T> {
     @Override
     public String toString() {
         return "Result{" +
-                "\n\tsuccess: " + success +
-                "\n\tmessage: \'" + message + '\'' +
-                (item != null ? "\n\thasItem: " + item.toString() : EMPTY_STRING) +
-                "\n}";
+            "\n\tsuccess: " + success +
+            "\n\tmessage: \'" + message + '\'' +
+            (item != null ? "\n\thasItem: " + item.toString() : EMPTY_STRING) +
+            "\n}";
     }
 
 }

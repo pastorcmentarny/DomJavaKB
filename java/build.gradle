@@ -7,14 +7,14 @@ buildscript {
 apply plugin: 'java'
 
 compileJava {
-    sourceCompatibility = JavaVersion.VERSION_1_10
-    targetCompatibility = JavaVersion.VERSION_1_10
+    sourceCompatibility = JavaVersion.VERSION_1_11
+    targetCompatibility = JavaVersion.VERSION_1_11
     options.encoding = 'UTF-8' //to ensure that I always use UTF-8 in project
 }
 
 compileTestJava {
-    sourceCompatibility = JavaVersion.VERSION_1_10
-    targetCompatibility = JavaVersion.VERSION_1_10
+    sourceCompatibility = JavaVersion.VERSION_1_11
+    targetCompatibility = JavaVersion.VERSION_1_11
     options.encoding = 'UTF-8' //to ensure that I always use UTF-8 in project
 }
 

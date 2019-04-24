@@ -87,9 +87,9 @@ public class CommandLineUITest {
         // given
         CommandLineUI commandLineUI = new CommandLineUI(scanner);
         when(scanner.nextLine())
-                .thenReturn("C 10 4")
-                .thenReturn("L 1 0 3 0")
-                .thenReturn("Q");
+            .thenReturn("C 10 4")
+            .thenReturn("L 1 0 3 0")
+            .thenReturn("Q");
 
         // when
         commandLineUI.runApplication();

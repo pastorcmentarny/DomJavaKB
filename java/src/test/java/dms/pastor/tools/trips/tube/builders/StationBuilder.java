@@ -1,7 +1,7 @@
 package dms.pastor.tools.trips.tube.builders;
 
-import dms.pastor.tools.trips.tube.station.Line;
 import dms.pastor.tools.trips.common.options.Status;
+import dms.pastor.tools.trips.tube.station.Line;
 import dms.pastor.tools.trips.tube.station.TubeStation;
 
 import java.time.LocalDate;

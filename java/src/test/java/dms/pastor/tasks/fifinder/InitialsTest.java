@@ -35,10 +35,10 @@ public class InitialsTest {
     public void getInitialsAcceptanceCriteriaTest() {
         // given
         Name name = nameBuilder()
-                .first(FIRST_NAME)
-                .middles(MIDDLE_NAMES)
-                .last(LAST_NAMES_WITH_DASH)
-                .build();
+            .first(FIRST_NAME)
+            .middles(MIDDLE_NAMES)
+            .last(LAST_NAMES_WITH_DASH)
+            .build();
 
         i = new Initials(name);
 
@@ -53,10 +53,10 @@ public class InitialsTest {
     public void getInitialsFromFirstAndLastNameAcceptanceCriteriaTest() {
         // given
         Name name = nameBuilder()
-                .first(FIRST_NAME)
-                .middles(MIDDLE_NAMES)
-                .last(LAST_NAMES_WITH_DASH)
-                .build();
+            .first(FIRST_NAME)
+            .middles(MIDDLE_NAMES)
+            .last(LAST_NAMES_WITH_DASH)
+            .build();
 
         i = new Initials(name);
 
@@ -71,10 +71,10 @@ public class InitialsTest {
     public void shouldReturnEmptyStringIfFirstMiddleAndLastNameIsNull() {
         // given
         final Name name = nameBuilder()
-                .first(null)
-                .middles(null)
-                .last(null)
-                .build();
+            .first(null)
+            .middles(null)
+            .last(null)
+            .build();
 
         i = new Initials(name);
 
@@ -89,10 +89,10 @@ public class InitialsTest {
     public void shouldReturnInitialsForFirstNameOnly() {
         // given
         final Name name = nameBuilder()
-                .first(FIRST_NAME)
-                .withoutMiddleName()
-                .withoutLastName()
-                .build();
+            .first(FIRST_NAME)
+            .withoutMiddleName()
+            .withoutLastName()
+            .build();
         i = new Initials(name);
 
         // when
@@ -106,10 +106,10 @@ public class InitialsTest {
     public void shouldReturnInitialsForMiddleNameOnly() {
         // given
         final Name name = nameBuilder()
-                .withoutFirstName()
-                .middles(MIDDLE_NAME)
-                .withoutLastName()
-                .build();
+            .withoutFirstName()
+            .middles(MIDDLE_NAME)
+            .withoutLastName()
+            .build();
 
         i = new Initials(name);
 
@@ -124,10 +124,10 @@ public class InitialsTest {
     public void shouldReturnInitialsForMiddleNamesOnly() {
         // given
         final Name name = nameBuilder()
-                .withoutFirstName()
-                .middles(MIDDLE_NAMES)
-                .withoutLastName()
-                .build();
+            .withoutFirstName()
+            .middles(MIDDLE_NAMES)
+            .withoutLastName()
+            .build();
 
         i = new Initials(name);
 
@@ -142,10 +142,10 @@ public class InitialsTest {
     public void shouldHaveSpaceBetweenFirstAndMiddleName() {
         // given
         final Name name = nameBuilder()
-                .first(FIRST_NAME)
-                .middles(MIDDLE_NAMES)
-                .last(null)
-                .build();
+            .first(FIRST_NAME)
+            .middles(MIDDLE_NAMES)
+            .last(null)
+            .build();
 
         i = new Initials(name);
 
@@ -160,10 +160,10 @@ public class InitialsTest {
     public void shouldReturnInitialsForLastNameOnly() {
         // given
         final Name name = nameBuilder()
-                .withoutFirstName()
-                .withoutMiddleName()
-                .last(LAST_NAME)
-                .build();
+            .withoutFirstName()
+            .withoutMiddleName()
+            .last(LAST_NAME)
+            .build();
 
         i = new Initials(name);
 
@@ -178,10 +178,10 @@ public class InitialsTest {
     public void shouldReturnInitialsForLastNamesWithSpaceOnly() {
         // given
         final Name name = nameBuilder()
-                .withoutFirstName()
-                .withoutMiddleName()
-                .last(LAST_NAMES_WITH_SPACE)
-                .build();
+            .withoutFirstName()
+            .withoutMiddleName()
+            .last(LAST_NAMES_WITH_SPACE)
+            .build();
 
         i = new Initials(name);
 
@@ -196,10 +196,10 @@ public class InitialsTest {
     public void shouldReturnInitialsForLastNamesWithDashOnly() {
         // given
         final Name name = nameBuilder()
-                .withoutFirstName()
-                .withoutMiddleName()
-                .last(LAST_NAMES_WITH_DASH)
-                .build();
+            .withoutFirstName()
+            .withoutMiddleName()
+            .last(LAST_NAMES_WITH_DASH)
+            .build();
 
         i = new Initials(name);
 
@@ -214,10 +214,10 @@ public class InitialsTest {
     public void shouldReturnInitialsForFirstNameOnlyWithCapitalLetter() {
         // given
         final Name name = nameBuilder()
-                .first(FIRST_NAME.toLowerCase())
-                .withoutMiddleName()
-                .withoutLastName()
-                .build();
+            .first(FIRST_NAME.toLowerCase())
+            .withoutMiddleName()
+            .withoutLastName()
+            .build();
 
         i = new Initials(name);
 
@@ -232,10 +232,10 @@ public class InitialsTest {
     public void shouldReturnFirstCharacterOfFirstAndLastName() {
         // given
         final Name name = nameBuilder()
-                .first(FIRST_NAME)
-                .last(LAST_NAME)
-                .withoutMiddleName()
-                .build();
+            .first(FIRST_NAME)
+            .last(LAST_NAME)
+            .withoutMiddleName()
+            .build();
 
         i = new Initials(name);
 

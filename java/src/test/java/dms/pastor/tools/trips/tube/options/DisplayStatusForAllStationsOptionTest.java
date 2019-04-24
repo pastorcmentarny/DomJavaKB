@@ -48,8 +48,8 @@ public class DisplayStatusForAllStationsOptionTest {
 
         // then
         assertThat(outputStream.toString()).contains("Wembley Park was visited at " + LocalDate.now() + System.lineSeparator() +
-                "Green Park was passed at " + LocalDate.now() + System.lineSeparator() +
-                "Elm Park was not visited");
+            "Green Park was passed at " + LocalDate.now() + System.lineSeparator() +
+            "Elm Park was not visited");
 
     }
 

@@ -8,8 +8,8 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static dms.pastor.tools.trips.tube.builders.StationBuilder.stationBuilder;
 import static dms.pastor.tools.trips.common.options.Status.VISITED;
+import static dms.pastor.tools.trips.tube.builders.StationBuilder.stationBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ClearThisYearOptionTest {

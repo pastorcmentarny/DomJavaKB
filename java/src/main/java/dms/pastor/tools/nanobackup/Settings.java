@@ -311,15 +311,15 @@ public final class Settings {
 
     public String displayCurrentSettings(String where) {
         return format("\n~~~~Settings Status~~~~\n%s\n-=--=- %s -=--=-\nConfirmOnExit: %s\n" +
-                        "DeleteSourceAfterBackup: %s\nExitAfterBackup: %s\nQuickBackup: %s\n" +
-                        "SourceFilePath: %s\nDestinationFolderPath: %s\nHappyMode:%s\n" +
-                        "Save Backup as zip:%s\nSave paranoid encrypted zip Backup :%s\n" +
-                        "Save results to file:%s\nCheck free space before backup:%s\nLight Speed Mode:%s\n" +
-                        "Priority:%d",
-                SETTINGS_PATH, where, isConfirmOnExit(), isDeleteSourceAfterBackup(), isExitAfterBackup(),
-                isQuickBackup(), getSourceFilePath(), getDestinationFolderPath(), isHappyMode(), isSaveAsZip(),
-                isSaveAsEncrypted(), isSaveResultsToFile(), isCheckFreeSpaceBeforeBackup(), isSpeedLightMode(),
-                getCpuPriority());
+                "DeleteSourceAfterBackup: %s\nExitAfterBackup: %s\nQuickBackup: %s\n" +
+                "SourceFilePath: %s\nDestinationFolderPath: %s\nHappyMode:%s\n" +
+                "Save Backup as zip:%s\nSave paranoid encrypted zip Backup :%s\n" +
+                "Save results to file:%s\nCheck free space before backup:%s\nLight Speed Mode:%s\n" +
+                "Priority:%d",
+            SETTINGS_PATH, where, isConfirmOnExit(), isDeleteSourceAfterBackup(), isExitAfterBackup(),
+            isQuickBackup(), getSourceFilePath(), getDestinationFolderPath(), isHappyMode(), isSaveAsZip(),
+            isSaveAsEncrypted(), isSaveResultsToFile(), isCheckFreeSpaceBeforeBackup(), isSpeedLightMode(),
+            getCpuPriority());
     }
 
     public boolean createDefaultSettings() {

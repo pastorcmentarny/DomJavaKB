@@ -193,10 +193,10 @@ public final class FileTools {
         }
 
         try (
-                FileInputStream fis = new FileInputStream(srcFile);
-                FileOutputStream fos = new FileOutputStream(destFile);
-                FileChannel input = fis.getChannel();
-                FileChannel output = fos.getChannel()
+            FileInputStream fis = new FileInputStream(srcFile);
+            FileOutputStream fos = new FileOutputStream(destFile);
+            FileChannel input = fis.getChannel();
+            FileChannel output = fos.getChannel()
         ) {
             transferFile(input.size(), input, output);
         } catch (FileNotFoundException ex) {

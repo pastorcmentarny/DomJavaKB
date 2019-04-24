@@ -102,9 +102,9 @@ public class ValidatorUtilsTest {
 
         // when
         validateNotNullPropertiesWithCustomMessagesPerProperty(new Object[][]{
-                {objectsToValidate[0], "Invalid Double"},
-                {objectsToValidate[1], "Invalid Integer"},
-                {objectsToValidate[2], "Invalid Example Object"}
+            {objectsToValidate[0], "Invalid Double"},
+            {objectsToValidate[1], "Invalid Integer"},
+            {objectsToValidate[2], "Invalid Example Object"}
         });
 
         // then if valid then no exception was thrown
@@ -122,11 +122,11 @@ public class ValidatorUtilsTest {
 
         // when
         validateNotNullPropertiesWithCustomMessagesPerProperty(new Object[][]{
-                {objectsToValidate[0], "null :)"},
-                {objectsToValidate[1], "Invalid Double"},
-                {objectsToValidate[2], "Invalid Integer"},
-                {objectsToValidate[3], "Invalid Example Object"},
-                {objectsToValidate[4], "null :)"}
+            {objectsToValidate[0], "null :)"},
+            {objectsToValidate[1], "Invalid Double"},
+            {objectsToValidate[2], "Invalid Integer"},
+            {objectsToValidate[3], "Invalid Example Object"},
+            {objectsToValidate[4], "null :)"}
         });
     }
 

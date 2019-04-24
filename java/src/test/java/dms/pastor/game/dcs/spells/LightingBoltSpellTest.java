@@ -24,9 +24,9 @@ public class LightingBoltSpellTest {
 
         // when
         final Unit unit = UnitBuilder.unitBuilder()
-                .withoutShield()
-                .hp(10)
-                .build();
+            .withoutShield()
+            .hp(10)
+            .build();
         lightingBoltSpell.castSpell(unit, unit);
 
         // then

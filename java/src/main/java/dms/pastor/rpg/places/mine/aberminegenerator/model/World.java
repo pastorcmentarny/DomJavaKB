@@ -65,7 +65,7 @@ public class World {
     }
 
     public void setPixel(Pixel point) {
-       // setPixel(point.getWidth(), point.getHeight(), point.getFill());
+        // setPixel(point.getWidth(), point.getHeight(), point.getFill());
     }
 
     public void setPixel(int x, int y, Pixel pixelFill) {
@@ -87,8 +87,8 @@ public class World {
         if (!(o instanceof World)) return false;
         World world1 = (World) o;
         return getWidth() == world1.getWidth() &&
-                getHeight() == world1.getHeight() &&
-                Arrays.equals(world, world1.world);
+            getHeight() == world1.getHeight() &&
+            Arrays.equals(world, world1.world);
     }
 
     public String getImageAsString() {

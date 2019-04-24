@@ -49,8 +49,8 @@ public final class VampireTest {
         vampire.getElements().setElementsFor(WATER, 3);
 
         Unit enemy = unitBuilder()
-                .withoutShield()
-                .build();
+            .withoutShield()
+            .build();
         String vampireDrainSpellName = new VampireDrainSpell().getName();
         final String iceBoltSpellName = new IceBoltSpell().getName();
 

@@ -10,11 +10,11 @@ public class Pixel {
     private PixelType type;
 
 
-    public static Pixel getWallPixel(int x,int y){
-        return new Pixel(false,PixelType.WALL);
+    public static Pixel getWallPixel(int x, int y) {
+        return new Pixel(false, PixelType.WALL);
     }
 
-    public boolean isWall(){
+    public boolean isWall() {
         return false;
     }
 }

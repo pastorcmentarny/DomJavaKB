@@ -33,8 +33,8 @@ public class ConditionTest {
     public final ExpectedException exception = ExpectedException.none();
 
     private final ConditionEntry temporaryConditionEntry = conditionEntryBuilder()
-            .condition(STUNNED)
-            .buildTemporaryCondition();
+        .condition(STUNNED)
+        .buildTemporaryCondition();
     private final ConditionEntry persistentCondition = createPersistentCondition(STUNNED);
     private Condition conditions;
 
@@ -61,9 +61,9 @@ public class ConditionTest {
     public void addShouldAddNewConditionWithSpecifiedTurnLeft() {
         // given
         final ConditionEntry conditionEntry = conditionEntryBuilder()
-                .condition(STUNNED)
-                .turnsLeft(2)
-                .build();
+            .condition(STUNNED)
+            .turnsLeft(2)
+            .build();
 
         // when
         conditions.add(conditionEntry);
@@ -77,10 +77,10 @@ public class ConditionTest {
     public void addWithoutSpecifiedTurnsShouldAddNewConditionWithDefaultTurnLeft() {
         // given
         final ConditionEntry conditionEntry = conditionEntryBuilder()
-                .condition(STUNNED)
-                .turnsLeft(DEFAULT_CONDITION_DURATION)
-                .nonPersistent()
-                .build();
+            .condition(STUNNED)
+            .turnsLeft(DEFAULT_CONDITION_DURATION)
+            .nonPersistent()
+            .build();
 
         // when
         conditions.add(conditionEntry);
@@ -89,10 +89,10 @@ public class ConditionTest {
         final Set<ConditionEntry> allConditions = this.conditions.getConditions();
         assertThat(allConditions).contains(conditionEntry);
         assertThat(allConditions.
-                stream()
-                .map(thisCondition -> thisCondition.equals(createTemporaryCondition(STUNNED, DEFAULT_CONDITION_DURATION)))
-                .findFirst()
-                .orElse(false)
+            stream()
+            .map(thisCondition -> thisCondition.equals(createTemporaryCondition(STUNNED, DEFAULT_CONDITION_DURATION)))
+            .findFirst()
+            .orElse(false)
         ).isTrue();
         assertThat(allConditions).hasSize(1);
     }
@@ -134,14 +134,14 @@ public class ConditionTest {
     public void removeShouldNotRemoveAnythingFromListFromConditions() {
         // given
         final ConditionEntry condition = conditionEntryBuilder()
-                .condition(POISONED)
-                .build();
+            .condition(POISONED)
+            .build();
         final ConditionEntry conditionTwo = conditionEntryBuilder()
-                .condition(STUNNED)
-                .build();
+            .condition(STUNNED)
+            .build();
         final ConditionEntry nonExistingCondition = conditionEntryBuilder()
-                .condition(AIR_IMMUNE)
-                .build();
+            .condition(AIR_IMMUNE)
+            .build();
 
         conditions.add(condition);
         conditions.add(conditionTwo);
@@ -159,8 +159,8 @@ public class ConditionTest {
     public void hasShouldReturnTrueConditionIsOnList() {
         // given
         final ConditionEntry conditionEntry = conditionEntryBuilder()
-                .condition(STUNNED)
-                .build();
+            .condition(STUNNED)
+            .build();
         conditions.add(conditionEntry);
 
         // when
@@ -173,8 +173,8 @@ public class ConditionTest {
     public void hasShouldReturnFalseConditionIsNotOnList() {
         // given
         final ConditionEntry conditionEntry = conditionEntryBuilder()
-                .condition(STUNNED)
-                .build();
+            .condition(STUNNED)
+            .build();
         conditions.add(conditionEntry);
 
         // when
@@ -187,8 +187,8 @@ public class ConditionTest {
     public void hasNotShouldReturnFalseConditionIsOnList() {
         // given
         final ConditionEntry conditionEntry = conditionEntryBuilder()
-                .condition(STUNNED)
-                .build();
+            .condition(STUNNED)
+            .build();
         conditions.add(conditionEntry);
 
         // when
@@ -202,8 +202,8 @@ public class ConditionTest {
     public void hasNotShouldReturnTrueConditionIsNotOnList() {
         // given
         final ConditionEntry conditionEntry = conditionEntryBuilder()
-                .condition(STUNNED)
-                .build();
+            .condition(STUNNED)
+            .build();
         conditions.add(conditionEntry);
 
         // when
@@ -217,10 +217,10 @@ public class ConditionTest {
     public void reduceByOneTurnShouldReduceConditionByOneTurn() {
         // given
         final ConditionEntry condition = conditionEntryBuilder()
-                .condition(STUNNED)
-                .turnsLeft(2)
-                .nonPersistent()
-                .build();
+            .condition(STUNNED)
+            .turnsLeft(2)
+            .nonPersistent()
+            .build();
         conditions.add(condition);
         assertThat(conditions.getConditionEntry(STUNNED).getTurnsLeft() == 2).isTrue();
 
@@ -235,10 +235,10 @@ public class ConditionTest {
     public void reduceByOneTurnShouldRemoveTemporaryConditionIfTurnsLeftIsZero() {
         // given
         final ConditionEntry condition = conditionEntryBuilder()
-                .condition(STUNNED)
-                .turnsLeft(1)
-                .nonPersistent()
-                .build();
+            .condition(STUNNED)
+            .turnsLeft(1)
+            .nonPersistent()
+            .build();
         conditions.add(condition);
         assertThat(conditions.getConditionEntry(STUNNED).getTurnsLeft() == 1).isTrue();
 
@@ -253,10 +253,10 @@ public class ConditionTest {
     public void reduceByOneTurnShouldRemoveTemporaryConditionIfTurnsLeftBelowZero() {
         // given
         final ConditionEntry condition = conditionEntryBuilder()
-                .condition(STUNNED)
-                .turnsLeft(-1)
-                .nonPersistent()
-                .build();
+            .condition(STUNNED)
+            .turnsLeft(-1)
+            .nonPersistent()
+            .build();
         conditions.add(condition);
 
         // when
@@ -270,9 +270,9 @@ public class ConditionTest {
     public void getConditionEntryShouldReturnConditionForGivenType() {
         // given
         final ConditionEntry condition = conditionEntryBuilder()
-                .condition(POISONED)
-                .turnsLeft(2)
-                .build();
+            .condition(POISONED)
+            .turnsLeft(2)
+            .build();
         conditions.add(condition);
 
         // when
@@ -296,9 +296,9 @@ public class ConditionTest {
     public void removeAllTemporaryConditionsShouldRemoveTemporaryConditions() {
         // given
         final ConditionEntry condition = conditionEntryBuilder()
-                .condition(POISONED)
-                .nonPersistent()
-                .build();
+            .condition(POISONED)
+            .nonPersistent()
+            .build();
 
         final ConditionEntry conditionTwo = createTemporaryCondition(STUNNED, 1);
         final ConditionEntry conditionThree = createTemporaryConditionWithDefaultDuration(AIR_IMMUNE);
@@ -478,8 +478,8 @@ public class ConditionTest {
     public void removeAllConditionsShouldRemoveAllConditionsIncludingPersistentConditions() {
         // given
         final ConditionEntry condition = conditionEntryBuilder()
-                .condition(POISONED)
-                .build();
+            .condition(POISONED)
+            .build();
         final ConditionEntry conditionTwo = createPersistentCondition(AIR_IMMUNE);
         final ConditionEntry conditionThree = createTemporaryConditionWithDefaultDuration(STUNNED);
 
@@ -509,8 +509,8 @@ public class ConditionTest {
     public void createConditionShouldCreateConditionWithListConditions() {
         // given
         final ConditionEntry conditionOne = conditionEntryBuilder()
-                .condition(POISONED)
-                .build();
+            .condition(POISONED)
+            .build();
         final ConditionEntry conditionTwo = createPersistentCondition(AIR_IMMUNE);
         final ConditionEntry conditionThree = createTemporaryConditionWithDefaultDuration(STUNNED);
 

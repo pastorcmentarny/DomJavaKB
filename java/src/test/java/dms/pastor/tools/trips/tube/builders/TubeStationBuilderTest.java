@@ -6,9 +6,9 @@ import org.junit.Test;
 
 import java.time.LocalDate;
 
-import static dms.pastor.tools.trips.tube.builders.StationBuilder.stationBuilder;
 import static dms.pastor.tools.trips.common.options.Status.NOT_VISITED;
 import static dms.pastor.tools.trips.common.options.Status.VISITED;
+import static dms.pastor.tools.trips.tube.builders.StationBuilder.stationBuilder;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -21,12 +21,12 @@ public class TubeStationBuilderTest {
         final LocalDate date = LocalDate.now();
         final Status visitedStation = VISITED;
         final TubeStation result = stationBuilder()
-                .lines(null)
-                .name(name)
-                .passedDate(date)
-                .visitedDate(date)
-                .status(visitedStation)
-                .build();
+            .lines(null)
+            .name(name)
+            .passedDate(date)
+            .visitedDate(date)
+            .status(visitedStation)
+            .build();
 
         // then
         assertThat(result.getName()).isEqualTo(name);

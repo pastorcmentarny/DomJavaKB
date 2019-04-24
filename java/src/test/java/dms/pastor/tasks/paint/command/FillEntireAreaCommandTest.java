@@ -31,10 +31,10 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
     private static final String SQUARE_WITH_LENGTH_3_AS_STRING = "3";
 
     private static final String EXPECTED_SQUARE_FILLED_WITH_O = "-----" + System.lineSeparator()
-            + "|ooo|" + System.lineSeparator()
-            + "|ooo|" + System.lineSeparator()
-            + "|ooo|" + System.lineSeparator()
-            + "-----" + System.lineSeparator();
+        + "|ooo|" + System.lineSeparator()
+        + "|ooo|" + System.lineSeparator()
+        + "|ooo|" + System.lineSeparator()
+        + "-----" + System.lineSeparator();
 
     private final Command fillEntireAreaCommand = new FillEntireAreaCommand();
 
@@ -68,8 +68,8 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
 
         // then
         assertThat(canvas.getCanvasAsString()).isEqualTo("---" + System.lineSeparator() +
-                "|o|" + System.lineSeparator() +
-                "---" + System.lineSeparator());
+            "|o|" + System.lineSeparator() +
+            "---" + System.lineSeparator());
     }
 
     @Test
@@ -164,12 +164,12 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
 
         // then
         assertThat(canvas.getCanvasAsString()).isEqualTo("-------" + System.lineSeparator()
-                + "|     |" + System.lineSeparator()
-                + "| xxx |" + System.lineSeparator()
-                + "| xox |" + System.lineSeparator()
-                + "| xxx |" + System.lineSeparator()
-                + "|     |" + System.lineSeparator()
-                + "-------" + System.lineSeparator());
+            + "|     |" + System.lineSeparator()
+            + "| xxx |" + System.lineSeparator()
+            + "| xox |" + System.lineSeparator()
+            + "| xxx |" + System.lineSeparator()
+            + "|     |" + System.lineSeparator()
+            + "-------" + System.lineSeparator());
     }
 
     @Test
@@ -193,12 +193,12 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
 
         // then
         assertThat(canvas.getCanvasAsString()).isEqualTo("-------" + System.lineSeparator()
-                + "|ooooo|" + System.lineSeparator()
-                + "|oxxxo|" + System.lineSeparator()
-                + "|ox xo|" + System.lineSeparator()
-                + "|oxxxo|" + System.lineSeparator()
-                + "|ooooo|" + System.lineSeparator()
-                + "-------" + System.lineSeparator());
+            + "|ooooo|" + System.lineSeparator()
+            + "|oxxxo|" + System.lineSeparator()
+            + "|ox xo|" + System.lineSeparator()
+            + "|oxxxo|" + System.lineSeparator()
+            + "|ooooo|" + System.lineSeparator()
+            + "-------" + System.lineSeparator());
     }
 
     @Test
@@ -223,12 +223,12 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
 
         // then
         assertThat(canvas.getCanvasAsString()).isEqualTo("-------" + System.lineSeparator()
-                + "|ooooo|" + System.lineSeparator()
-                + "|oxxxo|" + System.lineSeparator()
-                + "|oooxo|" + System.lineSeparator()
-                + "|xxxxo|" + System.lineSeparator()
-                + "| xooo|" + System.lineSeparator()
-                + "-------" + System.lineSeparator());
+            + "|ooooo|" + System.lineSeparator()
+            + "|oxxxo|" + System.lineSeparator()
+            + "|oooxo|" + System.lineSeparator()
+            + "|xxxxo|" + System.lineSeparator()
+            + "| xooo|" + System.lineSeparator()
+            + "-------" + System.lineSeparator());
     }
 
     @Test

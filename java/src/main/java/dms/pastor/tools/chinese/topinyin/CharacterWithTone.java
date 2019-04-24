@@ -49,7 +49,7 @@ public class CharacterWithTone {
         }
         CharacterWithTone characterWithTone = (CharacterWithTone) otherCharacterWithTone;
         return getTone() == characterWithTone.getTone() &&
-                Objects.equals(getWord(), characterWithTone.getWord());
+            Objects.equals(getWord(), characterWithTone.getWord());
     }
 
     @Override
@@ -60,8 +60,8 @@ public class CharacterWithTone {
     @Override
     public String toString() {
         return "CharacterWithTone{" +
-                "word='" + word + '\'' +
-                ", tone=" + tone +
-                '}';
+            "word='" + word + '\'' +
+            ", tone=" + tone +
+            '}';
     }
 }

@@ -24,9 +24,9 @@ public class UnitBuilderTest {
 
         // when
         final Unit unit = UnitBuilder.unitBuilder()
-                .sp(10)
-                .withoutShield()
-                .build();
+            .sp(10)
+            .withoutShield()
+            .build();
 
         // then
         assertThat(unit.isShielded()).isFalse();
@@ -38,9 +38,9 @@ public class UnitBuilderTest {
 
         // when
         final Unit unit = UnitBuilder.unitBuilder()
-                .sp(randomNegativeInteger())
-                .shielded()
-                .build();
+            .sp(randomNegativeInteger())
+            .shielded()
+            .build();
 
         // then
         assertThat(unit.isShielded()).isTrue();
@@ -52,9 +52,9 @@ public class UnitBuilderTest {
 
         // when
         final Unit unit = UnitBuilder.unitBuilder()
-                .sp(randomPositiveInteger())
-                .withoutShield()
-                .build();
+            .sp(randomPositiveInteger())
+            .withoutShield()
+            .build();
 
         // then
         assertThat(unit.isShielded()).isFalse();

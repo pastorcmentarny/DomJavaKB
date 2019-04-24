@@ -12,7 +12,7 @@ public final class AirElementEventTest {
     public void performFireEventShouldGivesFireElement() {
         // given
         final Unit unit = unitBuilder()
-                .build();
+            .build();
         AirElementEvent airElementEvent = new AirElementEvent();
         // when
         airElementEvent.makeItHappen(unit, unit);
