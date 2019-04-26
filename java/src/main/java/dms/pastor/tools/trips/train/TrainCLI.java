@@ -27,7 +27,7 @@ class TrainCLI {
     private Scanner scanner;
 
 
-    private TrainCLI(TrainStation stations, Scanner scanner) {
+    public TrainCLI(TrainStation stations, Scanner scanner) {
         this.scanner = scanner;
         options = OptionsFactory.getOptions(scanner);
     }

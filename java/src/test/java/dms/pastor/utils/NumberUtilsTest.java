@@ -677,4 +677,13 @@ public class NumberUtilsTest {
         assertThat(result).isEqualTo(2);
     }
 
+    @Test
+    public void increaseByPercentAcceptanceTest(){
+        // when
+        final int result = increaseByPercent(100d, 1d);
+
+        // then
+        assertThat(result).isEqualTo(101);
+    }
+
 }

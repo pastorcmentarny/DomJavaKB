@@ -32,6 +32,7 @@ import static org.mockito.BDDMockito.given;
 public class DisplayStatusForOptionTest {
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private final PrintStream original = System.out;
+
     @Mock
     private Scanner scanner;
     @InjectMocks

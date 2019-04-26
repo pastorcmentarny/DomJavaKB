@@ -114,4 +114,8 @@ public final class PersonalDataGenerator {
             throw new IllegalArgumentException("Pattern for phone contains illegal character(s). Pattern provided: " + pattern);
         }
     }
+
+    public static String generateName() {
+        return generateFirstName() + " " + generateSurname();
+    }
 }

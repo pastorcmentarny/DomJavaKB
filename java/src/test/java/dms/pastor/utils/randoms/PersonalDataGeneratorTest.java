@@ -160,4 +160,18 @@ public class PersonalDataGeneratorTest {
         // debug info
         LOGGER.debug(result);
     }
+
+    @Test
+    public void generateNameShouldReturnName() {
+        // given
+        final String name = generateName();
+
+        // when
+        assertThat(name).isNotBlank();
+        assertThat(name.length()).isGreaterThan(3);
+
+        // debug
+        System.out.println(name);
+
+    }
 }

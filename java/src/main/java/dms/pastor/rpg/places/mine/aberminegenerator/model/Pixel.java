@@ -15,6 +15,6 @@ public class Pixel {
     }
 
     public boolean isWall() {
-        return false;
+        return type.equals(PixelType.WALL);
     }
 }
