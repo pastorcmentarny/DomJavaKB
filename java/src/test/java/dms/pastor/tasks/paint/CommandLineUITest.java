@@ -5,7 +5,6 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
-import org.junit.rules.Timeout;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
@@ -37,8 +36,7 @@ public class CommandLineUITest {
     @Rule
     public final ExpectedException exception = ExpectedException.none();
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-    @Rule
-    public Timeout globalTimeout = Timeout.seconds(3); // global time out for all tests
+
     private PrintStream printStream;
 
     @Mock

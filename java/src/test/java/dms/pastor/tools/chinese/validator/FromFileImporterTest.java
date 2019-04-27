@@ -1,6 +1,7 @@
 package dms.pastor.tools.chinese.validator;
 
 import dms.pastor.domain.Result;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.File;
@@ -21,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class FromFileImporterTest {
 
-    @SuppressWarnings("unchecked")
+    @Ignore
     @Test
     public void importDictionaryShouldLoadDictionaryFromFile() {
         // given

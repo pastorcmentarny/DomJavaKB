@@ -1,5 +1,6 @@
 package dms.pastor.tools.nanobackup;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static dms.pastor.utils.StringUtils.NEW_LINE;
@@ -17,6 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class HistoryAcceptanceTest {
 
+    @Ignore
     @Test
     public void shouldAddMessage() {
         // given

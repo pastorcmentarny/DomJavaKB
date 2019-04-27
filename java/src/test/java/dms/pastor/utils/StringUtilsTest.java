@@ -316,11 +316,11 @@ public class StringUtilsTest {
         assertThat(isAlphanumeric).isFalse();
     }
 
-
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenStringIsEmptyForSwapCharactersTest() {
+
         // when
-        final String result = swapCaseLettersInString(null);
+        final var result = swapCaseLettersInString(null);
 
         // then
         assertThat(result).isNull();
@@ -659,8 +659,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void toCamelCaseShouldReturnNullWhenStringIsNull() {
-
+    public void toCamelCaseShouldReturnNullWhenInputIsNull() {
         // when
         final String result = getStringWithCapitalizedFirstCharacter(null);
 

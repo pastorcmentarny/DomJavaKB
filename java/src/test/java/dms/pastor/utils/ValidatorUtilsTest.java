@@ -6,7 +6,6 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
-import org.junit.rules.Timeout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -42,9 +41,6 @@ public class ValidatorUtilsTest {
 
     @Rule
     public final ExpectedException exception = ExpectedException.none();
-
-    @Rule
-    public Timeout globalTimeout = Timeout.seconds(3); // global time out for all tests
 
     private ExampleObject anObject;
 
