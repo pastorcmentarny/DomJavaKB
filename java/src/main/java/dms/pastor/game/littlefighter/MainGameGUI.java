@@ -489,9 +489,6 @@ public final class MainGameGUI extends javax.swing.JFrame {
             case 9:
             case 10:
             case 11:
-                enemy = new Elf();
-                enemy.upgradeEnemy(lvl);
-                break;
             case 12:
             case 14:
             case 15:
@@ -501,9 +498,6 @@ public final class MainGameGUI extends javax.swing.JFrame {
             case 16:
             case 18:
             case 19:
-                enemy = new Centaur();
-                enemy.upgradeEnemy(lvl);
-                break;
             case 7:
             case 17:
                 enemy = new Troll();
@@ -526,12 +520,12 @@ public final class MainGameGUI extends javax.swing.JFrame {
     }
 
     private void status() {
-        if (player.status.isItPoisoned()) {
+        if (player.status.isPoisoned()) {
             player.reduceHp(5 * (lvl + 1));
             console.setText(console.getText() + "\nPoison does " + (5 * (lvl + 1)) + " damage to Player.");
             isAlive();
         }
-        if (enemy.statuses.isItPoisoned()) {
+        if (enemy.statuses.isPoisoned()) {
             int hp = enemy.getEnemyHP();
             hp -= 5;
             enemy.setEnemyHP(hp);

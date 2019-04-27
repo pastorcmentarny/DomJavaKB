@@ -5,9 +5,9 @@ import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 /**
  * Author Dominik Symonowicz
  * Created 2009
- * WWW:	http://pastor.ovh.org
- * Github:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * WWW:	http:pastor.ovh.org
+ * Github:	https:github.com/pastorcmentarny
+ * Google Play:	https:play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public class Status {
@@ -17,11 +17,9 @@ public class Status {
     private boolean isBerserk;
     private boolean isWeak;
     private boolean isBlind;
-    // --Commented out by Inspection (21/02/2018 15:56):private boolean toBeGaga; //gaga - zdziecinnieć; zramoleć;
 
     public Status() {
         removeAllStatuses();
-        //toBeGaga = false;
     }
 
     private void removeAllStatuses() {
@@ -33,7 +31,6 @@ public class Status {
 
     void purify() {
         removeAllStatuses();
-        //toBeGaga = false;
     }
 
     String setActiveStatuses() {
@@ -63,33 +60,25 @@ public class Status {
         isPoisoned = false;
     }
 
-    boolean isItPoisoned() {
-        return isPoisoned;
+    void setBerserk() {
+        isBerserk = true;
     }
 
-// --Commented out by Inspection START (21/02/2018 15:56):
-//    public void noBerserk() {
-//        isBerserk = false;
-//    }
-// --Commented out by Inspection STOP (21/02/2018 15:56)
+    public void noBerserk() {
+        isBerserk = false;
+    }
 
-// --Commented out by Inspection START (21/02/2018 15:56):
-//    public void setWeak() {
-//        isWeak = true;
-//    }
-// --Commented out by Inspection STOP (21/02/2018 15:56)
+    public void setWeak() {
+        isWeak = true;
+    }
 
-// --Commented out by Inspection START (21/02/2018 15:56):
-//    public void noWeak() {
-//        isWeak = false;
-//    }
-// --Commented out by Inspection STOP (21/02/2018 15:56)
+    public void noWeak() {
+        isWeak = false;
+    }
 
-// --Commented out by Inspection START (21/02/2018 15:56):
-//    public void setBlind() {
-//        isBlind = true;
-//    }
-// --Commented out by Inspection STOP (21/02/2018 15:56)
+    public void setBlind() {
+        isBlind = true;
+    }
 
     void decreaseLengthOfPoison() {
         lengthOfPoison--;
@@ -98,9 +87,27 @@ public class Status {
         }
     }
 
-    void setLengthOfPoison() {
-        this.lengthOfPoison = 7;
+    void setLengthOfPoison(int number) {
+        this.lengthOfPoison = number;
     }
 
+    public boolean isPoisoned() {
+        return isPoisoned;
+    }
 
+    public int getLengthOfPoison() {
+        return lengthOfPoison;
+    }
+
+    public boolean isBerserk() {
+        return isBerserk;
+    }
+
+    public boolean isWeak() {
+        return isWeak;
+    }
+
+    public boolean isBlind() {
+        return isBlind;
+    }
 }

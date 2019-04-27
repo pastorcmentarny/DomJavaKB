@@ -7,17 +7,10 @@ final class MutableDate {
 
     private static final int SECOND_IN_MILLISECONDS = 1000;
     private static final int MINUTE = 60 * SECOND_IN_MILLISECONDS;
-    private static final String POLAND = "Europe/Warsaw";
-    private static final String UK = "Europe/London";
-    private static final String CHINA = "Asia/Shanghai";
-    private static final String AUSTRALIA = "Australia/Sydney";
-
-    public static void main(String[] args) {
-        MutableDate oldDate = new MutableDate();
-        //oldDate.mutabilityMadnessExample();
-
-        oldDate.runExamples();
-    }
+     static final String POLAND = "Europe/Warsaw";
+     static final String UK = "Europe/London";
+     static final String CHINA = "Asia/Shanghai";
+     static final String AUSTRALIA = "Australia/Sydney";
 
     private void mutabilityMadnessExample() {
         Date now = new Date();
@@ -31,21 +24,8 @@ final class MutableDate {
         return date;
     }
 
-    private void runExamples() {
-        Instant instant = Instant.now();
-        System.out.println(instant);
-        ZonedDateTime dateTime = ZonedDateTime.ofInstant(instant, ZoneId.of(UK));
-        System.out.println(dateTime);
-        ZonedDateTime wroclawZonedDateTime = ZonedDateTime.ofInstant(instant, ZoneId.of(POLAND));
-        System.out.println(wroclawZonedDateTime);
-        ZonedDateTime tianjinZonedDateTime = ZonedDateTime.ofInstant(instant, ZoneId.of(CHINA));
-        System.out.println(tianjinZonedDateTime);
 
-        System.out.println("=== - ==");
-        calendarMisconceptions();
-    }
-
-    private void calendarMisconceptions() {
+     void calendarMisconceptions() {
         //given date and time
         LocalDate localDate = LocalDate.of(2016, Month.AUGUST, 5);
         LocalTime localTime = LocalTime.of(10, 22);

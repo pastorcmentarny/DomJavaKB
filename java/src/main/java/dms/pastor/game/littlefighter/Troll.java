@@ -16,7 +16,7 @@ import static dms.pastor.game.littlefighter.Config.DEFAULT_HEALTH_POINTS;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
-public class Troll extends Enemy {
+class Troll extends Enemy {
     Troll() {
         enemyAttack = random.nextInt(8) + 1;
         enemyDefence = random.nextInt(8) + 1;
@@ -27,11 +27,4 @@ public class Troll extends Enemy {
         enemyName = "Troll";
     }
 
-    public void upgradeEnemy(int lvl) {
-        enemyAttack += lvl;
-        enemyDefence += lvl;
-        enemyPower += lvl;
-        enemyHP += DEFAULT_HEALTH_POINTS * lvl;
-        regen += lvl;
-    }
 }

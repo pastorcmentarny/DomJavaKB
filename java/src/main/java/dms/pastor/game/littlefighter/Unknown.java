@@ -25,7 +25,7 @@ public class Unknown extends Enemy {
         int r = random.nextInt(100);
         if (r > 25) {
             player.getStatus().setPoisoned();
-            player.getStatus().setLengthOfPoison();
+            player.getStatus().setLengthOfPoison(7);
             player.msg("\nPlayer is poisoned!");
             return true;
         }

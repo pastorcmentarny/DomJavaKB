@@ -26,12 +26,4 @@ public class Dwarf extends Enemy {
         enemyName = "Dwarf";
     }
 
-    public void upgradeEnemy(int lvl) {
-        enemyAttack += lvl;
-        enemyDefence += lvl;
-        enemyPower += lvl;
-        enemyHP += DEFAULT_HEALTH_POINTS * lvl;
-        enemyArmor += lvl;
-    }
-
 }
