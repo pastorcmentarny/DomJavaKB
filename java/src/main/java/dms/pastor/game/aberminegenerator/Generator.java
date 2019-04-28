@@ -1,6 +1,6 @@
-package dms.pastor.rpg.places.mine.aberminegenerator;
+package dms.pastor.game.aberminegenerator;
 
-import dms.pastor.rpg.places.mine.aberminegenerator.model.World;
+import dms.pastor.game.aberminegenerator.model.World;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Objects;

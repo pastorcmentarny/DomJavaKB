@@ -17,18 +17,7 @@ final class StreamBasics {
     private static final boolean runAll = false;
 
 
-    public static void main(String[] args) {
-        tutorial();
-
-        if (runAll) {
-            hr(3);
-            example();
-            kindOfStreams();
-            sketchMethod();
-        }
-    }
-
-    private static void tutorial() {
+     static void tutorial() {
         hr();
         final List<String> aList = Arrays.asList("a1", "a2", "c3", "c4", "b1", "c2", "c1");
         aList.stream().filter(s -> s.startsWith("c")).map(String::toUpperCase).forEach(System.out::println);
@@ -37,7 +26,7 @@ final class StreamBasics {
         hr();
     }
 
-    private static void streamExamples() {
+     static void streamExamples() {
         hr("find first and ifPresent");
         Stream.of("garlic", "lemon", "pepper").findFirst().ifPresent(System.out::println);
         final int[] randomNumbers = getRandomNumbers();
@@ -48,19 +37,19 @@ final class StreamBasics {
 
     }
 
-    private static void displayIntArray(final int[] randomNumbers) {
+     static void displayIntArray(final int[] randomNumbers) {
         for (int i : randomNumbers) {
             System.out.println(i);
         }
     }
 
 
-    private static void example() {
+     static void example() {
         List<String> myList = Arrays.asList("af", "aa", "ba", "ac", "uu", "xa", "ab", "ad", "ae");
         myList.stream().filter(s -> s.startsWith("a")).map(String::toUpperCase).sorted().forEach(System.out::println);
     }
 
-    private static void kindOfStreams() {
+     static void kindOfStreams() {
 
         hr();
         Stream.of("a", "bb", "ccc").findFirst().ifPresent(System.out::println);
@@ -93,7 +82,7 @@ final class StreamBasics {
         hr();
     }
 
-    private static void hr(final int lines) {
+     static void hr(final int lines) {
         hr();
         for (int i = 0; i < lines; i++) {
             System.out.println();
@@ -101,7 +90,7 @@ final class StreamBasics {
     }
 
 
-    private static void sketchMethod() {
+     static void sketchMethod() {
         hr();
         Stream.of("af", "aa", "ba", "ac", "uu", "xa", "ab", "ad", "ae").map(s -> s = "?").forEach(System.out::print);
 

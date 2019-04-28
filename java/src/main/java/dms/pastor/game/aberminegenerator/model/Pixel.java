@@ -1,4 +1,4 @@
-package dms.pastor.rpg.places.mine.aberminegenerator.model;
+package dms.pastor.game.aberminegenerator.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

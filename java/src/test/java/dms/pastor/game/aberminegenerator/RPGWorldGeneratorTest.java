@@ -1,4 +1,4 @@
-package dms.pastor.rpg.places.mine.aberminegenerator;
+package dms.pastor.game.aberminegenerator;
 
 import org.junit.Test;
 

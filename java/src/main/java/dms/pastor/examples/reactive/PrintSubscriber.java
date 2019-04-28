@@ -1,7 +1,6 @@
-package dms.pastor.learn.basics.reactive;
+package dms.pastor.examples.reactive;
 
 import java.util.concurrent.Flow;
-import java.util.concurrent.SubmissionPublisher;
 
 /**
  * Author Dominik Symonowicz
@@ -12,7 +11,8 @@ import java.util.concurrent.SubmissionPublisher;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-class PlusTenProcessor extends SubmissionPublisher<Integer> implements Flow.Subscriber<Integer> {
+
+class PrintSubscriber implements Flow.Subscriber<Integer> {
     private Flow.Subscription subscription;
 
     @Override
@@ -23,19 +23,17 @@ class PlusTenProcessor extends SubmissionPublisher<Integer> implements Flow.Subs
 
     @Override
     public void onNext(Integer item) {
-        submit(item + 10);
+        System.out.println("Received item: " + item);
         subscription.request(1);
     }
 
     @Override
     public void onError(Throwable error) {
-        error.printStackTrace();
-        closeExceptionally(error);
+        System.out.println("Error occurred: " + error.getMessage());
     }
 
     @Override
     public void onComplete() {
-        System.out.println("PlusTenProcessor completed");
-        close();
+        System.out.println("PrintSubscriber is complete");
     }
 }

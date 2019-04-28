@@ -1,4 +1,4 @@
-package dms.pastor.learn.basics;
+package dms.pastor.examples;
 
 /**
  * Author Dominik Symonowicz
@@ -11,34 +11,34 @@ package dms.pastor.learn.basics;
  * <p>
  * tag-string-format
  */
-class StringFormatExamples {
+public class StringFormatExamples {
     private final int width;
 
-    StringFormatExamples(int width) {
+    public StringFormatExamples(int width) {
         this.width = width;
     }
 
-    String displayNumberAlignedToRightWithWidth20(int number) {
+    public String displayNumberAlignedToRightWithWidth20(int number) {
         return String.format("|%" + width + "d|", number);
     }
 
-    String displayNumberAlignedToLeftWithWidth20(int number) {
+    public String displayNumberAlignedToLeftWithWidth20(int number) {
         return String.format("|%-" + width + "d|", number);
     }
 
-    String displayNumberAlignedToRightWithWidth20AndPadWithZeros(int number) {
+    public String displayNumberAlignedToRightWithWidth20AndPadWithZeros(int number) {
         return String.format("|%0" + width + "d|", number); // prints: |00000000000000000093|
     }
 
-    String displayPlusForPositiveNumber(int number) {
+    public String displayPlusForPositiveNumber(int number) {
         return String.format("|%+" + width + "d|", number);
     }
 
-    String displayNumberWithAmericanSeparator(int number) {
+    public String displayNumberWithAmericanSeparator(int number) {
         return String.format("|%,d|", number);
     }
 
-    String displayFirstFewCharactersFor(String text, int length) {
+    public String displayFirstFewCharactersFor(String text, int length) {
         return String.format("|%." + length + "s|", text);
 
     }

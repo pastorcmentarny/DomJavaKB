@@ -1,5 +1,6 @@
 package dms.pastor.learn.basics;
 
+import dms.pastor.examples.StringFormatExamples;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

@@ -1,4 +1,4 @@
-package dms.pastor.learn.basics;
+package dms.pastor.examples;
 
 class Java11StringNewMethodsExample {
 

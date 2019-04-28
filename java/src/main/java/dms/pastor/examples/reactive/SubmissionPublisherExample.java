@@ -1,4 +1,4 @@
-package dms.pastor.learn.basics.reactive;
+package dms.pastor.examples.reactive;
 
 import java.util.concurrent.SubmissionPublisher;
 

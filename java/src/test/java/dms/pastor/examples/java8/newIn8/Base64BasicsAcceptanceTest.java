@@ -5,7 +5,8 @@ import org.junit.Test;
 import java.nio.file.FileSystems;
 import java.util.Base64;
 
-import static dms.pastor.examples.java8.newIn8.Base64Basics.*;
+import static dms.pastor.examples.java8.Base64Basics.*;
+
 
 /**
  * Author Dominik Symonowicz
