@@ -48,9 +48,7 @@ class CodeForBlogConverter {
 
         StringBuilder newLine = new StringBuilder(EMPTY_STRING);
         String nsbp = HtmlUtils.getNbsp(NUMBER_OF_SPACES);
-        for (int i = 0; i < replaceCounter; i++) {
-            newLine.append(nsbp);
-        }
+        newLine.append(nsbp.repeat(Math.max(0, replaceCounter)));
 
         if (NUMBER_OF_SPACES * replaceCounter > 0) {
             newLine.append(line.substring(NUMBER_OF_SPACES * replaceCounter));

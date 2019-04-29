@@ -20,9 +20,7 @@ public final class HtmlUtils {
     public static String getNbsp(int times) {
         ValidatorUtils.validateIfPositiveNumber(times);
         StringBuilder nsbpBuilder = new StringBuilder(EMPTY_STRING);
-        for (int i = 0; i < times; i++) {
-            nsbpBuilder.append(HTML_SPACE);
-        }
+        nsbpBuilder.append(HTML_SPACE.repeat(Math.max(0, times)));
         return nsbpBuilder.toString();
     }
 }

@@ -55,16 +55,12 @@ class RowsGenerator {
 
     private String rowMaker(int lightsOn, Light on, int howMany) {
         StringBuilder row = new StringBuilder(EMPTY_STRING);
-        for (int i = 0; i < lightsOn; i++) {
-            row.append(on.getColor());
-        }
+        row.append(String.valueOf(on.getColor()).repeat(Math.max(0, lightsOn)));
         return generateRow(lightsOn, howMany, row);
     }
 
     private String generateRow(int lightsOn, int howMany, StringBuilder row) {
-        for (int i = lightsOn; i < howMany; i++) {
-            row.append(Light.OFF.getColor());
-        }
+        row.append(String.valueOf(Light.OFF.getColor()).repeat(Math.max(0, howMany - lightsOn)));
         return row.toString();
     }
 }

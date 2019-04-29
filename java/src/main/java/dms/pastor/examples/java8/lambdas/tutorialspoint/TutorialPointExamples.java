@@ -8,7 +8,7 @@ public class TutorialPointExamples {
     public static void main(String[] args) {
         TutorialPointExamples exampleRunner = new TutorialPointExamples();
 
-        MathOperation addition = (a, b) -> a + b;
+        MathOperation addition = Integer::sum;
         MathOperation substraction = (a, b) -> a - b;
         MathOperation multiplication = (a, b) -> a * b;
         MathOperation division = (a, b) -> a / b;

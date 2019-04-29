@@ -66,9 +66,7 @@ class RomanArabicConverter {
 
         numberLeft = getNumberLeft(numberLeft, sb, RomanNumerals.V, RomanNumerals.I);
 
-        for (int i = 1; i <= numberLeft; i++) {
-            sb.append('I');
-        }
+        sb.append("I".repeat(Math.max(0, numberLeft)));
 
         return sb.toString();
     }
@@ -77,9 +75,7 @@ class RomanArabicConverter {
         int amount = number / numerals.arabic();
         int numberLeft = number % numerals.arabic();
         int previousNumber = numerals.arabic() - previous.arabic();
-        for (int i = 1; i <= amount; i++) {
-            sb.append(numerals.roman());
-        }
+        sb.append(String.valueOf(numerals.roman()).repeat(Math.max(0, amount)));
 
         if (numberLeft / previousNumber == 1) {
             sb.append(previous.name()).append(numerals.name());
