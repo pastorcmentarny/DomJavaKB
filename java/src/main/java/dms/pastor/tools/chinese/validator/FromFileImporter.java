@@ -72,8 +72,8 @@ public class FromFileImporter implements Importer {
             return returnFailResultOnException(e);
         } catch (IOException e) {
             return returnFailResultOnException("IOException", nr, e);
-        } catch (ArrayIndexOutOfBoundsException aioobe) {
-            return returnFailResultOnException("ArrayIndexOutOfBoundsException", nr, aioobe);
+        } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
+            return returnFailResultOnException("ArrayIndexOutOfBoundsException", nr, arrayIndexOutOfBoundsException);
         }
         return new Result<>(true, format("Dictionary loaded successfully.(Words loaded: %d, Ignored: %d)", wordsList.size(), ignored), wordsList);
     }

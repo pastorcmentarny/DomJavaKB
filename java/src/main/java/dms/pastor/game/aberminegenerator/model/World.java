@@ -31,11 +31,11 @@ public class World {
         return new Image(0, 0);
     }
 
-    public int getWidth() {
+    private int getWidth() {
         return width;
     }
 
-    public int getHeight() {
+    private int getHeight() {
         return height;
     }
 
@@ -77,7 +77,7 @@ public class World {
  */
     }
 
-    public Pixel getPixelAt(int x, int y) {
+    private Pixel getPixelAt(int x, int y) {
         return world[x][y];
     }
 
@@ -91,7 +91,7 @@ public class World {
             Arrays.equals(world, world1.world);
     }
 
-    public String getImageAsString() {
+    private String getImageAsString() {
         StringBuilder imageBuilder = new StringBuilder(EMPTY_STRING);
         if (width == 0 || height == 0) {
             return imageBuilder.toString();

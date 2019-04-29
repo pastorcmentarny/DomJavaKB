@@ -13,7 +13,7 @@ public enum State {
 
     private final String value;
 
-    public String value() {
+    private String value() {
         return value;
     }
 

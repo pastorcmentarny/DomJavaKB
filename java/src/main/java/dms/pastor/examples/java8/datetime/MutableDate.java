@@ -10,7 +10,7 @@ final class MutableDate {
      static final String POLAND = "Europe/Warsaw";
      static final String UK = "Europe/London";
      static final String CHINA = "Asia/Shanghai";
-     static final String AUSTRALIA = "Australia/Sydney";
+    private static final String AUSTRALIA = "Australia/Sydney";
 
     private void mutabilityMadnessExample() {
         Date now = new Date();

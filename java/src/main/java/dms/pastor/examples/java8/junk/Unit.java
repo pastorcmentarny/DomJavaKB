@@ -1,6 +1,6 @@
 package dms.pastor.examples.java8.junk;
 
-public final class Unit {
+final class Unit {
     private final String name;
     private final String description;
     private final int age;

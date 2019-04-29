@@ -26,7 +26,7 @@ final class StreamBasics {
         hr();
     }
 
-     static void streamExamples() {
+    private static void streamExamples() {
         hr("find first and ifPresent");
         Stream.of("garlic", "lemon", "pepper").findFirst().ifPresent(System.out::println);
         final int[] randomNumbers = getRandomNumbers();
@@ -37,7 +37,7 @@ final class StreamBasics {
 
     }
 
-     static void displayIntArray(final int[] randomNumbers) {
+    private static void displayIntArray(final int[] randomNumbers) {
         for (int i : randomNumbers) {
             System.out.println(i);
         }

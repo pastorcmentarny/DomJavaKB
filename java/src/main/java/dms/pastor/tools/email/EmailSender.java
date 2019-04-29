@@ -1,5 +1,6 @@
 package dms.pastor.tools.email;
 
+import lombok.extern.slf4j.Slf4j;
 import org.simplejavamail.email.Email;
 import org.simplejavamail.email.EmailBuilder;
 import org.simplejavamail.mailer.Mailer;
@@ -12,11 +13,12 @@ import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.simplejavamail.mailer.config.TransportStrategy.SMTP;
 
 // Used to send test email in various project
+@Slf4j
 public class EmailSender {
-    private static String DUMMY_PERSON = generateName();
-    private static String DUMMY_EMAIL = generateEmail();
-    private static String SMTP_HOST = "localhost";
-    private static int SMTP_PORT = 48888;
+    private static final String DUMMY_PERSON = generateName();
+    private static final String DUMMY_EMAIL = generateEmail();
+    private static final String SMTP_HOST = "localhost";
+    private static final int SMTP_PORT = 48888;
 
     public static void main(String[] args) {
         Email email = EmailBuilder.startingBlank()
@@ -33,6 +35,7 @@ public class EmailSender {
             .clearEmailAddressCriteria() // turns off email validation
             .withDebugLogging(true)
             .buildMailer();
+
 
         mailer.sendMail(email);
     }
