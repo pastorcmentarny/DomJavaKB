@@ -30,7 +30,7 @@ public final class ArrayUtils {
         return sb.toString();
     }
 
-    public static int[] generateIntSequenceArray(int size) {
+    static int[] generateIntSequenceArray(int size) {
         int[] newArray = new int[size];
         for (int i = 0; i < newArray.length; i++) {
             newArray[i] = i;
