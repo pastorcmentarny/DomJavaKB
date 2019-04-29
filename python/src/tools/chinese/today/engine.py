@@ -1,16 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import datetime
-import random
-
 import bs4
 import chinese_number
 import chinese_time
+import chinese_utils
 import config
 import data_generator
+import datetime
 import pyperclip
+import random
 import requests
-import chinese_utils
 
 date = datetime.datetime.now()
 
@@ -45,8 +44,8 @@ def generate_info_about_today(weather_rating,
                               upper_wear_color_2, upper_wear_type_2,
                               time, meal: list,
                               yesterday_diary,
-                              run_distance,
-                              run_time,
+                              run_distance: int = 0,
+                              run_time: int = 0,
                               with_random_sentences: bool = True,
                               entry: int = 0,
                               is_a_for_online: bool = True
@@ -130,7 +129,7 @@ def add_time_of_write(time) -> str:
         else:
             sentence += str(date.minute)
     else:
-        sentence += time
+        sentence = ''
     return sentence + dot
 
 

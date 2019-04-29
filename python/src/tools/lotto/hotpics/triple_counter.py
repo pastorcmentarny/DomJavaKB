@@ -2,6 +2,7 @@ import csv
 import itertools
 import logging
 import time
+
 from src.tools.lotto import config
 
 all_draws_path = config.path["base"] + 'lotto-hotpicks-all-draws.csv'
@@ -69,7 +70,7 @@ def main():
     triples_list = sorting_result(triples_list)
 
     stop = time.time()
-    logging.info("It tooks " + str(stop - start) + " seconds.")
+    logging.info("It took " + str(stop - start) + " seconds.")
     saving_result_to_file(triples_list)
 
     logging.debug("done")
@@ -107,7 +108,7 @@ def count_all_triples_drawn(all_sorted_combinations, start, step, total, triples
     counter = 0
     for sc in all_sorted_combinations:
         if counter % step == 0:
-            progress = counter / total * 100
+            progress = counter / total * 1000
             print("it took " + str(int(time.time() - start)) + " seconds to processed " + str(
                 counter) + " of total: " + str(total) + ". Progress: " + str(percentage_format % progress))
 
