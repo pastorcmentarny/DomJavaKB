@@ -110,7 +110,7 @@ def get_time_from_run(run_time):
 
 
 def generate_meal(meals: list) -> str:
-    return generate_sentence_from_multi_words(meals)
+    return random.generate_sentence_from_multi_words(meals)
 
 
 def add_meal_sentence(meal: list) -> str:
@@ -262,16 +262,3 @@ def get_text_based_on_time(time, meal):
     return day_info
 
 
-def generate_sentence_from_multi_words(words: list) -> str:
-    if len(words) == 1:
-        return words[0]
-    elif len(words) == 2:
-        return words[0] + '和' + words[1]
-    else:
-        sentence = ''
-        length = len(words)
-        for idx, word in enumerate(words):
-            if idx + 1 == length:
-                sentence += '和' + word
-            else:
-                sentence += word

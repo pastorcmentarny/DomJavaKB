@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
+
 def get_chinese_number_for(entry):
     number = ''
     thousands = entry // 1000
@@ -24,6 +26,7 @@ def get_chinese_number_for(entry):
         number += get_chinese_number(ones)
 
     return number
+
 
 def get_chinese_number(num):
     numbers = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十',
