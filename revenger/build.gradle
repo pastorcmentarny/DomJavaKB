@@ -1,0 +1,75 @@
+import org.codehaus.groovy.runtime.GStringImpl
+
+
+plugins {
+    id 'org.springframework.boot' version '2.1.4.RELEASE'
+    id 'org.owasp.dependencycheck'
+    id 'java'
+    id 'idea'
+
+}
+
+apply plugin: 'io.spring.dependency-management'
+apply from: "$gradleDir/dependecies.gradle"
+apply from: "$gradleDir/tasks.gradle/"
+
+project.ext {
+    //All non-gradle (extra )properties must be defined through the "ext" namespace.
+    // Once defined, it is available directly on the owning object
+    gradleDir = "${project(':').rootDir}/gradle" as GStringImpl
+}
+
+
+group = 'dms.pastor'
+version = '0.0.1-SNAPSHOT'
+
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+
+compileJava {
+    sourceCompatibility = JavaVersion.VERSION_12
+    targetCompatibility = JavaVersion.VERSION_12
+    options.encoding = 'UTF-8' //to ensure that I always use UTF-8 in project
+}
+
+compileTestJava {
+    sourceCompatibility = JavaVersion.VERSION_12
+    targetCompatibility = JavaVersion.VERSION_12
+    options.encoding = 'UTF-8' //to ensure that I always use UTF-8 in project
+}
+
+jar {
+    archiveBaseName = project.name
+    version = '' // removed as i do not use version
+}
+
+//move to dependencies folder
+dependencies {
+    compile project(':java')
+    compile libraries.log
+    compile("org.springframework.boot:spring-boot-starter-actuator:$springBootVersion")
+    compile("org.springframework.boot:spring-boot-devtools:$springBootVersion")
+    compile("org.springframework.boot:spring-boot-starter-mail:$springBootVersion")
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf:$springBootVersion")
+    compile("org.springframework.boot:spring-boot-starter-web:$springBootVersion")
+    compile("org.springframework.boot:spring-boot-starter-web-services:$springBootVersion")
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
