@@ -14,7 +14,8 @@ import java.util.Locale;
  */
 public class NewFeaturesInJava12 {
 
-    private NewFeaturesInJava12(){}
+    private NewFeaturesInJava12() {
+    }
 
     public static String returnsClassForAnArrayType() {
         return "dominik".getClass().arrayType().toString();

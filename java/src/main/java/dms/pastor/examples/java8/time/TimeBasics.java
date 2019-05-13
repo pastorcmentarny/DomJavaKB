@@ -10,15 +10,14 @@ import java.util.Set;
 final class TimeBasics {
 
 
-
-     static void displayAllTimeZone(boolean display) {
+    static void displayAllTimeZone(boolean display) {
         if (display) {
             final Set<String> availableZoneIds = ZoneId.getAvailableZoneIds();
             availableZoneIds.stream().sorted().forEach(System.out::println);
         }
     }
 
-     static void displayTimeInLondonWroclawBeijing() {
+    static void displayTimeInLondonWroclawBeijing() {
 
         ZoneId wroclawZone = ZoneId.of("Europe/Warsaw");
         ZoneId londonZone = ZoneId.of("Europe/London");
@@ -33,21 +32,21 @@ final class TimeBasics {
         System.out.println("Time: [London " + londonTime + " ][ Wroclaw " + wroclawTime + " ][ Tianjin " + tianjinTime + " ]");
     }
 
-     static String getCurrentTimeAsString() {
+    static String getCurrentTimeAsString() {
         LocalDate currentTime = LocalDate.now();
         final String result = String.format("Current time is %s", currentTime);
         System.out.println(result);
         return result;
     }
 
-     static void gettingCurrentDateTimeInJava() {
+    static void gettingCurrentDateTimeInJava() {
         LocalDate todayDate = LocalDate.now();
         System.out.println(todayDate);
         LocalTime todayTime = LocalTime.now();
         System.out.println(todayTime);
     }
 
-     static void getCurrentTimeWithOffset() {
+    static void getCurrentTimeWithOffset() {
         ZoneOffset zoneOffset = ZoneOffset.of("-08:00");
         ZoneId offsetZoneId = ZoneId.ofOffset("UTC", zoneOffset);
         LocalTime time = LocalTime.now(offsetZoneId);

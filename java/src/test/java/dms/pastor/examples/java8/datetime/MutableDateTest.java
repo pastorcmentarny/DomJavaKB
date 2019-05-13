@@ -20,7 +20,7 @@ import static org.junit.Assert.*;
 public class MutableDateTest implements ExampleRunner {
 
     @Override
-    public void runExamples()   {
+    public void runExamples() {
         MutableDate oldDate = new MutableDate();
         //oldDate.mutabilityMadnessExample();
 

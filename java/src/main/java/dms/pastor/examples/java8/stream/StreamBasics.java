@@ -17,7 +17,7 @@ final class StreamBasics {
     private static final boolean runAll = false;
 
 
-     static void tutorial() {
+    static void tutorial() {
         hr();
         final List<String> aList = Arrays.asList("a1", "a2", "c3", "c4", "b1", "c2", "c1");
         aList.stream().filter(s -> s.startsWith("c")).map(String::toUpperCase).forEach(System.out::println);
@@ -44,12 +44,12 @@ final class StreamBasics {
     }
 
 
-     static void example() {
+    static void example() {
         List<String> myList = Arrays.asList("af", "aa", "ba", "ac", "uu", "xa", "ab", "ad", "ae");
         myList.stream().filter(s -> s.startsWith("a")).map(String::toUpperCase).sorted().forEach(System.out::println);
     }
 
-     static void kindOfStreams() {
+    static void kindOfStreams() {
 
         hr();
         Stream.of("a", "bb", "ccc").findFirst().ifPresent(System.out::println);
@@ -82,7 +82,7 @@ final class StreamBasics {
         hr();
     }
 
-     static void hr(final int lines) {
+    static void hr(final int lines) {
         hr();
         for (int i = 0; i < lines; i++) {
             System.out.println();
@@ -90,7 +90,7 @@ final class StreamBasics {
     }
 
 
-     static void sketchMethod() {
+    static void sketchMethod() {
         hr();
         Stream.of("af", "aa", "ba", "ac", "uu", "xa", "ab", "ad", "ae").map(s -> s = "?").forEach(System.out::print);
 

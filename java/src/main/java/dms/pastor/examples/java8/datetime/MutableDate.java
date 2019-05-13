@@ -7,9 +7,9 @@ final class MutableDate {
 
     private static final int SECOND_IN_MILLISECONDS = 1000;
     private static final int MINUTE = 60 * SECOND_IN_MILLISECONDS;
-     static final String POLAND = "Europe/Warsaw";
-     static final String UK = "Europe/London";
-     static final String CHINA = "Asia/Shanghai";
+    static final String POLAND = "Europe/Warsaw";
+    static final String UK = "Europe/London";
+    static final String CHINA = "Asia/Shanghai";
     private static final String AUSTRALIA = "Australia/Sydney";
 
     private void mutabilityMadnessExample() {
@@ -25,7 +25,7 @@ final class MutableDate {
     }
 
 
-     void calendarMisconceptions() {
+    void calendarMisconceptions() {
         //given date and time
         LocalDate localDate = LocalDate.of(2016, Month.AUGUST, 5);
         LocalTime localTime = LocalTime.of(10, 22);

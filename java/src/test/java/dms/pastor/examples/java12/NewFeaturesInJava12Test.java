@@ -17,7 +17,7 @@ public class NewFeaturesInJava12Test implements ExampleRunner {
 
     @Test
     @Override
-    public void runExamples()  {
+    public void runExamples() {
         System.out.println(returnsClassForAnArrayType());
         System.out.println(stringIntentMethod());
         System.out.println(compactNumberFormat());

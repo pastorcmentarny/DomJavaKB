@@ -110,7 +110,7 @@ public final class FileUtils {
      */
     public static void lock() {
         file = new File("program.lock");
-       //TODO File.createTempFile("program","lock");
+        //TODO File.createTempFile("program","lock");
         try (RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw")) {
             if (file.exists() && !file.delete()) {
                 LOGGER.info("It seems like another instance of program is run ");

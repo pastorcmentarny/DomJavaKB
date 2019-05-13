@@ -19,12 +19,12 @@ public class PredicateExampleTest {
     public void predicateExample() throws Exception {
         // given
         final String expectedResult = "City: Wroclaw is: false and negation will be true\n" +
-                "City: Tianjin is: false and negation will be true\n" +
-                "City: London is: false and negation will be true\n" +
-                "City: Aberystwyth is: false and negation will be true\n" +
-                "City: Bangor is: true and negation will be false\n" +
-                "City: York is: false and negation will be true\n" +
-                "City: Beijing is: true and negation will be false\n";
+            "City: Tianjin is: false and negation will be true\n" +
+            "City: London is: false and negation will be true\n" +
+            "City: Aberystwyth is: false and negation will be true\n" +
+            "City: Bangor is: true and negation will be false\n" +
+            "City: York is: false and negation will be true\n" +
+            "City: Beijing is: true and negation will be false\n";
         // when
         final String result = PredicateExample.example();
         // then

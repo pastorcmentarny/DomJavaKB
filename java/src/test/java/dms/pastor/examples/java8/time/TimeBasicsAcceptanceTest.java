@@ -15,7 +15,7 @@ public class TimeBasicsAcceptanceTest implements ExampleRunner {
 
     @Test
     @Override
-    public void runExamples()   {
+    public void runExamples() {
         TimeBasics.getCurrentTimeAsString();
         TimeBasics.gettingCurrentDateTimeInJava();
         TimeBasics.displayTimeInLondonWroclawBeijing();

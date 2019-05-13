@@ -17,7 +17,7 @@ public class StreamBasicsTest implements ExampleRunner {
 
     @Test
     @Override
-    public void runExamples()   {
+    public void runExamples() {
         StreamBasics.tutorial();
         StreamBasics.hr(3);
         StreamBasics.example();

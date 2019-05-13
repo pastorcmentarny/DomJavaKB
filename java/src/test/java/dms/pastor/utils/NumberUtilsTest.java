@@ -678,7 +678,7 @@ public class NumberUtilsTest {
     }
 
     @Test
-    public void increaseByPercentAcceptanceTest(){
+    public void increaseByPercentAcceptanceTest() {
         // when
         final int result = increaseByPercent(100d, 1d);
 
