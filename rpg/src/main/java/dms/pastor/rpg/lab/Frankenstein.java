@@ -8,7 +8,7 @@ package dms.pastor.rpg.lab;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
-class   Frankenstein {
+class Frankenstein {
     private final String name;
     private int lvl;
     private final int strength;
@@ -71,17 +71,17 @@ class   Frankenstein {
     @Override
     public String toString() {
         return name + "(" + lvl + ")  {" +
-                "ARM=" + ARM +
-                ", minDMG=" + minDMG +
-                ", maxDMG=" + maxDMG +
-                ", accuracy=" + accuracy +
-                ", evasion=" + evasion +
-                ", HP=" + HP +
-                ", maxHP=" + maxHP +
-                ", SP=" + SP +
-                ", maxSP=" + maxSP +
-                ", mana=" + mana +
-                ", maxMana=" + maxMana +
-                '}';
+            "ARM=" + ARM +
+            ", minDMG=" + minDMG +
+            ", maxDMG=" + maxDMG +
+            ", accuracy=" + accuracy +
+            ", evasion=" + evasion +
+            ", HP=" + HP +
+            ", maxHP=" + maxHP +
+            ", SP=" + SP +
+            ", maxSP=" + maxSP +
+            ", mana=" + mana +
+            ", maxMana=" + maxMana +
+            '}';
     }
 }

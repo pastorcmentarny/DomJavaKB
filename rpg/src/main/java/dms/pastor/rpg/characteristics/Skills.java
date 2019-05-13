@@ -6,37 +6,33 @@ import java.util.Objects;
 import java.util.Random;
 
 /**
- *
- PERSON's Character
- Manual
- Add +5% to dmg
- Verbal
-
-
- How you can speak to people ,which affect
-
-
- Intelligence
-
-
-
- A,D+15% mp+10%
- Vitality  (Witalno
-
-
- Each  point of vitality add +6% to max hp
- Dexterity (zręczność,sprawność,zwinność)
- It responses for who starts fight first
- it responses  for accuracy and evasion
- it responses
- psychokinesis
- Magic skills
- karma
- is a bar which shouws howw
- Karma +za dobro -za zło
-
-
-
+ * PERSON's Character
+ * Manual
+ * Add +5% to dmg
+ * Verbal
+ * <p>
+ * <p>
+ * How you can speak to people ,which affect
+ * <p>
+ * <p>
+ * Intelligence
+ * <p>
+ * <p>
+ * <p>
+ * A,D+15% mp+10%
+ * Vitality  (Witalno
+ * <p>
+ * <p>
+ * Each  point of vitality add +6% to max hp
+ * Dexterity (zręczność,sprawność,zwinność)
+ * It responses for who starts fight first
+ * it responses  for accuracy and evasion
+ * it responses
+ * psychokinesis
+ * Magic skills
+ * karma
+ * is a bar which shouws howw
+ * Karma +za dobro -za zło
  */
 
 /**

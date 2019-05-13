@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class BagFoundEvent implements EventInterface {
     static //FIXME log.er //FIXME log.= //FIXME log.er.get//FIXME log.er(RPGLauncher.class);
 
-            Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
     private Result result = new Result(false);
     private final Hero hero;

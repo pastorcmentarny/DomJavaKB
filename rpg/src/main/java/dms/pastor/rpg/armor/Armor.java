@@ -12,7 +12,7 @@ import dms.pastor.rpg.items.Item;
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
- *
+ * <p>
  * //TODO change to abstract when finish implementing full version of armor
  */
 public class Armor extends Item {

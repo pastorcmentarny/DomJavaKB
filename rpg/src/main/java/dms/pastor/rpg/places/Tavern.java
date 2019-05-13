@@ -9,21 +9,21 @@ import java.util.Scanner;
 
 /**
  * ---snoring  ----
- *
+ * <p>
  * You went for party and u start drink wit capo. u end up in the hall where u are about to sleep but then u hear someday r doing*beeep*
  * 1.ignore (event will be repeat)
  * 2. say shut up i am trying to sleep
  * 3. wait and do *beep*
  * 4. try to find person and punch it
- *
- *
+ * <p>
+ * <p>
  * if u do 1. it will be repeat 100 and it is 5% that something willhappen
  * a. somebody will.punch person 50% , b. somebody will punch 20% .
- *
+ * <p>
  * 2. has 10% to success , 66% hit u or nothing (however it do from 3 to 10 steps to progress
  * UNSORTED IDEAS
- *
- *
+ * <p>
+ * <p>
  * Very rare quest as reference to Top Gear (3 middle age man)
  * football fields is capo camp where event from my times in Capoeira . Not part of the Campaign
  * naughty herbs are drugs
@@ -31,15 +31,14 @@ import java.util.Scanner;
  * When it rains, why don't sheep shrink?
  * Why is abbreviation such a long word?
  * How does a fish sleep?
- *
+ * <p>
  * Why is abbreviation such a long word?
  * How does a fish sleep?
  * http://www.fun-stuff-to-do.com/rhetorical_questions.html
- *
+ * <p>
  * quest at pub
  * if you allow Barry meet Natalie then
  * Natalie + Barry = ginger love -> przywoluje fenixa, who saves you from death,cure all bad diseases and give double health.
- *
  */
 public class Tavern extends Place {
 

@@ -9,7 +9,7 @@ import dms.pastor.rpg.commons.Result;
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
- *
+ * <p>
  * some homeless say
  * do u have spare change ?
  * if u give money , nothing happen but 1% get loot quest location. if not then 10% chance for being cursed and 3% -1 to reputation student or

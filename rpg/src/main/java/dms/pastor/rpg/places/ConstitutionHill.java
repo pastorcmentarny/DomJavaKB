@@ -44,9 +44,9 @@ class ConstitutionHill extends Place {
         boolean stay = true;
         while (stay) {
             System.out.println("You can:\n 1.Go to Darian Luna Park\n"
-                    + "2. Use Cliff Railway\n"
-                    + "3.Walk around\n"
-                    + "0.Back\n");
+                + "2. Use Cliff Railway\n"
+                + "3.Walk around\n"
+                + "0.Back\n");
             try {
                 int choice = scanner.nextInt();
                 switch (choice) {

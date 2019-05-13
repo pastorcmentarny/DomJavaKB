@@ -7,7 +7,7 @@ package dms.pastor.rpg;
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
- *
+ * <p>
  * Everything extends from Element
  */
 public class Element {

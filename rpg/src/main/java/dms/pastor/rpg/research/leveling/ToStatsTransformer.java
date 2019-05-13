@@ -35,10 +35,10 @@ public class ToStatsTransformer {
     private int karma = 0;
     private int criticalChance = Config.DEFAULT_CRITICAL_CHANCE;
      */
-    public Stats transform(Stats stats,Skills skills){
+    public Stats transform(Stats stats, Skills skills) {
         final int strength = skills.getStrength();
-        stats.addToDmg(strength*3,strength);
-        stats.addHPAndMaxHP((skills.getVitality()*6)+skills.getStrength());
+        stats.addToDmg(strength * 3, strength);
+        stats.addHPAndMaxHP((skills.getVitality() * 6) + skills.getStrength());
         return stats;
     }
 }
