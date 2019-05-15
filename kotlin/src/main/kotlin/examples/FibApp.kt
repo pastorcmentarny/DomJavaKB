@@ -2,7 +2,7 @@ package examples
 
 fun main(args: Array<String>) {
     var program = Program()
-  //1.  program.fibonacci(8)
+    //1.  program.fibonacci(8)
     /*
     2. program.fibonacci(8,object : Process{
         override fun execute(value: Int) {
@@ -12,10 +12,10 @@ fun main(args: Array<String>) {
      */
 
     // program.fibonacci(8){n -> println(n)} // one solution
-    program.fibonacci(8){println(it)} // alternative solution
-    program.fibonacci(8,::println) // another alternative solution
+    program.fibonacci(8) { println(it) } // alternative solution
+    program.fibonacci(8, ::println) // another alternative solution
     var total = 0
-    program.fibonacci(8){it -> total += it} //total is mutated
+    program.fibonacci(8) { it -> total += it } //total is mutated
 }
 
 interface Process {
@@ -29,7 +29,7 @@ class Program {
         var prevprev = 0
         var current = 1
 
-        for(i : Int in 1..limit){
+        for (i: Int in 1..limit) {
             println(current)
             var temp = current
             prevprev = prev
@@ -38,12 +38,12 @@ class Program {
         }
     }
 
-    fun fibonacci(limit: Int,action: Process) {
+    fun fibonacci(limit: Int, action: Process) {
         var prev = 0
         var prevprev = 0
         var current = 1
 
-        for(i : Int in 1..limit){
+        for (i: Int in 1..limit) {
             action.execute(current)
             var temp = current
             prevprev = prev
@@ -52,12 +52,12 @@ class Program {
         }
     }
 
-    fun fibonacci(limit: Int,action: (Int) -> Unit) {
+    fun fibonacci(limit: Int, action: (Int) -> Unit) {
         var prev = 0
         var prevprev = 0
         var current = 1
 
-        for(i : Int in 1..limit){
+        for (i: Int in 1..limit) {
             action(current)
             var temp = current
             prevprev = prev

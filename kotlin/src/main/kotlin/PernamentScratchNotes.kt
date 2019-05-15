@@ -34,9 +34,9 @@ class PernamentScratchNotes {
         print("Is U is in AlphaArray : ${"U" in alpha}")
 
         oneToTen.step(2)
-                .reversed()
-                .iterator()
-                .forEach { number -> println(number) }
+            .reversed()
+            .iterator()
+            .forEach { number -> println(number) }
         val description = """
 A vary vary very long description so it can be cut so it can fit nicely on console.
             This text should not be visible :)
@@ -267,9 +267,9 @@ A vary vary very long description so it can be cut so it can fit nicely on conso
 
         line("sequence") // like stream in java
         meetings.asSequence()
-                .filter { it.name.startsWith("1") }
-                .map { it.name }
-                .forEach { println(it) }
+            .filter { it.name.startsWith("1") }
+            .map { it.name }
+            .forEach { println(it) }
 
 
         line("higher order function ")
@@ -283,7 +283,7 @@ A vary vary very long description so it can be cut so it can fit nicely on conso
         println(calcSomething(1, 2))
 
         line("higher order function ")
-        val names: List<String> = listOf("Darren", "Mark","Karl")
+        val names: List<String> = listOf("Darren", "Mark", "Karl")
         val nameOf = names.iteamAt(0)
         println(nameOf)
 
@@ -311,8 +311,6 @@ A vary vary very long description so it can be cut so it can fit nicely on conso
     private fun makeMathOnList(numList: Array<Int>, myFunc: (num: Int) -> Int) {
         numList.forEach { println("MathOnList ${myFunc(it)}") }
     }
-
-
 
 
     private fun max(a: Int, b: Int): Int = if (a > b) a else b

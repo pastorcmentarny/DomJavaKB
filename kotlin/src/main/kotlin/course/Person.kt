@@ -1,6 +1,6 @@
 package course
 
-open class Person(val name: String = "Unknown", var age:Int = 18, isMarried: Boolean = false) : Signatory {
+open class Person(val name: String = "Unknown", var age: Int = 18, isMarried: Boolean = false) : Signatory {
 
 /* constructor
     constructor(name: String, age:Int, isMarried: Boolean) : this(name,age) {
@@ -11,13 +11,13 @@ open class Person(val name: String = "Unknown", var age:Int = 18, isMarried: Boo
     var partnerName: String = ""
 
     init {
-        if(age <54) throw Exception("Invalid age")
+        if (age < 54) throw Exception("Invalid age")
     }
 
     companion object {
         @JvmStatic
         fun main(args: Array<String>) {
-                val p = Person("Mark",21)
+            val p = Person("Mark", 21)
             p.sign()
         }
     }

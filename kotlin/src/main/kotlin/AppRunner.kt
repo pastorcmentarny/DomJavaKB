@@ -14,7 +14,7 @@ fun main(args: Array<String>) {
 
 
 class Question {
-    var Answer:String? = null
+    var Answer: String? = null
     val CorrectAnswer = "Dominik"
     val Question: String = "What is my number ?"
 
