@@ -4,10 +4,9 @@ import webbrowser
 import bs4
 import requests
 
-
-for year in range(2018,1998,-1):
-    response = requests.get('https://www.lottery.co.uk/thunderball/results/archive-' + str(year) , 'html.parser')
-    page = bs4.BeautifulSoup(response.text,"html.parser")
+for year in range(2018, 1998, -1):
+    response = requests.get('https://www.lottery.co.uk/thunderball/results/archive-' + str(year), 'html.parser')
+    page = bs4.BeautifulSoup(response.text, "html.parser")
     div = page.select('.table.table.thunderball')[0].findAll('tr')
 
     for d in div:
@@ -22,4 +21,3 @@ for year in range(2018,1998,-1):
             result = result + str(n.text) + ','
         result = result + 'T0,Odin,0'
         print(result)
-

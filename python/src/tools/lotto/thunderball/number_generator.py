@@ -8,7 +8,6 @@ import output
 import lotto_utils
 from src.tools.lotto import config
 
-
 number_1 = 5
 number_2 = 11
 number_3 = 19

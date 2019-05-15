@@ -15,7 +15,7 @@ def main():
     numbers = {}
 
     for line in data[1: len(data)]:
-        for number in range(1,7):
+        for number in range(1, 7):
             numbers[line[number]] = numbers.get(line[number], 0) + 1
 
     numbers = [(key, numbers[key]

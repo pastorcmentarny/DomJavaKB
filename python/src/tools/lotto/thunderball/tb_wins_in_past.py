@@ -13,6 +13,7 @@ import past_result_checker
 numbers = ['2', '25', '39', '0', '0']
 thunderbaall = [1]
 
+
 def main():
     logging.debug("checking if numbers you selected won in the past results for THUNDERBALL")
     thunderball_path = config.path["base"] + 'thunderball-all-draws.csv'
@@ -24,7 +25,8 @@ def main():
     thunderball_csv = csv.reader(thunderball_file)
     data = list(thunderball_csv)
 
-    past_result_checker.check_for(True, numbers, data,thunderbaall)
+    past_result_checker.check_for(True, numbers, data, thunderbaall)
+
 
 if __name__ == '__main__':
     main()

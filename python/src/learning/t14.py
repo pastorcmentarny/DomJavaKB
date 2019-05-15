@@ -91,7 +91,6 @@ for x in range(2):
 
 time.sleep(2)
 
-
 '''
  three different types of values used to represent time:
 
@@ -117,4 +116,4 @@ The return value is a Popen object, which has two useful methods: poll() and wai
 Unlike importing the Python program as a module, when your Python program launches another Python program, the two are run in separate processes and will not be able to share each other’s variables.
 '''
 
-subprocess.Popen(['start', 'C:\\ds\\notes\\ds.txt'], shell=True) # We also pass the shell=True keyword argument, which is needed only on Windows
+subprocess.Popen(['start', 'C:\\ds\\notes\\ds.txt'], shell=True)  # We also pass the shell=True keyword argument, which is needed only on Windows

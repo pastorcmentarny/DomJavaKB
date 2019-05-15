@@ -45,6 +45,7 @@ for americanFilename in os.listdir(baseDir):
 print('Task complete, goodbye')
 
 from selenium import webdriver
+
 browser = webdriver.Firefox()
 browser.get('http://inventwithpython.com')
 try:
@@ -112,4 +113,3 @@ for number in range(1, attempts):
         print("7 is a lucky number. Goodbye! Shit happens on attempt: " + str(number) + '/' + str(attempts))
         sys.exit()
 print("No seven,no problem")
-

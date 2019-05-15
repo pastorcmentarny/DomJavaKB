@@ -1,6 +1,6 @@
 import random
 
-name = None #Python is dynamic, so you don't need to declare things;
+name = None  # Python is dynamic, so you don't need to declare things;
 counter = 0
 
 while True:
@@ -60,7 +60,6 @@ work = 37.5
 print(work)
 work = 'hello'
 print(work)
-
 
 # input fun ,so not in use
 # print('Warm welcome! Who are you ?')
@@ -172,7 +171,6 @@ work = 37.5
 print(work)
 work = 'hello'
 print(work)
-
 
 # input fun ,so not in use
 # print('Warm welcome! Who are you ?')

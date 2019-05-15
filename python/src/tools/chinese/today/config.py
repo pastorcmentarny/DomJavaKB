@@ -301,7 +301,7 @@ sentences = [
 weekend_activity = [
     '我去散步去停车。',  # i went for a walk to park.
     '我待在家里和儿子一起玩。',  # i stayed at home and I played with my son.
-    '我玩游戏。' # i played games.
+    '我玩游戏。'  # i played games.
 ]
 
 daily_activities = [

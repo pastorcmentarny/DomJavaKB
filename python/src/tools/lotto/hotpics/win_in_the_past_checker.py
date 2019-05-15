@@ -1,10 +1,10 @@
 import csv
 import logging
 import sys
+
 sys.path.insert(0, '../utils')
 import past_result_checker
 from src.tools.lotto import config
-
 
 # this app is used to provide information for given numbers how many times you won. it will check for 3,4,5,5+ and 6 number
 # validate numbers to ensure is 6 of them and they are unique
@@ -32,6 +32,7 @@ def main():
     data = list(euro_hotpics_history_csv)
 
     past_result_checker.check_for(True, numbers, data)
+
 
 if __name__ == '__main__':
     main()

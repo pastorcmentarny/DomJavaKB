@@ -20,6 +20,7 @@ import draws_downloader
 import get_result_for
 import output
 import lotto_utils
+
 logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s',
                     filename=config.path["base"] + 'log.txt')
 

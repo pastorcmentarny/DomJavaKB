@@ -20,7 +20,7 @@ while not url.endswith('#'):
         try:
             comicUrl = 'http:' + elements[0].get('src')
             print('Downloading image %s ..' % (comicUrl))
-            imageFile = open(os.path.join('xkcd',path +  os.path.basename(comicUrl)), 'wb')
+            imageFile = open(os.path.join('xkcd', path + os.path.basename(comicUrl)), 'wb')
             for chunk in response.iter_content(100000):
                 imageFile.write(chunk)
             imageFile.close()
@@ -32,5 +32,3 @@ while not url.endswith('#'):
             continue
 
 print('Done.')
-
-

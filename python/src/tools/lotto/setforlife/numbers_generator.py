@@ -15,7 +15,7 @@ import output
 game_name = 'set-for-life'
 set_for_life_url = 'https://www.national-lottery.co.uk/results/' + game_name + '/draw-history/csv'
 path = config.path["base"] + game_name + '.csv'
-all_draws = config.path["base"] + game_name +'-all-draws.csv'
+all_draws = config.path["base"] + game_name + '-all-draws.csv'
 
 WRITABLE = 'w'  # move to config
 

@@ -2,7 +2,6 @@ import logging
 import sys
 from src.tools.lotto import config
 
-
 sys.path.insert(0, '../utils')
 
 import draws_downloader

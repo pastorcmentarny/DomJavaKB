@@ -231,7 +231,7 @@ def get_daily_activity_for(weather_description_1, weather_description_2, meal, s
     day += add_meal_sentence(meal)
     day += '我走了' + str(steps) + '步相当于' + get_distance_from_steps(steps) + '公里左右' + dot
 
-# dinner
+    # dinner
     return day
 
 
@@ -260,5 +260,3 @@ def get_text_based_on_time(time, meal):
         # woke up
         # ate at breakfast
     return day_info
-
-

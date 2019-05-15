@@ -3,7 +3,6 @@
 #   Here is a short program that counts the number of occurrences of each letter in a string.'''
 
 
-
 result = 17 / 4 * 3 - 1 ** 2
 print(result)
 
@@ -19,12 +18,9 @@ print(result)
 result = 1j ** 3  # need to learn how to use imaginary number
 print(result)
 
-
 # raw string If you don’t want characters prefaced by \ to be interpreted as special characters, you can use raw strings by adding an r before the first quote:
 print(r'C:\to\nowhere')
 print('C:\to\nowhere')
-
-
 
 print('moon' * 10)
 
@@ -46,8 +42,6 @@ print(result[-8], result[-6])  # starts from -1 (last character)
 result = 'Dominik'
 print(result[:3] + result[3:])
 print(result[0:3] + result[3:len(result)])
-
-
 
 # String is immutable so you cannot do this result[0] = J but you can:
 result = 'J' + result[1:]

@@ -19,6 +19,7 @@ Each cell can contain a number or text value.
 The grid of cells with data makes up a sheet.
 '''
 
+
 def displayInfoFor(cell):
     print('Cell [' + str(cell.row) + ':' + str(cell.column) + '] : Value: ' + str(cell.value))
 
@@ -172,4 +173,3 @@ sheet.unmerge_cells(mergeToUnmerge)
 workbook.save(base + 'styled_example_' + today + 'part' + str(random.randint(0, 100)) + '.xlsx')
 
 # you can create styles and then use them
-
