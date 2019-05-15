@@ -51,6 +51,8 @@ allprojects {
         compile 'ch.qos.logback:logback-classic:1.2.3'
         compile 'com.hubspot.jinjava:jinjava:2.4.14'
         compile 'org.simplejavamail:simple-java-mail:5.1.5'
+        compile 'io.rest-assured:rest-assured:3.3.0' //normally should be testCompile 
+        compile 'io.rest-assured:json-schema-validator:3.3.0' //normally should be testCompile
         compileOnly 'org.projectlombok:lombok:1.18.4'
         testImplementation 'org.junit.jupiter:junit-jupiter-api:5.4.2'
         testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.4.2'

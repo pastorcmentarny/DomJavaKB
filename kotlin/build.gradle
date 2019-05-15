@@ -15,27 +15,27 @@ buildscript {
     }
 }
 
-    group 'dms.pastor'
-    version '1.0-SNAPSHOT'
+group 'dms.pastor'
+version '1.0-SNAPSHOT'
 
-    apply plugin: 'java'
-    apply plugin: 'kotlin'
+apply plugin: 'java'
+apply plugin: 'kotlin'
 
 //-Xjsr305=strict
 // To report as nullability problems reported as error we add the command line parameter -Xjsr305=strict.
 // By default they are reported as warning To disable the warnings, use -Xjsr305=ignore.
-    compileKotlin {
-        kotlinOptions {
-            freeCompilerArgs = ["-Xjsr305=strict"]
-            jvmTarget = "1.8"
-        }
+compileKotlin {
+    kotlinOptions {
+        freeCompilerArgs = ["-Xjsr305=strict"]
+        jvmTarget = "1.8"
     }
-    compileTestKotlin {
-        kotlinOptions {
-            freeCompilerArgs = ["-Xjsr305=strict"]
-            jvmTarget = "1.8"
-        }
+}
+compileTestKotlin {
+    kotlinOptions {
+        freeCompilerArgs = ["-Xjsr305=strict"]
+        jvmTarget = "1.8"
     }
+}
 repositories {
     mavenCentral()
 }
