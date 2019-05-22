@@ -68,9 +68,9 @@ public class JsonObject {
         if (o == null || getClass() != o.getClass()) return false;
         JsonObject that = (JsonObject) o;
         return getVersion() == that.getVersion() &&
-                isOk() == that.isOk() &&
-                Objects.equals(getName(), that.getName()) &&
-                Objects.equals(getIgnoredField(), that.getIgnoredField());
+            isOk() == that.isOk() &&
+            Objects.equals(getName(), that.getName()) &&
+            Objects.equals(getIgnoredField(), that.getIgnoredField());
     }
 
     @Override
@@ -81,10 +81,10 @@ public class JsonObject {
     @Override
     public String toString() {
         return "JsonObject{" +
-                "name='" + name + '\'' +
-                ", version=" + version +
-                ", ok=" + ok +
-                ", ignoredField='" + ignoredField + '\'' +
-                '}';
+            "name='" + name + '\'' +
+            ", version=" + version +
+            ", ok=" + ok +
+            ", ignoredField='" + ignoredField + '\'' +
+            '}';
     }
 }

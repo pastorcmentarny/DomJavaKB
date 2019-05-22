@@ -43,7 +43,7 @@ public class ValidationErrorResponse extends ErrorResponse {
     @Override
     public String toString() {
         return "ValidationErrorResponse{" +
-                "fields=" + fields +
-                "} " + super.toString();
+            "fields=" + fields +
+            "} " + super.toString();
     }
 }

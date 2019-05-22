@@ -53,10 +53,10 @@ class ErrorResponse {
         if (!(o instanceof ErrorResponse)) return false;
         ErrorResponse that = (ErrorResponse) o;
         return getId() == that.getId() &&
-                Objects.equals(getErrorMessage(), that.getErrorMessage()) &&
-                Objects.equals(getCaused(), that.getCaused()) &&
-                Objects.equals(getSolution(), that.getSolution()) &&
-                Objects.equals(getMoreInfo(), that.getMoreInfo());
+            Objects.equals(getErrorMessage(), that.getErrorMessage()) &&
+            Objects.equals(getCaused(), that.getCaused()) &&
+            Objects.equals(getSolution(), that.getSolution()) &&
+            Objects.equals(getMoreInfo(), that.getMoreInfo());
     }
 
     @Override
@@ -67,11 +67,11 @@ class ErrorResponse {
     @Override
     public String toString() {
         return "ErrorResponse{" +
-                "id=" + id +
-                ", errorMessage='" + errorMessage + '\'' +
-                ", caused='" + caused + '\'' +
-                ", solution='" + solution + '\'' +
-                ", moreInfo='" + moreInfo + '\'' +
-                '}';
+            "id=" + id +
+            ", errorMessage='" + errorMessage + '\'' +
+            ", caused='" + caused + '\'' +
+            ", solution='" + solution + '\'' +
+            ", moreInfo='" + moreInfo + '\'' +
+            '}';
     }
 }

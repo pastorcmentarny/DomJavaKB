@@ -46,8 +46,8 @@ public class Definition {
         }
         Definition that = (Definition) o;
         return Objects.equals(getWord(), that.getWord()) &&
-                Objects.equals(getDefinition(), that.getDefinition()) &&
-                Objects.equals(getTags(), that.getTags());
+            Objects.equals(getDefinition(), that.getDefinition()) &&
+            Objects.equals(getTags(), that.getTags());
     }
 
     @Override

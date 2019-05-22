@@ -36,12 +36,12 @@ public class MongoController {
         courses.add(courseBuilder().build());
         courses.add(courseBuilder().build());
         courses.add(courseBuilder()
-                .courseId(UUID.fromString("e0b9a62f-aa80-4526-b1d9-59843097a48d"))
-                .name("mongo welcome.html course")
-                .points(100)
-                .cost(new BigDecimal("17250.99"))
-                .mandatory(true)
-                .build());
+            .courseId(UUID.fromString("e0b9a62f-aa80-4526-b1d9-59843097a48d"))
+            .name("mongo welcome.html course")
+            .points(100)
+            .cost(new BigDecimal("17250.99"))
+            .mandatory(true)
+            .build());
     }
 
     @Autowired

@@ -20,6 +20,6 @@ public class CustomApplicationPreparedEventListener implements ApplicationListen
     @Override
     public void onApplicationEvent(ApplicationPreparedEvent event) {
         LOG.info("))]}>CustomApplicationPreparedEventListener. This event is sent just before the refresh is started," +
-                " but after bean definitions have been loaded.");
+            " but after bean definitions have been loaded.");
     }
 }

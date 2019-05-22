@@ -44,7 +44,7 @@ public class CourseResponse {
     @Override
     public String toString() {
         return "CourseResponse{" +
-                "courses=" + courses +
-                '}';
+            "courses=" + courses +
+            '}';
     }
 }
