@@ -11,7 +11,7 @@ import static dms.pastor.TestConfig.PATH;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class TextUtilsTest {
-    private static final String FILE_PATH = PATH + "test.txt";
+    private static final String FILE_PATH = PATH + "test/test.txt";
 
     @Rule
     public ExpectedException exception = ExpectedException.none();

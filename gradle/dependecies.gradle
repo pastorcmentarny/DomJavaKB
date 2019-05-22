@@ -2,8 +2,8 @@ project.ext {
     springBootVersion = '2.0.4.RELEASE'
 
     libraries = [
-            log: [
-                dependencies.create('ch.qos.logback:logback-classic:1.2.3')
+            log       : [
+                    dependencies.create('ch.qos.logback:logback-classic:1.2.3')
             ],
             springBoot: [
                     dependencies.create("org.springframework.boot:spring-boot-starter-actuator:$springBootVersion"),

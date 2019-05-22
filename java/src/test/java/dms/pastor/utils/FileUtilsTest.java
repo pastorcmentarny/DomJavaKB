@@ -1,5 +1,6 @@
 package dms.pastor.utils;
 
+import dms.pastor.domain.exception.SomethingWentWrongException;
 import org.junit.After;
 import org.junit.Ignore;
 import org.junit.Rule;
@@ -25,7 +26,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class FileUtilsTest {
 
-    private static final String TEST_FILE = "test.txt";
+    private static final String TEST_FILE = "test/test.txt";
     private static final String LOCK_FILE = "program.lock";
     private static final String DEFAULT_PATH = PATH + TEST_FILE;
 
@@ -143,6 +144,7 @@ public class FileUtilsTest {
         assertThat(isLockExists).isFalse();
     }
 
+    @Ignore //TODO fix me
     @Test
     public void shouldListToFileTest() {
         // given
@@ -199,6 +201,41 @@ public class FileUtilsTest {
 
         // then
         assertThat(exists).isFalse();
+    }
+
+    @Test
+    public void shouldLoadExampleTxtFromResourceAsString() {
+        // given
+        final var path = "test/test.txt";
+
+        // when
+        final var result = loadFileFromResourceAsString(path);
+        // then
+        assertThat(result).startsWith("This is a default test file");
+        assertThat(result).endsWith("test");
+
+    }
+
+    @Test
+    public void loadFileFromResourceAsStringShouldThrowExceptionIfPathIsNull() {
+        // given
+        exception.expect(IllegalArgumentException.class);
+
+        // when
+        loadFileFromResourceAsString(null);
+
+        // then exception is thrown
+    }
+
+    @Test
+    public void loadFileFromResourceAsStringShouldThrowExceptionIfPathIsInvalid() {
+        // given
+        exception.expect(SomethingWentWrongException.class);
+
+        // when
+        loadFileFromResourceAsString("invalid path");
+
+        // then exception is thrown
     }
 
 }

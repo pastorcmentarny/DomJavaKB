@@ -7,12 +7,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
+import java.net.URL;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 import java.nio.channels.OverlappingFileLockException;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.StringUtils.NEW_LINE;
@@ -176,6 +178,27 @@ public final class FileUtils {
         }
         return sb.toString();
     }
+
+
+    public static String loadFileFromResourceAsString(String path) {
+        ValidatorUtils.validateIfNotEmpty(path,"path to resource file");
+        ClassLoader classLoader = FileUtils.class.getClassLoader();
+
+        try {
+            final URL resource = classLoader.getResource(path);
+            if(Objects.isNull(resource)){
+                throw new SomethingWentWrongException();
+            }
+            File file = new File(resource.getFile());
+            checkIfFileIsAccessible(file);
+            return org.apache.commons.io.FileUtils.readFileToString(file, StandardCharsets.UTF_8);
+        } catch (IOException exception) {
+            throw new SomethingWentTerribleWrongError(exception.getMessage());
+
+        }
+    }
+
+
 
     private static void checkIfFileIsAccessible(File filePath) {
         if (filePath == null || !filePath.exists() || !filePath.canRead()) {

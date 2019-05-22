@@ -14,7 +14,7 @@ class PredicateExample {
         StringBuilder stringBuilder = new StringBuilder();
 
         Predicate<String> predicate = (text) -> text.startsWith("B");
-        getStringArray().forEach(city -> stringBuilder.append("City: ").append(city).append(" is: ").append(predicate.test(city)).append(" and negation will be ").append(predicate.negate().test(city)).append("\n"));
+        getStringArray().forEach(city -> stringBuilder.append("City: " + city + " is: " + predicate.test(city) + " and negation will be " + predicate.negate().test(city) + "\n"));
 
         return stringBuilder.toString();
     }

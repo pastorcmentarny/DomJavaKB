@@ -119,16 +119,22 @@ topic stores a time-ordered sequence of messages that share the same category.
 
 
 ### OTHER
+* Fix duplication by set ''enable.idempotence''' to true
 * Messaging traditionally has two models: queuing and publish-subscribe.  In a queue, a pool of consumers may read from a server and each record goes to one of them; in publish-subscribe the record is broadcast to all consumers. Each of these two models has a strength and a weakness. The strength of queuing is that it allows you to divide up the processing of data over multiple consumer instances, which lets you scale your processing. Unfortunately, queues aren't multi-subscriber—once one process reads the data it's gone. Publish-subscribe allows you broadcast data to multiple processes, but has no way of scaling processing since every message goes to every subscriber. The consumer group concept in Kafka generalizes these two concepts. As with a queue the consumer group allows you to divide up processing over a collection of processes (the members of the consumer group). As with publish-subscribe, Kafka allows you to broadcast messages to multiple consumer groups.
 *  Kafka as a kind of special purpose distributed filesystem dedicated to high-performance, low-latency commit log storage, replication, and propagation.
 * Event Sourcing: An architecture style to maintain application’s state by capturing all changes as a sequence of time-ordereded immutable events.
 * High throughput means how system distributes its load and efficiency  process  in parallel 
 * @Configurationwhich indicates that the class can be used by the Spring IoC container as a source of bean definitions.
+* Kafka is optimized for ability and latency. if you need durability, this can be achieved by replication. acks=1 good for latency acks=all good for durability
+  in-sync replicas make sure you set a minimum number of replicas that must acknowledge 
+  set retires as default is 0.
 * acks - The number of acknowledgments the producer requires the leader to have received before considering a request complete. 
     * acks=0  producer will not wait for any acknowledgment from the server a
     * acks=1 the leader will write the record to its local log but will respond without awaiting full acknowledgement from all followers.
     * acks=-1 or acks=all his means the leader will wait for the full set of in-sync replicas to acknowledge the record. 
- 
-
+* Plan for moving data.
+* Share schema to it can be correct for producer and consumer
+* Think about exception handling through send to dead-queue or log
+* You need monitoring Kafka: https://docs.confluent.io/current/kafka/monitoring.html
 Source:
 * https://www.codenotfound.com/spring-kafka-consumer-producer-example.html

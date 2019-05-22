@@ -23,7 +23,6 @@ public class NewFeaturesInJava12 {
 
     public static String stringIntentMethod() {
         return "Dominik".indent(3);
-
     }
 
     public static String compactNumberFormat() {
