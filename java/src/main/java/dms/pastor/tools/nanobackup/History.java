@@ -81,4 +81,8 @@ public class History {
     public String getMessages() {
         return messageHistory;
     }
+
+    public void clearMessages() {
+        messageHistory = EMPTY_STRING;
+    }
 }

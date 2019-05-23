@@ -31,19 +31,6 @@ public class MathTasksTest {
         tasks = new MathTasks();
     }
 
-    //TODO (It passed task acceptance requirement but it is a stupid test, I should improve it.
-    @Ignore
-    @Test //flaky test?
-    public void smokeTest() {
-        int[] allItems = IntStream.range(0, 10).toArray();
-        int[] itemsWithoutOneRandomNumber = tasks.removeRandomNumberFromArray(allItems);
-        printIntArray(allItems);
-        printIntArray(itemsWithoutOneRandomNumber);
-        Assert.assertThat(allItems.length - itemsWithoutOneRandomNumber.length, is(1));
-        int totalAll = NumberUtils.calcTotal(allItems);
-        int almostAll = NumberUtils.calcTotal(itemsWithoutOneRandomNumber);
-        Assert.assertThat(totalAll - almostAll, greaterThan(0));
-    }
 
     @Test
     public void testRemoveRandomNumberFromArray() {

@@ -1,6 +1,5 @@
 package dms.pastor.tools.nanobackup;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static dms.pastor.utils.StringUtils.NEW_LINE;
@@ -18,19 +17,19 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class HistoryAcceptanceTest {
 
-    @Ignore
     @Test
     public void shouldAddMessage() {
         // given
         final History historyGUI = History.getHistoryGUI();
         final String message = generateString();
+        historyGUI.clearMessages();
 
         // when
         historyGUI.addMessage(message);
         historyGUI.showHistoryOfMessages();
         historyGUI.closeWindow();
         // then
-        assertThat(historyGUI.getMessages()).isEqualTo("quickMode.nbd" + NEW_LINE + message + NEW_LINE);
+        assertThat(historyGUI.getMessages()).isEqualTo(message + NEW_LINE);
     }
 
 }

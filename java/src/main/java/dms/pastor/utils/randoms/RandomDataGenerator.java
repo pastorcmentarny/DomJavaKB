@@ -187,7 +187,7 @@ public final class RandomDataGenerator {
     }
 
     public static int randomPositiveInteger() {
-        return RANDOM.nextInt(Integer.MAX_VALUE);
+        return RANDOM.nextInt(Integer.MAX_VALUE-1)+1;
     }
 
     public static String generateRandomIntegerAsString(int maxValue) {
