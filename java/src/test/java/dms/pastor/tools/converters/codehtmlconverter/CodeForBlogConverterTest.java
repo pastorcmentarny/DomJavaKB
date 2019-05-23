@@ -1,5 +1,6 @@
 package dms.pastor.tools.converters.codehtmlconverter;
 
+import dms.pastor.utils.FileUtils;
 import dms.pastor.utils.HtmlUtils;
 import org.junit.Before;
 import org.junit.Test;
@@ -24,29 +25,7 @@ public class CodeForBlogConverterTest {
     private static final String THREE_WHITESPACES = "   ";
     private CodeForBlogConverter converter;
 
-    private static String getResult() {
-        return "<blockquote>\n" +
-            "<code>\n" + "package dms.pastor.tools.codeToHTMLConverter;<br/>" + '\n' +
-            "<br/>" + '\n' +
-            "import org.junit.Before;<br/>" + '\n' +
-            "import org.junit.Test;<br/>" + '\n' +
-            "import java.util.ArrayList;<br/>" + '\n' +
-            "<br/>" + '\n' +
-            "import static org.junit.Assert.assertEquals;<br/>" + '\n' +
-            "/**<br/>\n" +
-            " * Author Dominik Symonowicz<br/>\n" +
-            " */<br/>\n" +
-            "public class CodeForBlogConverterTest {<br/>\n" +
-            HtmlUtils.getNbsp(4) +
-            "public static void main(String[] args) {<br/>\n" +
-            HtmlUtils.getNbsp(8) +
-            "System.out.println(\"I AM HUNGRY\");<br/>\n" +
-            HtmlUtils.getNbsp(4) +
-            "}<br/>\n" +
-            "}<br/>\n" +
-            "</code>\n" +
-            "</blockquote>\n";
-    }
+
 
     private static List<String> generateSourceData() {
         List<String> data = new ArrayList<>();
@@ -77,11 +56,11 @@ public class CodeForBlogConverterTest {
         converter = new CodeForBlogConverter();
     }
 
-    @Test
+    @Test //TODO test failed but content was identical
     public void shouldConvertCodeToHTMLTest() {
         // given
         List<String> source = generateSourceData();
-        String answer = getResult();
+        String answer = FileUtils.loadFileFromResourceAsString("test/code2blog.html");
 
         // when
         final String result = converter.convert(source);
