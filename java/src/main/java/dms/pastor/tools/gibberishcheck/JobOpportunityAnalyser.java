@@ -12,13 +12,16 @@ class JobOpportunityAnalyser {
     private void load(String[] args) {
         var email = DataLoader.loadEmailFromRecruiter(args[1]);
         List<String> words = JobDescriptionToWordsConverter.convert(email);
-        data = new Data(DataLoader.loadDictionary(args[0]), words);
+        //data = new Data(DataLoader.loadDictionary(args[0]), words);
     }
 
     public String analyse() {
+        throw new RuntimeException("not impelemented yet");
+/*
         CrapCounter crapCounter = new CrapCounter(data);
         final CounterResult result = crapCounter.count();
         return getResult(result);
+ */
     }
 
     private String getResult(CounterResult result) {

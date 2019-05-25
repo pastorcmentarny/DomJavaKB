@@ -518,8 +518,6 @@ public final class Settings {
         switch (cpuPriority) {
             case 0:
                 return Thread.MIN_PRIORITY;
-            case 1:
-                return Thread.NORM_PRIORITY;
             case 2:
                 return Thread.MAX_PRIORITY;
             default:
