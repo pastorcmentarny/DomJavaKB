@@ -83,9 +83,12 @@ public final class RandomDataGenerator {
     }
 
     public static Character getRandomCharacterFromAlphabetExcludingCharacter(Character character) {
-        Character chosen = getRandomCharacterFrom(ALPHABET);
+        if (Objects.isNull(character)) {
+            return getRandomCharacterFromAlphabet();
+        }
 
-        return null;
+        var listOfCharacters = removeCharacterFromString(character, ALPHABET);
+        return listOfCharacters.toCharArray()[RANDOM.nextInt(listOfCharacters.length())];
     }
 
     private static Character getRandomCharacterFrom(String array) {

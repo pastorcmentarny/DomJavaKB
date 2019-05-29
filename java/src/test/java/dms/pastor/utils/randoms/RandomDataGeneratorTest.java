@@ -1,6 +1,7 @@
 package dms.pastor.utils.randoms;
 
 import dms.pastor.test.rules.Repeat;
+import dms.pastor.test.rules.RepeaterRule;
 import org.junit.*;
 import org.junit.rules.ExpectedException;
 import org.slf4j.Logger;
@@ -31,14 +32,18 @@ import static org.hamcrest.CoreMatchers.is;
 public class RandomDataGeneratorTest {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(RandomDataGeneratorTest.class);
-
     private static final int RANDOM_STRING_LENGTH = 1024;
     private static final String SPACE = " ";
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
     private final Random random = new Random();
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private PrintStream printStream;
+
+
+    @Rule
+    public RepeaterRule repeater = RepeaterRule.use();
+
+    @Rule
+    public final ExpectedException exception = ExpectedException.none();
 
     @Before
     public void setUp() {
