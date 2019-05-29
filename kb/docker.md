@@ -72,4 +72,8 @@ Universal Access Toilet,
 
 There are four key Docker concepts at play: images, layers, the Dockerfile, and the Docker cache.Dockerfile describes how to build the Docker image. An image consists of a number of layers. The Dockerfile starts with a base image and adds additional layers. A new layer is generated when new content is added to the image. Each layer that is built is cached so it can be re-used on subsequent builds. When a Docker build runs, it will re-use any existing layers that it can from the cache. This reduces the overall time and space needed for each build. Anything that has changed, or has not been built before, will be built as needed.
 The order and contents of the layers matter. 
- Docker is very efficient, only storing each layer once. However, for images that are frequently deployed and have large layers that are constantly rebuilt, this efficiency can't work. Large layers, even with minimal changes inside them, have to be separately stored in the repository and pushed around the network. This negatively affects deployment time because of the need to move and store duplicate bits for the pieces which are not changing.
+ Docke
+
+docker-compose -f docker/local-env.yml up -d
+
+r is very efficient, only storing each layer once. However, for images that are frequently deployed and have large layers that are constantly rebuilt, this efficiency can't work. Large layers, even with minimal changes inside them, have to be separately stored in the repository and pushed around the network. This negatively affects deployment time because of the need to move and store duplicate bits for the pieces which are not changing.
