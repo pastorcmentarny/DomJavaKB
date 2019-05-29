@@ -1246,13 +1246,10 @@ public class GUI extends javax.swing.JFrame {
             case 0:
                 priority_min_radioItem.setSelected(true);
                 break;
-            case 1:
-                priority_normal_radioItem.setSelected(true);
-                break;
             case 2:
                 priority_max_radioItem.setSelected(true);
                 break;
-            default:
+            default: //including case 1
                 priority_normal_radioItem.setSelected(true);
                 break;
 

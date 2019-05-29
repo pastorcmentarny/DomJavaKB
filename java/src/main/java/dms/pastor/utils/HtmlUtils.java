@@ -19,8 +19,6 @@ public final class HtmlUtils {
 
     public static String getNbsp(int times) {
         ValidatorUtils.validateIfPositiveNumber(times);
-        StringBuilder nsbpBuilder = new StringBuilder(EMPTY_STRING);
-        nsbpBuilder.append(HTML_SPACE.repeat(Math.max(0, times)));
-        return nsbpBuilder.toString();
+        return EMPTY_STRING + HTML_SPACE.repeat(Math.max(0, times));
     }
 }

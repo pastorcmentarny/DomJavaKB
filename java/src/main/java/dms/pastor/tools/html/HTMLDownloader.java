@@ -52,7 +52,7 @@ final class HTMLDownloader {
         String line;
 
         while ((line = html.readLine()) != null) {
-            content.append(new StringBuffer(line)).append('\n');
+            content.append(line).append('\n');
         }
         return content.toString();
     }

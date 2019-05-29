@@ -77,7 +77,6 @@ class ReadTimeCalculator {
         }
     }
 
-    @SuppressWarnings("IntegerDivisionInFloatingPointContext")
     private int calculateTimeInSeconds(int words, int wordsPerMinute) {
         if (wordsPerMinute < MINUTE) {
             throw new IllegalArgumentException("Speed of reading must be equal or higher than 60  words per minute");
