@@ -101,4 +101,9 @@ public final class PrintOutUtils {
         out.print(substring + CLOSE_ARRAY);
     }
 
+    public static void printSizeOfString(String string) {
+        ValidatorUtils.validateIfNotEmpty(string);
+        out.println("The length of: " + string.length() + System.lineSeparator() + "is " + string.length() + " characters.");
+    }
+
 }
