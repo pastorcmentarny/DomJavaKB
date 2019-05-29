@@ -389,11 +389,10 @@ public class ValidatorUtilsTest {
         ValidatorUtils.validateIfPositiveNumber(negativeInteger, customName);
     }
 
-    //FIXME flaky
     @Test
     public void validateIfPositiveNumberWithCustomValueNameShouldPassWithoutExceptionForPositiveIntegerValue() {
         // given
-        final int positiveInteger = new Random().nextInt(100);
+        final int positiveInteger = new Random().nextInt(100) + 1;
 
         // when
         ValidatorUtils.validateIfPositiveNumber(positiveInteger, generateString());

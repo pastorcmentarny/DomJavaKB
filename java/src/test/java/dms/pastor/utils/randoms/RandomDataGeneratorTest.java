@@ -1,5 +1,6 @@
 package dms.pastor.utils.randoms;
 
+import dms.pastor.test.rules.Repeat;
 import org.junit.*;
 import org.junit.rules.ExpectedException;
 import org.slf4j.Logger;
@@ -531,5 +532,33 @@ public class RandomDataGeneratorTest {
         // then
         assertThat(result.length()).isGreaterThan(0);
         assertThat(result).isNotEmpty();
+    }
+
+    @Repeat(times = 100)
+    @Test
+    public void getRandomCharacterFromAlphabetExcludingCharacterShouldReturnCharacterWithoutExcludedOne() {
+        // given
+        final var character = getRandomCharacterFromAlphabet();
+
+        // when
+        final var result = getRandomCharacterFromAlphabetExcludingCharacter(character);
+
+        // then
+        assertThat(result).isNotEqualTo(character);
+    }
+
+    @Repeat(times = 100)
+    @Test
+    public void getRandomCharacterFromAlphabetExcludingCharacterShouldAnyCharacterIfExcludedCharacterIsNull() {
+
+        // when
+        final var result = getRandomCharacterFromAlphabetExcludingCharacter(null);
+
+        // debug
+        System.out.println(result);
+
+        // then
+        assertThat(RandomDataGenerator.ALPHABET.chars().anyMatch(character -> character == result)).isTrue();
+
     }
 }

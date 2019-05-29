@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static dms.pastor.domain.Message.INPUT_CANNOT_BE_EMPTY;
+import static dms.pastor.utils.StringUtils.ALPHABET;
 import static dms.pastor.utils.StringUtils.getRandomText;
 import static dms.pastor.utils.StringUtils.*;
 import static dms.pastor.utils.randoms.RandomDataGenerator.*;
@@ -751,6 +752,45 @@ public class StringUtilsTest {
         // then
         assertThat(result).isEqualTo(expectedResult);
     }
+
+    @Test
+    public void shouldReturnNullIfStringIsNull() throws Exception {
+        // given
+        final var characterToRemove = 'a';
+
+        // when
+        final var result = removeCharacterFromString(characterToRemove, null);
+
+        // then
+        assertThat(result).isNull();
+    }
+
+    @Test
+    public void shouldReturnStringWithoutCharacter() throws Exception {
+        // given
+        final var characterToRemove = 'a';
+        final var expectedResult = "bcdefghijklmnopqrstuvwxyz";
+
+        // when
+        final var result = removeCharacterFromString(characterToRemove, ALPHABET);
+
+        // then
+        assertThat(result).isEqualTo(expectedResult);
+    }
+
+    @Test
+    public void shouldReturnStringWithoutCharacterForStringWithManyCharacter() throws Exception {
+        // given
+        final var characterToRemove = 'a';
+        final var expectedResult = "dom";
+
+        // when
+        final var result = removeCharacterFromString(characterToRemove, "adaoamaa");
+
+        // then
+        assertThat(result).isEqualTo(expectedResult);
+    }
+
 
 
 }

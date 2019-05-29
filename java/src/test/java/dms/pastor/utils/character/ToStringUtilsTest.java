@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.LinkedHashSet;
 
 import static dms.pastor.utils.randoms.RandomDataGenerator.getRandomCharacterFromAlphabet;
+import static dms.pastor.utils.randoms.RandomDataGenerator.getRandomCharacterFromAlphabetExcludingCharacter;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -39,11 +40,11 @@ public class ToStringUtilsTest {
 
     }
 
-    @Test //FIXME //TODO Expecting: <"y"> to be equal to: <"yy"> ignoring case considerations
+    @Test
     public void linkedHashSetToStringShouldReturnLinkedHashSetAsString() {
         // given
         final Character character = getRandomCharacterFromAlphabet();
-        final Character character2 = getRandomCharacterFromAlphabet();
+        final Character character2 = getRandomCharacterFromAlphabetExcludingCharacter(character);
         LinkedHashSet<Character> characterSet = new LinkedHashSet<>();
         characterSet.add(character);
         characterSet.add(character2);

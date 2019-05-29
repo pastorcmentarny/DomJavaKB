@@ -311,4 +311,9 @@ public final class StringUtils {
         return string.substring(0, 1).toUpperCase();
     }
 
+
+    public static String removeCharacterFromString(Character character, String string) {
+        return string.replaceAll(character.toString(), EMPTY_STRING);
+    }
+
 }

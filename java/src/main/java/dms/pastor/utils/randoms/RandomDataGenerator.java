@@ -33,7 +33,7 @@ public final class RandomDataGenerator {
     private static final Logger LOGGER = LoggerFactory.getLogger(RandomDataGenerator.class);
     private static final int MAX_LARGE_VALUE_RANGE = 4096;
     private static final Random RANDOM = new Random();
-    private static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
+    public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
     private static final String ALPHABET_WITH_LOWER_AND_UPPER = ALPHABET.toUpperCase() + ALPHABET;
     private static final String ALPHABET_WITH_ALL_CASES_AND_NUMBERS = ALPHABET_WITH_LOWER_AND_UPPER + "0123456789";
     private static final String NON_ALPHANUMERIC = "~#&@£$^'`\".,:;*–+=(){}[]<>?!\\|/";
@@ -80,6 +80,12 @@ public final class RandomDataGenerator {
 
     public static Character getRandomCharacterFromAlphabet() {
         return getRandomCharacterFrom(ALPHABET);
+    }
+
+    public static Character getRandomCharacterFromAlphabetExcludingCharacter(Character character) {
+        Character chosen = getRandomCharacterFrom(ALPHABET);
+
+        return null;
     }
 
     private static Character getRandomCharacterFrom(String array) {

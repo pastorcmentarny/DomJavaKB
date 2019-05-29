@@ -70,7 +70,6 @@ public final class ValidatorUtils {
     }
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
-    //this check is add is valid without care about result //TODO need improve as it is duplicate
     public static void validateIfSumOfIntegerIsInIntegerValueRange(int minValue, int maxValue) {
         try {
             Math.addExact(minValue, maxValue);
@@ -109,9 +108,9 @@ public final class ValidatorUtils {
         }
     }
 
-    public static void validateTwoIntsNotEqual(int int1, int int2) {
-        if (int1 == int2) {
-            throw new IllegalArgumentException("Both numbers cannot be equals, but both numbers are " + int1 + " and " + int2 + ".");
+    public static void validateTwoIntsNotEqual(int firstInteger, int secondInteger) {
+        if (firstInteger == secondInteger) {
+            throw new IllegalArgumentException("Both numbers cannot be equals, but both numbers are " + firstInteger + " and " + secondInteger + ".");
         }
     }
 

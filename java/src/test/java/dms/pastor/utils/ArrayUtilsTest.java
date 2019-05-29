@@ -8,7 +8,6 @@ import org.junit.rules.ExpectedException;
 import static dms.pastor.utils.ArrayUtils.clone2DArrayOfInts;
 import static dms.pastor.utils.ArrayUtils.reverseStringArray;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateRandomByteArray;
-import static dms.pastor.utils.randoms.RandomDataGenerator.generateRandomByteArray;
 import static org.assertj.core.api.Java6Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 
@@ -138,8 +137,8 @@ public class ArrayUtilsTest {
         assertThat(result).isEqualTo(expectedResult);
     }
 
-    @Test //TODO add edge cases
-    public void shouldSubtractIntArrayFromAnother() {
+    @Test
+    public void shouldSubtractIntArrayFromAnotherAcceptanceTest() {
         // given
         int[] intArrayOne = new int[]{1, 2, 3, 4, 5, 6};
         int[] intArrayTwo = new int[]{4, 5, 6};

@@ -8,6 +8,7 @@ import org.junit.rules.ExpectedException;
 import java.util.Arrays;
 import java.util.List;
 
+import static dms.pastor.utils.StringUtils.ALPHABET;
 import static dms.pastor.utils.StringUtils.*;
 import static dms.pastor.utils.StringUtilsTest.WHITESPACES_ONLY_STRING;
 import static dms.pastor.utils.randoms.RandomDataGenerator.*;

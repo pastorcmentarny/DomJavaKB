@@ -1,7 +1,6 @@
 package dms.pastor.tasks.integeradder;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -27,6 +26,7 @@ public class IntegerAdderTest {
     private static final String DEMO_FILE_2 = PATH + "test2.txt";
     private static final String DEMO_FILE_3 = PATH + "test3.txt";
     private static final String DEMO_FILE_4 = PATH + "test4.txt";
+    private static final String DEMO_FILE_5 = PATH + "test5.txt";
 
     @Rule
     public final ExpectedException exception = ExpectedException.none();
@@ -85,5 +85,14 @@ public class IntegerAdderTest {
         // when
         adder.add(DEMO_FILE_4);
     }
-    //TODO test for too large int and negative
+
+    @Test
+    public void addNegativeNumbersShouldThrowException() throws IOException {
+        // expect
+        exception.expect(IllegalArgumentException.class);
+
+        // when
+        adder.add(DEMO_FILE_5);
+    }
+
 }
