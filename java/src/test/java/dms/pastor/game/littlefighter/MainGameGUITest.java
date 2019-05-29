@@ -2,8 +2,6 @@ package dms.pastor.game.littlefighter;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  * Author Dominik Symonowicz
  * Created 27/04/2019
@@ -14,7 +12,7 @@ import static org.junit.Assert.*;
  */
 public class MainGameGUITest {
 
-    @Test
+    @Test //TODO add ability to close window
     public void runApplicationWithoutCrashAcceptanceTest() throws Exception {
         // given
 
@@ -23,8 +21,7 @@ public class MainGameGUITest {
 
         Thread.sleep(1000);
 
-        // then no error occured
-
+        // then no error occurred
     }
 
 }

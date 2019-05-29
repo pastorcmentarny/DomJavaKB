@@ -64,6 +64,11 @@ public final class MainGameGUI extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> new MainGameGUI().setVisible(true));
     }
 
+    void closeWindow() {
+        this.dispose();
+    }
+
+
     @SuppressWarnings("OverlyLongMethod") //GUI setup
     private void initComponents() {
 

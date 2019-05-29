@@ -2,8 +2,6 @@ package dms.pastor.game.littlefighter;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  * Author Dominik Symonowicz
  * Created 27/04/2019
@@ -22,6 +20,6 @@ public class SpellTest {
         Thread.sleep(1000);
 
         // then no error occurred
-
+        spell.closeWindow();
     }
 }

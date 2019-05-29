@@ -31,6 +31,10 @@ class Spell extends javax.swing.JFrame {
 
     }
 
+    void closeWindow() {
+        this.dispose();
+    }
+
     private void initComponents() {
 
         JButton infoSpell = new JButton();
