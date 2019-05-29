@@ -1,0 +1,15 @@
+package dms.pastor.tools.codeToHTMLConverter;
+        addEmptyLine(data);
+import org.junit.Before;
+import org.junit.Test;
+import java.util.ArrayList;
+
+import static org.junit.Assert.assertEquals;
+/**
+ * Author Dominik Symonowicz
+ */
+public class CodeForBlogConverterTest {
+    public static void main(String[] args) {
+        System.out.println(\"I AM HUNGRY\");
+    }
+}
