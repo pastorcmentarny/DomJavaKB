@@ -81,7 +81,7 @@ public final class ValidatorUtils {
 
     public static void validateIfPositiveNumber(int number, String valueName) {
         if (number <= 0) {
-            throw new IllegalArgumentException(valueName + ERROR_MESSAGE_VALUE_CANNOT_BE_NEGATIVE);
+            throw new IllegalArgumentException(valueName + " {" + number + "} " + ERROR_MESSAGE_VALUE_CANNOT_BE_NEGATIVE);
         }
     }
 

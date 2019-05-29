@@ -195,6 +195,22 @@ public final class FileUtils {
         }
     }
 
+    public static List<String> loadFileFromResourceAsListOfStrings(String path) {
+        ValidatorUtils.validateIfNotEmpty(path, "path to resource file");
+        ClassLoader classLoader = FileUtils.class.getClassLoader();
+
+        try {
+            final URL resource = classLoader.getResource(path);
+            ValidatorUtils.validateIfObjectValueIsNotNull(resource, "URL resource from path " + path);
+            File file = new File(resource.getFile());
+            checkIfFileIsAccessible(file);
+            return org.apache.commons.io.FileUtils.readLines(file, StandardCharsets.UTF_8);
+        } catch (IOException exception) {
+            throw new SomethingWentTerribleWrongError(exception.getMessage());
+
+        }
+    }
+
 
 
     private static void checkIfFileIsAccessible(File filePath) {

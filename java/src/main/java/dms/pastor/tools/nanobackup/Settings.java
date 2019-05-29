@@ -2,6 +2,7 @@ package dms.pastor.tools.nanobackup;
 
 import dms.pastor.tools.nanobackup.tools.FileTools;
 import dms.pastor.utils.FileUtils;
+import dms.pastor.utils.ValidatorUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -239,6 +240,7 @@ public final class Settings {
         if (FileUtils.isFileNotExists(path)) {
             createDefaultSettings();
         }
+        ValidatorUtils.validateIfNotEmpty(path);
         try (FileOutputStream fos = new FileOutputStream(path)) {
             properties.store(fos, "Settings for nanoBackup");
         } catch (Exception ex) {

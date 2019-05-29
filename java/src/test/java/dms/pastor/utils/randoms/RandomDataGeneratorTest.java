@@ -153,12 +153,15 @@ public class RandomDataGeneratorTest {
 
     @Test
     public void shouldThrowIllegalArgumentExceptionForNegativeSizeTest() {
+        // given
+        final var negativeValue = -1;
+
         // except
         exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Size must be positive value.");
+        exception.expectMessage("Size {-1}  must be positive value.");
 
         // when
-        generateStringList(-1);
+        generateStringList(negativeValue);
     }
 
     @SuppressWarnings("QuestionableName") // because string is valid name
@@ -179,12 +182,15 @@ public class RandomDataGeneratorTest {
 
     @Test
     public void generateStringListTest() {
+        // given
+        final var size = 0;
+
         // except
         exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Size must be positive value.");
+        exception.expectMessage("Size {" + size + "}  must be positive value.");
 
         // when
-        final List<String> stringList = generateStringList(0);
+        final List<String> stringList = generateStringList(size);
 
         // then
         Assert.assertThat(stringList.isEmpty(), is(true));
@@ -192,12 +198,15 @@ public class RandomDataGeneratorTest {
 
     @Test
     public void generateStringArrayShouldThrowIllegalArgumentExceptionForNegativeTest() {
+        // given
+        final var negativeValue = -1;
+
         // except
         exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Size must be positive value.");
+        exception.expectMessage("Size {" + negativeValue + "}  must be positive value.");
 
         // when
-        generateArray(-1);
+        generateArray(negativeValue);
     }
 
     @SuppressWarnings("QuestionableName") // because string is valid name
@@ -381,12 +390,15 @@ public class RandomDataGeneratorTest {
 
     @Test
     public void generateWordsShouldThrowIllegalArgumentExceptionIfValueIsNegative() {
+        // given
+        final var negativeValue = -1;
+
         // expect
         exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Value must be positive value.");
+        exception.expectMessage("Value {-1}  must be positive value.");
 
         // when
-        generateWords(-1);
+        generateWords(negativeValue);
     }
 
     @Test
@@ -486,8 +498,11 @@ public class RandomDataGeneratorTest {
 
     }
 
-    @Test //TODO tool to generate random numbers in lotto
+    @Test
     public void shouldGenerateNumbersForLotto() {
+        // set
+        System.setOut(printStream);
+
         // given
         int start = 1;
         int stop = 59;
@@ -496,9 +511,11 @@ public class RandomDataGeneratorTest {
         // when
         final List<Integer> result = generateRandomNumberSequenceExcludingSpecificNumber(start, stop, lastDraw);
 
+        // debug
+        result.forEach(number -> System.out.print(number + ","));
         // then
-        System.out.println(result.size());
-        result.forEach(number -> System.out.println(number + ","));
+        assertThat(result.size()).isEqualTo(52);
+
     }
 
     @Test

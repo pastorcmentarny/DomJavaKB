@@ -13,6 +13,7 @@ final class ShadowingClass {
 
     private class InnerClass {
 
+        @SuppressWarnings("FieldCanBeLocal") //it is used as example
         private final int number = 8;
 
         @SuppressWarnings("SameParameterValue")

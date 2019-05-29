@@ -73,6 +73,9 @@ public final class UnitBuilder {
 
     public UnitBuilder hp(int hp) {
         health.setHp(hp);
+        if (hp > health.getMaxHp()) {
+            health.setMaxHp(hp);
+        }
         return this;
     }
 

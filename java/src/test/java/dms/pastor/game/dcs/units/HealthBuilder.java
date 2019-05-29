@@ -11,7 +11,7 @@ import static java.lang.String.format;
 public final class HealthBuilder {
     private static final Logger LOGGER = LoggerFactory.getLogger(HealthBuilder.class);
     private int hp = randomPositiveInteger(100);
-    private int maxHp = randomPositiveInteger(hp + randomPositiveInteger(DEFAULT_MAX_HEALTH));
+    private int maxHp = randomPositiveInteger(hp + randomPositiveInteger(DEFAULT_MAX_HEALTH) + 1);
     private int arm = 0;
     private int hpRegenRate = REGEN_HP_PER_TURN;
 

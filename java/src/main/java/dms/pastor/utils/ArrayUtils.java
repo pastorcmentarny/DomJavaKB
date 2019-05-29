@@ -18,13 +18,15 @@ import static dms.pastor.utils.ValidatorUtils.validateIfObjectValueIsNotNull;
  */
 public final class ArrayUtils {
 
+    public static final int FIRST_ELEMENT = 0;
+
     private ArrayUtils() {
     }
 
     public static String getIntArrayAsString(int[] anArray) {
         StringBuilder sb = new StringBuilder("[");
-        for (int i = 0; i < anArray.length; i++) {
-            sb.append('{').append(i).append(" = ").append(anArray[i]).append('}');
+        for (int element = FIRST_ELEMENT; element < anArray.length; element++) {
+            sb.append('{').append(element).append(" = ").append(anArray[element]).append('}');
         }
         sb.append(']');
         return sb.toString();
@@ -32,8 +34,8 @@ public final class ArrayUtils {
 
     static int[] generateIntSequenceArray(int size) {
         int[] newArray = new int[size];
-        for (int i = 0; i < newArray.length; i++) {
-            newArray[i] = i;
+        for (int element = FIRST_ELEMENT; element < newArray.length; element++) {
+            newArray[element] = element;
         }
         return newArray;
     }
@@ -44,7 +46,7 @@ public final class ArrayUtils {
             return null;
         }
 
-        for (int i = 0; i < stringArray.length / 2; i++) {
+        for (int i = FIRST_ELEMENT; i < stringArray.length / 2; i++) {
             final int oppositeElement = stringArray.length - 1 - i;
 
             String temp = stringArray[oppositeElement];
@@ -57,14 +59,14 @@ public final class ArrayUtils {
     public static String[][] clone2DArrayOfInts(String[][] source) {
         validateIfObjectValueIsNotNull(source, "2D Array of integers cannot be null.");
 
-        if (source.length == 0) {
+        if (source.length == FIRST_ELEMENT) {
             return new String[][]{};
         }
 
         int length = source.length;
-        String[][] destination = new String[length][source[0].length];
-        for (int i = 0; i < length; i++) {
-            System.arraycopy(source[i], 0, destination[i], 0, source[i].length);
+        String[][] destination = new String[length][source[FIRST_ELEMENT].length];
+        for (int element = FIRST_ELEMENT; element < length; element++) {
+            System.arraycopy(source[element], FIRST_ELEMENT, destination[element], FIRST_ELEMENT, source[element].length);
         }
         return destination;
     }

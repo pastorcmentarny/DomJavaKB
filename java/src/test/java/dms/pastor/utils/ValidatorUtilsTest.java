@@ -98,9 +98,9 @@ public class ValidatorUtilsTest {
 
         // when
         validateNotNullPropertiesWithCustomMessagesPerProperty(new Object[][]{
-            {objectsToValidate[0], "Invalid Double"},
-            {objectsToValidate[1], "Invalid Integer"},
-            {objectsToValidate[2], "Invalid Example Object"}
+                {objectsToValidate[0], "Invalid Double"},
+                {objectsToValidate[1], "Invalid Integer"},
+                {objectsToValidate[2], "Invalid Example Object"}
         });
 
         // then if valid then no exception was thrown
@@ -118,11 +118,11 @@ public class ValidatorUtilsTest {
 
         // when
         validateNotNullPropertiesWithCustomMessagesPerProperty(new Object[][]{
-            {objectsToValidate[0], "null :)"},
-            {objectsToValidate[1], "Invalid Double"},
-            {objectsToValidate[2], "Invalid Integer"},
-            {objectsToValidate[3], "Invalid Example Object"},
-            {objectsToValidate[4], "null :)"}
+                {objectsToValidate[0], "null :)"},
+                {objectsToValidate[1], "Invalid Double"},
+                {objectsToValidate[2], "Invalid Integer"},
+                {objectsToValidate[3], "Invalid Example Object"},
+                {objectsToValidate[4], "null :)"}
         });
     }
 
@@ -350,12 +350,14 @@ public class ValidatorUtilsTest {
 
     @Test
     public void validateIfPositiveNumberShouldThrowExceptionIfIntegerValueIsNegative() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Value must be positive value.");
 
         // given
         final int negativeInteger = -1;
+
+        // expect
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("Value {" + negativeInteger + "}  must be positive value.");
+
 
         // when
         ValidatorUtils.validateIfPositiveNumber(negativeInteger);
@@ -375,13 +377,13 @@ public class ValidatorUtilsTest {
 
     @Test
     public void validateIfPositiveNumberShouldThrowExceptionIfIntegerValueWithCustomValueNameIsNegative() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("CustomValueName must be positive value.");
-
         // given
         final int negativeInteger = -1;
         final String customName = "CustomValueName";
+
+        // expect
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage("CustomValueName {" + negativeInteger + "}  must be positive value.");
 
         // when
         ValidatorUtils.validateIfPositiveNumber(negativeInteger, customName);

@@ -1,7 +1,6 @@
 package dms.pastor.game.dcs.units;
 
 import dms.pastor.game.dcs.ElementsBuilder;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -363,7 +362,6 @@ public class UnitTest {
         assertThat(unit.getSp()).isZero();
     }
 
-    @Ignore
     @Test //TODO flake test. fix it
     public void increaseHpPerTurnShouldIncreaseHpIfIsBelowMaxHp() {
         // given
@@ -371,6 +369,7 @@ public class UnitTest {
 
         final Unit unit = unitBuilder()
             .hp(1)
+                .maxHp(5)
             .hpRegenPerTurn(regenHpRate)
             .withoutShield()
             .build();
