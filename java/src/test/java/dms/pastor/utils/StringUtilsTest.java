@@ -754,7 +754,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void shouldReturnNullIfStringIsNull() throws Exception {
+    public void shouldReturnNullIfStringIsNull() {
         // given
         final var characterToRemove = 'a';
 
@@ -766,7 +766,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void shouldReturnStringWithoutCharacter() throws Exception {
+    public void shouldReturnStringWithoutCharacter() {
         // given
         final var characterToRemove = 'a';
         final var expectedResult = "bcdefghijklmnopqrstuvwxyz";
@@ -790,7 +790,5 @@ public class StringUtilsTest {
         // then
         assertThat(result).isEqualTo(expectedResult);
     }
-
-
 
 }
