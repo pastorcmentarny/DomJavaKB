@@ -49,7 +49,6 @@ public class FromFileImporter implements Importer {
             return fail(errorMessage);
         }
 
-
         try (FileInputStream fileInputStream = new FileInputStream(file);
              InputStreamReader isr = new InputStreamReader(fileInputStream);
              BufferedReader br = new BufferedReader(isr)

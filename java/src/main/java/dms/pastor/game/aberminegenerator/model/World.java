@@ -8,7 +8,7 @@ import java.util.Objects;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.StringUtils.NEW_LINE;
-import static dms.pastor.utils.ValidatorUtils.validateIfNotNull;
+import static dms.pastor.utils.ValidatorUtils.validateIfObjectValueIsNotNull;
 
 public class World {
     private int width;
@@ -106,7 +106,7 @@ public class World {
     }
 
     private static Pixel[][] clone2DArrayOfInts(Pixel[][] source) {
-        validateIfNotNull(source, "2D Array of integers cannot be null.");
+        validateIfObjectValueIsNotNull(source, "2D Array of integers cannot be null.");
 
         if (source.length == 0) {
             return new Pixel[][]{};

@@ -7,7 +7,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static dms.pastor.domain.Message.INPUT_CANNOT_BE_EMPTY;
-import static dms.pastor.utils.ValidatorUtils.validateIfNotNull;
 import static java.lang.Character.*;
 import static java.util.Objects.nonNull;
 import static java.util.stream.Collectors.toList;
@@ -157,7 +156,7 @@ public final class StringUtils {
     }
 
     static String[] toStringArray(List<String> list) {
-        validateIfNotNull(list);
+        ValidatorUtils.validateIfObjectValueIsNotNull(list);
         var stringArray = new String[list.size()];
         int counter = 0;
         for (String string : list) {

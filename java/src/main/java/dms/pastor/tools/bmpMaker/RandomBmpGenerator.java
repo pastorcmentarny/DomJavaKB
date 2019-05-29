@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Random;
 
-import static dms.pastor.utils.ValidatorUtils.validateIfNotNull;
+import static dms.pastor.utils.ValidatorUtils.validateIfObjectValueIsNotNull;
 import static dms.pastor.utils.ValidatorUtils.validateIfPositiveNumber;
 
 /**
@@ -41,7 +41,7 @@ class RandomBmpGenerator {
     private static void validateInput(int imageWidth, int imageHeight, String pathName) {
         validateIfPositiveNumber(imageWidth, "Width");
         validateIfPositiveNumber(imageHeight, "Height");
-        validateIfNotNull(pathName, "File path");
+        validateIfObjectValueIsNotNull(pathName, "File path");
     }
 
     void generateImageFile() {

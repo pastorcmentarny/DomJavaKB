@@ -1,13 +1,14 @@
 package dms.pastor.tools.converters.codehtmlconverter;
 
 import dms.pastor.utils.HtmlUtils;
-import dms.pastor.utils.StringUtils;
 
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+import static dms.pastor.utils.StringUtils.WHITESPACE_CHAR;
+import static java.lang.System.lineSeparator;
 
 /**
  * Author Dominik Symonowicz
@@ -28,7 +29,7 @@ class CodeForBlogConverter {
 
     private static boolean contains4spaces(char[] charArray, int i) {
         for (int position = i; position <= i + 3; position++) {
-            if (charArray[position] != StringUtils.WHITESPACE_CHAR) {
+            if (charArray[position] != WHITESPACE_CHAR) {
                 return false;
             }
         }
@@ -72,7 +73,7 @@ class CodeForBlogConverter {
         final List<String> linesAsHTML = replaceSpaceWithNsbpInCode(source);
 
         for (String line : linesAsHTML) {
-            codeGenerator.append(line).append('\n');
+            codeGenerator.append(line).append(lineSeparator());
         }
     }
 

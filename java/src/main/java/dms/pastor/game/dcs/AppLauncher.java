@@ -17,7 +17,7 @@ class AppLauncher {
     }
 
     public static void main(String[] args) {
-        ValidatorUtils.validateIfNotNull(args);
+        ValidatorUtils.validateIfObjectValueIsNotNull(args);
         LOGGER.debug("Starting application");
         Player player;
         switch (args.length) {

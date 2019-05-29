@@ -8,7 +8,7 @@ import java.util.List;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.StringUtils.isStringEmpty;
-import static dms.pastor.utils.ValidatorUtils.validateIfNotNull;
+import static dms.pastor.utils.ValidatorUtils.validateIfObjectValueIsNotNull;
 import static dms.pastor.utils.string.ContainsInStringUtils.containsAnyAlphanumericCharacter;
 import static dms.pastor.utils.string.ContainsInStringUtils.containsPinyinCharacter;
 import static java.util.Objects.isNull;
@@ -28,7 +28,7 @@ final class WordValidator {
     }
 
     static boolean isWordValid(Word word) {
-        validateIfNotNull(word, "Word");
+        validateIfObjectValueIsNotNull(word, "Word");
 
         if (word.getId() <= 0) {
             LOGGER.error("id is invalid.value:" + word.getId());

@@ -6,6 +6,7 @@ import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Objects;
 
 import static dms.pastor.utils.StringUtils.isStringEmpty;
 import static java.lang.String.format;
@@ -85,25 +86,25 @@ public final class ValidatorUtils {
     }
 
     public static void validateIfPositiveNumber(BigDecimal number) {
-        validateIfNotNull(number);
+        validateIfObjectValueIsNotNull(number);
         if (number.compareTo(BigDecimal.ZERO) < 0) {
             throw new IllegalArgumentException(DEFAULT_VALUE_NAME + ERROR_MESSAGE_VALUE_CANNOT_BE_NEGATIVE);
         }
     }
 
     public static void validateNegativeBigDecimal(BigDecimal value) {
-        validateIfNotNull(value);
+        validateIfObjectValueIsNotNull(value);
         if (value.compareTo(BigDecimal.ZERO) > 0) {
             throw new IllegalArgumentException("Value cannot be positive");
         }
     }
 
-    public static void validateIfNotNull(Object value) {
-        validateIfNotNull(value, "Value");
+    public static void validateIfObjectValueIsNotNull(Object value) {
+        validateIfObjectValueIsNotNull(value, "Value");
     }
 
-    public static void validateIfNotNull(Object value, String valueName) {
-        if (value == null) {
+    public static void validateIfObjectValueIsNotNull(Object value, String valueName) {
+        if (Objects.isNull(value)) {
             throw new IllegalArgumentException(valueName + " cannot be null.");
         }
     }
@@ -191,7 +192,7 @@ public final class ValidatorUtils {
     }
 
     public static void validateIfArrayHasSizeOf(int size, String[] array, String what) {
-        validateIfNotNull(array, what);
+        validateIfObjectValueIsNotNull(array, what);
         if (size != array.length) {
             throw new IllegalArgumentException(String.format("%s has incorrect size. It should be %d but was %d.", what, size, array.length));
         }

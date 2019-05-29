@@ -260,7 +260,7 @@ public class ValidatorUtilsTest {
     public void validateIfNotNullShouldValidateIfObjectIsPassed() {
 
         // when
-        validateIfNotNull(ZERO);
+        validateIfObjectValueIsNotNull(ZERO);
 
         // then nothing happen, which means value are valid
     }
@@ -273,7 +273,7 @@ public class ValidatorUtilsTest {
         exception.expectMessage("Value cannot be null");
 
         // when
-        validateIfNotNull(null);
+        validateIfObjectValueIsNotNull(null);
 
         // then nothing happen, which means value are valid
     }

@@ -1,10 +1,10 @@
 package dms.pastor.tools.html;
 
+import dms.pastor.utils.ValidatorUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import static dms.pastor.utils.StringUtils.isStringBlank;
-import static dms.pastor.utils.ValidatorUtils.validateIfNotNull;
 
 /**
  * Author Dominik Symonowicz
@@ -24,7 +24,7 @@ final class HTMLValidator {
     }
 
     static void validateContentType(String type) {
-        validateIfNotNull(type);
+        ValidatorUtils.validateIfObjectValueIsNotNull(type);
         if (type.compareTo("text/html") != 0) {
             LOGGER.error(NOT_HTML_TYPE_ERROR_MESSAGE);
             throw new IllegalArgumentException(NOT_HTML_TYPE_ERROR_MESSAGE);             // only html are here

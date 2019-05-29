@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.LinkedHashSet;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
-import static dms.pastor.utils.ValidatorUtils.validateIfNotNull;
+import static dms.pastor.utils.ValidatorUtils.validateIfObjectValueIsNotNull;
 import static dms.pastor.utils.ValidatorUtils.validateValueIsSmallerOrEqualsThatOtherValue;
 import static java.time.ZoneId.getAvailableZoneIds;
 import static java.time.temporal.ChronoUnit.DAYS;
@@ -58,7 +58,7 @@ public final class DateUtils {
 
     public static int getMonthNumberFromShortedName(String month) {
         final String message = "Invalid shortcut for month";
-        validateIfNotNull(month, message);
+        validateIfObjectValueIsNotNull(month, message);
 
         for (Month thisMonth : Month.values()) {
             if (isMonthNameTheSame(month, thisMonth)) {
@@ -77,13 +77,13 @@ public final class DateUtils {
     }
 
     static long getDayOfTheYearFor(LocalDate localDate) {
-        validateIfNotNull(localDate, "Date");
+        validateIfObjectValueIsNotNull(localDate, "Date");
         return DAYS.between(LocalDate.of(localDate.getYear(), 1, 1), localDate) + 1;
     }
 
     static long countLeapYearBetween(LocalDate start, LocalDate end) {
-        validateIfNotNull(start, "Start date");
-        validateIfNotNull(end, "End date");
+        validateIfObjectValueIsNotNull(start, "Start date");
+        validateIfObjectValueIsNotNull(end, "End date");
         validateValueIsSmallerOrEqualsThatOtherValue(start.getYear(), end.getYear());
 
         int counter = 0;

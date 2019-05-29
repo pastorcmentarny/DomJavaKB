@@ -25,16 +25,14 @@ public class CodeForBlogConverterTest {
     private static final String THREE_WHITESPACES = "   ";
     private CodeForBlogConverter converter;
 
-
-
     private static List<String> generateSourceData() {
         List<String> data = new ArrayList<>();
         data.add("package dms.pastor.tools.codeToHTMLConverter;");
-        addEmptyLine(data);
+        data.add(EMPTY_STRING);
         data.add("import org.junit.Before;");
         data.add("import org.junit.Test;");
         data.add("import java.util.ArrayList;");
-        addEmptyLine(data);
+        data.add(EMPTY_STRING);
         data.add("import static org.junit.Assert.assertEquals;");
         data.add("/**");
         data.add(" * Author Dominik Symonowicz");
@@ -47,10 +45,6 @@ public class CodeForBlogConverterTest {
         return data;
     }
 
-    private static void addEmptyLine(List<String> data) {
-        data.add(EMPTY_STRING);
-    }
-
     @Before
     public void setUp() {
         converter = new CodeForBlogConverter();
@@ -60,7 +54,7 @@ public class CodeForBlogConverterTest {
     public void shouldConvertCodeToHTMLTest() {
         // given
         List<String> source = generateSourceData();
-        String answer = FileUtils.loadFileFromResourceAsString("test/code2blog.html");
+        String answer = FileUtils.loadFileFromResourceAsString("test/html/code2blog.html");
 
         // when
         final String result = converter.convert(source);

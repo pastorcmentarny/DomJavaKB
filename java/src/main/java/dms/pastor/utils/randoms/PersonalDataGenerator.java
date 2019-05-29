@@ -1,6 +1,7 @@
 package dms.pastor.utils.randoms;
 
 import dms.pastor.domain.Country;
+import dms.pastor.utils.ValidatorUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +10,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
-import static dms.pastor.utils.ValidatorUtils.validateIfNotNull;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 
 /**
@@ -102,7 +102,7 @@ public final class PersonalDataGenerator {
     }
 
     private static void validatePatternForPhone(String pattern) {
-        validateIfNotNull(pattern);
+        ValidatorUtils.validateIfObjectValueIsNotNull(pattern);
         Pattern regex = Pattern.compile("[0-9()-+xX]+$");
         Matcher matcher = regex.matcher(pattern);
 

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
-import static dms.pastor.utils.ValidatorUtils.validateIfNotNull;
+import static dms.pastor.utils.ValidatorUtils.validateIfObjectValueIsNotNull;
 import static java.util.Objects.nonNull;
 
 /**
@@ -305,8 +305,8 @@ public final class FileTools {
         File src, dest;
         src = new File(source);
         dest = new File(destinationFolder);
-        validateIfNotNull(src, "Source file");
-        validateIfNotNull(dest, "Destination file");
+        validateIfObjectValueIsNotNull(src, "Source file");
+        validateIfObjectValueIsNotNull(dest, "Destination file");
 
         if (src.isDirectory()) {
             doCopyDirectory(src, dest, stats);

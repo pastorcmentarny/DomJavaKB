@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import static dms.pastor.utils.CollectionsUtils.convertToIntArray;
-import static dms.pastor.utils.ValidatorUtils.validateIfNotNull;
+import static dms.pastor.utils.ValidatorUtils.validateIfObjectValueIsNotNull;
 
 /**
  * Author Dominik Symonowicz
@@ -55,7 +55,7 @@ public final class ArrayUtils {
     }
 
     public static String[][] clone2DArrayOfInts(String[][] source) {
-        validateIfNotNull(source, "2D Array of integers cannot be null.");
+        validateIfObjectValueIsNotNull(source, "2D Array of integers cannot be null.");
 
         if (source.length == 0) {
             return new String[][]{};

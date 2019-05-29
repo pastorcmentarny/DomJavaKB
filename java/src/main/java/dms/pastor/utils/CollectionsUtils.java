@@ -2,7 +2,7 @@ package dms.pastor.utils;
 
 import java.util.*;
 
-import static dms.pastor.utils.ValidatorUtils.validateIfNotNull;
+import static dms.pastor.utils.ValidatorUtils.validateIfObjectValueIsNotNull;
 
 /**
  * Author Dominik Symonowicz
@@ -70,7 +70,7 @@ public final class CollectionsUtils {
     }
 
     public static <E extends Enum<E>> List<E> toList(E[] enums) {
-        validateIfNotNull(enums, "Enum values");
+        validateIfObjectValueIsNotNull(enums, "Enum values");
         return Arrays.asList(enums);
     }
 

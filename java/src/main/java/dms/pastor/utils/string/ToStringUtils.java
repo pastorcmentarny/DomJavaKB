@@ -6,6 +6,7 @@ import java.util.Objects;
 import java.util.function.Consumer;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+import static dms.pastor.utils.StringUtils.NEW_LINE;
 
 /**
  * Author Dominik Symonowicz
@@ -36,7 +37,7 @@ public final class ToStringUtils {
             return EMPTY_STRING;
         }
         StringBuilder stringBuilder = new StringBuilder(EMPTY_STRING);
-        lines.forEach(stringBuilder::append);
+        lines.forEach(line -> stringBuilder.append(line).append(NEW_LINE));
         return stringBuilder.toString();
     }
 

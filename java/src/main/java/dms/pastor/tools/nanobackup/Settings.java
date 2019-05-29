@@ -13,7 +13,7 @@ import java.util.Properties;
 
 import static dms.pastor.tools.nanobackup.Constants.DEFAULT_PATH;
 import static dms.pastor.tools.nanobackup.Constants.SETTINGS_PATH;
-import static dms.pastor.utils.ValidatorUtils.validateIfNotNull;
+import static dms.pastor.utils.ValidatorUtils.validateIfObjectValueIsNotNull;
 import static java.lang.String.format;
 
 /**
@@ -235,7 +235,7 @@ public final class Settings {
 
     public String saveSettingsWithDestSelection() {
         String path = FileTools.createSourceFile(SETTINGS_FILE_ENDING);
-        validateIfNotNull(path, "Path to file");
+        validateIfObjectValueIsNotNull(path, "Path to file");
         if (FileUtils.isFileNotExists(path)) {
             createDefaultSettings();
         }

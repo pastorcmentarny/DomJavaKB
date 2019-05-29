@@ -1,5 +1,7 @@
 package dms.pastor.tools.converters.number;
 
+import java.util.Objects;
+
 import static dms.pastor.utils.ValidatorUtils.validateIfNotEmpty;
 
 final class NumberAsWordDigitConverter {
@@ -17,7 +19,6 @@ final class NumberAsWordDigitConverter {
             if (!"and".equalsIgnoreCase(partOfNumber)) {
                 total += getNumberFor(partOfNumber);
             }
-
         }
         return total;
     }
@@ -33,13 +34,11 @@ final class NumberAsWordDigitConverter {
         Integer tensOfNumber = getTensOfNumber(partOfNumber);
         if (tensOfNumber != null) return tensOfNumber;
 
-        Integer x1 = getIntegerInRangeFrom11To19(partOfNumber);
-        if (x1 != null) return x1;
+        Integer integer = getIntegerInRangeFrom11To19(partOfNumber);
+        if (Objects.nonNull(integer)) return integer;
 
-        Integer x = getIntegerInRange0To9(partOfNumber);
-        if (x != null) {
-            return x;
-        }
+        integer = getIntegerInRange0To9(partOfNumber);
+        if (Objects.nonNull(integer)) return integer;
 
         throw new IllegalArgumentException(partOfNumber + " is not a valid number word.");
     }

@@ -14,7 +14,6 @@ import java.nio.channels.OverlappingFileLockException;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.StringUtils.NEW_LINE;
@@ -186,9 +185,7 @@ public final class FileUtils {
 
         try {
             final URL resource = classLoader.getResource(path);
-            if(Objects.isNull(resource)){
-                throw new SomethingWentWrongException();
-            }
+            ValidatorUtils.validateIfObjectValueIsNotNull(resource, "URL resource from path " + path);
             File file = new File(resource.getFile());
             checkIfFileIsAccessible(file);
             return org.apache.commons.io.FileUtils.readFileToString(file, StandardCharsets.UTF_8);
