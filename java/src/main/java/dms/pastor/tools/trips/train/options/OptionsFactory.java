@@ -47,7 +47,6 @@ public final class OptionsFactory {
         }
     }
 
-    //TODO improve it
     public void displayAllAvailable() {
         System.out.println("0. Stats");
         System.out.println("9. Exit");

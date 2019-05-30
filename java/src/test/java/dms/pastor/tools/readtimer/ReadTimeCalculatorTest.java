@@ -38,6 +38,7 @@ public class ReadTimeCalculatorTest {
     @Rule
     public final ExpectedException exception = ExpectedException.none();
     private final Random random = new Random();
+
     @Rule
     public RepeaterRule repeater = RepeaterRule.use();
 

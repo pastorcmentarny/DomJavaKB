@@ -1,6 +1,5 @@
 package dms.pastor.utils;
 
-import dms.pastor.domain.exception.SomethingWentWrongException;
 import org.junit.After;
 import org.junit.Ignore;
 import org.junit.Rule;
@@ -230,7 +229,7 @@ public class FileUtilsTest {
     @Test
     public void loadFileFromResourceAsStringShouldThrowExceptionIfPathIsInvalid() {
         // given
-        exception.expect(SomethingWentWrongException.class);
+        exception.expect(IllegalArgumentException.class);
 
         // when
         loadFileFromResourceAsString("invalid path");

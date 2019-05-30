@@ -27,4 +27,8 @@ import dms.pastor.tools.trips.tube.station.Stations;
 @FunctionalInterface
 public interface Option {
     void choose(Stations stations);
+
+    default String getCommandTitle(int commandCode) {
+        return "Unknown";
+    }
 }

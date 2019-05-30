@@ -1,7 +1,7 @@
 package dms.pastor.tools.converters.codehtmlconverter;
 
 import dms.pastor.utils.FileUtils;
-import dms.pastor.utils.HtmlUtils;
+import dms.pastor.utils.html.HtmlUtils;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;

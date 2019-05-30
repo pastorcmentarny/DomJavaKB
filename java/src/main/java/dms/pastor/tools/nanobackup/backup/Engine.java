@@ -56,7 +56,6 @@ public class Engine extends AbstractTools {
 
     }
 
-    //TODO figure out what this mysterious method does
     public void swapDestFolderPaths(String[] paths, String what, String with) {
         List<String> swappedPaths = new ArrayList<>();
         for (String path : paths) {
@@ -147,8 +146,6 @@ public class Engine extends AbstractTools {
         }
     }
 
-
-    //TODO temporary implementation
     public String[] makeList(String source) {
         File file = new File(source);
         if (!file.exists()) {
@@ -221,8 +218,6 @@ public class Engine extends AbstractTools {
         infoLabel.setText(message);
         history.addMessage(message);
     }
-
-    //TODO improve confirm on exit,because current is temporary solution only
 
     public void shutdown(final String reason) {
         if (settings.isConfirmOnExit()) {

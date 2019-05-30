@@ -1,6 +1,6 @@
 package dms.pastor.tools.converters.codehtmlconverter;
 
-import dms.pastor.utils.HtmlUtils;
+import dms.pastor.utils.html.HtmlUtils;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -8,6 +8,7 @@ import java.util.stream.Stream;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.StringUtils.WHITESPACE_CHAR;
+import static dms.pastor.utils.html.HtmlUtils.BR_TAG;
 import static java.lang.System.lineSeparator;
 
 /**
@@ -18,11 +19,9 @@ import static java.lang.System.lineSeparator;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  * <p>
- * //TODO do refactoring using clean code guidance
  */
 class CodeForBlogConverter {
 
-    private static final String BR_TAG = "<br/>";
     private static final int NUMBER_OF_SPACES = 4;
 
     private StringBuilder codeGenerator;

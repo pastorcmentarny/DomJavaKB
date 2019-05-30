@@ -1,4 +1,6 @@
-package dms.pastor.utils;
+package dms.pastor.utils.html;
+
+import dms.pastor.utils.ValidatorUtils;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 
@@ -13,6 +15,8 @@ import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 public final class HtmlUtils {
 
     public static final String HTML_SPACE = "&nbsp;";
+    public static final String BR_TAG = "<br/>";
+
 
     private HtmlUtils() {
     }

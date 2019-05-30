@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CalculatorTest {
     final Calculator calculator = new Calculator(0, 0);
 
-    @Test //TODO do proper test
+    @Test
     public void shouldGetBasicSalary() throws Exception {
 
         // when

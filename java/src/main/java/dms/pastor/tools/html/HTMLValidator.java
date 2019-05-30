@@ -1,6 +1,7 @@
 package dms.pastor.tools.html;
 
 import dms.pastor.utils.ValidatorUtils;
+import dms.pastor.utils.html.ContentType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,11 +26,10 @@ final class HTMLValidator {
 
     static void validateContentType(String type) {
         ValidatorUtils.validateIfObjectValueIsNotNull(type);
-        if (type.compareTo("text/html") != 0) {
+        if (type.compareTo(ContentType.TEXT) != 0) {
             LOGGER.error(NOT_HTML_TYPE_ERROR_MESSAGE);
             throw new IllegalArgumentException(NOT_HTML_TYPE_ERROR_MESSAGE);             // only html are here
         }
-        //TODO if(type.compareTo("application/json") )
     }
 
     //TODD improve it

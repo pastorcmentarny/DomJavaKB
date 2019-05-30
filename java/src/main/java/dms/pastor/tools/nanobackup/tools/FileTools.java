@@ -34,37 +34,6 @@ public final class FileTools {
 
     private FileTools() {
     }
-    // --Commented out by Inspection (21/02/2018 14:14):private final Messenger msg = new Messenger();
-
-// --Commented out by Inspection START (21/02/2018 14:14):
-//    public static String displaySize(String path) {
-//        String sizeMsg = StringUtils.EMPTY_STRING;
-//        file = new File(path);
-//        if (file.isFile()) {
-//            sizeMsg = FileUtils.sizeOf(file) + " bytes.";
-//        } else if (file.isDirectory()) {
-//            sizeMsg = FileUtils.sizeOfDirectory(file) + " bytes.";
-//        } else {
-//            LOGGER.warn("N/A");
-//        }
-//        return sizeMsg;
-//    }
-// --Commented out by Inspection STOP (21/02/2018 14:14)
-
-// --Commented out by Inspection START (21/02/2018 14:14):
-//    public static long calcSize(String path) {
-//        long size = 0;
-//        file = new File(path);
-//        if (file.isFile()) {
-//            size = FileUtils.sizeOf(file);
-//        } else if (file.isDirectory()) {
-//            size = FileUtils.sizeOfDirectory(file);
-//        } else {
-//            LOGGER.warn("N/A");
-//        }
-//        return size;
-//    }
-// --Commented out by Inspection STOP (21/02/2018 14:14)
 
     public static boolean checkEnoughSpace(Statistic stats, String[] sources, String destination) {
         long srcSize = 0;
@@ -114,8 +83,6 @@ public final class FileTools {
         } else {
             return null;
         }
-        //TODO solve below line issue
-        //return (String[]) (path != null? (path.toArray(new String[path.size()])):  path);
     }
 
     public static String chooseDirToLoad() {
@@ -171,19 +138,6 @@ public final class FileTools {
         }
         return false;
     }
-
-// --Commented out by Inspection START (21/02/2018 14:27):
-//    public static void copyFile(String sourceFile, String destinationFile, Statistic stats) {
-//        LOGGER.debug("copy file from: " + sourceFile + " to " + destinationFile);
-//        try {
-//            FileUtils.copyFile(new File(sourceFile), new File(destinationFile));
-//        } catch (IOException ex) {
-//            if (!(stats == null)) {
-//                stats.addErrorCount("Program was unable to copy from" + sourceFile + " to " + destinationFile + "during unexpected problem!PLEASE TRY AGAIN\n\n" + ex.getMessage());
-//            }
-//        }
-//    }
-// --Commented out by Inspection STOP (21/02/2018 14:27)
 
     private static void doCopyFile(File srcFile, File destFile, Statistic stats) {
         LOGGER.debug("copy file from: " + srcFile + " to " + destFile);
@@ -317,19 +271,6 @@ public final class FileTools {
         }
 
     }
-
-// --Commented out by Inspection START (21/02/2018 14:14):
-//    public static void copyFileToDirectory(File srcFile, File destDir, Statistic stats) {
-//        if (destDir == null) {
-//            throw new NullPointerException("Destination must not be null");
-//        }
-//        if (destDir.exists() && !destDir.isDirectory()) {
-//            throw new IllegalArgumentException("Destination '" + destDir + "' is not a directory");
-//        }
-//        File destFile = new File(destDir, srcFile.getName());
-//        doCopyFile(srcFile, destFile, stats);
-//    }
-// --Commented out by Inspection STOP (21/02/2018 14:14)
 
     public static boolean createAFile(String filePath) {
         LOGGER.debug("create file in path:" + filePath);

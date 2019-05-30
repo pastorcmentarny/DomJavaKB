@@ -1,6 +1,6 @@
 package dms.pastor.examples.java11;
 
-import static dms.pastor.utils.HtmlUtils.HTML_SPACE;
+import static dms.pastor.utils.html.HtmlUtils.HTML_SPACE;
 
 /**
  * Author Dominik Symonowicz

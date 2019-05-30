@@ -46,7 +46,7 @@ public class DataWriterTest {
     }
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
-    @Test //TODO improve it as it is just prototype
+    @Test
     public void shouldSaveStationToFile() throws Exception {
         // given
         DataWriter writer = new DataWriter();

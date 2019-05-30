@@ -279,18 +279,12 @@ public final class Backup extends AbstractTools {
             stats.addErrorCount(message);
         }
 
-/*
-        if (false) {//&& results != null) {
-            results.append(message);
-        }
-*/
     }
 
     /**
      * Below code cause a big problem as throws...
      * "Exception in thread "backup" java.lang.Error: Interrupted attempt to acquire write lock"
      * I have a solution in place,but it suggest that my code doing crap thing ,so i need improve my swing skills
-     * TODO solve below problem by http://www.kauss.org/Stephan/swing/index.html
      * http://weblogs.java.net/blog/kgh/archive/2004/10/multithreaded_t.html
      * <p>
      * Quote: "
@@ -299,9 +293,8 @@ public final class Backup extends AbstractTools {
     private void updateInfoText(JTextArea info, String message) {
         if (info != null) {
 
-            //TODO test this solution
             if (backupThread != null) {
-                info.setText(info.getText() + "\n" + message);
+                info.setText(info.getText() + System.lineSeparator() + message);
             }
 
         }
@@ -309,9 +302,9 @@ public final class Backup extends AbstractTools {
 
     private void countItemsCopied() {
         if (!settings.isSpeedLightMode()) {
-            Collection<File> counter = org.apache.commons.io.FileUtils.listFiles(new File(destinationDir), null, true);//TODO add throw exception
+            Collection<File> counter = org.apache.commons.io.FileUtils.listFiles(new File(destinationDir), null, true);
             int filesNumber = counter.size();
-            LOGGER.debug("\nItems copied: " + filesNumber);
+            LOGGER.debug("Items copied: " + filesNumber);
             stats.addFileCopied(filesNumber);
         }
     }
@@ -360,20 +353,6 @@ public final class Backup extends AbstractTools {
                 LOGGER.warn(error);
             }
             BackupTaskFrame.toBack();
-            //killBackupThread();
-            //TODO improve this code 
-            /*
-             * } else { if (FileTools.checkEnoughSpace(src, dest)) {
-             * processBackup(); } else { info.setForeground(Color.RED);
-             * info.setText("Unable to do Backup due lack of free space on
-             * destination drive."); log.debug("Unable to do Backup due lack of
-             * free space on destination drive."); progressBar.setIndeterminate(false);
-             * progressBar.setSize(500, 10); } } } else { info.setForeground(new
-             * Color(200, 100, 21)); info.setText("(Backup in progress) I hope
-             * you are DAMN SURE that you have enough space,without checking by
-             * program."); processBackup(); }
-             */
-
         }
 
         private void processBackup() {
@@ -449,7 +428,7 @@ public final class Backup extends AbstractTools {
                 LOGGER.debug("HappyMode is active");
                 try {
                     scheduler = Executors.newScheduledThreadPool(1);
-                    updateInfo = new UpdateInfo(info);//TODO this wil crash app!
+                    updateInfo = new UpdateInfo(info);
                     final ScheduledFuture<?> scheduleChecking = scheduler.scheduleAtFixedRate(updateInfo, 0, 30, TimeUnit.SECONDS);
                     scheduler.schedule(() -> {
                         scheduleChecking.cancel(true);
@@ -488,7 +467,6 @@ public final class Backup extends AbstractTools {
         }
 
         public void windowClosing(WindowEvent e) {
-            //TODO improve this method
             if (inProgress) {
                 deleteCopiedAlready();
             }
@@ -512,7 +490,6 @@ public final class Backup extends AbstractTools {
         public void windowDeactivated(WindowEvent e) {
         }
 
-        //TODO improve below code,because it not working ...
         private void deleteCopiedAlready() {
             if (isInProgress()) {
                 LOGGER.debug("Stooping backup...");
