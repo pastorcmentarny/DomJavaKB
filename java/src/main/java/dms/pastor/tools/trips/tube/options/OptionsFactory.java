@@ -2,6 +2,7 @@ package dms.pastor.tools.trips.tube.options;
 
 import dms.pastor.domain.exception.NotFoundException;
 import dms.pastor.tools.trips.common.options.Option;
+import dms.pastor.tools.trips.tube.Config;
 import dms.pastor.tools.trips.tube.station.Stations;
 
 import java.util.HashMap;
@@ -39,8 +40,9 @@ public final class OptionsFactory {
         options.addOptions(6, new SaveOption());
         options.addOptions(7, new LoadStationOption());
         options.addOptions(8, new DisplayAllStationsNameOption());
-        options.addOptions(101, new ClearThisYearOption());
-
+        if (Config.SHOW_HIDDEN_OPTIONS) {
+            options.addOptions(101, new ClearThisYearOption());
+        }
         return options;
     }
 
@@ -56,18 +58,8 @@ public final class OptionsFactory {
         }
     }
 
-    //TODO improve it
     public void displayAllAvailable() {
-        System.out.println("0. Stats");
-        System.out.println("1. Current Status for all station");
-        System.out.println("2. Current Status for selected station");
-        System.out.println("3. Update Status to Passed for station");
-        System.out.println("4. Update Status to Visited for station");
-        System.out.println("5. Set station is blogged");
-        System.out.println("6. Save changes (with Backup)");
-        System.out.println("7. Discard unsaved changes");
-        System.out.println("8. Display list of all stations");
-        System.out.println("101. Clear this year");
+        options.forEach((commandCode, option) -> System.out.println(option.getCommandTitle(commandCode)));
         System.out.println("9. Exit");
     }
 

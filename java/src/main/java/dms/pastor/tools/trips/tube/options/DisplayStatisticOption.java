@@ -74,4 +74,8 @@ public class DisplayStatisticOption implements Option {
         return stringBuilder.toString();
     }
 
+    @Override
+    public String getCommandTitle(int commandCode) {
+        return commandCode + ". Stats.";
+    }
 }

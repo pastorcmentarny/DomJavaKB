@@ -9,4 +9,9 @@ public class ClearThisYearOption implements Option {
     public void choose(Stations stations) {
         stations.getTubeStationList().forEach(TubeStation::clearVisitedThisYear);
     }
+
+    @Override
+    public String getCommandTitle(int commandCode) {
+        return commandCode + ". Clear this year.";
+    }
 }

@@ -24,4 +24,9 @@ public class DisplayAllStationsNameOption implements Option {
             System.out.println("WARNING! Total number should be " + totalNumber + " but file contains only " + stations.totalNumber());
         }
     }
+
+    @Override
+    public String getCommandTitle(int commandCode) {
+        return commandCode + ". Display list of all stations.";
+    }
 }

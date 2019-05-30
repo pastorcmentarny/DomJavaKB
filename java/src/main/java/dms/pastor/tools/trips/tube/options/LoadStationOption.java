@@ -22,4 +22,9 @@ public class LoadStationOption implements Option {
         System.out.println("Reload data without saving.. All changes in the session will be discarded");
         loadFromFile();
     }
+
+    @Override
+    public String getCommandTitle(int commandCode) {
+        return commandCode + ". Discard unsaved changes.";
+    }
 }

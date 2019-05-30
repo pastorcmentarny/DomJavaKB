@@ -23,4 +23,9 @@ public class SaveOption implements Option {
         backup();
         saveToFile(stations.getTubeStationList());
     }
+
+    @Override
+    public String getCommandTitle(int commandCode) {
+        return commandCode + ". Save changes (with Backup).";
+    }
 }

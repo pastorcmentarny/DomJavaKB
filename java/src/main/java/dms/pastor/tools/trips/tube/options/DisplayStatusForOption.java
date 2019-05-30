@@ -40,4 +40,9 @@ public class DisplayStatusForOption implements Option {
         }
 
     }
+
+    @Override
+    public String getCommandTitle(int commandCode) {
+        return commandCode + ". Current Status for selected station.";
+    }
 }
