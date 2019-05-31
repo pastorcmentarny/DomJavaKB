@@ -127,7 +127,6 @@ public class TubeStation {//implements Station {
             '}';
     }
 
-    //TODO extract this method
     public String asFormattedString() {
         return getName() + " was " + getStatus().asName() + getDateToDisplay();
     }

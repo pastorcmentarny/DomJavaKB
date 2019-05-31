@@ -23,8 +23,6 @@ final class NumberAsWordDigitConverter {
         return total;
     }
 
-    //TODO improve this method
-    //as they are meaningful in this context
     private static int getNumberFor(String partOfNumber) {
 
         if ("hundred".equals(partOfNumber)) {

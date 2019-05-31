@@ -38,7 +38,7 @@ public class Unit {
 
     private Health health = new Health();
 
-    private int sp = INITIAL_SHIELD_POINTS;  //TODO split shield to separate class
+    private int sp = INITIAL_SHIELD_POINTS;
 
     private Elements elements = new Elements(DEFAULT_ELEMENT_NUMBER);
     private List<Card> cards = new ArrayList<>();

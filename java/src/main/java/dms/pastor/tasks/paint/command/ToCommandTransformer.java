@@ -5,6 +5,8 @@ import dms.pastor.utils.StringUtils;
 import java.util.ArrayList;
 import java.util.List;
 
+import static dms.pastor.tasks.paint.command.CommandSyntaxCode.C;
+import static dms.pastor.tasks.paint.command.CommandSyntaxCode.R;
 import static dms.pastor.tasks.paint.command.CommandValidator.validateCommandParams;
 
 /**
@@ -50,14 +52,14 @@ public final class ToCommandTransformer {
         }
     }
 
-    //TODO improve quality
+
     private static Command getCommandFor(String[] input) {
         for (Command command : COMMANDS) {
             if (command.getSyntax().equals(input[0])) {
-                if ("C".equalsIgnoreCase(command.getSyntax())) {
+                if (C.equalsIgnoreCase(command.getSyntax())) {
                     return getCommand(input, new CreateCanvasCommand(), new ClearCanvasCommand());
                 }
-                if ("R".equalsIgnoreCase(command.getSyntax())) {
+                if (R.equalsIgnoreCase(command.getSyntax())) {
                     return getCommand(input, new CreateNewRectangleCommand(), new RedoCommand());
                 }
                 return command;

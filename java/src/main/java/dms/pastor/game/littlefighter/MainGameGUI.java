@@ -50,7 +50,7 @@ public final class MainGameGUI extends javax.swing.JFrame {
     /**
      * Creates new form lfGUI
      */
-    private MainGameGUI() {
+    MainGameGUI() {
         initComponents();
         RunTurn.setEnabled(false);
         updateConsole();

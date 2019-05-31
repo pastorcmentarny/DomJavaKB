@@ -1,5 +1,6 @@
 package dms.pastor.tools.chinese.validator;
 
+import dms.pastor.utils.ValidatorUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,16 +21,21 @@ import org.slf4j.LoggerFactory;
 final class WordValidatorRunner {
     private static final Logger LOGGER = LoggerFactory.getLogger(WordValidatorRunner.class);
 
-    //TODO improve it
-    private static final String PATH = "D:\\GitHub\\LearningChineseGame\\res\\raw\\dictionary.txt";
-
     private WordValidatorRunner() {
     }
 
     public static void main(String[] args) {
-        LOGGER.info("Validating rpg in  this path: " + PATH);
-        InMemoryDictionary dictionary = new InMemoryDictionary(PATH, new FromFileImporter());
+        String path = getPath(args);
+        LOGGER.info("Validating rpg in  this path: " + path);
+        InMemoryDictionary dictionary = new InMemoryDictionary(path, new FromFileImporter());
         dictionary.load();
         LOGGER.info("Dictionary Status: " + dictionary.getStatus());
+    }
+
+
+    private static String getPath(String[] args) {
+        //return //copy path here if you are feel lazy today like everyday
+        ValidatorUtils.validateIfArrayHasSizeOf(1, args, "main's args");
+        return args[0];
     }
 }

@@ -1,8 +1,5 @@
 package dms.pastor.examples.java8;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.Base64;
 
 /**
@@ -19,17 +16,5 @@ public final class Base64Basics {
         final byte[] decodedMessage = Base64.getDecoder().decode(source.getBytes());
         return new String(decodedMessage);
     }
-
-    //TODO move to FileUtils
-    public static String loadFile(Path path) {
-        StringBuilder builder = new StringBuilder();
-        try {
-            Files.lines(path).forEach(line -> builder.append(line).append("\n"));
-        } catch (IOException e) {
-            return "Something went wrong";
-        }
-        return builder.toString();
-    }
-
 
 }

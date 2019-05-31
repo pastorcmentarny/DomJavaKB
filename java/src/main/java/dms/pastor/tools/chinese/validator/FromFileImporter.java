@@ -1,6 +1,7 @@
 package dms.pastor.tools.chinese.validator;
 
 import dms.pastor.domain.Result;
+import dms.pastor.utils.FileUtils;
 import dms.pastor.utils.NumberUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,15 +42,11 @@ public class FromFileImporter implements Importer {
         LOGGER.info("Loading words to rpg from file");
         clear();
 
-        //TODO extract this
-        File file = new File(filePath);
-        if (!file.exists()) {
-            final String errorMessage = "File to rpg not found";
-            LOGGER.error(errorMessage);
-            return fail(errorMessage);
+        if (FileUtils.isFileNotExists(filePath)) {
+            return fail("Path to file " + filePath + " do not exists.");
         }
 
-        try (FileInputStream fileInputStream = new FileInputStream(file);
+        try (FileInputStream fileInputStream = new FileInputStream(new File(filePath));
              InputStreamReader isr = new InputStreamReader(fileInputStream);
              BufferedReader br = new BufferedReader(isr)
 
@@ -86,7 +83,7 @@ public class FromFileImporter implements Importer {
             }
             word = parseWord(data);
             if (isWordValid(word)) {
-                addWordToWordList(requestedCategories, getWordCategories(data), word); //TODO improve nr
+                addWordToWordList(requestedCategories, getWordCategories(data), word);
             } else {
                 LOGGER.error("Word is corrupted(Line:" + getCurrentLine(nr) + ".It is something wrong with Dictionary." + getLine(line));
                 return fail("Validation failed as Word is invalid at line: " + (getCurrentLine(nr)) + ")\n.Problem occurred in: " + getLine(line));

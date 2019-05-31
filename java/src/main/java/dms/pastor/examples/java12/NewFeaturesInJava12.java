@@ -39,5 +39,4 @@ public class NewFeaturesInJava12 {
         return stringBuilder.toString();
     }
 
-    //TODO return "Dominik".transform(null);
 }

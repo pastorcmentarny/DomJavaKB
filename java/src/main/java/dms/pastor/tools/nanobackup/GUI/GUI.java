@@ -782,7 +782,6 @@ public class GUI extends javax.swing.JFrame {
 
     private void usb2LapMenuActionPerformed(ActionEvent evt) {
         InfoLabel.setText("USB2LAP: doing backup");
-        //TODO CHANGE IT!
         String tempResponse = backup.doClassicBackup(utilities.makeList(dom.getProperty("dom.source.usb.lap")), dom.getProperty("dom.destination.usb.lap"), null);
         JOptionPane.showMessageDialog(null, tempResponse, "Results", JOptionPane.INFORMATION_MESSAGE);
         utilities.setInfoLabel(AppColor.DARK_GREEN, "USB2LAP backup was done successfully.", InfoLabel);
@@ -891,7 +890,6 @@ public class GUI extends javax.swing.JFrame {
         settings.setProperties(true);
         if (deleteSourceCheckBoxMenuItem.isSelected()) {
             utilities.setInfoLabel(AppColor.DARK_GREEN, "Backup will be saved as compressed zip file.", InfoLabel);
-            //TODO; remove below dialog when zip feature will be completely implemented
             JOptionPane.showMessageDialog(null, "This is beta feature!\nIt has some known issues,which cause disasters! See changelog .. ", "WARNING", JOptionPane.INFORMATION_MESSAGE);
         } else {
             utilities.setInfoLabel(AppColor.DARK_GREEN, "Backup will be saved as folder.", InfoLabel);
@@ -964,7 +962,7 @@ public class GUI extends javax.swing.JFrame {
         if (speedLightModeMenuItem.isSelected()) {
             utilities.setInfoLabel(Color.BLUE, "Speed light mode activated.", InfoLabel);
         } else {
-            utilities.setInfoLabel(Color.BLUE, "Speed light mode deactivated.", InfoLabel);        // TODO add your handling code here:
+            utilities.setInfoLabel(Color.BLUE, "Speed light mode deactivated.", InfoLabel);
         }
     }
 
@@ -991,7 +989,6 @@ public class GUI extends javax.swing.JFrame {
     }
 
     private void loadSettingsMenuItemActionPerformed(ActionEvent evt) {
-        //TODO test it!
         String path = FileTools.chooseFileToLoad();
         if (path != null) {
             if (settings.loadSettings(path, rootPaneCheckingEnabled)) {
@@ -1024,7 +1021,7 @@ public class GUI extends javax.swing.JFrame {
         if (loaded) {
             settings.validateProperties(true);
             refreshContent();
-            setGui();        // TODO add your handling code here:
+            setGui();
             utilities.setInfoLabel(AppColor.DARK_GREEN, "Settings refreshed.", InfoLabel);
         } else {
             utilities.setInfoLabel(AppColor.DARK_ORANGE, "Unable to refresh settings!", InfoLabel);
@@ -1038,7 +1035,6 @@ public class GUI extends javax.swing.JFrame {
         if (saveAsEncryptedCheckBoxMenuItem.isSelected()) {
             JOptionPane.showMessageDialog(null, "CAUTION!\nUse this only for file (few files).\n Keep in mind,that it will take ages to finish this backup.\n\n This mode is designed only for ", "WARNING!", JOptionPane.ERROR_MESSAGE);
             utilities.setInfoLabel(AppColor.DARK_GREEN, "Backup will be saved as compressed zip file.", InfoLabel);
-            //TODO; remove below dialog when zip feature will be completely implemented
             JOptionPane.showMessageDialog(null, "This is beta feature!\nIt has some known issues,which cause disasters! See changelog .. ", "WARNING", JOptionPane.INFORMATION_MESSAGE);
         } else {
             utilities.setInfoLabel(AppColor.DARK_GREEN, "Backup will be saved as encrypted archive file.", InfoLabel);
@@ -1236,24 +1232,7 @@ public class GUI extends javax.swing.JFrame {
 
         checkSourcePath();
         checkDestinationPath();
-        setCpuPriority();
-    }
 
-    private void setCpuPriority() {
-        //set radio button with priority
-        //TODO Improve this code
-        switch (settings.getCpuPriority()) {
-            case 0:
-                priority_min_radioItem.setSelected(true);
-                break;
-            case 2:
-                priority_max_radioItem.setSelected(true);
-                break;
-            default: //including case 1
-                priority_normal_radioItem.setSelected(true);
-                break;
-
-        }
     }
 
     private void checkDestinationPath() {

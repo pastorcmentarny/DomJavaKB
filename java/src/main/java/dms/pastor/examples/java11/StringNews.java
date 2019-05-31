@@ -20,12 +20,10 @@ public class StringNews {
         return " ".isBlank();
     }
 
-    //TODO String#strip
     public static String stringStripMethod() {
         return "  Dominik  ".strip();
     }
 
-    //TODO String#lines
     public static long stringLinesMethod() {
         var sentence = "Dom" + System.lineSeparator() + "is" + System.lineSeparator() + "hungry";
         return sentence.lines().count();
