@@ -296,7 +296,14 @@ sentences = [
     '我和我的儿子一起玩。',
     '我待在家里。',
     '我和我的儿子一起玩。',
-    '我喜欢科幻电影。'
+    '我喜欢科幻电影。',  #
+    '我想去跑步。',  # Wǒ xiǎng qù pǎobù. I want to go for a run.
+    '我不能去参加比赛，因为这是风暴。',
+    # Wǒ bùnéng qù cānjiā bǐsài, yīnwèi zhè shì fēngbào. I can't go for a run because it is a storm.
+    '天气很糟糕。',  # Tiānqì hěn zāogāo. Weather is horrible.
+    '明天，我会去跑步。',  # Míngtiān, wǒ huì qù pǎobù. Tomorrow, I will go for a run.
+    '我想跑，因为我想减肥。'  # Wǒ xiǎng pǎo, yīnwèi wǒ xiǎng jiǎnféi. I want to run because I want to lose weight.
+
 ]
 
 weekend_activity = [
