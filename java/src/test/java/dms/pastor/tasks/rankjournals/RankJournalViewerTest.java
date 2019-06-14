@@ -1,6 +1,7 @@
 package dms.pastor.tasks.rankjournals;
 
 import dms.pastor.tasks.rankjournals.models.Journal;
+import dms.pastor.utils.StringUtils;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -66,8 +67,9 @@ public class RankJournalViewerTest extends TestCase {
     }
 
     public void testDisplayJournals() {
-        String answer = "Rank	Journal	Score	Year\n1	Journal A	5.6	2010\n2	Journal B	2.4	2010\n3	Journal C	3.1	2010\n4	Journal A	2.2	2009\n5	Journal B	6.2	2009\n6	Journal C	6.2	2009\n7	Journal A	5.6	2008\n8	Journal B	2.4	2008\n9	Journal C	3.1	2008\n";
-        assertThat(getJournalListAsString(journals)).isEqualTo(answer);
+        String answer = StringUtils.replaceWithSystemNewLine("Rank	Journal	Score	Year\n1	Journal A	5.6	2010\n2	Journal B	2.4	2010\n3	Journal C	3.1	2010\n4	Journal A	2.2	2009\n5	Journal B	6.2	2009\n6	Journal C	6.2	2009\n7	Journal A	5.6	2008\n8	Journal B	2.4	2008\n9	Journal C	3.1	2008\n");
+        final var journalListAsString = StringUtils.replaceWithSystemNewLine(getJournalListAsString(journals));
+        assertThat(journalListAsString).isEqualTo(answer);
     }
 
     public void testSortJournalsByScoreForYear2010() {

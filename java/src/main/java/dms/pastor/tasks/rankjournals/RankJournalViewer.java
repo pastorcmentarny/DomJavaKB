@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static dms.pastor.utils.StringUtils.NEW_LINE;
+
 /**
  * @author Pastor Created 2013-06-18 at 22:19:02
  */
@@ -48,22 +50,24 @@ final class RankJournalViewer {
      */
     static String displaySortJournalsWithExclusionFilter(int year, List<Journal> journalList, List<JournalType> excluded) {
         List<Journal> filteredList = new ArrayList<>();
-        for (Journal journal : journalList) {
-            boolean isNotExcluded = isJournalNotExcluded(excluded, journal);
-
-            addJournalToFilterListIfNotExcluded(filteredList, journal, isNotExcluded);
-        }
+        journalList.forEach(journal -> addJournalIfNotExcluded(journal, excluded, filteredList));
         return displaySortJournalsByScoreForYear(year, filteredList);
+    }
+
+    private static void addJournalIfNotExcluded(Journal journal, List<JournalType> excluded, List<Journal> filteredList) {
+        boolean isNotExcluded = isJournalNotExcluded(excluded, journal);
+        addJournalToFilterListIfNotExcluded(filteredList, journal, isNotExcluded);
     }
 
     private static void addJournalToList(StringBuilder list, int counter, Journal journal) {
         list.append(counter)
-            .append(TAB)
-            .append(journal.getName())
-            .append(TAB)
-            .append(journal.getScore())
-            .append(TAB).append(journal.getYear())
-            .append('\n');
+                .append(TAB)
+                .append(journal.getName())
+                .append(TAB)
+                .append(journal.getScore())
+                .append(TAB)
+                .append(journal.getYear())
+                .append(NEW_LINE);
     }
 
     private static boolean isJournalNotExcluded(List<JournalType> excluded, Journal journal) {
