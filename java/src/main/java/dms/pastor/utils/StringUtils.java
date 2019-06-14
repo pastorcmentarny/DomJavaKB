@@ -319,4 +319,9 @@ public final class StringUtils {
         return string.replaceAll(character.toString(), EMPTY_STRING);
     }
 
+    // \r\n - Windows \n  - Unix,Linux,Mac
+    public static String replaceWithSystemNewLine(String string) {
+        return string.replaceAll("\\r\\n|\\n", System.lineSeparator());
+    }
+
 }

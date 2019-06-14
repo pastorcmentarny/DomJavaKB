@@ -791,4 +791,18 @@ public class StringUtilsTest {
         assertThat(result).isEqualTo(expectedResult);
     }
 
+
+    @Test
+    public void shouldReplaceNewLinesFromVariousSystemWithSystemNewLine() {
+        // given
+        final String example = "Dominik\nis\r\nhungry!";
+        final String expectedResult = "Dominik" + System.lineSeparator() + "is" + System.lineSeparator() + "hungry!";
+
+        // when
+        final var result = replaceWithSystemNewLine(example);
+        // then
+        assertThat(result).isEqualTo(expectedResult);
+
+    }
+
 }
