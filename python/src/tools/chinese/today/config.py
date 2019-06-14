@@ -83,6 +83,7 @@ main_food = [
     '鱼',  # 'fish'
     '土豆',  # 'potato':
     '素',  # 'vegeterian':
+    '香肠' # sausage
     '菜'  # 'vegetable'
 ]
 
@@ -106,7 +107,7 @@ drink = {
 health = {
     'good': '',
     'sick': '',
-    'sleepy': '',  # add random reason
+    'sleepy': '困',  # add random reason
     'tired': '',
     'sad': ''  # add random reason
 }
