@@ -23,3 +23,5 @@
 0.  Databases which don't enforce schema do not lead to schemaless systems - they just mean that schema tends to be managed at the application level, rather than the database level.
 0.  Everything takes three times a longer than it should even if you know about it and take it into account. Robert C. Martin
 0.  The biggest problem in software dev is a misconception 
+0.  "there is no patch for human stupidity" kevin mitnick
+0.  security people software hardware. smallest possible fix 
