@@ -1,11 +1,12 @@
 package dms.pastor.examples.java8.newIn8;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
-import java.nio.file.FileSystems;
 import java.util.Base64;
 
-import static dms.pastor.examples.java8.Base64Basics.*;
+import static dms.pastor.examples.java8.Base64Basics.decrypt;
+import static dms.pastor.examples.java8.Base64Basics.encrypt;
 
 
 /**
@@ -19,11 +20,14 @@ import static dms.pastor.examples.java8.Base64Basics.*;
  */
 public class Base64BasicsAcceptanceTest {
 
+    @Ignore
     @Test
     public void base64Example() {
         System.out.println("...START...");
 
-        String originalMessage = loadFile(FileSystems.getDefault().getPath("C:\\file.txt"));
+        //String originalMessage = loadFile(FileSystems.getDefault().getPath("C:\\file.txt"));
+        final var originalMessage = "";
+
         System.out.println("... ... O MESSAGE: " + originalMessage);
         String encrypted = encrypt(originalMessage);
         System.out.println("... ... E MESSAGE: " + encrypted);
