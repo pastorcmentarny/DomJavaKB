@@ -11,7 +11,9 @@ import logging
 import os
 import sys
 import webbrowser
+
 import requests
+
 from src.tools.lotto import config
 
 sys.path.insert(0, '../utils')
@@ -24,9 +26,6 @@ import lotto_utils
 logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s',
                     filename=config.path["base"] + 'log.txt')
 
-'''
-TODO don't download lottery if current lotto draws are from today or yesterday
-'''
 
 lotto_hotpicks_url = 'https://www.national-lottery.co.uk/results/lotto-hotpicks/draw-history/csv'
 path = config.path["base"] + 'lotto-hotpicks-draws.csv'

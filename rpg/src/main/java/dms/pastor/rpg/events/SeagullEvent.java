@@ -56,7 +56,6 @@ public class SeagullEvent implements EventInterface {
                         System.out.println("Try again");
                     }
                 } catch (Exception e) {
-                    //FIXME log.error("Invalid input !\n" + e.getMessage() + ".\nYou need type number!");
                     System.out.println("Try again");
                 }
             }

@@ -34,7 +34,6 @@ public class EuroAnalyser {
             addLuckyStar(draw.getLuckyStar2());
         }
 
-        //TODO export this method
         StringBuilder counter = new StringBuilder(EMPTY_STRING);
         for (int i = 1; i <= LUCKY_STAR_MAX; i++) {
             if (luckyStarCounter[i] > 0) {

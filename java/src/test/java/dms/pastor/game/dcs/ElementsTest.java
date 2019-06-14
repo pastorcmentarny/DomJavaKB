@@ -133,8 +133,10 @@ public class ElementsTest {
         // when
         elements.addElement(null);
 
-        // then
+        // debug
         elements.displayElements();
+
+        // then
         assertThat(outputStream.toString()).contains(String.format(" Air:%d Earth:%d Fire:%d Water:%d", 1, 1, 1, 1));
 
     }
@@ -293,6 +295,9 @@ public class ElementsTest {
 
     @Test
     public void addRandomElementsShouldReturnEmptyString() {
+        // setup
+        System.setOut(printStream);
+
         // given
         final Elements elements = elementsBuilder().build();
 
@@ -308,14 +313,20 @@ public class ElementsTest {
         LOGGER.debug(result);
     }
 
-    @Test //TODO RENAME IT
-    public void addRandomElementsShouldReturnEmptyString2() {
+    @Test
+    public void addRandomElementsShouldReturn2RandomElements() {
+        // setup
+        System.setOut(printStream);
+
         // given
         final Elements elements = elementsBuilder().build();
 
         // when
         final String result = elements.addRandomElements(2);
+
+        // debug
         System.out.println(result);
+
         // then
         assertThat(result).isNotEmpty();
         assertThat(elements.countElements()).isEqualTo(2);

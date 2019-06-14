@@ -29,7 +29,6 @@ public class GuessNumberEvent implements EventInterface {
     @Override
     public void doEvent() {
         System.out.println(Config.GUESS_NUMBER_EVENT_LINE);
-        //FIXME //FIXME log.info("Event: Guess a number... good luck!");
         for (int i = 1; i <= chances; i++) {
             try {
                 System.out.println("Type number  on keyboard..");
@@ -45,7 +44,6 @@ public class GuessNumberEvent implements EventInterface {
                     System.out.println("WRONG! Number is lower.");
                 }
             } catch (Exception e) {
-                //FIXME log.error("Invalid input !\n" + e.getMessage() + ".\nYou need type number!");
                 return;
             }
 

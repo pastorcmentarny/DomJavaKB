@@ -23,7 +23,7 @@ public class AcidRainSpell extends Spell {
     @Override
     public Result cast(Hero hero) {
         int rainDrops = 5 + hero.skills.getPsychokinesis() * 3 + hero.lvl;
-        int dmg = (caster.skills.getPsychokinesis() - 1) + caster.lvl / 5; //TODO implement
+        int dmg = (caster.skills.getPsychokinesis() - 1) + caster.lvl / 5;
 
         for (int i = 0; i < rainDrops; i++) {
             if (random.nextBoolean()) {
@@ -38,7 +38,7 @@ public class AcidRainSpell extends Spell {
                 }
             }
         }
-        return new Result(true, "Spell casted");//TODO improve it
+        return new Result(true, "Spell casted");
     }
 
     @Override
@@ -54,7 +54,7 @@ public class AcidRainSpell extends Spell {
         allUnits.addAll(Arrays.asList(units)); //increase chance of rainbow will hit enemy
         allUnits.add(hero);
         int rainDrops = 5 + hero.skills.getPsychokinesis() * 3 + hero.lvl;
-        int dmg = (caster.skills.getPsychokinesis() - 1) + caster.lvl / 5; //TODO implement
+        int dmg = (caster.skills.getPsychokinesis() - 1) + caster.lvl / 5;
         int numbers = allUnits.size() + 1;
         for (int i = 0; i < rainDrops; i++) {
             int selection = random.nextInt(numbers);
@@ -66,6 +66,6 @@ public class AcidRainSpell extends Spell {
                 System.out.println(allUnits.get(selection).getName() + " was hit by raindrop and got" + dmg + " dmg.");
             }
         }
-        return new Result(true, "Spell casted");//TODO implement
+        return new Result(true, "Spell casted");
     }
 }

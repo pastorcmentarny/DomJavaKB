@@ -31,11 +31,12 @@ public class InMemoryDictionaryTest {
     @Test
     public void loadShouldLoadDictionaryWithError() {
         // given
-        InMemoryDictionary dictionary = new InMemoryDictionary(generateString(), new FromFileImporter());
+        final var filePath = generateString();
+        InMemoryDictionary dictionary = new InMemoryDictionary(filePath, new FromFileImporter());
         // when
         dictionary.load();
         // then
-        assertThat(dictionary.getStatus()).startsWith("ERROR (Path to file ");
+        assertThat(dictionary.getStatus()).isEqualTo("ERROR (Path to file " + filePath + " do not exists.)");
     }
 
     @Test

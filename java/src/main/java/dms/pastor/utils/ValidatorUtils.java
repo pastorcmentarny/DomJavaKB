@@ -8,7 +8,6 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Objects;
 
-import static dms.pastor.utils.StringUtils.isStringEmpty;
 import static java.lang.String.format;
 
 /**
@@ -25,7 +24,7 @@ public final class ValidatorUtils {
 
     private static final String ERROR_MESSAGE_VALUE_CANNOT_BE_NEGATIVE = " must be positive value.";
     private static final String DEFAULT_VALUE_NAME = "Value";
-    private static final String INVALID_PATH = "Path to file is invalid.";
+    private static final String INVALID_PATH = "Path to file is invalid, file doesn't exists or can't be read.";
 
     private ValidatorUtils() {
     }
@@ -178,24 +177,21 @@ public final class ValidatorUtils {
         return number >= min && number <= max;
     }
 
-    public static void validateIfPathExists(String path) {
-        if (isStringEmpty(path)) {
-            throw new IllegalArgumentException(INVALID_PATH);
-        }
-
-        final File file = new File(path);
-        System.out.println(path);
-        if (!file.exists() || !file.isFile()) {
-            throw new IllegalArgumentException(INVALID_PATH);
-        }
-    }
-
     public static void validateIfArrayHasSizeOf(int size, String[] array, String what) {
         validateIfObjectValueIsNotNull(array, what);
         if (size != array.length) {
             throw new IllegalArgumentException(String.format("%s has incorrect size. It should be %d but was %d.", what, size, array.length));
         }
 
+    }
+
+    public static void validateIfFileIsAccessible(String path) {
+        validateIfNotEmpty(path, "path");
+        System.out.println(path);
+        File file = new File(path);
+        if (!file.exists() || !file.canRead() || file.isDirectory()) {
+            throw new IllegalArgumentException(INVALID_PATH);
+        }
     }
 
 }

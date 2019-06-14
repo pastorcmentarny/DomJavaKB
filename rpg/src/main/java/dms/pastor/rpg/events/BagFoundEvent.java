@@ -10,9 +10,7 @@ import java.util.Scanner;
 
 
 public class BagFoundEvent implements EventInterface {
-    static //FIXME log.er //FIXME log.= //FIXME log.er.get//FIXME log.er(RPGLauncher.class);
-
-        Scanner scanner = new Scanner(System.in);
+    static Scanner scanner = new Scanner(System.in);
 
     private Result result = new Result(false);
     private final Hero hero;
@@ -89,7 +87,6 @@ public class BagFoundEvent implements EventInterface {
 
     }
 
-    //TODO improve it
     private void WomanBagStory() {
         System.out.println("Woman bags always contains black hole that sucks all things that women believes they really needs.. You spent ages to find anything ,but you didn't find anything valuable or useful... ");
         result = new Result(true, "You found 1 coin", 1);

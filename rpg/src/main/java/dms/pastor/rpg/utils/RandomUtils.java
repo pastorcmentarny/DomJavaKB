@@ -13,7 +13,6 @@ import java.util.Random;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class RandomUtils {
-    private static ArrayList<String> studentName;
 
     public static String getRandomWord() {
         ArrayList<String> swearWords = getList();
@@ -125,15 +124,6 @@ public class RandomUtils {
         list.add("Sharbie");//stupid shit (in chinese)
 
         return list;
-    }
-
-    public static String getRandomStory() {
-        //TODO implement it
-        return "You save a world!";
-    }
-
-    public static ArrayList<String> getStudentName() {
-        return studentName;
     }
 
     public static ArrayList<String> getStudentList() {

@@ -114,7 +114,6 @@ public class Config {
         return getExpNeededForLevel(level, HERO_LEARNING_SKILLS_VERY_SLOW);
     }
 
-    //TODO it use easy mode atm
     public static int getExpNeededForEnemyLevel(int level) {
         return getExpNeededForLevel(level, ENEMY_LEARNING_SKILLS_EASY);
     }

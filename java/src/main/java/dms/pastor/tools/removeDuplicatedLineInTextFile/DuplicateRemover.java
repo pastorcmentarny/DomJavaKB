@@ -9,8 +9,8 @@ import java.io.FileNotFoundException;
 import java.util.LinkedHashSet;
 import java.util.Scanner;
 
-import static dms.pastor.utils.FileUtils.saveTextToFile;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+import static dms.pastor.utils.file.TextFileUtils.saveTextToFile;
 import static java.lang.String.format;
 
 /**

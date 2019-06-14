@@ -7,16 +7,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
-import java.net.URL;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 import java.nio.channels.OverlappingFileLockException;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
-import java.util.List;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
-import static dms.pastor.utils.StringUtils.NEW_LINE;
+import static dms.pastor.utils.ValidatorUtils.validateIfFileIsAccessible;
 import static java.lang.Runtime.getRuntime;
 
 /**
@@ -43,7 +40,7 @@ public final class FileUtils {
             return false;
         }
         for (String aFilesPath : filesPath) {
-            if (!new File(aFilesPath).exists()) { //TODO replace with checkIfFileIsAccessible() ?
+            if (!new File(aFilesPath).exists()) {
                 System.out.println("Invalid path:" + aFilesPath);
                 return false;
             }
@@ -51,59 +48,28 @@ public final class FileUtils {
         return true;
     }
 
-    //TODO create TextFileSaver
-    @SuppressWarnings("BooleanMethodNameMustStartWithQuestion")
-    static boolean saveListToFile(List<String> content, String file) {
-        StringBuilder list = new StringBuilder();
-        for (String line : content) {
-            list.append(line);
-            list.append(NEW_LINE);
-        }
-
-        try (FileWriter fileWriter = new FileWriter(file);
-             BufferedWriter out = new BufferedWriter(fileWriter)) {
-            out.write(list.toString());
-        } catch (IOException e) {
-            LOGGER.error("Unable to save source list to file: " + file);
-            return false;
-        }
-        return true;
+    public static File getFileIfPathExists(String filePath) {
+        validateIfFileIsAccessible(filePath);
+        return new File(filePath);
     }
 
-    @SuppressWarnings("BooleanMethodNameMustStartWithQuestion") //as method action is to save
-    public static boolean saveListToFile(String[] content, String file) {
-        return saveListToFile(Arrays.asList(content), file);
-    }
-
-    //TODO replace with better method or find other that do the same job
-    @SuppressWarnings("BooleanMethodNameMustStartWithQuestion")
-    public static boolean saveTextToFile(String text, String path2file) {
-        LOGGER.debug("Saving text to file: " + path2file);
-        file = new File(path2file);
-
+    public static void recreateFileIfExists(String filePath) {
+        File file = getFileIfPathExists(filePath);
         if (file.exists()) {
             boolean result = file.delete();
             if (!result) {
                 LOGGER.info("Program was unable to delete old text file!");
+                throw new SomethingWentWrongException();
             }
         } else {
             try {
                 if (!file.createNewFile()) {
-                    return false;
+                    throw new SomethingWentWrongException();
                 }
             } catch (IOException ex) {
-                return false;
+                throw new SomethingWentWrongException();
             }
         }
-
-        try (PrintWriter out = new PrintWriter(new FileWriter(path2file))) {
-            out.print(text);
-            LOGGER.info("File saved.");
-        } catch (IOException ex) {
-            LOGGER.error("Unable to save file ");
-            return false;
-        }
-        return true;
     }
 
     /**
@@ -111,7 +77,6 @@ public final class FileUtils {
      */
     public static void lock() {
         file = new File("program.lock");
-        //TODO File.createTempFile("program","lock");
         try (RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw")) {
             if (file.exists() && !file.delete()) {
                 LOGGER.info("It seems like another instance of program is run ");
@@ -134,6 +99,9 @@ public final class FileUtils {
     }
 
     public static void unlockFile() {
+        if (file != null) {
+            file.delete();
+        }
         try {
             if (lockFile != null) {
                 lockFile.release();
@@ -150,73 +118,25 @@ public final class FileUtils {
         }
     }
 
-    public static boolean isFileValid(String filePath) {
-        if (filePath == null || filePath.isEmpty()) {
-            return false;
-        }
-        File file = new File(filePath);
-        return file.exists() && file.canRead();
-    }
-
     //example try-with-resources
-    public static String readRawData(File filePath) {
-        checkIfFileIsAccessible(filePath);
+    public static String readRawData(String filePath) {
+        validateIfFileIsAccessible(filePath);
+        File file = new File(filePath);
 
         StringBuilder sb = new StringBuilder(EMPTY_STRING);
-        try (FileInputStream fis = new FileInputStream(filePath);
+        try (FileInputStream fis = new FileInputStream(file);
              InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.UTF_8);
              BufferedReader br = new BufferedReader(isr)) {
 
-            String strLine;
-            while ((strLine = br.readLine()) != null) {
-                sb.append(strLine);
+            String line;
+            while ((line = br.readLine()) != null) {
+                sb.append(line);
             }
 
-        } catch (IOException e) {
-            throw new SomethingWentTerribleWrongError(e.getMessage());
+        } catch (IOException exception) {
+            throw new SomethingWentTerribleWrongError(exception.getMessage());
         }
         return sb.toString();
-    }
-
-
-    public static String loadFileFromResourceAsString(String path) {
-        ValidatorUtils.validateIfNotEmpty(path,"path to resource file");
-        ClassLoader classLoader = FileUtils.class.getClassLoader();
-
-        try {
-            final URL resource = classLoader.getResource(path);
-            ValidatorUtils.validateIfObjectValueIsNotNull(resource, "URL resource from path " + path);
-            File file = new File(resource.getFile());
-            checkIfFileIsAccessible(file);
-            return org.apache.commons.io.FileUtils.readFileToString(file, StandardCharsets.UTF_8);
-        } catch (IOException exception) {
-            throw new SomethingWentTerribleWrongError(exception.getMessage());
-
-        }
-    }
-
-    public static List<String> loadFileFromResourceAsListOfStrings(String path) {
-        ValidatorUtils.validateIfNotEmpty(path, "path to resource file");
-        ClassLoader classLoader = FileUtils.class.getClassLoader();
-
-        try {
-            final URL resource = classLoader.getResource(path);
-            ValidatorUtils.validateIfObjectValueIsNotNull(resource, "URL resource from path " + path);
-            File file = new File(resource.getFile());
-            checkIfFileIsAccessible(file);
-            return org.apache.commons.io.FileUtils.readLines(file, StandardCharsets.UTF_8);
-        } catch (IOException exception) {
-            throw new SomethingWentTerribleWrongError(exception.getMessage());
-
-        }
-    }
-
-
-
-    private static void checkIfFileIsAccessible(File filePath) {
-        if (filePath == null || !filePath.exists() || !filePath.canRead()) {
-            throw new IllegalArgumentException("File doesn't exist or cannot be read");
-        }
     }
 
     //TODO refactor this

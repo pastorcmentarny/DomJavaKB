@@ -16,9 +16,7 @@ tag-bytes
 LEARN:
     how to it uses PyCrypto Module
     Use ast.literal_eval to convert the bytes literal to bytes.
-    
-TODO
-    if args has del key what it will delete this property
+
 
 '''
 

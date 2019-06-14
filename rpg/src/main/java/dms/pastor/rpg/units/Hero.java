@@ -342,9 +342,6 @@ public class Hero extends Unit implements BattleAction {
         return new Result(false, "Unable to cast unknown spell");
     }
 
-    //public hero.castBattleSpell(6,new Unit[]{enemy});
-
-    //TODO implement
     public Result castBattleSpell(int which, Unit[] units) {
         switch (which) {
             case 1:

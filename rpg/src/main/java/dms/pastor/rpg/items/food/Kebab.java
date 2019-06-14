@@ -22,7 +22,6 @@ public class Kebab extends FoodItem {
         poisonChance += 10;
         System.out.println("You got " + poisonChance + "% to get poisoned(+10% as it is kebab)");
         if (chance > poisonChance) {
-            //FIXME log.info("Player get poisoned after eat food.");
             hero.plainStats.setHP(hero.plainStats.getHP() - (hero.plainStats.getHP() / 8));
         } else {
             System.out.println("You enjoyed a delicious kebab that get you some health");

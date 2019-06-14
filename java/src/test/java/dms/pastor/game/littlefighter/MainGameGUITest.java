@@ -12,16 +12,19 @@ import org.junit.Test;
  */
 public class MainGameGUITest {
 
-    @Test //TODO add ability to close window
+    @Test
     public void runApplicationWithoutCrashAcceptanceTest() throws Exception {
         // given
 
         // when
-        MainGameGUI.main(null);
+        final MainGameGUI aboutGui = new MainGameGUI();
+        aboutGui.setVisible(true);
 
         Thread.sleep(1000);
 
         // then no error occurred
+        aboutGui.closeWindow();
+
     }
 
 }

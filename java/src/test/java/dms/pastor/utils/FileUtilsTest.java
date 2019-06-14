@@ -1,7 +1,6 @@
 package dms.pastor.utils;
 
 import org.junit.After;
-import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -12,6 +11,8 @@ import static dms.pastor.TestConfig.EMPTY_STRING_ARRAY;
 import static dms.pastor.TestConfig.PATH;
 import static dms.pastor.utils.FileUtils.*;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+import static dms.pastor.utils.file.TextFileUtils.loadFileFromResourceAsString;
+import static dms.pastor.utils.file.TextFileUtils.saveListToFile;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -40,43 +41,6 @@ public class FileUtilsTest {
 
     }
 
-    @SuppressWarnings("ConstantConditions") // part of the test
-    @Test
-    public void isFileValidShouldReturnFalseWhenFilePathIsNull() {
-        // when
-        final boolean result = isFileValid(null);
-
-        // then
-        assertThat(result).isFalse();
-    }
-
-    @Test
-    public void isFileValidShouldReturnFalseIfFilePathIsEmptyTest() {
-        // when
-        final boolean result = isFileValid(EMPTY_STRING);
-
-        // then
-        assertThat(result).isFalse();
-    }
-
-    @Test
-    public void shouldThrowExceptionIfUnableToAccessFileTest() {
-        // when
-        final boolean result = isFileValid("text.txt");
-
-        // then
-        assertThat(result).isFalse();
-    }
-
-    @Test
-    public void shouldReturnTrueForExistingFileTest() {
-        // when
-        final boolean result = isFileValid(DEFAULT_PATH);
-
-        // then
-        assertThat(result).isTrue();
-    }
-
     // part of the test
     @Test
     public void shouldThrowIllegalArgumentExceptionIfPathIsNullInReadRawDataTest() {
@@ -93,7 +57,7 @@ public class FileUtilsTest {
         exception.expect(IllegalArgumentException.class);
 
         // when
-        readRawData(new File(EMPTY_STRING));
+        readRawData(EMPTY_STRING);
     }
 
     @SuppressWarnings("SpellCheckingInspection")
@@ -102,16 +66,17 @@ public class FileUtilsTest {
         // given
         final String expected = "This is a default test filetesttest";
         // when
-        final String rawData = readRawData(new File(DEFAULT_PATH));
+        final String rawData = readRawData(DEFAULT_PATH);
 
         // when
         assertThat(rawData).isEqualToIgnoringCase(expected);
     }
 
-    @Ignore //TODO need to fix it
     @Test
     public void shouldLockFileTest() {
         // given
+        clean();
+
         if (new File(LOCK_FILE).exists()) {
             final boolean deleted = new File(LOCK_FILE).delete();
             assertThat(deleted).isTrue();
@@ -123,12 +88,14 @@ public class FileUtilsTest {
 
         // then
         assertThat(new File(LOCK_FILE).exists()).isTrue();
+
+        clean();
     }
 
-    @Ignore //TODO need to fix it
     @Test
     public void shouldUnlockFileTest() {
         // given
+        clean();
         if (!new File(LOCK_FILE).exists()) {
             lock();
         }
@@ -141,9 +108,9 @@ public class FileUtilsTest {
         // then
         isLockExists = new File(LOCK_FILE).exists();
         assertThat(isLockExists).isFalse();
+        clean();
     }
 
-    @Ignore //TODO fix me
     @Test
     public void shouldListToFileTest() {
         // given
@@ -157,7 +124,7 @@ public class FileUtilsTest {
         final File file = new File(TEST_FILE);
         assertThat(file.exists()).isTrue();
 
-        final String result = readRawData(file);
+        final String result = readRawData(TEST_FILE);
         assertThat(result).isEqualTo("123");
     }
 
@@ -235,6 +202,19 @@ public class FileUtilsTest {
         loadFileFromResourceAsString("invalid path");
 
         // then exception is thrown
+    }
+
+    @Test
+    public void getFileIfPathExistsTest() {
+        //TODO
+    }
+
+    private static void clean() {
+        var result = new File(TEST_FILE).delete();
+        System.out.println(TEST_FILE + " exists? " + result);
+        result = new File(LOCK_FILE).delete();
+        System.out.println(TEST_FILE + " exists? " + result);
+
     }
 
 }

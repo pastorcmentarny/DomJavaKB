@@ -49,7 +49,6 @@ public class GUIAcceptanceTest {
         LOGGER.detachAppender(mockAppender);
     }
 
-    //TODO verify this test
     @Test
     public void shouldGui() {
         // when

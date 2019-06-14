@@ -12,7 +12,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-import static dms.pastor.utils.FileUtils.saveListToFile;
+import static dms.pastor.utils.file.TextFileUtils.saveListToFile;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.Java6Assertions.assertThat;
 

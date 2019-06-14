@@ -1,10 +1,10 @@
 package dms.pastor.rpg.items.potions;
 
-import dms.pastor.rpg.units.Unit;
 import dms.pastor.rpg.Money;
 import dms.pastor.rpg.cfg.Config;
 import dms.pastor.rpg.characteristics.Attribute;
 import dms.pastor.rpg.commons.Result;
+import dms.pastor.rpg.units.Unit;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -37,7 +37,6 @@ public class AntidotePotion extends Potion {
             attrs.remove(Attribute.POISONED);
             return true;
         } else {
-            //TODO display antidote didn't work
             return false;
         }
 

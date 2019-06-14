@@ -1,7 +1,7 @@
 package dms.pastor.rpg.items;
 
-import dms.pastor.rpg.items.rings.Ring;
 import dms.pastor.rpg.armor.TShirt;
+import dms.pastor.rpg.items.rings.Ring;
 
 import java.util.Random;
 
@@ -9,7 +9,6 @@ import java.util.Random;
 public class Items {
 
     public static Item generateItem() {
-        //TODO implement this;
         return new Ring();
     }
 

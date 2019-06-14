@@ -1,7 +1,5 @@
 package dms.pastor.tasks.sunspotanalyser.data;
 
-import java.io.File;
-
 import static dms.pastor.utils.FileUtils.readRawData;
 import static java.lang.Integer.valueOf;
 
@@ -16,16 +14,24 @@ import static java.lang.Integer.valueOf;
  */
 public class InputParser {
 
-    private final String rawData;
+    private String rawData;
     private String[] data;
 
-    public InputParser(File inputFile) {
+    public InputParser(String inputFile) {
         rawData = readRawData(inputFile);
     }
 
-    //Use for debug purposes only
-    public InputParser(String inputString) {
-        rawData = inputString;
+    private InputParser() {
+    }
+
+    private void setRawData(String rawData) {
+        this.rawData = rawData;
+    }
+
+    public static InputParser getInputParserFromString(String rawString) {
+        InputParser inputParser = new InputParser();
+        inputParser.setRawData(rawString);
+        return inputParser;
     }
 
     public final Grid generateGrid() {

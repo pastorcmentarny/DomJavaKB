@@ -51,7 +51,7 @@ public final class Utils {
 
     public static List<Person> loadPeople(String filename) throws IOException {
         List<Person> people = new ArrayList<>();
-        ValidatorUtils.validateIfPathExists(filename);
+        ValidatorUtils.validateIfFileIsAccessible(filename);
         File file = new File(filename);
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
             String line;

@@ -26,7 +26,6 @@ public class RPGLauncher {
     }
 
     public static void playGame() {
-        //FIXME log.info("Starting new game");
         Game game = Game.getGame();
         game.play();
         System.out.println("Exiting... GoodBye");
@@ -37,10 +36,6 @@ public class RPGLauncher {
         gne.doEvent();
 
         System.out.println("You got " + gne.getReward() + "points.");
-        /*
-        ProgressViewer pv = new ProgressViewer();
-        pv.run();
-        */
     }
 
     private static void runLab() {

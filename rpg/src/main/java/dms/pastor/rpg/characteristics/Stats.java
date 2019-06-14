@@ -28,7 +28,7 @@ public class Stats {
     private int mana = 0;
     private int maxMana = 0;
     private int karma = 0;
-    private int criticalChance = Config.DEFAULT_CRITICAL_CHANCE; //TODO move criticalChance from unit to stats;
+    private int criticalChance = Config.DEFAULT_CRITICAL_CHANCE;
     private Random random = new Random();
 
     public Stats() {
@@ -251,8 +251,6 @@ public class Stats {
     }
 
     public void levelUp(Stats lvlUpBonus, boolean psycho) {
-        //TODO replace with log System.out.println("current:" + toString());
-        //TODO replace with log System.out.println("bonus" + lvlUpBonus.toString());
         minDMG += lvlUpBonus.getMinDMG();
         maxDMG += lvlUpBonus.getMaxDMG();
         accuracy += lvlUpBonus.getAccuracy();

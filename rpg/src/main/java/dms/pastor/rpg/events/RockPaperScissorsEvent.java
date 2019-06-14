@@ -32,7 +32,6 @@ public class RockPaperScissorsEvent implements EventInterface {
             int i = scanner.nextInt();
             if (i > 3 || i < 1) {
                 result = new Result(false, "You CHEAT");
-                //FIXME log.info("User typed out of range number:" + i);
             } else {
                 Random random = new Random();
                 int enemy = random.nextInt(3) + 1;
@@ -74,10 +73,8 @@ public class RockPaperScissorsEvent implements EventInterface {
             }
         } catch (Exception e) {
             System.out.println("You lost,because you cheat");
-            //FIXME log.info("User typed gibberish:" + e.getMessage());
             return false;
         }
-        //FIXME log.warn("Flow of the game (Rock,Paper,Scissor) is broken");
         return false;
     }
 

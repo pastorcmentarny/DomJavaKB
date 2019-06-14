@@ -1,7 +1,5 @@
 package dms.pastor.tools.coder;
 
-import java.io.File;
-
 import static dms.pastor.utils.FileUtils.readRawData;
 import static dms.pastor.utils.StringUtils.reverseString;
 import static dms.pastor.utils.StringUtils.swapCaseLettersInString;
@@ -26,7 +24,7 @@ class DomCoder {
     }
 
     static String loadSourceFile() {
-        return readRawData(new File(PATH));
+        return readRawData(PATH);
     }
 
     String getContent() {

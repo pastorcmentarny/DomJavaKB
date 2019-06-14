@@ -30,7 +30,6 @@ public class Chat implements EventInterface {
             case 3:
                 return new MonikaSmigiel();
             default:
-                //TODO implement local person
                 throw new UnsupportedOperationException("Not supported yet.");
 
         }
@@ -52,7 +51,6 @@ public class Chat implements EventInterface {
             case 3:
                 return new Adam();
             default:
-                //TODO implement local person
                 throw new UnsupportedOperationException("Not supported yet.");
 
         }

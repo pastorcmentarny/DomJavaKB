@@ -37,7 +37,8 @@ public class ValidatorUtilsTest {
     private static final String UNUSED_OBJECT_NAME = null;
     private static final int START_RANGE = 0;
     private static final int END_RANGE = 10;
-    private static final String PATH_TO_FILE_IS_INVALID_ERROR_MESSAGE = "Path to file is invalid.";
+    private static final String PATH_TO_FILE_IS_INVALID_ERROR_MESSAGE = "Path to file is invalid, file doesn't exists or can't be read.";
+    private static final String PATH_IS_NULL_OR_EMPTY = "path cannot be null or empty.";
 
     @Rule
     public final ExpectedException exception = ExpectedException.none();
@@ -542,20 +543,20 @@ public class ValidatorUtilsTest {
     public void validateIfPathExistsShouldThrowIllegalArgumentExceptionIfPathIsNull() {
         // expect
         exception.expect(IllegalArgumentException.class);
-        exception.expectMessage(PATH_TO_FILE_IS_INVALID_ERROR_MESSAGE);
+        exception.expectMessage(PATH_IS_NULL_OR_EMPTY);
 
         // when
-        validateIfPathExists(null);
+        validateIfFileIsAccessible(null);
     }
 
     @Test
     public void validateIfPathExistsShouldThrowIllegalArgumentExceptionIfPathIsEmpty() {
         // expect
         exception.expect(IllegalArgumentException.class);
-        exception.expectMessage(PATH_TO_FILE_IS_INVALID_ERROR_MESSAGE);
+        exception.expectMessage(PATH_IS_NULL_OR_EMPTY);
 
         // when
-        validateIfPathExists(EMPTY_STRING);
+        validateIfFileIsAccessible(EMPTY_STRING);
     }
 
     @Test
@@ -565,7 +566,7 @@ public class ValidatorUtilsTest {
         exception.expectMessage(PATH_TO_FILE_IS_INVALID_ERROR_MESSAGE);
 
         // when
-        validateIfPathExists(generateString());
+        validateIfFileIsAccessible(generateString());
     }
 
     @Test
@@ -575,7 +576,7 @@ public class ValidatorUtilsTest {
         exception.expectMessage(PATH_TO_FILE_IS_INVALID_ERROR_MESSAGE);
 
         // when
-        validateIfPathExists(BASE_PATH);
+        validateIfFileIsAccessible(BASE_PATH);
     }
 
     @Test
@@ -588,7 +589,7 @@ public class ValidatorUtilsTest {
         System.out.println(BASE_PATH);
         System.out.println(path);
         // when
-        validateIfPathExists(path);
+        validateIfFileIsAccessible(path);
 
         // then nothing happen, which means value are valid
 

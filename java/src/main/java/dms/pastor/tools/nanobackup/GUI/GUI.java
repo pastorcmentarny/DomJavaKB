@@ -26,6 +26,7 @@ import java.util.Arrays;
 import java.util.Objects;
 import java.util.Properties;
 
+import static dms.pastor.utils.file.TextFileUtils.saveListToFile;
 import static java.awt.Font.BOLD;
 
 /**
@@ -613,7 +614,7 @@ public class GUI extends javax.swing.JFrame {
             settings.setSourceFilePath(tempSource);
             settings.setProperties(true);
             recentSrcPaths = utilities.updateRecentFolderPaths(recentSrcPaths, tempSource);
-            FileUtils.saveListToFile(recentSrcPaths, Constants.RECENT_SRC_PATHS_FILE);
+            saveListToFile(recentSrcPaths, Constants.RECENT_SRC_PATHS_FILE);
             utilities.setInfoLabel(AppColor.DARK_GREEN, "Source file set to " + tempSource, InfoLabel);
         } else {
             utilities.setInfoLabel(Color.RED, "Action cancelled", InfoLabel);
@@ -630,7 +631,7 @@ public class GUI extends javax.swing.JFrame {
             settings.setDestinationFolderPath(tempSource);
             settings.setProperties(true);
             recentDestPaths = utilities.updateRecentFolderPaths(recentDestPaths, tempSource);
-            FileUtils.saveListToFile(recentDestPaths, Constants.RECENT_DEST_PATHS_FILE);
+            saveListToFile(recentDestPaths, Constants.RECENT_DEST_PATHS_FILE);
 
             InfoLabel.setForeground(AppColor.DARK_GREEN);
             InfoLabel.setText("Destination folder is set to: " + tempSource);
@@ -670,7 +671,7 @@ public class GUI extends javax.swing.JFrame {
         String[] addFileResult = utilities.addItemsToItemsList(srcList, sourceField, "item");
         if (addFileResult != null) {
             srcList = addFileResult;
-            if (FileUtils.saveListToFile(srcList, sourceField.getText())) {
+            if (saveListToFile(srcList, sourceField.getText())) {
                 InfoLabel.setText("List was saved to file.");
             } else {
                 InfoLabel.setText("List was NOT saved to file.");
@@ -698,8 +699,7 @@ public class GUI extends javax.swing.JFrame {
         String[] temp = srcList;
         srcList = utilities.removeItemsFromList(srcList, sourceList);
         if (srcList != null) {
-            //change ?
-            FileUtils.saveListToFile(srcList, sourceField.getText());
+            saveListToFile(srcList, sourceField.getText());
             removeButton.setEnabled(true);
             refreshContent();
             setGui();
@@ -759,7 +759,7 @@ public class GUI extends javax.swing.JFrame {
         } else {
             utilities.setInfoLabel(AppColor.DARK_GREEN, "Source file: " + result + " was created.", InfoLabel);
             recentSrcPaths = utilities.updateRecentFolderPaths(recentSrcPaths, sourceField.getText());
-            FileUtils.saveListToFile(recentSrcPaths, Constants.RECENT_SRC_PATHS_FILE);
+            saveListToFile(recentSrcPaths, Constants.RECENT_SRC_PATHS_FILE);
             sourceField.setText(result);
             settings.setSourceFilePath(result);
             settings.setProperties(true);
@@ -793,7 +793,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void clearSourceMenuItemActionPerformed(ActionEvent evt) {
         srcList = TaskUtils.removeNonExistsItems(srcList);
-        FileUtils.saveListToFile(srcList, sourceField.getText());
+        saveListToFile(srcList, sourceField.getText());
         removeButton.setEnabled(true);
         refreshContent();
         setGui();
@@ -813,7 +813,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void removeDuplicatesMenuItemActionPerformed(ActionEvent evt) {
         srcList = TaskUtils.removeDuplicateLines(srcList);
-        FileUtils.saveListToFile(srcList, source);
+        saveListToFile(srcList, source);
         utilities.setInfoLabel(AppColor.DARK_GREEN, "Duplicate lines in source file are removed.", InfoLabel);
         refreshContent();
         setGui();
@@ -866,7 +866,7 @@ public class GUI extends javax.swing.JFrame {
         String[] itemsList = utilities.merge2Source(srcList);
         if (itemsList != null) {
             srcList = TaskUtils.removeDuplicateLines(itemsList);
-            FileUtils.saveListToFile(srcList, sourceField.getText());
+            saveListToFile(srcList, sourceField.getText());
             settings.setProperties(true);
             utilities.setInfoLabel(AppColor.DARK_GREEN, "Selected source file was merged into item list.", InfoLabel);
         } else {

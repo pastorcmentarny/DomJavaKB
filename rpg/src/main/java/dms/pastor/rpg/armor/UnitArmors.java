@@ -14,8 +14,7 @@ import java.util.ArrayList;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class UnitArmors {
-    private static final //FIXME log.er //FIXME log.= //FIXME log.er.get//FIXME log.er(UnitArmors.class);
-        ArrayList<Armor> armorList = new ArrayList<>();
+    private static final ArrayList<Armor> armorList = new ArrayList<>();
     private final ArmorType[] availableTypes;
 
     public UnitArmors(ArmorType[] types) {
@@ -23,7 +22,7 @@ public class UnitArmors {
     }
 
     public int getTotalARM() {
-        if (armorList != null && !armorList.isEmpty()) {
+        if (!armorList.isEmpty()) {
             int arm = 0;
             for (Armor armor : armorList) {
                 arm += armor.getArmorPoints();
@@ -57,7 +56,6 @@ public class UnitArmors {
         if (temp != null) {
             return new Result(true, "  take Off " + temp.getName(), temp);
         }
-        //FIXME log.warn("Unable to  take off this armor as it wasn't found. That's shouldn't happen.");
         return new Result(false, "Unable to  take off this armor.");
     }
 

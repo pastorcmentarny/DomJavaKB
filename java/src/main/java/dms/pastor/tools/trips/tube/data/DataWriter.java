@@ -11,7 +11,7 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static dms.pastor.utils.ValidatorUtils.validateIfPathExists;
+import static dms.pastor.utils.ValidatorUtils.validateIfFileIsAccessible;
 import static java.lang.String.format;
 
 /**
@@ -26,7 +26,7 @@ public class DataWriter {
     private static final Logger LOGGER = LoggerFactory.getLogger(DataWriter.class);
 
     public void save(String path, List<TubeStation> tubeStationList) {
-        validateIfPathExists(path);
+        validateIfFileIsAccessible(path);
         final String content = tubeStationList.stream().map(TubeStation::asLine).collect(Collectors.joining(StringUtils.CHAR_SEQUENCE_NEW_LINE));
         try {
             Files.write(Paths.get(path), content.getBytes());

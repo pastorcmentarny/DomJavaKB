@@ -30,13 +30,10 @@ public final class DataOperations {
         separator + RESOURCES;
     private static final String STATION_PATH = System.getProperty("user.dir") +
         separator + "java" +
-        separator + SRC +// "java" +
+            separator + SRC +
         separator + "main" +
         separator + RESOURCES + "tube" + File.separator + "station.txt";
     private static final String PATH = BASE_PATH + "tube" + File.separator + "station" + Timestamp.valueOf(LocalDateTime.now()) + ".txt";
-    private static final String STATION_FILE_PATH = STATION_PATH;
-    //D:\GitHub\DomJavaKB\java\src\main\resources\tube\station.txt
-    //private static final String STATION_FILE_PATH = "/Users/symonowd/IdeaProjects/DomJavaKB/java/src/main/resources/tube/station.txt";
 
     private DataOperations() {
     }
@@ -44,7 +41,7 @@ public final class DataOperations {
     public static void saveToFile(List<TubeStation> tubeStationList) {
         LOGGER.info("Saving data..");
         DataWriter dataWriter = new DataWriter();
-        dataWriter.save(STATION_FILE_PATH, tubeStationList);
+        dataWriter.save(STATION_PATH, tubeStationList);
     }
 
     public static List<TubeStation> loadFromFile() {

@@ -23,7 +23,7 @@ import java.util.concurrent.*;
 
 import static dms.pastor.tools.nanobackup.Constants.DATA_PATH;
 import static dms.pastor.utils.FileUtils.isFileExists;
-import static dms.pastor.utils.FileUtils.saveTextToFile;
+import static dms.pastor.utils.file.TextFileUtils.saveTextToFile;
 import static java.awt.Color.DARK_GRAY;
 
 /**

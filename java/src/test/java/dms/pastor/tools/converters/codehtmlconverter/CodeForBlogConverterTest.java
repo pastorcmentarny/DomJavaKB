@@ -1,13 +1,12 @@
 package dms.pastor.tools.converters.codehtmlconverter;
 
-import dms.pastor.utils.FileUtils;
 import dms.pastor.utils.html.HtmlUtils;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.List;
 
+import static dms.pastor.utils.file.TextFileUtils.loadFileFromResourceAsListOfStrings;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -30,18 +29,16 @@ public class CodeForBlogConverterTest {
         converter = new CodeForBlogConverter();
     }
 
-    @Ignore
-    @Test //TODO test failed but content was identical
+    @Test
     public void shouldConvertCodeToHTMLTest() {
         // given
-        List<String> answer = FileUtils.loadFileFromResourceAsListOfStrings("test/html/code2blog.html");
+        List<String> answer = loadFileFromResourceAsListOfStrings("test/html/code2blog.html");
 
         // when
         final String result = converter.convert(answer);
 
         // then
         assertThat(result).isEqualTo(answer);
-
     }
 
     @Test

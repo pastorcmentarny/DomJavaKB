@@ -22,6 +22,7 @@ import java.util.Objects;
 import static dms.pastor.tools.nanobackup.Constants.DATA_PATH;
 import static dms.pastor.tools.nanobackup.Constants.QUICK_MODE_FILENAME;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+import static dms.pastor.utils.file.TextFileUtils.saveListToFile;
 
 /**
  * Author Dominik Symonowicz
@@ -279,7 +280,7 @@ public class Engine extends AbstractTools {
             for (int i = 0; i < temp.size(); i++) {
                 srcList[i] = temp.get(i);
             }
-            FileUtils.saveListToFile(srcList, sourceField.getText());
+            saveListToFile(srcList, sourceField.getText());
         } else {
             return new String[0];
         }

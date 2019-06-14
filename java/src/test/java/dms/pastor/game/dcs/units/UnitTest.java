@@ -251,7 +251,6 @@ public class UnitTest {
 
         // then
         assertThat(elements).isZero();
-        //TODO test log too
     }
 
     @Test
@@ -362,7 +361,7 @@ public class UnitTest {
         assertThat(unit.getSp()).isZero();
     }
 
-    @Test //TODO flake test. fix it
+    @Test
     public void increaseHpPerTurnShouldIncreaseHpIfIsBelowMaxHp() {
         // given
         final int regenHpRate = 2;

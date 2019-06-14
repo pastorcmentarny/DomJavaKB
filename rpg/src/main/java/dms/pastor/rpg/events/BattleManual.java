@@ -24,7 +24,6 @@ public class BattleManual implements BattleAction {
     private int round = 1;
 
     public BattleManual(Hero hero, Enemy enemy) {
-        ////FIXME log.setLevel(Config.LOG_LEVEL);
         this.hero = hero;
         this.enemy = enemy;
         hero.generateBattleStats();
@@ -202,7 +201,6 @@ public class BattleManual implements BattleAction {
     }
 
     private void round() {
-        //TODO new Scanner(System.in).nextLine();
         beforeTurnEvents();
         turn();
         afterTurnEvents();
@@ -249,17 +247,13 @@ public class BattleManual implements BattleAction {
     private Unit[] getUnitsSortedByInitiative() {
         String msg = "Checking who will be first to start round..";
         if ((hero.skills.getInitiative() > enemy.skills.getInitiative())) {
-            //FIXME log.info(msg + hero.getName());
             return new Unit[]{hero, enemy};
         } else if ((hero.skills.getInitiative() < enemy.skills.getInitiative())) {
-            //FIXME log.info(msg + enemy.getName());
             return new Unit[]{enemy, hero};
         } else {
             if (random.nextBoolean()) {
-                //FIXME log.info(msg + hero.getName());
                 return new Unit[]{hero, enemy};
             } else {
-                //FIXME log.info(msg + enemy.getName());
                 return new Unit[]{enemy, hero};
             }
         }

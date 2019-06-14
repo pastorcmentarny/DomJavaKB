@@ -4,7 +4,6 @@ package dms.pastor.tools.trips.tube.options;
 import dms.pastor.tools.trips.common.options.Option;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
@@ -37,7 +36,6 @@ public class LoadTubeStationOptionTest {
         System.setOut(original);
     }
 
-    @Ignore //FIXME
     @Test
     public void shouldLoadStationsFromFile() {
         // given

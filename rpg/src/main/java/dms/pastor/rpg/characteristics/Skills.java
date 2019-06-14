@@ -80,7 +80,6 @@ public class Skills {
 
         while (notAdded) {
             if (skillsType.isEmpty()) {
-                notAdded = true;//TODO bug ?
                 return skills;
             }
             int randomNumber = random.nextInt(skillsType.size());

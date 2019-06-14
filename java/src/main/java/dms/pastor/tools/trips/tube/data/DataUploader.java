@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static dms.pastor.utils.ValidatorUtils.validateIfPathExists;
+import static dms.pastor.utils.ValidatorUtils.validateIfFileIsAccessible;
 import static java.util.Collections.emptyList;
 
 /**
@@ -28,7 +28,7 @@ public class DataUploader {
 
     public List<TubeStation> load(String path) {
         LOGGER.error("Loading data from .. " + path);
-        validateIfPathExists(path);
+        validateIfFileIsAccessible(path);
         try (Stream<String> lines = Files.lines(Paths.get(path))) {
             final List<TubeStation> tubeStationList = lines.map(ToStationConverter::convert).collect(Collectors.toList());
             LOGGER.info("Data loaded.");

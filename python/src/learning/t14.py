@@ -66,14 +66,6 @@ delta = datetime.timedelta(seconds=3)
 future = datetime_now + delta
 print(str(future))
 
-''' TODO fix this
-print("Waiting for future...")
-while future > datetime_now:
-    print(' and waiting .. ')
-    time.sleep(1)
-print('future is now :)')
-'''
-
 thirdApril2017 = datetime.datetime(2017, 4, 3, 15, 2, 0)
 
 print(str(thirdApril2017.strftime("%d.%m(%b)'%Y [%w]")))
