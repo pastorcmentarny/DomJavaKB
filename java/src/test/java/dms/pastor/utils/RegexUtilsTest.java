@@ -92,4 +92,26 @@ public class RegexUtilsTest {
         assertThat(result).isEqualTo(3);
     }
 
+    @Test
+    public void shouldReturnTrueIfPhoneNumberHasOnlyNumbersAndPlusAndMinusSign() {
+        // given
+
+        // when
+        final var validPhoneNumber = RegexUtils.hasOnlyNumbersAndPlusAndMinusSign("+447912345678");
+
+        // then
+        assertThat(validPhoneNumber).isTrue();
+    }
+
+    @Test
+    public void shouldReturnFalseIfPhoneNumberHasInvalidCharacter() {
+        // given
+
+        // when
+        final var validPhoneNumber = RegexUtils.hasOnlyNumbersAndPlusAndMinusSign("(00)447912345678");
+
+        // then
+        assertThat(validPhoneNumber).isFalse();
+    }
+
 }

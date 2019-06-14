@@ -21,6 +21,7 @@ public final class RegexUtils {
     private static final Logger LOGGER = LoggerFactory.getLogger(RegexUtils.class);
     private static final String BLANK_LINE = "^(?:[\\t ]*(?:\\r?\\n|\\r))+\n";
     private static final String MORE_THAN_ONE_SPACE_BETWEEN_WORDS = "\\w([ ]{1,})\\w";
+    private static final String NUMBERS_WITH_PLUS_AND_MINUS = "[\\d +-]+";
 
     private RegexUtils() {
     }
@@ -38,5 +39,9 @@ public final class RegexUtils {
             }
         }
         return 0;
+    }
+
+    public static boolean hasOnlyNumbersAndPlusAndMinusSign(String text) {
+        return Pattern.matches(NUMBERS_WITH_PLUS_AND_MINUS, text);
     }
 }
