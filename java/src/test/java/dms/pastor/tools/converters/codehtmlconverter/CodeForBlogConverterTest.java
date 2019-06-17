@@ -7,6 +7,7 @@ import org.junit.Test;
 import java.util.List;
 
 import static dms.pastor.utils.file.TextFileUtils.loadFileFromResourceAsListOfStrings;
+import static dms.pastor.utils.file.TextFileUtils.loadFileFromResourceAsString;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -32,13 +33,13 @@ public class CodeForBlogConverterTest {
     @Test
     public void shouldConvertCodeToHTMLTest() {
         // given
-        List<String> answer = loadFileFromResourceAsListOfStrings("test/html/code2blog.html");
-
+        List<String> source = loadFileFromResourceAsListOfStrings("test/html/code2blog.html");
+        String expectedResult = loadFileFromResourceAsString("test/html/code2blog-converted.html");
         // when
-        final String result = converter.convert(answer);
+        final String result = converter.convert(source);
 
         // then
-        assertThat(result).isEqualTo(answer);
+        assertThat(result).isEqualTo(expectedResult);
     }
 
     @Test
