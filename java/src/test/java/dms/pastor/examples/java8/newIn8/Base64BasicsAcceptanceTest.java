@@ -7,6 +7,7 @@ import java.util.Base64;
 
 import static dms.pastor.examples.java8.Base64Basics.decrypt;
 import static dms.pastor.examples.java8.Base64Basics.encrypt;
+import static org.assertj.core.api.Assertions.assertThat;
 
 
 /**
@@ -20,23 +21,21 @@ import static dms.pastor.examples.java8.Base64Basics.encrypt;
  */
 public class Base64BasicsAcceptanceTest {
 
-    @Ignore
     @Test
     public void base64Example() {
-        System.out.println("...START...");
 
-        //String originalMessage = loadFile(FileSystems.getDefault().getPath("C:\\file.txt"));
-        final var originalMessage = "";
-
+        String originalMessage = "RG9vb21pbmlr";
         System.out.println("... ... O MESSAGE: " + originalMessage);
+
         String encrypted = encrypt(originalMessage);
         System.out.println("... ... E MESSAGE: " + encrypted);
+
         final String decrypted = decrypt(encrypted);
         System.out.println("... ... D MESSAGE: " + decrypted);
 
-        String source = "aGFydGxpbms6c2VjcmV0";
-        final byte[] decodedMessage = Base64.getDecoder().decode(source.getBytes());
-        System.out.println(new String(decodedMessage));
+        final byte[] decodedMessage = Base64.getDecoder().decode(originalMessage.getBytes());
+        assertThat("Dooominik").isEqualTo(new String(decodedMessage));
+
     }
 
 
