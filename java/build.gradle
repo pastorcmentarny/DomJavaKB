@@ -40,6 +40,7 @@ dependencies {
     compile 'org.simplejavamail:simple-java-mail:5.1.7'
     compile 'io.rest-assured:rest-assured:4.0.0' //normally should be testCompile 
     compile 'io.rest-assured:json-schema-validator:4.0.0' //normally should be testCompile
+    compile "org.apache.kafka:kafka-clients:1.1.0"
     compileOnly 'org.projectlombok:lombok:1.18.8'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.4.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.4.2'
