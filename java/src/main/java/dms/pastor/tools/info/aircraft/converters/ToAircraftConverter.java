@@ -7,9 +7,9 @@ import dms.pastor.tools.info.aircraft.validators.AircraftValidator;
 import static dms.pastor.utils.file.TextFileUtils.FIELD_SEPARATOR;
 
 public class ToAircraftConverter {
-    private final AircraftValidator validator = new AircraftValidator();
 
-    public Aircraft convert(String aircraftAsString) {
+    public static Aircraft convert(String aircraftAsString) {
+        final AircraftValidator validator = new AircraftValidator();
         validator.validate(aircraftAsString);
         final var aircraftFields = aircraftAsString.split(FIELD_SEPARATOR);
         final AirplaneFieldExtractor fieldExtractor = new AirplaneFieldExtractor(aircraftFields);
