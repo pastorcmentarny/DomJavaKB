@@ -16,7 +16,8 @@ public class Aircraft {
     private int wingspan;
     private int height;
     private int engines;
-    private int speed;
+    private int cruiseSpeed;
+    private int maxSpeed;
     private int range;
 
     public String info() {
@@ -29,7 +30,8 @@ public class Aircraft {
             "Wingspan: " + wingspan + System.lineSeparator() +
             "Height: " + height + System.lineSeparator() +
             "Engines: " + engines + System.lineSeparator() +
-            "Speed: " + speed + System.lineSeparator() +
+            "Cruise Speed: " + cruiseSpeed + System.lineSeparator() +
+            "Max Speed: " + cruiseSpeed + System.lineSeparator() +
             "Range: " + range;
         return aircraft;
     }

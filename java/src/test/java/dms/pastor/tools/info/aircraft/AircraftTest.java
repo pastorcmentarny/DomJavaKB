@@ -21,7 +21,8 @@ public class AircraftTest {
             .length(10000)
             .wingspan(3400)
             .height(400)
-            .speed(911)
+            .cruiseSpeed(911)
+            .maxSpeed(999)
             .range(20000)
             .build();
 
@@ -34,7 +35,8 @@ public class AircraftTest {
             "Wingspan: 3400\n" +
             "Height: 400\n" +
             "Engines: 0\n" +
-            "Speed: 911\n" +
+            "Cruise Speed: 911\n" +
+            "Max Speed: 911\n" +
             "Range: 20000";
 
         // when
