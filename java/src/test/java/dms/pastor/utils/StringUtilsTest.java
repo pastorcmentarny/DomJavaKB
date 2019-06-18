@@ -805,4 +805,52 @@ public class StringUtilsTest {
 
     }
 
+    @Test
+    public void shouldDescribeNullString() {
+        // given
+        final var expectedResult = "String is null";
+
+        // when
+        final var result = describeStringType(null);
+
+        // then
+        assertThat(result).isEqualTo(expectedResult);
+    }
+
+    @Test
+    public void shouldDescribeEmptyString() {
+        // given
+        final var expectedResult = "String is empty";
+
+        // when
+        final var result = describeStringType(EMPTY_STRING);
+
+        // then
+        assertThat(result).isEqualTo(expectedResult);
+    }
+
+    @Test
+    public void shouldDescribeBlankString() {
+        // given
+        final var expectedResult = "String is blank";
+
+        // when
+        final var result = describeStringType("   ");
+
+        // then
+        assertThat(result).isEqualTo(expectedResult);
+    }
+
+    @Test
+    public void shouldDescribeString() {
+        // given
+        final var expectedResult = "String { content }";
+
+        // when
+        final var result = describeStringType("content");
+
+        // then
+        assertThat(result).isEqualTo(expectedResult);
+    }
+
 }

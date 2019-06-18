@@ -324,4 +324,17 @@ public final class StringUtils {
         return string.replaceAll("\\r\\n|\\n", System.lineSeparator());
     }
 
+    public static String describeStringType(String string) {
+        if (string == null) {
+            return "String is null";
+        }
+        if (string.isEmpty()) {
+            return "String is empty";
+        }
+        if (string.isBlank()) {
+            return "String is blank";
+        }
+        return "String { " + string + " }";
+    }
+
 }
