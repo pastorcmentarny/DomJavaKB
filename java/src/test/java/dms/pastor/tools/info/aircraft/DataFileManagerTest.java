@@ -12,10 +12,11 @@ public class DataFileManagerTest {
     public void shouldLoadAircraftDataFromFile() {
 
         // when
-        final var aircraft = DataFileManager.getAircraftDataFromFile();
+        final var aircraftList = DataFileManager.getAircraftDataFromFile();
 
         // then
-        assertThat(aircraft).isEqualTo(AircraftTestConfig.AIRCRAFT);
+        assertThat(aircraftList.size()).isEqualTo(3);
+        assertThat(aircraftList.get(0)).isEqualTo(AircraftTestConfig.AIRCRAFT);
 
     }
 

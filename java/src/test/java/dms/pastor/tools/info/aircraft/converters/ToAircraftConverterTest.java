@@ -1,9 +1,12 @@
 package dms.pastor.tools.info.aircraft.converters;
 
 
+import dms.pastor.tools.info.aircraft.Aircraft;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+
+import java.util.List;
 
 import static dms.pastor.tools.info.aircraft.AircraftTestConfig.AIRCRAFT;
 import static dms.pastor.tools.info.aircraft.AircraftTestConfig.VALID_AIRCRAFT_AS_STRING;
@@ -11,8 +14,6 @@ import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ToAircraftConverterTest {
-
-    private ToAircraftConverter converter = new ToAircraftConverter();
 
     @Rule
     public final ExpectedException exception = ExpectedException.none();
@@ -23,7 +24,7 @@ public class ToAircraftConverterTest {
         exception.expect(IllegalArgumentException.class);
 
         // when
-        converter.convert(null);
+        ToAircraftConverter.convert((String) null);
     }
 
     @Test
@@ -32,7 +33,7 @@ public class ToAircraftConverterTest {
         exception.expect(IllegalArgumentException.class);
 
         // when
-        converter.convert(EMPTY_STRING);
+        ToAircraftConverter.convert(EMPTY_STRING);
     }
 
     @Test
@@ -43,7 +44,7 @@ public class ToAircraftConverterTest {
         );
 
         // when
-        converter.convert("Airbus A350;;900;;wide body;;long haul;;2;;350;;6680;;6475;;1705;;2;;903;;950;;15000;;wrong1;;?;;");
+        ToAircraftConverter.convert("Airbus A350;;900;;wide body;;long haul;;2;;350;;6680;;6475;;1705;;2;;903;;950;;15000;;wrong1;;?;;");
     }
 
     @Test
@@ -53,16 +54,16 @@ public class ToAircraftConverterTest {
         exception.expectMessage("One of aircraft fields is blank because: String is blank");
 
         // when
-        converter.convert("Airbus A350;;900;;wide body;;long haul;;2;;350;;6680;;6475;;1705;;2;;903;;950;;15000;; ;;");
+        ToAircraftConverter.convert("Airbus A350;;900;;wide body;;long haul;;2;;350;;6680;;6475;;1705;;2;;903;;950;;15000;; ;;");
     }
 
     @Test
     public void shouldConvertToAircraft() {
         // when
-        final var aircraft = converter.convert(VALID_AIRCRAFT_AS_STRING);
+        final List<Aircraft> aircraft = ToAircraftConverter.convert(VALID_AIRCRAFT_AS_STRING);
 
         // then
-        assertThat(aircraft).isEqualTo(AIRCRAFT);
+        assertThat(aircraft).isEqualTo(List.of(AIRCRAFT));
 
     }
 

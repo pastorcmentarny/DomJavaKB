@@ -19,6 +19,7 @@ public class Aircraft {
     private int cruiseSpeed;
     private int maxSpeed;
     private int range;
+    private int fuelCapacity;
 
     public String info() {
         String aircraft = "Model: " + model + '(' + variant + ')' + System.lineSeparator() +
@@ -32,7 +33,8 @@ public class Aircraft {
             "Engines: " + engines + System.lineSeparator() +
             "Cruise Speed: " + cruiseSpeed + System.lineSeparator() +
             "Max Speed: " + cruiseSpeed + System.lineSeparator() +
-            "Range: " + range;
+            "Range: " + range + System.lineSeparator() +
+            "Fuel Capacity: " + fuelCapacity;
         return aircraft;
     }
 }
