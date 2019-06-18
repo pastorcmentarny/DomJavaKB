@@ -39,6 +39,7 @@ public class ValidatorUtilsTest {
     private static final int END_RANGE = 10;
     private static final String PATH_TO_FILE_IS_INVALID_ERROR_MESSAGE = "Path to file is invalid, file doesn't exists or can't be read.";
     private static final String PATH_IS_NULL_OR_EMPTY = "path cannot be null or empty.";
+    private static final String FIELD_NAME = "Wonderful parrots";
 
     @Rule
     public final ExpectedException exception = ExpectedException.none();
@@ -99,9 +100,9 @@ public class ValidatorUtilsTest {
 
         // when
         validateNotNullPropertiesWithCustomMessagesPerProperty(new Object[][]{
-                {objectsToValidate[0], "Invalid Double"},
-                {objectsToValidate[1], "Invalid Integer"},
-                {objectsToValidate[2], "Invalid Example Object"}
+            {objectsToValidate[0], "Invalid Double"},
+            {objectsToValidate[1], "Invalid Integer"},
+            {objectsToValidate[2], "Invalid Example Object"}
         });
 
         // then if valid then no exception was thrown
@@ -119,11 +120,11 @@ public class ValidatorUtilsTest {
 
         // when
         validateNotNullPropertiesWithCustomMessagesPerProperty(new Object[][]{
-                {objectsToValidate[0], "null :)"},
-                {objectsToValidate[1], "Invalid Double"},
-                {objectsToValidate[2], "Invalid Integer"},
-                {objectsToValidate[3], "Invalid Example Object"},
-                {objectsToValidate[4], "null :)"}
+            {objectsToValidate[0], "null :)"},
+            {objectsToValidate[1], "Invalid Double"},
+            {objectsToValidate[2], "Invalid Integer"},
+            {objectsToValidate[3], "Invalid Example Object"},
+            {objectsToValidate[4], "null :)"}
         });
     }
 
@@ -131,7 +132,7 @@ public class ValidatorUtilsTest {
     public void shouldReturnTrueWhenObjectCanBeSerializedTest() {
 
         // when
-        final boolean result = isObjectCanBeSerialized(new SomethingWentTerribleWrongError(""));
+        final boolean result = isObjectCanBeSerialized(new SomethingWentTerribleWrongError(EMPTY_STRING));
 
         // then
         assertThat(result).isFalse();
@@ -777,5 +778,53 @@ public class ValidatorUtilsTest {
         ValidatorUtils.validateIfArrayHasSizeOf(1, array, what);
 
         // then no exception is thrown
+    }
+
+    @Test
+    public void shouldValidateIfNotBlank() {
+        // when
+        ValidatorUtils.validateIfNotBlank("UFO", "alien");
+
+        // then no exception is thrown
+
+    }
+
+    @Test
+    public void shouldThrowExceptionIfStringIsBlankBecauseIsNull() {
+        // expect
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage(FIELD_NAME + " is blank because: String is null");
+
+        // when
+        ValidatorUtils.validateIfNotBlank(null, FIELD_NAME);
+
+        // then no exception is thrown
+
+    }
+
+    @Test
+    public void shouldThrowExceptionIfStringIsBlankBecauseIsEmpty() {
+        // expect
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage(FIELD_NAME + " is blank because: String is empty");
+
+        // when
+        ValidatorUtils.validateIfNotBlank(EMPTY_STRING, FIELD_NAME);
+
+        // then no exception is thrown
+
+    }
+
+    @Test
+    public void shouldThrowExceptionIfStringIsBlankBecauseHasSpacesOnly() {
+        // expect
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage(FIELD_NAME + " is blank because: String is blank");
+
+        // when
+        ValidatorUtils.validateIfNotBlank("  ", FIELD_NAME);
+
+        // then no exception is thrown
+
     }
 }

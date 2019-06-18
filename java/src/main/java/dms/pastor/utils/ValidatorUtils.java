@@ -139,6 +139,12 @@ public final class ValidatorUtils {
         }
     }
 
+    public static void validateIfNotBlank(String string, String fieldName) {
+        if (string == null || string.isBlank()) {
+            throw new IllegalArgumentException(fieldName + " is blank because: " + StringUtils.describeStringType(string));
+        }
+    }
+
     private static void throwExceptionIfEmpty(String object, String objectName) {
         if (object == null || object.isEmpty()) {
             throw new IllegalArgumentException(getErrorMessage(objectName));
