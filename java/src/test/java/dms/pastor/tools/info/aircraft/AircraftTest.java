@@ -24,6 +24,7 @@ public class AircraftTest {
             .cruiseSpeed(911)
             .maxSpeed(999)
             .range(20000)
+            .fuelCapacity(150000)
             .build();
 
         final String expectedResult = "Model: Dom BirdCruiser(403)\n" +
@@ -37,7 +38,8 @@ public class AircraftTest {
             "Engines: 0\n" +
             "Cruise Speed: 911\n" +
             "Max Speed: 911\n" +
-            "Range: 20000";
+            "Range: 20000\n" +
+            "Fuel Capacity: 150000";
 
         // when
         final var aircraftInfo = aircraft.info();

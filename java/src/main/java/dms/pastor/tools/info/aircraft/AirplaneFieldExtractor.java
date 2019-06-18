@@ -58,4 +58,9 @@ public class AirplaneFieldExtractor {
     public int getRange() {
         return Integer.parseInt(fields[12]);
     }
+
+    public int getFuelCapacity() {
+        return Integer.parseInt(fields[13]);
+    }
+
 }

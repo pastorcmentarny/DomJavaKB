@@ -27,6 +27,7 @@ public class ToAircraftConverter {
             .cruiseSpeed(fieldExtractor.getCruiseSpeed())
             .maxSpeed(fieldExtractor.getMaxSpeed())
             .range(fieldExtractor.getRange())
+            .fuelCapacity(fieldExtractor.getFuelCapacity())
             .build();
     }
 }

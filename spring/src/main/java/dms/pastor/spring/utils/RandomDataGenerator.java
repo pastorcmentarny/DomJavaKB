@@ -3,7 +3,6 @@ package dms.pastor.spring.utils;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-//import static org.apache.kafka.test.TestUtils.RANDOM;
 
 /**
  * Author Dominik Symonowicz
