@@ -7,7 +7,7 @@ import org.junit.Test;
 import java.time.LocalDate;
 
 import static dms.pastor.tools.trips.common.options.Status.VISITED;
-import static dms.pastor.tools.trips.tube.station.TubeStation.SEPARATOR;
+import static dms.pastor.utils.file.TextFileUtils.FIELD_SEPARATOR;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -29,7 +29,7 @@ public class ToTubeStationConverterTest {
     public void convertShouldConvertStationAsStringToObject() {
         // given
 
-        final String stationAsString = "Chesham;;V;;" + PASSED_DATE + SEPARATOR + VISITED_DATE + SEPARATOR + THIS_YEAR_VISITED_DATE + SEPARATOR + "Y";
+        final String stationAsString = "Chesham;;V;;" + PASSED_DATE + FIELD_SEPARATOR + VISITED_DATE + FIELD_SEPARATOR + THIS_YEAR_VISITED_DATE + FIELD_SEPARATOR + "Y";
         final TubeStation expectedTubeStation = new TubeStation("Chesham", VISITED, PASSED_DATE, VISITED_DATE, THIS_YEAR_VISITED_DATE, BLOGGED);
 
         // when

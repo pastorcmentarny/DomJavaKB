@@ -20,6 +20,7 @@ import static dms.pastor.utils.StringUtils.NEW_LINE;
 import static dms.pastor.utils.ValidatorUtils.validateIfFileIsAccessible;
 
 public class TextFileUtils {
+    public static final String FIELD_SEPARATOR = ";;";
     private static final Logger LOGGER = LoggerFactory.getLogger(FileUtils.class);
 
     private TextFileUtils() {

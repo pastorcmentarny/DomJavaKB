@@ -9,6 +9,7 @@ import java.util.Objects;
 import static dms.pastor.tools.trips.common.options.Status.NOT_VISITED;
 import static dms.pastor.tools.trips.common.options.Status.PASSED;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+import static dms.pastor.utils.file.TextFileUtils.FIELD_SEPARATOR;
 
 /**
  * Author Dominik Symonowicz
@@ -19,7 +20,7 @@ import static dms.pastor.utils.StringUtils.EMPTY_STRING;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class TubeStation {//implements Station {
-    public static final String SEPARATOR = ";;";
+
     private final String name;
     private Status status;
     private LocalDate passedDate;
@@ -132,11 +133,11 @@ public class TubeStation {//implements Station {
     }
 
     public String asLine() {
-        return name + SEPARATOR +
-            getStatusAsValue() + SEPARATOR +
-            getDate(passedDate) + SEPARATOR +
-            getDate(visitedDate) + SEPARATOR +
-            getDate(thisYearVisitedDate) + SEPARATOR +
+        return name + FIELD_SEPARATOR +
+            getStatusAsValue() + FIELD_SEPARATOR +
+            getDate(passedDate) + FIELD_SEPARATOR +
+            getDate(visitedDate) + FIELD_SEPARATOR +
+            getDate(thisYearVisitedDate) + FIELD_SEPARATOR +
             getBloggedAsString();
     }
 

@@ -4,9 +4,9 @@ import dms.pastor.tools.trips.common.options.Status;
 
 import java.util.Objects;
 
-import static dms.pastor.tools.trips.tube.station.TubeStation.SEPARATOR;
 import static dms.pastor.utils.PrintOutUtils.printArray;
 import static dms.pastor.utils.ValidatorUtils.validateIfNotEmpty;
+import static dms.pastor.utils.file.TextFileUtils.FIELD_SEPARATOR;
 
 /**
  * Author Dominik Symonowicz
@@ -25,7 +25,7 @@ public final class StationLineValidator {
     public static String[] validate(String stationAsString) {
 
         validateIfNotEmpty(stationAsString, "TubeStation as string");
-        String[] columns = stationAsString.split(SEPARATOR);
+        String[] columns = stationAsString.split(FIELD_SEPARATOR);
         if (columns.length != COLUMNS_NUMBER) {
             throw new IllegalArgumentException("Invalid number of columns. Expect " + COLUMNS_NUMBER + " but was " + columns.length + "Line:" + printArray(columns));
         }

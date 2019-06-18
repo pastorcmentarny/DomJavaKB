@@ -8,8 +8,8 @@ import org.junit.rules.ExpectedException;
 
 import java.time.LocalDate;
 
-import static dms.pastor.tools.trips.tube.station.TubeStation.SEPARATOR;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+import static dms.pastor.utils.file.TextFileUtils.FIELD_SEPARATOR;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 
 /**
@@ -66,7 +66,7 @@ public class TubeStationLineValidatorTest {
         final String invalidStatus = "D";
 
         // when
-        StationLineValidator.validate("Acton Town" + SEPARATOR + invalidStatus + SEPARATOR + LocalDate.now() + SEPARATOR + LocalDate.now() + SEPARATOR + LocalDate.now() + SEPARATOR + "Y");
+        StationLineValidator.validate("Acton Town" + FIELD_SEPARATOR + invalidStatus + FIELD_SEPARATOR + LocalDate.now() + FIELD_SEPARATOR + LocalDate.now() + FIELD_SEPARATOR + LocalDate.now() + FIELD_SEPARATOR + "Y");
 
 
     }

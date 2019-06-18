@@ -32,8 +32,8 @@ public final class DataOperations {
         separator + "java" +
             separator + SRC +
         separator + "main" +
-        separator + RESOURCES + "tube" + File.separator + "station.txt";
-    private static final String PATH = BASE_PATH + "tube" + File.separator + "station" + Timestamp.valueOf(LocalDateTime.now()) + ".txt";
+        separator + RESOURCES + "transport/tube" + File.separator + "station.txt";
+    private static final String PATH = BASE_PATH + "transport/tube" + File.separator + "station" + Timestamp.valueOf(LocalDateTime.now()) + ".txt";
 
     private DataOperations() {
     }

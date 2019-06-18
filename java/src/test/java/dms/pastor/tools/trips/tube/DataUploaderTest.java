@@ -40,7 +40,7 @@ public class DataUploaderTest {
     public void shouldLoadStationsFromFile() {
         // given
         DataUploader dataUploader = new DataUploader();
-        String path = BASE_PATH + "tube" + File.separator + "station.txt";
+        String path = BASE_PATH + "transport/tube" + File.separator + "station.txt";
 
         // when
         dataUploader.load(path);
