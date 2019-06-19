@@ -3,6 +3,7 @@ package dms.pastor.tools.info.aircraft;
 
 import org.junit.Test;
 
+import static java.lang.System.lineSeparator;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class AircraftTest {
@@ -26,20 +27,20 @@ public class AircraftTest {
             .range(20000)
             .fuelCapacity(150000)
             .build();
-
-        final String expectedResult = "Model: Dom BirdCruiser(403)\n" +
-            "Body Type: Wide Body\n" +
-            "Role: Long Haul\n" +
-            "Cockpit crew: 3\n" +
-            "Passenger Capacity: 666\n" +
-            "Length: 0\n" +
-            "Wingspan: 3400\n" +
-            "Height: 400\n" +
-            "Engines: 0\n" +
-            "Cruise Speed: 911\n" +
-            "Max Speed: 911\n" +
-            "Range: 20000\n" +
-            "Fuel Capacity: 150000";
+        lineSeparator();
+        final String expectedResult = "Model: Dom BirdCruiser(403)" + lineSeparator() +
+            "Body Type: Wide Body" + lineSeparator() +
+            "Role: Long Haul" + lineSeparator() +
+            "Cockpit crew: 3" + lineSeparator() +
+            "Passenger Capacity: 666" + lineSeparator() +
+            "Length: 100.0m" + lineSeparator() +
+            "Wingspan: 34.0m" + lineSeparator() +
+            "Height: 4.0m" + lineSeparator() +
+            "Engines: 0" + lineSeparator() +
+            "Cruise Speed: 911km/h" + lineSeparator() +
+            "Max Speed: 911km/h" + lineSeparator() +
+            "Range: 20000km" + lineSeparator() +
+            "Fuel Capacity: 150000l";
 
         // when
         final var aircraftInfo = aircraft.info();

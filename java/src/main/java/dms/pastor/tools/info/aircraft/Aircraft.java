@@ -3,6 +3,11 @@ package dms.pastor.tools.info.aircraft;
 import lombok.Builder;
 import lombok.Data;
 
+import static dms.pastor.tools.info.aircraft.Config.KILOMETERS;
+import static dms.pastor.tools.info.aircraft.Config.KPH;
+import static dms.pastor.tools.info.aircraft.converters.ToUnitConverter.toMetersAsString;
+import static java.lang.System.lineSeparator;
+
 @Data
 @Builder
 public class Aircraft {
@@ -22,19 +27,20 @@ public class Aircraft {
     private int fuelCapacity;
 
     public String info() {
-        String aircraft = "Model: " + model + '(' + variant + ')' + System.lineSeparator() +
-            "Body Type: " + bodyType + System.lineSeparator() +
-            "Role: " + role + System.lineSeparator() +
-            "Cockpit crew: " + cockpitCrew + System.lineSeparator() +
-            "Passenger Capacity: " + passengerCapacityOneClass + System.lineSeparator() +
-            "Length: " + engines + System.lineSeparator() +
-            "Wingspan: " + wingspan + System.lineSeparator() +
-            "Height: " + height + System.lineSeparator() +
-            "Engines: " + engines + System.lineSeparator() +
-            "Cruise Speed: " + cruiseSpeed + System.lineSeparator() +
-            "Max Speed: " + cruiseSpeed + System.lineSeparator() +
-            "Range: " + range + System.lineSeparator() +
-            "Fuel Capacity: " + fuelCapacity;
+
+        String aircraft = "Model: " + model + '(' + variant + ')' + lineSeparator() +
+            "Body Type: " + bodyType + lineSeparator() +
+            "Role: " + role + lineSeparator() +
+            "Cockpit crew: " + cockpitCrew + lineSeparator() +
+            "Passenger Capacity: " + passengerCapacityOneClass + lineSeparator() +
+            "Length: " + toMetersAsString(length) + lineSeparator() +
+            "Wingspan: " + toMetersAsString(wingspan) + lineSeparator() +
+            "Height: " + toMetersAsString(height) + lineSeparator() +
+            "Engines: " + engines + lineSeparator() +
+            "Cruise Speed: " + cruiseSpeed + KPH + lineSeparator() +
+            "Max Speed: " + cruiseSpeed + KPH + lineSeparator() +
+            "Range: " + range + KILOMETERS + lineSeparator() +
+            "Fuel Capacity: " + fuelCapacity + "l";
         return aircraft;
     }
 }
