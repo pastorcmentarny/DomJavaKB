@@ -15,7 +15,7 @@ public class DataFileManagerTest {
         final var aircraftList = DataFileManager.getAircraftDataFromFile();
 
         // then
-        assertThat(aircraftList.size()).isEqualTo(3);
+        assertThat(aircraftList.size()).isEqualTo(7);
         assertThat(aircraftList.get(0)).isEqualTo(AircraftTestConfig.AIRCRAFT);
 
     }
