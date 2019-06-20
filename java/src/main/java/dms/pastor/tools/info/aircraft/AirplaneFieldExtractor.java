@@ -15,8 +15,8 @@ public class AirplaneFieldExtractor {
         return fields[1];
     }
 
-    public String getBodyType() {
-        return fields[2];
+    public BodyType getBodyType() {
+        return BodyType.getTypeFromLetter(fields[2]);
     }
 
     public String getRole() {

@@ -13,7 +13,7 @@ import static java.lang.System.lineSeparator;
 public class Aircraft {
     private String model;
     private String variant;
-    private String bodyType;
+    private BodyType bodyType;
     private String role;
     private int cockpitCrew;
     private int passengerCapacityOneClass;
@@ -29,7 +29,7 @@ public class Aircraft {
     public String info() {
 
         String aircraft = "Model: " + model + '(' + variant + ')' + lineSeparator() +
-            "Body Type: " + bodyType + lineSeparator() +
+            "Body Type: " + bodyType.getDescription() + lineSeparator() +
             "Role: " + role + lineSeparator() +
             "Cockpit crew: " + cockpitCrew + lineSeparator() +
             "Passenger Capacity: " + passengerCapacityOneClass + lineSeparator() +

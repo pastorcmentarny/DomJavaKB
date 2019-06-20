@@ -3,6 +3,7 @@ package dms.pastor.tools.info.aircraft;
 
 import org.junit.Test;
 
+import static dms.pastor.tools.info.aircraft.BodyType.W;
 import static java.lang.System.lineSeparator;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -15,7 +16,7 @@ public class AircraftTest {
         final var aircraft = Aircraft.builder()
             .model("Dom BirdCruiser")
             .variant("403")
-            .bodyType("Wide Body")
+            .bodyType(W)
             .role("Long Haul")
             .cockpitCrew(3)
             .passengerCapacityOneClass(666)
@@ -29,7 +30,7 @@ public class AircraftTest {
             .build();
         lineSeparator();
         final String expectedResult = "Model: Dom BirdCruiser(403)" + lineSeparator() +
-            "Body Type: Wide Body" + lineSeparator() +
+            "Body Type: " + W.getDescription() + lineSeparator() +
             "Role: Long Haul" + lineSeparator() +
             "Cockpit crew: 3" + lineSeparator() +
             "Passenger Capacity: 666" + lineSeparator() +
