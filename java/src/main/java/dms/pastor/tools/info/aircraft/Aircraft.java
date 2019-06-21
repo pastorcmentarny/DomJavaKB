@@ -14,7 +14,7 @@ public class Aircraft {
     private String model;
     private String variant;
     private BodyType bodyType;
-    private String role;
+    private Role role;
     private int cockpitCrew;
     private int passengerCapacityOneClass;
     private int length;
@@ -30,7 +30,7 @@ public class Aircraft {
 
         String aircraft = "Model: " + model + '(' + variant + ')' + lineSeparator() +
             "Body Type: " + bodyType.getDescription() + lineSeparator() +
-            "Role: " + role + lineSeparator() +
+                "Role: " + role.getDescription() + lineSeparator() +
             "Cockpit crew: " + cockpitCrew + lineSeparator() +
             "Passenger Capacity: " + passengerCapacityOneClass + lineSeparator() +
             "Length: " + toMetersAsString(length) + lineSeparator() +
