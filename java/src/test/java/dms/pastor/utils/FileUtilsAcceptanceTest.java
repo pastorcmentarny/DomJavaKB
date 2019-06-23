@@ -1,8 +1,6 @@
 package dms.pastor.utils;
 
 import dms.pastor.TestConfig;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;
@@ -31,19 +29,13 @@ public class FileUtilsAcceptanceTest {
     private static final String FILE_PATH = TestConfig.PATH + "savesListToFile.txt";
     private static final Path PATH = Paths.get(FILE_PATH);
 
-    @Before
-    public void setUp() throws Exception {
-        Files.deleteIfExists(PATH);
-    }
 
-    @After
-    public void tearDown() {
-        new File(FILE_PATH).deleteOnExit();
-    }
 
     @Test
     public void savesStringListToFile() throws Exception {
         // given
+        final String filePath = File.createTempFile("savesListToFile", ".txt").getAbsolutePath();
+
         final List<String> stringArrayList = new ArrayList<>();
         final String text1 = generateString(MAX_STRING_LENGTH);
         final String text2 = generateString(MAX_STRING_LENGTH);
@@ -54,12 +46,12 @@ public class FileUtilsAcceptanceTest {
         stringArrayList.add(text3);
 
         // when
-        saveListToFile(stringArrayList, FILE_PATH);
+        saveListToFile(stringArrayList, filePath);
 
         // then
-        assertThat(Files.exists(PATH)).isTrue();
-        Files.lines(PATH).forEach(System.out::println);
-        assertThat(Files.lines(PATH).count()).isEqualTo(stringArrayList.size());
+        assertThat(Files.exists(Paths.get(filePath))).isTrue();
+        Files.lines(Paths.get(filePath)).forEach(System.out::println);
+        assertThat(Files.lines(Paths.get(filePath)).count()).isEqualTo(stringArrayList.size());
     }
 
 }

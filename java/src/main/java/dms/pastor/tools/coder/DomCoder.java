@@ -1,8 +1,8 @@
 package dms.pastor.tools.coder;
 
-import static dms.pastor.utils.FileUtils.readRawData;
 import static dms.pastor.utils.StringUtils.reverseString;
 import static dms.pastor.utils.StringUtils.swapCaseLettersInString;
+import static dms.pastor.utils.file.FileUtils.readRawData;
 import static java.io.File.separator;
 
 /**

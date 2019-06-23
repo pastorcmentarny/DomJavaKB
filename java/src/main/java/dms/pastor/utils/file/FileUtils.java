@@ -1,4 +1,4 @@
-package dms.pastor.utils;
+package dms.pastor.utils.file;
 
 import dms.pastor.domain.ShutdownHook;
 import dms.pastor.domain.exception.SomethingWentTerribleWrongError;
@@ -51,6 +51,10 @@ public final class FileUtils {
     public static File getFileIfPathExists(String filePath) {
         validateIfFileIsAccessible(filePath);
         return new File(filePath);
+    }
+
+    public static File getPathToResoruce(String pathToResource) {
+        return new File(FileUtils.class.getClassLoader().getResource(pathToResource).getPath());
     }
 
     public static void recreateFileIfExists(String filePath) {

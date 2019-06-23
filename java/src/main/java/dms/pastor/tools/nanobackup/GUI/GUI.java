@@ -10,8 +10,8 @@ import dms.pastor.tools.nanobackup.tools.AppColor;
 import dms.pastor.tools.nanobackup.tools.FileTools;
 import dms.pastor.tools.nanobackup.tools.TaskUtils;
 import dms.pastor.tools.nanobackup.tools.Tools;
-import dms.pastor.utils.FileUtils;
 import dms.pastor.utils.StringUtils;
+import dms.pastor.utils.file.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

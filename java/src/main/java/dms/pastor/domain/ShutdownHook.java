@@ -1,6 +1,6 @@
 package dms.pastor.domain;
 
-import static dms.pastor.utils.FileUtils.unlockFile;
+import static dms.pastor.utils.file.FileUtils.unlockFile;
 
 /**
  * Author Dominik Symonowicz

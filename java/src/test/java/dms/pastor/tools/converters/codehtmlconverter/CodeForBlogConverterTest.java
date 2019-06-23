@@ -1,5 +1,6 @@
 package dms.pastor.tools.converters.codehtmlconverter;
 
+import dms.pastor.utils.StringUtils;
 import dms.pastor.utils.html.HtmlUtils;
 import org.junit.Before;
 import org.junit.Test;
@@ -34,12 +35,12 @@ public class CodeForBlogConverterTest {
     public void shouldConvertCodeToHTMLTest() {
         // given
         List<String> source = loadFileFromResourceAsListOfStrings("test/html/code2blog.html");
-        String expectedResult = loadFileFromResourceAsString("test/html/code2blog-converted.html");
+        String expectedResult = StringUtils.replaceWithSystemNewLine(loadFileFromResourceAsString("test/html/code2blog-converted.html"));
         // when
         final String result = converter.convert(source);
 
         // then
-        assertThat(result).isEqualTo(expectedResult);
+        assertThat(StringUtils.replaceWithSystemNewLine(result)).isEqualTo(expectedResult);
     }
 
     @Test

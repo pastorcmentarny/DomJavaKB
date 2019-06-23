@@ -1,6 +1,7 @@
 package dms.pastor.tools.gibberishcheck;
 
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -9,6 +10,7 @@ public class JobOpportunityAnalyserTest {
 
     private JobOpportunityAnalyser analyser;
 
+    @Ignore //work in progress
     @Test
     public void analyseShouldRespondWithCrapJobOpportunity() {
         // given

@@ -25,7 +25,7 @@ import static java.util.stream.Collectors.toList;
 // because string is valid name and this is utility class
 public final class StringUtils {
     public static final String EMPTY_STRING = "";
-    public static final String DASH = "-";
+    static final String DASH = "-";
     public static final String WHITESPACE = " ";
     public static final char WHITESPACE_CHAR = ' ';
     public static final String NEW_LINE = System.lineSeparator();

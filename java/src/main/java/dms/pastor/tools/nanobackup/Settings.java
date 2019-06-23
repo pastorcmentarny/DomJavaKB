@@ -1,8 +1,8 @@
 package dms.pastor.tools.nanobackup;
 
 import dms.pastor.tools.nanobackup.tools.FileTools;
-import dms.pastor.utils.FileUtils;
 import dms.pastor.utils.ValidatorUtils;
+import dms.pastor.utils.file.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

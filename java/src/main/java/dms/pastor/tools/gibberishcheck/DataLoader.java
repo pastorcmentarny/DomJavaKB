@@ -31,9 +31,9 @@ class DataLoader {
 
     public static String loadEmailFromRecruiter(String path) {
         String base = FileSystems.getDefault().getPath(".").toAbsolutePath().toString();
-        System.out.println(Paths.get(base + path).toAbsolutePath());
+        System.out.println(Paths.get(base, path).toAbsolutePath());
         try {
-            List<String> lines = readAllLines(Paths.get(path));
+            List<String> lines = readAllLines(Paths.get(base, path));
             return lines.toString();
         } catch (IOException e) {
             e.printStackTrace();

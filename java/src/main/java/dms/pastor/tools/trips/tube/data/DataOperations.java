@@ -7,11 +7,10 @@ import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
-
-import static java.io.File.separator;
 
 /**
  * Author Dominik Symonowicz
@@ -23,17 +22,9 @@ import static java.io.File.separator;
  */
 public final class DataOperations {
     private static final Logger LOGGER = LoggerFactory.getLogger(DataOperations.class);
-    private static final String SRC = "src" + separator;
-    private static final String RESOURCES = "resources" + separator;
-    private static final String BASE_PATH = System.getProperty("user.dir") +
-        separator + SRC + "main" +
-        separator + RESOURCES;
-    private static final String STATION_PATH = System.getProperty("user.dir") +
-        separator + "java" +
-            separator + SRC +
-        separator + "main" +
-        separator + RESOURCES + "transport/tube" + File.separator + "station.txt";
-    private static final String PATH = BASE_PATH + "transport/tube" + File.separator + "station" + Timestamp.valueOf(LocalDateTime.now()) + ".txt";
+
+    public static final Path STATION_PATH = new File(DataOperations.class.getClassLoader().getResource("tube/station.txt").getPath()).toPath();
+
 
     private DataOperations() {
     }
@@ -52,15 +43,20 @@ public final class DataOperations {
     public static void backup() {
         LOGGER.info("Backup saved data");
         final List<TubeStation> originalTubeStationList = loadFromFile();
+        String backupPath = getBackupPath();
         DataWriter dataWriter = new DataWriter();
         try {
-            final boolean created = new File(PATH).createNewFile();
+            final boolean created = new File(backupPath).createNewFile();
             if (!created) {
-                throw new SomethingWentWrongException("Creating file at " + PATH);
+                throw new SomethingWentWrongException("Creating file at " + backupPath);
             }
         } catch (IOException e) {
-            throw new SomethingWentWrongException("Creating file at " + PATH, e);
+            throw new SomethingWentWrongException("Creating file at " + backupPath, e);
         }
-        dataWriter.save(PATH, originalTubeStationList);
+        //dataWriter.save(backupPath, originalTubeStationList);
+    }
+
+    private static String getBackupPath() {
+        return DataOperations.class.getClassLoader().getResource("tube" + Timestamp.valueOf(LocalDateTime.now()) + "station.txt").getPath();
     }
 }

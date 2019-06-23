@@ -1,7 +1,7 @@
 package dms.pastor.tools.nanobackup;
 
 import dms.pastor.tools.nanobackup.GUI.GUI;
-import dms.pastor.utils.FileUtils;
+import dms.pastor.utils.file.FileUtils;
 
 import javax.swing.*;
 

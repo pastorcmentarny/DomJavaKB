@@ -28,6 +28,9 @@ public class RankJournalViewerTest extends TestCase {
     private static final int YEAR_2010 = 2010;
     private static final int YEAR_2009 = 2009;
     private static final int YEAR_2008 = 2008;
+    private static final String JOURNAL_A = "Journal A";
+    private static final String JOURNAL_B = "Journal B";
+    private static final String JOURNAL_C = "Journal C";
     private ArrayList<Journal> journals;
 
     public RankJournalViewerTest(String testName) {
@@ -42,23 +45,23 @@ public class RankJournalViewerTest extends TestCase {
     protected void setUp() throws Exception {
         super.setUp();
         journals = new ArrayList<>();
-        Journal journal = new Journal("Journal A", 5.6, YEAR_2010);
+        Journal journal = new Journal(JOURNAL_A, 5.6, YEAR_2010);
         journals.add(journal);
-        journal = new Journal("Journal B", 2.4, YEAR_2010);
+        journal = new Journal(JOURNAL_B, 2.4, YEAR_2010);
         journals.add(journal);
-        journal = new Journal("Journal C", 3.1, YEAR_2010);
+        journal = new Journal(JOURNAL_C, 3.1, YEAR_2010);
         journals.add(journal);
-        journal = createReview("Journal A", 2.2, YEAR_2009);
+        journal = createReview(JOURNAL_A, 2.2, YEAR_2009);
         journals.add(journal);
-        journal = new Journal("Journal B", 6.2, YEAR_2009);
+        journal = new Journal(JOURNAL_B, 6.2, YEAR_2009);
         journals.add(journal);
-        journal = createReview("Journal C", 6.2, YEAR_2009);
+        journal = createReview(JOURNAL_C, 6.2, YEAR_2009);
         journals.add(journal);
-        journal = createReview("Journal A", 5.6, YEAR_2008);
+        journal = createReview(JOURNAL_A, 5.6, YEAR_2008);
         journals.add(journal);
-        journal = new Journal("Journal B", 2.4, YEAR_2008);
+        journal = new Journal(JOURNAL_B, 2.4, YEAR_2008);
         journals.add(journal);
-        journal = new Journal("Journal C", 3.1, YEAR_2008);
+        journal = new Journal(JOURNAL_C, 3.1, YEAR_2008);
         journals.add(journal);
     }
 

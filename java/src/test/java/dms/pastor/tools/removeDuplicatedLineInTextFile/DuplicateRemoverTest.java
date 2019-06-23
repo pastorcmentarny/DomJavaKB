@@ -1,6 +1,6 @@
 package dms.pastor.tools.removeDuplicatedLineInTextFile;
 
-import dms.pastor.utils.FileUtils;
+import dms.pastor.utils.file.FileUtils;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -61,12 +61,9 @@ public class DuplicateRemoverTest {
     }
 
     @Test
-    public void acceptanceCriteria() {
+    public void acceptanceCriteria() throws Exception {
         // given
-        final String filePath = System.getProperty("user.dir") +
-            separator + "src" + separator + "test" +
-            separator + "resources" +
-            separator + "fileWithDuplicatedLines.txt";
+        final String filePath = File.createTempFile("fileWithDuplicatedLines", ".txt").getAbsolutePath();
         final String randomLine = generateString(32);
         final String testLine = "test";
         String[] stringList = new String[]{randomLine, testLine, testLine};
@@ -81,9 +78,6 @@ public class DuplicateRemoverTest {
 
         assertThat(result).isEqualTo(randomLine + testLine);
 
-        // cleanup
-        final boolean deleted = new File(filePath).delete();
-        assertThat(deleted).isTrue();
 
     }
 }

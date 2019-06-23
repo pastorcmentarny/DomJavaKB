@@ -9,8 +9,8 @@ import java.io.File;
 
 import static dms.pastor.TestConfig.EMPTY_STRING_ARRAY;
 import static dms.pastor.TestConfig.PATH;
-import static dms.pastor.utils.FileUtils.*;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+import static dms.pastor.utils.file.FileUtils.*;
 import static dms.pastor.utils.file.TextFileUtils.loadFileFromResourceAsString;
 import static dms.pastor.utils.file.TextFileUtils.saveListToFile;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
@@ -112,19 +112,20 @@ public class FileUtilsTest {
     }
 
     @Test
-    public void shouldListToFileTest() {
+    public void shouldListToFileTest() throws Exception {
         // given
         final String[] stringList = new String[]{"1", "2", "3"};
+        final File file = File.createTempFile("test", ".txt");
+        final String filePath = file.getAbsolutePath();
 
         // when
-        final boolean isFileSaved = saveListToFile(stringList, TEST_FILE);
+        final boolean isFileSaved = saveListToFile(stringList, filePath);
 
         // then
         assertThat(isFileSaved).isTrue();
-        final File file = new File(TEST_FILE);
         assertThat(file.exists()).isTrue();
 
-        final String result = readRawData(TEST_FILE);
+        final String result = readRawData(filePath);
         assertThat(result).isEqualTo("123");
     }
 

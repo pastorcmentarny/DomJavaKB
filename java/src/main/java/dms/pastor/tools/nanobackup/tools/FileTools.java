@@ -141,7 +141,7 @@ public final class FileTools {
 
     private static void doCopyFile(File srcFile, File destFile, Statistic stats) {
         LOGGER.debug("copy file from: " + srcFile + " to " + destFile);
-        if (dms.pastor.utils.FileUtils.isDirectoryExists(destFile.getAbsolutePath())) {
+        if (dms.pastor.utils.file.FileUtils.isDirectoryExists(destFile.getAbsolutePath())) {
             addDestinationErrorCount(stats, "Destination '" + destFile + "' exists but is a directory");
             return;
         }

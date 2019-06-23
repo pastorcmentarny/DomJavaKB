@@ -1,6 +1,6 @@
 package dms.pastor.tools.nanobackup;
 
-import dms.pastor.utils.FileUtils;
+import dms.pastor.utils.file.FileUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

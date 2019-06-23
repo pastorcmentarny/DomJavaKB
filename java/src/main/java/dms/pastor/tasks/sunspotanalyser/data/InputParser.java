@@ -1,6 +1,6 @@
 package dms.pastor.tasks.sunspotanalyser.data;
 
-import static dms.pastor.utils.FileUtils.readRawData;
+import static dms.pastor.utils.file.FileUtils.readRawData;
 import static java.lang.Integer.valueOf;
 
 /**

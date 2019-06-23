@@ -1,7 +1,7 @@
 package dms.pastor.tools.gibberishcheck;
 
 import dms.pastor.domain.exception.SomethingWentWrongException;
-import dms.pastor.utils.FileUtils;
+import dms.pastor.utils.file.FileUtils;
 
 import java.util.Objects;
 

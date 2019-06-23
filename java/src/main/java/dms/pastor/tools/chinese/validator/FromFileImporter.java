@@ -1,8 +1,8 @@
 package dms.pastor.tools.chinese.validator;
 
 import dms.pastor.domain.Result;
-import dms.pastor.utils.FileUtils;
 import dms.pastor.utils.NumberUtils;
+import dms.pastor.utils.file.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

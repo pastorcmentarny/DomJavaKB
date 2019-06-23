@@ -5,10 +5,11 @@ import java.io.File;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.math.BigDecimal;
+import java.nio.file.Path;
 import java.util.List;
-import java.util.Objects;
 
 import static java.lang.String.format;
+import static java.util.Objects.isNull;
 
 /**
  * Author Dominik Symonowicz
@@ -102,7 +103,7 @@ public final class ValidatorUtils {
     }
 
     public static void validateIfObjectValueIsNotNull(Object value, String valueName) {
-        if (Objects.isNull(value)) {
+        if (isNull(value)) {
             throw new IllegalArgumentException(valueName + " cannot be null.");
         }
     }
@@ -129,8 +130,8 @@ public final class ValidatorUtils {
         throwExceptionIfEmpty(value, DEFAULT_VALUE_NAME);
     }
 
-    public static void validateIfNotEmpty(String object, String objectName) {
-        throwExceptionIfEmpty(object, objectName);
+    public static void validateIfNotEmpty(String string, String objectName) {
+        throwExceptionIfEmpty(string, objectName);
     }
 
     public static void validateIfNotEmpty(int[] numberArray, String arrayName) {
@@ -195,6 +196,14 @@ public final class ValidatorUtils {
         validateIfNotEmpty(path, "path");
         System.out.println(path);
         File file = new File(path);
+        if (!file.exists() || !file.canRead() || file.isDirectory()) {
+            throw new IllegalArgumentException(INVALID_PATH);
+        }
+    }
+
+    public static void validateIfPathIsAccessible(Path path) {
+        validateIfObjectValueIsNotNull(path, "path");
+        File file = path.toFile();
         if (!file.exists() || !file.canRead() || file.isDirectory()) {
             throw new IllegalArgumentException(INVALID_PATH);
         }

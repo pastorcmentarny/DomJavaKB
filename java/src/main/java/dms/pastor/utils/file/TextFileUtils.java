@@ -1,7 +1,6 @@
 package dms.pastor.utils.file;
 
 import dms.pastor.domain.exception.SomethingWentTerribleWrongError;
-import dms.pastor.utils.FileUtils;
 import dms.pastor.utils.ValidatorUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,10 +13,10 @@ import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.List;
 
-import static dms.pastor.utils.FileUtils.getFileIfPathExists;
-import static dms.pastor.utils.FileUtils.recreateFileIfExists;
 import static dms.pastor.utils.StringUtils.NEW_LINE;
 import static dms.pastor.utils.ValidatorUtils.validateIfFileIsAccessible;
+import static dms.pastor.utils.file.FileUtils.getFileIfPathExists;
+import static dms.pastor.utils.file.FileUtils.recreateFileIfExists;
 
 public class TextFileUtils {
     public static final String FIELD_SEPARATOR = ";;";
@@ -48,6 +47,7 @@ public class TextFileUtils {
     }
 
     public static boolean saveListToFile(List<String> content, String file) {
+        ValidatorUtils.validateIfFileIsAccessible(file);
         StringBuilder list = new StringBuilder();
         for (String line : content) {
             list.append(line);

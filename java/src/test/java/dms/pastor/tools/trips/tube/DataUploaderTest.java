@@ -6,10 +6,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import java.io.File;
-
-import static dms.pastor.TestConfig.BASE_PATH;
-import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
+import static dms.pastor.tools.trips.tube.data.DataOperations.STATION_PATH;
 
 /**
  * Author Dominik Symonowicz
@@ -25,24 +22,10 @@ public class DataUploaderTest {
     public final ExpectedException exception = ExpectedException.none();
 
     @Test
-    public void loadShouldThrowExceptionIfPathIsInvalid() {
-        //expect
-        exception.expect(IllegalArgumentException.class);
-
-        // given
-        DataUploader dataUploader = new DataUploader();
-
-        // when
-        dataUploader.load(generateString());
-    }
-
-    @Test
     public void shouldLoadStationsFromFile() {
         // given
         DataUploader dataUploader = new DataUploader();
-        String path = BASE_PATH + "transport/tube" + File.separator + "station.txt";
-
         // when
-        dataUploader.load(path);
+        dataUploader.load(STATION_PATH);
     }
 }
