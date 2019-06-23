@@ -3,6 +3,7 @@ package dms.pastor.utils.file;
 import dms.pastor.domain.ShutdownHook;
 import dms.pastor.domain.exception.SomethingWentTerribleWrongError;
 import dms.pastor.domain.exception.SomethingWentWrongException;
+import dms.pastor.utils.ValidatorUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -107,21 +108,28 @@ public final class FileUtils {
 
     public static void unlockFile() {
         if (file != null) {
-            file.delete();
+            throwExceptionIfDeleteUnsuccessful(file);
         }
         try {
             if (lockFile != null) {
                 lockFile.release();
                 channel.close();
                 if (file.exists()) {
-                    boolean pass = file.delete();
-                    if (!pass) {
-                        LOGGER.warn("Unable to unlock program.It cans cause problem with running program.\nProgram should work after restart of your computer.");
-                    }
+                    throwExceptionIfDeleteUnsuccessful(file);
                 }
             }
         } catch (IOException e) {
             LOGGER.warn("Unable to unlock program.It cans cause problem with running program.\nProgram should work after restart of your computer.");
+        }
+    }
+
+    private static void throwExceptionIfDeleteUnsuccessful(File file) {
+        ValidatorUtils.validateIfObjectValueIsNotNull(file);
+        ValidatorUtils.validateIfFileIsAccessible(file.getAbsolutePath());
+        final var result = file.delete();
+        if (!result) {
+            LOGGER.warn("Unable to delete lock file. Delete this file: " + file.getAbsolutePath() + " and restart program.");
+            throw new SomethingWentWrongException("Unable to delete this file :( " + file.getAbsolutePath());
         }
     }
 
