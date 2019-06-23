@@ -93,6 +93,13 @@ public class RegexUtilsTest {
     }
 
     @Test
+    public void shouldReturnZeroForInvalidPattern() {
+
+        final var result = countOccurrencesOf("[", "你好!");
+        assertThat(result).isZero();
+    }
+
+    @Test
     public void shouldReturnTrueIfPhoneNumberHasOnlyNumbersAndPlusAndMinusSign() {
         // given
 

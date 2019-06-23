@@ -12,7 +12,7 @@ import java.util.concurrent.SubmissionPublisher;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class SubmissionPublisherExample {
-    public static void main(String[] args) throws InterruptedException {
+    public void example() throws Exception {
         SubmissionPublisher<Integer> publisher = new SubmissionPublisher<>();
         PlusTenProcessor processor = new PlusTenProcessor();
         PrintSubscriber subscriber = new PrintSubscriber();
@@ -22,7 +22,7 @@ public class SubmissionPublisherExample {
         for (int i = 0; i < 10; i++) {
             publisher.submit(i);
         }
-        Thread.sleep(1000);
+        Thread.sleep(100);
         publisher.close();
     }
 }

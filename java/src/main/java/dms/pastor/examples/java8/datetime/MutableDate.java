@@ -12,14 +12,8 @@ final class MutableDate {
     static final String CHINA = "Asia/Shanghai";
     private static final String AUSTRALIA = "Australia/Sydney";
 
-    private void mutabilityMadnessExample() {
-        Date now = new Date();
-        System.out.println(now);
-        System.out.println(addOneMinute(now));
-        System.out.println(now); //now was .....changed but it shouldn't.
-    }
 
-    private Date addOneMinute(Date date) {
+    Date addOneMinute(Date date) {
         date.setTime(date.getTime() + MINUTE);
         return date;
     }

@@ -1,13 +1,14 @@
 package dms.pastor.examples.java8.datetime;
 
 import dms.pastor.ExampleRunner;
+import org.junit.Test;
 
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.util.Date;
 
 import static dms.pastor.examples.java8.datetime.MutableDate.*;
-import static org.junit.Assert.*;
 
 /**
  * Author Dominik Symonowicz
@@ -19,10 +20,15 @@ import static org.junit.Assert.*;
  */
 public class MutableDateTest implements ExampleRunner {
 
+    @Test
     @Override
     public void runExamples() {
         MutableDate oldDate = new MutableDate();
         //oldDate.mutabilityMadnessExample();
+        Date now = new Date();
+        System.out.println(now);
+        System.out.println(oldDate.addOneMinute(now));
+        System.out.println(now); //now was .....changed but it shouldn't.
 
         Instant instant = Instant.now();
         System.out.println(instant);

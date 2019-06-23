@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
 
 import static dms.pastor.utils.StringUtils.isStringNotEmpty;
 import static java.lang.String.format;
@@ -34,7 +35,7 @@ public final class RegexUtils {
                 return Pattern.compile(what)
                     .split(text)
                     .length - 1;
-            } catch (RuntimeException exception) {
+            } catch (PatternSyntaxException exception) {
                 LOGGER.error(format("Unable to calculate occurrence of %s in %s due expression's syntax is invalid", what, text), exception);
             }
         }
