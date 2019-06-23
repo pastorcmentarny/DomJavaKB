@@ -206,8 +206,34 @@ public class FileUtilsTest {
     }
 
     @Test
-    public void getFileIfPathExistsTest() {
-        //TODO
+    public void shouldThrowExceptionIfPathIsNull() {
+        // given
+        exception.expect(IllegalArgumentException.class);
+        // when
+        getPathToResource(null);
+    }
+
+    @Test
+    public void shouldThrowExceptionIfPathIsInvalid() {
+        // given
+        exception.expect(IllegalArgumentException.class);
+        // when
+        getPathToResource(generateString(32));
+    }
+
+    @Test
+    public void shouldGetPathToResource() throws Exception {
+        // given
+        final var pathToResource = "test/test.txt";
+
+        // when
+        final var path = getPathToResource(pathToResource);
+
+        // then
+        assertThat(path).isNotNull();
+
+        // debug
+        System.out.println(path);
     }
 
     private static void clean() {

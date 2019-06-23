@@ -13,7 +13,7 @@ import java.nio.channels.OverlappingFileLockException;
 import java.nio.charset.StandardCharsets;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
-import static dms.pastor.utils.ValidatorUtils.validateIfFileIsAccessible;
+import static dms.pastor.utils.ValidatorUtils.*;
 import static java.lang.Runtime.getRuntime;
 
 /**
@@ -53,8 +53,11 @@ public final class FileUtils {
         return new File(filePath);
     }
 
-    public static File getPathToResoruce(String pathToResource) {
-        return new File(FileUtils.class.getClassLoader().getResource(pathToResource).getPath());
+    public static File getPathToResource(String pathToResource) {
+        validateIfNotEmpty(pathToResource, "path");
+        final var resource = FileUtils.class.getClassLoader().getResource(pathToResource);
+        validateIfObjectValueIsNotNull(resource, "path");
+        return new File(resource.getPath());
     }
 
     public static void recreateFileIfExists(String filePath) {
@@ -121,6 +124,7 @@ public final class FileUtils {
             LOGGER.warn("Unable to unlock program.It cans cause problem with running program.\nProgram should work after restart of your computer.");
         }
     }
+
 
     //example try-with-resources
     public static String readRawData(String filePath) {
