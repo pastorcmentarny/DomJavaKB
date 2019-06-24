@@ -2,6 +2,7 @@ package dms.pastor.rpg;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 /**
  * Author Dominik Symonowicz
@@ -12,6 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 @SpringBootApplication
+@EnableWebMvc
 public class AberRPGGameLauncher {
 
     public static void main(String[] args) {
