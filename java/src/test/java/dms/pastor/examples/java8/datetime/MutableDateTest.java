@@ -24,7 +24,6 @@ public class MutableDateTest implements ExampleRunner {
     @Override
     public void runExamples() {
         MutableDate oldDate = new MutableDate();
-        //oldDate.mutabilityMadnessExample();
         Date now = new Date();
         System.out.println(now);
         System.out.println(oldDate.addOneMinute(now));

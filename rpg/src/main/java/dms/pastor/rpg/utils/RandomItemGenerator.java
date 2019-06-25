@@ -1,9 +1,9 @@
 package dms.pastor.rpg.utils;
 
-import dms.pastor.rpg.items.Item;
-import dms.pastor.rpg.items.rings.Ring;
-import dms.pastor.rpg.items.weapons.Hands;
-import dms.pastor.rpg.items.weapons.legendary.DomSocksSword;
+import dms.pastor.rpg.game.items.Item;
+import dms.pastor.rpg.game.items.rings.Ring;
+import dms.pastor.rpg.game.items.weapons.Hands;
+import dms.pastor.rpg.game.items.weapons.legendary.DomSocksSword;
 
 import java.util.Random;
 
