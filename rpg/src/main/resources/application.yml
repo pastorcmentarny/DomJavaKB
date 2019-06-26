@@ -1,0 +1,16 @@
+spring:
+  mvc:
+    favicon:
+      enabled: false
+  profiles:
+    active: default
+  output:
+    ansi:
+      enabled: ALWAYS
+
+server:
+  port: 16880
+
+logging:
+  level:
+    web: warn
