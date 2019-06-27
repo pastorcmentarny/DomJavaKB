@@ -11,7 +11,6 @@ public class SharedStations {
         tubeStations.add(Station.GOLDHAWK_ROAD);
         tubeStations.add(Station.SHEPHERDS_BUSH_MARKET);
         tubeStations.add(Station.WOOD_LANE);
-        tubeStations.add(Station.WHITE_CITY);
         tubeStations.add(Station.LATIMER_ROAD);
         tubeStations.add(Station.LADBROKE_GROVE);
         tubeStations.add(Station.WESTBOURNE_PARK);

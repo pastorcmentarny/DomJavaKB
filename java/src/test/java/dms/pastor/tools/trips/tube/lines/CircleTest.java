@@ -17,8 +17,8 @@ public class CircleTest {
     private final Circle line = new Circle();
 
     @Test
-    public void getSizeShouldReturn2() {
-        assertThat(line.getSize()).isEqualTo(36);
+    public void getSizeShouldReturn35() {
+        assertThat(line.getSize()).isEqualTo(35);
     }
 
 }
