@@ -140,25 +140,17 @@ class ProjectAnalyser {
             "\nCharacters: " + getCharacterNumbers() +
             "\nWidest line: " + getWidestLine() + " in " + getWidestLineText() +
             "\nFile with highest lines: " + getHighestLineCount() + " in " + getHighestLinesFileName() +
-            "\nAverage width line per file: " + calculateAverageWidth() +
-            "\nAverage lines per file: " + calculateAverageLinesPerFile();
+                "\nAverage width line per file: " + calculateAverageFromIntegerList(averageWidth) +
+                "\nAverage lines per file: " + calculateAverageFromIntegerList(averageLines);
 
     }
 
-    private int calculateAverageWidth() {
-        int[] intStream = averageWidth.stream().mapToInt(width -> width).toArray();
+    private static int calculateAverageFromIntegerList(List<Integer> integerList) {
+        int[] intStream = integerList.stream().mapToInt(width -> width).toArray();
         final int max = IntStream.of(intStream).max().orElse(0);
         final int min = IntStream.of(intStream).min().orElse(0);
         final int sum = IntStream.of(intStream).filter(width -> width > 0).sum();
-        return BigDecimal.valueOf(sum - max - min / averageWidth.size() - 2).intValue();
-    }
-
-    private int calculateAverageLinesPerFile() {
-        int[] intStream = averageLines.stream().mapToInt(width -> width).toArray();
-        final int max = IntStream.of(intStream).max().orElse(0);
-        final int min = IntStream.of(intStream).min().orElse(0);
-        final int sum = IntStream.of(intStream).sum();
-        return BigDecimal.valueOf(sum - max - min / averageLines.size() - 2).intValue();
+        return BigDecimal.valueOf(sum - max - min / integerList.size() - 2).intValue();
     }
 
     int getLinesOfCode() {
