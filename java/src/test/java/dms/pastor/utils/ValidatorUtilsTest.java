@@ -268,7 +268,6 @@ public class ValidatorUtilsTest {
         // then nothing happen, which means value are valid
     }
 
-    @SuppressWarnings("ConstantConditions")
     @Test
     public void validateIfNotNullShouldThrowExceptionIfInputIsNull() {
         // expect

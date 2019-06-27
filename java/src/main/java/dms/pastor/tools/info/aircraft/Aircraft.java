@@ -27,20 +27,18 @@ public class Aircraft {
     private int fuelCapacity;
 
     public String info() {
-
-        String aircraft = "Model: " + model + '(' + variant + ')' + lineSeparator() +
-            "Body Type: " + bodyType.getDescription() + lineSeparator() +
+        return "Model: " + model + '(' + variant + ')' + lineSeparator() +
+                "Body Type: " + bodyType.getDescription() + lineSeparator() +
                 "Role: " + role.getDescription() + lineSeparator() +
-            "Cockpit crew: " + cockpitCrew + lineSeparator() +
-            "Passenger Capacity: " + passengerCapacityOneClass + lineSeparator() +
-            "Length: " + toMetersAsString(length) + lineSeparator() +
-            "Wingspan: " + toMetersAsString(wingspan) + lineSeparator() +
-            "Height: " + toMetersAsString(height) + lineSeparator() +
-            "Engines: " + engines + lineSeparator() +
-            "Cruise Speed: " + cruiseSpeed + KPH + lineSeparator() +
-            "Max Speed: " + cruiseSpeed + KPH + lineSeparator() +
-            "Range: " + range + KILOMETERS + lineSeparator() +
-            "Fuel Capacity: " + fuelCapacity + "l";
-        return aircraft;
+                "Cockpit crew: " + cockpitCrew + lineSeparator() +
+                "Passenger Capacity: " + passengerCapacityOneClass + lineSeparator() +
+                "Length: " + toMetersAsString(length) + lineSeparator() +
+                "Wingspan: " + toMetersAsString(wingspan) + lineSeparator() +
+                "Height: " + toMetersAsString(height) + lineSeparator() +
+                "Engines: " + engines + lineSeparator() +
+                "Cruise Speed: " + cruiseSpeed + KPH + lineSeparator() +
+                "Max Speed: " + cruiseSpeed + KPH + lineSeparator() +
+                "Range: " + range + KILOMETERS + lineSeparator() +
+                "Fuel Capacity: " + fuelCapacity + "l";
     }
 }
