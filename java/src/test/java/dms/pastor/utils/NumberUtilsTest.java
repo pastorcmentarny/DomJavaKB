@@ -686,4 +686,22 @@ public class NumberUtilsTest {
         assertThat(result).isEqualTo(101);
     }
 
+    @Test
+    public void increaseByPercentOfIncreaseNumberByLessThan1ThenAddOneToNumberTest() {
+        // when
+        final int result = increaseByPercent(0d, 10d);
+
+        // then
+        assertThat(result).isEqualTo(1);
+    }
+
+    @Test
+    public void increaseByPercentDoNotChangeValueForNegativeNumberTest() {
+        // when
+        final int result = increaseByPercent(-10d, 10d);
+
+        // then
+        assertThat(result).isEqualTo(-10);
+    }
+
 }

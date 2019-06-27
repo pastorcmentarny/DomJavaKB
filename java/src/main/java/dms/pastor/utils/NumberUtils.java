@@ -114,6 +114,9 @@ public final class NumberUtils {
     }
 
     public static int increaseByPercent(double value, double percent) {
+        if (value < 0) {
+            return (int) Math.round(value);
+        }
         double result = value + (value * (percent / 100));
 
         if (result - value < 1) {
