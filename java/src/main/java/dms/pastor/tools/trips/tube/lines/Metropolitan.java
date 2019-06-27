@@ -1,5 +1,6 @@
 package dms.pastor.tools.trips.tube.lines;
 
+import dms.pastor.tools.trips.tube.station.SharedStations;
 import dms.pastor.tools.trips.tube.station.Station;
 
 import java.util.ArrayList;
@@ -32,27 +33,14 @@ public class Metropolitan extends Line {
         tubeStations.add(Station.NORTHWOOD_HILLS);
         tubeStations.add(Station.PINNER);
         tubeStations.add(Station.NORTH_HARROW);
-        tubeStations.add(Station.UXBRIDGE);
-        tubeStations.add(Station.HILLINGDON);
-        tubeStations.add(Station.ICKENHAM);
-        tubeStations.add(Station.RUISLIP);
-        tubeStations.add(Station.RUISLIP_MANOR);
-        tubeStations.add(Station.EASTCOTE);
-        tubeStations.add(Station.RAYNERS_LANE);
+        tubeStations.addAll(SharedStations.addUxbridgeToRaynersLane());
         tubeStations.add(Station.WEST_HARROW);
         tubeStations.add(Station.HARROW_ON_THE_HILL);
         tubeStations.add(Station.NORTHWICK_PARK);
         tubeStations.add(Station.PRESTON_ROAD);
         tubeStations.add(Station.WEMBLEY_PARK);
         tubeStations.add(Station.FINCHLEY_ROAD);
-        tubeStations.add(Station.BAKER_STREET);
-        tubeStations.add(Station.GREAT_PORTLAND_STREET);
-        tubeStations.add(Station.EUSTON_SQUARE);
-        tubeStations.add(Station.KINGS_CROSS_ST_PANCRAS);
-        tubeStations.add(Station.FARRINGDON);
-        tubeStations.add(Station.BARBICAN);
-        tubeStations.add(Station.MOORGATE);
-        tubeStations.add(Station.LIVERPOOL_STREET);
+        tubeStations.addAll(SharedStations.addBakerStreetToLiverpoolStreet());
         tubeStations.add(Station.ALDGATE);
 
         return tubeStations;

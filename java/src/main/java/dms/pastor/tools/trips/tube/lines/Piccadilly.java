@@ -1,5 +1,6 @@
 package dms.pastor.tools.trips.tube.lines;
 
+import dms.pastor.tools.trips.tube.station.SharedStations;
 import dms.pastor.tools.trips.tube.station.Station;
 
 import java.util.ArrayList;
@@ -20,13 +21,7 @@ public class Piccadilly extends Line {
     @Override
     public List<Station> getStations() {
         List<Station> tubeStations = new ArrayList<>();
-        tubeStations.add(Station.UXBRIDGE);
-        tubeStations.add(Station.HILLINGDON);
-        tubeStations.add(Station.ICKENHAM);
-        tubeStations.add(Station.RUISLIP);
-        tubeStations.add(Station.RUISLIP_MANOR);
-        tubeStations.add(Station.EASTCOTE);
-        tubeStations.add(Station.RAYNERS_LANE);
+        tubeStations.addAll(SharedStations.addUxbridgeToRaynersLane());
         tubeStations.add(Station.SOUTH_HARROW);
         tubeStations.add(Station.SUDBURY_HILL);
         tubeStations.add(Station.SUDBURY_TOWN);

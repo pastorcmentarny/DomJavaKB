@@ -1,5 +1,6 @@
 package dms.pastor.tools.trips.tube.lines;
 
+import dms.pastor.tools.trips.tube.station.SharedStations;
 import dms.pastor.tools.trips.tube.station.Station;
 
 import java.util.ArrayList;
@@ -28,33 +29,9 @@ public class District extends Line {
         tubeStations.add(Station.DAGENHAM_HEATHWAY);
         tubeStations.add(Station.BECONTREE);
         tubeStations.add(Station.UPNEY);
-        tubeStations.add(Station.BARKING);
-        tubeStations.add(Station.EAST_HAM);
-        tubeStations.add(Station.UPTON_PARK);
-        tubeStations.add(Station.PLAISTOW);
-        tubeStations.add(Station.WEST_HAM);
-        tubeStations.add(Station.BROMLEY_BY_BOW);
-        tubeStations.add(Station.BOW_ROAD);
-        tubeStations.add(Station.MILE_END);
-        tubeStations.add(Station.STEPNEY_GREEN);
-        tubeStations.add(Station.WHITECHAPEL);
-        tubeStations.add(Station.ALDGATE_EAST);
-        tubeStations.add(Station.TOWER_HILL);
-        tubeStations.add(Station.MONUMENT);
-        tubeStations.add(Station.CANNON_STREET);
-        tubeStations.add(Station.MANSION_HOUSE);
-        tubeStations.add(Station.BLACKFRIARS);
-        tubeStations.add(Station.TEMPLE);
-        tubeStations.add(Station.EMBANKMENT);
-        tubeStations.add(Station.WESTMINSTER);
-        tubeStations.add(Station.ST_JAMESS_PARK);
-        tubeStations.add(Station.VICTORIA);
-        tubeStations.add(Station.SLOANE_SQUARE);
-        tubeStations.add(Station.SOUTH_KENSINGTON);
-        tubeStations.add(Station.GLOUCESTER_ROAD);
-        tubeStations.add(Station.HIGH_STREET_KENSINGTON);
-        tubeStations.add(Station.NOTTING_HILL_GATE);
-        tubeStations.add(Station.BAYSWATER);
+        tubeStations.addAll(SharedStations.addAldgateEastToBarking());
+        tubeStations.addAll(SharedStations.addTowerHillToGloucesterRoad());
+        tubeStations.addAll(SharedStations.addHighStreetKensingtonToBayswater());
         tubeStations.add(Station.PADDINGTON);
         tubeStations.add(Station.EDGWARE_ROAD);
         tubeStations.add(Station.EARLS_COURT);
