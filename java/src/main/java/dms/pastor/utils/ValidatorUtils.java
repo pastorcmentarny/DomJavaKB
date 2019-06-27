@@ -7,6 +7,7 @@ import java.io.OutputStream;
 import java.math.BigDecimal;
 import java.nio.file.Path;
 import java.util.List;
+import java.util.Objects;
 
 import static java.lang.String.format;
 import static java.util.Objects.isNull;
@@ -204,7 +205,7 @@ public final class ValidatorUtils {
     public static void validateIfPathIsAccessible(Path path) {
         validateIfObjectValueIsNotNull(path, "path");
         File file = path.toFile();
-        if (!file.exists() || !file.canRead() || file.isDirectory()) {
+        if (Objects.isNull(file) || !file.exists() || !file.canRead() || file.isDirectory()) {
             throw new IllegalArgumentException(INVALID_PATH);
         }
     }

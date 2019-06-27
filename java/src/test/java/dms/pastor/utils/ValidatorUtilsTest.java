@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.math.BigDecimal;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -825,6 +826,16 @@ public class ValidatorUtilsTest {
         ValidatorUtils.validateIfNotBlank("  ", FIELD_NAME);
 
         // then no exception is thrown
+
+    }
+
+    @Test
+    public void validateIfPathIsAccessibleShould() {
+        // expectThrowExceptionForInvalidPath
+        exception.expect(IllegalArgumentException.class);
+
+        // when
+        ValidatorUtils.validateIfPathIsAccessible(Path.of("X:/cosmos"));
 
     }
 }
