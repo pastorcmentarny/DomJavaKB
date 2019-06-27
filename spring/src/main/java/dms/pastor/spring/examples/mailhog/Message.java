@@ -1,4 +1,4 @@
-package dms.pastor.tools.mailhog;
+package dms.pastor.spring.examples.mailhog;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
