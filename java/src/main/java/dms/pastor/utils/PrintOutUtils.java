@@ -106,4 +106,8 @@ public final class PrintOutUtils {
         out.println("The length of: " + string.length() + System.lineSeparator() + "is " + string.length() + " characters.");
     }
 
+    public static void printLocationOfTemporaryFolder() {
+        out.println(System.getProperty("java.io.tmpdir"));
+    }
+
 }

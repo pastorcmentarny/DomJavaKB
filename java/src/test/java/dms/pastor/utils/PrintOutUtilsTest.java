@@ -133,4 +133,21 @@ public class PrintOutUtilsTest {
         assertThat(outputStream.toString()).isEqualTo(expected);
     }
 
+    @Test
+    public void printTemporaryFolderLocation() throws Exception {
+
+        // when
+        printLocationOfTemporaryFolder();
+        var result = outputStream.toString();
+
+        // then
+        assertThat(result).isNotBlank();
+
+        // debug
+        outputStream.close();
+        System.setOut(original);
+        System.out.println(result);
+
+    }
+
 }
