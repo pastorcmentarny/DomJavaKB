@@ -137,7 +137,7 @@ public class PrintOutUtilsTest {
     public void printTemporaryFolderLocation() throws Exception {
 
         // when
-        printLocationOfTemporaryFolder();
+        printInfoAboutOfTemporaryFolder();
         var result = outputStream.toString();
 
         // then

@@ -1,5 +1,8 @@
 package dms.pastor.utils;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
@@ -106,8 +109,15 @@ public final class PrintOutUtils {
         out.println("The length of: " + string.length() + System.lineSeparator() + "is " + string.length() + " characters.");
     }
 
-    public static void printLocationOfTemporaryFolder() {
-        out.println(System.getProperty("java.io.tmpdir"));
+    public static void printInfoAboutOfTemporaryFolder() {
+        out.println("Location: " + System.getProperty("java.io.tmpdir"));
+        out.println("Content:");
+        try {
+            Files.list(Paths.get(System.getProperty("java.io.tmpdir")))
+                .forEach(System.out::println);
+        } catch (IOException exception) {
+            out.println("Unable to display content of temporary folder due to " + exception.getMessage());
+        }
     }
 
 }
