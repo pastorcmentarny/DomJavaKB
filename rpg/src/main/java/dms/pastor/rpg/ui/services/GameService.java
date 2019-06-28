@@ -12,4 +12,8 @@ public class GameService {
         game = Game.getGame();
     }
 
+    public String getPlayerInfo() {
+        return game.getHero().displayShortInfo(false);
+    }
+
 }
