@@ -8,7 +8,7 @@ Archway;;X;;none;;none;;none;;N
 Arnos Grove;;X;;none;;none;;none;;N
 Arsenal;;X;;none;;none;;none;;N
 Baker Street;;V;;2017-01-03;;2017-12-21;;none;;N
-Balham;;X;;none;;none;;none;;N
+Balham;;P;;2019-06-19;;none;;none;;N
 Bank;;V;;2017-11-01;;2019-01-08;;2019-01-08;;N
 Barbican;;P;;2017-01-03;;2017-06-05;;none;;N
 Barking;;P;;2019-01-19;;none;;none;;N
@@ -47,8 +47,8 @@ Chesham;;V;;2017-06-25;;2017-06-25;;none;;Y
 Chigwell;;P;;2019-01-19;;none;;none;;N
 Chiswick Park;;P;;2017-06-10;;none;;none;;N
 Chorleywood;;V;;2017-06-25;;2018-08-18;;none;;N
-Clapham Common;;X;;none;;none;;none;;N
-Clapham North;;X;;none;;none;;none;;N
+Clapham Common;;P;;2019-06-19;;none;;none;;N
+Clapham North;;P;;2019-06-19;;none;;none;;N
 Clapham South;;X;;none;;none;;none;;N
 Cockfosters;;X;;none;;none;;none;;N
 Colindale;;P;;2018-08-22;;none;;none;;N
@@ -224,8 +224,8 @@ Ealing;;X;;none;;none;;none;;N
 Swiss Cottage;;V;;2017-10-30;;2017-03-15;;none;;N
 Temple;;P;;2017-02-02;;none;;none;;N
 Theydon Bois;;V;;2019-01-19;;2019-01-19;;2019-01-19;;Y
-Tooting Bec;;X;;none;;none;;none;;N
-Tooting Broadway;;X;;none;;none;;none;;N
+Tooting Bec;;P;;2019-06-19;;none;;none;;N
+Tooting Broadway;;V;;2019-06-19;;2019-06-19;;2019-06-19;;N
 Tottenham Court Road;;P;;2018-05-29;;none;;none;;N
 Tottenham Hale;;V;;2017-11-19;;2017-11-19;;none;;N
 Totteridge & Whetstone;;X;;none;;none;;none;;N
