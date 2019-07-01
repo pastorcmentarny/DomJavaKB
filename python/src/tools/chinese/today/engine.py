@@ -1,15 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import bs4
+import datetime
+import pyperclip
+import random
+import requests
+
 import chinese_number
 import chinese_time
 import chinese_utils
 import config
 import data_generator
-import datetime
-import pyperclip
-import random
-import requests
 
 date = datetime.datetime.now()
 
@@ -136,7 +137,7 @@ def add_time_of_write(time) -> str:
 def add_today_date() -> str:
     chinese_month = chinese_number.get_chinese_number(date.month)
     chinese_day = chinese_number.get_chinese_number(date.day)
-    chinese_day_of_the_week = chinese_number.get_chinese_number(date.weekday() + 1)
+    chinese_day_of_the_week = chinese_number.get_day_of_the_week_number(date.weekday() + 1)
     return '今天是' + year + '年' + chinese_month + '月' + chinese_day + '日,星期' + chinese_day_of_the_week + dot
 
 
