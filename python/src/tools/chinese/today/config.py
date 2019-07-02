@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 weather = {
-    'sunny': '晴朗',
+    'sunny': '晴朗',  # Qínglǎng
     'rain': '雨',
     'cold': '冷',
     'hot': '热',
@@ -12,6 +12,7 @@ weather = {
 }
 
 color = {
+    'white': '白色',
     'brown': '棕色',
     'blue': '蓝色',
     'green': '绿色',
@@ -31,6 +32,7 @@ rating = {
 wear = {
     't-shirt': 'Ť恤',
     'jeans': '牛仔裤',
+    'running trousers': '跑长裤',
     'shoes': '',
     '': '睡衣'
 }
