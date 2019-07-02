@@ -4,6 +4,9 @@
 
 def get_chinese_number_for(entry):
     number = ''
+    if entry == 0:
+        return get_chinese_number(entry)
+
     thousands = entry // 1000
     if thousands > 0:
         number += get_chinese_number(thousands) + '千'
