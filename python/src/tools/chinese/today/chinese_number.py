@@ -36,4 +36,7 @@ def get_chinese_number(num):
                '四十一', '四十二', '四十三', '四十四', '四十五', '四十六', '四十七', '四十八', '四十九', '五十',
                '五十一', '五十二', '五十三', '五十四', '五十五', '五十六', '五十七', '五十八', '五十九',
                ]
+    if num > len(numbers):
+        print('Invalid number passed!')
+        return 'Invalid number passed!'  # replace with exception
     return numbers[num]
