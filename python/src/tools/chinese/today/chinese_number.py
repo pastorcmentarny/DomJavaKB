@@ -22,11 +22,15 @@ def get_chinese_number_for(entry):
 
     entry = entry % 100
     tens = entry // 10
-
-    if tens > 0:
-        number += get_chinese_number(tens) + '十'
-
     ones = entry % 10
+
+    if hundreds == 1 and tens == 0 and ones > 0:
+        number += get_chinese_number(0)
+    elif tens > 0:
+        if tens == 1:
+            number += '十'
+        else:
+            number += get_chinese_number(tens) + '十'
 
     if ones > 0:
         number += get_chinese_number(ones)
