@@ -7,6 +7,9 @@ def get_chinese_number_for(entry):
     if entry == 0:
         return get_chinese_number(entry)
 
+    if entry > 9999:
+        return str(entry) + ' number is not supported'
+
     thousands = entry // 1000
     if thousands > 0:
         number += get_chinese_number(thousands) + '千'
