@@ -19,7 +19,7 @@ public class DependencyInjectionExampleAutoConfiguration {
         return new DefaultDataValidator();
     }
 
-    @Bean
+    //@Bean
     DataService dataService(DataValidator dataValidator) {
         return new DataService(dataValidator);
     }

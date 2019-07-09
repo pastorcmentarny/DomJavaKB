@@ -1,14 +1,14 @@
 package dms.pastor.spring.vocabulizator;
 
-import dms.pastor.spring.vocabulizator.check.model.Definition;
-import dms.pastor.spring.vocabulizator.check.model.Tag;
+import dms.pastor.spring.check.model.Definition;
+import dms.pastor.spring.check.model.Tag;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static dms.pastor.spring.check.model.DefinitionBuilder.definitionBuilder;
 import static dms.pastor.spring.utils.RandomDataGenerator.generateString;
-import static dms.pastor.spring.vocabulizator.check.model.DefinitionBuilder.definitionBuilder;
 import static javax.swing.text.html.parser.DTDConstants.GENERAL;
 import static org.assertj.core.api.Assertions.assertThat;
 

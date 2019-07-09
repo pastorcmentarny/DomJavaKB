@@ -1,18 +1,16 @@
 package dms.pastor.spring.vocabulizator;
 
-import dms.pastor.spring.vocabulizator.check.DefaultDefinitionService;
-import dms.pastor.spring.vocabulizator.check.DefinitionSearchController;
-import dms.pastor.spring.vocabulizator.check.model.Definition;
+import dms.pastor.spring.check.DefaultDefinitionService;
+import dms.pastor.spring.check.DefinitionSearchController;
+import dms.pastor.spring.check.model.Definition;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.http.ResponseEntity;
 
-import static dms.pastor.spring.vocabulizator.check.model.DefinitionBuilder.definitionBuilder;
+import static dms.pastor.spring.check.model.DefinitionBuilder.definitionBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.http.HttpStatus.OK;

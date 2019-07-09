@@ -55,16 +55,14 @@ dependencies {
     compile project(':java')
     compile libraries.log
     compile("org.springframework.boot:spring-boot-starter-actuator:$springBootVersion")
-    compile("org.springframework.boot:spring-boot-starter-data-mongodb:$springBootVersion")
     compile("org.springframework.boot:spring-boot-devtools:$springBootVersion")
     compile("org.springframework.boot:spring-boot-starter-mail:$springBootVersion")
     compile("org.springframework.boot:spring-boot-starter-thymeleaf:$springBootVersion")
     compile("org.springframework.boot:spring-boot-starter-web:$springBootVersion")
     compile("org.springframework.boot:spring-boot-starter-web-services:$springBootVersion")
-    //compile("org.springframework.kafka:spring-kafka:$kafkaVersion")
     compile('com.fasterxml.jackson.datatype:jackson-datatype-jsr310')
     compile("cz.jirutka.spring:embedmongo-spring:$embeddedMongoVersion")
-    //compile("org.springframework.kafka:spring-kafka-test:$kafkaVersion")
     compile("org.slf4j:slf4j-api:1.7.25")
+    compileOnly 'org.projectlombok:lombok:1.18.8'
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }

@@ -1,5 +1,6 @@
 package dms.pastor.spring.examples.json;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,7 @@ public class JsonTestExample {
     @Autowired
     private JacksonTester<JsonObject> json; //it is used for conversion
 
+    @Ignore
     @Test
     public void shouldSerializeJson() throws Exception {
         // given
