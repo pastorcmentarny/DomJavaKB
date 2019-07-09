@@ -1,4 +1,6 @@
-package dms.pastor.domain;
+package dms.pastor.examples.mockito;
+
+import dms.pastor.domain.Treasure;
 
 /**
  * Author Dominik Symonowicz
@@ -8,18 +10,21 @@ package dms.pastor.domain;
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+ * this class is used as example for mockito
+ * tag-mockito
+ * tag-argumentCaptor
  */
-class MarvelousServer {
+class MockitoExampleServer {
 
-    private final LegendaryService legendaryService;
+    private final MockitoExampleService legendaryService;
 
-    public MarvelousServer(LegendaryService legendaryService) {
+    public MockitoExampleServer(MockitoExampleService legendaryService) {
         this.legendaryService = legendaryService;
     }
 
-    public AwesomeResponse create(AwesomeRequest awesomeRequest) {
+    public MockitoExampleResponse create(MockitoExampleRequest awesomeRequest) {
         Treasure treasure = new Treasure("Mysterious Treasure", "This contains: " + awesomeRequest.getData(), 1000);
         legendaryService.create(awesomeRequest.getId(), treasure);
-        return new AwesomeResponse();
+        return new MockitoExampleResponse();
     }
 }

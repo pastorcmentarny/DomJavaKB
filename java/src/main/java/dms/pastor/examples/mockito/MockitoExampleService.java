@@ -1,4 +1,6 @@
-package dms.pastor.domain;
+package dms.pastor.examples.mockito;
+
+import dms.pastor.domain.Treasure;
 
 import java.util.UUID;
 
@@ -11,8 +13,11 @@ import static java.lang.String.format;
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+ * this class is used as example for mockito
+ * tag-mockito
+ * tag-argumentCaptor
  */
-class LegendaryService {
+public class MockitoExampleService {
 
     public void create(UUID id, Treasure treasure) {
         System.out.println(format("Created treasure %s with id: %s", treasure.getName(), id.toString()));

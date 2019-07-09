@@ -1,4 +1,4 @@
-package dms.pastor.domain;
+package dms.pastor.examples.mockito;
 
 /**
  * Author Dominik Symonowicz
@@ -8,12 +8,15 @@ package dms.pastor.domain;
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+ * this class is used as example for mockito
+ * tag-mockito
+ * tag-argumentCaptor
  */
-public class AwesomeResponse {
+public class MockitoExampleResponse {
 
     private final boolean success;
 
-    public AwesomeResponse() {
+    public MockitoExampleResponse() {
         this.success = true;
     }
 

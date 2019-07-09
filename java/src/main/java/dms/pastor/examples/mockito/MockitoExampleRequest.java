@@ -1,4 +1,4 @@
-package dms.pastor.domain;
+package dms.pastor.examples.mockito;
 
 import java.util.UUID;
 
@@ -10,13 +10,16 @@ import java.util.UUID;
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+ * this class is used as example for mockito
+ * tag-mockito
+ * tag-argumentCaptor
  */
-class AwesomeRequest {
+class MockitoExampleRequest {
 
     private final UUID id;
     private final String data;
 
-    public AwesomeRequest(UUID id, String data) {
+    public MockitoExampleRequest(UUID id, String data) {
         this.id = id;
         this.data = data;
     }

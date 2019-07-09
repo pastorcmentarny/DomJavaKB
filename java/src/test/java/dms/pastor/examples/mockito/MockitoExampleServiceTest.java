@@ -1,5 +1,6 @@
-package dms.pastor.domain;
+package dms.pastor.examples.mockito;
 
+import dms.pastor.domain.Treasure;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -24,11 +25,11 @@ import static org.assertj.core.api.Assertions.assertThat;
  * INFORMATION: Happy path only
  */
 @SuppressWarnings("resource") // not need to use try with resources for this test
-public class LegendaryServiceTest {
+public class MockitoExampleServiceTest {
 
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private final PrintStream original = System.out;
-    private final LegendaryService legendaryService = new LegendaryService();
+    private final MockitoExampleService legendaryService = new MockitoExampleService();
 
     @Before
     public void setUp() {

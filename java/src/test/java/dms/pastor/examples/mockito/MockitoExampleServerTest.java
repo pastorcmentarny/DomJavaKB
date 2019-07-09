@@ -1,5 +1,6 @@
-package dms.pastor.domain;
+package dms.pastor.examples.mockito;
 
+import dms.pastor.domain.Treasure;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,30 +29,30 @@ import static org.mockito.Mockito.verify;
  * tag-mockito, tag-argumentCaptor
  */
 @RunWith(MockitoJUnitRunner.class)
-public class MarvelousServerTest {
+public class MockitoExampleServerTest {
 
     @Captor
     private ArgumentCaptor<Treasure> treasureArgumentCaptor;
 
     @Mock
-    private LegendaryService legendaryService;
+    private MockitoExampleService legendaryService;
 
     @InjectMocks
-    private MarvelousServer marvelousServer;
+    private MockitoExampleServer marvelousServer;
 
     @Before
     public void setUp() {
-        marvelousServer = new MarvelousServer(legendaryService);
+        marvelousServer = new MockitoExampleServer(legendaryService);
     }
 
     @Test
     public void shouldCreateTreasureTest() {
         // given
         final UUID id = UUID.randomUUID();
-        final AwesomeRequest awesomeRequest = new AwesomeRequest(id, generateString(10));
+        final MockitoExampleRequest awesomeRequest = new MockitoExampleRequest(id, generateString(10));
 
         // when
-        final AwesomeResponse awesomeResponse = marvelousServer.create(awesomeRequest);
+        final MockitoExampleResponse awesomeResponse = marvelousServer.create(awesomeRequest);
 
         // then
         assertThat(awesomeResponse.isSuccess()).isTrue();
@@ -68,8 +69,8 @@ public class MarvelousServerTest {
         // when
         final UUID id = UUID.randomUUID();
         final String diamondTreasure = "diamond";
-        final AwesomeRequest awesomeRequest = new AwesomeRequest(id, diamondTreasure);
-        final AwesomeResponse awesomeResponse = marvelousServer.create(awesomeRequest);
+        final MockitoExampleRequest awesomeRequest = new MockitoExampleRequest(id, diamondTreasure);
+        final MockitoExampleResponse awesomeResponse = marvelousServer.create(awesomeRequest);
 
         // then
         verify(legendaryService).create(eq(id), treasureArgumentCaptor.capture());
