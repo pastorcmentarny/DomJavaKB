@@ -1,14 +1,14 @@
 package dms.pastor.spring.vocabulizator;
 
-import dms.pastor.spring.check.model.Definition;
-import dms.pastor.spring.check.model.Tag;
+import dms.pastor.spring.tools.vocabulizator.model.Definition;
+import dms.pastor.spring.tools.vocabulizator.model.Tag;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static dms.pastor.spring.check.model.DefinitionBuilder.definitionBuilder;
-import static dms.pastor.spring.utils.RandomDataGenerator.generateString;
+import static dms.pastor.spring.tools.vocabulizator.model.DefinitionBuilder.definitionBuilder;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static javax.swing.text.html.parser.DTDConstants.GENERAL;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -26,7 +26,6 @@ public class DefinitionBuilderTest {
     public void shouldReturnBuilder() {
         // given
         final String meaning = generateString();
-        final String source = generateString();
         final List<Tag> tags = new ArrayList<>(GENERAL);
         final String word = generateString();
 

@@ -22,15 +22,6 @@ public class SpringFourPointThreeAnnotationController {
     private static final Logger LOGGER = LoggerFactory.getLogger(SpringFourPointThreeAnnotationController.class);
     private static final String REQUEST_MAPPING_EXAMPLE_PATH = "/request-mapping-example";
 
-    /*
-        @RequestMapping doesn't need specify attribute name if you using one attribute for example:
-        @RequestMapping("/example")
-        However usually we use 2 or more attributes ,which means we need use attribute name with value
-        @RequestMapping(path = "/example",method = GET)
-         To reduce boilerplate Spring introduce some "synthetic sugar" annotation with method using in mapping ,so user can specify
-         @GetMapping("/get-mapping-example")          instead of @RequestMapping(path = "/get-method-example",method = GET)
-          Spring F
-     */
     @GetMapping(REQUEST_MAPPING_EXAMPLE_PATH)
     public String getMethodUsingGetMapping(Model model) {
         return processMethodRequest(model, "Get");

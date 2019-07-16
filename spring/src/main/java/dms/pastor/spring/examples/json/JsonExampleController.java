@@ -1,15 +1,18 @@
 package dms.pastor.spring.examples.json;
 
+import dms.pastor.spring.examples.rest.CuteDomainObject;
+import org.slf4j.Logger;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 import static dms.pastor.spring.examples.ExamplesURL.JSON;
 import static dms.pastor.spring.examples.json.JsonObjectBuilder.jsonObjectBuilder;
-import static dms.pastor.spring.utils.RandomDataGenerator.generateString;
+import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 
 /**
  * Author Dominik Symonowicz
@@ -23,6 +26,7 @@ import static dms.pastor.spring.utils.RandomDataGenerator.generateString;
  */
 @RestController
 public class JsonExampleController {
+    private static final Logger LOGGER = org.slf4j.LoggerFactory.getLogger(JsonExampleController.class);
 
     @GetMapping(JSON + "/example1")
     public JsonObject returnJsonObject() {
@@ -44,4 +48,20 @@ public class JsonExampleController {
 
         return new JsonExampleWrapper("Example", jsonObjectList);
     }
+
+
+    @GetMapping("/json")
+    public CuteDomainObject getCuteDomainObjectAsJson() {
+        CuteDomainObject cuteDomainObject = new CuteDomainObject("Name", new Random().nextInt(32));
+        LOGGER.info("Getting Cute Domain Object with data: " + cuteDomainObject.toString());
+        return cuteDomainObject;
+    }
+
+    @GetMapping(value = "/xml", produces = {"application/xml", "text/xml"})
+    public CuteDomainObject getCuteDomainObjectAsXml() {
+        CuteDomainObject cuteDomainObject = new CuteDomainObject("Name", new Random().nextInt(32));
+        LOGGER.info("Getting Cute Domain Object with data: " + cuteDomainObject.toString());
+        return cuteDomainObject;
+    }
+
 }

@@ -16,18 +16,11 @@ import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-//@EnableKafka
 @Configuration
 public class ApplicationConfiguration {
 
     @Value("kafka.bootstrap.servers")
     private String bootstrapServers;
-
-    @Bean
-    public Jackson2ObjectMapperBuilder jackson2ObjectMapperBuilder() {
-        return new Jackson2ObjectMapperBuilder();
-    }
-
 
     /*
         In order to handle  Java 8 dates(JSR-310) with Jackson

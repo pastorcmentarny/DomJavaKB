@@ -1,4 +1,7 @@
-package dms.pastor.spring.examples;
+package dms.pastor.spring.exercises.calculator.models;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 /**
  * Author Dominik Symonowicz
@@ -8,7 +11,11 @@ package dms.pastor.spring.examples;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class TemplatePaths {
-    private static final String THYMELEAF = "thymeleaf";
-    public static final String SAVING_INTEREST_RATES_TEMPLATE = THYMELEAF + "/sir";
+@Getter
+@AllArgsConstructor
+public class Result {
+
+    private final long id;
+    private final int answer;
+
 }

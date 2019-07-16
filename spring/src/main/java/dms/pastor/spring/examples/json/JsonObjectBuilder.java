@@ -1,7 +1,6 @@
 package dms.pastor.spring.examples.json;
 
-
-import dms.pastor.spring.utils.RandomDataGenerator;
+import dms.pastor.utils.randoms.RandomDataGenerator;
 
 import java.util.Random;
 

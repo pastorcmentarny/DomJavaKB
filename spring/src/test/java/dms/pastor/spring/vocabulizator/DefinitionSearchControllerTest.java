@@ -1,8 +1,8 @@
 package dms.pastor.spring.vocabulizator;
 
-import dms.pastor.spring.check.DefaultDefinitionService;
-import dms.pastor.spring.check.DefinitionSearchController;
-import dms.pastor.spring.check.model.Definition;
+import dms.pastor.spring.tools.vocabulizator.DefaultDefinitionService;
+import dms.pastor.spring.tools.vocabulizator.DefinitionSearchController;
+import dms.pastor.spring.tools.vocabulizator.model.Definition;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,7 +10,7 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.http.ResponseEntity;
 
-import static dms.pastor.spring.check.model.DefinitionBuilder.definitionBuilder;
+import static dms.pastor.spring.tools.vocabulizator.model.DefinitionBuilder.definitionBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.http.HttpStatus.OK;
@@ -24,11 +24,6 @@ import static org.springframework.http.HttpStatus.OK;
  */
 @RunWith(MockitoJUnitRunner.class)
 public class DefinitionSearchControllerTest {
-
-/*
-    @Rule
-    public ExpectedException exception = ExpectedException.none();
-*/
 
     @Mock
     private DefaultDefinitionService defaultDefinitionService;

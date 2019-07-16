@@ -1,12 +1,10 @@
 package dms.pastor.spring.examples.json;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.JsonTest;
 import org.springframework.boot.test.json.JacksonTester;
-import org.springframework.boot.test.json.JsonContent;
 import org.springframework.boot.test.json.ObjectContent;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -26,23 +24,6 @@ public class JsonTestExample {
 
     @Autowired
     private JacksonTester<JsonObject> json; //it is used for conversion
-
-    @Ignore
-    @Test
-    public void shouldSerializeJson() throws Exception {
-        // given
-        final String name = "name";
-        JsonObject jsonObject = new JsonObject(name, 1, true);
-        final String jsonKeyName = "@.name";
-
-        // when
-        final JsonContent<JsonObject> jsonObjectJsonContent = json.write(jsonObject);
-
-        // then
-        assertThat(json.write(jsonObject)).isEqualToJson("expected.json");
-        assertThat(jsonObjectJsonContent).hasJsonPathStringValue(jsonKeyName);
-        assertThat(jsonObjectJsonContent).extractingJsonPathStringValue(jsonKeyName).isEqualTo(name);
-    }
 
     @Test
     public void shouldDeserializeJson() throws Exception {
