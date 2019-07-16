@@ -1,21 +1,20 @@
 package dms.pastor.tools.trips.tube;
 
+import dms.pastor.tools.trips.tube.data.DataUploader;
 import dms.pastor.tools.trips.tube.data.DataWriter;
 import dms.pastor.tools.trips.tube.station.TubeStation;
-import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import java.io.File;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static dms.pastor.TestConfig.TEST_BASE_PATH;
 import static dms.pastor.tools.trips.common.options.Status.VISITED;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Author Dominik Symonowicz
@@ -44,20 +43,14 @@ public class DataWriterTest {
         writer.save(null, tubeStations);
     }
 
-    @Ignore //improve this test
     @Test
     public void shouldSaveStationToFile() throws Exception {
         // given
         DataWriter writer = new DataWriter();
-        final String path = TEST_BASE_PATH + File.separator + "station" + LocalDateTime.now().getNano() + ".test";
 
         // delete if exists
-        final File file = new File(path);
-        if (file.exists()) {
-            file.delete();
-        }
-        file.createNewFile();
-        file.deleteOnExit(); //comment this out if you need see file
+        final File file = File.createTempFile("station", ".txt");
+
 
         final TubeStation amershamTubeStation = new TubeStation("Amersham", VISITED, LocalDate.now(), LocalDate.now(), LocalDate.now(), true);
         final TubeStation cheshamTubeStation = TubeStation.passed("Pinner", LocalDate.now());
@@ -66,10 +59,11 @@ public class DataWriterTest {
         tubeStations.add(cheshamTubeStation);
 
         // when
-        //writer.save(path, tubeStations);
+        writer.save(file.toPath(), tubeStations);
 
         // then
-        //assertThat(new DataUploader().load(path).size()).isEqualTo(2);
+        final var size = new DataUploader().load(file.toPath()).size();
+        assertThat(size).isEqualTo(2);
     }
 
 }

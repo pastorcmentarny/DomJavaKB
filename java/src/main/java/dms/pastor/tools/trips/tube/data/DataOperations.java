@@ -53,10 +53,11 @@ public final class DataOperations {
         } catch (IOException e) {
             throw new SomethingWentWrongException("Creating file at " + backupPath, e);
         }
-        //dataWriter.save(backupPath, originalTubeStationList);
+        //TODO fix me dataWriter.save(backupPath, originalTubeStationList);
     }
 
+    //TODO fix me as it throws null pointer exception
     private static String getBackupPath() {
-        return DataOperations.class.getClassLoader().getResource("tube" + Timestamp.valueOf(LocalDateTime.now()) + "station.txt").getPath();
+        return DataOperations.class.getClassLoader().getResource("tube/tube" + Timestamp.valueOf(LocalDateTime.now()) + "station.txt").getPath();
     }
 }
