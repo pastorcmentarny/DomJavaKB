@@ -1,7 +1,7 @@
 import csv
 import datetime
-import os
 import json
+import os
 
 # create a new file
 # add these lines:
@@ -18,7 +18,7 @@ foodList = """
 
 WRITABLE = 'w'
 
-baseDir = "C:\\tmp\\python\\"
+baseDir = os.getcwd() + "\\"
 shoppingListFileName = "shopping.csv"
 
 shopping_list_file_path = baseDir + shoppingListFileName
@@ -43,7 +43,7 @@ csvFile = open(shopping_list_file_path)
 csvFileContent = csv.reader(csvFile)
 print(str(type(csvFileContent)))
 
-exampleFile = open(baseDir + 'example.csv')
+exampleFile = open(baseDir + 'example.csv', 'w+')
 csv_reader = csv.reader(exampleFile)
 for row in csv_reader:
     print(str(csv_reader.line_num) + '. > ' + str(row))
