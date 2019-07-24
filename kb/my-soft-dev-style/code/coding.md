@@ -24,6 +24,7 @@
 5.  Inaccurate comments are far worse than no comments at all. 
 6.  A comment may be used to amplify the importance of something.
 7.  Don't comment bad code, rewrite it.
+8.  Comments can be useful to explain complicated regex or sql statements 
 
 
 ## VCS (GIT only)
@@ -173,3 +174,4 @@
     -   User should not have to think about wildcards to use your API.
 38. Boolean.getBoolean() doesn't do what you think.
 39. List<String> IS NOT a subtype of List<Object> (good for compile-time type safety ,but inflexible.
+0. the code restorer.This is where the code restorer comes in, somebody whose job isn’t to “recreate the same thing but better” (a common wish that almost always fails), but rather to take the existing codebase and slowly reshape it to make it manageable again. Add some tests here, break down that ugly class there, remove unused functionality, and give it back improved.
