@@ -24,4 +24,5 @@
 0.  Everything takes three times a longer than it should even if you know about it and take it into account. Robert C. Martin
 0.  The biggest problem in software dev is a misconception 
 0.  "there is no patch for human stupidity" kevin mitnick
-0.  security people software hardware. smallest possible fix 
+0.  security people software hardware. smallest possible fix .
+0. The best code is written thinking about the programmers that come after. ( source: https://medium.com/97-things/the-code-restorer-bfe920a18e71)
