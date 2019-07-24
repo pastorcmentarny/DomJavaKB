@@ -236,6 +236,9 @@ Example
 They are used in factories providing an xml parser. 
 Many applications have some form of user and group structure for security. When the application needs to create a user it will typically delegate the creation of the user to multiple user implementations. The parent user object will handle most operations for each user but the subclasses will define the factory method that handles the distinctions in the creation of each type of user. A system may have AdminUser and StandardUser objects each of which extend the User object. The AdminUser object may perform some extra tasks to ensure access while the StandardUser may do the same to limit access.
 
+Factory Method Pattern.Factory, as it's name suggests, is a pattern used to facilitate the creation of other objects. a creational pattern "Define an interface for creating an object, but let the subclasses decide which class to instantiate."Example:logging frameworks, 
+
+
  FACTORY {CREATIONAL} 
 TODO improve it , [Example code needed]
 The factory pattern allows you to create objects without specifying the exact class of object that will be created at runtime.
@@ -492,6 +495,10 @@ The BufferedReader class is a Decorator which provides buffering functionality t
 
 Read more: http://javarevisited.blogspot.com/2016/07/10-examples-to-read-text-file-in-java.html
 
+The decorator pattern is used to add more functionality to an existing object without affecting other instances of the class. This means that it used composition instead of inheritance to extend functionality of an object at runtime. You can use it in different occasions:
+When you want to transparently and dynamically add responsibilities to objects without affecting other objects.
+When you want to add responsibilities to an object that you may want to change in future.
+Extending functionality by sub-classing is no longer practical.
 
 
 FACADE {STRUCTURAL} TODO improve it

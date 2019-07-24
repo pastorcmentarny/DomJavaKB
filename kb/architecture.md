@@ -1,0 +1,2 @@
+
+a confusion between event-driven and event-sourced architecture. In an event-driven architecture, components perform tasks in response to received events, and emit events to notify about changes in state. In event sourcing, state changes are recorded as events and the current state of an entity is calculated from all events related to the entity

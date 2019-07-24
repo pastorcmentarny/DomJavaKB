@@ -53,5 +53,6 @@ RESOURCES:
  * https://dzone.com/articles/what-is-code-review-and-why-do-you-need-it
  * https://dzone.com/articles/sprint-review-tips-for-product-owners
  * https://www.linkedin.com/pulse/3-awesome-ux-hacks-megan-wilson/
+ * https://blog.usejournal.com/stop-writing-code-comments-28fef5272752
 
 
