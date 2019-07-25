@@ -91,8 +91,10 @@ def get_temp_from_internet():
     try:
         response.raise_for_status()  # without try it will exit program
         html_manager = bs4.BeautifulSoup(response.text, "html.parser")
-        response = html_manager.select('.wob_t')
+        response = html_manager.select('.kvKEAb')
         temp = response[0].get_text()
+        sep = '°C'
+        temp = temp.split(sep, 1)[0] + sep
 
     except Exception as whoops:
         print('There was a problem: %s' % whoops)
