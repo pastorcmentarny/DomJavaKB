@@ -114,7 +114,7 @@ Hornchurch;;V;;2019-01-19;;2019-01-19;;2019-01-19;;Y
 Hounslow Central;;P;;2017-10-30;;none;;none;;N
 Hounslow East;;P;;2017-10-30;;none;;none;;N
 Hounslow West;;P;;2017-10-30;;none;;none;;N
-Hyde Park Corner;;X;;none;;none;;none;;N
+Hyde Park Corner;;P;;2019-07-28;;none;;none;;N
 Ickenham;;P;;2017-03-21;;none;;none;;N
 Kennington;;P;;2017-11-01;;none;;none;;N
 Kensal Green;;V;;2018-07-28;;2018-07-28;;none;;Y
@@ -126,7 +126,7 @@ Kilburn;;X;;none;;none;;none;;N
 Kilburn Park;;P;;2017-06-19;;none;;none;;N
 Kingsbury;;P;;2018-08-22;;none;;none;;N
 King's Cross St. Pancras;;V;;2017-01-03;;2017-11-19;;none;;N
-Knightsbridge;;X;;none;;none;;none;;N
+Knightsbridge;;V;;2019-07-28;;2019-07-28;;2019-07-28;;N
 Ladbroke Grove;;X;;none;;none;;none;;N
 Lambeth North;;X;;none;;none;;none;;N
 Lancaster Gate;;P;;2018-06-06;;none;;none;;N
