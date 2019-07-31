@@ -1,46 +1,34 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import application_engine
 import config
-import engine
+import file_loader
 
-# it used to generate random note entry and for practice chinese
-#TODO check and fix settings
-#TODO settings should be loaded from file
-# SETTINGS:
-weather_rating = config.rating['so-so']
-weather_description_1 = config.weather['rain']
-weather_description_2 = config.weather['windy']
-upper_wear_color = config.color['green']
-upper_wear_type = config.wear['t-shirt']
-lower_wear_color = config.color['grey']
-lower_wear_type = config.wear['jeans']
-steps = 8700
-time = ''  # ''15.15'
-run_distance = 0  # meters
-run_time = 0 # 36 * 60 + 45  # seconds
-meal = ''
-yesterday_diary = True
-with_random_sentences = True
-is_a_for_online = True
-health = config.health['sleepy']
-entry = 389 # add auto update file
-# END OF SETTINGS
 
-engine.generate_info_about_today(weather_rating,
-                                 weather_description_1,
-                                 weather_description_2,
-                                 steps,
-                                 upper_wear_color,
-                                 upper_wear_type,
-                                 lower_wear_color,
-                                 lower_wear_type,
-                                 time,
-                                 meal,
-                                 yesterday_diary,
-                                 run_distance,
-                                 run_time,
-                                 with_random_sentences,
-                                 entry,
-                                 is_a_for_online
-                                 )
+def main():
+    diary_file = file_loader.config()
+    diary = {
+        'weather_rating': config.rating[diary_file['weather_rating']],
+        'weather_description_1': config.weather[diary_file['weather_description_1']],
+        'weather_description_2': config.weather[diary_file['weather_description_2']],
+        'upper_wear_color': config.color[diary_file['upper_wear_color']],
+        'upper_wear_type': config.wear[diary_file['upper_wear_type']],
+        'lower_wear_color': config.color[diary_file['lower_wear_color']],
+        'lower_wear_type': config.wear[diary_file['lower_wear_type']],
+        'steps': diary_file['steps'],
+        'time': diary_file['time'],
+        'run_distance': diary_file['run_distance'],
+        'run_time': diary_file['run_time'],
+        'meal': diary_file['meal'],
+        'yesterday_diary': diary_file['yesterday_diary'],
+        'with_random_sentences': diary_file['with_random_sentences'],
+        'is_a_for_online': diary_file['is_a_for_online'],
+        'health': diary_file['health'],
+        'entry': diary_file['entry']
+    }
+    application_engine.generate_info_about_today(diary)
+
+
+if __name__ == '__main__':
+    main()

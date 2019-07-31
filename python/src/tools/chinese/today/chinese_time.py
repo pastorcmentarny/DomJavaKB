@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import datetime
+
 import chinese_number
 
 
@@ -28,3 +29,22 @@ def get_time_in_chinese(time):
     splited_time = time.split('.')
     result += chinese_number.get_chinese_number(int(splited_time[0]))
     return result
+
+
+def get_text_based_on_time(time, meal):
+    day_info = ''
+    if time > 17:
+        day_info += ''
+        # went to sleep at 我在凌晨一点一分睡觉。
+        # back from work at
+        # ate at dinner
+    elif time > 12:
+        day_info += ''
+        # woke up
+        # went to work at
+        # ate at lunch
+    else:
+        day_info += ''
+        # woke up
+        # ate at breakfast
+    return day_info

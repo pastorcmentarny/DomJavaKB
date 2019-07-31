@@ -1,0 +1,20 @@
+{
+  "weather_rating": "so-so",
+  "weather_description_1": "sunny",
+  "weather_description_2": "cloudy",
+  "upper_wear_color": "green",
+  "upper_wear_type": "t-shirt",
+  "lower_wear_color": "green",
+  "lower_wear_type": "jeans",
+  "steps": 19500,
+  "time": "",
+  "run_distance": 4200,
+  "run_time": 2370,
+  "meal": "",
+  "yesterday_diary": true,
+  "with_random_sentences": false,
+  "is_a_for_online": true,
+  "health": "sleepy",
+  "entry": 396,
+  "dot": "。\n"
+}
