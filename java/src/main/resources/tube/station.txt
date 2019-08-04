@@ -177,7 +177,7 @@ Piccadilly Circus;;V;;2017-01-28;;2017-01-28;;2019-02-27;;N
 Pimlico;;V;;2017-11-19;;2017-12-21;;none;;Y
 Pinner;;P;;2018-05-26;;none;;none;;N
 Plaistow;;P;;2019-01-19;;none;;none;;N
-Preston Road;;P;;2018-05-26;;none;;none;;N
+Preston Road;;V;;2018-05-26;;2019-08-04;;2019-08-04;;N
 Putney Bridge;;X;;none;;none;;none;;N
 Queen's Park;;X;;none;;none;;none;;N
 Queensbury;;P;;2018-08-22;;none;;none;;N
