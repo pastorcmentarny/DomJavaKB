@@ -4,7 +4,7 @@ Aldgate East;;V;;2017-09-01;;2017-09-01;;none;;Y
 Alperton;;P;;2017-06-10;;none;;none;;N
 Amersham;;X;;none;;none;;none;;N
 Angel;;P;;2017-05-26;;none;;none;;N
-Archway;;X;;none;;none;;none;;N
+Archway;;V;;2019-07-28;;2019-07-28;;2019-07-28;;N
 Arnos Grove;;X;;none;;none;;none;;N
 Arsenal;;X;;none;;none;;none;;N
 Baker Street;;V;;2017-01-03;;2017-12-21;;none;;N
@@ -119,7 +119,7 @@ Ickenham;;P;;2017-03-21;;none;;none;;N
 Kennington;;P;;2017-11-01;;none;;none;;N
 Kensal Green;;V;;2018-07-28;;2018-07-28;;none;;Y
 Kensington (Olympia);;X;;none;;none;;none;;N
-Kentish Town;;X;;none;;none;;none;;N
+Kentish Town;;P;;2019-07-28;;none;;none;;N
 Kenton;;V;;2017-06-19;;2018-07-28;;none;;Y
 Kew Gardens;;V;;2018-05-06;;2018-05-06;;none;;N
 Kilburn;;X;;none;;none;;none;;N
@@ -230,7 +230,7 @@ Tottenham Court Road;;P;;2018-05-29;;none;;none;;N
 Tottenham Hale;;V;;2017-11-19;;2017-11-19;;none;;N
 Totteridge & Whetstone;;X;;none;;none;;none;;N
 Tower Hill;;V;;2017-02-02;;2018-05-08;;none;;N
-Tufnell Park;;X;;none;;none;;none;;N
+Tufnell Park;;P;;2019-07-28;;none;;none;;N
 Turnham Green;;P;;2017-06-10;;none;;none;;N
 Turnpike Lane;;X;;none;;none;;none;;N
 Upminster;;V;;2019-01-19;;2019-01-19;;2019-01-19;;Y
