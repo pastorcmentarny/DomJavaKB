@@ -33,7 +33,7 @@ public final class ValidatorUtils {
 
     static boolean isAnyOfPropertiesContainsNull(Object... properties) {
         for (Object property : properties) {
-            if (property == null) {
+            if (Objects.isNull(property)) {
                 return false;
             }
         }
@@ -42,7 +42,7 @@ public final class ValidatorUtils {
 
     static void validateNotNullPropertiesWithCustomMessage(Object[] properties, String errorMessage) {
         for (Object property : properties) {
-            if (property == null) {
+            if (Objects.isNull(property)) {
                 throw new IllegalArgumentException(errorMessage);
             }
         }
@@ -75,7 +75,7 @@ public final class ValidatorUtils {
         try {
             Math.addExact(minValue, maxValue);
         } catch (ArithmeticException exception) {
-            throw new IllegalArgumentException("\"Range may produce number bigger than valid range for integer.", exception);
+            throw new IllegalArgumentException("Range may produce number bigger than valid range for integer.", exception);
         }
     }
 
@@ -195,19 +195,18 @@ public final class ValidatorUtils {
 
     public static void validateIfFileIsAccessible(String path) {
         validateIfNotEmpty(path, "path");
-        System.out.println(path);
-        File file = new File(path);
-        if (!file.exists() || !file.canRead() || file.isDirectory()) {
-            throw new IllegalArgumentException(INVALID_PATH);
-        }
+        throwExceptionIfFileIsNotAccessible(new File(path));
+
     }
 
     public static void validateIfPathIsAccessible(Path path) {
         validateIfObjectValueIsNotNull(path, "path");
-        File file = path.toFile();
-        if (Objects.isNull(file) || !file.exists() || !file.canRead() || file.isDirectory()) {
+        throwExceptionIfFileIsNotAccessible(path.toFile());
+    }
+
+    private static void throwExceptionIfFileIsNotAccessible(File file) {
+        if (!file.exists() || !file.canRead() || file.isDirectory()) {
             throw new IllegalArgumentException(INVALID_PATH);
         }
     }
-
 }
