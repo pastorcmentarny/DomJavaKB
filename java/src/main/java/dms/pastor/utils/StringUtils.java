@@ -282,7 +282,7 @@ public final class StringUtils {
         Matcher matcher = pattern.matcher(string.toLowerCase());
 
         int counter = countOccurrences(matcher);
-        return counter >= 0 ? counter : 0;
+        return Math.max(counter, 0);
     }
 
     private static int countOccurrences(Matcher matcher) {
@@ -295,7 +295,7 @@ public final class StringUtils {
 
     static List<String> getCountryList() {
         return Arrays.stream(Locale.getISOCountries())
-            .map(countryCode -> new Locale("", countryCode).getDisplayCountry())
+            .map(countryCode -> new Locale(EMPTY_STRING, countryCode).getDisplayCountry())
             .collect(toList());
     }
 
