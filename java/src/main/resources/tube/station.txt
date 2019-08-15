@@ -125,7 +125,7 @@ Kew Gardens;;V;;2018-05-06;;2018-05-06;;none;;N
 Kilburn;;X;;none;;none;;none;;N
 Kilburn Park;;P;;2017-06-19;;none;;none;;N
 Kingsbury;;P;;2018-08-22;;none;;none;;N
-King's Cross St. Pancras;;V;;2017-01-03;;2017-11-19;;none;;N
+King's Cross St. Pancras;;V;;2017-01-03;;2017-11-19;;2019-07-28;;N
 Knightsbridge;;V;;2019-07-28;;2019-07-28;;2019-07-28;;N
 Ladbroke Grove;;X;;none;;none;;none;;N
 Lambeth North;;X;;none;;none;;none;;N
