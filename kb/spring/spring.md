@@ -24,7 +24,28 @@ It  Configures component scanning directives for use with classes that that are 
 ## @EnableAutoConfiguration
 Spring Boot auto-configuration attempts to automatically configure your Spring application based on the jar dependencies that you have added. For example, If HSQLDB is on your classpath, and you have not manually configured any database connection beans, then we will auto-configure an in-memory database.
 
+# @Component
+register classes as Spring bean which is annotated using @Component annotation.
+ComponentScan But, it only scans @Component and does not look for @Controller, @Service and @Repository in general. They are scanned because they themselves are annotated with @Component.
 
+
+A Spring bean in the service layer should be annotated using @Service instead of @Component annotation and a spring bean in the persistence layer should be annotated with @Repository annotation.
+
+@Controller
+For example, DispatcherServlet will look for @RequestMapping on classes which are annotated using @Controller but not with @Component.
+Here is a nice summary of what does @Component, @Service, @Controller, and @Repository annotation do in Spring Framework:
+@Component is a generic stereotype for any Spring-managed component or bean. 
+@Repository is a stereotype for the persistence layer.
+@Service is a stereotype for the service layer.
+@Controller is a stereotype for the presentation layer (spring-MVC).
+
+
+Read more: https://javarevisited.blogspot.com/2017/11/difference-between-component-service.html#ixzz5v4PMYdLI
+
+## @Repository
+This bean post processor adds an advisor to any bean that’s annotated with @Repository so that any platform-specific exceptions are caught and then rethrown as one of Spring’s unchecked data access exception
+
+Read more: https://javarevisited.blogspot.com/2017/11/difference-between-component-service.html#ixzz5v4OnmsTg
 # SPRING BOOT
 
 ## Failure
@@ -369,3 +390,8 @@ Style Guide
 
 Spring Data is an umbrella that takes care of SQL and NoSQL databases and reduces the effort to use them.
 
+TO add:
+- While AutoConfiguration takes away the pain of configuring common functionalities, the Starter POMs take away pain by finding and adding common dependencies in your project.
+  The actuator is another awesome feature of Spring Boot which allows seeing what's going on inside a running Spring Boot application.
+  
+  Read more: https://javarevisited.blogspot.com/2018/11/top-5-spring-boot-features-java.html#ixzz5v4QQPMI8
