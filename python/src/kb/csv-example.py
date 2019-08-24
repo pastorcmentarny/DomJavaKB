@@ -57,7 +57,7 @@ now = datetime.datetime.now()
 '''
 On Windows, 
 you’ll also need to pass a blank string for the open() function’s newline keyword argument.
- For technical reasons beyond the scope of this book, 
+ For technical reasons beyond the scope of  this book, 
  if you forget to set the newline='' argument,
   the rows in file will be double-spaced,
 '''
