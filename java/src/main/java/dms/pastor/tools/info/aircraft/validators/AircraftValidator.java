@@ -7,7 +7,7 @@ import java.util.Arrays;
 import static dms.pastor.utils.file.TextFileUtils.FIELD_SEPARATOR;
 
 public class AircraftValidator {
-    private static int FIELDS = 14;
+    private static final int FIELDS = 14;
 
     public static void validate(String aircraftAsString) {
         ValidatorUtils.validateIfNotEmpty(aircraftAsString);

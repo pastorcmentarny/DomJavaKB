@@ -329,4 +329,8 @@ public class Game {
             step();
         }
     }
+
+    public Hero getHero() {
+        return hero;
+    }
 }

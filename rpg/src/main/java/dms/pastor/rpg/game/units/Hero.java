@@ -20,6 +20,7 @@ import dms.pastor.rpg.game.items.weapons.Hands;
 import dms.pastor.rpg.game.items.weapons.Weapon;
 import dms.pastor.rpg.game.spells.AcidRainSpell;
 import dms.pastor.rpg.game.units.enemies.Enemy;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -35,6 +36,7 @@ import static dms.pastor.rpg.game.Game.gameOver;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
+@Slf4j
 public class Hero extends Unit implements BattleAction {
     private static Hero hero;
     private Weapon leftHand;
@@ -48,7 +50,6 @@ public class Hero extends Unit implements BattleAction {
 
 
     private Hero() {
-        //FIXME log.setLevel(Config.//FIXME log.LEVEL);
         setName("YOU");
         setDescription("You are a hero who apparently is on the way to home and during your journey you will  discover new life and ");
         this.lvl = 1;
@@ -85,7 +86,7 @@ public class Hero extends Unit implements BattleAction {
 
     @Override
     public final Object clone() throws CloneNotSupportedException {
-        //FIXME log.error("Clone not supported exception!");
+        log.error("Clone not supported exception!");
         throw new CloneNotSupportedException();
     }
 
@@ -103,14 +104,10 @@ public class Hero extends Unit implements BattleAction {
             }
             plainStats.levelUp(bonusPerLevelStats, psycho);
         } else {
-            //FIXME log.info( name + "reaches highest level and cannot be more clever.");
+            log.info(name + "reaches highest level and cannot be more clever.");
         }
-
-
     }
 
-
-    //@Override
     private void calcExpForNextLevel() {
         nextLvlExp = Config.getExpNeededForLevel(lvl);//TODO different type of hear will have different level of learning
 
