@@ -77,8 +77,7 @@ public class TaskController {
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = "application/json")
     public ArrayList<Task> getAllTask(@RequestParam(value = "userId") int userId) {
-        ArrayList<Task> tasks = taskService.getAllTaskForUser();
-        return tasks;
+        return taskService.getAllTaskForUser();
     }
 
 }

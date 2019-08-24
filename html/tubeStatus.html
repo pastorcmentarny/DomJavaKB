@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dom's Tube Status</title>
+    <link href="status.css" rel="stylesheet">
+</head>
+<body>
+
+<script>
+    // Store XMLHttpRequest and the JSON file location in variables
+    var xhr = new XMLHttpRequest();
+    //var url = "https://api.tfl.gov.uk/line/mode/tube,overground,dlr,tflrail,tram/status";
+    var url = "https://api.tfl.gov.uk/line/mode/tube/status"
+    // Called whenever the readyState attribute changes
+    xhr.onreadystatechange = function () {
+
+        // Check if fetch request is done
+        if (xhr.readyState == 4 && xhr.status == 200) {
+
+            // Parse the JSON string
+            var jsonData = JSON.parse(xhr.responseText);
+
+            // Call the showTfL(), passing in the parsed JSON string
+            showTfL(jsonData);
+        }
+    };
+
+    // Do the HTTP call using the url variable we specified above
+    xhr.open("GET", url, true);
+    xhr.send();
+
+    // Function that formats the string with HTML tags, then outputs the result
+    function showTfL(data) {
+        var output = ""; // Open list
+
+        // Loop through the artists, and add them as list items
+        for (var i in data) {
+            if (data[i].name === "Metropolitan" || data[i].name === "Victoria" || data[i].name === "Jubilee") {
+                output += "<tr><td class='" + data[i].id + "'>" + data[i].name + "</td>";
+            }
+
+            var str = "";
+
+            for (var j in data[i].lineStatuses) {
+                if (data[i].name === "Metropolitan" || data[i].name === "Victoria" || data[i].name === "Jubilee") {
+                    str = str + data[i].lineStatuses[j].statusSeverityDescription
+                }
+            }
+            if (data[i].name === "Metropolitan" || data[i].name === "Victoria" || data[i].name === "Jubilee") {
+                output += "<td class='" + data[i].id + "'>" + str + "</td></tr>";
+            }
+        }
+
+        // Output the data to the "artistlist" element
+        document.getElementById("divOut").innerHTML = "<table class='rainbowBoard'>" + output + "</>";
+    }
+
+    K
+</script>
+
+<div id="divOut"></div>
+
+</body>
+</html>
