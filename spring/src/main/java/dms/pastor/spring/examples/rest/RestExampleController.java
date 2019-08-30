@@ -21,9 +21,9 @@ import static dms.pastor.spring.examples.ExamplesURL.REST;
 @Controller
 public class RestExampleController {
 
-    private final AtomicLong counter = new AtomicLong();
     private static final String footer = "Have a nice day!";
     private static final String template = "Good Morning %s !" + footer;
+    private final AtomicLong counter = new AtomicLong();
 
     @GetMapping(REST)
     public

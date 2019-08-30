@@ -19,7 +19,7 @@ public class CustomApplicationEnvironmentPreparedEventListener implements Applic
     @Override
     public void onApplicationEvent(ApplicationEnvironmentPreparedEvent event) {
         LOG.info("))]}> CustomApplicationEnvironmentPreparedEventListener is running now. " +
-            " An ApplicationEnvironmentPreparedEvent is sent when the Environment to be used in the context is known," +
-            " but before the context is created.");
+                " An ApplicationEnvironmentPreparedEvent is sent when the Environment to be used in the context is known," +
+                " but before the context is created.");
     }
 }

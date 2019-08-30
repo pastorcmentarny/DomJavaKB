@@ -42,7 +42,7 @@ public class Message {
         if (o == null || getClass() != o.getClass()) return false;
         Message message1 = (Message) o;
         return getId() == message1.getId() &&
-            Objects.equals(getMessage(), message1.getMessage());
+                Objects.equals(getMessage(), message1.getMessage());
     }
 
     @Override
@@ -53,9 +53,9 @@ public class Message {
     @Override
     public String toString() {
         return "Message{" +
-            "id=" + id +
-            ", message='" + message + '\'' +
-            ", created=" + created +
-            '}';
+                "id=" + id +
+                ", message='" + message + '\'' +
+                ", created=" + created +
+                '}';
     }
 }

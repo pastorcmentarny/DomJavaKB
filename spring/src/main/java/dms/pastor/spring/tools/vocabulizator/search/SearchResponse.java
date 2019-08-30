@@ -15,7 +15,7 @@ public class SearchResponse {
     @Override
     public String toString() {
         return "SearchResponse{" +
-            "result=" + result +
-            '}';
+                "result=" + result +
+                '}';
     }
 }

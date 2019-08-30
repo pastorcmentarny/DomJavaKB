@@ -20,12 +20,12 @@ public class ApplicationRunner {
     public static void main(String[] args) {
 
         new SpringApplicationBuilder()
-            .sources(ApplicationRunner.class) //You pass ApplicationRunner.class as an argument to the run method to tell SpringApplication which is the primary Spring component.
-            .listeners(new CustomApplicationEnvironmentPreparedEventListener(),
-                new CustomApplicationPreparedEventListener(),
-                new CustomApplicationReadyEventListener(),
-                new CustomApplicationFailedEventListener())
-            .run(args); //The args array is also passed through to expose any command-line arguments.
+                .sources(ApplicationRunner.class) //You pass ApplicationRunner.class as an argument to the run method to tell SpringApplication which is the primary Spring component.
+                .listeners(new CustomApplicationEnvironmentPreparedEventListener(),
+                        new CustomApplicationPreparedEventListener(),
+                        new CustomApplicationReadyEventListener(),
+                        new CustomApplicationFailedEventListener())
+                .run(args); //The args array is also passed through to expose any command-line arguments.
     }
 
 }

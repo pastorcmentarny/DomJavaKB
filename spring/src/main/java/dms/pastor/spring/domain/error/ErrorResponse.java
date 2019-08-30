@@ -36,11 +36,11 @@ public class ErrorResponse {
     @Override
     public String toString() {
         return "ErrorResponse{" +
-            "id=" + id +
-            ", errorMessage='" + errorMessage + '\'' +
-            ", caused='" + caused + '\'' +
-            ", solution='" + solution + '\'' +
-            ", moreInfo='" + moreInfo + '\'' +
-            '}';
+                "id=" + id +
+                ", errorMessage='" + errorMessage + '\'' +
+                ", caused='" + caused + '\'' +
+                ", solution='" + solution + '\'' +
+                ", moreInfo='" + moreInfo + '\'' +
+                '}';
     }
 }

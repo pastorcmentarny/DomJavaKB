@@ -29,10 +29,10 @@ public class JsonTestExample {
     public void shouldDeserializeJson() throws Exception {
         // given
         String content = "{\n" +
-            "  \"name\" : \"name\",\n" +
-            "  \"version\" : 1,\n" +
-            "  \"ok\" : true\n" +
-            "}";
+                "  \"name\" : \"name\",\n" +
+                "  \"version\" : 1,\n" +
+                "  \"ok\" : true\n" +
+                "}";
         // when
         final ObjectContent<JsonObject> jsonContent = json.parse(content);
 

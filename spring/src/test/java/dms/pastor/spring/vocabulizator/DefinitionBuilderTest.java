@@ -30,16 +30,16 @@ public class DefinitionBuilderTest {
         final String word = generateString();
 
         String expectedResult = "Definition{" +
-            "word='" + word + '\'' +
-            ", definition='" + meaning + '\'' +
-            ", tags=" + tags +
-            '}';
+                "word='" + word + '\'' +
+                ", definition='" + meaning + '\'' +
+                ", tags=" + tags +
+                '}';
 
         final Definition definition = definitionBuilder()
-            .meaning(meaning)
-            .word(word)
-            .tags(tags)
-            .build();
+                .meaning(meaning)
+                .word(word)
+                .tags(tags)
+                .build();
 
         // then
         assertThat(expectedResult).isEqualTo(definition.toString());
