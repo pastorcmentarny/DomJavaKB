@@ -1,6 +1,8 @@
 package dms.pastor.spring.tools.getdone.model;
 
 import dms.pastor.spring.tools.getdone.commons.State;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -12,6 +14,8 @@ import java.util.concurrent.atomic.AtomicLong;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
+@Getter
+@Setter
 public class Task {
     private static final AtomicLong counter = new AtomicLong();
     private int userId;
@@ -26,20 +30,5 @@ public class Task {
         String title = "NEW TITLE";
         String message = "NEW MESSAGE";
     }
-
-
-    public long getId() {
-        return id;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
 
 }
