@@ -4,6 +4,7 @@ package dms.pastor.utils.vaildators;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -24,7 +25,7 @@ public class UKMobileNumberValidatorTest {
         this.number = number;
     }
 
-    @Parameterized.Parameters
+    @Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
             {FALSE, null}, {FALSE, EMPTY_STRING},

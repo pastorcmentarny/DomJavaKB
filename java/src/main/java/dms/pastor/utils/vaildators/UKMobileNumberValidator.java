@@ -5,6 +5,9 @@ import dms.pastor.utils.StringUtils;
 
 import java.util.Set;
 
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+import static dms.pastor.utils.StringUtils.WHITESPACE;
+
 /**
  * Information based on
  * https://en.wikipedia.org/wiki/Telephone_numbers_in_the_United_Kingdom
@@ -30,7 +33,7 @@ public class UKMobileNumberValidator {
             return false;
         }
 
-        number = number.replaceAll(" ", "").trim();
+        number = number.replaceAll(WHITESPACE, EMPTY_STRING).trim();
 
         if (hasNotExpectedLength(number) || !RegexUtils.hasOnlyNumbersAndPlusAndMinusSign(number)) {
             return false;
