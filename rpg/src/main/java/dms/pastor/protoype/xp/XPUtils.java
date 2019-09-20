@@ -1,8 +1,24 @@
 package dms.pastor.protoype.xp;
 
 
-public class XPUtils {
+import java.util.Objects;
 
+public class XPUtils {
+    public static final int firstNextLevel = 1142; // decrease to 542;
+
+
+    public static int calculateXPNeededFor(int lvl, LearnerType type) {
+        if (lvl < 1 || Objects.isNull(type)) {
+            throw new IllegalArgumentException("Level must be positive number and/or learner type cannot be null");
+        }
+        int xp = 0;
+        int next = firstNextLevel;
+        for (int i = 1; i < lvl; i++) {
+            xp += next;
+            next = (int) (next * type.getModifier());
+        }
+        return xp;
+    }
 
     public static int getXPForKill(int totalKills) {
         if (totalKills < 0) {

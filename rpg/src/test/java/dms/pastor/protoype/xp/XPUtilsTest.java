@@ -4,11 +4,13 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import static dms.pastor.protoype.xp.LearnerType.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /*
     Rules:
     XP gain for kill monster is 128,96,64,(-1/per monster kills)
+    Game should be able to finish around 50
  */
 public class XPUtilsTest {
 
@@ -22,7 +24,7 @@ public class XPUtilsTest {
         // given
         int totalKills = -1;
         // when
-        final var xp = XPUtils.getXPForKill(totalKills);
+        XPUtils.getXPForKill(totalKills);
 
     }
 
@@ -165,4 +167,147 @@ public class XPUtilsTest {
         // then
         assertThat(xp).isEqualTo(1);
     }
+
+
+    @Test
+    public void calculateXPNeededForShouldThrowExceptionIfLevelIsNegative() {
+        // expect
+        expectedException.expect(IllegalArgumentException.class);
+        // given
+        int level = -1;
+        // when
+        XPUtils.calculateXPNeededFor(level, AVERAGE_LEARNER);
+    }
+
+    @Test
+    public void calculateXPNeededForShouldThrowExceptionIfLevelIsZero() {
+        // expect
+        expectedException.expect(IllegalArgumentException.class);
+        // given
+        int level = 0;
+        // when
+        XPUtils.calculateXPNeededFor(level, LearnerType.SLOW_LEARNER);
+    }
+
+    @Test
+    public void calculateXPNeededForShouldThrowExceptionIfLearnerTypeIsNull() {
+        // expect
+        expectedException.expect(IllegalArgumentException.class);
+        // given
+        int level = 1;
+        // when
+        XPUtils.calculateXPNeededFor(level, null);
+    }
+
+
+    @Test
+    public void calculateXPNeededForShouldReturn0ForLevel1() {
+        // given
+        int level = 1;
+        // when
+        final var xp = XPUtils.calculateXPNeededFor(level, AVERAGE_LEARNER);
+        // then
+        assertThat(xp).isZero();
+    }
+
+    @Test
+    public void calculateXPNeededForShouldReturn1142ForLevel2() {
+        // given
+        int level = 2;
+        // when
+        final var xp = XPUtils.calculateXPNeededFor(level, AVERAGE_LEARNER);
+        // then
+        assertThat(xp).isEqualTo(1142);
+    }
+
+    @Test
+    public void calculateXPNeededForShouldReturn2398ForLevel3() {
+        // given
+        int level = 3;
+        // when
+        final var xp = XPUtils.calculateXPNeededFor(level, AVERAGE_LEARNER);
+        // then
+        assertThat(xp).isEqualTo(2398);
+    }
+
+    @Test
+    public void calculateXPNeededForShouldReturn3779ForLevel4() {
+        // given
+        int level = 4;
+        // when
+        final var xp = XPUtils.calculateXPNeededFor(level, AVERAGE_LEARNER);
+        // then
+        assertThat(xp).isEqualTo(3779);
+    }
+
+    @Test
+    public void calculateXPNeededForShouldReturn7935ForLevel5() {
+        // given
+        int level = 5;
+        // when
+        final var xp = XPUtils.calculateXPNeededFor(level, AVERAGE_LEARNER);
+        // then
+        assertThat(xp).isEqualTo(5298);
+    }
+
+    @Test
+    public void calculateXPNeededForShouldReturn7935ForLevel10() {
+        // given
+        int level = 10;
+        // when
+        final var xp = XPUtils.calculateXPNeededFor(level, AVERAGE_LEARNER);
+        // then
+        assertThat(xp).isEqualTo(15491);
+    }
+
+    @Test
+    public void calculateXPNeededForShouldReturn123226ForLevel25ForSlowLearner() {
+        // given
+        int level = 25;
+        // when
+        final var xp = XPUtils.calculateXPNeededFor(level, SLOW_LEARNER);
+        // then
+        assertThat(xp).isEqualTo(134597);
+    }
+
+    @Test
+    public void calculateXPNeededForShouldReturn123226ForLevel25ForAverageLearner() {
+        // given
+        int level = 25;
+        // when
+        final var xp = XPUtils.calculateXPNeededFor(level, AVERAGE_LEARNER);
+        // then
+        assertThat(xp).isEqualTo(100811);
+    }
+
+    @Test
+    public void calculateXPNeededForShouldReturn123226ForLevel25ForCleverLearner() {
+        // given
+        int level = 25;
+        // when
+        final var xp = XPUtils.calculateXPNeededFor(level, CLEVER_LEARNER);
+        // then
+        assertThat(xp).isEqualTo(87303);
+    }
+
+    @Test
+    public void calculateXPNeededForShouldReturn123226ForLevel25ForGeniusLearner() {
+        // given
+        int level = 25;
+        // when
+        final var xp = XPUtils.calculateXPNeededFor(level, GENIUS_LEARNER);
+        // then
+        assertThat(xp).isEqualTo(66130);
+    }
+
+    @Test
+    public void calculateXPNeededForShouldReturn142554361ForLevel100() {
+        // given
+        int level = 100;
+        // when
+        final var xp = XPUtils.calculateXPNeededFor(level, AVERAGE_LEARNER);
+        // then
+        assertThat(xp).isEqualTo(142554361);
+    }
+
 }
