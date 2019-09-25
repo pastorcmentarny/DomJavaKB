@@ -5,6 +5,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import java.time.LocalTime;
 import java.util.Date;
 
 import static dms.pastor.utils.DateUtils.*;
@@ -223,6 +224,64 @@ public class DateUtilsTest {
 
         // then
         assertThat(result).isEqualTo(1);
+    }
+
+    @Test
+    public void shouldReturnNullForNull12HourClockString() {
+        // given
+
+        // when
+        final var result = getLocalTimeFrom12HourClockString(null);
+        // then
+        assertThat(result).isNull();
+    }
+
+    @Test
+    public void shouldReturn900For9amClockString() {
+        // given
+        final LocalTime expectedResult = LocalTime.of(9, 0);
+
+        // when
+        final var result = getLocalTimeFrom12HourClockString("9.00am");
+
+        // then
+        assertThat(result).isEqualTo(expectedResult);
+    }
+
+    @Test
+    public void getLocalTimeFrom12HourClockStringShouldAcceptDotAsDivider() {
+        // given
+        final LocalTime expectedResult = LocalTime.of(10, 30);
+
+        // when
+        final var result = getLocalTimeFrom12HourClockString("10.30am");
+
+        // then
+        assertThat(result).isEqualTo(expectedResult);
+    }
+
+    @Test
+    public void getLocalTimeFrom12HourClockStringShouldAcceptColonAsDivider() {
+        // given
+        final LocalTime expectedResult = LocalTime.of(10, 45);
+
+        // when
+        final var result = getLocalTimeFrom12HourClockString("10:45am");
+
+        // then
+        assertThat(result).isEqualTo(expectedResult);
+    }
+
+    @Test
+    public void shouldReturn1800For6pmClockString() {
+        // given
+        final LocalTime expectedResult = LocalTime.of(18, 0);
+
+        // when
+        final var result = getLocalTimeFrom12HourClockString("6.00pm");
+
+        // then
+        assertThat(result).isEqualTo(expectedResult);
     }
 
 }

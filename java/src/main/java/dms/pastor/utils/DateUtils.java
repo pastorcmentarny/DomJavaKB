@@ -1,9 +1,11 @@
 package dms.pastor.utils;
 
 import java.time.*;
+import java.time.format.DateTimeFormatterBuilder;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.LinkedHashSet;
+import java.util.Objects;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.ValidatorUtils.validateIfObjectValueIsNotNull;
@@ -26,6 +28,7 @@ public final class DateUtils {
     public static final int MINUTE = 60 * SECOND;
     public static final int HOUR = 60 * MINUTE;
     private static final int HOURS_PER_DAY = 24;
+    private static final String ISO8601_MILLIS = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
 
     private DateUtils() {
         //Utility class
@@ -117,5 +120,15 @@ public final class DateUtils {
 
     public static int getMonthBetweenNowAnd(LocalDate date) {
         return Math.toIntExact(ChronoUnit.MONTHS.between(date, LocalDate.now()));
+    }
+
+
+    public static LocalTime getLocalTimeFrom12HourClockString(String time) {
+        if (Objects.isNull(time)) return null;
+        String divider = ".";
+        if (time.contains(":")) {
+            divider = ":";
+        }
+        return LocalTime.parse(time.toLowerCase(), new DateTimeFormatterBuilder().appendPattern("h" + divider + "mma").toFormatter());
     }
 }
