@@ -215,7 +215,7 @@ Southwark;;P;;2017-02-11;;none;;none;;N
 Stamford Brook;;P;;2017-06-10;;none;;none;;N
 Stanmore;;V;;2018-08-22;;2018-08-22;;none;;N
 Stepney Green;;P;;2019-01-19;;none;;none;;N
-Stockwell;;P;;2017-11-01;;none;;none;;N
+Stockwell;;P;;2017-11-01;;2019-09-23;;2019-09-23;;N
 Stonebridge Park;;P;;2017-06-19;;none;;none;;N
 Stratford;;V;;2017-05-09;;2017-05-09;;none;;N
 Sudbury Hill;;P;;2017-06-10;;none;;none;;N
