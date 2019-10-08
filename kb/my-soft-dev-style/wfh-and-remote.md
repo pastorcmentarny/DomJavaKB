@@ -23,3 +23,24 @@
 6.  People don't have to say when they are working.
 7.  Working long hours or weekends is not encouraged nor celebrated.
 8.  Encourage teamwork and saying thanks.
+
+
+this: Working remotely once a week will allow me to dive deeper into the projects that I’m working on, give full attention to my professional goals, and attain the flexibility to work during the hours in which I am most productive.
+
+Say this: Over the past three quarters, I have exceeded my sales goals by X%. I know that if I were able to work remotely one day a week I could increase that number to X because of the flexibility my remote schedule would create. Working remotely once a week would also give me the ability to attend a professional development class in the morning, and work in the evenings when I am more productive. 
+
+To be a successful remote worker, you must be productive when you’re by yourself.
+
+A remote workplace is, essentially, a results-based workplace
+Close your laptop and mean it at the end of the day. Work will always be there tomorrow.
+
+Once a week I have “deep work Wednesday”, where I aim to have little to no meetings, and use lengths of unscheduled time to read and reflect on high-level vision and strategy. 
+
+
+MAKE BIG DECISIONS IN MEETINGS, RATHER THAN IN ASYNCHRONOUS CHATS
+
+Don’t make decisions in Slack.
+
+Furthermore, her teams use online document tools to issue RFCs and to develop structured, written decision-making that can happen asynchronously.
+
+Armandpour has also found an asynchronous, global, weekly stand-up helpful for keeping everyone’s finger on the pulse of the organization.

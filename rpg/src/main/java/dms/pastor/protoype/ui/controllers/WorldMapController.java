@@ -1,6 +1,6 @@
-package dms.pastor.rpg.ui.controllers;
+package dms.pastor.protoype.ui.controllers;
 
-import dms.pastor.rpg.ui.services.PlayerService;
+import dms.pastor.protoype.ui.services.PlayerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -1,4 +1,4 @@
-package dms.pastor.spring.tools.getdone.commons;
+package dms.pastor.spring.commons.exceptions;
 
 /**
  * Author Dominik Symonowicz

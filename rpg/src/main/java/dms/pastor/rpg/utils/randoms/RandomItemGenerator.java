@@ -1,4 +1,4 @@
-package dms.pastor.rpg.utils;
+package dms.pastor.rpg.utils.randoms;
 
 import dms.pastor.rpg.game.items.Item;
 import dms.pastor.rpg.game.items.rings.Ring;

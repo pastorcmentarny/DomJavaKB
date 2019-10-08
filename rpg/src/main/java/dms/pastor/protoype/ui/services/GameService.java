@@ -1,4 +1,4 @@
-package dms.pastor.rpg.ui.services;
+package dms.pastor.protoype.ui.services;
 
 import dms.pastor.rpg.game.Game;
 import org.springframework.stereotype.Service;

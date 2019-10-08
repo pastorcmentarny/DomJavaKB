@@ -38,3 +38,4 @@
     -   Issues raised in email communications, etc.
     -   know your critical points on the map
 9.  In a nutshell, perceived performance is really all about understanding how the user experiences UI performance, not the actual performance metrics. User feedback, or some sort of response to user input, is probably the most critical factor to having an app that seems to perform well.    A better way of handling this would be to request data in a background thread (so it does not lock up the UI) and present the user with some sort of visual cue that an action is being performed.
+10. -The overriding principle here is that your UX should always immediately respond to user input in some way.

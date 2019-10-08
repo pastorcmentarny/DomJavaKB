@@ -29,7 +29,10 @@
 
 ## VCS (GIT only)
 
-1.  A Git commit message is the best way to communicate context about why code was changed, while diff tells you what. 
+0.  A Git commit message is the best way to communicate context about why code was changed, while diff tells you what. 
+0. git reset
+   git revert
+   the biggest difference between git reset and git revert is that git reset will reset the state of the branch to a previous state by dropping all the changes post the desired commit while git revert will reset to a previous state by creating new reverting commits and keep the original commits. It's recommended to use git revert instead of git reset in enterprise environment. 
 
 ##  DEBUGGING:
 1.  Debugging issues is the skill of diving into only those component parts that might possibly be causing the observed undesirable behavior. 
@@ -175,3 +178,4 @@
 38. Boolean.getBoolean() doesn't do what you think.
 39. List<String> IS NOT a subtype of List<Object> (good for compile-time type safety ,but inflexible.
 0. the code restorer.This is where the code restorer comes in, somebody whose job isn’t to “recreate the same thing but better” (a common wish that almost always fails), but rather to take the existing codebase and slowly reshape it to make it manageable again. Add some tests here, break down that ugly class there, remove unused functionality, and give it back improved.
+0. Coding guidelines help us to write consistent code. It should not matter which developer in your team has written the code you are looking at. Coding guidelines are only useful if every team member takes them seriously. That’s why the whole team has to agree on the guidelines once they are finished.

@@ -1,4 +1,4 @@
-package dms.pastor.rpg.ui.controllers;
+package dms.pastor.protoype.ui.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -549,6 +549,10 @@ Use When
 Example
 Ledger applications often provide a way for users to reconcile their bank statements with their ledger data on demand, automating much of the process. The actual operation of communicating with a third party is a relatively expensive operation that should be limited. By using a proxy to represent the communications object we can limit the number of times or the intervals the communication is invoked. In addition, we can wrap the complex instantiation of the communication object inside the proxy class, decoupling calling code from the implementation details.
 
+## RETRY PATTERN
+
+the replay pattern as remedy for.network or app hiccups for short time
+
 ##STRANGLER PATTERN TODO rewrite it
 
 ###Problem.
@@ -646,3 +650,13 @@ Aspect Oriented Programming(AOP) is the important part of the Spring Framework. 
 
 
 
+Hexagonal Architecture (ports and adapters). 
+
+
+Linked List
+The LinkedList data structure contains an ordered set of data elements (know as nodes) such that each element contains a link or reference to its successor (next element). The last element (or tail) of the sequence points to a null element. The linked list itself contains a reference to the first element of the list, which is called the head element. LinkedList in Java is a doubly-linked list implementation of the List interface. In a doubly-linked list, every node points to its previous and next node. Other interfaces it implements are Serializable, Cloneable, and Deque (with super-interface as Queue). 
+
+ArrayList
+ArrayList is a resizable-array implementation of the List interface. It is internally implemented as an object array, which can increase the size as necessary to support more number of elements in the collection. It is possible to specify the initial capacity of an ArrayList through the constructor ArrayList(int initialCapacity)  and later increases the capacity using  void ensureCapacity(int minCapacity), if necessary, to ensure that it can hold at least the number of elements specified by the minimum capacity argument.
+
+An ArrayList is faster and better as it supports random access to its elements. Traversing a linked list or inserting an item in the middle is very expensive as you have to iterate over each item and is very likely to have cache misses. If you need to perform processing on multiple items of the list in a single iteration then the overhead of iterations can be lesser inLinkedList  than that of anArrayList  which involves copying array element multiple times.

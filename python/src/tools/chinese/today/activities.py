@@ -74,7 +74,9 @@ def get_weekend_routine(meal):
 def get_daily_activity_for(date, weather_description_1, weather_description_2, meal, steps):
     day = ''
     day_of_the_week = date.weekday()
-
+    hour = 0
+    minute = 0
+    breakfast = ''
     if day_of_the_week in range(dow['monday'], thursday()):
         hour = 6
         minute = 15

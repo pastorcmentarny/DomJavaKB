@@ -1,4 +1,4 @@
-package dms.pastor.rpg.ui.services;
+package dms.pastor.protoype.ui.services;
 
 import dms.pastor.rpg.game.units.Hero;
 import lombok.extern.slf4j.Slf4j;

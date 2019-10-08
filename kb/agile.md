@@ -27,7 +27,7 @@ together daily throughout the project. As work Business – devlopers ,face-to-f
 2.  An alternative way of doing standup. Start with the highest priority story on your board for the current sprint. Ask, “What happened to move this story closer to done yesterday?” The people who worked on it will answer. Next ask, “What impediments are keeping this story from getting done?” Again, the appropriate people will speak up. Finally ask, “What are we going to do to get this story done (or close to done) today?” The people already working on it will probably jump in. Others, now knowing more about the state of the story and what’s needed to get it done, may also offer to contribute. Move to the next highest priority story and repeat. Continue until you reach stories that are not started and won’t be started today." by Bob Hartman
 3.  Never use word fast use straightforward instead.
 4.  The daily stand-up meeting is not a status reporting meeting. Is something changed in priority?
-
+5. standup is a mechanism for getting feedback,is for a conversation it is not for MANANGMENT or status update
 There are a two ways of doing.
 * 45 second per person/pair
 * (TODO)The sequence continues from right-to-left, top-to-bottom, people describing what is happening with each of the work items, and others chiming in if they can help resolve obstacles. On the side, the team leader is recording the raised obstacles on the improvement board.
@@ -151,6 +151,8 @@ Everybody who wants/need to know about the day-to-day operation of the project s
         -   Cannot about specific person.
     -   In the retrospective, you can uncover major or recurring security problems.
     -   ```#NoRetro```: There is no retrospective as the team believes there is nothing to improve. There is no such thing as an Agile Nirvana where everything is just perfect. As people say: Becoming Agile is a journey, not a destination.
+0.  , we often start our conversations sharing good news or gratitude about something.
+    
 
 A retrospective
 Inspect how the last Sprint went with regards to people, relationships, process, and tools;

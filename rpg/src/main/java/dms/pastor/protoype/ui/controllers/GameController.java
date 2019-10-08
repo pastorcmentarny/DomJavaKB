@@ -1,6 +1,6 @@
-package dms.pastor.rpg.ui.controllers;
+package dms.pastor.protoype.ui.controllers;
 
-import dms.pastor.rpg.ui.services.GameService;
+import dms.pastor.protoype.ui.services.GameService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

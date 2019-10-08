@@ -39,3 +39,47 @@
 32. Stimulus and response have to go together in order for an association to be made. If Pavlov rang the bell then fed his dogs an hour later they'd never make the connection. That's why we don't make the connection between the bugs we write when they're found, weeks later, by QA.
 33. Run stability tests. Close to average load should be produced against the system for at least 12 hours. This is the real test of how the GC behaves.
 0.  Don't let your tests micromanage your code. 
+0.  Dan North says, “The goal of testing is to increase the confidence for stakeholders through evidence”. Evidence can be provided by our tests. Increasing doesn’t necessarily mean to reach the 100%. I
+piramid test 
+this contrived example you would need
+
+Almost no unit tests because there is no business logic
+
+Lots and lots of integration tests for the external communications, the db storage, the invoice system
+
+No UI Tests because there is a no UI
+
+here for example is a lot integration test
+
+
+it is not about piramind is about right amount of tests foe specific scenario
+
+ Critical code - This is the code that breaks often, gets most of new features and has a big impact on application users
+Core code - This is the code that breaks sometimes, gets few new features and has medium impact on the application users
+Other code - This is code that rarely changes, rarely gets new features and has minimal impact on application users.
+
+
+
+
+Try to write tests that work towards 100% coverage of critical code. If you have already done this, then try to write tests that work towards 100% of core code. Trying however to get 100% coverage on total code is not recommended.
+
+In summary, write unit and integration tests for code that
+
+breaks often
+
+changes often
+
+is critical to the business
+
+if you find yourself routinely changing existing tests just to make them pass when a new feature is added then your tests are not testing what they should be testing.
+
+converting production bugs to test
+
+
+if youbjoin to legacy project for pay attention to the existing bugs and try to cover them with tests. After a while your tests will have covered the critical part of the code, since by definition all tests have verified things that break often. 
+
+add this link TO KBhttp://blog.codepipes.com/testing/software-testing-antipatterns.html
+
+Automate input validation tests, as well as verification authentication and authorization features.
+. Encode every single bug you find as a test, to ensure that you’ll notice if you ever encounter it again.
+

@@ -1,0 +1,9 @@
+Standardize and automate the environment. Each service should have the least privilege possible to minimize unauthorized connections and access.
+Centralize user identity and access control capabilities.Tight access control and centralized authentication mechanisms are essential for securing microservices, since authentication is initiated at multiple points.
+Isolate containers running microservices from each other and the network.This includes both in transit and at rest data, since both can represent high-value targets for attackers.
+Encrypt data between apps and services.A container orchestration platform with integrated security features helps minimize the chance of unauthorized access.
+Introduce secure API gateways.Secure APIs increase authorization and routing visibility. By reducing exposed APIs, organizations can reduce surfaces of attacks.
+CICD. Integrate security scanners for containers. This should be part of the process for adding containers to the registry.
+CICD Automate security testing in the CI process. This includes running security static analysis tools as part of builds, as well as scanning any pre-built container images for known security vulnerabilities as they are pulled into the build pipeline.
+CICD Add automated tests for security capabilities into the acceptance test process.Add automated tests for security capabilities into the acceptance test process.Automate input validation tests, as well as verification authentication and authorization features.
+I’ve added a feature, if I find myself itching to try it out by hand, I’ve learned to recognize that urge, pause, and step back and write an automated test covering whatever behavior I was about to execute by hand.Manual testing is often quick and easy and satisfying – you can directly test your application, one can see the results immediately on your screen, However, it’s also largely-wasted effort! 

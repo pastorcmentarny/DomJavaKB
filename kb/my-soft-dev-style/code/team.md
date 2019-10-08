@@ -109,3 +109,11 @@
     -   How would I have written that block of code? 
 7.  There are core languages/framework/tools that you use every day. It is a good habit to be up to date with what’s new in new versions of these things are released, it’s worth investing the time to learn about them.
 8.  Programming is a creative art based on logic. Every programmer is different so it codes differently. The output is what matters. Always maintain constantly shippable code. Always provide defaults for load things. As soon as u see a bug, fix it.
+0.  When you invastigate what went wrong. why do i want do this ? 5 times\
+0.  15-minute coffee & learn sessions
+0.  The “10 things about you” list
+0. Chorei? While the goal of a daily team standup is generally to get status updates on project progress, discuss blockers, or distribute the day’s tasks, the Chorei asks for mandatory attendance from all employees for a number of different reasons: To get everyone on the same page about the company’s top priorities  To share any important organization-wide updates. To coordinate on schedules and cross-team collaboration. To repeat the company values or vision and unite on those pillars. To state goals or intentions, whether from individuals who want to share or as a team To get motivated and excited for the workday ahead
+
+
+
+

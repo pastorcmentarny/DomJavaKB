@@ -15,3 +15,14 @@ TODO:
 - https://dzone.com/articles/microservices-architecture-with-spring-boot-and-sp
 - (spring) https://springframework.guru/reactive-streams-in-java/
 - use mustache as template engine https://mustache.github.io/#demo https://www.baeldung.com/spring-boot-mustache
+x.replaceAll("[\\r\\n]+\\s", "")
+The cloud intends to make it easy to provision infrastructure when you need it, and just as easy to release it when you don't. 
+
+
+Does this help you?
+
+Did that answer your question? And does it make sense?
+
+Anything else that I can help with today?
+
+

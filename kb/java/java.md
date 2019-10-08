@@ -970,6 +970,32 @@ method visibility (e.g. public/private/other)
 
 5. Since String is immutable, its hashcode is cached at the time of creation, and it doesn’t need to be calculated again. This makes it a great candidate for a key in a map, and it’s processing is fast than other HashMap key objects. This is why String is the most-used object of HashMap  keys.
 
+java
+Immutable objects offer a number of advantages for building reliable applications. As we don’t need to write defensive or protective code to keep application state consistent, our code can be simpler, more concise, and less error-prone than when we define mutable objects.
+
+Some of the key benefits of immutable objects are:
+
+Thread safety
+
+Atomicity of failure
+
+Absence of hidden side-effects
+
+Protection against null reference errors
+
+Ease of caching
+
+Prevention of identity mutation
+
+Avoidance of temporal coupling between methods
+
+Support for referential transparency
+
+Protection from instantiating logically-invalid objects
+
+Protection from inadvertent corruption of existing objects
+
+
 
 Things to add:
 *  Only private constructors are allowed in enum types
@@ -1045,3 +1071,16 @@ than:
 
  Source: http://java67.blogspot.sg/2012/08/difference-between-treemap-and-treeset-java.html
  
+ 
+ The Z Garbage Collector
+ 
+ What Is the Z Garbage Collector?
+ 
+ ZGC is a low-latency GC designed to work well with huge amounts of memory. The Oracle documentation refers to multi-terabyte heaps in its description of Z. Oracle introduced ZGC in Java 11. In Java 12, Oracle added performance fixes and class unloading even though Z is still in experimental status. It's only available on 64-bit Linux.
+ 
+ Shenandoah
+ What Is Shenandoah?
+ Shenandoah is another garbage collector with low pause times. These times are short and predictable, regardless of the size of the heap. 
+ 
+ How Does Shenandoah Work?
+ Shenandoah's design trades concurrent CPU cycles and space for pause time improvements. The forwarding pointer makes it easy to move objects, but the aggressive moves mean Shenandoah uses more memory and requires more parallel work than other GCs. But it does the extra work with very brief stop-the-world pauses.https://dzone.com/articles/java-garbage-collection-3?edition=479246&utm_source=Zone%20Newsletter&utm_medium=email&utm_campaign=java%202019-05-07

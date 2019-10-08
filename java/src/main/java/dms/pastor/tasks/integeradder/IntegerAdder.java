@@ -37,7 +37,7 @@ class IntegerAdder {
              BufferedReader br = new BufferedReader(isr)) {
             String strLine;
             while ((strLine = br.readLine()) != null) {
-                sum += Integer.valueOf(strLine);
+                sum += Integer.parseInt(strLine);
             }
         }
         return sum;

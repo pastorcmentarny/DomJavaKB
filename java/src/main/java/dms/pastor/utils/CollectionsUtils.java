@@ -83,4 +83,11 @@ public final class CollectionsUtils {
         return false;
 
     }
+
+
+    public static void main(String[] args) {
+        final List<String> list = Arrays.asList("One", "Two", "Three", "Four");
+        Collections.reverse(list);
+        System.out.println(list);
+    }
 }

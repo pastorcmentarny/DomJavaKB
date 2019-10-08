@@ -17,7 +17,7 @@ import dms.pastor.utils.ValidatorUtils;
  * <p>
  * Created ?
  * <p>
- * Runs application.Nothing excited .Is it?
+ * Runs application.Nothing excited. Is it?
  */
 final class AppRunner {
 
