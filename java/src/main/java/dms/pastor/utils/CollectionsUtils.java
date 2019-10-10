@@ -84,6 +84,16 @@ public final class CollectionsUtils {
 
     }
 
+    public static List<String> convertToStringArray(char[] charArray) {
+        if (charArray == null) {
+            return null;
+        }
+        List<String> list = new ArrayList<>();
+        for (char c : charArray) {
+            list.add(String.valueOf(c));
+        }
+        return list;
+    }
 
     public static void main(String[] args) {
         final List<String> list = Arrays.asList("One", "Two", "Three", "Four");

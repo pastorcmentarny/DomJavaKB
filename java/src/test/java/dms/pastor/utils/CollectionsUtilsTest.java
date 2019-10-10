@@ -194,7 +194,7 @@ public class CollectionsUtilsTest {
     @Test
     public void convertToStringArrayShouldReturnEmptyStringArrayForNull() {
         // when
-        final String[] result = convertToStringArray(null);
+        final String[] result = convertToStringArray((ArrayList<String>) null);
 
         // then
         assertThat(result).isEmpty();
@@ -220,6 +220,55 @@ public class CollectionsUtilsTest {
 
         // then
         assertThat(result).isEqualTo(expectedResult);
+    }
+
+    @Test
+    public void convertToStringArrayFromCharArrayShouldReturnNullIfCharArrayIsNull() {
+        // when
+        final List<String> stringArrayFromCharArray = convertToStringArray((char[]) null);
+
+        // then
+        assertThat(stringArrayFromCharArray).isNull();
+    }
+
+    @Test
+    public void convertToStringArrayFromCharArrayShouldReturnEmptyIfCharArrayIsEmpty() {
+        // when
+        final List<String> stringArrayFromCharArray = convertToStringArray((new char[0]));
+
+        // then
+        assertThat(stringArrayFromCharArray).isEmpty();
+    }
+
+    @Test
+    public void convertToStringArrayFromCharArrayAcceptanceTest() {
+        // given
+        char[] charArray = ": is a colon sign.".toCharArray();
+        List<String> expectedResult = new ArrayList<>();
+        expectedResult.add(":");
+        expectedResult.add(" ");
+        expectedResult.add("i");
+        expectedResult.add("s");
+        expectedResult.add(" ");
+        expectedResult.add("a");
+        expectedResult.add(" ");
+        expectedResult.add("c");
+        expectedResult.add("o");
+        expectedResult.add("l");
+        expectedResult.add("o");
+        expectedResult.add("n");
+        expectedResult.add(" ");
+        expectedResult.add("s");
+        expectedResult.add("i");
+        expectedResult.add("g");
+        expectedResult.add("n");
+        expectedResult.add(".");
+
+        // when
+        final List<String> stringArrayFromCharArray = convertToStringArray(charArray);
+
+        // then
+        assertThat(stringArrayFromCharArray).isEqualTo(expectedResult);
     }
 
 }
