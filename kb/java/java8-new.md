@@ -150,7 +150,7 @@ Optional is a class.It increase memory use  and reduce performance  a bit.
 * Don't use as parameters.
 * Don't use ifPresent method use orElse instead
 * One thing to note is the specialised versions (e.g. OptionalInt) do not have an ofNullable, although we can still do a test and manually get an OptionalInt.empty() if we want.
-
+* rElseGet() is that orElse() will always be executed if the Optional<T> is null or not. But orElseGet() will only be executed when Optional<T> is null.
 ## DATE AND TIME
 New  Date and Time Api Java 8 has very useful property: Immutability which means thread safe.
 Use specific class implementation (LocalDate,LocatTime ) that match your need.

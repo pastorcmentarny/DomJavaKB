@@ -82,7 +82,7 @@ _I am not the author of these definitions so check resources section for the ori
  
 ### What is JVM?
  A Java virtual machine (JVM) is a process that can execute Java bytecode. 
- 
+ https://dzone.com/articles/jvm-architecture-explained
 #### What does the “static” keyword mean?
  	It indicates that field, method or class has a single instance for the whole class that defines it and A static variable in Java belongs to its class and its value remains the same for all its instances.
  

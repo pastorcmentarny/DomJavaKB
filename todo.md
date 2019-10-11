@@ -1,8 +1,4 @@
 TODO:
-- DCG
-        make game playable
-        improve main (game,in,out)
-        accept AAEFW as way to input
 - Create TextFileSaver   
 - FilePath
 - xml compressor remove all spaces and new spaces replace names of tag with shorter version 
@@ -10,19 +6,9 @@ TODO:
 - Randomly display good method name
 - add this task https://www.javacodegeeks.com/2017/02/interview-questions-verify-braces.html
 - run stats  how often play balls that were selected and when they played last time
-- random data generator  output as json xml csv
-- Java 10 Immutable/Unmodifiable Stream API Collectors https://dzone.com/articles/java-10-immutableunmodifiable-stream-api-collector
+- random data generator output as json xml csv
 - https://dzone.com/articles/microservices-architecture-with-spring-boot-and-sp
 - (spring) https://springframework.guru/reactive-streams-in-java/
 - use mustache as template engine https://mustache.github.io/#demo https://www.baeldung.com/spring-boot-mustache
 x.replaceAll("[\\r\\n]+\\s", "")
 The cloud intends to make it easy to provision infrastructure when you need it, and just as easy to release it when you don't. 
-
-
-Does this help you?
-
-Did that answer your question? And does it make sense?
-
-Anything else that I can help with today?
-
-

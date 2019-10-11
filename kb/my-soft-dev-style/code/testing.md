@@ -41,7 +41,11 @@
 0.  Don't let your tests micromanage your code. 
 0.  Dan North says, “The goal of testing is to increase the confidence for stakeholders through evidence”. Evidence can be provided by our tests. Increasing doesn’t necessarily mean to reach the 100%. I
 piramid test 
-this contrived example you would need
+0. A test is not a unit test if:   
+   0. communicates to the database
+   0. It communicates via the network
+   0. deal with the file system
+   0. Is depends on any of your other unit tests****
 
 Almost no unit tests because there is no business logic
 
