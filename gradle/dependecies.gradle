@@ -7,7 +7,6 @@ project.ext {
             ],
             springBoot: [
                     dependencies.create("org.springframework.boot:spring-boot-starter-actuator:$springBootVersion"),
-                    dependencies.create("org.springframework.boot:spring-boot-starter-data-mongodb:$springBootVersion"),
                     dependencies.create("org.springframework.boot:spring-boot-devtools:$springBootVersion"),
                     dependencies.create("org.springframework.boot:spring-boot-starter-mail:$springBootVersion"),
                     dependencies.create("org.springframework.boot:spring-boot-starter-thymeleaf:$springBootVersion"),

@@ -1,6 +1,6 @@
 package dms.pastor.utils;
 
-import dms.pastor.game.dcs.conditions.ConditionType;
+import dms.pastor.prototype.dcs.conditions.ConditionType;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;

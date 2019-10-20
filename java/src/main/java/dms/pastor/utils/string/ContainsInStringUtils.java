@@ -32,6 +32,7 @@ public final class ContainsInStringUtils {
             for (char character : characters) {
                 if (characterFromArray == character) {
                     characterFound = true;
+                    break;
                 }
             }
             if (!characterFound) {

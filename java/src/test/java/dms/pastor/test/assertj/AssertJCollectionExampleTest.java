@@ -1,7 +1,6 @@
 package dms.pastor.test.assertj;
 
 import dms.pastor.game.dcs.units.Unit;
-import dms.pastor.game.dcs.units.enemies.*;
 import org.junit.Test;
 
 import java.util.ArrayList;

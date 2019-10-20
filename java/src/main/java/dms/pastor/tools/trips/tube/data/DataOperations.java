@@ -23,7 +23,7 @@ import java.util.List;
 public final class DataOperations {
     private static final Logger LOGGER = LoggerFactory.getLogger(DataOperations.class);
 
-    public static final Path STATION_PATH = new File(DataOperations.class.getClassLoader().getResource("tube/station.txt").getPath()).toPath();
+    public static final Path STATION_PATH = new File(DataOperations.class.getClassLoader().getResource("transport/tube/station.txt").getPath()).toPath();
 
 
     private DataOperations() {

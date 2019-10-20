@@ -8,7 +8,7 @@ Archway;;V;;2019-07-28;;2019-07-28;;2019-07-28;;N
 Arnos Grove;;X;;none;;none;;none;;N
 Arsenal;;X;;none;;none;;none;;N
 Baker Street;;V;;2017-01-03;;2017-12-21;;none;;N
-Balham;;P;;2019-06-19;;2019-09-26;;2019-09-26;;N
+Balham;;V;;2019-06-19;;2019-09-26;;2019-09-26;;N
 Bank;;V;;2017-11-01;;2019-01-08;;2019-01-08;;N
 Barbican;;P;;2017-01-03;;2017-06-05;;none;;N
 Barking;;P;;2019-01-19;;none;;none;;N
@@ -73,7 +73,7 @@ Elephant & Castle;;P;;2017-11-01;;none;;none;;N
 Elm Park;;P;;2019-01-19;;none;;none;;N
 Embankment;;V;;2017-02-02;;2019-01-03;;2019-01-03;;N
 Epping;;V;;2019-01-19;;2019-01-19;;2019-01-19;;Y
-Euston;;P;;2017-05-26;;2019-09-12;;2019-09-12;;N
+Euston;;V;;2017-05-26;;2019-09-12;;2019-09-12;;N
 Euston Square;;V;;2017-01-03;;2017-09-02;;2019-05-17;;N
 Fairlop;;P;;2019-01-19;;none;;none;;N
 Farringdon;;V;;2017-01-03;;2018-01-12;;none;;N
@@ -128,7 +128,7 @@ Kingsbury;;P;;2018-08-22;;none;;none;;N
 King's Cross St. Pancras;;V;;2017-01-03;;2017-11-19;;2019-07-28;;N
 Knightsbridge;;V;;2019-07-28;;2019-07-28;;2019-07-28;;N
 Ladbroke Grove;;X;;none;;none;;none;;N
-Lambeth North;;X;;2019-10-04;;2019-10-04;;2019-10-04;;N
+Lambeth North;;V;;2019-10-04;;2019-10-04;;2019-10-04;;N
 Lancaster Gate;;P;;2018-06-06;;none;;none;;N
 Latimer Road;;X;;none;;none;;none;;N
 Leicester Square;;V;;2018-05-29;;2018-05-29;;none;;N
@@ -184,7 +184,7 @@ Queensbury;;P;;2018-08-22;;none;;none;;N
 Queensway;;P;;2018-06-06;;none;;none;;N
 Ravenscourt Park;;V;;2017-06-10;;2019-01-08;;2019-01-08;;Y
 Rayners Lane;;P;;2017-06-10;;none;;none;;N
-Regent's Park;;P;;2017-01-28;;2019-09-13;;2019-09-13;;N
+Regent's Park;;V;;2017-01-28;;2019-10-13;;2019-10-13;;N
 Richmond;;X;;none;;none;;none;;N
 Rickmansworth;;V;;2017-01-03;;2017-01-03;;2019-05-22;;N
 Roding Valley;;P;;2019-01-19;;none;;none;;N
@@ -215,7 +215,7 @@ Southwark;;P;;2017-02-11;;none;;none;;N
 Stamford Brook;;P;;2017-06-10;;none;;none;;N
 Stanmore;;V;;2018-08-22;;2018-08-22;;none;;N
 Stepney Green;;P;;2019-01-19;;none;;none;;N
-Stockwell;;P;;2017-11-01;;2019-09-23;;2019-09-23;;N
+Stockwell;;V;;2017-11-01;;2019-09-23;;2019-09-23;;N
 Stonebridge Park;;P;;2017-06-19;;none;;none;;N
 Stratford;;V;;2017-05-09;;2017-05-09;;none;;N
 Sudbury Hill;;P;;2017-06-10;;none;;none;;N

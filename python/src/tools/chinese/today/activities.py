@@ -1,10 +1,9 @@
-import random
-from datetime import datetime
-
 import application_utils
 import chinese_time
 import config
 import food_generator
+import random
+from datetime import datetime
 
 dot = '。\n'
 
@@ -88,7 +87,7 @@ def get_daily_activity_for(date, weather_description_1, weather_description_2, m
     elif day_of_the_week == dow['saturday'] or day_of_the_week == dow['sunday']:
         hour = 8
         minute = 45
-        breakfast = "我在早饭吃了" + config.breakfast['british']
+        breakfast = "我在早饭吃了" + food_generator.breakfast['british']
 
     day += "我早上" + chinese_time.get_time_in_chinese_for(hour, minute) + "起床" + dot  # woke up time
     day += breakfast + dot
