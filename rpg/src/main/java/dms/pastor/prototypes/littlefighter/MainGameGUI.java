@@ -35,7 +35,7 @@ public final class MainGameGUI extends javax.swing.JFrame {
     private int lvl = 0;
     private int shieldRegen = 2;
     private int antiExp = 0;
-    private javax.swing.JButton RunTurn;
+    private javax.swing.JButton runTurn;
     private javax.swing.JButton berserkAttack;
     private javax.swing.JTextArea console;
     private javax.swing.JButton dispel;
@@ -53,7 +53,7 @@ public final class MainGameGUI extends javax.swing.JFrame {
      */
     MainGameGUI() {
         initComponents();
-        RunTurn.setEnabled(false);
+        runTurn.setEnabled(false);
         updateConsole();
 
     }
@@ -75,7 +75,7 @@ public final class MainGameGUI extends javax.swing.JFrame {
 
         javax.swing.JScrollPane jScrollPane1 = new javax.swing.JScrollPane();
         console = new javax.swing.JTextArea();
-        RunTurn = new javax.swing.JButton();
+        runTurn = new javax.swing.JButton();
         javax.swing.JButton fireBall = new javax.swing.JButton();
         nextEnemy = new javax.swing.JButton();
         javax.swing.JScrollPane jScrollPane2 = new javax.swing.JScrollPane();
@@ -103,8 +103,8 @@ public final class MainGameGUI extends javax.swing.JFrame {
         console.setRows(5);
         jScrollPane1.setViewportView(console);
 
-        RunTurn.setText("NEXT TURN");
-        RunTurn.addActionListener(this::runTurnActionPerformed);
+        runTurn.setText("NEXT TURN");
+        runTurn.addActionListener(this::runTurnActionPerformed);
 
         fireBall.setText("FireBall");
         fireBall.addActionListener(this::fireBallActionPerformed);
@@ -170,7 +170,7 @@ public final class MainGameGUI extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(nextEnemy, DEFAULT_SIZE, DEFAULT_SIZE, MAX_VALUE)
-                            .addComponent(RunTurn, DEFAULT_SIZE, DEFAULT_SIZE, MAX_VALUE))
+                            .addComponent(runTurn, DEFAULT_SIZE, DEFAULT_SIZE, MAX_VALUE))
                         .addComponent(spell))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, MAX_VALUE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -197,7 +197,7 @@ public final class MainGameGUI extends javax.swing.JFrame {
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(nextEnemy)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(RunTurn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(runTurn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(DEFAULT_GAP_SIZE, DEFAULT_GAP_SIZE, DEFAULT_GAP_SIZE))
                 .addComponent(jScrollPane1, DEFAULT_SIZE, 370, MAX_VALUE)
                 .addGroup(layout.createSequentialGroup()
@@ -274,7 +274,7 @@ public final class MainGameGUI extends javax.swing.JFrame {
 
     @SuppressWarnings("unused") //useless but required by awt
     private void nextEnemyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextEnemyActionPerformed
-        RunTurn.setEnabled(true);
+        runTurn.setEnabled(true);
         nextEnemy.setEnabled(false);
     }//GEN-LAST:event_nextEnemyActionPerformed
 
@@ -400,7 +400,7 @@ public final class MainGameGUI extends javax.swing.JFrame {
     private void endOfBattle() {
         player.addKill();
         console.setText("You kill " + player.getKills() + " unit" + setPluralForMoreThanOneKill());
-        RunTurn.setEnabled(false);
+        runTurn.setEnabled(false);
         nextEnemy.setEnabled(true);
         player.addHp();
         if (player.getKills() >= 75) {
