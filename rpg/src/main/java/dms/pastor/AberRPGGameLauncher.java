@@ -1,4 +1,4 @@
-package dms.pastor.rpg;
+package dms.pastor;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
