@@ -1,6 +1,5 @@
 package dms.pastor.utils;
 
-import dms.pastor.prototype.dcs.conditions.ConditionType;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
@@ -174,6 +173,7 @@ public class CollectionsUtilsTest {
     }
 
 
+/* change enum that is used as example
     @Test
     public void toListShouldReturnListOfEnumsValues() {
         // given
@@ -189,7 +189,7 @@ public class CollectionsUtilsTest {
         // debug info
         result.forEach(System.out::println);
 
-    }
+    }*/
 
     @Test
     public void convertToStringArrayShouldReturnEmptyStringArrayForNull() {
