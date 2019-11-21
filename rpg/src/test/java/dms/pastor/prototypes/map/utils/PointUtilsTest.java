@@ -5,12 +5,26 @@ import dms.pastor.prototypes.map.model.Point;
 import dms.pastor.prototypes.map.model.TerrainType;
 import org.junit.jupiter.api.Test;
 
+import static dms.pastor.prototypes.map.model.Coordinates.noCoordination;
+import static dms.pastor.prototypes.map.model.TerrainType.UNKNOWN;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class PointUtilsTest {
 
     @Test
-    public void createWallAcceptanceTest() {
+    void noPointAcceptanceTest() {
+        // given
+        Point point = new Point(noCoordination(), UNKNOWN);
+
+        // when
+        final Point result = Point.noPoint();
+
+        // then
+        assertThat(result).isEqualTo(point);
+    }
+
+    @Test
+    void createWallAcceptanceTest() {
         // given
         final int height = 1;
         final int width = 1;
