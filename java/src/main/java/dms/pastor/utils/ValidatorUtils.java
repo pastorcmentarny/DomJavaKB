@@ -185,6 +185,14 @@ public final class ValidatorUtils {
         return number >= min && number <= max;
     }
 
+    public static void validateIfValueIsInRange(int min, int max, int number) {
+        validateMinValueIsSmallerThanMaxValue(min, max);
+        if (number < min || number > max) {
+            throw new IllegalArgumentException(String.format("%d is not range. Range is between %d and %d.", number, min, max));
+
+        }
+    }
+
     public static void validateIfArrayHasSizeOf(int size, String[] array, String what) {
         validateIfObjectValueIsNotNull(array, what);
         if (size != array.length) {

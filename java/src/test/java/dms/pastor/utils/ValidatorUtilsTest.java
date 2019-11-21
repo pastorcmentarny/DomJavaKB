@@ -837,4 +837,44 @@ public class ValidatorUtilsTest {
         ValidatorUtils.validateIfPathIsAccessible(Path.of("X:/cosmos"));
 
     }
+
+    @Test
+    public void validateIfValueIsInRangeShouldThrowExceptionIfValueIsSmallerThanValue() {
+        // expect
+        exception.expect(IllegalArgumentException.class);
+
+        // given
+        final int min = 0;
+        final int max = 10;
+        final int tooLowNumber = -1;
+
+        // when
+        ValidatorUtils.validateIfValueIsInRange(min, max, tooLowNumber);
+
+    }
+
+    @Test
+    public void validateIfValueIsInRangeShouldThrowExceptionIfValueIsLargerThanMaxValue() {
+        // expect
+        exception.expect(IllegalArgumentException.class);
+
+        // given
+        final int min = 0;
+        final int max = 10;
+        final int tooHighNumber = 11;
+
+        // when
+        ValidatorUtils.validateIfValueIsInRange(min, max, tooHighNumber);
+    }
+
+    @Test
+    public void shouldValidateIfValueIsInRange() {
+        // given
+        final int min = 0;
+        final int max = 10;
+        final int inRangeNumber = 8;
+
+        // when
+        ValidatorUtils.validateIfValueIsInRange(min, max, inRangeNumber);
+    }
 }
