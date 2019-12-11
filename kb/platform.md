@@ -1,3 +1,4 @@
+
 ## **HONEST WARNING**
 **Content in this KB is for me ONLY.**
 It contains definitions that explain things in the way that is easiest for me to understand.
@@ -15,3 +16,7 @@ _I am not the author of these definitions so check resources section for the ori
 * It helps to build confidence to business users as testing of new version can be done in Production in isolation before rollout.
 * Challenges. When Applications which have DB changes while moving from Green to Blue version is one of the complex scenarios where the Blue version will have some DB changes as well. The reason is if you apply the DB changes while Green is running it may break the existing application and outage will be caused. One of the solution can be make application read-only  your application as read-only while you are switching from Green to Blue instances.
 * Create easy upgrade and downgrade scripts/configurations for your dev and prod environments. You need to be able to switch easily between the two states of the system. This includes GC configuration, not just the JVM version.
+
+
+## Chaos Engineering
+Chaos Engineering is great for exposing unknown weaknesses in your production system, but if you are certain that a Chaos Engineering experiment will lead to a significant problem with the system, there’s no sense in running that experiment. Fix that weakness first. Then come back to Chaos Engineering and it will either uncover other weaknesses that you didn’t know about, or it will give you more confidence that your system is in fact resilient.- From Chaos Engineering Book
