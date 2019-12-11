@@ -26,3 +26,4 @@
 0.  "there is no patch for human stupidity" kevin mitnick
 0.  security people software hardware. smallest possible fix .
 0. The best code is written thinking about the programmers that come after. ( source: https://medium.com/97-things/the-code-restorer-bfe920a18e71)
+0 Retry feature enable ability for an application to handle transient failures when it tries to connect to a service or network resource, by transparently retrying a failed operation. This can improve the stability of the application.
