@@ -119,5 +119,12 @@ topic stores a time-ordered sequence of messages that share the same category.
 * Think about exception handling through send to dead-queue or log
 * You need monitoring Kafka: https://docs.confluent.io/current/kafka/monitoring.html
 
-Source:
+#Kafka connector
+Kafka Connect is a framework for connecting Kafka with external systems such as databases, key-value stores, search indexes, and file systems, using so-called Connectors.
+
+A source connector collects data from a system. Source systems can be entire databases, streams tables, or message brokers. A source connector could also collect metrics from application servers into Kafka topics, making the data available for stream processing with low latency.
+
+A sink connector delivers data from Kafka topics into other systems, which might be indexes such as Elasticsearch, batch systems such as Hadoop, or any kind of database.
+
+#Sources:
 * https://www.codenotfound.com/spring-kafka-consumer-producer-example.html
