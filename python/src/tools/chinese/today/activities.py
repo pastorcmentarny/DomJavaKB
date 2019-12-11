@@ -1,11 +1,13 @@
 import application_utils
 import chinese_time
 import config
+import file_loader
 import food_generator
 import random
 from datetime import datetime
 
-dot = '。\n'
+config_file = file_loader.config()
+dot = config_file['dot']
 
 dow = {
     'monday': 0,
@@ -35,8 +37,8 @@ def generate_random_lunch_break_activity() -> str:
     return lunch_activity[random.randint(0, len(lunch_activity) - 1)] + dot
 
 
-def generate_lunch_walk(weather_description_1, weather_description_2) -> str:
-    if weather_description_1 == '雨' or weather_description_2 == '雨':
+def generate_lunch_walk() -> str:
+    if config_file['weather_description_1'] == '雨' or config_file['weather_description_2'] == '雨':
         return "因为正在下雨，我没有在午休时散步"  # I didn't go for a walk at lunch break as it was raining.
     else:
         walk = get_distance_from_run(random.randint(1000, 4501))
@@ -45,6 +47,10 @@ def generate_lunch_walk(weather_description_1, weather_description_2) -> str:
 
 def generate_weekend_activity():
     return application_utils.get_random_value_from(config.weekend_activity)
+
+
+def generate_parkrun_activity():
+    pass
 
 
 def get_distance_from_run(run_distance):
@@ -70,7 +76,7 @@ def get_weekend_routine(meal):
     pass
 
 
-def get_daily_activity_for(date, weather_description_1, weather_description_2, meal, steps):
+def get_daily_activity_for(date, meal):
     day = ''
     day_of_the_week = date.weekday()
     hour = 0
@@ -93,7 +99,7 @@ def get_daily_activity_for(date, weather_description_1, weather_description_2, m
     day += breakfast + dot
 
     if day_of_the_week in range(dow['monday'], friday()):
-        day += generate_lunch_walk(weather_description_1, weather_description_2) + dot
+        day += generate_lunch_walk() + dot
         day += generate_random_lunch_break_activity()
         day += food_generator.generate_full_meal()
         day += "我在工作忙了" + dot  # day at work

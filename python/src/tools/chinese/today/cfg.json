@@ -1,20 +1,26 @@
 {
-  "weather_rating": "horrible",
-  "weather_description_1": "rain",
+  "weather_rating": "so-so",
+  "weather_description_1": "cold",
   "weather_description_2": "cloudy",
   "upper_wear_color": "black",
   "upper_wear_type": "t-shirt",
   "lower_wear_color": "black",
   "lower_wear_type": "jeans",
-  "steps": 11000,
+  "steps": 16000,
   "time": "",
-  "run_distance": 2800,
-  "run_time": 1310,
+  "run_distance": 2170,
+  "run_time": 1128,
   "meal": "",
-  "yesterday_diary": true,
+  "yesterday_diary": false,
   "with_random_sentences": false,
   "is_a_for_online": true,
+  "parkrun": {
+    "attend": false,
+    "personal_best": true,
+    "place": 284,
+    "all_runners": 469
+  },
   "health": "good",
-  "entry": 406,
+  "entry": 409,
   "dot": "。\n"
 }

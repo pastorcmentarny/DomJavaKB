@@ -34,7 +34,7 @@ def generate_info_about_today(diary: dict):
 
     diary_day += sentence.add_wear(diary['upper_wear_color'], diary['upper_wear_color'], diary['upper_wear_type'], diary['upper_wear_type'])
 
-    diary_day += activities.get_daily_activity_for(date, diary['weather_description_1'], diary['weather_description_2'], diary['meal'], diary['steps'])
+    diary_day += activities.get_daily_activity_for(date, diary['meal'])
 
     diary_day += sentence.steps(diary['steps'])
 
