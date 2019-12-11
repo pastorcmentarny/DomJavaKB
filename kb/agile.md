@@ -125,7 +125,7 @@ Everybody who wants/need to know about the day-to-day operation of the project s
 2.  A product vision gives us the direction and focuses we need to deliver something, anything, that will ultimately solve the problems of a customer segment and deliver value to both your business and to your customer. If it is well-crafted and well-communicated, product vision should permeate everything you do, from business models and product roadmaps to the stories in your backlog and how you execute them.
 3.  The product roadmap is a powerful tool to describe how a product is likely to grow, to align the stakeholders, and to acquire a budget for developing the product. Goal-oriented roadmap focus on goals or objectives like acquiring customers, increasing engagement, and removing technical debt.
 4.  The spec explains the high-level customer story, why (from a business perspective) we’re addressing this, what we hope to achieve, and maybe some notes on suggested implementation (though engineers may take or leave this section at their discretion; it’s supposed to be helpful, not prescriptive).
-
+5.  Important part of Roadmap is to set expectations about changes, describe context and communicate about these changes.
 
 ##  RETROSPECTIVE
 
