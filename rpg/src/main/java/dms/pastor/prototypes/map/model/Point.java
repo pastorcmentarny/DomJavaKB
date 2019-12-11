@@ -6,6 +6,9 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
+import static dms.pastor.prototypes.map.model.Coordinates.noCoordination;
+import static dms.pastor.prototypes.map.model.TerrainType.UNKNOWN;
+
 
 /**
  * Author Dominik Symonowicz
@@ -21,5 +24,9 @@ import lombok.ToString;
 public class Point {
     private final Coordinates coordinates;
     private final TerrainType terrainType;
+
+    public static Point noPoint() {
+        return new Point(noCoordination(), UNKNOWN);
+    }
 
 }
