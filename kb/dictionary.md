@@ -4,6 +4,19 @@ It contains definitions that explain things in the way that is easiest for me to
 _I am not the author of these definitions so check resources section for the origin of definitions._ 
 
 
+# A
+**Algorithm**
+	is a step-by-step procedure for 'recipe' like calculations. 
+
+# D
+
+##Dependency management
+it helps manage all the libraries required to make an application work and helps to keep track, update libraries faster and easier, as well as solve the problem then one package will depend on another package.
+
+## Encapsulation
+hiding of data implementation by restricting access
+
+
 # H
 ## HTTP 
 stands for Hypertext Transfer Protocol. It's a stateless, application-layer protocol for communicating between distributed systems to allow two systems to communicate via remote calls.
@@ -42,6 +55,15 @@ The Reactive Streams API consists of just 4 interfaces.
 Sources: 
 * https://www.reactivemanifesto.org/
 * https://springframework.guru/reactive-streams-in-java/
+
+# S
+
+## A sorting algorithm
+It is an algorithm that puts elements of a list in a certain order.
+
+
+resources:
+0.  https://medium.com/python-pandemonium/better-python-dependency-and-package-management-b5d8ea29dff1
 
 ## REST
 REST stands for Representational state transfer. It is an  architectural style for distributed hypermedia systems (for example HTTP). REST is not a "standard". 
