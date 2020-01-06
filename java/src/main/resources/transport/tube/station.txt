@@ -204,7 +204,7 @@ Sloane Square;;V;;2017-02-02;;2018-05-08;;none;;N
 Snaresbrook;;P;;2019-01-19;;none;;none;;N
 South Ealing;;P;;2017-10-30;;none;;none;;N
 South Harrow;;P;;2017-06-10;;none;;none;;N
-South Kensington;;P;;2017-02-02;;none;;none;;N
+South Kensington;;V;;2017-02-02;;2020-01-04;;2020-01-04;;N
 South Kenton;;P;;2017-06-19;;none;;none;;N
 South Ruislip;;X;;none;;none;;none;;N
 South Wimbledon;;X;;none;;none;;none;;N
