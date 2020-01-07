@@ -1,5 +1,6 @@
 let souls = 0;
 let ghosts = 4;
+let records = 6;
 
 function setSouls() {
     document.write('<span id="souls">' + souls + '</span>');
@@ -7,6 +8,10 @@ function setSouls() {
 
 function setGhosts() {
     document.write('<span id="ghosts">' + ghosts + '</span>');
+}
+
+function setRecords() {
+    document.write('<span id="records">' + records + '</span>')
 }
 
 function daysSinceUpdate() {
