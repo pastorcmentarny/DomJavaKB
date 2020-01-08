@@ -1,7 +1,9 @@
+//config
 let souls = 0;
-let ghosts = 5;
+let ghosts = 6;
 let records = 6;
 let lastChange = '01/08/2020';
+
 
 function setSouls() {
     document.write('<span id="souls">' + souls + '</span>');
