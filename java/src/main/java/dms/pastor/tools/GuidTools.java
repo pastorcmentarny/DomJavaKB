@@ -1,4 +1,4 @@
-package dms.pastor.utils;
+package dms.pastor.tools;
 
 import java.util.UUID;
 import java.util.stream.IntStream;

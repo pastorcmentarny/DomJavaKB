@@ -1,4 +1,4 @@
-package dms.pastor.utils;
+package dms.pastor.tools;
 
 import org.junit.After;
 import org.junit.Before;
