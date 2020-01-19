@@ -26,7 +26,8 @@ while True:
 print('Access granted. You needed ' + str(counter) + ' times to hack into this system. Enjoy reset of your mission...')
 
 line = '====== -------- <  < <<>> >  > -------- ======'
-# The ** operator is evaluated first; the *, /, //, and % operators are evaluated next, from left to right; and the + and - operators are evaluated last (also from left to right).
+
+
 # Math
 
 print(3 * 5)
@@ -48,7 +49,10 @@ print(work)
 # print(a + b)
 
 
-# Although the string value of a number is considered a completely different value from the integer or floating-point version, an integer can be equal to a floating point.
+# Although the string value of a number is considered
+# a completely different value from the integer or floating-point version,
+# an integer can be equal to a floating point.
+
 print(42 == '42')
 print(42 == 42.00000)
 print(42 == 0042.01)
@@ -150,11 +154,7 @@ finish_time = time.time()
 print('The result is %s digits long.' % (len(str(prod))))
 print('Took %s seconds calculate.' % (finish_time - start_time))
 
-'''
-Another way to profile your code is to use the cProfile.run() function, 
-which provides a much more informative level of detail than the simple time.time() technique. 
-The cProfile.run() function is explained at https://docs.python.org/3/library/profile.html.
-'''
+
 
 now = time.time()
 
