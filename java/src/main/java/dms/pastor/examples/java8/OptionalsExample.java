@@ -1,4 +1,4 @@
-package dms.pastor.examples;
+package dms.pastor.examples.java8;
 
 import java.util.Optional;
 

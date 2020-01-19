@@ -1,6 +1,7 @@
 package dms.pastor.examples;
 
 import dms.pastor.domain.exception.SomethingWentWrongException;
+import dms.pastor.examples.java8.OptionalsExample;
 import dms.pastor.utils.PrintOutUtils;
 import org.junit.Rule;
 import org.junit.Test;
