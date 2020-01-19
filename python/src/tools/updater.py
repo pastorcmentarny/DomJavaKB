@@ -24,9 +24,22 @@ def get_commit_id():
     result, _ = p.communicate()
     result = result.decode("utf-8")
     print(result)
+    return result
+
+
+def run_command(cmd:str):
+    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True)
+    result, _ = p.communicate()
+    result = result.decode("utf-8")
+    print(result)
+    return result
 
 
 def flags(title: str):
+    global is_app_up
+    global rollbacked
+    global updated
+
     line = '=' * 16
     print('\n\n{}:\n{}'.format(title, line))
 
@@ -52,10 +65,29 @@ def is_update_available() -> bool:
 
 def download():
     print('downloading last version of project')
+    run_command('wget "https://github.com/pastorcmentarny/denva/archive/master.zip"')
+    run_command('unzip master.zip"')
 
 
-def update():
-    print('updating project')
+def backup():
+    print('Performing backup of existing version..')
+    run_command('cp master.zip backup/')
+
+
+def stop_all():
+    global is_app_up
+    print('Stopping all apps')
+    is_app_up = False
+    print('Done')
+
+
+def install_and_run():
+    global is_app_up
+    global updated
+    print('Installing application')
+    updated = True
+    print('running app')
+    is_app_up = True
 
 
 def updater():
@@ -66,10 +98,12 @@ def updater():
     if is_not_rolledback() and is_app_down():
         rollback()
         return
-    download()
     if is_update_available():
         print('update is available')
-
+        backup()
+        download()
+        stop_all()
+        install_and_run()
     else:
         print('app is up to date')
     print('Done. Bye!')
