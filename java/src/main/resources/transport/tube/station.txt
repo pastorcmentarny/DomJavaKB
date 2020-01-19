@@ -227,7 +227,7 @@ Theydon Bois;;V;;2019-01-19;;2019-01-19;;none;;Y
 Tooting Bec;;P;;2019-06-19;;none;;none;;N
 Tooting Broadway;;V;;2019-06-19;;2019-06-19;;none;;N
 Tottenham Court Road;;P;;2018-05-29;;none;;none;;N
-Tottenham Hale;;V;;2017-11-19;;2017-11-19;;none;;N
+Tottenham Hale;;V;;2017-11-19;;2017-11-19;;2020-01-10;;N
 Totteridge & Whetstone;;X;;none;;none;;none;;N
 Tower Hill;;V;;2017-02-02;;2018-05-08;;none;;N
 Tufnell Park;;P;;2019-07-28;;none;;none;;N
