@@ -42,7 +42,7 @@ Chalfont & Latimer;;V;;2017-06-25;;2018-08-18;;none;;Y
 Chalk Farm;;P;;2017-05-26;;none;;none;;N
 Chancery Lane;;P;;2019-01-08;;none;;none;;N
 Camden;;X;;none;;none;;none;;N
-Charing Cross;;X;;2019-10-04;;none;;none;;N
+Charing Cross;;V;;2019-10-04;;2020-01-19;;2020-01-19;;N
 Chesham;;V;;2017-06-25;;2017-06-25;;none;;Y
 Chigwell;;P;;2019-01-19;;none;;none;;N
 Chiswick Park;;P;;2017-06-10;;none;;none;;N
@@ -135,14 +135,14 @@ Leicester Square;;V;;2018-05-29;;2018-05-29;;none;;N
 Leyton;;P;;2019-01-19;;none;;none;;N
 Leytonstone;;P;;2019-01-19;;none;;none;;N
 Liverpool Street;;V;;2017-02-02;;2018-04-14;;none;;N
-London Bridge;;P;;2017-02-11;;none;;none;;N
+London Bridge;;V;;2017-02-11;;2020-01-19;;2020-01-19;;N
 Loughton;;P;;2019-01-19;;none;;none;;N
 Maida Vale;;P;;2017-06-19;;none;;none;;N
 Manor House;;X;;none;;none;;none;;N
 Haringey;;X;;none;;none;;none;;N
 Mansion House;;V;;2017-02-02;;2019-09-11;;none;;N
 Marble Arch;;V;;2019-12-17;;2019-12-17;;none;;N
-Marylebone;;V;;2017-01-28;;2017-01-28;;none;;N
+Marylebone;;V;;2017-01-28;;2017-01-28;;2020-01-19;;N
 Mile End;;P;;2017-05-09;;none;;none;;N
 Mill Hill East;;X;;none;;none;;none;;N
 Monument;;P;;2017-02-02;;none;;none;;N
