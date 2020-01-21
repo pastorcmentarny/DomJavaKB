@@ -12,3 +12,4 @@ TODO:
 - use mustache as template engine https://mustache.github.io/#demo https://www.baeldung.com/spring-boot-mustache
 x.replaceAll("[\\r\\n]+\\s", "")
 The cloud intends to make it easy to provision infrastructure when you need it, and just as easy to release it when you don't. 
+- method name: method: getTppLogsAsSourceRecords()
