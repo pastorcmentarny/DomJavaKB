@@ -3,9 +3,7 @@ package dms.pastor.utils;
 import java.time.*;
 import java.time.format.DateTimeFormatterBuilder;
 import java.time.temporal.ChronoUnit;
-import java.util.Date;
-import java.util.LinkedHashSet;
-import java.util.Objects;
+import java.util.*;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.ValidatorUtils.validateIfObjectValueIsNotNull;
@@ -130,5 +128,17 @@ public final class DateUtils {
             divider = ":";
         }
         return LocalTime.parse(time.toLowerCase(), new DateTimeFormatterBuilder().appendPattern("h" + divider + "mma").toFormatter());
+    }
+
+    public static List<String> getWeekDaysAsList(){
+        List<String> days =  new ArrayList<>();
+        days.add("Monday");
+        days.add("Tuesday");
+        days.add("Wednesday");
+        days.add("Thursday");
+        days.add("Friday");
+        days.add("Saturday");
+        days.add("Sunday");
+        return days;
     }
 }

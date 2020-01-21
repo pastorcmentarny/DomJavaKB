@@ -7,6 +7,7 @@ import org.junit.rules.ExpectedException;
 
 import java.time.LocalTime;
 import java.util.Date;
+import java.util.List;
 
 import static dms.pastor.utils.DateUtils.*;
 import static java.time.LocalDate.now;
@@ -282,6 +283,19 @@ public class DateUtilsTest {
 
         // then
         assertThat(result).isEqualTo(expectedResult);
+    }
+
+    @Test
+    public void getDayOfTheWeekAsListAcceptanceTest() {
+        // when
+        final var result = getWeekDaysAsList();
+
+        // then
+        assertThat(result.stream()
+            .filter(StringUtils::isStringNotEmpty)
+            .count())
+            .isEqualTo(7);
+
     }
 
 }
