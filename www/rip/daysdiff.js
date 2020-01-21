@@ -1,12 +1,12 @@
 //config
-let souls = 0;
-let ghosts = 6;
-let records = 6;
-let lastChange = '01/08/2020';
+let souls = 1;
+let ghosts = 8;
+let records = 8;
+let lastChange = '01/21/2020';
 
 
 function setSouls() {
-    document.write('<span id="souls">' + souls + '</span>');
+    document.write('<span id="souls">' + souls + '</span><br/>');
 }
 
 function setGhosts() {
@@ -23,3 +23,4 @@ function daysSinceUpdate() {
     let diffDays = date2.getDate() - date1.getDate();
     document.write('<span id="dayCount">' + diffDays + '</span>');
 }
+
