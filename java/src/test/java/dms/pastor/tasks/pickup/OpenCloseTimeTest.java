@@ -85,8 +85,8 @@ public class OpenCloseTimeTest {
             close = LocalTime.now();
         }
         final OpenCloseTime isNotOpen24h = OpenCloseTime.builder()
-                .open(LocalTime.MIDNIGHT)
-                .close(LocalTime.now())
+                .open(open)
+                .close(close)
                 .build();
         // when
         final boolean isOpen24h = isNotOpen24h.isOpen24Hour();
