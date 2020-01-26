@@ -1,20 +1,48 @@
 package dms.pastor.tasks.pickup;
 
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Random;
 
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class OpenCloseTimeTest {
+    @Rule
+    public ExpectedException exception = ExpectedException.none();
 
+    private static final String DAY_OF_THE_WEEK = LocalDate.now().getDayOfWeek().toString();
+
+    @Test
+    public void shouldThrowExceptionIfDayIsNull() {
+        System.out.println(DAY_OF_THE_WEEK);
+        // expect
+        exception.expect(IllegalArgumentException.class);
+
+        // when
+        new OpenCloseTime(null, LocalTime.now(), LocalTime.now());
+    }
+
+    @Test
+    public void shouldThrowExceptionIfDayIsEmpty() {
+        // expect
+        exception.expect(IllegalArgumentException.class);
+
+        // when
+        new OpenCloseTime(EMPTY_STRING, LocalTime.now(), LocalTime.now());
+    }
 
     @Test
     public void shouldReturnTrueIsShopIsNotOpenOnThatDay() {
         // given
-        final OpenCloseTime allDayClosed = OpenCloseTime.builder().build();
+        final OpenCloseTime allDayClosed = OpenCloseTime.builder()
+                .day(DAY_OF_THE_WEEK)
+                .build();
         // when
         final boolean isClosed = allDayClosed.isClosedWholeDay();
 
@@ -25,7 +53,9 @@ public class OpenCloseTimeTest {
     @Test
     public void shouldReturnFalseIsShopHasOpenTimesOnly() {
         // given
-        final OpenCloseTime allDayClosed = OpenCloseTime.builder().open(LocalTime.now()).build();
+        final OpenCloseTime allDayClosed = OpenCloseTime.builder()
+                .day(DAY_OF_THE_WEEK)
+                .open(LocalTime.now()).build();
         // when
         final boolean isClosed = allDayClosed.isClosedWholeDay();
 
@@ -36,7 +66,9 @@ public class OpenCloseTimeTest {
     @Test
     public void shouldReturnFalseIsShopHasCloseTimesOnly() {
         // given
-        final OpenCloseTime allDayClosed = OpenCloseTime.builder().close(LocalTime.now()).build();
+        final OpenCloseTime allDayClosed = OpenCloseTime.builder()
+                .day(DAY_OF_THE_WEEK)
+                .close(LocalTime.now()).build();
         // when
         final boolean isClosed = allDayClosed.isClosedWholeDay();
 
@@ -48,6 +80,7 @@ public class OpenCloseTimeTest {
     public void shouldReturnFalseIsShopHasOpenAndCloseTimes() {
         // given
         final OpenCloseTime allDayClosed = OpenCloseTime.builder()
+                .day(DAY_OF_THE_WEEK)
                 .open(LocalTime.now())
                 .close(LocalTime.now())
                 .build();
@@ -62,6 +95,7 @@ public class OpenCloseTimeTest {
     public void shouldReturnTrueIfIfShopIsOpen24hrFromMidnightToMidnight() {
         // given
         final OpenCloseTime open24h = OpenCloseTime.builder()
+                .day(DAY_OF_THE_WEEK)
                 .open(LocalTime.MIDNIGHT)
                 .close(LocalTime.MIDNIGHT)
                 .build();
@@ -85,6 +119,7 @@ public class OpenCloseTimeTest {
             close = LocalTime.now();
         }
         final OpenCloseTime isNotOpen24h = OpenCloseTime.builder()
+                .day(DAY_OF_THE_WEEK)
                 .open(open)
                 .close(close)
                 .build();
@@ -100,6 +135,7 @@ public class OpenCloseTimeTest {
     public void shouldReturnOpen24HoursMessageIfOpenAndCloseTimeAreMidnight() {
         // given
         final OpenCloseTime openTimes = OpenCloseTime.builder()
+                .day(DAY_OF_THE_WEEK)
                 .open(LocalTime.MIDNIGHT)
                 .close(LocalTime.MIDNIGHT)
                 .build();
@@ -111,9 +147,10 @@ public class OpenCloseTimeTest {
     }
 
     @Test
-    public void shouldReturnClosedIfShopeHasNoOpenAndClosedTimes() {
+    public void shouldReturnClosedIfShopHasNoOpenAndClosedTimes() {
         // given
         final OpenCloseTime openTimes = OpenCloseTime.builder()
+                .day(DAY_OF_THE_WEEK)
                 .build();
 
         // when
@@ -126,6 +163,7 @@ public class OpenCloseTimeTest {
     public void shouldReturnEmptyStringIfShopMissingOpenTime() {
         // given
         final OpenCloseTime openTimes = OpenCloseTime.builder()
+                .day(DAY_OF_THE_WEEK)
                 .open(LocalTime.now())
                 .build();
 
@@ -140,6 +178,7 @@ public class OpenCloseTimeTest {
     public void shouldReturnEmptyStringIfShopMissingClosedTime() {
         // given
         final OpenCloseTime openTimes = OpenCloseTime.builder()
+                .day(DAY_OF_THE_WEEK)
                 .close(LocalTime.now())
                 .build();
 
@@ -154,6 +193,7 @@ public class OpenCloseTimeTest {
     public void shouldReturnOpenAndCloseTimeAsText() {
         // given
         final OpenCloseTime openTimes = OpenCloseTime.builder()
+                .day(DAY_OF_THE_WEEK)
                 .open(LocalTime.of(10, 0))
                 .close(LocalTime.of(22, 0))
                 .build();
@@ -163,5 +203,28 @@ public class OpenCloseTimeTest {
 
         // then
         assertThat(result).isEqualTo("10:00 - 22:00");
+    }
+
+
+    @Test
+    public void getOpen24HoursAcceptanceTest() {
+        // when
+        final var open24hours = OpenCloseTime.getOpen24HoursOn(DAY_OF_THE_WEEK);
+
+        // then
+        assertThat(open24hours.getDay()).isEqualTo(DAY_OF_THE_WEEK);
+        assertThat(open24hours.getOpen()).isEqualTo(LocalTime.MIDNIGHT);
+        assertThat(open24hours.getClose()).isEqualTo(LocalTime.MIDNIGHT);
+    }
+
+    @Test
+    public void getClosedWholeDayAcceptanceTest() {
+        // when
+        final var open24hours = OpenCloseTime.getClosedOn(DAY_OF_THE_WEEK);
+
+        // then
+        assertThat(open24hours.getDay()).isEqualTo(DAY_OF_THE_WEEK);
+        assertThat(open24hours.getOpen()).isNull();
+        assertThat(open24hours.getClose()).isNull();
     }
 }
