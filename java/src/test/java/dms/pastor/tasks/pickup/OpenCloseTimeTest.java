@@ -95,4 +95,73 @@ public class OpenCloseTimeTest {
         assertThat(isOpen24h).isFalse();
     }
 
+
+    @Test
+    public void shouldReturnOpen24HoursMessageIfOpenAndCloseTimeAreMidnight() {
+        // given
+        final OpenCloseTime openTimes = OpenCloseTime.builder()
+                .open(LocalTime.MIDNIGHT)
+                .close(LocalTime.MIDNIGHT)
+                .build();
+
+        // when
+        final var result = openTimes.getOpenCloseTimeAsText();
+        // then
+        assertThat(result).isEqualTo("Open 24 hours");
+    }
+
+    @Test
+    public void shouldReturnClosedIfShopeHasNoOpenAndClosedTimes() {
+        // given
+        final OpenCloseTime openTimes = OpenCloseTime.builder()
+                .build();
+
+        // when
+        final var result = openTimes.getOpenCloseTimeAsText();
+        // then
+        assertThat(result).isEqualTo("Closed");
+    }
+
+    @Test
+    public void shouldReturnEmptyStringIfShopMissingOpenTime() {
+        // given
+        final OpenCloseTime openTimes = OpenCloseTime.builder()
+                .open(LocalTime.now())
+                .build();
+
+        // when
+        final var result = openTimes.getOpenCloseTimeAsText();
+
+        // then
+        assertThat(result).isEmpty();
+    }
+
+    @Test
+    public void shouldReturnEmptyStringIfShopMissingClosedTime() {
+        // given
+        final OpenCloseTime openTimes = OpenCloseTime.builder()
+                .close(LocalTime.now())
+                .build();
+
+        // when
+        final var result = openTimes.getOpenCloseTimeAsText();
+
+        // then
+        assertThat(result).isEmpty();
+    }
+
+    @Test
+    public void shouldReturnOpenAndCloseTimeAsText() {
+        // given
+        final OpenCloseTime openTimes = OpenCloseTime.builder()
+                .open(LocalTime.of(10, 0))
+                .close(LocalTime.of(22, 0))
+                .build();
+
+        // when
+        final var result = openTimes.getOpenCloseTimeAsText();
+
+        // then
+        assertThat(result).isEqualTo("10:00 - 22:00");
+    }
 }
