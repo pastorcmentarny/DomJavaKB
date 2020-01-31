@@ -1,11 +1,13 @@
-package dms.pastor.tasks.pickup;
+package dms.pastor.tasks.pickup.generators;
 
+import dms.pastor.tasks.pickup.OpenCloseTime;
+import dms.pastor.tasks.pickup.generators.WeeklyOpenCloseTimesGenerator;
 import org.junit.Test;
 
 import java.time.LocalTime;
 import java.util.List;
 
-import static dms.pastor.tasks.pickup.WeeklyOpenCloseTimesGenerator.*;
+import static dms.pastor.tasks.pickup.generators.WeeklyOpenCloseTimesGenerator.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 

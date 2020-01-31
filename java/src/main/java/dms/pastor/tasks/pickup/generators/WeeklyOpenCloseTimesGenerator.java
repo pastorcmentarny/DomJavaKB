@@ -1,4 +1,6 @@
-package dms.pastor.tasks.pickup;
+package dms.pastor.tasks.pickup.generators;
+
+import dms.pastor.tasks.pickup.OpenCloseTime;
 
 import java.time.LocalTime;
 import java.util.ArrayList;

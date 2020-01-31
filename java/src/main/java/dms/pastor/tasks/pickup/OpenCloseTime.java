@@ -33,6 +33,10 @@ public class OpenCloseTime {
         return areAllObjectsNull(open, close);
     }
 
+    public boolean isClosedAlready(LocalTime time) {
+        return time.isAfter(close);
+    }
+
     public boolean isOpen24Hour() {
         return open == MIDNIGHT && close == MIDNIGHT;
     }
