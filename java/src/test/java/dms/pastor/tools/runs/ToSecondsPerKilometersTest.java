@@ -7,7 +7,7 @@ import org.junit.rules.ExpectedException;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
 
-public class ToMinutesPerKilometersTest {
+public class ToSecondsPerKilometersTest {
 
     @Rule
     public final ExpectedException exception = ExpectedException.none();
@@ -18,7 +18,7 @@ public class ToMinutesPerKilometersTest {
         exception.expect(IllegalArgumentException.class);
 
         // when
-        ToMinutesPerKilometers.transform(-1f);
+        ToSecondsPerKilometers.transform(-1f);
     }
 
     @Test
@@ -27,7 +27,7 @@ public class ToMinutesPerKilometersTest {
         float kph = 0;
 
         // when
-        final var result = ToMinutesPerKilometers.transform(kph);
+        final var result = ToSecondsPerKilometers.transform(kph);
 
         // then
         assertThat(result).isZero();
@@ -40,7 +40,7 @@ public class ToMinutesPerKilometersTest {
         float kph = 9;
 
         // when
-        final var result = ToMinutesPerKilometers.transform(kph);
+        final var result = ToSecondsPerKilometers.transform(kph);
 
         // then
         assertThat(result).isEqualTo(400);
