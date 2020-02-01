@@ -16,7 +16,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Author Dominik Symonowicz
- * Created 15/06/2018
  * WWW:	https://dominiksymonowicz.com/welcome
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * Github:	https://github.com/pastorcmentarny
@@ -24,6 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class EngineTest {
+
     @Rule
     public final ExpectedSystemExit exit = ExpectedSystemExit.none();
 
@@ -83,16 +83,6 @@ public class EngineTest {
         // then
         assertThat(infoLabel.getForeground()).isEqualTo(color);
         assertThat(infoLabel.getText()).isEqualTo(message);
-    }
-
-
-    @Test
-    public void shutdown() {
-        //expect
-        exit.expectSystemExit();
-
-        // when
-        engine.shutdown("test");
     }
 
 }
