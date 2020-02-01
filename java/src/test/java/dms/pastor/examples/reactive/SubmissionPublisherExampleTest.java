@@ -1,11 +1,11 @@
 package dms.pastor.examples.reactive;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-class SubmissionPublisherExampleTest {
+public class SubmissionPublisherExampleTest {
 
     @Test
-    void shouldRunExample() throws Exception {
+    public void shouldRunExample() throws Exception {
         // when
         final var submissionPublisherExample = new SubmissionPublisherExample();
         submissionPublisherExample.example();
