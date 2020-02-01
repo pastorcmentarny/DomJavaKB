@@ -62,6 +62,18 @@ public class ReadyToPickupServiceAcceptanceTest {
         assertThat(result).isEqualTo("You can pickup from Monday 27 January 2020 at 09:00");
     }
 
+    @Test
+    public void shouldReturnUnableToPickupContactUsMessageForInvalidData() {
+        // given
+        final var alwaysClosedShop = ShopGenerator.alwaysClosed();
+        final var dateTime = LocalDateTime.of(2019, 11, 24, 22, 58);
+
+        // when
+        final var result = readyToPickupService.getPickupDateTimeFromShop(dateTime, alwaysClosedShop);
+
+        // then
+        assertThat(result).isEqualTo("Unable to find pickup time for you, please contact us");
+    }
 
     //TODO as bonus task shouldReturnPickupTomorrowAtMidnightFor24HoursShop()
 

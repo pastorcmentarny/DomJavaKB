@@ -10,20 +10,21 @@ import static dms.pastor.tasks.pickup.OpenCloseTime.getClosedOn;
 import static dms.pastor.tasks.pickup.OpenCloseTime.getOpen24HoursOn;
 
 public class WeeklyOpenCloseTimesGenerator {
+
+    public static final List<String> ALL_DAYS_IN_THE_WEEK = List.of("MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY");
+
     private WeeklyOpenCloseTimesGenerator() {
     }
 
     public static List<OpenCloseTime> getTypicalWeeklyOpenCloseTimes() {
-        var week = new ArrayList<OpenCloseTime>();
-        week.addAll(getAllWeekDaysTypicalOpenClose());
+        List<OpenCloseTime> week = new ArrayList<>(getAllWeekDaysTypicalOpenClose());
         week.add(getNormalOpenCloseHoursForSaturday());
         week.add(getNormalOpenCloseHoursForSunday());
         return week;
     }
 
     public static List<OpenCloseTime> getWeekOnlyOpenCloseTimes() {
-        var week = new ArrayList<OpenCloseTime>();
-        week.addAll(getAllWeekDaysTypicalOpenClose());
+        List<OpenCloseTime> week = new ArrayList<>(getAllWeekDaysTypicalOpenClose());
         week.add(getClosedOn("SATURDAY"));
         week.add(getClosedOn("SUNDAY"));
         return week;
@@ -31,9 +32,16 @@ public class WeeklyOpenCloseTimesGenerator {
 
     public static List<OpenCloseTime> getOpen24HoursPerDay7DaysAWeek() {
         var week = new ArrayList<OpenCloseTime>();
-        final var allDaysInTheWeek = List.of("MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY");
-        for (String day : allDaysInTheWeek) {
+        for (String day : ALL_DAYS_IN_THE_WEEK) {
             week.add(getOpen24HoursOn(day));
+        }
+        return week;
+    }
+
+    public static List<OpenCloseTime> getClosed24HoursPerDay7DaysAWeek() {
+        var week = new ArrayList<OpenCloseTime>();
+        for (String day : ALL_DAYS_IN_THE_WEEK) {
+            week.add(getClosedOn(day));
         }
         return week;
     }

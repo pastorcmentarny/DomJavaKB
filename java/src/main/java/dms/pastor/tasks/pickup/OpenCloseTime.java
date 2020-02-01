@@ -4,6 +4,7 @@ import dms.pastor.utils.ValidatorUtils;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.ToString;
 
 import java.time.LocalTime;
 import java.util.Objects;
@@ -16,6 +17,7 @@ import static java.time.LocalTime.MIDNIGHT;
 @Builder
 @Getter
 @EqualsAndHashCode
+@ToString
 public class OpenCloseTime {
     private final String day;
     private final LocalTime open;
@@ -63,5 +65,9 @@ public class OpenCloseTime {
 
     public static OpenCloseTime getOpen24HoursOn(String day) {
         return new OpenCloseTime(day, MIDNIGHT, MIDNIGHT);
+    }
+
+    public boolean isNotClosedWholeDay() {
+        return !isClosedWholeDay();
     }
 }

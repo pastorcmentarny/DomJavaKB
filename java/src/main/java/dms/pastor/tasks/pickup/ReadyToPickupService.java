@@ -15,13 +15,12 @@ public class ReadyToPickupService {
     public static final int INDEX_NOT_FOUND = -1;
 
     public String getPickupDateTimeFromShop(LocalDateTime time, Shop shop) {
-        final Optional<OpenCloseTime> openCloseTime = shop.getWeeklyOpenCloseTimes().stream().filter(x -> x.getDay().equalsIgnoreCase(time.getDayOfWeek().toString())).findFirst();
-
+        final Optional<OpenCloseTime> openCloseTime = shop.getWeeklyOpenCloseTimes().stream().filter(day -> day.isNotClosedWholeDay() && day.getDay().equalsIgnoreCase(time.getDayOfWeek().toString())).findFirst();
+        openCloseTime.ifPresent(System.out::println);
         if (openCloseTime.isPresent()) {
             final OpenCloseTime openClose = openCloseTime.get();
             final LocalTime openCloseLocalTime = LocalTime.of(time.getHour(), time.getMinute());
             if (openClose.isClosedWholeDay() || openClose.isClosedAlready(openCloseLocalTime)) {
-                System.out.println("?");
                 return findNextAvailableOpenDay(time, shop, openCloseTime.get());
             }
             if (openCloseLocalTime.isBefore(openClose.getClose()) && openCloseLocalTime.isAfter(openClose.getOpen())) {
@@ -30,7 +29,7 @@ public class ReadyToPickupService {
                 return String.format("You can pickup today at %s", openClose.getOpen().toString());
             }
         }
-        return null;
+        return "Unable to find pickup time for you, please contact us";
     }
 
     private String findNextAvailableOpenDay(LocalDateTime time, Shop shop, OpenCloseTime openCloseTime) {

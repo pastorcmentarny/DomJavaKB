@@ -15,4 +15,8 @@ public class ShopGenerator {
     public static Shop getShopOpenOnlyOnWeekdays() {
         return new Shop(2, "Weekdays only Shop", WeeklyOpenCloseTimesGenerator.getWeekOnlyOpenCloseTimes());
     }
+
+    public static Shop alwaysClosed() {
+        return new Shop(3, "Closed down shop", WeeklyOpenCloseTimesGenerator.getClosed24HoursPerDay7DaysAWeek());
+    }
 }
