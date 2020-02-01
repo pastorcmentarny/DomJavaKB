@@ -1,7 +1,6 @@
 import requests
 import time
 
-# url = 'http://voucher-promotion-service.service.eu-west-1.dev.deveng.systems/promotions'
 url = "http://localhost:8080/promotions"
 
 data = '''{
