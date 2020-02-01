@@ -102,6 +102,6 @@ public class AssertJCollectionExampleTest {
 
         // then
         assertThat(enemies).extracting(UnitClass::getIq)
-            .containsExactly(24, 240, 200, 48);
+                .containsExactly(6, 5, 4, 7);
     }
 }
