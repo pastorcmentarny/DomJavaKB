@@ -19,4 +19,8 @@ public class ShopGenerator {
     public static Shop alwaysClosed() {
         return new Shop(3, "Closed down shop", WeeklyOpenCloseTimesGenerator.getClosed24HoursPerDay7DaysAWeek());
     }
+
+    public static Shop mixedOpenClosedTimes() {
+        return new Shop(4, "Open 24 Hour at Fridays, Saturdays and closed on the Sunday", WeeklyOpenCloseTimesGenerator.getMixedOpeningTimes());
+    }
 }

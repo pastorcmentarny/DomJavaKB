@@ -67,4 +67,15 @@ public class WeeklyOpenCloseTimesGenerator {
         return new OpenCloseTime("Sunday", LocalTime.of(10, 30), LocalTime.of(16, 30));
     }
 
+    public static List<OpenCloseTime> getMixedOpeningTimes() {
+        var week = new ArrayList<OpenCloseTime>();
+        week.add(getNormalOpenCloseHoursFor("Monday"));
+        week.add(getNormalOpenCloseHoursFor("Tuesday"));
+        week.add(getNormalOpenCloseHoursFor("Wednesday"));
+        week.add(getNormalOpenCloseHoursFor("Thursday"));
+        week.add(getOpen24HoursOn("Friday"));
+        week.add(getOpen24HoursOn("Saturday"));
+        week.add(getClosedOn("Sunday"));
+        return week;
+    }
 }

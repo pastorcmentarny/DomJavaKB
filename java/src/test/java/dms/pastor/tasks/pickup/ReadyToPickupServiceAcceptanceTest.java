@@ -48,7 +48,6 @@ public class ReadyToPickupServiceAcceptanceTest {
         assertThat(result).isEqualTo("You can pickup from tomorrow at 09:00");
     }
 
-
     @Test
     public void shouldReturnPickupOnFirstAvailableDayAtOpenTime() {
         // given
@@ -75,6 +74,17 @@ public class ReadyToPickupServiceAcceptanceTest {
         assertThat(result).isEqualTo("Unable to find pickup time for you, please contact us");
     }
 
-    //TODO as bonus task shouldReturnPickupTomorrowAtMidnightFor24HoursShop()
+    @Test
+    public void shouldReturnPickupTomorrowAtMidnightFor24HoursShop() {
+        // given
+        final var shop = ShopGenerator.mixedOpenClosedTimes();
+        final var dateTime = LocalDateTime.of(2020, 1, 30, 22, 58);
+
+        // when
+        final var result = readyToPickupService.getPickupDateTimeFromShop(dateTime, shop);
+
+        // then
+        assertThat(result).isEqualTo("You can pickup tomorrow at midnight.");
+    }
 
 }
