@@ -6,8 +6,6 @@ public class ShopGenerator {
     private ShopGenerator() {
     }
 
-    ;
-
     public static Shop getTypicalShop() {
         return new Shop(1, "Normal Shop", WeeklyOpenCloseTimesGenerator.getTypicalWeeklyOpenCloseTimes());
     }
