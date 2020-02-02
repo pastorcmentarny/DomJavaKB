@@ -39,6 +39,12 @@ stands for Hypertext Transfer Protocol. It's a stateless, application-layer prot
 Infrastructure as a Service. Cloud providers only provide the hardware needed to run applications.
 
 
+# L
+ 
+##Locks
+Locks can make sure that the sequence of language operations are going to be performed in isolation to other concurrent threads working with that same resource. Locks cannot garantee atomicity, which I explained Atomicity, in particular, guarantees that each compound action is treated as a single "unit of work," which either succeeds completely or fails completely. If any of the compound actions constituting a unit of work fails to complete, the entire unit of work fails and the data is left unchanged (Wikipedia). As I have shown in my post, Java cannot guarantee that without adding extra code, like exception handling, to intrinsic and explicit locks. 
+
+
 # M
 
 ## Microservices Architecture?
@@ -147,6 +153,9 @@ A RESTful service is stateless and does not maintain the application state for a
 
 
 # T
+
+##TCP
+It is a reliable data transfer protocol that ensures that the data sent is complete and correct and requires to establish a connection.
 
 ## (Database) Transaction 
 A "_unit of work_" that need be performed **together** or **not at all**. 
