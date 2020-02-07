@@ -247,7 +247,7 @@ public final class RandomDataGenerator {
     public static int randomInteger(int minValue, int maxValue) {
         validateValueIsSmallerOrEqualsThatOtherValue(minValue, maxValue);
         final int randomInteger = RANDOM.nextInt(maxValue + 1);
-        return randomInteger < minValue ? minValue : randomInteger;
+        return Math.max(randomInteger, minValue);
     }
 
     public static int randomNegativeInteger() {

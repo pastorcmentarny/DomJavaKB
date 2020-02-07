@@ -31,7 +31,7 @@ class Results {
     String displayResults(int top) {
         Collections.sort(highScores);
         StringBuilder sb = new StringBuilder(EMPTY_STRING);
-        int no = top > highScores.size() ? highScores.size() : top;
+        int no = Math.min(top, highScores.size());
         for (int i = 0; i < no; i++) {
             sb.append(highScores.get(i).displayScore());
         }

@@ -166,7 +166,7 @@ public final class FileTools {
         long pos = 0;
         long count;
         while (pos < size) {
-            count = size - pos > FILE_COPY_BUFFER_SIZE ? FILE_COPY_BUFFER_SIZE : size - pos;
+            count = Math.min(size - pos, FILE_COPY_BUFFER_SIZE);
 
             pos += output.transferFrom(input, pos, count);
         }
