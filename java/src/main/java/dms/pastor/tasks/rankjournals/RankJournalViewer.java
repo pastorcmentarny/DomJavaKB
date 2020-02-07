@@ -74,7 +74,7 @@ final class RankJournalViewer {
         boolean isNotExcluded = true;
         for (JournalType type : excluded) {
             if (journal.getType() == type) {
-                isNotExcluded = false;
+                return false;
             }
         }
         return isNotExcluded;
