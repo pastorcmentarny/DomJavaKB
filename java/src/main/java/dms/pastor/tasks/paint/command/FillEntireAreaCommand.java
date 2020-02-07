@@ -105,7 +105,7 @@ public class FillEntireAreaCommand implements Command {
     }
 
     private void setParam(String[] params) {
-        startPoint = new Coordinates(Integer.valueOf(params[1]), Integer.valueOf(params[2]));
+        startPoint = new Coordinates(Integer.parseInt(params[1]), Integer.parseInt(params[2]));
         fillCharacter = params[3];
     }
 

@@ -40,7 +40,7 @@ public class CreateCanvasCommand implements Command {
     }
 
     private void setParam(String[] params) {
-        dimension = new Coordinates(Integer.valueOf(params[1]), Integer.valueOf(params[2]));
+        dimension = new Coordinates(Integer.parseInt(params[1]), Integer.parseInt(params[2]));
     }
 
     @Override

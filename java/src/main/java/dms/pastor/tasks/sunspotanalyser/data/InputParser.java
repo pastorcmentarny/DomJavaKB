@@ -58,7 +58,7 @@ public class InputParser {
     public final int getResultsNo() {
         validateData();
         if (data != null && data.length > 1) {
-            return valueOf(data[0]);
+            return Integer.parseInt(data[0]);
         } else {
             exitProgramOnError();
         }

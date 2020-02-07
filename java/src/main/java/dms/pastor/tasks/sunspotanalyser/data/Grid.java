@@ -24,7 +24,7 @@ public class Grid {
     }
 
     private void populateGrid(String[] data) {
-        gridSize = Integer.valueOf(data[1]);
+        gridSize = Integer.parseInt(data[1]);
         grid = new Integer[gridSize][gridSize];
         Integer cell = 2;
         for (int row = 0; row < gridSize; row++) {

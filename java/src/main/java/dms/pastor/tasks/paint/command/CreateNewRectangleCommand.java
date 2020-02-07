@@ -48,8 +48,8 @@ public class CreateNewRectangleCommand implements Command {
     }
 
     void setParam(String[] params) {
-        startPoint = new Coordinates(Integer.valueOf(params[1]), Integer.valueOf(params[2]));
-        endPoint = new Coordinates(Integer.valueOf(params[3]), Integer.valueOf(params[4]));
+        startPoint = new Coordinates(Integer.parseInt(params[1]), Integer.parseInt(params[2]));
+        endPoint = new Coordinates(Integer.parseInt(params[3]), Integer.parseInt(params[4]));
     }
 
     private void validateIfParamsAreInOrder() {
