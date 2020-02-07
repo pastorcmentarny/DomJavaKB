@@ -11,7 +11,6 @@ import java.util.List;
 import static dms.pastor.utils.file.TextFileUtils.FIELD_SEPARATOR;
 
 public class ToAircraftConverter {
-    final AircraftValidator validator = new AircraftValidator();
 
     //TODO improve it
     public static List convert(String aircraftAsString) {

@@ -10,11 +10,9 @@ public class AircraftValidatorTest {
 
     @Test
     public void shouldValidateAircraftAsString() {
-        // given
-        AircraftValidator aircraftValidator = new AircraftValidator();
-
         // when
         AircraftValidator.validate(VALID_AIRCRAFT_AS_STRING);
+
         // then no exception happen
     }
 }
