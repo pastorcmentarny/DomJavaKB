@@ -93,3 +93,33 @@ POST /calc-sales-tax
 
 TODO:
 https://github.com/yangshun/tech-interview-handbook/blob/master/preparing/cheatsheet.md
+
+
+UI
+REST requires each resource to have at least one URI. 
+The actual operation is determined by an HTTP verb. The URI should not say anything about the operation or action.
+
+This URL has following format: Protocol://ServiceName/ResourceType/ResourceID
+
+This is typical convention:
+Use plural nouns for naming your resources.
+Avoid using spaces as they create confusion. Use an _ (underscore) or – (hyphen) instead.
+A URI is case insensitive. I use camel case in my URIs for better clarity. You can use all lower-case URIs.
+You can have your own conventions, but stay consistent throughout the service. 
+
+
+Query Parameters in URI
+The preceding URI is constructed with the help of a query parameter:
+
+http://MyService/Persons?id=1
+
+
+The basic purpose of query parameters is to provide parameters to an operation that needs the data items.
+
+ttp://MyService/Persons/1?format=xml&encoding=UTF8
+
+TIPS and Tricks:
+The query parameter approach works just fine and REST does not stop you from using query parameters. However, this approach has a few disadvantages.
+Increased complexity and reduced readability, which will increase if you have more parameters
+Search-engine crawlers and indexers like Google ignore URIs with query parameters. 
+Documenting a RESTful Service RESTful services do not necessarily require a document to help clients discover them. Due to URIs, links, and a uniform interface, it is extremely simple to discover RESTful services at runtime. The method OPTION can be used effectively in the process of discovering a service. This does not mean that RESTful services require no documentation at all. There is no excuse for not documenting your service. You should document every resource and URI for client developers. 

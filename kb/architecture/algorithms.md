@@ -1,3 +1,8 @@
+## **HONEST WARNING**
+**Content in this KB is for me ONLY.**
+It contains definitions that explain things in the way that is easiest for me to understand.
+_I am not the author of these definitions so check resources section for the origin of definitions._ 
+
 # big O notation 
 	describes the limiting behavior of a function when the argument tends towards a particular value or infinity, usually in terms of simpler functions. big O notation is used to classify algorithms by how they respond (e.g., in their processing time or working space requirements) to changes in input size.
 

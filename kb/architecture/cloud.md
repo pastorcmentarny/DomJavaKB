@@ -54,3 +54,4 @@ Application Compatibility
 
 Most applications are not compatible with the cloud. Applications have to be enhanced to make them cloud-native.
 
+Scale-out aggressively.Scale in in-steps slowly
