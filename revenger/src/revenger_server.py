@@ -1,6 +1,6 @@
 import sys
 
-from flask import Flask, jsonify, url_for, send_file, request, render_template
+from flask import Flask, jsonify
 
 app = Flask(__name__)
 
@@ -13,6 +13,12 @@ def healthcheck():
                     "app": APP_NAME})
 
 
+@app.route("/promotions")
+def promotion_response():
+    print('Processing /promotions respsone')
+    return jsonify({
+        "isPromotionActive": True
+    })
 if __name__ == '__main__':
     print('Starting web server')
 
