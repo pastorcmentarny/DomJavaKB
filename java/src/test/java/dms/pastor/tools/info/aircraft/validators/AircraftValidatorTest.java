@@ -14,7 +14,7 @@ public class AircraftValidatorTest {
         AircraftValidator aircraftValidator = new AircraftValidator();
 
         // when
-        aircraftValidator.validate(VALID_AIRCRAFT_AS_STRING);
+        AircraftValidator.validate(VALID_AIRCRAFT_AS_STRING);
         // then no exception happen
     }
 }
