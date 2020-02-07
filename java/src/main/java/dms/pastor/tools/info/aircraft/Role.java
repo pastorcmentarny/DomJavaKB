@@ -12,8 +12,8 @@ public enum Role {
     MEDIUM_LONG_HAUL("ml", "medium to long,k haul"),
     LONG_HAUL("l", "long haul");
 
-    private String letter;
-    private String description;
+    private final String letter;
+    private final String description;
 
     Role(String letter, String description) {
         this.letter = letter;
@@ -23,6 +23,7 @@ public enum Role {
     public String getLetter() {
         return letter;
     }
+
     public String getDescription() {
         return description;
     }

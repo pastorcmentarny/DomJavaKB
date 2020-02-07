@@ -1,7 +1,7 @@
 package dms.pastor.tools.info.aircraft;
 
 public class AirplaneFieldExtractor {
-    private String[] fields;
+    private final String[] fields;
 
     public AirplaneFieldExtractor(String[] fields) {
         this.fields = fields;

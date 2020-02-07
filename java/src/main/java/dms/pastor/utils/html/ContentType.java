@@ -5,6 +5,6 @@ public class ContentType {
     private ContentType() {
     }
 
-    public static String TEXT = "text/html";
+    public static final String TEXT = "text/html";
     public static String JSON = "application/JSON";
 }
