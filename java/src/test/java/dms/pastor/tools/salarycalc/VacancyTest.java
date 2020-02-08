@@ -13,7 +13,7 @@ public class VacancyTest {
         Vacancy expectedIdealVacancy = new Vacancy();
 
         // when
-        final var idealVacancySalary = Vacancy.getIdealVacancySalary();
+        final var idealVacancySalary = Vacancy.getTypicalVacancy();
 
         // then
         assertThat(idealVacancySalary).isEqualTo(expectedIdealVacancy);

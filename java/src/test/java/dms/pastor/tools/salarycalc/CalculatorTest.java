@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class CalculatorTest {
     final Calculator calculator = new Calculator();
-
+    final Calculator calculatorWithIdealVacancy = new Calculator(Vacancy.getIdealVacancy());
 
     @Test
     public void shouldGetIdealSalaryForIdealVacancy() {
@@ -23,7 +23,7 @@ public class CalculatorTest {
         final int expectedSalary = 55000;
 
         // when
-        final var idealSalary = calculator.calculateSalary();
+        final var idealSalary = calculatorWithIdealVacancy.calculateSalary();
 
         // then
         assertThat(idealSalary).isEqualTo(expectedSalary);
@@ -34,7 +34,7 @@ public class CalculatorTest {
     public void shouldGetMinimumSalaryIsCalculatedSalaryIsBelow() {
 
         // when
-        final var idealSalary = calculator.calculateSalary();
+        final var idealSalary = calculatorWithIdealVacancy.calculateSalary();
 
         // then
         assertThat(idealSalary).isEqualTo(Calculator.MINIMUM_SALARY);
@@ -44,7 +44,9 @@ public class CalculatorTest {
     @Test
     public void salaryShouldBe20PercentHigherIfInCrapStation() {
         // given
-        final Vacancy vacancy = Vacancy.builder().inZone1(true).hatedStation(true).build();
+        final Vacancy vacancy = Vacancy.getTypicalVacancy();
+        vacancy.inZoneOne();
+        vacancy.onHatedStation();
         final var calculatorWithCustomVacancy = new Calculator(vacancy);
         final int expectedSalary = 52500 + 10500;
         // when
@@ -57,7 +59,7 @@ public class CalculatorTest {
     @Test
     public void salaryShouldIncreaseIfAnnualLeaveIsLowerThan25() {
         // given
-        final Vacancy vacancy = Vacancy.builder().annualLeaveDays(22).build();
+        final Vacancy vacancy = Vacancy.builder().hours(37.5).timeTravel(45).annualLeaveDays(22).build();
         final var calculatorWithCustomVacancy = new Calculator(vacancy);
         final int expectedSalary = 52500 + 6000;
         // when
@@ -73,7 +75,8 @@ public class CalculatorTest {
     @Test
     public void salaryShouldIncreaseIfTravelTimeIsLongerThanMaximum() {
         // given
-        final Vacancy vacancy = Vacancy.builder().annualLeaveDays(25).timeTravel(50).build();
+        final Vacancy vacancy = Vacancy.getTypicalVacancy();
+        vacancy.setTimeTravel(50);
         final var calculatorWithCustomVacancy = new Calculator(vacancy);
         final int expectedSalary = 56250;
         // when
@@ -84,6 +87,24 @@ public class CalculatorTest {
 
         // debug
         System.out.println("Long travel: " + salary);
+    }
+
+    @Test
+    public void salaryShouldIncreaseIfHasLongerHour() {
+        // given
+        Vacancy vacancy = Vacancy.getTypicalVacancy();
+        vacancy.setHours(40);
+        final var calculatorWithCustomVacancy = new Calculator(vacancy);
+        final int expectedSalary = 75000;
+
+        // when
+        final var salary = calculatorWithCustomVacancy.calculateSalary();
+
+        // then
+        assertThat(salary).isGreaterThanOrEqualTo(expectedSalary);
+
+        // debug
+        System.out.println("Long work hours: " + salary);
     }
 
     @Test

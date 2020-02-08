@@ -18,15 +18,27 @@ import lombok.*;
 @Builder
 public class Vacancy {
     private int salary = 60000;
-    private boolean inZone1 = false;
-    private boolean hatedStation = false;
-    private int annualLeaveDays = 27;
-    private int timeTravel = 21;
-    private boolean wfh = true;
-    private double hours = 35;
+    private boolean inZone1 = true;
+    private boolean hatedStation = true;
+    private int annualLeaveDays = 25;
+    private int timeTravel = 45;
+    private boolean wfh = false;
+    private double hours = 37.5;
 
 
-    public static Vacancy getIdealVacancySalary() {
-        return new Vacancy();
+    public static Vacancy getTypicalVacancy() {
+        return new Vacancy(60000, true, true, 25, 45, false, 37.5);
+    }
+
+    public static Vacancy getIdealVacancy() {
+        return new Vacancy(65000, false, false, 27, 21, true, 35d);
+    }
+
+    public void inZoneOne() {
+        inZone1 = true;
+    }
+
+    public void onHatedStation() {
+        hatedStation = true;
     }
 }

@@ -5,6 +5,8 @@ import dms.pastor.utils.DateUtils;
 import java.time.LocalDate;
 import java.time.Month;
 
+import static dms.pastor.tools.salarycalc.SalaryConfig.HALF_HOUR_LESS_BONUS;
+import static dms.pastor.tools.salarycalc.SalaryConfig.HALF_HOUR_MORE_BONUS;
 import static dms.pastor.utils.NumberUtils.toIntFromDouble;
 
 /**
@@ -22,7 +24,7 @@ class Calculator {
     private Vacancy data;
 
     public Calculator() {
-        this.data = Vacancy.getIdealVacancySalary();
+        this.data = Vacancy.getTypicalVacancy();
     }
 
     public Calculator(Vacancy data) {
@@ -41,6 +43,7 @@ class Calculator {
         }
         adjustment += getHolidayAdjustment(data.getAnnualLeaveDays());
         adjustment += getTravelTimeSalaryAdjustment(data.getTimeTravel());
+        adjustment += workHoursAdjustment(data.getHours());
 
         salary += adjustment;
         return Math.max(salary, MINIMUM_SALARY);
@@ -96,5 +99,16 @@ class Calculator {
 
     public int getSeniorPenalty() {
         return toIntFromDouble(Math.round(getBasicSalary() * 1.5));
+    }
+
+    private int workHoursAdjustment(double hours) {
+        final double typicalHours = 37.5;
+        if (hours == typicalHours) {
+            return 0;
+        }
+        if (hours > typicalHours) {
+            return toIntFromDouble((hours - typicalHours) * HALF_HOUR_MORE_BONUS);
+        }
+        return toIntFromDouble((typicalHours - hours) * HALF_HOUR_LESS_BONUS);
     }
 }
