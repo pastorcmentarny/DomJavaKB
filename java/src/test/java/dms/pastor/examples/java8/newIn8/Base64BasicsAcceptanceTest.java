@@ -1,6 +1,5 @@
 package dms.pastor.examples.java8.newIn8;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Base64;

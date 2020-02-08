@@ -3,8 +3,6 @@ package dms.pastor.examples.java8.stream;
 import dms.pastor.ExampleRunner;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  * Author Dominik Symonowicz
  * Created 27/04/2019

@@ -1,17 +1,12 @@
 package dms.pastor.tasks.exercises.numbers;
 
-import dms.pastor.utils.NumberUtils;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
-
-import java.util.stream.IntStream;
 
 import static dms.pastor.utils.PrintOutUtils.printIntArray;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.number.OrderingComparison.greaterThan;
 
 /**
  * Author Dominik Symonowicz

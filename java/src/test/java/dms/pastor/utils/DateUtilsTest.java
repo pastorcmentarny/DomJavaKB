@@ -7,7 +7,6 @@ import org.junit.rules.ExpectedException;
 
 import java.time.LocalTime;
 import java.util.Date;
-import java.util.List;
 
 import static dms.pastor.utils.DateUtils.*;
 import static java.time.LocalDate.now;
