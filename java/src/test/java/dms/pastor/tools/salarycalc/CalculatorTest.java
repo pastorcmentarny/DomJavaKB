@@ -20,13 +20,24 @@ public class CalculatorTest {
     @Test
     public void shouldGetIdealSalaryForIdealVacancy() {
         // given
-        final int expectedSalary = 52500;
+        final int expectedSalary = 55000;
 
         // when
         final var idealSalary = calculator.calculateSalary();
 
         // then
         assertThat(idealSalary).isEqualTo(expectedSalary);
+
+    }
+
+    @Test
+    public void shouldGetMinimumSalaryIsCalculatedSalaryIsBelow() {
+
+        // when
+        final var idealSalary = calculator.calculateSalary();
+
+        // then
+        assertThat(idealSalary).isEqualTo(Calculator.MINIMUM_SALARY);
 
     }
 

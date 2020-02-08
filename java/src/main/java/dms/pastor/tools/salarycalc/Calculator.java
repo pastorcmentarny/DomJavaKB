@@ -17,6 +17,7 @@ import static dms.pastor.utils.NumberUtils.toIntFromDouble;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 class Calculator {
+    public static final int MINIMUM_SALARY = 55000;  // industry is 55000 in 2018
 
     private Vacancy data;
 
@@ -31,7 +32,8 @@ class Calculator {
 
     public int calculateSalary() {
         int salary = SalaryConfig.BASIC_SALARY;
-        return salary;
+
+        return Math.max(salary, MINIMUM_SALARY);
     }
 
 /*
