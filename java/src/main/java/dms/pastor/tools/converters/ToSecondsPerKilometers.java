@@ -1,4 +1,4 @@
-package dms.pastor.tools.runs;
+package dms.pastor.tools.converters;
 
 //https://www.depicus.com/swim-bike-run/pace-conversion-chart
 public class ToSecondsPerKilometers {
@@ -9,7 +9,6 @@ public class ToSecondsPerKilometers {
         if (kph == 0) {
             return 0;
         }
-        //second per kilometer = 60/ ÷ (kilometer per hour)
         return Float.valueOf(3600 / kph).intValue();
     }
 }

@@ -1,6 +1,7 @@
-package dms.pastor.tools.runs;
+package dms.pastor.tools.converters;
 
 
+import dms.pastor.tools.converters.ToSecondsPerKilometers;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
