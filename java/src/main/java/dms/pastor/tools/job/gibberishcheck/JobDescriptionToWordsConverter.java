@@ -1,4 +1,4 @@
-package dms.pastor.tools.gibberishcheck;
+package dms.pastor.tools.job.gibberishcheck;
 
 import java.util.Arrays;
 import java.util.List;

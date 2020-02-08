@@ -1,12 +1,12 @@
-package dms.pastor.tools.salarycalc;
+package dms.pastor.tools.job.salarycalc;
 
 import dms.pastor.utils.DateUtils;
 
 import java.time.LocalDate;
 import java.time.Month;
 
-import static dms.pastor.tools.salarycalc.SalaryConfig.HALF_HOUR_LESS_BONUS;
-import static dms.pastor.tools.salarycalc.SalaryConfig.HALF_HOUR_MORE_BONUS;
+import static dms.pastor.tools.job.salarycalc.SalaryConfig.HALF_HOUR_LESS_BONUS;
+import static dms.pastor.tools.job.salarycalc.SalaryConfig.HALF_HOUR_MORE_BONUS;
 import static dms.pastor.utils.NumberUtils.toIntFromDouble;
 
 /**

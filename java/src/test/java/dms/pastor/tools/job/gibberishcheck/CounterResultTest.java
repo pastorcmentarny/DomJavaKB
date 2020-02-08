@@ -1,6 +1,7 @@
-package dms.pastor.tools.gibberishcheck;
+package dms.pastor.tools.job.gibberishcheck;
 
 
+import dms.pastor.tools.job.gibberishcheck.CounterResult;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

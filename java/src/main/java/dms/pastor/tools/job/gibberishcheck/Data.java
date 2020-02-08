@@ -1,4 +1,4 @@
-package dms.pastor.tools.gibberishcheck;
+package dms.pastor.tools.job.gibberishcheck;
 
 import lombok.AllArgsConstructor;
 

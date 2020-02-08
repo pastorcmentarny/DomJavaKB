@@ -1,6 +1,9 @@
-package dms.pastor.tools.gibberishcheck;
+package dms.pastor.tools.job.gibberishcheck;
 
 
+import dms.pastor.tools.job.gibberishcheck.CounterResult;
+import dms.pastor.tools.job.gibberishcheck.CrapCounter;
+import dms.pastor.tools.job.gibberishcheck.Data;
 import org.junit.Test;
 
 import java.util.List;

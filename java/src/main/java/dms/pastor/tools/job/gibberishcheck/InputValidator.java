@@ -1,4 +1,4 @@
-package dms.pastor.tools.gibberishcheck;
+package dms.pastor.tools.job.gibberishcheck;
 
 import dms.pastor.domain.exception.SomethingWentWrongException;
 import dms.pastor.utils.file.FileUtils;

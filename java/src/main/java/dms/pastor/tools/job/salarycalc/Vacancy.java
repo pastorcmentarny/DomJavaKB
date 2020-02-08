@@ -1,4 +1,4 @@
-package dms.pastor.tools.salarycalc;
+package dms.pastor.tools.job.salarycalc;
 
 import lombok.*;
 
