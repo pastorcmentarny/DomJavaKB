@@ -17,7 +17,7 @@ import static java.util.Collections.emptyList;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public final class WordResult extends Result {
+public final class WordResult extends Result<List<Word>> {
 
     private List<Word> wordList;
 
@@ -51,10 +51,10 @@ public final class WordResult extends Result {
     @Override
     public String toString() {
         return "Result{" +
-            "\n\tsuccess: " + isSuccess() +
-            "\n\tmessage: \'" + getMessage() + '\'' +
-            (wordList != null ? "\n\thasItem: " + wordList.toString() : EMPTY_STRING) +
-            "\n}";
+                "\n\tsuccess: " + isSuccess() +
+                "\n\tmessage: '" + getMessage() + '\'' +
+                (wordList != null ? "\n\thasItem: " + wordList.toString() : EMPTY_STRING) +
+                "\n}";
     }
 
 
