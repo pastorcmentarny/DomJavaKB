@@ -42,6 +42,20 @@ public class CalculatorTest {
     }
 
     @Test
+    public void salaryShouldBe20PercentHigherIfInCrapStation() {
+        // given
+        final Vacancy vacancy = Vacancy.builder().inZone1(true).hatedStation(true).build();
+        final var calculatorWithCustomVacancy = new Calculator(vacancy);
+        final int expectedSalary = 52500 + 10500;
+        // when
+        final var salary = calculatorWithCustomVacancy.calculateSalary();
+
+        // then
+        assertThat(salary).isGreaterThanOrEqualTo(expectedSalary);
+
+    }
+
+    @Test
     public void shouldGetBasicSalary() throws Exception {
 
         // when

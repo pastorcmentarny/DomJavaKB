@@ -1,9 +1,6 @@
 package dms.pastor.tools.salarycalc;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 /**
  * Author Dominik Symonowicz
@@ -18,6 +15,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Setter
 @Getter
+@Builder
 public class Vacancy {
     private int salary = 60000;
     private boolean inZone1 = false;

@@ -30,9 +30,17 @@ class Calculator {
     }
 
 
+    // without any pattern
     public int calculateSalary() {
         int salary = SalaryConfig.BASIC_SALARY;
+        int adjustment = 0;
+        if (data.isInZone1()) {
+            adjustment += SalaryConfig.ZONE1_PENALTY;
+            if (data.isHatedStation())
+                adjustment += SalaryConfig.CRAP_STATION_PENALTY;
+        }
 
+        salary += adjustment;
         return Math.max(salary, MINIMUM_SALARY);
     }
 
