@@ -10,7 +10,7 @@ package dms.pastor.tools.salarycalc;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 class SalaryConfig {
-    private static final int BASIC_SALARY = 45000; // industry is 55000
+    public static final int BASIC_SALARY = 52500; // industry is 55000
     public static final int ZONE1_PENALTY = tenPercent();
     public static final int CRAP_STATION_PENALTY = tenPercent(); //Oxford, Victoria, Piccadilly
     public static final int WFH_BONUS = discount(fivePercent());

@@ -14,7 +14,21 @@ import static org.assertj.core.api.Assertions.assertThat;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public class CalculatorTest {
-    final Calculator calculator = new Calculator(0, 0);
+    final Calculator calculator = new Calculator();
+
+
+    @Test
+    public void shouldGetIdealSalaryForIdealVacancy() {
+        // given
+        final int expectedSalary = 52500;
+
+        // when
+        final var idealSalary = calculator.calculateSalary();
+
+        // then
+        assertThat(idealSalary).isEqualTo(expectedSalary);
+
+    }
 
     @Test
     public void shouldGetBasicSalary() throws Exception {

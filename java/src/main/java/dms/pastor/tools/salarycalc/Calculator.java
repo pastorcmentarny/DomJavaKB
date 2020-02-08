@@ -18,8 +18,20 @@ import static dms.pastor.utils.NumberUtils.toIntFromDouble;
  */
 class Calculator {
 
-    public Calculator(int travelTimeInMinutes, int annualLeave) {
+    private Vacancy data;
 
+    public Calculator() {
+        this.data = Vacancy.getIdealVacancySalary();
+    }
+
+    public Calculator(Vacancy data) {
+        this.data = data;
+    }
+
+
+    public int calculateSalary() {
+        int salary = SalaryConfig.BASIC_SALARY;
+        return salary;
     }
 
 /*
