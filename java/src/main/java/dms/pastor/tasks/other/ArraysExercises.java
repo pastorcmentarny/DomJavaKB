@@ -24,12 +24,14 @@ class ArraysExercises {
         return "Min:" + min + " Max:" + max;
     }
 
-    //Normally you will use Math method for that
+    //Normally you will use Math method for that, it is just exercise
+    @SuppressWarnings("ManualMinMaxCalculation")
     int getMaximumValue(int number, int max) {
         return number > max ? number : max;
     }
 
-    //Normally you will use Math method for that
+    //Normally you will use Math method for that, it is just exercise
+    @SuppressWarnings("ManualMinMaxCalculation")
     int getMinimumValue(int number, int min) {
         return number < min ? number : min;
     }
