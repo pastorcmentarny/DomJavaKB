@@ -262,4 +262,23 @@ public class CalculatorTest {
         // then
         assertThat(seniorPenalty).isGreaterThan(calculator.getBasicSalary());
     }
+
+    @Test
+    public void shouldDecreaseSalaryIfYouCanBuyDayOffs() {
+        // given
+        final Vacancy vacancy = Vacancy.getTypicalVacancy();
+        vacancy.inZoneOne();
+        vacancy.onHatedStation();
+        vacancy.setOptionToBuyExtraDays(10);
+        final var calculatorWithCustomVacancy = new Calculator(vacancy);
+        final int expectedSalary = BASIC_SALARY + BASIC_SALARY / 10;
+        // when
+        final var salary = calculatorWithCustomVacancy.calculateSalary();
+
+        // then
+        assertThat(salary).isGreaterThanOrEqualTo(expectedSalary);
+
+        // debug
+        System.out.println("Ability to buy extra days: " + salary);
+    }
 }

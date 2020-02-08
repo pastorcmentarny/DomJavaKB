@@ -24,14 +24,15 @@ public class Vacancy {
     private int timeTravel = 45;
     private boolean wfh = false;
     private double hours = 37.5;
+    private int optionToBuyExtraDays = 0;
 
 
     public static Vacancy getTypicalVacancy() {
-        return new Vacancy(60000, true, true, 25, 45, false, 37.5);
+        return new Vacancy(60000, true, true, 25, 45, false, 37.5, 0);
     }
 
     public static Vacancy getIdealVacancy() {
-        return new Vacancy(65000, false, false, 27, 21, true, 35d);
+        return new Vacancy(65000, false, false, 27, 21, true, 35d, 10);
     }
 
     public void inZoneOne() {

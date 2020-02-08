@@ -21,8 +21,8 @@ class SalaryConfig {
         return BASIC_SALARY / 50;
     }
 
-    private static int threePercent() {
-        return BASIC_SALARY / 50;
+    public static int onePercent() {
+        return BASIC_SALARY / 100;
     }
 
     private static int fivePercent() {

@@ -47,9 +47,14 @@ class Calculator {
         if (data.isWfh()) {
             adjustment -= SalaryConfig.twoPercent();
         }
+        adjustment -= abilityToBuyExtraDaysOffsAdjustment(data.getOptionToBuyExtraDays());
 
         salary += adjustment;
         return Math.max(salary, MINIMUM_SALARY);
+    }
+
+    private int abilityToBuyExtraDaysOffsAdjustment(int optionToBuyExtraDays) {
+        return optionToBuyExtraDays * SalaryConfig.onePercent();
     }
 
     public int getBasicSalary() {
