@@ -52,7 +52,38 @@ public class CalculatorTest {
 
         // then
         assertThat(salary).isGreaterThanOrEqualTo(expectedSalary);
+    }
 
+    @Test
+    public void salaryShouldIncreaseIfAnnualLeaveIsLowerThan25() {
+        // given
+        final Vacancy vacancy = Vacancy.builder().annualLeaveDays(22).build();
+        final var calculatorWithCustomVacancy = new Calculator(vacancy);
+        final int expectedSalary = 52500 + 6000;
+        // when
+        final var salary = calculatorWithCustomVacancy.calculateSalary();
+
+        // then
+        assertThat(salary).isGreaterThanOrEqualTo(expectedSalary);
+
+        // debug
+        System.out.println("AnnualLeaveIsLowerThan25: " + salary);
+    }
+
+    @Test
+    public void salaryShouldIncreaseIfTravelTimeIsLongerThanMaximum() {
+        // given
+        final Vacancy vacancy = Vacancy.builder().annualLeaveDays(25).timeTravel(50).build();
+        final var calculatorWithCustomVacancy = new Calculator(vacancy);
+        final int expectedSalary = 56250;
+        // when
+        final var salary = calculatorWithCustomVacancy.calculateSalary();
+
+        // then
+        assertThat(salary).isGreaterThanOrEqualTo(expectedSalary);
+
+        // debug
+        System.out.println("Long travel: " + salary);
     }
 
     @Test

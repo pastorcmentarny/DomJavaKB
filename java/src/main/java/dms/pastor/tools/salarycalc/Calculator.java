@@ -39,6 +39,8 @@ class Calculator {
             if (data.isHatedStation())
                 adjustment += SalaryConfig.CRAP_STATION_PENALTY;
         }
+        adjustment += getHolidayAdjustment(data.getAnnualLeaveDays());
+        adjustment += getTravelTimeSalaryAdjustment(data.getTimeTravel());
 
         salary += adjustment;
         return Math.max(salary, MINIMUM_SALARY);
@@ -49,7 +51,6 @@ class Calculator {
 
       WFH -2500
 
-      25 Days 0  For 1 Day less +2000, For 1 Day more -750
       For ability to buy day -500 per day
 
 
@@ -83,7 +84,7 @@ class Calculator {
         }
 
         if (annualLeave < minimumHolidayAllowance) {
-            return (minimumHolidayAllowance - annualLeave) * 2000;
+            return (minimumHolidayAllowance - annualLeave) * (2000 + 10 * agingBonus());
         } else {
             return (annualLeave - minimumHolidayAllowance) * -750;
         }
