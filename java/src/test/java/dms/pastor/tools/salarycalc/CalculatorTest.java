@@ -2,6 +2,7 @@ package dms.pastor.tools.salarycalc;
 
 import org.junit.Test;
 
+import static dms.pastor.utils.NumberUtils.toIntFromDouble;
 import static org.assertj.core.api.Assertions.assertThat;
 
 
@@ -14,6 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public class CalculatorTest {
+    protected static final int BASIC_SALARY = 52500;
     final Calculator calculator = new Calculator();
     final Calculator calculatorWithIdealVacancy = new Calculator(Vacancy.getIdealVacancy());
 
@@ -48,12 +50,34 @@ public class CalculatorTest {
         vacancy.inZoneOne();
         vacancy.onHatedStation();
         final var calculatorWithCustomVacancy = new Calculator(vacancy);
-        final int expectedSalary = 52500 + 10500;
+        final int expectedSalary = BASIC_SALARY + 10500;
         // when
         final var salary = calculatorWithCustomVacancy.calculateSalary();
 
         // then
         assertThat(salary).isGreaterThanOrEqualTo(expectedSalary);
+
+        // debug
+        System.out.println("In zone 1 on crap station: " + salary);
+    }
+
+    @Test
+    public void salaryShouldDecreaseIfWorkFromHomeOptionAvailable() {
+        // given
+        final Vacancy vacancy = Vacancy.getTypicalVacancy();
+        vacancy.inZoneOne();
+        vacancy.onHatedStation();
+        vacancy.setWfh(true);
+        final var calculatorWithCustomVacancy = new Calculator(vacancy);
+        final int expectedSalary = BASIC_SALARY + toIntFromDouble(BASIC_SALARY / 100 * 18);
+        // when
+        final var salary = calculatorWithCustomVacancy.calculateSalary();
+
+        // then
+        assertThat(salary).isGreaterThanOrEqualTo(expectedSalary);
+
+        // debug
+        System.out.println("With work from home option: " + salary);
     }
 
     @Test
@@ -61,7 +85,7 @@ public class CalculatorTest {
         // given
         final Vacancy vacancy = Vacancy.builder().hours(37.5).timeTravel(45).annualLeaveDays(22).build();
         final var calculatorWithCustomVacancy = new Calculator(vacancy);
-        final int expectedSalary = 52500 + 6000;
+        final int expectedSalary = BASIC_SALARY + 6000;
         // when
         final var salary = calculatorWithCustomVacancy.calculateSalary();
 

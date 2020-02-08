@@ -44,22 +44,13 @@ class Calculator {
         adjustment += getHolidayAdjustment(data.getAnnualLeaveDays());
         adjustment += getTravelTimeSalaryAdjustment(data.getTimeTravel());
         adjustment += workHoursAdjustment(data.getHours());
+        if (data.isWfh()) {
+            adjustment -= SalaryConfig.twoPercent();
+        }
 
         salary += adjustment;
         return Math.max(salary, MINIMUM_SALARY);
     }
-
-/*
-      Zone 1 + 3200
-
-      WFH -2500
-
-      For ability to buy day -500 per day
-
-
-      Oxford, Victoria, Piccadilly + 1000
-      37.5hr is 0  ±1200 per 0.5h
-     */
 
     public int getBasicSalary() {
         return 20000 + (300 * agingBonus());

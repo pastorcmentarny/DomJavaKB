@@ -17,7 +17,7 @@ class SalaryConfig {
     public static final int HALF_HOUR_LESS_BONUS = discount(fivePercent());
     public static final int HALF_HOUR_MORE_BONUS = tenPercent();
 
-    private static int twoPercent() {
+    public static int twoPercent() {
         return BASIC_SALARY / 50;
     }
 
