@@ -19,6 +19,8 @@ public final class Constants {
     public static final String RECENT_SRC_PATHS_FILE = DATA_PATH + "recentSrcPaths.nbd";
     public static final String RECENT_DEST_PATHS_FILE = DATA_PATH + "recentDestPaths.nbd";
     public static final String QUICK_MODE_FILENAME = "quickMode.nbd";
+    public static final int DEFAULT_COLUMNS_SIZE = 20;
+    public static final int DEFAULT_ROWS_SIZE = 5;
 
     private Constants() {
     }

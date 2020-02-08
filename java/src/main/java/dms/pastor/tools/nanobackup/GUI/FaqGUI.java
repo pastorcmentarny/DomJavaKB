@@ -10,6 +10,7 @@
  */
 package dms.pastor.tools.nanobackup.GUI;
 
+import dms.pastor.tools.nanobackup.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -84,7 +85,7 @@ public class FaqGUI extends JFrame {
         answersField.setColumns(20);
         answersField.setFont(DEFAULT_FONT);
         answersField.setLineWrap(true);
-        answersField.setRows(5);
+        answersField.setRows(Constants.DEFAULT_ROWS_SIZE);
         answersField.setText(answers[0]);
         answersField.setToolTipText("Place ,where answer are displayed");
         answersField.setWrapStyleWord(true);

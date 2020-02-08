@@ -1,5 +1,6 @@
 package dms.pastor.tools.nanobackup.GUI;
 
+import dms.pastor.tools.nanobackup.Constants;
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +15,7 @@ import java.net.URI;
 import java.util.Properties;
 
 import static dms.pastor.tools.nanobackup.Constants.DATA_PATH;
+import static dms.pastor.tools.nanobackup.Constants.DEFAULT_COLUMNS_SIZE;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static javax.swing.LayoutStyle.ComponentPlacement.RELATED;
 
@@ -32,7 +34,6 @@ public class About extends javax.swing.JFrame {
     private static final Logger LOGGER = LoggerFactory.getLogger(About.class);
     private static final int DEFAULT_PREFERRED_SIZE = 613;
     private static final int DEFAULT_GAP_SIZE = 18;
-    private static final int COLUMNS_SIZE = 20;
     private final Properties properties = new Properties();
     private javax.swing.JTextArea changelogTextArea;
     private javax.swing.JTextArea eulaTextArea;
@@ -105,10 +106,10 @@ public class About extends javax.swing.JFrame {
         jScrollPane5.setEnabled(false);
         jScrollPane5.setFont(getDefaultFont());
 
-        jTextArea2.setColumns(COLUMNS_SIZE);
+        jTextArea2.setColumns(DEFAULT_COLUMNS_SIZE);
         jTextArea2.setFont(getDefaultFont());
         jTextArea2.setLineWrap(true);
-        jTextArea2.setRows(5);
+        jTextArea2.setRows(Constants.DEFAULT_ROWS_SIZE);
         jTextArea2.setText(properties.getProperty("about.program"));
         jTextArea2.setWrapStyleWord(true);
         jScrollPane5.setViewportView(jTextArea2);
@@ -151,11 +152,11 @@ public class About extends javax.swing.JFrame {
 
         aboutTabbedPanel.addTab("About program", aboutPanel);
 
-        changelogTextArea.setColumns(COLUMNS_SIZE);
+        changelogTextArea.setColumns(DEFAULT_COLUMNS_SIZE);
         changelogTextArea.setEditable(false);
         changelogTextArea.setFont(getDefaultFont());
         changelogTextArea.setLineWrap(true);
-        changelogTextArea.setRows(5);
+        changelogTextArea.setRows(Constants.DEFAULT_ROWS_SIZE);
         changelogTextArea.setWrapStyleWord(true);
         jScrollPane2.setViewportView(changelogTextArea);
 
@@ -184,11 +185,11 @@ public class About extends javax.swing.JFrame {
         www.setEditable(false);
         www.setText("https://dominiksymonowicz.com/welcome");
 
-        messageTextArea.setColumns(COLUMNS_SIZE);
+        messageTextArea.setColumns(DEFAULT_COLUMNS_SIZE);
         messageTextArea.setEditable(false);
         messageTextArea.setFont(getDefaultFont());
         messageTextArea.setLineWrap(true);
-        messageTextArea.setRows(5);
+        messageTextArea.setRows(Constants.DEFAULT_ROWS_SIZE);
         messageTextArea.setText(properties.getProperty("about.me"));
         messagePanel.setViewportView(messageTextArea);
 
@@ -244,11 +245,11 @@ public class About extends javax.swing.JFrame {
 
         aboutTabbedPanel.addTab("About me", aboutMePanel);
 
-        thanksTextArea.setColumns(COLUMNS_SIZE);
+        thanksTextArea.setColumns(DEFAULT_COLUMNS_SIZE);
         thanksTextArea.setEditable(false);
         thanksTextArea.setFont(getDefaultFont());
         thanksTextArea.setLineWrap(true);
-        thanksTextArea.setRows(5);
+        thanksTextArea.setRows(Constants.DEFAULT_ROWS_SIZE);
         thanksTextArea.setText(properties.getProperty("about.thanks"));
         thanksTextArea.setWrapStyleWord(true);
         thanksScrollPanel.setViewportView(thanksTextArea);
@@ -266,11 +267,11 @@ public class About extends javax.swing.JFrame {
 
         aboutTabbedPanel.addTab("Thanks", thanksPanel);
 
-        eulaTextArea.setColumns(COLUMNS_SIZE);
+        eulaTextArea.setColumns(DEFAULT_COLUMNS_SIZE);
         eulaTextArea.setEditable(false);
         eulaTextArea.setFont(new java.awt.Font("Lucida Sans", Font.PLAIN, 14));
         eulaTextArea.setLineWrap(true);
-        eulaTextArea.setRows(5);
+        eulaTextArea.setRows(Constants.DEFAULT_ROWS_SIZE);
         jScrollPane1.setViewportView(eulaTextArea);
 
         javax.swing.GroupLayout eulaPanelLayout = new javax.swing.GroupLayout(eulaPanel);
