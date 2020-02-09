@@ -185,8 +185,8 @@ A vary vary very long description so it can be cut so it can fit nicely on conso
 
         line("Collections")
         val numList3 = 1..20
-        val listSum = numList3.reduce { x, y -> x + y } //TODO need to understand it
-        val listSum2 = numList3.fold(5) { x, y -> x + y } //TODO need to understand it
+        val listSum = numList3.reduce { x, y -> x + y }
+        val listSum2 = numList3.fold(5) { x, y -> x + y }
         println("Evnes: ${numList3.any() { it % 2 == 0 }}")
         println("Evnes: ${numList3.all() { it % 2 == 0 }}")
         val seven = numList3.map { it * 7 }.forEach { println(it) }
