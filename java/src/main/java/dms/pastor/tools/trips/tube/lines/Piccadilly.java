@@ -20,8 +20,7 @@ public class Piccadilly extends Line {
 
     @Override
     public List<Station> getStations() {
-        List<Station> tubeStations = new ArrayList<>();
-        tubeStations.addAll(SharedStations.addUxbridgeToRaynersLane());
+        List<Station> tubeStations = new ArrayList<>(SharedStations.addUxbridgeToRaynersLane());
         tubeStations.add(Station.SOUTH_HARROW);
         tubeStations.add(Station.SUDBURY_HILL);
         tubeStations.add(Station.SUDBURY_TOWN);
