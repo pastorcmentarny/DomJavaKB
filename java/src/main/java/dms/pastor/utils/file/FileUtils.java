@@ -156,12 +156,10 @@ public final class FileUtils {
         return sb.toString();
     }
 
-    //TODO refactor this
     public static boolean isFileExists(String file) {
         return isFilesExists(new String[]{file});
     }
 
-    //TODO refactor this
     public static boolean isFileNotExists(String path) {
         return !isFilesExists(new String[]{path});
     }
