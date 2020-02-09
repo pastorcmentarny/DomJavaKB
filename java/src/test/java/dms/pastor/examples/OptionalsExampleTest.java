@@ -15,6 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
 public class OptionalsExampleTest {
+
     @Rule
     public final ExpectedException exception = ExpectedException.none();
 
@@ -35,8 +36,6 @@ public class OptionalsExampleTest {
         assertThat(optional.isPresent()).isTrue();
         assertThat(optional.get()).isEqualTo(optionalValue); //don't use this method like that use ifPresent first!
         assertThat(optional.filter(string -> string.length() > 10).isEmpty()).isTrue();
-
-
     }
 
     @Test
@@ -49,7 +48,6 @@ public class OptionalsExampleTest {
 
         // then
         assertThat(optional.orElse(text)).isEqualTo(text);
-        //TODO optional.orElseGet(() -> return new )).isEqualTo(text);
     }
 
     @Test

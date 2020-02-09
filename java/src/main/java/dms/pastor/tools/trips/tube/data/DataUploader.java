@@ -27,7 +27,6 @@ public class DataUploader {
 
     public List<TubeStation> load(Path path) {
         LOGGER.error("Loading data from .. " + path);
-        //TODO fix it or remove it validateIfFileIsAccessible(path);
         try (Stream<String> lines = Files.lines(path)) {
             final List<TubeStation> tubeStationList = lines.map(ToStationConverter::convert).collect(Collectors.toList());
             LOGGER.info("Data loaded.");
