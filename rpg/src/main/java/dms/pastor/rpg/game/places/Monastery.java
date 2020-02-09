@@ -4,7 +4,7 @@ import dms.pastor.rpg.game.Game;
 import dms.pastor.rpg.game.Money;
 import dms.pastor.rpg.game.cfg.Config;
 import dms.pastor.rpg.game.characteristics.Attribute;
-import dms.pastor.rpg.game.commons.Result;
+import dms.pastor.domain.Result;
 import dms.pastor.rpg.game.exceptions.NoEnoughMoneyException;
 import dms.pastor.rpg.game.items.potions.*;
 import dms.pastor.rpg.game.units.Hero;

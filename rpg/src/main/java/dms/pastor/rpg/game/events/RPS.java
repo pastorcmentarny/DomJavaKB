@@ -1,6 +1,6 @@
 package dms.pastor.rpg.game.events;
 
-import dms.pastor.rpg.game.commons.Result;
+import dms.pastor.domain.Result;
 
 /**
  * @author Pastor
@@ -25,6 +25,6 @@ public enum RPS {
     }
 
     public Result getResultFor(int player, int enemy) {
-        return new Result(false);
+        return Result.fail(); //TODO implement it
     }
 }

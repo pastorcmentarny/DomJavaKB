@@ -1,7 +1,7 @@
 package dms.pastor.rpg.game.events;
 
 import dms.pastor.rpg.game.commons.Msg;
-import dms.pastor.rpg.game.commons.Result;
+import dms.pastor.domain.Result;
 import dms.pastor.rpg.game.items.Items;
 import dms.pastor.rpg.game.units.Hero;
 
@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class BagFoundEvent implements EventInterface {
     static Scanner scanner = new Scanner(System.in);
 
-    private Result result = new Result(false);
+    private Result result = Result.fail();
     private final Hero hero;
 
     public BagFoundEvent(Hero hero) {

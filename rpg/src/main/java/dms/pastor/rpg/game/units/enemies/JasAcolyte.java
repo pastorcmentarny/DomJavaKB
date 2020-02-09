@@ -9,6 +9,8 @@ import dms.pastor.rpg.game.spells.Fireball;
 import dms.pastor.rpg.game.units.Hero;
 import dms.pastor.rpg.game.units.Unit;
 
+import java.util.Random;
+
 
 public class JasAcolyte extends Enemy {
     public JasAcolyte(int level) {
@@ -37,7 +39,7 @@ public class JasAcolyte extends Enemy {
     @Override
     public void beforeTurn() {
         super.beforeTurn();
-        if (lvl >= Unit.random.nextInt(101)) {
+        if (lvl >= new Random().nextInt(101)) {
             specialAttack();
         }
     }

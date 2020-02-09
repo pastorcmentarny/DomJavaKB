@@ -23,8 +23,7 @@ import java.util.Random;
  */
 public abstract class Unit extends Element implements Cloneable, Comparable<Unit> {
 
-    protected static //FIXME log.er //FIXME log.= //FIXME log.er.get//FIXME log.er(Unit.class);
-    final Random random = new Random();
+    public final Random random = new Random();
 
     public int lvl = 1;
     public int exp = 0;

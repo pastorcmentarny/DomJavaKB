@@ -3,7 +3,7 @@ package dms.pastor.rpg.game;
 
 import dms.pastor.rpg.game.cfg.Config;
 import dms.pastor.rpg.game.commons.Msg;
-import dms.pastor.rpg.game.commons.Result;
+import dms.pastor.domain.Result;
 import dms.pastor.rpg.game.events.*;
 import dms.pastor.rpg.game.menu.InventoryMenu;
 import dms.pastor.rpg.game.places.World;
@@ -90,7 +90,7 @@ public class Game {
                     Result result = gne.getReward();
                     if (result.isSuccess()) {
                         try {
-                            Integer i = (Integer) result.getData();
+                            Integer i = (Integer) result.getItem();
                             hero.exp += i;
                         } catch (Exception e) {
                             //FIXME log.error("Unexpected reward ... bug?" + e.getMessage() + "\n");

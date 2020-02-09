@@ -59,7 +59,7 @@ public final class NoSpell extends Spell implements Serializable, Cloneable {
     }
 
     @Override
-    void setElements(Elements elements) {
+    public void setElements(Elements elements) {
         LOGGER.warn("Bug detected! Something trying to set elements on NoSpell.");
         super.setElements(noElements());
     }

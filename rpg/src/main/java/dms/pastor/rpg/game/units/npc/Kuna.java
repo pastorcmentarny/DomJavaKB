@@ -26,7 +26,7 @@ public class Kuna extends NPC {
 
     @Override
     public String getRandomPreTalk() {
-        return kunaPreTalks[Unit.random.nextInt(kunaPreTalks.length)];
+        return kunaPreTalks[new Random().nextInt(kunaPreTalks.length)];
     }
 
 }

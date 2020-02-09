@@ -1,7 +1,8 @@
 package dms.pastor.rpg.game.spells;
 
+import dms.pastor.domain.Result;
 import dms.pastor.rpg.game.characteristics.Attribute;
-import dms.pastor.rpg.game.commons.Result;
+import dms.pastor.domain.Result;
 import dms.pastor.rpg.game.units.Hero;
 import dms.pastor.rpg.game.units.Unit;
 

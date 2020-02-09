@@ -25,11 +25,11 @@ public abstract class Spell extends Card {
     final Random random = new Random();
     private Elements elements;
 
-    Spell() {
+    public Spell() {
         setCardType(SPELL);
     }
 
-    static void castSpellMessage(String attackerName, String spellName, String defenderName) {
+    protected static void castSpellMessage(String attackerName, String spellName, String defenderName) {
         System.out.println(attackerName + " casting " + spellName + " on " + defenderName);
     }
 
@@ -58,7 +58,7 @@ public abstract class Spell extends Card {
         return elements;
     }
 
-    void setElements(Elements elements) {
+    public void setElements(Elements elements) {
         this.elements = elements;
     }
 

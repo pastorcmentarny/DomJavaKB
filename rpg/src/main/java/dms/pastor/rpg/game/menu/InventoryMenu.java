@@ -2,7 +2,7 @@ package dms.pastor.rpg.game.menu;
 
 import dms.pastor.rpg.game.armor.Armor;
 import dms.pastor.rpg.game.cfg.Config;
-import dms.pastor.rpg.game.commons.Result;
+import dms.pastor.domain.Result;
 import dms.pastor.rpg.game.items.Action;
 import dms.pastor.rpg.game.items.Inventory;
 import dms.pastor.rpg.game.items.Item;
@@ -94,7 +94,7 @@ public class InventoryMenu implements Menu {
                         if (action.equals(Action.WEAR)) {
                             Result r = hero.wear(item);
                             if (r.isSuccess()) {
-                                inventory.swap(item, (r.getData()));
+                                inventory.swap(item, (r.getItem()));
 
                             } else {
                                 System.out.println(r.getMessage());
@@ -104,7 +104,7 @@ public class InventoryMenu implements Menu {
                         if (action.equals(Action.EQUIP)) {
                             Result r = hero.equipWeapon(item);
                             if (r.isSuccess()) {
-                                inventory.swap(item, (r.getData()));
+                                inventory.swap(item, (r.getItem()));
                                 displayMenu = false;
 
                             } else {

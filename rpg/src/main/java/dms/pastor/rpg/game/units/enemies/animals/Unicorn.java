@@ -2,7 +2,7 @@ package dms.pastor.rpg.game.units.enemies.animals;
 
 import dms.pastor.rpg.game.characteristics.Skills;
 import dms.pastor.rpg.game.characteristics.Stats;
-import dms.pastor.rpg.game.commons.Result;
+import dms.pastor.domain.Result;
 import dms.pastor.rpg.game.items.Inventory;
 import dms.pastor.rpg.game.items.UnicornsHorn;
 import dms.pastor.rpg.game.spells.RainbowVomitSpell;

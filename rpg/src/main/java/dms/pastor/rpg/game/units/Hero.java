@@ -1,5 +1,6 @@
 package dms.pastor.rpg.game.units;
 
+import dms.pastor.domain.Result;
 import dms.pastor.rpg.game.Bonus;
 import dms.pastor.rpg.game.Money;
 import dms.pastor.rpg.game.actions.BattleAction;
@@ -10,7 +11,6 @@ import dms.pastor.rpg.game.cfg.Config;
 import dms.pastor.rpg.game.characteristics.*;
 import dms.pastor.rpg.game.commons.CLI;
 import dms.pastor.rpg.game.commons.Msg;
-import dms.pastor.rpg.game.commons.Result;
 import dms.pastor.rpg.game.exceptions.NoEnoughMoneyException;
 import dms.pastor.rpg.game.items.DomSocks;
 import dms.pastor.rpg.game.items.Inventory;
@@ -363,7 +363,7 @@ public class Hero extends Unit implements BattleAction {
                 //FIXME log.warn("unable to cast unknown spell");
 
         }
-        return new Result(false);
+        return Result.fail();
     }
 
     //3 sel
@@ -382,7 +382,7 @@ public class Hero extends Unit implements BattleAction {
             default:
         }
 
-        return new Result(false);
+        return Result.fail();
     }
 
     public boolean canUseItem() {

@@ -1,6 +1,6 @@
 package dms.pastor.rpg.game.events;
 
-import dms.pastor.rpg.game.commons.Result;
+import dms.pastor.domain.Result;
 
 /**
  * Author Dominik Symonowicz

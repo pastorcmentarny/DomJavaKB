@@ -1,6 +1,6 @@
 package dms.pastor.rpg.game.items;
 
-import dms.pastor.rpg.game.commons.Result;
+import dms.pastor.domain.Result;
 
 import java.util.ArrayList;
 
