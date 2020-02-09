@@ -40,8 +40,7 @@ public class ToAircraftConverterTest {
     public void shouldThrowExceptionIfNumberFieldsAreIncorrect() {
         // expect
         exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("It should have 14 fields but was 15"
-        );
+        exception.expectMessage("It should have 14 fields but was 15");
 
         // when
         ToAircraftConverter.convert("Airbus A350;;900;;wide body;;long haul;;2;;350;;6680;;6475;;1705;;2;;903;;950;;15000;;wrong1;;?;;");

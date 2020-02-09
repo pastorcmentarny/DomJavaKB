@@ -16,7 +16,7 @@ class JobOpportunityAnalyser {
     }
 
     public String analyse() {
-        throw new RuntimeException("not impelemented yet");
+        throw new RuntimeException("not implemented yet");
 /*
         CrapCounter crapCounter = new CrapCounter(data);
         final CounterResult result = crapCounter.count();
