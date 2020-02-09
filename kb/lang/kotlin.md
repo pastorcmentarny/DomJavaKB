@@ -78,3 +78,149 @@ sources of information:
 1) https://tech.io/playgrounds/7870/kotlin-simplified-generic-methods-with-reified-types
 2) 
 
+
+// we can create nested object inside class
+
+// kotlin do  not have static members
+// companion object used for factory objects and static members or use as call main from Java ...
+
+/*// open means can be overridden , abstract musb be overridden, default cannot be overriden
+abstract class Person(var firstName: String, var lastName: String) { // open is to negate  final keyword used by default
+    open fun getName(): String = "$firstName $lastName"
+    abstract fun getAddress(): String
+
+}*/
+
+
+/*
+open class Student(firstName: String, lastName: String, _id: Int, var tutor: String = "") : Person(firstName, lastName) {
+    override fun getAddress(): String {
+        return ""
+    }
+
+    val id: Int
+
+    init {
+        id = _id
+    }
+
+    fun enrol(courseName: String) {
+        val course = Courses.allCourses
+                .filter { it.Title == courseName }
+                .firstOrNull()
+    }
+
+    companion object : XmlSerializer<Student> {
+        fun createUndergradute(name: String): Undergarduate {
+            return Undergarduate(name)
+
+        }
+
+        fun createPostgard(name: String): Postgarduate {
+            return Postgarduate(name)
+        }
+
+        override fun toXml(item: Student) {
+
+        }
+    }
+}
+
+ */
+open class Device(name: String) { // primary constructor (better than secondary and you can use default value
+    constructor(name: String, serialNumber: Int) : this(name) /// secondary
+}
+
+        val text = """
+            > It is time to learn Kotlin!
+            > It is my first project with Kotlin and Spring Boot 2
+            > It should be as useless as all my projects :)
+            ${'$'}9.99
+
+            """.trimMargin() //  remove leading whitespace ${'$'}9.99 is used to type $
+
+
+        for (letter in text) {
+            println("Letter : $letter")
+        }
+
+
+
+looops
+
+        val values = 1..10
+        for (i in values step 2) {
+            println(i)
+        }
+
+        line("Kotlin's for loop style// closed range  (different than java) ")
+        for (i in 1..10 step 2) {
+            println(i)
+        }
+        line("Java's for loop style Half-open range")
+        for (i in 1 until 10 step 2) {
+            println(i)
+        }
+
+        line("down to 1 example")
+
+        for (i in 10 downTo 1 step 3) {
+            println(i)
+        }
+
+        line("for loop for array's indecies ")
+
+        val ints: Array<Int> = arrayOf(1, 4, 9, 16, 25)
+
+        for (i in ints.indices) {
+            println(i)
+        }
+
+        val intArray = intArrayOf(1, 4, 9, 16, 25)
+        intArray.forEachIndexed { index, value -> println("@$index value is $value") }
+
+
+
+
+
+        line("map loop")
+
+        val ages = TreeMap<String, Int>()
+        ages["Kelvin"] = 55
+        ages["Sam"] = 24
+        ages["Alex"] = 24
+        ages["Harry"] = 26
+
+        for ((name, old) in ages) {
+            println("$name is $old years old.")
+        }
+
+
+        line("for loop with index")
+
+        val numbers: IntArray = intArrayOf(1, 2, 4, 8, 16, 32)
+
+        for ((index, value) in numbers.withIndex()) {
+            println("$value is at index $index")
+        }
+
+
+        line("default parametes")
+
+        private fun isItUsable(useIt: Boolean = true): String {
+            return if (useIt) "YES" else "no"
+        }
+
+        println(isItUsable())
+        println(isItUsable(false))
+        println(isItUsable(true))
+
+
+
+
+
+return null
+    private fun returnNull(): String? {
+        return null
+    }
+
