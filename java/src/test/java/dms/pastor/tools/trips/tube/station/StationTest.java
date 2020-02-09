@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class StationTest {
 
-    @Test //FIXME MY DATA IS WRONG. NEED BE FIXED
+    @Test
     public void shouldBe270Stations() {
         // given
         Set<Station> uniqueStations = Stream.of(Station.values()).collect(Collectors.toSet());
