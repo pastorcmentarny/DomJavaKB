@@ -100,6 +100,7 @@ public class CollectionsUtilsTest {
         Arrays.stream(array).forEach(element -> assertThat(isStringBlank(element)).isFalse());
     }
 
+    @SuppressWarnings("ConstantConditions")
     @Test
     public void shouldReturnFalseIfListIsNullTest() {
 
@@ -222,6 +223,7 @@ public class CollectionsUtilsTest {
         assertThat(result).isEqualTo(expectedResult);
     }
 
+    @SuppressWarnings("ConstantConditions")
     @Test
     public void convertToStringArrayFromCharArrayShouldReturnNullIfCharArrayIsNull() {
         // when

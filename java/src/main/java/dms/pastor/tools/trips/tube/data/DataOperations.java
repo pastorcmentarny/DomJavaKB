@@ -23,6 +23,7 @@ import java.util.List;
 public final class DataOperations {
     private static final Logger LOGGER = LoggerFactory.getLogger(DataOperations.class);
 
+    //FIXME improve it as getPath() may produce NPE
     public static final Path STATION_PATH = new File(DataOperations.class.getClassLoader().getResource("transport/tube/station.txt").getPath()).toPath();
 
 

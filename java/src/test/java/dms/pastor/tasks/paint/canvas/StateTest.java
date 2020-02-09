@@ -95,17 +95,19 @@ public class StateTest {
         final String expectedImage = "Image{width=8, height=6, image=Xnullnullnullnullnullnullnull" + System.lineSeparator() +
             "nullnullnullnullnullnullnullnull" + System.lineSeparator() +
             "nullnullnullnullnullnullnullnull" + System.lineSeparator() +
-            "nullnullnullnullnullnullnullnull" + System.lineSeparator() +
-            "nullnullnullnullnullnullnullnull" + System.lineSeparator() +
-            "nullnullnullnullnullnullnullnull" + System.lineSeparator() +
-            "}";
+                "nullnullnullnullnullnullnullnull" + System.lineSeparator() +
+                "nullnullnullnullnullnullnullnull" + System.lineSeparator() +
+                "nullnullnullnullnullnullnullnull" + System.lineSeparator() +
+                "}";
 
         // when
         state.save(image);
 
         // then
         assertThat(state.containsPreviousState()).isTrue();
-        assertThat(state.peek().get().toString()).contains(expectedImage);
+        final Optional<Image> peek = state.peek();
+        assertThat(peek.isPresent()).isTrue();
+        assertThat(peek.get().toString()).contains(expectedImage);
     }
 
     @Test

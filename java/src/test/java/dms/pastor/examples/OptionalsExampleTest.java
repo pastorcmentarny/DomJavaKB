@@ -30,6 +30,7 @@ public class OptionalsExampleTest {
         optional.ifPresent(PrintOutUtils::printSizeOfString);
         assertThat(Optional.of(optionalValue).orElseThrow()).isEqualTo(optionalValue);
         assertThat(Optional.ofNullable(null)).isEmpty(); //no idea what is purpose of ofNullable in real world scenarios
+
         // and then
         assertThat(optional.isPresent()).isTrue();
         assertThat(optional.get()).isEqualTo(optionalValue); //don't use this method like that use ifPresent first!

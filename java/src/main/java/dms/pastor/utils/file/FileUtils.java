@@ -54,6 +54,7 @@ public final class FileUtils {
         return new File(filePath);
     }
 
+    @SuppressWarnings("ConstantConditions") //resource is check for null before
     public static File getPathToResource(String pathToResource) {
         validateIfNotEmpty(pathToResource, "path");
         final var resource = FileUtils.class.getClassLoader().getResource(pathToResource);

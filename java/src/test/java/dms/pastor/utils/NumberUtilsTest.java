@@ -195,11 +195,13 @@ public class NumberUtilsTest {
     }
 
     // part of the test
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     @Test(expected = IllegalArgumentException.class)
     public void testGetIllegalExceptionForNullInputForSmallestInt() {
         getSmallestInt(null);
     }
 
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     @Test(expected = IllegalArgumentException.class)
     public void testGetIllegalExceptionForEmptyInputForSmallestInt() {
         getSmallestInt(EMPTY_INTEGER_ARRAY);
@@ -224,11 +226,13 @@ public class NumberUtilsTest {
     }
 
     // part of the test
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     @Test(expected = IllegalArgumentException.class)
     public void testGetIllegalExceptionForNullInputForLargestInt() {
         getLargestInt(null);
     }
 
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     @Test(expected = IllegalArgumentException.class)
     public void testGetIllegalExceptionForEmptyInputForLargestInt() {
         getLargestInt(EMPTY_INTEGER_ARRAY);

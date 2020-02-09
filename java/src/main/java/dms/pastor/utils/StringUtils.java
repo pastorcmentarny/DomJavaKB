@@ -314,7 +314,7 @@ public final class StringUtils {
 
     public static String removeCharacterFromString(Character character, String string) {
         if (Objects.isNull(string)) {
-            return string;
+            return null;
         }
         return string.replaceAll(character.toString(), EMPTY_STRING);
     }
