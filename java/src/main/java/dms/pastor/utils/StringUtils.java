@@ -295,8 +295,8 @@ public final class StringUtils {
 
     static List<String> getCountryList() {
         return Arrays.stream(Locale.getISOCountries())
-            .map(countryCode -> new Locale(EMPTY_STRING, countryCode).getDisplayCountry())
-            .collect(toList());
+                .map(countryCode -> new Locale(EMPTY_STRING, countryCode).getDisplayCountry())
+                .collect(toList());
     }
 
     public static String getStringWithCapitalizedFirstCharacter(String string) {

@@ -32,7 +32,7 @@ public class FromFileImporterTest {
 
         // then
         assertThat(result.isSuccess()).isTrue();
-        final List<Word> wordList = (List<Word>) result.getItem();
+           final List<Word> wordList = (List<Word>) result.getItem();
         assertThat(wordList).hasSize(10);
 
     }

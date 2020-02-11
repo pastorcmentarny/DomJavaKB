@@ -9,9 +9,9 @@ class JobDescriptionToWordsConverter {
         List<String> wordList = Arrays.asList(job.toLowerCase().replaceAll("[.,;:_]", "").split(" "));
 
         return wordList.stream()
-            .filter(word -> !word.equalsIgnoreCase("a"))
-            .filter(word -> !word.equalsIgnoreCase("+44"))
-            .filter(word -> !word.equalsIgnoreCase("0"))
-            .collect(Collectors.toList());
+                .filter(word -> !word.equalsIgnoreCase("a"))
+                .filter(word -> !word.equalsIgnoreCase("+44"))
+                .filter(word -> !word.equalsIgnoreCase("0"))
+                .collect(Collectors.toList());
     }
 }

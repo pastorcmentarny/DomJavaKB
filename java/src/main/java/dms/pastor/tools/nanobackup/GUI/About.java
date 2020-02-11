@@ -121,33 +121,33 @@ public class About extends javax.swing.JFrame {
         javax.swing.GroupLayout aboutPanelLayout = new javax.swing.GroupLayout(aboutPanel);
         aboutPanel.setLayout(aboutPanelLayout);
         aboutPanelLayout.setHorizontalGroup(
-            aboutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(aboutPanelLayout.createSequentialGroup()
-                    .addGroup(aboutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(nameLabel)
-                        .addComponent(versionLabel)
-                        .addComponent(licenceLabel)
-                        .addComponent(osLabel)
-                        .addComponent(jvmLabel)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE))
-                    .addContainerGap())
+                aboutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(aboutPanelLayout.createSequentialGroup()
+                                .addGroup(aboutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(nameLabel)
+                                        .addComponent(versionLabel)
+                                        .addComponent(licenceLabel)
+                                        .addComponent(osLabel)
+                                        .addComponent(jvmLabel)
+                                        .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE))
+                                .addContainerGap())
         );
         aboutPanelLayout.setVerticalGroup(
-            aboutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(aboutPanelLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(nameLabel)
-                    .addPreferredGap(RELATED)
-                    .addComponent(versionLabel)
-                    .addPreferredGap(RELATED)
-                    .addComponent(licenceLabel)
-                    .addPreferredGap(RELATED, 14, Short.MAX_VALUE)
-                    .addComponent(osLabel)
-                    .addPreferredGap(RELATED)
-                    .addComponent(jvmLabel)
-                    .addPreferredGap(RELATED)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(DEFAULT_GAP_SIZE, DEFAULT_GAP_SIZE, DEFAULT_GAP_SIZE))
+                aboutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(aboutPanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(nameLabel)
+                                .addPreferredGap(RELATED)
+                                .addComponent(versionLabel)
+                                .addPreferredGap(RELATED)
+                                .addComponent(licenceLabel)
+                                .addPreferredGap(RELATED, 14, Short.MAX_VALUE)
+                                .addComponent(osLabel)
+                                .addPreferredGap(RELATED)
+                                .addComponent(jvmLabel)
+                                .addPreferredGap(RELATED)
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(DEFAULT_GAP_SIZE, DEFAULT_GAP_SIZE, DEFAULT_GAP_SIZE))
         );
 
         aboutTabbedPanel.addTab("About program", aboutPanel);
@@ -163,12 +163,12 @@ public class About extends javax.swing.JFrame {
         javax.swing.GroupLayout changelogPanelLayout = new javax.swing.GroupLayout(changelogPanel);
         changelogPanel.setLayout(changelogPanelLayout);
         changelogPanelLayout.setHorizontalGroup(
-            changelogPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, DEFAULT_PREFERRED_SIZE, Short.MAX_VALUE)
+                changelogPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, DEFAULT_PREFERRED_SIZE, Short.MAX_VALUE)
         );
         changelogPanelLayout.setVerticalGroup(
-            changelogPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
+                changelogPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
         );
 
         aboutTabbedPanel.addTab("changelog", changelogPanel);
@@ -201,46 +201,46 @@ public class About extends javax.swing.JFrame {
         javax.swing.GroupLayout aboutMePanelLayout = new javax.swing.GroupLayout(aboutMePanel);
         aboutMePanel.setLayout(aboutMePanelLayout);
         aboutMePanelLayout.setHorizontalGroup(
-            aboutMePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(aboutMePanelLayout.createSequentialGroup()
-                    .addGap(DEFAULT_GAP_SIZE, DEFAULT_GAP_SIZE, DEFAULT_GAP_SIZE)
-                    .addComponent(pictureOfMe, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(DEFAULT_GAP_SIZE, DEFAULT_GAP_SIZE, DEFAULT_GAP_SIZE)
-                    .addGroup(aboutMePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(authorLabel)
+                aboutMePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(aboutMePanelLayout.createSequentialGroup()
-                            .addComponent(emailLabel)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(emailField, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE))
-                        .addComponent(messagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
-                        .addGroup(aboutMePanelLayout.createSequentialGroup()
-                            .addComponent(wwwLabel)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(www, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(RELATED)
-                            .addComponent(goToButton)))
-                    .addContainerGap())
+                                .addGap(DEFAULT_GAP_SIZE, DEFAULT_GAP_SIZE, DEFAULT_GAP_SIZE)
+                                .addComponent(pictureOfMe, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(DEFAULT_GAP_SIZE, DEFAULT_GAP_SIZE, DEFAULT_GAP_SIZE)
+                                .addGroup(aboutMePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(authorLabel)
+                                        .addGroup(aboutMePanelLayout.createSequentialGroup()
+                                                .addComponent(emailLabel)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(emailField, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE))
+                                        .addComponent(messagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
+                                        .addGroup(aboutMePanelLayout.createSequentialGroup()
+                                                .addComponent(wwwLabel)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(www, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(RELATED)
+                                                .addComponent(goToButton)))
+                                .addContainerGap())
         );
         aboutMePanelLayout.setVerticalGroup(
-            aboutMePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(aboutMePanelLayout.createSequentialGroup()
-                    .addGroup(aboutMePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                aboutMePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(aboutMePanelLayout.createSequentialGroup()
-                            .addComponent(authorLabel)
-                            .addPreferredGap(RELATED)
-                            .addGroup(aboutMePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(emailLabel)
-                                .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(RELATED)
-                            .addGroup(aboutMePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(aboutMePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(www, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(goToButton))
-                                .addComponent(wwwLabel))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(messagePanel))
-                        .addComponent(pictureOfMe, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap())
+                                .addGroup(aboutMePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(aboutMePanelLayout.createSequentialGroup()
+                                                .addComponent(authorLabel)
+                                                .addPreferredGap(RELATED)
+                                                .addGroup(aboutMePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(emailLabel)
+                                                        .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(RELATED)
+                                                .addGroup(aboutMePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(aboutMePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                .addComponent(www, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(goToButton))
+                                                        .addComponent(wwwLabel))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(messagePanel))
+                                        .addComponent(pictureOfMe, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap())
         );
 
         aboutTabbedPanel.addTab("About me", aboutMePanel);
@@ -257,12 +257,12 @@ public class About extends javax.swing.JFrame {
         javax.swing.GroupLayout thanksPanelLayout = new javax.swing.GroupLayout(thanksPanel);
         thanksPanel.setLayout(thanksPanelLayout);
         thanksPanelLayout.setHorizontalGroup(
-            thanksPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(thanksScrollPanel, javax.swing.GroupLayout.DEFAULT_SIZE, DEFAULT_PREFERRED_SIZE, Short.MAX_VALUE)
+                thanksPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(thanksScrollPanel, javax.swing.GroupLayout.DEFAULT_SIZE, DEFAULT_PREFERRED_SIZE, Short.MAX_VALUE)
         );
         thanksPanelLayout.setVerticalGroup(
-            thanksPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(thanksScrollPanel, javax.swing.GroupLayout.DEFAULT_SIZE, DEFAULT_PREFERRED_SIZE, Short.MAX_VALUE)
+                thanksPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(thanksScrollPanel, javax.swing.GroupLayout.DEFAULT_SIZE, DEFAULT_PREFERRED_SIZE, Short.MAX_VALUE)
         );
 
         aboutTabbedPanel.addTab("Thanks", thanksPanel);
@@ -277,12 +277,12 @@ public class About extends javax.swing.JFrame {
         javax.swing.GroupLayout eulaPanelLayout = new javax.swing.GroupLayout(eulaPanel);
         eulaPanel.setLayout(eulaPanelLayout);
         eulaPanelLayout.setHorizontalGroup(
-            eulaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, DEFAULT_PREFERRED_SIZE, Short.MAX_VALUE)
+                eulaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, DEFAULT_PREFERRED_SIZE, Short.MAX_VALUE)
         );
         eulaPanelLayout.setVerticalGroup(
-            eulaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, DEFAULT_PREFERRED_SIZE, Short.MAX_VALUE)
+                eulaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, DEFAULT_PREFERRED_SIZE, Short.MAX_VALUE)
         );
 
         aboutTabbedPanel.addTab("eula", eulaPanel);
@@ -290,12 +290,12 @@ public class About extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(aboutTabbedPanel)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(aboutTabbedPanel)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(aboutTabbedPanel, javax.swing.GroupLayout.DEFAULT_SIZE, DEFAULT_PREFERRED_SIZE, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(aboutTabbedPanel, javax.swing.GroupLayout.DEFAULT_SIZE, DEFAULT_PREFERRED_SIZE, Short.MAX_VALUE)
         );
 
         pack();

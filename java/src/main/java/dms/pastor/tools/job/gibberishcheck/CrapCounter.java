@@ -10,11 +10,11 @@ public class CrapCounter {
 
     public CounterResult count() {
         final long counter = data.getJob()
-            .stream()
-            .filter(word -> data.getCrapWords()
                 .stream()
-                .anyMatch(word::equalsIgnoreCase))
-            .count();
+                .filter(word -> data.getCrapWords()
+                        .stream()
+                        .anyMatch(word::equalsIgnoreCase))
+                .count();
         //for each word in job
         //check is word is
         return new CounterResult(Math.toIntExact(counter), data.getJob().size());

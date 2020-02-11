@@ -61,6 +61,7 @@ public class CalculatorTest {
         System.out.println("In zone 1 on crap station: " + salary);
     }
 
+    @SuppressWarnings("IntegerDivisionInFloatingPointContext") //as accuracy do not matter
     @Test
     public void salaryShouldDecreaseIfWorkFromHomeOptionAvailable() {
         // given
