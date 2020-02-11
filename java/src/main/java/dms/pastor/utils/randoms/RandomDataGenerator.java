@@ -2,6 +2,7 @@ package dms.pastor.utils.randoms;
 
 import dms.pastor.domain.exception.SomethingWentWrongException;
 import dms.pastor.utils.PrintOutUtils;
+import dms.pastor.utils.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -88,6 +89,10 @@ public final class RandomDataGenerator {
         }
 
         var listOfCharacters = removeCharacterFromString(character, ALPHABET);
+
+        if (StringUtils.isStringEmpty(listOfCharacters)) {
+            return getRandomCharacterFromAlphabet();
+        }
         return listOfCharacters.toCharArray()[RANDOM.nextInt(listOfCharacters.length())];
     }
 
@@ -196,7 +201,7 @@ public final class RandomDataGenerator {
     }
 
     public static int randomPositiveInteger() {
-        return RANDOM.nextInt(Integer.MAX_VALUE-1)+1;
+        return RANDOM.nextInt(Integer.MAX_VALUE - 1) + 1;
     }
 
     public static String generateRandomIntegerAsString(int maxValue) {
@@ -224,10 +229,10 @@ public final class RandomDataGenerator {
         while (repeat) {
             int numberToCheck = randomNumber;
             repeat = Arrays.stream(numbers)
-                .boxed()
-                .collect(Collectors.toList())
-                .stream()
-                .anyMatch(number -> numberToCheck == number);
+                    .boxed()
+                    .collect(Collectors.toList())
+                    .stream()
+                    .anyMatch(number -> numberToCheck == number);
             if (repeat) {
                 randomNumber = randomInteger(min, max);
             }
