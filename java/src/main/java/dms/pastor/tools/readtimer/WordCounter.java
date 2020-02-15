@@ -48,9 +48,9 @@ final class WordCounter {
         }
 
         LOGGER.debug("Words:" + allWords.size() +
-            "\n\tAccepted: " + counter +
-            "\n\tNot a Word: " + notAWord +
-            "\n\tRejected Stop Words:" + rejectedStopWords);
+                "\n\tAccepted: " + counter +
+                "\n\tNot a Word: " + notAWord +
+                "\n\tRejected Stop Words:" + rejectedStopWords);
         return counter;
     }
 

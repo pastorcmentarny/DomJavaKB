@@ -114,7 +114,7 @@ public final class PrintOutUtils {
         out.println("Content:");
         try {
             Files.list(Paths.get(System.getProperty("java.io.tmpdir")))
-                .forEach(System.out::println);
+                    .forEach(System.out::println);
         } catch (IOException exception) {
             out.println("Unable to display content of temporary folder due to " + exception.getMessage());
         }

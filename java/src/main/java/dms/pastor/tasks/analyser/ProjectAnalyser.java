@@ -40,6 +40,14 @@ class ProjectAnalyser {
     private int highestLinesFileCount = 0;
     private String highestLinesFileName = EMPTY_STRING;
 
+    private static int calculateAverageFromIntegerList(List<Integer> integerList) {
+        int[] intStream = integerList.stream().mapToInt(width -> width).toArray();
+        final int max = IntStream.of(intStream).max().orElse(0);
+        final int min = IntStream.of(intStream).min().orElse(0);
+        final int sum = IntStream.of(intStream).filter(width -> width > 0).sum();
+        return BigDecimal.valueOf(sum - max - min / integerList.size() - 2).intValue();
+    }
+
     void analyse(String path) {
         validate(path);
         displayAllFilesInProject();
@@ -51,8 +59,8 @@ class ProjectAnalyser {
     private void displayAllFilesInProject() {
         try {
             Files.list(Paths.get("."))
-                .filter(Files::isRegularFile)
-                .forEach(System.out::println);
+                    .filter(Files::isRegularFile)
+                    .forEach(System.out::println);
         } catch (IOException e) {
             LOGGER.error(String.format("Unable to list of all files due %s", e.getMessage()), e);
         }
@@ -135,22 +143,14 @@ class ProjectAnalyser {
 
     private String getResultAsText() {
         return "RESULT:\n" +
-            "\nFiles: " + getNumberOfFiles() +
-            "\nLines of code: " + getLinesOfCode() +
-            "\nCharacters: " + getCharacterNumbers() +
-            "\nWidest line: " + getWidestLine() + " in " + getWidestLineText() +
-            "\nFile with highest lines: " + getHighestLineCount() + " in " + getHighestLinesFileName() +
+                "\nFiles: " + getNumberOfFiles() +
+                "\nLines of code: " + getLinesOfCode() +
+                "\nCharacters: " + getCharacterNumbers() +
+                "\nWidest line: " + getWidestLine() + " in " + getWidestLineText() +
+                "\nFile with highest lines: " + getHighestLineCount() + " in " + getHighestLinesFileName() +
                 "\nAverage width line per file: " + calculateAverageFromIntegerList(averageWidth) +
                 "\nAverage lines per file: " + calculateAverageFromIntegerList(averageLines);
 
-    }
-
-    private static int calculateAverageFromIntegerList(List<Integer> integerList) {
-        int[] intStream = integerList.stream().mapToInt(width -> width).toArray();
-        final int max = IntStream.of(intStream).max().orElse(0);
-        final int min = IntStream.of(intStream).min().orElse(0);
-        final int sum = IntStream.of(intStream).filter(width -> width > 0).sum();
-        return BigDecimal.valueOf(sum - max - min / integerList.size() - 2).intValue();
     }
 
     int getLinesOfCode() {

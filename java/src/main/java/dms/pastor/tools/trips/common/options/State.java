@@ -13,11 +13,6 @@ public enum State {
 
     private final String value;
 
-    private String value() {
-        return value;
-    }
-
-
     State(String value) {
         this.value = value;
     }
@@ -26,10 +21,14 @@ public enum State {
         validateIfNotEmpty(statusShortcut);
 
         return Arrays
-            .stream(State.values())
-            .filter(state -> state.value().equalsIgnoreCase(statusShortcut))
-            .findFirst()
-            .orElseThrow(() -> new NotFoundException("State"));
+                .stream(State.values())
+                .filter(state -> state.value().equalsIgnoreCase(statusShortcut))
+                .findFirst()
+                .orElseThrow(() -> new NotFoundException("State"));
+    }
+
+    private String value() {
+        return value;
     }
 
 }

@@ -40,8 +40,8 @@ public class Person {
     @Override
     public String toString() {
         return "Person: " + fullName + '\n' +
-            "\ngenre: " + genre +
-            "\nage: " + Age +
-            "\ndob: '" + dob + "\n\n";
+                "\ngenre: " + genre +
+                "\nage: " + Age +
+                "\ndob: '" + dob + "\n\n";
     }
 }

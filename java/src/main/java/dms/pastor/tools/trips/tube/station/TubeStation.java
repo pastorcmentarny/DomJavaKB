@@ -104,11 +104,11 @@ public class TubeStation {//implements Station {
         if (!(o instanceof TubeStation)) return false;
         TubeStation that = (TubeStation) o;
         return isBlogged() == that.isBlogged() &&
-            Objects.equals(getName(), that.getName()) &&
-            getStatus() == that.getStatus() &&
-            Objects.equals(getPassedDate(), that.getPassedDate()) &&
-            Objects.equals(getVisitedDate(), that.getVisitedDate()) &&
-            Objects.equals(thisYearVisitedDate, that.thisYearVisitedDate);
+                Objects.equals(getName(), that.getName()) &&
+                getStatus() == that.getStatus() &&
+                Objects.equals(getPassedDate(), that.getPassedDate()) &&
+                Objects.equals(getVisitedDate(), that.getVisitedDate()) &&
+                Objects.equals(thisYearVisitedDate, that.thisYearVisitedDate);
     }
 
     @Override
@@ -119,13 +119,13 @@ public class TubeStation {//implements Station {
     @Override
     public String toString() {
         return "TubeStation{" +
-            "name='" + name + '\'' +
-            ", status=" + status +
-            ", passedDate=" + passedDate +
-            ", visitedDate=" + visitedDate +
-            ", thisYearVisitedDate=" + thisYearVisitedDate +
-            ", blogged=" + blogged +
-            '}';
+                "name='" + name + '\'' +
+                ", status=" + status +
+                ", passedDate=" + passedDate +
+                ", visitedDate=" + visitedDate +
+                ", thisYearVisitedDate=" + thisYearVisitedDate +
+                ", blogged=" + blogged +
+                '}';
     }
 
     public String asFormattedString() {
@@ -134,11 +134,11 @@ public class TubeStation {//implements Station {
 
     public String asLine() {
         return name + FIELD_SEPARATOR +
-            getStatusAsValue() + FIELD_SEPARATOR +
-            getDate(passedDate) + FIELD_SEPARATOR +
-            getDate(visitedDate) + FIELD_SEPARATOR +
-            getDate(thisYearVisitedDate) + FIELD_SEPARATOR +
-            getBloggedAsString();
+                getStatusAsValue() + FIELD_SEPARATOR +
+                getDate(passedDate) + FIELD_SEPARATOR +
+                getDate(visitedDate) + FIELD_SEPARATOR +
+                getDate(thisYearVisitedDate) + FIELD_SEPARATOR +
+                getBloggedAsString();
     }
 
     private String getDate(LocalDate date) {

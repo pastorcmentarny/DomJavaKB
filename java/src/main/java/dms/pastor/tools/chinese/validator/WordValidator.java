@@ -23,6 +23,7 @@ import static java.util.Objects.isNull;
  */
 final class WordValidator {
     private static final Logger LOGGER = LoggerFactory.getLogger(Word.class);
+    private static final List<String> allowedChineseWordsWithEnglishCharactersList = List.of("T恤", "Java 开发人员");
 
     private WordValidator() {
     }
@@ -74,8 +75,6 @@ final class WordValidator {
 
         return true;
     }
-
-    private static final List<String> allowedChineseWordsWithEnglishCharactersList = List.of("T恤", "Java 开发人员");
 
     private static boolean isContainsAllowedWords(String word) {
 

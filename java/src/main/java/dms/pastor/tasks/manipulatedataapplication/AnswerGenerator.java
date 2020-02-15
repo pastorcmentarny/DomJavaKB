@@ -28,8 +28,8 @@ class AnswerGenerator {
 
     Person getPerson(String personName) {
         final Optional<Person> result = people.stream()
-            .filter(person -> person.getFullName().equalsIgnoreCase(personName))
-            .findFirst();
+                .filter(person -> person.getFullName().equalsIgnoreCase(personName))
+                .findFirst();
 
         return result.orElseThrow(() -> new PersonNotFoundException(personName));
     }

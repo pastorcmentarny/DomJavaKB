@@ -54,7 +54,7 @@ public class Point {
         if (!(o instanceof Point)) return false;
         Point point = (Point) o;
         return Objects.equals(getCoordinates(), point.getCoordinates()) &&
-            Objects.equals(getFill(), point.getFill());
+                Objects.equals(getFill(), point.getFill());
     }
 
     @Override
@@ -65,8 +65,8 @@ public class Point {
     @Override
     public String toString() {
         return "Point{" +
-            "coordinates=" + coordinates +
-            ", fill='" + fill + '\'' +
-            '}';
+                "coordinates=" + coordinates +
+                ", fill='" + fill + '\'' +
+                '}';
     }
 }

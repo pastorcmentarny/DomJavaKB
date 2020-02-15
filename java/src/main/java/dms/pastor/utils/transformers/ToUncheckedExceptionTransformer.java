@@ -17,8 +17,6 @@ import java.util.function.Function;
 public interface ToUncheckedExceptionTransformer<T, R, E extends Throwable> {
     Logger LOGGER = LoggerFactory.getLogger(ToUncheckedExceptionTransformer.class);
 
-    R apply(T t) throws E;
-
     static <T, R, E extends Throwable> Function<T, R> transformToUncheckedException(ToUncheckedExceptionTransformer<T, R, E> function) {
         return t -> {
             try {
@@ -29,4 +27,6 @@ public interface ToUncheckedExceptionTransformer<T, R, E extends Throwable> {
             }
         };
     }
+
+    R apply(T t) throws E;
 }

@@ -24,14 +24,14 @@ public class InputParser {
     private InputParser() {
     }
 
-    private void setRawData(String rawData) {
-        this.rawData = rawData;
-    }
-
     public static InputParser getInputParserFromString(String rawString) {
         InputParser inputParser = new InputParser();
         inputParser.setRawData(rawString);
         return inputParser;
+    }
+
+    private void setRawData(String rawData) {
+        this.rawData = rawData;
     }
 
     public final Grid generateGrid() {

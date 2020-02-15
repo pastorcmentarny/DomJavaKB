@@ -17,4 +17,7 @@ public final class Base64Basics {
         return new String(decodedMessage);
     }
 
+    public static void main(String[] args) {
+        System.out.println(new String(Base64.getDecoder().decode("5QoFkEId8g==".getBytes())));
+    }
 }

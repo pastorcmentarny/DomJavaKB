@@ -28,20 +28,20 @@ public class ToAircraftConverter {
         final var aircraftFields = aircraftAsString.split(FIELD_SEPARATOR);
         final AirplaneFieldExtractor fieldExtractor = new AirplaneFieldExtractor(aircraftFields);
         return Aircraft.builder()
-            .model(fieldExtractor.getModel())
-            .variant(fieldExtractor.getVariant())
-            .bodyType(fieldExtractor.getBodyType())
-            .role(fieldExtractor.getRole())
-            .cockpitCrew(fieldExtractor.getCockpitCrew())
-            .passengerCapacityOneClass(fieldExtractor.getPassengerCapacityOneClass())
-            .length(fieldExtractor.getLength())
-            .wingspan(fieldExtractor.getWingspan())
-            .height(fieldExtractor.getHeight())
-            .engines(fieldExtractor.getEngines())
-            .cruiseSpeed(fieldExtractor.getCruiseSpeed())
-            .maxSpeed(fieldExtractor.getMaxSpeed())
-            .range(fieldExtractor.getRange())
-            .fuelCapacity(fieldExtractor.getFuelCapacity())
-            .build();
+                .model(fieldExtractor.getModel())
+                .variant(fieldExtractor.getVariant())
+                .bodyType(fieldExtractor.getBodyType())
+                .role(fieldExtractor.getRole())
+                .cockpitCrew(fieldExtractor.getCockpitCrew())
+                .passengerCapacityOneClass(fieldExtractor.getPassengerCapacityOneClass())
+                .length(fieldExtractor.getLength())
+                .wingspan(fieldExtractor.getWingspan())
+                .height(fieldExtractor.getHeight())
+                .engines(fieldExtractor.getEngines())
+                .cruiseSpeed(fieldExtractor.getCruiseSpeed())
+                .maxSpeed(fieldExtractor.getMaxSpeed())
+                .range(fieldExtractor.getRange())
+                .fuelCapacity(fieldExtractor.getFuelCapacity())
+                .build();
     }
 }

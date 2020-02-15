@@ -28,6 +28,6 @@ final class CollectionExercises {
         }
         AtomicInteger count = new AtomicInteger(1);
         return list.stream()
-            .collect(toMap((integer) -> count.getAndAdd(1), Function.identity()));
+                .collect(toMap((integer) -> count.getAndAdd(1), Function.identity()));
     }
 }

@@ -5,11 +5,11 @@ import java.util.Date;
 
 final class MutableDate {
 
-    private static final int SECOND_IN_MILLISECONDS = 1000;
-    private static final int MINUTE = 60 * SECOND_IN_MILLISECONDS;
     static final String POLAND = "Europe/Warsaw";
     static final String UK = "Europe/London";
     static final String CHINA = "Asia/Shanghai";
+    private static final int SECOND_IN_MILLISECONDS = 1000;
+    private static final int MINUTE = 60 * SECOND_IN_MILLISECONDS;
     private static final String AUSTRALIA = "Australia/Sydney";
 
 

@@ -43,7 +43,7 @@ public class Coordinates {
         if (!(o instanceof Coordinates)) return false;
         Coordinates that = (Coordinates) o;
         return getWidth() == that.getWidth() &&
-            getHeight() == that.getHeight();
+                getHeight() == that.getHeight();
     }
 
     @Override

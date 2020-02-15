@@ -46,9 +46,9 @@ public class Stations {
 
     public TubeStation getStationByName(String name) {
         return tubeStationList.stream()
-            .filter(station -> station.getName().equals(name))
-            .findFirst()
-            .orElseThrow(() -> new NotFoundException("TubeStation " + name));
+                .filter(station -> station.getName().equals(name))
+                .findFirst()
+                .orElseThrow(() -> new NotFoundException("TubeStation " + name));
     }
 
     public void setVisitedFor(TubeStation tubeStation) {
@@ -84,32 +84,32 @@ public class Stations {
 
     public long countStationVisitedThisYear() {
         return tubeStationList.stream()
-            .filter(station -> station.getStatus().value().equalsIgnoreCase(VISITED.value()) && Objects.nonNull(station.getVisitedThisYearDate()))
-            .count();
+                .filter(station -> station.getStatus().value().equalsIgnoreCase(VISITED.value()) && Objects.nonNull(station.getVisitedThisYearDate()))
+                .count();
     }
 
     public boolean isStationWasPassed() {
         return tubeStationList.stream()
-            .anyMatch(s -> s.getStatus().equals(PASSED) || s.getStatus().equals(VISITED));
+                .anyMatch(s -> s.getStatus().equals(PASSED) || s.getStatus().equals(VISITED));
     }
 
     private long countStationThatHasStatusOf(String statusValue) {
         return tubeStationList.stream()
-            .filter(station -> station.getStatus().value().equalsIgnoreCase(statusValue))
-            .count();
+                .filter(station -> station.getStatus().value().equalsIgnoreCase(statusValue))
+                .count();
     }
 
     public long countStationsBlogged() {
         return tubeStationList.stream()
-            .filter(TubeStation::isBlogged)
-            .count();
+                .filter(TubeStation::isBlogged)
+                .count();
     }
 
     public List<String> displayAllStationsBlogged() {
         return tubeStationList.stream()
-            .filter(TubeStation::isBlogged)
-            .map(TubeStation::getName)
-            .collect(Collectors.toList());
+                .filter(TubeStation::isBlogged)
+                .map(TubeStation::getName)
+                .collect(Collectors.toList());
     }
 
     public TubeStation findStation(String searchFor) {
@@ -120,9 +120,9 @@ public class Stations {
         }
 
         return tubeStationList.stream()
-            .filter(station -> station.getName().equalsIgnoreCase(searchFor))
-            .findFirst()
-            .orElseThrow(() -> notFoundException);
+                .filter(station -> station.getName().equalsIgnoreCase(searchFor))
+                .findFirst()
+                .orElseThrow(() -> notFoundException);
     }
 
     public Optional<TubeStation> getStation(String searchFor) {
@@ -133,8 +133,8 @@ public class Stations {
         }
 
         return tubeStationList.stream()
-            .filter(station -> station.getName().equalsIgnoreCase(searchFor))
-            .findFirst();
+                .filter(station -> station.getName().equalsIgnoreCase(searchFor))
+                .findFirst();
     }
 
 

@@ -25,7 +25,7 @@ class Task extends TimerTask {
 
     public void run() {
         LOGGER.info(Thread.currentThread() + " running " +
-            this.name + " at " +
-            LocalDate.now() + ".");
+                this.name + " at " +
+                LocalDate.now() + ".");
     }
 }

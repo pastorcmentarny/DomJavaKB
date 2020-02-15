@@ -30,6 +30,13 @@ public class OpenCloseTime {
         this.close = close;
     }
 
+    public static OpenCloseTime getClosedOn(String day) {
+        return new OpenCloseTime(day, null, null);
+    }
+
+    public static OpenCloseTime getOpen24HoursOn(String day) {
+        return new OpenCloseTime(day, MIDNIGHT, MIDNIGHT);
+    }
 
     public boolean isClosedWholeDay() {
         return areAllObjectsNull(open, close);
@@ -57,14 +64,6 @@ public class OpenCloseTime {
         }
 
         return String.format("%s - %s", open.toString(), close.toString());
-    }
-
-    public static OpenCloseTime getClosedOn(String day) {
-        return new OpenCloseTime(day, null, null);
-    }
-
-    public static OpenCloseTime getOpen24HoursOn(String day) {
-        return new OpenCloseTime(day, MIDNIGHT, MIDNIGHT);
     }
 
     public boolean isNotClosedWholeDay() {

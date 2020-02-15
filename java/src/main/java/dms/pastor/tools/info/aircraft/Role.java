@@ -20,17 +20,17 @@ public enum Role {
         this.description = description;
     }
 
+    public static Role getTypeFromLetter(String letter) {
+        ValidatorUtils.validateIfObjectValueIsNotNull(letter);
+        return Arrays.stream(Role.values()).filter(value -> value.getLetter().equalsIgnoreCase(letter)).findFirst().orElseThrow(() -> new NotFoundException(letter));
+    }
+
     public String getLetter() {
         return letter;
     }
 
     public String getDescription() {
         return description;
-    }
-
-    public static Role getTypeFromLetter(String letter) {
-        ValidatorUtils.validateIfObjectValueIsNotNull(letter);
-        return Arrays.stream(Role.values()).filter(value -> value.getLetter().equalsIgnoreCase(letter)).findFirst().orElseThrow(() -> new NotFoundException(letter));
     }
 
 }

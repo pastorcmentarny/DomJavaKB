@@ -48,8 +48,8 @@ class Score implements Comparable<Score> {
         }
         Score score1 = (Score) o;
         return x == score1.x &&
-            y == score1.y &&
-            getScore() == score1.getScore();
+                y == score1.y &&
+                getScore() == score1.getScore();
     }
 
     @Override

@@ -22,9 +22,9 @@ import static java.time.temporal.ChronoUnit.DAYS;
  */
 public final class DateUtils {
 
-    public static final int HOUR = 60 * MINUTE;
     private static final int SECOND = 1;
     public static final int MINUTE = 60 * SECOND;
+    public static final int HOUR = 60 * MINUTE;
     private static final int HOURS_PER_DAY = 24;
     private static final String ISO8601_MILLIS = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
 

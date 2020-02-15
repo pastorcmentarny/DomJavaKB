@@ -14,13 +14,13 @@ import java.io.File;
 public final class Constants {
     static final String DEFAULT_PATH = System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "resources" + File.separator + "nanobackup" + File.separator;
     public static final String DATA_PATH = DEFAULT_PATH + "data" + File.separator;
-    static final String MESSAGE_PATH = DATA_PATH + File.separator + "message.properties";
     public static final String SETTINGS_PATH = DATA_PATH + "settings.properties";
     public static final String RECENT_SRC_PATHS_FILE = DATA_PATH + "recentSrcPaths.nbd";
     public static final String RECENT_DEST_PATHS_FILE = DATA_PATH + "recentDestPaths.nbd";
     public static final String QUICK_MODE_FILENAME = "quickMode.nbd";
     public static final int DEFAULT_COLUMNS_SIZE = 20;
     public static final int DEFAULT_ROWS_SIZE = 5;
+    static final String MESSAGE_PATH = DATA_PATH + File.separator + "message.properties";
 
     private Constants() {
     }

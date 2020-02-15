@@ -14,18 +14,18 @@ import static dms.pastor.utils.StringUtils.WHITESPACE;
  */
 public class UKMobileNumberValidator {
 
+    private static final Set<String> UK_NUMBER_PATTERN = Set.of("071", "072", "073", "074", "075", "07624", "077", "078", "079",
+            "+4471", " +4472", " +4473", " +4474", " +4475", " +447624, +4477", " +4478", "+4479",
+            "71", " 72", " 73", " 74", " 75", " 7624, 77", " 78", "79",
+            "4471", " 4472", " 4473", " 4474", " 4475", " 447624, 4477", " 4478", "4479",
+            "0071", " 0072", " 0073", " 0074", " 0075", " 007624, 0077", " 0078", "0079");
+
     private UKMobileNumberValidator() {
     }
 
-    private static final Set<String> UK_NUMBER_PATTERN = Set.of("071", "072", "073", "074", "075", "07624", "077", "078", "079",
-        "+4471", " +4472", " +4473", " +4474", " +4475", " +447624, +4477", " +4478", "+4479",
-        "71", " 72", " 73", " 74", " 75", " 7624, 77", " 78", "79",
-        "4471", " 4472", " 4473", " 4474", " 4475", " 447624, 4477", " 4478", "4479",
-        "0071", " 0072", " 0073", " 0074", " 0075", " 007624, 0077", " 0078", "0079");
-
     private static boolean startWithMobilePhonePattern(String phoneNumber) {
         return UK_NUMBER_PATTERN.stream()
-            .anyMatch(phoneNumber::startsWith);
+                .anyMatch(phoneNumber::startsWith);
     }
 
     public static boolean validate(String number) {

@@ -31,11 +31,11 @@ public class DisplayStatisticOption implements Option {
     @Override
     public void choose(Stations stations) {
         System.out.println("You visited " + stations.countStationVisitedThisYear() + " station(s) this year. (" +
-            countPercentageOfAllStationFor(stations.getTubeStationList().size(), stations.countStationVisitedThisYear()));
+                countPercentageOfAllStationFor(stations.getTubeStationList().size(), stations.countStationVisitedThisYear()));
         System.out.println("You visited " + stations.countStationVisited() + " station(s). (" +
-            countPercentageOfAllStationFor(stations.getTubeStationList().size(), stations.countStationVisited()));
+                countPercentageOfAllStationFor(stations.getTubeStationList().size(), stations.countStationVisited()));
         System.out.println("You passed " + stations.countStationPassed() + " station(s). (" +
-            countPercentageOfAllStationFor(stations.getTubeStationList().size(), stations.countStationPassed()));
+                countPercentageOfAllStationFor(stations.getTubeStationList().size(), stations.countStationPassed()));
         System.out.println(getStatsForLines(stations));
         System.out.println(displayStationsBlogged(stations));
     }
