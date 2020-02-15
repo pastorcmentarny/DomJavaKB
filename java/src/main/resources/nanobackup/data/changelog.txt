@@ -1,17 +1,17 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 INFORMATION:
-	This changelog contain both release information and developer information.
-	You must feel really bored to read this things.
+    This changelog contain both release information and developer information.
+    You must feel really bored to read this things.
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 v2.0 in 2020
-	(4) .nbd format for
-		- change source file (change ending from .txt to .nbd(nano backup data) 
-		- (change source file should look only for .nbd file)
-		- include info about dest dir
-		(only nbd and txt file will be supported)
-		save2NBD,loadFromNBD,validateNBD,
+    (4) .nbd format for
+        - change source file (change ending from .txt to .nbd(nano backup data)
+        - (change source file should look only for .nbd file)
+        - include info about dest dir
+        (only nbd and txt file will be supported)
+        save2NBD,loadFromNBD,validateNBD,
     (4) use new java time instead of calendar in java
     (4) solve bug     (critical) When you do backup and try save as zip,then if your destination folder is part of backup ,then program will trap into infinitive loop!!!!
     (4) Improve start of program by better boot sequence and self-check and self-repair
@@ -332,7 +332,7 @@ v2.0 in 2020
 Official release.
 
 2011-10-22 v1.1.rc.1
-= find bug: 	(minor) wrong message where file/folder was not added
+= find bug:    (minor) wrong message where file/folder was not added
 # fix GUI issue.
 ~ minor changes in FAQ and Tutorial.
 

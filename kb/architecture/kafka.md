@@ -120,11 +120,32 @@ topic stores a time-ordered sequence of messages that share the same category.
 * You need monitoring Kafka: https://docs.confluent.io/current/kafka/monitoring.html
 
 #Kafka connector
+READ THIS: https://opencredo.com/blogs/kafka-connect-source-connectors-a-detailed-guide-to-connecting-to-what-you-love/
 Kafka Connect is a framework for connecting Kafka with external systems such as databases, key-value stores, search indexes, and file systems, using so-called Connectors.
+value stores, search indexes, and file systems, using so-called Connectors.
 
+Kafka Connectors are ready-to-use components, which can help us to import data from external systems into Kafka topics and export data from Kafka topics into external systems. 
 A source connector collects data from a system. Source systems can be entire databases, streams tables, or message brokers. A source connector could also collect metrics from application servers into Kafka topics, making the data available for stream processing with low latency.
 
 A sink connector delivers data from Kafka topics into other systems, which might be indexes such as Elasticsearch, batch systems such as Hadoop, or any kind of database.
 
+We only have to make sure to insert a newline at the end, otherwise, the source connector won't consider the last line.
+
+Transformations enable us to make simple and lightweight modifications to individual messages.
+
+Kafka is a distributed streaming platform built on top of partitioned log files. 
+
+
+## Avro
+
+Avro is a language independent, schema-based data serialization library. It uses a schema to perform serialization and deserialization. Moreover, Avro uses a JSON format to specify the data structure which makes it more powerful.
+
+Avro creates a data file where it keeps data along with schema in its metadata section. 
+
+Avro supports two types of data:
+
+Primitive type: Avro supports all the primitive types. We use primitive type name to define a type of a given field. For example, a value which holds a String should be declared as {“type”: “string”} in Schema
+Complex type: Avro supports six kinds of complex types: records, enums, arrays, maps, unions and fixed
 #Sources:
 * https://www.codenotfound.com/spring-kafka-consumer-producer-example.html
+https://opencredo.com/blogs/kafka-connect-source-connectors-a-detailed-guide-to-connecting-to-what-you-love/
