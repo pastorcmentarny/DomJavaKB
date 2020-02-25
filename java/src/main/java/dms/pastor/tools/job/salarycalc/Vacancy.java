@@ -1,6 +1,7 @@
 package dms.pastor.tools.job.salarycalc;
 
 import lombok.*;
+import lombok.Builder.Default;
 
 /**
  * Author Dominik Symonowicz
@@ -17,14 +18,14 @@ import lombok.*;
 @Getter
 @Builder
 public class Vacancy {
-    private int salary = 60000;
-    private boolean inZone1 = true;
-    private boolean hatedStation = true;
-    private int annualLeaveDays = 25;
-    private int timeTravel = 45;
-    private boolean wfh = false;
-    private double hours = 37.5;
-    private int optionToBuyExtraDays = 0;
+    @Default private int salary = 60000;
+    @Default private boolean inZone1 = true;
+    @Default private boolean hatedStation = true;
+    @Default private int annualLeaveDays = 25;
+    @Default private int timeTravel = 45;
+    @Default private boolean wfh = false;
+    @Default private double hours = 37.5;
+    @Default private int optionToBuyExtraDays = 0;
 
 
     public static Vacancy getTypicalVacancy() {
