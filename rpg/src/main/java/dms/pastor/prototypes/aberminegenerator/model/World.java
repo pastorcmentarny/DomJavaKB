@@ -1,13 +1,13 @@
 package dms.pastor.prototypes.aberminegenerator.model;
 
 
-import dms.pastor.tasks.paint.canvas.Image;
 import dms.pastor.utils.StringUtils;
 import dms.pastor.utils.ValidatorUtils;
+import lombok.EqualsAndHashCode;
 
 import java.util.Arrays;
-import java.util.Objects;
 
+@EqualsAndHashCode
 public class World {
     private int width;
     private int height;
@@ -19,30 +19,22 @@ public class World {
         world = new Pixel[width][height];
     }
 
-    World(int width, int height, Pixel[][] image) {
+    World(int width, int height, Pixel[][] world) {
         this.width = width;
         this.height = height;
-        this.world = clone2DArrayOfInts(image);
+        this.world = clone2DArrayOfInts(world);
     }
 
-    public static Image noImage() {
-        return new Image(0, 0);
+    public static World noWorld() {
+        return new World(0, 0);
     }
 
-    private int getWidth() {
-        return width;
-    }
-
-    private int getHeight() {
-        return height;
-    }
-
-    public Pixel[][] getImage() {
+    public Pixel[][] getWorld() {
         return Arrays.copyOf(world, world.length);
     }
 
-    public void setImage(Pixel[][] image) {
-        this.world = image;
+    public void setWorld(Pixel[][] world) {
+        this.world = world;
     }
 
     public boolean isCreated() {
@@ -56,7 +48,7 @@ public class World {
         return length - 1;
     }
 
-    public void resetToNoImage() {
+    public void resetToNoWorld() {
         width = 0;
         height = 0;
         world = new Pixel[0][0];
@@ -79,28 +71,19 @@ public class World {
         return world[x][y];
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof World)) return false;
-        World world1 = (World) o;
-        return getWidth() == world1.getWidth() &&
-            getHeight() == world1.getHeight() &&
-            Arrays.equals(world, world1.world);
-    }
 
-    private String getImageAsString() {
-        StringBuilder imageBuilder = new StringBuilder(StringUtils.EMPTY_STRING);
+    private String getWorldAsString() {
+        StringBuilder worldBuilder = new StringBuilder(StringUtils.EMPTY_STRING);
         if (width == 0 || height == 0) {
-            return imageBuilder.toString();
+            return worldBuilder.toString();
         }
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
-                imageBuilder.append(getPixelAt(x, y));
+                worldBuilder.append(getPixelAt(x, y));
             }
-            imageBuilder.append(StringUtils.NEW_LINE);
+            worldBuilder.append(StringUtils.NEW_LINE);
         }
-        return imageBuilder.toString();
+        return worldBuilder.toString();
     }
 
     private static Pixel[][] clone2DArrayOfInts(Pixel[][] source) {
@@ -118,17 +101,13 @@ public class World {
         return destination;
     }
 
-    @Override //it is getImageAsString() instead getImage()
-    public int hashCode() {
-        return Objects.hash(getWidth(), getHeight(), getImageAsString());
-    }
 
     @Override
     public String toString() {
-        return "Image{" +
+        return "World{" +
             "width=" + width +
             ", height=" + height +
-            ", image=" + getImageAsString() +
+            ", world=" + getWorldAsString() +
             '}';
     }
 }

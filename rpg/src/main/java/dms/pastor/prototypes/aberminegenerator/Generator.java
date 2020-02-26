@@ -11,7 +11,7 @@ public class Generator {
     public static void main(String[] args) {
         int width = 0;
         int height = 0;
-        if (Objects.isNull(args)) {
+        if (args.length == 0) {
             log.info("Running with default settings...");
             width = 10;
             height = 10;

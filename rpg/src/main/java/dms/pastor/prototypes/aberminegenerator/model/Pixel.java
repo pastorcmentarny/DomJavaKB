@@ -7,14 +7,14 @@ import lombok.Data;
 @Data
 public class Pixel {
     private boolean penaratable;
-    private PixelType type;
+    private TerrainType type;
 
 
     public static Pixel getWallPixel(int x, int y) {
-        return new Pixel(false, PixelType.WALL);
+        return new Pixel(false, TerrainType.WALL);
     }
 
     public boolean isWall() {
-        return type.equals(PixelType.WALL);
+        return type.equals(TerrainType.WALL);
     }
 }

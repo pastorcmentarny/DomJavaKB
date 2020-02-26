@@ -1,6 +1,7 @@
 package dms.pastor.prototypes.aberminegenerator.model;
 
-public enum PixelType {
+public enum TerrainType {
+    GRASS,
     STONE,
     SAND,
     WALL,

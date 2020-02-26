@@ -1,12 +1,14 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package dms.pastor.prototypes.littlefighter;
 
 import javax.swing.*;
-
+/**
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+ */
 class Battle {
     //Round
     //private int dmg;

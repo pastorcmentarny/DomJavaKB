@@ -7,7 +7,7 @@ public class RPGWorldGeneratorTest {
     @Test
     public void shouldRunGenerator() {
         // when
-        Generator.main(null);
+        Generator.main(new String[0]);
 
         // then no exception happen.
 
