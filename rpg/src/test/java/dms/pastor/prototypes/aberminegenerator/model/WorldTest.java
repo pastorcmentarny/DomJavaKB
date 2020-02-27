@@ -57,7 +57,7 @@ class WorldTest {
         // given
         final var width = 1;
         final var height = 1;
-        final var wallPixel = Pixel.getWallPixel(width, height);
+        final var wallPixel = Pixel.getWallAt(width, height);
 
         // when
         world.updatePixel(wallPixel);

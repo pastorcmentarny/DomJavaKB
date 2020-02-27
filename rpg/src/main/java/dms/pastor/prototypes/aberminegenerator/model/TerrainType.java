@@ -5,7 +5,5 @@ public enum TerrainType {
     STONE,
     SAND,
     WALL,
-    WATER,
-    OPEN_SPACE,
-    UNDERGROUND_SPACE,
+    WATER
 }

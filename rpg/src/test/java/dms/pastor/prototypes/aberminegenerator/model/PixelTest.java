@@ -10,10 +10,10 @@ public class PixelTest {
     @Test
     public void wallPixelAcceptanceTest() {
         // given
-        Pixel pixel = Pixel.getWallPixel(10, 10);
+        Pixel pixel = Pixel.getWallAt(10, 10);
 
         // then
-        assertThat(pixel.isPenaratable()).isFalse();
+        assertThat(pixel.isPenetrable()).isFalse();
         assertThat(pixel.isWall()).isTrue();
 
     }

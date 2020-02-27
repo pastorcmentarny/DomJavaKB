@@ -1,11 +1,14 @@
 package dms.pastor.prototypes.aberminegenerator.model;
 
 
-import dms.pastor.utils.StringUtils;
 import dms.pastor.utils.ValidatorUtils;
 import lombok.EqualsAndHashCode;
 
 import java.util.Arrays;
+import java.util.Objects;
+
+import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+import static dms.pastor.utils.StringUtils.NEW_LINE;
 
 @EqualsAndHashCode
 public class World {
@@ -13,10 +16,15 @@ public class World {
     private int height;
     private Pixel[][] world;
 
+    //TODO improve it
     public World(int width, int height) {
         this.width = width;
         this.height = height;
-        world = new Pixel[width][height];
+        if(isCreated()){
+            world = new Pixel[width+1][height+1];
+        }else{
+            world = new Pixel[0][0];
+        }
     }
 
     World(int width, int height, Pixel[][] world) {
@@ -56,16 +64,19 @@ public class World {
     }
 
 
-    private String getWorldAsString() {
-        StringBuilder worldBuilder = new StringBuilder(StringUtils.EMPTY_STRING);
+    public String getWorldAsString() {
+        StringBuilder worldBuilder = new StringBuilder(EMPTY_STRING);
         if (width == 0 || height == 0) {
             return worldBuilder.toString();
         }
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
-                worldBuilder.append(getPixelAt(x, y));
+        for (int y = 0; y <= height; y++) {
+            for (int x = 0; x <= width; x++) {
+                if(Objects.nonNull(getPixelAt(x,y))){
+                    worldBuilder.append(getPixelAt(x, y).getType().name().charAt(0));
+                }
+
             }
-            worldBuilder.append(StringUtils.NEW_LINE);
+            worldBuilder.append(NEW_LINE);
         }
         return worldBuilder.toString();
     }
