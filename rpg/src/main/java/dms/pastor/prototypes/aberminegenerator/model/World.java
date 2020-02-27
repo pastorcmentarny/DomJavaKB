@@ -41,34 +41,18 @@ public class World {
         return height > 0 && width > 0;
     }
 
-    public int getPreviousPixelFor(int length) {
-        if (length <= 0) {
-            throw new IllegalArgumentException("Length " + length + " is invalid because previous pixel will be out of range.");
-        }
-        return length - 1;
-    }
-
     public void resetToNoWorld() {
         width = 0;
         height = 0;
         world = new Pixel[0][0];
     }
 
-    public void setPixel(Pixel point) {
-        // setPixel(point.getWidth(), point.getHeight(), point.getFill());
+    public void updatePixel(Pixel pixel) {
+        world[pixel.getCoordinates().getWidth()][pixel.getCoordinates().getHeight()] = pixel;
     }
 
-    public void setPixel(int x, int y, Pixel pixelFill) {
-/*
-        if (pixelFill == null || pixelFill.length() != 1) {
-            throw new IllegalArgumentException(format("It must have one character but it has %d", isNull(pixelFill) ? 0 : pixelFill.length()));
-        }
-        world[x][y] = pixelFill;
- */
-    }
-
-    private Pixel getPixelAt(int x, int y) {
-        return world[x][y];
+    private Pixel getPixelAt(int width, int height) {
+        return world[width][height];
     }
 
 

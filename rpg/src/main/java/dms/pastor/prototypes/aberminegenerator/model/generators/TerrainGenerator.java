@@ -11,9 +11,9 @@ public class TerrainGenerator {
 
         final var pixels = new Pixel[defaultWorldWidth+1][defaultWorldHeight+1];
 
-        for (int x = 0; x <= defaultWorldWidth; x++) {
-            for (int y = 0; y <= defaultWorldHeight; y++) {
-                pixels[x][y] = new Pixel(false, GRASS);
+        for (int width = 0; width <= defaultWorldWidth; width++) {
+            for (int height = 0; height <= defaultWorldHeight; height++) {
+                pixels[width][height] = Pixel.buildPixel(false, GRASS,width,height);
             }
         }
         return pixels;
