@@ -105,4 +105,10 @@ public class World {
             ", world=" + getWorldAsString() +
             '}';
     }
+
+
+    public boolean canGoTo(Coordinates currentCoordinates, Coordinates newCoordinates) {
+        final var newPlace = getPixelAt(newCoordinates.getWidth(), newCoordinates.getWidth());
+        return !(newPlace.isPenetrable() && newPlace.isWall());
+    }
 }

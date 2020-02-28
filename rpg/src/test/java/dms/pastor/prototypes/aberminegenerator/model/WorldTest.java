@@ -1,5 +1,6 @@
 package dms.pastor.prototypes.aberminegenerator.model;
 
+import dms.pastor.prototypes.aberminegenerator.Wanderer;
 import dms.pastor.prototypes.aberminegenerator.model.generators.TerrainGenerator;
 import org.junit.jupiter.api.Test;
 
@@ -75,6 +76,21 @@ class WorldTest {
         // then
         final var pixel = this.world.getWorld()[width][height];
         assertThat(pixel).isEqualTo(wallPixel);
+    }
+
+
+    @Test
+    public void shouldGoToTheEastIfMoveIsValid() {
+        // given
+        Wanderer unit = Wanderer.withRandomNameAtTestStartPoint();
+        final var coordinates = unit.getCoordinates();
+        final var newCoordinates = new Coordinates(coordinates.getWidth() + 1, coordinates.getHeight());
+        // when
+        final var result = world.canGoTo(coordinates, newCoordinates);
+
+        // then
+        assertThat(result).isTrue();
+
     }
 
 }
