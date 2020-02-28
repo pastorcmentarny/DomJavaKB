@@ -7,13 +7,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class WorldTest {
 
-    World world;
+    final int DEFAULT_WORLD_WIDTH = 10;
+    final int DEFAULT_WORLD_HEIGHT = 10;
+    final World world = new World(DEFAULT_WORLD_WIDTH, DEFAULT_WORLD_HEIGHT, TerrainGenerator.generateGrass(DEFAULT_WORLD_WIDTH, DEFAULT_WORLD_HEIGHT));
 
-    {
-        final var DEFAULT_WORLD_WIDTH = 10;
-        final var DEFAULT_WORLD_HEIGHT = 10;
-        world = new World(DEFAULT_WORLD_WIDTH, DEFAULT_WORLD_HEIGHT, TerrainGenerator.generateGrass(DEFAULT_WORLD_WIDTH,DEFAULT_WORLD_HEIGHT));
-    }
 
     @Test
     void noWorldAcceptanceTest() {
@@ -26,21 +23,34 @@ class WorldTest {
     }
 
     @Test
-    void getWorld() {
+    void getWorldAcceptanceTest() {
+        // given
+        final var worldAsPixels = TerrainGenerator.generateGrass(DEFAULT_WORLD_WIDTH, DEFAULT_WORLD_HEIGHT);
+        // when
+        final var result = this.world.getWorld();
+
+        // then
+        assertThat(result).isEqualTo(worldAsPixels);
     }
 
     @Test
     void setWorld() {
+        // given
+        World originalWorld = World.noWorld();
+        final var worldAsPixels = TerrainGenerator.generateGrass(DEFAULT_WORLD_WIDTH, DEFAULT_WORLD_HEIGHT);
+
+
+        // when
+        originalWorld.setWorld(worldAsPixels);
+
+        // then
+        assertThat(originalWorld.getWorld()).isEqualTo(worldAsPixels);
     }
 
     @Test
-    void isCreated() {
+    void isCreatedAcceptanceTest() {
         // when using default world then
         assertThat(world.isCreated()).isTrue();
-    }
-
-    @Test
-    void getPreviousPixelFor() {
     }
 
     @Test
@@ -53,7 +63,7 @@ class WorldTest {
     }
 
     @Test
-    void setPixel() {
+    void setPixelAcceptanceTest() {
         // given
         final var width = 1;
         final var height = 1;
@@ -67,7 +77,4 @@ class WorldTest {
         assertThat(pixel).isEqualTo(wallPixel);
     }
 
-    @Test
-    void testSetPixel() {
-    }
 }
