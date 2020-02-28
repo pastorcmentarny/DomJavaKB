@@ -1,7 +1,6 @@
 package dms.pastor.prototypes.aberminegenerator;
 
 import dms.pastor.prototypes.aberminegenerator.model.Coordinates;
-import dms.pastor.rpg.game.units.RandomUnit;
 import dms.pastor.rpg.utils.RandomUtils;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,10 +14,14 @@ import lombok.Getter;
 public class Wanderer {
 
     private String name;
-    private Coordinates coordinates = new Coordinates(1, 1);
+    private Coordinates coordinates;
 
 
     public static Wanderer withRandomNameAtTestStartPoint() {
-        return new Wanderer(RandomUtils.getRandomName(RandomUtils.getNameList()),new Coordinates(1, 1));
+        return new Wanderer(RandomUtils.getRandomName(RandomUtils.getNameList()), new Coordinates(1, 1));
+    }
+
+    public void setCurrentCoordinateTo(Coordinates newCoordinates) {
+        this.coordinates = newCoordinates;
     }
 }

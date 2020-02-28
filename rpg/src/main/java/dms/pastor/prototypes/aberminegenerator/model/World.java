@@ -27,10 +27,18 @@ public class World {
         }
     }
 
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
     World(int width, int height, Pixel[][] world) {
         this.width = width;
         this.height = height;
-        this.world = clone2DArrayOfInts(world);
+        this.world = PixelUtils.clone2DArrayOfInts(world);
     }
 
     public static World noWorld() {
@@ -81,21 +89,6 @@ public class World {
         return worldBuilder.toString();
     }
 
-    private static Pixel[][] clone2DArrayOfInts(Pixel[][] source) {
-        ValidatorUtils.validateIfObjectValueIsNotNull(source, "2D Array of integers cannot be null.");
-
-        if (source.length == 0) {
-            return new Pixel[][]{};
-        }
-
-        int length = source.length;
-        Pixel[][] destination = new Pixel[length][source[0].length];
-        for (int i = 0; i < length; i++) {
-            System.arraycopy(source[i], 0, destination[i], 0, source[i].length);
-        }
-        return destination;
-    }
-
 
     @Override
     public String toString() {
@@ -108,7 +101,8 @@ public class World {
 
 
     public boolean canGoTo(Coordinates currentCoordinates, Coordinates newCoordinates) {
-        final var newPlace = getPixelAt(newCoordinates.getWidth(), newCoordinates.getWidth());
-        return !(newPlace.isPenetrable() && newPlace.isWall());
+        final var newPlace = getPixelAt(newCoordinates.getWidth(), newCoordinates.getHeight());
+        System.out.println(newPlace);
+        return newPlace.isPenetrable();
     }
 }
