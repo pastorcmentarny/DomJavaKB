@@ -26,6 +26,10 @@ public class Pixel {
         return new Pixel(false, STONE, new Coordinates(width, height));
     }
 
+    public static Pixel getHeroAt(int width, int height) {
+        return new Pixel(false, HERO, new Coordinates(width, height));
+    }
+
 
     public boolean isWall() {
         return type.equals(WALL);
