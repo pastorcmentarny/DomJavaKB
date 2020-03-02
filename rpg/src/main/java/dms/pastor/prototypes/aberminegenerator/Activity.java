@@ -29,28 +29,28 @@ public class Activity {
     public void walkSouth() {
         final var coordinates = wanderer.getCoordinates();
         Coordinates walkEastCoordinates = new Coordinates(coordinates.getWidth(), coordinates.getHeight() + 1);
-        walk(coordinates, walkEastCoordinates, "south");
+        walk(walkEastCoordinates, "south");
     }
 
     public void walkEast() {
         final var coordinates = wanderer.getCoordinates();
         Coordinates walkEastCoordinates = new Coordinates(coordinates.getWidth() + 1, coordinates.getHeight());
-        walk(coordinates, walkEastCoordinates, "east");
+        walk(walkEastCoordinates, "east");
     }
 
     public void walkNorth() {
         final var coordinates = wanderer.getCoordinates();
         Coordinates walkEastCoordinates = new Coordinates(coordinates.getWidth(), coordinates.getHeight() - 1);
-        walk(coordinates, walkEastCoordinates, "north");
+        walk(walkEastCoordinates, "north");
     }
 
     public void walkWest() {
         final var coordinates = wanderer.getCoordinates();
         Coordinates walkEastCoordinates = new Coordinates(coordinates.getWidth() - 1, coordinates.getHeight());
-        walk(coordinates, walkEastCoordinates, "west");
+        walk(walkEastCoordinates, "west");
     }
 
-    private void walk(Coordinates coordinates, Coordinates newCoordinates, String direction) {
+    private void walk(Coordinates newCoordinates, String direction) {
         if (world.canGoTo(newCoordinates)) {
             wanderer.setCurrentCoordinateTo(newCoordinates);
             System.out.println(format("Going %s", direction));
