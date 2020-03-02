@@ -1,7 +1,5 @@
 package dms.pastor.prototypes.aberminegenerator.model;
 
-
-import dms.pastor.utils.ValidatorUtils;
 import lombok.EqualsAndHashCode;
 
 import java.util.Arrays;
@@ -100,7 +98,7 @@ public class World {
     }
 
 
-    public boolean canGoTo(Coordinates currentCoordinates, Coordinates newCoordinates) {
+    public boolean canGoTo(Coordinates newCoordinates) {
         final var newPlace = getPixelAt(newCoordinates.getWidth(), newCoordinates.getHeight());
         System.out.println(newPlace);
         return newPlace.isPenetrable();

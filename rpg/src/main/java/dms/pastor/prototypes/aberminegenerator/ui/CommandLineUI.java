@@ -40,7 +40,7 @@ public class CommandLineUI {
                     break;
             }
         }
-
+        System.out.println("The universe ceased to exist.");
 
     }
 

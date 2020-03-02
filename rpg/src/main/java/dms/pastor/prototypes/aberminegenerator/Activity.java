@@ -51,7 +51,7 @@ public class Activity {
     }
 
     private void walk(Coordinates coordinates, Coordinates newCoordinates, String direction) {
-        if (world.canGoTo(coordinates, newCoordinates)) {
+        if (world.canGoTo(newCoordinates)) {
             wanderer.setCurrentCoordinateTo(newCoordinates);
             System.out.println(format("Going %s", direction));
         } else {

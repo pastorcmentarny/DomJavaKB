@@ -86,7 +86,7 @@ class WorldTest {
         final var coordinates = unit.getCoordinates();
         final var newCoordinates = new Coordinates(coordinates.getWidth() + 1, coordinates.getHeight());
         // when
-        final var result = world.canGoTo(coordinates, newCoordinates);
+        final var result = world.canGoTo(newCoordinates);
 
         // then
         assertThat(result).isTrue();
