@@ -20,7 +20,7 @@ public class CommandLineMapRender {
         for (int y = 0; y <= height; y++) {
             for (int x = 0; x <= width; x++) {
                 if (Objects.nonNull(map[x][y])) {
-                    worldBuilder.append(map[x][y].getType().name().charAt(0));
+                    worldBuilder.append(map[x][y].getType().getTile());
                 }
             }
             worldBuilder.append(NEW_LINE);
