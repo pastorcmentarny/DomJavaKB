@@ -5,7 +5,7 @@ import dms.pastor.prototypes.aberminegenerator.model.Pixel;
 import dms.pastor.prototypes.aberminegenerator.model.PixelUtils;
 import dms.pastor.prototypes.aberminegenerator.model.World;
 
-import static dms.pastor.prototypes.aberminegenerator.ui.CommandLineMapRender.render;
+import static dms.pastor.prototypes.aberminegenerator.ui.CommandLineMapRender.renderAreaWithVisionRangeOf;
 import static java.lang.String.format;
 
 public class Activity {
@@ -22,7 +22,7 @@ public class Activity {
         final var width = wanderer.getCoordinates().getWidth();
         final var height = wanderer.getCoordinates().getHeight();
         map[width][height] = Pixel.getHeroAt(width, height);
-        return render(map, world.getWidth(), world.getHeight());
+        return renderAreaWithVisionRangeOf(map,wanderer.getCoordinates(),3);
     }
 
 

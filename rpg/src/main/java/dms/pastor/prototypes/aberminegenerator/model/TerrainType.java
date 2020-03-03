@@ -5,7 +5,7 @@ public enum TerrainType {
     STONE("O"),
     WALL("#"),
     HERO("H"),
-    UNKNOWN("⚬");
+    UNKNOWN("·");
 
     private String tile;
 
