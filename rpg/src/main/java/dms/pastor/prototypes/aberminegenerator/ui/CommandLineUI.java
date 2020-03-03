@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class CommandLineUI {
     private final Scanner scanner = new Scanner(System.in);
 
-    private Activity activity;
+    private final Activity activity;
 
     public CommandLineUI() {
         activity = new Activity(Wanderer.withRandomNameAtTestStartPoint(), WorldGenerator.generateTestWorld());
@@ -19,6 +19,8 @@ public class CommandLineUI {
     public void game() {
 
         boolean menu = true;
+        System.out.println("Warm welcome citizen!");
+        System.out.println(activity.getWholeWorld());
         while (menu){
             System.out.println("What do you want to do ?");
             System.out.println(activity.getMap());

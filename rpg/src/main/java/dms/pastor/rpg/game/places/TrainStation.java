@@ -34,7 +34,7 @@ public class TrainStation extends Place {
         System.out.println("You came to first person and asked..\n Where is train?\n" + (random.nextBoolean() ? "She" : "He") + " answered : Train is cancelled");
         System.out.println(question + "?");
         System.out.println(reason);
-        System.out.println("and then you hear announcement with Train's company famous motto \'We apologize for any inconvenience that may cause to you.\n");
+        System.out.println("and then you hear announcement with Train's company famous motto 'We apologize for any inconvenience that may cause to you.\n");
         System.out.println("It seems,you will not go anywhere.\nYou left station");
     }
 

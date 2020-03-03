@@ -50,11 +50,11 @@ public class UniBureaucracyQuest extends Quest {
                         if (isToiletLevelAvailable()) {
                             toilet();
                         } else {
-                            System.out.println("You see sign \'NO ENTRY!\' Are you sure, you want enter? ");
+                            System.out.println("You see sign 'NO ENTRY!' Are you sure, you want enter? ");
                             System.out.println("YES");//implement decision
                             System.out.println("You see more NO ENTRY and DANGER OF DEATH sings on corridors , are you really sure?");
                             System.out.println("YES");//implement decision
-                            System.out.println("You was tempted to go to this small corridor that with stars  going down ... you saw warnings.. \'Don't use these toilets - out of order\' , \'Danger! You can be killed! NO ENTRY\' , but you ignored these signs and go downstairs and enter into darkness ... then you feel strange pulling sensation ... you was sucked by liquid into pipes and drop into sewer where you was devoured by mysterious monster. You last though was 'I wish I read with understanding and follow these instructions ");
+                            System.out.println("You was tempted to go to this small corridor that with stars  going down ... you saw warnings.. 'Don't use these toilets - out of order' , 'Danger! You can be killed! NO ENTRY' , but you ignored these signs and go downstairs and enter into darkness ... then you feel strange pulling sensation ... you was sucked by liquid into pipes and drop into sewer where you was devoured by mysterious monster. You last though was 'I wish I read with understanding and follow these instructions ");
                             Game.gameOver("sucked by toilet", Hero.getHero().getName());
                         }
 

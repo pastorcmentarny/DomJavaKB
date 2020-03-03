@@ -6,11 +6,12 @@ import dms.pastor.prototypes.aberminegenerator.model.PixelUtils;
 import dms.pastor.prototypes.aberminegenerator.model.World;
 
 import static dms.pastor.prototypes.aberminegenerator.ui.CommandLineMapRender.renderAreaWithVisionRangeOf;
+import static dms.pastor.prototypes.aberminegenerator.ui.CommandLineMapRender.renderWorld;
 import static java.lang.String.format;
 
 public class Activity {
-    private Wanderer wanderer;
-    private World world;
+    private final Wanderer wanderer;
+    private final World world;
 
     public Activity(Wanderer wanderer, World world) {
         this.wanderer = wanderer;
@@ -23,6 +24,11 @@ public class Activity {
         final var height = wanderer.getCoordinates().getHeight();
         map[width][height] = Pixel.getHeroAt(width, height);
         return renderAreaWithVisionRangeOf(map,wanderer.getCoordinates(),3);
+    }
+
+    public String getWholeWorld() {
+        final var map = PixelUtils.clone2DArrayOfInts(world.getWorld());
+        return renderWorld(map,world.getWidth(),world.getHeight());
     }
 
 

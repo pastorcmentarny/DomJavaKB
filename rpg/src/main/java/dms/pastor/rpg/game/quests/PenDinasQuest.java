@@ -95,7 +95,7 @@ public class PenDinasQuest extends Quest {
             case 1:
                 return "You didn't expect warm welcome,but you expect group of guards or other classic security solution,but not ..in front of you was acolyte,who want kill you,right now.";
             case 2:
-                return "You went to next floor,where you meet acolyte.\n You ask: \'Sorry how many floors this tower has?\n" + topLevel + " answered,but it is last one for you.\nYou responded .. oh Cock...";
+                return "You went to next floor,where you meet acolyte.\n You ask: 'Sorry how many floors this tower has?\n" + topLevel + " answered,but it is last one for you.\nYou responded .. oh Cock...";
             case 3:
                 return "I really should start do some exercises .This stairs killing me. Don't worry - said acolyte - it is last floor for you. You answered : Hmm.. I heard that before.";
             case 5:

@@ -19,7 +19,6 @@ class CommandLineMapRenderTest {
         // expect
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             CommandLineMapRender.renderAreaWithVisionRangeOf(map, unitCoordinates, randomNegativeInteger());
-            ;
         });
 
     }

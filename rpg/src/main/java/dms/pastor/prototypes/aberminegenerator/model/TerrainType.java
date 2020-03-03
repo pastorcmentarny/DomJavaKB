@@ -1,13 +1,14 @@
 package dms.pastor.prototypes.aberminegenerator.model;
 
 public enum TerrainType {
-    GRASS("."),
+    GRASS(","),
+    ROAD("."),
     STONE("O"),
     WALL("#"),
     HERO("H"),
     UNKNOWN("·");
 
-    private String tile;
+    private final String tile;
 
     TerrainType(String tile) {
         this.tile = tile;
