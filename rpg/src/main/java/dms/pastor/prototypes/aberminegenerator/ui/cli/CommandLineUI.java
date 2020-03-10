@@ -1,4 +1,4 @@
-package dms.pastor.prototypes.aberminegenerator.ui;
+package dms.pastor.prototypes.aberminegenerator.ui.cli;
 
 import dms.pastor.prototypes.aberminegenerator.Activity;
 import dms.pastor.prototypes.aberminegenerator.Wanderer;

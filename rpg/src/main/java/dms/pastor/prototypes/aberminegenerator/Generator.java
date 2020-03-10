@@ -1,6 +1,6 @@
 package dms.pastor.prototypes.aberminegenerator;
 
-import dms.pastor.prototypes.aberminegenerator.ui.CommandLineUI;
+import dms.pastor.prototypes.aberminegenerator.ui.cli.CommandLineUI;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

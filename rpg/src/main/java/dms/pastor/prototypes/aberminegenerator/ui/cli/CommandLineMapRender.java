@@ -1,4 +1,4 @@
-package dms.pastor.prototypes.aberminegenerator.ui;
+package dms.pastor.prototypes.aberminegenerator.ui.cli;
 
 import dms.pastor.prototypes.aberminegenerator.model.Coordinates;
 import dms.pastor.prototypes.aberminegenerator.model.Pixel;

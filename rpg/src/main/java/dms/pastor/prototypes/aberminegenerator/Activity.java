@@ -4,14 +4,18 @@ import dms.pastor.prototypes.aberminegenerator.model.Coordinates;
 import dms.pastor.prototypes.aberminegenerator.model.Pixel;
 import dms.pastor.prototypes.aberminegenerator.model.PixelUtils;
 import dms.pastor.prototypes.aberminegenerator.model.World;
+import dms.pastor.prototypes.aberminegenerator.model.generators.WorldGenerator;
+import lombok.Getter;
+import org.springframework.stereotype.Component;
 
-import static dms.pastor.prototypes.aberminegenerator.ui.CommandLineMapRender.renderAreaWithVisionRangeOf;
-import static dms.pastor.prototypes.aberminegenerator.ui.CommandLineMapRender.renderWorld;
+import static dms.pastor.prototypes.aberminegenerator.ui.cli.CommandLineMapRender.renderAreaWithVisionRangeOf;
+import static dms.pastor.prototypes.aberminegenerator.ui.cli.CommandLineMapRender.renderWorld;
 import static java.lang.String.format;
 
+@Getter
 public class Activity {
-    private final Wanderer wanderer;
-    private final World world;
+    private Wanderer wanderer;
+    private World world;
 
     public Activity(Wanderer wanderer, World world) {
         this.wanderer = wanderer;
@@ -64,5 +68,10 @@ public class Activity {
             System.out.println(format("Cannot go %s", direction));
         }
 
+    }
+
+    public void regenerateWorld() {
+        wanderer = Wanderer.withRandomNameAtTestStartPoint();
+        world = WorldGenerator.generateTestWorld();
     }
 }

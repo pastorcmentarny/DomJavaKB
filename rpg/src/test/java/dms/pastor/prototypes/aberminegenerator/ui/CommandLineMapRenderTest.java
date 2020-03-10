@@ -3,6 +3,7 @@ package dms.pastor.prototypes.aberminegenerator.ui;
 import dms.pastor.prototypes.aberminegenerator.model.Coordinates;
 import dms.pastor.prototypes.aberminegenerator.model.Pixel;
 import dms.pastor.prototypes.aberminegenerator.model.generators.WorldGenerator;
+import dms.pastor.prototypes.aberminegenerator.ui.cli.CommandLineMapRender;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
