@@ -6,9 +6,9 @@ import java.util.Scanner;
 
 public class RockPaperScissorGame {
     private final Scanner scanner = new Scanner(System.in);
-    public RPSPlayer player1;
-    public RPSPlayer player2;
-    private int bestOf;
+    public final RPSPlayer player1;
+    public final RPSPlayer player2;
+    private final int bestOf;
 
     public RockPaperScissorGame(int bestOf, RPSPlayer player1, RPSPlayer player2) {
         this.bestOf = bestOf;
