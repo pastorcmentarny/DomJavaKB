@@ -6,7 +6,6 @@ import dms.pastor.prototypes.aberminegenerator.model.PixelUtils;
 import dms.pastor.prototypes.aberminegenerator.model.World;
 import dms.pastor.prototypes.aberminegenerator.model.generators.WorldGenerator;
 import lombok.Getter;
-import org.springframework.stereotype.Component;
 
 import static dms.pastor.prototypes.aberminegenerator.ui.cli.CommandLineMapRender.renderAreaWithVisionRangeOf;
 import static dms.pastor.prototypes.aberminegenerator.ui.cli.CommandLineMapRender.renderWorld;

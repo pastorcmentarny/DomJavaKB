@@ -1,7 +1,6 @@
 package dms.pastor.prototypes.aberminegenerator.ui.web;
 
 import dms.pastor.prototypes.aberminegenerator.Activity;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
@@ -10,8 +9,11 @@ import static dms.pastor.utils.StringUtils.NEW_LINE;
 @Service
 public class WorldMapService {
 
-    @Autowired
-    private Activity activity;
+    private final Activity activity;
+
+    public WorldMapService(Activity activity) {
+        this.activity = activity;
+    }
 
     public void generateNewWorld(){
         activity.regenerateWorld();
