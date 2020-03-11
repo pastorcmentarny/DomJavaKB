@@ -14,6 +14,7 @@ public enum TerrainType {
     TREE("T", false),
     SAND("░", true),
     DOOR("∩", true),
+    WATER("~", false),
     TRACK_HORIZONTAL("═", true),
     UNKNOWN("·", false);
 
