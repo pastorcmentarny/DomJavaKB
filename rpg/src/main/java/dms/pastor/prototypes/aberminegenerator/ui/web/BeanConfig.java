@@ -11,6 +11,6 @@ public class BeanConfig {
 
     @Bean
     public Activity activity() {
-        return new Activity(Wanderer.withRandomNameAtTestStartPoint(), WorldGenerator.generateTestWorld());
+        return new Activity(Wanderer.withRandomNameAt(10, 3), WorldGenerator.generateFromFile());
     }
 }
