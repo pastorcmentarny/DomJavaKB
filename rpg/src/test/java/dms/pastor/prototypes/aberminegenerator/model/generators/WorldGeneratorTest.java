@@ -1,6 +1,9 @@
 package dms.pastor.prototypes.aberminegenerator.model.generators;
 
 
+import dms.pastor.prototypes.aberminegenerator.Activity;
+import dms.pastor.prototypes.aberminegenerator.Wanderer;
+import dms.pastor.prototypes.aberminegenerator.model.World;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -16,7 +19,7 @@ class WorldGeneratorTest {
             "WGGGGGW\n" +
             "WSGSSSW\n" +
             "WGGGGGW\n" +
-            "WGGGGGW\n" +
+            "WGGGTSW\n" +
             "WWWWWWW\n";
         // when
         final var world = WorldGenerator.generateTestWorld();
@@ -27,4 +30,17 @@ class WorldGeneratorTest {
         // then
         assertThat(world.getWorldAsString()).isEqualTo(expectedResult);
     }
+
+    @Test
+    public void shouldGenerateWorldFromFileAcceptanceTest(){
+        // given
+
+        // when
+        final World result = WorldGenerator.generateFromFile();
+
+        System.out.println("WORLD MAP:" + System.lineSeparator() + new Activity(Wanderer.withRandomNameAtTestStartPoint(),result).getWholeWorld());
+        // then
+        assertThat(result).isNotNull();
+    }
+
 }
