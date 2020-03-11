@@ -1,9 +1,13 @@
 package dms.pastor.prototypes.aberminegenerator.model;
 
 import lombok.Value;
+import lombok.extern.slf4j.Slf4j;
+
+import java.util.Objects;
 
 import static dms.pastor.prototypes.aberminegenerator.model.TerrainType.*;
 
+@Slf4j
 @Value
 public class Pixel {
     private boolean penetrable;
@@ -34,7 +38,15 @@ public class Pixel {
         final TerrainType terrainType = getTerrainFromChar(charAt);
         return buildPixel(terrainType.isPenetrableByDefault(), terrainType, x, y);
     }
-
+    //Temporary solution
+    public TerrainType getType() {
+        if (Objects.isNull(type)) {
+            log.warn("Not type specified for pixel. Out of range?");
+            return UNKNOWN;
+        } else {
+            return type;
+        }
+    }
 
     public boolean isWall() {
         return type.equals(WALL);
