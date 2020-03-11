@@ -21,6 +21,10 @@ public class Wanderer {
         return new Wanderer(RandomUtils.getRandomName(RandomUtils.getNameList()), new Coordinates(1, 1));
     }
 
+    public static Wanderer withRandomNameAt(int x, int y) {
+        return new Wanderer(RandomUtils.getRandomName(RandomUtils.getNameList()), new Coordinates(x, y));
+    }
+
     public void setCurrentCoordinateTo(Coordinates newCoordinates) {
         this.coordinates = newCoordinates;
     }
