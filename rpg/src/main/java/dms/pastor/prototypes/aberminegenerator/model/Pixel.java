@@ -30,6 +30,11 @@ public class Pixel {
         return new Pixel(false, HERO, new Coordinates(width, height));
     }
 
+    public static Pixel getPixelFromCharacter(char charAt, int x, int y) {
+        final TerrainType terrainType = getTerrainFromChar(charAt);
+        return buildPixel(terrainType.isPenetrableByDefault(), terrainType, x, y);
+    }
+
 
     public boolean isWall() {
         return type.equals(WALL);
