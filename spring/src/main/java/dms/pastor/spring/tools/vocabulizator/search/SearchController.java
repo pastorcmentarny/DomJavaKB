@@ -18,7 +18,7 @@ public class SearchController {
         this.searchService = searchService;
     }
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public String getResultFor(@RequestParam String searchPhrase) {
         LOGGER.info("Getting definition for word {}", searchPhrase);
         final SearchResponse response = searchService.getResultFor(searchPhrase);
