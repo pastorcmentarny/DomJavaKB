@@ -38,7 +38,13 @@ public class CommandLineMapRender {
         for (int y = coordinates.getHeight() - range; y <= coordinates.getHeight() + range; y++) {
             for (int x = coordinates.getWidth() - range; x <= coordinates.getWidth() + range; x++) {
                 try {
-                    worldBuilder.append(map[x][y].getType().getTile());
+                    if (Objects.nonNull(map[x]) && Objects.nonNull(map[x][y])) {
+                        worldBuilder.append(map[x][y].getType().getTile());
+                    } else {
+                        if (Objects.isNull(map[x]) || Objects.isNull(map[x][y])) {
+                            worldBuilder.append(UNKNOWN.getTile());
+                        }
+                    }
                 } catch (ArrayIndexOutOfBoundsException e) {
                     worldBuilder.append(UNKNOWN.getTile());
                 }
