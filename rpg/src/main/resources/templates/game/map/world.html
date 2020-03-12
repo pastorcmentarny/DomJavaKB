@@ -7,7 +7,6 @@ https://www.baeldung.com/thymeleaf-list
     <title>Dom's Aber RPG</title>
 </head>
 <body>
-<h1>Main menu</h1>
 <h2><span th:text="${player}"></span></h2>
 <table>
     <tr>
@@ -83,6 +82,8 @@ https://www.baeldung.com/thymeleaf-list
         <th><span th:text="'Went ' + ${direction}"></span></th>
         <th>.</th>
     </tr>
+</table>
+<table>
     <tr>
         <td></td>
         <td><a href="/game/world/move/north">N</a></td>
