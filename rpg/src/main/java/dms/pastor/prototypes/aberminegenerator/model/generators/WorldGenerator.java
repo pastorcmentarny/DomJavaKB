@@ -60,7 +60,7 @@ public class WorldGenerator {
         for (int j = 0; j < height; j++) {
             final String line = linesOfMap.get(j);
             for (int i = 0; i < line.length(); i++) {
-                pixels[i][j] = Pixel.getPixelFromCharacter(line.charAt(i),i,j);
+                pixels[i][j] = Pixel.getPixelFromCharacter(line.charAt(i), i, j);
             }
         }
         world.setWorld(pixels);

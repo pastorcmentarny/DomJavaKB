@@ -14,7 +14,7 @@ class PixelUtilsTest {
         final String expectedResult = "########,,,,,##OOO,O##,,,,,##O,OOO##,,,,,##,,,T░########";
 
         // when
-        final String result = String.join("",PixelUtils.toArrayOfTiles(worldAs2DArray));
+        final String result = String.join("", PixelUtils.toArrayOfTiles(worldAs2DArray));
 
         // then
         assertThat(result).isEqualTo(expectedResult);

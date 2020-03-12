@@ -15,32 +15,32 @@ public class WorldMapService {
         this.activity = activity;
     }
 
-    public void generateNewWorld(){
+    public void generateNewWorld() {
         activity.regenerateWorld();
     }
 
-    public String getPlayerInfo(){
+    public String getPlayerInfo() {
         return activity.getWanderer().getInfo();
     }
 
 
-    public String getMapAsString(){
-        return activity.getMap().replace(NEW_LINE,EMPTY_STRING);
+    public String getMapAsString() {
+        return activity.getMap().replace(NEW_LINE, EMPTY_STRING);
     }
 
-    public void goNorth(){
+    public void goNorth() {
         activity.walkNorth();
     }
 
-    public void goEast(){
+    public void goEast() {
         activity.walkEast();
     }
 
-    public void goSouth(){
+    public void goSouth() {
         activity.walkSouth();
     }
 
-    public void goWest(){
+    public void goWest() {
         activity.walkWest();
     }
 

@@ -21,7 +21,7 @@ public class CommandLineUI {
         boolean menu = true;
         System.out.println("Warm welcome citizen!");
         System.out.println(activity.getWholeWorld());
-        while (menu){
+        while (menu) {
             System.out.println("What do you want to do ?");
             System.out.println(activity.getMap());
             switch (scanner.nextLine()) {

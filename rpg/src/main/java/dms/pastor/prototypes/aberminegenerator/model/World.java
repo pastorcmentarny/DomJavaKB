@@ -18,9 +18,9 @@ public class World {
     public World(int width, int height) {
         this.width = width;
         this.height = height;
-        if(isCreated()){
-            world = new Pixel[width+1][height+1];
-        }else{
+        if (isCreated()) {
+            world = new Pixel[width + 1][height + 1];
+        } else {
             world = new Pixel[0][0];
         }
     }
@@ -68,8 +68,8 @@ public class World {
     public Pixel getPixelAt(int atWidth, int atHeight) {
 
         //TODO improve it for all 4 direction (as only go EAST or SOUTH is covered here)
-        if(atWidth+1 >= width || atHeight+1 >= height){
-            return Pixel.getUnknownAt(atWidth,atHeight);
+        if (atWidth + 1 >= width || atHeight + 1 >= height) {
+            return Pixel.getUnknownAt(atWidth, atHeight);
         }
         return world[atWidth][atHeight];
     }
@@ -82,7 +82,7 @@ public class World {
         }
         for (int y = 0; y <= height; y++) {
             for (int x = 0; x <= width; x++) {
-                if(Objects.nonNull(getPixelAt(x,y))){
+                if (Objects.nonNull(getPixelAt(x, y))) {
                     worldBuilder.append(getPixelAt(x, y).getType().name().charAt(0));
                 }
 

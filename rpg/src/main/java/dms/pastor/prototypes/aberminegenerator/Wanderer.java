@@ -29,7 +29,7 @@ public class Wanderer {
         this.coordinates = newCoordinates;
     }
 
-    public String getInfo(){
+    public String getInfo() {
         return name + " @ [" + coordinates.getWidth() + "," + coordinates.getHeight() + "]";
     }
 }

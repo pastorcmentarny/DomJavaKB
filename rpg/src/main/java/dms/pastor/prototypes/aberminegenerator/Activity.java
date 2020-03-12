@@ -26,12 +26,12 @@ public class Activity {
         final var width = wanderer.getCoordinates().getWidth();
         final var height = wanderer.getCoordinates().getHeight();
         map[width][height] = Pixel.getHeroAt(width, height);
-        return renderAreaWithVisionRangeOf(map,wanderer.getCoordinates(),3);
+        return renderAreaWithVisionRangeOf(map, wanderer.getCoordinates(), 3);
     }
 
     public String getWholeWorld() {
         final var map = PixelUtils.clone2DArrayOfInts(world.getWorld());
-        return renderWorld(map,world.getWidth(),world.getHeight());
+        return renderWorld(map, world.getWidth(), world.getHeight());
     }
 
 

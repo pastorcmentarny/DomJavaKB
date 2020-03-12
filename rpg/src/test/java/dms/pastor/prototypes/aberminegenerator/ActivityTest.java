@@ -1,13 +1,11 @@
 package dms.pastor.prototypes.aberminegenerator;
 
 import dms.pastor.prototypes.aberminegenerator.model.Coordinates;
-import dms.pastor.prototypes.aberminegenerator.model.World;
 import dms.pastor.prototypes.aberminegenerator.model.generators.WorldGenerator;
 import org.junit.jupiter.api.Test;
 
 import static dms.pastor.prototypes.aberminegenerator.Wanderer.withRandomNameAtTestStartPoint;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class ActivityTest {
 
@@ -17,7 +15,7 @@ class ActivityTest {
         // given
         final var world = WorldGenerator.generateTestWorld();
         final var wanderer = withRandomNameAtTestStartPoint();
-        wanderer.setCurrentCoordinateTo(new Coordinates(4,1));
+        wanderer.setCurrentCoordinateTo(new Coordinates(4, 1));
         final var activity = new Activity(wanderer, world);
 
         // when
@@ -52,7 +50,7 @@ class ActivityTest {
         // given
         final var world = WorldGenerator.generateTestWorld();
         final var wanderer = withRandomNameAtTestStartPoint();
-        wanderer.setCurrentCoordinateTo(new Coordinates(4,2));
+        wanderer.setCurrentCoordinateTo(new Coordinates(4, 2));
         final var activity = new Activity(wanderer, world);
 
         // when
@@ -70,7 +68,7 @@ class ActivityTest {
         // given
         final var world = WorldGenerator.generateTestWorld();
         final var wanderer = withRandomNameAtTestStartPoint();
-        wanderer.setCurrentCoordinateTo(new Coordinates(2,1));
+        wanderer.setCurrentCoordinateTo(new Coordinates(2, 1));
         final var activity = new Activity(wanderer, world);
 
         // when

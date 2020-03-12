@@ -21,41 +21,41 @@ public class WorldMapController {
     @GetMapping("/map/world")
     public String index(Model model) {
         worldMapService.generateNewWorld();
-        return go("",model);
+        return go("", model);
     }
 
     @GetMapping("/game/world/move/north")
     public String north(Model model) {
         worldMapService.goNorth();
-        return go("north",model);
+        return go("north", model);
     }
 
     @GetMapping("/game/world/move/west")
     public String west(Model model) {
         worldMapService.goWest();
-        return go("west",model);
+        return go("west", model);
 
     }
 
     @GetMapping("/game/world/move/east")
     public String east(Model model) {
         worldMapService.goEast();
-        return go("east",model);
+        return go("east", model);
     }
 
     @GetMapping("/game/world/move/south")
     public String south(Model model) {
         worldMapService.goSouth();
-        return go("south",model);
+        return go("south", model);
     }
 
     @SuppressWarnings("SameReturnValue")
-    private String go(String where, Model model){
+    private String go(String where, Model model) {
         final String mapAsString = worldMapService.getMapAsString();
         System.out.println(mapAsString);
         final List<String> map = CollectionsUtils.convertToStringArray(mapAsString.toCharArray());
-        model.addAttribute("player",worldMapService.getPlayerInfo());
-        model.addAttribute("direction",where);
+        model.addAttribute("player", worldMapService.getPlayerInfo());
+        model.addAttribute("direction", where);
         model.addAttribute("map", map);
         return "/game/map/world";
 

@@ -32,13 +32,13 @@ class WorldGeneratorTest {
     }
 
     @Test
-    public void shouldGenerateWorldFromFileAcceptanceTest(){
+    public void shouldGenerateWorldFromFileAcceptanceTest() {
         // given
 
         // when
         final World result = WorldGenerator.generateFromFile();
 
-        System.out.println("WORLD MAP:" + System.lineSeparator() + new Activity(Wanderer.withRandomNameAtTestStartPoint(),result).getWholeWorld());
+        System.out.println("WORLD MAP:" + System.lineSeparator() + new Activity(Wanderer.withRandomNameAtTestStartPoint(), result).getWholeWorld());
         // then
         assertThat(result).isNotNull();
     }
