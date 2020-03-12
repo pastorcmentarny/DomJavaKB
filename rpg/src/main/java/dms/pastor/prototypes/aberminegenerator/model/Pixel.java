@@ -39,6 +39,10 @@ public class Pixel {
         return buildPixel(terrainType.isPenetrableByDefault(), terrainType, x, y);
     }
 
+    public static Pixel getUnknownAt(int x, int y) {
+        return buildPixel(UNKNOWN.isPenetrableByDefault(), UNKNOWN, x, y);
+    }
+
     //Temporary solution
     public TerrainType getType() {
         if (Objects.isNull(type)) {
