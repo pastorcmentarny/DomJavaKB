@@ -28,4 +28,8 @@ public class Wanderer {
     public void setCurrentCoordinateTo(Coordinates newCoordinates) {
         this.coordinates = newCoordinates;
     }
+
+    public String getInfo(){
+        return name + " @ [" + coordinates.getWidth() + "," + coordinates.getHeight() + "]";
+    }
 }

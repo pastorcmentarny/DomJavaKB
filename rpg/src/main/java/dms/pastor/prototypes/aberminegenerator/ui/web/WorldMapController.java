@@ -21,7 +21,6 @@ public class WorldMapController {
     @GetMapping("/map/world")
     public String index(Model model) {
         worldMapService.generateNewWorld();
-        final String map = worldMapService.getMapAsString();
         return go("",model);
     }
 
@@ -55,6 +54,7 @@ public class WorldMapController {
         final String mapAsString = worldMapService.getMapAsString();
         System.out.println(mapAsString);
         final List<String> map = CollectionsUtils.convertToStringArray(mapAsString.toCharArray());
+        model.addAttribute("player",worldMapService.getPlayerInfo());
         model.addAttribute("direction",where);
         model.addAttribute("map", map);
         return "/game/map/world";

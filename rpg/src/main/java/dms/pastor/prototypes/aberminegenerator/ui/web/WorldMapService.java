@@ -19,6 +19,10 @@ public class WorldMapService {
         activity.regenerateWorld();
     }
 
+    public String getPlayerInfo(){
+        return activity.getWanderer().getInfo();
+    }
+
 
     public String getMapAsString(){
         return activity.getMap().replace(NEW_LINE,EMPTY_STRING);
