@@ -65,8 +65,13 @@ public class World {
         world[pixel.getCoordinates().getWidth()][pixel.getCoordinates().getHeight()] = pixel;
     }
 
-    private Pixel getPixelAt(int width, int height) {
-        return world[width][height];
+    public Pixel getPixelAt(int atWidth, int atHeight) {
+
+        //TODO improve it for all 4 direction (as only go EAST or SOUTH is covered here)
+        if(atWidth+1 >= width || atHeight+1 >= height){
+            return Pixel.getUnknownAt(atWidth,atHeight);
+        }
+        return world[atWidth][atHeight];
     }
 
 
@@ -99,7 +104,7 @@ public class World {
 
 
     public boolean canGoTo(Coordinates newCoordinates) {
-        final var newPlace = getPixelAt(newCoordinates.getWidth(), newCoordinates.getHeight());
+        final Pixel newPlace = getPixelAt(newCoordinates.getWidth(), newCoordinates.getHeight());
         System.out.println(newPlace);
         return newPlace.isPenetrable();
     }

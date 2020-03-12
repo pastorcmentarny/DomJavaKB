@@ -93,4 +93,56 @@ class WorldTest {
 
     }
 
+    @Test
+    public void shouldReturnWallPixelWhenGetPixelCoordinatesForWall() {
+        // given
+        final int width = 0;
+        final int height = 0;
+        final Pixel expected = Pixel.getGrassAt(width, height);
+        // when
+        final Pixel pixel = world.getPixelAt(width, height);
+
+        // then
+        assertThat(pixel).isEqualTo(expected);
+    }
+
+    @Test
+    public void shouldReturnUnknownPixelWhenGetPixelCoordinatesAreInvalid() {
+        // given
+        final int width = 999;
+        final int height = 999;
+        final Pixel expected = Pixel.getUnknownAt(width, height);
+        // when
+        final Pixel pixel = world.getPixelAt(width, height);
+
+        // then
+        assertThat(pixel).isEqualTo(expected);
+    }
+
+    @Test
+    public void shouldReturnUnknownPixelWhenGetPixelAtWithWidthIsOutOfRange() {
+        // given
+        final int width = 999;
+        final int height = 0;
+        final Pixel expected = Pixel.getUnknownAt(width, height);
+        // when
+        final Pixel pixel = world.getPixelAt(width, height);
+
+        // then
+        assertThat(pixel).isEqualTo(expected);
+    }
+
+    @Test
+    public void shouldReturnUnknownPixelWhenGetPixelAtWithHeightIsOutOfRange() {
+        // given
+        final int width = 0;
+        final int height = 999;
+        final Pixel expected = Pixel.getUnknownAt(width, height);
+        // when
+        final Pixel pixel = world.getPixelAt(width, height);
+
+        // then
+        assertThat(pixel).isEqualTo(expected);
+    }
+
 }
