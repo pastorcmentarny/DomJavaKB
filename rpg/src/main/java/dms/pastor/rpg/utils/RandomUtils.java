@@ -27,8 +27,7 @@ public class RandomUtils {
     }
 
     public static String getRandomName(ArrayList<String> list) {
-        ArrayList<String> names = getNameList();
-        return names.get(new Random().nextInt(names.size()));
+        return list.get(new Random().nextInt(list.size()));
     }
 
     public static ArrayList<String> getNameList() {
