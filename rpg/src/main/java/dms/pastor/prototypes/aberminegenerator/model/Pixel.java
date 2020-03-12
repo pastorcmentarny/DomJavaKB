@@ -38,6 +38,7 @@ public class Pixel {
         final TerrainType terrainType = getTerrainFromChar(charAt);
         return buildPixel(terrainType.isPenetrableByDefault(), terrainType, x, y);
     }
+
     //Temporary solution
     public TerrainType getType() {
         if (Objects.isNull(type)) {

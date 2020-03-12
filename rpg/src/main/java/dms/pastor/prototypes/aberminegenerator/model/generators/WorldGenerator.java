@@ -60,7 +60,6 @@ public class WorldGenerator {
         for (int j = 0; j < height; j++) {
             final String line = linesOfMap.get(j);
             for (int i = 0; i < line.length(); i++) {
-                System.out.println(Pixel.getPixelFromCharacter(line.charAt(i),i,j).getType().name());
                 pixels[i][j] = Pixel.getPixelFromCharacter(line.charAt(i),i,j);
             }
         }

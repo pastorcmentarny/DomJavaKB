@@ -22,7 +22,6 @@ public class WorldMapController {
     public String index(Model model) {
         worldMapService.generateNewWorld();
         final String map = worldMapService.getMapAsString();
-        System.out.println(map);
         return go("",model);
     }
 
@@ -51,7 +50,8 @@ public class WorldMapController {
         return go("south",model);
     }
 
-    private String go(String where,Model model){
+    @SuppressWarnings("SameReturnValue")
+    private String go(String where, Model model){
         final String mapAsString = worldMapService.getMapAsString();
         System.out.println(mapAsString);
         final List<String> map = CollectionsUtils.convertToStringArray(mapAsString.toCharArray());
