@@ -30,6 +30,6 @@ public class Wanderer {
     }
 
     public String getInfo() {
-        return name + " @ [" + coordinates.getWidth() + "," + coordinates.getHeight() + "]";
+        return getName() + " @ [" + coordinates.getWidth() + "," + coordinates.getHeight() + "]";
     }
 }
