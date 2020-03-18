@@ -77,6 +77,7 @@ Euston;;V;;2017-05-26;;2019-09-12;;none;;N
 Euston Square;;V;;2017-01-03;;2017-09-02;;none;;N
 Fairlop;;P;;2019-01-19;;none;;none;;N
 Farringdon;;V;;2017-01-03;;2018-01-12;;none;;N
+Finchley Central;;X;;none;;none;;none;;N
 Finchley Road;;V;;2017-01-03;;2018-05-06;;none;;N
 Finsbury Park;;P;;2017-01-03;;none;;none;;N
 Fulham Broadway;;X;;none;;none;;none;;N
