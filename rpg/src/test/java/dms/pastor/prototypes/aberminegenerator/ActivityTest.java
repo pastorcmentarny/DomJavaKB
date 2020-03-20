@@ -79,4 +79,20 @@ class ActivityTest {
         assertThat(result.getWidth()).isEqualTo(1);
         assertThat(result.getHeight()).isEqualTo(1);
     }
+
+    @Test //prototype
+    public void shouldRecreateWorldAcceptanceTest() {
+        // given
+        final var world = WorldGenerator.generateTestWorld();
+        final var wanderer = withRandomNameAtTestStartPoint();
+        wanderer.setCurrentCoordinateTo(new Coordinates(4, 1));
+        final var activity = new Activity(wanderer, world);
+
+        // when
+        activity.regenerateWorld();
+
+        // then
+        assertThat(activity.getWanderer().getCoordinates().getWidth()).isOne();
+        assertThat(activity.getWanderer().getCoordinates().getHeight()).isOne();
+    }
 }

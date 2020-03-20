@@ -33,7 +33,8 @@
 2.  When you made a decision, write down why. It will help you to remember reasons behind the decision. “Why” is more important than “what.”
 3.  It should be one day in the week without Meetings. A Meetingless day (excluding morning standup). Due to distracted nature of the meeting, we should have at least 1 day where we can do just work.
 4.  In invitation we use snippets as a mechanism to share information while preventing information overload.
-
+5.  MAKE BIG DECISIONS IN MEETINGS, RATHER THAN IN ASYNCHRONOUS CHATS
+6.  Don’t make decisions in Slack.
 
 ##  PAIR PROGRAMMING:
 1.  When you’re pairing, this thinking happens out loud as you argue about the best way to approach the design, the best way to test this class, the best way to refactor it. One thing I really struggle with, but as a navigator, it’s really important: don’t interrupt the driver’s flow. Resist the temptation to tell the driver there’s a missing bracket or semicolon. Resist the urge to tell them what order to fix the compile errors in.
