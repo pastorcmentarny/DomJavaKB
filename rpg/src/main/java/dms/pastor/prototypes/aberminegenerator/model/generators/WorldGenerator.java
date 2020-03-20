@@ -6,8 +6,7 @@ import dms.pastor.prototypes.aberminegenerator.model.World;
 import java.util.List;
 import java.util.stream.IntStream;
 
-import static dms.pastor.prototypes.aberminegenerator.model.TerrainType.SAND;
-import static dms.pastor.prototypes.aberminegenerator.model.TerrainType.TREE;
+import static dms.pastor.prototypes.aberminegenerator.model.TerrainType.*;
 import static dms.pastor.utils.file.TextFileUtils.loadFileFromResourceAsListOfStrings;
 
 public class WorldGenerator {
@@ -38,7 +37,7 @@ public class WorldGenerator {
 
         for (int i = 0; i <= width; i++) {
             for (int j = 0; j <= height; j++) {
-                if (pixels[i][j] == null) {
+                if (pixels[i][j] == null || pixels[i][j].getType().equals(UNKNOWN)) {
                     pixels[i][j] = Pixel.getGrassAt(i, j);
                 }
             }
