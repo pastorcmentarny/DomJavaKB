@@ -2,10 +2,9 @@
 # -*- coding: utf-8 -*-
 import datetime
 
-import activities
-import chinese_number
 import pyperclip
-import sentence
+
+from tools.chinese.today import activities, chinese_number, sentence
 
 date = datetime.datetime.now()
 
@@ -30,9 +29,11 @@ def generate_info_about_today(diary: dict):
 
     diary_day += add_time_of_write(diary['time'])
 
-    diary_day += sentence.add_weather_sentence(diary['weather_description_1'], diary['weather_description_2'], diary['weather_rating'])
+    diary_day += sentence.add_weather_sentence(diary['weather_description_1'], diary['weather_description_2'],
+                                               diary['weather_rating'])
 
-    diary_day += sentence.add_wear(diary['upper_wear_color'], diary['upper_wear_color'], diary['upper_wear_type'], diary['upper_wear_type'])
+    diary_day += sentence.add_wear(diary['upper_wear_color'], diary['upper_wear_color'], diary['upper_wear_type'],
+                                   diary['upper_wear_type'])
 
     diary_day += activities.get_daily_activity_for(date, diary['meal'])
 

@@ -1,6 +1,6 @@
 import random
 
-import application_utils
+from tools.chinese.today import application_utils
 
 drink = {
     'orange juice': '橙汁',

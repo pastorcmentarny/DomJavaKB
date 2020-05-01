@@ -1,9 +1,6 @@
 import unittest
 
-import sys
-
-sys.path.insert(0, '../../../../src/tools/chinese/today')
-import chinese_number
+from tools.chinese.today import chinese_number
 
 
 class TestChineseNumber(unittest.TestCase):

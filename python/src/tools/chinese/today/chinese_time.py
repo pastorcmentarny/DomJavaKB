@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import datetime
 
-import chinese_number
+from tools.chinese.today import chinese_number
 
 
 def get_current_time_in_chinese() -> str:

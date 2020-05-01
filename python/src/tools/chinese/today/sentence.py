@@ -1,10 +1,7 @@
 import datetime
 import random
 
-import application_utils
-import chinese_number
-import config
-import file_loader
+from tools.chinese.today import application_utils, chinese_number, config, file_loader
 
 dot = file_loader.config()['dot']
 next_line = '\n'

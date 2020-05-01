@@ -2,9 +2,9 @@ import datetime
 import random
 
 import bs4
-import chinese_number
-import config
 import requests
+
+from tools.chinese.today import chinese_number, config
 
 date = datetime.datetime.now()
 

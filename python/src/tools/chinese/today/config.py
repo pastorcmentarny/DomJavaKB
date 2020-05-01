@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 weather = {
@@ -13,6 +12,7 @@ weather = {
 
 color = {
     'white': '白色',
+    'yellow': '黄色',
     'brown': '棕色',
     'blue': '蓝色',
     'green': '绿色',
@@ -24,28 +24,28 @@ color = {
 rating = {
     'horrible': '恐怖',
     'not good': '不好',
+    'bad': '不好',
     'so-so': '马马虎虎',
     'good': '好',
     'excellent': '优秀'
 }
 
 wear = {
+    'shorts': '短裤',
     't-shirt': 'Ť恤',
     'jeans': '牛仔裤',
     'running trousers': '跑长裤',
-    'shoes': '',
-    '': '睡衣'
+    'shoes': '睡衣',
+    '': ''
 }
-
 
 health = {
-    'good': '',
-    'sick': '',
+    'good': '好',
+    'sick': '生病',
     'sleepy': '困',  # add random reason
-    'tired': '',
+    'tired': '累',
     'sad': ''  # add random reason
 }
-
 
 # move this to separate file or even pick up from my sqlite database
 sentences = [

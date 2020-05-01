@@ -1,10 +1,7 @@
-import application_utils
-import chinese_time
-import config
-import file_loader
-import food_generator
 import random
 from datetime import datetime
+
+from tools.chinese.today import application_utils, chinese_time, config, file_loader, food_generator
 
 config_file = file_loader.config()
 dot = config_file['dot']
@@ -123,6 +120,7 @@ def add_meal_sentence(meal: list) -> str:
 
 def run_sentence(run_distance, run_time):
     if run_distance > 0 and run_time > 0:
-        return '我在晚上去了慢跑。我跑了' + get_distance_from_run(run_distance) + '公里。跑了这个距离花了我' + application_utils.get_time_from_run(run_time) + dot
+        return '我在晚上去了慢跑。我跑了' + get_distance_from_run(
+            run_distance) + '公里。跑了这个距离花了我' + application_utils.get_time_from_run(run_time) + dot
     else:
         return ''
