@@ -47,8 +47,6 @@ def generate_info_about_today(diary: dict):
 
     diary_day = add_if_is_for_online(diary_day, diary['is_a_for_online'])
 
-    print(diary_day)
-
     pyperclip.copy(diary_day)  # copy to clipboard
 
 

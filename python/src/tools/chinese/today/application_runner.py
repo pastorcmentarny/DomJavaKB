@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
-
-import application_engine
-import config
-import file_loader
+from tools.chinese.today import application_engine, config, file_loader
 
 
 def main():
