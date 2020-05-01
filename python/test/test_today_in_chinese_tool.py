@@ -6,7 +6,7 @@ from tools.chinese.today import application_runner
 
 
 class TodayInChineseTests(unittest.TestCase):
-    def test_something(self):
+    def test_if_tool_works_with_current_config(self):
         # when
         application_runner.main()
         result = pyperclip.paste()

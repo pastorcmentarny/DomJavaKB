@@ -27,7 +27,7 @@ def add_wear(upper_wear_color_1, upper_wear_color_2, upper_wear_type_1, upper_we
     return '我穿' + upper_wear_color_1 + upper_wear_type_1 + '和' + upper_wear_color_2 + upper_wear_type_2 + dot
 
 
-# add random time to go to sleep between 22 and midnight
+# TODO add random time to go to sleep between 22 and midnight
 def go_to_sleep() -> str:
     return "我在十一点去了睡觉" + dot
 
