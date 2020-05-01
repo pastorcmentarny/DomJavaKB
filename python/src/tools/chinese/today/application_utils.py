@@ -37,14 +37,14 @@ def get_distance_from_run(run_distance):
 
 
 def get_temp_from_internet():
-    response = requests.get('https://www.bing.com/search?q=weather+rickmansworth')
+    response = requests.get('https://www.bbc.co.uk/weather/2639381')
     temp = ''
     try:
         response.raise_for_status()  # without try it will exit program
         html_manager = bs4.BeautifulSoup(response.text, "html.parser")
-        response = html_manager.select('.wtr_currTemp')
+        response = html_manager.select('.wr-value--temperature--c')
         temp = response[0].get_text()
-        sep = '°C'
+        sep = 'C'
         temp = temp.split(sep, 1)[0] + sep
 
     except Exception as whoops:

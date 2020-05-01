@@ -18,7 +18,7 @@ def add_today_date() -> str:
 
 def add_weather_sentence(weather_description_1, weather_description_2, weather_rating):
     weather = '伦敦的天气' + weather_rating + '.这是' + weather_description_1
-    if weather_description_2 is not '':
+    if weather_description_2 != '':
         weather += '和' + weather_description_2
     return weather + dot + '今天气温是' + application_utils.get_temp_from_internet() + dot
 
@@ -32,8 +32,8 @@ def go_to_sleep() -> str:
     return "我在十一点去了睡觉" + dot
 
 
-def steps(steps: int) -> str:
-    return '我走了' + str(steps) + '步相当于' + application_utils.get_distance_from_steps(steps) + '公里左右' + dot
+def steps(steps_count: int) -> str:
+    return '我走了' + str(steps_count) + '步相当于' + application_utils.get_distance_from_steps(steps_count) + '公里左右' + dot
 
 
 def generate_random_sentence(with_random_sentence):
