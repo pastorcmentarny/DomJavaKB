@@ -1,10 +1,11 @@
 package dms.pastor.utils;
 
+import dms.pastor.utils.converters.IntegerCollectionToIntArrayConverter;
+
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import static dms.pastor.utils.CollectionsUtils.convertToIntArray;
 import static dms.pastor.utils.ValidatorUtils.validateIfObjectValueIsNotNull;
 
 /**
@@ -17,7 +18,7 @@ import static dms.pastor.utils.ValidatorUtils.validateIfObjectValueIsNotNull;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public final class ArrayUtils {
-
+    private static final IntegerCollectionToIntArrayConverter converter = new IntegerCollectionToIntArrayConverter();
     public static final int FIRST_ELEMENT = 0;
 
     private ArrayUtils() {
@@ -76,7 +77,7 @@ public final class ArrayUtils {
         for (int value : valuesToExtract) {
             result.remove(value);
         }
-        return convertToIntArray(result);
+        return converter.convert(result);
     }
 
 }

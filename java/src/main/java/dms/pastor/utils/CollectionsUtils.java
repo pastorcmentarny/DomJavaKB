@@ -18,16 +18,6 @@ public final class CollectionsUtils {
     private CollectionsUtils() {
     }
 
-    public static int[] convertToIntArray(Collection<Integer> integersList) {
-        int[] intArray = new int[integersList.size()];
-        int index = 0;
-        for (Integer integer : integersList) {
-            intArray[index++] = integer;
-        }
-        return intArray;
-    }
-
-
     // you will lost order and duplicated value
     public static Set<String> convertStringArrayToSet(String[] stringArray) {
         return new HashSet<>(Arrays.asList(stringArray));

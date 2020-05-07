@@ -34,17 +34,6 @@ public class CollectionsUtilsTest {
     @Rule
     public ExpectedException exception = ExpectedException.none();
 
-    @Test
-    public void testConvertListToIntArray() {
-        List<Integer> numbers = new ArrayList<>();
-        numbers.add(2);
-        numbers.add(3);
-        numbers.add(5);
-        numbers.add(8);
-        numbers.add(13);
-        int[] answer = new int[]{2, 3, 5, 8, 13};
-        Assert.assertThat(CollectionsUtils.convertToIntArray(numbers), is(answer));
-    }
 
     @Test
     public void testEmptyArrayList() {
@@ -127,18 +116,7 @@ public class CollectionsUtilsTest {
         assertThat(result).isTrue();
     }
 
-    @Test
-    public void convertSetToIntArrayShouldReturnIntArray() {
-        // given
-        final Set<Integer> integerSet = Stream.of(1, 2, 3).collect(Collectors.toSet());
-        int[] expectedIntArray = new int[]{1, 2, 3};
 
-        // when
-        final int[] ints = convertToIntArray(integerSet);
-
-        // then
-        assertThat(ints).isEqualTo(expectedIntArray);
-    }
 
     @Test
     public void convertStringArrayToSetShouldReturnStringSet() {
