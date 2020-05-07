@@ -63,16 +63,4 @@ public final class CollectionsUtils {
         return false;
 
     }
-
-    public static List<String> convertToStringArray(char[] charArray) {
-        if (charArray == null) {
-            return null;
-        }
-        List<String> list = new ArrayList<>();
-        for (char c : charArray) {
-            list.add(String.valueOf(c));
-        }
-        return list;
-    }
-
 }
