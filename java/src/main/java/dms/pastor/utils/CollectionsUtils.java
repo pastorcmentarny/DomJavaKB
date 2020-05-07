@@ -27,17 +27,6 @@ public final class CollectionsUtils {
         return intArray;
     }
 
-    public static String[] convertToStringArray(ArrayList<String> itemsList) {
-        if (Objects.isNull(itemsList) || itemsList.isEmpty()) {
-            return new String[0];
-        }
-        String[] temp = new String[itemsList.size()];
-
-        for (int i = 0; i < itemsList.size(); i++) {
-            temp[i] = itemsList.get(i);
-        }
-        return temp;
-    }
 
     // you will lost order and duplicated value
     public static Set<String> convertStringArrayToSet(String[] stringArray) {

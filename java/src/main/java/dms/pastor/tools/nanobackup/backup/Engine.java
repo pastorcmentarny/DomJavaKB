@@ -5,8 +5,8 @@ import dms.pastor.tools.nanobackup.tools.AbstractTools;
 import dms.pastor.tools.nanobackup.tools.FileTools;
 import dms.pastor.tools.nanobackup.tools.TaskUtils;
 import dms.pastor.tools.nanobackup.tools.Tools;
-import dms.pastor.utils.CollectionsUtils;
 import dms.pastor.utils.StringUtils;
+import dms.pastor.utils.converters.StringListToStringArrayConverter;
 import dms.pastor.utils.file.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,6 +36,7 @@ public class Engine extends AbstractTools {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Engine.class);
     private final History history = History.getHistoryGUI();
+    private static final StringListToStringArrayConverter converter = new StringListToStringArrayConverter();
 
     public void activateQuickBackupMode(JTextField sourceField) {
         LOGGER.debug("Activating quick backup mode.");
@@ -158,7 +159,7 @@ public class Engine extends AbstractTools {
             while ((text = reader.readLine()) != null) {
                 itemsList.add(text);
             }
-            return CollectionsUtils.convertToStringArray(itemsList);
+            return converter.convert(itemsList);
         } catch (FileNotFoundException ex) {
             LOGGER.warn(ex.getCause() + " occurred with messaged" + ex.getMessage());
             return new String[0];

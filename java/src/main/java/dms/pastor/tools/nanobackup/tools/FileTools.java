@@ -1,8 +1,8 @@
 package dms.pastor.tools.nanobackup.tools;
 
 import dms.pastor.tools.nanobackup.backup.Statistic;
-import dms.pastor.utils.CollectionsUtils;
 import dms.pastor.utils.StringUtils;
+import dms.pastor.utils.converters.StringListToStringArrayConverter;
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,6 +31,7 @@ public final class FileTools {
     private static final long FILE_COPY_BUFFER_SIZE = 1024 * 1024 * 12;//12 megabyte
     private static final Logger LOGGER = LoggerFactory.getLogger(FileTools.class);
     private static File file;
+    private static StringListToStringArrayConverter converter = new StringListToStringArrayConverter();
 
     private FileTools() {
     }
@@ -111,7 +112,7 @@ public final class FileTools {
 
         if (addPaths(path, fileChooser, returnVal)) return null;
 
-        return CollectionsUtils.convertToStringArray(path);
+        return converter.convert(path);
     }
 
     public static String[] chooseItemsToLoad() {
@@ -123,7 +124,7 @@ public final class FileTools {
 
         if (addPaths(path, fileChooser, returnVal)) return null;
 
-        return CollectionsUtils.convertToStringArray(path);
+        return converter.convert(path);
 
     }
 
