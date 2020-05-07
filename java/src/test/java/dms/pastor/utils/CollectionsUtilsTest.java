@@ -52,12 +52,6 @@ public class CollectionsUtilsTest {
         Assert.assertThat(CollectionsUtils.emptyArrayList().size(), is(0));
     }
 
-    @Test
-    public void testConvertArrayToSet() {
-        char[] chars = new char[]{'a', 'b', 'c'};
-        final Set<Character> testSet = CollectionsUtils.convertCharArrayToSet(chars);
-        Assert.assertThat("dictSize", testSet.size(), is(chars.length));
-    }
 
     @Test
     public void testEmptyHashSet() {

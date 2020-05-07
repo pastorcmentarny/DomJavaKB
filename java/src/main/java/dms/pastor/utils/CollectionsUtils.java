@@ -39,15 +39,6 @@ public final class CollectionsUtils {
         return temp;
     }
 
-
-    public static Set<Character> convertCharArrayToSet(char[] charsArray) {
-        Set<Character> characterSet = new HashSet<>();
-        for (char character : charsArray) {
-            characterSet.add(character);
-        }
-        return characterSet;
-    }
-
     // you will lost order and duplicated value
     public static Set<String> convertStringArrayToSet(String[] stringArray) {
         return new HashSet<>(Arrays.asList(stringArray));
