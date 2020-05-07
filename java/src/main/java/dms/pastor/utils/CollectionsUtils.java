@@ -18,10 +18,6 @@ public final class CollectionsUtils {
     private CollectionsUtils() {
     }
 
-    // you will lost order and duplicated value
-    public static Set<String> convertStringArrayToSet(String[] stringArray) {
-        return new HashSet<>(Arrays.asList(stringArray));
-    }
 
     public static List<String> emptyArrayList() {
         return new ArrayList<>(0);

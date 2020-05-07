@@ -116,25 +116,6 @@ public class CollectionsUtilsTest {
         assertThat(result).isTrue();
     }
 
-
-
-    @Test
-    public void convertStringArrayToSetShouldReturnStringSet() {
-        // given
-        final String stringOne = generateString();
-        final String stringTwo = generateString();
-        final String[] stringArray = {stringOne, stringTwo};
-        Set<String> expectedStringSet = new HashSet<>();
-        expectedStringSet.add(stringOne);
-        expectedStringSet.add(stringTwo);
-
-        // when
-        final Set<String> stringSet = convertStringArrayToSet(stringArray);
-
-        // then
-        assertThat(stringSet).isEqualTo(expectedStringSet);
-    }
-
     @Test
     public void toListShouldThrowIllegalArgumentExceptionIfEnumIsNull() {
         // expected
