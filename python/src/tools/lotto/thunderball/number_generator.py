@@ -8,12 +8,8 @@ import output
 import lotto_utils
 from src.tools.lotto import config
 
-number_1 = 5
-number_2 = 11
-number_3 = 19
-number_4 = 23
-number_5 = 37
-thunderball = 4
+excluded = []
+total_thunderballs = 40  # 39
 
 # SETTINGS
 url = 'https://www.national-lottery.co.uk/results/thunderball/draw-history/csv'
@@ -22,6 +18,15 @@ all_draws = config.path["base"] + 'thunderball-all-draws.csv'
 
 logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s',
                     filename=config.path["base"] + 'log.txt')
+
+
+def convert_to_list(numbers) -> list:
+    result = []
+    numbers = [(key, numbers[key]) for key in sorted(numbers, key=numbers.get, reverse=True)]
+    for key_value, _ in numbers:
+        result.append(key_value)
+    return numbers
+
 
 data = draws_downloader.get_draws_for(url, path)
 print('number counter')
@@ -54,10 +59,16 @@ for line in data[0:10]:
         numbers_to_delete.append(line[i])
 
 numbers_to_delete = list(set(numbers_to_delete))
-logging.debug(numbers_to_delete)
+print(numbers_to_delete)
 
 for value in numbers_to_delete:
     numbers.pop(value)
+
+# exclude most popular number and two least popular
+numbers_as_list = convert_to_list(numbers)
+excluded.append(int(numbers_as_list[0][0]))
+excluded.append(int(numbers_as_list[len(numbers_as_list) - 2][0]))
+excluded.append(int(numbers_as_list[len(numbers_as_list) - 1][0]))
 
 numbers = output.display_numbers(numbers)
 
