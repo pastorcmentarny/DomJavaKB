@@ -27,6 +27,9 @@ It helps manage all the libraries required to make an application work and helps
 ## Encapsulation
 hiding of data implementation by restricting access
 
+#G
+## GraphQL
+GraphQL is a query language for API or a syntax that describe how to ask for a data
 
 # H
 
@@ -169,6 +172,7 @@ In general, cross-site scripting refers to that hacking technique that leverages
 
 
 # Changelist:
+* 2020.1 - add 1 definition
 * 2020.1 - add 1 definition, dictionary cleanup
 * 2019.1 - Quick cleanup
 * 2018.1 - First Version
