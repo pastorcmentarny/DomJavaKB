@@ -6,8 +6,7 @@ lotto_hotpicks_history_path = config.path['base'] + 'lotto-hotpicks-all-draws.cs
 lotto_hotpics_draw_history_file = open(lotto_hotpicks_history_path)
 
 
-def main():
-    # load data
+def get_number_plays_in_all_known_draws():
     euro_hotpics_history_csv = csv.reader(lotto_hotpics_draw_history_file)
     data = list(euro_hotpics_history_csv)
 
@@ -16,8 +15,13 @@ def main():
 
     for line in data[1: len(data)]:
         for number in range(1, 7):
-            numbers[line[number]] = numbers.get(line[number], 0) + 1
+            line_number = line[number].strip()
+            numbers[line_number] = numbers.get(line_number, 0) + 1
 
+    return numbers
+
+
+def display_numbers(numbers: dict):
     numbers = [(key, numbers[key]
                 ) for key in sorted(numbers, key=numbers.get, reverse=True)]
     for key, value in numbers:
@@ -25,4 +29,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    display_numbers(get_number_plays_in_all_known_draws())

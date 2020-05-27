@@ -73,4 +73,4 @@ while len(remaining_numbers) < 2:
 
 get_result_for.get_result(data, remaining_numbers, 2, 6)
 
-webbrowser.open('https://www.national-lottery.co.uk/games/lotto-hotpicks')
+#webbrowser.open('https://www.national-lottery.co.uk/games/lotto-hotpicks')

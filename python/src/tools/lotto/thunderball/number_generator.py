@@ -82,7 +82,7 @@ def count_wins_in_the_past(chosen_numbers: list, data_results):
         1: 0,
         0: 0
     }
-    print("all draws size {}".format(len(data_results)))
+
     for draw in data_results[1:6]:
         hit = 0
         for n in chosen_numbers:
