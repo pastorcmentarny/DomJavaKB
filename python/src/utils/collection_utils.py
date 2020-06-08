@@ -8,8 +8,11 @@ def convert_list_of_string_to_list_of_integer(string_list: list) -> list:
     return int_list
 
 
-if __name__ == '__main__':
-    example = ['1', '2', '3', '3', '1', 'lol']
-    result = convert_list_of_string_to_list_of_integer(example)
-    print(type(result[0]))
-    print(result)
+def split_string_to_list_of_single_digit(word):
+    digits = []
+    for digit in word:
+        try:
+            digits.append(int(digit))
+        except ValueError as exception:
+            print('Item not added due non integer item in string: {}'.format(exception))
+    return digits
