@@ -37,3 +37,4 @@ build/
 /data/lotto/euro-hotpicks-all-draws.csv
 /python/tools/lotto/result_drain.py
 !/data/lotto/euro-hotpicks-all-draws.csv
+.gradle/
