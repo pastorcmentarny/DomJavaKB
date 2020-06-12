@@ -1,6 +1,6 @@
 flask==1.1.2
 requests==2.23.0
 coverage==4.5.3
-beautifulsoup4==4.9.0
+beautifulsoup4==4.9.1
 pyperclip==1.8.0
 selenium==3.141.0
