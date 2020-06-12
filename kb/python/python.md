@@ -123,9 +123,3 @@ def bye(name: str) -> str:
 Resources:
 * https://www.youtube.com/watch?v=sugvnHA7ElY
 * book: automate boring stuff
-
-sort out
-Note: The self parameter is a reference to the current instance of the class, and is used to access variables that belong to the class.
-
-Note: The __init__() function is called automatically every time the class is being used to create a new object.
-

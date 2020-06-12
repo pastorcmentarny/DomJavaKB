@@ -51,7 +51,7 @@ def main():
     logging.debug(os.getcwd())
 
     data = draws_downloader.get_draws_for(set_for_life_url, path)
-    update_all_draws(data, all_draws)
+    # update_all_draws(data, all_draws)
 
     logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s',
                         filename=config.path["base"] + 'log.txt')

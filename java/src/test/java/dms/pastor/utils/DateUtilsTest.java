@@ -297,4 +297,65 @@ public class DateUtilsTest {
 
     }
 
+    @Test
+    public void shouldReturnForLeapYearFor2000() {
+        // given
+        int year = 2000;
+
+        // when
+        final var result = isLeapYear(year);
+
+        // then
+        assertThat(result).isTrue();
+    }
+
+    @Test
+    public void shouldReturnFalseForYearFor2021() {
+        // given
+        int year = 2021;
+
+        // when
+        final var result = isLeapYear(year);
+
+        // then
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    public void shouldReturnFalseForYearFor2022() {
+        // given
+        int year = 2022;
+
+        // when
+        final var result = isLeapYear(year);
+
+        // then
+        assertThat(result).isFalse();
+    }
+
+
+
+    @Test
+    public void shouldReturnFalseForYearFor2020() {
+        // given
+        int year = 2020;
+
+        // when
+        final var result = isLeapYear(year);
+
+        // then
+        assertThat(result).isFalse();
+    }
+
+    @Test //only div by 400 are leap
+    public void shouldReturnFalseForYearFor2100() {
+        // given
+        int year = 2100;
+
+        // when
+        final var result = isLeapYear(year);
+
+        // then
+        assertThat(result).isFalse();
+    }
 }

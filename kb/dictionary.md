@@ -18,12 +18,6 @@ It is the concept of storing the generated results and using the stored results 
 
 # D
 
-##  Data structure?
-Data structure is a container (in java will be a class) that provides storage for data elements , and  provide capabilities for  manipulate data items (add, remove, swap, find and so on). 
- Benefits are:
- ⦁	Reusability  and better code quality as result of  the use of well tested collections framework classes.
- ⦁	Reduced effort for code maintenance by using collection classes shipped with JDK.
-
 ##Dependency management
 It helps manage all the libraries required to make an application work and helps to keep track, update libraries faster and easier, as well as solve the problem then one package will depend on another package.
 
@@ -33,9 +27,6 @@ It helps manage all the libraries required to make an application work and helps
 ## Encapsulation
 hiding of data implementation by restricting access
 
-#G
-## GraphQL
-GraphQL is a query language for API or a syntax that describe how to ask for a data
 
 # H
 
@@ -59,39 +50,6 @@ Locks can make sure that the sequence of language operations are going to be per
 ## Microservices Architecture?
 A microservices architecture is a software development technique that structures an application as a collection of loosely coupled services
 The services are fine-grained and the protocols lightweight, thus improving application modularity, making it easier to understand, develop, and test. It parallelizes development by enabling small autonomous teams to develop, deploy, and scale their respective services independently. 
-
-# O
-
-##  BIG O NOTATION
-    
-What do you know about the big-O notation?
-It is depressing way to describe how badly algoritmic perfomance sucks.
-The Big-O notation is used for describing algorithm performance, scalability, execution and complexity factors in the worst case scenario as the number of elements in a data structure increases. 
-
-BIG O NOTATION from best to worst:
-O(1) -> O(logn)->O(n)->O(nlogn)->O(n^2)->O(2^n)->O(n!)
-
-O(1) - Constant
-O(log n)  - Logarithmic 
-O(n) - Linear 
-O(n log n) - Linear Logarithmic 
-O(n2) - Quadratic 
-O(n3) - Cubic 
-
- List and sets:
- 
- Structure      get     add     remove   contains
- ArrayList      O(1)    O(1)    O(n)     O(n)
-LinkedList      O(n)    O(1)    O(1)     O(n)
-HashSet         O(1)    O(1)    O(1)     O(1)
-LinkedHashList  O(1)    O(1)    O(1)     O(1)
-TreeSet         O(logn) O(logn) O(logn)  O(logn)
- 
-Maps
-Structure       Get     Put     Remove  ContainsKey
-HashMap         O(1)    O(1)    O(1)    O(1)
-LinkedHashMap   O(1)    O(1)    O(1)    O(1)
-TreeMap         O(logn) O(logn) O(logn) O(logn)
 
 
 # P
@@ -211,7 +169,6 @@ In general, cross-site scripting refers to that hacking technique that leverages
 
 
 # Changelist:
-* 2020.1 - add 1 definition
 * 2020.1 - add 1 definition, dictionary cleanup
 * 2019.1 - Quick cleanup
 * 2018.1 - First Version

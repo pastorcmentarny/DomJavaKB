@@ -1,13 +1,45 @@
+"""
+DESIGN FOR v2
+N1,N2,N3,N4,N5 T1
+N6,N7,N8,N9,N0 T2
+
+N1-N4 and N6-N9 generate randomly exlcuding last draw, minus last 2 least played number for while and most
+N5,N0 generate from below
+5: 16 EXLUCDED
+3: 12
+38: 12
+11: 11
+33: 9
+1: 8
+13: 8
+31: 7
+22: 6
+37: 6 EXCLUDED
+
+T1 from second  numbers that didn't play in last 10 games: 3 or 12
+T2 from most count of number  12x or 8x
+5: 16 EXCLUDED
+3: 12
+38: 12
+11: 11
+33: 9
+1: 8
+13: 8
+31: 7
+22: 6 EXCLUDED
+37: 6 EXCLUDED
+"""
+
 import logging
-import sys
+import random
+
 from timeit import default_timer as timer
 
-sys.path.insert(0, '../utils')
 
-import draws_downloader
-import output
-import lotto_utils
+
+
 from src.tools.lotto import config
+from src.tools.lotto.utils import draws_downloader, output, lotto_utils
 
 total_thunderballs = 40  # 39
 
@@ -213,60 +245,8 @@ def generate_numbers_for_thunderball():
             draw_result.clear()
 
 
-data = draws_downloader.get_draws_for(url, path)
-print('number counter')
-numbers = {}
-for i in range(1, lotto_utils.get_last(39)):
-    numbers[str(i)] = 0
-
-for line in data[1: len(data)]:
-    for i in range(1, lotto_utils.get_last(5)):
-        numbers[line[i]] = numbers.get(line[i], 0) + 1
-
-output.display_numbers(numbers)
-
-thunderballs = {}
-for i in range(1, lotto_utils.get_last(14)):
-    thunderballs[str(i)] = 0
-
-thunderball_column = 6
-for line in data[1: len(data)]:
-    thunderballs[line[thunderball_column]] = thunderballs.get(line[thunderball_column], 0) + 1
-
-print('\n\nthunderballs:')
-output.display_numbers(thunderballs)
-
-print("\n\n numbers that didn't play in last 10 games:")
-
-numbers_to_delete = []
-for line in data[0:10]:
-    for i in range(1, lotto_utils.get_last(5)):
-        numbers_to_delete.append(line[i])
-
-numbers_to_delete = list(set(numbers_to_delete))
-print(numbers_to_delete)
-
-for value in numbers_to_delete:
-    numbers.pop(value)
-
-# exclude most popular number and two least popular
-numbers_as_list = convert_to_list(numbers)
-excluded.append(int(numbers_as_list[0][0]))
-excluded.append(int(numbers_as_list[len(numbers_as_list) - 2][0]))
-excluded.append(int(numbers_as_list[len(numbers_as_list) - 1][0]))
-
-numbers = output.display_numbers(numbers)
-
-print("\n\n thunderballs that didn't play in last 10 games:")
-
-thunderball_to_delete = []
-for line in data[0:10]:
-    thunderball_to_delete.append(line[thunderball_column])
-
-thunderball_to_delete = list(set(thunderball_to_delete))
-logging.debug(thunderball_to_delete)
-
-for value in thunderball_to_delete:
-    thunderballs.pop(value)
-
-thunderballs = output.display_numbers(thunderballs)
+if __name__ == '__main__':
+    start_time = timer()
+    generate_numbers_for_thunderball()
+    end_time = timer()
+    print('It took {} ms.'.format(int((end_time - start_time) * 1000)))

@@ -17,7 +17,7 @@ thunderbaall = [1]
 def main():
     logging.debug("checking if numbers you selected won in the past results for THUNDERBALL")
     thunderball_path = config.path["base"] + 'thunderball-all-draws.csv'
-    thunderball_file = open(thunderball_path)
+    thunderball_file = open('D:\\GitHub\\DomJavaKB\\data\\lotto\\thunderball-all-draws.csv')
 
     config.display_warning_message(thunderball_path)
 

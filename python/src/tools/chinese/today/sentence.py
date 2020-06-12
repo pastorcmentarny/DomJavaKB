@@ -1,7 +1,7 @@
 import datetime
 import random
 
-from tools.chinese.today import application_utils, chinese_number, config, file_loader
+from tools.chinese.today import application_utils, chinese_number, config, file_loader, chinese_time
 
 dot = file_loader.config()['dot']
 next_line = '\n'
@@ -27,9 +27,8 @@ def add_wear(upper_wear_color_1, upper_wear_color_2, upper_wear_type_1, upper_we
     return '我穿' + upper_wear_color_1 + upper_wear_type_1 + '和' + upper_wear_color_2 + upper_wear_type_2 + dot
 
 
-# TODO add random time to go to sleep between 22 and midnight
 def go_to_sleep() -> str:
-    return "我在十一点去了睡觉" + dot
+    return "我在{}去了睡觉{}".format(chinese_time.get_random_sleep_time(), dot)
 
 
 def steps(steps_count: int) -> str:
@@ -42,3 +41,7 @@ def generate_random_sentence(with_random_sentence):
         for i in range(0, 3):
             today_info += config.sentences[random.randint(0, application_utils.get_last_element())] + next_line
     return today_info
+
+
+def walk_in_the_morning(distance: float):
+    return '我早上时走了{}}公里。'.format(distance)

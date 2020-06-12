@@ -48,6 +48,8 @@ for line in data[1: len(data)]:
     for i in range(1, lotto_utils.get_last(6)):
         numbers[line[i]] = numbers.get(line[i], 0) + 1
 
+x = output.display_numbers(numbers)
+
 numbers_to_delete = []
 for line in data[0:10]:
     for i in range(1, lotto_utils.get_last(6)):

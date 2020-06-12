@@ -43,3 +43,13 @@ class ChineseTimeTests(unittest.TestCase):
 
         # then
         self.assertEqual(expected_result, result)
+
+    def test_get_random_sleep_time(self):
+        # when
+        result = chinese_time.get_random_sleep_time()
+
+        # debug
+        print(result)
+
+        # then
+        self.assertIsNotNone(result)

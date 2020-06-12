@@ -1,7 +1,6 @@
 import csv
 import random
 
-
 from src.tools.lotto.utils import lotto_utils
 
 # get all draws stats (remove first  and last numbers)
@@ -16,7 +15,7 @@ data = list(hotpics_history_csv)
 
 def generate_random_number():
     numbers = []
-    excluded = [26, 24, 37, 40, 57, 7, 27, 55, 54, 45, 30, 33, 35, 2, 11, 13, 22, 34, 41, 58, 5, 10, 12, 56, 1, 15]
+    excluded = [2, 5, 11, 14, 33, 1, 6, 8, 32, 2, 33, 35, 27, 17, 53, 9]
     for line in data[0: 2]:
         print(line)
         for i in range(1, lotto_utils.get_last(6)):
