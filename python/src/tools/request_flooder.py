@@ -1,5 +1,5 @@
 import requests
-import time
+from timeit import default_timer as timer
 
 url = "http://localhost:8080/promotions"
 
@@ -21,9 +21,8 @@ def get_with_json():
 
 
 if __name__ == '__main__':
-    start = time.time()
+    start_time = timer()
 
     get()  # choose action
 
-    stop = time.time()
-    print('it took {} milliseconds.'.format((stop - start)))
+    print('It took {} ms to delete data bin'.format(int((timer() - start_time) * 1000)))
