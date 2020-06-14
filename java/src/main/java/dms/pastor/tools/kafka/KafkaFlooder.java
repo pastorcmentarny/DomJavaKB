@@ -10,9 +10,8 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 import java.util.Properties;
 
 public class KafkaFlooder {
-    private static final String TOPIC = "argos-local-notifications-email-v1";
-    //private static final String KAFKA_SERVER = "localhost:9092";
-    private static final String KAFKA_SERVER = "dxaa2kafbrok01:9093,dxaa2kafbrok02:9093,dxaa2kafbrok03:9093";
+    private static final String TOPIC = "message-topic";
+    private static final String KAFKA_SERVER = "localhost:9092";
 
     public static void fire(String topic, String kafkaServer, String content) {
         Producer<String, String> kafkaProducer = new KafkaProducer<>(getProperties(kafkaServer));
