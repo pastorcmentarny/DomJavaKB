@@ -4,42 +4,45 @@ buildscript {
     }
 }
 
-apply plugin: 'java'
-apply plugin: 'idea'
+plugins {
+    id 'java'
+    id 'idea'
+}
+
+description = "Java Learning and KB project "
 
 compileJava {
-    sourceCompatibility = JavaVersion.VERSION_12
-    targetCompatibility = JavaVersion.VERSION_12
+    sourceCompatibility = JavaVersion.VERSION_14
+    targetCompatibility = JavaVersion.VERSION_14
     options.encoding = 'UTF-8' //to ensure that I always use UTF-8 in project
 }
 
 compileTestJava {
-    sourceCompatibility = JavaVersion.VERSION_12
-    targetCompatibility = JavaVersion.VERSION_12
+    sourceCompatibility = JavaVersion.VERSION_14
+    targetCompatibility = JavaVersion.VERSION_14
     options.encoding = 'UTF-8' //to ensure that I always use UTF-8 in project
 }
 
 jar {
     archiveBaseName = project.name
-    version = '' // removed as i do not use version
+    archiveVersion = '' // removed as i do not use version
 }
 
 
 
 dependencies {
-    compile 'commons-io:commons-io:2.6'
-    compile 'joda-time:joda-time:2.10.5'
-    compile 'ch.qos.logback:logback-classic:1.2.3'
-    compile 'com.hubspot.jinjava:jinjava:2.5.2' //TODO remove it
-    compile 'org.simplejavamail:simple-java-mail:5.5.1'
-    compile 'io.rest-assured:rest-assured:4.2.0' //normally should be testCompile
-    compile 'io.rest-assured:json-schema-validator:4.2.0' //normally should be testCompile
-    compile 'org.apache.kafka:kafka-clients:1.1.0' //TODO remove it
-    compile 'org.apache.avro:avro:1.9.1' //TODO remove it
-    testCompile 'junit:junit:4.13'
-    testCompile 'org.hamcrest:hamcrest-all:1.3'
-    testCompile 'org.mockito:mockito-core:3.3.0'
-    testCompile 'org.assertj:assertj-core:3.15.0'
-    testCompile 'com.github.stefanbirkner:system-rules:1.19.0' //junit rules for system package
+    implementation  'commons-io:commons-io:2.7'
+    implementation  'joda-time:joda-time:2.10.6' //TODO remove it
+    implementation  'ch.qos.logback:logback-classic:1.2.3'
+    implementation  'org.simplejavamail:simple-java-mail:5.5.1' //TODO update
+    implementation  'io.rest-assured:rest-assured:4.3.0' //normally should be testCompile
+    implementation  'io.rest-assured:json-schema-validator:4.3.0' //normally should be testCompile
+    implementation  'org.projectlombok:lombok:1.18.12'
+    implementation 'org.apache.kafka:kafka-clients:1.1.0'
+    testImplementation  'junit:junit:4.13' //TODO move to junit5
+    testImplementation  'org.hamcrest:hamcrest-all:1.3'
+    testImplementation  'org.mockito:mockito-core:3.3.3'
+    testImplementation  'org.assertj:assertj-core:3.16.1'
+    testImplementation  'com.github.stefanbirkner:system-rules:1.19.0' //junit rules for system package
 }
 
