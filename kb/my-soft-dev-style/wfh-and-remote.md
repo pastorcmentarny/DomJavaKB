@@ -37,9 +37,7 @@ Close your laptop and mean it at the end of the day. Work will always be there t
 Once a week I have “deep work Wednesday”, where I aim to have little to no meetings, and use lengths of unscheduled time to read and reflect on high-level vision and strategy. 
 
 
-MAKE BIG DECISIONS IN MEETINGS, RATHER THAN IN ASYNCHRONOUS CHATS
 
-Don’t make decisions in Slack.
 
 Furthermore, her teams use online document tools to issue RFCs and to develop structured, written decision-making that can happen asynchronously.
 
