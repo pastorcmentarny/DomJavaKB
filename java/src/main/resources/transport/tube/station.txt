@@ -129,7 +129,7 @@ Kingsbury;;P;;2018-08-22;;none;;none;;N
 King's Cross St. Pancras;;V;;2017-01-03;;2017-11-19;;none;;N
 Knightsbridge;;V;;2019-07-28;;2019-07-28;;none;;N
 Ladbroke Grove;;P;;2019-12-14;;none;;none;;N
-Lambeth North;;V;;2019-10-04;;2019-10-04;;none;;N
+Lambeth North;;V;;2019-10-04;;2019-10-04;;none;;Y
 Lancaster Gate;;P;;2018-06-06;;none;;none;;N
 Latimer Road;;P;;2019-12-14;;none;;none;;N
 Leicester Square;;V;;2018-05-29;;2018-05-29;;none;;N

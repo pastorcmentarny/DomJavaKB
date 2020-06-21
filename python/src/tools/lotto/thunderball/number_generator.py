@@ -36,8 +36,6 @@ import random
 from timeit import default_timer as timer
 
 
-
-
 from src.tools.lotto import config
 from src.tools.lotto.utils import draws_downloader, output, lotto_utils
 

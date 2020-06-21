@@ -1,13 +1,15 @@
 package dms.pastor.tasks.pickup;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.util.List;
 
+@AllArgsConstructor
 @Data
 public class Shop {
-    private final int id;
-    private final String name;
-    private final List<OpenCloseTime> weeklyOpenCloseTimes; //only normal week are consider now
+    private int id;
+    private String name;
+    private List<OpenCloseTime> weeklyOpenCloseTimes; //only normal week are consider now
 
 }

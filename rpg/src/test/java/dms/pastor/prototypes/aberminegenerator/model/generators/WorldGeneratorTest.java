@@ -13,14 +13,15 @@ class WorldGeneratorTest {
     @Test
     public void shouldGenerateWorldAcceptanceTest() {
         // given
-        String expectedResult = "WWWWWWW\n" +
-            "WGGGGGW\n" +
-            "WSSSGSW\n" +
-            "WGGGGGW\n" +
-            "WSGSSSW\n" +
-            "WGGGGGW\n" +
-            "WGGGTSW\n" +
-            "WWWWWWW\n";
+        String expectedResult =
+                "WWWWWUU" + System.lineSeparator() +
+                        "WGGGGUU" + System.lineSeparator() +
+                        "WSSSGUU" + System.lineSeparator() +
+                        "WGGGGUU" + System.lineSeparator() +
+                        "WSGSSUU" + System.lineSeparator() +
+                        "WGGGGUU" + System.lineSeparator() +
+                        "UUUUUUU" + System.lineSeparator() +
+                        "UUUUUUU" + System.lineSeparator();
         // when
         final var world = WorldGenerator.generateTestWorld();
 

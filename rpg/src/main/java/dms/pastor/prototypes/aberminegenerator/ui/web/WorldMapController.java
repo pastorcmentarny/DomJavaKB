@@ -1,6 +1,7 @@
 package dms.pastor.prototypes.aberminegenerator.ui.web;
 
 import dms.pastor.utils.CollectionsUtils;
+import dms.pastor.utils.converters.CharArrayToListConverter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +14,7 @@ import java.util.List;
 public class WorldMapController {
 
     private final WorldMapService worldMapService;
+    private final CharArrayToListConverter converter = new CharArrayToListConverter();
 
     public WorldMapController(WorldMapService worldMapService) {
         this.worldMapService = worldMapService;
@@ -52,8 +54,7 @@ public class WorldMapController {
     @SuppressWarnings("SameReturnValue")
     private String go(String where, Model model) {
         final String mapAsString = worldMapService.getMapAsString();
-        System.out.println(mapAsString);
-        final List<String> map = CollectionsUtils.convertToStringArray(mapAsString.toCharArray());
+        final List<String> map = converter.convert(mapAsString.toCharArray());
         model.addAttribute("player", worldMapService.getPlayerInfo());
         model.addAttribute("direction", where);
         model.addAttribute("map", map);
