@@ -1,12 +1,12 @@
 # ##### SET THIS: ###### ########
-part = 7
+part = 8
 
-text = 'Chinese high-speed train #CRH3C made by #Siemens used in China on the #Beijing – #Tianjin intercity route. I love travel on them.'
+text = ""
 train_class = 0
 company = ''
 aircraft = ''
 country = ''
-type = ''
+transport_type = ''
 # ##### ######## ###### ########
 
 welcome = '#DomAncientTrips part {}'.format(part)
@@ -23,9 +23,8 @@ def generate():
         message += generate_hashtag_for_british_class(train_class) + DOT
     if company != '':
         message += companies[company]
-    message += types[type] + DOT
+    message += transport_types[transport_type] + DOT
     message += theme + DOT
-    # message += hst + DOT
     message += 'Check my blog on https://dominiksymonowicz.com/' + DOT
 
     print(message)
@@ -33,26 +32,28 @@ def generate():
 
 places = {
     'london': '#london',
-    'wroclaw': '#wroclaw #wrocław',
-    'tianjin' : '#tianjin #天津'
+    'wroclaw': '#wroclaw #wrocław #wroclove',
+    'tianjin': '#tianjin #天津'
 }
 
 countries = {
     '': '',
-    'pl': '#poland #polska #europa #eu',
+    'pl': '#poland #polska #europa #eu #pkp #intercity #Polregio #KD #KolejeDolnośląskie #kolej #pociąg #pendolino',
     'uk': '#uk #england #europe',
     'se': '#sweden #europe #eu',
-    'cn': '#china #中国'
+    'cn': '#china #中国 #asia'
 }
 
 companies = {
     'ba': '#ba #brtishairways #speedbird',
-    'gwr': '#gwr #first #greatwesternrailway #britishrailways #FirstGreatWestern'
+    'gwr': '#gwr #first #greatwesternrailway #britishrailways #FirstGreatWestern',
+    '': ''
 }
 
-types = {
+transport_types = {
     'train': '#train #trains #railway #railways #trip #travel #intercity',
     'airplane': '#airplane #flight',
+    '': ''
 }
 
 
