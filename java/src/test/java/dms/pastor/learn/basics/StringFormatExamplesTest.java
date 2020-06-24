@@ -1,6 +1,7 @@
 package dms.pastor.learn.basics;
 
 import dms.pastor.examples.StringFormatExamples;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -65,6 +66,7 @@ public class StringFormatExamplesTest {
     }
 
     @Test
+    @Ignore
     public void shouldDisplayNumberWithCustomSeparator() {
         // given
         final int thousandOne = 1001;
