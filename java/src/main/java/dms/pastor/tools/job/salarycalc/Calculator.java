@@ -21,7 +21,7 @@ import static dms.pastor.utils.NumberUtils.toIntFromDouble;
 class Calculator {
     public static final int MINIMUM_SALARY = 55000;  // industry is 55000 in 2018
 
-    private Vacancy data;
+    private final Vacancy data;
 
     public Calculator() {
         this.data = Vacancy.getTypicalVacancy();

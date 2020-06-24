@@ -24,7 +24,7 @@ class TrainCLI {
     }
 
     private final OptionsFactory options;
-    private Scanner scanner;
+    private final Scanner scanner;
 
 
     public TrainCLI(TrainStation stations, Scanner scanner) {

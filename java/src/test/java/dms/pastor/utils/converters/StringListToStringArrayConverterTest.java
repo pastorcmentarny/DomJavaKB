@@ -2,7 +2,6 @@ package dms.pastor.utils.converters;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -22,7 +21,7 @@ public class StringListToStringArrayConverterTest {
     @Test
     public void convertToStringArrayShouldReturnEmptyStringArrayForNull() {
         // when
-        final String[] result = converter.convert((ArrayList<String>) null);
+        final String[] result = converter.convert(null);
 
         // then
         assertThat(result).isEmpty();

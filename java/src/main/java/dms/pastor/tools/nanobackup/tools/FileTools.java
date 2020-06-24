@@ -31,7 +31,7 @@ public final class FileTools {
     private static final long FILE_COPY_BUFFER_SIZE = 1024 * 1024 * 12;//12 megabyte
     private static final Logger LOGGER = LoggerFactory.getLogger(FileTools.class);
     private static File file;
-    private static StringListToStringArrayConverter converter = new StringListToStringArrayConverter();
+    private static final StringListToStringArrayConverter converter = new StringListToStringArrayConverter();
 
     private FileTools() {
     }

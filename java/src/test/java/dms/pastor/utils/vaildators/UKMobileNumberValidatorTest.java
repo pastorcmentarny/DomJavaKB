@@ -17,8 +17,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 @RunWith(Parameterized.class)
 public class UKMobileNumberValidatorTest {
 
-    private Boolean expectedResult;
-    private String number;
+    private final Boolean expectedResult;
+    private final String number;
 
     public UKMobileNumberValidatorTest(boolean expectedResult, String number) {
         this.expectedResult = expectedResult;

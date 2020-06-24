@@ -1112,16 +1112,8 @@ public class GUI extends javax.swing.JFrame {
         }
 
         //SWAP BUTTONS
-        if (previousSrcPathComboBox.getModel().getSize() == 0) {
-            swapSourceFolderPathButton.setEnabled(false);
-        } else {
-            swapSourceFolderPathButton.setEnabled(true);
-        }
-        if (previousDestPathComboBox.getModel().getSize() == 0) {
-            swapDestinationFolderPathButton.setEnabled(false);
-        } else {
-            swapDestinationFolderPathButton.setEnabled(true);
-        }
+        swapSourceFolderPathButton.setEnabled(previousSrcPathComboBox.getModel().getSize() != 0);
+        swapDestinationFolderPathButton.setEnabled(previousDestPathComboBox.getModel().getSize() != 0);
 
         //DO BACKUP BUTTON
         if (StringUtils.isStringBlank(destinationField.getText()) || sourceList.getModel().getSize() == 0) {
@@ -1130,11 +1122,7 @@ public class GUI extends javax.swing.JFrame {
             if (QuickBackupCheckBoxMenuItem.isSelected()) {
                 doBackupButton.setEnabled(true);
             } else {
-                if (StringUtils.isStringBlank(sourceField.getText())) {
-                    doBackupButton.setEnabled(false);
-                } else {
-                    doBackupButton.setEnabled(true);
-                }
+                doBackupButton.setEnabled(!StringUtils.isStringBlank(sourceField.getText()));
             }
         }
     }

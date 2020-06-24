@@ -15,7 +15,7 @@ public class CharArrayToListConverterTest {
     @Test
     public void convertToStringArrayFromCharArrayShouldReturnNullIfCharArrayIsNull() {
         // when
-        final List<String> stringArrayFromCharArray = converter.convert((char[]) null);
+        final List<String> stringArrayFromCharArray = converter.convert(null);
 
         // then
         assertThat(stringArrayFromCharArray).isNull();

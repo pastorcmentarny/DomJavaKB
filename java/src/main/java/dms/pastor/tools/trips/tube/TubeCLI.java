@@ -25,7 +25,7 @@ class TubeCLI {
 
     private final Stations stations;
     private final OptionsFactory options;
-    private Scanner scanner;
+    private final Scanner scanner;
 
 
     TubeCLI(Stations stations, Scanner scanner) {
