@@ -4,9 +4,9 @@ import dms.pastor.prototypes.dcs.Elements;
 import dms.pastor.prototypes.dcs.spells.CreateShieldSpell;
 import dms.pastor.prototypes.dcs.spells.ShieldRecoverySpell;
 import dms.pastor.prototypes.dcs.units.Unit;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -33,13 +33,13 @@ public class MageTest {
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private PrintStream printStream;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         printStream = System.out;
         System.setOut(new PrintStream(outputStream));
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         System.setOut(printStream);
     }

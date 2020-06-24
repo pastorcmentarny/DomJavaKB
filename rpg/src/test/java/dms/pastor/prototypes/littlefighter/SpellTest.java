@@ -1,7 +1,7 @@
 package dms.pastor.prototypes.littlefighter;
 
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Author Dominik Symonowicz
@@ -13,7 +13,7 @@ import org.junit.Test;
  */
 public class SpellTest {
     @Test
-    @Ignore //java.awt.HeadlessException
+    @Disabled //java.awt.HeadlessException
     public void spellUIAppearsWithoutCrashAcceptanceTest() throws Exception {
         // when
         final Spell spell = new Spell();

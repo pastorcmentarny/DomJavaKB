@@ -1,6 +1,6 @@
 package dms.pastor.prototypes.dcs.conditions;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.prototypes.dcs.Config.DEFAULT_CONDITION_DURATION;
 import static dms.pastor.prototypes.dcs.Config.INFINITIVE_TURNS_LEFT;

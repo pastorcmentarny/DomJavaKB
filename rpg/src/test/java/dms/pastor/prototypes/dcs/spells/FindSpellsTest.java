@@ -1,8 +1,8 @@
 package dms.pastor.prototypes.dcs.spells;
 
 import dms.pastor.prototypes.dcs.Elements;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertTrue;
@@ -21,7 +21,7 @@ public class FindSpellsTest {
 
     private Spells spells;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         spells = new Spells();
     }

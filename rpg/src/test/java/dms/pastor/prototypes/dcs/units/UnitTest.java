@@ -2,7 +2,7 @@ package dms.pastor.prototypes.dcs.units;
 
 import dms.pastor.prototypes.dcs.ElementsBuilder;
 import dms.pastor.prototypes.dcs.units.enemies.builders.UnitBuilder;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

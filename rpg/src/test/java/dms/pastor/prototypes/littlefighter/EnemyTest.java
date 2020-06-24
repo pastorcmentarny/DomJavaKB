@@ -1,7 +1,7 @@
 package dms.pastor.prototypes.littlefighter;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * Author Dominik Symonowicz
@@ -14,7 +14,7 @@ import org.junit.Test;
 public class EnemyTest {
     private Enemy enemy;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         enemy = new Enemy();
     }

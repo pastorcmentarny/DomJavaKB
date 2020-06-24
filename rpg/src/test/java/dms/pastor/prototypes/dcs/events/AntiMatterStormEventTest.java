@@ -2,7 +2,7 @@ package dms.pastor.prototypes.dcs.events;
 
 import dms.pastor.prototypes.dcs.units.Unit;
 import dms.pastor.prototypes.dcs.units.enemies.builders.PlayerBuilder;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.prototypes.dcs.ElementsBuilder.elementsBuilder;
 import static dms.pastor.prototypes.dcs.units.HealthBuilder.healthBuilder;

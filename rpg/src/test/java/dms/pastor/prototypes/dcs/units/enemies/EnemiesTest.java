@@ -1,7 +1,7 @@
 package dms.pastor.prototypes.dcs.units.enemies;
 
 import dms.pastor.prototypes.dcs.units.Unit;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 

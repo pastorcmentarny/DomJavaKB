@@ -2,7 +2,7 @@ package dms.pastor.prototypes.dcs.game;
 
 import dms.pastor.prototypes.dcs.units.Unit;
 import dms.pastor.prototypes.dcs.units.enemies.*;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 //TODO generator for all possible 1 vs 1
 @SuppressWarnings("ClassWithTooManyMethods")

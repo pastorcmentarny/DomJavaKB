@@ -3,9 +3,9 @@ package dms.pastor.prototypes.dcs;
 import dms.pastor.prototypes.dcs.game.Campaign;
 import dms.pastor.prototypes.dcs.units.Player;
 import dms.pastor.prototypes.dcs.units.enemies.builders.PlayerBuilder;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -19,13 +19,13 @@ public final class AppLauncherTest {
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private PrintStream printStream;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         printStream = System.out;
         System.setOut(new PrintStream(outputStream));
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         System.setOut(printStream);
     }

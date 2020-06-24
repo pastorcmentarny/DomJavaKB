@@ -1,10 +1,10 @@
 package dms.pastor.rpg.game.characteristics;
 
 import dms.pastor.rpg.game.units.RaceBasicStatsBuilder;
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.rules.ExpectedException;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -24,12 +24,12 @@ public class StatsTest {
     @Rule
     public ExpectedException exception = ExpectedException.none();
 
-    @Before
+    @BeforeEach
     public void setup() {
         stats = RaceBasicStatsBuilder.humanBuilder();
     }
 
-    @After
+    @AfterEach
     public void cleanUp() {
         stats = null;
     }

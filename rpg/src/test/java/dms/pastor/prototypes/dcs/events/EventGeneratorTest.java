@@ -1,6 +1,6 @@
 package dms.pastor.prototypes.dcs.events;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.prototypes.dcs.events.EventGenerator.getRandomEvent;
 import static org.assertj.core.api.Assertions.assertThat;

@@ -6,9 +6,9 @@ import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.Appender;
 import dms.pastor.prototypes.dcs.Elements;
 import dms.pastor.prototypes.dcs.units.Unit;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
@@ -36,12 +36,12 @@ public final class NoSpellTest {
     @Captor
     private ArgumentCaptor<ILoggingEvent> captorLoggingEvent;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         LOGGER.addAppender(mockAppender);
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         LOGGER.detachAppender(mockAppender);
     }

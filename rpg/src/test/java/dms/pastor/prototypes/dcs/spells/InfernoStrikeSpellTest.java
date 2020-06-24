@@ -2,7 +2,7 @@ package dms.pastor.prototypes.dcs.spells;
 
 import dms.pastor.prototypes.dcs.units.Unit;
 import dms.pastor.prototypes.dcs.units.enemies.builders.UnitBuilder;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.utils.randoms.RandomDataGenerator.MAX_SMALL_VALUE_RANGE;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;

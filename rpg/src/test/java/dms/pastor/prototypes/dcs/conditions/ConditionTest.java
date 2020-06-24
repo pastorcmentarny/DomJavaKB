@@ -2,10 +2,10 @@ package dms.pastor.prototypes.dcs.conditions;
 
 import dms.pastor.domain.exception.SomethingWentWrongException;
 import org.assertj.core.api.Assertions;
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.rules.ExpectedException;
 
 import java.util.Set;
@@ -38,12 +38,12 @@ public class ConditionTest {
     private final ConditionEntry persistentCondition = createPersistentCondition(STUNNED);
     private Condition conditions;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         conditions = new Condition();
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         conditions.clear();
     }

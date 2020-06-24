@@ -4,10 +4,10 @@ import dms.pastor.prototypes.dcs.spells.IceBoltSpell;
 import dms.pastor.prototypes.dcs.spells.VampireDrainSpell;
 import dms.pastor.prototypes.dcs.units.Unit;
 import dms.pastor.prototypes.dcs.units.enemies.builders.UnitBuilder;
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.rules.ExpectedException;
 
 import java.io.ByteArrayOutputStream;
@@ -27,12 +27,12 @@ public final class VampireTest {
     @Rule
     public ExpectedException exception = ExpectedException.none();
 
-    @Before
+    @BeforeEach
     public void setUp() {
         System.setOut(new PrintStream(outputStream));
     }
 
-    @After
+    @AfterEach
     public void cleanUp() throws IOException {
         outputStream.close();
         System.setOut(original);

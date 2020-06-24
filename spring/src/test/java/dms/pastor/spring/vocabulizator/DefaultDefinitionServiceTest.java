@@ -3,8 +3,8 @@ package dms.pastor.spring.vocabulizator;
 import dms.pastor.spring.tools.vocabulizator.DefaultDefinitionService;
 import dms.pastor.spring.tools.vocabulizator.db.DefinitionRepository;
 import dms.pastor.spring.tools.vocabulizator.model.Definition;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
@@ -30,7 +30,7 @@ public class DefaultDefinitionServiceTest {
 
     private DefaultDefinitionService defaultDefinitionService;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         defaultDefinitionService = new DefaultDefinitionService(definitionRepository);
 

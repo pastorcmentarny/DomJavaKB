@@ -2,7 +2,7 @@ package dms.pastor.prototypes.dcs.events;
 
 import dms.pastor.prototypes.dcs.conditions.Condition;
 import dms.pastor.prototypes.dcs.units.Unit;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.prototypes.dcs.conditions.ConditionEntry.createTemporaryCondition;
 import static dms.pastor.prototypes.dcs.conditions.ConditionType.FIRE_IMMUNE;

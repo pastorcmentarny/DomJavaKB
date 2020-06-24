@@ -2,8 +2,8 @@ package dms.pastor.prototypes.dcs.spells;
 
 import dms.pastor.prototypes.dcs.units.Unit;
 import dms.pastor.prototypes.dcs.units.enemies.Dummy;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * Author Dominik Symonowicz
@@ -19,7 +19,7 @@ public class SpellsCastTest {
     private Unit player1;
     private Unit player2;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         player1 = new Dummy("Dummy 1");
         player2 = new Dummy("Dummy 2");

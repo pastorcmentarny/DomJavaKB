@@ -1,7 +1,7 @@
 package dms.pastor.prototypes.littlefighter;
 
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Author Dominik Symonowicz
@@ -14,7 +14,7 @@ import org.junit.Test;
 public class MainGameGUITest {
 
     @Test
-    @Ignore //java.awt.HeadlessException
+    @Disabled //java.awt.HeadlessException
     public void runApplicationWithoutCrashAcceptanceTest() throws Exception {
         // given
 

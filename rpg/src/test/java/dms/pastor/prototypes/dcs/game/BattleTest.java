@@ -5,7 +5,7 @@ import dms.pastor.prototypes.dcs.conditions.ConditionEntry;
 import dms.pastor.prototypes.dcs.conditions.ConditionEntryBuilder;
 import dms.pastor.prototypes.dcs.units.Unit;
 import dms.pastor.prototypes.dcs.units.enemies.builders.UnitBuilder;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.prototypes.dcs.conditions.ConditionType.*;
 import static org.assertj.core.api.Assertions.assertThat;

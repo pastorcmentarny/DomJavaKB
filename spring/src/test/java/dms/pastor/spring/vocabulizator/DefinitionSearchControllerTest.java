@@ -3,8 +3,8 @@ package dms.pastor.spring.vocabulizator;
 import dms.pastor.spring.tools.vocabulizator.DefaultDefinitionService;
 import dms.pastor.spring.tools.vocabulizator.DefinitionSearchController;
 import dms.pastor.spring.tools.vocabulizator.model.Definition;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
@@ -30,7 +30,7 @@ public class DefinitionSearchControllerTest {
 
     private DefinitionSearchController definitionSearchController;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         definitionSearchController = new DefinitionSearchController(defaultDefinitionService);
     }

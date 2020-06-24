@@ -3,7 +3,7 @@ package dms.pastor.prototypes.dcs.cards;
 import dms.pastor.prototypes.dcs.events.AirElementEvent;
 import dms.pastor.prototypes.dcs.spells.LightingBoltSpell;
 import org.assertj.core.api.Assertions;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;

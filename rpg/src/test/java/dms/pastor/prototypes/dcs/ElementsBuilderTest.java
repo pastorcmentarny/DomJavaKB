@@ -1,6 +1,6 @@
 package dms.pastor.prototypes.dcs;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.prototypes.dcs.ElementsBuilder.elementsBuilder;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;

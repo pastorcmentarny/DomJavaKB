@@ -1,7 +1,7 @@
 package dms.pastor.prototypes.dcs.spells;
 
 import dms.pastor.prototypes.dcs.units.enemies.builders.UnitBuilder;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Author Dominik Symonowicz

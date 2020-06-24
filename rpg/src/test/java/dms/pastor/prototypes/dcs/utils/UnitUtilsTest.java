@@ -1,7 +1,7 @@
 package dms.pastor.prototypes.dcs.utils;
 
 import dms.pastor.utils.randoms.RandomDataGenerator;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.prototypes.dcs.utils.UnitUtils.doubleDamageFor;
 import static org.assertj.core.api.Assertions.assertThat;

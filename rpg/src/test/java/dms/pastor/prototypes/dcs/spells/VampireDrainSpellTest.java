@@ -4,7 +4,7 @@ import dms.pastor.prototypes.dcs.Config;
 import dms.pastor.prototypes.dcs.units.Unit;
 import dms.pastor.prototypes.dcs.units.enemies.Vampire;
 import dms.pastor.prototypes.dcs.units.enemies.builders.UnitBuilder;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

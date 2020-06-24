@@ -2,7 +2,7 @@ package dms.pastor.spring.vocabulizator;
 
 import dms.pastor.spring.tools.vocabulizator.model.Definition;
 import dms.pastor.spring.tools.vocabulizator.model.Tag;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -2,7 +2,7 @@ package dms.pastor.prototypes.dcs.conditions;
 
 import dms.pastor.domain.exception.SomethingWentWrongException;
 import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.rules.ExpectedException;
 
 import static dms.pastor.prototypes.dcs.conditions.ConditionType.FIRE_RESISTANT;

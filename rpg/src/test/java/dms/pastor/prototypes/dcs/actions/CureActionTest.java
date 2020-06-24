@@ -3,7 +3,7 @@ package dms.pastor.prototypes.dcs.actions;
 import dms.pastor.prototypes.dcs.conditions.Condition;
 import dms.pastor.prototypes.dcs.spells.CureSpell;
 import dms.pastor.prototypes.dcs.units.Unit;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.prototypes.dcs.conditions.ConditionEntry.createTemporaryConditionWithDefaultDuration;
 import static dms.pastor.prototypes.dcs.conditions.ConditionType.BLIND;

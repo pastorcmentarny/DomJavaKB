@@ -1,7 +1,7 @@
 package dms.pastor.prototypes.dcs.spells;
 
 import dms.pastor.prototypes.dcs.units.Unit;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.prototypes.dcs.units.enemies.builders.UnitBuilder.unitBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
