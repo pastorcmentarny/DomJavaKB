@@ -1,5 +1,5 @@
 # ##### SET THIS: ###### ########
-part = 8
+part = 9
 
 text = ""
 train_class = 0
@@ -24,6 +24,7 @@ def generate():
     if company != '':
         message += companies[company]
     message += transport_types[transport_type] + DOT
+    message += aircrafts[aircraft] + DOT
     message += theme + DOT
     message += 'Check my blog on https://dominiksymonowicz.com/' + DOT
 
@@ -52,8 +53,14 @@ companies = {
 
 transport_types = {
     'train': '#train #trains #railway #railways #trip #travel #intercity',
-    'airplane': '#airplane #flight',
+    'airplane': '#airplane #flight #aviantion #airport',
     '': ''
+}
+
+aircrafts = {
+    '737': '#Boeing #Boeing737 #Boeing737-800',
+    '787': '#Boeing #Boeing787 #Boeing787-8 #Boeing787-9 #Boeing787-10 #dreamliner',
+    '380': '#airbus #airbus380 #airbusa380 #380 #a380'
 }
 
 
