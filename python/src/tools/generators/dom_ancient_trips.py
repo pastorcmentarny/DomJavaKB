@@ -1,5 +1,5 @@
 # ##### SET THIS: ###### ########
-part = 9
+part = 10
 
 text = ""
 train_class = 0
@@ -7,24 +7,27 @@ company = ''
 aircraft = ''
 country = ''
 transport_type = ''
+place = ''
 # ##### ######## ###### ########
 
 welcome = '#DomAncientTrips part {}'.format(part)
 DOT = '. '
 
-theme = '#Covid19 #Stayhome'
+theme = '#trip #travel #Covid19 #Stayhome'
 
 
 def generate():
     message = '#DomAncientTrips part {}'.format(part) + DOT
     message += text + DOT
     message += countries[country] + DOT
+    message += places[place] + DOT
     if train_class > 0:
         message += generate_hashtag_for_british_class(train_class) + DOT
-    if company != '':
-        message += companies[company]
+        message += trains[train_class]
+
+    message += companies[company]
     message += transport_types[transport_type] + DOT
-    message += aircrafts[aircraft] + DOT
+    message += aircraft_list[aircraft] + DOT
     message += theme + DOT
     message += 'Check my blog on https://dominiksymonowicz.com/' + DOT
 
@@ -34,7 +37,9 @@ def generate():
 places = {
     'london': '#london',
     'wroclaw': '#wroclaw #wrocław #wroclove',
-    'tianjin': '#tianjin #天津'
+    'tianjin': '#tianjin #天津',
+    'bangor': '#bangor #wales',
+    '': ''
 }
 
 countries = {
@@ -48,19 +53,26 @@ countries = {
 companies = {
     'ba': '#ba #brtishairways #speedbird',
     'gwr': '#gwr #first #greatwesternrailway #britishrailways #FirstGreatWestern',
+    'vt': '#virgin #virgintrains',
     '': ''
 }
 
 transport_types = {
-    'train': '#train #trains #railway #railways #trip #travel #intercity',
+    'train': '#train #trains #railway #railways  #intercity',
     'airplane': '#airplane #flight #aviantion #airport',
     '': ''
 }
 
-aircrafts = {
+aircraft_list = {
     '737': '#Boeing #Boeing737 #Boeing737-800',
     '787': '#Boeing #Boeing787 #Boeing787-8 #Boeing787-9 #Boeing787-10 #dreamliner',
-    '380': '#airbus #airbus380 #airbusa380 #380 #a380'
+    '380': '#airbus #airbus380 #airbusa380 #380 #a380 #superjumbo ',
+    '': ''
+}
+
+trains = {
+    220: ' #Voyager #tilting #crosscountry',
+    221: '#SuperVoyager #Voyager #tilting #virgintrains #crosscountry #AvantiWestCoast',
 }
 
 
