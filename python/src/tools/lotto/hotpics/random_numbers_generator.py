@@ -3,9 +3,19 @@ import random
 
 from src.tools.lotto.utils import lotto_utils
 
-# get all draws stats (remove first  and last numbers)
-# remove last played and 2 number generated
+# load all draws
+# exclude last 2 draws
+# exclude first most numbers and 2 least
+# lotto_hotpicks_url = 'https://www.national-lottery.co.uk/results/lotto-hotpicks/draw-history/csv'
+# path = config.path["base"] + 'lotto-hotpicks-draws.csv'
+# all_draws = config.path["base"] + 'lotto-hotpicks-all-draws.csv'
+# logging.debug('downloading  data from ' + lotto_hotpicks_url)
+# response = requests.get(lotto_hotpicks_url)
+# logging.debug('download complete with response ' + str(response.status_code))
+# data = draws_downloader.get_draws_for(lotto_hotpicks_url, path)
+# draws_downloader.update_all_draws_v2(data, all_draws)
 
+# check results in the past
 
 all_draws_path = 'D:/GitHub/DomJavaKB/data/lotto/lotto-hotpicks-all-draws.csv'
 draw_history_file = open(all_draws_path)
@@ -19,7 +29,6 @@ def generate_random_number():
     for line in data[0: 2]:
         print(line)
         for i in range(1, lotto_utils.get_last(6)):
-            print("excluded {}".format(line[i]))
             excluded.append(int(line[i]))
 
     for i in range(1, 60):
@@ -35,6 +44,8 @@ def generate_random_number():
         if count == 7:
             count = 1
             print()
+
+    print('excluded numbers: {}'.format(excluded))
 
 
 if __name__ == '__main__':
