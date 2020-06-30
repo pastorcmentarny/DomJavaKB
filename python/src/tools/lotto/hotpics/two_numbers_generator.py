@@ -7,8 +7,6 @@
 * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
 """
 
-import logging
-import os
 import sys
 import webbrowser
 
@@ -23,18 +21,16 @@ import get_result_for
 import output
 import lotto_utils
 
-logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s',
-                    filename=config.path["base"] + 'log.txt')
 
 
 lotto_hotpicks_url = 'https://www.national-lottery.co.uk/results/lotto-hotpicks/draw-history/csv'
 path = config.path["base"] + 'lotto-hotpicks-draws.csv'
 all_draws = config.path["base"] + 'lotto-hotpicks-all-draws.csv'
-logging.debug('downloading  data from ' + lotto_hotpicks_url)
+print('Downloading  data from ' + lotto_hotpicks_url)
 response = requests.get(lotto_hotpicks_url)
-logging.debug('download complete with response ' + str(response.status_code))
+print('Download complete with response ' + str(response.status_code))
 
-logging.debug(os.getcwd())
+
 
 data = draws_downloader.get_draws_for(lotto_hotpicks_url, path)
 draws_downloader.update_all_draws_v2(data, all_draws)
@@ -56,7 +52,7 @@ for line in data[0:10]:
         numbers_to_delete.append(line[i])
 
 numbers_to_delete = list(set(numbers_to_delete))
-logging.debug(numbers_to_delete)
+print(numbers_to_delete)
 
 for value in numbers_to_delete:
     numbers.pop(value)
@@ -65,7 +61,7 @@ numbers = output.display_numbers(numbers)
 
 remaining_numbers = {}
 least_value = int(numbers[-1][1])
-logging.info(least_value)
+print(least_value)
 
 while len(remaining_numbers) < 2:
     for key, value in numbers:
