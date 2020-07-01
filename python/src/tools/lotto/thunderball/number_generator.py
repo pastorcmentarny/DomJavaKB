@@ -228,9 +228,11 @@ def generate_numbers_for_thunderball():
 
     print('excluded unique number counter : {}'.format(counter))
 
-    shuffles_times = random.randint(1, total_thunderballs * total_thunderballs)
+    shuffles_times = random.randint(780,780 + (total_thunderballs * total_thunderballs))
+
     for i in range(1, shuffles_times):
         random.shuffle(numbers_to_draw)
+    print(f'shuffled {shuffles_times} times')
 
     count = 1
     draw_result = []
