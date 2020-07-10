@@ -2,3 +2,8 @@
 class GobshiteException(Exception):
     print('Shit happens because you have no f..king clue what are you doing! Learn things and fix your mess!')
     pass
+
+
+class WhoopsException(Exception):
+    def __init__(self, message):
+        self.message = message
