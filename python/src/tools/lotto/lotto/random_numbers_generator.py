@@ -14,28 +14,55 @@ from src.tools.lotto.utils import lotto_utils
 # logging.debug('download complete with response ' + str(response.status_code))
 # data = draws_downloader.get_draws_for(lotto_hotpicks_url, path)
 # draws_downloader.update_all_draws_v2(data, all_draws)
-
+# bonus ball
 # check results in the past
 
-all_draws_path = 'D:/GitHub/DomJavaKB/data/lotto/lotto-hotpicks-all-draws.csv'
+# 2 random number
+# 2 numbers that played 3-9
+# 2 numbers that played 10+
+
+# TODO make it system independent
+all_draws_path = 'D:/Projects/DomJavaKB/data/lotto/lotto-hotpicks-all-draws.csv'
+# all_draws_path = 'D:/GitHub/DomJavaKB/data/lotto/lotto-hotpicks-all-draws.csv'
 draw_history_file = open(all_draws_path)
 hotpics_history_csv = csv.reader(draw_history_file)
 data = list(hotpics_history_csv)
 
 
+def stats():
+    all_numbers = []
+    for i in range(1, 60):
+        all_numbers.append(i)
+
+    numbers = {}
+    for i in range(1, 60):
+        for i in range(1, 60):
+            numbers[i] = 0
+
+    print(numbers)
+
+    for line in data[1: len(data)]:
+        for number in range(1, 7):
+            line_number = line[number].strip()
+            numbers[line_number] = numbers.get(line_number, 0) + 1
+
+
 def generate_random_number():
     numbers = []
-    excluded = [2, 5, 11, 14, 33, 1, 6, 8, 32, 2, 33, 35, 27, 17, 53, 9]
+    excluded = []
     for line in data[0: 2]:
-        print(line)
         for i in range(1, lotto_utils.get_last(6)):
             excluded.append(int(line[i]))
 
     for i in range(1, 60):
         if i not in excluded:
             numbers.append(i)
-    random.shuffle(numbers)
-    random.shuffle(numbers)
+
+    print(f'before {numbers}')
+
+    for i in range(1, 1770):
+        random.shuffle(numbers)
+    print(f'after {numbers}')
 
     count = 1
     for i in numbers:
@@ -49,4 +76,6 @@ def generate_random_number():
 
 
 if __name__ == '__main__':
+    stats()
+    print()
     generate_random_number()
