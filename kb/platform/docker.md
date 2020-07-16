@@ -54,6 +54,11 @@ networks:
 * There are four key Docker concepts at play: images, layers, the Dockerfile, and the Docker cache.Dockerfile describes how to build the Docker image. An image consists of a number of layers. The Dockerfile starts with a base image and adds additional layers. A new layer is generated when new content is added to the image. Each layer that is built is cached so it can be re-used on subsequent builds. When a Docker build runs, it will re-use any existing layers that it can from the cache. This reduces the overall time and space needed for each build. Anything that has changed, or has not been built before, will be built as needed.
 * The order and contents of the layers matter. 
 
-TODO:
-http://javarevisited.blogspot.co.uk/2013/05/10-hibernate-interview-questions-answers-java-j2ee-senior.html
-http://www.java67.com/2016/02/top-20-hibernate-interview-questions.html
+
+## TOOLS
+* https://github.com/wagoodman/dive
+
+
+## TODO
+*   http://javarevisited.blogspot.co.uk/2013/05/10-hibernate-interview-questions-answers-java-j2ee-senior.html
+*   http://www.java67.com/2016/02/top-20-hibernate-interview-questions.html
