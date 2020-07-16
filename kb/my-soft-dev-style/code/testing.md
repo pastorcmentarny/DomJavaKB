@@ -46,6 +46,17 @@ piramid test
    0. It communicates via the network
    0. deal with the file system
    0. Is depends on any of your other unit tests****
+0. Testing types:
+   0. Unit Testing - verifies that each application function (module) returns the correct value for a given input
+   0. Component/Integration Testing - n the application containe
+   0. UI Testing
+   0. Performance Testing
+   0. Soak Testing to find memory leakis
+   0. Security Testing
+
+   
+   
+ 
 
 Almost no unit tests because there is no business logic
 
