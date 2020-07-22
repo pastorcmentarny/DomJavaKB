@@ -2,8 +2,10 @@ package dms.pastor.spring.exercises.calculator.models;
 
 import dms.pastor.utils.randoms.RandomDataGenerator;
 
-import javax.validation.constraints.NotNull;
+import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
+
+import static dms.pastor.utils.randoms.RandomDataGenerator.randomPositiveInteger;
 
 /**
  * Author Dominik Symonowicz
@@ -15,18 +17,16 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class Addition {
     private static final AtomicInteger counter = new AtomicInteger();
-    private final long id = RandomDataGenerator.randomPositiveInteger();
-    @NotNull
+    private final long id = randomPositiveInteger();
     private String[] numbers;
-
 
     public Result getAnswer() {
         int counter = 0;
         if (numbers == null) {
             throw new IllegalArgumentException("No numbers given.You need at least 1 number.");
         }
-        for (String n : numbers) {
-            counter += Integer.parseInt(n);
+        for (String number : numbers) {
+            counter += Integer.parseInt(number);
         }
         return new Result(id, counter);
     }
