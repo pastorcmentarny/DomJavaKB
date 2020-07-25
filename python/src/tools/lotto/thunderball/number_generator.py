@@ -1,4 +1,13 @@
 """
+* Author Dominik Symonowicz
+* WWW:	https://dominiksymonowicz.com/welcome
+* IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+* Github:	https://github.com/pastorcmentarny
+* Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+* LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+
+draw system 2.0  exlude last draw , least 2 numbers and first number generate randomly with one number from most count
+
 DESIGN FOR v2
 N1,N2,N3,N4,N5 T1
 N6,N7,N8,N9,N0 T2
@@ -38,6 +47,7 @@ from timeit import default_timer as timer
 
 from src.tools.lotto import config
 from src.tools.lotto.utils import draws_downloader, output, lotto_utils
+from src.utils import ui_utils
 
 total_thunderballs = 40  # 39
 
@@ -99,7 +109,8 @@ def get_draw_result(hits: int, tb: bool = True):
     return 0
 
 
-def count_wins_in_the_past(chosen_numbers: list, data_results):
+def count_wins_in_the_past(chosen_numbers: list):
+    all_draw_results = get_data()
     wins = {
         9: 0,
         8: 0,
@@ -113,7 +124,7 @@ def count_wins_in_the_past(chosen_numbers: list, data_results):
         0: 0
     }
 
-    for draw in data_results[1:6]:
+    for draw in all_draw_results:
         hit = 0
         for n in chosen_numbers:
             if str(n) in draw:
@@ -124,34 +135,27 @@ def count_wins_in_the_past(chosen_numbers: list, data_results):
     return wins
 
 
-WITHOUT_THUNDERBALL = False
-
-
-def test():
-    print(get_result_description(get_draw_result(5)))
-    print(get_result_description(get_draw_result(5, WITHOUT_THUNDERBALL)))
-    print(get_result_description(get_draw_result(4)))
-    print(get_result_description(get_draw_result(4, WITHOUT_THUNDERBALL)))
-    print(get_result_description(get_draw_result(3)))
-    print(get_result_description(get_draw_result(3, WITHOUT_THUNDERBALL)))
-    print(get_result_description(get_draw_result(2)))
-    print(get_result_description(get_draw_result(1)))
-    print(get_result_description(get_draw_result(0)))
-    print(get_result_description(get_draw_result(0, WITHOUT_THUNDERBALL)))
-
-
-def display_wins_result_for(draw_result, data_results):
-    print(draw_result)
-    wins_result = count_wins_in_the_past(draw_result, data_results)
+def display_past_wins_result_for(draw_result,numbers):
+    ui_utils.title(f'display result for {draw_result}')
+    wins_result = count_wins_in_the_past(draw_result)
+    score = 0
+    for s in draw_result:
+        for t in numbers:
+            if s is t[0]:
+                score += int(t[1])
+    print(f'score: {score}')
     for result_level, number in wins_result.items():
         print('{} x{}'.format(get_result_description(result_level), number))
 
+#score from numbers played
+# score from numbers hit x3
 
 def generate_numbers_for_thunderball():
     excluded = []
-    #data = draws_downloader.get_draws_for(url, path)
+    #recent_draws = draws_downloader.get_draws_for(url, path)
     data = get_data()
-    print('number counter')
+
+    ui_utils.title('number counter')
     numbers = {}
     for i in range(1, lotto_utils.get_last(39)):
         numbers[str(i)] = 0
@@ -160,7 +164,7 @@ def generate_numbers_for_thunderball():
         for i in range(1, lotto_utils.get_last(5)):
             numbers[line[i]] = numbers.get(line[i], 0) + 1
 
-    output.display_numbers(numbers)
+    x = output.display_numbers(numbers)
 
     thunderballs = {}
     for i in range(1, lotto_utils.get_last(14)):
@@ -170,10 +174,10 @@ def generate_numbers_for_thunderball():
     for line in data[1: len(data)]:
         thunderballs[line[thunderball_column]] = thunderballs.get(line[thunderball_column], 0) + 1
 
-    print('\n\nthunderballs:')
+    ui_utils.title("thunderballs:")
     output.display_numbers(thunderballs)
 
-    print("\n\n numbers that didn't play in last 10 games:")
+    ui_utils.title("numbers that didn't play in last 10 games")
 
     numbers_to_delete = []
     for line in data[0:10]:
@@ -208,7 +212,6 @@ def generate_numbers_for_thunderball():
 
     thunderballs = output.display_numbers(thunderballs)
 
-    # draw system 2.0  exlude last draw , least 2 numbers and first number generate randomly with one number from most count
     draw_numbers = []
 
     for line in data[0: 2]:
@@ -242,7 +245,7 @@ def generate_numbers_for_thunderball():
         count += 1
         if count is 6:
             count = 1
-            display_wins_result_for(draw_result, data)
+            display_past_wins_result_for(draw_result,x)
             draw_result.clear()
 
 
@@ -251,12 +254,6 @@ def stats():
     data = get_data()
     numbers = {}
     for line in data[1: len(data)]:
-        try:
-            line[1].strip()
-        except Exception as e:
-            print(e)
-            print(line)
-            continue
         first_number = line[1].strip()
         second_number = line[2].strip()
         third_number = line[3].strip()
@@ -278,6 +275,7 @@ def get_data() -> list:
     all_draws_file = open('D:\\Projects\\DomJavaKB\\data\\lotto\\thunderball-all-draws.csv')
     thunderball_history_csv = csv.reader(all_draws_file)
     return list(thunderball_history_csv)
+
 
 if __name__ == '__main__':
     start_time = timer()
