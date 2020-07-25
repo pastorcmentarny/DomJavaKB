@@ -32,7 +32,7 @@ T2 from most count of number  12x or 8x
 
 import logging
 import random
-
+import csv
 from timeit import default_timer as timer
 
 
@@ -72,29 +72,29 @@ def convert_to_list(numbers) -> list:
 
 
 def get_result_description(level: int) -> str:
-    return matches[level]
+    return str(matches[level])
 
 
 def get_draw_result(hits: int, tb: bool = True):
     if tb:
-        if hits == 5:
+        if hits is 5:
             return 9
-        if hits == 4:
+        if hits is 4:
             return 7
-        if hits == 3:
+        if hits is 3:
             return 5
-        if hits == 2:
+        if hits is 2:
             return 3
-        if hits == 1:
+        if hits is 1:
             return 2
         else:
             return 1
     else:
-        if hits == 5:
+        if hits is 5:
             return 8
-        if hits == 4:
+        if hits is 4:
             return 6
-        if hits == 3:
+        if hits is 3:
             return 4
     return 0
 
@@ -239,14 +239,40 @@ def generate_numbers_for_thunderball():
     for i in numbers_to_draw:
         draw_result.append(i)
         count += 1
-        if count == 6:
+        if count is 6:
             count = 1
             display_wins_result_for(draw_result, data)
             draw_result.clear()
 
 
+def stats():
+    # load data
+    #all_draws_file = open('B:\GitHub\DomJavaKB\data\lotto\euro-hotpicks-all-draws.csv')
+    all_draws_file = open('D:\Projects\DomJavaKB\data\lotto\euro-hotpicks-all-draws.csv')
+    thunderball_history_csv = csv.reader(all_draws_file)
+    data = list(thunderball_history_csv)
+
+    numbers = {}
+    for line in data[1: len(data)]:
+        first_number = line[1].strip()
+        second_number = line[2].strip()
+        third_number = line[3].strip()
+        forth_number = line[4].strip()
+        fifth_number = line[5].strip()
+        numbers[first_number] = numbers.get(first_number, 0) + 1
+        numbers[second_number] = numbers.get(second_number, 0) + 1
+        numbers[third_number] = numbers.get(third_number, 0) + 1
+        numbers[forth_number] = numbers.get(forth_number, 0) + 1
+        numbers[fifth_number] = numbers.get(fifth_number, 0) + 1
+
+    numbers = [(key, numbers[key]) for key in sorted(numbers, key=numbers.get, reverse=True)]
+    for key, value in numbers:
+        print(str(key) + ': ' + str(value))
+
+
 if __name__ == '__main__':
     start_time = timer()
+    stats()
     generate_numbers_for_thunderball()
     end_time = timer()
     print('It took {} ms.'.format(int((end_time - start_time) * 1000)))
