@@ -149,7 +149,8 @@ def display_wins_result_for(draw_result, data_results):
 
 def generate_numbers_for_thunderball():
     excluded = []
-    data = draws_downloader.get_draws_for(url, path)
+    #data = draws_downloader.get_draws_for(url, path)
+    data = get_data()
     print('number counter')
     numbers = {}
     for i in range(1, lotto_utils.get_last(39)):
@@ -247,13 +248,15 @@ def generate_numbers_for_thunderball():
 
 def stats():
     # load data
-    #all_draws_file = open('B:\GitHub\DomJavaKB\data\lotto\euro-hotpicks-all-draws.csv')
-    all_draws_file = open('D:\Projects\DomJavaKB\data\lotto\euro-hotpicks-all-draws.csv')
-    thunderball_history_csv = csv.reader(all_draws_file)
-    data = list(thunderball_history_csv)
-
+    data = get_data()
     numbers = {}
     for line in data[1: len(data)]:
+        try:
+            line[1].strip()
+        except Exception as e:
+            print(e)
+            print(line)
+            continue
         first_number = line[1].strip()
         second_number = line[2].strip()
         third_number = line[3].strip()
@@ -269,6 +272,12 @@ def stats():
     for key, value in numbers:
         print(str(key) + ': ' + str(value))
 
+
+def get_data() -> list:
+    #all_draws_file = open('B:\GitHub\DomJavaKB\data\lotto\euro-hotpicks-all-draws.csv')
+    all_draws_file = open('D:\\Projects\\DomJavaKB\\data\\lotto\\thunderball-all-draws.csv')
+    thunderball_history_csv = csv.reader(all_draws_file)
+    return list(thunderball_history_csv)
 
 if __name__ == '__main__':
     start_time = timer()
