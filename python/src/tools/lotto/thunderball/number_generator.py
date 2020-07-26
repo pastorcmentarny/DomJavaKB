@@ -55,9 +55,12 @@ total_thunderballs = 40  # 39
 url = 'https://www.national-lottery.co.uk/results/thunderball/draw-history/csv'
 path = thunderball_history_path = config.path["base"] + 'thunderball-draws.csv'
 all_draws = config.path["base"] + 'thunderball-all-draws.csv'
+# 'B:\GitHub\DomJavaKB\data\lotto\euro-hotpicks-all-draws.csv'
+all_draws_path = 'D:\\Projects\\DomJavaKB\\data\\lotto\\thunderball-all-draws.csv'
 
 logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s',
                     filename=config.path["base"] + 'log.txt')
+GOOD_SCORE = 4000
 
 matches = {
     9: 'Match 5 + Thunderball(£500.000)',
@@ -138,21 +141,42 @@ def count_wins_in_the_past(chosen_numbers: list):
 def display_past_wins_result_for(draw_result,numbers):
     ui_utils.title(f'display result for {draw_result}')
     wins_result = count_wins_in_the_past(draw_result)
-    score = 0
-    for s in draw_result:
-        for t in numbers:
-            if s is t[0]:
-                score += int(t[1])
-    print(f'score: {score}')
+    calculate_score_for_draw(draw_result, numbers, wins_result)
+
     for result_level, number in wins_result.items():
         print('{} x{}'.format(get_result_description(result_level), number))
 
-#score from numbers played
-# score from numbers hit x3
+
+def calculate_score_for_draw(draw_result, numbers, wins_result):
+    f_score = 0
+    if wins_result[9]:
+        f_score = -1
+        print(f'WOW! THE GOOD NEWS IS YOU GENERATED NUMBERS THAT WON JACKPOT\n'
+              + 'BAD NEWS IS YOU SHOULD NOT PLAY THIS NUMBERS\n\n\n'
+              + 'numbers: {draw}')
+    else:
+        # calculate score from games that number was hit
+        f_score += wins_result[9]
+        f_score += wins_result[7]
+        f_score += wins_result[5]
+        f_score += wins_result[3]
+        f_score *= 3 # if number match 2-5 numbers multiply x 3 for 1 match don't multiply just add
+        f_score += wins_result[1]
+
+        # calculate score from numbers were drawn
+        for s in draw_result:
+            for t in numbers:
+                if int(s) is int(t[0]):
+                    f_score += int(t[1])
+
+    if f_score > GOOD_SCORE:
+        ui_utils.title(f'NUMBERS TO PLAY  (More than {GOOD_SCORE})')
+    print(f'score: {f_score}')
+
 
 def generate_numbers_for_thunderball():
     excluded = []
-    #recent_draws = draws_downloader.get_draws_for(url, path)
+
     data = get_data()
 
     ui_utils.title('number counter')
@@ -211,8 +235,6 @@ def generate_numbers_for_thunderball():
         thunderballs.pop(value)
 
     thunderballs = output.display_numbers(thunderballs)
-
-    draw_numbers = []
 
     for line in data[0: 2]:
         for i in range(1, lotto_utils.get_last(5)):
@@ -276,9 +298,44 @@ def get_data() -> list:
     thunderball_history_csv = csv.reader(all_draws_file)
     return list(thunderball_history_csv)
 
+WRITABLE = 'w'
+
+def update_draws():
+    ui_utils.title('UPDATING DRAWS')
+    recent_draws_list = draws_downloader.get_draws_for(url, path)
+    last_column = len(recent_draws_list[0]) - 1
+    print(last_column)
+    all_draws_list = get_data()
+
+    last_draw = int(all_draws_list[0][last_column])
+    draw_to_add = []
+    current_draw = int(recent_draws_list[0][last_column])
+    counter = 0
+    while last_draw != current_draw:
+        # TODO clean draw from space
+        draw_to_add.append(recent_draws_list[counter])
+        counter += 1
+        current_draw = int(recent_draws_list[counter][last_column])
+
+    print(f'draws to add {draw_to_add}')
+    all_draws_file = open(all_draws_path, WRITABLE)
+    all_draws_file = update_file_for(all_draws_file, draw_to_add)
+    all_draws_file = update_file_for(all_draws_file, all_draws_list)
+    all_draws_file.close()
+    ui_utils.title('DRAWS UPDATED')
+
+
+def update_file_for(file, list):
+    for draw in list:
+        file.write(','.join(draw).replace(" ",""))
+        file.write('\n')
+    return file
+
+
 
 if __name__ == '__main__':
     start_time = timer()
+    update_draws()
     stats()
     generate_numbers_for_thunderball()
     end_time = timer()
