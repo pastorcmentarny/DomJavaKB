@@ -4,6 +4,7 @@ import dms.pastor.tasks.berlinclock.data.Time;
 import dms.pastor.utils.DateUtils;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+import static dms.pastor.utils.StringUtils.NEW_LINE;
 import static dms.pastor.utils.ValidatorUtils.validateIfNotEmpty;
 import static java.lang.Integer.parseInt;
 
@@ -28,7 +29,7 @@ public class BerlinClock implements ClockInterface {
         Time time = getTimeFromString(givenTime);
         RowsGenerator rowsGenerator = new RowsGenerator(time);
         timeBuilder.append(time.toString())
-                .append('\n')
+                .append(NEW_LINE)
                 .append(rowsGenerator.generateRows());
         return timeBuilder.toString();
     }
@@ -67,8 +68,8 @@ public class BerlinClock implements ClockInterface {
         return new Time(parseInt(hour), parseInt(minutes), parseInt(seconds));
     }
 
-    private void validateIfTimeIsInRange(int h, int m, int s) {
-        if (!(DateUtils.isInHoursRange(h) && DateUtils.isInMinutesRange(m) && DateUtils.isInSecondsRange(s))) {
+    private void validateIfTimeIsInRange(int hour, int minute, int second) {
+        if (!(DateUtils.isInHoursRange(hour) && DateUtils.isInMinutesRange(minute) && DateUtils.isInSecondsRange(second))) {
             throw new IllegalArgumentException(INVALID_INPUT);
         }
     }
@@ -84,8 +85,8 @@ public class BerlinClock implements ClockInterface {
         String[] tmpMinutesAndSeconds;
         try {
             tmpMinutesAndSeconds = tmpHours[1].split(String.valueOf(MINUTES_SEPARATOR));
-        } catch (ArrayIndexOutOfBoundsException e) {
-            throw new IllegalArgumentException(INVALID_INPUT, e);
+        } catch (ArrayIndexOutOfBoundsException exception) {
+            throw new IllegalArgumentException(INVALID_INPUT, exception);
         }
         return tmpMinutesAndSeconds;
     }

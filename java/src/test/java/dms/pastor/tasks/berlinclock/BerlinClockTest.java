@@ -1,16 +1,12 @@
 package dms.pastor.tasks.berlinclock;
 
-import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
 import java.time.LocalTime;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.CoreMatchers.is;
 
 /**
  * Author Dominik Symonowicz
@@ -21,10 +17,6 @@ import static org.hamcrest.CoreMatchers.is;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class BerlinClockTest {
-
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
-
     private ClockInterface clock;
 
     @Before
@@ -73,14 +65,14 @@ public class BerlinClockTest {
     public void shouldShow1103001() {
         final String answer = "11::03:01";
         final String result = clock.getTimeAsString(11, 3, 1);
-        Assert.assertThat(result, is(answer));
+        assertThat(result).isEqualTo(answer);
     }
 
     @Test
     public void shouldShow23456() {
         final String answer = "02::34:56";
         final String result = clock.getTimeAsString(2, 34, 56);
-        Assert.assertThat(result, is(answer));
+        assertThat(result).isEqualTo(answer);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -93,7 +85,7 @@ public class BerlinClockTest {
     public void shouldValidate110301() {
         String time = "11::03:01";
         String answer = "11:03:01";
-        Assert.assertThat(clock.validateTime(time).toString(), is(answer));
+        assertThat(clock.validateTime(time).toString()).isEqualTo(answer);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -111,11 +103,8 @@ public class BerlinClockTest {
         clock.validateTime(EMPTY_STRING);
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void convertToHourShouldThrowIllegalArgumentExceptionIfHourHasInvalidHourSeparatorFormat() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-
         // given
         final String timeWithInvalidHour = "AA--00:11";
 
@@ -123,11 +112,8 @@ public class BerlinClockTest {
         clock.validateTime(timeWithInvalidHour);
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void convertToHourShouldThrowIllegalArgumentExceptionIfHourIsNotInRangeFormat() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-
         // given
         final String timeWithInvalidHour = "99::00:11";
 
@@ -135,11 +121,8 @@ public class BerlinClockTest {
         clock.validateTime(timeWithInvalidHour);
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void convertToHourShouldThrowIllegalArgumentExceptionIfMinuteIsNotInRangeFormat() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-
         // given
         final String timeWithInvalidHour = "10::99:11";
 
@@ -147,11 +130,8 @@ public class BerlinClockTest {
         clock.validateTime(timeWithInvalidHour);
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void convertToHourShouldThrowIllegalArgumentExceptionIfSecondIsNotInRangeFormat() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-
         // given
         final String timeWithInvalidHour = "11::00:99";
 
@@ -159,11 +139,8 @@ public class BerlinClockTest {
         clock.validateTime(timeWithInvalidHour);
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void convertToHourShouldThrowIllegalArgumentExceptionIfHourHasInvalidMinuteFormat() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-
         // given
         final String timeWithInvalidHour = "AA::00::11";
 
