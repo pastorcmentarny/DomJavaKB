@@ -12,7 +12,7 @@ import webbrowser
 
 import requests
 
-from src.tools.lotto import config
+from tools.lotto import config
 
 sys.path.insert(0, '../utils')
 
@@ -29,7 +29,6 @@ all_draws = config.path["base"] + 'lotto-hotpicks-all-draws.csv'
 print('Downloading  data from ' + lotto_hotpicks_url)
 response = requests.get(lotto_hotpicks_url)
 print('Download complete with response ' + str(response.status_code))
-
 
 
 data = draws_downloader.get_draws_for(lotto_hotpicks_url, path)

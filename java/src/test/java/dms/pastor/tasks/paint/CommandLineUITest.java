@@ -2,9 +2,7 @@ package dms.pastor.tasks.paint;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
@@ -33,8 +31,6 @@ public class CommandLineUITest {
     private static final int TEST_TIMEOUT = 2000; //used in case if command stuck with input
     private static final String ENTER_COMMAND_MESSAGE = "Enter command:";
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 
     private PrintStream printStream;

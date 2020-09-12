@@ -45,9 +45,9 @@ import csv
 from timeit import default_timer as timer
 
 
-from src.tools.lotto import config
-from src.tools.lotto.utils import draws_downloader, output, lotto_utils
-from src.utils import ui_utils
+from tools.lotto import config
+from tools.lotto.utils import draws_downloader, output, lotto_utils
+from utils import ui_utils
 
 total_thunderballs = 40  # 39
 
@@ -55,8 +55,8 @@ total_thunderballs = 40  # 39
 url = 'https://www.national-lottery.co.uk/results/thunderball/draw-history/csv'
 path = thunderball_history_path = config.path["base"] + 'thunderball-draws.csv'
 all_draws = config.path["base"] + 'thunderball-all-draws.csv'
-# 'B:\GitHub\DomJavaKB\data\lotto\euro-hotpicks-all-draws.csv'
-all_draws_path = 'D:\\Projects\\DomJavaKB\\data\\lotto\\thunderball-all-draws.csv'
+all_draws_path = 'B:\GitHub\DomJavaKB\data\lotto\euro-hotpicks-all-draws.csv'
+# all_draws_path = 'D:\\Projects\\DomJavaKB\\data\\lotto\\thunderball-all-draws.csv'
 
 logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s',
                     filename=config.path["base"] + 'log.txt')
@@ -293,8 +293,8 @@ def stats():
 
 
 def get_data() -> list:
-    #all_draws_file = open('B:\GitHub\DomJavaKB\data\lotto\euro-hotpicks-all-draws.csv')
-    all_draws_file = open('D:\\Projects\\DomJavaKB\\data\\lotto\\thunderball-all-draws.csv')
+    all_draws_file = open('B:\\GitHub\\DomJavaKB\\data\\lotto\\thunderball-all-draws.csv')
+    #all_draws_file = open('D:\\Projects\\DomJavaKB\\data\\lotto\\thunderball-all-draws.csv')
     thunderball_history_csv = csv.reader(all_draws_file)
     return list(thunderball_history_csv)
 
@@ -306,6 +306,7 @@ def update_draws():
     last_column = len(recent_draws_list[0]) - 1
     print(last_column)
     all_draws_list = get_data()
+    print(all_draws_list)
 
     last_draw = int(all_draws_list[0][last_column])
     draw_to_add = []

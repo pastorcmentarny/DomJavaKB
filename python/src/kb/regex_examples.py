@@ -1,11 +1,13 @@
 import re
 
+### REGEX TESTER: https://pythex.org/.
+
 #  Regular Expressions
 phone = '415-555-4242 call me now!'
 phone2 = '0415-555-4242'
 
 
-def isPhoneNumber(text):
+def is_phone_number(text):
     if len(text) != 12:
         return False
     for i in range(0, 3):
@@ -26,8 +28,8 @@ def isPhoneNumber(text):
 
 phone = phone[0: 12]  # chunk unwanted text
 
-print("Is phone:" + phone + " valid? " + str(isPhoneNumber(phone)))
-print("Is phone:" + phone2 + " valid? " + str(isPhoneNumber(phone2)))
+print("Is phone:" + phone + " valid? " + str(is_phone_number(phone)))
+print("Is phone:" + phone2 + " valid? " + str(is_phone_number(phone2)))
 
 # Passing a string value representing your regular expression to re.compile() returns a Regex pattern object (or simply, a Regex object).
 
@@ -55,23 +57,20 @@ print('Phone number found: ' + mo.group())
 phoneNumRegex2 = re.compile(r'(\d\d\d)-(\d\d\d-\d\d\d\d)')
 mo = phoneNumRegex2.search('My number is 415-555-4242.')
 
-print(mo.group())
-print(mo.group(0))
-print(mo.groups())
+print(f'group() gives {mo.group()}')
+print(f'group(0) gives {mo.group(0)}')
+print(f'mo.groups() gives {mo.groups()}')
 areaCode, mainNumber = mo.groups()
 
 print("Area:" + areaCode + " mainNumber:" + mainNumber)
 
 # The \( and \) escape characters in the raw string passed to re.compile() will match actual parenthesis characters.
 
-
 phoneNumberRegex3 = re.compile(r'\(\d\)')
 mo = phoneNumberRegex3.findall('(1) (2) (3)-(4)')
 
 for i in mo:
     print("group:" + i)
-
-# REGEX DO NOT WORK
 
 heroRegex = re.compile(r'John|Maria Smooth')
 heroResult = heroRegex.search('John and Maria Smooth.')
@@ -143,17 +142,15 @@ print(str(result))
 nameRegex = re.compile(r'First Name:(.*) Last Name: (.*)')
 result = nameRegex.search('First Name: Dominik Last Name: Symonowicz')
 print(result.group(1) + ' ' + result.group(2))
-result = nameRegex.search('First Name: Xu Last Name: Guo')
-print(result.group(1) + ' ' + result.group(2))
 
-# The dot-star uses greedy mode: It will always try to match as much text as possible.
-# To match any and all text in a nongreedy fashion, use the dot, star, and question mark (.*?).
-#
-# In the nongreedy version of the regex,
-#   Python matches the shortest possible string: '<To serve man>'.
-# In the greedy version,
-#   Python matches the longest possible string: '<To serve man> for dinner.>'.
-
+'''
+The dot-star uses greedy mode: It will always try to match as much text as possible.
+To match any and all text in a nongreedy fashion, use the dot, star, and question mark (.*?).
+In the nongreedy version of the regex,
+Python matches the shortest possible string: '<To serve man>'.
+In the greedy version,
+Python matches the longest possible string: '<To serve man> for dinner.>'.
+'''
 sentence = '<To serve man> for dinner.>'
 nonGreedyRegex = re.compile(r'<.*?>')
 nonGreedyResult = nonGreedyRegex.search(sentence)

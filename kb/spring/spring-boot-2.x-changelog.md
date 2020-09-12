@@ -1,4 +1,14 @@
+* Spring Boot 2.3
+.Graceful shutdown is used to continue pending requests for a certain time period after stopping the application.
 
+The following snippet shows how to enable the graceful shutdown and configure the timeout value to 30 seconds:
+
+server.shutdown=graceful
+
+spring.lifecycle.timeout-per-shutdown-phase=30s
+
+
+* Spring Boot 2.1
 * It uses In 1.18, Lombok will no longer generate a private, no-args constructor by default. It can be enabled by setting lombok.noArgsConstructor.extraPrivate=true in a lombok.config configuration file.
 * Java 11 supported
 * Profile matching has been improved to support an expression format. For instance production & (us-east | eu-central) indicates a match if the production profile is active and either the us-east or eu-central profiles are active.

@@ -1,15 +1,15 @@
 {
-  "weather_rating": "so-so",
+  "weather_rating": "good",
   "weather_description_1": "cloudy",
   "weather_description_2": "",
-  "upper_wear_color": "grey",
+  "upper_wear_color": "black",
   "upper_wear_type": "t-shirt",
   "lower_wear_color": "black",
   "lower_wear_type": "running trousers",
-  "steps": 19843,
+  "steps": 45300,
   "time": "",
-  "run_distance": 0,
-  "run_time": 0,
+  "run_distance": 5000,
+  "run_time": 2401,
   "meal": "",
   "yesterday_diary": true,
   "with_random_sentences": false,
@@ -21,6 +21,6 @@
     "all_runners": 469
   },
   "health": "good",
-  "entry": 42,
+  "entry": 342,
   "dot": "。\n"
 }

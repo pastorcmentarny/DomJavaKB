@@ -1,0 +1,1 @@
+. When taking on a new project, avoid jumping right into outlining and planning the next steps. Instead, explore: Consider multiple solutions, ask questions that may seem tangential, and be open to discovering unexpected ways to tackle the project.

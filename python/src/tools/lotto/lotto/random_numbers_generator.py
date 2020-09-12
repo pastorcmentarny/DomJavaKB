@@ -1,7 +1,8 @@
 import csv
 import random
 
-from src.tools.lotto.utils import lotto_utils
+from tools.lotto.utils import lotto_utils
+
 
 # load all draws
 # exclude last 2 draws
@@ -22,8 +23,9 @@ from src.tools.lotto.utils import lotto_utils
 # 2 numbers that played 10+
 
 # TODO make it system independent
-all_draws_path = 'D:/Projects/DomJavaKB/data/lotto/lotto-hotpicks-all-draws.csv'
+# all_draws_path = 'D:/Projects/DomJavaKB/data/lotto/lotto-hotpicks-all-draws.csv'
 # all_draws_path = 'D:/GitHub/DomJavaKB/data/lotto/lotto-hotpicks-all-draws.csv'
+all_draws_path = 'B:/GitHub/DomJavaKB/data/lotto/lotto-hotpicks-all-draws.csv'
 draw_history_file = open(all_draws_path)
 hotpics_history_csv = csv.reader(draw_history_file)
 data = list(hotpics_history_csv)
@@ -36,7 +38,7 @@ def stats():
 
     numbers = {}
     for i in range(1, 60):
-        for i in range(1, 60):
+        for i in range(1, 60): #TODO bug?
             numbers[i] = 0
 
     print(numbers)

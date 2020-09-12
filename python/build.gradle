@@ -3,7 +3,12 @@ buildscript {
         mavenCentral()
     }
 }
-apply plugin: 'idea'
+
+
+plugins {
+    id 'idea'
+    id "java-library"
+}
 
 idea {
     module {

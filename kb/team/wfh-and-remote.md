@@ -35,3 +35,42 @@
 0.  This freedom also requires us to be more disciplined when it comes to working together — particularly when it comes to how we communicate with one another.
 0.  Setting up a virtual one-to-one>it should be around 25 or 50 minutes ( we seldom need to meet for exactly a standard hour.)g, I usually try to send a 5-minute reminder, so that the person I'm set to chat with gets a heads up and can wrap up their current task or call. It is even more important to get to know each other better when you do virtual one-to-one. "Is there anything else I can do for you?"
 
+ set up reminders to take breaks. 
+ 
+ Be clear with your team on when you're leaving—
+ 
+ Create physical boundaries between you and your workspace.
+ 
+ Limit the number of tasks you plan to do each day. Use the Eisenhower matrix to avoid unnecessary time-wasting tasks and know which tasks to do next. Or plan to do just 1 big thing, 3 medium things, and 5 small things per day, the 1-3-5 rule.Manage your energy, not your time. 
+ 
+ Set up a kind of signal that lets others know when you're in focus mode. Maybe it's a do not disturb sign on your door or when you put on your headphones. 
+ 
+ Explain why it's important for you to avoid interruptions—that they break your concentration and make your work ten times harder.
+For young kids, getting childcare is a must, unless you plan on working only when they're asleep.
+Train your kids and significant other to be self-sufficient and occupy themselves. It's frustrating to be interrupted because you're the only person who knows where the scotch tape is.
+
+Keep consistent work hours. Simply don't answer calls during work and perhaps even invent meetings if you have to.
+
+
+How to not feel isolated when working from home
+Include social breaks in your schedule
+
+Try working at co-working spaces or coffee shops s
+
+
+Be careful what you say.
+Not because you're likely to say something wrong, or bad, or whatever, but when you work in a distributed company, you'll find that it's more often the case that people will really listen to you.
+
+2. Anxiety is not a deadline.
+
+Remote work is real work.
+
+
+Socializing while remote:
+* Video games. 
+* Board games. A lot of board games are available online, for free.
+* Remote coffee run. Call into a Zoom meeting on your Bluetooth headset while you and your coworkers go for a simultaneous walk-and-talk.
+* Movie night. Ever been to a movie theater? E ? Everyone starts at exactly the same time, the movie doesn't stop, then everyone hangs out and talks about it afterward. Novel idea, right?
+Skill sharing. 
+Book club. If for some reason you read instead of watching TV and movies.
+* Pictionary

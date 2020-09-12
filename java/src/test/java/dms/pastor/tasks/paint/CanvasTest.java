@@ -5,9 +5,7 @@ import dms.pastor.tasks.paint.canvas.InvalidCanvasException;
 import dms.pastor.tasks.paint.canvas.Point;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
 import static dms.pastor.tasks.paint.canvas.Canvas.createCanvasFor;
 import static dms.pastor.tasks.paint.canvas.Canvas.noCanvas;
@@ -26,9 +24,6 @@ public class CanvasTest {
     private static final int DEFAULT_HEIGHT = 4;
     private static final int DEFAULT_SQUARE_LENGTH = 3;
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
-
     private Canvas canvas = noCanvas();
 
     @Before
@@ -41,20 +36,14 @@ public class CanvasTest {
         canvas = noCanvas();
     }
 
-    @Test
+    @Test(expected = InvalidCanvasException.class)
     public void createCanvasForShouldInvalidCanvasExceptionIfWidthIsZero() {
-        // expect
-        exception.expect(InvalidCanvasException.class);
-
         // when
         createCanvasFor(0, DEFAULT_HEIGHT);
     }
 
-    @Test
+    @Test(expected = InvalidCanvasException.class)
     public void createCanvasForShouldInvalidCanvasExceptionIfHeightIsZero() {
-        // expect
-        exception.expect(InvalidCanvasException.class);
-
         // when
         createCanvasFor(DEFAULT_WIDTH, 0);
     }
@@ -123,6 +112,7 @@ public class CanvasTest {
             "---" + System.lineSeparator() +
                 "| |" + System.lineSeparator() +
                 "---" + System.lineSeparator();
+
         // when
         final String image = canvas.getCanvasAsString();
 
@@ -188,20 +178,14 @@ public class CanvasTest {
         assertThat(canvas.getHeight()).isEqualTo(height);
     }
 
-    @Test
+    @Test(expected = InvalidCanvasException.class)
     public void recreateCanvasShouldInvalidCanvasExceptionIfWidthIsZero() {
-        // expect
-        exception.expect(InvalidCanvasException.class);
-
         // when
         canvas.recreateCanvas(0, DEFAULT_HEIGHT);
     }
 
-    @Test
+    @Test(expected = InvalidCanvasException.class)
     public void recreateCanvasShouldInvalidCanvasExceptionIfHeightIsZero() {
-        // expect
-        exception.expect(InvalidCanvasException.class);
-
         // when
         canvas.recreateCanvas(DEFAULT_WIDTH, 0);
     }
@@ -325,6 +309,7 @@ public class CanvasTest {
 
         // when
         final String result = canvas.getCanvasAsString();
+
         // then
         assertThat(result).isEqualTo(
             "-----" + System.lineSeparator() +
