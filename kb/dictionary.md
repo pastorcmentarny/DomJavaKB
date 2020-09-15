@@ -48,8 +48,9 @@ Locks can make sure that the sequence of language operations are going to be per
 # M
 
 ## Microservices Architecture?
-A microservices architecture is a software development technique that structures an application as a collection of loosely coupled services
-The services are fine-grained and the protocols lightweight, thus improving application modularity, making it easier to understand, develop, and test. It parallelizes development by enabling small autonomous teams to develop, deploy, and scale their respective services independently. 
+* A microservices architecture is a software development technique that structures an application as a collection of loosely coupled services.
+* The services are fine-grained and the protocols lightweight, thus improving application modularity, making it easier to understand, develop, and test. It parallelizes development by enabling small autonomous teams to develop, deploy, and scale their respective services independently. 
+* Microservice can be polyglot, it means you can use different language for different project
 
 
 # P
