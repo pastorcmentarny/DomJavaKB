@@ -106,7 +106,13 @@ for i in range(len(listExample)):
 * List works in different way. When you assign a list to a variable, you are actually assigning a list reference to the variable. Variables will contain references to list values rather than list values themselves. For strings and integer values, variables simply contain the string or integer value.
 * Python uses references whenever variables must store values of mutable data types, such as lists or dictionaries.
 * For values of immutable data types such as strings, integers, or tuples, Python variables will store the value itself.
-* ?  
+* The operator evaluation
+* * The ** operator is evaluated first
+* * The *, /, //, and % operators are evaluated next, from left to right;
+* * the + and - operators are evaluated last (also from left to right).
+* Tuple. A tuple is a collection which is ordered and unchangeable. In Python tuples are written with round brackets.
+* Another way to profile your code is to use the cProfile.run() function, it provides a much more informative level of detail than the simple time.time() technique. The cProfile.run() function is explained at https://docs.python.org/3/library/profile.html.
+
 * main method in python.When python run a file it set a few attributes for example file that is run __name__ .for file that it starts from give name main -> __main__ that
 ```python
 def main():
