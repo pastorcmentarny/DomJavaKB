@@ -1,11 +1,11 @@
 ## Memo Layout
 
-* Annnouncement
+* Announcement
 * A paragraph or two of supporting info
 * Provide details and feel gaps
-* Elaborate on context and purporse
-* implication
-Others
+* Elaborate on context and purpose
+* Implication
+* Others
 
 ## Sensitive Memo Layout
 
