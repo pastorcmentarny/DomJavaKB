@@ -50,6 +50,8 @@ public class DefinitionSearchControllerTest {
         assertThat(result.getStatusCode()).isEqualTo(OK);
         final String body = (String) result.getBody();
         assertThat(body).isEqualTo(expectedDefinition.toString());
+
+        //debug
         System.out.println(result);
 
     }

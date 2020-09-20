@@ -1,5 +1,6 @@
 package dms.pastor.tasks.pickup.generators;
 
+
 import dms.pastor.tasks.pickup.Shop;
 
 public class ShopGenerator {
