@@ -103,5 +103,3 @@ add this link TO KBhttp://blog.codepipes.com/testing/software-testing-antipatter
 Automate input validation tests, as well as verification authentication and authorization features.
 . Encode every single bug you find as a test, to ensure that you’ll notice if you ever encounter it again.
 
-Source:
-0.  Effective Java
