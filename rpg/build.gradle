@@ -1,30 +1,16 @@
-buildscript {
-    ext {
-        springBootVersion = '2.3.1.RELEASE'
-    }
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-    }
-}
-
 plugins {
     id 'org.springframework.boot' version '2.3.1.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
     id 'java'
 }
 
-description = "RPG prototype project "
-
-apply plugin: 'java'
-apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
-
 group = 'dms.pastor'
-version = '0.0.4-SNAPSHOT'
-sourceCompatibility = '14'
+version = '0.6.0'
+description = "Aberystwyth RPG prototype project "
 
+java {
+    sourceCompatibility = JavaVersion.VERSION_14
+}
 configurations {
     compileOnly {
         extendsFrom annotationProcessor
@@ -38,14 +24,23 @@ repositories {
 dependencies {
     compile project(':java')
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-mail'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation  'org.projectlombok:lombok:1.18.12'
-    annotationProcessor 'org.projectlombok:lombok:1.18.12'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testCompile 'org.junit.jupiter:junit-jupiter:5.4.2'
-    testCompile 'org.hamcrest:hamcrest-all:1.3'
-    testCompile 'org.mockito:mockito-core:3.3.3'
-    testCompile 'org.assertj:assertj-core:3.12.2'
+    compileOnly 'org.projectlombok:lombok'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.4.2'
+    testImplementation 'org.hamcrest:hamcrest-all:1.3'
+    testImplementation 'org.mockito:mockito-core:3.3.3'
+    testImplementation 'org.assertj:assertj-core:3.12.2'
 
 }
+
+test {
+    useJUnitPlatform()
+}
+

@@ -53,6 +53,9 @@ configurations {
 repositories {
     mavenCentral()
 }
+
+// ./gradlew dependencyCheckAnalyze
+
 dependencies {
     implementation project(':java')
     implementation 'org.springframework.boot:spring-boot-starter-actuator'

@@ -29,6 +29,7 @@ jar {
 }
 
 
+// ./gradlew dependencyCheckAnalyze
 
 dependencies {
     implementation  'commons-io:commons-io:2.7'

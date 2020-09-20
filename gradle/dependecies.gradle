@@ -1,5 +1,5 @@
 project.ext {
-    springBootVersion = '2.0.4.RELEASE'
+    springBootVersion = '2.3.1.RELEASE'
 
     libraries = [
             log       : [
