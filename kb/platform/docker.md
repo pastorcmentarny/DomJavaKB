@@ -62,3 +62,9 @@ networks:
 ## TODO
 *   http://javarevisited.blogspot.co.uk/2013/05/10-hibernate-interview-questions-answers-java-j2ee-senior.html
 *   http://www.java67.com/2016/02/top-20-hibernate-interview-questions.html
+
+
+Building an Image from a Container
+docker commit [CONTAINER_NAME] [IMAGE_NAME]
+Volumes
+ocker Volumes to containers via the docker run, or docker create commands will allow some of the data in your container to persist across image rebuilds. 

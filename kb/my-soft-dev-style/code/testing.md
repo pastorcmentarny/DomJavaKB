@@ -39,13 +39,24 @@
 32. Stimulus and response have to go together in order for an association to be made. If Pavlov rang the bell then fed his dogs an hour later they'd never make the connection. That's why we don't make the connection between the bugs we write when they're found, weeks later, by QA.
 33. Run stability tests. Close to average load should be produced against the system for at least 12 hours. This is the real test of how the GC behaves.
 0.  Don't let your tests micromanage your code. 
-0.  Dan North says, “The goal of testing is to increase the confidence for stakeholders through evidence”. Evidence can be provided by our tests. Increasing doesn’t necessarily mean to reach the 100%. I
-piramid test 
+0.  Dan North says, “The goal of testing is to increase the confidence for stakeholders through evidence”. Evidence can be provided by our tests. Increasing doesn’t necessarily mean to reach the 100% of piramid test. 
 0. A test is not a unit test if:   
    0. communicates to the database
-   0. It communicates via the network
+   0. communicates via the network
    0. deal with the file system
-   0. Is depends on any of your other unit tests****
+   0. depends on any of your other unit tests
+0.  It is not about piramind is about right amount of tests foe specific scenario
+    *   Critical code - This is the code that breaks often, gets most of new features and has a big impact on application users
+    *   Core code - This is the code that breaks sometimes, gets few new features and has medium impact on the application users
+    *   Other code - This is code that rarely changes, rarely gets new features and has minimal impact on application users.
+0.  Try to write tests that work towards 100% coverage of critical code. If you have already done this, then try to write tests that work towards 100% of core code. Trying however to get 100% coverage on total code is not recommended. In summary, write unit and integration tests for code that
+    *   breaks often
+    *   changes often
+    *   is critical to the business
+0.  Converting production bugs to test
+0.  Encode every single bug you find as a test, to ensure that you’ll notice if you ever encounter it again.
+0.  If youb join to legacy project for pay attention to the existing bugs and try to cover them with tests. After a while your tests will have covered the critical part of the code, since by definition all tests have verified things that break often. 
+0.  Automate input validation tests, as well as verification authentication and authorization features.
 0. Testing types:
    0. Unit Testing - verifies that each application function (module) returns the correct value for a given input
    0. Component/Integration Testing - n the application containe
@@ -54,9 +65,12 @@ piramid test
    0. Soak Testing to find memory leakis
    0. Security Testing
 
-   
-   
- 
+0. It is not about piramind is about right amount of tests foe specific scenario
+ * Critical code - This is the code that breaks often, gets most of new features and has a big impact on application users
+ * Core code - This is the code that breaks sometimes, gets few new features and has medium impact on the application users
+ * Other code - This is code that rarely changes, rarely gets new features and has minimal impact on application users.
+
+
 
 Almost no unit tests because there is no business logic
 
@@ -65,15 +79,6 @@ Lots and lots of integration tests for the external communications, the db stora
 No UI Tests because there is a no UI
 
 here for example is a lot integration test
-
-
-it is not about piramind is about right amount of tests foe specific scenario
-
- Critical code - This is the code that breaks often, gets most of new features and has a big impact on application users
-Core code - This is the code that breaks sometimes, gets few new features and has medium impact on the application users
-Other code - This is code that rarely changes, rarely gets new features and has minimal impact on application users.
-
-
 
 
 Try to write tests that work towards 100% coverage of critical code. If you have already done this, then try to write tests that work towards 100% of core code. Trying however to get 100% coverage on total code is not recommended.
@@ -98,3 +103,5 @@ add this link TO KBhttp://blog.codepipes.com/testing/software-testing-antipatter
 Automate input validation tests, as well as verification authentication and authorization features.
 . Encode every single bug you find as a test, to ensure that you’ll notice if you ever encounter it again.
 
+Source:
+0.  Effective Java

@@ -18,7 +18,13 @@
 7.  Don’t try to review the whole project at once. Experts advise not to review more than 400 lines of code at once.
 8.  Stay positive. Code review can sometimes put a strain on the relationships within the team. Nobody likes to be criticised, so it’s very important to keep a friendly atmosphere unless you want your coworkers to lose their motivation. Instead of perceiving each and every bug negatively, think positively, as they are the new opportunities for improving the code quality in general.
     -   (Reason : humans cannot effectively process that amount of information, especially over such a long period of time.)
-    
+9. To find bugs
+   To check for potential performance or security problems
+   To ensure readable code
+   To verify the functionality does what was required
+   To make sure the design is sound
+   Who resolves differences of opinion? Reviews may have more than one reviewer.  If different reviewers have conflicting advice, how does the author resolve this?
+   Pair programming is a form of code review. A review could be simply pulling aside a colleague and walking through your code with them. Reviews might be done by checking out a branch and making comments in a document, and email or a chat channeMake sure to advocate for yourself and clearly state the progress you’ve made in the past week, which goals you’ve surpassed and which projects you’ve led.    
     
 ##  CONTINUOUS INTEGRATION/DELIVERY:
 1.  Continue Delivery is about built the right thing and put changes quickly. Successfully implemented REDUCE THE COST, TIME and RISK of delivering INCREMENTAL CHANGES to users.
@@ -118,3 +124,25 @@
 
 
 
+refuse to commit to meetings, appointments, or activities at any set time in any future day.
+
+As a result, you can always work on whatever is most important or most interesting, at any time.
+
+Want to spend all day writing a research report? Do it!
+
+Want to spend all day coding? Do it!
+
+Want to spend all day at the cafe down the street reading a book on personal productivity? Do it!
+
+emails relating to topics that are current working projects or pressing issues go into temporary subfolders of a folder called Action.
+
+0. Keep three standing email folders: Pending, Review, and Vault.
+    -   Emails that you know you're going to have to deal with again -- such as emails in which someone is committing something to you and you want to be reminded to follow up on it if the person doesn't deliver -- go in Pending.
+    -   Emails with things you want to read in depth when you have more time, go into Review.
+    -   Everything else goes into Vault.
+
+Every once in a while, sweep through your Action subfolders and dump any of them that you can into Vault.
+
+
+1. Require an agenda for every meeting (r the purpose of the meeting, who should attend)
+Whenever someone is mentioned in the meeting conversation and they aren't in the room, we'll bring them in. to avoid snowball effect with the interpretation of the sentence
