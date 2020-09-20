@@ -1,3 +1,3 @@
 def title(text: str):
     fix = '-' * 8
-    print(f'{fix} {text} {fix}')
+    print(f'\n\n{fix} {text} {fix}\n')
