@@ -141,7 +141,7 @@ content = file.read()
 
 print(content)
 
-file = open(filePath, 'r')
+file = open(filePath, "r")
 content = file.readlines()
 print('text with line counter')
 count = 1

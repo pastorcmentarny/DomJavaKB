@@ -1,8 +1,7 @@
 import csv
 import random
 
-from tools.lotto.utils import lotto_utils
-
+from src.tools.lotto.utils import lotto_utils
 
 # load all draws
 # exclude last 2 draws

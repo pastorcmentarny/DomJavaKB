@@ -41,7 +41,7 @@ T2 from most count of number  12x or 8x
 
 import logging
 import random
-import csv
+
 from timeit import default_timer as timer
 
 
