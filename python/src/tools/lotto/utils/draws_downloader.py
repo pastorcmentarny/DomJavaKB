@@ -16,14 +16,14 @@ WRITABLE = 'w'
 
 
 def get_draws_for(url, path):
-    logging.debug('get draws from: ' + url + "\nand store them here: " + path);
+    print('get draws from: ' + url + "\nand store them here: " + path);
     response = requests.get(url)
     try:
         response.raise_for_status()  # without try it will exit program
     except Exception as whoops:
         print('There was a problem: %s' % (whoops))
 
-    logging.debug('download complete with response ' + str(response.status_code))
+    print('download complete with response ' + str(response.status_code))
     draw_history_file = open(path, WRITABLE)
 
     # save file
@@ -74,7 +74,7 @@ def convert_to_draw_row(draw):
 
 
 def update_all_draws_v2(recent_draws_list, all_draws_file_path):
-    logging.debug('updating all draws if needed')
+    print('updating all draws if needed')
     last_column = len(recent_draws_list[0]) - 1
     print(last_column)
     all_draws_file = open(all_draws_file_path)
@@ -98,7 +98,7 @@ def update_all_draws_v2(recent_draws_list, all_draws_file_path):
 
 def update_file_for(file, list):
     for draw in list:
-        file.write(', '.join(draw))
+        file.write(','.join(draw))
         file.write('\n')
     return file
 

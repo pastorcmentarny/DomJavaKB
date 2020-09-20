@@ -22,7 +22,6 @@ import output
 import lotto_utils
 
 
-
 lotto_hotpicks_url = 'https://www.national-lottery.co.uk/results/lotto-hotpicks/draw-history/csv'
 path = config.path["base"] + 'lotto-hotpicks-draws.csv'
 all_draws = config.path["base"] + 'lotto-hotpicks-all-draws.csv'
@@ -70,4 +69,4 @@ while len(remaining_numbers) < 2:
 
 get_result_for.get_result(data, remaining_numbers, 2, 6)
 
-#webbrowser.open('https://www.national-lottery.co.uk/games/lotto-hotpicks')
+# webbrowser.open('https://www.national-lottery.co.uk/games/lotto-hotpicks')

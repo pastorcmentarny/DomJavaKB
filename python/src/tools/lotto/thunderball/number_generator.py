@@ -49,6 +49,11 @@ from tools.lotto import config
 from tools.lotto.utils import draws_downloader, output, lotto_utils
 from utils import ui_utils
 
+NEW_LINE = '\n'
+SPLITTER = ','
+EMPTY = ""
+SPACE = " "
+
 total_thunderballs = 40  # 39
 
 # SETTINGS
@@ -326,11 +331,11 @@ def update_draws():
     ui_utils.title('DRAWS UPDATED')
 
 
-def update_file_for(file, list):
-    for draw in list:
-        file.write(','.join(draw).replace(" ",""))
-        file.write('\n')
-    return file
+def update_file_for(all_draw_file, all_draw_list):
+    for draw in all_draw_list:
+        all_draw_file.write(SPLITTER.join(draw).replace(SPACE, EMPTY))
+        all_draw_file.write(NEW_LINE)
+    return all_draw_file
 
 
 
