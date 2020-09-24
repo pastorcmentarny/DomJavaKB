@@ -7,9 +7,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class TemporaryFilesANdDirectoryExample {
-    private static String customPrefix = "data_";
-    private static String customFileSuffix = ".txt";
-    private static Path customBaseDirectory = FileSystems.getDefault().getPath("/Users/symonowd/Dropbox/banana");
+    private static final String customPrefix = "data_";
+    private static final String customFileSuffix = ".txt";
+    private static final Path customBaseDirectory = FileSystems.getDefault().getPath("/Users/symonowd/Dropbox/banana");
 
     public static void main(String[] args) throws IOException {
         getCurrentTemporaryFilesPath();
