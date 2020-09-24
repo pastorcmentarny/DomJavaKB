@@ -24,11 +24,11 @@ public class ShieldRechargeEventTest {
     public void shieldRechargeEventShouldStartShieldRegenerationIfUnitHasShield() {
         // given
         final Unit unitOne = UnitBuilder.unitBuilder()
-            .sp(DEFAULT_SHIELD_POINTS)
-            .build();
+                .sp(DEFAULT_SHIELD_POINTS)
+                .build();
         final Unit unitTwo = UnitBuilder.unitBuilder()
-            .sp(DEFAULT_SHIELD_POINTS)
-            .build();
+                .sp(DEFAULT_SHIELD_POINTS)
+                .build();
 
         // when
         shieldRechargeEvent.makeItHappen(unitOne, unitTwo);

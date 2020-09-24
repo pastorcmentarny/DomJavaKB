@@ -23,7 +23,7 @@ public class BubbleShieldSpellTest {
         // given
         final Spell bubbleShieldSpell = new BubbleShieldSpell();
         final Unit unit = unitBuilder()
-            .build();
+                .build();
 
         // when
         bubbleShieldSpell.castSpell(unit, unit);

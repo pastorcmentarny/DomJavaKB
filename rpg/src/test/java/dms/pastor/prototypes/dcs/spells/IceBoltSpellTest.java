@@ -38,9 +38,9 @@ public final class IceBoltSpellTest {
         // given
         final int initHp = 100;
         final Unit unit = unitBuilder()
-            .hp(initHp)
-            .withoutShield()
-            .build();
+                .hp(initHp)
+                .withoutShield()
+                .build();
         // when
         iceBoltSpell.castSpell(unit, unit);
 
@@ -53,10 +53,10 @@ public final class IceBoltSpellTest {
         // given
         final int initHp = 100;
         final Unit unit = unitBuilder()
-            .hp(initHp)
-            .withoutShield()
-            .withSingleCondition(WATER_IMMUNE)
-            .build();
+                .hp(initHp)
+                .withoutShield()
+                .withSingleCondition(WATER_IMMUNE)
+                .build();
         // when
         iceBoltSpell.castSpell(unit, unit);
 

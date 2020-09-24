@@ -15,7 +15,7 @@ class ShapesTest {
 
         // expect
         Assertions.assertThrows(SomethingWentWrongException.class,
-            () -> Shapes.getShapeFromCharacter('1'));
+                () -> Shapes.getShapeFromCharacter('1'));
 
     }
 

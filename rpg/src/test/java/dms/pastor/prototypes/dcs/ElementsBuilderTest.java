@@ -39,11 +39,11 @@ public class ElementsBuilderTest {
 
         // when
         final Elements elements = elementsBuilder()
-            .air(air)
-            .earth(earth)
-            .fire(fire)
-            .water(water)
-            .build();
+                .air(air)
+                .earth(earth)
+                .fire(fire)
+                .water(water)
+                .build();
 
         // then
         assertThat(elements).isEqualTo(expectedElements);
@@ -54,8 +54,8 @@ public class ElementsBuilderTest {
 
         // when
         final Elements elements = elementsBuilder()
-            .setToOneForAllElements()
-            .build();
+                .setToOneForAllElements()
+                .build();
         // then
         assertThat(elements.hasEnough(new Elements(1, 1, 1, 1)));
     }

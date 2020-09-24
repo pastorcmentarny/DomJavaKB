@@ -12,7 +12,7 @@ public final class EarthElementEventTest {
     public void performFireEventShouldGivesFireElement() {
         // given
         final Unit unit = unitBuilder()
-            .build();
+                .build();
         // when
         EarthElementEvent earthElementEvent = new EarthElementEvent();
         earthElementEvent.makeItHappen(unit, unit);

@@ -22,10 +22,10 @@ public class ChainLightingSpellAcceptanceTest {
         // given
         final Unit unit = unitBuilder().build();
         final Unit enemy = unitBuilder()
-            .name("enemy")
-            .hp(10)
-            .withoutShield()
-            .build();
+                .name("enemy")
+                .hp(10)
+                .withoutShield()
+                .build();
         ChainLightingSpell spell = new ChainLightingSpell();
 
         // when
@@ -40,10 +40,10 @@ public class ChainLightingSpellAcceptanceTest {
         // given
         final Unit unit = unitBuilder().build();
         final Unit enemy = unitBuilder()
-            .name("enemy")
-            .hp(10)
-            .sp(3)
-            .build();
+                .name("enemy")
+                .hp(10)
+                .sp(3)
+                .build();
         ChainLightingSpell spell = new ChainLightingSpell();
 
         // when

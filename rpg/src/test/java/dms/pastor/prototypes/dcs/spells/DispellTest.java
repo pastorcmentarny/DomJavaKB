@@ -24,8 +24,8 @@ public final class DispellTest {
         condition.add(conditionEntry2);
         condition.add(conditionEntry3);
         final Unit unit = unitBuilder()
-            .condition(condition)
-            .build();
+                .condition(condition)
+                .build();
 
         assertThat(unit.getConditions().size()).isEqualTo(3);
 

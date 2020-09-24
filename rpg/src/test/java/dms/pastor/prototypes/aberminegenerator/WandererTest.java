@@ -11,7 +11,7 @@ class WandererTest {
     @Test
     void getInfoShouldReturnDataAboutUnitOnUITest() {
         // given
-        final Wanderer wanderer = new Wanderer("Gravity",new Coordinates(1,2));
+        final Wanderer wanderer = new Wanderer("Gravity", new Coordinates(1, 2));
 
         // when
         final String info = wanderer.getInfo();
@@ -22,7 +22,7 @@ class WandererTest {
 
 
     @Test
-    void shouldGenerateWandererWithRandomNameAtSpecificCoordinates(){
+    void shouldGenerateWandererWithRandomNameAtSpecificCoordinates() {
         // when
         final int width = 1;
         final int height = 2;

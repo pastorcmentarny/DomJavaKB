@@ -57,11 +57,11 @@ public class HealthBuilderTest {
 
         // when
         final Health result = healthBuilder()
-            .hp(hp)
-            .maxHp(maxHp)
-            .arm(arm)
-            .hpRegenRate(hpRegenRate)
-            .build();
+                .hp(hp)
+                .maxHp(maxHp)
+                .arm(arm)
+                .hpRegenRate(hpRegenRate)
+                .build();
 
         // then
         assertThat(result).isEqualTo(expectedHealth);
@@ -75,9 +75,9 @@ public class HealthBuilderTest {
 
         // when
         final Health result = healthBuilder()
-            .maxHp(tooLowMaxHp)
-            .hp(hp)
-            .build();
+                .maxHp(tooLowMaxHp)
+                .hp(hp)
+                .build();
 
         // then
         assertThat(result.getMaxHp()).isEqualTo(hp);

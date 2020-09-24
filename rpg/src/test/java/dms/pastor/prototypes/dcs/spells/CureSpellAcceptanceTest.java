@@ -18,8 +18,8 @@ public class CureSpellAcceptanceTest {
     public void cureSpellShouldCurePoisonBlindAndWeaknessButNot() {
         // given
         UnitBuilder.unitBuilder()
-            .condition(null)
-            .build();
+                .condition(null)
+                .build();
 
         // when
 

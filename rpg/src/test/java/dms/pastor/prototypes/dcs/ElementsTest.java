@@ -209,8 +209,8 @@ public class ElementsTest {
     public void useElementShouldUseFourAirElements() {
         // given
         final Elements elements = elementsBuilder()
-            .air(INIT_ELEMENTS)
-            .build();
+                .air(INIT_ELEMENTS)
+                .build();
 
         // when
         final int usedElementsCount = elements.useElement(AIR, USED_ELEMENTS);
@@ -224,8 +224,8 @@ public class ElementsTest {
     public void useElementShouldUseFourEarthElements() {
         // given
         final Elements elements = elementsBuilder()
-            .earth(INIT_ELEMENTS)
-            .build();
+                .earth(INIT_ELEMENTS)
+                .build();
 
         // when
         final int usedElementsCount = elements.useElement(EARTH, USED_ELEMENTS);
@@ -239,8 +239,8 @@ public class ElementsTest {
     public void useElementShouldUseFourFireElements() {
         // given
         final Elements elements = elementsBuilder()
-            .fire(INIT_ELEMENTS)
-            .build();
+                .fire(INIT_ELEMENTS)
+                .build();
 
         // when
         final int usedElementsCount = elements.useElement(FIRE, USED_ELEMENTS);
@@ -254,8 +254,8 @@ public class ElementsTest {
     public void useElementShouldUseFourWaterElements() {
         // given
         final Elements elements = elementsBuilder()
-            .water(INIT_ELEMENTS)
-            .build();
+                .water(INIT_ELEMENTS)
+                .build();
 
         // when
         final int usedElementsCount = elements.useElement(WATER, USED_ELEMENTS);

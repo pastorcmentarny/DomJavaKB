@@ -66,13 +66,13 @@ public final class NoSpellTest {
         final String tmpFileName = "noSpell.serialized";
 
         ObjectOutput objectToSerialize = new ObjectOutputStream(new FileOutputStream(
-            tmpFileName));
+                tmpFileName));
         objectToSerialize.writeObject(instanceOne);
         objectToSerialize.close();
 
         // when
         ObjectInput in = new ObjectInputStream(new FileInputStream(
-            tmpFileName));
+                tmpFileName));
         NoSpell instanceTwo = (NoSpell) in.readObject();
         in.close();
 

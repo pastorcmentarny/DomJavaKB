@@ -50,9 +50,9 @@ public class AsteroidStormSpellTest {
         // given
         final int initHp = 100;
         final Unit unit = unitBuilder()
-            .withoutShield()
-            .hp(initHp)
-            .build();
+                .withoutShield()
+                .hp(initHp)
+                .build();
 
         // when
         IntStream.rangeClosed(1, 10).forEach(it -> asteroidStormSpell.castSpell(unit, unit));
@@ -66,15 +66,15 @@ public class AsteroidStormSpellTest {
         // given
         final int initHp = 1000;
         final Unit unit1 = unitBuilder()
-            .name("Unit1")
-            .withoutShield()
-            .hp(initHp)
-            .build();
+                .name("Unit1")
+                .withoutShield()
+                .hp(initHp)
+                .build();
         final Unit unit2 = unitBuilder()
-            .name("Unit2")
-            .withoutShield()
-            .hp(initHp)
-            .build();
+                .name("Unit2")
+                .withoutShield()
+                .hp(initHp)
+                .build();
 
         // when
         IntStream.rangeClosed(1, 20).forEach(it -> asteroidStormSpell.castSpell(unit1, unit2));

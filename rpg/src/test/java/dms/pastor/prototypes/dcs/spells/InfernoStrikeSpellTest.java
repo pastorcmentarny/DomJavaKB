@@ -25,9 +25,9 @@ public class InfernoStrikeSpellTest {
         // given
         final int initHp = 100;
         final Unit unit = UnitBuilder.unitBuilder()
-            .name(generateString(MAX_SMALL_VALUE_RANGE))
-            .hp(initHp)
-            .build();
+                .name(generateString(MAX_SMALL_VALUE_RANGE))
+                .hp(initHp)
+                .build();
         // when
         infernoStrikeSpell.castSpell(unit, unit);
 
@@ -40,8 +40,8 @@ public class InfernoStrikeSpellTest {
         // given
         final int initHp = 200;
         final UnitBuilder unitBuilder = UnitBuilder.unitBuilder()
-            .name(generateString(MAX_SMALL_VALUE_RANGE))
-            .hp(initHp);
+                .name(generateString(MAX_SMALL_VALUE_RANGE))
+                .hp(initHp);
         final Unit unit1 = unitBuilder.name("One").build();
         final Unit unit2 = unitBuilder.name("Two").build();
         boolean isUnitOneHit = false;

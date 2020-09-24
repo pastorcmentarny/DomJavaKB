@@ -54,13 +54,13 @@ public final class UnitBuilder {
     public Unit build() {
         setSpToZeroIfIsNegative();
         return new Unit(
-            sp,
-            elements,
-            health,
-            cards,
-            name,
-            condition,
-            description);
+                sp,
+                elements,
+                health,
+                cards,
+                name,
+                condition,
+                description);
     }
 
     public Unit buildDeathUnit() {

@@ -31,9 +31,9 @@ public final class CometStrikeSpellTest {
 
         final int initHp = 25;
         final Unit unit = unitBuilder()
-            .hp(initHp)
-            .withoutShield()
-            .build();
+                .hp(initHp)
+                .withoutShield()
+                .build();
 
         // when
         cometStrikeSpell.castSpell(unit, unit);
@@ -50,9 +50,9 @@ public final class CometStrikeSpellTest {
         // given
         CometStrikeSpell cometStrikeSpell = new CometStrikeSpell();
         final Unit unit = unitBuilder()
-            .hp(2500)
-            .withoutShield()
-            .build();
+                .hp(2500)
+                .withoutShield()
+                .build();
 
         boolean wasPoisonAtLeastOnce = false;
         boolean wasFrozenAtLeastOnce = false;

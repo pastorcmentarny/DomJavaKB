@@ -20,9 +20,9 @@ public final class CureActionTest {
         Condition condition = new Condition();
         condition.add(createTemporaryConditionWithDefaultDuration(BLIND));
         final Unit unit = unitBuilder()
-            .condition(condition)
-            .elements(new CureSpell().getElements())
-            .build();
+                .condition(condition)
+                .elements(new CureSpell().getElements())
+                .build();
 
         // when
         cureAction.perform(unit, unit);

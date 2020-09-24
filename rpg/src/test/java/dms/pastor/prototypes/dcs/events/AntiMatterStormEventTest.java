@@ -26,26 +26,26 @@ public class AntiMatterStormEventTest {
     public void makeThingsHappenWillCauseDamagePerElementAndLoseHalfOfElements() {
         // given
         final Unit player = PlayerBuilder.playerBuilder()
-            .health(healthBuilder()
-                .hp(10)
-                .arm(1)
-                .build())
-            .sp(10)
+                .health(healthBuilder()
+                        .hp(10)
+                        .arm(1)
+                        .build())
+                .sp(10)
 
-            .elements(elementsBuilder()
-                .setToOneForAllElements()
-                .build())
-            .build();
+                .elements(elementsBuilder()
+                        .setToOneForAllElements()
+                        .build())
+                .build();
         final Unit enemy = unitBuilder()
-            .health(healthBuilder()
-                .hp(10)
-                .arm(1)
-                .build())
-            .sp(10)
-            .elements(elementsBuilder()
-                .setToOneForAllElements()
-                .build())
-            .build();
+                .health(healthBuilder()
+                        .hp(10)
+                        .arm(1)
+                        .build())
+                .sp(10)
+                .elements(elementsBuilder()
+                        .setToOneForAllElements()
+                        .build())
+                .build();
         // when
         antiMatterStormEvent.makeItHappen(player, enemy);
 
