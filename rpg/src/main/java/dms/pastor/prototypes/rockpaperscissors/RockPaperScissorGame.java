@@ -27,9 +27,9 @@ public class RockPaperScissorGame {
 
     private void result() {
         System.out.println(player1.getPoints() + " vs " + player2.getPoints());
-        if(player1.getPoints() > player2.getPoints()){
+        if (player1.getPoints() > player2.getPoints()) {
             System.out.println(player1.getName() + " won!");
-        } else if(player1.getPoints() < player2.getPoints()){
+        } else if (player1.getPoints() < player2.getPoints()) {
             System.out.println(player2.getName() + " won!");
         } else {
             System.out.println("Game finished with draw");

@@ -99,15 +99,15 @@ class HiScore {
             String singleScore;
             while ((singleScore = br.readLine()) != null) {
                 if (singleScore.startsWith("0") ||
-                    singleScore.startsWith("1") ||
-                    singleScore.startsWith("2") ||
-                    singleScore.startsWith("3") ||
-                    singleScore.startsWith("4") ||
-                    singleScore.startsWith("5") ||
-                    singleScore.startsWith("6") ||
-                    singleScore.startsWith("7") ||
-                    singleScore.startsWith("8") ||
-                    singleScore.startsWith("9")) {
+                        singleScore.startsWith("1") ||
+                        singleScore.startsWith("2") ||
+                        singleScore.startsWith("3") ||
+                        singleScore.startsWith("4") ||
+                        singleScore.startsWith("5") ||
+                        singleScore.startsWith("6") ||
+                        singleScore.startsWith("7") ||
+                        singleScore.startsWith("8") ||
+                        singleScore.startsWith("9")) {
 
                     System.out.println(singleScore);
                     scoreList.add(Integer.parseInt(singleScore));

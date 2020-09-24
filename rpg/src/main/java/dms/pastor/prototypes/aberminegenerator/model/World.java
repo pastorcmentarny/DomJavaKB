@@ -96,10 +96,10 @@ public class World {
     @Override
     public String toString() {
         return "World{" +
-            "width=" + width +
-            ", height=" + height +
-            ", world=" + getWorldAsString() +
-            '}';
+                "width=" + width +
+                ", height=" + height +
+                ", world=" + getWorldAsString() +
+                '}';
     }
 
 

@@ -9,7 +9,7 @@ package dms.pastor.prototypes.littlefighter;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 @SuppressWarnings("MagicNumber")
-    //TOO OLD PROJECT  TO TAKE CARE OF MAGIC NUMBERS
+        //TOO OLD PROJECT  TO TAKE CARE OF MAGIC NUMBERS
 class SpellBook {
     private boolean isSuccess = false;
 

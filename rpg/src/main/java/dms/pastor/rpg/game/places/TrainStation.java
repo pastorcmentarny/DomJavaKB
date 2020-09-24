@@ -8,16 +8,16 @@ public class TrainStation extends Place {
     private final String question;
     private final String reason;
     private final String[] reasons = {
-        "Signal failure",
-        "Train is broken down .",
-        "Shortage of stuff .",
-        "Because. ",
-        "Invisible Elvis came from nowhere and kidnap track. ",
-        "Because was already delayed by 10 light years due problem with signal failure. ",
-        "Train accidentally departs just before you come tro station",
-        "Track melt due 2 days of sunny weather and need to be replaced",
-        "Train is stuck in the middle of the field ,because drive hit  flock of sheep.",
-        "Track is frozen because is -0.005 degrees ,which means winter of the century"};
+            "Signal failure",
+            "Train is broken down .",
+            "Shortage of stuff .",
+            "Because. ",
+            "Invisible Elvis came from nowhere and kidnap track. ",
+            "Because was already delayed by 10 light years due problem with signal failure. ",
+            "Train accidentally departs just before you come tro station",
+            "Track melt due 2 days of sunny weather and need to be replaced",
+            "Train is stuck in the middle of the field ,because drive hit  flock of sheep.",
+            "Track is frozen because is -0.005 degrees ,which means winter of the century"};
     private final String[] questionForReason = {"Why", "What happen", "Eee?"};
 
     public TrainStation() {

@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class InventoryMenu implements Menu {
 
     private static final //FIXME log.er //FIXME log.= //FIXME log.er.get//FIXME log.er(Game.class);
-        Scanner scanner = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in);
     private final Hero hero = Hero.getHero();
 
     private final Inventory inventory;

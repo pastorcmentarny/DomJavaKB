@@ -1,6 +1,7 @@
 package dms.pastor.prototypes.littlefighter;
 
 import javax.swing.*;
+
 /**
  * Author Dominik Symonowicz
  * WWW:	https://dominiksymonowicz.com/welcome

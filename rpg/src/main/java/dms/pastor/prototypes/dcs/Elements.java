@@ -275,9 +275,9 @@ public class Elements {
         }
         Elements elements = (Elements) o;
         return fire == elements.fire &&
-            water == elements.water &&
-            earth == elements.earth &&
-            air == elements.air;
+                water == elements.water &&
+                earth == elements.earth &&
+                air == elements.air;
     }
 
     @Override

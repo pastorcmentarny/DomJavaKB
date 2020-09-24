@@ -71,17 +71,17 @@ class Frankenstein {
     @Override
     public String toString() {
         return name + "(" + lvl + ")  {" +
-            "ARM=" + ARM +
-            ", minDMG=" + minDMG +
-            ", maxDMG=" + maxDMG +
-            ", accuracy=" + accuracy +
-            ", evasion=" + evasion +
-            ", HP=" + HP +
-            ", maxHP=" + maxHP +
-            ", SP=" + SP +
-            ", maxSP=" + maxSP +
-            ", mana=" + mana +
-            ", maxMana=" + maxMana +
-            '}';
+                "ARM=" + ARM +
+                ", minDMG=" + minDMG +
+                ", maxDMG=" + maxDMG +
+                ", accuracy=" + accuracy +
+                ", evasion=" + evasion +
+                ", HP=" + HP +
+                ", maxHP=" + maxHP +
+                ", SP=" + SP +
+                ", maxSP=" + maxSP +
+                ", mana=" + mana +
+                ", maxMana=" + maxMana +
+                '}';
     }
 }
