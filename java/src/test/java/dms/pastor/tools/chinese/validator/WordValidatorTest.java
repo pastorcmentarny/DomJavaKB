@@ -35,7 +35,7 @@ public class WordValidatorTest {
     @Rule
     public final ExpectedException exception = ExpectedException.none();
     private final Word validWord = new Word(DEFAULT_ID, DEFAULT_CHINESE_CHARACTER, DEFAULT_PINYIN, DEFAULT_STROKES,
-        DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
+            DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
     @Test
     public void validateWordShouldReturnTrueForValidWord() {
@@ -60,7 +60,7 @@ public class WordValidatorTest {
     public void validateWordShouldReturnFalseIfIdIsZero() {
         // given
         final Word wordInInvalidId = new Word(0, DEFAULT_CHINESE_CHARACTER, DEFAULT_PINYIN, DEFAULT_STROKES,
-            DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
+                DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
         // when
         final boolean result = isWordValid(wordInInvalidId);
@@ -74,7 +74,7 @@ public class WordValidatorTest {
         // given
         final int negativeId = randomNegativeInteger();
         final Word wordInInvalidId = new Word(negativeId, DEFAULT_CHINESE_CHARACTER, DEFAULT_PINYIN, DEFAULT_STROKES,
-            DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
+                DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
         // when
         final boolean result = isWordValid(wordInInvalidId);
@@ -90,7 +90,7 @@ public class WordValidatorTest {
     public void validateWordShouldReturnFalseIfChineseCharacterIsNull() {
         // given
         final Word wordInNullChineseCharacter = new Word(DEFAULT_ID, null, DEFAULT_PINYIN, DEFAULT_STROKES,
-            DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
+                DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
         // when
         final boolean result = isWordValid(wordInNullChineseCharacter);
@@ -104,7 +104,7 @@ public class WordValidatorTest {
     public void validateWordShouldReturnFalseIfChineseCharacterIsEmpty() {
         // given
         final Word wordInNullChineseCharacter = new Word(DEFAULT_ID, EMPTY_STRING, DEFAULT_PINYIN, DEFAULT_STROKES,
-            DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
+                DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
         // when
         final boolean result = isWordValid(wordInNullChineseCharacter);
@@ -119,7 +119,7 @@ public class WordValidatorTest {
         // given
         final String invalidChineseCharacter = DEFAULT_CHINESE_CHARACTER + getRandomCharacterAsString();
         final Word wordInNullChineseCharacter = new Word(DEFAULT_ID, invalidChineseCharacter, DEFAULT_PINYIN, DEFAULT_STROKES,
-            DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
+                DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
         // when
         final boolean result = isWordValid(wordInNullChineseCharacter);
@@ -133,7 +133,7 @@ public class WordValidatorTest {
         // given
         final String invalidChineseCharacter = DEFAULT_CHINESE_CHARACTER + randomPositiveInteger(10);
         final Word wordInNullChineseCharacter = new Word(DEFAULT_ID, invalidChineseCharacter, DEFAULT_PINYIN, DEFAULT_STROKES,
-            DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
+                DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
         // when
         final boolean result = isWordValid(wordInNullChineseCharacter);
@@ -150,7 +150,7 @@ public class WordValidatorTest {
         // given
         final String invalidChineseCharacter = DEFAULT_CHINESE_CHARACTER + generateRandomPinyinCharacter();
         final Word wordInNullChineseCharacter = new Word(DEFAULT_ID, invalidChineseCharacter, DEFAULT_PINYIN, DEFAULT_STROKES,
-            DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
+                DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
         // when
         final boolean result = isWordValid(wordInNullChineseCharacter);
@@ -167,7 +167,7 @@ public class WordValidatorTest {
         // given
         final int negativeStrokeNumber = -2;
         final Word wordWithInvalidStrokes = new Word(DEFAULT_ID, DEFAULT_CHINESE_CHARACTER, DEFAULT_PINYIN, negativeStrokeNumber,
-            DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
+                DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
         // when
         final boolean result = isWordValid(wordWithInvalidStrokes);
@@ -181,7 +181,7 @@ public class WordValidatorTest {
         // given
         final int negativeStrokeNumber = -1;
         final Word wordWithValidStrokes = new Word(DEFAULT_ID, DEFAULT_CHINESE_CHARACTER, DEFAULT_PINYIN, negativeStrokeNumber,
-            DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
+                DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
         // when
         final boolean result = isWordValid(wordWithValidStrokes);
@@ -195,7 +195,7 @@ public class WordValidatorTest {
         // given
         final int zeroStrokes = 0;
         final Word wordWithInvalidStrokes = new Word(DEFAULT_ID, DEFAULT_CHINESE_CHARACTER, DEFAULT_PINYIN, zeroStrokes,
-            DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
+                DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
         // when
         final boolean result = isWordValid(wordWithInvalidStrokes);
@@ -209,7 +209,7 @@ public class WordValidatorTest {
         // given
         final int strokes = randomPositiveInteger();
         final Word wordWithValidStrokes = new Word(DEFAULT_ID, DEFAULT_CHINESE_CHARACTER, DEFAULT_PINYIN, strokes,
-            DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
+                DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
         // when
         final boolean result = isWordValid(wordWithValidStrokes);
@@ -222,7 +222,7 @@ public class WordValidatorTest {
     public void validateWordShouldReturnFalseIfPinyinIsNull() {
         // given
         final Word wordInNullChineseCharacter = new Word(DEFAULT_ID, DEFAULT_CHINESE_CHARACTER, null, DEFAULT_STROKES,
-            DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
+                DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
         // when
         final boolean result = isWordValid(wordInNullChineseCharacter);
@@ -236,7 +236,7 @@ public class WordValidatorTest {
     public void validateWordShouldReturnFalseIfPinyinIsEmpty() {
         // given
         final Word wordInNullChineseCharacter = new Word(DEFAULT_ID, DEFAULT_CHINESE_CHARACTER, EMPTY_STRING, DEFAULT_STROKES,
-            DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
+                DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
         // when
         final boolean result = isWordValid(wordInNullChineseCharacter);
@@ -249,8 +249,8 @@ public class WordValidatorTest {
     public void validateWordShouldReturnFalseIfEnglishMeaningIsNull() {
         // given
         final Word wordWithNullEnglishMeaning = new Word(DEFAULT_ID, DEFAULT_CHINESE_CHARACTER, DEFAULT_PINYIN,
-            DEFAULT_STROKES, null, DEFAULT_MEANING_IN_POLISH,
-            DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
+                DEFAULT_STROKES, null, DEFAULT_MEANING_IN_POLISH,
+                DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
         // when
         final boolean result = isWordValid(wordWithNullEnglishMeaning);
@@ -263,8 +263,8 @@ public class WordValidatorTest {
     public void validateWordShouldReturnFalseIfEnglishIsEmpty() {
         // given
         final Word wordWithEmptyEnglishMeaning = new Word(DEFAULT_ID, DEFAULT_CHINESE_CHARACTER, DEFAULT_PINYIN,
-            DEFAULT_STROKES, EMPTY_STRING, DEFAULT_MEANING_IN_POLISH,
-            DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
+                DEFAULT_STROKES, EMPTY_STRING, DEFAULT_MEANING_IN_POLISH,
+                DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
         // when
         final boolean result = isWordValid(wordWithEmptyEnglishMeaning);
@@ -278,8 +278,8 @@ public class WordValidatorTest {
         // given
         final String englishMeaningWithPinyin = "o with 3rd tone ò";
         final Word wordWithEmptyEnglishMeaning = new Word(DEFAULT_ID, DEFAULT_CHINESE_CHARACTER, DEFAULT_PINYIN,
-            DEFAULT_STROKES, englishMeaningWithPinyin, DEFAULT_MEANING_IN_POLISH,
-            DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
+                DEFAULT_STROKES, englishMeaningWithPinyin, DEFAULT_MEANING_IN_POLISH,
+                DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
         // when
         final boolean result = isWordValid(wordWithEmptyEnglishMeaning);
@@ -292,8 +292,8 @@ public class WordValidatorTest {
     public void validateWordShouldReturnFalseIfGroupIsNull() {
         // given
         final Word wordWithEmptyEnglishMeaning = new Word(DEFAULT_ID, DEFAULT_CHINESE_CHARACTER, DEFAULT_PINYIN,
-            DEFAULT_STROKES, DEFAULT_PINYIN, DEFAULT_MEANING_IN_POLISH,
-            null, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
+                DEFAULT_STROKES, DEFAULT_PINYIN, DEFAULT_MEANING_IN_POLISH,
+                null, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
         // when
         final boolean result = isWordValid(wordWithEmptyEnglishMeaning);
@@ -306,8 +306,8 @@ public class WordValidatorTest {
     public void validateWordShouldReturnFalseIfGroupSizeIsZero() {
         // given
         final Word wordWithNoGroup = new Word(DEFAULT_ID, DEFAULT_CHINESE_CHARACTER, DEFAULT_PINYIN,
-            DEFAULT_STROKES, DEFAULT_PINYIN, DEFAULT_MEANING_IN_POLISH,
-            new String[0], DEFAULT_NOTES, DEFAULT_DIFFICULTY);
+                DEFAULT_STROKES, DEFAULT_PINYIN, DEFAULT_MEANING_IN_POLISH,
+                new String[0], DEFAULT_NOTES, DEFAULT_DIFFICULTY);
 
         // when
         final boolean result = isWordValid(wordWithNoGroup);
@@ -321,8 +321,8 @@ public class WordValidatorTest {
     public void validateWordShouldReturnTrueIfNotesIsNullAsNoteWillSetToDefault() {
         // given
         final Word wordWithNullNotes = new Word(DEFAULT_ID, DEFAULT_CHINESE_CHARACTER, DEFAULT_PINYIN,
-            DEFAULT_STROKES, DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH,
-            DEFAULT_GROUP, null, DEFAULT_DIFFICULTY);
+                DEFAULT_STROKES, DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH,
+                DEFAULT_GROUP, null, DEFAULT_DIFFICULTY);
 
         // when
         final boolean result = isWordValid(wordWithNullNotes);
@@ -337,8 +337,8 @@ public class WordValidatorTest {
         // given
         final int tooLargeDifficulty = 128;
         final Word wordWithInvalidDifficulty = new Word(DEFAULT_ID, DEFAULT_CHINESE_CHARACTER, DEFAULT_PINYIN,
-            DEFAULT_STROKES, DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH,
-            DEFAULT_GROUP, DEFAULT_NOTES, tooLargeDifficulty);
+                DEFAULT_STROKES, DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH,
+                DEFAULT_GROUP, DEFAULT_NOTES, tooLargeDifficulty);
 
         // when
         final boolean result = isWordValid(wordWithInvalidDifficulty);
@@ -352,8 +352,8 @@ public class WordValidatorTest {
         // given
         final int negativeDifficulty = -2;
         final Word wordWithInvalidDifficulty = new Word(DEFAULT_ID, DEFAULT_CHINESE_CHARACTER, DEFAULT_PINYIN,
-            DEFAULT_STROKES, DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH,
-            DEFAULT_GROUP, DEFAULT_NOTES, negativeDifficulty);
+                DEFAULT_STROKES, DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH,
+                DEFAULT_GROUP, DEFAULT_NOTES, negativeDifficulty);
 
         // when
         final boolean result = isWordValid(wordWithInvalidDifficulty);
@@ -367,8 +367,8 @@ public class WordValidatorTest {
         // given
         final int difficulty = randomPositiveInteger(8) + 1;
         final Word validDifficulty = new Word(DEFAULT_ID, DEFAULT_CHINESE_CHARACTER, DEFAULT_PINYIN,
-            DEFAULT_STROKES, DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH,
-            DEFAULT_GROUP, DEFAULT_NOTES, difficulty);
+                DEFAULT_STROKES, DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH,
+                DEFAULT_GROUP, DEFAULT_NOTES, difficulty);
 
         // debug
         LOGGER.debug("difficulty: " + difficulty);

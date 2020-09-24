@@ -30,10 +30,10 @@ public class MultiplicationExerciseTest {
     public void shouldReturnMultiplicationSquareTableTest() {
         // given
         final String expectedResult = "    1    2    3    4    5" + lineSeparator() +
-            "    2    4    6    8   10" + lineSeparator() +
-            "    3    6    9   12   15" + lineSeparator() +
-            "    4    8   12   16   20" + lineSeparator() +
-            "    5   10   15   20   25" + lineSeparator();
+                "    2    4    6    8   10" + lineSeparator() +
+                "    3    6    9   12   15" + lineSeparator() +
+                "    4    8   12   16   20" + lineSeparator() +
+                "    5   10   15   20   25" + lineSeparator();
         // when
         final String result = generateMultiplicationSquareTable(5);
 

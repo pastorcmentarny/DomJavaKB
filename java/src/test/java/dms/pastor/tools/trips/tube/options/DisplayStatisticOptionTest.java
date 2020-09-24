@@ -50,8 +50,8 @@ public class DisplayStatisticOptionTest {
 
         // then
         assertThat(outputStream.toString()).contains("You visited 1 station(s) this year. (33%)" + System.lineSeparator() +
-            "You visited 1 station(s). (33%)" + System.lineSeparator() +
-            "You passed 2 station(s). (66%)");
+                "You visited 1 station(s). (33%)" + System.lineSeparator() +
+                "You passed 2 station(s). (66%)");
 
     }
 

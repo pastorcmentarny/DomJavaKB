@@ -64,10 +64,10 @@ public class HTMLDownloaderTest {
 
         // then
         assertThat(result).contains(" I have done a proper IQ test." +
-            " My result is 106. It means I am painfully average male with one exception. I have a special talent." +
-            " According to the result, I am a genius in combine Lego bricks together. Agreed." +
-            " It is not a key skill that guarantees to achieve successes in everything in your life." +
-            " However, it is always something!");
+                " My result is 106. It means I am painfully average male with one exception. I have a special talent." +
+                " According to the result, I am a genius in combine Lego bricks together. Agreed." +
+                " It is not a key skill that guarantees to achieve successes in everything in your life." +
+                " However, it is always something!");
     }
 
 }

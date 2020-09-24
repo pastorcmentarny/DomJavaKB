@@ -38,8 +38,8 @@ public class ThreeSumTest {
 
         // debug
         LOGGER.info("\nValues:\t " + ArrayUtils.getIntArrayAsString(testValues) +
-            "\nAnswer " + answer + " triples sum that equals zero." +
-            "\nIt took " + timer.calcTotalTime() + "ms.");
+                "\nAnswer " + answer + " triples sum that equals zero." +
+                "\nIt took " + timer.calcTotalTime() + "ms.");
     }
 
 }

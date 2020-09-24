@@ -21,12 +21,12 @@ public class TubeStationBuilderTest {
         final LocalDate date = LocalDate.now();
         final Status visitedStation = VISITED;
         final TubeStation result = stationBuilder()
-            .lines(null)
-            .name(name)
-            .passedDate(date)
-            .visitedDate(date)
-            .status(visitedStation)
-            .build();
+                .lines(null)
+                .name(name)
+                .passedDate(date)
+                .visitedDate(date)
+                .status(visitedStation)
+                .build();
 
         // then
         assertThat(result.getName()).isEqualTo(name);

@@ -32,11 +32,11 @@ import static org.mockito.Mockito.when;
 public class AcceptanceTests {
 
     private static final String EMPTY_CANVAS = "----------------------" + System.lineSeparator() +
-        "|                    |" + System.lineSeparator() +
-        "|                    |" + System.lineSeparator() +
-        "|                    |" + System.lineSeparator() +
-        "|                    |" + System.lineSeparator() +
-        "----------------------";
+            "|                    |" + System.lineSeparator() +
+            "|                    |" + System.lineSeparator() +
+            "|                    |" + System.lineSeparator() +
+            "|                    |" + System.lineSeparator() +
+            "----------------------";
 
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private PrintStream printStream;
@@ -60,15 +60,15 @@ public class AcceptanceTests {
         // given
         CommandLineUI commandLineUI = new CommandLineUI(scanner);
         when(scanner.nextLine())
-            .thenReturn("C 20 4")
-            .thenReturn("Q");
+                .thenReturn("C 20 4")
+                .thenReturn("Q");
 
         // when
         commandLineUI.runApplication();
 
         // then
         assertThat(outputStream.toString()).contains(System.lineSeparator() +
-            EMPTY_CANVAS);
+                EMPTY_CANVAS);
     }
 
     @Test
@@ -76,22 +76,22 @@ public class AcceptanceTests {
         // given
         CommandLineUI commandLineUI = new CommandLineUI(scanner);
         when(scanner.nextLine())
-            .thenReturn("C 20 4")
-            .thenReturn("L 1 2 6 2")
-            .thenReturn("L 6 3 6 4")
-            .thenReturn("Q");
+                .thenReturn("C 20 4")
+                .thenReturn("L 1 2 6 2")
+                .thenReturn("L 6 3 6 4")
+                .thenReturn("Q");
 
         // when
         commandLineUI.runApplication();
 
         // then
         assertThat(outputStream.toString()).contains(
-            "----------------------" + System.lineSeparator() +
-                "|                    |" + System.lineSeparator() +
-                "|xxxxxx              |" + System.lineSeparator() +
-                "|     x              |" + System.lineSeparator() +
-                "|     x              |" + System.lineSeparator() +
-                "----------------------" + System.lineSeparator());
+                "----------------------" + System.lineSeparator() +
+                        "|                    |" + System.lineSeparator() +
+                        "|xxxxxx              |" + System.lineSeparator() +
+                        "|     x              |" + System.lineSeparator() +
+                        "|     x              |" + System.lineSeparator() +
+                        "----------------------" + System.lineSeparator());
     }
 
     @Test
@@ -99,23 +99,23 @@ public class AcceptanceTests {
         // given
         CommandLineUI commandLineUI = new CommandLineUI(scanner);
         when(scanner.nextLine())
-            .thenReturn("C 20 4")
-            .thenReturn("L 1 2 6 2")
-            .thenReturn("L 6 3 6 4")
-            .thenReturn("R 16 1 20 3")
-            .thenReturn("Q");
+                .thenReturn("C 20 4")
+                .thenReturn("L 1 2 6 2")
+                .thenReturn("L 6 3 6 4")
+                .thenReturn("R 16 1 20 3")
+                .thenReturn("Q");
 
         // when
         commandLineUI.runApplication();
 
         // then
         assertThat(outputStream.toString()).contains(
-            "----------------------" + System.lineSeparator() +
-                "|               xxxxx|" + System.lineSeparator() +
-                "|xxxxxx         x   x|" + System.lineSeparator() +
-                "|     x         xxxxx|" + System.lineSeparator() +
-                "|     x              |" + System.lineSeparator() +
-                "----------------------" + System.lineSeparator());
+                "----------------------" + System.lineSeparator() +
+                        "|               xxxxx|" + System.lineSeparator() +
+                        "|xxxxxx         x   x|" + System.lineSeparator() +
+                        "|     x         xxxxx|" + System.lineSeparator() +
+                        "|     x              |" + System.lineSeparator() +
+                        "----------------------" + System.lineSeparator());
     }
 
     @Test
@@ -123,24 +123,24 @@ public class AcceptanceTests {
         // given
         CommandLineUI commandLineUI = new CommandLineUI(scanner);
         when(scanner.nextLine())
-            .thenReturn("C 20 4")
-            .thenReturn("L 1 2 6 2")
-            .thenReturn("L 6 3 6 4")
-            .thenReturn("R 16 1 20 3")
-            .thenReturn("B 10 3 o")
-            .thenReturn("Q");
+                .thenReturn("C 20 4")
+                .thenReturn("L 1 2 6 2")
+                .thenReturn("L 6 3 6 4")
+                .thenReturn("R 16 1 20 3")
+                .thenReturn("B 10 3 o")
+                .thenReturn("Q");
 
         // when
         commandLineUI.runApplication();
 
         // then
         assertThat(outputStream.toString()).contains(
-            "----------------------" + System.lineSeparator() +
-                "|oooooooooooooooxxxxx|" + System.lineSeparator() +
-                "|xxxxxxooooooooox   x|" + System.lineSeparator() +
-                "|     xoooooooooxxxxx|" + System.lineSeparator() +
-                "|     xoooooooooooooo|" + System.lineSeparator() +
-                "----------------------");
+                "----------------------" + System.lineSeparator() +
+                        "|oooooooooooooooxxxxx|" + System.lineSeparator() +
+                        "|xxxxxxooooooooox   x|" + System.lineSeparator() +
+                        "|     xoooooooooxxxxx|" + System.lineSeparator() +
+                        "|     xoooooooooooooo|" + System.lineSeparator() +
+                        "----------------------");
     }
 
     @Test
@@ -161,21 +161,21 @@ public class AcceptanceTests {
         // given
         CommandLineUI commandLineUI = new CommandLineUI(scanner);
         when(scanner.nextLine())
-            .thenReturn("C 20 4")
-            .thenReturn("R 2 2 10 3")
-            .thenReturn("B 2 2 o")
-            .thenReturn("Q");
+                .thenReturn("C 20 4")
+                .thenReturn("R 2 2 10 3")
+                .thenReturn("B 2 2 o")
+                .thenReturn("Q");
 
         // when
         commandLineUI.runApplication();
 
         // then
         assertThat(outputStream.toString()).contains("----------------------" + System.lineSeparator() +
-            "|                    |" + System.lineSeparator() +
-            "| ooooooooo          |" + System.lineSeparator() +
-            "| ooooooooo          |" + System.lineSeparator() +
-            "|                    |" + System.lineSeparator() +
-            "----------------------" + System.lineSeparator());
+                "|                    |" + System.lineSeparator() +
+                "| ooooooooo          |" + System.lineSeparator() +
+                "| ooooooooo          |" + System.lineSeparator() +
+                "|                    |" + System.lineSeparator() +
+                "----------------------" + System.lineSeparator());
     }
 
     @Test
@@ -183,10 +183,10 @@ public class AcceptanceTests {
         // given
         CommandLineUI commandLineUI = new CommandLineUI(scanner);
         when(scanner.nextLine())
-            .thenReturn("C 20 4")
-            .thenReturn("R 2 2 10 3")
-            .thenReturn("C")
-            .thenReturn("Q");
+                .thenReturn("C 20 4")
+                .thenReturn("R 2 2 10 3")
+                .thenReturn("C")
+                .thenReturn("Q");
 
         // when
         commandLineUI.runApplication();
@@ -201,24 +201,24 @@ public class AcceptanceTests {
         // given
         CommandLineUI commandLineUI = new CommandLineUI(scanner);
         when(scanner.nextLine())
-            .thenReturn("C 20 4")
-            .thenReturn("L 1 1 3 1")
-            .thenReturn("L 2 2 4 2")
-            .thenReturn("R 2 2 4 4")
-            .thenReturn("U")
-            .thenReturn("Q");
+                .thenReturn("C 20 4")
+                .thenReturn("L 1 1 3 1")
+                .thenReturn("L 2 2 4 2")
+                .thenReturn("R 2 2 4 4")
+                .thenReturn("U")
+                .thenReturn("Q");
 
         // when
         commandLineUI.runApplication();
 
         // then
         assertThat(outputStream.toString()).contains("Enter command:Q" + System.lineSeparator() +
-            "----------------------" + System.lineSeparator() +
-            "|xxx                 |" + System.lineSeparator() +
-            "| xxx                |" + System.lineSeparator() +
-            "|                    |" + System.lineSeparator() +
-            "|                    |" + System.lineSeparator() +
-            "----------------------" + System.lineSeparator()
+                "----------------------" + System.lineSeparator() +
+                "|xxx                 |" + System.lineSeparator() +
+                "| xxx                |" + System.lineSeparator() +
+                "|                    |" + System.lineSeparator() +
+                "|                    |" + System.lineSeparator() +
+                "----------------------" + System.lineSeparator()
         );
 
     }
@@ -229,31 +229,31 @@ public class AcceptanceTests {
         // given
         CommandLineUI commandLineUI = new CommandLineUI(scanner);
         when(scanner.nextLine())
-            .thenReturn("C 20 4")
-            .thenReturn("L 1 1 3 1")
-            .thenReturn("U")
-            .thenReturn("R")
-            .thenReturn("L 2 2 4 2")
-            .thenReturn("U")
-            .thenReturn("R")
-            .thenReturn("R 2 2 4 4")
-            .thenReturn("U")
-            .thenReturn("U")
-            .thenReturn("R")
-            .thenReturn("R")
-            .thenReturn("Q");
+                .thenReturn("C 20 4")
+                .thenReturn("L 1 1 3 1")
+                .thenReturn("U")
+                .thenReturn("R")
+                .thenReturn("L 2 2 4 2")
+                .thenReturn("U")
+                .thenReturn("R")
+                .thenReturn("R 2 2 4 4")
+                .thenReturn("U")
+                .thenReturn("U")
+                .thenReturn("R")
+                .thenReturn("R")
+                .thenReturn("Q");
 
         // when
         commandLineUI.runApplication();
 
         // then
         assertThat(outputStream.toString()).contains("Enter command:Q" + System.lineSeparator() +
-            "----------------------" + System.lineSeparator() +
-            "|xxx                 |" + System.lineSeparator() +
-            "| xxx                |" + System.lineSeparator() +
-            "| x x                |" + System.lineSeparator() +
-            "| xxx                |" + System.lineSeparator() +
-            "----------------------" + System.lineSeparator()
+                "----------------------" + System.lineSeparator() +
+                "|xxx                 |" + System.lineSeparator() +
+                "| xxx                |" + System.lineSeparator() +
+                "| x x                |" + System.lineSeparator() +
+                "| xxx                |" + System.lineSeparator() +
+                "----------------------" + System.lineSeparator()
         );
 
     }

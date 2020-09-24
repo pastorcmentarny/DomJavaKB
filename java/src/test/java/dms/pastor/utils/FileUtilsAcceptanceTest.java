@@ -30,7 +30,6 @@ public class FileUtilsAcceptanceTest {
     private static final Path PATH = Paths.get(FILE_PATH);
 
 
-
     @Test
     public void savesStringListToFile() throws Exception {
         // given

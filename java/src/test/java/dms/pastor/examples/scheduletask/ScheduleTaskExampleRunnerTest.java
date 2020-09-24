@@ -72,8 +72,8 @@ public class ScheduleTaskExampleRunnerTest {
         // then check task log
         assertThat(allLoggingEvents.get(taskLog).getLevel()).isEqualTo(Level.INFO);
         assertThat(allLoggingEvents.get(taskLog).getFormattedMessage()).endsWith(" running " +
-            name + " at " +
-            LocalDate.now() + ".");
+                name + " at " +
+                LocalDate.now() + ".");
 
         // then check last log
         assertThat(allLoggingEvents.get(lastLog).getLevel()).isEqualTo(Level.DEBUG);

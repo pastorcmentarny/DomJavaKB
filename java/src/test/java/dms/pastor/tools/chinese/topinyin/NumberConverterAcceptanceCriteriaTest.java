@@ -21,16 +21,16 @@ public class NumberConverterAcceptanceCriteriaTest {
     public void shouldConvertTextWithTonesAsNumberIntoPinyin() {
         // given
         final String input = "ma ma(1) ma(2) ma(3) ma(4) " +
-            "le le(1) le(2) le(3) le(4) " +
-            "bo bo(1) bo(2) bo(3) bo(4) " +
-            "yi yi(1) yi(2) yi(3) yi(4) " +
-            "yu yu(1) yu(2) yu(3) yu(4) ";
+                "le le(1) le(2) le(3) le(4) " +
+                "bo bo(1) bo(2) bo(3) bo(4) " +
+                "yi yi(1) yi(2) yi(3) yi(4) " +
+                "yu yu(1) yu(2) yu(3) yu(4) ";
 
         final String expectedResult = "ma mā má mǎ mà " +
-            "le lē lé lě lè " +
-            "bo bō bó bǒ bò " +
-            "yi yī yí yǐ yì " +
-            "yu yū yú yǔ yù";
+                "le lē lé lě lè " +
+                "bo bō bó bǒ bò " +
+                "yi yī yí yǐ yì " +
+                "yu yū yú yǔ yù";
         // when
         final String pinyin = numberConverter.convertToPinyin(input);
 

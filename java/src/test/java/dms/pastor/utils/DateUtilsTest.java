@@ -296,9 +296,9 @@ public class DateUtilsTest {
 
         // then
         assertThat(result.stream()
-            .filter(StringUtils::isStringNotEmpty)
-            .count())
-            .isEqualTo(7);
+                .filter(StringUtils::isStringNotEmpty)
+                .count())
+                .isEqualTo(7);
 
     }
 
@@ -337,7 +337,6 @@ public class DateUtilsTest {
         // then
         assertThat(result).isFalse();
     }
-
 
 
     @Test

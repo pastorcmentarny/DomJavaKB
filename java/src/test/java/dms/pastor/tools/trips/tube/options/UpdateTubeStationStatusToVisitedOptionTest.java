@@ -28,9 +28,9 @@ public class UpdateTubeStationStatusToVisitedOptionTest {
     public void shouldUpdateStationStatusToPassed() {
         // given
         final Stations stations = stationsBuilder()
-            .stationList(singletonList(stationBuilder()
-                .buildNotVisitedStation()))
-            .build();
+                .stationList(singletonList(stationBuilder()
+                        .buildNotVisitedStation()))
+                .build();
         given(scanner.nextLine()).willReturn(stations.getTubeStationList().get(0).getName());
 
         // when

@@ -52,9 +52,9 @@ public class DuplicateRemoverTest {
 
         // given
         final String nonExistingFile = System.getProperty("user.dir") +
-            separator + "src" + separator + "main" +
-            separator + "resources" +
-            separator + "fileThatDoesNotExist.lol";
+                separator + "src" + separator + "main" +
+                separator + "resources" +
+                separator + "fileThatDoesNotExist.lol";
         // when
         duplicateRemover.performTask(nonExistingFile);
 

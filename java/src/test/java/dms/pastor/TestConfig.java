@@ -19,11 +19,11 @@ public final class TestConfig {
     private static final String RESOURCES = "resources" + separator;
     public static final String PATH = SRC + "test" + separator + RESOURCES + separator;
     public static final String BASE_PATH = System.getProperty("user.dir") +
-        separator + SRC + "main" +
-        separator + RESOURCES;
+            separator + SRC + "main" +
+            separator + RESOURCES;
     public static final String TEST_BASE_PATH = System.getProperty("user.dir") +
-        separator + SRC + "test" +
-        separator + RESOURCES;
+            separator + SRC + "test" +
+            separator + RESOURCES;
 
     private TestConfig() {
     }
