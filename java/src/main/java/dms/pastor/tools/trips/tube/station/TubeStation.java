@@ -146,16 +146,12 @@ public class TubeStation {//implements Station {
     }
 
     private String getDateToDisplay() {
-        switch (status) {
-            case VISITED:
-                return " at " + getVisitedDate();
-            case PASSED:
-                return " at " + getPassedDate();
-            case NOT_VISITED:
-                return EMPTY_STRING;
-            default:
-                throw new NotImplementYetException();
-        }
+        return switch (status) {
+            case VISITED -> " at " + getVisitedDate();
+            case PASSED -> " at " + getPassedDate();
+            case NOT_VISITED -> EMPTY_STRING;
+            default -> throw new NotImplementYetException();
+        };
     }
 
     public void clearVisitedThisYear() {

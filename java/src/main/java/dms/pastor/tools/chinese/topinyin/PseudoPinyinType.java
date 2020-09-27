@@ -42,15 +42,12 @@ public enum PseudoPinyinType {
         return ToStringUtils.toString(types);
     }
 
+    @SuppressWarnings("UnnecessaryDefault") //default is for new, not supported Converter
     public static Converter getConverterFor(String converterName) {
-        switch (PseudoPinyinType.valueOf(converterName.toUpperCase())) {
-            case NUMBER:
-                return new NumberConverter();
-            case CHARACTER:
-                throw new NotImplementYetException();
-            default:
-                throw new SomethingWentWrongException("There is no converter for " + converterName);
-
-        }
+        return switch (PseudoPinyinType.valueOf(converterName.toUpperCase())) {
+            case NUMBER -> new NumberConverter();
+            case CHARACTER -> throw new NotImplementYetException();
+            default -> throw new SomethingWentWrongException("There is no converter for " + converterName);
+        };
     }
 }

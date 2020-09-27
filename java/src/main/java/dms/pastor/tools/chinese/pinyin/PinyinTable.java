@@ -47,20 +47,14 @@ public enum PinyinTable {
     }
 
     private static String getPinyinCharacterFor(PinyinTable value, int tone) {
-        switch (tone) {
-            case 0:
-                return value.getNeutralTone();
-            case 1:
-                return value.getFirstTone();
-            case 2:
-                return value.getSecondTone();
-            case 3:
-                return value.getThirdTone();
-            case 4:
-                return value.getFourthTone();
-            default:
-                throw new IllegalArgumentException("Wrong tone. There are only 4 tones in mandarin(and no tone)");
-        }
+        return switch (tone) {
+            case 0 -> value.getNeutralTone();
+            case 1 -> value.getFirstTone();
+            case 2 -> value.getSecondTone();
+            case 3 -> value.getThirdTone();
+            case 4 -> value.getFourthTone();
+            default -> throw new IllegalArgumentException("Wrong tone. There are only 4 tones in mandarin(and no tone)");
+        };
     }
 
     private String getNeutralTone() {

@@ -35,16 +35,12 @@ class RomanArabicConverter {
         if (i + 1 >= romanNumber.length) {
             return false;
         }
-        switch (romanNumber[i]) {
-            case 'I':
-                return romanNumber[i + 1] != 'I';
-            case 'X':
-                return (romanNumber[i + 1] == 'L' || romanNumber[i + 1] == 'C' || romanNumber[i + 1] == 'D');
-            case 'C':
-                return romanNumber[i + 1] == 'D' || romanNumber[i + 1] == 'M';
-            default:
-                return false;
-        }
+        return switch (romanNumber[i]) {
+            case 'I' -> romanNumber[i + 1] != 'I';
+            case 'X' -> (romanNumber[i + 1] == 'L' || romanNumber[i + 1] == 'C' || romanNumber[i + 1] == 'D');
+            case 'C' -> romanNumber[i + 1] == 'D' || romanNumber[i + 1] == 'M';
+            default -> false;
+        };
     }
 
     String convertArabicToRoman(int number) {

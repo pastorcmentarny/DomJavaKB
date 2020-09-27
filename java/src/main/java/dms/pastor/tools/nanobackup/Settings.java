@@ -60,14 +60,11 @@ public final class Settings {
     }
 
     public static Dimension getDimensionFor(String what) {
-        switch (what) {
-            case "MESSAGE_HISTORY_DIMENSION":
-                return MESSAGE_HISTORY_DIMENSION;
-            case "backupGui":
-                return BACKUP_GUI_DIMENSION;
-            default:
-                return NO_DIMENSION;
-        }
+        return switch (what) {
+            case "MESSAGE_HISTORY_DIMENSION" -> MESSAGE_HISTORY_DIMENSION;
+            case "backupGui" -> BACKUP_GUI_DIMENSION;
+            default -> NO_DIMENSION;
+        };
     }
 
     public static synchronized Settings getSettings() {
@@ -517,14 +514,11 @@ public final class Settings {
 
     public int getPriorityForBackup() {
 
-        switch (cpuPriority) {
-            case 0:
-                return Thread.MIN_PRIORITY;
-            case 2:
-                return Thread.MAX_PRIORITY;
-            default:
-                return Thread.NORM_PRIORITY;
-        }
+        return switch (cpuPriority) {
+            case 0 -> Thread.MIN_PRIORITY;
+            case 2 -> Thread.MAX_PRIORITY;
+            default -> Thread.NORM_PRIORITY;
+        };
     }
 
     private void setDefaultCpuPriority() {

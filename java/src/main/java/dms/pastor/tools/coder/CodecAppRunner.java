@@ -22,18 +22,9 @@ final class CodecAppRunner {
         validateInput(args);
         final String content = loadSourceFile();
         switch (args[0]) {
-            case "e":
-            case "E":
-            case "encode":
-                System.out.println(new DomEncoder(content).encode());
-                break;
-            case "d":
-            case "D":
-            case "decode":
-                System.out.println(new DomDecoder(content).decode());
-                break;
-            default:
-                throw new SomethingWentTerribleWrongError("What you want ?");
+            case "e", "E", "encode" -> System.out.println(new DomEncoder(content).encode());
+            case "d", "D", "decode" -> System.out.println(new DomDecoder(content).decode());
+            default -> throw new SomethingWentTerribleWrongError("What you want ?");
         }
     }
 

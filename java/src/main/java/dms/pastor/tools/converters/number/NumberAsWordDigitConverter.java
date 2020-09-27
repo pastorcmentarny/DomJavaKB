@@ -43,77 +43,49 @@ final class NumberAsWordDigitConverter {
 
     @SuppressWarnings("MagicNumber")
     private static Integer getIntegerInRangeFrom11To19(String partOfNumber) {
-        switch (partOfNumber) {
-            case "ten":
-                return 10;
-            case "eleven":
-                return 11;
-            case "twelve":
-                return 12;
-            case "thirteen":
-                return 13;
-            case "fourteen":
-                return 14;
-            case "fifteen":
-                return 15;
-            case "sixteen":
-                return 16;
-            case "seventeen":
-                return 17;
-            case "eighteen":
-                return 18;
-            case "nineteen":
-                return 19;
-        }
-        return null;
+        return switch (partOfNumber) {
+            case "ten" -> 10;
+            case "eleven" -> 11;
+            case "twelve" -> 12;
+            case "thirteen" -> 13;
+            case "fourteen" -> 14;
+            case "fifteen" -> 15;
+            case "sixteen" -> 16;
+            case "seventeen" -> 17;
+            case "eighteen" -> 18;
+            case "nineteen" -> 19;
+            default -> null;
+        };
     }
 
     @SuppressWarnings("MagicNumber")
     private static Integer getTensOfNumber(String partOfNumber) {
-        switch (partOfNumber) {
-            case "twenty":
-                return 20;
-            case "thirty":
-                return 30;
-            case "forty":
-                return 40;
-            case "fifty":
-                return 50;
-            case "sixty":
-                return 60;
-            case "seventy":
-                return 70;
-            case "eighty":
-                return 80;
-            case "ninety":
-                return 90;
-        }
-        return null;
+        return switch (partOfNumber) {
+            case "twenty" -> 20;
+            case "thirty" -> 30;
+            case "forty" -> 40;
+            case "fifty" -> 50;
+            case "sixty" -> 60;
+            case "seventy" -> 70;
+            case "eighty" -> 80;
+            case "ninety" -> 90;
+            default -> null;
+        };
     }
 
     private static Integer getIntegerInRange0To9(String partOfNumber) {
-        switch (partOfNumber) {
-            case "one":
-                return 1;
-            case "two":
-                return 2;
-            case "three":
-                return 3;
-            case "four":
-                return 4;
-            case "five":
-                return 5;
-            case "six":
-                return 6;
-            case "seven":
-                return 7;
-            case "eight":
-                return 8;
-            case "nine":
-                return 9;
-            case "zero":
-                return 0;
-        }
-        return null;
+        return switch (partOfNumber) {
+            case "one" -> 1;
+            case "two" -> 2;
+            case "three" -> 3;
+            case "four" -> 4;
+            case "five" -> 5;
+            case "six" -> 6;
+            case "seven" -> 7;
+            case "eight" -> 8;
+            case "nine" -> 9;
+            case "zero" -> 0;
+            default -> null;
+        };
     }
 }

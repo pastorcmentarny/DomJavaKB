@@ -41,14 +41,9 @@ public class StationUpdater {
 
     private static void setStationStatus(Stations stations, Action action, TubeStation tubeStation) {
         switch (action) {
-            case PASSED:
-                stations.setPassedFor(tubeStation);
-                break;
-            case VISITED:
-                stations.setVisitedFor(tubeStation);
-                break;
-            default:
-                throw new NotImplementYetException(action.name().toLowerCase());
+            case PASSED -> stations.setPassedFor(tubeStation);
+            case VISITED -> stations.setVisitedFor(tubeStation);
+            default -> throw new NotImplementYetException(action.name().toLowerCase());
         }
     }
 
