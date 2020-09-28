@@ -23,7 +23,7 @@ public class SalaryApp {
     }
 
     private void generateReport() {
-        System.out.println(String.format("For this role I expect to earn: %d pounds.", new Calculator(vacancy).calculateSalary()));
+        System.out.printf("For this role I expect to earn: %d pounds.%n", new Calculator(vacancy).calculateSalary());
         System.out.println(getResultForRole());
     }
 

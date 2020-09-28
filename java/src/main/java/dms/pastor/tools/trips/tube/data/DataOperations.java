@@ -25,7 +25,7 @@ import java.util.Objects;
 public final class DataOperations {
     private static final Logger LOGGER = LoggerFactory.getLogger(DataOperations.class);
 
-    public static Path STATION_PATH;
+    public static final Path STATION_PATH;
 
     static {
         final URL resource = DataOperations.class.getClassLoader().getResource("transport/tube/station.txt");

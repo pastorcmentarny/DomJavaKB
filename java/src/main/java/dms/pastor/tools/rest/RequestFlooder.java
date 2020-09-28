@@ -30,7 +30,7 @@ public class RequestFlooder {
                         con.getResponseCode();
                     }
                     long stop = System.currentTimeMillis();
-                    System.out.println(String.format("No. %d .It took %d milliseconds", counter, (stop - start)));
+                    System.out.printf("No. %d .It took %d milliseconds%n", counter, (stop - start));
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }

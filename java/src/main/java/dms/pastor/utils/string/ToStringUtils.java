@@ -48,7 +48,7 @@ public final class ToStringUtils {
     public static String toString(List<String> stringList) {
         final StringBuilder stringBuilder = new StringBuilder(EMPTY_STRING);
         stringList.forEach(addToStringBuilder(stringBuilder));
-        return stringBuilder.toString().substring(0, stringBuilder.length() - 1);
+        return stringBuilder.substring(0, stringBuilder.length() - 1);
     }
 
 }

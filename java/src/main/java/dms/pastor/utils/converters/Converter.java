@@ -10,5 +10,5 @@ package dms.pastor.utils.converters;
  */
 @FunctionalInterface
 public interface Converter<F, T> {
-        T convert(F from);
+    T convert(F from);
 }

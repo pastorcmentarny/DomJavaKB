@@ -18,14 +18,22 @@ import lombok.Builder.Default;
 @Getter
 @Builder
 public class Vacancy {
-    @Default private int salary = 60000;
-    @Default private boolean inZone1 = true;
-    @Default private boolean hatedStation = true;
-    @Default private int annualLeaveDays = 25;
-    @Default private int timeTravel = 45;
-    @Default private boolean wfh = false;
-    @Default private double hours = 37.5;
-    @Default private int optionToBuyExtraDays = 0;
+    @Default
+    private int salary = 60000;
+    @Default
+    private boolean inZone1 = true;
+    @Default
+    private boolean hatedStation = true;
+    @Default
+    private int annualLeaveDays = 25;
+    @Default
+    private int timeTravel = 45;
+    @Default
+    private boolean wfh = false;
+    @Default
+    private double hours = 37.5;
+    @Default
+    private int optionToBuyExtraDays = 0;
 
 
     public static Vacancy getTypicalVacancy() {

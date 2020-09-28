@@ -37,13 +37,13 @@ public class DoubleWayLinkedList<Type> {
     Non-empty list: Traverse the list until the end. Make the last-node.next point the new node. Remember to update the previous pointer for the inserted node!
      */
     public void addTail(Type element) {
-        if(isEmpty()){
+        if (isEmpty()) {
             head = new ListNode<Type>(element);
         } else {
             ListNode<Type> temp = head;
             //traverse until end of the list
-            while(Objects.nonNull(temp.nextNode)){
-               temp = temp.nextNode;
+            while (Objects.nonNull(temp.nextNode)) {
+                temp = temp.nextNode;
             }
             temp.nextNode = new ListNode<Type>(element);
         }
@@ -64,11 +64,11 @@ public class DoubleWayLinkedList<Type> {
             throwNotFoundException(currentElement); //test it
         }
 
-        ListNode<Type> newNode = new ListNode<Type>(newElement, current.previousNode,current);
+        ListNode<Type> newNode = new ListNode<Type>(newElement, current.previousNode, current);
 
-        if(Objects.isNull(current.previousNode)) {
+        if (Objects.isNull(current.previousNode)) {
             current.previousNode.nextNode = newNode;
-        } else  {
+        } else {
             head = newNode;
         }
         current.previousNode = newNode;
@@ -97,7 +97,7 @@ public class DoubleWayLinkedList<Type> {
 
 
     private void throwExceptionIfEmpty(Type element) {
-        if(isEmpty()){
+        if (isEmpty()) {
             throwNotFoundException(element);
         }
     }
