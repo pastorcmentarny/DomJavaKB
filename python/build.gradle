@@ -4,15 +4,7 @@ buildscript {
     }
 }
 
-
 plugins {
     id 'idea'
-    id "java-library"
-}
-
-idea {
-    module {
-        sourceDirs += file('src')
-        testSourceDirs += file('test')
-    }
+    id "ru.vyarus.use-python" version "2.2.0"
 }

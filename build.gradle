@@ -1,7 +1,5 @@
-import org.codehaus.groovy.runtime.GStringImpl
-
 project.ext {
-    gradleDir = "${project(':').rootDir}/gradle" as GStringImpl
+    gradleDir = "${project(':').rootDir}/gradle"
 }
 apply plugin: 'java'
 apply plugin: 'org.owasp.dependencycheck'
