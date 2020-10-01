@@ -6,6 +6,7 @@ import dms.pastor.spring.examples.eventsonstartup.CustomApplicationPreparedEvent
 import dms.pastor.spring.examples.eventsonstartup.CustomApplicationReadyEventListener;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.cache.annotation.EnableCaching;
 
 /**
  * Author Dominik Symonowicz
@@ -16,6 +17,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 @SpringBootApplication
+@EnableCaching
 public class ApplicationRunner {
     public static void main(String[] args) {
 
