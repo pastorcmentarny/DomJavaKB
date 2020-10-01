@@ -1,6 +1,7 @@
 package dms.pastor.examples;
 
 //LOL, this is a valid code in Java :D
+@SuppressWarnings("MethodNameSameAsClassName")
 public class $ {
     public static String $() {
         return "$";

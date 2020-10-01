@@ -23,10 +23,10 @@ public class DoubleWayLinkedList<Type> {
 
     public void addHead(Type element) {
         if (isEmpty()) {
-            head = new ListNode<Type>(element);
+            head = new ListNode<>(element);
         } else {
             ListNode<Type> temp = head;
-            head = new ListNode<Type>(element, null, temp);
+            head = new ListNode<>(element, null, temp);
             head.nextNode.previousNode = head; //TODO set method for that
         }
         size++;
@@ -38,14 +38,14 @@ public class DoubleWayLinkedList<Type> {
      */
     public void addTail(Type element) {
         if (isEmpty()) {
-            head = new ListNode<Type>(element);
+            head = new ListNode<>(element);
         } else {
             ListNode<Type> temp = head;
             //traverse until end of the list
             while (Objects.nonNull(temp.nextNode)) {
                 temp = temp.nextNode;
             }
-            temp.nextNode = new ListNode<Type>(element);
+            temp.nextNode = new ListNode<>(element);
         }
         size++;
     }
@@ -64,7 +64,7 @@ public class DoubleWayLinkedList<Type> {
             throwNotFoundException(currentElement); //test it
         }
 
-        ListNode<Type> newNode = new ListNode<Type>(newElement, current.previousNode, current);
+        ListNode<Type> newNode = new ListNode<>(newElement, current.previousNode, current);
 
         if (Objects.isNull(current.previousNode)) {
             current.previousNode.nextNode = newNode;
