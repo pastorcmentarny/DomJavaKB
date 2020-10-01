@@ -5,9 +5,9 @@ import dms.pastor.spring.tools.vocabulizator.DefinitionSearchController;
 import dms.pastor.spring.tools.vocabulizator.model.Definition;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.ResponseEntity;
 
 import static dms.pastor.spring.tools.vocabulizator.model.DefinitionBuilder.definitionBuilder;
@@ -22,7 +22,7 @@ import static org.springframework.http.HttpStatus.OK;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class DefinitionSearchControllerTest {
 
     @Mock
