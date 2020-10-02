@@ -1,6 +1,6 @@
 package dms.pastor.utils;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -8,7 +8,7 @@ public class ObjectUtilsTest {
 
     @SuppressWarnings({"ConstantConditions", "ConfusingArgumentToVarargsMethod"})
     @Test
-    public void shouldReturnFalseIfYouPassNullToareAllObjectsNull() {
+    public void shouldReturnFalseIfYouPassNullToAllObjectsNull() {
         // when
         final boolean result = ObjectUtils.areAllObjectsNull(null);
 

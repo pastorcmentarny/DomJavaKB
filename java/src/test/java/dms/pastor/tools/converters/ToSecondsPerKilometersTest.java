@@ -1,12 +1,12 @@
 package dms.pastor.tools.converters;
 
 
-import dms.pastor.tools.converters.ToSecondsPerKilometers;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import static org.assertj.core.api.Java6Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 public class ToSecondsPerKilometersTest {
 

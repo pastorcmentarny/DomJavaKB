@@ -11,7 +11,7 @@ import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.file.TextFileUtils.saveListToFile;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static java.io.File.separator;
-import static org.assertj.core.api.Java6Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Author Dominik Symonowicz

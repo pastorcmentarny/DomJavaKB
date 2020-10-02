@@ -2,8 +2,8 @@ package dms.pastor.tasks.sunspotanalyser.data;
 
 import org.junit.Assert;
 import org.junit.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import static org.assertj.core.api.Java6Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 
 public class AnalyserTest {
