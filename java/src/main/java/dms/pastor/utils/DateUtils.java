@@ -73,9 +73,6 @@ public final class DateUtils {
         return thisMonth.name().toLowerCase().startsWith(month.toLowerCase());
     }
 
-    static LocalDate toJavaDate(org.joda.time.LocalDate jodaDate) {
-        return LocalDate.of(jodaDate.getYear(), jodaDate.getMonthOfYear(), jodaDate.getDayOfMonth());
-    }
 
     static long getDayOfTheYearFor(LocalDate localDate) {
         validateIfObjectValueIsNotNull(localDate, "Date");

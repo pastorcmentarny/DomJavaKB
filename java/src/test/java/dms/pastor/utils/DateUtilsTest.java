@@ -1,6 +1,5 @@
 package dms.pastor.utils;
 
-import org.joda.time.LocalDate;
 import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
@@ -66,18 +65,6 @@ public class DateUtilsTest {
         assertThat(monthNumber).isEqualTo(1);
     }
 
-    @Test
-    public void shouldConvertJodaDateToJava8Date() {
-        // given
-        final String date = "2016-11-30";
-        org.joda.time.LocalDate jodaDate = LocalDate.parse(date);
-
-        // when
-        java.time.LocalDate java8Date = DateUtils.toJavaDate(jodaDate);
-
-        // then
-        assertThat(java8Date.toString()).isEqualTo(date);
-    }
 
     @SuppressWarnings("UseOfObsoleteDateTimeApi")
     @Test
