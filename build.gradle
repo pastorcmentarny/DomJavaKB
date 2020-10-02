@@ -1,8 +1,7 @@
 project.ext {
     gradleDir = "${project(':').rootDir}/gradle"
 }
-apply plugin: 'java'
-apply plugin: 'org.owasp.dependencycheck'
+
 apply from: "$gradleDir/tasks.gradle/"
 //apply from: "$gradleDir/wrapper.gradle/"
 
@@ -15,13 +14,7 @@ buildscript {
     }
 }
 
-compileJava {
-    sourceCompatibility = JavaVersion.VERSION_1_10
-    targetCompatibility = JavaVersion.VERSION_1_10
-    options.encoding = 'UTF-8' //to ensure that I always use UTF-8 in project
-}
 
-compileTestJava.options.encoding = 'UTF-8'
 
 
 allprojects {
