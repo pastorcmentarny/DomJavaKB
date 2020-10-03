@@ -125,9 +125,9 @@ public final class StringUtils {
     }
 
     /*
-        A panagram is a holoalphabetic sentence for a given ALPHABET is a sentence using every letter of the ALPHABET at least once.
+        A pangram is a holoalphabetic sentence for a given ALPHABET is a sentence using every letter of the ALPHABET at least once.
      */
-    static boolean isPangrams(String sentence) {
+    static boolean isPangram(String sentence) {
         Map<Character, Integer> alphabet = StringUtils.getAlphabetAsMap();
         var sentenceAsCharArray = sentence.toLowerCase().toCharArray();
 
@@ -136,10 +136,10 @@ public final class StringUtils {
                 alphabet.put(character, increaseCountByOne(alphabet, character));
             }
         }
-        return isAPangrams(alphabet);
+        return isPangram(alphabet);
     }
 
-    private static boolean isAPangrams(Map<Character, Integer> alphabet) {
+    private static boolean isPangram(Map<Character, Integer> alphabet) {
         Iterator<Map.Entry<Character, Integer>> it = alphabet.entrySet().iterator();
         Map.Entry<Character, Integer> pair;
         while (it.hasNext()) {

@@ -24,12 +24,12 @@ public final class ToStringUtils {
         if (values.length == 0) {
             return EMPTY_STRING;
         }
-        StringBuilder sb = new StringBuilder("[ ");
+        StringBuilder stringBuilder = new StringBuilder("[ ");
         for (int value : values) {
-            sb.append(value).append(delimiter);
+            stringBuilder.append(value).append(delimiter);
         }
-        sb.append(']');
-        return sb.toString();
+        stringBuilder.append(']');
+        return stringBuilder.toString();
     }
 
     public static String toString(LinkedHashSet<String> lines) {

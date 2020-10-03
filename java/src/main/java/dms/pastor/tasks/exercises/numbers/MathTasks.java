@@ -29,6 +29,6 @@ class MathTasks {
     }
 
     int findMissingNumberInArrayWithoutDuplicates(int[] all, int[] almostAll) {
-        return NumberUtils.calcTotal(all) - NumberUtils.calcTotal(almostAll);
+        return NumberUtils.calculateTotal(all) - NumberUtils.calculateTotal(almostAll);
     }
 }

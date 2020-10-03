@@ -60,7 +60,7 @@ public final class ValidatorUtils {
         try (OutputStream sink = new ByteArrayOutputStream();
              ObjectOutputStream stream = new ObjectOutputStream(sink)) {
             stream.writeObject(object);
-        } catch (Exception e) {
+        } catch (Exception exception) {
             return false;
         }
         return true;

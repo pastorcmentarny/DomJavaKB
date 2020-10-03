@@ -141,7 +141,7 @@ public class StringUtilsTest {
         final String panagram = "The quick brown fox jumps over the lazy dog";
 
         // when
-        final boolean result = isPangrams(panagram);
+        final boolean result = isPangram(panagram);
 
         // then
         assertThat(result).isTrue();
@@ -153,7 +153,7 @@ public class StringUtilsTest {
         String notPanagram = "We promptly judged antique ivory buckles for the prize";
 
         // when
-        final boolean result = isPangrams(notPanagram);
+        final boolean result = isPangram(notPanagram);
 
         // then
         assertThat(result).isFalse();

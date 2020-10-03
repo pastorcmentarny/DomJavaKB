@@ -18,12 +18,12 @@ public interface ToUncheckedExceptionTransformer<T, R, E extends Throwable> {
     Logger LOGGER = LoggerFactory.getLogger(ToUncheckedExceptionTransformer.class);
 
     static <T, R, E extends Throwable> Function<T, R> transformToUncheckedException(ToUncheckedExceptionTransformer<T, R, E> function) {
-        return t -> {
+        return exception -> {
             try {
-                return function.apply(t);
-            } catch (Throwable exception) {
-                LOGGER.error(exception.getMessage());
-                throw new RuntimeException(exception);
+                return function.apply(exception);
+            } catch (Throwable throwable) {
+                LOGGER.error(throwable.getMessage());
+                throw new RuntimeException(throwable);
             }
         };
     }

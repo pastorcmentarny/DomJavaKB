@@ -9,7 +9,6 @@ package dms.pastor.utils.functionalinterfaces;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  * From one type To other
  */
-//TODO add example
 @FunctionalInterface
 public interface Converter<F, T> {
     T convert(F from);

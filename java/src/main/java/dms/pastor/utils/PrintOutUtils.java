@@ -62,10 +62,10 @@ public final class PrintOutUtils {
     public static void displayOddNumbers(int min, int max) {
         validateMinValueIsSmallerThanMaxValue(min, max);
 
-        for (int i = min; i <= max; i++) {
+        for (int value = min; value <= max; value++) {
             String text;
-            if (i % 2 != 0) {
-                text = valueOf(i) + WHITESPACE_CHAR;
+            if (value % 2 != 0) {
+                text = valueOf(value) + WHITESPACE_CHAR;
                 out.print(text);
             }
         }

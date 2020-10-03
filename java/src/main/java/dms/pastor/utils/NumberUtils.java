@@ -36,7 +36,7 @@ public final class NumberUtils {
         }
     }
 
-    public static int calcTotal(int[] numbers) {
+    public static int calculateTotal(int[] numbers) {
         var total = 0;
         for (int number : numbers) {
             total += number;
@@ -105,8 +105,8 @@ public final class NumberUtils {
             return false;
         }
 
-        for (int i = 3; i < number; i += 2) {
-            if (number % i == 0) {
+        for (int value = 3; value < number; value += 2) {
+            if (number % value == 0) {
                 return false;
             }
         }

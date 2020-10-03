@@ -20,25 +20,25 @@ final class HashTools {
     @SuppressWarnings("QuestionableName") // because string is valid name
     static HashSet<Character> stringToCharacterSet(String string) {
         ValidatorUtils.validateIfNotEmpty(string);
-        char[] chars = string.toCharArray();
+        char[] characters = string.toCharArray();
         HashSet<Character> charsSet = new HashSet<>();
-        for (char ch : chars) {
-            charsSet.add(ch);
+        for (char character : characters) {
+            charsSet.add(character);
         }
         return charsSet;
     }
 
     static HashMap<Character, Integer> stringToCharacterMap(String aString) {
-        char[] chars = aString.toCharArray();
+        char[] characters = aString.toCharArray();
         HashMap<Character, Integer> charHashMap = new HashMap<>();
         Integer counter;
-        for (char ch : chars) {
-            if (charHashMap.containsKey(ch)) {
-                counter = charHashMap.get(ch);
+        for (char character : characters) {
+            if (charHashMap.containsKey(character)) {
+                counter = charHashMap.get(character);
                 counter += 1;
-                charHashMap.put(ch, counter);
+                charHashMap.put(character, counter);
             } else {
-                charHashMap.put(ch, 1);
+                charHashMap.put(character, 1);
             }
         }
         return charHashMap;

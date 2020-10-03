@@ -47,12 +47,12 @@ public final class ArrayUtils {
             return null;
         }
 
-        for (int i = FIRST_ELEMENT; i < stringArray.length / 2; i++) {
-            final int oppositeElement = stringArray.length - 1 - i;
+        for (int element = FIRST_ELEMENT; element < stringArray.length / 2; element++) {
+            final int oppositeElement = stringArray.length - 1 - element;
 
             String temp = stringArray[oppositeElement];
-            stringArray[oppositeElement] = stringArray[i];
-            stringArray[i] = temp;
+            stringArray[oppositeElement] = stringArray[element];
+            stringArray[element] = temp;
         }
         return stringArray;
     }
