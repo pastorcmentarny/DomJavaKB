@@ -1,11 +1,10 @@
 package dms.pastor.prototypes.xp;
 
-import org.junit.Rule;
 import org.junit.jupiter.api.Test;
-import org.junit.rules.ExpectedException;
 
 import static dms.pastor.prototypes.xp.LearnerType.*;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /*
     Rules:
@@ -14,17 +13,17 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class XPUtilsTest {
 
-    @Rule
-    public ExpectedException expectedException = ExpectedException.none();
 
     @Test
     public void shouldThrowIllegalArgumentExceptionForNegativeNumber() {
-        // expect
-        expectedException.expect(IllegalArgumentException.class);
         // given
         int totalKills = -1;
-        // when
-        XPUtils.getXPForKill(totalKills);
+
+        // expect
+        assertThrows(IllegalArgumentException.class, () ->
+                // when
+                XPUtils.getXPForKill(totalKills)
+        );
 
     }
 
@@ -171,32 +170,35 @@ public class XPUtilsTest {
 
     @Test
     public void calculateXPNeededForShouldThrowExceptionIfLevelIsNegative() {
-        // expect
-        expectedException.expect(IllegalArgumentException.class);
         // given
         int level = -1;
-        // when
-        XPUtils.calculateXPNeededFor(level, AVERAGE_LEARNER);
+
+        // expect
+        assertThrows(IllegalArgumentException.class, () ->
+                // when
+                XPUtils.calculateXPNeededFor(level, AVERAGE_LEARNER));
     }
 
     @Test
     public void calculateXPNeededForShouldThrowExceptionIfLevelIsZero() {
-        // expect
-        expectedException.expect(IllegalArgumentException.class);
         // given
         int level = 0;
-        // when
-        XPUtils.calculateXPNeededFor(level, LearnerType.SLOW_LEARNER);
+
+        // expect
+        assertThrows(IllegalArgumentException.class, () ->
+                // when
+                XPUtils.calculateXPNeededFor(level, AVERAGE_LEARNER));
     }
 
     @Test
     public void calculateXPNeededForShouldThrowExceptionIfLearnerTypeIsNull() {
-        // expect
-        expectedException.expect(IllegalArgumentException.class);
         // given
         int level = 1;
-        // when
-        XPUtils.calculateXPNeededFor(level, null);
+
+        // expect
+        assertThrows(IllegalArgumentException.class, () ->
+                // when
+                XPUtils.calculateXPNeededFor(level, null));
     }
 
 

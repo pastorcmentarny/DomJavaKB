@@ -1,12 +1,11 @@
 package dms.pastor.prototypes.dcs.conditions;
 
 import dms.pastor.domain.exception.SomethingWentWrongException;
+import dms.pastor.prototypes.xp.XPUtils;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.Rule;
 import org.junit.jupiter.api.Test;
-import org.junit.rules.ExpectedException;
 
 import java.util.Set;
 
@@ -17,6 +16,7 @@ import static dms.pastor.prototypes.dcs.conditions.ConditionEntry.*;
 import static dms.pastor.prototypes.dcs.conditions.ConditionType.*;
 import static dms.pastor.prototypes.dcs.conditions.ElementType.AIR;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Author Dominik Symonowicz
@@ -28,9 +28,6 @@ import static org.assertj.core.api.Assertions.assertThat;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class ConditionTest {
-
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     private final ConditionEntry temporaryConditionEntry = ConditionEntryBuilder.conditionEntryBuilder()
             .condition(STUNNED)
@@ -51,10 +48,10 @@ public class ConditionTest {
     @Test
     public void addShouldThrowSomethingWentWrongExceptionIfConditionEntryIsNull() {
         // expect
-        exception.expect(SomethingWentWrongException.class);
-
-        // when
-        conditions.add(null);
+        assertThrows(SomethingWentWrongException.class, () ->
+                // when
+                conditions.add(null)
+        );
     }
 
     @Test

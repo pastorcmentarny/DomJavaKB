@@ -3,9 +3,7 @@ package dms.pastor.prototypes.dcs.spells;
 import dms.pastor.prototypes.dcs.units.Unit;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.Rule;
 import org.junit.jupiter.api.Test;
-import org.junit.rules.ExpectedException;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -29,9 +27,6 @@ public class AsteroidStormSpellTest {
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private final PrintStream original = System.out;
     private final AsteroidStormSpell asteroidStormSpell = new AsteroidStormSpell();
-
-    @Rule
-    public ExpectedException exception = ExpectedException.none();
 
     @BeforeEach
     public void setUp() {

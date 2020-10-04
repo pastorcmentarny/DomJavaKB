@@ -1,13 +1,13 @@
 package dms.pastor.rpg.game.characteristics;
 
+import dms.pastor.prototypes.xp.XPUtils;
 import dms.pastor.rpg.game.units.RaceBasicStatsBuilder;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.Rule;
 import org.junit.jupiter.api.Test;
-import org.junit.rules.ExpectedException;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Author Dominik Symonowicz
@@ -21,9 +21,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class StatsTest {
     private Stats stats;
 
-    @Rule
-    public ExpectedException exception = ExpectedException.none();
-
     @BeforeEach
     public void setup() {
         stats = RaceBasicStatsBuilder.humanBuilder();
@@ -36,15 +33,15 @@ public class StatsTest {
 
     @Test
     public void addToDmgShouldTNotChangeMinDamageForMaxDamageForExtensionBelowZero() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-
         // given
         int dmg = 3;
         int range = -1;
 
-        // when
-        stats.addToDmg(dmg, range);
+        // expect
+        assertThrows(IllegalArgumentException.class, () ->
+                // when
+                stats.addToDmg(dmg, range)
+        );
 
         // debug
         System.out.println(stats.toString());

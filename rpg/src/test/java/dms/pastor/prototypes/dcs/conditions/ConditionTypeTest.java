@@ -1,13 +1,13 @@
 package dms.pastor.prototypes.dcs.conditions;
 
 import dms.pastor.domain.exception.SomethingWentWrongException;
-import org.junit.Rule;
+import dms.pastor.prototypes.xp.XPUtils;
 import org.junit.jupiter.api.Test;
-import org.junit.rules.ExpectedException;
 
 import static dms.pastor.prototypes.dcs.conditions.ConditionType.FIRE_RESISTANT;
 import static dms.pastor.prototypes.dcs.conditions.ConditionType.FROZEN;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Author Dominik Symonowicz
@@ -20,17 +20,14 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class ConditionTypeTest {
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
-
     @Test
     public void getTextShouldThrowSomethingWentWrongExceptionIfConditionTypeIsNull() {
-
         // expect
-        exception.expect(SomethingWentWrongException.class);
+        assertThrows(SomethingWentWrongException.class, () ->
+                // when
+                ConditionType.getText(null)
+        );
 
-        // when
-        ConditionType.getText(null);
     }
 
     @Test
