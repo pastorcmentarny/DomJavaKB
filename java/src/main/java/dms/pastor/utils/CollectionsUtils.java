@@ -31,7 +31,7 @@ public final class CollectionsUtils {
         return (array == null || array.length == 0);
     }
 
-    public static boolean isListNotEmpty(List list) {
+    public static boolean isListNotEmpty(List<Object> list) {
         return list != null && !list.isEmpty();
     }
 

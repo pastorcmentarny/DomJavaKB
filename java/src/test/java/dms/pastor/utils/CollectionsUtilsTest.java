@@ -6,14 +6,11 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static dms.pastor.TestConfig.MAX_RANDOM_SIZE;
 import static dms.pastor.utils.CollectionsUtils.*;
 import static dms.pastor.utils.StringUtils.isStringBlank;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateArray;
-import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static java.util.Collections.emptyList;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
@@ -110,7 +107,7 @@ public class CollectionsUtilsTest {
         final List<String> stringList = Arrays.asList("Dom", "is", "hungry");
 
         // when
-        final boolean result = isListNotEmpty(stringList);
+        final boolean result = isListNotEmpty(Collections.singletonList(stringList));
 
         // then
         assertThat(result).isTrue();
