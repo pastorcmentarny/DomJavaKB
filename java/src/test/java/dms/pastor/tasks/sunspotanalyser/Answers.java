@@ -4,8 +4,7 @@ import dms.pastor.tasks.sunspotanalyser.data.Analyser;
 import dms.pastor.tasks.sunspotanalyser.data.Grid;
 import dms.pastor.tasks.sunspotanalyser.data.InputParser;
 import org.junit.Test;
-
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Assertions;
 
 public class Answers {
 
@@ -17,7 +16,7 @@ public class Answers {
         Analyser analyser = new Analyser(grid);
         analyser.analyse();
         String expResult = "(3,3 score:26)";
-        assertEquals(expResult, analyser.getResults(parser.getResultsNo()));
+        Assertions.assertEquals(expResult, analyser.getResults(parser.getResultsNo()));
     }
 
     @Test
@@ -28,7 +27,7 @@ public class Answers {
         Analyser analyser = new Analyser(grid);
         analyser.analyse();
         String expResult = "(1,2 score:27)(1,1 score:25)(2,2 score:23)";
-        assertEquals(expResult, analyser.getResults(parser.getResultsNo()));
+        Assertions.assertEquals(expResult, analyser.getResults(parser.getResultsNo()));
 
     }
 }

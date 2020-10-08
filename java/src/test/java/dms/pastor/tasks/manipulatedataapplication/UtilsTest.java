@@ -2,7 +2,6 @@ package dms.pastor.tasks.manipulatedataapplication;
 
 import dms.pastor.tasks.manipulatedataapplication.utls.Utils;
 import dms.pastor.utils.PrintOutUtils;
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -12,7 +11,6 @@ import java.util.List;
 import static dms.pastor.TestConfig.BASE_PATH;
 import static dms.pastor.tasks.manipulatedataapplication.utls.Utils.calculateAverageAge;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.CoreMatchers.is;
 
 /**
  * Author Dominik Symonowicz
@@ -41,7 +39,7 @@ public class UtilsTest {
         final List<String> sourceAsArray = Utils.loadFileToArrayOfStrings(path);
         PrintOutUtils.printArray(sourceAsArray);
         List<String> result = getTextAsStringArray();
-        Assert.assertThat(sourceAsArray, is(result));
+        assertThat(sourceAsArray).isEqualTo(result);
     }
 
     @Test

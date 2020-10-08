@@ -1,10 +1,8 @@
 package dms.pastor.tasks.sunspotanalyser.data;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.CoreMatchers.is;
 
 /**
  * Author Dominik Symonowicz
@@ -34,7 +32,7 @@ public class GridTest {
         Grid instance = new Grid(testData);
         int expResult = 4;
         int result = instance.size();
-        Assert.assertThat(result, is(expResult));
+        assertThat(result).isEqualTo(expResult);
     }
 
     /**
@@ -49,7 +47,7 @@ public class GridTest {
         Grid instance = new Grid(testData);
         int expResult = 4;
         int result = instance.getScore(x, y);
-        Assert.assertThat(result, is(expResult));
+        assertThat(result).isEqualTo(expResult);
     }
 
     @Test

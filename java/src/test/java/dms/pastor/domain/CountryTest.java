@@ -3,11 +3,11 @@ package dms.pastor.domain;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
-import static org.assertj.core.api.Assertions.assertThat;
 
 import static dms.pastor.domain.Country.UNITED_KINGDOM;
 import static dms.pastor.domain.Country.getName;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Author Dominik Symonowicz

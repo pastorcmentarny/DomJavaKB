@@ -7,7 +7,6 @@ import java.util.Set;
 
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.*;
 
 public class StringArrayToSetConverterTest {
     StringArrayToSetConverter converter = new StringArrayToSetConverter();

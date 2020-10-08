@@ -1,7 +1,6 @@
 package dms.pastor.tasks.pickup.generators;
 
 import dms.pastor.tasks.pickup.OpenCloseTime;
-import dms.pastor.tasks.pickup.generators.WeeklyOpenCloseTimesGenerator;
 import org.junit.Test;
 
 import java.time.LocalTime;

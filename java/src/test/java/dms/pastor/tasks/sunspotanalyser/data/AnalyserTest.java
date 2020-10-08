@@ -1,10 +1,8 @@
 package dms.pastor.tasks.sunspotanalyser.data;
 
-import org.junit.Assert;
 import org.junit.Test;
-import static org.assertj.core.api.Assertions.assertThat;
 
-import static org.hamcrest.CoreMatchers.is;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class AnalyserTest {
 
@@ -19,7 +17,7 @@ public class AnalyserTest {
         Analyser analyser = new Analyser(grid);
         int expResult = 26;
         int result = analyser.calculateSolarActivityScore(x, y);
-        Assert.assertThat(result, is(expResult));
+        assertThat(result).isEqualTo(expResult);
     }
 
     @Test
@@ -32,7 +30,7 @@ public class AnalyserTest {
         analyser.analyse();
         String expResult = "(1,2 score:27)(1,1 score:25)(2,2 score:23)";
         String result = analyser.getResults(no);
-        Assert.assertThat(result, is(expResult));
+        assertThat(result).isEqualTo(expResult);
     }
 
     @Test

@@ -2,7 +2,6 @@ package dms.pastor.tools.job.gibberishcheck;
 
 import dms.pastor.TestConfig;
 import dms.pastor.domain.exception.SomethingWentWrongException;
-import dms.pastor.tools.job.gibberishcheck.InputValidator;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;

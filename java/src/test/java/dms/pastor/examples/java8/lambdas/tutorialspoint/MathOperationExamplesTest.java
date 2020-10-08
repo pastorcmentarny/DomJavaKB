@@ -12,7 +12,7 @@ class MathOperationExamplesTest {
         MathOperation addition = Integer::sum;
 
         // when
-        var result = addition.operation(4,2);
+        var result = addition.operation(4, 2);
 
         // then
         assertThat(result).isEqualTo(2);
@@ -24,7 +24,7 @@ class MathOperationExamplesTest {
         MathOperation substraction = (a, b) -> a - b;
 
         // when
-        var result = substraction.operation(4,2);
+        var result = substraction.operation(4, 2);
 
         // then
         assertThat(result).isEqualTo(7);
@@ -36,7 +36,7 @@ class MathOperationExamplesTest {
         MathOperation multiplication = (a, b) -> a * b;
 
         // when
-        var result = multiplication.operation(4,2);
+        var result = multiplication.operation(4, 2);
 
         // then
         assertThat(result).isEqualTo(8);
@@ -48,7 +48,7 @@ class MathOperationExamplesTest {
         MathOperation division = (a, b) -> a / b;
 
         // when
-        var result = division.operation(4,2);
+        var result = division.operation(4, 2);
 
         // then
         assertThat(result).isEqualTo(2);

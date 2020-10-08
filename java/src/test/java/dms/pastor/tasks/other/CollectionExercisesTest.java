@@ -1,6 +1,5 @@
 package dms.pastor.tasks.other;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -10,7 +9,6 @@ import java.util.Map;
 import static dms.pastor.tasks.other.CollectionExercises.convertListToMapUsingJava8;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
-import static org.hamcrest.CoreMatchers.is;
 
 /**
  * Author Dominik Symonowicz
@@ -49,10 +47,10 @@ public class CollectionExercisesTest {
         final Map<Integer, String> integerStringMap = convertListToMapUsingJava8(stringArrayList);
 
         // then
-        Assert.assertThat(integerStringMap.size(), is(stringArrayList.size()));
-        Assert.assertThat(integerStringMap.get(1), is(stringOne));
-        Assert.assertThat(integerStringMap.get(2), is(stringTwo));
-        Assert.assertThat(integerStringMap.get(3), is(stringThree));
+        assertThat(integerStringMap.size()).isEqualTo(stringArrayList.size());
+        assertThat(integerStringMap.get(1)).isEqualTo(stringOne);
+        assertThat(integerStringMap.get(2)).isEqualTo(stringTwo);
+        assertThat(integerStringMap.get(3)).isEqualTo(stringThree);
     }
 
 }

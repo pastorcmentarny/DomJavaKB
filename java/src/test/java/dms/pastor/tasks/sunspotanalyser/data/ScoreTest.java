@@ -4,10 +4,9 @@
  */
 package dms.pastor.tasks.sunspotanalyser.data;
 
-import org.junit.Assert;
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Author Dominik Symonowicz
@@ -28,7 +27,7 @@ public class ScoreTest {
         Score instance = new Score(0, 0, 0);
         int expResult = 0;
         int result = instance.getScore();
-        Assert.assertThat(result, is(expResult));
+        assertThat(result).isEqualTo(expResult);
     }
 
     /**
@@ -40,6 +39,6 @@ public class ScoreTest {
         Score instance = new Score(0, 0, 0);
         String expResult = "(" + 0 + ',' + 0 + " score:" + 0 + ')';
         String result = instance.displayScore();
-        Assert.assertThat(result, is(expResult));
+        assertThat(result).isEqualTo(expResult);
     }
 }

@@ -1,7 +1,6 @@
 package dms.pastor.tools.job.gibberishcheck;
 
 
-import dms.pastor.tools.job.gibberishcheck.JobOpportunityAnalyser;
 import org.junit.Ignore;
 import org.junit.Test;
 

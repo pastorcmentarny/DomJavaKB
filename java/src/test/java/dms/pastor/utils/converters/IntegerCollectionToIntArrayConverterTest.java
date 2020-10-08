@@ -1,6 +1,5 @@
 package dms.pastor.utils.converters;
 
-import dms.pastor.utils.CollectionsUtils;
 import org.junit.Test;
 
 import java.util.ArrayList;

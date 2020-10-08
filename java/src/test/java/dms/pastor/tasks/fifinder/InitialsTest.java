@@ -1,10 +1,10 @@
 package dms.pastor.tasks.fifinder;
 
 import org.junit.Test;
-import static org.assertj.core.api.Assertions.assertThat;
 
 import static dms.pastor.tasks.fifinder.NameBuilder.nameBuilder;
 import static dms.pastor.utils.StringUtils.WHITESPACE_CHAR;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Author Dominik Symonowicz

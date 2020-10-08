@@ -1,12 +1,10 @@
 package dms.pastor.tasks.exercises.numbers;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import static dms.pastor.utils.PrintOutUtils.printIntArray;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.CoreMatchers.is;
 
 /**
  * Author Dominik Symonowicz
@@ -33,7 +31,7 @@ public class MathTasksTest {
         int[] numbersWithoutNumber2 = tasks.removeRandomNumberFromArray(numbers);
         printIntArray(numbers);
         printIntArray(numbersWithoutNumber2);
-        Assert.assertThat(numbers.length - numbersWithoutNumber2.length, is(1));
+        assertThat(numbers.length - numbersWithoutNumber2.length).isEqualTo(1);
     }
 
     @Test
