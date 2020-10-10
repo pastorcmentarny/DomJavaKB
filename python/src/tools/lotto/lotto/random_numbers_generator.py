@@ -49,28 +49,39 @@ def generate_random_number():
     numbers = []
     excluded = []
     for line in data[0: 2]:
-        for i in range(1, lotto_utils.get_last(6)):
-            excluded.append(int(line[i]))
+        for number in range(1, lotto_utils.get_last(6)):
+            excluded.append(int(line[number]))
+    print_excluded_numbers(excluded)
 
-    for i in range(1, 60):
-        if i not in excluded:
-            numbers.append(i)
+    for number in range(1, 60):
+        if number not in excluded:
+            numbers.append(number)
 
-    print(f'before {numbers}')
-
-    for i in range(1, 1770):
+    for number in range(1, 1770):
         random.shuffle(numbers)
     print(f'after {numbers}')
 
     count = 1
-    for i in numbers:
-        print(i)
+    draw = []
+    draw_title('draws')
+    for number in numbers:
+        draw.append(number)
         count += 1
         if count == 7:
             count = 1
-            print()
+            print(sorted(draw))
+            draw.clear()
 
-    print(f'excluded numbers: {excluded}')
+
+def print_excluded_numbers(excluded):
+    draw_title('excluded numbers')
+    print(excluded)
+
+
+def draw_title(title: str):
+    left_align = ' '*4
+    line = '-' * 6
+    print(f'{left_align}{line}{title}{line}')
 
 
 if __name__ == '__main__':
