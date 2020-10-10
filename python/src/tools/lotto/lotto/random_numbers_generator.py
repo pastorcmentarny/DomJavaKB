@@ -32,15 +32,12 @@ data = list(hotpics_history_csv)
 
 def stats():
     all_numbers = []
-    for i in range(1, 60):
-        all_numbers.append(i)
+    for number in range(1, 60):
+        all_numbers.append(number)
 
     numbers = {}
-    for i in range(1, 60):
-        for i in range(1, 60): #TODO bug?
-            numbers[i] = 0
-
-    print(numbers)
+    for number in range(1, 60):
+        numbers[number] = 0
 
     for line in data[1: len(data)]:
         for number in range(1, 7):
@@ -73,10 +70,9 @@ def generate_random_number():
             count = 1
             print()
 
-    print('excluded numbers: {}'.format(excluded))
+    print(f'excluded numbers: {excluded}')
 
 
 if __name__ == '__main__':
     stats()
-    print()
     generate_random_number()
