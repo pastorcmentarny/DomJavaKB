@@ -20,5 +20,5 @@ def receive():
 
 # select one and comment out another one
 if __name__ == '__main__':
-    #print(send())
+    # print(send())
     print(receive())

@@ -6,7 +6,7 @@ if (document.getElementById) {
     storeText = document.getElementById("highlight")
 } else
     document.write(text);
-const hex = ["00","07", "14","21", "28", "3C", "50", "64", "78", "8C", "A0", "B4", "C8", "DC", "F0"];
+const hex = ["00", "07", "14", "21", "28", "3C", "50", "64", "78", "8C", "A0", "B4", "C8", "DC", "F0"];
 let r = 1;
 let g = 1;
 let b = 1;

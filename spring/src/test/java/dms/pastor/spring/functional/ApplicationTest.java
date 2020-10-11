@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 public class ApplicationTest extends AbstractFunctionalTest {
 
-    @DisplayName("Test loading context")
+    @DisplayName("Test if apps starts")
     @Test
     public void contextLoads() {
     }

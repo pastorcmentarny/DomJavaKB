@@ -41,13 +41,12 @@ T2 from most count of number  12x or 8x
 
 import logging
 import random
-
+import csv
 from timeit import default_timer as timer
 
-
-from tools.lotto import config
-from tools.lotto.utils import draws_downloader, output, lotto_utils
-from utils import ui_utils
+from src.tools.lotto import config
+from src.tools.lotto.utils import draws_downloader, output, lotto_utils
+from src.utils import ui_utils
 
 NEW_LINE = '\n'
 SPLITTER = ','
@@ -143,7 +142,7 @@ def count_wins_in_the_past(chosen_numbers: list):
     return wins
 
 
-def display_past_wins_result_for(draw_result,numbers):
+def display_past_wins_result_for(draw_result, numbers):
     ui_utils.title(f'display result for {draw_result}')
     wins_result = count_wins_in_the_past(draw_result)
     calculate_score_for_draw(draw_result, numbers, wins_result)
@@ -165,7 +164,7 @@ def calculate_score_for_draw(draw_result, numbers, wins_result):
         f_score += wins_result[7]
         f_score += wins_result[5]
         f_score += wins_result[3]
-        f_score *= 3 # if number match 2-5 numbers multiply x 3 for 1 match don't multiply just add
+        f_score *= 3  # if number match 2-5 numbers multiply x 3 for 1 match don't multiply just add
         f_score += wins_result[1]
 
         # calculate score from numbers were drawn
@@ -259,7 +258,7 @@ def generate_numbers_for_thunderball():
 
     print('excluded unique number counter : {}'.format(counter))
 
-    shuffles_times = random.randint(780,780 + (total_thunderballs * total_thunderballs))
+    shuffles_times = random.randint(780, 780 + (total_thunderballs * total_thunderballs))
 
     for i in range(1, shuffles_times):
         random.shuffle(numbers_to_draw)
@@ -272,7 +271,7 @@ def generate_numbers_for_thunderball():
         count += 1
         if count is 6:
             count = 1
-            display_past_wins_result_for(draw_result,x)
+            display_past_wins_result_for(draw_result, x)
             draw_result.clear()
 
 
@@ -299,11 +298,13 @@ def stats():
 
 def get_data() -> list:
     all_draws_file = open('B:\\GitHub\\DomJavaKB\\data\\lotto\\thunderball-all-draws.csv')
-    #all_draws_file = open('D:\\Projects\\DomJavaKB\\data\\lotto\\thunderball-all-draws.csv')
+    # all_draws_file = open('D:\\Projects\\DomJavaKB\\data\\lotto\\thunderball-all-draws.csv')
     thunderball_history_csv = csv.reader(all_draws_file)
     return list(thunderball_history_csv)
 
+
 WRITABLE = 'w'
+
 
 def update_draws():
     ui_utils.title('UPDATING DRAWS')
@@ -336,7 +337,6 @@ def update_file_for(all_draw_file, all_draw_list):
         all_draw_file.write(SPLITTER.join(draw).replace(SPACE, EMPTY))
         all_draw_file.write(NEW_LINE)
     return all_draw_file
-
 
 
 if __name__ == '__main__':

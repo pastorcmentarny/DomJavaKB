@@ -18,5 +18,3 @@ class MyTestCase(unittest.TestCase):
         print(number_generator.get_result_description(number_generator.get_draw_result(0)))
         print(number_generator.get_result_description(number_generator.get_draw_result(0, WITHOUT_THUNDERBALL)))
         self.assertEqual(True, False)
-
-

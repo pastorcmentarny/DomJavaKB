@@ -30,7 +30,6 @@ for line in data[1: len(data)]:
     for i in range(1, lotto_utils.get_last(5)):
         numbers[line[i]] = numbers.get(line[i], 0) + 1
 
-
 third_number_to_chose_from_list = []
 for line in data[1:9]:
     for i in range(1, lotto_utils.get_last(5)):

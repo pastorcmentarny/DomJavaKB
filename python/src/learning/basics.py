@@ -27,7 +27,6 @@ print('Access granted. You needed ' + str(counter) + ' times to hack into this s
 
 line = '====== -------- <  < <<>> >  > -------- ======'
 
-
 # Math
 
 print(3 * 5)
@@ -153,8 +152,6 @@ prod = calc_prod()
 finish_time = time.time()
 print('The result is %s digits long.' % (len(str(prod))))
 print('Took %s seconds calculate.' % (finish_time - start_time))
-
-
 
 now = time.time()
 

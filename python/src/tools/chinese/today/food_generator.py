@@ -81,7 +81,8 @@ type_food = [
 
 def generate_full_meal():
     return application_utils.get_random_value_from(prefix_food) + application_utils.get_random_value_from(
-        main_food) + application_utils.get_random_value_from(type_food) + '和喝' + drink_generator.generate_random_non_alkocholic_drink()
+        main_food) + application_utils.get_random_value_from(
+        type_food) + '和喝' + drink_generator.generate_random_non_alkocholic_drink()
 
 
 def get_random_meal():

@@ -19,6 +19,8 @@ def promotion_response():
     return jsonify({
         "isPromotionActive": True
     })
+
+
 if __name__ == '__main__':
     print('Starting web server')
 

@@ -18,9 +18,8 @@ first, second = ('cheese', 'cake')
 
 print('{}{}'.format(first, second))
 
-
 username = input('Username: ')
-with_password = False # it doesnt work with IDE
+with_password = False  # it doesnt work with IDE
 if with_password:
     password = getpass('Password: ')
 
@@ -29,7 +28,3 @@ print('Logging in..')
 
 def is_phone_number(text):
     if len(text) != 12:
-
-
-
-

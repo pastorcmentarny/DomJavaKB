@@ -26,6 +26,6 @@ public class CalculatorErrorController {
     @ResponseBody
     public ErrorResponse handleNumberFormatException(HttpServletRequest request, Exception ex) {
         logger.error("There was problem with handle request URL=" + request.getRequestURL() + " due " + ex.getMessage());
-        return new ErrorResponse(400, "Invalid input", "?", "Provide valid iinput ;P", "None");
+        return new ErrorResponse(400, "Invalid input", "?", "Provide valid input ;P", "None");
     }
 }
