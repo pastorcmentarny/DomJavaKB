@@ -21,13 +21,14 @@ public class StatisticTest {
     @Test
     public void shouldDisplayStatistic() {
         // given
-        final String expectedResult = "--------\n" +
-                "Summary.\n" +
-                "--------\n" +
-                "Time needed: 0 days, 0 hours, 0 minutes and 0 seconds.\n" +
-                "BackupType: null\n" +
-                "Files copied: 0\n" +
-                "Errors: 0";
+        final String expectedResult = """
+                --------
+                Summary.
+                --------
+                Time needed: 0 days, 0 hours, 0 minutes and 0 seconds.
+                BackupType: null
+                Files copied: 0
+                Errors: 0""";
 
         // when
         final String result = statistic.display();

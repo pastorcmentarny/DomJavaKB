@@ -20,9 +20,9 @@ public class WeeklyOpenCloseTimesGeneratorAcceptanceTest {
 
         // then
         assertThat(result.size()).isEqualTo(7);
-        assertThat(result.get(0)).isEqualToComparingFieldByField(getNormalOpenCloseHoursFor("MONDAY"));
-        assertThat(result.get(5)).isEqualToComparingFieldByField(getNormalOpenCloseHoursForSaturday());
-        assertThat(result.get(6)).isEqualToComparingFieldByField(getNormalOpenCloseHoursForSunday());
+        assertThat(result.get(0)).usingRecursiveComparison().isEqualTo(getNormalOpenCloseHoursFor("MONDAY"));
+        assertThat(result.get(5)).usingRecursiveComparison().isEqualTo(getNormalOpenCloseHoursForSaturday());
+        assertThat(result.get(6)).usingRecursiveComparison().isEqualTo(getNormalOpenCloseHoursForSunday());
 
     }
 
@@ -33,9 +33,9 @@ public class WeeklyOpenCloseTimesGeneratorAcceptanceTest {
 
         // then
         assertThat(result.size()).isEqualTo(7);
-        assertThat(result.get(0)).isEqualToComparingFieldByField(OpenCloseTime.builder().day("MONDAY").open(LocalTime.of(9, 0)).close(LocalTime.of(19, 30)).build());
-        assertThat(result.get(5)).isEqualToComparingFieldByField(OpenCloseTime.getClosedOn("SATURDAY"));
-        assertThat(result.get(6)).isEqualToComparingFieldByField(OpenCloseTime.getClosedOn("SUNDAY"));
+        assertThat(result.get(0)).usingRecursiveComparison().isEqualTo(OpenCloseTime.builder().day("MONDAY").open(LocalTime.of(9, 0)).close(LocalTime.of(19, 30)).build());
+        assertThat(result.get(5)).usingRecursiveComparison().isEqualTo(OpenCloseTime.getClosedOn("SATURDAY"));
+        assertThat(result.get(6)).usingRecursiveComparison().isEqualTo(OpenCloseTime.getClosedOn("SUNDAY"));
 
     }
 

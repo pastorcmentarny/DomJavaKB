@@ -77,11 +77,17 @@ class CodeForBlogConverter {
     }
 
     private void insertTagsToEndDisplayCode() {
-        codeGenerator.append("</code>\n" + "</blockquote>\n");
+        codeGenerator.append("""
+                </code>
+                </blockquote>
+                """);
     }
 
     private void insertTagsToStartDisplayCode() {
-        codeGenerator.append("<blockquote>\n" + "<code>\n");
+        codeGenerator.append("""
+                <blockquote>
+                <code>
+                """);
     }
 
     private int count4SpacesInLineToReplace(String line) {

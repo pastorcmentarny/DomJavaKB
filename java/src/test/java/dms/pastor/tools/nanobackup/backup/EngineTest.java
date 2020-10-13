@@ -12,7 +12,6 @@ import java.io.File;
 
 import static dms.pastor.tools.nanobackup.Constants.QUICK_MODE_FILENAME;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
-import static java.lang.String.format;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -37,7 +36,7 @@ public class EngineTest {
         final JTextField jTextField = new JTextField();
         final boolean delete = new File(QUICK_MODE_FILENAME).delete();
         if (delete) {
-            System.out.println(format("%s was deleted.", QUICK_MODE_FILENAME));
+            System.out.printf("%s was deleted.%n", QUICK_MODE_FILENAME);
         }
         // when
         engine.activateQuickBackupMode(jTextField);
