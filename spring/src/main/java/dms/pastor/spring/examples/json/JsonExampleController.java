@@ -12,7 +12,7 @@ import java.util.Random;
 
 import static dms.pastor.spring.examples.ExamplesURL.JSON;
 import static dms.pastor.spring.examples.json.JsonObjectBuilder.jsonObjectBuilder;
-import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
+import static dms.pastor.spring.DomUtils.generateString;
 
 /**
  * Author Dominik Symonowicz

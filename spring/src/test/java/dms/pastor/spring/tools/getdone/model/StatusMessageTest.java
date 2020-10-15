@@ -2,7 +2,7 @@ package dms.pastor.spring.tools.getdone.model;
 
 import org.junit.jupiter.api.Test;
 
-import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
+import static dms.pastor.spring.DomUtils.generateString;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class StatusMessageTest {

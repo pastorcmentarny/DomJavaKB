@@ -58,7 +58,6 @@ repositories {
 // ./gradlew dependencyCheckAnalyze
 
 dependencies {
-    implementation project(':java')
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-mail'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'

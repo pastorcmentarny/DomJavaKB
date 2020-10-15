@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
-import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
+import static dms.pastor.spring.DomUtils.generateString;
 
 
 /**

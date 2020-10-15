@@ -18,6 +18,9 @@ import java.io.ObjectOutputStream;
 public class SomethingWentWrongException extends RuntimeException {
     private static final String ERROR = "Whoops! Something went wrong. %s. I apologize for any inconvenience caused by your mistake.";
 
+    public SomethingWentWrongException(String message) {
+        super(ERROR + message);
+    }
     public SomethingWentWrongException(String message, Throwable blame) {
         super(ERROR + message, blame);
     }

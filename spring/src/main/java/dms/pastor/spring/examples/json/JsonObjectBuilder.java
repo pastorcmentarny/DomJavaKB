@@ -1,6 +1,7 @@
 package dms.pastor.spring.examples.json;
 
-import dms.pastor.utils.randoms.RandomDataGenerator;
+
+import dms.pastor.spring.DomUtils;
 
 import java.util.Random;
 
@@ -15,7 +16,7 @@ import java.util.Random;
 public class JsonObjectBuilder {
     private static final int MAX = 32;
     private final Random random = new Random();
-    private String name = RandomDataGenerator.generateString(MAX);
+    private String name = DomUtils.generateString(MAX);
     private int version = random.nextInt(MAX);
     private boolean ok = random.nextBoolean();
 

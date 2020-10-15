@@ -1,11 +1,9 @@
 package dms.pastor.spring.exercises.calculator.models;
 
-import dms.pastor.utils.randoms.RandomDataGenerator;
-
-import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static dms.pastor.utils.randoms.RandomDataGenerator.randomPositiveInteger;
+import static dms.pastor.spring.DomUtils.randomPositiveInteger;
+
 
 /**
  * Author Dominik Symonowicz

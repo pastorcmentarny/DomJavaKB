@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static dms.pastor.spring.DomUtils.generateString;
 import static dms.pastor.spring.tools.vocabulizator.model.DefinitionBuilder.definitionBuilder;
-import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static javax.swing.text.html.parser.DTDConstants.GENERAL;
 import static org.assertj.core.api.Assertions.assertThat;
 
