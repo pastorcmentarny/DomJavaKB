@@ -1,2 +1,1 @@
-include ':java'
 rootProject.name = 'Aber RPG'
