@@ -29,6 +29,7 @@ public class FromFileImporter implements Importer {
     private static final String COLUMN_SEPARATOR = ";;";
     private static final String GROUP_SEPARATOR = "~~";
     private static final Logger LOGGER = LoggerFactory.getLogger(FromFileImporter.class);
+    public static final int COLUMNS = 11;
     private final List<Word> wordsList = new ArrayList<>();
     private int nr = 0;
     private int ignored = 0;
@@ -75,11 +76,13 @@ public class FromFileImporter implements Importer {
     }
 
     @SuppressWarnings("ProhibitedExceptionCaught") // Catch this exception to show error to user
-    private Result processLine(String[] requestedCategories, String line, String[] data) {
+    private Result<Word> processLine(String[] requestedCategories, String line, String[] data) {
         Word word;
         try {
-            if (data.length < 10) {
-                LOGGER.error(String.format("wrong number of elements. Should be 10 but was %d", data.length));
+            if (data.length != COLUMNS) {
+                final String msg = String.format("wrong number of elements. Should be %d but was %d", COLUMNS, data.length);
+                LOGGER.error(msg);
+                return fail(msg);
             }
             word = parseWord(data);
             if (isWordValid(word)) {
@@ -133,7 +136,7 @@ public class FromFileImporter implements Importer {
     private Word parseWord(String[] data) {
         int difficulty = getDifficulty(data[9]);
         String[] groups = getWordCategories(data);
-        return new Word(Integer.parseInt(data[1]), data[2], data[3], Integer.parseInt(data[4]), data[5], data[6], groups, data[8], difficulty);
+        return new Word(Integer.parseInt(data[1]), data[2], data[3], Integer.parseInt(data[4]), data[5], data[6], groups, data[8], difficulty, data[10]);
     }
 
     private int getDifficulty(String difficulty) {

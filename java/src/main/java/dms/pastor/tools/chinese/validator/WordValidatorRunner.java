@@ -26,7 +26,7 @@ final class WordValidatorRunner {
 
     public static void main(String[] args) {
         String path = getPath(args);
-        LOGGER.info("Validating rpg in  this path: " + path);
+        LOGGER.info("Validating dictionary in  this path: " + path);
         InMemoryDictionary dictionary = new InMemoryDictionary(path, new FromFileImporter());
         dictionary.load();
         LOGGER.info("Dictionary Status: " + dictionary.getStatus());

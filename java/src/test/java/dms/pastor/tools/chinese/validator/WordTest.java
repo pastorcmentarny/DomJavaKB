@@ -1,6 +1,7 @@
 package dms.pastor.tools.chinese.validator;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -22,16 +23,18 @@ public class WordTest {
     private static final String DEFAULT_MEANING_IN_POLISH = "znak";
     private static final String[] DEFAULT_GROUP = {"hsk1"};
     private static final String DEFAULT_NOTES = "note";
+    private static final String DEFAULT_HASH = "abcdef12";
     private static final int DEFAULT_DIFFICULTY = 2;
+    public static final String NOTE_AS_NULL = null;
 
     private final Word word = new Word(DEFAULT_ID, DEFAULT_CHINESE_CHARACTER, DEFAULT_PINYIN, DEFAULT_STROKES,
-            DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY);
+            DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH, DEFAULT_GROUP, DEFAULT_NOTES, DEFAULT_DIFFICULTY, DEFAULT_HASH);
 
     @Test
     public void noWordShouldCreateNoWordObject() {
         // given
         final Word expectedWord = new Word(-1, null, null, -1,
-                null, null, null, null, -1);
+                null, null, null, NOTE_AS_NULL, -1, null);
 
         // when
         final Word word = Word.noWord();
@@ -73,12 +76,11 @@ public class WordTest {
     @Test
     public void setNotesShouldSetNoteToNoneIfNoteIsNull() {
         // given
-        final String nullNote = null;
         final String expectedNote = "none";
 
         final Word wordWithNullNote = new Word(DEFAULT_ID, DEFAULT_CHINESE_CHARACTER, DEFAULT_PINYIN,
                 DEFAULT_STROKES, DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH,
-                DEFAULT_GROUP, nullNote, DEFAULT_DIFFICULTY);
+                DEFAULT_GROUP, NOTE_AS_NULL, DEFAULT_DIFFICULTY, DEFAULT_HASH);
 
         // when
         final String notes = wordWithNullNote.getNotes();

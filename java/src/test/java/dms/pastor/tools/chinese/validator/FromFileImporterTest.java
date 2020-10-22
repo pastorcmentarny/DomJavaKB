@@ -48,7 +48,7 @@ public class FromFileImporterTest {
 
         // then
         assertThat(result.isFail()).isTrue();
-        assertThat(result.getMessage()).isEqualTo("Error at line: 0 caused by For input string: \"x\" in ;;x;;x;;X;;WRONG;;ENTRY;;x;;~~;;e;;x;;");
+        assertThat(result.getMessage()).isEqualTo("Error at line: 0 caused by For input string: \"x\" in ;;x;;x;;X;;WRONG;;ENTRY;;x;;~~;;e;;x;;x;;");
         assertThat(result.getItem()).isNull();
 
     }

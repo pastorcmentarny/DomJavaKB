@@ -73,6 +73,11 @@ final class WordValidator {
             return false;
         }
 
+        if (hasValidHash(word.getHash())) {
+            LOGGER.error(generateErrorMessage(word.getId(), "Hash", "value { " + word.getHash() + " } is not valid."));
+            return false;
+        }
+
         return true;
     }
 
@@ -108,6 +113,12 @@ final class WordValidator {
     private static boolean isNotInRange(Word word) {
         return word.getDifficulty() > 8 || word.getDifficulty() < 1;
     }
+
+
+    private static boolean hasValidHash(String hash) {
+        return isStringEmpty(hash) || hash.length() != 8;
+    }
+
 
     private static String generateErrorMessage(int id, String what, String reason) {
         return String.format("%s is invalid for word id: %d. %s", what, id, getReason(reason));

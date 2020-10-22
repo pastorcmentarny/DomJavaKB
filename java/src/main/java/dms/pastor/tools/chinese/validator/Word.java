@@ -1,5 +1,8 @@
 package dms.pastor.tools.chinese.validator;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -13,6 +16,8 @@ import static java.util.Arrays.copyOf;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
+@Getter
+@EqualsAndHashCode
 public final class Word {
 
     private static final String DEFAULT_NOTE = "none";
@@ -25,9 +30,10 @@ public final class Word {
     private final String[] groups;
     private final int difficulty;
     private String notes = DEFAULT_NOTE;
+    private final String hash;
 
     @SuppressWarnings("ConstructorWithTooManyParameters") //it is object value
-    public Word(int id, String chineseCharacter, String pinyin, int strokes, String englishMeaning, String polish, String[] groups, String notes, int difficulty) {
+    public Word(int id, String chineseCharacter, String pinyin, int strokes, String englishMeaning, String polish, String[] groups, String notes, int difficulty, String hash) {
         this.id = id;
         this.chineseCharacter = chineseCharacter;
         this.pinyin = pinyin;
@@ -35,12 +41,13 @@ public final class Word {
         this.englishMeaning = englishMeaning;
         this.polish = polish;
         this.groups = groups;
+        this.hash = hash;
         setNotes(notes);
         this.difficulty = difficulty;
     }
 
     static Word noWord() {
-        return new Word(none(), null, null, none(), null, null, null, null, none());
+        return new Word(none(), null, null, none(), null, null, null, null, none(), null);
     }
 
     private static int none() {
@@ -50,7 +57,7 @@ public final class Word {
     @SuppressWarnings("MagicNumber")
     public static Word defaultWord() {
         return new Word(292, "字", "zì", 6,
-                "character", "znak", new String[]{"hsk1"}, "note", 2);
+                "character", "znak", new String[]{"hsk1"}, "note", 2, "abcdef12");
     }
 
     @SuppressWarnings("SameReturnValue") // no categories is represented as null should wrap this with object
@@ -58,17 +65,6 @@ public final class Word {
         return null;
     }
 
-    public String getChineseCharacter() {
-        return chineseCharacter;
-    }
-
-    public int getDifficulty() {
-        return difficulty;
-    }
-
-    public String getPinyin() {
-        return pinyin;
-    }
 
     public String getWordInEnglish() {
         return englishMeaning;
@@ -78,20 +74,8 @@ public final class Word {
         return polish;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public int getStrokes() {
-        return strokes;
-    }
-
     public String[] getGroups() {
         return groups == null ? new String[0] : copyOf(groups, groups.length);
-    }
-
-    public String getNotes() {
-        return notes;
     }
 
     private void setNotes(String note) {
@@ -104,28 +88,8 @@ public final class Word {
                 englishMeaning + " ]";
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Word)) return false;
-        Word word = (Word) o;
-        return getId() == word.getId() &&
-                getStrokes() == word.getStrokes() &&
-                getDifficulty() == word.getDifficulty() &&
-                Objects.equals(getChineseCharacter(), word.getChineseCharacter()) &&
-                Objects.equals(getPinyin(), word.getPinyin()) &&
-                Objects.equals(englishMeaning, word.englishMeaning) &&
-                Objects.equals(polish, word.polish) &&
-                Arrays.equals(getGroups(), word.getGroups()) &&
-                Objects.equals(getNotes(), word.getNotes());
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId(), getChineseCharacter(), getPinyin(), getStrokes(), englishMeaning, polish, getGroups(), getNotes(), getDifficulty());
-    }
-
-    @Override
+    @Override //TODO use lombok and use custom get word method
     public String toString() {
         return "Word{" +
                 "id=" + id +
@@ -136,7 +100,8 @@ public final class Word {
                 ", polish='" + polish + '\'' +
                 ", groups=" + Arrays.toString(groups) +
                 ", notes='" + notes + '\'' +
-                ", difficulty=" + difficulty +
+                ", difficulty=" + difficulty  + '\'' +
+                ", hash=" + hash +
                 '}';
     }
 
