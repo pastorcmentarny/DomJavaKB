@@ -8,6 +8,13 @@
 """
 
 
+def draw_title(title: str, pre_new_lines: int = 0):
+    pre_new_lines = '\n' * pre_new_lines
+    left_align = ' ' * 4
+    line = '-' * 6
+    print(f'{pre_new_lines}{left_align}{line}{title}{line}')
+
+
 def display_numbers(numbers):
     # list of numbers that haven't been played in last 10 draws with how often they play in last 52 games
     numbers = [(key, numbers[key]) for key in sorted(numbers, key=numbers.get, reverse=True)]
