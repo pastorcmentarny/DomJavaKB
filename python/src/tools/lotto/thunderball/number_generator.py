@@ -52,6 +52,8 @@ NEW_LINE = '\n'
 SPLITTER = ','
 EMPTY = ""
 SPACE = " "
+WRITABLE = 'w'
+GOOD_SCORE = 4000
 
 total_thunderballs = 40  # 39
 
@@ -60,11 +62,10 @@ url = 'https://www.national-lottery.co.uk/results/thunderball/draw-history/csv'
 path = thunderball_history_path = config.path["base"] + 'thunderball-draws.csv'
 all_draws = config.path["base"] + 'thunderball-all-draws.csv'
 all_draws_path = 'B:\GitHub\DomJavaKB\data\lotto\euro-hotpicks-all-draws.csv'
-# all_draws_path = 'D:\\Projects\\DomJavaKB\\data\\lotto\\thunderball-all-draws.csv'
+
 
 logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s',
                     filename=config.path["base"] + 'log.txt')
-GOOD_SCORE = 4000
 
 matches = {
     9: 'Match 5 + Thunderball(£500.000)',
@@ -192,7 +193,7 @@ def generate_numbers_for_thunderball():
         for i in range(1, lotto_utils.get_last(5)):
             numbers[line[i]] = numbers.get(line[i], 0) + 1
 
-    x = output.display_numbers(numbers)
+    sorted_numbers = output.display_numbers(numbers)
 
     thunderballs = {}
     for i in range(1, lotto_utils.get_last(14)):
@@ -224,7 +225,7 @@ def generate_numbers_for_thunderball():
     excluded.append(int(numbers_as_list[len(numbers_as_list) - 2][0]))
     excluded.append(int(numbers_as_list[len(numbers_as_list) - 1][0]))
 
-    numbers = output.display_numbers(numbers)
+    numbers = output.display_numbers(numbers)  # TODO delete it?
 
     print("\n\n thunderballs that didn't play in last 10 games:")
 
@@ -238,7 +239,7 @@ def generate_numbers_for_thunderball():
     for value in thunderball_to_delete:
         thunderballs.pop(value)
 
-    thunderballs = output.display_numbers(thunderballs)
+    thunderballs = output.display_numbers(thunderballs)  # TODO delete it?
 
     for line in data[0: 2]:
         for i in range(1, lotto_utils.get_last(5)):
@@ -271,7 +272,7 @@ def generate_numbers_for_thunderball():
         count += 1
         if count is 6:
             count = 1
-            display_past_wins_result_for(draw_result, x)
+            display_past_wins_result_for(draw_result, sorted_numbers)
             draw_result.clear()
 
 
@@ -297,13 +298,9 @@ def stats():
 
 
 def get_data() -> list:
-    all_draws_file = open('B:\\GitHub\\DomJavaKB\\data\\lotto\\thunderball-all-draws.csv')
-    # all_draws_file = open('D:\\Projects\\DomJavaKB\\data\\lotto\\thunderball-all-draws.csv')
+    all_draws_file = open('B:\\GitHub\\DomJavaKB\\data\\lotto\\thunderball-all-draws.csv')  # move this config
     thunderball_history_csv = csv.reader(all_draws_file)
     return list(thunderball_history_csv)
-
-
-WRITABLE = 'w'
 
 
 def update_draws():
