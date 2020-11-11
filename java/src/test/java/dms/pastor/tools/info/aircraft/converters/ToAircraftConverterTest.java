@@ -15,11 +15,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ToAircraftConverterTest {
 
 
+
     @Test
     public void shouldThrowExceptionIfStringIsNull() {
         // when
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            ToAircraftConverter.convert((String) null);
+        ToAircraftConverter.convert((String) null);
 
         });
 
@@ -29,7 +30,7 @@ public class ToAircraftConverterTest {
     public void shouldThrowExceptionIfStringIsEmpty() {
         // when
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            ToAircraftConverter.convert(EMPTY_STRING);
+        ToAircraftConverter.convert(EMPTY_STRING);
         });
 
     }
@@ -40,16 +41,16 @@ public class ToAircraftConverterTest {
         final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> ToAircraftConverter.convert("Airbus A350;;900;;wide body;;long haul;;2;;350;;6680;;6475;;1705;;2;;903;;950;;15000;;wrong1;;?;;"));
 
         // then
-        assertThat(exception.getMessage()).isEqualTo("It should have 14 fields but was 15");
+         assertThat(exception.getMessage()).isEqualTo("It should have 14 fields but was 15");
     }
 
     @Test
     public void shouldThrowExceptionIfOneOfTheFieldsIsEmpty() {
         // when
-        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> ToAircraftConverter.convert("Airbus A350;;900;;wide body;;long haul;;2;;350;;6680;;6475;;1705;;2;;903;;950;;15000;; ;;"));
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class,() ->         ToAircraftConverter.convert("Airbus A350;;900;;wide body;;long haul;;2;;350;;6680;;6475;;1705;;2;;903;;950;;15000;; ;;"));
 
         // then
-        assertThat(exception.getMessage()).isEqualTo("One of aircraft fields is blank because: String is blank");
+         assertThat(exception.getMessage()).isEqualTo("One of aircraft fields is blank because: String is blank");
     }
 
     @Test

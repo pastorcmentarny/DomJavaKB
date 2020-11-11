@@ -24,6 +24,7 @@ public class NotImplementYetExceptionTest {
     private static final String EXCEPTION_MESSAGE = "Not Implemented yet, so move your ass and implement this. I apologize for any inconvenience caused by my laziness";
 
 
+
     @Test
     public void shouldThrowNotImplementYetExceptionTest() {
         // when
@@ -50,9 +51,9 @@ public class NotImplementYetExceptionTest {
 
         // then verify
         Assertions.assertThrows(IOException.class, () -> {
-            OutputStream sink = new ByteArrayOutputStream();
-            ObjectOutputStream stream = new ObjectOutputStream(sink);
-            stream.writeObject(notImplementYetException);
+        OutputStream sink = new ByteArrayOutputStream();
+        ObjectOutputStream stream = new ObjectOutputStream(sink);
+        stream.writeObject(notImplementYetException);
 
         });
 

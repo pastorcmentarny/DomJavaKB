@@ -13,6 +13,7 @@ public class TextUtilsTest {
     private static final String FILE_PATH = PATH + "test/test.txt";
 
 
+
     @Test
     public void countWordInTextInFileShouldThrowSomethingWentWrongExceptionIfAnyExceptionIsThrownDuringCounting() {
         // when

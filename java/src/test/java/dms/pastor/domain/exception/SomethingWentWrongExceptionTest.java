@@ -19,6 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class SomethingWentWrongExceptionTest {
 
 
+
     @Test // best test award
     public void shouldThrowSomethingWentWrongExceptionTest() {
 

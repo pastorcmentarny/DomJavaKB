@@ -22,6 +22,7 @@ public class CodecAppRunnerTest {
     private static final String PATH = "src" + separator + "main" + separator + "resources" + separator + "input.txt";
 
 
+
     @SuppressWarnings("ResultOfMethodCallIgnored")
     @BeforeEach
     public void setUp() throws Exception {

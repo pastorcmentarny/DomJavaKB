@@ -22,7 +22,7 @@ public class RoleTest {
     @Test
     public void shouldThrowInvalidArgumentExceptionIfLetterIsNull() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> Role.getTypeFromLetter(null));
+        Assertions.assertThrows(IllegalArgumentException.class, () ->         Role.getTypeFromLetter(null));
     }
 
     @Test

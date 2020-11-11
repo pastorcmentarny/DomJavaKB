@@ -26,6 +26,7 @@ import static org.hamcrest.CoreMatchers.sameInstance;
 public class HashToolsTest {
 
 
+
     @Test
     public void shouldConvertStringToCharacterMapTest() {
         // when

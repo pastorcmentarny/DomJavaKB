@@ -38,7 +38,7 @@ public class TaxCalculatorTest {
         // when
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
 
-            getNetSalary(salary);
+        getNetSalary(salary);
         });
 
     }

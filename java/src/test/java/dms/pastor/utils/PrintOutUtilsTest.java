@@ -80,7 +80,7 @@ public class PrintOutUtilsTest {
         // when
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
 
-            printArray(new ArrayList<>());
+        printArray(new ArrayList<>());
         });
 
     }

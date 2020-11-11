@@ -64,7 +64,7 @@ public class ReadTimeCalculatorTest {
         // given
         readTimeCalculator = new ReadTimeCalculator(null, randomInteger());
         // when
-        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> readTimeCalculator.calculateTimeNeedToReadFor());
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class,() -> readTimeCalculator.calculateTimeNeedToReadFor());
 
         // then
         assertThat(exception.getMessage()).isEqualTo("It must contain not empty text with size bigger than 1 character");
@@ -133,7 +133,7 @@ public class ReadTimeCalculatorTest {
         readTimeCalculator = new ReadTimeCalculator(generateRandomParagraph(), RandomDataGenerator.randomNegativeInteger());
         // when
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            readTimeCalculator.displayTimeNeededToRead();
+        readTimeCalculator.displayTimeNeededToRead();
         });
 
     }

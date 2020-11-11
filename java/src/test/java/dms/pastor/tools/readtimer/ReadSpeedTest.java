@@ -1,6 +1,8 @@
 package dms.pastor.tools.readtimer;
 
+import org.junit.Rule;
 import org.junit.jupiter.api.Test;
+import org.junit.rules.ExpectedException;
 
 import static dms.pastor.tools.readtimer.ReadSpeed.ADULT_SLOW;
 import static dms.pastor.tools.readtimer.ReadSpeed.getSpeedAsStringFor;
@@ -16,6 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class ReadSpeedTest {
+
 
 
     @Test

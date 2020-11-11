@@ -12,7 +12,7 @@ public class InputValidatorTest {
         // when
         Assertions.assertThrows(SomethingWentWrongException.class, () -> {
 
-            InputValidator.validateInput(null);
+        InputValidator.validateInput(null);
         });
 
     }
@@ -22,7 +22,7 @@ public class InputValidatorTest {
         // when
         Assertions.assertThrows(SomethingWentWrongException.class, () -> {
 
-            InputValidator.validateInput(new String[]{"1"});
+        InputValidator.validateInput(new String[]{"1"});
         });
 
     }
@@ -31,7 +31,7 @@ public class InputValidatorTest {
     public void shouldThrowExceptionIfArgsHasMoreThanTwoElements() {
         // when
         Assertions.assertThrows(SomethingWentWrongException.class, () -> {
-            InputValidator.validateInput(new String[]{"1", "2", "3"});
+        InputValidator.validateInput(new String[]{"1", "2", "3"});
         });
 
     }

@@ -20,23 +20,24 @@ import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 public class ProjectAnalyserTest {
 
 
+
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenPathIsNull() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new ProjectAnalyser().analyse(null));
+        Assertions.assertThrows(IllegalArgumentException.class, () ->         new ProjectAnalyser().analyse(null));
 
     }
 
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenPathIsEmpty() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new ProjectAnalyser().analyse(EMPTY_STRING));
+        Assertions.assertThrows(IllegalArgumentException.class, () ->         new ProjectAnalyser().analyse(EMPTY_STRING));
     }
 
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenPathIsInvalid() {
         //
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new ProjectAnalyser().analyse(generateString(10)));
+        Assertions.assertThrows(IllegalArgumentException.class, () ->         new ProjectAnalyser().analyse(generateString(10)));
     }
 
     @SuppressWarnings("AccessOfSystemProperties")

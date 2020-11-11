@@ -1,6 +1,7 @@
 package dms.pastor.tasks.paint.command;
 
 import dms.pastor.tasks.paint.canvas.Canvas;
+import dms.pastor.tasks.paint.canvas.InvalidCanvasException;
 import dms.pastor.tasks.paint.canvas.Point;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

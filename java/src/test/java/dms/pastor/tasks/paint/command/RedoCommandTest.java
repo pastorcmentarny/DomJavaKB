@@ -44,10 +44,10 @@ public class RedoCommandTest extends AbstractCommandTest {
         // given
         final String[] params = {REDO_COMMAND, "?", "1"};
         // when
-        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> redoCommand.setParamsIfValid(params));
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () ->         redoCommand.setParamsIfValid(params));
 
         // then
-        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because number of params are invalid. Should be 1 but was 3. Please check your input and try again.");
+         assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because number of params are invalid. Should be 1 but was 3. Please check your input and try again.");
     }
 
     @Test

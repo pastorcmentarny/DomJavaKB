@@ -159,7 +159,7 @@ public class CreateNewRectangleCommandTest extends AbstractCommandTest {
         final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewRectangleCommand.setParamsIfValid(params));
 
         // then
-        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because start width is not a number. Please check your input and try again.");
+         assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because start width is not a number. Please check your input and try again.");
     }
 
     @Test

@@ -1,7 +1,9 @@
 package dms.pastor.tasks.analyser;
 
 import dms.pastor.utils.randoms.RandomDataGenerator;
+import org.junit.Rule;
 import org.junit.jupiter.api.Test;
+import org.junit.rules.ExpectedException;
 
 import static dms.pastor.tasks.analyser.AnalyserLauncher.THIS_PROJECT_PATH;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
@@ -16,6 +18,7 @@ import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class AnalyserLauncherTest {
+
 
 
     @Test

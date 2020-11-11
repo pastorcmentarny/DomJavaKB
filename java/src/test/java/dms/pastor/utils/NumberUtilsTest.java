@@ -31,6 +31,7 @@ public class NumberUtilsTest {
     private static final int MAX_VALUE = 20;
 
 
+
     @Test
     public void getResultInRangeShouldReturn10For10InRangeBetween5And20() {
         // given

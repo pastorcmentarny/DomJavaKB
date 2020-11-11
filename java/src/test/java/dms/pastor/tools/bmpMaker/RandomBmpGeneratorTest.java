@@ -48,7 +48,7 @@ public class RandomBmpGeneratorTest {
         final var exception = Assertions.assertThrows(IllegalArgumentException.class, randomBmpGenerator::generateImageFile);
 
         // then
-        assertThat(exception.getMessage()).isEqualTo("Height {" + value + "}  must be positive value.");
+         assertThat(exception.getMessage()).isEqualTo("Height {" + value + "}  must be positive value.");
     }
 
     @Test

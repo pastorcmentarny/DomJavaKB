@@ -10,6 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class BodyTypeTest {
 
 
+
     @Test
     public void shouldReturnNarrowBodyTypeFromLetterN() {
         // given

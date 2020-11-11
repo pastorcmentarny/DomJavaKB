@@ -100,7 +100,7 @@ public class ArrayUtilsTest {
     @Test
     public void clone2DArrayOfIntsShouldThrowIllegalArgumentExceptionIfSourceIsNull() {
         // when
-        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> clone2DArrayOfInts(null));
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class,() -> clone2DArrayOfInts(null));
 
         // then
         assertThat(exception.getMessage()).isEqualTo("2D Array of integers cannot be null.");
