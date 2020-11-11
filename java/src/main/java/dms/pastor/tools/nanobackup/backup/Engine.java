@@ -88,8 +88,8 @@ public class Engine extends AbstractTools {
     }
 
     private boolean checkIfNewPathExistInList(String[] paths, String newPath) {
-        for (int i = 0; i < paths.length - 1; i++) {
-            if (paths[i].equals(newPath)) {
+        for (int index = 0; index < paths.length - 1; index++) {
+            if (paths[index].equals(newPath)) {
                 return true;
             }
         }
@@ -249,7 +249,7 @@ public class Engine extends AbstractTools {
         System.exit(0);
     }
 
-// --Commented out by Inspection START (21/02/2018 14:14):
+//TODO remove it? --Commented out by Inspection START (21/02/2018 14:14):
 //    public boolean deleteSourceAfterBackup(final String[] sourcesPath) {
 //        boolean success;
 //        for (String aSourcesPath : sourcesPath) {

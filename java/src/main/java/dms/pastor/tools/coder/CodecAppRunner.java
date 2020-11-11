@@ -13,7 +13,7 @@ import static dms.pastor.tools.coder.DomCoder.loadSourceFile;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-final class CodecAppRunner {
+public final class CodecAppRunner {
 
     private CodecAppRunner() {
     }

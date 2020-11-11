@@ -34,6 +34,8 @@ import static java.awt.Color.DARK_GRAY;
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+ *
+ * This is my first project after graduation in 2010. Do not expect too much :)
  */
 @SuppressWarnings({"AssignmentToNull", "MagicNumber"})
 // null is used to release unused resources, TOO OLD PROJECT  TO TAKE CARE OF MAGIC NUMBERS

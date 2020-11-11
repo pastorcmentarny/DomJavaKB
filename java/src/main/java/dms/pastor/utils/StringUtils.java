@@ -179,6 +179,7 @@ public final class StringUtils {
         return string == null || string.isEmpty();
     }
 
+    //TODO rename to not blank
     public static boolean isStringNotEmpty(String string) {
         return !isStringBlank(string);
     }
@@ -335,6 +336,10 @@ public final class StringUtils {
             return "String is blank";
         }
         return "String { " + string + " }";
+    }
+
+    public static String splitInto120CharactersPerLineText(String text){
+        return null;
     }
 
 }

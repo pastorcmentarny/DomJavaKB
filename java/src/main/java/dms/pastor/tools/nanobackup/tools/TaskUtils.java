@@ -7,7 +7,16 @@ import org.slf4j.LoggerFactory;
 import java.io.File;
 import java.util.ArrayList;
 
-
+/**
+ * Author Dominik Symonowicz
+ * WWW:	https://dominiksymonowicz.com/welcome
+ * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
+ * Github:	https://github.com/pastorcmentarny
+ * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
+ * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+ *
+ * This is my first project after graduation in 2010. Do not expect too much :)
+ */
 public final class TaskUtils {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TaskUtils.class);

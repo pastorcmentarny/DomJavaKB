@@ -10,6 +10,8 @@ import java.io.File;
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+ *
+ * This is my first project after graduation in 2010. Do not expect too much :)
  */
 public final class Constants {
     static final String DEFAULT_PATH = System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "resources" + File.separator + "nanobackup" + File.separator;

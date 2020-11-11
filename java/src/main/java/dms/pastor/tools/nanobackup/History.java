@@ -21,6 +21,8 @@ import static java.awt.Color.GREEN;
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+ *
+ * This is my first project after graduation in 2010. Do not expect too much :)
  */
 @SuppressWarnings("MagicNumber") //TOO OLD PROJECT  TO TAKE CARE OF MAGIC NUMBERS
 public class History {

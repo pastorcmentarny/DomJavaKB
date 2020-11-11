@@ -16,6 +16,8 @@ import static dms.pastor.tools.nanobackup.Constants.MESSAGE_PATH;
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+ *
+ * This is my first project after graduation in 2010. Do not expect too much :)
  */
 public class Messenger {
 
@@ -34,20 +36,20 @@ public class Messenger {
     private boolean missingMessageFile;
 
     public Messenger() {
-        try (FileInputStream fis = new FileInputStream(MESSAGE_PATH)) {
-            properties.load(fis);
+        try (FileInputStream fileInputStream = new FileInputStream(MESSAGE_PATH)) {
+            properties.load(fileInputStream);
             missingMessageFile = false;
-        } catch (Exception ex) {
-            LOGGER.debug("It was problem with message.properties because " + ex.getMessage());
+        } catch (Exception exception) {
+            LOGGER.debug("It was problem with message.properties because " + exception.getMessage());
             missingMessageFile = true;
         }
     }
 
 
-    public static void errorMessage(String what, String message, Throwable e) {
-        String error = what + " encountered an error: '" + message + "'\n\tCause: '" + e.getCause()
-                + "'\n\tError message: '" + e.getMessage() + "'\n Exception message:\n\n ";
-        LOGGER.warn(error, e);
+    public static void errorMessage(String what, String message, Throwable exception) {
+        String error = what + " encountered an error: '" + message + "'\n\tCause: '" + exception.getCause()
+                + "'\n\tError message: '" + exception.getMessage() + "'\n Exception message:\n\n ";
+        LOGGER.warn(error, exception);
     }
 
     public String getMsg(String type) {
