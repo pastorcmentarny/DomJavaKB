@@ -8,7 +8,6 @@
 """
 
 import csv
-import logging
 
 import requests
 
@@ -38,7 +37,7 @@ def get_draws_for(url, path):
 
 
 def update_all_draws(recent_draws_list, all_draws_file_path):
-    logging.debug('updating all draws if needed')
+    print('updating all draws if needed')
     last_column = len(recent_draws_list[0]) - 1
     print(last_column)
     all_draws_file = open(all_draws_file_path)

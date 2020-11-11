@@ -6,6 +6,7 @@ sys.path.insert(0, '../utils')
 import past_result_checker
 from src.tools.lotto import config
 
+
 # this app is used to provide information for given numbers how many times you won. it will check for 3,4,5,5+ and 6 number
 # validate numbers to ensure is 6 of them and they are unique
 # split them into all possible 3s 4s 5s and 6 number combinations

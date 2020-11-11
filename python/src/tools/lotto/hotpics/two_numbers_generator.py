@@ -12,7 +12,7 @@ import webbrowser
 
 import requests
 
-from tools.lotto import config
+from src.tools.lotto import config
 
 sys.path.insert(0, '../utils')
 

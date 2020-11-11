@@ -15,6 +15,8 @@ logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - 
 
 def check_for(display_info: bool, numbers, data: list):
     logging.debug("checking if numbers you selected won in the past results")
+    print(data)
+
     if display_info:
         info(numbers)
 
