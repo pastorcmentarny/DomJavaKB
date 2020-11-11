@@ -36,7 +36,6 @@ public final class DummyTest {
         final int initialHp = 3;
         unit.getHealth().setHp(initialHp);
         unit.setElements(new HealSpell().getElements());
-
         // when
         unit.turn(UNUSED_UNIT);
 

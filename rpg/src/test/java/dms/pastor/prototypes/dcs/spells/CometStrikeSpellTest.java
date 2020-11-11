@@ -34,7 +34,6 @@ public final class CometStrikeSpellTest {
                 .hp(initHp)
                 .withoutShield()
                 .build();
-
         // when
         cometStrikeSpell.castSpell(unit, unit);
 
@@ -56,7 +55,6 @@ public final class CometStrikeSpellTest {
 
         boolean wasPoisonAtLeastOnce = false;
         boolean wasFrozenAtLeastOnce = false;
-
         // when
         for (int round = 1; round < MAX_ATTEMPTS; round++) {
 

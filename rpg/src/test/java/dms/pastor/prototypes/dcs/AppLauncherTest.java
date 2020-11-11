@@ -35,7 +35,6 @@ public final class AppLauncherTest {
         // given
         AppLauncher application = new AppLauncher();
         final Player player = PlayerBuilder.playerBuilder().buildDeathPlayer();
-
         // when
         application.newGame(player, new Campaign());
 

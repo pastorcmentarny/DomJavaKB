@@ -26,7 +26,6 @@ public class BloodlustSpellTest {
         final BloodlustSpell bloodlustSpell = new BloodlustSpell();
         final Unit unit = unitBuilder()
                 .build();
-
         // when
         bloodlustSpell.castSpell(unit, UNUSED_UNIT);
 

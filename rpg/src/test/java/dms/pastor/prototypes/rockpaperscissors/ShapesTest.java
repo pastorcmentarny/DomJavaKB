@@ -22,7 +22,6 @@ class ShapesTest {
     @Test
     public void shouldReturnShapeFromCharacter() {
         // given
-
         // when
         final Shapes result = Shapes.getShapeFromCharacter('R');
 
@@ -34,7 +33,6 @@ class ShapesTest {
     @Test
     public void shouldReturnRandomShape() {
         // given
-
         // when
         final Shapes randomShape = Shapes.getRandomShape();
 

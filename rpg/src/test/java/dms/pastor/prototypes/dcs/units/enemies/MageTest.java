@@ -54,7 +54,6 @@ public class MageTest {
 
         // verify
         assertThat(mage.isShielded()).isFalse();
-
         // when
         mage.turn(new Dummy()); // it need dummy unit as mage can cast random spell;
 
@@ -77,7 +76,6 @@ public class MageTest {
 
         // verify
         assertThat(mage.isShielded()).isTrue();
-
         // when
         mage.turn(UNUSED_UNIT);
 

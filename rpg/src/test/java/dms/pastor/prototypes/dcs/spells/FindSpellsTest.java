@@ -27,7 +27,6 @@ public class FindSpellsTest {
 
     @Test
     public void findSpellShouldReturnNoSpellIfSpellNotFound() {
-
         // when
         final Spell result = spells.findSpell(new Elements(99, 99, 99, 99));
 

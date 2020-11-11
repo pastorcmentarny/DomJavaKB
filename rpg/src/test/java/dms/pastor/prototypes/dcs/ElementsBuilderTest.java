@@ -20,7 +20,6 @@ public class ElementsBuilderTest {
     public void buildWithoutSetCustomVariablesShouldReturnElementsWithZerosVariables() {
         // given
         final Elements expectedElements = new Elements(0, 0, 0, 0);
-
         // when
         final Elements elements = elementsBuilder().build();
 
@@ -36,7 +35,6 @@ public class ElementsBuilderTest {
         final int fire = 3;
         final int water = 4;
         final Elements expectedElements = new Elements(air, earth, fire, water);
-
         // when
         final Elements elements = elementsBuilder()
                 .air(air)
@@ -51,7 +49,6 @@ public class ElementsBuilderTest {
 
     @Test
     public void setToOneForAllElementsShouldReturnElementsWithOneOfEachElement() {
-
         // when
         final Elements elements = elementsBuilder()
                 .setToOneForAllElements()

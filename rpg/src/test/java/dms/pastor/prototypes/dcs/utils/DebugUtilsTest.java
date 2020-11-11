@@ -49,7 +49,6 @@ public final class DebugUtilsTest {
         final String card = generateString(10);
         final List<Card> cards = new ArrayList<>();
         cards.add(new TestCard(card));
-
         // when
         DebugUtils.displayCardArray(cards);
 

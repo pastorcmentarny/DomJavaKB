@@ -13,7 +13,6 @@ public final class DeathRaySpellTest {
         // given
         DeathRaySpell deathRaySpell = new DeathRaySpell();
         final Unit unit = UnitBuilder.unitBuilder().sp(10).hp(20).build();
-
         // when
         deathRaySpell.castSpell(unit, unit);
 

@@ -12,7 +12,6 @@ class PixelUtilsTest {
         // given
         final Pixel[][] worldAs2DArray = WorldGenerator.generateTestWorld().getWorld();
         final String expectedResult = "########,,,,,##OOO,O##,,,,,##O,OOO##,,,,,##,,,T░########";
-
         // when
         final String result = String.join("", PixelUtils.toArrayOfTiles(worldAs2DArray));
 

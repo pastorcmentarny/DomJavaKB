@@ -61,7 +61,6 @@ public class ConditionTest {
                 .condition(STUNNED)
                 .turnsLeft(2)
                 .build();
-
         // when
         conditions.add(conditionEntry);
 
@@ -78,7 +77,6 @@ public class ConditionTest {
                 .turnsLeft(DEFAULT_CONDITION_DURATION)
                 .nonPersistent()
                 .build();
-
         // when
         conditions.add(conditionEntry);
 
@@ -99,7 +97,6 @@ public class ConditionTest {
         // given
         final ConditionEntry originalConditionEntry = createTemporaryCondition(STUNNED, 2);
         final ConditionEntry newConditionEntry = createTemporaryCondition(STUNNED, 3);
-
         // when
         conditions.add(originalConditionEntry);
         conditions.add(newConditionEntry);
@@ -117,7 +114,6 @@ public class ConditionTest {
 
         conditions.add(condition);
         conditions.add(conditionThatWillBeDeleted);
-
         // when
         conditions.removeByConditionName(conditionThatWillBeDeleted.getConditionType());
 
@@ -142,7 +138,6 @@ public class ConditionTest {
 
         conditions.add(condition);
         conditions.add(conditionTwo);
-
         // when
         conditions.removeByConditionName(nonExistingCondition.getConditionType());
 
@@ -159,7 +154,6 @@ public class ConditionTest {
                 .condition(STUNNED)
                 .build();
         conditions.add(conditionEntry);
-
         // when
         final boolean result = conditions.has(conditionEntry.getConditionType());
         // then
@@ -173,7 +167,6 @@ public class ConditionTest {
                 .condition(STUNNED)
                 .build();
         conditions.add(conditionEntry);
-
         // when
         final boolean result = conditions.has(POISONED);
         // then
@@ -187,7 +180,6 @@ public class ConditionTest {
                 .condition(STUNNED)
                 .build();
         conditions.add(conditionEntry);
-
         // when
         final boolean result = conditions.hasNot(conditionEntry.getConditionType());
 
@@ -202,7 +194,6 @@ public class ConditionTest {
                 .condition(STUNNED)
                 .build();
         conditions.add(conditionEntry);
-
         // when
         final boolean result = conditions.hasNot(POISONED);
 
@@ -220,7 +211,6 @@ public class ConditionTest {
                 .build();
         conditions.add(condition);
         assertThat(conditions.getConditionEntry(STUNNED).getTurnsLeft() == 2).isTrue();
-
         // when
         conditions.reduceByOneTurn();
 
@@ -238,7 +228,6 @@ public class ConditionTest {
                 .build();
         conditions.add(condition);
         assertThat(conditions.getConditionEntry(STUNNED).getTurnsLeft() == 1).isTrue();
-
         // when
         conditions.reduceByOneTurn();
 
@@ -255,7 +244,6 @@ public class ConditionTest {
                 .nonPersistent()
                 .build();
         conditions.add(condition);
-
         // when
         conditions.reduceByOneTurn();
 
@@ -271,7 +259,6 @@ public class ConditionTest {
                 .turnsLeft(2)
                 .build();
         conditions.add(condition);
-
         // when
         final ConditionEntry conditionEntryResult = conditions.getConditionEntry(POISONED);
 
@@ -303,7 +290,6 @@ public class ConditionTest {
         conditions.add(condition);
         conditions.add(conditionTwo);
         conditions.add(conditionThree);
-
         // when
         conditions.removeAllTemporaryConditions();
 
@@ -316,7 +302,6 @@ public class ConditionTest {
         // given
         final ConditionEntry airImmuneCondition = createPersistentCondition(AIR_IMMUNE);
         conditions.add(airImmuneCondition);
-
         // when
         final boolean result = conditions.isImmuneTo(ElementType.AIR);
 
@@ -329,7 +314,6 @@ public class ConditionTest {
         // given
         final ConditionEntry earthImmuneCondition = createPersistentCondition(EARTH_IMMUNE);
         conditions.add(earthImmuneCondition);
-
         // when
         final boolean result = conditions.isImmuneTo(ElementType.EARTH);
 
@@ -342,7 +326,6 @@ public class ConditionTest {
         // given
         final ConditionEntry fireImmuneCondition = createPersistentCondition(FIRE_IMMUNE);
         conditions.add(fireImmuneCondition);
-
         // when
         final boolean result = conditions.isImmuneTo(ElementType.FIRE);
 
@@ -355,7 +338,6 @@ public class ConditionTest {
         // given
         final ConditionEntry waterImmuneCondition = createPersistentCondition(WATER_IMMUNE);
         conditions.add(waterImmuneCondition);
-
         // when
         final boolean result = conditions.isImmuneTo(ElementType.WATER);
 
@@ -368,7 +350,6 @@ public class ConditionTest {
         // given
         final ConditionEntry fireImmuneCondition = createPersistentCondition(FIRE_IMMUNE);
         conditions.add(fireImmuneCondition);
-
         // when
         final boolean result = conditions.isImmuneTo(AIR);
 
@@ -381,7 +362,6 @@ public class ConditionTest {
         // given
         final ConditionEntry airImmuneCondition = createPersistentCondition(AIR_IMMUNE);
         conditions.add(airImmuneCondition);
-
         // when
         final boolean result = conditions.isNotImmuneTo(ElementType.AIR);
 
@@ -394,7 +374,6 @@ public class ConditionTest {
         // given
         final ConditionEntry fireImmuneCondition = createPersistentCondition(FIRE_IMMUNE);
         conditions.add(fireImmuneCondition);
-
         // when
         final boolean result = conditions.isNotImmuneTo(AIR);
 
@@ -404,7 +383,6 @@ public class ConditionTest {
 
     @Test
     public void isImmuneReturnsFalseIfElementTypeIsNull() {
-
         // when
         final boolean result = conditions.isImmuneTo(null);
 
@@ -430,7 +408,6 @@ public class ConditionTest {
         conditions.add(fireSensitiveCondition);
         final ConditionEntry airSensitiveCondition = createPersistentCondition(AIR_SENSITIVE);
         conditions.add(airSensitiveCondition);
-
         // when
         final int size = conditions.size();
 
@@ -462,7 +439,6 @@ public class ConditionTest {
     public void reduceByOneTurnShouldNotChangeTurnsLeftForPersistentCondition() {
         // given
         conditions.add(persistentCondition);
-
         // when
         conditions.reduceByOneTurn();
 
@@ -483,7 +459,6 @@ public class ConditionTest {
         conditions.add(condition);
         conditions.add(conditionTwo);
         conditions.add(conditionThree);
-
         // when
         conditions.removeAllConditions();
 
@@ -510,7 +485,6 @@ public class ConditionTest {
                 .build();
         final ConditionEntry conditionTwo = createPersistentCondition(AIR_IMMUNE);
         final ConditionEntry conditionThree = createTemporaryConditionWithDefaultDuration(STUNNED);
-
         // when
         final Condition condition = createCondition(conditionOne, conditionTwo, conditionThree);
 
@@ -523,7 +497,6 @@ public class ConditionTest {
     public void hasNegativeConditionShouldReturnTrueForNegativeCondition() {
         // given
         final Condition condition = createCondition(createPersistentCondition(STUNNED));
-
         // when
         final boolean result = condition.hasNegativeCondition();
 
@@ -535,7 +508,6 @@ public class ConditionTest {
     public void hasNegativeConditionShouldReturnFalseForNeutralCondition() {
         // given
         final Condition condition = createCondition(createPersistentCondition(MINDLESS));
-
         // when
         final boolean result = condition.hasNegativeCondition();
 
@@ -547,7 +519,6 @@ public class ConditionTest {
     public void hasNegativeConditionShouldReturnFalseForPositiveCondition() {
         // given
         final Condition condition = createCondition(createPersistentCondition(BUBBLE_SHIELD));
-
         // when
         final boolean result = condition.hasNegativeCondition();
 

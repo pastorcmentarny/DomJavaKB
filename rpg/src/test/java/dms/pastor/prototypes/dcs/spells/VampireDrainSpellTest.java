@@ -20,7 +20,6 @@ public final class VampireDrainSpellTest {
                 .hp(initialHp)
                 .withoutShield()
                 .build();
-
         // when
         vampireDrainSpell.castSpell(vampire, enemy);
 

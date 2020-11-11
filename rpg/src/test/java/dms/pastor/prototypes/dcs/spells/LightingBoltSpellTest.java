@@ -21,7 +21,6 @@ public class LightingBoltSpellTest {
     public void castLightBoltSpellShouldCauseDamageToUnit() {
         // given
         LightingBoltSpell lightingBoltSpell = new LightingBoltSpell();
-
         // when
         final Unit unit = UnitBuilder.unitBuilder()
                 .withoutShield()

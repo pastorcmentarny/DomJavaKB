@@ -56,7 +56,6 @@ public class StatsTest {
         // given
         int dmg = 3;
         int range = 0;
-
         // when
         stats.addToDmg(dmg, range);
 
@@ -74,7 +73,6 @@ public class StatsTest {
         // given
         int dmg = 3;
         int range = 1;
-
         // when
         stats.addToDmg(dmg, range);
 
@@ -91,7 +89,6 @@ public class StatsTest {
         // given
         int dmg = 1;
         int range = 1;
-
         // when
         stats.addToDmg(dmg, range);
 

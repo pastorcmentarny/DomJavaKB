@@ -17,7 +17,6 @@ class ActivityTest {
         final var wanderer = withRandomNameAtTestStartPoint();
         wanderer.setCurrentCoordinateTo(new Coordinates(4, 1));
         final var activity = new Activity(wanderer, world);
-
         // when
         activity.walkSouth();
 
@@ -34,7 +33,6 @@ class ActivityTest {
         final var world = WorldGenerator.generateTestWorld();
         final var wanderer = withRandomNameAtTestStartPoint();
         final var activity = new Activity(wanderer, world);
-
         // when
         activity.walkEast();
 
@@ -52,7 +50,6 @@ class ActivityTest {
         final var wanderer = withRandomNameAtTestStartPoint();
         wanderer.setCurrentCoordinateTo(new Coordinates(4, 2));
         final var activity = new Activity(wanderer, world);
-
         // when
         activity.walkNorth();
 
@@ -70,7 +67,6 @@ class ActivityTest {
         final var wanderer = withRandomNameAtTestStartPoint();
         wanderer.setCurrentCoordinateTo(new Coordinates(2, 1));
         final var activity = new Activity(wanderer, world);
-
         // when
         activity.walkWest();
 
@@ -87,7 +83,6 @@ class ActivityTest {
         final var wanderer = withRandomNameAtTestStartPoint();
         wanderer.setCurrentCoordinateTo(new Coordinates(4, 1));
         final var activity = new Activity(wanderer, world);
-
         // when
         activity.regenerateWorld();
 

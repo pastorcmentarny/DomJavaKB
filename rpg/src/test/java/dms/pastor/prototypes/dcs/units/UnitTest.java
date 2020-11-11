@@ -88,7 +88,6 @@ public class UnitTest {
                 .hp(initialHp)
                 .maxHp(maxHp)
                 .build();
-
         // when
         unit.addHP(healBy);
 
@@ -105,7 +104,6 @@ public class UnitTest {
                 .hp(initialHp)
                 .maxHp(initialHp)
                 .build();
-
         // when
         unit.addHP(healBy);
 
@@ -121,7 +119,6 @@ public class UnitTest {
                 .sp(0)
                 .build();
         final int initialShieldPoints = 20;
-
         // when
         unit.createShield(initialShieldPoints);
 
@@ -138,7 +135,6 @@ public class UnitTest {
         final Unit unit = UnitBuilder.unitBuilder()
                 .shielded()
                 .build();
-
         // when
         unit.createShield(INITIAL_SHIELD_POINTS);
 
@@ -158,7 +154,6 @@ public class UnitTest {
                 .sp(DEFAULT_NUMBER_OF_ELEMENTS)
                 .build();
         final int expectedSp = 15;
-
         // when
         unit.increaseShieldBy(5);
 
@@ -177,7 +172,6 @@ public class UnitTest {
                         .air(airElements)
                         .build())
                 .build();
-
         // when
         final int elements = unit.getElements().getElementsFor(AIR);
 
@@ -195,7 +189,6 @@ public class UnitTest {
                         .earth(earthElements)
                         .build())
                 .build();
-
         // when
         final int elements = unit.getElements().getElementsFor(EARTH);
 
@@ -213,7 +206,6 @@ public class UnitTest {
                         .fire(fireElements)
                         .build())
                 .build();
-
         // when
         final int elements = unit.getElements().getElementsFor(FIRE);
 
@@ -231,7 +223,6 @@ public class UnitTest {
                         .water(waterElements)
                         .build())
                 .build();
-
         // when
         final int elements = unit.getElements().getElementsFor(WATER);
 
@@ -245,7 +236,6 @@ public class UnitTest {
         final Unit unit = UnitBuilder.unitBuilder()
                 .elements(ElementsBuilder.elementsBuilder().setToOneForAllElements().build())
                 .build();
-
         // when
         final int elements = unit.getElements().getElementsFor(null);
 
@@ -261,7 +251,6 @@ public class UnitTest {
                         .setToOneForAllElements()
                         .build())
                 .build();
-
         // when
         unit.getElements().setElementsFor(AIR, DEFAULT_NUMBER_OF_ELEMENTS);
 
@@ -277,7 +266,6 @@ public class UnitTest {
                         .setToOneForAllElements()
                         .build())
                 .build();
-
         // when
         unit.getElements().setElementsFor(EARTH, DEFAULT_NUMBER_OF_ELEMENTS);
 
@@ -293,7 +281,6 @@ public class UnitTest {
                         .setToOneForAllElements()
                         .build())
                 .build();
-
         // when
         unit.getElements().setElementsFor(FIRE, DEFAULT_NUMBER_OF_ELEMENTS);
 
@@ -309,7 +296,6 @@ public class UnitTest {
                         .setToOneForAllElements()
                         .build())
                 .build();
-
         // when
         unit.getElements().setElementsFor(WATER, DEFAULT_NUMBER_OF_ELEMENTS);
 
@@ -323,7 +309,6 @@ public class UnitTest {
         final Unit unit = UnitBuilder.unitBuilder()
                 .withoutShield()
                 .build();
-
         // when
         final boolean isNotShielded = unit.isNotShielded();
 
@@ -337,7 +322,6 @@ public class UnitTest {
         final Unit unit = UnitBuilder.unitBuilder()
                 .shielded()
                 .build();
-
         // when
         final boolean isNotShielded = unit.isNotShielded();
 
@@ -351,7 +335,6 @@ public class UnitTest {
         final Unit unit = UnitBuilder.unitBuilder()
                 .sp(LARGE_SHIELD_POINTS)
                 .build();
-
         // when
         unit.setShielded(false);
 
@@ -375,7 +358,6 @@ public class UnitTest {
 
         // debug
         LOGGER.info(unit.toString());
-
         // when
         final int increase = unit.getHealth().increaseHpPerTurn();
 
@@ -397,7 +379,6 @@ public class UnitTest {
                 .hpRegenPerTurn(regenHpRate)
                 .withoutShield()
                 .build();
-
         // when
         final int increase = unit.getHealth().increaseHpPerTurn();
 
@@ -419,7 +400,6 @@ public class UnitTest {
                 .hpRegenPerTurn(regenHpRate)
                 .withoutShield()
                 .build();
-
         // when
         final int increase = unit.getHealth().increaseHpPerTurn();
 
@@ -437,7 +417,6 @@ public class UnitTest {
                 .hp(initialHp)
                 .build();
         unit.getConditions().add(createTemporaryConditionWithDefaultDuration(BUBBLE_SHIELD));
-
         // when
         final int damage = unit.doesDamageTo(unit, 5);
 
@@ -457,7 +436,6 @@ public class UnitTest {
                 .sp(initialSp)
                 .build();
         unit.getConditions().add(createTemporaryConditionWithDefaultDuration(BUBBLE_SHIELD));
-
         // when
         unit.doesDirectDamage(5);
 
@@ -477,7 +455,6 @@ public class UnitTest {
                 .sp(initialSp)
                 .build();
         unit.getConditions().add(createTemporaryConditionWithDefaultDuration(BUBBLE_SHIELD));
-
         // when
         unit.doesShieldDamage(5);
 

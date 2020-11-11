@@ -21,7 +21,6 @@ public class UnitBuilderTest {
 
     @Test
     public void buildShouldReturnUnitWithoutShieldIfLastModificationWasWithoutShield() {
-
         // when
         final Unit unit = UnitBuilder.unitBuilder()
                 .sp(10)
@@ -35,7 +34,6 @@ public class UnitBuilderTest {
 
     @Test
     public void buildShouldReturnUnitShieldedIfLastStepIsShieldedIsSetToTrue() {
-
         // when
         final Unit unit = UnitBuilder.unitBuilder()
                 .sp(randomNegativeInteger())
@@ -49,7 +47,6 @@ public class UnitBuilderTest {
 
     @Test
     public void buildShouldReturnUnitWithoutShieldIfSpIsEqualOrLessZeroEvenShieldedIsSetToTrue() {
-
         // when
         final Unit unit = UnitBuilder.unitBuilder()
                 .sp(randomPositiveInteger())

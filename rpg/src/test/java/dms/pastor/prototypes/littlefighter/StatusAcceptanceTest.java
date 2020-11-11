@@ -29,7 +29,6 @@ public class StatusAcceptanceTest {
         status.setBerserk();
         status.setPoisoned();
         status.setWeak();
-
         // when
         status.purify();
 
@@ -49,7 +48,6 @@ public class StatusAcceptanceTest {
         status.setBerserk();
         status.setPoisoned();
         status.setWeak();
-
         // when
         final String activeStatuses = status.setActiveStatuses();
 
@@ -62,7 +60,6 @@ public class StatusAcceptanceTest {
 
         // given
         status.setBlind();
-
         // when and then
         assertThat(status.isBlind()).isTrue();
     }
@@ -72,7 +69,6 @@ public class StatusAcceptanceTest {
 
         // given
         status.setBerserk();
-
         // when and then
         assertThat(status.isBerserk()).isTrue();
     }
@@ -82,7 +78,6 @@ public class StatusAcceptanceTest {
 
         // given
         status.setWeak();
-
         // when and then
         assertThat(status.isWeak()).isTrue();
     }
@@ -94,7 +89,6 @@ public class StatusAcceptanceTest {
         // given
         status.setPoisoned();
         status.setLengthOfPoison(2);
-
         // when
         status.decreaseLengthOfPoison();
 

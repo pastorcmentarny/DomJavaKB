@@ -11,7 +11,6 @@ public class HealthTest {
 
         // given
         final int health = 10;
-
         // when
         final Health result = Health.getDefaultHealth(health);
 

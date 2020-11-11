@@ -28,7 +28,6 @@ public final class DispellTest {
                 .build();
 
         assertThat(unit.getConditions().size()).isEqualTo(3);
-
         // when
         dispell.castSpell(unit, unit);
 

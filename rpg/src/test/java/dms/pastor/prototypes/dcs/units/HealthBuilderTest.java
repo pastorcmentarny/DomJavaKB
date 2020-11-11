@@ -55,7 +55,6 @@ public class HealthBuilderTest {
         expectedHealth.setMaxHp(maxHp);
         expectedHealth.setArm(arm);
         expectedHealth.setHpRegenRate(hpRegenRate);
-
         // when
         final Health result = healthBuilder()
                 .hp(hp)
@@ -73,7 +72,6 @@ public class HealthBuilderTest {
         // given
         final int hp = 5;
         final int tooLowMaxHp = 4;
-
         // when
         final Health result = healthBuilder()
                 .maxHp(tooLowMaxHp)

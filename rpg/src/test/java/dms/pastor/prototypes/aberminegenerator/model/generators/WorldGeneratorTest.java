@@ -35,7 +35,6 @@ class WorldGeneratorTest {
     @Test
     public void shouldGenerateWorldFromFileAcceptanceTest() {
         // given
-
         // when
         final World result = WorldGenerator.generateFromFile();
 

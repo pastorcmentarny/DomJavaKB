@@ -51,7 +51,6 @@ public final class NoSpellTest {
     public void getInstanceShouldReturnSingleInstanceOfNoSpell() {
         // given
         final NoSpell instanceOne = NoSpell.getInstance();
-
         // when
         final NoSpell instanceTwo = NoSpell.getInstance();
 
@@ -70,7 +69,6 @@ public final class NoSpellTest {
                 tmpFileName));
         objectToSerialize.writeObject(instanceOne);
         objectToSerialize.close();
-
         // when
         ObjectInput in = new ObjectInputStream(new FileInputStream(
                 tmpFileName));

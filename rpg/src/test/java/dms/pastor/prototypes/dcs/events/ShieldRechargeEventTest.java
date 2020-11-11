@@ -29,7 +29,6 @@ public class ShieldRechargeEventTest {
         final Unit unitTwo = UnitBuilder.unitBuilder()
                 .sp(DEFAULT_SHIELD_POINTS)
                 .build();
-
         // when
         shieldRechargeEvent.makeItHappen(unitOne, unitTwo);
 

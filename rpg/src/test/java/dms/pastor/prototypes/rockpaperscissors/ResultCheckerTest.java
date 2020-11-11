@@ -15,7 +15,6 @@ class ResultCheckerTest {
         RPSPlayer player1 = new RPSPlayer("player1", false, 0, randomShape);
         RPSPlayer player2 = new RPSPlayer("player2", false, 0, randomShape);
         final ResultChecker resultChecker = new ResultChecker(player1, player2);
-
         // when
         resultChecker.checkResult();
 
@@ -31,7 +30,6 @@ class ResultCheckerTest {
         RPSPlayer player1 = new RPSPlayer("player1", false, 0, SCISSORS);
         RPSPlayer player2 = new RPSPlayer("player2", false, 0, PAPER);
         final ResultChecker resultChecker = new ResultChecker(player1, player2);
-
         // when
         resultChecker.checkResult();
 
@@ -46,7 +44,6 @@ class ResultCheckerTest {
         RPSPlayer player1 = new RPSPlayer("player1", false, 0, PAPER);
         RPSPlayer player2 = new RPSPlayer("player2", false, 0, SCISSORS);
         final ResultChecker resultChecker = new ResultChecker(player1, player2);
-
         // when
         resultChecker.checkResult();
 
@@ -61,7 +58,6 @@ class ResultCheckerTest {
         RPSPlayer player1 = new RPSPlayer("player1", false, 0, PAPER);
         RPSPlayer player2 = new RPSPlayer("player2", false, 0, ROCK);
         final ResultChecker resultChecker = new ResultChecker(player1, player2);
-
         // when
         resultChecker.checkResult();
 
@@ -76,7 +72,6 @@ class ResultCheckerTest {
         RPSPlayer player1 = new RPSPlayer("player1", false, 0, ROCK);
         RPSPlayer player2 = new RPSPlayer("player2", false, 0, PAPER);
         final ResultChecker resultChecker = new ResultChecker(player1, player2);
-
         // when
         resultChecker.checkResult();
 
@@ -91,7 +86,6 @@ class ResultCheckerTest {
         RPSPlayer player1 = new RPSPlayer("player1", false, 0, ROCK);
         RPSPlayer player2 = new RPSPlayer("player2", false, 0, SCISSORS);
         final ResultChecker resultChecker = new ResultChecker(player1, player2);
-
         // when
         resultChecker.checkResult();
 
@@ -106,7 +100,6 @@ class ResultCheckerTest {
         RPSPlayer player1 = new RPSPlayer("player1", false, 0, SCISSORS);
         RPSPlayer player2 = new RPSPlayer("player2", false, 0, ROCK);
         final ResultChecker resultChecker = new ResultChecker(player1, player2);
-
         // when
         resultChecker.checkResult();
 

@@ -23,7 +23,6 @@ public final class CureActionTest {
                 .condition(condition)
                 .elements(new CureSpell().getElements())
                 .build();
-
         // when
         cureAction.perform(unit, unit);
 

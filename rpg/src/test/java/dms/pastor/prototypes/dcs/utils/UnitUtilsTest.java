@@ -12,7 +12,6 @@ public class UnitUtilsTest {
     public void doubleDamageShouldMultiplyBy2() {
         // given
         final int dmg = 3;
-
         // when
         final int result = doubleDamageFor(dmg);
 
@@ -24,7 +23,6 @@ public class UnitUtilsTest {
     public void doubleDamageShouldReturnZeroForNegativeDamage() {
         // given
         final int dmg = RandomDataGenerator.randomNegativeInteger();
-
         // when
         final int result = doubleDamageFor(dmg);
 

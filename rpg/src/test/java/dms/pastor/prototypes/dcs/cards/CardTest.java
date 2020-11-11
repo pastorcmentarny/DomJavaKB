@@ -20,7 +20,6 @@ public final class CardTest {
         List<Card> cards = new ArrayList<>();
         cards.add(new LightingBoltSpell());
         cards.add(event);
-
         // when
         final List<Card> cardFound = Card.getAllCardsFor(CardType.EVENT, cards);
 

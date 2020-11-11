@@ -20,7 +20,6 @@ public class CureSpellAcceptanceTest {
         UnitBuilder.unitBuilder()
                 .condition(null)
                 .build();
-
         // when
 
         // then

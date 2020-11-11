@@ -25,7 +25,6 @@ public class PoisonSpellTest {
         // given
         PoisonSpell poisonSpell = new PoisonSpell();
         Unit unit = unitBuilder().build();
-
         // when
         poisonSpell.castSpell(unit, unit);
 
@@ -45,7 +44,6 @@ public class PoisonSpellTest {
         Unit unit = unitBuilder()
                 .condition(condition)
                 .build();
-
         // when
         poisonSpell.castSpell(unit, unit);
 

@@ -16,7 +16,6 @@ public final class WeaknessSpellTest {
         // given
         final WeaknessSpell weaknessSpell = new WeaknessSpell();
         final Unit unit = UnitBuilder.unitBuilder().build();
-
         // when
         for (int i = 0; i < MAX_ATTEMPT_TO_GET_WEAKNESS; i++) {
             weaknessSpell.castSpell(unit, unit);

@@ -26,7 +26,6 @@ public final class WaterElementEventTest {
         final Unit unit = unitBuilder()
                 .condition(condition)
                 .build();
-
         // when
         final String result = waterElementEvent.makeItHappen(unit, unit);
         System.out.println(result);
@@ -44,7 +43,6 @@ public final class WaterElementEventTest {
                         .setToOneForAllElements()
                         .build())
                 .build();
-
         // when
         final String result = waterElementEvent.makeItHappen(unit, unit);
         System.out.println(result);

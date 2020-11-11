@@ -33,7 +33,6 @@ public final class DrawEventSpellTest {
         // given
         DrawEventSpell drawEventSpell = new DrawEventSpell();
         Unit unit = UnitBuilder.unitBuilder().build();
-
         // when
         drawEventSpell.castSpell(unit, unit);
 

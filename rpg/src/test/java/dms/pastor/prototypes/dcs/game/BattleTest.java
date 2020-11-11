@@ -17,7 +17,6 @@ public final class BattleTest {
         // given
         final Unit deathUnit = UnitBuilder.unitBuilder().buildDeathUnit();
         Battle battle = new Battle(deathUnit, deathUnit);
-
         // when
         final boolean result = battle.isInFight();
 
@@ -34,7 +33,6 @@ public final class BattleTest {
                 .build();
 
         Battle battle = new Battle(aliveUnit, deathUnit);
-
         // when
         final boolean result = battle.isInFight();
 
@@ -66,7 +64,6 @@ public final class BattleTest {
                 .build();
 
         Battle battle = new Battle(aliveUnit, aliveUnit);
-
         // when
         final boolean result = battle.isInFight();
 

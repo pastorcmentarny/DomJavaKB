@@ -39,8 +39,6 @@ class WorldTest {
         // given
         World originalWorld = World.noWorld();
         final var worldAsPixels = TerrainGenerator.generateGrass(DEFAULT_WORLD_WIDTH, DEFAULT_WORLD_HEIGHT);
-
-
         // when
         originalWorld.setWorld(worldAsPixels);
 
@@ -69,7 +67,6 @@ class WorldTest {
         final var width = 1;
         final var height = 1;
         final var wallPixel = Pixel.getWallAt(width, height);
-
         // when
         world.updatePixel(wallPixel);
 

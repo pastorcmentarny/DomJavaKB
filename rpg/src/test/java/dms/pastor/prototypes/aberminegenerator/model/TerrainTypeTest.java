@@ -11,7 +11,6 @@ class TerrainTypeTest {
     public void getTerrainFromCharShouldReturnUnknownTypeIfValueCannotBeFound() {
         // given
         final char invalidCharacter = '±';
-
         // when
         final TerrainType result = TerrainType.getTerrainFromChar(invalidCharacter);
 
@@ -23,7 +22,6 @@ class TerrainTypeTest {
     public void getTerrainFromCharShouldReturnSandTypeForWallCharacter() {
         // given
         final char invalidCharacter = '#';
-
         // when
         final TerrainType result = TerrainType.getTerrainFromChar(invalidCharacter);
 
@@ -35,7 +33,6 @@ class TerrainTypeTest {
     public void getTerrainFromCharShouldReturnSandTypeForSandSpecialCharacter() {
         // given
         final char invalidCharacter = '░';
-
         // when
         final TerrainType result = TerrainType.getTerrainFromChar(invalidCharacter);
 

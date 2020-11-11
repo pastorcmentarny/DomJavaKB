@@ -48,7 +48,6 @@ public final class VampireTest {
                 .build();
         String vampireDrainSpellName = new VampireDrainSpell().getName();
         final String iceBoltSpellName = new IceBoltSpell().getName();
-
         // when
         vampire.turn(enemy);
 

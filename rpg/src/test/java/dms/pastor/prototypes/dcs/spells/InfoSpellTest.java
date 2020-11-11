@@ -38,7 +38,6 @@ public final class InfoSpellTest {
                 .sp(24)
                 .maxHp(32)
                 .build();
-
         // when
         infoSpell.castSpell(unit, unit);
 

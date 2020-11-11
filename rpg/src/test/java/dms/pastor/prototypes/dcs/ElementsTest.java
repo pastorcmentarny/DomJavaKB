@@ -57,7 +57,6 @@ public class ElementsTest {
     public void displayElementsShouldDisplayInformation() {
         // given
         final Elements elements = elementsBuilder().setToOneForAllElements().build();
-
         // when
         elements.displayElements();
 
@@ -69,7 +68,6 @@ public class ElementsTest {
     public void addElementWith5AirShouldAdd5AirElementToElements() {
         // given
         final Elements elements = elementsBuilder().setToOneForAllElements().build();
-
         // when
         elements.addElement(AIR, 5);
 
@@ -81,7 +79,6 @@ public class ElementsTest {
     public void addElementWithAirShouldAirElementToElements() {
         // given
         final Elements elements = elementsBuilder().setToOneForAllElements().build();
-
         // when
         elements.addElement(AIR);
 
@@ -93,7 +90,6 @@ public class ElementsTest {
     public void addElementWithEarthShouldEarthElementToElements() {
         // given
         final Elements elements = elementsBuilder().setToOneForAllElements().build();
-
         // when
         elements.addElement(EARTH);
 
@@ -105,7 +101,6 @@ public class ElementsTest {
     public void addElementWithFireShouldFireElementToElements() {
         // given
         final Elements elements = elementsBuilder().setToOneForAllElements().build();
-
         // when
         elements.addElement(FIRE);
 
@@ -117,7 +112,6 @@ public class ElementsTest {
     public void addElementWithWaterShouldWaterElementToElements() {
         // given
         final Elements elements = elementsBuilder().setToOneForAllElements().build();
-
         // when
         elements.addElement(WATER);
 
@@ -129,7 +123,6 @@ public class ElementsTest {
     public void addElementWithULLShouldDisplayWarningInLogs() {
         // given
         final Elements elements = elementsBuilder().setToOneForAllElements().build();
-
         // when
         elements.addElement(null);
 
@@ -145,7 +138,6 @@ public class ElementsTest {
     public void getElementsForShouldReturnAmountOfElementsForAir() {
         // given
         final Elements elements = elementsBuilder().setToOneForAllElements().build();
-
         // when
         int airCount = elements.getElementsFor(AIR);
 
@@ -157,7 +149,6 @@ public class ElementsTest {
     public void getElementsForShouldReturnOneElementForEarth() {
         // given
         final Elements elements = elementsBuilder().setToOneForAllElements().build();
-
         // when
         int airCount = elements.getElementsFor(EARTH);
 
@@ -169,7 +160,6 @@ public class ElementsTest {
     public void getElementsForShouldReturnAmountOfElementsForFire() {
         // given
         final Elements elements = elementsBuilder().setToOneForAllElements().build();
-
         // when
         int airCount = elements.getElementsFor(FIRE);
 
@@ -182,7 +172,6 @@ public class ElementsTest {
     public void getElementsForShouldReturnOneElementForWater() {
         // given
         final Elements elements = elementsBuilder().setToOneForAllElements().build();
-
         // when
         int airCount = elements.getElementsFor(WATER);
 
@@ -195,7 +184,6 @@ public class ElementsTest {
     public void removeRandomElementsShouldRemoveOneElement() {
         // given
         final Elements elements = elementsBuilder().setToOneForAllElements().build();
-
         // when
         final List<ElementType> elementType = elements.removeRandomElements(1);
 
@@ -211,7 +199,6 @@ public class ElementsTest {
         final Elements elements = elementsBuilder()
                 .air(INIT_ELEMENTS)
                 .build();
-
         // when
         final int usedElementsCount = elements.useElement(AIR, USED_ELEMENTS);
 
@@ -226,7 +213,6 @@ public class ElementsTest {
         final Elements elements = elementsBuilder()
                 .earth(INIT_ELEMENTS)
                 .build();
-
         // when
         final int usedElementsCount = elements.useElement(EARTH, USED_ELEMENTS);
 
@@ -241,7 +227,6 @@ public class ElementsTest {
         final Elements elements = elementsBuilder()
                 .fire(INIT_ELEMENTS)
                 .build();
-
         // when
         final int usedElementsCount = elements.useElement(FIRE, USED_ELEMENTS);
 
@@ -256,7 +241,6 @@ public class ElementsTest {
         final Elements elements = elementsBuilder()
                 .water(INIT_ELEMENTS)
                 .build();
-
         // when
         final int usedElementsCount = elements.useElement(WATER, USED_ELEMENTS);
 
@@ -269,7 +253,6 @@ public class ElementsTest {
     public void setToZeroSetsAllElementsToZero() {
         // given
         final Elements elements = elementsBuilder().setToOneForAllElements().build();
-
         // when
         elements.setToZero();
 
@@ -285,7 +268,6 @@ public class ElementsTest {
     public void addRandomElementsShouldReturnEmptyStringWhenAddingZeroElements() {
         // given
         final Elements elements = elementsBuilder().build();
-
         // when
         final String result = elements.addRandomElements(0);
 
@@ -300,7 +282,6 @@ public class ElementsTest {
 
         // given
         final Elements elements = elementsBuilder().build();
-
         // when
         final String result = elements.addRandomElements(1);
 
@@ -320,7 +301,6 @@ public class ElementsTest {
 
         // given
         final Elements elements = elementsBuilder().build();
-
         // when
         final String result = elements.addRandomElements(2);
 

@@ -37,7 +37,6 @@ public class PixelTest {
         final int width = 1;
         final int height = 2;
         final var expectedPixel = Pixel.buildPixel(false, WALL, width, height);
-
         // when
         Pixel result = Pixel.getPixelFromCharacter('#', width, height);
 

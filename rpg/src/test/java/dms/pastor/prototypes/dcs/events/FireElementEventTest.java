@@ -32,7 +32,6 @@ public class FireElementEventTest {
                 .build();
 
         FireElementEvent fireElementEvent = new FireElementEvent();
-
         // when
         final String result = fireElementEvent.makeItHappen(unit, unit);
 
@@ -51,7 +50,6 @@ public class FireElementEventTest {
                 .build();
 
         FireElementEvent fireElementEvent = new FireElementEvent();
-
         // when
         fireElementEvent.makeItHappen(unit, unit);
 

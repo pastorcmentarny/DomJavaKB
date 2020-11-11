@@ -24,7 +24,6 @@ public class BubbleShieldSpellTest {
         final Spell bubbleShieldSpell = new BubbleShieldSpell();
         final Unit unit = unitBuilder()
                 .build();
-
         // when
         bubbleShieldSpell.castSpell(unit, unit);
 

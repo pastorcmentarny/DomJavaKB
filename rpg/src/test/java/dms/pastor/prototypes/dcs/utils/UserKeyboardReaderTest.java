@@ -3,7 +3,6 @@ package dms.pastor.prototypes.dcs.utils;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Scanner;
@@ -33,7 +32,6 @@ public class UserKeyboardReaderTest {
         int expectedValue = 1;
         given(scanner.nextInt()).willReturn(expectedValue);
         UserInputReader userKeyboardReader = new UserKeyboardReader(scanner);
-
         // when
         final int integer = userKeyboardReader.getIntegerInput();
         // then

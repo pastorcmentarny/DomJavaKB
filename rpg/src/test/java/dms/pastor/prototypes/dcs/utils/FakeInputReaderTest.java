@@ -19,7 +19,6 @@ public class FakeInputReaderTest {
     public void getIntegerInputShouldReturnZero() {
         // given
         UserInputReader fakeInputReader = new FakeInputReader();
-
         // when
         final int fakeInput = fakeInputReader.getIntegerInput();
 

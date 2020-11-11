@@ -28,7 +28,6 @@ public class ConditionEntryTest {
     public void updateTurnsLeftShouldUpdateTurnsIsHigherThanTurnsLeft() {
         // given
         final int newTurnsLeft = 4;
-
         // when
         temporaryCondition.updateTurnsLeft(newTurnsLeft);
 
@@ -40,7 +39,6 @@ public class ConditionEntryTest {
     public void updateTurnsLeftShouldNotUpdateTurnsIsLowerThanTurnsLeft() {
         // given
         final int newTurnsLeft = 2;
-
         // when
         temporaryCondition.updateTurnsLeft(newTurnsLeft);
 
@@ -50,7 +48,6 @@ public class ConditionEntryTest {
 
     @Test
     public void reduceTurnShouldReduceTurnLeftByOne() {
-
         // when
         temporaryCondition.reduceTurn();
 
@@ -62,7 +59,6 @@ public class ConditionEntryTest {
     public void createPersistentConditionShouldReturnConditionWithPersistentTrue() {
         // given
         ConditionEntry expectedCondition = new ConditionEntry(CONDITION_TYPE, INFINITIVE_TURNS_LEFT, true);
-
         // when
         final ConditionEntry persistentConditionResult = createPersistentCondition(CONDITION_TYPE);
 
@@ -74,7 +70,6 @@ public class ConditionEntryTest {
     public void createTemporaryConditionShouldReturnWithConditionWithPersistentFalse() {
         // given
         ConditionEntry expectedCondition = new ConditionEntry(CONDITION_TYPE, INITIAL_TURNS_LEFT, false);
-
         // when
         final ConditionEntry persistentConditionResult = createTemporaryCondition(CONDITION_TYPE, INITIAL_TURNS_LEFT);
 

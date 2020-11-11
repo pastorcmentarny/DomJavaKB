@@ -17,7 +17,6 @@ public class MainGameGUITest {
     @Disabled //java.awt.HeadlessException
     public void runApplicationWithoutCrashAcceptanceTest() throws Exception {
         // given
-
         // when
         final MainGameGUI aboutGui = new MainGameGUI();
         aboutGui.setVisible(true);

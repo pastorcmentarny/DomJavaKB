@@ -46,7 +46,6 @@ public class InfernoStrikeSpellTest {
         final Unit unit2 = unitBuilder.name("Two").build();
         boolean isUnitOneHit = false;
         boolean isUnitTwoHit = false;
-
         // when
         for (int i = 0; i < 10; i++) {
             infernoStrikeSpell.castSpell(unit1, unit2);

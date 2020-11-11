@@ -27,7 +27,6 @@ public class ChainLightingSpellAcceptanceTest {
                 .withoutShield()
                 .build();
         ChainLightingSpell spell = new ChainLightingSpell();
-
         // when
         spell.castSpell(unit, enemy);
 
@@ -45,7 +44,6 @@ public class ChainLightingSpellAcceptanceTest {
                 .sp(3)
                 .build();
         ChainLightingSpell spell = new ChainLightingSpell();
-
         // when
         spell.castSpell(unit, enemy);
 

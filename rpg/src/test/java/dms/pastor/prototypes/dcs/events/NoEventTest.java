@@ -28,7 +28,6 @@ public class NoEventTest {
     public void canHaveEventForNotEventShouldReturnTrue() {
         // given
         final Unit unit = unitBuilder().build();
-
         // when
         final boolean result = noEvent.canHaveEvent(unit);
 
@@ -38,7 +37,6 @@ public class NoEventTest {
 
     @Test
     public void makeItHappenShouldReturnNothingHappenMessage() {
-
         // when
         final String message = noEvent.makeItHappen(UNUSED_UNIT, UNUSED_UNIT);
 

@@ -20,7 +20,6 @@ public final class InGameRandomUtilsTest {
 
         // debug info
         LOGGER.debug("Percentage: " + percentage);
-
         // when
         final boolean willHappenWithProbabilityOf = randomUtils.isWillHappenWithProbabilityOf(percentage);
 
@@ -42,7 +41,6 @@ public final class InGameRandomUtilsTest {
         // given
         boolean trueResult = false;
         boolean falseResult = false;
-
         // when
         for (int i = 0; i < 20; i++) {
             boolean result = randomUtils.isWillHappenWithProbabilityOf(HALF);

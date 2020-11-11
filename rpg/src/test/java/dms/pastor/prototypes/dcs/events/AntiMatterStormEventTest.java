@@ -14,7 +14,6 @@ public class AntiMatterStormEventTest {
 
     @Test
     public void antiMatterStormEventRarityShouldBeRare() {
-
         // when
         final Rarity rarity = antiMatterStormEvent.getRarity();
 

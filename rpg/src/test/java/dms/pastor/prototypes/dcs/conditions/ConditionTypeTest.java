@@ -34,7 +34,6 @@ public class ConditionTypeTest {
     public void getTextShouldLowerCaseConditionTypeForSingleWordedType() {
         // given
         final String expectedResult = "frozen";
-
         // when
         final String result = ConditionType.getText(FROZEN);
 
@@ -46,7 +45,6 @@ public class ConditionTypeTest {
     public void getTextShouldReturnConditionWithNameSeparatedWithSpace() {
         // given
         final String expectedResult = "fire resistant";
-
         // when
         final String result = ConditionType.getText(FIRE_RESISTANT);
 

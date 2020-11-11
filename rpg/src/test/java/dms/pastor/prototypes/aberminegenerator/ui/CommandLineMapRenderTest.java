@@ -30,7 +30,6 @@ class CommandLineMapRenderTest {
         // given
         final Pixel[][] map = WorldGenerator.generateTestWorld().getWorld();
         final Coordinates unitCoordinates = new Coordinates(1, 1);
-
         // when
         final String result = CommandLineMapRender.renderAreaWithVisionRangeOf(map, unitCoordinates, 3);
 

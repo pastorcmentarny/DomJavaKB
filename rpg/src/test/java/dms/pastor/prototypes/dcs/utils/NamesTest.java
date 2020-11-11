@@ -8,7 +8,6 @@ public final class NamesTest {
 
     @Test
     public void getRandomMummyNameShouldReturnName() {
-
         // when
         final String name = Names.getRandomMummyName();
 

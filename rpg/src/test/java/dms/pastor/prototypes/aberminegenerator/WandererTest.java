@@ -12,7 +12,6 @@ class WandererTest {
     void getInfoShouldReturnDataAboutUnitOnUITest() {
         // given
         final Wanderer wanderer = new Wanderer("Gravity", new Coordinates(1, 2));
-
         // when
         final String info = wanderer.getInfo();
 

@@ -48,7 +48,6 @@ public class AsteroidStormSpellTest {
                 .withoutShield()
                 .hp(initHp)
                 .build();
-
         // when
         IntStream.rangeClosed(1, 10).forEach(it -> asteroidStormSpell.castSpell(unit, unit));
 
@@ -70,7 +69,6 @@ public class AsteroidStormSpellTest {
                 .withoutShield()
                 .hp(initHp)
                 .build();
-
         // when
         IntStream.rangeClosed(1, 20).forEach(it -> asteroidStormSpell.castSpell(unit1, unit2));
 

@@ -14,7 +14,6 @@ class TerrainGeneratorTest {
 
     @Test
     public void shouldThrowExceptionIfHeightIsNegative() {
-
         // when
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             generateGrass(randomPositiveInteger(), randomNegativeInteger());
@@ -24,7 +23,6 @@ class TerrainGeneratorTest {
 
     @Test
     public void shouldThrowExceptionIfWidthIsNegative() {
-
         // when
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             generateGrass(randomNegativeInteger(), randomPositiveInteger());
@@ -35,7 +33,6 @@ class TerrainGeneratorTest {
     @Test
     public void shouldGeneratePixels() {
         // given
-
         // when
         final var pixels = generateGrass(2, 2);
 
