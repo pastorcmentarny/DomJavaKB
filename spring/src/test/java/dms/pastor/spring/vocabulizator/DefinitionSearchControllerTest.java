@@ -41,7 +41,6 @@ public class DefinitionSearchControllerTest {
         final String definition = "test";
         final Definition expectedDefinition = definitionBuilder().build();
         given(defaultDefinitionService.getDefinitionFor(definition)).willReturn(expectedDefinition);
-
         // when
         final ResponseEntity result = definitionSearchController.getDefinitionFor(definition);
 

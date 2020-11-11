@@ -12,7 +12,6 @@ public class StatusMessageTest {
         // given 
         final String status = generateString();
         final String message = generateString();
-
         // when
         final StatusMessage statusMessage = new StatusMessage(status, message);
 
@@ -28,7 +27,6 @@ public class StatusMessageTest {
         final String status = generateString();
         final String message = generateString();
         final String advice = generateString();
-
         // when
         final StatusMessage statusMessage = new StatusMessage(status, message, advice);
 

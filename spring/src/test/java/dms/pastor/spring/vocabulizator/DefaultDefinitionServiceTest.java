@@ -42,7 +42,6 @@ public class DefaultDefinitionServiceTest {
         final String definition = "test";
         final Definition expectedDefinition = definitionBuilder().build();
         given(definitionRepository.findByWord(definition)).willReturn(expectedDefinition);
-
         // when
         final Definition result = defaultDefinitionService.getDefinitionFor(definition);
 
