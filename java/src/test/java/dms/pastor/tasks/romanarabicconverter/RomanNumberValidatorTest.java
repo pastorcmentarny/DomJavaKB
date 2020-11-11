@@ -1,6 +1,6 @@
 package dms.pastor.tasks.romanarabicconverter;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static org.assertj.core.api.Assertions.assertThat;

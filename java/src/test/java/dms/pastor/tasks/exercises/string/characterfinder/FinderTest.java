@@ -1,6 +1,6 @@
 package dms.pastor.tasks.exercises.string.characterfinder;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -18,7 +18,6 @@ public class FinderTest {
     public void shouldFindIn10AttemptsTest() {
         // given
         Finder finder = new Finder();
-
         // when
         final int counter = finder.find();
 

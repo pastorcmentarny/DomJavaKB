@@ -1,7 +1,7 @@
 package dms.pastor.examples.java8.stream;
 
 import dms.pastor.ExampleRunner;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Author Dominik Symonowicz

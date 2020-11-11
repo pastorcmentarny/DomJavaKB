@@ -1,8 +1,7 @@
 package dms.pastor.utils;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,14 +30,11 @@ public class NumberUtilsTest {
     private static final int MIN_VALUE = 5;
     private static final int MAX_VALUE = 20;
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void getResultInRangeShouldReturn10For10InRangeBetween5And20() {
         // given
         final int value = 10;
-
         // when
         final int result = getResultInRange(value, MIN_VALUE, MAX_VALUE);
 
@@ -50,7 +46,6 @@ public class NumberUtilsTest {
     public void getResultInRangeShouldReturn5For5InRangeBetween5And20() {
         // given
         final int value = MIN_VALUE;
-
         // when
         final int result = getResultInRange(value, MIN_VALUE, MAX_VALUE);
 
@@ -62,7 +57,6 @@ public class NumberUtilsTest {
     public void getResultInRangeShouldReturn20For20InRangeBetween5And20() {
         // given
         final int value = MAX_VALUE;
-
         // when
         final int result = getResultInRange(value, MIN_VALUE, MAX_VALUE);
 
@@ -74,7 +68,6 @@ public class NumberUtilsTest {
     public void getResultInRangeShouldReturn5For0InRangeBetween5And20() {
         // given
         final int value = 0;
-
         // when
         final int result = getResultInRange(value, MIN_VALUE, MAX_VALUE);
 
@@ -86,7 +79,6 @@ public class NumberUtilsTest {
     public void getResultInRangeShouldReturn25For0InRangeBetween5And20() {
         // given
         final int value = 25;
-
         // when
         final int result = getResultInRange(value, MIN_VALUE, MAX_VALUE);
 
@@ -169,11 +161,8 @@ public class NumberUtilsTest {
     // because result doesn't matter in this case
     @Test
     public void testShouldThrowExceptionFor20() {
-        //except
-        exception.expect(IllegalArgumentException.class);
-
         // when
-        factorial(20);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> factorial(20));
     }
 
     @Test
@@ -196,15 +185,15 @@ public class NumberUtilsTest {
 
     // part of the test
     @SuppressWarnings("ResultOfMethodCallIgnored")
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testGetIllegalExceptionForNullInputForSmallestInt() {
-        getSmallestInt(null);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> getSmallestInt(null));
     }
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testGetIllegalExceptionForEmptyInputForSmallestInt() {
-        getSmallestInt(EMPTY_INTEGER_ARRAY);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> getSmallestInt(EMPTY_INTEGER_ARRAY));
     }
 
     @Test
@@ -227,15 +216,15 @@ public class NumberUtilsTest {
 
     // part of the test
     @SuppressWarnings("ResultOfMethodCallIgnored")
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testGetIllegalExceptionForNullInputForLargestInt() {
-        getLargestInt(null);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> getLargestInt(null));
     }
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testGetIllegalExceptionForEmptyInputForLargestInt() {
-        getLargestInt(EMPTY_INTEGER_ARRAY);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> getLargestInt(EMPTY_INTEGER_ARRAY));
     }
 
     @Test
@@ -243,7 +232,6 @@ public class NumberUtilsTest {
         // given
         int question = 12345;
         int answer = 54321;
-
         // when
         final int result = reverseANumber(question);
 
@@ -291,7 +279,6 @@ public class NumberUtilsTest {
         // given
         final int max8BitValue = 256;
         final int randomNumber = new Random().nextInt(Integer.MAX_VALUE - max8BitValue) + 255;
-
         // when
         final String result = getShortAs8BitRepresentation(randomNumber);
 
@@ -418,7 +405,6 @@ public class NumberUtilsTest {
         // given
         final float newValue = 10f;
         final float currentMaxValue = 12f;
-
         // when
         final float result = getMaxValue(newValue, currentMaxValue);
 
@@ -431,7 +417,6 @@ public class NumberUtilsTest {
         // given
         final float newValue = 13f;
         final float currentMaxValue = 12f;
-
         // when
         final float result = getMaxValue(newValue, currentMaxValue);
 
@@ -444,7 +429,6 @@ public class NumberUtilsTest {
         // given
         final float newValue = 8f;
         final float currentMaxValue = 8f;
-
         // when
         final float result = getMaxValue(newValue, currentMaxValue);
 
@@ -457,7 +441,6 @@ public class NumberUtilsTest {
         // given
         final float newValue = 23f;
         final float currentMaxValue = 21f;
-
         // when
         final float result = getMinValue(newValue, currentMaxValue);
 
@@ -470,7 +453,6 @@ public class NumberUtilsTest {
         // given
         final float newValue = 3f;
         final float currentMaxValue = 5f;
-
         // when
         final float result = getMinValue(newValue, currentMaxValue);
 
@@ -483,7 +465,6 @@ public class NumberUtilsTest {
         // given
         final float newValue = 6f;
         final float currentMaxValue = 6f;
-
         // when
         final float result = getMinValue(newValue, currentMaxValue);
 
@@ -523,7 +504,6 @@ public class NumberUtilsTest {
     public void shouldReturnFalseIfBigDecimalIsNotInteger() {
         // given
         BigDecimal bigDecimal = new BigDecimal("1.23");
-
         // when
         final boolean result = isBigDecimalAValidInteger(bigDecimal);
 
@@ -534,7 +514,6 @@ public class NumberUtilsTest {
     @Test
     public void shouldReturnTrueWhenBigDecimalIsInteger() {
         // given
-
         // when
         final boolean result = isBigDecimalAValidInteger(BigDecimal.TEN);
         // then
@@ -549,7 +528,6 @@ public class NumberUtilsTest {
 
         // debug
         LOGGER.debug("Default value: " + defaultValue);
-
         // when
         final int result = parseNullSafeIntegerAsString(invalidNumber, defaultValue);
 
@@ -566,7 +544,6 @@ public class NumberUtilsTest {
 
         // debug
         LOGGER.debug("Default value: " + defaultValue + " Valid value: " + validValue);
-
         // when
         final int result = parseNullSafeIntegerAsString(validValue, defaultValue);
 
@@ -577,7 +554,6 @@ public class NumberUtilsTest {
 
     @Test
     public void getPercentageShouldReturnZero() {
-
         // when
         final String result = getPercentage(0, 1);
 
@@ -587,7 +563,6 @@ public class NumberUtilsTest {
 
     @Test
     public void getPercentageShouldReturnTwentyFive() {
-
         // when
         final String result = getPercentage(1, 4);
 
@@ -597,7 +572,6 @@ public class NumberUtilsTest {
 
     @Test
     public void getPercentageShouldReturnOne() {
-
         // when
         final String result = getPercentage(1, 100);
 
@@ -607,7 +581,6 @@ public class NumberUtilsTest {
 
     @Test
     public void getPercentageShouldReturn13() {
-
         // when
         final String result = getPercentage(1, 8);
 
@@ -617,7 +590,6 @@ public class NumberUtilsTest {
 
     @Test
     public void getPercentageShouldReturnFifty() {
-
         // when
         final String result = getPercentage(50, 100);
 
@@ -627,7 +599,6 @@ public class NumberUtilsTest {
 
     @Test
     public void getPercentageShouldReturnEmptyStringIfTotalNumberIsZero() {
-
         // when
         final String result = getPercentage(1, 0);
 
@@ -637,7 +608,6 @@ public class NumberUtilsTest {
 
     @Test
     public void getPercentageShouldReturnEmptyStringIfTotalNumberIsBelowZero() {
-
         // when
         final String result = getPercentage(1, -1);
 

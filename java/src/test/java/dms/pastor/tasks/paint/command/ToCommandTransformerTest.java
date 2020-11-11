@@ -1,8 +1,7 @@
 package dms.pastor.tasks.paint.command;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.tasks.paint.command.ToCommandTransformer.toCommand;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -17,14 +16,11 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class ToCommandTransformerTest {
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void toCommandWithInputForQuitShouldReturnQuitCommand() {
         // given
         final String quitCommandInput = "Q";
-
         // when
         final Command quitCommand = toCommand(quitCommandInput);
 
@@ -36,7 +32,6 @@ public class ToCommandTransformerTest {
     public void toCommandWithInputForCreateCanvasShouldReturnCreateCanvasCommand() {
         // given
         final String createCanvasCommandInput = "C 2 1";
-
         // when
         final Command quitCommand = toCommand(createCanvasCommandInput);
 
@@ -48,7 +43,6 @@ public class ToCommandTransformerTest {
     public void toCommandWithInputForClearCanvasShouldReturnClearCanvasCommand() {
         // given
         final String clearCanvasCommandInput = "C";
-
         // when
         final Command clearCommand = toCommand(clearCanvasCommandInput);
 
@@ -60,7 +54,6 @@ public class ToCommandTransformerTest {
     public void toCommandWithInputForCreateNewLineShouldReturnCreateNewLineCommand() {
         // given
         final String createNewLineCommandInput = "L 1 1 3 1";
-
         // when
         final Command createNewLineCommand = toCommand(createNewLineCommandInput);
 
@@ -72,7 +65,6 @@ public class ToCommandTransformerTest {
     public void toCommandWithInputForCreateNewRectangleShouldReturnCreateNewRectangleCommand() {
         // given
         final String createNewRectangleCommandInput = "R 2 2 3 3";
-
         // when
         final Command createNewRectangleCommand = toCommand(createNewRectangleCommandInput);
 
@@ -84,7 +76,6 @@ public class ToCommandTransformerTest {
     public void toCommandWithInputForFillEntireAreaShouldReturnFillEntireAreaCommand() {
         // given
         final String fillEntireAreaCommandInput = "B 1 1 o";
-
         // when
         final Command fillEntireAreaCommand = toCommand(fillEntireAreaCommandInput);
 
@@ -94,12 +85,12 @@ public class ToCommandTransformerTest {
 
     @Test
     public void toCommandShouldThrowExceptionIfInputDoNotMatchAnyCommand() {
-        // expect
-        exception.expect(InvalidCommandSyntaxException.class);
-        exception.expectMessage("Invalid Syntax because command not found. Please check your input and try again.");
-
         // when
-        toCommand("DOMINIK");
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> toCommand("DOMINIK"));
+
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because command not found. Please check your input and try again.");
     }
 
 }

@@ -1,6 +1,6 @@
 package dms.pastor.utils.character;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.LinkedHashSet;
 
@@ -31,7 +31,6 @@ public class ToStringUtilsTest {
     public void linkedHashSetToStringShouldReturnEmptyForEmptySet() {
         // given
         LinkedHashSet<Character> characterSet = new LinkedHashSet<>();
-
         // when
         final String result = ToStringUtils.toString(characterSet);
 
@@ -48,7 +47,6 @@ public class ToStringUtilsTest {
         LinkedHashSet<Character> characterSet = new LinkedHashSet<>();
         characterSet.add(character);
         characterSet.add(character2);
-
         // when
         final String result = ToStringUtils.toString(characterSet);
 

@@ -2,41 +2,38 @@ package dms.pastor.tools.job.gibberishcheck;
 
 import dms.pastor.TestConfig;
 import dms.pastor.domain.exception.SomethingWentWrongException;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class InputValidatorTest {
 
-
-    @Rule
-    public ExpectedException expectedException = ExpectedException.none();
-
     @Test
     public void shouldThrowExceptionIfArgsIsNull() {
-        //expect
-        expectedException.expect(SomethingWentWrongException.class);
-
         // when
-        InputValidator.validateInput(null);
+        Assertions.assertThrows(SomethingWentWrongException.class, () -> {
+
+            InputValidator.validateInput(null);
+        });
+
     }
 
     @Test
     public void shouldThrowExceptionIfArgsHasLessThanTwoElements() {
-        //expect
-        expectedException.expect(SomethingWentWrongException.class);
-
         // when
-        InputValidator.validateInput(new String[]{"1"});
+        Assertions.assertThrows(SomethingWentWrongException.class, () -> {
+
+            InputValidator.validateInput(new String[]{"1"});
+        });
+
     }
 
     @Test
     public void shouldThrowExceptionIfArgsHasMoreThanTwoElements() {
-        //expect
-        expectedException.expect(SomethingWentWrongException.class);
-
         // when
-        InputValidator.validateInput(new String[]{"1", "2", "3"});
+        Assertions.assertThrows(SomethingWentWrongException.class, () -> {
+            InputValidator.validateInput(new String[]{"1", "2", "3"});
+        });
+
     }
 
     @Test
@@ -44,7 +41,6 @@ public class InputValidatorTest {
         // given
         String basePath = TestConfig.BASE_PATH;
         var args = new String[]{basePath + "job/recruiter-db.txt", basePath + "job/job-example.txt"};
-
         // when
         InputValidator.validateInput(args);
     }

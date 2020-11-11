@@ -1,6 +1,6 @@
 package dms.pastor.tasks.other;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -34,7 +34,6 @@ public class ArraysExercisesTest {
         final int answerNumber = 6;
         final int[] oneNumberArray = new int[]{answerNumber};
         final String expectedAnswer = "Min:" + answerNumber + " Max:" + answerNumber;
-
         // when
         final String answer = exercise.findLargestAndSmallest(oneNumberArray);
 

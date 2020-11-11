@@ -1,6 +1,6 @@
 package dms.pastor.tools.chinese.topinyin;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -31,7 +31,6 @@ public class NumberConverterTest {
     public void convertToPinyinShouldReturnEmptyIfIsNotValidCharacterWithTone() {
         // given
         final String text = generateString();
-
         // when
         final String result = numberConverter.convertToPinyin(text);
 
@@ -43,7 +42,6 @@ public class NumberConverterTest {
     public void shouldReturnPinyinWithNeutralTone() {
         // given
         final String ma = "ma";
-
         // when
         final String result = numberConverter.convertToPinyin(ma);
 
@@ -56,7 +54,6 @@ public class NumberConverterTest {
         // given
         final String ma = "ma(1)";
         final String expectedResult = "mā";
-
         // when
         final String result = numberConverter.convertToPinyin(ma);
 

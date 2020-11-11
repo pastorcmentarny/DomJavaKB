@@ -4,10 +4,10 @@ import dms.pastor.test.rules.Repeat;
 import dms.pastor.test.rules.RepeaterRule;
 import dms.pastor.utils.StringUtils;
 import dms.pastor.utils.randoms.RandomDataGenerator;
-import org.junit.Before;
 import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.Random;
 
@@ -35,8 +35,7 @@ public class ReadTimeCalculatorTest {
     private static final int REPEAT_TEST_TIMES = 10;
     private static final int ONE_WORD_PER_SECOND = 60;
     private static final String ERROR_READING_SPEED_EQUAL_OR_HIGHER = "Speed of reading must be equal or higher than 60  words per minute";
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
+
     private final Random random = new Random();
 
     @Rule
@@ -44,14 +43,13 @@ public class ReadTimeCalculatorTest {
 
     private ReadTimeCalculator readTimeCalculator;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         readTimeCalculator = new ReadTimeCalculator(generateRandomParagraph(), ADULT_AVERAGE.speed());
     }
 
     @Test
     public void acceptanceCriteria() {
-
         // when
         final String text = readTimeCalculator.displayTimeNeededToRead();
 
@@ -65,26 +63,22 @@ public class ReadTimeCalculatorTest {
     public void shouldReturnIllegalArgumentExceptionForNullInputTest() {
         // given
         readTimeCalculator = new ReadTimeCalculator(null, randomInteger());
-
-        // except
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("It must contain not empty text with size bigger than 1 character");
-
         // when
-        readTimeCalculator.calculateTimeNeedToReadFor();
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> readTimeCalculator.calculateTimeNeedToReadFor());
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("It must contain not empty text with size bigger than 1 character");
     }
 
     @Test
     public void shouldReturnIllegalArgumentExceptionForZeroWordPerMinutes() {
         // given
         readTimeCalculator = new ReadTimeCalculator(generateString(), randomNegativeInteger());
-
-        // except
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage(ERROR_READING_SPEED_EQUAL_OR_HIGHER);
-
         // when
-        readTimeCalculator.calculateTimeNeedToReadFor();
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> readTimeCalculator.calculateTimeNeedToReadFor());
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo(ERROR_READING_SPEED_EQUAL_OR_HIGHER);
     }
 
     //name of this test is shocking , i know :)
@@ -95,14 +89,11 @@ public class ReadTimeCalculatorTest {
         // given
         int lessThan60WordsPerMinutes = randomNegativeInteger() + 59;
         readTimeCalculator = new ReadTimeCalculator(generateRandomParagraph(), lessThan60WordsPerMinutes);
-
-        // except
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage(ERROR_READING_SPEED_EQUAL_OR_HIGHER);
-
         // when
-        readTimeCalculator.calculateTimeNeedToReadFor();
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> readTimeCalculator.calculateTimeNeedToReadFor());
 
+        // then
+        assertThat(exception.getMessage()).isEqualTo(ERROR_READING_SPEED_EQUAL_OR_HIGHER);
     }
 
     @Test
@@ -110,7 +101,6 @@ public class ReadTimeCalculatorTest {
         // given
         String sentence = "one two three four five six.";
         readTimeCalculator = new ReadTimeCalculator(sentence, ONE_WORD_PER_SECOND);
-
         // when
         final int wordPerMinute = readTimeCalculator.calculateTimeNeedToReadFor();
 
@@ -127,7 +117,6 @@ public class ReadTimeCalculatorTest {
         }
         String sentence = stringBuilder.append('.').toString();
         readTimeCalculator = new ReadTimeCalculator(sentence, ONE_WORD_PER_SECOND);
-
         // when
         final int wordPerMinute = readTimeCalculator.calculateTimeNeedToReadFor();
 
@@ -135,26 +124,24 @@ public class ReadTimeCalculatorTest {
         assertThat(wordPerMinute, is(ONE_WORD_PER_SECOND));
     }
 
-    //running test few time for various negative numbers
-    @Test
+
+    @Test //running test few time for various negative numbers
     @Repeat(times = REPEAT_TEST_TIMES)
     public void shouldDisplayEmptyStringForDisplayTimeNeededToReadWhenTimeIsInvalidTest() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage(ERROR_READING_SPEED_EQUAL_OR_HIGHER);
 
         // given
         readTimeCalculator = new ReadTimeCalculator(generateRandomParagraph(), RandomDataGenerator.randomNegativeInteger());
-
         // when
-        readTimeCalculator.displayTimeNeededToRead();
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            readTimeCalculator.displayTimeNeededToRead();
+        });
+
     }
 
     @Test
     public void shouldReturn59SecondsTest() {
         // given
         readTimeCalculator = new ReadTimeCalculator(generateWords(59), MINUTE);
-
         // when
         final String result = readTimeCalculator.displayTimeNeededToRead();
 
@@ -167,7 +154,6 @@ public class ReadTimeCalculatorTest {
     public void shouldReturn1MinuteTest() {
         // given
         readTimeCalculator = new ReadTimeCalculator(generateWords(60), MINUTE);
-
         // when
         final String result = readTimeCalculator.displayTimeNeededToRead();
 
@@ -181,7 +167,6 @@ public class ReadTimeCalculatorTest {
         // given
         int minuteAndOneSecond = MINUTE + 1;
         readTimeCalculator = new ReadTimeCalculator(generateWords(minuteAndOneSecond), MINUTE);
-
         // when
         final String result = readTimeCalculator.displayTimeNeededToRead();
 
@@ -194,7 +179,6 @@ public class ReadTimeCalculatorTest {
     public void shouldReturn1HourTest() {
         // given
         readTimeCalculator = new ReadTimeCalculator(generateWords(HOUR), MINUTE);
-
         // when
         final String result = readTimeCalculator.displayTimeNeededToRead();
 
@@ -208,7 +192,6 @@ public class ReadTimeCalculatorTest {
         // given
         int hourMinuteAndOneSecond = HOUR + MINUTE + 1;
         readTimeCalculator = new ReadTimeCalculator(generateWords(hourMinuteAndOneSecond), MINUTE);
-
         // when
         final String result = readTimeCalculator.displayTimeNeededToRead();
 
@@ -222,7 +205,6 @@ public class ReadTimeCalculatorTest {
         // given
         int hourAndOneSecond = HOUR + 1;
         readTimeCalculator = new ReadTimeCalculator(generateWords(hourAndOneSecond), MINUTE);
-
         // when
         final String result = readTimeCalculator.displayTimeNeededToRead();
 
@@ -236,7 +218,6 @@ public class ReadTimeCalculatorTest {
         // given
         int minuteAndOneSecond = 6 * HOUR + 6 * MINUTE + 6;
         readTimeCalculator = new ReadTimeCalculator(generateWords(minuteAndOneSecond), MINUTE);
-
         // when
         final String result = readTimeCalculator.displayTimeNeededToRead();
 
@@ -250,7 +231,6 @@ public class ReadTimeCalculatorTest {
         // given
         int randomTime = random.nextInt(MAX_VALUE);
         readTimeCalculator = new ReadTimeCalculator(generateRandomParagraph(), randomTime);
-
         // when
         final String result = readTimeCalculator.displayTimeNeededToRead();
 

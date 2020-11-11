@@ -1,9 +1,7 @@
 package dms.pastor.tasks.analyser;
 
 import dms.pastor.utils.randoms.RandomDataGenerator;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.tasks.analyser.AnalyserLauncher.THIS_PROJECT_PATH;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
@@ -19,8 +17,6 @@ import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
  */
 public class AnalyserLauncherTest {
 
-    @Rule
-    public ExpectedException exception = ExpectedException.none();
 
     @Test
     public void shouldReturnThisProjectPathWhenArgumentIsNullTest() {
@@ -43,7 +39,6 @@ public class AnalyserLauncherTest {
 
     @Test
     public void shouldReturnThisProjectPathWhenArgumentIsEmptyTest() {
-
         // when
         final String path = AnalyserLauncher.getPath(new String[]{EMPTY_STRING});
 
@@ -63,7 +58,6 @@ public class AnalyserLauncherTest {
 
     @Test
     public void shouldAnalyseFile() {
-
         // when
         AnalyserLauncher.main(new String[]{THIS_PROJECT_PATH});
 

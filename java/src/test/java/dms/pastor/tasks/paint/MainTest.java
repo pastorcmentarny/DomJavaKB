@@ -4,14 +4,14 @@ import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.Logger;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.Appender;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.slf4j.LoggerFactory;
 
 import java.io.ByteArrayOutputStream;
@@ -33,7 +33,7 @@ import static org.mockito.Mockito.verify;
  * tag-test-log
  */
 @SuppressWarnings("resource") // auto closable not essential
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class MainTest {
 
     @SuppressWarnings("StaticFieldReferencedViaSubclass") // used for testing
@@ -51,14 +51,14 @@ public class MainTest {
     @Captor
     private ArgumentCaptor<ILoggingEvent> captorLoggingEvent;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         printStream = System.out;
         System.setOut(new PrintStream(outputStream));
         LOGGER.addAppender(mockAppender);
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         LOGGER.detachAppender(mockAppender);
         System.setOut(printStream);
@@ -70,7 +70,6 @@ public class MainTest {
         Main main = new Main();
         given(scanner.nextLine()).willReturn("Q");
         main.setScanner(scanner);
-
         // when
         main.application();
 
@@ -86,7 +85,6 @@ public class MainTest {
         Main main = new Main();
         given(scanner.nextLine()).willReturn("Q");
         main.setScanner(scanner);
-
         // when
         main.application();
 

@@ -2,9 +2,9 @@ package dms.pastor.tools.converters.codehtmlconverter;
 
 import dms.pastor.utils.file.TextFileUtils;
 import dms.pastor.utils.html.HtmlUtils;
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +32,7 @@ public class CodeForBlogConverterTest {
         data.add("package dms.pastor.tools.codeToHTMLConverter;");
         addEmptyLine(data);
         data.add("import org.junit.Before;");
-        data.add("import org.junit.Test;");
+        data.add("import org.junit.jupiter.api.Test;");
         data.add("import java.util.ArrayList;");
         addEmptyLine(data);
         data.add("import static org.junit.Assert.assertEquals;");
@@ -51,18 +51,17 @@ public class CodeForBlogConverterTest {
         data.add(EMPTY_STRING);
     }
 
-    @Before
+    @BeforeEach
     public void setUp() {
         converter = new CodeForBlogConverter();
     }
 
-    @Ignore
+    @Disabled
     @Test //TODO test failed but content was identical
     public void shouldConvertCodeToHTMLTest() {
         // given
         List<String> source = generateSourceData();
         String answer = TextFileUtils.loadFileFromResourceAsString("test/html/code2blog.html");
-
         // when
         final String result = converter.convert(source);
 
@@ -75,7 +74,6 @@ public class CodeForBlogConverterTest {
         // given
         String line = "    ";
         String result = HtmlUtils.getNbsp(4);
-
         // when
         String convertedLine = converter.convertEach4SpacesToNsbpOnBeginningOfTheLine(line);
 
@@ -96,7 +94,6 @@ public class CodeForBlogConverterTest {
     public void shouldNotConvert4SpacesInTheEndToNbsp() {
         // given
         String line = "Test    ";
-
         // when
         String convertedLine = converter.convertEach4SpacesToNsbpOnBeginningOfTheLine(line);
 
@@ -109,7 +106,6 @@ public class CodeForBlogConverterTest {
         // given
         String line = "    Test    Test    ";
         String result = HtmlUtils.getNbsp(4) + "Test    Test    ";
-
         // when
         String convertedLine = converter.convertEach4SpacesToNsbpOnBeginningOfTheLine(line);
 
@@ -121,7 +117,6 @@ public class CodeForBlogConverterTest {
     public void shouldNotConvertAny4SpacesToNbsp() {
         // given
         String line = "   Test    Test    ";//first has 3 spaces only
-
         // when
         String convertedLine = converter.convertEach4SpacesToNsbpOnBeginningOfTheLine(line);
 
@@ -133,7 +128,6 @@ public class CodeForBlogConverterTest {
     public void shouldNotConvert4SpacesInTheMiddleToNbsp() {
         // given
         String line = "Test    Test";
-
         // when
         String convertedLine = converter.convertEach4SpacesToNsbpOnBeginningOfTheLine(line);
 

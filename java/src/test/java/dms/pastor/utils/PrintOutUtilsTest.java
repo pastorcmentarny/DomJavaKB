@@ -1,7 +1,10 @@
 package dms.pastor.utils;
 
-import org.junit.*;
-import org.junit.rules.ExpectedException;
+import org.junit.Assert;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -26,17 +29,16 @@ import static org.hamcrest.CoreMatchers.containsString;
 public class PrintOutUtilsTest {
 
     private static final byte[] BYTES = new byte[]{};
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
+
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private final PrintStream original = System.out;
 
-    @Before
+    @BeforeEach
     public void setUpStreams() {
         System.setOut(new PrintStream(outputStream));
     }
 
-    @After
+    @AfterEach
     public void cleanUpStreams() throws IOException {
         outputStream.close();
         System.setOut(original);
@@ -44,28 +46,28 @@ public class PrintOutUtilsTest {
 
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenMinimumValueIsHigherThanMaximumTest() {
-        // except
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("MinValue (10) must be lower than MaxValue(7)");
-
         // when
-        displayOddNumbers(10, 7);
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            displayOddNumbers(10, 7);
+        });
+
+        assertThat(exception.getMessage()).isEqualTo("MinValue (10) must be lower than MaxValue(7)");
+
     }
 
     @Test
     public void shouldThrowExceptionWhenByteArrayIsEmpty() {
-        // exception
-        exception.expect(IllegalArgumentException.class);
-
         // when
-        printArray(BYTES);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            printArray(BYTES);
+        });
+
     }
 
     @Test
     public void shouldDisplayByteArrayTest() {
         // given
         final String expected = "[1,2,3]";
-
         // when
         printArray(new byte[]{1, 2, 3});
 
@@ -75,18 +77,18 @@ public class PrintOutUtilsTest {
 
     @Test
     public void shouldThrowExceptionForEmptyStringArrayList() {
-        // except
-        exception.expect(IllegalArgumentException.class);
-
         // when
-        printArray(new ArrayList<>());
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+
+            printArray(new ArrayList<>());
+        });
+
     }
 
     @Test
     public void shouldDisplayStringArray() {
         // given
         String[] stringArray = new String[]{"garlic", "cheesecake", "armour"};
-
         // when
         final String result = printArray(stringArray);
 
@@ -125,7 +127,6 @@ public class PrintOutUtilsTest {
         // given
         Integer[] integers = new Integer[]{1, 2, 3, null};
         final String expected = "[ 1 2 3 null ]" + System.lineSeparator();
-
         // when
         printIntArray(integers);
 
@@ -135,7 +136,6 @@ public class PrintOutUtilsTest {
 
     @Test
     public void printTemporaryFolderLocation() throws Exception {
-
         // when
         printInfoAboutOfTemporaryFolder();
         var result = outputStream.toString();

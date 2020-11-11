@@ -1,9 +1,11 @@
 package dms.pastor.utils.randoms;
 
 import dms.pastor.test.rules.Repeat;
-import dms.pastor.test.rules.RepeaterRule;
-import org.junit.*;
-import org.junit.rules.ExpectedException;
+import org.junit.Assert;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,7 +17,6 @@ import java.util.Random;
 
 import static dms.pastor.tools.chinese.pinyin.PinyinUtils.getAllPinyinFromFirstToFourthToneWithoutNeutralTone;
 import static dms.pastor.utils.EnglishUtils.isStopWord;
-import static dms.pastor.utils.StringUtils.hasNonAlphabetCharactersOnly;
 import static dms.pastor.utils.randoms.RandomDataGenerator.*;
 import static java.lang.Character.*;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -34,24 +35,18 @@ public class RandomDataGeneratorTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(RandomDataGeneratorTest.class);
     private static final int RANDOM_STRING_LENGTH = 1024;
     private static final String SPACE = " ";
+    public static final String ERROR_MESSAGE_SIZE_OF_STRING_MUST_BE_GREATER_THAN_ZERO = "Size of string must be greater than zero";
     private final Random random = new Random();
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private PrintStream printStream;
 
-
-    @Rule
-    public RepeaterRule repeater = RepeaterRule.use();
-
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
-
-    @Before
+    @BeforeEach
     public void setUp() {
         printStream = System.out;
         System.setOut(new PrintStream(outputStream));
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         System.setOut(printStream);
     }
@@ -60,7 +55,6 @@ public class RandomDataGeneratorTest {
     public void testGenerateRandomIntValues() {
         // given
         int size = 10;
-
         // when
         int[] intValues = generateRandomIntValues(size);
 
@@ -108,46 +102,48 @@ public class RandomDataGeneratorTest {
 
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenMinValueIsHigherThanMinForGenerateStringTest() {
-        // except
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Value must be higher than zero and min value must be smaller is larger than max value");
+
         final int max = random.nextInt(1 + RANDOM_STRING_LENGTH);
         final int min = random.nextInt(1 + RANDOM_STRING_LENGTH) + max;
 
         // debug info
         LOGGER.info("Generated. Min:" + min + " Max:" + max);
-
         // when
-        generateString(min, max);
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            generateString(min, max);
+        });
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Value must be higher than zero and min value must be smaller is larger than max value");
     }
 
     @Test
     public void shouldThrowIllegalArgumentExceptionForNegativeMinValueTest() {
-        // except
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Value must be higher than zero and min value must be smaller is larger than max value");
-
         // when
-        final int negativeNumber = new BigDecimal(random.nextInt(1 + RANDOM_STRING_LENGTH)).negate().intValue();
-        generateString(negativeNumber, 4);
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            final int negativeNumber = new BigDecimal(random.nextInt(1 + RANDOM_STRING_LENGTH)).negate().intValue();
+            generateString(negativeNumber, 4);
+        });
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Value must be higher than zero and min value must be smaller is larger than max value");
     }
 
     @Test
     public void shouldThrowIllegalArgumentExceptionForNegativeMaxValueTest() {
-        // except
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Value must be higher than zero and min value must be smaller is larger than max value");
-
         // when
-        final int negativeNumber = new BigDecimal(random.nextInt(RANDOM_STRING_LENGTH)).negate().intValue();
-        generateString(4, negativeNumber);
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            final int negativeNumber = new BigDecimal(random.nextInt(RANDOM_STRING_LENGTH)).negate().intValue();
+            generateString(4, negativeNumber);
+        });
+
+        assertThat(exception.getMessage()).isEqualTo("Value must be higher than zero and min value must be smaller is larger than max value");
     }
 
     @Test
     public void shouldGenerateIntArrayTest() {
         // given
         int size = 10;
-
         // when
         final int[] intArray = generateIntArray(size, 10);
         // then
@@ -161,13 +157,14 @@ public class RandomDataGeneratorTest {
     public void shouldThrowIllegalArgumentExceptionForNegativeSizeTest() {
         // given
         final var negativeValue = -1;
-
-        // except
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Size {-1}  must be positive value.");
-
         // when
-        generateStringList(negativeValue);
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            generateStringList(negativeValue);
+        });
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Size {-1}  must be positive value.");
+
     }
 
     @SuppressWarnings("QuestionableName") // because string is valid name
@@ -175,7 +172,6 @@ public class RandomDataGeneratorTest {
     public void generateStringShouldReturnStringList() {
         // given
         final int arraySize = 10;
-
         // when
         final List<String> stringList = generateStringList(arraySize);
 
@@ -190,29 +186,27 @@ public class RandomDataGeneratorTest {
     public void generateStringListTest() {
         // given
         final var size = 0;
-
-        // except
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Size {" + size + "}  must be positive value.");
-
         // when
-        final List<String> stringList = generateStringList(size);
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            final List<String> stringList = generateStringList(size);
+        });
 
         // then
-        Assert.assertThat(stringList.isEmpty(), is(true));
+        assertThat(exception.getMessage()).isEqualTo("Size {" + size + "}  must be positive value.");
     }
 
     @Test
     public void generateStringArrayShouldThrowIllegalArgumentExceptionForNegativeTest() {
         // given
         final var negativeValue = -1;
-
-        // except
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Size {" + negativeValue + "}  must be positive value.");
-
         // when
-        generateArray(negativeValue);
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            generateStringList(negativeValue);
+        });
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Size {" + negativeValue + "}  must be positive value.");
+
     }
 
     @SuppressWarnings("QuestionableName") // because string is valid name
@@ -220,7 +214,6 @@ public class RandomDataGeneratorTest {
     public void generateStringArrayShouldReturnStringArray() {
         // given
         final int arraySize = 10;
-
         // when
         final String[] strings = generateArray(arraySize);
 
@@ -233,39 +226,26 @@ public class RandomDataGeneratorTest {
 
     @Test
     public void shouldThrowIllegalArgumentExceptionIfSizeIsBelowZeroTest() {
-        // except
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Size of string must be greater than zero");
-
         // when
-        generateNonAlphanumericString(-1);
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            generateNonAlphanumericString(-1);
+        });
 
+        // then
+        assertThat(exception.getMessage()).isEqualTo(ERROR_MESSAGE_SIZE_OF_STRING_MUST_BE_GREATER_THAN_ZERO);
     }
 
     @Test
     public void shouldThrowIllegalArgumentExceptionIfSizeIsZeroTest() {
-        // except
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Size of string must be greater than zero");
-
-        // when
-        generateNonAlphanumericString(0);
-
-    }
-
-    @Test
-    public void shouldReturnStringWithNonAlphanumericCharactersTest() {
-        // except
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Size of string must be greater than zero");
-
-        // when
-        final String result = generateNonAlphanumericString(-1);
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            generateNonAlphanumericString(0);
+        });
 
         // then
-        assertThat(result).isNotNull();
-        assertThat(hasNonAlphabetCharactersOnly(result)).isFalse(); //bad testing
+        assertThat(exception.getMessage()).isEqualTo(ERROR_MESSAGE_SIZE_OF_STRING_MUST_BE_GREATER_THAN_ZERO);
+
     }
+
 
     @Test
     public void shouldReturnIntArray() {
@@ -290,7 +270,6 @@ public class RandomDataGeneratorTest {
 
     @Test
     public void shouldReturnParagraph() {
-
         // when
         final String result = generateRandomParagraph();
 
@@ -306,13 +285,13 @@ public class RandomDataGeneratorTest {
         // given
         int maxValue = randomPositiveInteger(MAX_SMALL_VALUE_RANGE);
         int minValue = maxValue + randomInteger(1, MAX_SMALL_VALUE_RANGE);
-
-        // expect
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Value (" + minValue + ") must be lower or equals to than Other Value(" + maxValue + ")");
-
         // when
-        randomInteger(minValue, maxValue);
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            randomInteger(minValue, maxValue);
+        });
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Value (" + minValue + ") must be lower or equals to than Other Value(" + maxValue + ")");
     }
 
     @Test
@@ -320,7 +299,6 @@ public class RandomDataGeneratorTest {
         // given
         int minValue = randomPositiveInteger(MAX_SMALL_VALUE_RANGE);
         int maxValue = minValue + randomInteger(1, 1 + MAX_SMALL_VALUE_RANGE);
-
         // when
         final int number = randomInteger(minValue, maxValue);
 
@@ -332,7 +310,6 @@ public class RandomDataGeneratorTest {
     public void randomIntegerWithEqualMinAndMaxValueShouldReturnThatValue() {
         // given
         int value = randomPositiveInteger(MAX_SMALL_VALUE_RANGE);
-
         // when
         final int number = randomInteger(value, value);
 
@@ -342,7 +319,6 @@ public class RandomDataGeneratorTest {
 
     @Test
     public void randomNegativeIntegerShouldReturnNegativeInteger() {
-
         // when
         final int negativeInteger = randomNegativeInteger();
 
@@ -384,7 +360,6 @@ public class RandomDataGeneratorTest {
 
     @Test
     public void shouldReturnRandomInteger() {
-
         // when
         final int integer = RandomDataGenerator.randomInteger();
 
@@ -398,13 +373,13 @@ public class RandomDataGeneratorTest {
     public void generateWordsShouldThrowIllegalArgumentExceptionIfValueIsNegative() {
         // given
         final var negativeValue = -1;
-
-        // expect
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Value {-1}  must be positive value.");
-
         // when
-        generateWords(negativeValue);
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            generateWords(negativeValue);
+        });
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Value {-1}  must be positive value.");
     }
 
     @Test
@@ -422,7 +397,6 @@ public class RandomDataGeneratorTest {
     public void generateWordsShouldReturnEmptyStringForSizeOne() {
         // given
         final int size = 1;
-
         // when
         final String result = generateWords(size);
 
@@ -435,7 +409,6 @@ public class RandomDataGeneratorTest {
     public void generateWordsShouldReturnEmptyStringForFiveWords() {
         // given
         final int size = 5;
-
         // when
         final String result = generateWords(size);
 
@@ -447,7 +420,6 @@ public class RandomDataGeneratorTest {
 
     @Test
     public void generateWordWithoutStopWordShouldReturnPseudoWordThatIsNotStopWord() {
-
         // when
         final String word = generateWordWithoutStopWord(MAX_SMALL_VALUE_RANGE);
 
@@ -513,7 +485,6 @@ public class RandomDataGeneratorTest {
         int start = 1;
         int stop = 59;
         int[] lastDraw = new int[]{12, 24, 33, 34, 39, 56, 38}; // number including bonus
-
         // when
         final List<Integer> result = generateRandomNumberSequenceExcludingSpecificNumber(start, stop, lastDraw);
 
@@ -527,7 +498,6 @@ public class RandomDataGeneratorTest {
     @Test
     public void generateNonAlphanumericStringAcceptanceTest() {
         // given
-
         // when
         final String result = generateNonAlphanumericString(100);
 
@@ -544,7 +514,6 @@ public class RandomDataGeneratorTest {
     public void getRandomCharacterFromAlphabetExcludingCharacterShouldReturnCharacterWithoutExcludedOne() {
         // given
         final var character = getRandomCharacterFromAlphabet();
-
         // when
         final var result = getRandomCharacterFromAlphabetExcludingCharacter(character);
 
@@ -555,7 +524,6 @@ public class RandomDataGeneratorTest {
     @Repeat(times = 100)
     @Test
     public void getRandomCharacterFromAlphabetExcludingCharacterShouldAnyCharacterIfExcludedCharacterIsNull() {
-
         // when
         final var result = getRandomCharacterFromAlphabetExcludingCharacter(null);
 

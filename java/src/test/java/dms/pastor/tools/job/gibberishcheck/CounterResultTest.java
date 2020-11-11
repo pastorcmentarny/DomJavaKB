@@ -1,7 +1,7 @@
 package dms.pastor.tools.job.gibberishcheck;
 
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -11,7 +11,6 @@ public class CounterResultTest {
     public void shouldGet50PercentIfHalfWordsIsCrap() {
         // given
         CounterResult counterResult = new CounterResult(1, 2);
-
         // when
         String result = counterResult.getPercentageAsString();
 
@@ -23,7 +22,6 @@ public class CounterResultTest {
     public void shouldReturnEmptyStringIFResultContainsInvalidData() {
         // given
         CounterResult counterResult = new CounterResult(1, 0);
-
         // when
         String result = counterResult.getPercentageAsString();
 

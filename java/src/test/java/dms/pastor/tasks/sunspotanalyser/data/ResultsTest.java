@@ -2,7 +2,7 @@ package dms.pastor.tasks.sunspotanalyser.data;
 
 import dms.pastor.domain.Result;
 import dms.pastor.utils.randoms.RandomDataGenerator;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
@@ -44,7 +44,6 @@ public class ResultsTest {
     public void shouldCreateSuccessResultWithMessageTest() {
         // given
         final String message = generateString(20);
-
         // when
         result = Result.success(message);
 
@@ -57,7 +56,6 @@ public class ResultsTest {
     public void shouldCreateFailResultWithMessageTest() {
         // given
         final String message = generateString();
-
         // when
         result = Result.fail(message);
 
@@ -71,7 +69,6 @@ public class ResultsTest {
         // given
         final String message = generateString();
         final Object object = new Object();
-
         // when
         result = new Result<>(true, message, object);
 
@@ -86,7 +83,6 @@ public class ResultsTest {
         // given
         final String message = generateString();
         final Object object = new Object();
-
         // when
         result = new Result<>(false, message, object);
 
@@ -105,7 +101,6 @@ public class ResultsTest {
                 "\n\tmessage: '" + test + '\'' +
                 "\n\thasItem: " + item +
                 "\n}";
-
         // when
         Result<String> resultWithMessage = new Result<>(false, "Unknown", null);
         resultWithMessage.setSuccess();
@@ -113,7 +108,6 @@ public class ResultsTest {
 
         // then
         assertThat(resultWithMessage.getMessage()).isEqualTo("Unknown");
-
         // when
         resultWithMessage.setMessage(test);
         resultWithMessage.setItem(item);
@@ -133,7 +127,6 @@ public class ResultsTest {
         for (int i = 0; i < size; i++) {
             results.addScore(new Score(RandomDataGenerator.randomPositiveInteger(), RandomDataGenerator.randomPositiveInteger(), RandomDataGenerator.randomPositiveInteger()));
         }
-
         // when
         final int resultSize = results.getResultSize();
 

@@ -1,6 +1,6 @@
 package dms.pastor.tools.job.salarycalc;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.utils.NumberUtils.toIntFromDouble;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -23,7 +23,6 @@ public class CalculatorTest {
     public void shouldGetIdealSalaryForIdealVacancy() {
         // given
         final int expectedSalary = 55000;
-
         // when
         final var idealSalary = calculatorWithIdealVacancy.calculateSalary();
 
@@ -34,7 +33,6 @@ public class CalculatorTest {
 
     @Test
     public void shouldGetMinimumSalaryIsCalculatedSalaryIsBelow() {
-
         // when
         final var idealSalary = calculatorWithIdealVacancy.calculateSalary();
 
@@ -121,7 +119,6 @@ public class CalculatorTest {
         vacancy.setHours(40);
         final var calculatorWithCustomVacancy = new Calculator(vacancy);
         final int expectedSalary = 75000;
-
         // when
         final var salary = calculatorWithCustomVacancy.calculateSalary();
 
@@ -134,7 +131,6 @@ public class CalculatorTest {
 
     @Test
     public void shouldGetBasicSalary() throws Exception {
-
         // when
         final int result = calculator.getBasicSalary();
 
@@ -147,7 +143,6 @@ public class CalculatorTest {
 
     @Test
     public void shouldZoneOneAddonAcceptanceTest() {
-
         // when
         final int result = calculator.zoneOneAddon();
 
@@ -161,7 +156,6 @@ public class CalculatorTest {
     @Test
     public void shouldIncreaseSalaryIfAnnualLeaveIsLessThan25() {
         // given
-
         // when
         final int adjustment = calculator.getHolidayAdjustment(23);
         final int salary = calculator.getBasicSalary() + adjustment;
@@ -176,7 +170,6 @@ public class CalculatorTest {
     @Test
     public void shouldDecreaseSalaryIfAnnualLeaveIsMoreThan25() {
         // given
-
         // when
         final int adjustment = calculator.getHolidayAdjustment(27);
         final int salary = calculator.getBasicSalary() + adjustment;
@@ -191,7 +184,6 @@ public class CalculatorTest {
     @Test
     public void shouldSalaryRemainsSameIfAnnualLeaveIs25() {
         // given
-
         // when
         final int adjustment = calculator.getHolidayAdjustment(25);
         final int salary = calculator.getBasicSalary() + adjustment;
@@ -207,7 +199,6 @@ public class CalculatorTest {
     @Test
     public void getTravelTimeSalaryAdjustmentShouldDecreaseSalaryIfTravelTimeIsLowerThanOptimal() {
         // given
-
         // when
         final int adjustment = calculator.getTravelTimeSalaryAdjustment(40);
         final int salary = calculator.getBasicSalary() + adjustment;
@@ -223,7 +214,6 @@ public class CalculatorTest {
     @Test
     public void getTravelTimeSalaryAdjustmentShouldDoNotChangeSalaryIfTravelTimeIsHigherIsMaxAllowed() {
         // given
-
         // when
         final int adjustment = calculator.getTravelTimeSalaryAdjustment(45);
         final int salary = calculator.getBasicSalary() + adjustment;
@@ -239,7 +229,6 @@ public class CalculatorTest {
     @Test
     public void getTravelTimeSalaryAdjustmentShouldIncreaseSalaryIfTravelTimeIsHigherThanOptimal() {
         // given
-
         // when
         final int adjustment = calculator.getTravelTimeSalaryAdjustment(50);
         final int salary = calculator.getBasicSalary() + adjustment;
@@ -256,7 +245,6 @@ public class CalculatorTest {
     @Test
     public void getSeniorPenaltyShouldIncreaseSalaryBy50Percent() {
         // given
-
         // when
         final int seniorPenalty = calculator.getSeniorPenalty();
 

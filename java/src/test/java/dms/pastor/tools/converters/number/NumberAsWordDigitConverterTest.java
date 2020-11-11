@@ -1,8 +1,7 @@
 package dms.pastor.tools.converters.number;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.tools.converters.number.NumberAsWordDigitConverter.toDigit;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
@@ -10,15 +9,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public final class NumberAsWordDigitConverterTest {
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void toDigitShouldReturn0ForZero() {
         // given
         final String numberAsString = "zero";
         final int numberAsInteger = 0;
-
         // when
         final int digit = toDigit(numberAsString);
 
@@ -31,7 +27,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String numberAsString = "One";
         final int numberAsInteger = 1;
-
         // when
         final int digit = toDigit(numberAsString);
 
@@ -44,7 +39,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String numberAsString = "Two";
         final int numberAsInteger = 2;
-
         // when
         final int digit = toDigit(numberAsString);
 
@@ -57,7 +51,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String numberAsString = "Three";
         final int numberAsInteger = 3;
-
         // when
         final int digit = toDigit(numberAsString);
 
@@ -70,7 +63,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String numberAsString = "Four";
         final int numberAsInteger = 4;
-
         // when
         final int digit = toDigit(numberAsString);
 
@@ -83,7 +75,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String numberAsString = "Five";
         final int numberAsInteger = 5;
-
         // when
         final int digit = toDigit(numberAsString);
 
@@ -96,7 +87,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String numberAsString = "Six";
         final int numberAsInteger = 6;
-
         // when
         final int digit = toDigit(numberAsString);
 
@@ -109,7 +99,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String numberAsString = "Seven";
         final int numberAsInteger = 7;
-
         // when
         final int digit = toDigit(numberAsString);
 
@@ -122,7 +111,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String numberAsString = "Eight";
         final int numberAsInteger = 8;
-
         // when
         final int digit = toDigit(numberAsString);
 
@@ -135,7 +123,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String numberAsString = "Nine";
         final int numberAsInteger = 9;
-
         // when
         final int digit = toDigit(numberAsString);
 
@@ -148,7 +135,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String numberAsString = "Ten";
         final int numberAsInteger = 10;
-
         // when
         final int digit = toDigit(numberAsString);
 
@@ -161,7 +147,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String numberAsString = "Eleven";
         final int numberAsInteger = 11;
-
         // when
         final int digit = toDigit(numberAsString);
 
@@ -174,7 +159,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String numberAsString = "Twelve";
         final int numberAsInteger = 12;
-
         // when
         final int digit = toDigit(numberAsString);
 
@@ -187,7 +171,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String numberAsString = "Thirteen";
         final int numberAsInteger = 13;
-
         // when
         final int digit = toDigit(numberAsString);
 
@@ -200,7 +183,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String numberAsString = "Fourteen";
         final int numberAsInteger = 14;
-
         // when
         final int digit = toDigit(numberAsString);
 
@@ -213,7 +195,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String numberAsString = "Fifteen";
         final int numberAsInteger = 15;
-
         // when
         final int digit = toDigit(numberAsString);
 
@@ -226,7 +207,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String numberAsString = "Sixteen";
         final int numberAsInteger = 16;
-
         // when
         final int digit = toDigit(numberAsString);
 
@@ -239,7 +219,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String numberAsString = "Seventeen";
         final int numberAsInteger = 17;
-
         // when
         final int digit = toDigit(numberAsString);
 
@@ -252,7 +231,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String numberAsString = "Eighteen";
         final int numberAsInteger = 18;
-
         // when
         final int digit = toDigit(numberAsString);
 
@@ -265,7 +243,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String numberAsString = "Nineteen";
         final int numberAsInteger = 19;
-
         // when
         final int digit = toDigit(numberAsString);
 
@@ -278,7 +255,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String numberAsString = "twenty";
         final int numberAsInteger = 20;
-
         // when
         final int digit = toDigit(numberAsString);
 
@@ -291,7 +267,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String numberAsString = "twenty two";
         final int numberAsInteger = 22;
-
         // when
         final int digit = toDigit(numberAsString);
 
@@ -304,7 +279,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String numberAsString = "twenty three";
         final int numberAsInteger = 23;
-
         // when
         final int digit = toDigit(numberAsString);
 
@@ -317,7 +291,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String numberAsString = "twenty four";
         final int numberAsInteger = 24;
-
         // when
         final int digit = toDigit(numberAsString);
 
@@ -330,7 +303,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String numberAsString = "twenty five";
         final int numberAsInteger = 25;
-
         // when
         final int digit = toDigit(numberAsString);
 
@@ -343,7 +315,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String numberAsString = "twenty six";
         final int numberAsInteger = 26;
-
         // when
         final int digit = toDigit(numberAsString);
 
@@ -356,7 +327,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String numberAsString = "twenty eight";
         final int numberAsInteger = 28;
-
         // when
         final int digit = toDigit(numberAsString);
 
@@ -369,7 +339,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String numberAsString = "twenty nine";
         final int numberAsInteger = 29;
-
         // when
         final int digit = toDigit(numberAsString);
 
@@ -382,7 +351,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String numberAsString = "thirty";
         final int numberAsInteger = 30;
-
         // when
         final int digit = toDigit(numberAsString);
 
@@ -395,7 +363,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String numberAsString = "thirty three";
         final int numberAsInteger = 33;
-
         // when
         final int digit = toDigit(numberAsString);
 
@@ -408,7 +375,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String numberAsString = "forty";
         final int numberAsInteger = 40;
-
         // when
         final int digit = toDigit(numberAsString);
 
@@ -421,7 +387,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String numberAsString = "forty four";
         final int numberAsInteger = 44;
-
         // when
         final int digit = toDigit(numberAsString);
 
@@ -434,7 +399,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String numberAsString = "fifty";
         final int numberAsInteger = 50;
-
         // when
         final int digit = toDigit(numberAsString);
 
@@ -447,7 +411,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String numberAsString = "sixty";
         final int numberAsInteger = 60;
-
         // when
         final int digit = toDigit(numberAsString);
 
@@ -460,7 +423,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String numberAsString = "seventy";
         final int numberAsInteger = 70;
-
         // when
         final int digit = toDigit(numberAsString);
 
@@ -473,7 +435,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String numberAsString = "eighty";
         final int numberAsInteger = 80;
-
         // when
         final int digit = toDigit(numberAsString);
 
@@ -486,7 +447,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String numberAsString = "ninety";
         final int numberAsInteger = 90;
-
         // when
         final int digit = toDigit(numberAsString);
 
@@ -499,7 +459,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String numberAsString = "hundred";
         final int numberAsInteger = 100;
-
         // when
         final int digit = toDigit(numberAsString);
 
@@ -509,22 +468,20 @@ public final class NumberAsWordDigitConverterTest {
 
     @Test
     public void toDigitShouldReturnIllegalArgumentExceptionIfNumberAsStringIsNull() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("number as text cannot be null or empty.");
-
         // when
-        toDigit(null);
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> toDigit(null));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("number as text cannot be null or empty.");
     }
 
     @Test
     public void toDigitShouldReturnIllegalArgumentExceptionIfNumberAsStringIsEmpty() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("number as text cannot be null or empty.");
-
         // when
-        toDigit(EMPTY_STRING);
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> toDigit(EMPTY_STRING));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("number as text cannot be null or empty.");
     }
 
     @Test
@@ -533,7 +490,6 @@ public final class NumberAsWordDigitConverterTest {
         final String stringInLowerCaseOnly = "seventeen";
 
         final int digit = 17;
-
         // when
         final int digitFromStringInLowerCaseOnly = toDigit(stringInLowerCaseOnly);
 
@@ -545,7 +501,6 @@ public final class NumberAsWordDigitConverterTest {
     public void toDigitShouldReturnNumberWhenStringIsInUpperCaseOnly() {
         final String stringInUpperCaseOnly = "SEVENTEEN";
         final int digit = 17;
-
         // when
         final int digitFromStringInUpperCaseOnly = toDigit(stringInUpperCaseOnly);
 
@@ -558,7 +513,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String stringInCamelCase = "Seventeen";
         final int digit = 17;
-
         // when
         final int digitFromStringInCamelCase = toDigit(stringInCamelCase);
 
@@ -571,7 +525,6 @@ public final class NumberAsWordDigitConverterTest {
         // given
         final String stringInHipsterCase = "SeVeNTeEn";
         final int digit = 17;
-
         // when
 
         final int digitFromStringInHipsterCase = toDigit(stringInHipsterCase);

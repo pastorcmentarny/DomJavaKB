@@ -1,13 +1,13 @@
 package dms.pastor.tools.html;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.tools.html.HTMLValidator.validateContentType;
 import static dms.pastor.tools.html.HTMLValidator.validateUrl;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Author Dominik Symonowicz
@@ -21,39 +21,35 @@ import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 public class HTMLValidatorTest {
 
     private static final String ERROR_MESSAGE = "WHOOPS!\n\tIt is not a html file.Unable to read non-html file.";
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
+
 
     @Test
     public void validateUrlShouldThrowIllegalArgumentExceptionIfUrlIsNull() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-
-        // when
-        validateUrl(null);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            validateUrl(null);
+        });
     }
 
     @Test
     public void validateUrlShouldThrowIllegalArgumentExceptionIfUrlIsEmpty() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-
         // when
-        validateUrl(EMPTY_STRING);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            validateUrl(EMPTY_STRING);
+        });
+
     }
 
     @Test
     public void validateUrlShouldThrowIllegalArgumentExceptionIfUrlIsHasWhitespacesOnly() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-
         // when
-        validateUrl("    ");
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            validateUrl("    ");
+        });
+
     }
 
     @Test
     public void validateUrlShouldValidateForMyHomepage() {
-
         // when
         validateUrl("http://pastor.ovh.org");
 
@@ -62,22 +58,22 @@ public class HTMLValidatorTest {
 
     @Test
     public void validateContentTypeShouldThrowIllegalArgumentExceptionIfContentTypeIsNull() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Value cannot be null");
-
         // when
-        validateContentType(null);
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> validateContentType(null));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Value cannot be null.");
+
+
     }
 
     @Test
     public void validateContentTypeShouldThrowIllegalArgumentExceptionIfContentTypeIsNotValid() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage(ERROR_MESSAGE);
-
         // when
-        validateContentType(generateString());
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> validateContentType(generateString()));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo(ERROR_MESSAGE);
     }
 
     @Test

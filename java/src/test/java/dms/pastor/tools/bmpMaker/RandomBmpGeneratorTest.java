@@ -1,8 +1,7 @@
 package dms.pastor.tools.bmpMaker;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -26,50 +25,41 @@ public class RandomBmpGeneratorTest {
 
     private static final String UNUSED_PATH = null;
     private static final String BITMAP_EXTENSION = "bmp";
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
+
 
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenWidthInputIsNegative() {
         // given
         final var value = randomNegativeInteger();
         RandomBmpGenerator randomBmpGenerator = new RandomBmpGenerator(value, randomPositiveInteger(), UNUSED_PATH);
-
-        // except
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Width {" + value + "}  must be positive value.");
-
         // when
-        randomBmpGenerator.generateImageFile();
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, randomBmpGenerator::generateImageFile);
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Width {" + value + "}  must be positive value.");
     }
 
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenHeightInputIsNegative() {
         // given
         final var value = randomNegativeInteger();
-
-        // except
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Height {" + value + "}  must be positive value.");
-
-        // given
         RandomBmpGenerator randomBmpGenerator = new RandomBmpGenerator(randomPositiveInteger(), value, UNUSED_PATH);
-
         // when
-        randomBmpGenerator.generateImageFile();
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, randomBmpGenerator::generateImageFile);
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Height {" + value + "}  must be positive value.");
     }
 
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenPathIsNull() {
-        // except
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("File path cannot be null.");
-
         // given
         RandomBmpGenerator randomBmpGenerator = new RandomBmpGenerator(randomPositiveInteger(), randomPositiveInteger(), null);
-
         // when
-        randomBmpGenerator.generateImageFile();
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, randomBmpGenerator::generateImageFile);
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("File path cannot be null.");
     }
 
     @Test
@@ -79,7 +69,6 @@ public class RandomBmpGeneratorTest {
         final int height = 300;
         final String filePath = PATH + "result." + BITMAP_EXTENSION;
         RandomBmpGenerator randomBmpGenerator = new RandomBmpGenerator(width, height, filePath);
-
         // when
         randomBmpGenerator.generateImageFile();
 

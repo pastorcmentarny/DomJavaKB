@@ -2,9 +2,8 @@ package dms.pastor.tools.trips.tube;
 
 import dms.pastor.domain.exception.NotFoundException;
 import dms.pastor.tools.trips.common.options.Status;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.tools.trips.common.options.Status.PASSED;
 import static dms.pastor.tools.trips.common.options.Status.VISITED;
@@ -21,14 +20,11 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class StatusTest {
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void fromValueShouldReturnStatusForLowerV() {
         // given
         final String validValueInLowerCase = "v";
-
         // when
         final Status result = Status.fromValue(validValueInLowerCase);
 
@@ -40,7 +36,6 @@ public class StatusTest {
     public void fromValueShouldReturnStatusForUpperP() {
         // given
         final String validValueInCapitalCase = "P";
-
         // when
         final Status result = Status.fromValue(validValueInCapitalCase);
 
@@ -52,30 +47,21 @@ public class StatusTest {
     public void fromValueShouldThrowNotFoundExceptionForInvalidCharacter() {
         // given
         final String invalidValue = "A";
-
-        // expect
-        exception.expect(NotFoundException.class);
-
         // when
-        Status.fromValue(invalidValue);
+        Assertions.assertThrows(NotFoundException.class, () -> Status.fromValue(invalidValue));
+
     }
 
     @Test
     public void fromValueShouldThrowIllegalArgumentExceptionWhenInputIsNull() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-
         // when
-        Status.fromValue(null);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Status.fromValue(null));
     }
 
     @Test
     public void fromValueShouldThrowIllegalArgumentExceptionWhenInputIsEmpty() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-
         // when
-        Status.fromValue(EMPTY_STRING);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Status.fromValue(EMPTY_STRING));
     }
 
 
@@ -83,7 +69,6 @@ public class StatusTest {
     public void asNameShouldReturnNameWithCapitalizedFirstCharacterAndNoUnderscoreForNotVisited() {
         // given
         final String expectedResult = "not visited";
-
         // when
         final String result = Status.NOT_VISITED.asName();
 

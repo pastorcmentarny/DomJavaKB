@@ -1,8 +1,6 @@
 package dms.pastor.tools.readtimer;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.tools.readtimer.ReadSpeed.ADULT_SLOW;
 import static dms.pastor.tools.readtimer.ReadSpeed.getSpeedAsStringFor;
@@ -19,14 +17,11 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class ReadSpeedTest {
 
-    @Rule
-    public ExpectedException exception = ExpectedException.none();
 
     @Test
     public void shouldReturnSpeedAsString() {
         // given
         final String expectedSpeedAsString = "130";
-
         // when
         final String speed = getSpeedAsStringFor(ADULT_SLOW);
 
@@ -36,7 +31,6 @@ public class ReadSpeedTest {
 
     @Test
     public void getSpeedAsStringForShouldReturnAdultAverageIfValueNull() {
-
         // when
         final String defaultSpeed = getSpeedAsStringFor(null);
 

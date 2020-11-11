@@ -1,6 +1,6 @@
 package dms.pastor.tasks.paint.canvas;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.tasks.paint.canvas.Point.withReplacedHeight;
 import static dms.pastor.tasks.paint.canvas.Point.withReplacedWidth;
@@ -27,7 +27,6 @@ public class PointTest {
         final String fill = getRandomCharacterAsString();
         final Coordinates coordinates = new Coordinates(width, height);
         Point expectedResult = new Point(coordinates, fill);
-
         // when
         final Point result = Point.of(width, height, fill);
 

@@ -1,9 +1,8 @@
 package dms.pastor.utils.randoms;
 
 import dms.pastor.domain.Country;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,8 +25,6 @@ public class PersonalDataGeneratorTest {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PersonalDataGeneratorTest.class);
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void shouldGenerateFirstNameAcceptanceTest() {
@@ -84,7 +81,6 @@ public class PersonalDataGeneratorTest {
     public void generatePhoneFromPatternShouldReturnPhoneNumberAcceptanceCriteria() {
         // given
         final String pattern = "(+44)XXX-XX-XX";
-
         // when
         final String phone = generatePhoneNumberForPattern(pattern);
 
@@ -103,22 +99,22 @@ public class PersonalDataGeneratorTest {
 
     @Test
     public void generatePhoneNumberForPatternShouldThrowIllegalArgumentExceptionForNull() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-
         // when
-        generatePhoneNumberForPattern(null);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            generatePhoneNumberForPattern(null);
+        });
+
     }
 
     @Test
     public void generatePhoneNumberForPatternShouldThrowIllegalArgumentExceptionIfStringContainsInvalidCharacter() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-
         // when
-        final String output = generatePhoneNumberForPattern("3s100");
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            final String output = generatePhoneNumberForPattern("3s100");
 
-        System.out.println(output);
+            System.out.println(output);
+        });
+
     }
 
     @Test
@@ -135,7 +131,6 @@ public class PersonalDataGeneratorTest {
     public void generatePhoneNumberForPatternShouldReplaceCapitalXWithRandomNumber() {
         // given
         final String x = "X";
-
         // when
         final String result = generatePhoneNumberForPattern(x);
 
@@ -150,7 +145,6 @@ public class PersonalDataGeneratorTest {
     public void generatePhoneNumberForPatternShouldReturnTheSameNumberForGivenNumber() {
         // given
         final String x = "732";
-
         // when
         final String result = generatePhoneNumberForPattern(x);
 
@@ -165,7 +159,6 @@ public class PersonalDataGeneratorTest {
     public void generateNameShouldReturnName() {
         // given
         final String name = generateName();
-
         // when
         assertThat(name).isNotBlank();
         assertThat(name.length()).isGreaterThan(3);

@@ -1,9 +1,8 @@
 package dms.pastor.utils;
 
 import dms.pastor.utils.transformers.ToUncheckedExceptionTransformer;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.io.FileWriter;
 import java.util.Arrays;
@@ -18,22 +17,18 @@ import java.util.List;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public class ToUncheckedExceptionTransformerTest {
-    @Rule
-    public ExpectedException exception = ExpectedException.none();
+
 
     @Test
     public void shouldThrowRuntimeExceptionWhenCheckedExceptionIsThrown() {
-        // expect
-        exception.expect(RuntimeException.class);
-        List<String> urlsToCrawl = Arrays.asList("https://dominiksymonowicz.com", "whoops");
         // given
+        List<String> urlsToCrawl = Arrays.asList("https://dominiksymonowicz.com", "whoops");
         // when
-        urlsToCrawl.stream()
-                .map(ToUncheckedExceptionTransformer.transformToUncheckedException(FileWriter::new))
-                .forEach(fileWriter -> System.out.println(fileWriter.toString()));
-
-        // then
-
+        Assertions.assertThrows(RuntimeException.class, () -> {
+            urlsToCrawl.stream()
+                    .map(ToUncheckedExceptionTransformer.transformToUncheckedException(FileWriter::new))
+                    .forEach(fileWriter -> System.out.println(fileWriter.toString()));
+        });
     }
 
 }

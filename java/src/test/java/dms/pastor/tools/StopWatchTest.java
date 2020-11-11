@@ -1,7 +1,7 @@
 package dms.pastor.tools;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.CountDownLatch;
 
@@ -26,7 +26,7 @@ public class StopWatchTest {
     private final CountDownLatch latch = new CountDownLatch(1);
     private StopWatch stopWatch;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         stopWatch = new StopWatch();
     }
@@ -51,13 +51,11 @@ public class StopWatchTest {
         // given
         stopWatch.start();
         latch.await(250L, MILLISECONDS);
-
         // when
         stopWatch.stop();
 
         // then
         assertThat(stopWatch.calcTotalTime()).isGreaterThanOrEqualTo(250L);
-
         // when
         latch.await(100, MILLISECONDS);
 
@@ -70,7 +68,6 @@ public class StopWatchTest {
         // given
         stopWatch.setStart(200);
         stopWatch.setFinish(400);
-
         // when
         final long time = stopWatch.calcTotalTime();
 
@@ -83,7 +80,6 @@ public class StopWatchTest {
         // given
         stopWatch.setStart(TW0_SECOND);
         stopWatch.setFinish(FIVE_SECONDS);
-
         // when
         final String time = stopWatch.displayTime();
 
@@ -96,7 +92,6 @@ public class StopWatchTest {
         // given
         stopWatch.setStart(TW0_SECOND);
         stopWatch.setFinish(FIVE_SECONDS);
-
         // when
         final String timeString = stopWatch.getResultTimeAsString();
 
@@ -109,7 +104,6 @@ public class StopWatchTest {
         // given
         stopWatch.setStart(TW0_SECOND);
         stopWatch.setFinish(FIVE_SECONDS);
-
         // when
         stopWatch.resetTimer();
 

@@ -1,11 +1,10 @@
 package dms.pastor.tools.coder;
 
 import dms.pastor.domain.exception.SomethingWentTerribleWrongError;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.File;
 
@@ -22,58 +21,47 @@ import static java.io.File.separator;
 public class CodecAppRunnerTest {
     private static final String PATH = "src" + separator + "main" + separator + "resources" + separator + "input.txt";
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         new File(PATH).createNewFile();
     }
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
-    @After
+    @AfterEach
     public void tearDown() {
         new File(PATH).delete();
     }
 
     @Test
     public void shouldThrowSomethingWentWrongErrorIfInputIsNull() {
-        // except
-        exception.expect(SomethingWentTerribleWrongError.class);
-
         // when
-        CodecAppRunner.main(null);
+        Assertions.assertThrows(SomethingWentTerribleWrongError.class, () -> CodecAppRunner.main(null));
+
     }
 
     @Test
     public void shouldThrowSomethingWentWrongErrorIfHasTooManyArgumentsIsNull() {
-        // except
-        exception.expect(SomethingWentTerribleWrongError.class);
-
         // when
-        CodecAppRunner.main(new String[]{"e", "E"});
+        Assertions.assertThrows(SomethingWentTerribleWrongError.class, () -> CodecAppRunner.main(new String[]{"e", "E"}));
+
     }
 
     @Test
     public void shouldThrowSomethingWentWrongErrorIfArgumentsDoesNotMatchTaskName() {
-        // except
-        exception.expect(SomethingWentTerribleWrongError.class);
-
         // when
-        CodecAppRunner.main(new String[]{"ee"});
+        Assertions.assertThrows(SomethingWentTerribleWrongError.class, () -> CodecAppRunner.main(new String[]{"ee"}));
     }
 
     @Test
     public void shouldDisplayEncodedMessageReadFromFile() {
-
         // when
         CodecAppRunner.main(new String[]{"e"});
     }
 
     @Test
     public void shouldDisplayDecodedMessageReadFromFile() {
-
         // when
         CodecAppRunner.main(new String[]{"d"});
     }

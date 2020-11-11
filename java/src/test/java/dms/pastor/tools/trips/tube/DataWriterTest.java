@@ -3,9 +3,8 @@ package dms.pastor.tools.trips.tube;
 import dms.pastor.tools.trips.tube.data.DataUploader;
 import dms.pastor.tools.trips.tube.data.DataWriter;
 import dms.pastor.tools.trips.tube.station.TubeStation;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.time.LocalDate;
@@ -26,21 +25,20 @@ import static org.assertj.core.api.Assertions.assertThat;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class DataWriterTest {
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
+
 
     @Test
     public void saveShouldThrowIllegalArgumentExceptionIfPathIsNull() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
 
         // given
         DataWriter writer = new DataWriter();
         final TubeStation amershamTubeStation = new TubeStation("Amersham", null, null, null, null, true);
         List<TubeStation> tubeStations = Collections.singletonList(amershamTubeStation);
-
         // when
-        writer.save(null, tubeStations);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            writer.save(null, tubeStations);
+        });
+
     }
 
     @Test
@@ -51,13 +49,11 @@ public class DataWriterTest {
         // delete if exists
         final File file = File.createTempFile("station", ".txt");
 
-
         final TubeStation amershamTubeStation = new TubeStation("Amersham", VISITED, LocalDate.now(), LocalDate.now(), LocalDate.now(), true);
         final TubeStation cheshamTubeStation = TubeStation.passed("Pinner", LocalDate.now());
         List<TubeStation> tubeStations = new ArrayList<>();
         tubeStations.add(amershamTubeStation);
         tubeStations.add(cheshamTubeStation);
-
         // when
         writer.save(file.toPath(), tubeStations);
 

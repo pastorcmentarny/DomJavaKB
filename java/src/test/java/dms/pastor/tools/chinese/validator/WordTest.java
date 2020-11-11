@@ -35,7 +35,6 @@ public class WordTest {
         // given
         final Word expectedWord = new Word(-1, null, null, -1,
                 null, null, null, NOTE_AS_NULL, -1, null);
-
         // when
         final Word word = Word.noWord();
 
@@ -49,7 +48,6 @@ public class WordTest {
         final String expectedWordWithBasicInformation = word.getChineseCharacter() + " - '" +
                 word.getPinyin() + "' - [ " +
                 word.getWordInEnglish() + " ]";
-
         // when
         final String wordWithBasicInformation = word.toShortString();
 
@@ -64,7 +62,6 @@ public class WordTest {
                 + "\nChinese: " + word.getChineseCharacter() + "\nPinyin: " + word.getPinyin() + "(" + word.getStrokes()
                 + ")\nEnglish: " + word.getWordInEnglish() + "\nPolish:" + word.getWordInPolish()
                 + "\nNotes: " + word.getNotes() + "\nDifficulty: " + word.getDifficulty();
-
         // when
         final String wordAsString = word.asWord();
 
@@ -81,7 +78,6 @@ public class WordTest {
         final Word wordWithNullNote = new Word(DEFAULT_ID, DEFAULT_CHINESE_CHARACTER, DEFAULT_PINYIN,
                 DEFAULT_STROKES, DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH,
                 DEFAULT_GROUP, NOTE_AS_NULL, DEFAULT_DIFFICULTY, DEFAULT_HASH);
-
         // when
         final String notes = wordWithNullNote.getNotes();
 

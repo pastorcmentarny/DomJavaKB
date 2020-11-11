@@ -1,7 +1,8 @@
 package dms.pastor.tasks.paint.command;
 
 import dms.pastor.tasks.paint.canvas.Canvas;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import static java.lang.System.lineSeparator;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -34,7 +35,6 @@ public class CreateNewRectangleCommandTest extends AbstractCommandTest {
         // given
         String[] params = {CREATE_RECTANGLE_COMMAND, VALID_VALUE_AS_STRING, NOT_USED_SMALL_VALUE_AS_STRING, NOT_USED_LARGE_VALUE_AS_STRING, NOT_USED_MEDIUM_VALUE_AS_STRING};
         createNewRectangleCommand.setParamsIfValid(params);
-
         // when
         final int result = createNewRectangleCommand.getStartWidth();
 
@@ -47,7 +47,6 @@ public class CreateNewRectangleCommandTest extends AbstractCommandTest {
         // given
         String[] params = {CREATE_RECTANGLE_COMMAND, NOT_USED_SMALL_VALUE_AS_STRING, VALID_VALUE_AS_STRING, NOT_USED_MEDIUM_VALUE_AS_STRING, NOT_USED_LARGE_VALUE_AS_STRING};
         createNewRectangleCommand.setParamsIfValid(params);
-
         // when
         final int result = createNewRectangleCommand.getStartHeight();
 
@@ -60,7 +59,6 @@ public class CreateNewRectangleCommandTest extends AbstractCommandTest {
         // given
         String[] params = {CREATE_RECTANGLE_COMMAND, NOT_USED_SMALL_VALUE_AS_STRING, NOT_USED_SMALL_VALUE_AS_STRING, VALID_VALUE_AS_STRING, NOT_USED_SMALL_VALUE_AS_STRING};
         createNewRectangleCommand.setParamsIfValid(params);
-
         // when
         final int result = createNewRectangleCommand.getEndWidth();
 
@@ -70,32 +68,29 @@ public class CreateNewRectangleCommandTest extends AbstractCommandTest {
 
     @Test
     public void setParamsIfValidAreInOrderShouldThrowExceptionIfHeightStartPointIsHigherThanEndPoint() {
-        // expect
-        exception.expect(InvalidCommandSyntaxException.class);
-        exception.expectMessage("Invalid Syntax because Start point must be smaller than end point. Please check your input and try again.");
-
-        // when
+        // given
         final String[] params = {createNewRectangleCommand.getSyntax(), NOT_USED_MEDIUM_VALUE_AS_STRING, "4", "3", "1"};
-        createNewRectangleCommand.setParamsIfValid(params);
+        // when
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewRectangleCommand.setParamsIfValid(params));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because Start point must be smaller than end point. Please check your input and try again.");
     }
 
     @Test
     public void setParamsIfValidAreInOrderShouldThrowExceptionIfLengthStartPointIsHigherThanEndPoint() {
-        // expect
-        exception.expect(InvalidCommandSyntaxException.class);
-        exception.expectMessage("Invalid Syntax because Start point must be smaller than end point. Please check your input and try again.");
-
-        // when
+        // given
         final String[] params = {createNewRectangleCommand.getSyntax(), "4", NOT_USED_MEDIUM_VALUE_AS_STRING, "1", "3"};
-        createNewRectangleCommand.setParamsIfValid(params);
+        // when
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewRectangleCommand.setParamsIfValid(params));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because Start point must be smaller than end point. Please check your input and try again.");
+
     }
 
     @Test
     public void setParamsIfValidShouldThrowExceptionIfStartPointIsOnBorder() {
-        // expect
-        exception.expect(InvalidCommandSyntaxException.class);
-        exception.expectMessage("Invalid Syntax because paint on border is not allowed. Please check your input and try again.");
-
         // given
         Canvas canvas = Canvas.createCanvasFor(SQUARE_WITH_LENGTH_4, SQUARE_WITH_LENGTH_4);
         final String startPoint = "0";
@@ -104,15 +99,14 @@ public class CreateNewRectangleCommandTest extends AbstractCommandTest {
         createNewRectangleCommand.setParamsIfValid(params);
 
         // when
-        createNewRectangleCommand.execute(canvas);
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewRectangleCommand.execute(canvas));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because paint on border is not allowed. Please check your input and try again.");
     }
 
     @Test
     public void setParamsIfValidShouldThrowExceptionIfEndPointIsOnBorder() {
-        // expect
-        exception.expect(InvalidCommandSyntaxException.class);
-        exception.expectMessage("Invalid Syntax because paint on border is not allowed. Please check your input and try again.");
-
         // given
         Canvas canvas = Canvas.createCanvasFor(SQUARE_WITH_LENGTH_4, SQUARE_WITH_LENGTH_4);
         final String startPoint = "2";
@@ -121,7 +115,11 @@ public class CreateNewRectangleCommandTest extends AbstractCommandTest {
         createNewRectangleCommand.setParamsIfValid(params);
 
         // when
-        createNewRectangleCommand.execute(canvas);
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewRectangleCommand.execute(canvas));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because paint on border is not allowed. Please check your input and try again.");
+
     }
 
     @Test
@@ -144,76 +142,68 @@ public class CreateNewRectangleCommandTest extends AbstractCommandTest {
 
     @Test
     public void setParamsIfValidShouldThrowExceptionIfParamsCountIsWrong() {
-        // expect
-        exception.expect(InvalidCommandSyntaxException.class);
-        exception.expectMessage("Invalid Syntax because number of params are invalid. Should be 5 but was 1. Please check your input and try again.");
-
         // given
         String[] params = {CREATE_RECTANGLE_COMMAND};
-
         // when
-        createNewRectangleCommand.setParamsIfValid(params);
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewRectangleCommand.setParamsIfValid(params));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because number of params are invalid. Should be 5 but was 1. Please check your input and try again.");
     }
 
     @Test
     public void setParamsIfValidShouldThrowExceptionIfStartWidthIsNotANumber() {
-        // expect
-        exception.expect(InvalidCommandSyntaxException.class);
-        exception.expectMessage("Invalid Syntax because start width is not a number. Please check your input and try again.");
-
         // given
-
         String[] params = {CREATE_RECTANGLE_COMMAND, NOT_A_NUMBER, START_NUMBER, END_NUMBER, END_NUMBER};
-
         // when
-        createNewRectangleCommand.setParamsIfValid(params);
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewRectangleCommand.setParamsIfValid(params));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because start width is not a number. Please check your input and try again.");
     }
 
     @Test
     public void setParamsIfValidShouldThrowExceptionIfStartHeightIsNotANumber() {
-        // expect
-        exception.expect(InvalidCommandSyntaxException.class);
-        exception.expectMessage("Invalid Syntax because start height is not a number. Please check your input and try again.");
 
         // given
-
         String[] params = {CREATE_RECTANGLE_COMMAND, START_NUMBER, NOT_A_NUMBER, END_NUMBER, END_NUMBER};
 
         // when
-        createNewRectangleCommand.setParamsIfValid(params);
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewRectangleCommand.setParamsIfValid(params));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because start height is not a number. Please check your input and try again.");
+
     }
 
     @Test
     public void setParamsIfValidShouldThrowExceptionIfEndWidthIsNotANumber() {
-        // expect
-        exception.expect(InvalidCommandSyntaxException.class);
-        exception.expectMessage("Invalid Syntax because end width is not a number. Please check your input and try again.");
-
         // given
         String[] params = {CREATE_RECTANGLE_COMMAND, START_NUMBER, START_NUMBER, NOT_A_NUMBER, END_NUMBER};
-
         // when
-        createNewRectangleCommand.setParamsIfValid(params);
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewRectangleCommand.setParamsIfValid(params));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because end width is not a number. Please check your input and try again.");
+
     }
 
     @Test
     public void setParamsIfValidShouldThrowExceptionIfEndHeightIsNotANumber() {
-        // expect
-        exception.expect(InvalidCommandSyntaxException.class);
-        exception.expectMessage("Invalid Syntax because end height is not a number. Please check your input and try again.");
 
         // given
         String[] params = {CREATE_RECTANGLE_COMMAND, START_NUMBER, START_NUMBER, END_NUMBER, NOT_A_NUMBER};
-
         // when
-        createNewRectangleCommand.setParamsIfValid(params);
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewRectangleCommand.setParamsIfValid(params));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because end height is not a number. Please check your input and try again.");
     }
 
     @Test
     public void setParamsIfValidShouldValidateIfAllParamsAreValid() {
         // given
         String[] params = {CREATE_RECTANGLE_COMMAND, START_NUMBER, START_NUMBER, END_NUMBER, END_NUMBER};
-
         // when
         createNewRectangleCommand.setParamsIfValid(params);
 
@@ -236,7 +226,6 @@ public class CreateNewRectangleCommandTest extends AbstractCommandTest {
                 "| xxx|" + lineSeparator() +
                 "|    |" + lineSeparator() +
                 "------" + lineSeparator();
-
         // when
         createNewRectangleCommand.execute(canvas);
 

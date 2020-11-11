@@ -1,7 +1,7 @@
 package dms.pastor.tools.chinese.validator;
 
 import dms.pastor.domain.Result;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
@@ -24,7 +24,6 @@ public class DummyImporterTest {
     public void importDictionaryShouldReturnResultWithDefaultWord() {
         // given
         Importer<List<Word>> importer = new DummyImporter();
-
         // when
         final Result<List<Word>> result = importer.importDictionary(generateString(), noCategories());
 

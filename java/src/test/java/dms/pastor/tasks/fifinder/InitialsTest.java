@@ -1,6 +1,6 @@
 package dms.pastor.tasks.fifinder;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.tasks.fifinder.NameBuilder.nameBuilder;
 import static dms.pastor.utils.StringUtils.WHITESPACE_CHAR;
@@ -41,7 +41,6 @@ public class InitialsTest {
                 .build();
 
         i = new Initials(name);
-
         // when
         final String initials = i.getInitials();
 
@@ -59,7 +58,6 @@ public class InitialsTest {
                 .build();
 
         i = new Initials(name);
-
         // when
         final String initials = i.getInitialsFromFirstAndLastNameOnly();
 
@@ -77,7 +75,6 @@ public class InitialsTest {
                 .build();
 
         i = new Initials(name);
-
         // when
         final String initials = i.getInitials();
 
@@ -94,7 +91,6 @@ public class InitialsTest {
                 .withoutLastName()
                 .build();
         i = new Initials(name);
-
         // when
         final String initials = i.getInitials();
 
@@ -112,7 +108,6 @@ public class InitialsTest {
                 .build();
 
         i = new Initials(name);
-
         // when
         final String initials = i.getInitials();
 
@@ -130,7 +125,6 @@ public class InitialsTest {
                 .build();
 
         i = new Initials(name);
-
         // when
         final String initials = i.getInitials();
 
@@ -148,7 +142,6 @@ public class InitialsTest {
                 .build();
 
         i = new Initials(name);
-
         // when
         final String initials = i.getInitials();
 
@@ -166,7 +159,6 @@ public class InitialsTest {
                 .build();
 
         i = new Initials(name);
-
         // when
         final String initials = i.getInitials();
 
@@ -184,7 +176,6 @@ public class InitialsTest {
                 .build();
 
         i = new Initials(name);
-
         // when
         final String initials = i.getInitials();
 
@@ -202,7 +193,6 @@ public class InitialsTest {
                 .build();
 
         i = new Initials(name);
-
         // when
         final String initials = i.getInitials();
 
@@ -220,7 +210,6 @@ public class InitialsTest {
                 .build();
 
         i = new Initials(name);
-
         // when
         final String initials = i.getInitials();
 
@@ -238,7 +227,6 @@ public class InitialsTest {
                 .build();
 
         i = new Initials(name);
-
         // when
         final String initials = i.getInitials();
 

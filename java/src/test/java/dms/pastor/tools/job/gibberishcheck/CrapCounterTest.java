@@ -1,7 +1,7 @@
 package dms.pastor.tools.job.gibberishcheck;
 
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
@@ -17,8 +17,6 @@ public class CrapCounterTest {
         // given
         data = new Data(emptyList(), emptyList());
         counter = new CrapCounter(data);
-
-
         // when
         CounterResult counterResult = counter.count();
         // then
@@ -35,7 +33,6 @@ public class CrapCounterTest {
         counter = new CrapCounter(data);
 
         var expectedResult = new CrapCounter(data);
-
         // when
         CounterResult counterResult = counter.count();
 
@@ -51,7 +48,6 @@ public class CrapCounterTest {
 
         data = new Data(crapWordList, jobWordList);
         counter = new CrapCounter(data);
-
         // when
         CounterResult counterResult = counter.count();
 
@@ -67,7 +63,6 @@ public class CrapCounterTest {
 
         data = new Data(crapWordList, jobWordList);
         counter = new CrapCounter(data);
-
         // when
         CounterResult counterResult = counter.count();
 
@@ -83,7 +78,6 @@ public class CrapCounterTest {
 
         data = new Data(crapWordList, jobWordList);
         counter = new CrapCounter(data);
-
         // when
         CounterResult counterResult = counter.count();
 

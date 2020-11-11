@@ -2,7 +2,8 @@ package dms.pastor.tasks.calculators;
 
 import org.junit.Assert;
 import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.junit.rules.ExpectedException;
 
 import java.util.Random;
@@ -34,16 +35,18 @@ public class TaxCalculatorTest {
         // except
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage("Salary cannot be negative.");
-
         // when
-        getNetSalary(salary);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+
+            getNetSalary(salary);
+        });
+
     }
 
     @Test
     public void shouldReturnSalaryTest() {
         // given
         final int salary = random.nextInt(BOUND);
-
         // when
         final int netSalary = getNetSalary(salary);
 
@@ -56,7 +59,6 @@ public class TaxCalculatorTest {
         // given
         final int salary = 30600;
         final int expectedNetSalary = 26600;
-
         // when
         final int netSalary = getNetSalary(salary);
 
@@ -73,7 +75,6 @@ public class TaxCalculatorTest {
         // given
         final int salary = 35000;
         final int expectedNetSalary = 30120;
-
         // when
         final int netSalary = getNetSalary(salary);
 
@@ -86,7 +87,6 @@ public class TaxCalculatorTest {
         // given
         final int salary = 45000;
         final int expectedNetSalary = 37597;
-
         // when
         final int netSalary = getNetSalary(salary);
 
@@ -99,7 +99,6 @@ public class TaxCalculatorTest {
         // given
         final int salary = 121200;
         final int expectedNetSalary = 79077;
-
         // when
         final int netSalary = getNetSalary(salary);
 
@@ -112,7 +111,6 @@ public class TaxCalculatorTest {
         // given
         final int salary = 200000;
         final int expectedNetSalary = 123857;
-
         // when
         final int netSalary = getNetSalary(salary);
 
@@ -124,7 +122,6 @@ public class TaxCalculatorTest {
     public void shouldReturnAllPersonalAllowanceForSalaryLessThan100000() {
         // given
         final int salary = random.nextInt(100000);
-
         // when
         final int personalAllowance = getPersonalAllowanceFor(salary).intValue();
 
@@ -136,7 +133,6 @@ public class TaxCalculatorTest {
     public void shouldReturnZeroAllowanceWhenSalaryEqualPersonalAllowanceLimit() {
         // given
         final int salary = 121200;
-
         // when
         final int personalAllowance = getPersonalAllowanceFor(salary).intValue();
 
@@ -150,7 +146,6 @@ public class TaxCalculatorTest {
         final int salary = 100002;
         final int salary2 = 110000;
         final int salary3 = 120000;
-
         // when
         final int personalAllowance = getPersonalAllowanceFor(salary).intValue();
         final int personalAllowance2 = getPersonalAllowanceFor(salary2).intValue();
@@ -166,7 +161,6 @@ public class TaxCalculatorTest {
     public void shouldReturnZeroAllowanceWhenSalaryAbovePersonalAllowanceLimit() {
         // given
         final int salary = FULL_PERSONAL_ALLOWANCE_LIMIT + random.nextInt(Integer.MAX_VALUE - FULL_PERSONAL_ALLOWANCE_LIMIT);
-
         // when
         final int personalAllowance = getPersonalAllowanceFor(salary).intValue();
 

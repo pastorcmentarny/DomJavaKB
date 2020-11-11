@@ -1,6 +1,6 @@
 package dms.pastor.tasks.other;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +42,6 @@ public class CollectionExercisesTest {
         stringArrayList.add(stringOne);
         stringArrayList.add(stringTwo);
         stringArrayList.add(stringThree);
-
         // when
         final Map<Integer, String> integerStringMap = convertListToMapUsingJava8(stringArrayList);
 

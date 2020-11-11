@@ -5,9 +5,8 @@ import dms.pastor.tools.trips.common.options.Status;
 import dms.pastor.tools.trips.tube.station.Line;
 import dms.pastor.tools.trips.tube.station.Stations;
 import dms.pastor.tools.trips.tube.station.TubeStation;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -37,8 +36,7 @@ public class StationsTest {
     private static final String STATION_NOT_FOUND_ERROR_MESSAGE = "TubeStation was not found.";
     private static final String STATION_NAME = "Amersham";
     private static final boolean BLOGGED = false;
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
+
     private final List<Line> lines = Collections.singletonList(new Line("none"));
     private final Stations stations = generateStations();
 
@@ -48,7 +46,6 @@ public class StationsTest {
         final String stationName = STATION_NAME;
         final TubeStation amershamTubeStation = TubeStation.notVisited(stationName);
         Stations stations = new Stations(Collections.singletonList(amershamTubeStation));
-
         // when
         TubeStation result = stations.getStationByName(stationName);
 
@@ -63,7 +60,6 @@ public class StationsTest {
         final String stationName = STATION_NAME;
         final TubeStation amersham = TubeStation.notVisited(stationName);
         Stations stations = new Stations(Collections.singletonList(amersham));
-
         // when
         stations.setPassedFor(amersham);
 
@@ -79,7 +75,6 @@ public class StationsTest {
         final LocalDate today = LocalDate.now();
         final TubeStation amersham = new TubeStation(stationName, VISITED, today, today, today, false);
         Stations stations = new Stations(Collections.singletonList(amersham));
-
         // when
         stations.setPassedFor(amersham);
 
@@ -94,7 +89,6 @@ public class StationsTest {
         final LocalDate today = LocalDate.now();
         final TubeStation amersham = new TubeStation(stationName, NOT_VISITED, today, today, today, BLOGGED);
         Stations stations = new Stations(Collections.singletonList(amersham));
-
         // when
         stations.setVisitedFor(amersham);
 
@@ -107,7 +101,6 @@ public class StationsTest {
         // given
         final TubeStation amersham = TubeStation.passed(STATION_NAME, PASSED_DATE);
         Stations stations = new Stations(Collections.singletonList(amersham));
-
         // when
         stations.setVisitedFor(amersham);
 
@@ -120,7 +113,6 @@ public class StationsTest {
         // given
         final TubeStation amersham = TubeStation.passed(STATION_NAME, PASSED_DATE);
         Stations stations = new Stations(Collections.singletonList(amersham));
-
         // when
         stations.setVisitedFor(amersham);
 
@@ -135,7 +127,6 @@ public class StationsTest {
         final LocalDate yesterday = PASSED_DATE.minusDays(1);
         final TubeStation amersham = TubeStation.passed(STATION_NAME, yesterday);
         Stations stations = new Stations(Collections.singletonList(amersham));
-
         // when
         stations.setVisitedFor(amersham);
 
@@ -164,32 +155,34 @@ public class StationsTest {
 
     @Test
     public void findStationShouldThrowNotFoundExceptionWhenSearchForIsNull() {
-        // expect
-        exception.expect(NotFoundException.class);
-        exception.expectMessage(STATION_NOT_FOUND_ERROR_MESSAGE);
-
         // when
-        stations.findStation(null);
+        final var exception = Assertions.assertThrows(NotFoundException.class, () -> {
+            stations.findStation(null);
+
+        });
+        assertThat(exception.getMessage()).isEqualTo(STATION_NOT_FOUND_ERROR_MESSAGE);
     }
 
     @Test
     public void findStationShouldThrowNotFoundExceptionWhenSearchForIsEmpty() {
-        // expect
-        exception.expect(NotFoundException.class);
-        exception.expectMessage(STATION_NOT_FOUND_ERROR_MESSAGE);
-
         // when
-        stations.findStation(EMPTY_STRING);
+        final var exception = Assertions.assertThrows(NotFoundException.class, () -> {
+            stations.findStation(EMPTY_STRING);
+        });
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo(STATION_NOT_FOUND_ERROR_MESSAGE);
     }
 
     @Test
     public void findStationShouldThrowNotFoundExceptionWhenSearchForDoNotMatchAnyStation() {
-        // expect
-        exception.expect(NotFoundException.class);
-        exception.expectMessage(STATION_NOT_FOUND_ERROR_MESSAGE);
-
         // when
-        stations.findStation(generateString());
+        final var exception = Assertions.assertThrows(NotFoundException.class, () -> {
+            stations.findStation(generateString());
+        });
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo(STATION_NOT_FOUND_ERROR_MESSAGE);
     }
 
 
@@ -206,7 +199,6 @@ public class StationsTest {
     public void passedShouldReturnStationWithPassedDateButWithoutVisitedDate() {
         // given
         final TubeStation expectedTubeStation = new TubeStation(STATION_NAME, PASSED, PASSED_DATE, null, null, BLOGGED);
-
         // when
         final TubeStation result = TubeStation.passed(STATION_NAME, PASSED_DATE);
 
@@ -218,7 +210,6 @@ public class StationsTest {
     public void notVisitedShouldReturnStationWithoutPassedAndOrVisitedDate() {
         // given
         final TubeStation expectedTubeStation = new TubeStation(STATION_NAME, NOT_VISITED, null, null, null, BLOGGED);
-
         // when
         final TubeStation result = TubeStation.notVisited(STATION_NAME);
 
@@ -231,7 +222,6 @@ public class StationsTest {
     public void totalNumberShouldReturn3ForStationsCount() {
         // given
         final Stations stations = generateStations();
-
         // when
         final int result = stations.totalNumber();
 

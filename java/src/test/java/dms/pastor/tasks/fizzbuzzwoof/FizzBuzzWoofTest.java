@@ -1,6 +1,6 @@
 package dms.pastor.tasks.fizzbuzzwoof;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -272,7 +272,6 @@ public class FizzBuzzWoofTest {
 
     @Test
     public void getResultFor55shouldReturnBuzzBuzzBuzz() {
-
         // when
         final String result = FizzBuzzWoof.getResultFor(55);
 
@@ -282,7 +281,6 @@ public class FizzBuzzWoofTest {
 
     @Test
     public void getResultFor63shouldReturnFizzFizzWoof() {
-
         // when
         final String result = FizzBuzzWoof.getResultFor(63);
 
@@ -355,7 +353,6 @@ public class FizzBuzzWoofTest {
 
     @Test
     public void getResultFor357shouldReturnFizzFizzBuzzWoofWoof() {
-
         // when
         final String result = FizzBuzzWoof.getResultFor(357);
 

@@ -1,8 +1,7 @@
 package dms.pastor.domain;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.domain.Country.UNITED_KINGDOM;
 import static dms.pastor.domain.Country.getName;
@@ -19,26 +18,18 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class CountryTest {
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     //because this is purpose of test
     @Test
     public void shouldReturnNullIfCountryIsNullTest() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-
         // when
-        getName(null);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> getName(null));
     }
 
     @Test
     public void shouldReturnNullIfCountryIsInvalidTest() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-
         // when
-        getName(Country.valueOf(generateString()));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> getName(Country.valueOf(generateString())));
     }
 
     @Test

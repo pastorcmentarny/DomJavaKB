@@ -1,7 +1,7 @@
 package dms.pastor.examples.java8.datetime;
 
 import dms.pastor.ExampleRunner;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.time.Instant;
 import java.time.ZoneId;

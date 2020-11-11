@@ -1,14 +1,14 @@
 package dms.pastor.examples.mockito;
 
 import dms.pastor.domain.Treasure;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.UUID;
 
@@ -28,7 +28,7 @@ import static org.mockito.Mockito.verify;
  * <p>
  * tag-mockito, tag-argumentCaptor
  */
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class MockitoExampleServerTest {
 
     @Captor
@@ -40,7 +40,7 @@ public class MockitoExampleServerTest {
     @InjectMocks
     private MockitoExampleServer marvelousServer;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         marvelousServer = new MockitoExampleServer(legendaryService);
     }
@@ -50,7 +50,6 @@ public class MockitoExampleServerTest {
         // given
         final UUID id = UUID.randomUUID();
         final MockitoExampleRequest awesomeRequest = new MockitoExampleRequest(id, generateString(10));
-
         // when
         final MockitoExampleResponse awesomeResponse = marvelousServer.create(awesomeRequest);
 
@@ -65,7 +64,6 @@ public class MockitoExampleServerTest {
     public void professionalArgumentCaptorTest() {
         // given
         treasureArgumentCaptor = ArgumentCaptor.forClass(Treasure.class);
-
         // when
         final UUID id = UUID.randomUUID();
         final String diamondTreasure = "diamond";

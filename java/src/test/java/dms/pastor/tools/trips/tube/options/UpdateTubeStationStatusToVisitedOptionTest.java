@@ -1,11 +1,11 @@
 package dms.pastor.tools.trips.tube.options;
 
 import dms.pastor.tools.trips.tube.station.Stations;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Scanner;
 
@@ -16,7 +16,7 @@ import static java.util.Collections.singletonList;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class UpdateTubeStationStatusToVisitedOptionTest {
     @Mock
     private Scanner scanner;
@@ -32,7 +32,6 @@ public class UpdateTubeStationStatusToVisitedOptionTest {
                         .buildNotVisitedStation()))
                 .build();
         given(scanner.nextLine()).willReturn(stations.getTubeStationList().get(0).getName());
-
         // when
         updateStationStatusToVisited.choose(stations);
 

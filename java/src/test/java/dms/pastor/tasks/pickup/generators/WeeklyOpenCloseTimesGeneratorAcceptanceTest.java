@@ -1,7 +1,7 @@
 package dms.pastor.tasks.pickup.generators;
 
 import dms.pastor.tasks.pickup.OpenCloseTime;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.time.LocalTime;
 import java.util.List;
@@ -14,7 +14,6 @@ public class WeeklyOpenCloseTimesGeneratorAcceptanceTest {
 
     @Test
     public void getTypicalWeeklyOpenCloseTimes() {
-
         // when
         final List<OpenCloseTime> result = WeeklyOpenCloseTimesGenerator.getTypicalWeeklyOpenCloseTimes();
 

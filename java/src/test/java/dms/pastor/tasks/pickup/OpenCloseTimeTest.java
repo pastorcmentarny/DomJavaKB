@@ -1,9 +1,8 @@
 package dms.pastor.tasks.pickup;
 
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -13,28 +12,27 @@ import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class OpenCloseTimeTest {
-    @Rule
-    public ExpectedException exception = ExpectedException.none();
+
 
     private static final String DAY_OF_THE_WEEK = LocalDate.now().getDayOfWeek().toString();
 
     @Test
     public void shouldThrowExceptionIfDayIsNull() {
         System.out.println(DAY_OF_THE_WEEK);
-        // expect
-        exception.expect(IllegalArgumentException.class);
-
         // when
-        new OpenCloseTime(null, LocalTime.now(), LocalTime.now());
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            new OpenCloseTime(null, LocalTime.now(), LocalTime.now());
+        });
+
     }
 
     @Test
     public void shouldThrowExceptionIfDayIsEmpty() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-
         // when
-        new OpenCloseTime(EMPTY_STRING, LocalTime.now(), LocalTime.now());
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            new OpenCloseTime(EMPTY_STRING, LocalTime.now(), LocalTime.now());
+        });
+
     }
 
     @Test
@@ -139,7 +137,6 @@ public class OpenCloseTimeTest {
                 .open(LocalTime.MIDNIGHT)
                 .close(LocalTime.MIDNIGHT)
                 .build();
-
         // when
         final var result = openTimes.getOpenCloseTimeAsText();
         // then
@@ -152,7 +149,6 @@ public class OpenCloseTimeTest {
         final OpenCloseTime openTimes = OpenCloseTime.builder()
                 .day(DAY_OF_THE_WEEK)
                 .build();
-
         // when
         final var result = openTimes.getOpenCloseTimeAsText();
         // then
@@ -166,7 +162,6 @@ public class OpenCloseTimeTest {
                 .day(DAY_OF_THE_WEEK)
                 .open(LocalTime.now())
                 .build();
-
         // when
         final var result = openTimes.getOpenCloseTimeAsText();
 
@@ -181,7 +176,6 @@ public class OpenCloseTimeTest {
                 .day(DAY_OF_THE_WEEK)
                 .close(LocalTime.now())
                 .build();
-
         // when
         final var result = openTimes.getOpenCloseTimeAsText();
 
@@ -197,7 +191,6 @@ public class OpenCloseTimeTest {
                 .open(LocalTime.of(10, 0))
                 .close(LocalTime.of(22, 0))
                 .build();
-
         // when
         final var result = openTimes.getOpenCloseTimeAsText();
 

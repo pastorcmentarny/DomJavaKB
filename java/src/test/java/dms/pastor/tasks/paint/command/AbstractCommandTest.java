@@ -1,8 +1,5 @@
 package dms.pastor.tasks.paint.command;
 
-import org.junit.Rule;
-import org.junit.rules.ExpectedException;
-
 /**
  * Author Dominik Symonowicz
  * Created 16/07/2017
@@ -17,7 +14,5 @@ import org.junit.rules.ExpectedException;
 @SuppressWarnings("WeakerAccess")
 public class AbstractCommandTest {
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
 }

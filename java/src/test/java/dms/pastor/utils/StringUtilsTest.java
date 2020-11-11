@@ -1,9 +1,8 @@
 package dms.pastor.utils;
 
 import dms.pastor.utils.randoms.RandomDataGenerator;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -37,14 +36,12 @@ public class StringUtilsTest {
     private static final String PALINDROME = "abcdcba";
     private static final String NOT_A_PALINDROME = "abcdef";
     private static final String PALINDROME_AFTER_PERMUTATION = "abcdabcd";
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
+
 
     @Test
     public void testGetRandomCharacter() {
         // given
         Character randomCharacter = getRandomCharacter();
-
         // when
         final boolean result = isLetter(randomCharacter);
 
@@ -139,7 +136,6 @@ public class StringUtilsTest {
     public void testIsPangramsReturnTrue() {
         // given
         final String panagram = "The quick brown fox jumps over the lazy dog";
-
         // when
         final boolean result = isPangram(panagram);
 
@@ -151,7 +147,6 @@ public class StringUtilsTest {
     public void testIsPangramsReturnFalseForTextThatIsNotAPanagram() {
         // given
         String notPanagram = "We promptly judged antique ivory buckles for the prize";
-
         // when
         final boolean result = isPangram(notPanagram);
 
@@ -167,7 +162,6 @@ public class StringUtilsTest {
         stringList.add("London");
         stringList.add("Tianjin");
         stringList.add("Wrocław");
-
         // when
         final String[] stringArray = toStringArray(stringList);
 
@@ -178,11 +172,8 @@ public class StringUtilsTest {
     //it is purpose of test
     @Test
     public void testToStringArrayReturnIllegalArgumentException() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-
         // when
-        toStringArray(null);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> toStringArray(null));
     }
 
     @SuppressWarnings("ConstantConditions")
@@ -244,7 +235,6 @@ public class StringUtilsTest {
 
     @Test
     public void getEmptyStringForNullStringExample() {
-
         // when
         final String nullSafeString = getNullSafeString(null);
 
@@ -256,7 +246,6 @@ public class StringUtilsTest {
     public void shouldReturnStringForNotNullStringExample() {
         // given
         final String string = "string";
-
         // when
         final String nullSafeString = getNullSafeString(string);
 
@@ -266,29 +255,26 @@ public class StringUtilsTest {
 
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenStringIsNullTest() {
-        // except
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage(INPUT_CANNOT_BE_EMPTY);
-
         // when
-        splitContentIntoWords(null);
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> splitContentIntoWords(null));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo(INPUT_CANNOT_BE_EMPTY);
     }
 
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenStringIsNullStringIsEmptyTest() {
-        // except
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage(INPUT_CANNOT_BE_EMPTY);
-
         // when
-        splitContentIntoWords(EMPTY_STRING);
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> splitContentIntoWords(EMPTY_STRING));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo(INPUT_CANNOT_BE_EMPTY);
     }
 
     @Test
     public void shouldReturn2WordsTest() {
         // given
         String content = "Two words";
-
         // when
         final String[] words = splitContentIntoWords(content);
 
@@ -309,7 +295,6 @@ public class StringUtilsTest {
     public void shouldReturnFalseForStringThatContainsSomeAlphanumericTest() {
         // given
         final String mixed = generateString(10) + generateNonAlphanumericString(5) + generateString(2, 10);
-
         // when
         final boolean isAlphanumeric = hasNonAlphanumericCharactersOnly(mixed);
 
@@ -319,7 +304,6 @@ public class StringUtilsTest {
 
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenStringIsEmptyForSwapCharactersTest() {
-
         // when
         final var result = swapCaseLettersInString(null);
 
@@ -342,7 +326,6 @@ public class StringUtilsTest {
         // given
         final String text = "lowerUPPERcase";
         final String expectedResult = "LOWERupperCASE";
-
         // when
         final String actualResult = swapCaseLettersInString(text);
 
@@ -356,7 +339,6 @@ public class StringUtilsTest {
         // given
         final String text = "plainTextExample#6688";
         final String expectedResult = "PLAINtEXTeXAMPLE#6688";
-
         // when
         final String actualResult = swapCaseLettersInString(text);
 
@@ -398,7 +380,6 @@ public class StringUtilsTest {
         // given
         final String string = "An1Example!";
         final String expectedResult = "An1Example";
-
         // when
         final String result = StringUtils.removeAllNonAlphaNumericCharactersFromString(string);
 
@@ -411,7 +392,6 @@ public class StringUtilsTest {
         // given
         final String string = "An1Example!\"\\£$%^&*()_+-={}[]@~:;'#<>?,./";
         final String expectedResult = "An1Example";
-
         // when
         final String result = StringUtils.removeAllNonAlphaNumericCharactersFromString(string);
 
@@ -423,7 +403,6 @@ public class StringUtilsTest {
     public void shouldBeDeleted() {
         // given
         LocalDate date = LocalDate.now();
-
         // when
         LocalDate dateNow = LocalDate.now();
 
@@ -493,7 +472,6 @@ public class StringUtilsTest {
         // given
         final String text = "    Text With   Whitespaces.   ";
         final String expectedResult = "TextWithWhitespaces.";
-
         // when
         final String result = trimAllWhiteSpaces(text);
 
@@ -513,7 +491,6 @@ public class StringUtilsTest {
 
     @Test
     public void hasNonAlphabetCharactersOnlyShouldReturnFalseIfStringContainAlphabetCharacter() {
-
         // when
         final boolean result = StringUtils.hasNonAlphabetCharactersOnly(NON_ALPHABETICAL_STRING);
 
@@ -528,7 +505,6 @@ public class StringUtilsTest {
         char character = 'z';
         char[] charArray = new char[]{'a', 'b', 'c'};
         char[] expectedResult = new char[]{'a', 'b', 'c', 'z'};
-
         // when
         final char[] result = StringUtils.addCharToCharArray(character, charArray);
 
@@ -543,7 +519,6 @@ public class StringUtilsTest {
         final String string1 = generateString(MAX_SMALL_VALUE_RANGE);
         final String string2 = generateString(MAX_SMALL_VALUE_RANGE);
         final String string3 = generateString(MAX_SMALL_VALUE_RANGE);
-
         // when
         final boolean result = isAllStringsAreNotEmpty(string1, string2, string3);
 
@@ -556,7 +531,6 @@ public class StringUtilsTest {
         // given
         final String string1 = generateString(MAX_SMALL_VALUE_RANGE);
         final String string2 = generateString(MAX_SMALL_VALUE_RANGE);
-
         // when
         final boolean result = isAllStringsAreNotEmpty(string1, string2, EMPTY_STRING);
 
@@ -566,7 +540,6 @@ public class StringUtilsTest {
 
     @Test
     public void everythingIsEmptyShouldReturnTrueIfNoArgumentProvided() {
-
         // when
         final boolean result = isAllStringsAreNotEmpty();
 
@@ -626,7 +599,6 @@ public class StringUtilsTest {
         // given
         final String text = "LabLab";
         final String occurrence = "lab";
-
         // when
         int result = StringUtils.countOccurrenceOf(occurrence, text);
 
@@ -639,7 +611,6 @@ public class StringUtilsTest {
         // given
         final String text = "sixty-four sixty-five sixty-six sixty-seven";
         final String occurrence = "six";
-
         // when
         int result = StringUtils.countOccurrenceOf(occurrence, text);
 
@@ -695,7 +666,6 @@ public class StringUtilsTest {
         // given
         final String string = "STRING";
         final String expectedResult = "S";
-
         // when
         final String result = capitalizeFirstCharacter(string);
 
@@ -718,7 +688,6 @@ public class StringUtilsTest {
     public void getStringWithCapitalizedFirstCharacterShouldReturnTheSameStringWhenInputHasCapitalCharacterOnly() {
         // given
         final String string = "STRING";
-
         // when
         final String result = getStringWithCapitalizedFirstCharacter(string);
 
@@ -731,7 +700,6 @@ public class StringUtilsTest {
     public void getStringWithCapitalizedFirstCharacterShouldReturnTheSameStringWhenInputHasFirstCharacterCapitalized() {
         // given
         final String string = "String";
-
         // when
         final String result = getStringWithCapitalizedFirstCharacter(string);
 
@@ -745,7 +713,6 @@ public class StringUtilsTest {
         // given
         final String string = "string";
         final String expectedResult = "String";
-
         // when
         final String result = getStringWithCapitalizedFirstCharacter(string);
 
@@ -757,7 +724,6 @@ public class StringUtilsTest {
     public void shouldReturnNullIfStringIsNull() {
         // given
         final var characterToRemove = 'a';
-
         // when
         final var result = removeCharacterFromString(characterToRemove, null);
 
@@ -770,7 +736,6 @@ public class StringUtilsTest {
         // given
         final var characterToRemove = 'a';
         final var expectedResult = "bcdefghijklmnopqrstuvwxyz";
-
         // when
         final var result = removeCharacterFromString(characterToRemove, ALPHABET);
 
@@ -783,7 +748,6 @@ public class StringUtilsTest {
         // given
         final var characterToRemove = 'a';
         final var expectedResult = "dom";
-
         // when
         final var result = removeCharacterFromString(characterToRemove, "adaoamaa");
 
@@ -797,7 +761,6 @@ public class StringUtilsTest {
         // given
         final String example = "Dominik\nis\r\nhungry!";
         final String expectedResult = "Dominik" + System.lineSeparator() + "is" + System.lineSeparator() + "hungry!";
-
         // when
         final var result = replaceWithSystemNewLine(example);
         // then
@@ -809,7 +772,6 @@ public class StringUtilsTest {
     public void shouldDescribeNullString() {
         // given
         final var expectedResult = "String is null";
-
         // when
         final var result = describeStringType(null);
 
@@ -821,7 +783,6 @@ public class StringUtilsTest {
     public void shouldDescribeEmptyString() {
         // given
         final var expectedResult = "String is empty";
-
         // when
         final var result = describeStringType(EMPTY_STRING);
 
@@ -833,7 +794,6 @@ public class StringUtilsTest {
     public void shouldDescribeBlankString() {
         // given
         final var expectedResult = "String is blank";
-
         // when
         final var result = describeStringType("   ");
 
@@ -845,7 +805,6 @@ public class StringUtilsTest {
     public void shouldDescribeString() {
         // given
         final var expectedResult = "String { content }";
-
         // when
         final var result = describeStringType("content");
 

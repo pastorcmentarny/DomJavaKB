@@ -1,8 +1,9 @@
 package dms.pastor.tasks.romanarabicconverter;
 
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * Author Dominik Symonowicz
@@ -19,14 +20,16 @@ public class RomanToArabicConverterTest {
 
     private RomanArabicConverter converter;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         converter = new RomanArabicConverter();
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void shouldThrowsExceptionIfInvalidNumber() {
-        converter.convertRomanToArabic("UFO");
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            converter.convertRomanToArabic("UFO");
+        });
     }
 
     @Test

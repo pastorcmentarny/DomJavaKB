@@ -1,6 +1,6 @@
 package dms.pastor.examples.java8.newIn8;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Base64;
 

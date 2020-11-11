@@ -1,6 +1,6 @@
 package dms.pastor.tasks.manipulatedataapplication.data;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.tasks.manipulatedataapplication.data.Genre.FEMALE;
 import static dms.pastor.tasks.manipulatedataapplication.data.Genre.MALE;

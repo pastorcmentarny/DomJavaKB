@@ -1,7 +1,7 @@
 package dms.pastor.tasks.exercises;
 
 import dms.pastor.tasks.exercises.string.CharacterExercises;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

@@ -2,9 +2,9 @@ package dms.pastor.tools.trips.tube.options;
 
 
 import dms.pastor.tools.trips.common.options.Option;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -25,12 +25,12 @@ public class LoadTubeStationOptionTest {
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private final PrintStream original = System.out;
 
-    @Before
+    @BeforeEach
     public void setUpStreams() {
         System.setOut(new PrintStream(outputStream));
     }
 
-    @After
+    @AfterEach
     public void cleanUpStreams() throws IOException {
         outputStream.close();
         System.setOut(original);
@@ -40,7 +40,6 @@ public class LoadTubeStationOptionTest {
     public void shouldLoadStationsFromFile() {
         // given
         final Option loadStationOption = new LoadStationOption();
-
         // when
         loadStationOption.choose(stationsBuilder().build());
 

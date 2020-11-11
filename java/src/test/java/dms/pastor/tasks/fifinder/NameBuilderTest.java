@@ -1,6 +1,6 @@
 package dms.pastor.tasks.fifinder;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.tasks.fifinder.NameBuilder.nameBuilder;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
@@ -19,7 +19,6 @@ public class NameBuilderTest {
 
     @Test
     public void shouldCreateNameWithRandomData() {
-
         // when
         final Name result = nameBuilder().build();
 
@@ -36,7 +35,6 @@ public class NameBuilderTest {
         final String first = generateString();
         final String middles = generateString();
         final String last = generateString();
-
         // when
         final Name result = nameBuilder()
                 .first(first)

@@ -1,9 +1,8 @@
 package dms.pastor.utils;
 
 import org.junit.Assert;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
@@ -27,9 +26,6 @@ import static org.hamcrest.CoreMatchers.is;
 public class CollectionsUtilsTest {
 
     private static final String[] EMPTY_ARRAY = new String[0];
-
-    @Rule
-    public ExpectedException exception = ExpectedException.none();
 
 
     @Test
@@ -71,7 +67,6 @@ public class CollectionsUtilsTest {
         Random random = new Random();
         final int size = random.nextInt(MAX_RANDOM_SIZE);
         final String[] array = generateArray(size);
-
         // when
         final boolean isEmpty = isStringArrayEmpty(array);
 
@@ -83,7 +78,6 @@ public class CollectionsUtilsTest {
     @SuppressWarnings("ConstantConditions")
     @Test
     public void shouldReturnFalseIfListIsNullTest() {
-
         // when
         final boolean result = isListNotEmpty(null);
 
@@ -93,7 +87,6 @@ public class CollectionsUtilsTest {
 
     @Test
     public void shouldReturnFalseIfListIsEmpty() {
-
         // when
         final boolean result = isListNotEmpty(emptyList());
 
@@ -105,7 +98,6 @@ public class CollectionsUtilsTest {
     public void shouldReturnTrueIfListContainsElements() {
         // given
         final List<String> stringList = Arrays.asList("Dom", "is", "hungry");
-
         // when
         final boolean result = isListNotEmpty(Collections.singletonList(stringList));
 
@@ -115,21 +107,19 @@ public class CollectionsUtilsTest {
 
     @Test
     public void toListShouldThrowIllegalArgumentExceptionIfEnumIsNull() {
-        // expected
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Enum values cannot be null.");
-
         // when
-        CollectionsUtils.toList(null);
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> CollectionsUtils.toList(null));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Enum values cannot be null.");
     }
 
 
-/* change enum that is used as example
+/* TODO check it -> change enum that is used as example
     @Test
     public void toListShouldReturnListOfEnumsValues() {
         // given
         final ConditionType[] enums = ConditionType.values();
-
         // when
         final List<ConditionType> result = CollectionsUtils.toList(enums);
 
@@ -141,6 +131,5 @@ public class CollectionsUtilsTest {
         result.forEach(System.out::println);
 
     }*/
-
 
 }

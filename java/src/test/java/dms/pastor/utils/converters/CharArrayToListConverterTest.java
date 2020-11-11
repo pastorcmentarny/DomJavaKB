@@ -1,6 +1,6 @@
 package dms.pastor.utils.converters;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,6 @@ public class CharArrayToListConverterTest {
 
     CharArrayToListConverter converter = new CharArrayToListConverter();
 
-    @SuppressWarnings("ConstantConditions")
     @Test
     public void convertToStringArrayFromCharArrayShouldReturnNullIfCharArrayIsNull() {
         // when
@@ -53,7 +52,6 @@ public class CharArrayToListConverterTest {
         expectedResult.add("g");
         expectedResult.add("n");
         expectedResult.add(".");
-
         // when
         final List<String> stringArrayFromCharArray = converter.convert(charArray);
 

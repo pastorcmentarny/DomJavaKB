@@ -1,9 +1,9 @@
 package dms.pastor.examples.mockito;
 
 import dms.pastor.domain.Treasure;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -31,12 +31,12 @@ public class MockitoExampleServiceTest {
     private final PrintStream original = System.out;
     private final MockitoExampleService legendaryService = new MockitoExampleService();
 
-    @Before
+    @BeforeEach
     public void setUp() {
         System.setOut(new PrintStream(outputStream));
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         System.setOut(original);
     }
@@ -46,7 +46,6 @@ public class MockitoExampleServiceTest {
         // given
         final UUID id = randomUUID();
         final Treasure treasure = getRandomTreasure();
-
         // when
         legendaryService.create(id, treasure);
 
@@ -58,7 +57,6 @@ public class MockitoExampleServiceTest {
     public void shouldExecuteMethodTest() {
         // given
         final int size = 8;
-
         // when
         final String start = generateString(size);
         final String end = generateString(size);

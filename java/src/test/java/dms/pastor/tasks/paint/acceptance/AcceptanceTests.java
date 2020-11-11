@@ -1,12 +1,12 @@
 package dms.pastor.tasks.paint.acceptance;
 
 import dms.pastor.tasks.paint.CommandLineUI;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -28,7 +28,7 @@ import static org.mockito.Mockito.when;
  * This is a progressive acceptance test as example shows an example steps .This follows these steps
  */
 @SuppressWarnings("SpellCheckingInspection") //off as test contains lots text as graphic elements
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class AcceptanceTests {
 
     private static final String EMPTY_CANVAS = "----------------------" + System.lineSeparator() +
@@ -44,13 +44,13 @@ public class AcceptanceTests {
     @Mock
     private Scanner scanner;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         printStream = System.out;
         System.setOut(new PrintStream(outputStream));
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         System.setOut(printStream);
     }
@@ -62,7 +62,6 @@ public class AcceptanceTests {
         when(scanner.nextLine())
                 .thenReturn("C 20 4")
                 .thenReturn("Q");
-
         // when
         commandLineUI.runApplication();
 
@@ -80,7 +79,6 @@ public class AcceptanceTests {
                 .thenReturn("L 1 2 6 2")
                 .thenReturn("L 6 3 6 4")
                 .thenReturn("Q");
-
         // when
         commandLineUI.runApplication();
 
@@ -104,7 +102,6 @@ public class AcceptanceTests {
                 .thenReturn("L 6 3 6 4")
                 .thenReturn("R 16 1 20 3")
                 .thenReturn("Q");
-
         // when
         commandLineUI.runApplication();
 
@@ -129,7 +126,6 @@ public class AcceptanceTests {
                 .thenReturn("R 16 1 20 3")
                 .thenReturn("B 10 3 o")
                 .thenReturn("Q");
-
         // when
         commandLineUI.runApplication();
 
@@ -148,7 +144,6 @@ public class AcceptanceTests {
         // given
         CommandLineUI commandLineUI = new CommandLineUI(scanner);
         given(scanner.nextLine()).willReturn("Q");
-
         // when
         commandLineUI.runApplication();
 
@@ -165,7 +160,6 @@ public class AcceptanceTests {
                 .thenReturn("R 2 2 10 3")
                 .thenReturn("B 2 2 o")
                 .thenReturn("Q");
-
         // when
         commandLineUI.runApplication();
 
@@ -187,7 +181,6 @@ public class AcceptanceTests {
                 .thenReturn("R 2 2 10 3")
                 .thenReturn("C")
                 .thenReturn("Q");
-
         // when
         commandLineUI.runApplication();
 
@@ -207,7 +200,6 @@ public class AcceptanceTests {
                 .thenReturn("R 2 2 4 4")
                 .thenReturn("U")
                 .thenReturn("Q");
-
         // when
         commandLineUI.runApplication();
 
@@ -242,7 +234,6 @@ public class AcceptanceTests {
                 .thenReturn("R")
                 .thenReturn("R")
                 .thenReturn("Q");
-
         // when
         commandLineUI.runApplication();
 

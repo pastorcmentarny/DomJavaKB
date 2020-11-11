@@ -1,8 +1,7 @@
 package dms.pastor.examples;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * Author Dominik Symonowicz
@@ -15,18 +14,10 @@ import org.junit.rules.ExpectedException;
  */
 public class ExceptionInInitializerErrorExampleAcceptanceTest {
 
-    @Rule
-    public ExpectedException exception = ExpectedException.none();
-
     @Test
     public void exceptionInInitializerErrorExample() {
-        // expect
-        exception.expect(ExceptionInInitializerError.class);
-
         // when
-        ExceptionInInitializerErrorExample example = new ExceptionInInitializerErrorExample();
-
-
+        Assertions.assertThrows(ExceptionInInitializerError.class, ExceptionInInitializerErrorExample::new);
     }
 
 }

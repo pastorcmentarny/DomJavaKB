@@ -1,9 +1,8 @@
 package dms.pastor.utils.string;
 
 import dms.pastor.tools.chinese.pinyin.PinyinUtils;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
@@ -26,8 +25,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class ContainsInStringUtilsTest {
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
+
 
     @Test
     public void containsOnlyShouldReturnTrueIfAAAContainsOnlyA() {
@@ -106,7 +104,6 @@ public class ContainsInStringUtilsTest {
     public void shouldReturnFalseIfInputContainsNotOnlySpaceInHasSpaceOnlyTest() {
         // given
         final String space = " A B  CC   Garlic ";
-
         // when
         final boolean hasSpaceOnly = isContainSpace(space);
 
@@ -136,7 +133,6 @@ public class ContainsInStringUtilsTest {
     public void containsPinyinCharacterShouldReturnTrueIfTextHasPinyinOnly() {
         // given
         final String textWithPinyinOnly = PinyinUtils.getAllPinyinFromFirstToFourthToneWithoutNeutralTone();
-
         // when
         final boolean result = containsPinyinCharacter(textWithPinyinOnly);
 
@@ -148,7 +144,6 @@ public class ContainsInStringUtilsTest {
     public void containsPinyinCharacterShouldReturnTrueIfTextHasPinyin() {
         // given
         final String textWithPinyin = "dò字1";
-
         // when
         final boolean result = containsPinyinCharacter(textWithPinyin);
 
@@ -179,7 +174,6 @@ public class ContainsInStringUtilsTest {
     public void shouldReturnFalseIfStringContainsAnyAlphanumericCharacters() {
         // given
         final String characters = "字字字字字字";
-
         // when
         final boolean result = containsAnyAlphanumericCharacter(characters);
 
@@ -191,7 +185,6 @@ public class ContainsInStringUtilsTest {
     public void containsAnyAlphanumericCharactersShouldReturnTrueIfStringContainNumber() {
         // given
         final String characters = "字1字";
-
         // when
         final boolean result = containsAnyAlphanumericCharacter(characters);
 
@@ -203,7 +196,6 @@ public class ContainsInStringUtilsTest {
     public void containsAnyAlphanumericCharactersShouldReturnTrueIfStringContainLetter() {
         // given
         final String characters = "字a字B字";
-
         // when
         final boolean result = containsAnyAlphanumericCharacter(characters);
 
@@ -214,40 +206,32 @@ public class ContainsInStringUtilsTest {
     // part of the test
     @Test
     public void shouldThrowIllegalArgumentExceptionIfKeywordIsNullTest() {
-        // except
-        exception.expect(IllegalArgumentException.class);
+// when
+        Assertions.assertThrows(IllegalArgumentException.class, () -> isTextContainsAllKeywordsExists(null, generateString()));
 
-        // when
-        isTextContainsAllKeywordsExists(null, generateString());
 
     }
 
     @Test
     public void shouldThrowIllegalArgumentExceptionIfTextIsNullTest() {
-        // except
-        exception.expect(IllegalArgumentException.class);
+// when
+        Assertions.assertThrows(IllegalArgumentException.class, () -> isTextContainsAllKeywordsExists(generateStringList(), null));
 
-        // when
-        isTextContainsAllKeywordsExists(generateStringList(), null);
+
     }
 
     @Test
     public void shouldThrowIllegalArgumentExceptionIfKeywordIsEmptyTest() {
-        // except
-        exception.expect(IllegalArgumentException.class);
-
         // when
-        isTextContainsAllKeywordsExists(emptyList(), generateString());
+        Assertions.assertThrows(IllegalArgumentException.class, () -> isTextContainsAllKeywordsExists(emptyList(), generateString()));
 
     }
 
     @Test
     public void shouldThrowIllegalArgumentExceptionIfTextIsEmptyTest() {
-        // except
-        exception.expect(IllegalArgumentException.class);
-
         // when
-        isTextContainsAllKeywordsExists(generateStringList(), EMPTY_STRING);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> isTextContainsAllKeywordsExists(generateStringList(), EMPTY_STRING));
+
     }
 
     @Test
@@ -255,7 +239,6 @@ public class ContainsInStringUtilsTest {
         // given
         final List<String> keywords = Arrays.asList("brown", "fox", "dog", "panagram");
         final String text = "The quick brown fox jumps over a lazy dog.";
-
         // when
         final boolean exists = isTextContainsAllKeywordsExists(keywords, text);
 

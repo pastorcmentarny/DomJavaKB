@@ -1,7 +1,7 @@
 package dms.pastor.examples.java12;
 
 import dms.pastor.ExampleRunner;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.examples.java12.NewFeaturesInJava12.*;
 

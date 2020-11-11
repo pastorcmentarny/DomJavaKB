@@ -2,7 +2,7 @@ package dms.pastor.tools.trips.tube.station;
 
 
 import dms.pastor.tools.trips.common.options.Status;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 

@@ -1,11 +1,11 @@
 package dms.pastor.domain.exception;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static java.lang.String.format;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Author Dominik Symonowicz
@@ -18,17 +18,14 @@ import static java.lang.String.format;
  */
 public class SomethingWentWrongExceptionTest {
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
-    @Test
-    public void shouldThrowNotImplementYetExceptionTest() {
+    @Test // best test award
+    public void shouldThrowSomethingWentWrongExceptionTest() {
 
         // expect
-        exception.expect(SomethingWentWrongException.class);
-
-        // when
-        throw new SomethingWentWrongException();
+        Assertions.assertThrows(SomethingWentWrongException.class, () -> {
+            throw new SomethingWentWrongException();
+        });
 
     }
 
@@ -37,13 +34,17 @@ public class SomethingWentWrongExceptionTest {
 
         // given
         final String whatWentWrongMessage = generateString();
+        final String expectedMessage = format("Whoops! Something went wrong. %s. I apologize for any inconvenience caused by your mistake.", whatWentWrongMessage);
 
         // expect
-        exception.expect(SomethingWentWrongException.class);
-        exception.expectMessage(format("Whoops! Something went wrong. %s. I apologize for any inconvenience caused by your mistake.", whatWentWrongMessage));
+        final var exception = Assertions.assertThrows(SomethingWentWrongException.class, () -> {
+            // when
+            throw new SomethingWentWrongException(whatWentWrongMessage);
+        });
 
-        // when
-        throw new SomethingWentWrongException(whatWentWrongMessage);
+        // then
+        assertThat(exception.getMessage()).isEqualTo(expectedMessage);
+
 
     }
 }

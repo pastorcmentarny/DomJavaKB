@@ -1,11 +1,11 @@
 package dms.pastor.tools.trips.tube.options;
 
 import dms.pastor.tools.trips.tube.station.Stations;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Scanner;
 
@@ -24,7 +24,7 @@ import static org.mockito.BDDMockito.given;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class BloggedOptionTest {
     @Mock
     private Scanner scanner;
@@ -44,7 +44,6 @@ public class BloggedOptionTest {
 
         // check
         assertThat(stations.getTubeStationList().get(0).isBlogged()).isFalse();
-
         // when
         bloggedOption.choose(stations);
 

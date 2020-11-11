@@ -1,7 +1,7 @@
 package dms.pastor.tools.chinese;
 
 import dms.pastor.tools.chinese.validator.Word;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
@@ -28,7 +28,6 @@ public class WordResultTest {
         // given
         final String message = generateString();
         final List<Word> wordList = singletonList(defaultWord());
-
         // when
         result = success(message, wordList);
 
@@ -55,7 +54,6 @@ public class WordResultTest {
         // given
         final String test = "Test";
         final List<Word> wordList = singletonList(defaultWord());
-
         // when
         result = WordResult.fail();
         result.setSuccess();
@@ -63,7 +61,6 @@ public class WordResultTest {
 
         // then
         assertThat(result.getMessage()).isEqualTo("Unknown");
-
         // when
         result.setMessage(test);
         result.setWordList(wordList);

@@ -2,10 +2,9 @@ package dms.pastor.tasks.manipulatedataapplication;
 
 import dms.pastor.utils.randoms.RandomDataGenerator;
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.TestConfig.PATH;
 import static org.hamcrest.CoreMatchers.is;
@@ -20,12 +19,10 @@ import static org.hamcrest.CoreMatchers.is;
  */
 public class AnswerGeneratorTest {
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     private AnswerGenerator answers;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         answers = new AnswerGenerator(PATH + "manipulate-data.txt");
     }
@@ -40,11 +37,10 @@ public class AnswerGeneratorTest {
 
     @Test
     public void shouldThrowExceptionIfPersonNotFound() {
-        // except
-        exception.expect(Exception.class);
-
         // when
-        answers.getPerson(RandomDataGenerator.generateString());
+        Assertions.assertThrows(PersonNotFoundException.class, () -> {
+            answers.getPerson(RandomDataGenerator.generateString());
+        });
     }
 
 }

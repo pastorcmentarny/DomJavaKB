@@ -1,7 +1,8 @@
 package dms.pastor.tasks.paint.command;
 
 import dms.pastor.domain.exception.SomethingWentWrongException;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.tasks.paint.canvas.Canvas.noCanvas;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -40,19 +41,18 @@ public class QuitCommandTest extends AbstractCommandTest {
     @Test
     public void setParamsIfValidShouldInvalidCommandSyntaxExceptionIfParamsAreInvalid() {
         // given
-        exception.expect(InvalidCommandSyntaxException.class);
-        exception.expectMessage("Invalid Syntax because number of params are invalid. Should be 1 but was 3. Please check your input and try again.");
         final String[] params = {QUIT_COMMAND_SYNTAX, "?", "1"};
-
         // when
-        quitCommand.setParamsIfValid(params);
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> quitCommand.setParamsIfValid(params));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because number of params are invalid. Should be 1 but was 3. Please check your input and try again.");
     }
 
     @Test
     public void setParamsIfValidShouldValidate() {
         // given
         final String[] params = {QUIT_COMMAND_SYNTAX};
-
         // when
         quitCommand.setParamsIfValid(params);
 
@@ -61,12 +61,11 @@ public class QuitCommandTest extends AbstractCommandTest {
 
     @Test
     public void executeShouldThrowExceptionForQuitCommand() {
-        // expect
-        exception.expect(SomethingWentWrongException.class);
-        exception.expectMessage(("Bug detected. execute method in quit command should not be called."));
-
         // when
-        quitCommand.execute(noCanvas());
+        final var exception = Assertions.assertThrows(SomethingWentWrongException.class, () -> quitCommand.execute(noCanvas()));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo(("Whoops! Something went wrong. Bug detected. execute method in quit command should not be called.. I apologize for any inconvenience caused by your mistake."));
     }
 
 }

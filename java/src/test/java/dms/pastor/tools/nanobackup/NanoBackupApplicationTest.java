@@ -1,10 +1,10 @@
 package dms.pastor.tools.nanobackup;
 
 import dms.pastor.utils.file.FileUtils;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Author Dominik Symonowicz
@@ -16,23 +16,22 @@ import org.junit.Test;
  */
 public class NanoBackupApplicationTest {
 
-    @Before
+    @BeforeEach
     public void setUp() {
         FileUtils.unlockFile();
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         FileUtils.unlockFile();
 
     }
 
-    @Ignore("Flaky test")
+    @Disabled("Flaky test")
     @Test
     public void shouldRunApplication() {
         // given
         FileUtils.lock();
-
         // when
         NanoBackupApplication.main(new String[0]);
     }

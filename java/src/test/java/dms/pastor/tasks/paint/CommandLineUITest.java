@@ -1,11 +1,12 @@
 package dms.pastor.tasks.paint;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -26,7 +27,7 @@ import static org.mockito.Mockito.when;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  * tag-junit-timeout
  */
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class CommandLineUITest {
     private static final int TEST_TIMEOUT = 2000; //used in case if command stuck with input
     private static final String ENTER_COMMAND_MESSAGE = "Enter command:";
@@ -38,23 +39,23 @@ public class CommandLineUITest {
     @Mock
     private Scanner scanner;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         printStream = System.out;
         System.setOut(new PrintStream(outputStream));
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         System.setOut(printStream);
     }
 
-    @Test(timeout = TEST_TIMEOUT) // time out for this test only
+    @Timeout(TEST_TIMEOUT) // time out for this test only
+    @Test
     public void runApplicationShouldQuitIfUserTypeQuitCommand() {
         // given
         CommandLineUI commandLineUI = new CommandLineUI(scanner);
         given(scanner.nextLine()).willReturn("Q");
-
         // when
         commandLineUI.runApplication();
 
@@ -62,12 +63,12 @@ public class CommandLineUITest {
         assertThat(outputStream.toString()).contains(ENTER_COMMAND_MESSAGE);
     }
 
-    @Test(timeout = TEST_TIMEOUT)
+    @Timeout(TEST_TIMEOUT)
+    @Test
     public void shouldDisplayEnterCommandMessageIfUserDidNotTypeQuitCommand() {
         // given
         CommandLineUI commandLineUI = new CommandLineUI(scanner);
         when(scanner.nextLine()).thenReturn("X").thenReturn("Q");
-
         // when
         commandLineUI.runApplication();
 
@@ -84,7 +85,6 @@ public class CommandLineUITest {
                 .thenReturn("C 10 4")
                 .thenReturn("L 1 0 3 0")
                 .thenReturn("Q");
-
         // when
         commandLineUI.runApplication();
 

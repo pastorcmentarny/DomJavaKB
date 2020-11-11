@@ -2,7 +2,8 @@ package dms.pastor.tasks.paint.command;
 
 import dms.pastor.tasks.paint.canvas.Canvas;
 import dms.pastor.tasks.paint.canvas.Point;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.tasks.paint.canvas.Canvas.createCanvasFor;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -41,19 +42,18 @@ public class RedoCommandTest extends AbstractCommandTest {
     @Test
     public void setParamsIfValidShouldInvalidCommandSyntaxExceptionIfParamsAreInvalid() {
         // given
-        exception.expect(InvalidCommandSyntaxException.class);
-        exception.expectMessage("Invalid Syntax because number of params are invalid. Should be 1 but was 3. Please check your input and try again.");
         final String[] params = {REDO_COMMAND, "?", "1"};
-
         // when
-        redoCommand.setParamsIfValid(params);
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> redoCommand.setParamsIfValid(params));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because number of params are invalid. Should be 1 but was 3. Please check your input and try again.");
     }
 
     @Test
     public void setParamsIfValidShouldValidate() {
         // given
         final String[] params = {REDO_COMMAND};
-
         // when
         redoCommand.setParamsIfValid(params);
 
@@ -75,7 +75,6 @@ public class RedoCommandTest extends AbstractCommandTest {
 
         final Canvas expectedCanvasAfterRedo = createCanvasFor(8, 6);
         expectedCanvasAfterRedo.updatePixelAt(Point.of(1, 2, "x"));
-
         // when
         redoCommand.execute(canvas);
 

@@ -1,6 +1,6 @@
 package dms.pastor.examples.java8.interfaces.defaultmethod;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -10,7 +10,6 @@ public class CubicFormulaAcceptanceTest {
     public void calculateAcceptanceTest() {
         // given
         CubicFormula formula = new CubicFormula();
-
         // when
         double result = formula.calculate(9);
 

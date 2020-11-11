@@ -2,7 +2,7 @@ package dms.pastor.tasks.manipulatedataapplication;
 
 import dms.pastor.tasks.manipulatedataapplication.utls.Utils;
 import dms.pastor.utils.PrintOutUtils;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.ArrayList;

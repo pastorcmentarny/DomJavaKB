@@ -1,8 +1,7 @@
 package dms.pastor.tasks.exercises.numbers;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -17,8 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class FirstPrimeFinderTest {
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
+
     private final FirstPrimeFinder firstPrimeFinder = new FirstPrimeFinder();
 
     @Test
@@ -27,7 +25,6 @@ public class FirstPrimeFinderTest {
         // given
         final int primeNumber = 7;
         final int expectedResult = 7;
-
         // when
         final int result = firstPrimeFinder.find(primeNumber);
 
@@ -40,7 +37,6 @@ public class FirstPrimeFinderTest {
 
         // given
         final int primeNumber = 4;
-
         // when
         final int result = firstPrimeFinder.find(primeNumber);
 
@@ -54,7 +50,6 @@ public class FirstPrimeFinderTest {
         // given
         final int primeNumber = 7;
         final int expectedLine = 7;
-
         // when
         final int result = firstPrimeFinder.find(primeNumber);
 
@@ -68,7 +63,6 @@ public class FirstPrimeFinderTest {
         // given
         final int[] primeNumbers = new int[]{4, 5, 17, 2, 51, 17, 32, 54, 2, 4, 6, 108};
         final int expectedLine = 79;
-
         // when
         final int result = firstPrimeFinder.find(primeNumbers);
 
@@ -81,7 +75,6 @@ public class FirstPrimeFinderTest {
 
         // given
         final int[] primeNumbers = new int[]{62, 3, 25, 2, 78, 7, 44, 28, 19, 774};
-
         // when
         final int result = firstPrimeFinder.find(primeNumbers);
 
@@ -91,14 +84,10 @@ public class FirstPrimeFinderTest {
 
     @Test
     public void findShouldThrowExceptionIfAnyNumberIsNotPositiveAcceptanceCriteria() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-
         // given
         final int[] primeNumbers = new int[]{62, 3, 25, 2, 78, -7, 44, 28, -19, 774};
-
         // when
-        firstPrimeFinder.find(primeNumbers);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> firstPrimeFinder.find(primeNumbers));
     }
 
 }

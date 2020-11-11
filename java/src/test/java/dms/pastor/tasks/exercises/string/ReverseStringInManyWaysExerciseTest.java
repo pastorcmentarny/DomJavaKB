@@ -1,8 +1,7 @@
 package dms.pastor.tasks.exercises.string;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.tasks.exercises.string.ReverseStringInManyWaysExercise.*;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
@@ -23,21 +22,18 @@ public class ReverseStringInManyWaysExerciseTest {
     private static final String TEST_STRING = "top";
     private static final String REVERSED_TEST_STRING = "pot";
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void shouldThrowIllegalArgumentExceptionIfInputIsNullForReverseViaStringBuilderTest() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-
         // when
-        reversStringViaStringBuilder(null);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            reversStringViaStringBuilder(null);
+        });
+
     }
 
     @Test
     public void shouldReversStringViaStringBuilderTest() {
-
         // when
         final String result = reversStringViaStringBuilder(TEST_STRING);
 
@@ -47,16 +43,15 @@ public class ReverseStringInManyWaysExerciseTest {
 
     @Test
     public void shouldReturnNullIfInputIsNullForReverseViaStringBufferTest() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-
         // when
-        reversStringViaStringBuffer(null);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            reversStringViaStringBuffer(null);
+        });
+
     }
 
     @Test
     public void shouldReversStringViaStringBufferTest() {
-
         // when
         final String result = reversStringViaStringBuffer(TEST_STRING);
 
@@ -66,11 +61,11 @@ public class ReverseStringInManyWaysExerciseTest {
 
     @Test
     public void shouldReturnNullIfInputIsNullForReverseViaNoLibraryImplementationTest() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-
         // when
-        reverseStringWithoutLibraries(null);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            reverseStringWithoutLibraries(null);
+        });
+
     }
 
     @Test
@@ -86,7 +81,6 @@ public class ReverseStringInManyWaysExerciseTest {
     public void reverseStringWithoutLibrariesShouldReturnSameStringIfLengthIsOne() {
         // given
         final String oneCharacterString = getRandomCharacterAsString();
-
         // when
         final String result = reverseStringWithoutLibraries(oneCharacterString);
 
@@ -105,11 +99,12 @@ public class ReverseStringInManyWaysExerciseTest {
 
     @Test
     public void shouldThrowExceptionIfInputIsNullTest() {
-        // except
-        exception.expect(IllegalArgumentException.class);
-
         // when
-        reversStringViaChar(null);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+
+            reversStringViaChar(null);
+        });
+
     }
 
     @Test
@@ -117,7 +112,6 @@ public class ReverseStringInManyWaysExerciseTest {
         // given
         final String string = "dOg";
         final String reversedString = "gOd";
-
         // when
         final String result = reversStringViaChar(string);
 

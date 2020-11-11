@@ -1,9 +1,11 @@
 package dms.pastor.tasks.paint.command;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.tasks.paint.command.CommandValidator.*;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Author Dominik Symonowicz
@@ -20,7 +22,6 @@ public class CommandValidatorTest extends AbstractCommandTest {
     public void validateCommandShouldValidateIfParamsAreNotRequired() {
         // given
         final Command command = new QuitCommand();
-
         // when
         validateCommandParams(command, command.getSyntax());
 
@@ -29,27 +30,20 @@ public class CommandValidatorTest extends AbstractCommandTest {
 
     @Test
     public void validateCommandShouldNotValidateIfParamsAreRequiredButNotProvided() {
-        // expect
-        exception.expect(InvalidCommandSyntaxException.class);
-
         // given
         final Command command = new CreateCanvasCommand();
-
         // when
-        validateCommandParams(command, command.getSyntax());
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> validateCommandParams(command, command.getSyntax()));
+
     }
 
     @Test
     public void validateCommandShouldNotValidateIfParamsAreRequiredAndProvidedButInvalid() {
-        // expect
-        exception.expect(InvalidCommandSyntaxException.class);
-
         // given
         final Command command = new CreateCanvasCommand();
         final String input = command.getSyntax() + " X 1";
-
         // when
-        validateCommandParams(command, input);
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> validateCommandParams(command, input));
     }
 
     @Test
@@ -58,7 +52,6 @@ public class CommandValidatorTest extends AbstractCommandTest {
         // given
         final Command command = new CreateCanvasCommand();
         final String input = command.getSyntax() + " 2 3";
-
         // when
         validateCommandParams(command, input);
 
@@ -70,26 +63,23 @@ public class CommandValidatorTest extends AbstractCommandTest {
         // given
         final String[] params = {"Param1", "Param2"};
         final int paramsNumberRequired = 3;
-
-        // expect
-        exception.expect(InvalidCommandSyntaxException.class);
-        exception.expectMessage("Invalid Syntax because number of params are invalid. Should be " + paramsNumberRequired + " but was " + params.length + ". Please check your input and try again.");
-
         // when
-        validateParamsNumber(paramsNumberRequired, params);
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> validateParamsNumber(paramsNumberRequired, params));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because number of params are invalid. Should be " + paramsNumberRequired + " but was " + params.length + ". Please check your input and try again.");
     }
 
     @Test
     public void validatePositiveNumberWillThrowExceptionForNegativeNumber() {
-        // expect
-        exception.expect(InvalidCommandSyntaxException.class);
-        exception.expectMessage("Invalid Syntax because number must be positive. Please check your input and try again.");
 
         // given
         final int negativeNumber = -1;
-
         // when
-        validatePositiveNumber(negativeNumber);
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> validatePositiveNumber(negativeNumber));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because number must be positive. Please check your input and try again.");
     }
 
     @Test
@@ -113,7 +103,6 @@ public class CommandValidatorTest extends AbstractCommandTest {
     public void validatePositiveLengthShouldValidate() {
         // given
         final String param = "1";
-
         // when
         validatePositiveLength(param, NAME);
 
@@ -124,50 +113,43 @@ public class CommandValidatorTest extends AbstractCommandTest {
     public void validatePositiveLengthShouldThrowExceptionIfParamIsNotANumber() {
         // given
         final String param = "notANumber";
-
-        // expect
-        exception.expect(InvalidCommandSyntaxException.class);
-        exception.expectMessage("Invalid Syntax because " + NAME + " is not a number. Please check your input and try again.");
-
         // when
-        validatePositiveLength(param, NAME);
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> validatePositiveLength(param, NAME));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because " + NAME + " is not a number. Please check your input and try again.");
     }
 
     @Test
     public void validateFillCharacterShouldThrowExceptionIfFillCharacterIsNull() {
-        // expect
-        exception.expect(InvalidCommandSyntaxException.class);
-        exception.expectMessage("Invalid Syntax because " + NAME + " is not a valid fill character. Please check your input and try again.");
-
         // when
-        validateFillCharacter(null, NAME);
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> validateFillCharacter(null, NAME));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because " + NAME + " is not a valid fill character. Please check your input and try again.");
     }
 
     @Test
     public void validateFillCharacterShouldThrowExceptionIfFillCharacterIsEmpty() {
-        // expect
-        exception.expect(InvalidCommandSyntaxException.class);
-        exception.expectMessage("Invalid Syntax because " + NAME + " is not a valid fill character. Please check your input and try again.");
-
         // when
-        validateFillCharacter(EMPTY_STRING, NAME);
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> validateFillCharacter(EMPTY_STRING, NAME));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because " + NAME + " is not a valid fill character. Please check your input and try again.");
     }
 
     @Test
     public void validateFillCharacterShouldThrowExceptionIfFillCharacterHasMoreThanOneCharacter() {
-        // expect
-        exception.expect(InvalidCommandSyntaxException.class);
-        exception.expectMessage("Invalid Syntax because " + NAME + " is not a valid fill character. Please check your input and try again.");
-
         // when
-        validateFillCharacter("ufo", NAME);
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> validateFillCharacter("ufo", NAME));
+
+        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because " + NAME + " is not a valid fill character. Please check your input and try again.");
     }
 
     @Test
     public void validateFillCharacterShouldValidateForOneCharacter() {
         // given
         final String fillCharacter = "D";
-
         // when
         validateFillCharacter(fillCharacter, NAME);
 

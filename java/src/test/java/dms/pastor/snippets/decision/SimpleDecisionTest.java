@@ -1,6 +1,6 @@
 package dms.pastor.snippets.decision;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
@@ -22,7 +22,6 @@ public class SimpleDecisionTest {
     public void shouldReturnPositiveDecision() {
         // given
         final Citizen citizen = new Citizen("Terry", 20, false);
-
         // when
         final boolean decision = new SimpleDecision(voters, citizen).makeDecision();
 
@@ -36,7 +35,6 @@ public class SimpleDecisionTest {
         final String name = "Janice";
         final Citizen citizen = new Citizen(name, 15, true);
         final SimpleDecision decision = new SimpleDecision(voters, citizen);
-
         // when
         final boolean result = decision.makeDecision();
 

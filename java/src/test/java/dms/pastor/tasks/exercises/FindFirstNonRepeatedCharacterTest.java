@@ -1,9 +1,8 @@
 package dms.pastor.tasks.exercises;
 
 import dms.pastor.tasks.exercises.string.FindFirstNonRepeatedCharacter;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
 
@@ -19,18 +18,15 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class FindFirstNonRepeatedCharacterTest {
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
+
     private final FindFirstNonRepeatedCharacter findFirst = new FindFirstNonRepeatedCharacter();
 
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenTextIsNullTest() {
-
-        // expect
-        exception.expect(IllegalArgumentException.class);
-
         // when
-        findFirst.findFirstNonRepeatedCharacter(null);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            findFirst.findFirstNonRepeatedCharacter(null);
+        });
 
     }
 

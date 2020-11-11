@@ -21,7 +21,6 @@ class SwitchExpressionExampleTest {
 
     @Test
     public void shouldReturnWeekdayForMondayTest() {
-
         // when
         var result = getDayType("Monday");
 
@@ -31,7 +30,6 @@ class SwitchExpressionExampleTest {
 
     @Test
     public void shouldReturnWeekendForSaturdayTest() {
-
         // when
         var result = getDayType("Saturday");
 
@@ -41,7 +39,6 @@ class SwitchExpressionExampleTest {
 
     @Test
     public void shouldReturnErrorForInvalidDayInputTest() {
-
         // when
         final String input = "Wtorek";
         var result = getDayType(input);
@@ -52,7 +49,6 @@ class SwitchExpressionExampleTest {
 
     @Test
     public void shouldReturnErrorMessageWhenInputIsEmptyTest() {
-
         // when
         var result = getDayType("");
 
@@ -62,7 +58,6 @@ class SwitchExpressionExampleTest {
 
     @Test
     public void shouldReturnErrorMessageWhenInputIsNullTest() {
-
         // when
         var result = getDayType(null);
 

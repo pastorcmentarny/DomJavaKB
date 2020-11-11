@@ -3,8 +3,8 @@ package dms.pastor.tools.nanobackup.backup;
 import dms.pastor.tools.nanobackup.Constants;
 import dms.pastor.tools.nanobackup.Settings;
 import org.junit.Rule;
-import org.junit.Test;
 import org.junit.contrib.java.lang.system.ExpectedSystemExit;
+import org.junit.jupiter.api.Test;
 
 import javax.swing.*;
 import java.awt.*;
@@ -54,7 +54,6 @@ public class EngineTest {
 
         // verify
         assertThat(new File(QUICK_MODE_FILENAME).exists());
-
         // when
         engine.deactivateQuickBackupMode(jTextField);
 
@@ -64,7 +63,6 @@ public class EngineTest {
 
     @Test
     public void itselfHealthScan() {
-
         // when
         final String[] result = engine.itselfHealthScan();
 
@@ -79,7 +77,6 @@ public class EngineTest {
         final Color color = Color.BLACK;
         final String message = generateString();
         final JLabel infoLabel = new JLabel();
-
         // when
         engine.setInfoLabel(color, message, infoLabel);
 

@@ -1,7 +1,7 @@
 package dms.pastor.tasks.exercises.numbers;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.utils.PrintOutUtils.printIntArray;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -19,7 +19,7 @@ public class MathTasksTest {
 
     private MathTasks tasks;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         tasks = new MathTasks();
     }

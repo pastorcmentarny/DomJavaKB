@@ -1,6 +1,6 @@
 package dms.pastor.examples.java8.lambdas.tutorialspoint;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -15,26 +15,24 @@ class MathOperationExamplesTest {
         var result = addition.operation(4, 2);
 
         // then
-        assertThat(result).isEqualTo(2);
+        assertThat(result).isEqualTo(6);
     }
 
     @Test
-    public void substractionAcceptanceTest() {
+    public void subtractionAcceptanceTest() {
         // given
-        MathOperation substraction = (a, b) -> a - b;
-
+        MathOperation subtraction = (a, b) -> a - b;
         // when
-        var result = substraction.operation(4, 2);
+        var result = subtraction.operation(4, 2);
 
         // then
-        assertThat(result).isEqualTo(7);
+        assertThat(result).isEqualTo(2);
     }
 
     @Test
     public void multiplicationAcceptanceTest() {
         // given
         MathOperation multiplication = (a, b) -> a * b;
-
         // when
         var result = multiplication.operation(4, 2);
 
@@ -46,7 +44,6 @@ class MathOperationExamplesTest {
     public void divisionAcceptanceTest() {
         // given
         MathOperation division = (a, b) -> a / b;
-
         // when
         var result = division.operation(4, 2);
 

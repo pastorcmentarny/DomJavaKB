@@ -1,9 +1,8 @@
 package dms.pastor.tasks.integeradder;
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -28,11 +27,10 @@ public class IntegerAdderTest {
     private static final String DEMO_FILE_4 = PATH + "test4.txt";
     private static final String DEMO_FILE_5 = PATH + "test5.txt";
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
+
     private IntegerAdder adder;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         adder = new IntegerAdder();
     }
@@ -51,13 +49,12 @@ public class IntegerAdderTest {
     }
 
     @Test
-    public void shouldThrowIllegalArgumentExceptionTest() throws Exception {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("You need provide arguments that are numbers to add");
-
+    public void shouldThrowIllegalArgumentExceptionTest() {
         // when
-        adder.calculateTotalSum(null);
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> adder.calculateTotalSum(null));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("You need provide arguments that are numbers to add");
     }
 
     @Test
@@ -67,32 +64,26 @@ public class IntegerAdderTest {
         assertThat(sum).isEqualTo(47);
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void testAddThrowsExceptionForNullInsteadOfPath() throws IOException {
-        adder.add(null);
+    @Test
+    public void testAddThrowsExceptionForNullInsteadOfPath() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> adder.add(null));
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void testAddThrowsExceptionForInvalidPath() throws IOException {
-        adder.add("FakePath");
+    @Test
+    public void testAddThrowsExceptionForInvalidPath() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> adder.add("FakePath"));
     }
 
     @Test
     public void addTooBigNumbersShouldThrowException() throws IOException {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-
         // when
-        adder.add(DEMO_FILE_4);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> adder.add(DEMO_FILE_4));
     }
 
     @Test
     public void addNegativeNumbersShouldThrowException() throws IOException {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-
         // when
-        adder.add(DEMO_FILE_5);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> adder.add(DEMO_FILE_5));
     }
 
 }

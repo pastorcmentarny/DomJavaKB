@@ -1,8 +1,8 @@
 package dms.pastor.tasks.exercises.commCharFromString;
 
 import dms.pastor.tasks.exercises.string.CommonCharactersInStringFinder;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -21,7 +21,7 @@ public class CommonCharactersInStringFinderTest {
     private static final String STRING_B = "her";
     private CommonCharactersInStringFinder finder;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         finder = new CommonCharactersInStringFinder();
     }
@@ -38,7 +38,6 @@ public class CommonCharactersInStringFinderTest {
 
     @Test
     public void testGetCommonCharN() {
-
         // when
         final String actual = finder.getCommonCharN(STRING_A, STRING_B);
 
@@ -48,7 +47,6 @@ public class CommonCharactersInStringFinderTest {
 
     @Test
     public void testGetCommonCharNSquared() {
-
         // when
         final String actual = finder.getCommonCharNSquared(STRING_A, STRING_B);
 

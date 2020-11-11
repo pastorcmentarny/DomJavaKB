@@ -1,6 +1,6 @@
 package dms.pastor.tools.chinese.topinyin;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -20,7 +20,6 @@ public class CharacterWithToneTest {
         // given
         final String input = "ma(1)";
         final CharacterWithTone expectedResult = new CharacterWithTone("ma", 1);
-
         // when
         final CharacterWithTone characterWithTone = CharacterWithTone.fromString(input);
 

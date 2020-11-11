@@ -1,7 +1,8 @@
 package dms.pastor.tasks.paint.command;
 
 import dms.pastor.tasks.paint.canvas.Canvas;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static java.lang.System.lineSeparator;
@@ -38,139 +39,116 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
 
     @Test
     public void setParamsIfValidShouldThrowExceptionIfStartWidthIsEmpty() {
-        // expect
-        exception.expect(InvalidCommandSyntaxException.class);
-        exception.expectMessage("Invalid Syntax because start width is not a number. Please check your input and try again.");
 
         // given
         String[] params = {CREATE_LINE_COMMAND, EMPTY_STRING, VALID_VALUE_AS_STRING, VALID_VALUE_AS_STRING, VALID_VALUE_AS_STRING};
-
         // when
-        createNewLineCommand.setParamsIfValid(params);
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewLineCommand.setParamsIfValid(params));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because start width is not a number. Please check your input and try again.");
+
     }
 
     @Test
     public void setParamsIfValidShouldThrowExceptionIfStartWidthIsNotANumber() {
-        // expect
-        exception.expect(InvalidCommandSyntaxException.class);
-        exception.expectMessage("Invalid Syntax because start width is not a number. Please check your input and try again.");
-
         // given
-
         String[] params = {CREATE_LINE_COMMAND, NOT_A_NUMBER, VALID_VALUE_AS_STRING, VALID_VALUE_AS_STRING, VALID_VALUE_AS_STRING};
-
         // when
-        createNewLineCommand.setParamsIfValid(params);
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewLineCommand.setParamsIfValid(params));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because start width is not a number. Please check your input and try again.");
     }
 
     @Test
     public void setParamsIfValidShouldThrowExceptionIfStartHeightIsEmpty() {
-        // expect
-        exception.expect(InvalidCommandSyntaxException.class);
-        exception.expectMessage("Invalid Syntax because start height is not a number. Please check your input and try again.");
-
         // given
-
         String[] params = {CREATE_LINE_COMMAND, VALID_VALUE_AS_STRING, EMPTY_STRING, VALID_VALUE_AS_STRING, VALID_VALUE_AS_STRING};
-
         // when
-        createNewLineCommand.setParamsIfValid(params);
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewLineCommand.setParamsIfValid(params));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because start height is not a number. Please check your input and try again.");
     }
 
     @Test
     public void setParamsIfValidShouldThrowExceptionIfStartHeightIsNotANumber() {
-        // expect
-        exception.expect(InvalidCommandSyntaxException.class);
-        exception.expectMessage("Invalid Syntax because start height is not a number. Please check your input and try again.");
-
         // given
-
         String[] params = {CREATE_LINE_COMMAND, VALID_VALUE_AS_STRING, NOT_A_NUMBER, VALID_VALUE_AS_STRING, VALID_VALUE_AS_STRING};
-
         // when
-        createNewLineCommand.setParamsIfValid(params);
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewLineCommand.setParamsIfValid(params));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because start height is not a number. Please check your input and try again.");
     }
 
     @Test
     public void setParamsIfValidShouldThrowExceptionIfEndWidthIsEmpty() {
-        // expect
-        exception.expect(InvalidCommandSyntaxException.class);
-        exception.expectMessage("Invalid Syntax because end width is not a number. Please check your input and try again.");
-
         // given
-
         String[] params = {CREATE_LINE_COMMAND, VALID_VALUE_AS_STRING, VALID_VALUE_AS_STRING, EMPTY_STRING, VALID_VALUE_AS_STRING};
-
         // when
-        createNewLineCommand.setParamsIfValid(params);
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewLineCommand.setParamsIfValid(params));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because end width is not a number. Please check your input and try again.");
     }
 
     @Test
     public void setParamsIfValidShouldThrowExceptionIfEndWidthIsNotANumber() {
-        // expect
-        exception.expect(InvalidCommandSyntaxException.class);
-        exception.expectMessage("Invalid Syntax because end width is not a number. Please check your input and try again.");
-
         // given
-
         String[] params = {CREATE_LINE_COMMAND, VALID_VALUE_AS_STRING, VALID_VALUE_AS_STRING, NOT_A_NUMBER, VALID_VALUE_AS_STRING};
-
         // when
-        createNewLineCommand.setParamsIfValid(params);
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewLineCommand.setParamsIfValid(params));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because end width is not a number. Please check your input and try again.");
     }
 
     @Test
     public void setParamsIfValidShouldThrowExceptionIfEndHeightIsEmpty() {
-        // expect
-        exception.expect(InvalidCommandSyntaxException.class);
-        exception.expectMessage("Invalid Syntax because end height is not a number. Please check your input and try again.");
 
         // given
-
         String[] params = {CREATE_LINE_COMMAND, VALID_VALUE_AS_STRING, VALID_VALUE_AS_STRING, VALID_VALUE_AS_STRING, EMPTY_STRING};
-
         // when
-        createNewLineCommand.setParamsIfValid(params);
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewLineCommand.setParamsIfValid(params));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because end height is not a number. Please check your input and try again.");
     }
 
     @Test
     public void setParamsIfValidShouldThrowExceptionIfEndHeightIsNotANumber() {
-        // expect
-        exception.expect(InvalidCommandSyntaxException.class);
-        exception.expectMessage("Invalid Syntax because end height is not a number. Please check your input and try again.");
-
         // given
-
         String[] params = {CREATE_LINE_COMMAND, VALID_VALUE_AS_STRING, VALID_VALUE_AS_STRING, VALID_VALUE_AS_STRING, NOT_A_NUMBER};
-
         // when
-        createNewLineCommand.setParamsIfValid(params);
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewLineCommand.setParamsIfValid(params));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because end height is not a number. Please check your input and try again.");
     }
 
     @Test
     public void setParamsIfValidShouldThrowExceptionIfParamsCreateRectangle() {
-        // expect
-        exception.expect(InvalidCommandSyntaxException.class);
-        exception.expectMessage("Invalid Syntax because Unable to create line with this params. Please check your input and try again.");
-
         // given
         String[] params = {CREATE_LINE_COMMAND, "2", "3", "2", "3"};
-
         // when
-        createNewLineCommand.setParamsIfValid(params);
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewLineCommand.setParamsIfValid(params));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because Unable to create line with this params. Please check your input and try again.");
     }
 
     @Test
     public void setParamsIfValidShouldThrowExceptionIfParamsCreateNonHorizontalOrVerticalLine() {
-        // expect
-        exception.expect(InvalidCommandSyntaxException.class);
-        exception.expectMessage("Invalid Syntax because Unable to create line with this params. Please check your input and try again.");
 
         // given
         String[] params = {CREATE_LINE_COMMAND, "1", "2", "3", "4"};
-
         // when
-        createNewLineCommand.setParamsIfValid(params);
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewLineCommand.setParamsIfValid(params));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because Unable to create line with this params. Please check your input and try again.");
     }
 
     @Test
@@ -178,7 +156,6 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
         // given
         String[] params = {CREATE_LINE_COMMAND, VALID_VALUE_AS_STRING, NOT_USED_SMALL_VALUE_AS_STRING, NOT_USED_LARGE_VALUE_AS_STRING, NOT_USED_SMALL_VALUE_AS_STRING};
         createNewLineCommand.setParamsIfValid(params);
-
         // when
         final int result = createNewLineCommand.getStartWidth();
 
@@ -191,7 +168,6 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
         // given
         String[] params = {CREATE_LINE_COMMAND, NOT_USED_SMALL_VALUE_AS_STRING, VALID_VALUE_AS_STRING, NOT_USED_SMALL_VALUE_AS_STRING, NOT_USED_LARGE_VALUE_AS_STRING};
         createNewLineCommand.setParamsIfValid(params);
-
         // when
         final int result = createNewLineCommand.getStartHeight();
 
@@ -204,7 +180,6 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
         // given
         String[] params = {CREATE_LINE_COMMAND, NOT_USED_SMALL_VALUE_AS_STRING, NOT_USED_SMALL_VALUE_AS_STRING, VALID_VALUE_AS_STRING, NOT_USED_SMALL_VALUE_AS_STRING};
         createNewLineCommand.setParamsIfValid(params);
-
         // when
         final int result = createNewLineCommand.getEndWidth();
 
@@ -217,7 +192,6 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
         // given
         String[] params = {CREATE_LINE_COMMAND, NOT_USED_SMALL_VALUE_AS_STRING, NOT_USED_SMALL_VALUE_AS_STRING, NOT_USED_SMALL_VALUE_AS_STRING, VALID_VALUE_AS_STRING,};
         createNewLineCommand.setParamsIfValid(params);
-
         // when
         final int result = createNewLineCommand.getEndHeight();
 
@@ -227,22 +201,19 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
 
     @Test
     public void setParamsIfValidShouldThrowExceptionIfParamsCreateSquare() {
-        // expect
-        exception.expect(InvalidCommandSyntaxException.class);
-        exception.expectMessage("Invalid Syntax because Unable to create line with this params. Please check your input and try again.");
-
         // given
         String[] params = {CREATE_LINE_COMMAND, "3", "3", "3", "3"};
-
         // when
-        createNewLineCommand.setParamsIfValid(params);
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewLineCommand.setParamsIfValid(params));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because Unable to create line with this params. Please check your input and try again.");
     }
 
     @Test
     public void setParamsIfValidShouldValidateIfAllParamsAreValid() {
         // given
         String[] params = {CREATE_LINE_COMMAND, "1", "1", "3", "1"};
-
         // when
         createNewLineCommand.setParamsIfValid(params);
 
@@ -255,24 +226,23 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
 
     @Test
     public void validateIfParamsAreInOrderShouldThrowExceptionIfHeightStartPointIsHigherThanEndPoint() {
-        // expect
-        exception.expect(InvalidCommandSyntaxException.class);
-        exception.expectMessage("Invalid Syntax because Start point must be smaller than end point. Please check your input and try again.");
-
-        // when
+        // given
         final String[] params = {createNewLineCommand.getSyntax(), "3", "4", "3", "1"};
-        createNewLineCommand.setParamsIfValid(params);
+        // when
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewLineCommand.setParamsIfValid(params));
+        // when
+        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because Start point must be smaller than end point. Please check your input and try again.");
     }
 
     @Test
     public void validateIfParamsAreInOrderShouldThrowExceptionIfLengthStartPointIsHigherThanEndPoint() {
-        // expect
-        exception.expect(InvalidCommandSyntaxException.class);
-        exception.expectMessage("Invalid Syntax because Start point must be smaller than end point. Please check your input and try again.");
-
-        // when
+        // given
         final String[] params = {createNewLineCommand.getSyntax(), "4", "3", "1", "3"};
-        createNewLineCommand.setParamsIfValid(params);
+        // when
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewLineCommand.setParamsIfValid(params));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because Start point must be smaller than end point. Please check your input and try again.");
     }
 
     @Test
@@ -286,16 +256,13 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
 
     @Test
     public void setParamsIfValidShouldThrowExceptionIfParamsCountIsWrong() {
-        // expect
-        exception.expect(InvalidCommandSyntaxException.class);
-        exception.expectMessage("Invalid Syntax because number of params are invalid. Should be 5 but was 1. Please check your input and try again.");
-
         // given
         String[] params = {CREATE_LINE_COMMAND};
-
         // when
-        createNewLineCommand.setParamsIfValid(params);
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewLineCommand.setParamsIfValid(params));
 
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because number of params are invalid. Should be 5 but was 1. Please check your input and try again.");
     }
 
     @Test
@@ -309,7 +276,6 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
                 "|    |" + lineSeparator() +
                 "|    |" + lineSeparator() +
                 "------" + lineSeparator();
-
         // when
         createNewLineCommand.execute(canvas);
 
@@ -328,7 +294,6 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
                 "| x  |" + lineSeparator() +
                 "|    |" + lineSeparator() +
                 "------" + lineSeparator();
-
         // when
         createNewLineCommand.execute(canvas);
 
@@ -340,7 +305,6 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
     public void executeShouldNotDrawAnythingIfCanvasIsNotCreated() {
         // given
         final Canvas canvas = Canvas.noCanvas();
-
         // when
         createNewLineCommand.execute(canvas);
 
@@ -351,58 +315,57 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
 
     @Test
     public void executeShouldThrowExceptionIfLineWillBeDrawnOnTopBorder() {
-        // expect
-        exception.expect(InvalidCommandSyntaxException.class);
-        exception.expectMessage("Invalid Syntax because paint on border is not allowed. Please check your input and try again.");
-
         // given
         final Canvas canvas = Canvas.createCanvasFor(4, 4);
         createNewLineCommand.setParam(new String[]{CREATE_LINE_COMMAND, "0", "0", "3", "0"});
-
         // when
-        createNewLineCommand.execute(canvas);
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewLineCommand.execute(canvas));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because paint on border is not allowed. Please check your input and try again.");
     }
 
     @Test
     public void executeShouldThrowExceptionIfLineWillBeDrawnOnBottomBorder() {
-        // expect
-        exception.expect(InvalidCommandSyntaxException.class);
-        exception.expectMessage("Invalid Syntax because paint on border is not allowed. Please check your input and try again.");
 
         // given
         final Canvas canvas = Canvas.createCanvasFor(4, 4);
         createNewLineCommand.setParam(new String[]{CREATE_LINE_COMMAND, "0", "0", "0", "3"});
 
         // when
-        createNewLineCommand.execute(canvas);
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> {
+            createNewLineCommand.execute(canvas);
+        });
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because paint on border is not allowed. Please check your input and try again.");
+
+
     }
 
     @Test
     public void executeShouldThrowExceptionIfLineWillBeDrawnOnLeftBorder() {
-        // expect
-        exception.expect(InvalidCommandSyntaxException.class);
-        exception.expectMessage("Invalid Syntax because paint on border is not allowed. Please check your input and try again.");
-
         // given
         final Canvas canvas = Canvas.createCanvasFor(4, 4);
         createNewLineCommand.setParam(new String[]{CREATE_LINE_COMMAND, "3", "0", "3", "3"});
-
         // when
-        createNewLineCommand.execute(canvas);
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewLineCommand.execute(canvas));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because paint on border is not allowed. Please check your input and try again.");
+
     }
 
     @Test
     public void executeShouldThrowExceptionIfLineWillBeDrawnOnRightBorder() {
-        // expect
-        exception.expect(InvalidCommandSyntaxException.class);
-        exception.expectMessage("Invalid Syntax because paint on border is not allowed. Please check your input and try again.");
-
         // given
         final Canvas canvas = Canvas.createCanvasFor(4, 4);
         createNewLineCommand.setParam(new String[]{CREATE_LINE_COMMAND, "0", "3", "3", "3"});
-
         // when
-        createNewLineCommand.execute(canvas);
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewLineCommand.execute(canvas));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because paint on border is not allowed. Please check your input and try again.");
     }
 
 }

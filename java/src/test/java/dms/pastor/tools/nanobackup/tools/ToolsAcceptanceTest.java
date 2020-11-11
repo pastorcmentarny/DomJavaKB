@@ -1,6 +1,6 @@
 package dms.pastor.tools.nanobackup.tools;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.awt.*;
 import java.time.LocalTime;
@@ -23,7 +23,6 @@ public class ToolsAcceptanceTest {
 
     @Test
     public void getRandomColorAcceptanceTest() {
-
         // when
         final Color result = Tools.getRandomColor();
 
@@ -35,7 +34,6 @@ public class ToolsAcceptanceTest {
 
     @Test
     public void getCurrentTime() {
-
         // when
         final String currentTime = Tools.getCurrentTime();
 
@@ -48,7 +46,6 @@ public class ToolsAcceptanceTest {
         // given
         final List<String> result = new ArrayList<>();
         result.add("OK");
-
         // when
         Tools.changeToYellowStatus(result);
 
@@ -60,7 +57,6 @@ public class ToolsAcceptanceTest {
         // given
         final String result = "ERROR";
         final List<String> resultList = Collections.singletonList(result);
-
         // when
         Tools.changeToYellowStatus(resultList);
 

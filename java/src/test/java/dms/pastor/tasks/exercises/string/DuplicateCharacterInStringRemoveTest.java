@@ -1,6 +1,6 @@
 package dms.pastor.tasks.exercises.string;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.tasks.exercises.string.DuplicateCharacterInStringRemove.removeDuplicateCharacterFromString;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
@@ -21,7 +21,6 @@ public class DuplicateCharacterInStringRemoveTest {
     public void shouldGetAFromStringWithACharactersOnlyAcceptanceCriteriaTest() {
         // given
         final String stringWithACharacterOnly = "aaaa";
-
         // when
         final String result = removeDuplicateCharacterFromString(stringWithACharacterOnly);
 
@@ -33,7 +32,6 @@ public class DuplicateCharacterInStringRemoveTest {
     public void shouldGetABFromStringWithABCharactersOnlyAcceptanceCriteriaTest() {
         // given
         final String stringWithACharacterOnly = "aabb";
-
         // when
         final String result = removeDuplicateCharacterFromString(stringWithACharacterOnly);
 
@@ -45,7 +43,6 @@ public class DuplicateCharacterInStringRemoveTest {
     public void shouldGetABCFromStringWithContainsManyABCAcceptanceCriteriaTest() {
         // given
         final String stringWithACharacterOnly = "abcabcacbcab";
-
         // when
         final String result = removeDuplicateCharacterFromString(stringWithACharacterOnly);
 

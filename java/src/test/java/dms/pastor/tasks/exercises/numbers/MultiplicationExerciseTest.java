@@ -1,6 +1,6 @@
 package dms.pastor.tasks.exercises.numbers;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.tasks.exercises.numbers.MultiplicationExercise.generateMultiplicationSquareTable;
 import static dms.pastor.utils.randoms.RandomDataGenerator.randomNegativeInteger;

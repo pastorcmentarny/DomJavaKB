@@ -1,8 +1,9 @@
 package dms.pastor.tasks.romanarabicconverter;
 
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * Author Dominik Symonowicz
@@ -18,24 +19,24 @@ public class ArabicToRomanConverterTest {
 
     private RomanArabicConverter converter;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         converter = new RomanArabicConverter();
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testIfNegativeNumberGivesException() {
-        converter.convertArabicToRoman(-15);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> converter.convertArabicToRoman(-15));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testIf0GivesException() {
-        converter.convertArabicToRoman(0);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> converter.convertArabicToRoman(0));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testIf4000GivesException() {
-        converter.convertArabicToRoman(4000);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> converter.convertArabicToRoman(4000));
     }
 
     @Test

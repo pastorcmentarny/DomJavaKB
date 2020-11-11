@@ -1,8 +1,9 @@
 package dms.pastor.tasks.paint.command;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Author Dominik Symonowicz
@@ -14,19 +15,19 @@ import org.junit.rules.ExpectedException;
  */
 public class InvalidCommandSyntaxExceptionTest {
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void shouldReturnInvalidCommandSyntaxExceptionWithMessage() {
         // given
         final String reason = "test";
-
-        // except
-        exception.expect(InvalidCommandSyntaxException.class);
-        exception.expectMessage("Invalid Syntax because " + reason + ". Please check your input and try again.");
-
         // when
-        throw new InvalidCommandSyntaxException(reason);
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> {
+            throw new InvalidCommandSyntaxException(reason);
+        });
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because " + reason + ". Please check your input and try again.");
+
+
     }
 }

@@ -1,6 +1,6 @@
 package dms.pastor.utils;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.utils.EnglishUtils.*;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
@@ -21,7 +21,6 @@ public class EnglishUtilsTest {
     public void isVowelReturnForA() {
         // given
         final char vowel = 'a';
-
         // when
         final boolean result = isLetterVowelIncludingY(vowel);
         // then
@@ -32,7 +31,6 @@ public class EnglishUtilsTest {
     public void isVowelReturnForB() {
         // given
         final char vowel = 'b';
-
         // when
         final boolean result = isLetterVowelIncludingY(vowel);
         // then
@@ -43,7 +41,6 @@ public class EnglishUtilsTest {
     public void isVowelReturnFalseForCapitalC() {
         // given
         final char vowel = 'C';
-
         // when
         final boolean result = isLetterVowelIncludingY(vowel);
         // then
@@ -54,7 +51,6 @@ public class EnglishUtilsTest {
     public void isVowelReturnTrueForCapitalE() {
         // given
         final char vowel = 'E';
-
         // when
         final boolean result = isLetterVowelIncludingY(vowel);
         // then
@@ -65,7 +61,6 @@ public class EnglishUtilsTest {
     public void isVowelReturnFalseForNumber() {
         // given
         final char vowel = '3';
-
         // when
         final boolean result = isLetterVowelIncludingY(vowel);
 
@@ -77,7 +72,6 @@ public class EnglishUtilsTest {
     public void isVowelReturnFalseForCharacter() {
         // given
         final char vowel = '"';
-
         // when
         final boolean result = isLetterVowelIncludingY(vowel);
 
@@ -89,7 +83,6 @@ public class EnglishUtilsTest {
     public void isLetterVowelExcludingYReturnTrueForA() {
         // given
         final char vowel = 'a';
-
         // when
         final boolean result = isLetterVowelExcludingY(vowel);
         // then
@@ -100,7 +93,6 @@ public class EnglishUtilsTest {
     public void isLetterVowelExcludingYReturnFalseForY() {
         // given
         final char vowel = 'y';
-
         // when
         final boolean result = isLetterVowelExcludingY(vowel);
         // then
@@ -111,7 +103,6 @@ public class EnglishUtilsTest {
     public void isLetterConsonantReturnTrueForT() {
         // given
         final char vowel = 't';
-
         // when
         final boolean result = isLetterConsonant(vowel);
 
@@ -123,7 +114,6 @@ public class EnglishUtilsTest {
     public void isLetterConsonantReturnFalseForU() {
         // given
         final char vowel = 'u';
-
         // when
         final boolean result = isLetterConsonant(vowel);
 
@@ -135,7 +125,6 @@ public class EnglishUtilsTest {
     public void isLetterConsonantReturnTrueForCapitalN() {
         // given
         final char vowel = 'N';
-
         // when
         final boolean result = isLetterConsonant(vowel);
 
@@ -147,7 +136,6 @@ public class EnglishUtilsTest {
     public void isLetterConsonantReturnFalseForCapitalO() {
         // given
         final char vowel = 'O';
-
         // when
         final boolean result = isLetterConsonant(vowel);
 
@@ -159,7 +147,6 @@ public class EnglishUtilsTest {
     public void isLetterConsonantReturnFalseForNumber() {
         // given
         final char vowel = '3';
-
         // when
         final boolean result = isLetterConsonant(vowel);
 
@@ -171,7 +158,6 @@ public class EnglishUtilsTest {
     public void isLetterConsonantReturnFalseForCharacter() {
         // given
         final char vowel = '"';
-
         // when
         final boolean result = isLetterConsonant(vowel);
 
@@ -183,7 +169,6 @@ public class EnglishUtilsTest {
     public void isStopWordShouldReturnTrueForIs() {
         // given
         final String stopWord = "is";
-
         // when
         final boolean word = isStopWord(stopWord);
 
@@ -195,7 +180,6 @@ public class EnglishUtilsTest {
     public void isStopWordShouldReturnFalseForDominik() {
         // given
         final String notAStopWord = "Dominik";
-
         // when
         final boolean word = isStopWord(notAStopWord);
 
@@ -205,7 +189,6 @@ public class EnglishUtilsTest {
 
     @Test
     public void isStopWordShouldReturnFalseForNull() {
-
         // when
         final boolean word = isStopWord(null);
 
@@ -218,7 +201,6 @@ public class EnglishUtilsTest {
     public void isStopWordShouldReturnFalseForEmptyString() {
         // given
         final String notAStopWord = EMPTY_STRING;
-
         // when
         final boolean word = isStopWord(notAStopWord);
 
@@ -230,7 +212,6 @@ public class EnglishUtilsTest {
     public void isNotStopWordShouldReturnFalseForAre() {
         // given
         final String stopWord = "are";
-
         // when
         final boolean word = isNotStopWord(stopWord);
 
@@ -242,7 +223,6 @@ public class EnglishUtilsTest {
     public void isNotStopWordShouldReturnTrueForCheesecake() {
         // given
         final String notAStopWord = "Cheesecake";
-
         // when
         final boolean word = isNotStopWord(notAStopWord);
 

@@ -2,11 +2,10 @@ package dms.pastor.tools.chinese.topinyin;
 
 import dms.pastor.domain.exception.SomethingWentWrongException;
 import dms.pastor.utils.randoms.RandomDataGenerator;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -33,17 +32,16 @@ public class ToPinyinApplicationTest {
 
     private static final String TEXT_INVALID_MESSAGE = "Text cannot be null or empty. It must be at least 2 characters or more.";
     private static final String PSEUDO_PINYIN_TYPE = "character";
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
+
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private final PrintStream original = System.out;
 
-    @Before
+    @BeforeEach
     public void setUpStreams() {
         System.setOut(new PrintStream(outputStream));
     }
 
-    @After
+    @AfterEach
     public void cleanUpStreams() throws IOException {
         outputStream.close();
         System.setOut(original);
@@ -51,87 +49,92 @@ public class ToPinyinApplicationTest {
 
     @Test
     public void shouldThrowExceptionWhenInputArgumentIsNull() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Input arguments cannot be null.");
-
         // when
-        main(null);
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            main(null);
+
+        });
+        // when
+        assertThat(exception.getMessage()).isEqualTo("Input arguments cannot be null.");
     }
 
     @Test
     public void shouldThrowExceptionWhenInputArgumentsHas1Argument() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("It should contains 2 arguments (type of pinyin (number,character) and text.");
-
         // when
-        main(new String[]{generateString()});
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            main(new String[]{generateString()});
+
+        });
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("It should contains 2 arguments (type of pinyin (number,character) and text.");
     }
 
     @Test
     public void shouldThrowExceptionWhenInputArgumentsHasMoreThan2Arguments() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("It should contains 2 arguments (type of pinyin (number,character) and text.");
-
         // given
         String[] arguments = RandomDataGenerator.generateArray(3 + randomPositiveInteger(32));
-
         // when
-        main(arguments);
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            main(arguments);
+
+        });
+        // then
+        assertThat(exception.getMessage()).isEqualTo("It should contains 2 arguments (type of pinyin (number,character) and text.");
     }
 
     @Test
     public void shouldThrowSomethingWentWrongExceptionWhenFirstArgumentIsNotValidConverterType() {
-        // except
-        exception.expect(SomethingWentWrongException.class);
-        exception.expectMessage("Whoops! Something went wrong. Invalid conversation type(can be: number,character). I apologize for any inconvenience caused by your mistake.");
 
         // given
         String[] arguments = new String[]{generateString(), generateString()};
-
         // when
-        main(arguments);
+        final var exception = Assertions.assertThrows(SomethingWentWrongException.class, () -> {
+            main(arguments);
+        });
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("Whoops! Something went wrong. Invalid conversation type(can be: number,character). I apologize for any inconvenience caused by your mistake.");
     }
 
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenTextIsNull() {
-        // except
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage(TEXT_INVALID_MESSAGE);
 
         // given
         String[] arguments = new String[]{PSEUDO_PINYIN_TYPE, null};
-
         // when
-        main(arguments);
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            main(arguments);
+        });
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo(TEXT_INVALID_MESSAGE);
     }
 
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenTextIsEmpty() {
-        // except
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage(TEXT_INVALID_MESSAGE);
-
         // given
         String[] arguments = new String[]{PSEUDO_PINYIN_TYPE, EMPTY_STRING};
-
         // when
-        main(arguments);
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            main(arguments);
+        });
+
+        assertThat(exception.getMessage()).isEqualTo(TEXT_INVALID_MESSAGE);
     }
 
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenTextHasLessThan2Characters() {
-        // except
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage(TEXT_INVALID_MESSAGE);
 
         // given
         String[] arguments = new String[]{PSEUDO_PINYIN_TYPE, WHITESPACE};
-
         // when
-        main(arguments);
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            main(arguments);
+        });
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo(TEXT_INVALID_MESSAGE);
     }
 
     @Test
@@ -139,7 +142,6 @@ public class ToPinyinApplicationTest {
         // given
         final String[] arguments = new String[]{"number", "ma(2)"};
         final String expected = "má" + System.lineSeparator();
-
         // when
         main(arguments);
 

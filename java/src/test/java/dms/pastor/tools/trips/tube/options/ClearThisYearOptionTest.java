@@ -3,7 +3,7 @@ package dms.pastor.tools.trips.tube.options;
 import dms.pastor.tools.trips.tube.station.Station;
 import dms.pastor.tools.trips.tube.station.Stations;
 import dms.pastor.tools.trips.tube.station.TubeStation;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,6 @@ public class ClearThisYearOptionTest {
         tubeStationList.add(stationBuilder().name(Station.WEMBLEY_PARK.getStationName()).status(VISITED).noLines().build());
         tubeStationList.add(stationBuilder().name(Station.VICTORIA.getStationName()).status(VISITED).noLines().build());
         final Stations stations = new Stations(tubeStationList);
-
         // when
         clearThisYearOption.choose(stations);
 

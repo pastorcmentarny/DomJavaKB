@@ -2,9 +2,7 @@ package dms.pastor.tools.trips.tube;
 
 
 import dms.pastor.tools.trips.tube.data.DataUploader;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.tools.trips.tube.data.DataOperations.STATION_PATH;
 
@@ -18,8 +16,6 @@ import static dms.pastor.tools.trips.tube.data.DataOperations.STATION_PATH;
  */
 public class DataUploaderTest {
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void shouldLoadStationsFromFile() {

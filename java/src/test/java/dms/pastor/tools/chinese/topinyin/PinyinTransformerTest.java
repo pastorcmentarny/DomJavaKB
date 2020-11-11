@@ -1,6 +1,6 @@
 package dms.pastor.tools.chinese.topinyin;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.tools.chinese.topinyin.PinyinTransformer.transformToPinyin;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
@@ -31,7 +31,6 @@ public class PinyinTransformerTest {
         // given
         final String randomText = generateString(250);
         final CharacterWithTone characterWithTone = CharacterWithTone.fromString(randomText);
-
         // when
         final String pinyin = transformToPinyin(characterWithTone);
 
@@ -44,7 +43,6 @@ public class PinyinTransformerTest {
         // given
         final CharacterWithTone characterWithTone = CharacterWithTone.fromString("ma(2)");
         final String result = "má";
-
         // when
         final String pinyin = transformToPinyin(characterWithTone);
 

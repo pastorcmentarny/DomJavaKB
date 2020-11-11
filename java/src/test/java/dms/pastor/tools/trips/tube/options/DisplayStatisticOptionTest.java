@@ -3,9 +3,9 @@ package dms.pastor.tools.trips.tube.options;
 
 import dms.pastor.tools.trips.tube.station.Stations;
 import dms.pastor.tools.trips.tube.station.TubeStation;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -28,12 +28,12 @@ public class DisplayStatisticOptionTest {
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private final PrintStream original = System.out;
 
-    @Before
+    @BeforeEach
     public void setUpStreams() {
         System.setOut(new PrintStream(outputStream));
     }
 
-    @After
+    @AfterEach
     public void cleanUpStreams() throws IOException {
         outputStream.close();
         System.setOut(original);
@@ -44,7 +44,6 @@ public class DisplayStatisticOptionTest {
         // given
         final DisplayStatisticOption displayStatisticOption = new DisplayStatisticOption();
         final Stations stations = stationsBuilder().build();
-
         // when
         displayStatisticOption.choose(stations);
 
@@ -65,7 +64,6 @@ public class DisplayStatisticOptionTest {
         final TubeStation station4 = stationBuilder().blogged(false).build();
         final List<TubeStation> tubeStationList = List.of(station1, station2, station3, station4);
         final Stations stations = stationsBuilder().stationList(tubeStationList).build();
-
         // when
         displayStatisticOption.choose(stations);
 

@@ -1,6 +1,6 @@
 package dms.pastor.examples.java8.functional;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -19,7 +19,6 @@ public class SupplierRunnerTest {
     public void supplierExampleAcceptanceTest() {
         // given
         SupplierRunner example = new SupplierRunner();
-
         // when
         final String result = example.supplierExample();
 

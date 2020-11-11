@@ -1,9 +1,8 @@
 package dms.pastor.tools.removeDuplicatedLineInTextFile;
 
 import dms.pastor.utils.file.FileUtils;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.io.File;
 
@@ -23,40 +22,39 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class DuplicateRemoverTest {
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
+
     private final DuplicateRemover duplicateRemover = new DuplicateRemover();
 
     @Test
     public void shouldThrowIllegalArgumentExceptionForNullFilePathTest() {
-        // except
-        exception.expect(IllegalArgumentException.class);
-
         // when
-        duplicateRemover.performTask(null);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            duplicateRemover.performTask(null);
+        });
     }
 
     @Test
     public void shouldThrowIllegalArgumentExceptionForEmptyFilePathTest() {
-        // except
-        exception.expect(IllegalArgumentException.class);
-
         // when
-        duplicateRemover.performTask(EMPTY_STRING);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            duplicateRemover.performTask(EMPTY_STRING);
+
+        });
+
     }
 
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenFileDoesNotExist() {
-        // except
-        exception.expect(IllegalArgumentException.class);
-
         // given
         final String nonExistingFile = System.getProperty("user.dir") +
                 separator + "src" + separator + "main" +
                 separator + "resources" +
                 separator + "fileThatDoesNotExist.lol";
         // when
-        duplicateRemover.performTask(nonExistingFile);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            duplicateRemover.performTask(nonExistingFile);
+        });
+
 
     }
 
@@ -69,7 +67,6 @@ public class DuplicateRemoverTest {
         String[] stringList = new String[]{randomLine, testLine, testLine};
 
         saveListToFile(stringList, filePath);
-
         // when
         duplicateRemover.performTask(filePath);
 

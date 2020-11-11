@@ -3,14 +3,12 @@ package dms.pastor.tools.trips.tube;
 import dms.pastor.tools.trips.common.options.Status;
 import dms.pastor.tools.trips.tube.station.Stations;
 import dms.pastor.tools.trips.tube.station.TubeStation;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -35,12 +33,11 @@ import static org.mockito.Mockito.when;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 @SuppressWarnings("resource")
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class TubeCLITest {
 
     private static final String ELM_PARK_VALID_STATION = "Elm Park";
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
+
 
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private final PrintStream original = System.out;
@@ -50,13 +47,13 @@ public class TubeCLITest {
     @Mock
     private Scanner scanner;
 
-    @Before
+    @BeforeEach
     public void setUpStreams() {
         cli = new TubeCLI(generateStations(), scanner);
         System.setOut(new PrintStream(outputStream));
     }
 
-    @After
+    @AfterEach
     public void cleanUpStreams() throws IOException {
         outputStream.close();
         System.setOut(original);

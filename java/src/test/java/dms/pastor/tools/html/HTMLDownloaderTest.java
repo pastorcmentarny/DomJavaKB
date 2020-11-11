@@ -1,9 +1,8 @@
 package dms.pastor.tools.html;
 
-import org.junit.Ignore;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -22,16 +21,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class HTMLDownloaderTest {
 
     private static final String URL = "http://dominiksymonowicz.com/about/";
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
-    @Ignore //need implement https version
+
+    @Disabled //need implement https version
     @Test
     public void acceptanceCriteria() throws Exception {
         // given
         final String content = download(URL);
         System.out.println(content);
-
         // when
         final boolean fileSaved = saveTextToFile(content, "example.txt");
 
@@ -40,23 +37,23 @@ public class HTMLDownloaderTest {
 
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenUrlIsNullTest() throws Exception {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-
         // when
-        download(null);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            download(null);
+        });
+
     }
 
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenUrlIsEmptyTest() throws Exception {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-
         // when
-        download(EMPTY_STRING);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            download(EMPTY_STRING);
+        });
+
     }
 
-    @Ignore //need implement https version
+    @Disabled //need implement https version
     @Test
     public void testShouldReturnOKPage() throws IOException {
         // when

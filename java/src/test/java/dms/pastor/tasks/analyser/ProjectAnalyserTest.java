@@ -1,8 +1,7 @@
 package dms.pastor.tasks.analyser;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
@@ -20,40 +19,29 @@ import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
  */
 public class ProjectAnalyserTest {
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenPathIsNull() {
-        // Expect
-        exception.expect(IllegalArgumentException.class);
-
         // when
-        new ProjectAnalyser().analyse(null);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> new ProjectAnalyser().analyse(null));
+
     }
 
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenPathIsEmpty() {
-        // Expect
-        exception.expect(IllegalArgumentException.class);
-
         // when
-        new ProjectAnalyser().analyse(EMPTY_STRING);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> new ProjectAnalyser().analyse(EMPTY_STRING));
     }
 
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenPathIsInvalid() {
-        // Expect
-        exception.expect(IllegalArgumentException.class);
-
-        // when
-        new ProjectAnalyser().analyse(generateString(10));
+        //
+        Assertions.assertThrows(IllegalArgumentException.class, () -> new ProjectAnalyser().analyse(generateString(10)));
     }
 
     @SuppressWarnings("AccessOfSystemProperties")
     @Test
     public void shouldGetResults() {
-
         // when
         String path = System.getProperty("user.dir") +
                 separator + "src" + separator + "main" + separator;

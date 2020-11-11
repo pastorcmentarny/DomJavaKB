@@ -1,6 +1,6 @@
 package dms.pastor.utils;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.utils.RegexUtils.countOccurrencesOf;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -19,7 +19,6 @@ public class RegexUtilsTest {
     public void countOccurrencesOfShouldReturnZeroIfSearchWordTIsNull() {
         // given
         final String text = "A text in the text.";
-
         // when
         final int result = countOccurrencesOf(null, text);
 
@@ -31,7 +30,6 @@ public class RegexUtilsTest {
     public void countOccurrencesOfShouldReturnZeroIfTextIsNull() {
         // given
         final String what = "text";
-
         // when
         final int result = countOccurrencesOf(what, null);
 
@@ -44,7 +42,6 @@ public class RegexUtilsTest {
         // given
         final String what = "text";
         final String text = "A text in the String.";
-
         // when
         final int result = countOccurrencesOf(what, text);
 
@@ -58,7 +55,6 @@ public class RegexUtilsTest {
         // given
         final String what = "text";
         final String text = "A text in the text.";
-
         // when
         final int result = countOccurrencesOf(what, text);
 
@@ -71,7 +67,6 @@ public class RegexUtilsTest {
         // given
         final String what = "text";
         final String text = "A text in the Text.";
-
         // when
         final int result = countOccurrencesOf(what, text);
 
@@ -84,7 +79,6 @@ public class RegexUtilsTest {
         // given
         final String what = "text";
         final String text = "A text in the texttext.";
-
         // when
         final int result = countOccurrencesOf(what, text);
 
@@ -102,7 +96,6 @@ public class RegexUtilsTest {
     @Test
     public void shouldReturnTrueIfPhoneNumberHasOnlyNumbersAndPlusAndMinusSign() {
         // given
-
         // when
         final var validPhoneNumber = RegexUtils.hasOnlyNumbersAndPlusAndMinusSign("+447912345678");
 
@@ -113,7 +106,6 @@ public class RegexUtilsTest {
     @Test
     public void shouldReturnFalseIfPhoneNumberHasInvalidCharacter() {
         // given
-
         // when
         final var validPhoneNumber = RegexUtils.hasOnlyNumbersAndPlusAndMinusSign("(00)447912345678");
 

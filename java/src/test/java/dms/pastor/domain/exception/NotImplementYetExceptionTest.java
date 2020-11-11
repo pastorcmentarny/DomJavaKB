@@ -1,8 +1,7 @@
 package dms.pastor.domain.exception;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -24,31 +23,25 @@ public class NotImplementYetExceptionTest {
 
     private static final String EXCEPTION_MESSAGE = "Not Implemented yet, so move your ass and implement this. I apologize for any inconvenience caused by my laziness";
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void shouldThrowNotImplementYetExceptionTest() {
-
-        // expect
-        exception.expect(NotImplementYetException.class);
-        exception.expectMessage(EXCEPTION_MESSAGE);
-
         // when
-        throw new NotImplementYetException();
+        final var exception = Assertions.assertThrows(NotImplementYetException.class, () -> {
+            throw new NotImplementYetException();
+        });
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo(EXCEPTION_MESSAGE);
+
 
     }
 
     @SuppressWarnings({"resource", "IOResourceOpenedButNotSafelyClosed"})
     @Test
     public void shouldThrowIOExceptionWhenTryingReadObjectTest() throws Exception {
-        // expect
-        exception.expect(IOException.class);
-        exception.expectMessage("Cannot be deserialized");
-
         // given
         NotImplementYetException notImplementYetException = new NotImplementYetException();
-
         // when
         final boolean result = isObjectCanBeSerialized(notImplementYetException);
 
@@ -56,9 +49,13 @@ public class NotImplementYetExceptionTest {
         assertThat(result).isFalse();
 
         // then verify
-        OutputStream sink = new ByteArrayOutputStream();
-        ObjectOutputStream stream = new ObjectOutputStream(sink);
-        stream.writeObject(notImplementYetException);
+        Assertions.assertThrows(IOException.class, () -> {
+            OutputStream sink = new ByteArrayOutputStream();
+            ObjectOutputStream stream = new ObjectOutputStream(sink);
+            stream.writeObject(notImplementYetException);
+
+        });
+
     }
 
 }

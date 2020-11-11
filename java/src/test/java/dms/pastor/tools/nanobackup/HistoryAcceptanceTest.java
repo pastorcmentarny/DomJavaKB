@@ -1,6 +1,6 @@
 package dms.pastor.tools.nanobackup;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.utils.StringUtils.NEW_LINE;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
@@ -23,7 +23,6 @@ public class HistoryAcceptanceTest {
         final History historyGUI = History.getHistoryGUI();
         final String message = generateString();
         historyGUI.clearMessages();
-
         // when
         historyGUI.addMessage(message);
         historyGUI.showHistoryOfMessages();

@@ -1,6 +1,6 @@
 package dms.pastor.tools.nanobackup.backup;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -29,7 +29,6 @@ public class StatisticTest {
                 BackupType: null
                 Files copied: 0
                 Errors: 0""";
-
         // when
         final String result = statistic.display();
 
@@ -41,7 +40,6 @@ public class StatisticTest {
     public void shouldAddOneToErrorCount() {
         // given
         final String errorMessage = generateString();
-
         // when
         statistic.addErrorCount(errorMessage);
 
@@ -54,7 +52,6 @@ public class StatisticTest {
     public void addFileCopied() {
         // given
         final int filesNumber = 3;
-
         // when
         statistic.addFileCopied(filesNumber);
 
@@ -68,7 +65,6 @@ public class StatisticTest {
         final int number = 3;
         statistic.addFileCopied(number);
         statistic.addErrorCount(generateString());
-
         // when
         statistic.resetStats();
 

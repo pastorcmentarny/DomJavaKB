@@ -1,8 +1,7 @@
 package dms.pastor.tasks.sunspotanalyser;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * Author Dominik Symonowicz
@@ -14,25 +13,26 @@ import org.junit.rules.ExpectedException;
  */
 public class AppRunnerTest {
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenRunningAppWithoutArgumentsTest() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-
         // when
-        AppRunner.main(null);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            AppRunner.main(null);
+        });
+
     }
 
     @Test
     public void shouldAppRunnerTest() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
+
         String[] stringList = new String[]{"a", "b"};
         // when
-        AppRunner.main(stringList);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+
+            AppRunner.main(stringList);
+        });
+
 
     }
 }

@@ -1,9 +1,8 @@
 package dms.pastor.utils;
 
 import org.junit.Assert;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -26,8 +25,6 @@ import static org.hamcrest.CoreMatchers.sameInstance;
  */
 public class HashToolsTest {
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void shouldConvertStringToCharacterMapTest() {
@@ -42,20 +39,14 @@ public class HashToolsTest {
 
     @Test
     public void stringToCharacterSetThrowIllegalArgumentExceptionIfNull() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-
         // when
-        stringToCharacterSet(null);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> stringToCharacterSet(null));
     }
 
     @Test
     public void stringToCharacterSetThrowIllegalArgumentExceptionIfEmpty() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-
         // when
-        stringToCharacterSet(EMPTY_STRING);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> stringToCharacterSet(EMPTY_STRING));
     }
 
     @SuppressWarnings({"ResultOfMethodCallIgnored", "QuestionableName"})
@@ -63,7 +54,6 @@ public class HashToolsTest {
     public void stringToCharacterSetShouldConvertTextToListOfCharacters() {
         // given
         final String string = generateString(10);
-
         // when
         final HashSet<Character> result = stringToCharacterSet(string);
 

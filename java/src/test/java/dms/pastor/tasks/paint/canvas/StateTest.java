@@ -1,8 +1,8 @@
 package dms.pastor.tasks.paint.canvas;
 
 import dms.pastor.domain.exception.SomethingWentWrongException;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
 
@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class StateTest {
     private State state;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         state = new State();
     }
@@ -42,7 +42,6 @@ public class StateTest {
         Image image = getImage();
         image.setPixel(randomPositiveInteger(image.getWidth()), randomPositiveInteger(image.getHeight()), getRandomCharacterAsString());
         state.save(image);
-
         // when
         final boolean result = state.containsPreviousState();
 
@@ -57,7 +56,6 @@ public class StateTest {
         image.setPixel(randomPositiveInteger(image.getWidth()), randomPositiveInteger(image.getHeight()), getRandomCharacterAsString());
         state.save(image);
         state.undo(image);
-
         // when
         final boolean result = state.containsPreviousState();
 
@@ -74,7 +72,6 @@ public class StateTest {
         state.undo(image);
         image.setPixel(randomPositiveInteger(image.getWidth()), randomPositiveInteger(image.getHeight()), getRandomCharacterAsString());
         state.save(image);
-
         // when
         final boolean result = state.containsPreviousState();
 
@@ -99,7 +96,6 @@ public class StateTest {
                 "nullnullnullnullnullnullnullnull" + System.lineSeparator() +
                 "nullnullnullnullnullnullnullnull" + System.lineSeparator() +
                 "}";
-
         // when
         state.save(image);
 
@@ -139,7 +135,6 @@ public class StateTest {
         final Image expectedImage = new Image(image.getWidth(), image.getHeight(), image.getImage());
 
         image.setPixel(2, 2, pixelFill);
-
         // when
         final Optional<Image> optionalImage = state.undo(image);
 
@@ -156,7 +151,6 @@ public class StateTest {
         state.save(image);
         image.setPixel(2, 2, pixelFill);
         state.save(image);
-
         // when
         state.undo(image);
         final Optional<Image> imageOptional = state.undo(image);
@@ -174,7 +168,6 @@ public class StateTest {
         final String pixelFill = getRandomCharacterAsString();
         image.setPixel(width, height, pixelFill);
         state.save(image);
-
         // when
         final Optional<Image> imageOptional = state.peek();
 
@@ -199,7 +192,6 @@ public class StateTest {
         image.setPixel(randomPositiveInteger(image.getWidth()), randomPositiveInteger(image.getHeight()), getRandomCharacterAsString());
         state.save(image);
         state.undo(image);
-
         // when
         final boolean result = state.containsNextState();
 
@@ -213,7 +205,6 @@ public class StateTest {
         Image image = getImage();
         image.setPixel(randomPositiveInteger(image.getWidth()), randomPositiveInteger(image.getHeight()), getRandomCharacterAsString());
         state.save(image);
-
         // when
         Optional<Image> imageOptional = state.redo();
 
@@ -228,7 +219,6 @@ public class StateTest {
         image.setPixel(randomPositiveInteger(image.getWidth()), randomPositiveInteger(image.getHeight()), getRandomCharacterAsString());
         state.save(image);
         state.undo(image);
-
         // when
         Optional<Image> imageOptional = state.redo();
 

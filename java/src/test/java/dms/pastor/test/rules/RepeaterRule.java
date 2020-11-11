@@ -4,6 +4,8 @@ import org.junit.rules.TestRule;
 import org.junit.runner.Description;
 import org.junit.runners.model.Statement;
 
+import javax.annotation.Nonnull;
+
 /**
  * Author Dominik Symonowicz
  * Created 17/04/2016
@@ -23,6 +25,7 @@ public class RepeaterRule implements TestRule {
         return new RepeaterRule();
     }
 
+    @Nonnull
     @Override
     public Statement apply(Statement statement, Description description) {
         Statement result = statement;

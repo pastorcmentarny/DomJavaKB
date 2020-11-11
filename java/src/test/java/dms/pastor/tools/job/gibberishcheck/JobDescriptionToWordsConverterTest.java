@@ -1,7 +1,7 @@
 package dms.pastor.tools.job.gibberishcheck;
 
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -20,7 +20,6 @@ public class JobDescriptionToWordsConverterTest {
 
     @Test
     public void shouldNotContainsExcludedCharacters() {
-
         // when
         var wordList = JobDescriptionToWordsConverter.convert(JOB_DESCRIPTION);
 

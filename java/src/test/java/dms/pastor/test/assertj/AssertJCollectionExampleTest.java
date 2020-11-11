@@ -2,7 +2,7 @@ package dms.pastor.test.assertj;
 
 import dms.pastor.test.assertj.model.UnitClass;
 import dms.pastor.test.assertj.model.UnitClassBuilder;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;

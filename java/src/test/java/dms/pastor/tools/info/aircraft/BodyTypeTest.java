@@ -2,22 +2,18 @@ package dms.pastor.tools.info.aircraft;
 
 
 import dms.pastor.domain.exception.NotFoundException;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class BodyTypeTest {
 
-    @Rule
-    public ExpectedException exception = ExpectedException.none();
 
     @Test
     public void shouldReturnNarrowBodyTypeFromLetterN() {
         // given
         final var narrowBodyLetter = "N";
-
         // when
         final var bodyType = BodyType.getTypeFromLetter(narrowBodyLetter);
 
@@ -27,22 +23,18 @@ public class BodyTypeTest {
 
     @Test
     public void shouldThrowInvalidArgumentExceptionIfLetterIsNull() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-
         // when
-        BodyType.getTypeFromLetter(null);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> BodyType.getTypeFromLetter(null));
+
     }
 
     @Test
     public void shouldThrowNotFoundExceptionForNotSupportedLetter() {
-        // expect
-        exception.expect(NotFoundException.class);
 
         // given
         final String invalidLetter = "X";
-
         // when
-        BodyType.getTypeFromLetter(invalidLetter);
+        final var exception = Assertions.assertThrows(NotFoundException.class, () -> BodyType.getTypeFromLetter(invalidLetter));
+
     }
 }

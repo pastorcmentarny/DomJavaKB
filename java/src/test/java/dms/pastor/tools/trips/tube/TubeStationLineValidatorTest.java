@@ -1,16 +1,16 @@
 package dms.pastor.tools.trips.tube;
 
 import dms.pastor.domain.exception.NotFoundException;
-import dms.pastor.tools.trips.tube.station.StationLineValidator;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
+import static dms.pastor.tools.trips.tube.station.StationLineValidator.validate;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.file.TextFileUtils.FIELD_SEPARATOR;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Author Dominik Symonowicz
@@ -24,51 +24,40 @@ public class TubeStationLineValidatorTest {
 
     private static final String TUBE_LINE_NAME = "Metropolitan line";
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
-
     @Test
     public void shouldThrowIllegalArgumentExceptionIfStringIsNull() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("TubeStation as string cannot be null or empty.");
-
         // when
-        StationLineValidator.validate(null);
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> validate(null));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("TubeStation as string cannot be null or empty.");
     }
 
     @Test
     public void shouldThrowIllegalArgumentExceptionIfStringIsEmpty() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("TubeStation as string cannot be null or empty.");
-
         // when
-        StationLineValidator.validate(EMPTY_STRING);
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> validate(EMPTY_STRING));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("TubeStation as string cannot be null or empty.");
+
     }
 
     @Test
     public void shouldThrowIllegalArgumentExceptionIfStringCannotBeSpittedIntoCorrectNumberOfColumns() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Invalid number of columns.");
-
         // when
-        StationLineValidator.validate(generateString(5));
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> validate(generateString(5)));
+
+        // then
+        assertThat(exception.getMessage()).startsWith("Invalid number of columns. Expect 6 but was 1Line:");
     }
 
     @Test
     public void shouldThrowIllegalArgumentExceptionIfStatusDoNotExists() {
-        // expect
-        exception.expect(NotFoundException.class);
-
         // given
         final String invalidStatus = "D";
-
         // when
-        StationLineValidator.validate("Acton Town" + FIELD_SEPARATOR + invalidStatus + FIELD_SEPARATOR + LocalDate.now() + FIELD_SEPARATOR + LocalDate.now() + FIELD_SEPARATOR + LocalDate.now() + FIELD_SEPARATOR + "Y");
-
-
+        final var exception = Assertions.assertThrows(NotFoundException.class, () -> validate("Acton Town" + FIELD_SEPARATOR + invalidStatus + FIELD_SEPARATOR + LocalDate.now() + FIELD_SEPARATOR + LocalDate.now() + FIELD_SEPARATOR + LocalDate.now() + FIELD_SEPARATOR + "Y"));
     }
 
 }

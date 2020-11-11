@@ -1,14 +1,12 @@
 package dms.pastor.tools.trips.train;
 
 import dms.pastor.tools.trips.train.station.TrainStation;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -18,12 +16,11 @@ import java.util.Scanner;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class TrainCLITest {
 
     private static final String ABERYSTYWTH_VALID_STATION = "Aberystywth";
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
+
 
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private final PrintStream original = System.out;
@@ -33,13 +30,13 @@ public class TrainCLITest {
     @Mock
     private Scanner scanner;
 
-    @Before
+    @BeforeEach
     public void setUpStreams() {
         cli = new TrainCLI(new TrainStation(ABERYSTYWTH_VALID_STATION), scanner);
         System.setOut(new PrintStream(outputStream));
     }
 
-    @After
+    @AfterEach
     public void cleanUpStreams() throws IOException {
         outputStream.close();
         System.setOut(original);

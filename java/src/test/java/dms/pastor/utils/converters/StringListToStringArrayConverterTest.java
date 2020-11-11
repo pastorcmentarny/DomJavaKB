@@ -1,6 +1,6 @@
 package dms.pastor.utils.converters;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 import java.util.List;
@@ -41,7 +41,6 @@ public class StringListToStringArrayConverterTest {
         // given
         final List<String> example = List.of("one", "two", "three");
         final String[] expectedResult = new String[]{"one", "two", "three"};
-
         // when
         final String[] result = converter.convert(example);
 

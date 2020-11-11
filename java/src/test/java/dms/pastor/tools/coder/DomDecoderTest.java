@@ -1,9 +1,8 @@
 package dms.pastor.tools.coder;
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -18,13 +17,11 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class DomDecoderTest {
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     private DomDecoder decoder;
 
     @SuppressWarnings("SpellCheckingInspection")
-    @Before
+    @BeforeEach
     public void setUp() {
         String data = "2uJmJCMBPjhDt5wAHXgC";
         decoder = new DomDecoder(data);
@@ -32,21 +29,22 @@ public class DomDecoderTest {
 
     @Test
     public void shouldThrowInvalidArgumentExceptionIfDataIsNull() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
+
 
         // given
         decoder = new DomDecoder(null);
-
         // when
-        decoder.decode();
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+
+            decoder.decode();
+        });
+
     }
 
     @Test
     public void shouldDecodeData() {
         // given
         final String expectedEncodedData = "plainString#256";
-
         // when
         String encodedData = decoder.decode();
 

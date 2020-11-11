@@ -1,8 +1,8 @@
 package dms.pastor.tools;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -39,13 +39,13 @@ public class GuidToolsTest {
         assertThat(guid).hasSize(36);
     }
 
-    @Before
+    @BeforeEach
     public void setUp() {
         printStream = System.out;
         System.setOut(new PrintStream(outputStream));
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         System.setOut(printStream);
     }
@@ -55,7 +55,6 @@ public class GuidToolsTest {
     public void shouldGenerateGuids() {
         // given
         final String[] numberOfGuidsToGenerate = {"1"};
-
         // when
         GuidTools.main(numberOfGuidsToGenerate);
 
@@ -68,7 +67,6 @@ public class GuidToolsTest {
 
     @Test
     public void generateGuidWithoutDashAcceptanceTest() {
-
         // when
         final String result = GuidTools.generateGuidWithoutDash();
 
@@ -82,7 +80,6 @@ public class GuidToolsTest {
 
     @Test
     public void generateShortGuidAcceptanceTest() {
-
         // when
         final String result = GuidTools.generateShortGuid();
 

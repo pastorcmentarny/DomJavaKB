@@ -4,14 +4,14 @@ import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.Logger;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.Appender;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.slf4j.LoggerFactory;
 
 import java.time.LocalDate;
@@ -28,7 +28,7 @@ import static org.mockito.Mockito.verify;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class ScheduleTaskExampleRunnerTest {
 
     @SuppressWarnings("StaticFieldReferencedViaSubclass") //Needed for testing purposes
@@ -40,12 +40,12 @@ public class ScheduleTaskExampleRunnerTest {
     @Captor
     private ArgumentCaptor<ILoggingEvent> captorLoggingEvent;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         LOGGER.addAppender(mockAppender);
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         LOGGER.detachAppender(mockAppender);
     }
@@ -54,7 +54,6 @@ public class ScheduleTaskExampleRunnerTest {
     public void runScheduleTaskExample() throws Exception {
         // given
         final String name = "Dominik";
-
         // when
         ScheduleTaskExampleRunner.runScheduleTaskExample(name);
 

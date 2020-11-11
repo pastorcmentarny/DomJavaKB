@@ -1,6 +1,6 @@
 package dms.pastor.examples.lombok;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -23,7 +23,6 @@ public class ReactorAcceptanceTest {
 
         // expect
         final String expectedResult = "Reactor(cores=[Core(number=0, description=null), Core(number=0, description=null)], enabled=false, status=null, temperature=0)";
-
         // when
         assertThat(reactor.toString()).isEqualTo(expectedResult);
     }

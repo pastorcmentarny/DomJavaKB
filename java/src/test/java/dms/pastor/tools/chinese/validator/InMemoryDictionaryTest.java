@@ -1,6 +1,6 @@
 package dms.pastor.tools.chinese.validator;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.tools.chinese.validator.Word.defaultWord;
 import static dms.pastor.tools.chinese.validator.Word.noWord;

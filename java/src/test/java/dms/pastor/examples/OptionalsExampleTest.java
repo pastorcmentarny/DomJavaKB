@@ -3,9 +3,8 @@ package dms.pastor.examples;
 import dms.pastor.domain.exception.SomethingWentWrongException;
 import dms.pastor.examples.java8.OptionalsExample;
 import dms.pastor.utils.PrintOutUtils;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -16,14 +15,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class OptionalsExampleTest {
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
-
+    @SuppressWarnings("ConstantConditions") //part of learning, I know it is stupid
     @Test
     public void optionalMethodsExampleWhenOptionalHasValueTests() {
         // given
         var optionalValue = "Optional";
-
         // when
         final var optional = OptionalsExample.getOptional(true);
 
@@ -42,7 +38,6 @@ public class OptionalsExampleTest {
     public void optionalMethodsExampleWhenOptionalDoNotHaveValueTests() {
         // given
         String text = "no value";
-
         // when
         final var optional = OptionalsExample.getOptional(false);
 
@@ -64,27 +59,21 @@ public class OptionalsExampleTest {
 
     @Test
     public void java10OptionalMethodsExampleTest() {
-        //expect
-        exception.expect(SomethingWentWrongException.class);
-
         // when
-        final var optional = OptionalsExample.getOptional(false);
+        final var exception = Assertions.assertThrows(SomethingWentWrongException.class, () -> {
+            final var optional = OptionalsExample.getOptional(false);
+            optional.orElseThrow(SomethingWentWrongException::new);
+        });
 
-        //when
-        optional.orElseThrow(SomethingWentWrongException::new);
     }
 
     @Test
     public void java10OptionalOrElseThrowDefaultExceptionExampleTest() {
-        //expect
-        exception.expect(NoSuchElementException.class);
-
         // when
-        final var optional = OptionalsExample.getOptional(false);
-
-        //when
-        optional.orElseThrow();
-
+        Assertions.assertThrows(NoSuchElementException.class, () -> {
+            final var optional = OptionalsExample.getOptional(false);
+            optional.orElseThrow();
+        });
     }
 
 }

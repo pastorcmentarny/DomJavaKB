@@ -1,7 +1,7 @@
 package dms.pastor.tools.chinese.validator;
 
 import dms.pastor.domain.Result;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.util.List;
@@ -26,7 +26,6 @@ public class FromFileImporterTest {
         // given
         String path = BASE_PATH + "word" + File.separator + "validDictionary.txt";
         Importer importer = new FromFileImporter();
-
         // when
         final Result result = importer.importDictionary(path, noCategories());
 
@@ -42,7 +41,6 @@ public class FromFileImporterTest {
         // given
         String path = BASE_PATH + "word" + File.separator + "invalidDictionary.txt";
         Importer importer = new FromFileImporter();
-
         // when
         final Result result = importer.importDictionary(path, noCategories());
 

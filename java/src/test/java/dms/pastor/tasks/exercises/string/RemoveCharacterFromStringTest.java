@@ -1,8 +1,7 @@
 package dms.pastor.tasks.exercises.string;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.tasks.exercises.string.RemoveCharacterFromString.removeCharacterFromStringUsingIterative;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -23,8 +22,7 @@ public class RemoveCharacterFromStringTest {
     private static final String TEST = "Test";
     private static final char CHARACTER_T = 't';
     private static final String EXPECTED_RESULT = "es";
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
+
 
     @Test
     public void shouldRemoveCharacterFromStringUsingIterativeTest() {
@@ -37,11 +35,10 @@ public class RemoveCharacterFromStringTest {
 
     @Test
     public void removeCharacterFromStringUsingIterativeShouldThrowExceptionWhenTextIsNullTest() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-
         // when
-        removeCharacterFromStringUsingIterative(null);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> removeCharacterFromStringUsingIterative(null));
+
+
     }
 
     @Test

@@ -2,7 +2,7 @@ package dms.pastor.tasks.exercises.numbers;
 
 import dms.pastor.tools.StopWatch;
 import dms.pastor.utils.ArrayUtils;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,7 +28,6 @@ public class ThreeSumTest {
         // given
         final StopWatch timer = new StopWatch();
         timer.start();
-
         // when
         int answer = threeSum.brutalForceCounter(testValues);
         timer.stop();

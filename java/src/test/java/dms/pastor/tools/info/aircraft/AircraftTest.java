@@ -1,7 +1,7 @@
 package dms.pastor.tools.info.aircraft;
 
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.tools.info.aircraft.BodyType.W;
 import static dms.pastor.tools.info.aircraft.Role.LONG_HAUL;
@@ -43,7 +43,6 @@ public class AircraftTest {
                 "Max Speed: 911km/h" + lineSeparator() +
                 "Range: 20000km" + lineSeparator() +
                 "Fuel Capacity: 150000l";
-
         // when
         final var aircraftInfo = aircraft.info();
 

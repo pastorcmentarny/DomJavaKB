@@ -1,6 +1,6 @@
 package dms.pastor.tasks.sunspotanalyser.data;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -57,7 +57,6 @@ public class GridTest {
         Grid instance = new Grid(testData);
         int x = 1;
         int y = 1;
-
         // when
         boolean result = instance.isInRange(x, y);
 
@@ -72,7 +71,6 @@ public class GridTest {
         Grid instance = new Grid(testData);
         final int x = 10;
         final int y = 10;
-
         // when
         boolean result = instance.isInRange(x, y);
 

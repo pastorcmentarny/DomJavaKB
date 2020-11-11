@@ -1,8 +1,7 @@
 package dms.pastor.tasks.paint.canvas;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import static dms.pastor.tasks.paint.canvas.Image.noImage;
 import static dms.pastor.utils.randoms.RandomDataGenerator.randomNegativeInteger;
@@ -22,8 +21,6 @@ public class ImageTest {
     private static final int WIDTH = 8;
     private static final int HEIGHT = 6;
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void noImageShouldReturnImageWithEverythingSetToZero() {
@@ -40,7 +37,6 @@ public class ImageTest {
     public void isCreatedShouldReturnTrueIfImageIsCreated() {
         // given
         Image image = getTestImage();
-
         // when
         final boolean result = image.isCreated();
 
@@ -52,7 +48,6 @@ public class ImageTest {
     public void isCreatedShouldReturnFalseIfImageIsInNoImageState() {
         // given
         Image image = noImage();
-
         // when
         final boolean result = image.isCreated();
 
@@ -62,15 +57,14 @@ public class ImageTest {
 
     @Test
     public void getPreviousPixelForThrowExceptionForLengthZero() {
-        // expect
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Length 0 is invalid because previous pixel will be out of range");
-
         // given
         Image image = getTestImage();
-
         // when
-        image.getPreviousPixelFor(0);
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            image.getPreviousPixelFor(0);
+        });
+
+        assertThat(exception.getMessage()).isEqualTo("Length 0 is invalid because previous pixel will be out of range.");
     }
 
     @Test
@@ -78,13 +72,12 @@ public class ImageTest {
         // given
         Image image = getTestImage();
         final int length = randomNegativeInteger();
-
-        // expect
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Length " + length + " is invalid because previous pixel will be out of range.");
-
         // when
-        image.getPreviousPixelFor(length);
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            image.getPreviousPixelFor(length);
+        });
+
+        assertThat(exception.getMessage()).isEqualTo("Length " + length + " is invalid because previous pixel will be out of range.");
     }
 
     @Test
@@ -92,7 +85,6 @@ public class ImageTest {
         // given
         Image image = getTestImage();
         final int length = 5;
-
         // when
         final int previousPixel = image.getPreviousPixelFor(length);
 
@@ -104,7 +96,6 @@ public class ImageTest {
     public void resetToNoImageShouldReturnNoImage() {
         // given
         Image image = getTestImage();
-
         // when
         image.resetToNoImage();
 
@@ -116,7 +107,6 @@ public class ImageTest {
     public void setPixelAtShouldSetPixelAtSpecifiedDimension() {
         // given
         Image image = getTestImage();
-
         // when
         image.resetToNoImage();
 
@@ -132,7 +122,6 @@ public class ImageTest {
         final int height = 2;
         final String fillPixel = "x";
         image.setPixel(width, height, fillPixel);
-
         // when
         final String pixel = image.getPixelAt(width, height);
 
@@ -144,13 +133,14 @@ public class ImageTest {
     public void setPixelShouldThrowInvalidArgumentExceptionIfStringLengthIsNull() {
         // given
         Image image = getTestImage();
-
-        // expect
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage(format("It must have one character but it has %d", 0));
-
         // when
-        image.setPixel(1, 1, null);
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            image.setPixel(1, 1, null);
+        });
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo(format("It must have one character but it has %d", 0));
+
     }
 
     @Test
@@ -158,20 +148,19 @@ public class ImageTest {
         // given
         Image image = getTestImage();
         final String tooLongString = "ufo";
-
-        // expect
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage(format("It must have one character but it has %d", tooLongString.length()));
-
         // when
-        image.setPixel(1, 1, tooLongString);
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            image.setPixel(1, 1, tooLongString);
+        });
+
+        assertThat(exception.getMessage()).isEqualTo(format("It must have one character but it has %d", tooLongString.length()));
+
     }
 
     @Test
     public void cloneShouldReturnCopyOfCurrentImage() {
         // given
         Image image = getTestImage();
-
         // when
         final Image copyOfImage = new Image(image.getWidth(), image.getHeight(), image.getImage());
 
@@ -183,7 +172,6 @@ public class ImageTest {
     public void getImageAsStringShouldReturnEmptyIfHeightIsEmpty() {
         // given
         final Image image = new Image(WIDTH, 0);
-
         // when
         final String imageAsString = image.getImageAsString();
 
@@ -195,7 +183,6 @@ public class ImageTest {
     public void getImageAsStringShouldReturnEmptyIfWeightIsEmpty() {
         // given
         final Image image = new Image(0, HEIGHT);
-
         // when
         final String imageAsString = image.getImageAsString();
 

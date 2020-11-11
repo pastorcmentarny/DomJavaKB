@@ -1,8 +1,8 @@
 package dms.pastor.learn.basics;
 
 import dms.pastor.examples.StringFormatExamples;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -66,7 +66,7 @@ public class StringFormatExamplesTest {
     }
 
     @Test
-    @Ignore
+    @Disabled
     public void shouldDisplayNumberWithCustomSeparator() {
         // given
         final int thousandOne = 1001;
@@ -82,7 +82,6 @@ public class StringFormatExamplesTest {
         // given
         final String text = "Warm Welcome To YOU";
         final int length = 4;
-
         // when
         final String result = stringFormatExamples.displayFirstFewCharactersFor(text, length);
 

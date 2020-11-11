@@ -1,7 +1,7 @@
 package dms.pastor.tasks.exercises.string;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -18,7 +18,7 @@ public class CharacterExercisesTest {
     private static final String LLANFARPWLL = "Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch";
     private CharacterExercises exercise;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         exercise = new CharacterExercises();
     }
@@ -39,7 +39,6 @@ public class CharacterExercisesTest {
         assertThat(exercise.countCharacterInStringIgnoringCase(charToCount, LLANFARPWLL)).isEqualTo(11);
     }
 
-    @SuppressWarnings("SpellCheckingInspection")
     @Test
     public void testAlternatingCharacters() {
         String good = "ABABA";
