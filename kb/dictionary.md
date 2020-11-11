@@ -203,6 +203,10 @@ It is a reliable data transfer protocol that ensures that the data sent is compl
 ## (Database) Transaction 
 A "_unit of work_" that need be performed **together** or **not at all**. 
 
+# U
+
+## UTF
+UTF is an abbreviation for UCS Transformation Format (UCS -> Universal Character Set.). 
 
 # X
 
@@ -212,6 +216,7 @@ In general, cross-site scripting refers to that hacking technique that leverages
 
 
 # Changelist:
+* 2020.2 - add UTF definition
 * 2020.1 - add 1 definition, dictionary cleanup
 * 2019.1 - Quick cleanup
 * 2018.1 - First Version
