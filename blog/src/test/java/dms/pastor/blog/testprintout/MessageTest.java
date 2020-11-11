@@ -1,13 +1,15 @@
 package dms.pastor.blog.testprintout;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 /**
  * Author Dominik Symonowicz
@@ -23,12 +25,12 @@ public class MessageTest {
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private final PrintStream original = System.err;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         System.setErr(new PrintStream(outputStream));
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         System.setErr(original);
     }
@@ -42,7 +44,7 @@ public class MessageTest {
         Message.error(errorMessage);
 
         //Then
-        assertEquals("ERROR: " + errorMessage, outputStream.toString());
+        assertThat("ERROR: " + errorMessage).isEqualTo(outputStream.toString());
 
     }
 }

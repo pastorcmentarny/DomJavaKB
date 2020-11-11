@@ -1,7 +1,7 @@
 package dms.pastor.blog.getyear;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static java.time.LocalDate.now;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -19,7 +19,7 @@ public class PersonTest {
     private Person person;
     private static final String name = "Dominik";
 
-    @Before
+    @BeforeEach
     public void setup() {
         person = new Person(name, now().minusYears(18).minusMonths(1).minusDays(1));
     }
