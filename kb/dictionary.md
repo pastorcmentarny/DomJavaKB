@@ -9,7 +9,17 @@ _I am not the author of these definitions so check resources section for the ori
 ##Algorithm
 It is a step-by-step procedure for 'recipe' like calculations. 
 
+## ArrayList
+ArrayList is a resizable-array implementation of the List interface. It is internally implemented as an object array, which can increase the size as necessary to support more number of elements in the collection. It is possible to specify the initial capacity of an ArrayList through the constructor ArrayList(int initialCapacity)  and later increases the capacity using  void ensureCapacity(int minCapacity), if necessary, to ensure that it can hold at least the number of elements specified by the minimum capacity argument.
 
+An ArrayList is faster and better as it supports random access to its elements. Traversing a linked list or inserting an item in the middle is very expensive as you have to iterate over each item and is very likely to have cache misses. If you need to perform processing on multiple items of the list in a single iteration then the overhead of iterations can be lesser inLinkedList  than that of anArrayList  which involves copying array element multiple times.
+
+## Aspect-Oriented Programming
+Aspect Oriented Programming(AOP) is the important part of the Spring Framework. The Aspect-Oriented Programming used for separating cross-cutting concerns (for example logging, security etc.) from the business logic of the application.
+
+# B
+## Boilerplate code
+It is the sections of code that have to be included in many places with little or no alteration" 
 # D
 
 ##  Data structure?
@@ -39,6 +49,9 @@ hiding of data implementation by restricting access
 
 # H
 
+## Hexagonal Architecture (ports and adapters). 
+//TOODO
+
 ## HTTP 
 stands for Hypertext Transfer Protocol. It's a stateless, application-layer protocol for communicating between distributed systems to allow two systems to communicate via remote calls.
 
@@ -53,11 +66,13 @@ Infrastructure as a Service. Cloud providers only provide the hardware needed to
 ##Locks
 Locks can make sure that the sequence of language operations are going to be performed in isolation to other concurrent threads working with that same resource. Locks cannot garantee atomicity, which I explained Atomicity, in particular, guarantees that each compound action is treated as a single "unit of work," which either succeeds completely or fails completely. If any of the compound actions constituting a unit of work fails to complete, the entire unit of work fails and the data is left unchanged (Wikipedia). As I have shown in my post, Java cannot guarantee that without adding extra code, like exception handling, to intrinsic and explicit locks. 
 
+# Linked List
+The LinkedList data structure contains an ordered set of data elements (know as nodes) such that each element contains a link or reference to its successor (next element). The last element (or tail) of the sequence points to a null element. The linked list itself contains a reference to the first element of the list, which is called the head element. LinkedList in Java is a doubly-linked list implementation of the List interface. In a doubly-linked list, every node points to its previous and next node. Other interfaces it implements are Serializable, Cloneable, and Deque (with super-interface as Queue). 
 
 # M
 
 ## Microservices Architecture?
-* A microservices architecture is a software development technique that structures an application as a collection of loosely coupled services.
+* A microservice architecture is a software development technique that structures an application as a collection of loosely coupled services.
 * The services are fine-grained and the protocols lightweight, thus improving application modularity, making it easier to understand, develop, and test. It parallelizes development by enabling small autonomous teams to develop, deploy, and scale their respective services independently. 
 * Microservice can be polyglot, it means you can use different language for different project
 
@@ -228,3 +243,4 @@ In general, cross-site scripting refers to that hacking technique that leverages
 0.  https://medium.com/python-pandemonium/better-python-dependency-and-package-management-b5d8ea29dff1
 0.  https://www.reactivemanifesto.org/
 0.  https://springframework.guru/reactive-streams-in-java/
+0.  https://en.wikipedia.org/wiki/Boilerplate_code
