@@ -61,11 +61,11 @@ total_thunderballs = 40  # 39
 url = 'https://www.national-lottery.co.uk/results/thunderball/draw-history/csv'
 path = thunderball_history_path = config.path["base"] + 'thunderball-draws.csv'
 all_draws = config.path["base"] + 'thunderball-all-draws.csv'
-all_draws_path = 'B:\GitHub\DomJavaKB\data\lotto\euro-hotpicks-all-draws.csv'
+all_draws_path = 'B:\\GitHub\\DomJavaKB\\data\\lotto\\thunderball-all-draws.csv'
 
-
+log_path = 'B:\GitHub\DomJavaKB\data\lotto\log.txt'
 logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s',
-                    filename=config.path["base"] + 'log.txt')
+                    filename=log_path)
 
 matches = {
     9: 'Match 5 + Thunderball(£500.000)',
