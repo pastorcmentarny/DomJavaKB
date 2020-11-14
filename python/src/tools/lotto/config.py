@@ -1,10 +1,5 @@
 import platform
 
-path = {
-    'base': '../../../../../data/lotto/'
-}
-
-
 def display_warning_message(path):
     print(
         "\n\n WARNING! \n\n If you see all result are 0s then format all results in: \n\t " + path +

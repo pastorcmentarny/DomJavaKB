@@ -22,17 +22,15 @@ from src.tools.lotto.utils import lotto_utils, output
 # 2 numbers that played 3-9
 # 2 numbers that played 10+
 
-# TODO make it system independent
-# all_draws_path = 'D:/Projects/DomJavaKB/data/lotto/lotto-hotpicks-all-draws.csv'
-# all_draws_path = 'D:/GitHub/DomJavaKB/data/lotto/lotto-hotpicks-all-draws.csv'
+from src.tools.lotto import config
 from src.tools.lotto.utils.output import draw_title
 
-all_draws_path = 'B:/GitHub/DomJavaKB/data/lotto/lotto-hotpicks-all-draws.csv'
+all_draws_path = config.get_project_path('lotto-hotpicks-all-draws.csv')
 draw_history_file = open(all_draws_path)
 hotpics_history_csv = csv.reader(draw_history_file)
 data = list(hotpics_history_csv)
 
-recent_draws_path = 'B:/GitHub/DomJavaKB/data/lotto/lotto-hotpicks-draws.csv'
+recent_draws_path = config.get_project_path('lotto-hotpicks-draws.csv')
 recent_draws_history_file = open(recent_draws_path)
 recent_hotpics_history_csv = csv.reader(recent_draws_history_file)
 recent_data = list(recent_hotpics_history_csv)

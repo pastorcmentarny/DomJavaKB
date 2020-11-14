@@ -7,30 +7,20 @@
 * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
 """
 
-import sys
-import webbrowser
-
 import requests
-
+import webbrowser
 from src.tools.lotto import config
-
-sys.path.insert(0, '../utils')
-
-import draws_downloader
-import get_result_for
-import output
-import lotto_utils
-
-
+from src.tools.lotto.utils import draws_downloader
+from src.tools.lotto.utils import get_result_for
+from src.tools.lotto.utils import output
+from src.tools.lotto.utils import lotto_utils
 
 lotto_hotpicks_url = 'https://www.national-lottery.co.uk/results/lotto-hotpicks/draw-history/csv'
-path = config.path["base"] + 'lotto-hotpicks-draws.csv'
-all_draws = config.path["base"] + 'lotto-hotpicks-all-draws.csv'
+path = config.get_project_path('lotto-hotpicks-draws.csv')
+all_draws = config.get_project_path('lotto-hotpicks-all-draws.csv')
 print('Downloading  data from ' + lotto_hotpicks_url)
 response = requests.get(lotto_hotpicks_url)
 print('Download complete with response ' + str(response.status_code))
-
-
 
 data = draws_downloader.get_draws_for(lotto_hotpicks_url, path)
 draws_downloader.update_all_draws_v2(data, all_draws)
@@ -71,4 +61,4 @@ while len(remaining_numbers) < 2:
 
 get_result_for.get_result(data, remaining_numbers, 2, 6)
 
-#webbrowser.open('https://www.national-lottery.co.uk/games/lotto-hotpicks')
+webbrowser.open('https://www.national-lottery.co.uk/games/lotto-hotpicks')
