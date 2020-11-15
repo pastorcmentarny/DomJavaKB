@@ -6,16 +6,15 @@ import csv
 import requests
 from src.tools.lotto import config
 
-sys.path.insert(0, '../utils')
+from src.tools.lotto.utils import draws_downloader
+from src.tools.lotto.utils import lotto_utils
+from src.tools.lotto.utils import output
 
-import draws_downloader
-import lotto_utils
-import output
-
+# TODO load
 game_name = 'set-for-life'
-set_for_life_url = 'https://www.national-lottery.co.uk/results/' + game_name + '/draw-history/csv'
-path = config.path["base"] + game_name + '.csv'
-all_draws = config.path["base"] + game_name + '-all-draws.csv'
+set_for_life_url = f'https://www.national-lottery.co.uk/results/{game_name}/draw-history/csv'
+path = config.get_project_path(f'{game_name}-draws.csv')
+all_draws = config.get_project_path(f'{game_name}-all-draws.csv')
 
 WRITABLE = 'w'  # move to config
 
@@ -51,10 +50,10 @@ def main():
     logging.debug(os.getcwd())
 
     data = draws_downloader.get_draws_for(set_for_life_url, path)
-    # update_all_draws(data, all_draws)
+    update_all_draws(data, all_draws)
 
     logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s',
-                        filename=config.path["base"] + 'log.txt')
+                        filename=config.get_project_path('log.txt'))
 
     print('number counter')
     numbers = {}
