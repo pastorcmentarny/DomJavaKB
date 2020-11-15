@@ -3,7 +3,7 @@
 import datetime
 import random
 
-from tools.chinese.today import chinese_number
+from src.tools.chinese.today import chinese_number
 
 
 def get_current_time_in_chinese() -> str:

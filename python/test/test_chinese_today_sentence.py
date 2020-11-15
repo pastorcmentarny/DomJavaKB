@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import Mock
 
-from tools.chinese.today import application_utils, sentence
+from src.tools.chinese.today import application_utils, sentence
 
 
 class ChineseTodaySentenceTests(unittest.TestCase):

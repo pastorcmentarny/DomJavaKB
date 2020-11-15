@@ -4,7 +4,7 @@ import random
 import bs4
 import requests
 
-from tools.chinese.today import chinese_number, config
+from src.tools.chinese.today import chinese_number, config
 
 date = datetime.datetime.now()
 

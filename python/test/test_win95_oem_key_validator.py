@@ -1,6 +1,6 @@
 import unittest
 
-from exercises.win95key import win95_oem_key_validator as validator
+from src.exercises.win95key import win95_oem_key_validator as validator
 
 
 class Win95OemKeyValidatorTestCase(unittest.TestCase):

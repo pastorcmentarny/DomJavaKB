@@ -1,7 +1,7 @@
 import random
 from datetime import datetime
 
-from tools.chinese.today import application_utils, chinese_time, config, file_loader, food_generator
+from src.tools.chinese.today import application_utils, chinese_time, config, file_loader, food_generator
 
 config_file = file_loader.config()
 dot = config_file['dot']

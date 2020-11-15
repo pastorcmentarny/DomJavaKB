@@ -1,6 +1,6 @@
 import unittest
 
-from tools.chinese.today import application_utils as app_utils
+from src.tools.chinese.today import application_utils as app_utils
 
 
 class ApplicationUtilsTests(unittest.TestCase):

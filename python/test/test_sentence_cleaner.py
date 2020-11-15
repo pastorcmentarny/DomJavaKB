@@ -2,7 +2,7 @@ import unittest
 from src.tools.text import sentence_cleaner
 
 class SentenceClenaerTestCase(unittest.TestCase):
-    def test_x(self):
+    def test_clean_sentence_acceptance_text(self):
         # given
         example_with_all_problems = "dominik likes  beer very  very  very much !!!!"
         expected_result = "Dominik likes beer very much!"

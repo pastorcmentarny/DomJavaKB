@@ -14,7 +14,7 @@ class MyTestCase(unittest.TestCase):
     def test_output(self, mock_stdout):
         # given
         text = 'test'
-        expected_result = '-------- test --------'
+        expected_result = '------test------'
 
         # when
         ui_utils.title(text)

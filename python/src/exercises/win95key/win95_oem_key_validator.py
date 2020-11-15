@@ -6,14 +6,17 @@
 # C - next 7 digit must start with zero and don't end with 7 and sum must be div by 7
 # D - last 5 digit do not matter
 # Bonus rule 366 is valid only for leap year
-from utils import collection_utils
+from src.utils import collection_utils
 
-def is_leap_year(year:str):
-    if (year % 4 != 0) {
-        return False;
-    } else if (year % 100 != 0) {
-    return true;
-    } else return year % 400 == 0;
+
+def is_leap_year(year: str):
+    if (year % 4 != 0):
+        return False
+    elif (year % 100 != 0):
+        return True
+    else:
+        return year % 400 == 0;
+
 
 def is_key_valid(key: str) -> bool:
     if not key:
@@ -28,7 +31,6 @@ def is_key_valid(key: str) -> bool:
         print('day-year contains non numeric value')
         return False
     if len(dayyear) != 5:
-
         return False
     day = int(dayyear[0:3])
 

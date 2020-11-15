@@ -1,6 +1,6 @@
 import unittest
 
-from utils import collection_utils
+from src.utils import collection_utils
 
 
 class CollectionUtilsCaseTest(unittest.TestCase):

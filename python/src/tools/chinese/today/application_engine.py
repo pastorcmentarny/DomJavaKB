@@ -4,7 +4,7 @@ import datetime
 
 import pyperclip
 
-from tools.chinese.today import activities, chinese_number, sentence
+from src.tools.chinese.today import activities, chinese_number, sentence
 
 date = datetime.datetime.now()
 

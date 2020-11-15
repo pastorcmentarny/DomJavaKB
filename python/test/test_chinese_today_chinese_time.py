@@ -1,6 +1,6 @@
 import unittest
 
-from tools.chinese.today import chinese_time
+from src.tools.chinese.today import chinese_time
 
 
 class ChineseTimeTests(unittest.TestCase):

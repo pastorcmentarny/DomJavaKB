@@ -86,3 +86,51 @@ print(jsonDataAsPython)
  
  Recall that sys.argv will always have at least one element, sys.argv[0], which contains the Python script’s filename.
 """
+
+
+1
+
+import pandas as pd
+
+2
+
+import csv
+
+3
+
+Finded_URL = ['Finded_URL_1.csv', 'Finded_URL_501.csv','Finded_URL_1001.csv','Finded_URL_1501.csv','Finded_URL_2001.csv',
+
+              4
+
+              'Finded_URL_2501.csv','Finded_URL_3001.csv','Finded_URL_3501.csv','Finded_URL_4001.csv','Finded_URL_4501.csv',
+
+              5
+
+              'Finded_URL_5001.csv','Finded_URL_5501.csv','Finded_URL_6001.csv','Finded_URL_6501.csv','Finded_URL_7001.csv']
+
+6
+
+7
+
+#combine all files in the list
+
+8
+
+combined_csv = pd.concat([pd.read_csv(f,header=None) for f in Finded_URL])
+
+9
+
+10
+
+combined_csv.head()
+
+11
+
+12
+
+combined_csv.to_csv( "Finded_URL_All.csv", quotechar='"',
+
+                     13
+
+quoting=csv.QUOTE_ALL, index=False, encoding='utf-8')
+

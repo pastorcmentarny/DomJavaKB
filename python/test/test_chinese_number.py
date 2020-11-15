@@ -1,6 +1,6 @@
 import unittest
 
-from tools.chinese.today import chinese_number
+from src.tools.chinese.today import chinese_number
 
 
 class TestChineseNumber(unittest.TestCase):

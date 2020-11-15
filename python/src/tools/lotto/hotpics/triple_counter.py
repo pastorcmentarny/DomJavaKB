@@ -5,16 +5,15 @@ import time
 
 from src.tools.lotto import config
 
-all_draws_path = config.path["base"] + 'lotto-hotpicks-all-draws.csv'
-# all_draws_path = base_dir + 'test.csv'
-result = config.path["base"] + 'result.txt'
+all_draws_path = config.get_project_path('lotto-hotpicks-all-draws.csv')
+result = config.get_project_path('result.txt')
 percentage_format = "%.2f"
 
 all_draws_file = open(all_draws_path, 'r')
 all_draws_csv = csv.reader(all_draws_file)
 all_draws_data = list(all_draws_csv)
 logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s',
-                    filename=config.path["base"] + 'log.txt')
+                    filename=config.get_project_path('log.txt'))
 
 
 class Triples:

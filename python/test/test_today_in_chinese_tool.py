@@ -2,7 +2,7 @@ import unittest
 
 import pyperclip
 
-from tools.chinese.today import application_runner
+from src.tools.chinese.today import application_runner
 
 
 class TodayInChineseTests(unittest.TestCase):
