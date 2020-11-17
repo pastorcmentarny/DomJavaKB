@@ -9,13 +9,9 @@
 from src.utils import collection_utils
 
 
-def is_leap_year(year: str):
-    if (year % 4 != 0):
-        return False
-    elif (year % 100 != 0):
-        return True
-    else:
-        return year % 400 == 0;
+# move to
+def is_leap_year_for_years_between_1982_2040(year: int):
+    return year % 4 == 0
 
 
 def is_key_valid(key: str) -> bool:
@@ -23,6 +19,14 @@ def is_key_valid(key: str) -> bool:
         print('no key or empty')
         return False
     section = key.split('-')
+    sections = len(section)
+    if sections != 4:
+        if sections > 4:
+            print('too many sections')
+            return False
+        else:
+            print('too few sections')
+            return False
 
     dayyear = section[0]
     try:
@@ -44,18 +48,38 @@ def is_key_valid(key: str) -> bool:
         print('year is wrong {}'.format(year))
         return False
 
+    if day == 366 and not is_leap_year_for_years_between_1982_2040(year):
+        print('invalid day for non leap year' + str(day) + ' ' + str(year))
+        return False
+
+
+
     oem = section[1]
     if 'OEM' != oem:
         print('Should be OEM but was : {}'.format(oem))
         return False
 
     number = section[2]
+    if not number.isnumeric():
+        print('non numeric character in 3rd section (division by 7)')
+        return False
 
     list_of_digits = collection_utils.split_string_to_list_of_single_digit(number)
     print(len(list_of_digits))
 
     if list_of_digits[0] != 0 or list_of_digits[6] == 7:
         print('first or last number is wrong '.format(list_of_digits))
+        return False
+
+    last_section = section[3]
+    if len(last_section) > 5:
+        print('too many characters in last section')
+        return False
+    elif len(last_section) < 5:
+        print('not enough characters in last section')
+        return False
+    elif not last_section.isnumeric():
+        print('non numeric character in last section')
         return False
 
     return True
