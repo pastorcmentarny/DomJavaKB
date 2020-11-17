@@ -53,17 +53,17 @@ SPLITTER = ','
 EMPTY = ""
 SPACE = " "
 WRITABLE = 'w'
-GOOD_SCORE = 4000
+GOOD_SCORE = 4000  # TODO change to 1000+ last lottery
 
 total_thunderballs = 40  # 39
 
 # SETTINGS
 url = 'https://www.national-lottery.co.uk/results/thunderball/draw-history/csv'
-path = thunderball_history_path = config.path["base"] + 'thunderball-draws.csv'
-all_draws = config.path["base"] + 'thunderball-all-draws.csv'
-all_draws_path = 'B:\\GitHub\\DomJavaKB\\data\\lotto\\thunderball-all-draws.csv'
+path = thunderball_history_path = config.get_project_path('thunderball-draws.csv')
+all_draws = config.get_project_path('thunderball-all-draws.csv')
+all_draws_path = config.get_project_path('thunderball-all-draws.csv')
 
-log_path = 'B:\GitHub\DomJavaKB\data\lotto\log.txt'
+log_path = config.get_project_path('log.txt')
 logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s',
                     filename=log_path)
 
