@@ -2,7 +2,7 @@ import csv
 
 from src.tools.lotto import config
 
-lotto_hotpicks_history_path = config.path['base'] + 'lotto-hotpicks-all-draws.csv'
+lotto_hotpicks_history_path = config.get_project_path('lotto-hotpicks-all-draws.csv')
 lotto_hotpics_draw_history_file = open(lotto_hotpicks_history_path)
 
 

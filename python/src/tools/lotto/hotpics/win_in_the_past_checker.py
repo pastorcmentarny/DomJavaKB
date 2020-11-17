@@ -15,7 +15,7 @@ from src.tools.lotto import config
 # result
 
 logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s',
-                    filename=config.path["base"] + 'log.txt')
+                    filename=config.get_project_path('log.txt'))
 
 numbers = ['2', '25', '57', '11', '8', '33']
 
@@ -23,7 +23,7 @@ numbers = ['2', '25', '57', '11', '8', '33']
 def main():
     logging.debug("checking if numbers you selected won in the past results for LOTTO HOTPICS")
 
-    lotto_hotpicks_history_path = config.path["base"] + 'lotto-hotpicks-all-draws.csv'
+    lotto_hotpicks_history_path = config.get_project_path('lotto-hotpicks-all-draws.csv')
     lotto_hotpics_draw_history_file = open(lotto_hotpicks_history_path)
 
     config.display_warning_message(lotto_hotpicks_history_path)

@@ -14,11 +14,11 @@ sys.path.insert(0, '../utils')
 import draws_downloader
 
 logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s',
-                    filename=config.path["base"] + 'log.txt')
+                    filename=config.get_project_path('log.txt'))
 
 lotto_hotpicks_url = 'https://www.national-lottery.co.uk/results/lotto-hotpicks/draw-history/csv'
-path = config.path["base"] + 'lotto-hotpicks-draws.csv'
-all_draws = config.path["base"] + 'lotto-hotpicks-all-draws.csv'
+path = config.get_project_path('lotto-hotpicks-draws.csv')
+all_draws = config.get_project_path('lotto-hotpicks-all-draws.csv')
 logging.debug('downloading  data from ' + lotto_hotpicks_url)
 response = requests.get(lotto_hotpicks_url)
 logging.debug('download complete with response ' + str(response.status_code))

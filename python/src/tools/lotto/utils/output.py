@@ -20,4 +20,5 @@ def display_numbers(numbers):
     numbers = [(key, numbers[key]) for key in sorted(numbers, key=numbers.get, reverse=True)]
     for key, value in numbers:
         print(str(key) + ': ' + str(value))
+    print('--------------------')
     return numbers

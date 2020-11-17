@@ -10,10 +10,10 @@ sys.path.insert(0, '../utils')
 
 # SETTINGS
 url = 'https://www.national-lottery.co.uk/results/euromillions/draw-history/csv'
-path = lotto_hotpics_history_path = config.path["base"] + 'euro-draws.csv'
-# all_draws = config.path["base"] + 'euro-all-draws.csv'
+path = lotto_hotpics_history_path = config.get_project_path('euro-draws.csv')
+# all_draws = config.get_project_path('euro-all-draws.csv')
 logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s',
-                    filename=config.path["base"] + 'log.txt')
+                    filename=config.get_project_path('log.txt'))
 
 data = draws_downloader.get_draws_for(url, path)
 # draws_downloader.update_all_draws(data, all_draws)
@@ -83,5 +83,5 @@ def update_data():
     all_draws_file.close()
 
 if __name__ == '__main__':
-    update_data()
+    #update_data()
     draw()

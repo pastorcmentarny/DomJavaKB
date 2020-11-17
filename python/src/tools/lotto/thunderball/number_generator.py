@@ -39,9 +39,9 @@ T2 from most count of number  12x or 8x
 37: 6 EXCLUDED
 """
 
+import csv
 import logging
 import random
-import csv
 from timeit import default_timer as timer
 
 from src.tools.lotto import config
@@ -60,10 +60,9 @@ total_thunderballs = 40  # 39
 # SETTINGS
 url = 'https://www.national-lottery.co.uk/results/thunderball/draw-history/csv'
 path = thunderball_history_path = config.get_project_path('thunderball-draws.csv')
-all_draws = config.get_project_path('thunderball-all-draws.csv')
 all_draws_path = config.get_project_path('thunderball-all-draws.csv')
-
 log_path = config.get_project_path('log.txt')
+
 logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s',
                     filename=log_path)
 
@@ -95,24 +94,24 @@ def get_result_description(level: int) -> str:
 
 def get_draw_result(hits: int, tb: bool = True):
     if tb:
-        if hits is 5:
+        if hits == 5:
             return 9
-        if hits is 4:
+        if hits == 4:
             return 7
-        if hits is 3:
+        if hits == 3:
             return 5
-        if hits is 2:
+        if hits == 2:
             return 3
-        if hits is 1:
+        if hits == 1:
             return 2
         else:
             return 1
     else:
-        if hits is 5:
+        if hits == 5:
             return 8
-        if hits is 4:
+        if hits == 4:
             return 6
-        if hits is 3:
+        if hits == 3:
             return 4
     return 0
 
@@ -214,7 +213,6 @@ def generate_numbers_for_thunderball():
             numbers_to_delete.append(line[i])
 
     numbers_to_delete = list(set(numbers_to_delete))
-    print(numbers_to_delete)
 
     for value in numbers_to_delete:
         numbers.pop(value)
@@ -225,21 +223,20 @@ def generate_numbers_for_thunderball():
     excluded.append(int(numbers_as_list[len(numbers_as_list) - 2][0]))
     excluded.append(int(numbers_as_list[len(numbers_as_list) - 1][0]))
 
-    numbers = output.display_numbers(numbers)  # TODO delete it?
+    output.display_numbers(numbers)
 
-    print("\n\n thunderballs that didn't play in last 10 games:")
+    ui_utils.title("\n\n thunderballs that didn't play in last 10 games:")
 
     thunderball_to_delete = []
     for line in data[0:10]:
         thunderball_to_delete.append(line[thunderball_column])
 
     thunderball_to_delete = list(set(thunderball_to_delete))
-    logging.debug(thunderball_to_delete)
 
     for value in thunderball_to_delete:
         thunderballs.pop(value)
 
-    thunderballs = output.display_numbers(thunderballs)  # TODO delete it?
+    output.display_numbers(thunderballs)
 
     for line in data[0: 2]:
         for i in range(1, lotto_utils.get_last(5)):
@@ -270,7 +267,7 @@ def generate_numbers_for_thunderball():
     for i in numbers_to_draw:
         draw_result.append(i)
         count += 1
-        if count is 6:
+        if count == 6:
             count = 1
             display_past_wins_result_for(draw_result, sorted_numbers)
             draw_result.clear()
@@ -292,13 +289,9 @@ def stats():
         numbers[forth_number] = numbers.get(forth_number, 0) + 1
         numbers[fifth_number] = numbers.get(fifth_number, 0) + 1
 
-    numbers = [(key, numbers[key]) for key in sorted(numbers, key=numbers.get, reverse=True)]
-    for key, value in numbers:
-        print(str(key) + ': ' + str(value))
-
 
 def get_data() -> list:
-    all_draws_file = open('B:\\GitHub\\DomJavaKB\\data\\lotto\\thunderball-all-draws.csv')  # move this config
+    all_draws_file = open(all_draws_path)  # move this config
     thunderball_history_csv = csv.reader(all_draws_file)
     return list(thunderball_history_csv)
 
@@ -307,9 +300,8 @@ def update_draws():
     ui_utils.title('UPDATING DRAWS')
     recent_draws_list = draws_downloader.get_draws_for(url, path)
     last_column = len(recent_draws_list[0]) - 1
-    print(last_column)
+
     all_draws_list = get_data()
-    print(all_draws_list)
 
     last_draw = int(all_draws_list[0][last_column])
     draw_to_add = []
