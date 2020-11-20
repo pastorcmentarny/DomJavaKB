@@ -1,13 +1,8 @@
-import sys
 import random
 
 from src.tools.lotto import config
 
-sys.path.insert(0, '../utils')
-
-import draws_downloader
-import output
-import lotto_utils
+from src.tools.lotto.utils import draws_downloader, lotto_utils, output
 
 # SETTINGS
 url = 'https://www.national-lottery.co.uk/results/euromillions-hotpicks/draw-history/csv'

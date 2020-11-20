@@ -47,5 +47,28 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(expected_result,result)
 
 
+    def test_select_random_number_from_first_two_most_played_game_acceptance_test(self):
+        # given
+        dict_key_as_number_game_played= {
+            8: [41],
+            7: [4, 46],
+            6: [9, 11, 27],
+            5: [2, 24, 45],
+            4: [8, 22, 34, 43],
+            3: [35, 36],
+            2: [26, 47],
+            0: [48]
+        }
+        expected_valid_numbers = [9, 11, 27,2, 24, 45,8, 22, 34, 43]
+
+        # when
+        result = lotto_utils.select_random_number_from_two_highest_len_of_played_game(dict_key_as_number_game_played)
+
+        # then
+        self.assertEqual(len(result),2)
+        self.assertIn(result[0],expected_valid_numbers)
+        self.assertIn(result[1],expected_valid_numbers)
+
+
 if __name__ == '__main__':
     unittest.main()
