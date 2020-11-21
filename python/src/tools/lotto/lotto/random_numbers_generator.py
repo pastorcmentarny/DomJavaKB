@@ -116,7 +116,6 @@ def generate_next_draw():
     next_draw_number.append(first_second_number_list[2])
 
     # select 2 from top 10 numbers that didn't play longest
-
     next_draw_number.append(int(n34()[3][0]))
     next_draw_number.append(int(n34()[4][0]))
 
@@ -133,14 +132,14 @@ def generate_next_draw():
             excluded.append(int(line[number]))
     while len(next_draw_number) < 6:
         next_draw_number = list(next_draw_number)
-        next_draw_number.append(str(random.randint(1, 60)))
+        next_draw_number.append(int(str(random.randint(1, 60))))
         next_draw_number = set(next_draw_number)
 
     # check against stats
     next_draw_number = list(next_draw_number)
     check_wins_in_the_past(next_draw_number)
 
-    print(next_draw_number)
+    return next_draw_number
 
 
 def n34() -> list:
@@ -179,4 +178,4 @@ def count_hits(must_hit: int, numbers: list):
 if __name__ == '__main__':
     stats()
     generate_random_number()
-    generate_next_draw()
+    print(generate_next_draw())

@@ -44,12 +44,11 @@ class MyTestCase(unittest.TestCase):
         result = lotto_utils.sort_with_key_as_number_game_played(number_count_in_draws)
 
         # then
-        self.assertEqual(expected_result,result)
-
+        self.assertEqual(expected_result, result)
 
     def test_select_random_number_from_first_two_most_played_game_acceptance_test(self):
         # given
-        dict_key_as_number_game_played= {
+        dict_key_as_number_game_played = {
             8: [41],
             7: [4, 46],
             6: [9, 11, 27],
@@ -59,15 +58,19 @@ class MyTestCase(unittest.TestCase):
             2: [26, 47],
             0: [48]
         }
-        expected_valid_numbers = [9, 11, 27,2, 24, 45,8, 22, 34, 43]
+        expected_valid_numbers_for_first = [8, 22, 34, 43]
+        expected_valid_numbers_for_second = [9, 11, 27, 2, 24, 45]
 
         # when
         result = lotto_utils.select_random_number_from_two_highest_len_of_played_game(dict_key_as_number_game_played)
 
         # then
-        self.assertEqual(len(result),2)
-        self.assertIn(result[0],expected_valid_numbers)
-        self.assertIn(result[1],expected_valid_numbers)
+        self.assertEqual(len(result), 2)
+        self.assertIn(result[0], expected_valid_numbers_for_first)
+        self.assertIn(result[1], expected_valid_numbers_for_second)
+
+        # debug
+        print(result)
 
 
 if __name__ == '__main__':
