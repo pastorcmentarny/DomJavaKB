@@ -72,6 +72,53 @@ class MyTestCase(unittest.TestCase):
         # debug
         print(result)
 
+    def test_select_random_number_from_first_two_most_played_game_should_pick_up_one_number_from_four_and_one_from_three(
+            self):
+        # given
+        dict_key_as_number_game_played = {
+            8: [41],
+            7: [4, 46],
+            5: [2, 24, 45],
+            4: [8, 22, 34, 43],
+            3: [35, 36],
+            2: [26, 47],
+            0: [48]
+        }
+        expected_valid_numbers_for_first = [8, 22, 34, 43]
+        expected_valid_numbers_for_second = [2, 24, 45]
 
-if __name__ == '__main__':
-    unittest.main()
+        # when
+        result = lotto_utils.select_random_number_from_two_highest_len_of_played_game(dict_key_as_number_game_played)
+
+        # then
+        self.assertEqual(len(result), 2)
+        self.assertIn(result[0], expected_valid_numbers_for_first)
+        self.assertIn(result[1], expected_valid_numbers_for_second)
+
+        # debug
+        print(result)
+
+    def test_select_random_number_from_first_two_most_played_game_should_pick_up_two_number_from_four(
+            self):
+        # given
+        dict_key_as_number_game_played = {
+            8: [41],
+            7: [4, 46],
+            5: [2, 24, 45],
+            4: [8, 22, 34, 43],
+            3: [11, 27, 35, 36],
+            2: [26, 47],
+            0: [48]
+        }
+        expected_valid_numbers_for_first = [8, 22, 34, 43, 11, 27, 35, 36]
+
+        # when
+        result = lotto_utils.select_random_number_from_two_highest_len_of_played_game(dict_key_as_number_game_played)
+
+        # then
+        self.assertEqual(len(result), 2)
+        self.assertIn(result[0], expected_valid_numbers_for_first)
+        self.assertIn(result[1], expected_valid_numbers_for_first)
+
+        # debug
+        print(result)
