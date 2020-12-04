@@ -57,3 +57,13 @@ def select_random_number_from_two_highest_len_of_played_game(game_list: dict) ->
             random.shuffle(first_list)
             random.shuffle(second_list)
         return [first_list[0], second_list[0]]
+
+
+def count_pairs(pairs: list):
+    result = {}
+    for item in pairs:
+        if item in result:
+            result[item] = result.get(item) + 1
+        else:
+            result[item] = 1
+    return result
