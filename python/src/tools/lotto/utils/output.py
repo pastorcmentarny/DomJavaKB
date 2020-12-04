@@ -8,6 +8,7 @@
 """
 
 
+# TODO move to ui_utils
 def draw_title(title: str, pre_new_lines: int = 0):
     pre_new_lines = '\n' * pre_new_lines
     left_align = ' ' * 4
@@ -22,3 +23,16 @@ def display_numbers(numbers):
         print(str(key) + ': ' + str(value))
     print('--------------------')
     return numbers
+
+
+# TODO move to ui_utils
+def debug_mode_warning(debug_mode):
+    hr = '-' * 6
+    br = '\n' * 2
+    if debug_mode:
+        print(hr +
+              '\nWARNING!\n'
+              + hr + br +
+              'You are running this with debug mode so it will produce lots of extra logs!\n'
+              'Disable for normal usage\n'
+              + hr + br)
