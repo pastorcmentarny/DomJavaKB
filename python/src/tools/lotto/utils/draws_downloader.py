@@ -15,7 +15,8 @@ WRITABLE = 'w'
 
 
 def get_draws_for(url, path):
-    print('get draws from: ' + url + "\nand store them here: " + path);
+
+    print('get draws from: ' + url + "\nand store them here: " + path)
     response = requests.get(url)
     try:
         response.raise_for_status()  # without try it will exit program
@@ -36,10 +37,12 @@ def get_draws_for(url, path):
     return data[1:len(data)]
 
 
-def update_all_draws(recent_draws_list, all_draws_file_path):
+def update_all_draws(recent_draws_list, all_draws_file_path, debug_mode: bool = False):
     print('updating all draws if needed')
     last_column = len(recent_draws_list[0]) - 1
-    print(last_column)
+    if debug_mode:
+        print(f' Last Column: {last_column}')
+
     all_draws_file = open(all_draws_file_path)
     all_draws_list = list(csv.reader(all_draws_file))
 
@@ -52,7 +55,10 @@ def update_all_draws(recent_draws_list, all_draws_file_path):
         counter += 1
         current_draw = int(recent_draws_list[counter][last_column])
 
-    print(draw_to_add)
+    print(f'Adding {draw_to_add} draws to all draws list ')
+    for a_draw in draw_to_add:
+        print(a_draw)
+
     all_draws_file = open(all_draws_file_path, WRITABLE)
     all_draws_file = update_file_for(all_draws_file, draw_to_add)
     all_draws_file = update_file_for(all_draws_file, all_draws_list)
@@ -102,17 +108,32 @@ def update_file_for(file, list):
     return file
 
 
-'''
-    
+def update_all_draws_for_set_for_life(recent_draws_list, all_draws_file_path):
+    print('updating all draws if needed')
+    last_column = len(recent_draws_list[0]) - 1
+    print(last_column)
+    all_draws_file = open(all_draws_file_path)
+    all_draws_list = list(csv.reader(all_draws_file))
 
-    for i in range(0, len(recent_draws_list)):
-        if recent_draws_list[i] == all_draws_list[i]:
-            logging.info("Nothing more to add list are equals")
-            return
-        if recent_draws_list[i] != all_draws_list[i]:
-            logging.debug("Adding " + str(recent_draws_list[i]) + ' to list.')
+    last_draw = int(all_draws_list[0][last_column])
+    draw_to_add = []
+    current_draw = int(recent_draws_list[0][last_column])
+    counter = 0
+    while last_draw != current_draw:
+        draw_to_add.append(recent_draws_list[counter])
+        counter += 1
+        current_draw = int(recent_draws_list[counter][last_column])
 
-        draw_to_add.append(recent_draws_list)
+    print(draw_to_add)
+    all_draws_file = open(all_draws_file_path, WRITABLE)
+    all_draws_file = update_file_for(all_draws_file, draw_to_add)
+    all_draws_file = update_file_for(all_draws_file, all_draws_list)
+    all_draws_file.close()
 
 
-'''
+def update_all_results_for_all_games():
+    pass
+
+
+if __name__ == '__main__':
+    update_all_results_for_all_games()
