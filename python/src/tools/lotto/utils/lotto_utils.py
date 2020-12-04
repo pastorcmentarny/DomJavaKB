@@ -67,3 +67,8 @@ def count_pairs(pairs: list):
         else:
             result[item] = 1
     return result
+
+
+def assign_last_played_if_never_play_before(number: int, draw_date: str, last_played_list: dict):
+    if last_played_list[number] == 'Never':
+        last_played_list[number] = draw_date
