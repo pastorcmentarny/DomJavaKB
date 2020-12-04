@@ -312,8 +312,7 @@ def update_draws():
         draw_to_add.append(recent_draws_list[counter])
         counter += 1
         current_draw = int(recent_draws_list[counter][last_column])
-
-    print(f'draws to add {draw_to_add}')
+    print(f'draws to add {counter}')
     all_draws_file = open(all_draws_path, WRITABLE)
     all_draws_file = update_file_for(all_draws_file, draw_to_add)
     all_draws_file = update_file_for(all_draws_file, all_draws_list)
