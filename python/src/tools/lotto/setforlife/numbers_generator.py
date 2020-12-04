@@ -1,48 +1,21 @@
+import csv
 import logging
 import os
-import sys
-import webbrowser
-import csv
-import requests
-from src.tools.lotto import config
 
+import requests
+
+from src.tools.lotto import config
 from src.tools.lotto.utils import draws_downloader
 from src.tools.lotto.utils import lotto_utils
 from src.tools.lotto.utils import output
 
-# TODO load
 game_name = 'set-for-life'
 set_for_life_url = f'https://www.national-lottery.co.uk/results/{game_name}/draw-history/csv'
 path = config.get_project_path(f'{game_name}-draws.csv')
 all_draws = config.get_project_path(f'{game_name}-all-draws.csv')
 
-WRITABLE = 'w'  # move to config
 
-
-def update_all_draws(recent_draws_list, all_draws_file_path):
-    logging.debug('updating all draws if needed')
-    last_column = len(recent_draws_list[0]) - 1
-    print(last_column)
-    all_draws_file = open(all_draws_file_path)
-    all_draws_list = list(csv.reader(all_draws_file))
-
-    last_draw = int(all_draws_list[0][last_column])
-    draw_to_add = []
-    current_draw = int(recent_draws_list[0][last_column])
-    counter = 0
-    while last_draw != current_draw:
-        draw_to_add.append(recent_draws_list[counter])
-        counter += 1
-        current_draw = int(recent_draws_list[counter][last_column])
-
-    print(draw_to_add)
-    all_draws_file = open(all_draws_file_path, WRITABLE)
-    all_draws_file = draws_downloader.update_file_for(all_draws_file, draw_to_add)
-    all_draws_file = draws_downloader.update_file_for(all_draws_file, all_draws_list)
-    all_draws_file.close()
-
-
-def main():
+def generate_random_numbers_for_setforlife():
     logging.debug('downloading  data from ' + set_for_life_url)
     response = requests.get(set_for_life_url)
     logging.debug('download complete with response ' + str(response.status_code))
@@ -50,7 +23,7 @@ def main():
     logging.debug(os.getcwd())
 
     data = draws_downloader.get_draws_for(set_for_life_url, path)
-    update_all_draws(data, all_draws)
+    draws_downloader.update_all_draws_for_set_for_life(data, all_draws)
 
     logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s',
                         filename=config.get_project_path('log.txt'))
@@ -68,4 +41,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    generate_random_numbers_for_setforlife()
