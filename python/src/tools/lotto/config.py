@@ -1,5 +1,12 @@
 import platform
 
+# SETTINGS
+settings = {
+    'debug_mode': True,
+    'open_page': False
+}
+
+
 def display_warning_message(path):
     print(
         "\n\n WARNING! \n\n If you see all result are 0s then format all results in: \n\t " + path +

@@ -6,7 +6,7 @@
 * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
 * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
 """
-
+from src.tools.lotto import config
 
 # TODO move to ui_utils
 def draw_title(title: str, pre_new_lines: int = 0):
@@ -25,11 +25,10 @@ def display_numbers(numbers):
     return numbers
 
 
-# TODO move to ui_utils
-def debug_mode_warning(debug_mode):
+def debug_mode_warning():
     hr = '-' * 6
     br = '\n' * 2
-    if debug_mode:
+    if config.settings['debug_mode']:
         print(hr +
               '\nWARNING!\n'
               + hr + br +
