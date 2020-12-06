@@ -8,6 +8,7 @@
 """
 from src.tools.lotto import config
 
+
 # TODO move to ui_utils
 def draw_title(title: str, pre_new_lines: int = 0):
     pre_new_lines = '\n' * pre_new_lines
@@ -35,3 +36,13 @@ def debug_mode_warning():
               'You are running this with debug mode so it will produce lots of extra logs!\n'
               'Disable for normal usage\n'
               + hr + br)
+
+
+def debug_print(content):
+    if config.settings['debug_mode']:
+        print(content)
+
+
+def print_if_detailed_mode_enabled(content):
+    if config.settings['detailed_mode']:
+        print(content)
