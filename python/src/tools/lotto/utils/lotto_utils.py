@@ -59,6 +59,19 @@ def select_random_number_from_two_highest_len_of_played_game(game_list: dict) ->
         return [first_list[0], second_list[0]]
 
 
+def count_hits(must_hit: int, numbers: list, draws):
+    counter = 0
+    for draw in draws:
+        hit = 0
+        for n in range(0, len(numbers)):
+            if str(numbers[n]) in draw:
+                hit += 1
+        if hit >= must_hit:
+            counter += 1
+
+    return counter
+
+
 def count_pairs(pairs: list):
     result = {}
     for item in pairs:
