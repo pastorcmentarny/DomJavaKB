@@ -5,47 +5,12 @@
 * Github:	https://github.com/pastorcmentarny
 * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
 * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
-
-draw system 2.0  exlude last draw , least 2 numbers and first number generate randomly with one number from most count
-
-DESIGN FOR v2
-N1,N2,N3,N4,N5 T1
-N6,N7,N8,N9,N0 T2
-
-N1-N4 and N6-N9 generate randomly exlcuding last draw, minus last 2 least played number for while and most
-N5,N0 generate from below
-5: 16 EXLUCDED
-3: 12
-38: 12
-11: 11
-33: 9
-1: 8
-13: 8
-31: 7
-22: 6
-37: 6 EXCLUDED
-
-T1 from second  numbers that didn't play in last 10 games: 3 or 12
-T2 from most count of number  12x or 8x
-5: 16 EXCLUDED
-3: 12
-38: 12
-11: 11
-33: 9
-1: 8
-13: 8
-31: 7
-22: 6 EXCLUDED
-37: 6 EXCLUDED
 """
 
-import csv
-import logging
 import random
 from timeit import default_timer as timer
 
-from src.tools.lotto import config
-from src.tools.lotto.utils import draws_downloader, output, lotto_utils
+from src.tools.lotto.utils import output, lotto_utils, draws_manager
 from src.utils import ui_utils
 
 NEW_LINE = '\n'
@@ -56,15 +21,6 @@ WRITABLE = 'w'
 GOOD_SCORE = 4000  # TODO change to 1000+ last lottery
 
 total_thunderballs = 40  # 39
-
-# SETTINGS
-url = 'https://www.national-lottery.co.uk/results/thunderball/draw-history/csv'
-path = thunderball_history_path = config.get_project_path('thunderball-draws.csv')
-all_draws_path = config.get_project_path('thunderball-all-draws.csv')
-log_path = config.get_project_path('log.txt')
-
-logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s',
-                    filename=log_path)
 
 matches = {
     9: 'Match 5 + Thunderball(£500.000)',
@@ -78,6 +34,9 @@ matches = {
     1: 'Match 0 + Thunderball(£3)',
     0: 'No Match'
 }
+
+
+all_draws_list = draws_manager.load_all_draws_for(draws_manager.THUNDERBALL, draws_manager.thunderball_all_draws_path)
 
 
 def convert_to_list(numbers) -> list:
@@ -117,7 +76,7 @@ def get_draw_result(hits: int, tb: bool = True):
 
 
 def count_wins_in_the_past(chosen_numbers: list):
-    all_draw_results = get_data()
+
     wins = {
         9: 0,
         8: 0,
@@ -131,7 +90,7 @@ def count_wins_in_the_past(chosen_numbers: list):
         0: 0
     }
 
-    for draw in all_draw_results:
+    for draw in all_draws_list:
         hit = 0
         for n in chosen_numbers:
             if str(n) in draw:
@@ -181,7 +140,7 @@ def calculate_score_for_draw(draw_result, numbers, wins_result):
 def generate_numbers_for_thunderball():
     excluded = []
 
-    data = get_data()
+    data = all_draws_list
 
     ui_utils.title('number counter')
     numbers = {}
@@ -274,10 +233,8 @@ def generate_numbers_for_thunderball():
 
 
 def stats():
-    # load data
-    data = get_data()
     numbers = {}
-    for line in data[1: len(data)]:
+    for line in all_draws_list[1: len(all_draws_list)]:
         first_number = line[1].strip()
         second_number = line[2].strip()
         third_number = line[3].strip()
@@ -290,36 +247,6 @@ def stats():
         numbers[fifth_number] = numbers.get(fifth_number, 0) + 1
 
 
-def get_data() -> list:
-    all_draws_file = open(all_draws_path)  # move this config
-    thunderball_history_csv = csv.reader(all_draws_file)
-    return list(thunderball_history_csv)
-
-
-def update_draws():
-    ui_utils.title('UPDATING DRAWS')
-    recent_draws_list = draws_downloader.get_draws_for(url, path)
-    last_column = len(recent_draws_list[0]) - 1
-
-    all_draws_list = get_data()
-
-    last_draw = int(all_draws_list[0][last_column])
-    draw_to_add = []
-    current_draw = int(recent_draws_list[0][last_column])
-    counter = 0
-    while last_draw != current_draw:
-        # TODO clean draw from space
-        draw_to_add.append(recent_draws_list[counter])
-        counter += 1
-        current_draw = int(recent_draws_list[counter][last_column])
-    print(f'draws to add {counter}')
-    all_draws_file = open(all_draws_path, WRITABLE)
-    all_draws_file = update_file_for(all_draws_file, draw_to_add)
-    all_draws_file = update_file_for(all_draws_file, all_draws_list)
-    all_draws_file.close()
-    ui_utils.title('DRAWS UPDATED')
-
-
 def update_file_for(all_draw_file, all_draw_list):
     for draw in all_draw_list:
         all_draw_file.write(SPLITTER.join(draw).replace(SPACE, EMPTY))
@@ -329,7 +256,6 @@ def update_file_for(all_draw_file, all_draw_list):
 
 if __name__ == '__main__':
     start_time = timer()
-    update_draws()
     stats()
     generate_numbers_for_thunderball()
     end_time = timer()
