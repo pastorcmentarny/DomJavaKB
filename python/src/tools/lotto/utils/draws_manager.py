@@ -72,6 +72,10 @@ def load_recent_draws_for(name: str, path: str) -> list:
     return recent_draws_as_list[1:len(recent_draws_as_list)]
 
 
+def get_recent_draws_for_lotto_and_hotpicks():
+    return load_recent_draws_for(HOTPICKS, lotto_and_hotpics_draws_path)
+
+
 def get_recent_draws_for_euromillions():
     return load_recent_draws_for(EUROMILLIONS, euromillions_all_draws_path)
 
@@ -87,6 +91,10 @@ def load_all_draws_for(name: str, path: str) -> list:
     recent_draws_as_list = list(recent_draws_as_csv)
     output.debug_print(f'File loaded.')
     return recent_draws_as_list[0:len(recent_draws_as_list)]
+
+
+def get_all_draws_for_lotto():
+    return load_all_draws_for(LOTTO,lotto_and_hotpics_draws_all_draws_path)
 
 
 def load_all_draws_for_euromillions():
