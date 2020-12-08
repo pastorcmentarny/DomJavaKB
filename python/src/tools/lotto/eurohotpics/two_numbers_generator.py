@@ -2,20 +2,15 @@ import logging
 import webbrowser
 
 from src.tools.lotto import config
-from src.tools.lotto.utils import draws_downloader, lotto_utils, output
+from src.tools.lotto.utils import lotto_utils, output, draws_manager
 
-# SETTINGS
-open_lotto_website_in_webrowser = False
-url = 'https://www.national-lottery.co.uk/results/euromillions-hotpicks/draw-history/csv'
-path = lotto_hotpics_history_path = config.get_project_path('euro-hotpics-draws.csv')
-all_draws = config.get_project_path('euro-hotpicks-all-draws.csv')
-logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s',
-                    filename=config.get_project_path('log.txt'))
-
-data = draws_downloader.get_draws_for(url, path)
+# ====== SETTINGS ========
+open_lotto_website_in_webrowser = config.settings['open_page']
+debug_mode = config.settings['debug_mode']
+# ====== -------- ========
 
 
-#  draws_downloader.update_all_draws(data, all_draws)
+data = draws_manager.get_recent_draws_for_euromillions_hotpicks()
 
 
 def generate_two_random_numbers():

@@ -76,8 +76,8 @@ def get_recent_draws_for_euromillions():
     return load_recent_draws_for(EUROMILLIONS, euromillions_all_draws_path)
 
 
-def get_recent_draws_for_euromillions():
-    return load_recent_draws_for(EUROHOTPICKS, euromillions_hotpicks_all_draws_path)
+def get_recent_draws_for_euromillions_hotpicks():
+    return load_recent_draws_for(EUROHOTPICKS, euromillions_hotpicks_draws_path)
 
 
 def load_all_draws_for(name: str, path: str) -> list:
