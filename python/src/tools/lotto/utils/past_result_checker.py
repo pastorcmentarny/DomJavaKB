@@ -1,6 +1,4 @@
-import logging
 import os
-from src.tools.lotto import config
 
 # this app is used to provide information for given numbers how many times you won. it will check for 3,4,5,5+ and 6 number
 # validate numbers to ensure is 6 of them and they are unique
@@ -8,14 +6,11 @@ from src.tools.lotto import config
 # load all results
 # scan for hit for each combination
 # result
-
-logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s',
-                    filename=config.path["base"] + 'log.txt')
+from src.tools.lotto.utils import output
 
 
 def check_for(display_info: bool, numbers, data: list):
-    logging.debug("checking if numbers you selected won in the past results")
-    print(data)
+    output.debug_print("checking if numbers you selected won in the past results")
 
     if display_info:
         info(numbers)
@@ -25,7 +20,7 @@ def check_for(display_info: bool, numbers, data: list):
 
 
 def check_for_with_bonus(display_info: bool, numbers, data: list, bonus: int):
-    logging.debug("checking if numbers you selected won in the past results")
+    output.debug_print("checking if numbers you selected won in the past results")
     if display_info:
         info(numbers)
 
@@ -49,6 +44,3 @@ def count_hits(data: list, must_hit: int, numbers: list):
         if hit >= must_hit:
             counter += 1
     return counter
-
-
-
