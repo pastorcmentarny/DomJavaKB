@@ -10,7 +10,7 @@ debug_mode = config.settings['debug_mode']
 extra_excluded_numbers = []  # add other numbers if you want exlude them
 # ====== -------- ========
 
-data = draws_manager.get_recent_draws_for_euromillions()
+recent_draws_data = draws_manager.get_recent_draws_for_euromillions()
 numbers = []
 
 
@@ -18,7 +18,7 @@ numbers = []
 def is_not_excluded(a_number):
     excluded_numbers_list = []
 
-    for a_draw in data[0:2]:
+    for a_draw in recent_draws_data[0:2]:
         excluded_numbers_list.append(a_draw[1])
         excluded_numbers_list.append(a_draw[2])
         excluded_numbers_list.append(a_draw[3])
@@ -33,16 +33,16 @@ def is_not_excluded(a_number):
 
 
 def draw():
-    for i in range(1, 51):
-        if is_not_excluded(i):
-            numbers.append(i)
+    for number in range(1, 51):
+        if is_not_excluded(number):
+            numbers.append(number)
     random.shuffle(numbers)
 
     count = 1
     draws = 1
     balls = []
-    for i in numbers:
-        balls.append(i)
+    for number in numbers:
+        balls.append(number)
         count += 1
         if count == 6:
             count = 1
