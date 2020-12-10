@@ -93,8 +93,12 @@ def load_all_draws_for(name: str, path: str) -> list:
     return recent_draws_as_list[0:len(recent_draws_as_list)]
 
 
+def get_all_draws_for_set_for_life():
+    return load_all_draws_for(SET_FOR_LIFE, set_for_life_all_draws_path)
+
+
 def get_all_draws_for_lotto():
-    return load_all_draws_for(LOTTO,lotto_and_hotpics_draws_all_draws_path)
+    return load_all_draws_for(LOTTO, lotto_and_hotpics_draws_all_draws_path)
 
 
 def load_all_draws_for_euromillions():
