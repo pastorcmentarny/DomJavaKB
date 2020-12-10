@@ -1,19 +1,13 @@
-import csv
 import itertools
-import logging
 import time
 
 from src.tools.lotto import config
+from src.tools.lotto.utils import draws_manager
 
-all_draws_path = config.get_project_path('lotto-hotpicks-all-draws.csv')
 result = config.get_project_path('result.txt')
 percentage_format = "%.2f"
 
-all_draws_file = open(all_draws_path, 'r')
-all_draws_csv = csv.reader(all_draws_file)
-all_draws_data = list(all_draws_csv)
-logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s',
-                    filename=config.get_project_path('log.txt'))
+all_draws_data = draws_manager.get_all_draws_for_lotto()
 
 
 class Triples:
@@ -43,15 +37,71 @@ class Triples:
         return self.count
 
     def sort_numbers(self):
-        list = [self.number1, self.number2, self.number3]
-        list.sort(key=int)
-        self.number1 = list[0]
-        self.number2 = list[1]
-        self.number3 = list[2]
+        a_list = [self.number1, self.number2, self.number3]
+        a_list.sort(key=int)
+        self.number1 = a_list[0]
+        self.number2 = a_list[1]
+        self.number3 = a_list[2]
+
+
+def generate_all_possible_triples_combination(start):
+    print("generate all possible triples from all draws " + str(start))
+    all_sorted_combinations = []
+    for draw in all_draws_data:
+        numbers = [draw[1], draw[2], draw[3], draw[4], draw[5], draw[6]]
+        draw_combinations = itertools.combinations(numbers, 3)
+        all_sorted_combinations.extend(draw_combinations)
+    return all_sorted_combinations
+
+
+def saving_result_to_file(triples_list):
+    print("saving result to file")
+    result_file = open(result, 'w')
+    for triple in triples_list:
+        result_file.write(
+            str(triple.number1) + " " + str(triple.number2) + " " + str(triple.number3) + ": Count:" + str(
+                triple.count) + '\n')
+    result_file.close()
+
+
+def sorting_result(triples_list):
+    print("sorting result ...")
+    triples_list = list(triples_list)
+    triples_list = sorted(triples_list, reverse=True, key=lambda triple: triple.count)
+    return triples_list
+
+
+def count_all_triples_drawn(all_sorted_combinations, start, step, total, triples_list):
+    print("start counting")
+    counter = 0
+    for sc in all_sorted_combinations:
+        if counter % step == 0:
+            progress = counter / total * 100
+            print("it took " + str(int(time.time() - start)) + " seconds to processed " + str(
+                counter) + " of total: " + str(total) + ". Progress: " + str(percentage_format % progress))
+
+        sorted_list = [sc[0], sc[1], sc[2]]
+        sorted_list = list(sorted_list)
+        sorted_list.sort(key=int)
+        for triple in triples_list:
+            counter += 1
+            if triple.contains_all_numbers(sorted_list[0], sorted_list[1], sorted_list[2]):
+                triple.add()
+
+
+def generate_all_possible_triplets():
+    print("generate all possible triples")
+    triples_list = set()
+    all_triple_combinations = itertools.combinations(range(1, 60), 3)
+    for triple_combination in all_triple_combinations:
+        sorted_list = [triple_combination[0], triple_combination[1], triple_combination[2]]
+        sorted_list.sort(key=int)
+        triples_list.add(Triples(sorted_list[0], sorted_list[1], sorted_list[2]))
+    return triples_list
 
 
 def main():
-    logging.debug("generate triples counter..")
+    print("Generate triples counter..")
 
     triples_list = generate_all_possible_triplets()
 
@@ -69,66 +119,8 @@ def main():
     triples_list = sorting_result(triples_list)
 
     stop = time.time()
-    logging.info("It took " + str(stop - start) + " seconds.")
+    print("It took " + str(stop - start) + " seconds.")
     saving_result_to_file(triples_list)
-
-    logging.debug("done")
-
-
-def generate_all_possible_triples_combination(start):
-    logging.debug("generate all possible triples from all draws " + str(start))
-    all_sorted_combinations = []
-    for draw in all_draws_data:
-        numbers = [draw[1], draw[2], draw[3], draw[4], draw[5], draw[6]]
-        draw_combinations = itertools.combinations(numbers, 3)
-        all_sorted_combinations.extend(draw_combinations)
-    return all_sorted_combinations
-
-
-def saving_result_to_file(triples_list):
-    logging.debug("saving result to file")
-    result_file = open(result, 'w')
-    for triple in triples_list:
-        result_file.write(
-            str(triple.number1) + " " + str(triple.number2) + " " + str(triple.number3) + ": Count:" + str(
-                triple.count) + '\n')
-    result_file.close()
-
-
-def sorting_result(triples_list):
-    logging.debug("sorting result ...")
-    triples_list = list(triples_list)
-    triples_list = sorted(triples_list, reverse=True, key=lambda triple: triple.count)
-    return triples_list
-
-
-def count_all_triples_drawn(all_sorted_combinations, start, step, total, triples_list):
-    logging.debug("start counting")
-    counter = 0
-    for sc in all_sorted_combinations:
-        if counter % step == 0:
-            progress = counter / total * 1000
-            print("it took " + str(int(time.time() - start)) + " seconds to processed " + str(
-                counter) + " of total: " + str(total) + ". Progress: " + str(percentage_format % progress))
-
-        sorted_list = [sc[0], sc[1], sc[2]]
-        sorted_list = list(sorted_list)
-        sorted_list.sort(key=int)
-        for triple in triples_list:
-            counter += 1
-            if triple.contains_all_numbers(sorted_list[0], sorted_list[1], sorted_list[2]):
-                triple.add()
-
-
-def generate_all_possible_triplets():
-    logging.debug("generate all possible triples")
-    triples_list = set()
-    all_triple_combinations = itertools.combinations(range(1, 60), 3)
-    for triple_combination in all_triple_combinations:
-        sorted_list = [triple_combination[0], triple_combination[1], triple_combination[2]]
-        sorted_list.sort(key=int)
-        triples_list.add(Triples(sorted_list[0], sorted_list[1], sorted_list[2]))
-    return triples_list
 
 
 if __name__ == '__main__':
