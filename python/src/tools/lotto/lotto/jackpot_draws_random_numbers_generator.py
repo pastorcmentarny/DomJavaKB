@@ -1,9 +1,8 @@
-import csv
 import os
 import random
 
 from src.tools.lotto import config
-from src.tools.lotto.utils import lotto_utils
+from src.tools.lotto.utils import lotto_utils, draws_manager
 from src.tools.lotto.utils.output import draw_title
 
 # ======== settings ========
@@ -11,10 +10,8 @@ debug_mode = config.settings['debug_mode']
 excluded_custom_numbers = []
 # ======== -------- ========
 
-all_draws_path = config.get_project_path('lotto-hotpicks-all-draws.csv')
-draw_history_file = open(all_draws_path)
-hotpics_history_csv = csv.reader(draw_history_file)
-data = list(hotpics_history_csv)
+recent_draws_data = draws_manager.get_recent_draws_for_lotto_and_hotpicks()
+all_draws_list = draws_manager.get_all_draws_for_lotto()
 
 
 def generate_random_draws_for_jackpot():
@@ -22,7 +19,7 @@ def generate_random_draws_for_jackpot():
     excluded = []
 
     # exclude some numbers
-    for line in data[0: 2]:
+    for line in recent_draws_data[0: 2]:
         for number in range(1, lotto_utils.get_last(6)):
             excluded.append(int(line[number]))
     for excluded_custom_number in excluded_custom_numbers:
@@ -50,6 +47,7 @@ def generate_random_draws_for_jackpot():
         if count == 7:
             count = 1
             print(sorted(draw))
+            # TODO add past result checker
             draw.clear()
 
 
