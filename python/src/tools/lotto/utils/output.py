@@ -17,8 +17,10 @@ def draw_title(title: str, pre_new_lines: int = 0):
     print(f'{pre_new_lines}{left_align}{line}{title}{line}')
 
 
-def display_numbers(numbers):
+def display_numbers(numbers, title: str = ''):
     # list of numbers that haven't been played in last 10 draws with how often they play in last 52 games
+    if title != '':
+        print(title)
     numbers = [(key, numbers[key]) for key in sorted(numbers, key=numbers.get, reverse=True)]
     for key, value in numbers:
         print(str(key) + ': ' + str(value))
