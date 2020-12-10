@@ -35,8 +35,7 @@ matches = {
     0: 'No Match'
 }
 
-
-all_draws_list = draws_manager.load_all_draws_for(draws_manager.THUNDERBALL, draws_manager.thunderball_all_draws_path)
+all_draws_data = draws_manager.load_all_draws_for(draws_manager.THUNDERBALL, draws_manager.thunderball_all_draws_path)
 
 
 def convert_to_list(numbers) -> list:
@@ -76,7 +75,6 @@ def get_draw_result(hits: int, tb: bool = True):
 
 
 def count_wins_in_the_past(chosen_numbers: list):
-
     wins = {
         9: 0,
         8: 0,
@@ -90,7 +88,7 @@ def count_wins_in_the_past(chosen_numbers: list):
         0: 0
     }
 
-    for draw in all_draws_list:
+    for draw in all_draws_data:
         hit = 0
         for n in chosen_numbers:
             if str(n) in draw:
@@ -140,7 +138,7 @@ def calculate_score_for_draw(draw_result, numbers, wins_result):
 def generate_numbers_for_thunderball():
     excluded = []
 
-    data = all_draws_list
+    data = all_draws_data
 
     ui_utils.title('number counter')
     numbers = {}
@@ -234,7 +232,7 @@ def generate_numbers_for_thunderball():
 
 def stats():
     numbers = {}
-    for line in all_draws_list[1: len(all_draws_list)]:
+    for line in all_draws_data[1: len(all_draws_data)]:
         first_number = line[1].strip()
         second_number = line[2].strip()
         third_number = line[3].strip()
