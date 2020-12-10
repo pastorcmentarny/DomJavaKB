@@ -6,27 +6,26 @@ from src.tools.lotto.utils import lotto_utils, output, draws_manager
 
 # ====== SETTINGS ========
 open_lotto_website_in_webrowser = config.settings['open_page']
-debug_mode = config.settings['debug_mode']
 # ====== -------- ========
 
 
-data = draws_manager.get_recent_draws_for_euromillions_hotpicks()
+recent_draws_data = draws_manager.get_recent_draws_for_euromillions_hotpicks()
 
 
 def generate_two_random_numbers():
     numbers = {}
 
-    for i in range(1, 51):
-        numbers[str(i)] = 0
+    for number in range(1, 51):
+        numbers[str(number)] = 0
 
-    for line in data[1: len(data)]:
-        for i in range(1, lotto_utils.get_last(5)):
-            numbers[line[i]] = numbers.get(line[i], 0) + 1
+    for line in recent_draws_data[1: len(recent_draws_data)]:
+        for number in range(1, lotto_utils.get_last(5)):
+            numbers[line[number]] = numbers.get(line[number], 0) + 1
 
     numbers_to_delete = []
-    for line in data[0:10]:
-        for i in range(1, lotto_utils.get_last(5)):
-            numbers_to_delete.append(line[i])
+    for line in recent_draws_data[0:10]:
+        for number in range(1, lotto_utils.get_last(5)):
+            numbers_to_delete.append(line[number])
 
     numbers_to_delete = list(set(numbers_to_delete))
     logging.debug(numbers_to_delete)
