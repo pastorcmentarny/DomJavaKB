@@ -50,7 +50,7 @@ def download(url: str, game: str):
     except Exception as whoops:
         print('There was a problem: %s' % whoops)
 
-    print('Download complete with response ' + str(response.status_code))
+    output.debug_print(f'Download complete with response  {response.status_code}')
 
     return response.text
 
@@ -77,7 +77,7 @@ def get_recent_draws_for_lotto_and_hotpicks():
 
 
 def get_recent_draws_for_euromillions():
-    return load_recent_draws_for(EUROMILLIONS, euromillions_all_draws_path)
+    return load_recent_draws_for(EUROMILLIONS, euromillions_draws_path)
 
 
 def get_recent_draws_for_euromillions_hotpicks():
