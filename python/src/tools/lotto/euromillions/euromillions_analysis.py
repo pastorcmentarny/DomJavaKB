@@ -7,7 +7,6 @@
 
 # name, recent_count, all_count, last_played,
 """
-import time
 
 from src.tools.lotto import config
 from src.tools.lotto.utils import draws_manager, output, lotto_utils
@@ -20,7 +19,7 @@ games = int(all_draw_data[0][0])
 class Number:
     def __init__(self, number: int, recent_games_counter: int, all_games_counter: int, last_played_date: str,
                  last_played_counter, play_between_games: dict, recent_average_play: float,
-                 all_draws_average_play: float):
+                 all_draws_average_play: float, candles: dict):
         self._ball = number
         self._recent_games_counter = recent_games_counter
         self._all_games_counter = all_games_counter
@@ -29,6 +28,7 @@ class Number:
         self._play_between_games = play_between_games
         self._recent_average_play = recent_average_play
         self._all_draws_average_play = all_draws_average_play
+        self._candles = candles
 
     def set_recent(self, recent_counter: int):
         self._recent_games_counter = recent_counter
@@ -52,35 +52,35 @@ class Number:
         if self._all_draws_average_play == -1:
             self._all_draws_average_play = all_draws_average_play
 
+    def set_candles(self,candles):
+        self._candles = candles
+
     def info(self) -> str:
         return f'{self._ball} : {self._recent_games_counter} : {self._all_games_counter} : {self._last_played_date}' \
-               f' ({self._last_played_counter} draws ago) : {"%.2f" % self._recent_average_play} : {"%.2f" % self._all_draws_average_play}'
+               f' ({self._last_played_counter} draws ago) : {"%.2f" % self._recent_average_play} : {"%.2f" % self._all_draws_average_play} : {self._candles}'
 
     def __repr__(self):
         return repr((self._ball, self._recent_games_counter, self._all_games_counter, self._last_played_date,
                      self._last_played_counter, self._play_between_games, self._recent_average_play,
-                     self._all_draws_average_play))
+                     self._all_draws_average_play, self._candles))
 
 
 numbers_data = {}
 
 for number in range(1, 51):
-    numbers_data[number] = Number(number, -1, -1, 'Never', -1, {}, -1, -1)
+    numbers_data[number] = Number(number, -1, -1, 'Never', -1, {}, -1, -1,{})
 
 
 def recent_updater():
     recent_numbers = {}
     for a_number_idx in range(1, 51):
         recent_numbers[int(a_number_idx)] = 0
-    print(f'recent_numbers len {len(recent_numbers)}')
 
     for line in recent_draws_data[1: len(recent_draws_data)]:
         for column_idx in range(2, lotto_utils.get_last(7)):
-            print('before :' +str(recent_numbers[int(line[column_idx])]))
             recent_numbers[int(line[column_idx])] = recent_numbers.get(column_idx) + 1
-            print('after :' +str(recent_numbers[int(line[column_idx])]))
-    print(f'recent_numbers len {len(recent_numbers)}')
-    time.sleep(0.5)
+
+    output.debug_print(f'recent_numbers len {len(recent_numbers)}')
 
     for recent_number in recent_numbers:
         numbers_data.get(int(recent_number)).set_recent(recent_numbers[recent_number])
@@ -104,6 +104,24 @@ def all_updater():
         idx = int(a_number)
         numbers_data.get(idx).set_all_draws(all_numbers[a_number])
         numbers_data.get(idx).set_all_draws_average_play(float(idx / games) * 100)
+    ranges_1to10 = count_ball_played_in_games(all_draw_data[0:10])
+    ranges_11to20 = count_ball_played_in_games(all_draw_data[10:20])
+    ranges_21to30 = count_ball_played_in_games(all_draw_data[20:30])
+    ranges_31to40 = count_ball_played_in_games(all_draw_data[30:40])
+    ranges_41to50 = count_ball_played_in_games(all_draw_data[40:50])
+    ranges_51to60 = count_ball_played_in_games(all_draw_data[50:60])
+    ranges_61to70 = count_ball_played_in_games(all_draw_data[60:70])
+    ranges_71to80 = count_ball_played_in_games(all_draw_data[70:80])
+    ranges_81to90 = count_ball_played_in_games(all_draw_data[80:90])
+    ranges_91to100 = count_ball_played_in_games(all_draw_data[90:100])
+
+
+    candles = {}
+    for ball in range(1, 51):
+        candles[ball] = [ranges_1to10[ball], ranges_11to20[ball], ranges_21to30[ball], ranges_31to40[ball],
+                         ranges_41to50[ball], ranges_51to60[ball], ranges_61to70[ball], ranges_71to80[ball],
+                         ranges_71to80[ball], ranges_81to90[ball], ranges_91to100[ball]]
+        numbers_data.get(ball).set_candles(candles[ball])
 
     for pos, a_draw in enumerate(all_draw_data):
         for column in range(2, 7):
@@ -111,6 +129,18 @@ def all_updater():
             numbers_data.get(idx).set_last_played_date(a_draw[1])
             numbers_data.get(idx).set_last_played_counter(pos)
 
+
+def count_ball_played_in_games(draws_list: list) -> dict:
+    all_numbers = {}
+    for a_number in range(1, 51):
+        a_number = int(a_number)
+        all_numbers[a_number] = 0
+
+    for line in draws_list[0: len(draws_list)]:
+        for all_number in range(2, 7):
+            all_numbers[int(line[all_number])] = all_numbers.get(int(line[all_number])) + 1
+
+    return all_numbers.copy()
 
 def stats():
     recent_updater()
@@ -134,10 +164,10 @@ def last_played():
     last_played_list = {}
     last_played_stars_list = {}
 
-    for number in range(1, 51):
-        last_played_list[number] = 'Never'
-        if number <= 12:
-            last_played_stars_list[number] = 'Never'
+    for last_played_number in range(1, 51):
+        last_played_list[last_played_number] = 'Never'
+        if last_played_number <= 12:
+            last_played_stars_list[last_played_number] = 'Never'
 
     for a_draw in all_draws_list:
         for column in range(2, 7):
