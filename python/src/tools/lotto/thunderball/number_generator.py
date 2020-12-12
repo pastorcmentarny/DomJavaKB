@@ -18,7 +18,7 @@ SPLITTER = ','
 EMPTY = ""
 SPACE = " "
 WRITABLE = 'w'
-GOOD_SCORE = 4000  # TODO change to 1000+ last lottery
+GOOD_SCORE = 500
 
 total_thunderballs = 40  # 39
 
@@ -102,10 +102,16 @@ def count_wins_in_the_past(chosen_numbers: list):
 def display_past_wins_result_for(draw_result, numbers):
     ui_utils.title(f'display result for {draw_result}')
     wins_result = count_wins_in_the_past(draw_result)
-    calculate_score_for_draw(draw_result, numbers, wins_result)
+    score_v1 = calculate_score_for_draw(draw_result, numbers, wins_result)
+    score_v2 = calculate_score_for_draw_v2(wins_result)
+    score_result = f'Score : {score_v2} (old score: {score_v1})'
 
+    if score_v2 > GOOD_SCORE:
+        print(f'GOOD NUMBERS ALERT: (More than {GOOD_SCORE}) : {score_result}')
+    else:
+        print(score_result)
     for result_level, number in wins_result.items():
-        print('{} x{}'.format(get_result_description(result_level), number))
+            print('{} x{}'.format(get_result_description(result_level), number))
 
 
 def calculate_score_for_draw(draw_result, numbers, wins_result):
@@ -130,9 +136,26 @@ def calculate_score_for_draw(draw_result, numbers, wins_result):
                 if int(s) is int(t[0]):
                     f_score += int(t[1])
 
-    if f_score > GOOD_SCORE:
-        ui_utils.title(f'NUMBERS TO PLAY  (More than {GOOD_SCORE})')
-    print(f'score: {f_score}')
+    return f_score
+
+
+def calculate_score_for_draw_v2(wins_result):
+    f_score = 0
+    if wins_result[9]:
+        f_score = -1
+        print(f'WOW! THE GOOD NEWS IS YOU GENERATED NUMBERS THAT WON JACKPOT\n'
+              + 'BAD NEWS IS YOU SHOULD NOT PLAY THIS NUMBERS\n\n\n'
+              + 'numbers: {draw}')
+    else:
+        # calculate score from games that number was hit
+        f_score += wins_result[7] * 10
+        f_score += wins_result[5] * 1
+        f_score *= 5
+        f_score += wins_result[3] / 10
+        f_score += wins_result[1] / 25
+        f_score = int(f_score)
+
+    return f_score
 
 
 def generate_numbers_for_thunderball():
