@@ -21,7 +21,7 @@ WRITABLE = 'w'
 
 WAITING_TIME = 4 * 1000
 euromillions_url = 'https://www.national-lottery.co.uk/results/euromillions/draw-history/csv'
-euromillions_draws_path = lotto_hotpics_history_path = config.get_project_path('euro-draws.csv')
+euromillions_draws_path = config.get_project_path('euro-draws.csv')
 euromillions_all_draws_path = config.get_project_path('euro-all-draws.csv')
 
 euromillions_hotpicks_url = 'https://www.national-lottery.co.uk/results/euromillions-hotpicks/draw-history/csv'

@@ -7,6 +7,7 @@
 
 # name, recent_count, all_count, last_played,
 """
+import csv
 
 from src.tools.lotto import config
 from src.tools.lotto.utils import draws_manager, output, lotto_utils
@@ -52,12 +53,25 @@ class Number:
         if self._all_draws_average_play == -1:
             self._all_draws_average_play = all_draws_average_play
 
-    def set_candles(self,candles):
+    def set_candles(self, candles):
         self._candles = candles
+
+    def set_between_games(self, play_between_games: dict):
+        self._play_between_games = play_between_games
 
     def info(self) -> str:
         return f'{self._ball} : {self._recent_games_counter} : {self._all_games_counter} : {self._last_played_date}' \
-               f' ({self._last_played_counter} draws ago) : {"%.2f" % self._recent_average_play} : {"%.2f" % self._all_draws_average_play} : {self._candles}'
+               f' ({self._last_played_counter} draws ago) : {"%.2f" % self._recent_average_play} : {"%.2f" % self._all_draws_average_play} : {self._candles} : {self._play_between_games}'
+
+    def to_row(self) -> list:
+        number_data = [self._ball, self._recent_games_counter, self._all_games_counter, self._last_played_date,
+                       self._last_played_counter, "%.2f" % self._recent_average_play,
+                       "%.2f" % self._all_draws_average_play]
+        for item in self._candles:
+            number_data.append(item)
+        for item in self._play_between_games.items():
+            number_data.append(item[1])
+        return number_data
 
     def __repr__(self):
         return repr((self._ball, self._recent_games_counter, self._all_games_counter, self._last_played_date,
@@ -68,7 +82,7 @@ class Number:
 numbers_data = {}
 
 for number in range(1, 51):
-    numbers_data[number] = Number(number, -1, -1, 'Never', -1, {}, -1, -1,{})
+    numbers_data[number] = Number(number, -1, -1, 'Never', -1, {}, -1, -1, {})
 
 
 def recent_updater():
@@ -115,13 +129,13 @@ def all_updater():
     ranges_81to90 = count_ball_played_in_games(all_draw_data[80:90])
     ranges_91to100 = count_ball_played_in_games(all_draw_data[90:100])
 
-
     candles = {}
     for ball in range(1, 51):
         candles[ball] = [ranges_1to10[ball], ranges_11to20[ball], ranges_21to30[ball], ranges_31to40[ball],
                          ranges_41to50[ball], ranges_51to60[ball], ranges_61to70[ball], ranges_71to80[ball],
                          ranges_71to80[ball], ranges_81to90[ball], ranges_91to100[ball]]
         numbers_data.get(ball).set_candles(candles[ball])
+        numbers_data.get(ball).set_between_games(count_ball_played_between_games(ball, all_draw_data))
 
     for pos, a_draw in enumerate(all_draw_data):
         for column in range(2, 7):
@@ -141,6 +155,27 @@ def count_ball_played_in_games(draws_list: list) -> dict:
             all_numbers[int(line[all_number])] = all_numbers.get(int(line[all_number])) + 1
 
     return all_numbers.copy()
+
+
+def count_ball_played_between_games(selected_ball: int, draw_list: list) -> dict:
+    counter_between_games = {}
+    for a_number in range(1, 11):
+        a_number = int(a_number)
+        counter_between_games[a_number] = 0
+    counter_between_games[99] = 0
+    last_played_ball = 0
+    for draw in draw_list:
+        last_played_ball = last_played_ball + 1
+        for ball in range(2, 7):
+            if selected_ball == int(draw[ball]):
+                if last_played_ball > 10:
+                    counter_between_games[99] = counter_between_games.get(99) + 1
+                else:
+                    counter_between_games[last_played_ball] = counter_between_games.get(last_played_ball) + 1
+                last_played_ball = 0
+
+    return counter_between_games.copy()
+
 
 def stats():
     recent_updater()
@@ -179,7 +214,15 @@ def last_played():
     output.display_numbers(last_played_stars_list, 'last played stars date:')
 
 
+def save_to_file():
+    analysis_data = open(r'b:\test.csv', 'w')
+    writer = csv.writer(analysis_data)
+    for idx in numbers_data:
+        writer.writerow(numbers_data.get(idx).to_row())
+
+
 if __name__ == '__main__':
     stats()
     for number in numbers_data:
         print(numbers_data.get(number).info())
+    save_to_file()
