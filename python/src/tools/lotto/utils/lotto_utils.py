@@ -1,5 +1,10 @@
 import random
 
+EMPTY = ""
+NEW_LINE = '\n'
+SPACE = " "
+SPLITTER = ','
+
 
 def get_last(value):
     return value + 1
@@ -85,3 +90,10 @@ def count_pairs(pairs: list):
 def assign_last_played_if_never_play_before(number: int, draw_date: str, last_played_list: dict):
     if last_played_list[number] == 'Never':
         last_played_list[number] = draw_date
+
+
+def update_file_for(file_path, all_draws_list):
+    for draw in all_draws_list:
+        file_path.write(SPLITTER.join(draw).replace(SPACE, EMPTY))
+        file_path.write(NEW_LINE)
+    return file_path
