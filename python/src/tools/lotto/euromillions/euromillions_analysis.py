@@ -17,7 +17,7 @@ all_draw_data = draws_manager.load_all_draws_for_euromillions()
 games = int(all_draw_data[0][0])
 
 
-class Number:
+class EuroNumber:
     def __init__(self, number: int, recent_games_counter: int, all_games_counter: int, last_played_date: str,
                  last_played_counter, play_between_games: dict, recent_average_play: float,
                  all_draws_average_play: float, candles: dict):
@@ -82,7 +82,7 @@ class Number:
 numbers_data = {}
 
 for number in range(1, 51):
-    numbers_data[number] = Number(number, -1, -1, 'Never', -1, {}, -1, -1, {})
+    numbers_data[number] = EuroNumber(number, -1, -1, 'Never', -1, {}, -1, -1, {})
 
 
 def recent_updater():

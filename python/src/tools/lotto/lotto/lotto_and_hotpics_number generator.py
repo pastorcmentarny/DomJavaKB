@@ -141,7 +141,7 @@ def count_doubles():
 
     saving_result_to_file(doubles_list)
 
-    all_doubles_result = doubles_list
+    all_doubles_result = doubles_list.copy()
     print("Counting doubles done")
 
 
@@ -191,13 +191,13 @@ def count_all_doubles_drawn(all_sorted_combinations, step, total, triples_list):
 
 def generate_all_possible_doubles():
     print("generate all possible doubles")
-    triples_list = set()
+    doubles = set()
     all_doubles_combinations = itertools.combinations(range(1, 60), 2)
     for triple_combination in all_doubles_combinations:
         sorted_list = [triple_combination[0], triple_combination[1]]
         sorted_list.sort(key=int)
-        triples_list.add(Doubles(sorted_list[0], sorted_list[1]))
-    return triples_list
+        doubles.add(Doubles(sorted_list[0], sorted_list[1]))
+    return doubles
 
 
 def get_numbers_played_count_in_recent_draws() -> dict:
@@ -233,12 +233,12 @@ def n34() -> list:
 
 
 def check_wins_in_the_past(draw: list):
-    print("checking if numbers you selected won in the past results for LOTTO HOTPICS")
+    print("Checking if numbers you selected won in the past results for LOTTO and HOTPICS..")
     output.print_if_detailed_mode_enabled('Numbers' + str(draw))
     output.debug_print(os.getcwd())
 
     for n in range(len(draw), 0, -1):
-        print(str(n) + "'s : " + str(lotto_utils.count_hits(n, draw, data)))
+        print(str(n) + "'s : " + str(lotto_utils.count_hits(n, draw, all_draws_data)))
 
 
 def generate_numbers_for_lotto():

@@ -74,7 +74,6 @@ def last_played():
             last_played_stars_list[number] = 'Never'
 
     for a_draw in all_draws_list:
-        print(a_draw)
         for column in range(2, 7):
             lotto_utils.assign_last_played_if_never_play_before(int(a_draw[column]), a_draw[1], last_played_list)
         for column in range(7, 9):
