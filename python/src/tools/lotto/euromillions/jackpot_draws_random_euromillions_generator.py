@@ -2,7 +2,7 @@ import random
 from timeit import default_timer as timer
 
 from src.tools.lotto import config
-from src.tools.lotto.utils import draws_manager, output
+from src.tools.lotto.utils import draws_manager, output, lotto_utils
 
 # ====== SETTINGS ========
 open_lotto_website_in_webrowser = config.settings['open_page']
@@ -14,27 +14,9 @@ recent_draws_data = draws_manager.get_recent_draws_for_euromillions()
 numbers = []
 
 
-# all no played numbers , last draw
-def is_not_excluded(a_number):
-    excluded_numbers_list = []
-
-    for a_draw in recent_draws_data[0:2]:
-        excluded_numbers_list.append(a_draw[1])
-        excluded_numbers_list.append(a_draw[2])
-        excluded_numbers_list.append(a_draw[3])
-        excluded_numbers_list.append(a_draw[4])
-        excluded_numbers_list.append(a_draw[5])
-    for ball in extra_excluded_numbers:
-        excluded_numbers_list.append(ball)
-
-    if a_number in excluded_numbers_list:
-        return False
-    return True
-
-
 def draw():
     for number in range(1, 51):
-        if is_not_excluded(number):
+        if lotto_utils.is_not_excluded(number, recent_draws_data):
             numbers.append(number)
     random.shuffle(numbers)
 
