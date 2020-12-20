@@ -3,7 +3,7 @@ import platform
 # SETTINGS
 settings = {
     'debug_mode': False,
-    'detailed_mode' : False,
+    'detailed_mode': False,
     'open_page': False
 }
 

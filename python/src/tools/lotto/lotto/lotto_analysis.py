@@ -178,13 +178,12 @@ def stats():
 
 
 def last_played():
-    all_draws_list = draws_manager.load_all_draws_for_euromillions()
     last_played_list = {}
 
     for last_played_number in range(1, lotto_max_range_plus_one):
         last_played_list[last_played_number] = 'Never'
 
-    for a_draw in all_draws_list:
+    for a_draw in all_draw_data:
         for column in range(2, 7):
             lotto_utils.assign_last_played_if_never_play_before(int(a_draw[column]), a_draw[1], last_played_list)
 
