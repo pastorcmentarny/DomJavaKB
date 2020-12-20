@@ -132,11 +132,8 @@ def update_all_draws_for_lotto_and_hotpics():
         draw_to_add.append(convert_to_draw_row(recent_draws_list[counter]))
         counter += 1
         current_draw = int(recent_draws_list[counter][9])
-
-    all_draws_file = open(lotto_and_hotpics_draws_all_draws_path, WRITABLE)
-    all_draws_file = lotto_utils.update_file_for(all_draws_file, draw_to_add)
-    all_draws_file = lotto_utils.update_file_for(all_draws_file, all_draws_list)
-    all_draws_file.close()
+    print(f'draws to add {counter}')
+    save_file(lotto_and_hotpics_draws_all_draws_path, draw_to_add, all_draws_list)
     print('Draws data updated.')
 
 
@@ -191,10 +188,8 @@ def save_all_draws_to_file_for(all_draws_list, last_column, recent_draws_list, a
         counter += 1
         current_draw = int(recent_draws_list[counter][last_column])
     print(f'draws to add {counter}')
-    all_draws_file = open(all_draws_path, WRITABLE)
-    all_draws_file = lotto_utils.update_file_for(all_draws_file, draw_to_add)
-    all_draws_file = lotto_utils.update_file_for(all_draws_file, all_draws_list)
-    all_draws_file.close()
+
+    save_file(all_draws_path, draw_to_add, all_draws_list)
 
 
 def update_thunderball():
@@ -219,8 +214,14 @@ def update_all_draws_for_euromillions():
 
     all_draws_file = open(euromillions_all_draws_path)
     all_draws_list = list(csv.reader(all_draws_file))
-    last_draw = int(all_draws_list[0][0])
+    draw_to_add = generating_draws_to_add(cleaned_data, all_draws_list)
+
+    save_file(euromillions_all_draws_path, draw_to_add, all_draws_list)
+
+
+def generating_draws_to_add(cleaned_data, all_draws_list) -> list:
     draw_to_add = []
+    last_draw = int(all_draws_list[0][0])
     current_draw = int(cleaned_data[0][0])
     counter = 0
     while last_draw != current_draw:
@@ -228,11 +229,8 @@ def update_all_draws_for_euromillions():
         counter += 1
         current_draw = int(cleaned_data[counter][0])
 
-    all_draws_file = open(euromillions_all_draws_path, WRITABLE)
-
-    all_draws_file = lotto_utils.update_file_for(all_draws_file, draw_to_add)
-    all_draws_file = lotto_utils.update_file_for(all_draws_file, all_draws_list)
-    all_draws_file.close()
+    print(f'draws to add {counter}')
+    return draw_to_add
 
 
 def update_euromillions():
@@ -258,19 +256,15 @@ def update_all_draws_for_euromillions_hotpicks():
 
     all_draws_list = load_all_draws_for(EUROHOTPICKS, euromillions_hotpicks_all_draws_path)
 
-    last_draw = int(all_draws_list[0][0])
-    draw_to_add = []
-    current_draw = int(cleaned_data[0][0])
-    counter = 0
-    while last_draw != current_draw:
-        draw_to_add.append(cleaned_data[counter])
-        counter += 1
-        current_draw = int(cleaned_data[counter][0])
+    draw_to_add = generating_draws_to_add(cleaned_data, all_draws_list)
 
-    all_draws_file = open(euromillions_hotpicks_all_draws_path, WRITABLE)
+    save_file(euromillions_hotpicks_all_draws_path, draw_to_add, all_draws_list)
 
+
+def save_file(file_path, draw_to_add, draws_list):
+    all_draws_file = open(file_path, WRITABLE)
     all_draws_file = lotto_utils.update_file_for(all_draws_file, draw_to_add)
-    all_draws_file = lotto_utils.update_file_for(all_draws_file, all_draws_list)
+    all_draws_file = lotto_utils.update_file_for(all_draws_file, draws_list)
     all_draws_file.close()
 
 

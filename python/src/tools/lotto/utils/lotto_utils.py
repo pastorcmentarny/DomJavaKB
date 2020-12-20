@@ -100,7 +100,7 @@ def update_file_for(file_path, all_draws_list):
 
 
 # all no played numbers , last draw
-def is_not_excluded(a_number:int, recent_draw_data:list):
+def is_not_excluded(a_number: int, recent_draw_data: list):
     excluded_numbers_list = []
 
     for a_draw in recent_draw_data[0:2]:
