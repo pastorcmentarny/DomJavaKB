@@ -35,6 +35,7 @@ public final class DomUtils {
     private static final String OPEN_ARRAY = "[";
     private static final char CLOSE_ARRAY = ']';
     public static final String DASH = "-";
+    public static final int NO_VALUE = -1;
     public static final String WHITESPACE = " ";
     public static final char WHITESPACE_CHAR = ' ';
     public static final String NEW_LINE = System.lineSeparator();
