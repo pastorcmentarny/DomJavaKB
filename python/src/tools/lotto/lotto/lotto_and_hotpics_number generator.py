@@ -11,6 +11,8 @@ from src.tools.lotto.utils import lotto_utils, output, draws_manager
 debug_mode = config.settings['debug_mode']
 detailed_mode = config.settings['detailed_mode']
 open_lotto_website_in_webrowser = config.settings['open_page']
+skip_counting = True
+
 # ======== -------- ========
 
 result = config.get_project_path('result_double.txt')
@@ -72,8 +74,8 @@ def generate_stats():
         for number in range(1, 7):
             line_number = line[number].strip()
             all_draws_number_counter[line_number] = all_draws_number_counter.get(line_number, 0) + 1
-
-    count_doubles()
+    if not skip_counting:
+        count_doubles()
     print("Stats generated. (If you don't see them in console, then enable them in config.)")
 
 
@@ -124,6 +126,7 @@ def display_stats():
         print(double)
 
 
+#TODO move to draw manager ?
 def count_doubles():
     global all_doubles_result
     print("generate pair number counter..")

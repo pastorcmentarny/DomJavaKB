@@ -92,11 +92,11 @@ def assign_last_played_if_never_play_before(number: int, draw_date: str, last_pl
         last_played_list[number] = draw_date
 
 
-def update_file_for(file_path, all_draws_list):
+def update_file_for(lotto_file, all_draws_list):
     for draw in all_draws_list:
-        file_path.write(SPLITTER.join(draw).replace(SPACE, EMPTY))
-        file_path.write(NEW_LINE)
-    return file_path
+        lotto_file.write(SPLITTER.join(draw).replace(SPACE, EMPTY))
+        lotto_file.write(NEW_LINE)
+    return lotto_file
 
 
 # all no played numbers , last draw

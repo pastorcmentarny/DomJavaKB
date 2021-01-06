@@ -1,8 +1,8 @@
 import csv
-import time
 from timeit import default_timer as timer
 
 import requests
+import time
 
 from src.tools.lotto import config
 from src.tools.lotto.utils import output, lotto_utils
