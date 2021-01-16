@@ -1,8 +1,9 @@
-import itertools
 import os
 import random
 import webbrowser
 from timeit import default_timer as timer
+
+import itertools
 
 from src.tools.lotto import config
 from src.tools.lotto.utils import lotto_utils, output, draws_manager
@@ -89,7 +90,7 @@ def generate_numbers_for_hotpics():
 
     for line in recent_draws_data[1: len(recent_draws_data)]:
         for i in range(1, lotto_utils.get_last(6)):
-            numbers[line[i]] = numbers.get(line[i], 0) + 1
+            numbers[line[i]] = numbers.get(line[i], 0) + 1  # FIXME
 
     if detailed_mode:
         output.display_numbers(numbers)
@@ -126,7 +127,7 @@ def display_stats():
         print(double)
 
 
-#TODO move to draw manager ?
+# TODO move to draw manager ?
 def count_doubles():
     global all_doubles_result
     print("generate pair number counter..")

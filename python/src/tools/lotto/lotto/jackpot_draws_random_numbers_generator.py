@@ -57,6 +57,7 @@ def print_numbers(excluded: list, title: str):
         print(excluded)
 
 
+# FIX ME
 def check_wins_in_the_past(draw: list):
     print("checking if numbers you selected won in the past results for LOTTO HOTPICS")
 

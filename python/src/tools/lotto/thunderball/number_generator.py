@@ -18,7 +18,7 @@ SPLITTER = ','
 EMPTY = ""
 SPACE = " "
 WRITABLE = 'w'
-GOOD_SCORE = 500
+GOOD_SCORE = 555
 
 total_thunderballs = 40  # 39
 
@@ -111,7 +111,7 @@ def display_past_wins_result_for(draw_result, numbers):
     else:
         print(score_result)
     for result_level, number in wins_result.items():
-            print('{} x{}'.format(get_result_description(result_level), number))
+        print('{} x{}'.format(get_result_description(result_level), number))
 
 
 def calculate_score_for_draw(draw_result, numbers, wins_result):
