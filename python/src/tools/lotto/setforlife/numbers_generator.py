@@ -1,4 +1,4 @@
-from src.tools.lotto.utils import draws_manager
+from src.tools.lotto.tools import draws_manager
 from src.tools.lotto.utils import lotto_utils
 from src.tools.lotto.utils import output
 

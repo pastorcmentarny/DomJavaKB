@@ -2,7 +2,7 @@ import itertools
 import time
 
 from src.tools.lotto import config
-from src.tools.lotto.utils import draws_manager
+from src.tools.lotto.tools import draws_manager
 
 result = config.get_project_path('result.txt')
 percentage_format = "%.2f"

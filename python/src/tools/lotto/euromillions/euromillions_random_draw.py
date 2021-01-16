@@ -2,7 +2,8 @@ import random
 from timeit import default_timer as timer
 
 from src.tools.lotto.eurohotpics import two_numbers_generator
-from src.tools.lotto.utils import draws_manager, output, lotto_utils
+from src.tools.lotto.utils import output, lotto_utils
+from src.tools.lotto.tools import draws_manager
 
 recent_draw_data = draws_manager.get_recent_draws_for_euromillions()
 numbers = []

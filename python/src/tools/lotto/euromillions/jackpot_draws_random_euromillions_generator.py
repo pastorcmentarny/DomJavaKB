@@ -2,7 +2,8 @@ import random
 from timeit import default_timer as timer
 
 from src.tools.lotto import config
-from src.tools.lotto.utils import draws_manager, output, lotto_utils
+from src.tools.lotto.utils import output, lotto_utils
+from src.tools.lotto.tools import draws_manager
 
 # ====== SETTINGS ========
 open_lotto_website_in_webrowser = config.settings['open_page']
