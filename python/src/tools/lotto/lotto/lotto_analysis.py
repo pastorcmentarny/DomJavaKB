@@ -1,8 +1,8 @@
 import csv
 
 from src.tools.lotto import config
-from src.tools.lotto.utils import output, lotto_utils
 from src.tools.lotto.tools import draws_manager
+from src.tools.lotto.utils import output, lotto_utils
 
 recent_draws_data = draws_manager.get_recent_draws_for_lotto_and_hotpicks()
 all_draw_data = draws_manager.get_all_draws_for_lotto()

@@ -32,6 +32,7 @@ def load_data() -> list:
     output.debug_print(f'File loaded.')
     return draws_data
 
+
 # FIX THIS
 def save_data_to_file(swapped_data: list):
     print(f'Saving date to {game_data_path}')

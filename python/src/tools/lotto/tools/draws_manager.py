@@ -305,3 +305,4 @@ if __name__ == '__main__':
     print('It took {} ms. (excluding waiting time between calls)'.format(
         int((end_time - start_time) * 1000) - WAITING_TIME))
     output.debug_mode_warning()
+    print('DO NOT FORGOT TO UPDATE RESULTS STATS FILE!')

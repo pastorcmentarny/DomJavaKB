@@ -1,8 +1,8 @@
 import csv
 
 from src.tools.lotto import config
-from src.tools.lotto.utils import output, lotto_utils
 from src.tools.lotto.tools import draws_manager
+from src.tools.lotto.utils import output, lotto_utils
 
 NEVER_NUMBER = -1
 

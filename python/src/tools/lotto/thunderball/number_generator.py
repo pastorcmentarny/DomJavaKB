@@ -10,8 +10,8 @@
 import random
 from timeit import default_timer as timer
 
-from src.tools.lotto.utils import output, lotto_utils
 from src.tools.lotto.tools import draws_manager
+from src.tools.lotto.utils import output, lotto_utils
 from src.utils import ui_utils
 
 NEW_LINE = '\n'

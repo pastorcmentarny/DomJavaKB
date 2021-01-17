@@ -6,8 +6,8 @@ from timeit import default_timer as timer
 import itertools
 
 from src.tools.lotto import config
-from src.tools.lotto.utils import lotto_utils, output
 from src.tools.lotto.tools import draws_manager
+from src.tools.lotto.utils import lotto_utils, output
 
 # ======== settings ========
 debug_mode = config.settings['debug_mode']
