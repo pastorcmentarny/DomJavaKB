@@ -4,7 +4,7 @@ from src.tools.lotto.utils import output
 
 
 def load_results_for(path: str) -> list:
-    print(f'Loading results from {path}')
+    output.debug_print(f'Loading results from {path}')
     result_path = open(path)
     result_as_csv = csv.reader(result_path)
     result_as_list = list(result_as_csv)
@@ -14,6 +14,10 @@ def load_results_for(path: str) -> list:
 
 def get_percent_for(amount: int, total: int) -> str:
     return "{:.1f}".format(amount / total * 100)
+
+
+def as_money(money) -> str:
+    return "{:.2f}".format(money)
 
 
 def generate_results_for(game: str, path, won_amount_column: int, ticket_cost: float):
@@ -33,7 +37,7 @@ def generate_results_for(game: str, path, won_amount_column: int, ticket_cost: f
     print(
         f'You play {all_games} times.You won {wins_count} of {all_games}.\n'
         f'You win rate is {get_percent_for(wins_count, all_games)}%\n'
-        f'You spent £{all_games * ticket_cost}. You won £{wins_amount}. Your balance is £{balance}.')
+        f'You spent £{all_games * ticket_cost}. You won £{wins_amount}. Your balance is £{as_money(balance)}.')
     output.debug_print(f'Results stats for {game} completed.')
     return {
         'wins_count': wins_count,
@@ -83,7 +87,7 @@ def generate_results():
     output.draw_title('Summary', 2)
     print(f'All games count {all_games}. You won {wins_count}. Winning rate {get_percent_for(wins_count, all_games)} %')
     print(
-        f'You won £{all_wins_amount}, spent £{all_ticket_cost} on games and your balance is £{all_wins_amount - all_ticket_cost}.\n')
+        f'You won £{all_wins_amount}, spent £{all_ticket_cost} on games and your balance is £{as_money(all_wins_amount - all_ticket_cost)}.\n')
 
 
 if __name__ == '__main__':
