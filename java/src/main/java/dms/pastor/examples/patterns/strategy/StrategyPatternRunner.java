@@ -1,10 +1,8 @@
 package dms.pastor.examples.patterns.strategy;
 
 import dms.pastor.examples.patterns.PatternRunner;
-import dms.pastor.examples.patterns.domain.Animal;
-import dms.pastor.examples.patterns.domain.Bird;
-import dms.pastor.examples.patterns.domain.CanFly;
-import dms.pastor.examples.patterns.domain.Dog;
+
+import java.util.UUID;
 
 public class StrategyPatternRunner {
 
@@ -16,7 +14,7 @@ public class StrategyPatternRunner {
             .build();
 
 
-    public void run() {
+    public void example1() {
         patternRunner.displayDefinition();
         Animal doggy = new Dog();
         Animal tweety = new Bird();
@@ -26,7 +24,25 @@ public class StrategyPatternRunner {
         doggy.displayFlyAbility();
     }
 
+    public void example2() {
+        ShoppingCart shoppingCart = new ShoppingCart();
+
+        Item item1 = new Item(UUID.randomUUID(),"12345",100);
+        Item item2 = new Item(UUID.randomUUID(),"50000",125);
+        Item item3 = new Item(UUID.randomUUID(),"90000",112);
+
+        shoppingCart.addItem(item1);
+        shoppingCart.addItem(item2);
+        shoppingCart.addItem(item3);
+
+        shoppingCart.pay(new PaypalStrategy("a@b.c","***"));
+        shoppingCart.pay(new CreditCardStrategy("Dom","1111222233334444","465","tmrw"));
+
+
+    }
+
     public static void main(String[] args) {
-        new StrategyPatternRunner().run();
+        new StrategyPatternRunner().example1();
+        new StrategyPatternRunner().example2();
     }
 }
