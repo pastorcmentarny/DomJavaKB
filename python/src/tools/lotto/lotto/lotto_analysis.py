@@ -1,4 +1,5 @@
 import csv
+import os
 
 from src.tools.lotto import config
 from src.tools.lotto.tools import draws_manager
@@ -8,6 +9,7 @@ recent_draws_data = draws_manager.get_recent_draws_for_lotto_and_hotpicks()
 all_draw_data = draws_manager.get_all_draws_for_lotto()
 games = int(all_draw_data[0][0])
 lotto_max_range_plus_one = 60
+path_to_analysis_file = r'b:\test\lotto_analysis.csv'
 
 
 class LottoNumber:
@@ -192,7 +194,7 @@ def last_played():
 
 
 def save_to_file():
-    analysis_data = open(r'b:\test_lotto.csv', 'w')
+    analysis_data = open(path_to_analysis_file, 'w')
     writer = csv.writer(analysis_data)
     for idx in numbers_data:
         writer.writerow(numbers_data.get(idx).to_row())
@@ -203,3 +205,4 @@ if __name__ == '__main__':
     for number in numbers_data:
         print(numbers_data.get(number).info())
     save_to_file()
+    os.startfile(path_to_analysis_file)
