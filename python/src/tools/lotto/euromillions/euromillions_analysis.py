@@ -7,7 +7,6 @@
 
 # name, recent_count, all_count, last_played,
 """
-import csv
 import os
 
 from src.tools.lotto import config
@@ -217,16 +216,9 @@ def last_played():
     output.display_numbers(last_played_stars_list, 'last played stars date:')
 
 
-def save_to_file():
-    analysis_data = open(path_to_analysis_file, 'w')
-    writer = csv.writer(analysis_data)
-    for idx in numbers_data:
-        writer.writerow(numbers_data.get(idx).to_row())
-
-
 if __name__ == '__main__':
     stats()
     for number in numbers_data:
         print(numbers_data.get(number).info())
-    save_to_file()
+    lotto_utils.save_to_file(path_to_analysis_file, numbers_data)
     os.startfile(path_to_analysis_file)

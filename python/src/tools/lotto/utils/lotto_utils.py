@@ -1,4 +1,7 @@
+import csv
 import random
+
+WRITING_MODE = 'w'
 
 EMPTY = ""
 NEW_LINE = '\n'
@@ -113,3 +116,10 @@ def is_not_excluded(a_number: int, recent_draw_data: list):
     if a_number in excluded_numbers_list:
         return False
     return True
+
+
+def save_to_file(path_to_analysis_file: str, numbers_data: dict):
+    analysis_data = open(path_to_analysis_file, WRITING_MODE)
+    writer = csv.writer(analysis_data)
+    for idx in numbers_data:
+        writer.writerow(numbers_data.get(idx).to_row())
