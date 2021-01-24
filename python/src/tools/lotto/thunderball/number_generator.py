@@ -101,7 +101,7 @@ def count_wins_in_the_past(chosen_numbers: list):
 
 
 def display_past_wins_result_for(draw_result, numbers):
-    ui_utils.title(f'display result for {draw_result}')
+    ui_utils.title(f'display result for {sorted(draw_result)}')
     wins_result = count_wins_in_the_past(draw_result)
     score_v1 = calculate_score_for_draw(draw_result, numbers, wins_result)
     score_v2 = calculate_score_for_draw_v2(wins_result)
@@ -223,7 +223,7 @@ def generate_numbers_for_thunderball():
         for i in range(1, lotto_utils.get_last(5)):
             excluded.append(int(line[i]))
 
-    print('excluded number count: {} with numbers {}'.format(len(excluded), excluded))
+    output.debug_print('excluded number count: {} with numbers {}'.format(len(excluded), excluded))
     excluded = list(set(excluded))
 
     numbers_to_draw = []
@@ -241,7 +241,7 @@ def generate_numbers_for_thunderball():
 
     for i in range(1, shuffles_times):
         random.shuffle(numbers_to_draw)
-    print(f'shuffled {shuffles_times} times')
+    output.debug_print(f'shuffled {shuffles_times} times')
 
     count = 1
     draw_result = []
