@@ -8,7 +8,7 @@ SPACE = " "
 def clean_result(results: str) -> str:
     cleaned_result = EMPTY
     temp_lines = []
-    lines = results.split('\n')
+    lines = results.split(NEW_LINE)
     for line in lines:
         if line != EMPTY and not line.strip().isalpha():
             temp_lines.append(line.strip())
