@@ -13,7 +13,6 @@ def clean_result(results: str) -> str:
             temp_lines.append(line.strip())
     lines = temp_lines.copy()
     for idx in range(0, len(lines), 2):
-        print(f'{idx} {lines[idx + 1]}')
         line = lines[idx].strip()[2:] + lines[idx + 1].strip()
         line = line.replace('Pick ', EMPTY).replace('-', EMPTY)
         if line.strip() != EMPTY and not line.replace(' ', EMPTY).isalpha():

@@ -1,16 +1,24 @@
 import pyperclip
 
+EMPTY = ''
+
 
 def clean_result(results: str) -> str:
-    cleaned_result = ""
+    cleaned_result = EMPTY
     lines = results.split('\n')
     for line in lines:
-        if line.strip() != '' and not line.replace(' ', '').isalpha():
+        if line.strip() != EMPTY and not line.replace(' ', EMPTY).isalpha():
             cleaned_result += f';0;{line.lstrip().replace(" ", ";")};\n'
     return cleaned_result.rstrip("\n")
 
 
+results_input = ''''''
+
 if __name__ == '__main__':
-    result = clean_result(pyperclip.paste())
+    print('REMINDER! DO NOT FORGOT UPDATE INPUT BEFORE RUN IT')
+    if results_input == EMPTY:
+        print('^^^^^^^^ ^^^^^^^^ ^^^^^^^^ ^^^^^^^^ ^^^^^^^^')
+    result = clean_result(results_input)
     print(result)
     pyperclip.copy(result)
+    print('REMINDER! DO NOT FORGOT TO SET input = """"""')
