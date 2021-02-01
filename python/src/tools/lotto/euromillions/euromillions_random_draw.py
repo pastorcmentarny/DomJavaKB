@@ -8,21 +8,21 @@ from src.tools.lotto.utils import output, lotto_utils
 recent_draw_data = draws_manager.get_recent_draws_for_euromillions()
 numbers = []
 
+print(recent_draw_data)
+
 
 def select_random_stars_if_lazy():
     bonus = list(range(1, 13))
     random.shuffle(bonus)
     random.shuffle(bonus)
-    selected_numbers = []
-    selected_numbers.append(bonus[3])
-    selected_numbers.append(bonus[7])
+    selected_numbers = [bonus[3], bonus[7]]
     selected_numbers = sorted(selected_numbers)
     return f' : {selected_numbers[0]} and {selected_numbers[1]}'
 
 
 def draw():
     for number in range(1, 51):
-        if lotto_utils.is_not_excluded(number, recent_draw_data):
+        if lotto_utils.is_number_not_drawn_last_2_games(number, recent_draw_data):
             numbers.append(number)
     random.shuffle(numbers)
     euro_hotpics_numbers = two_numbers_generator.generate_two_random_numbers()

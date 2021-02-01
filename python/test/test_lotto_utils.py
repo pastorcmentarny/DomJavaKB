@@ -176,6 +176,7 @@ class MyTestCase(unittest.TestCase):
         self.assertEquals(result, expected_result)
         self.assertEquals(len(pairs), counter)
 
+    # todo review this code
     def test_assign_last_played_if_never_play_before_acceptance_test(self):
         # given
         last_played_list = {}
@@ -191,3 +192,28 @@ class MyTestCase(unittest.TestCase):
         # then
         self.assertEquals(last_played_list[1], 'Never')
         self.assertEquals(last_played_list[2], '27-Nov-2020')
+
+    def test_is_number_not_drawn_last_2_games(self):
+        # given
+        draws = [['29-Jan-2021', '1', '5', '27', '36', '42', '1', '6', 'VSHS38986', '1394'],
+                 ['26-Jan-2021', '5', '7', '25', '37', '40', '2', '8', 'XRHN93620', '1393'],
+                 ['22-Jan-2021', '8', '16', '42', '44', '47', '6', '7', 'JQGZ63857', '1392'],
+                 ['19-Jan-2021', '25', '27', '31', '35', '43', '5', '6', 'XPGN29258', '1391'],
+                 ['15-Jan-2021', '4', '10', '27', '38', '40', '3', '11', 'MNGF22971', '1390']]
+
+        # given
+        scale_params_list = [[1, False],
+                             [7, False],
+                             [5, False],
+                             [8, True],
+                             [6, True],
+                             [33, True],
+                             ]
+
+        for number, expected_result in scale_params_list:
+            with self.subTest(msg="Checking to number {}  valid ? {} ".format(number, expected_result)):
+                # when
+                result = lotto_utils.is_number_not_drawn_last_2_games(number, draws)
+
+                # then
+                self.assertEqual(result, expected_result)

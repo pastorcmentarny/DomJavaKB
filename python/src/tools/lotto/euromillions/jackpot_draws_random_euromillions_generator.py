@@ -17,7 +17,7 @@ numbers = []
 
 def draw():
     for number in range(1, 51):
-        if lotto_utils.is_not_excluded(number, recent_draws_data):
+        if lotto_utils.is_number_not_drawn_last_2_games(number, recent_draws_data):
             numbers.append(number)
     random.shuffle(numbers)
 

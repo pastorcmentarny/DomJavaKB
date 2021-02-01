@@ -102,16 +102,13 @@ def update_file_for(lotto_file, all_draws_list):
     return lotto_file
 
 
-# all no played numbers , last draw
-def is_not_excluded(a_number: int, recent_draw_data: list):
+def is_number_not_drawn_last_2_games(a_number: int, recent_draw_data: list):
     excluded_numbers_list = []
 
     for a_draw in recent_draw_data[0:2]:
-        excluded_numbers_list.append(a_draw[1])
-        excluded_numbers_list.append(a_draw[2])
-        excluded_numbers_list.append(a_draw[3])
-        excluded_numbers_list.append(a_draw[4])
-        excluded_numbers_list.append(a_draw[5])
+        for index in range(1, 6):
+            excluded_numbers_list.append(int(a_draw[index]))
+    excluded_numbers_list = list(set(excluded_numbers_list))
 
     if a_number in excluded_numbers_list:
         return False

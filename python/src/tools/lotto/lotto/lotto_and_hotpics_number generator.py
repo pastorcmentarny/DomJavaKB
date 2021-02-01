@@ -237,13 +237,7 @@ def n34() -> list:
     return [(key, numbers[key]) for key in sorted(numbers, key=numbers.get, reverse=True)]
 
 
-def check_wins_in_the_past(draw: list):
-    print("Checking if numbers you selected won in the past results for LOTTO and HOTPICS..")
-    output.print_if_detailed_mode_enabled('Numbers' + str(draw))
-    output.debug_print(os.getcwd())
 
-    for n in range(len(draw), 0, -1):
-        print(str(n) + "'s : " + str(lotto_utils.count_hits(n, draw, all_draws_data)))
 
 
 def generate_numbers_for_lotto():
