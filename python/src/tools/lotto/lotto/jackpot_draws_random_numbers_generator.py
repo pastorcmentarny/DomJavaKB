@@ -48,7 +48,7 @@ def generate_random_draws_for_jackpot():
         if count == 7:
             count = 1
             print(sorted(draw))
-            check_wins_in_the_past(draw)
+            lotto_utils.check_wins_in_the_past_for_lotto(draw,all_draws_list)
             draw.clear()
 
 
@@ -56,16 +56,6 @@ def print_numbers(excluded: list, title: str):
     if debug_mode:
         draw_title(title)
         print(excluded)
-
-
-def check_wins_in_the_past(draw: list):
-    print("checking if numbers you selected won in the past results for LOTTO")
-
-    print('Numbers' + str(draw))
-    print(os.getcwd())
-
-    for n in range(len(draw), 0, -1):
-        print(str(n) + "'s : " + str(lotto_utils.count_hits(n, draw, all_draws_list)))
 
 
 if __name__ == '__main__':

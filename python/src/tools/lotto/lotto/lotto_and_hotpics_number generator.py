@@ -237,9 +237,6 @@ def n34() -> list:
     return [(key, numbers[key]) for key in sorted(numbers, key=numbers.get, reverse=True)]
 
 
-
-
-
 def generate_numbers_for_lotto():
     global n1, n2, n3, n4
     output.draw_title('Generate numbers for next draw', 2)
@@ -281,7 +278,7 @@ def generate_numbers_for_lotto():
     # check against stats
     next_draw_number = list(next_draw_number)
     next_draw_number = sorted(next_draw_number)
-    check_wins_in_the_past(next_draw_number)
+    lotto_utils.check_wins_in_the_past_for_lotto(next_draw_number,all_draws_data)
 
     return next_draw_number
 

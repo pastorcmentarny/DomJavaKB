@@ -1,5 +1,8 @@
 import csv
+import os
 import random
+
+from src.tools.lotto.utils import output
 
 WRITING_MODE = 'w'
 
@@ -120,3 +123,12 @@ def save_to_file(path_to_analysis_file: str, numbers_data: dict):
     writer = csv.writer(analysis_data)
     for idx in numbers_data:
         writer.writerow(numbers_data.get(idx).to_row())
+
+
+def check_wins_in_the_past_for_lotto(draw: list,all_draws_data:list):
+    print("Checking if numbers you selected won in the past results for LOTTO..")
+    output.print_if_detailed_mode_enabled('Numbers' + str(draw))
+    output.debug_print(os.getcwd())
+
+    for n in range(len(draw), 0, -1):
+        print(str(n) + "'s : " + str(count_hits(n, draw, all_draws_data)))
