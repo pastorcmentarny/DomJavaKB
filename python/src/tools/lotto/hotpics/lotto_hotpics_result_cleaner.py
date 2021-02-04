@@ -1,11 +1,13 @@
 import pyperclip
 
+NEW_LINE = '\n'
+SPACE = ' '
 EMPTY = ''
 
 
 def clean_result(results: str) -> str:
     cleaned_result = EMPTY
-    lines = results.split('\n')
+    lines = results.split(NEW_LINE)
     temp_lines = []
 
     for line in lines:
@@ -15,9 +17,10 @@ def clean_result(results: str) -> str:
     for idx in range(0, len(lines), 2):
         line = lines[idx].strip()[2:] + lines[idx + 1].strip()
         line = line.replace('Pick ', EMPTY).replace('-', EMPTY)
-        if line.strip() != EMPTY and not line.replace(' ', EMPTY).isalpha():
-            cleaned_result += f';0;{line.lstrip().replace(" ", ";")};\n'
-    return cleaned_result.rstrip("\n")
+        if line.strip() != EMPTY and not line.replace(SPACE, EMPTY).isalpha():
+            cleaned_result += f';0;{line.lstrip().replace(SPACE, ";")};\n'
+    return cleaned_result.rstrip(NEW_LINE)
+
 
 
 results_input = """"""
