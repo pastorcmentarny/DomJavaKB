@@ -1,11 +1,11 @@
 import csv
-from timeit import default_timer as timer
+import time
 
 import requests
-import time
 
 from src.tools.lotto import config
 from src.tools.lotto.utils import output, lotto_utils
+from src.tools.lotto.utils.lotto_decorators import execution_time
 
 LOTTO = 'lotto'
 EUROMILLIONS = 'euromillions'
@@ -284,6 +284,7 @@ def update_euromillions_hotpics():
     output.debug_print(f"{EUROHOTPICKS}'s draws and all draws updated.")
 
 
+@execution_time
 def update_all_draws():
     print('Updating draws for all games.')
     update_set_for_life()
@@ -299,10 +300,6 @@ def update_all_draws():
 
 
 if __name__ == '__main__':
-    start_time = timer()
     update_all_draws()
-    end_time = timer()
-    print('It took {} ms. (excluding waiting time between calls)'.format(
-        int((end_time - start_time) * 1000) - WAITING_TIME))
     output.debug_mode_warning()
     print('DO NOT FORGOT TO UPDATE RESULTS STATS FILE!')
