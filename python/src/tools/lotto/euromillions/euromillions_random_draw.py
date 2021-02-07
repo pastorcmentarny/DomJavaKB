@@ -26,6 +26,7 @@ def draw():
             numbers.append(number)
     random.shuffle(numbers)
     euro_hotpics_numbers = two_numbers_generator.generate_two_random_numbers()
+    print(f'hotpicks: {str(euro_hotpics_numbers)}')
     numbers_to_play = []
     for euro_hotpics_number in euro_hotpics_numbers:
         numbers_to_play.append(int(euro_hotpics_number))
