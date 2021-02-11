@@ -3,6 +3,8 @@ from datetime import datetime
 
 from src.tools.chinese.today import application_utils, chinese_time, config, file_loader, food_generator
 
+EMPTY = ''
+
 config_file = file_loader.config()
 dot = config_file['dot']
 
@@ -46,10 +48,6 @@ def generate_weekend_activity():
     return application_utils.get_random_value_from(config.weekend_activity)
 
 
-def generate_parkrun_activity():
-    pass
-
-
 def get_distance_from_run(run_distance):
     return str('{:.1f}'.format(run_distance / 1000))
 
@@ -73,12 +71,13 @@ def get_weekend_routine(meal):
     pass
 
 
+# add KETO
 def get_daily_activity_for(date, meal):
-    day = ''
+    day = EMPTY
     day_of_the_week = date.weekday()
     hour = 0
     minute = 0
-    breakfast = ''
+    breakfast = EMPTY
     if day_of_the_week in range(dow['monday'], thursday()):
         hour = 6
         minute = 15
@@ -96,7 +95,7 @@ def get_daily_activity_for(date, meal):
     day += breakfast + dot
 
     if day_of_the_week in range(dow['monday'], friday()):
-        day += generate_lunch_walk() + dot
+        #TODO remove it? day += generate_lunch_walk() + dot
         day += generate_random_lunch_break_activity()
         day += food_generator.generate_full_meal()
         day += "我在工作忙了" + dot  # day at work
@@ -123,4 +122,4 @@ def run_sentence(run_distance, run_time):
         return '我在晚上去了慢跑。我跑了' + get_distance_from_run(
             run_distance) + '公里。跑了这个距离花了我' + application_utils.get_time_from_run(run_time) + dot
     else:
-        return ''
+        return EMPTY

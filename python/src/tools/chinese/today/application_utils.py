@@ -6,6 +6,8 @@ import requests
 
 from src.tools.chinese.today import chinese_number, config
 
+EMPTY = ''
+
 date = datetime.datetime.now()
 
 
@@ -19,7 +21,7 @@ def generate_sentence_from_multi_words(words: list) -> str:
     elif len(words) == 2:
         return words[0] + '和' + words[1]
     else:
-        sentence = ''
+        sentence = EMPTY
         length = len(words)
         for idx, word in enumerate(words):
             if idx + 1 == length:
@@ -53,10 +55,10 @@ def get_temp_from_internet():
 
 
 def get_time_from_run(run_time):
-    minut_in_seconds = 60
-    minuts = run_time // minut_in_seconds
-    seconds = run_time % minut_in_seconds
-    return str(minuts) + '分' + str(seconds) + '秒'
+    minute_as_seconds = 60
+    minutes = run_time // minute_as_seconds
+    seconds = run_time % minute_as_seconds
+    return str(minutes) + '分' + str(seconds) + '秒'
 
 
 def get_last_element():
@@ -64,7 +66,7 @@ def get_last_element():
 
 
 def get_year_in_chinese():
-    year_in_chinese = ''
+    year_in_chinese = EMPTY
     for i in list(str(date.year)):
         year_in_chinese += chinese_number.get_chinese_number(int(i))
     return year_in_chinese

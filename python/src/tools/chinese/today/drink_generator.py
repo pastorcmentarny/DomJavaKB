@@ -33,7 +33,7 @@ def generate_other_drink():
     return prefix + '气泡矿泉水'
 
 
-def generate_random_non_alkocholic_drink() -> str:
+def generate_random_non_alcoholic_drink() -> str:
     options = [generate_random_tea, generate_random_coffee, generate_other_drink]
     randint = random.randint(0, len(options) - 1)
     return options[randint]() + dot

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from src.tools.chinese.today import application_engine, config, file_loader
+from src.tools.chinese.today import diary_generator, config, file_loader
 
 
 def main():
@@ -23,7 +23,7 @@ def main():
         'health': diary_file['health'],
         'entry': diary_file['entry']
     }
-    application_engine.generate_info_about_today(diary)
+    diary_generator.generate_info_about_today(diary)
 
 
 if __name__ == '__main__':

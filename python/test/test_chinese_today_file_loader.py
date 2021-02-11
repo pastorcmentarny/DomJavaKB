@@ -9,4 +9,4 @@ class MyTestCase(unittest.TestCase):
         cfg = file_loader.config()
 
         # then
-        self.assertEqual(len(cfg.keys()), 19)
+        self.assertEqual(len(cfg.keys()), 20)

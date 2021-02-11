@@ -6,6 +6,8 @@ import pyperclip
 
 from src.tools.chinese.today import activities, chinese_number, sentence
 
+EMPTY = ''
+
 date = datetime.datetime.now()
 
 dot = '。\n'
@@ -47,6 +49,7 @@ def generate_info_about_today(diary: dict):
 
     diary_day = add_if_is_for_online(diary_day, diary['is_a_for_online'])
 
+    print(diary_day)
     pyperclip.copy(diary_day)  # copy to clipboard
 
 
@@ -63,20 +66,20 @@ def add_if_is_for_online(diary, is_a_for_online):
 
 
 def add_time_of_write(time) -> str:
-    sentence = '时间是'
-    if time == '':
-        sentence += str(date.hour) + ':'
+    time_sentence = '时间是'
+    if time == EMPTY:
+        time_sentence += str(date.hour) + ':'
         if date.minute < 10:
-            sentence += '0' + str(date.minute)
+            time_sentence += '0' + str(date.minute)
         else:
-            sentence += str(date.minute)
+            time_sentence += str(date.minute)
     else:
-        sentence = ''
-    return sentence + dot
+        time_sentence = EMPTY
+    return time_sentence + dot
 
 
 def get_entry_number(entry: int) -> str:
     if entry != 0:
         return "Dom's entry: " + chinese_number.get_chinese_number_for(entry) + dot
     else:
-        return ''
+        return EMPTY
