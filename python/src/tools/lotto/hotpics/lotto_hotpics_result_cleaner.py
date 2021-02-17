@@ -22,7 +22,6 @@ def clean_result(results: str) -> str:
     return cleaned_result.rstrip(NEW_LINE)
 
 
-
 results_input = """"""
 
 if __name__ == '__main__':

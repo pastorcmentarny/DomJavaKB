@@ -1,15 +1,17 @@
 import pyperclip
 
 EMPTY = ''
+NEW_LINE = '\n'
 
 
 def clean_result(results: str) -> str:
     cleaned_result = EMPTY
-    lines = results.split('\n')
+
+    lines = results.split(NEW_LINE)
     for line in lines:
         if line.strip() != EMPTY and not line.replace(' ', EMPTY).isalpha():
-            cleaned_result += f';0;{line.lstrip().replace(" ", ";")};\n'
-    return cleaned_result.rstrip("\n")
+            cleaned_result += f';0;{line.lstrip().replace(" ", ";")}{NEW_LINE}'
+    return cleaned_result.rstrip(NEW_LINE)
 
 
 results_input = ''''''
