@@ -13,6 +13,8 @@ from src.tools.lotto import config
 from src.tools.lotto.tools import draws_manager
 from src.tools.lotto.utils import output, lotto_utils
 
+NEVER = 'Never'
+
 recent_draws_data = draws_manager.get_recent_draws_for_euromillions()
 all_draw_data = draws_manager.get_all_draws_for_euromillions()
 games = int(all_draw_data[0][0])
@@ -202,9 +204,9 @@ def last_played():
     last_played_stars_list = {}
 
     for last_played_number in range(1, 51):
-        last_played_list[last_played_number] = 'Never'
+        last_played_list[last_played_number] = NEVER
         if last_played_number <= 12:
-            last_played_stars_list[last_played_number] = 'Never'
+            last_played_stars_list[last_played_number] = NEVER
 
     for a_draw in all_draws_list:
         for column in range(2, 7):
