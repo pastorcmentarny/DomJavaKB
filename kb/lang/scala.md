@@ -1,6 +1,7 @@
-COnstructor, scala ????
+# SCALA NOTES:
+Constructor, scala ????
 auxiliary constructors
-First clas definition????
+First class definition????
 
 -------------
  all operators are actually methods.
@@ -11,7 +12,7 @@ First clas definition????
 Scala provides a complete mixin solution, called traits.
 
 
-as part of learning scala do algoritms
+as part of learning scala do algorithms
 -------------
 "a guard is a boolean expression that must evaluate to true if the program execution is to continue in the branch in question.
 (...)
@@ -35,8 +36,8 @@ for (tup <- List(tupA, tupB)) {
         println("This has two things: " + thingOne + " and " + thingTwo)
   }
 }
----------------
-scala notes:
+
+
 
 ~~~~	Chapter 2. Type Less, Do More
 
