@@ -162,6 +162,10 @@ programming languages, web application platforms) - on top of the hardware.
 
 # R
 
+## Reactive Programing
+Reactive Programming
+Reactive programming is a programming paradigm that delivers three benefits: resource efficiency, consistency and composability of data APIs, and robustness. It delivers better resource efficiency by making it trivial to write code that does a good job of freeing up otherwise idle threads for reuse.
+
 ## Reactive Streams
 
 It is a specification. For Java programmers, Reactive Streams is an API. Reactive Streams gives us a common API for
@@ -201,6 +205,13 @@ It is an algorithm that puts elements of a list in a certain order.
 ## Seagulling
 
 It is when someone comes in at the last minute and poops all over your work.
+
+## Software design pattern 
+A software design pattern is a general, reusable solution to a commonly occurring problem within a given context in software design.
+Why Do We Need Design Patterns?
+Proven Solutions to common and widely known problems
+Easy to reause
+Helps communication (more easily communicate with one another about potential solutions to a given problem.)
 
 ## REST
 
@@ -295,6 +306,31 @@ establish a connection.
 ## (Database) Transaction
 
 A "_unit of work_" that need be performed **together** or **not at all**.
+
+# Trunk based development
+
+Trunk based development is one of VCS (version control system)  branching model for git with main focus on all
+developers work from a single branch (main, master or trunk whatever you like to call it).
+
+While Git Flow like branching model is not wrong or not popular anymore but it causes a few issues from time to time
+that bite my team:
+* out of sync branches
+* using rollback cause lots of work to re-sync all other branches
+* housekeeping takes  longer, and we are not the best branch cleaners.
+
+TbD resolve these problems:
+
+* Simplify branch model. You have the main branch and feature branches. You do your fantastic work in pair. You submit
+  PR. Somebody reviews that (and in the future, Sonarcube will pick up code style issues automatically. Stay tuned for
+  the presentation next showcase). You merge to master and deploy to any environment.
+* Rollback can happen from the master branch, where you simply re-deploy the previous master branch to prod using
+  Jenkins job with parameters.
+Is it any drawbacks? I am sure , I will discover shortly.
+
+## Sources:
+* https://trunkbaseddevelopment.com/
+* https://www.toptal.com/software/trunk-based-development-git-flow
+
 
 # U
 
