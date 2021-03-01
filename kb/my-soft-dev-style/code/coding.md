@@ -94,7 +94,7 @@
     -   newXXX a new collection
     -   deleteXXX a delete collection
     -   getXXX a get collection
-    -   save save a collection
+    -   saveXXX save a collection
     -   createXXX create item in collection
     -   updateXXX update item in collection
     -   readXXX read item in collection
@@ -106,6 +106,7 @@
     -   Choose good variable names. var custList = dbconn.executeQuery(query);
     -   Use good initializer information. var outputStream = new ByteArrayOutputStream();
     -   Don't worry about "programming to the interface" with vars.
+10. Names and meaning can drift apart over time. The vocabulary used by a team evolves. Yesterday’s words may not be today’s words. Tidy names one at a time. Make things a little easier for the next reader. You will have time to tidy that other name later.
 
 #   VARIABLES:
 1.  Instance variables, should be declared at the top of the class. 
@@ -177,5 +178,11 @@
     -   User should not have to think about wildcards to use your API.
 38. Boolean.getBoolean() doesn't do what you think.
 39. List<String> IS NOT a subtype of List<Object> (good for compile-time type safety ,but inflexible.
-0. the code restorer.This is where the code restorer comes in, somebody whose job isn’t to “recreate the same thing but better” (a common wish that almost always fails), but rather to take the existing codebase and slowly reshape it to make it manageable again. Add some tests here, break down that ugly class there, remove unused functionality, and give it back improved.
-0. Coding guidelines help us to write consistent code. It should not matter which developer in your team has written the code you are looking at. Coding guidelines are only useful if every team member takes them seriously. That’s why the whole team has to agree on the guidelines once they are finished.
+0. The code restorer. Somebody whose job isn't to "recreates the same thing but better" (a common wish that almost always fails) but instead takes the existing codebase and slowly reshapes it to make it manageable again. Add some tests here, break down that ugly class there, remove unused functionality, and give it back improved.
+0. Coding guidelines help us to write consistent code. It should not matter which developer in your team has written the code you are looking at. Coding guidelines are only useful if every team member takes them seriously. That's why the whole team has to agree on the guidelines once they are finished.
+0. As code evolves, locally-optimized programming decisions can leave messes where there is a shorter, clearer alternative. Tidy up by fixing these spots one at a time. Replace "if (flag == true)" with "if (flag)" (assuming your programming language supports this). Replace “collection.size == 0” with “collection.isEmpty”.
+0. Expressions can start simple and then grow. At each step, it is easier to add to the expression than to factor out parts. That's where tidying comes in.
+0. Tidy expressions by extracting parts and giving the temporary variable a suggestive name. Turn this:``return new Point(…long-expression to compute x…, …long-expression to compute y, which is interesting for different reasons than x…) "
+   into:``    x := expression to compute x;    y := expression to compute y;    return new Point(x, y);``
+   0.The technique is to build your software to "fail fast." Bugs are easier to find and fix, so fewer go into production. Use Assertions to test quickly, write custom assert to add a meaningful message and other useful information to debug. If you use a global exception handler, avoid catch-all exception handlers in the rest of your application ugs add a lot of expense and risk to our projects—not to mention, they're a pain in the neck to figure out.
+   
