@@ -3,6 +3,39 @@
 It contains definitions that explain things in the way that is easiest for me to understand.
 _I am not the author of these definitions so check resources section for the origin of definitions._ 
 
+##Types of Design Patterns
+###Creational Design Patterns
+
+ * Factory
+ * Builder
+ * Prototype
+ * Singleton
+
+Structural Design Patterns
+
+ * Adapter
+ * Bridge
+ * Composite
+ * Decorator
+ * Facade
+ * Flyweight
+ * Proxy
+
+Behavioural Design Patterns
+
+ * Chain of responsibility
+ * Command
+ * Interpreter
+ * Iterator
+ * Mediator
+ * Memento
+ * Observer
+ * State
+ * Strategy
+ * Template Method
+ * Visitor
+
+
 # Principles
 The principles, when applied together, intend to make it more likely that a programmer will create a system that is easy to maintain and extend over time.
 
@@ -13,6 +46,8 @@ It stands for:
 * L – Liskov substitution principle
 * I – Interface segregation principle
 * D – Dependency Inversion Principle
+
+SOLID are "not principles to adopt" but "frameworks to use"****
 
 ### SPR Single responsibility Principle
 `A class should have one and only one reason to change, meaning that a class should have only one job.`
@@ -460,17 +495,16 @@ Example
 An email object can have various states, all of which will change how the object handles different functions. If the state is "not sent" then the call to send() is going to send the message while a call to recallMessage() will either throw an error or do nothing. However, if the state is "sent" then the call to send() would either throw an error or do nothing while the call to recallMessage() would attempt to send a recall notification to recipients. To avoid conditional statements in most or all methods there would be multiple state objects that handle the implementation with respect to their particular state. The calls within the Email object would then be delegated down to the appropriate state object for handling.
 
 
-## **STRATEGY** {BEHAVIORAL}  TODO improve it
-TODO improve it , [Example code needed]
-
-	Define a family of algorithms, encapsulate each one and make them interchangeable. The Strategy pattern lets the algorithm vary independently from clients that use it.
-Use When:
+## **STRATEGY** {BEHAVIORAL}
+Define a family of algorithms, encapsulate each one and make them interchangeable. The Strategy pattern lets the algorithm vary independently of clients that use it.
+### Use When:
 ⦁	The only difference between many related classes is their behaviour.
 ⦁	Multiple versions or variations of an algorithm are required.
 ⦁	Algorithms access or utilize data that calling code shouldn't be exposed to.
 ⦁	The behaviour of a class should be defined at runtime.
 ⦁	Conditional statements are complex and hard to maintain.
-Example:
+### Example
+    ```Collections.sort()```  Collections.sort() method that takes Comparator parameter. Based on the different implementations of Comparator interfaces, the Objects are getting sorted in different ways.
 	When importing data into a new system different validation algorithms may be run based on the data set. By configuring the import to utilize strategies the conditional logic to determine what validation set to run can be removed and the import can be decoupled from the actual validation code. This will allow us to dynamically call one or more strategies during the import.
 
 
@@ -542,9 +576,10 @@ Referring to the previous antipattern, when an exception is thrown that means th
 * http://natpryce.com/articles/000714.html
 * https://dzone.com/articles/enforcing-java-singletons-is-very-hard
 * http://javarevisited.blogspot.com/2016/07/10-examples-to-read-text-file-in-java.html
-
+* https://www.journaldev.com/1754/strategy-design-pattern-in-java-example-tutorial
 
 # CHANGELOG
+2021-03-02 - v 4.1 - minor clean up
 2020-11-11 - v 4.0 - clean up
 2017-06-17 - v 3.0 add few things I learned recently
 2017-06    - v 2.4 -> v2.6 read proof and fix problems
