@@ -80,9 +80,9 @@ public final class StringUtils {
 
         boolean odd = false;
 
-        Iterator<Map.Entry<Character, Integer>> it = characterCounter.entrySet().iterator();
-        while (it.hasNext()) {
-            Map.Entry<Character, Integer> pairs = it.next();
+        Iterator<Map.Entry<Character, Integer>> iterator = characterCounter.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry<Character, Integer> pairs = iterator.next();
             int value = pairs.getValue();
             if (value % 2 != 0) {
                 if (odd) {
@@ -91,7 +91,7 @@ public final class StringUtils {
                     odd = true;
                 }
             }
-            it.remove(); // avoids a ConcurrentModificationException
+            iterator.remove(); // avoids a ConcurrentModificationException
         }
         return true;
     }
@@ -140,10 +140,10 @@ public final class StringUtils {
     }
 
     private static boolean isPangram(Map<Character, Integer> alphabet) {
-        Iterator<Map.Entry<Character, Integer>> it = alphabet.entrySet().iterator();
+        Iterator<Map.Entry<Character, Integer>> iterator = alphabet.entrySet().iterator();
         Map.Entry<Character, Integer> pair;
-        while (it.hasNext()) {
-            pair = it.next();
+        while (iterator.hasNext()) {
+            pair = iterator.next();
             if (pair.getValue() < 1) {
                 return false;
             }
@@ -338,6 +338,7 @@ public final class StringUtils {
         return "String { " + string + " }";
     }
 
+    //TODO implement it
     public static String splitInto120CharactersPerLineText(String text){
         return null;
     }
