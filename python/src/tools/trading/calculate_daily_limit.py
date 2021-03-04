@@ -10,7 +10,7 @@ def as_money(money: int):
 
 
 def max_lost_allowance():
-    return "%.2f" % (balance / 10000 * MAX_LOST_MULTIPLIER)  # 2.5 is a modfier that I may change
+    return "%.2f" % (balance / 10000 * MAX_LOST_MULTIPLIER)  # 2.5 is a modifier that I may change
 
 
 def daily_profit_cap():
