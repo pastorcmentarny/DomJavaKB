@@ -1,7 +1,7 @@
 package dms.pastor.tasks.manipulatedataapplication;
 
 import dms.pastor.utils.randoms.RandomDataGenerator;
-import org.junit.Assert;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

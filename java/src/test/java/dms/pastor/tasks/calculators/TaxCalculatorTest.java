@@ -1,10 +1,10 @@
 package dms.pastor.tasks.calculators;
 
-import org.junit.Assert;
-import org.junit.Rule;
+
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.rules.ExpectedException;
+
 
 import java.util.Random;
 
@@ -23,8 +23,7 @@ import static org.hamcrest.CoreMatchers.is;
 public class TaxCalculatorTest {
 
     private static final int BOUND = 10000;
-    @Rule
-    public final ExpectedException thrown = ExpectedException.none();
+
     private final Random random = new Random();
 
     @Test
@@ -32,9 +31,6 @@ public class TaxCalculatorTest {
         // given
         final int salary = (random.nextInt(BOUND) + 1) * (-1);
 
-        // except
-        thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage("Salary cannot be negative.");
         // when
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
 

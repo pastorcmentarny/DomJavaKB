@@ -45,17 +45,17 @@ public final class PrintOutUtils {
         printInConsole(stringBuilder);
     }
 
-    private static void printInConsole(StringBuilder sb) {
-        sb.append(CLOSE_ARRAY);
-        out.println(sb.toString());
+    private static void printInConsole(StringBuilder stringBuilder) {
+        stringBuilder.append(CLOSE_ARRAY);
+        out.println(stringBuilder.toString());
     }
 
-    public static void printCharacterIntegerHashMap(Map<Character, Integer> hm) {
-        Iterator<Map.Entry<Character, Integer>> it = hm.entrySet().iterator();
-        while (it.hasNext()) {
-            Map.Entry<Character, Integer> pairs = it.next();
+    public static void printCharacterIntegerHashMap(Map<Character, Integer> characterIntegerMap) {
+        Iterator<Map.Entry<Character, Integer>> entryIterator = characterIntegerMap.entrySet().iterator();
+        while (entryIterator.hasNext()) {
+            Map.Entry<Character, Integer> pairs = entryIterator.next();
             out.println("key: " + pairs.getKey() + " value: " + pairs.getValue());
-            it.remove(); // avoids a ConcurrentModificationException
+            entryIterator.remove(); // avoids a ConcurrentModificationException
         }
     }
 

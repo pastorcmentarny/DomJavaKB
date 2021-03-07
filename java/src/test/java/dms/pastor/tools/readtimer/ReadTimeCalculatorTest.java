@@ -1,10 +1,9 @@
 package dms.pastor.tools.readtimer;
 
-import dms.pastor.test.rules.Repeat;
-import dms.pastor.test.rules.RepeaterRule;
+
 import dms.pastor.utils.StringUtils;
 import dms.pastor.utils.randoms.RandomDataGenerator;
-import org.junit.Rule;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -37,9 +36,6 @@ public class ReadTimeCalculatorTest {
     private static final String ERROR_READING_SPEED_EQUAL_OR_HIGHER = "Speed of reading must be equal or higher than 60  words per minute";
 
     private final Random random = new Random();
-
-    @Rule
-    public RepeaterRule repeater = RepeaterRule.use();
 
     private ReadTimeCalculator readTimeCalculator;
 
@@ -82,8 +78,7 @@ public class ReadTimeCalculatorTest {
     }
 
     //name of this test is shocking , i know :)
-    @Test
-    @Repeat(times = REPEAT_TEST_TIMES)
+    @Test //FIXME replace with junit5 repeat @Repeat(times = REPEAT_TEST_TIMES)
     //check for few random values, this is used as part of learning using own Rule(check RepeaterRule class)
     public void shouldThrowIllegalArgumentExceptionForTooSlowReadingTest() {
         // given
@@ -125,8 +120,8 @@ public class ReadTimeCalculatorTest {
     }
 
 
+    //FIXME replace with Junit5 version@Repeat(times = REPEAT_TEST_TIMES)
     @Test //running test few time for various negative numbers
-    @Repeat(times = REPEAT_TEST_TIMES)
     public void shouldDisplayEmptyStringForDisplayTimeNeededToReadWhenTimeIsInvalidTest() {
 
         // given

@@ -11,7 +11,7 @@ public class AutoClosableResource implements AutoCloseable {
     }
 
     @Override
-    public void close() throws Exception {
+    public void close() {
         System.out.println("Clean up the mess");
     }
 }

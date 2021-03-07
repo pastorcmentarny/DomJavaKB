@@ -2,7 +2,7 @@ package dms.pastor.tools.nanobackup.backup;
 
 import dms.pastor.tools.nanobackup.Constants;
 import dms.pastor.tools.nanobackup.Settings;
-import org.junit.Rule;
+
 import org.junit.jupiter.api.Test;
 import org.junit.contrib.java.lang.system.ExpectedSystemExit;
 

@@ -84,7 +84,7 @@ final class StreamBasics {
 
     static void hr(final int lines) {
         hr();
-        for (int i = 0; i < lines; i++) {
+        for (int index = 0; index < lines; index++) {
             System.out.println();
         }
     }
