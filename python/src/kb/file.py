@@ -6,6 +6,7 @@ import pprint
 import shelve
 import shutil
 import zipfile
+from datetime import datetime
 from pathlib import Path
 
 import send2trash
@@ -444,5 +445,11 @@ if not filename.exists():
     print("Oops, file doesn't exist!")
 else:
     print("Yay, the file exists!")
+
+# create random empty file example
+dt = datetime.now()
+random_data_file = Path(f"B:/test/" + str(dt) + ".txt" )
+
+open(random_data_file, 'a').close()
 
 print('WELL DONE!')
