@@ -25,6 +25,8 @@ if with_password:
 
 print('Logging in..')
 
+isinstance(number_as_one, int)  # True
+
 
 def is_phone_number(text):
     if len(text) != 12:
