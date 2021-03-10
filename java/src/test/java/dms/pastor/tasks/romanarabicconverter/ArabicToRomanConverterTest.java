@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 /**
  * Author Dominik Symonowicz
  * Created 2015-06-22
@@ -41,191 +43,191 @@ public class ArabicToRomanConverterTest {
 
     @Test
     public void testIf1GivesI() {
-        Assert.assertEquals("I", converter.convertArabicToRoman(1));
+        assertThat("I").isEqualTo(converter.convertArabicToRoman(1));
     }
 
     @Test
     public void testIf2GivesII() {
-        Assert.assertEquals("II", converter.convertArabicToRoman(2));
+        assertThat("II").isEqualTo(converter.convertArabicToRoman(2));
     }
 
     @Test
     public void testIf3GivesIII() {
-        Assert.assertEquals("III", converter.convertArabicToRoman(3));
+        assertThat("III").isEqualTo(converter.convertArabicToRoman(3));
     }
 
     @Test
     public void testIf4GivesIV() {
-        Assert.assertEquals("IV", converter.convertArabicToRoman(4));
+        assertThat("IV").isEqualTo(converter.convertArabicToRoman(4));
     }
 
     @Test
     public void testIf5GivesV() {
-        Assert.assertEquals("V", converter.convertArabicToRoman(5));
+        assertThat("V").isEqualTo(converter.convertArabicToRoman(5));
     }
 
     @Test
     public void testIf6GivesVI() {
-        Assert.assertEquals("VI", converter.convertArabicToRoman(6));
+        assertThat("VI").isEqualTo(converter.convertArabicToRoman(6));
     }
 
     @Test
     public void testIf8GivesVIII() {
-        Assert.assertEquals("VIII", converter.convertArabicToRoman(8));
+        assertThat("VIII").isEqualTo(converter.convertArabicToRoman(8));
     }
 
     @Test
     public void testIf10GivesX() {
-        Assert.assertEquals("X", converter.convertArabicToRoman(10));
+        assertThat("X").isEqualTo(converter.convertArabicToRoman(10));
     }
 
     @Test
     public void testIf11GivesXI() {
-        Assert.assertEquals("XI", converter.convertArabicToRoman(11));
+        assertThat("XI").isEqualTo(converter.convertArabicToRoman(11));
     }
 
     @Test
     public void testIf13GivesXIII() {
-        Assert.assertEquals("XIII", converter.convertArabicToRoman(13));
+        assertThat("XIII").isEqualTo(converter.convertArabicToRoman(13));
     }
 
     @Test
     public void testIf14GivesXIV() {
-        Assert.assertEquals("XIV", converter.convertArabicToRoman(14));
+        assertThat("XIV").isEqualTo(converter.convertArabicToRoman(14));
     }
 
     @Test
     public void testIf15GivesXV() {
-        Assert.assertEquals("XV", converter.convertArabicToRoman(15));
+        assertThat("XV").isEqualTo(converter.convertArabicToRoman(15));
     }
 
     @Test
     public void testIf19GivesXIX() {
-        Assert.assertEquals("XIX", converter.convertArabicToRoman(19));
+        assertThat("XIX").isEqualTo(converter.convertArabicToRoman(19));
     }
 
     @Test
     public void testIf20GivesXX() {
-        Assert.assertEquals("XX", converter.convertArabicToRoman(20));
+        assertThat("XX").isEqualTo(converter.convertArabicToRoman(20));
     }
 
     @Test
     public void testIf34GivesXXXIV() {
-        Assert.assertEquals("XXXIV", converter.convertArabicToRoman(34));
+        assertThat("XXXIV").isEqualTo(converter.convertArabicToRoman(34));
     }
 
     @Test
     public void testIf35GivesXXXV() {
-        Assert.assertEquals("XXXV", converter.convertArabicToRoman(35));
+        assertThat("XXXV").isEqualTo(converter.convertArabicToRoman(35));
     }
 
     @Test
     public void testIf39GivesXXXIX() {
-        Assert.assertEquals("XXXIX", converter.convertArabicToRoman(39));
+        assertThat("XXXIX").isEqualTo(converter.convertArabicToRoman(39));
     }
 
     @Test
     public void testIf40GivesXL() {
-        Assert.assertEquals("XL", converter.convertArabicToRoman(40));
+        assertThat("XL").isEqualTo(converter.convertArabicToRoman(40));
     }
 
     @Test
     public void testIf50GivesL() {
-        Assert.assertEquals("L", converter.convertArabicToRoman(50));
+        assertThat("L").isEqualTo(converter.convertArabicToRoman(50));
     }
 
     @Test
     public void testIf53GivesLIII() {
-        Assert.assertEquals("LIII", converter.convertArabicToRoman(53));
+        assertThat("LIII").isEqualTo(converter.convertArabicToRoman(53));
     }
 
     @Test
     public void testIf54GivesLIV() {
-        Assert.assertEquals("LIV", converter.convertArabicToRoman(54));
+        assertThat("LIV").isEqualTo(converter.convertArabicToRoman(54));
     }
 
     @Test
     public void testIf58GivesLVIII() {
-        Assert.assertEquals("LVIII", converter.convertArabicToRoman(58));
+        assertThat("LVIII").isEqualTo(converter.convertArabicToRoman(58));
     }
 
     @Test
     public void testIf59GivesLIX() {
-        Assert.assertEquals("LIX", converter.convertArabicToRoman(59));
+        assertThat("LIX").isEqualTo(converter.convertArabicToRoman(59));
     }
 
     @Test
     public void testIf84GivesLXXXIV() {
-        Assert.assertEquals("LXXXIV", converter.convertArabicToRoman(84));
+        assertThat("LXXXIV").isEqualTo(converter.convertArabicToRoman(84));
     }
 
     @Test
     public void testIf99GivesXCIX() {
-        Assert.assertEquals("XCIX", converter.convertArabicToRoman(99));
+        assertThat("XCIX").isEqualTo(converter.convertArabicToRoman(99));
     }
 
     @Test
     public void testIf100GivesC() {
-        Assert.assertEquals("C", converter.convertArabicToRoman(100));
+        assertThat("C").isEqualTo(converter.convertArabicToRoman(100));
     }
 
     @Test
     public void testIf134GivesCXXXIV() {
-        Assert.assertEquals("CXXXIV", converter.convertArabicToRoman(134));
+        assertThat("CXXXIV").isEqualTo(converter.convertArabicToRoman(134));
     }
 
     @Test
     public void testIf149GivesCXLIX() {
-        Assert.assertEquals("CXLIX", converter.convertArabicToRoman(149));
+        assertThat("CXLIX").isEqualTo(converter.convertArabicToRoman(149));
     }
 
     @Test
     public void testIf150GivesCL() {
-        Assert.assertEquals("CL", converter.convertArabicToRoman(150));
+        assertThat("CL").isEqualTo(converter.convertArabicToRoman(150));
     }
 
     @Test
     public void testIf349GivesCCCXLIX() {
-        Assert.assertEquals("CCCXLIX", converter.convertArabicToRoman(349));
+        assertThat("CCCXLIX").isEqualTo(converter.convertArabicToRoman(349));
     }
 
     @Test
     public void testIf400GivesCD() {
-        Assert.assertEquals("CD", converter.convertArabicToRoman(400));
+        assertThat("CD").isEqualTo(converter.convertArabicToRoman(400));
     }
 
     @Test
     public void testIf500GivesD() {
-        Assert.assertEquals("D", converter.convertArabicToRoman(500));
+        assertThat("D").isEqualTo(converter.convertArabicToRoman(500));
     }
 
     @Test
     public void testIf849GivesDCCCXLIX() {
-        Assert.assertEquals("DCCCXLIX", converter.convertArabicToRoman(849));
+        assertThat("DCCCXLIX").isEqualTo(converter.convertArabicToRoman(849));
     }
 
     @Test
     public void testIf900GivesCM() {
-        Assert.assertEquals("CM", converter.convertArabicToRoman(900));
+        assertThat("CM").isEqualTo(converter.convertArabicToRoman(900));
     }
 
     @Test
     public void testIf1000GivesCM() {
-        Assert.assertEquals("M", converter.convertArabicToRoman(1000));
+        assertThat("M").isEqualTo(converter.convertArabicToRoman(1000));
     }
 
     @Test
     public void testIf1111GivesMCXI() {
-        Assert.assertEquals("MCXI", converter.convertArabicToRoman(1111));
+        assertThat("MCXI").isEqualTo(converter.convertArabicToRoman(1111));
     }
 
     @Test
     public void testIf34444GivesMMMCDXLIV() {
-        Assert.assertEquals("MMMCDXLIV", converter.convertArabicToRoman(3444));
+        assertThat("MMMCDXLIV").isEqualTo(converter.convertArabicToRoman(3444));
     }
 
     @Test
     public void testIf3999GivesMMMCMXCIX() {
-        Assert.assertEquals("MMMCMXCIX", converter.convertArabicToRoman(3999));
+        assertThat("MMMCMXCIX").isEqualTo(converter.convertArabicToRoman(3999));
     }
 }

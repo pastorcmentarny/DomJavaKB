@@ -14,7 +14,6 @@ import java.util.HashMap;
 
 import static dms.pastor.utils.PrintOutUtils.*;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.CoreMatchers.containsString;
 
 /**
  * Author Dominik Symonowicz
@@ -105,8 +104,8 @@ public class PrintOutUtilsTest {
         // when
         printCharacterIntegerHashMap(hashMap);
         // then
-        Assert.assertThat(outputStream.toString(), containsString("key: A value: 1"));
-        Assert.assertThat(outputStream.toString(), containsString("key: B value: 10"));
+        assertThat(outputStream.toString()).contains("key: A value: 1");
+        assertThat(outputStream.toString()).contains("key: B value: 10");
 
     }
 

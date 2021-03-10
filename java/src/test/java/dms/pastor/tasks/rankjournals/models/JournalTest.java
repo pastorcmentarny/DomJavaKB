@@ -1,9 +1,8 @@
 package dms.pastor.tasks.rankjournals.models;
 
 import dms.pastor.tasks.rankjournals.interfaces.ScoreComparator;
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,35 +17,26 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class JournalTest extends TestCase {
+public class JournalTest {
 
     private static final int YEAR_2012 = 2012;
     private static final int YEAR_2013 = 2013;
     private Journal journalTest;
 
-    public JournalTest(String testName) {
-        super(testName);
-    }
-
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite() {
-        return new TestSuite(JournalTest.class);
-    }
-
-    @Override
+    @BeforeEach
     protected void setUp() throws Exception {
-        super.setUp();
+
         journalTest = new Journal("name", 1.0, YEAR_2012);
     }
 
+    @Test
     public void testJournalDataTest() {
         assertThat(journalTest.getName()).isNotNull();
         assertThat(journalTest.getScore()).isNotNull();
         assertThat(journalTest.getYear()).isNotNull();
     }
 
+    @Test
     public void test2NotEqualsScoreComparator() {
         List<Journal> journalList = new ArrayList<>();
         Journal journalA = new Journal("FirstLowerScore", 1.1, YEAR_2013);
@@ -57,6 +47,7 @@ public class JournalTest extends TestCase {
         assertThat(journalB.getName()).isEqualTo(journalList.get(0).getName());
     }
 
+    @Test
     public void test2EqualsScoreComparator() {
         List<Journal> journalList = new ArrayList<>();
         Journal journalA = new Journal("FirstEqualScore", 1.1, YEAR_2013);

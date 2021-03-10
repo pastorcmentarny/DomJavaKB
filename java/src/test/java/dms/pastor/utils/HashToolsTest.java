@@ -12,7 +12,7 @@ import static dms.pastor.utils.HashTools.stringToCharacterSet;
 import static dms.pastor.utils.StringUtils.ALPHABET;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
-import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.sameInstance;
 
 /**
@@ -33,8 +33,8 @@ public class HashToolsTest {
         final HashMap<Character, Integer> characterIntegerHashMap = stringToCharacterMap(ALPHABET + ALPHABET);
 
         // then
-        Assert.assertEquals(ALPHABET.length(), characterIntegerHashMap.size());
-        characterIntegerHashMap.forEach((key, value) -> Assert.assertThat(value, sameInstance(2)));
+        assertThat(ALPHABET.length()).isEqualTo(characterIntegerHashMap.size());
+        characterIntegerHashMap.forEach((key, value) -> assertThat(value).isEqualTo(sameInstance(2)));
 
     }
 
@@ -70,8 +70,8 @@ public class HashToolsTest {
         final HashSet<Character> characters = stringToCharacterSet(ALPHABET);
 
         // then
-        Assert.assertThat(characters, notNullValue());
-        Assert.assertEquals(ALPHABET.length(), characters.size());
+        assertThat(characters).isNotNull();
+        assertThat(ALPHABET.length()).isEqualTo(characters.size());
 
     }
 

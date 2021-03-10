@@ -21,9 +21,6 @@ public final class TestConfig {
     public static final String BASE_PATH = System.getProperty("user.dir") +
             separator + SRC + "main" +
             separator + RESOURCES;
-    public static final String TEST_BASE_PATH = System.getProperty("user.dir") +
-            separator + SRC + "test" +
-            separator + RESOURCES;
 
     private TestConfig() {
     }

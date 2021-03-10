@@ -19,7 +19,6 @@ import static dms.pastor.utils.EnglishUtils.isStopWord;
 import static dms.pastor.utils.randoms.RandomDataGenerator.*;
 import static java.lang.Character.*;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.CoreMatchers.is;
 
 /**
  * Author Dominik Symonowicz
@@ -58,7 +57,7 @@ public class RandomDataGeneratorTest {
         int[] intValues = generateRandomIntValues(size);
 
         // then
-        Assert.assertThat(intValues.length, is(size));
+        assertThat(intValues.length).isEqualTo(size);
     }
 
     @Test
@@ -67,7 +66,7 @@ public class RandomDataGeneratorTest {
         Character randomCharacter = getRandomCharacterFromAlphabet();
 
         // then
-        Assert.assertThat(isLetter(randomCharacter), is(true));
+        assertThat(isLetter(randomCharacter)).isEqualTo(true);
     }
 
     @Test
@@ -76,7 +75,7 @@ public class RandomDataGeneratorTest {
         String randomCharacterAsString = getRandomCharacterAsString();
 
         // then
-        Assert.assertThat(isLetter(randomCharacterAsString.charAt(0)), is(true));
+        assertThat(isLetter(randomCharacterAsString.charAt(0))).isEqualTo(true);
     }
 
     @Test
@@ -85,7 +84,7 @@ public class RandomDataGeneratorTest {
         final String text = getRandomText();
 
         // then
-        Assert.assertThat("Text dictSize is out of range: " + text.length(), 1 <= text.length() && text.length() <= 1000, is(true));
+        assertThat(1 <= text.length() && text.length() <= 1000).isEqualTo(true);
     }
 
     @SuppressWarnings("QuestionableName") // because string is valid name
@@ -146,9 +145,9 @@ public class RandomDataGeneratorTest {
         // when
         final int[] intArray = generateIntArray(size, 10);
         // then
-        Assert.assertThat(intArray.length, is(size));
+        assertThat(intArray.length).isEqualTo(size);
         for (int i : intArray) {
-            Assert.assertThat(i <= 10 && i >= 0, is(true));
+            assertThat(i <= 10 && i >= 0).isEqualTo(true);
         }
     }
 
@@ -508,7 +507,7 @@ public class RandomDataGeneratorTest {
         assertThat(result).isNotEmpty();
     }
 
-    @Repeat(times = 100)
+    //FIXME @Repeat(times = 100)
     @Test
     public void getRandomCharacterFromAlphabetExcludingCharacterShouldReturnCharacterWithoutExcludedOne() {
         // given
@@ -520,7 +519,7 @@ public class RandomDataGeneratorTest {
         assertThat(result).isNotEqualTo(character);
     }
 
-    @Repeat(times = 100)
+    //FIXME @Repeat(times = 100)
     @Test
     public void getRandomCharacterFromAlphabetExcludingCharacterShouldAnyCharacterIfExcludedCharacterIsNull() {
         // when

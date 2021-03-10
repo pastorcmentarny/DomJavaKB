@@ -5,11 +5,10 @@ package dms.pastor.tasks.calculators;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-
 import java.util.Random;
 
 import static dms.pastor.tasks.calculators.TaxCalculator.*;
-import static org.hamcrest.CoreMatchers.is;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Author Dominik Symonowicz
@@ -47,7 +46,7 @@ public class TaxCalculatorTest {
         final int netSalary = getNetSalary(salary);
 
         // then
-        Assert.assertThat(netSalary, is(salary));
+        assertThat(netSalary).isEqualTo(salary);
     }
 
     @Test
@@ -59,7 +58,7 @@ public class TaxCalculatorTest {
         final int netSalary = getNetSalary(salary);
 
         // then
-        Assert.assertThat(netSalary, is(expectedNetSalary));
+        assertThat(netSalary).isEqualTo(expectedNetSalary);
     }
 
     /*
@@ -75,7 +74,7 @@ public class TaxCalculatorTest {
         final int netSalary = getNetSalary(salary);
 
         // then
-        Assert.assertThat(netSalary, is(expectedNetSalary));
+        assertThat(netSalary).isEqualTo(expectedNetSalary);
     }
 
     @Test
@@ -87,7 +86,7 @@ public class TaxCalculatorTest {
         final int netSalary = getNetSalary(salary);
 
         // then
-        Assert.assertThat(netSalary, is(expectedNetSalary));
+        assertThat(netSalary).isEqualTo(expectedNetSalary);
     }
 
     @Test
@@ -99,7 +98,7 @@ public class TaxCalculatorTest {
         final int netSalary = getNetSalary(salary);
 
         // then
-        Assert.assertThat(netSalary, is(expectedNetSalary));
+        assertThat(netSalary).isEqualTo(expectedNetSalary);
     }
 
     @Test
@@ -111,7 +110,7 @@ public class TaxCalculatorTest {
         final int netSalary = getNetSalary(salary);
 
         // then
-        Assert.assertThat(netSalary, is(expectedNetSalary));
+        assertThat(netSalary).isEqualTo(expectedNetSalary);
     }
 
     @Test
@@ -122,7 +121,7 @@ public class TaxCalculatorTest {
         final int personalAllowance = getPersonalAllowanceFor(salary).intValue();
 
         // then
-        Assert.assertThat(personalAllowance, is(TaxCalculator.DEFAULT_PERSONAL_ALLOWANCE_AMOUNT));
+        assertThat(personalAllowance).isEqualTo(TaxCalculator.DEFAULT_PERSONAL_ALLOWANCE_AMOUNT);
     }
 
     @Test
@@ -133,7 +132,7 @@ public class TaxCalculatorTest {
         final int personalAllowance = getPersonalAllowanceFor(salary).intValue();
 
         // then
-        Assert.assertThat(personalAllowance, is(0));
+        assertThat(personalAllowance).isEqualTo(0);
     }
 
     @Test
@@ -148,9 +147,9 @@ public class TaxCalculatorTest {
         final int personalAllowance3 = getPersonalAllowanceFor(salary3).intValue();
 
         // then
-        Assert.assertThat(personalAllowance, is(10599));
-        Assert.assertThat(personalAllowance2, is(5600));
-        Assert.assertThat(personalAllowance3, is(600));
+        assertThat(personalAllowance).isEqualTo(10599);
+        assertThat(personalAllowance2).isEqualTo(5600);
+        assertThat(personalAllowance3).isEqualTo(600);
     }
 
     @Test
@@ -161,6 +160,6 @@ public class TaxCalculatorTest {
         final int personalAllowance = getPersonalAllowanceFor(salary).intValue();
 
         // then
-        Assert.assertThat(personalAllowance, is(0));
+        assertThat(personalAllowance).isEqualTo(0);
     }
 }

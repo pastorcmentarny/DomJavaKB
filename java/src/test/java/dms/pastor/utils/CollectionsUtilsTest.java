@@ -5,7 +5,6 @@ package dms.pastor.utils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-
 import java.util.*;
 
 import static dms.pastor.TestConfig.MAX_RANDOM_SIZE;
@@ -14,7 +13,6 @@ import static dms.pastor.utils.StringUtils.isStringBlank;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateArray;
 import static java.util.Collections.emptyList;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.CoreMatchers.is;
 
 /**
  * Author Dominik Symonowicz
@@ -34,16 +32,16 @@ public class CollectionsUtilsTest {
 
     @Test
     public void testEmptyArrayList() {
-        Assert.assertThat(CollectionsUtils.emptyArrayList().isEmpty(), is(true));
-        Assert.assertThat(CollectionsUtils.emptyArrayList().size(), is(0));
+        assertThat(CollectionsUtils.emptyArrayList().isEmpty()).isEqualTo(true);
+        assertThat(CollectionsUtils.emptyArrayList().size()).isEqualTo(0);
     }
 
 
     @Test
     public void testEmptyHashSet() {
         Set<Object> expectedObjectSet = new HashSet<>(0);
-        Assert.assertThat("Empty Object HashSet", emptyHashSet(), is(expectedObjectSet));
-        Assert.assertThat(emptyHashSet().isEmpty(), is(true));
+        assertThat(emptyHashSet()).isEqualTo(expectedObjectSet);
+        assertThat(emptyHashSet().isEmpty()).isEqualTo(true);
     }
 
     @SuppressWarnings("ConstantConditions") //because this is purpose of test
@@ -62,7 +60,7 @@ public class CollectionsUtilsTest {
         final boolean isEmpty = isStringArrayEmpty(EMPTY_ARRAY);
 
         // then
-        Assert.assertThat(isEmpty, is(true));
+        assertThat(isEmpty).isEqualTo(true);
     }
 
     @Test

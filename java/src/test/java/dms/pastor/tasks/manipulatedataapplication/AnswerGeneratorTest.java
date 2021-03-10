@@ -1,13 +1,12 @@
 package dms.pastor.tasks.manipulatedataapplication;
 
 import dms.pastor.utils.randoms.RandomDataGenerator;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static dms.pastor.TestConfig.PATH;
-import static org.hamcrest.CoreMatchers.is;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Author Dominik Symonowicz
@@ -32,7 +31,7 @@ public class AnswerGeneratorTest {
         String result = "Number of male: 5. Average age of people is: 27. Jeff Briton is 29 day(s) older than Tom Sawyer.";
 
         final String answerGenerated = answers.generate();
-        Assert.assertThat(answerGenerated, is(result));
+        assertThat(answerGenerated).isEqualTo(result);
     }
 
     @Test

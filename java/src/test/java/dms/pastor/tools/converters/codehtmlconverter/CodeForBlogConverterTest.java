@@ -35,7 +35,7 @@ public class CodeForBlogConverterTest {
         data.add("import org.junit.jupiter.api.Test;");
         data.add("import java.util.ArrayList;");
         addEmptyLine(data);
-        data.add("import static org.junit.Assert.assertEquals;");
+        data.add("import static org.junit.assertEquals;");
         data.add("/**");
         data.add(" * Author Dominik Symonowicz");
         data.add(" */");

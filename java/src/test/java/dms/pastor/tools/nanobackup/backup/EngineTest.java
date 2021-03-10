@@ -2,9 +2,7 @@ package dms.pastor.tools.nanobackup.backup;
 
 import dms.pastor.tools.nanobackup.Constants;
 import dms.pastor.tools.nanobackup.Settings;
-
 import org.junit.jupiter.api.Test;
-import org.junit.contrib.java.lang.system.ExpectedSystemExit;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,8 +22,9 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class EngineTest {
 
-    @Rule
-    public final ExpectedSystemExit exit = ExpectedSystemExit.none();
+    //FIXME
+    //@Rule
+    //public final ExpectedSystemExit exit = ExpectedSystemExit.none();
 
     private final Engine engine = new Engine();
 

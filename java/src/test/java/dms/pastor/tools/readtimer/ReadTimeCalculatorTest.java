@@ -3,7 +3,6 @@ package dms.pastor.tools.readtimer;
 
 import dms.pastor.utils.StringUtils;
 import dms.pastor.utils.randoms.RandomDataGenerator;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,8 +16,7 @@ import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.randoms.RandomDataGenerator.*;
 import static java.lang.Integer.MAX_VALUE;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+
 
 /**
  * Author Dominik Symonowicz
@@ -116,7 +114,7 @@ public class ReadTimeCalculatorTest {
         final int wordPerMinute = readTimeCalculator.calculateTimeNeedToReadFor();
 
         // then
-        assertThat(wordPerMinute, is(ONE_WORD_PER_SECOND));
+        assertThat(wordPerMinute).isEqualTo(ONE_WORD_PER_SECOND);
     }
 
 
@@ -142,7 +140,7 @@ public class ReadTimeCalculatorTest {
 
         // then
         final String expected = "59 seconds to read.";
-        assertThat(result, is(expected));
+        assertThat(result).isEqualTo(expected);
     }
 
     @Test
@@ -154,7 +152,7 @@ public class ReadTimeCalculatorTest {
 
         // then
         final String expected = "1 minute to read.";
-        assertThat(result, is(expected));
+        assertThat(result).isEqualTo(expected);
     }
 
     @Test
@@ -167,7 +165,7 @@ public class ReadTimeCalculatorTest {
 
         // then
         final String expected = "1 minute and 1 second to read.";
-        assertThat(result, is(expected));
+        assertThat(result).isEqualTo(expected);
     }
 
     @Test
@@ -179,7 +177,7 @@ public class ReadTimeCalculatorTest {
 
         // then
         final String expected = "1 hour to read.";
-        assertThat(result, is(expected));
+        assertThat(result).isEqualTo(expected);
     }
 
     @Test
@@ -192,7 +190,7 @@ public class ReadTimeCalculatorTest {
 
         // then
         final String expected = "1 hour, 1 minute and 1 second to read.";
-        assertThat(result, is(expected));
+        assertThat(result).isEqualTo(expected);
     }
 
     @Test
@@ -205,7 +203,7 @@ public class ReadTimeCalculatorTest {
 
         // then
         final String expected = "1 hour and 1 second to read.";
-        assertThat(result, is(expected));
+        assertThat(result).isEqualTo(expected);
     }
 
     @Test
@@ -218,7 +216,7 @@ public class ReadTimeCalculatorTest {
 
         // then
         final String expected = "6 hours, 6 minutes and 6 seconds to read.";
-        assertThat(result, is(expected));
+        assertThat(result).isEqualTo(expected);
     }
 
     @Test

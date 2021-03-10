@@ -9,7 +9,6 @@ import static dms.pastor.utils.ArrayUtils.clone2DArrayOfInts;
 import static dms.pastor.utils.ArrayUtils.reverseStringArray;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateRandomByteArray;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.CoreMatchers.is;
 
 /**
  * Author Dominik Symonowicz
@@ -30,14 +29,14 @@ public class ArrayUtilsTest {
     public void testGetSingleIntArrayAsString() {
         int[] testSequence = new int[]{0};
         final String intArrayAsString = ArrayUtils.getIntArrayAsString(testSequence);
-        Assert.assertThat("int as array", intArrayAsString, is("[{0 = 0}]"));
+        assertThat(intArrayAsString).isEqualTo("[{0 = 0}]");
     }
 
     @Test
     public void testGetIntArrayAsString() {
         int[] testSequence = new int[]{0, 1, 2, 3, 4};
         final String intArrayAsString = ArrayUtils.getIntArrayAsString(testSequence);
-        Assert.assertThat("int as array", intArrayAsString, is("[{0 = 0}{1 = 1}{2 = 2}{3 = 3}{4 = 4}]"));
+        assertThat(intArrayAsString).isEqualTo("[{0 = 0}{1 = 1}{2 = 2}{3 = 3}{4 = 4}]");
     }
 
     @Test
@@ -45,9 +44,9 @@ public class ArrayUtilsTest {
         int[] testSequence = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
         final int[] intSequenceArray = ArrayUtils.generateIntSequenceArray(testSequence.length);
 
-        Assert.assertThat("compare dictSize", intSequenceArray.length, is(testSequence.length));
+        assertThat(intSequenceArray.length).isEqualTo(testSequence.length);
         for (int i = 0; i < 10; i++) {
-            Assert.assertThat("i:" + i, intSequenceArray[i], is(testSequence[i]));
+            assertThat(intSequenceArray[i]).isEqualTo(testSequence[i]);
         }
     }
 
