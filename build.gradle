@@ -3,7 +3,7 @@ project.ext {
 }
 
 apply from: "$gradleDir/tasks.gradle/"
-//apply from: "$gradleDir/wrapper.gradle/"
+
 
 buildscript {
     repositories {
@@ -13,9 +13,6 @@ buildscript {
         classpath 'org.owasp:dependency-check-gradle:3.1.2'
     }
 }
-
-
-
 
 allprojects {
     apply plugin: 'idea'
@@ -35,4 +32,8 @@ allprojects {
         println "I'm building $project.name with version $project.version"
     }
 
+}
+
+wrapper {
+    gradleVersion = '6.8.3'
 }
