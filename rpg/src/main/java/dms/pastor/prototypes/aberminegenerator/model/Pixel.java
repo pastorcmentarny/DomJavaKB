@@ -10,9 +10,9 @@ import static dms.pastor.prototypes.aberminegenerator.model.TerrainType.*;
 @Slf4j
 @Value
 public class Pixel {
-    private boolean penetrable;
-    private TerrainType type;
-    private Coordinates coordinates;
+    boolean penetrable;
+    TerrainType type;
+    Coordinates coordinates;
 
     public static Pixel buildPixel(boolean penetrable, TerrainType type, int width, int height) {
         return new Pixel(penetrable, type, new Coordinates(width, height));
