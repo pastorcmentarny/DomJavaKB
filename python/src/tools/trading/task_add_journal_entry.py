@@ -11,18 +11,28 @@ PATH = r'e:\Dropbox\trading\journal.txt'
 
 DOT = '.'
 SPACE = ' '
+EMPTY = ''
+
+# EXIT TYPES
 EARLY_PROFIT_EXIT = 'EARLY EXIT TO PROTECT REVENUE'
+MANUAL_EXIT = 'manual exit'
 EXIT_BY_ERROR = 'accidental exit'
 AUTO_EXIT_PROFIT_SL = 'auto exit profit SL'
-AUTO_EXIT_TP = 'auto exit (TP)'
+AUTO_EXIT_TARGET_PRICE = 'auto exit (TP)'
+AUTO_EXIT_STOP_LOSS = "STOP LOSS"
+MAX_DAILY_LOST_CAP = 'exit due to it reach max daily lost cap'
+
+# FIELDS
 COMMENT_FIELD = "comment"
 STRATEGY_NAME = "Strategy Name"
 STATUS_OPEN = 'open'
 STATUS_CLOSE = 'closed'
-EMPTY = ''
+
 TRADE_TYPE_BUY = 'buy'
 TRADE_TYPE_SELL = 'sell'
+
 MANDATORY_FIELD = None
+
 WIN = 'Winner'
 LOSE = 'Loser'
 journal_entry = {
@@ -121,12 +131,19 @@ def calculate_total_days_in_trade(start_date, end_date):
     return (end_dt.date() - start_dt.date()).days
 
 
-def add_trade(strategy_name: str, exit_reason: str, rrp: str, rra: str, result: str, trade_line: str,
+def add_trade(strategy_name: str, exit_reason: str, rrp: str, rra: str, trade_line: str,
               comment: str = EMPTY):
     entry = journal_entry.copy()
     line = trade_line.split('\t')
 
     message_with_amount = line[3].split(SPACE)
+
+    result = None
+    amount = float(line[len(line) - 1])
+    if amount > 0:
+        result = WIN
+    else:
+        result = LOSE
 
     data = trade_data.copy()
     data.update({
@@ -154,7 +171,7 @@ def add_trade(strategy_name: str, exit_reason: str, rrp: str, rra: str, result: 
         "Risk Reward Actual": rra,
         "outcome": {
             "result": result,
-            "amount": line[len(line) - 1]
+            "amount": amount
         },
         COMMENT_FIELD: comment
 
@@ -220,9 +237,15 @@ def generate_stats():
     print(f'Biggest drawndown streak {biggest_drawdown_streak}')
 
 
+def remove_duplicates():
+    pass
+
+
+# ADD AUTOBACKUP OF JOURNAL
 if __name__ == '__main__':
     load_trading_journal_from_file()
-    # add_balance_change('line','comment') #BALANCE EXAMPLE
-    # add_trade('gambling', AUTO_EXIT_PROFIT_SL, '0', '0', WIN,'line','comment') # TRADE EXAMPLE
+    # add_balance_change("line") #BALANCE EXAMPLE
+    # add_trade('gambling', MANUAL_EXIT, '0', '0', "line" ) # TRADE EXAMPLE
+    remove_duplicates()
     save_trading_journal_to_file()
     generate_stats()
