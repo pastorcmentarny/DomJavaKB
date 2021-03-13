@@ -13,7 +13,6 @@ import static dms.pastor.utils.StringUtils.ALPHABET;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.CoreMatchers.sameInstance;
 
 /**
  * Author Dominik Symonowicz
@@ -34,7 +33,7 @@ public class HashToolsTest {
 
         // then
         assertThat(ALPHABET.length()).isEqualTo(characterIntegerHashMap.size());
-        characterIntegerHashMap.forEach((key, value) -> assertThat(value).isEqualTo(sameInstance(2)));
+        characterIntegerHashMap.forEach((key, value) -> assertThat(value).isEqualTo(2));
 
     }
 
