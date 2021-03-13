@@ -13,5 +13,5 @@ def run_example_filter():
     return list(filter(is_long_string, words))
 
 
-def run_example_map():
+def run_example_map(): 
     return list(map(to_first_three_characters, words))
