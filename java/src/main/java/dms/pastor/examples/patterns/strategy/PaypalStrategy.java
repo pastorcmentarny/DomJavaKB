@@ -4,8 +4,8 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public class PaypalStrategy implements PaymentStrategy {
-    private String email;
-    private String password;
+    private final String email;
+    private final String password;
 
     @Override
     public void pay(int amount) {

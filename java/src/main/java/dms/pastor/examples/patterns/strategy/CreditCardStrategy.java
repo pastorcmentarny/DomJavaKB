@@ -4,10 +4,10 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public class CreditCardStrategy implements PaymentStrategy {
-    private String name;
-    private String cardNumber;
-    private String cvv;
-    private String dateOfExpiry;
+    private final String name;
+    private final String cardNumber;
+    private final String cvv;
+    private final String dateOfExpiry;
 
 
     @Override

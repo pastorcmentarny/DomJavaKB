@@ -15,15 +15,15 @@ package dms.pastor.examples.sorting;
 public class MergeSort implements Sorter {
 
     /* (non-Javadoc)
-     * @see sorting.Sorter#sort(java.lang.Comparable[])
+     * @see sorting.Sorter#sort(java.lang.Comparable<Integer>[])
      */
-    public void sort(Comparable[] items) {
-        Comparable[] temp = new Comparable[items.length];
+    public void sort(Comparable<Integer>[] items) {
+        Comparable<Integer>[] temp = new Comparable[items.length];
         mergeSort(items, temp, 0, items.length - 1);
     }
 
 
-    private void mergeSort(Comparable[] a, Comparable[] temp,
+    private void mergeSort(Comparable<Integer>[] a, Comparable<Integer>[] temp,
                            int left, int right) {
         // terminating condition for recursion.
         if (left < right) {
@@ -34,7 +34,7 @@ public class MergeSort implements Sorter {
         }
     }
 
-    private void merge(Comparable[] a, Comparable[] temp,
+    private void merge(Comparable<Integer>[] a, Comparable<Integer>[] temp,
                        int left, int center, int right) {
         int aptr = left;
         int bptr = center;
@@ -52,7 +52,7 @@ public class MergeSort implements Sorter {
                 // we need to take the smallest element
                 // from the left or right and put it in
                 // the temp scratch space.
-                if (a[aptr].compareTo(a[bptr]) < 0) {
+                if (a[aptr].compareTo((Integer) a[bptr]) < 0) {
                     temp[cptr] = a[aptr];
                     aptr++;
                 } else {
@@ -67,16 +67,9 @@ public class MergeSort implements Sorter {
 
         // copy everything from the scratch space back into
         // the main array
-        for (int i = left; i <= right; i++) {
-            a[i] = temp[i - left];
+        for (int index = left; index <= right; index++) {
+            a[index] = temp[index - left];
         }
     }
 
-
-    private void debugPrint(Comparable[] a, int left, int right) {
-        for (int i = left; i <= right; i++) {
-            System.out.print(a[i] + " ");
-        }
-        System.out.println();
-    }
 }

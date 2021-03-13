@@ -8,8 +8,8 @@ import java.util.UUID;
 @AllArgsConstructor
 @Getter
 public class Item {
-    private UUID uuid;
-    private String name;
-    private int price;
+    private final UUID uuid;
+    private final String name;
+    private final int price;
 
 }

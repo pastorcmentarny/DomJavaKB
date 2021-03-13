@@ -12,20 +12,20 @@ package dms.pastor.examples.sorting;
 public class InsertionSort implements Sorter {
 
     /* (non-Javadoc)
-     * @see sorting.Sorter#sort(java.lang.Comparable[])
+     * @see sorting.Sorter#sort(java.lang.Comparable<Integer>[])
      */
     @Override
-    public void sort(Comparable[] items) {
+    public void sort(Comparable<Integer>[] items) {
         insertionSort(items);
 
     }
 
 
-    public void insertionSort(Comparable[] c) {
+    public void insertionSort(Comparable<Integer>[] c) {
         for (int i = 1; i < c.length; i++) {
             int j = i;
-            Comparable o = c[i];
-            while ((j > 0) && o.compareTo(c[j - 1]) < 0) {
+            Comparable<Integer> o = c[i];
+            while ((j > 0) && o.compareTo((Integer) c[j - 1]) < 0) {
                 c[j] = c[j - 1];
                 j--;
             }
@@ -37,10 +37,10 @@ public class InsertionSort implements Sorter {
         System.out.println("\n\nInsertionSort:\t test started ");
         InsertionSort is = new InsertionSort();
         int i;
-        Comparable[] arr = new Comparable[20];
+        Comparable<Integer>[] arr = new Comparable[20];
         System.out.println("\nInsertionSort:\t Generating 20 random numbers: ");
         for (i = 0; i < arr.length; i++) {
-            arr[i] = Integer.valueOf((int) (Math.random() * 99));
+            arr[i] = (int) (Math.random() * 99);
             System.out.print(arr[i] + " ");
         }
         is.sort(arr);

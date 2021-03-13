@@ -11,12 +11,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Vector;
 
-/**
- * @author rcs
- * <p>
- * To change the template for this generated type comment go to
- * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
- */
+
 public class MakeDataFile {
 
 
@@ -26,7 +21,8 @@ public class MakeDataFile {
         Vector storedNums = new Vector();
         try {
             writer = new BufferedWriter(new FileWriter(args[0]));
-        } catch (IOException ex) {
+        } catch (IOException exception) {
+            System.out.println(exception.getMessage());
         }
 
         int numbers = Integer.parseInt(args[1]);
@@ -35,14 +31,20 @@ public class MakeDataFile {
         for (int i = 0; i < numbers; i++) {
             number = (int) (1000000 + (Math.random() * 8999999));
             try {
-                writer.write(number + "\n");
-            } catch (IOException e) {
+                if (writer != null) {
+                    writer.write(number + "\n");
+                }
+            } catch (IOException exception) {
+                System.out.println(exception.getMessage());
             }
         }
 
         try {
-            writer.close();
-        } catch (IOException ex) {
+            if (writer != null) {
+                writer.close();
+            }
+        } catch (IOException exception) {
+            System.out.println(exception.getMessage());
         }
     }
 }

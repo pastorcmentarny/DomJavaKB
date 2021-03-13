@@ -15,8 +15,8 @@ import java.util.Calendar;
  */
 public class SortingAlgorithmRunner {
 
-    public Comparable[] readData(String fileName) {
-        Comparable[] items;
+    public Comparable<Integer>[] readData(String fileName) {
+        Comparable<Integer>[] items;
         File file = new File(fileName);
         BufferedReader reader = null;
         try {
@@ -65,7 +65,7 @@ public class SortingAlgorithmRunner {
                 if (inLine == null) {
                     eof = true;
                 } else {
-                    items[numLines] = inLine;
+                    items[numLines] = Integer.valueOf(inLine);
                     numLines++;
                 }
             } catch (IOException exception) {
@@ -81,7 +81,7 @@ public class SortingAlgorithmRunner {
         return items;
     }
 
-    public long testOne(String type, Comparable[] items) {
+    public long testOne(String type, Comparable<Integer>[] items) {
         long start;
         long finish;
         long timeTaken = 0;
@@ -95,8 +95,8 @@ public class SortingAlgorithmRunner {
         return timeTaken;
     }
 
-    public void printSortedArray(Comparable[] items) {
-        for (Comparable item : items) {
+    public void printSortedArray(Comparable<Integer>[] items) {
+        for (Comparable<Integer> item : items) {
             System.out.println(item);
         }
     }
@@ -107,52 +107,50 @@ public class SortingAlgorithmRunner {
         long[] timeTaken = new long[sortTypes.length];
         StringBuilder retLine = new StringBuilder();
         for (int i = 0; i < sortTypes.length; i++) {
-            Comparable[] items = this.readData(filename);
+            Comparable<Integer>[] items = this.readData(filename);
             if (items.length > 10000 && i > 1) break;
             timeTaken[i] =
                     this.testOne("sorting." + sortTypes[i], items);
-            retLine.append(sortTypes[i] + "\t" + timeTaken[i] + "\n");
+            retLine.append(sortTypes[i]).append("\t").append(timeTaken[i]).append("\n");
         }
         return retLine.toString();
     }
 
     public String testEverything() {
         String[] filenames = {
-//								"test2.dat","test3.dat",
-//							  "test3a.dat","test3b.dat",
-//							  "test4.dat",
-//							  "test4a.dat",
-//							  "test4b.dat",
+                "test2.dat", "test3.dat",
+                "test3a.dat", "test3b.dat",
+                "test4.dat",
+                "test4a.dat",
+                "test4b.dat",
                 "test5.dat",
                 "test5a.dat",
                 "test5b.dat",
-//							  "test6.dat",
-//							  "test6a.dat",
-//							  "test6b.dat",
-//							  "test7.dat"
+                "test6.dat",
+                "test6a.dat",
+                "test6b.dat",
+                "test7.dat"
         };
         String[] sortTypes = {
                 "QuickestSort",
-//							 "MergeSort",
+                "MergeSort",
                 "QuickSort",
-//							 "InsertionSort",
+                "InsertionSort",
                 "OptimisedQuickSort",
-//							 "TreeSort",		
-//							 "SelectionSort",
-//							 "BubbleSort"
+                "TreeSort",
+                "SelectionSort",
+                "BubbleSort"
         };
-        long timeTaken = 99999999;
+        long timeTaken;
         StringBuilder retLine = new StringBuilder();
         for (String sortType : sortTypes) {
             retLine.append(sortType);
             for (String filename : filenames) {
 
-                Comparable[] items = this.readData(filename);
-//				if (items.length>10000 && i>3) break;
-//				if (items.length>100000 && i>2) break;
+                Comparable<Integer>[] items = this.readData(filename);
                 timeTaken =
                         this.testOne("sorting." + sortType, items);
-                retLine.append("," + timeTaken);
+                retLine.append(",").append(timeTaken);
             }
             retLine.append("\n");
         }
@@ -190,24 +188,16 @@ public class SortingAlgorithmRunner {
 
         QuickSort adsQS = new QuickSort();
         QuickSort.main(args);
-        OptimisedQuickSort adsOQS = new OptimisedQuickSort();
-        OptimisedQuickSort.main(args);
         InsertionSort adsIS = new InsertionSort();
         InsertionSort.main(args);
 
-        //QuickSort self test
+
         System.out.println("Info:\n\tTask: Selftest:\n\tSort: QuickSort");
         System.out.println("\tData:  20 numbers [autogenerate,random numbers]");
         QuickSort testQS = new QuickSort();
         QuickSort.main(args);
 
-        //OptimisedQuickSort self test
-        System.out.println("Info:\n\tTask: Selftest:\n\tSort: Optimized QuickSort");
-        System.out.println("\tData:  20 numbers [autogenerate,random numbers]");
-        OptimisedQuickSort testOQS = new OptimisedQuickSort();
-        OptimisedQuickSort.main(args);
 
-        //InsertionSort self test
         System.out.println("Info:\n\tTask: Selftest:\n\tSort: InsertionSort");
         System.out.println("\tData:  20 numbers [autogenerate,random numbers]");
         InsertionSort testIS = new InsertionSort();

@@ -17,8 +17,8 @@ import java.util.Calendar;
  */
 public class SortDemo {
 
-    public Comparable[] readData(String fileName) {
-        Comparable[] items;
+    public Comparable<Integer>[] readData(String fileName) {
+        Comparable<Integer>[] items;
         File file = new File(fileName);
         BufferedReader reader = null;
         try {
@@ -66,7 +66,7 @@ public class SortDemo {
                 if (inLine == null) {
                     eof = true;
                 } else {
-                    items[numLines] = inLine;
+                    items[numLines] = Integer.valueOf(inLine);
                     numLines++;
                 }
             } catch (IOException exception) {
@@ -82,7 +82,7 @@ public class SortDemo {
         return items;
     }
 
-    public long testOne(String type, Comparable[] items) {
+    public long testOne(String type, Comparable<Integer>[] items) {
         long start;
         long finish;
         long timeTaken = 0;
@@ -96,22 +96,20 @@ public class SortDemo {
         return timeTaken;
     }
 
-    public void printSortedArray(Comparable[] items) {
-        for (Comparable item : items) {
+    public void printSortedArray(Comparable<Integer>[] items) {
+        for (Comparable<Integer> item : items) {
             System.out.println(item);
         }
     }
 
     public String testAll(String filename) {
-        String[] sortTypes = {"MergeSort", "QuickSort"
-                , "SelectionSort", "BubbleSort"};
+        String[] sortTypes = {"MergeSort", "QuickSort", "SelectionSort", "BubbleSort"};
         long[] timeTaken = new long[sortTypes.length];
         StringBuilder retLine = new StringBuilder();
         for (int i = 0; i < sortTypes.length; i++) {
-            Comparable[] items = this.readData(filename);
+            Comparable<Integer>[] items = this.readData(filename);
             if (items.length > 10000 && i > 1) break;
-            timeTaken[i] =
-                    this.testOne("sorting." + sortTypes[i], items);
+            timeTaken[i] = this.testOne("sorting." + sortTypes[i], items);
             retLine.append(sortTypes[i]).append("\t").append(timeTaken[i]).append("\n");
         }
         return retLine.toString();
@@ -120,37 +118,34 @@ public class SortDemo {
     public String testEverything() {
         String[] filenames = {
                 "test2.dat", "test3.dat",
-//							  "test3a.dat","test3b.dat",
+                "test3a.dat", "test3b.dat",
                 "test4.dat",
-//							  "test4a.dat",
-//							  "test4b.dat",
-//							  "test5.dat",
-//							  "test5a.dat",
-//							  "test5b.dat",
-//							  "test6.dat",
-//							  "test6a.dat",
-//							  "test6b.dat",
-//							  "test7.dat"
+                "test4a.dat",
+                "test4b.dat",
+                "test5.dat",
+                "test5a.dat",
+                "test5b.dat",
+                "test6.dat",
+                "test6a.dat",
+                "test6b.dat",
+                "test7.dat"
         };
         String[] sortTypes = {
                 "MergeSort",
                 "QuickSort",
                 "InsertionSort",
-//		                      "OptimisedQuickSort",
+                "OptimisedQuickSort",
                 "TreeSort",
-//							 "SelectionSort","BubbleSort"
+                "SelectionSort", "BubbleSort"
         };
         long timeTaken;
         StringBuilder retLine = new StringBuilder();
         for (String sortType : sortTypes) {
             retLine.append(sortType);
-            for (int j = 0; j < filenames.length; j++) {
+            for (String filename : filenames) {
 
-                Comparable[] items = this.readData(filenames[j]);
-//				if (items.length>10000 && i>3) break;
-//				if (items.length>100000 && i>2) break;
-                timeTaken =
-                        this.testOne("sorting." + sortType, items);
+                Comparable<Integer>[] items = this.readData(filename);
+                timeTaken = this.testOne("sorting." + sortType, items);
                 retLine.append(",").append(timeTaken);
             }
             retLine.append("\n");
@@ -161,10 +156,10 @@ public class SortDemo {
 
     public static void main(String[] args) {
         SortDemo sd = new SortDemo();
-//		Comparable[] items=sd.readData("test2.dat");
-//		sd.testOne("sorting.RadixSort",items);
-//		sd.printSortedArray(items);
-//		System.out.println(sd.testAll("test6.dat"));
+        Comparable<Integer>[] items = sd.readData("test2.dat");
+        sd.testOne("sorting.RadixSort", items);
+        sd.printSortedArray(items);
+        System.out.println(sd.testAll("test6.dat"));
         System.out.println(sd.testEverything());
     }
 }

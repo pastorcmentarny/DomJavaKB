@@ -1,7 +1,6 @@
 package dms.pastor.examples.sorting;
 
 /*
-  @author Dominik Symonowicz dms6@aber.ac.uk
  * @since 13.03'2009
  * @version 1.42
  * 
@@ -11,44 +10,35 @@ package dms.pastor.examples.sorting;
 
  * This is classic Quick sort implementation without optimization
  * 
- * Quick sort was developed by Sir Charles Anthony
- * Richard Hoare in 1962. Its one of comparison
- * sorting algorithm which uses divide and conquer
- * strategy using Partitioning method. Quick Sort
- * characterize very good performance for o best
- * and average cases: O(n log n) but unfortunately
- * in worse case performance is degraded to o(n2).it
- * is unstable sort as well.
+ * Quick sort was developed by Sir Charles Anthony Richard Hoare in 1962. Its one of comparison
+ * sorting algorithm which uses divide and conquer  strategy using Partitioning method. Quick Sort
+ * characterize very good performance for o best and average cases: O(n log n) but unfortunately
+ * in worse case performance is degraded to o(n2). it is unstable sort as well.
  */
 public class QuickSort implements Sorter {
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see sorting.Sorter#sort(java.lang.Comparable[])
-     */
     @Override
-    public void sort(Comparable[] c) {
+    public void sort(Comparable<Integer>[] c) {
         sort(c, 0, c.length - 1);
     }
 
-    public void sort(Comparable[] c, int start, int end) {
+    public void sort(Comparable<Integer>[] c, int start, int end) {
         if (end <= start) {
             return;
         }
-        Comparable comp = c[start];
+        Comparable<Integer> comp = c[start];
         int i = start, j = end + 1;
         for (; ; ) {
             do {
                 i++;
-            } while (i < end && c[i].compareTo(comp) < 0);
+            } while (i < end && c[i].compareTo((Integer) comp) < 0);
             do {
                 j--;
-            } while (j > start && c[j].compareTo(comp) > 0);
+            } while (j > start && c[j].compareTo((Integer) comp) > 0);
             if (j <= i) {
                 break;
             }
-            Comparable tmp = c[i];
+            Comparable<Integer> tmp = c[i];
             c[i] = c[j];
             c[j] = tmp;
         }
@@ -58,20 +48,16 @@ public class QuickSort implements Sorter {
         sort(c, j + 1, end);
     }
 
-    /**
-     * Below method is used for testing QuickSort
-     * Generate randomly 20 numbers and sort.After result you can see is quick sort working
-     *
-     * @param args
-     */
+
+    //Generate randomly 20 numbers and sort.After result you can see is quick sort working
     public static void main(String[] args) {
         System.out.println("\n\nQuickSort:\t test started ");
         QuickSort qs = new QuickSort();
         int i;
-        Comparable[] arr = new Comparable[20];
+        Comparable<Integer>[] arr = new Comparable[20];
         System.out.println("\nQuickSort:\t Generating 20 random numbers: ");
         for (i = 0; i < arr.length; i++) {
-            arr[i] = Integer.valueOf((int) (Math.random() * 99));
+            arr[i] = (int) (Math.random() * 99);
             System.out.print(arr[i] + " ");
         }
         qs.sort(arr, 0, 19);
