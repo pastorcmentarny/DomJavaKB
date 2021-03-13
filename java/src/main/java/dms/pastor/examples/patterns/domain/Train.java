@@ -8,7 +8,7 @@ import lombok.Getter;
 @Getter
 @Builder
 public class Train {
-    private String name;
-    private int maxSpeedInKm;
-    private int capacity;
+    private final String name;
+    private final int maxSpeedInKm;
+    private final int capacity;
 }

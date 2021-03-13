@@ -5,7 +5,7 @@ import java.util.List;
 //TODO have one work-like example and one train like
 public class ShoppingCart {
 
-    private List<Item> items;
+    private final List<Item> items;
 
     public ShoppingCart() {
         this.items = new ArrayList<>();

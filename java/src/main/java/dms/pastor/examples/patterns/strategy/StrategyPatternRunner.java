@@ -6,7 +6,7 @@ import java.util.UUID;
 
 public class StrategyPatternRunner {
 
-    private PatternRunner patternRunner = PatternRunner.builder()
+    private final PatternRunner patternRunner = PatternRunner.builder()
             .name("Strategy")
             .type("Behavioral")
             .description("It lets the algorithm vary independently from client that uses it. It defines a family of algorithms, encapsulate eac one, and make them interchangeable. It is good for reduce conditions,avoid duplicate code but it will increase number of classes.")

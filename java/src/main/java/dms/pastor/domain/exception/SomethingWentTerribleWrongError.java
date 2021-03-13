@@ -2,6 +2,7 @@ package dms.pastor.domain.exception;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serial;
 
 /**
  * Author Dominik Symonowicz
@@ -22,11 +23,13 @@ public class SomethingWentTerribleWrongError extends Error {
     }
 
     //https://www.owasp.org/index.php/Deserialization_Cheat_Sheet
+    @Serial
     @SuppressWarnings({"FinalPrivateMethod", "unused"})
     private final void readObject(ObjectInputStream in) throws java.io.IOException {
         throw new java.io.IOException("Cannot be deserialized");
     }
 
+    @Serial
     @SuppressWarnings({"FinalPrivateMethod", "unused"})
     private final void writeObject(ObjectOutputStream out) throws java.io.IOException {
         throw new java.io.IOException("Cannot be deserialized");

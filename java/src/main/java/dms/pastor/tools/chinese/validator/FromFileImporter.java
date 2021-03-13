@@ -47,7 +47,7 @@ public class FromFileImporter implements Importer {
             return fail("Path to file " + filePath + " do not exists.");
         }
 
-        try (FileInputStream fileInputStream = new FileInputStream(new File(filePath));
+        try (FileInputStream fileInputStream = new FileInputStream(filePath);
              InputStreamReader isr = new InputStreamReader(fileInputStream);
              BufferedReader br = new BufferedReader(isr)
 

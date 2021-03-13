@@ -27,7 +27,7 @@ public class MakeDataFile {
 		}
 
 		int numbers=Integer.parseInt(args[1]);
-		int number=0;
+		int number;
 		
 		for (int i = 0; i<numbers; i++)
 		{

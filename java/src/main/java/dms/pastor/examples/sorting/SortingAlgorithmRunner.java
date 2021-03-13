@@ -27,7 +27,7 @@ public class SortingAlgorithmRunner {
             System.exit(0);
         }
         boolean eof = false;
-        String inLine = null;
+        String inLine;
         int numLines = 0;
         while (!eof) {
             try {
@@ -37,12 +37,14 @@ public class SortingAlgorithmRunner {
                 } else {
                     numLines++;
                 }
-            } catch (IOException e) {
+            } catch (IOException exception) {
+                System.out.println(exception.getMessage());
             }
         }
         try {
             reader.close();
-        } catch (IOException e) {
+        } catch (IOException exception) {
+            System.out.println(exception.getMessage());
         }
 
         items = new Comparable[numLines];
@@ -66,12 +68,14 @@ public class SortingAlgorithmRunner {
                     items[numLines] = inLine;
                     numLines++;
                 }
-            } catch (IOException e) {
+            } catch (IOException exception) {
+                System.out.println(exception.getMessage());
             }
         }
         try {
             reader.close();
-        } catch (IOException e) {
+        } catch (IOException exception) {
+            System.out.println(exception.getMessage());
         }
 
         return items;
@@ -98,9 +102,9 @@ public class SortingAlgorithmRunner {
     }
 
     public String testAll(String filename) {
-        String sortTypes[] = {"MergeSort", "QuickSort"
+        String[] sortTypes = {"MergeSort", "QuickSort"
                 , "SelectionSort", "BubbleSort"};
-        long timeTaken[] = new long[sortTypes.length];
+        long[] timeTaken = new long[sortTypes.length];
         StringBuffer retLine = new StringBuffer();
         for (int i = 0; i < sortTypes.length; i++) {
             Comparable[] items = this.readData(filename);
@@ -113,7 +117,7 @@ public class SortingAlgorithmRunner {
     }
 
     public String testEverything() {
-        String filenames[] = {
+        String[] filenames = {
 //								"test2.dat","test3.dat",
 //							  "test3a.dat","test3b.dat",
 //							  "test4.dat",
@@ -127,7 +131,7 @@ public class SortingAlgorithmRunner {
 //							  "test6b.dat",
 //							  "test7.dat"
         };
-        String sortTypes[] = {
+        String[] sortTypes = {
                 "QuickestSort",
 //							 "MergeSort",
                 "QuickSort",
@@ -185,28 +189,28 @@ public class SortingAlgorithmRunner {
 
 
         QuickSort adsQS = new QuickSort();
-        adsQS.main(args);
+        QuickSort.main(args);
         OptimisedQuickSort adsOQS = new OptimisedQuickSort();
-        adsOQS.main(args);
+        OptimisedQuickSort.main(args);
         InsertionSort adsIS = new InsertionSort();
-        adsIS.main(args);
+        InsertionSort.main(args);
 
         //QuickSort self test
         System.out.println("Info:\n\tTask: Selftest:\n\tSort: QuickSort");
         System.out.println("\tData:  20 numbers [autogenerate,random numbers]");
         QuickSort testQS = new QuickSort();
-        testQS.main(args);
+        QuickSort.main(args);
 
         //OptimisedQuickSort self test
         System.out.println("Info:\n\tTask: Selftest:\n\tSort: Optimized QuickSort");
         System.out.println("\tData:  20 numbers [autogenerate,random numbers]");
         OptimisedQuickSort testOQS = new OptimisedQuickSort();
-        testOQS.main(args);
+        OptimisedQuickSort.main(args);
 
         //InsertionSort self test
         System.out.println("Info:\n\tTask: Selftest:\n\tSort: InsertionSort");
         System.out.println("\tData:  20 numbers [autogenerate,random numbers]");
         InsertionSort testIS = new InsertionSort();
-        testIS.main(args);
+        InsertionSort.main(args);
     }
 }

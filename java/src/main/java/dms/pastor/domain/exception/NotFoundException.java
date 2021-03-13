@@ -3,6 +3,7 @@ package dms.pastor.domain.exception;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serial;
 
 /**
  * Author Dominik Symonowicz
@@ -21,11 +22,13 @@ public class NotFoundException extends RuntimeException {
     }
 
     //https://www.owasp.org/index.php/Deserialization_Cheat_Sheet
+    @Serial
     @SuppressWarnings({"FinalPrivateMethod", "unused"})
     private final void readObject(ObjectInputStream in) throws IOException {
         throw new IOException("Cannot be deserialized");
     }
 
+    @Serial
     @SuppressWarnings({"FinalPrivateMethod", "unused"})
     private final void writeObject(ObjectOutputStream out) throws IOException {
         throw new IOException("Cannot be serialized");

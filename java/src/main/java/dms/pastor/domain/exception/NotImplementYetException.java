@@ -3,6 +3,7 @@ package dms.pastor.domain.exception;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serial;
 
 /**
  * Author Dominik Symonowicz
@@ -28,11 +29,13 @@ public class NotImplementYetException extends RuntimeException {
 
 
     //https://www.owasp.org/index.php/Deserialization_Cheat_Sheet
+    @Serial
     @SuppressWarnings("FinalPrivateMethod")
     private final void readObject(ObjectInputStream in) throws IOException {
         throw new IOException(CANNOT_BE_DESERIALIZED_MESSAGE);
     }
 
+    @Serial
     @SuppressWarnings("FinalPrivateMethod")
     private final void writeObject(ObjectOutputStream out) throws IOException {
         throw new IOException(CANNOT_BE_DESERIALIZED_MESSAGE);
