@@ -14,7 +14,7 @@ def clean_result(results: str) -> str:
     return cleaned_result.rstrip(NEW_LINE)
 
 
-results_input = ''''''
+results_input = """"""
 
 if __name__ == '__main__':
     print('REMINDER! DO NOT FORGOT UPDATE INPUT BEFORE RUN IT')
