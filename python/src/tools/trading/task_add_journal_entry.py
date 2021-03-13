@@ -3,6 +3,9 @@ import datetime
 import json
 
 # SETTINGS
+AMOUNT = 'amount'
+TRANSATION_ID = 'transaction id'
+DATA = "data"
 TYPE = "type"
 debug_mode = False
 
@@ -38,12 +41,12 @@ LOSE = 'Loser'
 journal_entry = {
     TYPE: 'trade',
     "id": 0,
-    "data": EMPTY
+    DATA: EMPTY
 }
 
 trade_data = {
     "status": EMPTY,  # planned, open, close
-    "Trade Number": 0,  # ticket number
+    TRANSATION_ID: 0,  # ticket number
     STRATEGY_NAME: EMPTY,
     "Market": EMPTY,
     "Long/Short": None,
@@ -108,8 +111,8 @@ def add_balance_change(balance_line: str, comment: str = EMPTY):
     message_with_amount = line[3].split(' ')
 
     data = {}
-    data['transation id'] = line[0]
-    data['transation date'] = line[1]
+    data[TRANSATION_ID] = line[0]
+    data['transaction date'] = line[1]
     data['message'] = " ".join(message_with_amount[0:len(message_with_amount)])
     data['amount'] = line[4]
 
@@ -131,12 +134,24 @@ def calculate_total_days_in_trade(start_date, end_date):
     return (end_dt.date() - start_dt.date()).days
 
 
-def add_trade(strategy_name: str, exit_reason: str, rrp: str, rra: str, trade_line: str,
+def is_duplicate(trade_number: str):
+    for entry in tradings_journal:
+        print(entry)
+        if entry[DATA][TRANSATION_ID] == trade_number:
+            return True
+    return False
+
+
+def add_trade(strategy_name: str, exit_reason: str, rrp: str, trade_line: str,
               comment: str = EMPTY):
     entry = journal_entry.copy()
     line = trade_line.split('\t')
 
     message_with_amount = line[3].split(SPACE)
+
+    if is_duplicate(line[0]):
+        print(f'WARNING! {line[0]} is already in journal! This line {trade_line} is skipped.')
+        return
 
     result = None
     amount = float(line[len(line) - 1])
@@ -148,7 +163,7 @@ def add_trade(strategy_name: str, exit_reason: str, rrp: str, rra: str, trade_li
     data = trade_data.copy()
     data.update({
         "status": STATUS_CLOSE,  # planned, open, close
-        "Trade Number": line[0],  # ticket number
+        TRANSATION_ID: line[0],  # ticket number
         STRATEGY_NAME: strategy_name,
         "Market": line[4],
         "Long/Short": line[2],
@@ -168,13 +183,12 @@ def add_trade(strategy_name: str, exit_reason: str, rrp: str, rra: str, trade_li
         },
         "Number of days in Trade": calculate_total_days_in_trade(line[1], line[8]),
         "Risk Reward Projected": rrp,
-        "Risk Reward Actual": rra,
+        "Risk Reward Actual": 0,  # TODO implement it
         "outcome": {
             "result": result,
-            "amount": amount
+            AMOUNT: amount
         },
         COMMENT_FIELD: comment
-
     })
 
     entry.update({
@@ -196,6 +210,7 @@ def generate_stats():
     biggest_win_streak = 0
     biggest_drawdown_streak = 0
     current_streak_count = 0
+    balance = 0
     streak = LOSE
     for event in tradings_journal:
         print_if_debug_enabled(streak)
@@ -213,8 +228,8 @@ def generate_stats():
                 wins += 1
                 print_if_debug_enabled(f'after {streak}')
 
-                if float(event['data']['outcome']['amount']) > biggest_win_amount:
-                    biggest_win_amount = float(event['data']['outcome']['amount'])
+                if float(event['data']['outcome'][AMOUNT]) > biggest_win_amount:
+                    biggest_win_amount = float(event['data']['outcome'][AMOUNT])
             if event['data']['outcome']['result'] == LOSE:
                 if streak == LOSE:
                     current_streak_count = current_streak_count + 1
@@ -226,8 +241,12 @@ def generate_stats():
                 loses += 1
 
                 print_if_debug_enabled(f'after {streak}')
-                if float(event['data']['outcome']['amount']) < biggest_lost_amount:
-                    biggest_lost_amount = float(event['data']['outcome']['amount'])
+                if float(event['data']['outcome'][AMOUNT]) < biggest_lost_amount:
+                    biggest_lost_amount = float(event['data']['outcome'][AMOUNT])
+        if event[TYPE] == 'balance':
+            balance = balance + float(event[DATA][AMOUNT])
+        else:
+            balance = balance + float(event[DATA]['outcome'][AMOUNT])
 
     print(f'Tradings: {count}')
     print(f'Wins: {wins} Loses: {loses} Winning Ratio: {int((wins / (wins + loses)) * 100)}%')
@@ -235,17 +254,13 @@ def generate_stats():
     print(f'Biggest Win streak {biggest_win_streak}')
     print(f'Biggest Lost £{biggest_lost_amount}')
     print(f'Biggest drawndown streak {biggest_drawdown_streak}')
-
-
-def remove_duplicates():
-    pass
+    print(f'Trading balance: {balance}')
 
 
 # ADD AUTOBACKUP OF JOURNAL
 if __name__ == '__main__':
     load_trading_journal_from_file()
     # add_balance_change("line") #BALANCE EXAMPLE
-    # add_trade('gambling', MANUAL_EXIT, '0', '0', "line" ) # TRADE EXAMPLE
-    remove_duplicates()
+    # add_trade('gambling', MANUAL_EXIT, '1.5',"line" ) # TRADE EXAMPLE
     save_trading_journal_to_file()
     generate_stats()
