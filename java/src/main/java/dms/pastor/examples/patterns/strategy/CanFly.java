@@ -1,6 +1,6 @@
 package dms.pastor.examples.patterns.strategy;
 
-public class CanFly implements Fly{
+public class CanFly implements Fly {
 
     @Override
     public boolean fly() {

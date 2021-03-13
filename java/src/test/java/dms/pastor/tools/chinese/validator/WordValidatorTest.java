@@ -393,7 +393,7 @@ public class WordValidatorTest {
     @Test
     public void validateWordShouldReturnTrueIfHashIsValidStringValue() {
         // given
-        final String randomUUID = UUID.randomUUID().toString().substring(0,8);
+        final String randomUUID = UUID.randomUUID().toString().substring(0, 8);
 
         final Word validDifficulty = new Word(DEFAULT_ID, DEFAULT_CHINESE_CHARACTER, DEFAULT_PINYIN,
                 DEFAULT_STROKES, DEFAULT_MEANING_IN_ENGLISH, DEFAULT_MEANING_IN_POLISH,

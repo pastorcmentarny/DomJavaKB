@@ -17,7 +17,6 @@ import static dms.pastor.tools.trips.tube.data.DataOperations.STATION_PATH;
 public class DataUploaderTest {
 
 
-
     @Test
     public void shouldLoadStationsFromFile() {
         // given

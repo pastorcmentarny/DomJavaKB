@@ -12,7 +12,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class HtmlUtilsTest {
 
 
-
     @Test
     public void getNbspShouldReturnThrowExceptionIfValueIsZeroOrLess() {
         // when

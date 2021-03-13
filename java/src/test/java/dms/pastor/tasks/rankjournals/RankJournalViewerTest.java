@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class RankJournalViewerTest{
+public class RankJournalViewerTest {
 
     private static final int YEAR_2010 = 2010;
     private static final int YEAR_2009 = 2009;

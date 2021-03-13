@@ -27,16 +27,16 @@ public class StrategyPatternRunner {
     public void example2() {
         ShoppingCart shoppingCart = new ShoppingCart();
 
-        Item item1 = new Item(UUID.randomUUID(),"12345",100);
-        Item item2 = new Item(UUID.randomUUID(),"50000",125);
-        Item item3 = new Item(UUID.randomUUID(),"90000",112);
+        Item item1 = new Item(UUID.randomUUID(), "12345", 100);
+        Item item2 = new Item(UUID.randomUUID(), "50000", 125);
+        Item item3 = new Item(UUID.randomUUID(), "90000", 112);
 
         shoppingCart.addItem(item1);
         shoppingCart.addItem(item2);
         shoppingCart.addItem(item3);
 
-        shoppingCart.pay(new PaypalStrategy("a@b.c","***"));
-        shoppingCart.pay(new CreditCardStrategy("Dom","1111222233334444","465","tmrw"));
+        shoppingCart.pay(new PaypalStrategy("a@b.c", "***"));
+        shoppingCart.pay(new CreditCardStrategy("Dom", "1111222233334444", "465", "tmrw"));
 
 
     }

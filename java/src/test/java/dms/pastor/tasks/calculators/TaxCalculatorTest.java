@@ -1,7 +1,6 @@
 package dms.pastor.tasks.calculators;
 
 
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -33,7 +32,7 @@ public class TaxCalculatorTest {
         // when
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
 
-        getNetSalary(salary);
+            getNetSalary(salary);
         });
 
     }

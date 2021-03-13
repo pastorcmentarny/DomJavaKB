@@ -97,8 +97,8 @@ public class SortDemo {
     }
 
     public void printSortedArray(Comparable[] items) {
-        for (int i = 0; i < items.length; i++) {
-            System.out.println(items[i]);
+        for (Comparable item : items) {
+            System.out.println(item);
         }
     }
 
@@ -112,7 +112,7 @@ public class SortDemo {
             if (items.length > 10000 && i > 1) break;
             timeTaken[i] =
                     this.testOne("sorting." + sortTypes[i], items);
-            retLine.append(sortTypes[i] + "\t" + timeTaken[i] + "\n");
+            retLine.append(sortTypes[i]).append("\t").append(timeTaken[i]).append("\n");
         }
         return retLine.toString();
     }
@@ -141,16 +141,16 @@ public class SortDemo {
 //							 "SelectionSort","BubbleSort"
         };
         long timeTaken;
-        StringBuffer retLine = new StringBuffer();
-        for (int i = 0; i < sortTypes.length; i++) {
-            retLine.append(sortTypes[i]);
+        StringBuilder retLine = new StringBuilder();
+        for (String sortType : sortTypes) {
+            retLine.append(sortType);
             for (int j = 0; j < filenames.length; j++) {
 
                 Comparable[] items = this.readData(filenames[j]);
 //				if (items.length>10000 && i>3) break;
 //				if (items.length>100000 && i>2) break;
                 timeTaken =
-                        this.testOne("sorting." + sortTypes[i], items);
+                        this.testOne("sorting." + sortType, items);
                 retLine.append(",").append(timeTaken);
             }
             retLine.append("\n");

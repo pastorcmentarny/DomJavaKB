@@ -30,7 +30,8 @@ public class SortFactory {
             if (obj instanceof Sorter) {
                 sort = (Sorter) obj;
             }
-        } catch (Exception e) {
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
         }
         return sort;
     }

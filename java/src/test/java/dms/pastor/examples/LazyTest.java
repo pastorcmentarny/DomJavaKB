@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 public class LazyTest {
 
     @Test
-    public void lazyExampleAcceptanceTest(){
+    public void lazyExampleAcceptanceTest() {
         Lazy<String> lazyToString = new Lazy<String>();
         String x = "LOL";
         String y = "WOW";

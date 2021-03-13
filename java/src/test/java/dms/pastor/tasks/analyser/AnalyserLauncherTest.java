@@ -18,7 +18,6 @@ import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 public class AnalyserLauncherTest {
 
 
-
     @Test
     public void shouldReturnThisProjectPathWhenArgumentIsNullTest() {
         // when

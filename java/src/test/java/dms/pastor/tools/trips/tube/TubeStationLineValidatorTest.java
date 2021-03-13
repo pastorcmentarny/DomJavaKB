@@ -30,7 +30,7 @@ public class TubeStationLineValidatorTest {
         final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> validate(null));
 
         // then
-         assertThat(exception.getMessage()).isEqualTo("TubeStation as string cannot be null or empty.");
+        assertThat(exception.getMessage()).isEqualTo("TubeStation as string cannot be null or empty.");
     }
 
     @Test

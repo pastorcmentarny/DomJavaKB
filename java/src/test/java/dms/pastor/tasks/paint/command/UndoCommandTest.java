@@ -47,7 +47,7 @@ public class UndoCommandTest extends AbstractCommandTest {
         final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> undoCommand.setParamsIfValid(params));
 
         // then
-         assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because number of params are invalid. Should be 1 but was 3. Please check your input and try again.");
+        assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because number of params are invalid. Should be 1 but was 3. Please check your input and try again.");
     }
 
     @Test

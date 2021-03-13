@@ -100,7 +100,7 @@ public final class Word {
                 ", polish='" + polish + '\'' +
                 ", groups=" + Arrays.toString(groups) +
                 ", notes='" + notes + '\'' +
-                ", difficulty=" + difficulty  + '\'' +
+                ", difficulty=" + difficulty + '\'' +
                 ", hash=" + hash +
                 '}';
     }

@@ -339,8 +339,8 @@ public final class StringUtils {
     }
 
     //TODO add tests
-    public static String[] splitInto120CharactersPerLineText(String text){
-        if(Objects.isNull(text) || text.isBlank()){
+    public static String[] splitInto120CharactersPerLineText(String text) {
+        if (Objects.isNull(text) || text.isBlank()) {
             return new String[]{text};
         }
         return null;

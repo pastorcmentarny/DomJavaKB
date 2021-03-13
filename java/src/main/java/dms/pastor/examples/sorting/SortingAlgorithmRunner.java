@@ -96,8 +96,8 @@ public class SortingAlgorithmRunner {
     }
 
     public void printSortedArray(Comparable[] items) {
-        for (int i = 0; i < items.length; i++) {
-            System.out.println(items[i]);
+        for (Comparable item : items) {
+            System.out.println(item);
         }
     }
 
@@ -105,7 +105,7 @@ public class SortingAlgorithmRunner {
         String[] sortTypes = {"MergeSort", "QuickSort"
                 , "SelectionSort", "BubbleSort"};
         long[] timeTaken = new long[sortTypes.length];
-        StringBuffer retLine = new StringBuffer();
+        StringBuilder retLine = new StringBuilder();
         for (int i = 0; i < sortTypes.length; i++) {
             Comparable[] items = this.readData(filename);
             if (items.length > 10000 && i > 1) break;
@@ -142,16 +142,16 @@ public class SortingAlgorithmRunner {
 //							 "BubbleSort"
         };
         long timeTaken = 99999999;
-        StringBuffer retLine = new StringBuffer();
-        for (int i = 0; i < sortTypes.length; i++) {
-            retLine.append(sortTypes[i]);
-            for (int j = 0; j < filenames.length; j++) {
+        StringBuilder retLine = new StringBuilder();
+        for (String sortType : sortTypes) {
+            retLine.append(sortType);
+            for (String filename : filenames) {
 
-                Comparable[] items = this.readData(filenames[j]);
+                Comparable[] items = this.readData(filename);
 //				if (items.length>10000 && i>3) break;
 //				if (items.length>100000 && i>2) break;
                 timeTaken =
-                        this.testOne("sorting." + sortTypes[i], items);
+                        this.testOne("sorting." + sortType, items);
                 retLine.append("," + timeTaken);
             }
             retLine.append("\n");
@@ -170,21 +170,21 @@ public class SortingAlgorithmRunner {
             System.out.println(letsFunBegin.testEverything());
         }
 
-        /**
-         * Below is few methods for testing purpose only
-         * About test
-         *  1.create 20 random numbers
-         *  2.display on screen these numbers
-         *  3.perform sorting
-         *  4.display result
-         *
-         * About test methods
-         * They are few test methods
-         * 	1) test all sorts made by Dominik Symonowicz
-         * 	2) test quick sort
-         * 	3) test optimised QuickSort
-         * 	4) test InsertionSort
-         *
+        /*
+          Below is few methods for testing purpose only
+          About test
+           1.create 20 random numbers
+           2.display on screen these numbers
+           3.perform sorting
+           4.display result
+
+          About test methods
+          They are few test methods
+          	1) test all sorts made by Dominik Symonowicz
+          	2) test quick sort
+          	3) test optimised QuickSort
+          	4) test InsertionSort
+
          */
 
 

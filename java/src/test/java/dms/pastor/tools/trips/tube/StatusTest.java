@@ -21,7 +21,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class StatusTest {
 
 
-
     @Test
     public void fromValueShouldReturnStatusForLowerV() {
         // given

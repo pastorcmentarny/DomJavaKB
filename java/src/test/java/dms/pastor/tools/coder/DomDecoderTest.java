@@ -18,7 +18,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class DomDecoderTest {
 
 
-
     private DomDecoder decoder;
 
     @SuppressWarnings("SpellCheckingInspection")
@@ -37,7 +36,7 @@ public class DomDecoderTest {
         // when
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
 
-        decoder.decode();
+            decoder.decode();
         });
 
     }

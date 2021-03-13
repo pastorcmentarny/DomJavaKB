@@ -2,6 +2,7 @@ package dms.pastor.examples.patterns.strategy;
 
 import java.util.ArrayList;
 import java.util.List;
+
 //TODO have one work-like example and one train like
 public class ShoppingCart {
 
@@ -11,11 +12,11 @@ public class ShoppingCart {
         this.items = new ArrayList<>();
     }
 
-    public void addItem(Item item){
+    public void addItem(Item item) {
         this.items.add(item);
     }
 
-    public void removeItem(Item item){
+    public void removeItem(Item item) {
         this.items.remove(item);
     }
 
@@ -25,7 +26,7 @@ public class ShoppingCart {
                 .sum();
     }
 
-    public void pay(PaymentStrategy paymentStrategy){
+    public void pay(PaymentStrategy paymentStrategy) {
         paymentStrategy.pay(calculateTotal());
     }
 }

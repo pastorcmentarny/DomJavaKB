@@ -46,7 +46,7 @@ public class StatusTest {
     public void fromValueShouldThrowIllegalArgumentExceptionWhenInputIsNull() {
         // when
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-        fromValue(null);
+            fromValue(null);
 
         });
 
@@ -57,7 +57,7 @@ public class StatusTest {
         // when
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
 
-        fromValue(EMPTY_STRING);
+            fromValue(EMPTY_STRING);
         });
 
     }

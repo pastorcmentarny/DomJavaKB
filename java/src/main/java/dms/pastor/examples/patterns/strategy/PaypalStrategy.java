@@ -3,7 +3,7 @@ package dms.pastor.examples.patterns.strategy;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-public class PaypalStrategy implements PaymentStrategy{
+public class PaypalStrategy implements PaymentStrategy {
     private String email;
     private String password;
 

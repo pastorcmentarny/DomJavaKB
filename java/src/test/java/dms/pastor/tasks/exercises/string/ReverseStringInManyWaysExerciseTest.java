@@ -23,12 +23,11 @@ public class ReverseStringInManyWaysExerciseTest {
     private static final String REVERSED_TEST_STRING = "pot";
 
 
-
     @Test
     public void shouldThrowIllegalArgumentExceptionIfInputIsNullForReverseViaStringBuilderTest() {
         // when
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-        reversStringViaStringBuilder(null);
+            reversStringViaStringBuilder(null);
         });
 
     }
@@ -46,7 +45,7 @@ public class ReverseStringInManyWaysExerciseTest {
     public void shouldReturnNullIfInputIsNullForReverseViaStringBufferTest() {
         // when
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-        reversStringViaStringBuffer(null);
+            reversStringViaStringBuffer(null);
         });
 
     }
@@ -64,7 +63,7 @@ public class ReverseStringInManyWaysExerciseTest {
     public void shouldReturnNullIfInputIsNullForReverseViaNoLibraryImplementationTest() {
         // when
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-        reverseStringWithoutLibraries(null);
+            reverseStringWithoutLibraries(null);
         });
 
     }
@@ -103,7 +102,7 @@ public class ReverseStringInManyWaysExerciseTest {
         // when
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
 
-        reversStringViaChar(null);
+            reversStringViaChar(null);
         });
 
     }

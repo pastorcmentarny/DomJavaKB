@@ -21,7 +21,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class WordCounterTest {
 
 
-
     @Test
     public void countFullWordsShouldThrowExceptionIfWordsIsNull() {
         // when
@@ -38,7 +37,7 @@ public class WordCounterTest {
         final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> countFullWords(new String[0]));
 
         // then
-         assertThat(exception.getMessage()).isEqualTo("Input cannot be null or empty.");
+        assertThat(exception.getMessage()).isEqualTo("Input cannot be null or empty.");
     }
 
     @Test

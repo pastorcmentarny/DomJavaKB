@@ -37,7 +37,7 @@ public class DuplicateRemoverTest {
     public void shouldThrowIllegalArgumentExceptionForEmptyFilePathTest() {
         // when
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-        duplicateRemover.performTask(EMPTY_STRING);
+            duplicateRemover.performTask(EMPTY_STRING);
 
         });
 
@@ -52,7 +52,7 @@ public class DuplicateRemoverTest {
                 separator + "fileThatDoesNotExist.lol";
         // when
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-        duplicateRemover.performTask(nonExistingFile);
+            duplicateRemover.performTask(nonExistingFile);
         });
 
 

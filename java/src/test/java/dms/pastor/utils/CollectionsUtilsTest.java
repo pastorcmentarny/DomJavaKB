@@ -1,7 +1,6 @@
 package dms.pastor.utils;
 
 
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -26,8 +25,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CollectionsUtilsTest {
 
     private static final String[] EMPTY_ARRAY = new String[0];
-
-
 
 
     @Test
@@ -113,7 +110,7 @@ public class CollectionsUtilsTest {
         final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> CollectionsUtils.toList(null));
 
         // then
-         assertThat(exception.getMessage()).isEqualTo("Enum values cannot be null.");
+        assertThat(exception.getMessage()).isEqualTo("Enum values cannot be null.");
     }
 
 

@@ -3,8 +3,8 @@ package dms.pastor.tasks.sunspotanalyser;
 import dms.pastor.tasks.sunspotanalyser.data.Analyser;
 import dms.pastor.tasks.sunspotanalyser.data.Grid;
 import dms.pastor.tasks.sunspotanalyser.data.InputParser;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class Answers {
 

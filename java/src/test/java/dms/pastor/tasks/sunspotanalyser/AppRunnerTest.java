@@ -14,12 +14,11 @@ import org.junit.jupiter.api.Test;
 public class AppRunnerTest {
 
 
-
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenRunningAppWithoutArgumentsTest() {
         // when
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-        AppRunner.main(null);
+            AppRunner.main(null);
         });
 
     }
@@ -31,7 +30,7 @@ public class AppRunnerTest {
         // when
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
 
-        AppRunner.main(stringList);
+            AppRunner.main(stringList);
         });
 
 

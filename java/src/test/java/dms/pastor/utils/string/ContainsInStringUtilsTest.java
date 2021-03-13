@@ -210,7 +210,6 @@ public class ContainsInStringUtilsTest {
         Assertions.assertThrows(IllegalArgumentException.class, () -> isTextContainsAllKeywordsExists(null, generateString()));
 
 
-
     }
 
     @Test

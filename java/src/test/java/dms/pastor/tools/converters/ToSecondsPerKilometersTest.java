@@ -10,7 +10,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ToSecondsPerKilometersTest {
 
 
-
     @Test
     public void shouldThrowInvalidExceptionIfKphIsNegative() {
         // when

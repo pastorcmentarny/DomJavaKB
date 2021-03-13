@@ -15,5 +15,4 @@ package dms.pastor.tasks.paint.command;
 public class AbstractCommandTest {
 
 
-
 }
