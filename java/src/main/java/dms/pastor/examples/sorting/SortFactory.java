@@ -1,23 +1,13 @@
-/*
- * Created on Nov 28, 2003
- *
- * To change the template for this generated file go to
- * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
- */
+
 package dms.pastor.examples.sorting;
 
 import java.lang.reflect.Constructor;
 
-/**
- * @author rcs
- * <p>
- * To change the template for this generated type comment go to
- * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
- */
 public class SortFactory {
 
+    //TODO "BubbleSort"?
     public static Sorter getSorter() {
-        return getSorter("MergeSort");
+        return getSorter("BubbleSort");
     }
 
     public static Sorter getSorter(String sorter) {

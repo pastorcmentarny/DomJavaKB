@@ -130,7 +130,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void shouldGetBasicSalary() throws Exception {
+    public void shouldGetBasicSalary() {
         // when
         final int result = calculator.getBasicSalary();
 

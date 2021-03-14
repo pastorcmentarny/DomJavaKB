@@ -24,7 +24,7 @@ public class JournalTest {
     private Journal journalTest;
 
     @BeforeEach
-    protected void setUp() throws Exception {
+    protected void setUp() {
 
         journalTest = new Journal("name", 1.0, YEAR_2012);
     }

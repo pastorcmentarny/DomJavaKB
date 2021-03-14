@@ -16,7 +16,7 @@ public class PredicateExampleTest {
 
 
     @Test
-    public void predicateExample() throws Exception {
+    public void predicateExample() {
         // given
         final String expectedResult = """
                 City: Wroclaw is: false and negation will be true

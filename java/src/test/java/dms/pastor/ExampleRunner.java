@@ -10,6 +10,6 @@ package dms.pastor;
  */
 public interface ExampleRunner {
 
-    void runExamples() throws Exception;
+    void runExamples();
 
 }

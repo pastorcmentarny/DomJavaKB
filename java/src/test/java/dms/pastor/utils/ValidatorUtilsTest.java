@@ -361,7 +361,8 @@ public class ValidatorUtilsTest {
     @Test
     public void validateIfPositiveNumberShouldPassWithoutExceptionForPositiveIntegerValue() {
         // given
-        final int positiveInteger = new Random().nextInt(100);
+        final int positiveInteger = new Random().nextInt(100)+1;
+
         // when
         validateIfPositiveNumber(positiveInteger);
 

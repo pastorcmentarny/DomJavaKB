@@ -201,7 +201,7 @@ public class FileUtilsTest {
     }
 
     @Test
-    public void shouldGetPathToResource() throws Exception {
+    public void shouldGetPathToResource() {
         // given
         final var pathToResource = "test/test.txt";
         // when

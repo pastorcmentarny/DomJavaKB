@@ -75,13 +75,13 @@ public class IntegerAdderTest {
     }
 
     @Test
-    public void addTooBigNumbersShouldThrowException() throws IOException {
+    public void addTooBigNumbersShouldThrowException() {
         // when
         Assertions.assertThrows(IllegalArgumentException.class, () -> adder.add(DEMO_FILE_4));
     }
 
     @Test
-    public void addNegativeNumbersShouldThrowException() throws IOException {
+    public void addNegativeNumbersShouldThrowException() {
         // when
         Assertions.assertThrows(IllegalArgumentException.class, () -> adder.add(DEMO_FILE_5));
     }

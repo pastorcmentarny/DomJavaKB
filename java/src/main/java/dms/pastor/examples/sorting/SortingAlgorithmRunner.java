@@ -158,6 +158,21 @@ public class SortingAlgorithmRunner {
 
     }
 
+    /**
+     * Below is few methods for testing purpose only
+     * About test
+     * 1.create 20 random numbers
+     * 2.display on screen these numbers
+     * 3.perform sorting
+     * 4.display result
+     * <p>
+     * About test methods
+     * They are few test methods
+     * 1) test all sorts made by Dominik Symonowicz
+     * 2) test quick sort
+     * 3) test optimised QuickSort
+     * 4) test InsertionSort
+     */
     public static void main(String[] args) {
         SortingAlgorithmRunner letsFunBegin = new SortingAlgorithmRunner();
         //Complete set of tests
@@ -167,23 +182,6 @@ public class SortingAlgorithmRunner {
             System.out.println(test10 + "\n");
             System.out.println(letsFunBegin.testEverything());
         }
-
-        /*
-          Below is few methods for testing purpose only
-          About test
-           1.create 20 random numbers
-           2.display on screen these numbers
-           3.perform sorting
-           4.display result
-
-          About test methods
-          They are few test methods
-          	1) test all sorts made by Dominik Symonowicz
-          	2) test quick sort
-          	3) test optimised QuickSort
-          	4) test InsertionSort
-
-         */
 
 
         QuickSort adsQS = new QuickSort();

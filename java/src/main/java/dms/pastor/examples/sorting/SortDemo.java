@@ -9,12 +9,7 @@ package dms.pastor.examples.sorting;
 import java.io.*;
 import java.util.Calendar;
 
-/**
- * @author rcs
- * <p>
- * To change the template for this generated type comment go to
- * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
- */
+
 public class SortDemo {
 
     public Comparable<Integer>[] readData(String fileName) {

@@ -744,7 +744,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void shouldReturnStringWithoutCharacterForStringWithManyCharacter() throws Exception {
+    public void shouldReturnStringWithoutCharacterForStringWithManyCharacter() {
         // given
         final var characterToRemove = 'a';
         final var expectedResult = "dom";

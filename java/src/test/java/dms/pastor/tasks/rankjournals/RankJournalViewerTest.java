@@ -33,7 +33,7 @@ public class RankJournalViewerTest {
     private ArrayList<Journal> journals;
 
     @BeforeEach
-    protected void setUp() throws Exception {
+    protected void setUp() {
         journals = new ArrayList<>();
         Journal journal = new Journal(JOURNAL_A, 5.6, YEAR_2010);
         journals.add(journal);

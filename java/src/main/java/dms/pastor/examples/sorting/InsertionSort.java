@@ -1,19 +1,7 @@
 package dms.pastor.examples.sorting;
 
-/**
- * @author Dominik Symonowicz dms6@aber.ac.uk
- * @version 1.1
- * <p>
- * About convetion of  version.build
- * version-main change of program
- * build - minor changes and usually bug fixes
- * @since 13.03'2009
- */
 public class InsertionSort implements Sorter {
 
-    /* (non-Javadoc)
-     * @see sorting.Sorter#sort(java.lang.Comparable<Integer>[])
-     */
     @Override
     public void sort(Comparable<Integer>[] items) {
         insertionSort(items);

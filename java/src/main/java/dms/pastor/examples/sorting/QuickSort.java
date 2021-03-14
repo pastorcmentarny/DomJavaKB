@@ -1,13 +1,6 @@
 package dms.pastor.examples.sorting;
 
 /*
- * @since 13.03'2009
- * @version 1.42
- * 
- * About convetion of  version.build
- * 		version-main change of program
- * 		build - minor changes and usually bug fixes
-
  * This is classic Quick sort implementation without optimization
  * 
  * Quick sort was developed by Sir Charles Anthony Richard Hoare in 1962. Its one of comparison
@@ -49,7 +42,6 @@ public class QuickSort implements Sorter {
     }
 
 
-    //Generate randomly 20 numbers and sort.After result you can see is quick sort working
     public static void main(String[] args) {
         System.out.println("\n\nQuickSort:\t test started ");
         QuickSort qs = new QuickSort();
