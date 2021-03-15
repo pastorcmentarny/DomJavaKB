@@ -22,9 +22,6 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class EngineTest {
 
-    //FIXME
-    //@Rule
-    //public final ExpectedSystemExit exit = ExpectedSystemExit.none();
 
     private final Engine engine = new Engine();
 
@@ -52,7 +49,8 @@ public class EngineTest {
         Settings.getSettings().setSourceFilePath(sourceFilePath);
 
         // verify
-        assertThat(new File(QUICK_MODE_FILENAME).exists());
+        assertThat(new File(QUICK_MODE_FILENAME).exists()).isTrue();
+
         // when
         engine.deactivateQuickBackupMode(jTextField);
 
