@@ -6,7 +6,6 @@ import java.util.Objects;
 
 public class CharArrayToListConverter implements Converter<char[], List<String>> {
 
-    @Override
     public List<String> convert(char[] from) {
         if (Objects.isNull(from)) {
             return null;

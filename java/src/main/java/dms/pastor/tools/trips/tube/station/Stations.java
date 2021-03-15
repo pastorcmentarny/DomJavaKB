@@ -88,11 +88,6 @@ public class Stations {
                 .count();
     }
 
-    public boolean isStationWasPassed() {
-        return tubeStationList.stream()
-                .anyMatch(s -> s.getStatus().equals(PASSED) || s.getStatus().equals(VISITED));
-    }
-
     private long countStationThatHasStatusOf(String statusValue) {
         return tubeStationList.stream()
                 .filter(station -> station.getStatus().value().equalsIgnoreCase(statusValue))
@@ -142,7 +137,4 @@ public class Stations {
         return tubeStationList.size();
     }
 
-    public void setStationBloggedFor(TubeStation tubeStation) {
-        tubeStation.setBlogged();
-    }
 }

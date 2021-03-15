@@ -1,7 +1,6 @@
 package dms.pastor.examples.java8.stream;
 
 import dms.pastor.ExampleRunner;
-import org.junit.jupiter.api.Test;
 
 /**
  * Author Dominik Symonowicz
@@ -13,13 +12,4 @@ import org.junit.jupiter.api.Test;
  */
 public class StreamBasicsTest implements ExampleRunner {
 
-    @Test
-    @Override
-    public void runExamples() {
-        StreamBasics.tutorial();
-        StreamBasics.hr(3);
-        StreamBasics.example();
-        StreamBasics.kindOfStreams();
-        StreamBasics.sketchMethod();
-    }
 }

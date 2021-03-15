@@ -13,7 +13,6 @@ class SalaryConfig {
     public static final int BASIC_SALARY = 52500; // industry is 55000
     public static final int ZONE1_PENALTY = tenPercent();
     public static final int CRAP_STATION_PENALTY = tenPercent(); //Oxford, Victoria, Piccadilly
-    public static final int WFH_BONUS = discount(fivePercent());
     public static final int HALF_HOUR_LESS_BONUS = discount(fivePercent());
     public static final int HALF_HOUR_MORE_BONUS = tenPercent();
 

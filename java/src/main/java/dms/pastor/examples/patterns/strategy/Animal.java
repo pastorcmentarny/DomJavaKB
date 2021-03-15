@@ -19,13 +19,6 @@ public class Animal {
         this.name = name;
     }
 
-    public void setWeight(int weight) {
-        if (weight <= 0) {
-            throw new IllegalArgumentException("Weight must be bigger than 0");
-        }
-        this.weight = weight;
-    }
-
     public void displayFlyAbility() {
         System.out.println(name + " " + flyingType.info());
     }

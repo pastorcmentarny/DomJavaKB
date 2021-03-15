@@ -12,11 +12,5 @@ public class ExampleObject {
     private int number;
     private boolean truthValues;
 
-    public ExampleObject() {
-        name = "Name";
-        number = 13;
-        truthValues = true;
-    }
-
 
 }

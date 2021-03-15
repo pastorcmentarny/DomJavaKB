@@ -13,7 +13,6 @@ import java.util.Objects;
  */
 public class StringListToStringArrayConverter implements Converter<List<String>, String[]> {
 
-    @Override
     public String[] convert(List<String> from) {
         if (Objects.isNull(from) || from.isEmpty()) {
             return new String[0];

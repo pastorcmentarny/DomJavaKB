@@ -17,20 +17,10 @@ import java.time.LocalDate;
  * Aberystwyth;;none;;none;;none;;X;;O;;N
  */
 public class TrainStation {
-    public static final String SEPARATOR = ";;";
     private final String name;
-    private LocalDate passedDate;
-    private LocalDate changedDate;
-    private LocalDate visitedDate;
-    private Status status;
-    private State state;
-    private boolean blogged;
 
     public TrainStation(String name) {
         this.name = name;
     }
 
-    public String getName() {
-        return name;
-    }
 }

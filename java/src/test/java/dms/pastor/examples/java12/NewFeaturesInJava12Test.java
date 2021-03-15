@@ -1,9 +1,6 @@
 package dms.pastor.examples.java12;
 
 import dms.pastor.ExampleRunner;
-import org.junit.jupiter.api.Test;
-
-import static dms.pastor.examples.java12.NewFeaturesInJava12.*;
 
 /**
  * Author Dominik Symonowicz
@@ -15,12 +12,4 @@ import static dms.pastor.examples.java12.NewFeaturesInJava12.*;
  */
 public class NewFeaturesInJava12Test implements ExampleRunner {
 
-    @Test
-    @Override
-    public void runExamples() {
-        System.out.println(returnsClassForAnArrayType());
-        System.out.println(stringIntentMethod());
-        System.out.println(compactNumberFormat());
-
-    }
 }

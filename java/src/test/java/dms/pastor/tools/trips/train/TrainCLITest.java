@@ -1,6 +1,5 @@
 package dms.pastor.tools.trips.train;
 
-import dms.pastor.tools.trips.train.station.TrainStation;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -32,7 +31,7 @@ public class TrainCLITest {
 
     @BeforeEach
     public void setUpStreams() {
-        cli = new TrainCLI(new TrainStation(ABERYSTYWTH_VALID_STATION), scanner);
+        cli = new TrainCLI(scanner);
         System.setOut(new PrintStream(outputStream));
     }
 

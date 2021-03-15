@@ -4,7 +4,6 @@ import java.util.Collection;
 
 public class IntegerCollectionToIntArrayConverter implements Converter<Collection<Integer>, int[]> {
 
-    @Override
     public int[] convert(Collection<Integer> from) {
         int[] intArray = new int[from.size()];
         int index = 0;

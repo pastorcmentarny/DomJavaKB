@@ -9,7 +9,6 @@ package dms.pastor.examples.java8.interfaces.defaultmethod;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 interface Formula {
-    double calculate(int number);
 
     default double sqrt(int number) {
         return Math.sqrt(number);

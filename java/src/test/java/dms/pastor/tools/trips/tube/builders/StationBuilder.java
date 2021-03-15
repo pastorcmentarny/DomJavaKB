@@ -43,7 +43,6 @@ public final class StationBuilder {
     }
 
     public StationBuilder lines(List<Line> lines) {
-        this.lines = lines;
         return this;
     }
 

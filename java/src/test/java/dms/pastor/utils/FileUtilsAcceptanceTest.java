@@ -27,7 +27,6 @@ public class FileUtilsAcceptanceTest {
 
     private static final int MAX_STRING_LENGTH = 20;
     private static final String FILE_PATH = TestConfig.PATH + "savesListToFile.txt";
-    private static final Path PATH = Paths.get(FILE_PATH);
 
 
     @Test

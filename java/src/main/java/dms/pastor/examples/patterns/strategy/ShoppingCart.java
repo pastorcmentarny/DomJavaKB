@@ -16,10 +16,6 @@ public class ShoppingCart {
         this.items.add(item);
     }
 
-    public void removeItem(Item item) {
-        this.items.remove(item);
-    }
-
     public int calculateTotal() {
         return items.stream()
                 .mapToInt(Item::getPrice)

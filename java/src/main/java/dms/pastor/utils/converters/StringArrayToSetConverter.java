@@ -6,7 +6,7 @@ import java.util.Set;
 
 public class StringArrayToSetConverter implements Converter<String[], Set<String>> {
 
-    @Override // lost order and duplicated values
+    // lost order and duplicated values
     public Set<String> convert(String[] from) {
         return new HashSet<>(Arrays.asList(from));
     }

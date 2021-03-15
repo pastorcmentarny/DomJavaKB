@@ -13,7 +13,6 @@ import java.util.List;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class Lines {
-    List<Line> lines = getLines();
 
     public static List<Line> getLines() {
         var lines = new ArrayList<Line>();

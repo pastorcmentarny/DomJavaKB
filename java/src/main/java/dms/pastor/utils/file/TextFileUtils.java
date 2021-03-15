@@ -94,13 +94,4 @@ public class TextFileUtils {
         }
     }
 
-    public static String loadFile(Path path) {
-        StringBuilder builder = new StringBuilder();
-        try {
-            Files.lines(path).forEach(line -> builder.append(line).append(System.lineSeparator()));
-        } catch (IOException e) {
-            return "Something went wrong";
-        }
-        return builder.toString();
-    }
 }

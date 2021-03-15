@@ -22,7 +22,6 @@ public class SimpleDecision implements Decision {
         this.citizen = citizen;
     }
 
-    @Override
     public String getReasons() {
         final List<String> result = votes.stream()
                 .filter(it -> !it.vote(citizen))
@@ -36,7 +35,6 @@ public class SimpleDecision implements Decision {
         return stringBuilder.toString();
     }
 
-    @Override
     public boolean makeDecision() {
         return votes.stream().allMatch(it -> it.vote(citizen));
     }

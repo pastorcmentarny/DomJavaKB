@@ -7,7 +7,4 @@ public class Dog extends Animal {
         setSound("Bark");
     }
 
-    public void digHole() {
-        System.out.println("Digging a hole");
-    }
 }

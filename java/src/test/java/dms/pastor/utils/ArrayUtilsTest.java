@@ -21,7 +21,6 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class ArrayUtilsTest {
 
-    private static final char[] CHARS_ARRAY = {};
     private static final String[] EMPTY_STRING_ARRAY = new String[0];
 
 

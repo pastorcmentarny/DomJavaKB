@@ -13,7 +13,6 @@ import java.util.Set;
  */
 public class CharArrayToSetConverter implements Converter<char[], Set<Character>> {
 
-    @Override
     public Set<Character> convert(char[] charsArray) {
         Set<Character> characterSet = new HashSet<>();
         for (char character : charsArray) {

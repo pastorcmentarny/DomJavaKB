@@ -20,8 +20,6 @@ import static java.lang.String.format;
 public final class RegexUtils {
     public static final String GUID_REGEX = "[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}";
     private static final Logger LOGGER = LoggerFactory.getLogger(RegexUtils.class);
-    private static final String BLANK_LINE = "^(?:[\\t ]*(?:\\r?\\n|\\r))+\n";
-    private static final String MORE_THAN_ONE_SPACE_BETWEEN_WORDS = "\\w([ ]{1,})\\w";
     private static final String NUMBERS_WITH_PLUS_AND_MINUS = "[\\d +-]+";
 
     private RegexUtils() {

@@ -57,7 +57,6 @@ public class SortingAlgorithmRunner {
             System.exit(0);
         }
         eof = false;
-        inLine = null;
         numLines = 0;
         while (!eof) {
             try {
@@ -93,27 +92,6 @@ public class SortingAlgorithmRunner {
             timeTaken = finish - start;
         }
         return timeTaken;
-    }
-
-    public void printSortedArray(Comparable<Integer>[] items) {
-        for (Comparable<Integer> item : items) {
-            System.out.println(item);
-        }
-    }
-
-    public String testAll(String filename) {
-        String[] sortTypes = {"MergeSort", "QuickSort"
-                , "SelectionSort", "BubbleSort"};
-        long[] timeTaken = new long[sortTypes.length];
-        StringBuilder retLine = new StringBuilder();
-        for (int i = 0; i < sortTypes.length; i++) {
-            Comparable<Integer>[] items = this.readData(filename);
-            if (items.length > 10000 && i > 1) break;
-            timeTaken[i] =
-                    this.testOne("sorting." + sortTypes[i], items);
-            retLine.append(sortTypes[i]).append("\t").append(timeTaken[i]).append("\n");
-        }
-        return retLine.toString();
     }
 
     public String testEverything() {

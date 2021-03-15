@@ -26,7 +26,6 @@ public final class DateUtils {
     public static final int MINUTE = 60 * SECOND;
     public static final int HOUR = 60 * MINUTE;
     private static final int HOURS_PER_DAY = 24;
-    private static final String ISO8601_MILLIS = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
     public static final String TIME_DIVIDER = ":";
 
     private DateUtils() {

@@ -1,7 +1,6 @@
 package dms.pastor.tools.trips.train;
 
 import dms.pastor.tools.trips.train.options.OptionsFactory;
-import dms.pastor.tools.trips.train.station.TrainStation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,9 +26,9 @@ class TrainCLI {
     private final Scanner scanner;
 
 
-    public TrainCLI(TrainStation stations, Scanner scanner) {
+    public TrainCLI(Scanner scanner) {
         this.scanner = scanner;
-        options = OptionsFactory.getOptions(scanner);
+        options = OptionsFactory.getOptions();
     }
 
     void mainMenu() {

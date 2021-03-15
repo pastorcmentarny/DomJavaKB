@@ -14,7 +14,6 @@ import java.util.stream.Stream;
     TODO list and practice Stream operations are either intermediate or terminal.
  */
 final class StreamBasics {
-    private static final boolean runAll = false;
 
 
     static void tutorial() {
@@ -96,10 +95,6 @@ final class StreamBasics {
 
     }
 
-
-    private static List<String> getList() {
-        return Arrays.asList("Acceptance criteria", "Daily Stand up", "Epic", "Grooming", "Impediment", "Kanban", "Scrum", "Product owner", "Retrospective", "Sprint", "Timeboxed", "User Story");
-    }
 
     private static int[] getRandomNumbers() {
         System.out.println("Generating random numbers..");

@@ -7,7 +7,6 @@ import dms.pastor.tools.trips.tube.station.Stations;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
 /**
  * Author Dominik Symonowicz
@@ -27,7 +26,7 @@ public final class OptionsFactory {
         this.options = new HashMap<>();
     }
 
-    public static OptionsFactory getOptions(Scanner scanner) {
+    public static OptionsFactory getOptions() {
         final OptionsFactory options = new OptionsFactory();
 
         // commands are added here using lambdas. It is also possible to dynamically add commands without editing the code.
@@ -37,14 +36,6 @@ public final class OptionsFactory {
 
     private void addOptions(int input, Option option) {
         options.put(input, option);
-    }
-
-    public void selectOption(int option, Stations stations) {
-        if (options.containsKey(option)) {
-            options.get(option).choose(stations);
-        } else {
-            throw new NotFoundException("Selected option " + option);
-        }
     }
 
     public void displayAllAvailable() {

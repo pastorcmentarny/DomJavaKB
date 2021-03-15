@@ -19,14 +19,4 @@ public class ListNode<T> {
     ListNode<T> previousNode;
     ListNode<T> nextNode;
 
-    //create a root
-    ListNode(T dataType) {
-        this(dataType, null, null);
-    }
-
-    public ListNode(T data, ListNode<T> previousNode, ListNode<T> nextNode) {
-        this.data = data;
-        this.previousNode = previousNode;
-        this.nextNode = nextNode;
-    }
 }

@@ -5,11 +5,6 @@ import java.lang.reflect.Constructor;
 
 public class SortFactory {
 
-    //TODO "BubbleSort"?
-    public static Sorter getSorter() {
-        return getSorter("BubbleSort");
-    }
-
     public static Sorter getSorter(String sorter) {
         Sorter sort = null;
         try {

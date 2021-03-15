@@ -11,9 +11,5 @@ package dms.pastor.snippets.decision;
  * tag-decision
  */
 interface Decision {
-    boolean isPositiveDecision = false;
 
-    String getReasons();
-
-    boolean makeDecision();
 }

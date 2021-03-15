@@ -20,14 +20,6 @@ public class Line {
         this.name = name;
     }
 
-    public static List<Line> noLine() {
-        return singletonList(new Line("none"));
-    }
-
-    public String getName() {
-        return name;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -22,8 +22,6 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class TubeStationLineValidatorTest {
 
-    private static final String TUBE_LINE_NAME = "Metropolitan line";
-
     @Test
     public void shouldThrowIllegalArgumentExceptionIfStringIsNull() {
         // when

@@ -37,7 +37,6 @@ public class StationsTest {
     private static final String STATION_NAME = "Amersham";
     private static final boolean BLOGGED = false;
 
-    private final List<Line> lines = Collections.singletonList(new Line("none"));
     private final Stations stations = generateStations();
 
     @Test

@@ -1,7 +1,6 @@
 package dms.pastor.examples.java8.time;
 
 import dms.pastor.ExampleRunner;
-import org.junit.jupiter.api.Test;
 
 /**
  * Author Dominik Symonowicz
@@ -13,13 +12,4 @@ import org.junit.jupiter.api.Test;
  */
 public class TimeBasicsAcceptanceTest implements ExampleRunner {
 
-    @Test
-    @Override
-    public void runExamples() {
-        TimeBasics.getCurrentTimeAsString();
-        TimeBasics.gettingCurrentDateTimeInJava();
-        TimeBasics.displayTimeInLondonWroclawBeijing();
-        TimeBasics.getCurrentTimeWithOffset();
-        TimeBasics.displayAllTimeZone(false);
-    }
 }

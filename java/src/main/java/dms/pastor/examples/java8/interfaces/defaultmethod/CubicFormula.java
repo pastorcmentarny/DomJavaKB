@@ -10,7 +10,6 @@ package dms.pastor.examples.java8.interfaces.defaultmethod;
  */
 public class CubicFormula implements Formula {
 
-    @Override
     public double calculate(final int number) {
         return sqrt(number) * number;
 
