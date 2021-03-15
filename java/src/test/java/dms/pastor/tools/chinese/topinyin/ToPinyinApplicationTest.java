@@ -50,10 +50,7 @@ public class ToPinyinApplicationTest {
     @Test
     public void shouldThrowExceptionWhenInputArgumentIsNull() {
         // when
-        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            main(null);
-
-        });
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> main(null));
         // when
         assertThat(exception.getMessage()).isEqualTo("Input arguments cannot be null.");
     }
@@ -61,10 +58,7 @@ public class ToPinyinApplicationTest {
     @Test
     public void shouldThrowExceptionWhenInputArgumentsHas1Argument() {
         // when
-        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            main(new String[]{generateString()});
-
-        });
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> main(new String[]{generateString()}));
 
         // then
         assertThat(exception.getMessage()).isEqualTo("It should contains 2 arguments (type of pinyin (number,character) and text.");
@@ -75,10 +69,7 @@ public class ToPinyinApplicationTest {
         // given
         String[] arguments = RandomDataGenerator.generateArray(3 + randomPositiveInteger(32));
         // when
-        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            main(arguments);
-
-        });
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> main(arguments));
         // then
         assertThat(exception.getMessage()).isEqualTo("It should contains 2 arguments (type of pinyin (number,character) and text.");
     }
@@ -89,9 +80,7 @@ public class ToPinyinApplicationTest {
         // given
         String[] arguments = new String[]{generateString(), generateString()};
         // when
-        final var exception = Assertions.assertThrows(SomethingWentWrongException.class, () -> {
-            main(arguments);
-        });
+        final var exception = Assertions.assertThrows(SomethingWentWrongException.class, () -> main(arguments));
 
         // then
         assertThat(exception.getMessage()).isEqualTo("Whoops! Something went wrong. Invalid conversation type(can be: number,character). I apologize for any inconvenience caused by your mistake.");
@@ -103,9 +92,7 @@ public class ToPinyinApplicationTest {
         // given
         String[] arguments = new String[]{PSEUDO_PINYIN_TYPE, null};
         // when
-        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            main(arguments);
-        });
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> main(arguments));
 
         // then
         assertThat(exception.getMessage()).isEqualTo(TEXT_INVALID_MESSAGE);
@@ -116,9 +103,7 @@ public class ToPinyinApplicationTest {
         // given
         String[] arguments = new String[]{PSEUDO_PINYIN_TYPE, EMPTY_STRING};
         // when
-        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            main(arguments);
-        });
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> main(arguments));
 
         assertThat(exception.getMessage()).isEqualTo(TEXT_INVALID_MESSAGE);
     }
@@ -129,9 +114,7 @@ public class ToPinyinApplicationTest {
         // given
         String[] arguments = new String[]{PSEUDO_PINYIN_TYPE, WHITESPACE};
         // when
-        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            main(arguments);
-        });
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> main(arguments));
 
         // then
         assertThat(exception.getMessage()).isEqualTo(TEXT_INVALID_MESSAGE);

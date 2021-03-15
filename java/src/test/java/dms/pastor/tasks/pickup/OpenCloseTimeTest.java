@@ -20,18 +20,14 @@ public class OpenCloseTimeTest {
     public void shouldThrowExceptionIfDayIsNull() {
         System.out.println(DAY_OF_THE_WEEK);
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            new OpenCloseTime(null, LocalTime.now(), LocalTime.now());
-        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> new OpenCloseTime(null, LocalTime.now(), LocalTime.now()));
 
     }
 
     @Test
     public void shouldThrowExceptionIfDayIsEmpty() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            new OpenCloseTime(EMPTY_STRING, LocalTime.now(), LocalTime.now());
-        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> new OpenCloseTime(EMPTY_STRING, LocalTime.now(), LocalTime.now()));
 
     }
 

@@ -18,19 +18,14 @@ public class ToAircraftConverterTest {
     @Test
     public void shouldThrowExceptionIfStringIsNull() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            ToAircraftConverter.convert((String) null);
-
-        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> ToAircraftConverter.convert((String) null));
 
     }
 
     @Test
     public void shouldThrowExceptionIfStringIsEmpty() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            ToAircraftConverter.convert(EMPTY_STRING);
-        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> ToAircraftConverter.convert(EMPTY_STRING));
 
     }
 

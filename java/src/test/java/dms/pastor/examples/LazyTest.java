@@ -6,7 +6,7 @@ public class LazyTest {
 
     @Test
     public void lazyExampleAcceptanceTest() {
-        Lazy<String> lazyToString = new Lazy<String>();
+        Lazy<String> lazyToString = new Lazy<>();
         String x = "LOL";
         String y = "WOW";
 

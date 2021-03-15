@@ -35,9 +35,7 @@ public class DataWriterTest {
         final TubeStation amershamTubeStation = new TubeStation("Amersham", null, null, null, null, true);
         List<TubeStation> tubeStations = Collections.singletonList(amershamTubeStation);
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            writer.save(null, tubeStations);
-        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> writer.save(null, tubeStations));
 
     }
 

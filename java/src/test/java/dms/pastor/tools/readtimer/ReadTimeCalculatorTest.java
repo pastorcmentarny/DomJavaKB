@@ -125,9 +125,7 @@ public class ReadTimeCalculatorTest {
         // given
         readTimeCalculator = new ReadTimeCalculator(generateRandomParagraph(), RandomDataGenerator.randomNegativeInteger());
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            readTimeCalculator.displayTimeNeededToRead();
-        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> readTimeCalculator.displayTimeNeededToRead());
 
     }
 

@@ -26,9 +26,7 @@ public class ReverseStringInManyWaysExerciseTest {
     @Test
     public void shouldThrowIllegalArgumentExceptionIfInputIsNullForReverseViaStringBuilderTest() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            reversStringViaStringBuilder(null);
-        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> reversStringViaStringBuilder(null));
 
     }
 
@@ -44,9 +42,7 @@ public class ReverseStringInManyWaysExerciseTest {
     @Test
     public void shouldReturnNullIfInputIsNullForReverseViaStringBufferTest() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            reversStringViaStringBuffer(null);
-        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> reversStringViaStringBuffer(null));
 
     }
 
@@ -62,9 +58,7 @@ public class ReverseStringInManyWaysExerciseTest {
     @Test
     public void shouldReturnNullIfInputIsNullForReverseViaNoLibraryImplementationTest() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            reverseStringWithoutLibraries(null);
-        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> reverseStringWithoutLibraries(null));
 
     }
 
@@ -100,10 +94,7 @@ public class ReverseStringInManyWaysExerciseTest {
     @Test
     public void shouldThrowExceptionIfInputIsNullTest() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-
-            reversStringViaChar(null);
-        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> reversStringViaChar(null));
 
     }
 

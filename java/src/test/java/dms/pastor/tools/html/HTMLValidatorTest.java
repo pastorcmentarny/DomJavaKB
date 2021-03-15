@@ -25,26 +25,20 @@ public class HTMLValidatorTest {
 
     @Test
     public void validateUrlShouldThrowIllegalArgumentExceptionIfUrlIsNull() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            validateUrl(null);
-        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> validateUrl(null));
     }
 
     @Test
     public void validateUrlShouldThrowIllegalArgumentExceptionIfUrlIsEmpty() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            validateUrl(EMPTY_STRING);
-        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> validateUrl(EMPTY_STRING));
 
     }
 
     @Test
     public void validateUrlShouldThrowIllegalArgumentExceptionIfUrlIsHasWhitespacesOnly() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            validateUrl("    ");
-        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> validateUrl("    "));
 
     }
 

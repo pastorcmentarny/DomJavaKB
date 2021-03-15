@@ -34,10 +34,7 @@ public class DomDecoderTest {
         // given
         decoder = new DomDecoder(null);
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-
-            decoder.decode();
-        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> decoder.decode());
 
     }
 

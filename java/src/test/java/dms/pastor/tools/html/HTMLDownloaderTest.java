@@ -38,18 +38,14 @@ public class HTMLDownloaderTest {
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenUrlIsNullTest() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            download(null);
-        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> download(null));
 
     }
 
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenUrlIsEmptyTest() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            download(EMPTY_STRING);
-        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> download(EMPTY_STRING));
 
     }
 

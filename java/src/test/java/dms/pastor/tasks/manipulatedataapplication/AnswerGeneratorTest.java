@@ -37,9 +37,7 @@ public class AnswerGeneratorTest {
     @Test
     public void shouldThrowExceptionIfPersonNotFound() {
         // when
-        Assertions.assertThrows(PersonNotFoundException.class, () -> {
-            answers.getPerson(RandomDataGenerator.generateString());
-        });
+        Assertions.assertThrows(PersonNotFoundException.class, () -> answers.getPerson(RandomDataGenerator.generateString()));
     }
 
 }

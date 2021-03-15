@@ -45,20 +45,14 @@ public class StatusTest {
     @Test
     public void fromValueShouldThrowIllegalArgumentExceptionWhenInputIsNull() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            fromValue(null);
-
-        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> fromValue(null));
 
     }
 
     @Test
     public void fromValueShouldThrowIllegalArgumentExceptionWhenInputIsEmpty() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-
-            fromValue(EMPTY_STRING);
-        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> fromValue(EMPTY_STRING));
 
     }
 

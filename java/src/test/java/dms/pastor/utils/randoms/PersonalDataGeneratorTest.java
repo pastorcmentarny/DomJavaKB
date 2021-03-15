@@ -100,9 +100,7 @@ public class PersonalDataGeneratorTest {
     @Test
     public void generatePhoneNumberForPatternShouldThrowIllegalArgumentExceptionForNull() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            generatePhoneNumberForPattern(null);
-        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> generatePhoneNumberForPattern(null));
 
     }
 

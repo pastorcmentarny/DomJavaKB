@@ -30,10 +30,7 @@ public class TaxCalculatorTest {
         final int salary = (random.nextInt(BOUND) + 1) * (-1);
 
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-
-            getNetSalary(salary);
-        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> getNetSalary(salary));
 
     }
 

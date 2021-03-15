@@ -46,9 +46,7 @@ public class PrintOutUtilsTest {
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenMinimumValueIsHigherThanMaximumTest() {
         // when
-        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            displayOddNumbers(10, 7);
-        });
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> displayOddNumbers(10, 7));
 
         assertThat(exception.getMessage()).isEqualTo("MinValue (10) must be lower than MaxValue(7)");
 
@@ -57,9 +55,7 @@ public class PrintOutUtilsTest {
     @Test
     public void shouldThrowExceptionWhenByteArrayIsEmpty() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            printArray(BYTES);
-        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> printArray(BYTES));
 
     }
 
@@ -77,10 +73,7 @@ public class PrintOutUtilsTest {
     @Test
     public void shouldThrowExceptionForEmptyStringArrayList() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-
-            printArray(new ArrayList<>());
-        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> printArray(new ArrayList<>()));
 
     }
 

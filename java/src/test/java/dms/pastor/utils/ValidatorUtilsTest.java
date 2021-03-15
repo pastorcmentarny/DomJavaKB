@@ -111,17 +111,13 @@ public class ValidatorUtilsTest {
         // given
         final Object[] objectsToValidate = {null, anObject.getADouble(), anObject.getAnInteger(), anObject.getString(), null};
         // when
-        final var exception = assertThrows(IllegalArgumentException.class, () -> {
-
-            validateNotNullPropertiesWithCustomMessagesPerProperty(new Object[][]{
-                    {objectsToValidate[0], "null :)"},
-                    {objectsToValidate[1], "Invalid Double"},
-                    {objectsToValidate[2], "Invalid Integer"},
-                    {objectsToValidate[3], "Invalid Example Object"},
-                    {objectsToValidate[4], "null :)"}
-            });
-
-        });
+        final var exception = assertThrows(IllegalArgumentException.class, () -> validateNotNullPropertiesWithCustomMessagesPerProperty(new Object[][]{
+                {objectsToValidate[0], "null :)"},
+                {objectsToValidate[1], "Invalid Double"},
+                {objectsToValidate[2], "Invalid Integer"},
+                {objectsToValidate[3], "Invalid Example Object"},
+                {objectsToValidate[4], "null :)"}
+        }));
 
 
         // then
@@ -152,10 +148,7 @@ public class ValidatorUtilsTest {
         int number1 = 1;
         int number2 = 1;
         // when
-        final var exception = assertThrows(IllegalArgumentException.class, () -> {
-
-            validateTwoIntsNotEqual(number1, number2);
-        });
+        final var exception = assertThrows(IllegalArgumentException.class, () -> validateTwoIntsNotEqual(number1, number2));
 
         // then
         assertThat(exception.getMessage()).isEqualTo("Both numbers cannot be equals, but both numbers are 1 and 1.");
@@ -182,10 +175,7 @@ public class ValidatorUtilsTest {
         int maxValue = randomPositiveInteger(MAX_SMALL_VALUE_RANGE);
         int minValue = MAX_SMALL_VALUE_RANGE + randomPositiveInteger(MAX_SMALL_VALUE_RANGE);
         // when
-        final var exception = assertThrows(IllegalArgumentException.class, () -> {
-
-            validateMinValueIsSmallerThanMaxValue(minValue, maxValue);
-        });
+        final var exception = assertThrows(IllegalArgumentException.class, () -> validateMinValueIsSmallerThanMaxValue(minValue, maxValue));
 
         // then
         assertThat(exception.getMessage()).isEqualTo("MinValue (" + minValue + ") must be lower than MaxValue(" + maxValue + ")");
@@ -197,10 +187,7 @@ public class ValidatorUtilsTest {
         // given
         int value = randomPositiveInteger(MAX_SMALL_VALUE_RANGE);
         // when
-        final var exception = assertThrows(IllegalArgumentException.class, () -> {
-
-            validateMinValueIsSmallerThanMaxValue(value, value);
-        });
+        final var exception = assertThrows(IllegalArgumentException.class, () -> validateMinValueIsSmallerThanMaxValue(value, value));
         // then
         assertThat(exception.getMessage()).isEqualTo("MinValue (" + value + ") must be lower than MaxValue(" + value + ")");
     }
@@ -224,10 +211,7 @@ public class ValidatorUtilsTest {
         int maxValue = randomPositiveInteger(MAX_SMALL_VALUE_RANGE);
         int minValue = MAX_SMALL_VALUE_RANGE + randomPositiveInteger(MAX_SMALL_VALUE_RANGE);
         // when
-        final var exception = assertThrows(IllegalArgumentException.class, () -> {
-
-            validateValueIsSmallerOrEqualsThatOtherValue(minValue, maxValue);
-        });
+        final var exception = assertThrows(IllegalArgumentException.class, () -> validateValueIsSmallerOrEqualsThatOtherValue(minValue, maxValue));
         // then
         assertThat(exception.getMessage()).isEqualTo("Value (" + minValue + ") must be lower or equals to than Other Value(" + maxValue + ")");
     }
@@ -266,10 +250,7 @@ public class ValidatorUtilsTest {
     @Test
     public void validateIfNotNullShouldThrowExceptionIfInputIsNull() {
         // when
-        final var exception = assertThrows(IllegalArgumentException.class, () -> {
-
-            validateIfObjectValueIsNotNull(null);
-        });
+        final var exception = assertThrows(IllegalArgumentException.class, () -> validateIfObjectValueIsNotNull(null));
 
         // then nothing happen, which means value are valid
         assertThat(exception.getMessage()).isEqualTo("Value cannot be null.");
@@ -280,9 +261,7 @@ public class ValidatorUtilsTest {
     @Test
     public void validateNegativeBigDecimalShouldThrowExceptionIfNull() {
         // when
-        final var exception = assertThrows(IllegalArgumentException.class, () -> {
-            validateNegativeBigDecimal(null);
-        });
+        final var exception = assertThrows(IllegalArgumentException.class, () -> validateNegativeBigDecimal(null));
 
         // then
         assertThat(exception.getMessage()).isEqualTo("Value cannot be null.");
@@ -295,10 +274,7 @@ public class ValidatorUtilsTest {
         // given
         BigDecimal value = new BigDecimal(1 + new Random().nextInt(MAX_SMALL_VALUE_RANGE));
         // when
-        final var exception = assertThrows(IllegalArgumentException.class, () -> {
-
-            validateNegativeBigDecimal(value);
-        });
+        final var exception = assertThrows(IllegalArgumentException.class, () -> validateNegativeBigDecimal(value));
 
         // then
         assertThat(exception.getMessage()).isEqualTo("Value cannot be positive");

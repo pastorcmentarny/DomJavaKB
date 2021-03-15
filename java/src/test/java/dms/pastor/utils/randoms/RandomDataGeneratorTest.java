@@ -107,9 +107,7 @@ public class RandomDataGeneratorTest {
         // debug info
         LOGGER.info("Generated. Min:" + min + " Max:" + max);
         // when
-        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            generateString(min, max);
-        });
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> generateString(min, max));
 
         // then
         assertThat(exception.getMessage()).isEqualTo("Value must be higher than zero and min value must be smaller is larger than max value");
@@ -156,9 +154,7 @@ public class RandomDataGeneratorTest {
         // given
         final var negativeValue = -1;
         // when
-        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            generateStringList(negativeValue);
-        });
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> generateStringList(negativeValue));
 
         // then
         assertThat(exception.getMessage()).isEqualTo("Size {-1}  must be positive value.");
@@ -198,9 +194,7 @@ public class RandomDataGeneratorTest {
         // given
         final var negativeValue = -1;
         // when
-        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            generateStringList(negativeValue);
-        });
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> generateStringList(negativeValue));
 
         // then
         assertThat(exception.getMessage()).isEqualTo("Size {" + negativeValue + "}  must be positive value.");
@@ -225,9 +219,7 @@ public class RandomDataGeneratorTest {
     @Test
     public void shouldThrowIllegalArgumentExceptionIfSizeIsBelowZeroTest() {
         // when
-        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            generateNonAlphanumericString(-1);
-        });
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> generateNonAlphanumericString(-1));
 
         // then
         assertThat(exception.getMessage()).isEqualTo(ERROR_MESSAGE_SIZE_OF_STRING_MUST_BE_GREATER_THAN_ZERO);
@@ -235,9 +227,7 @@ public class RandomDataGeneratorTest {
 
     @Test
     public void shouldThrowIllegalArgumentExceptionIfSizeIsZeroTest() {
-        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            generateNonAlphanumericString(0);
-        });
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> generateNonAlphanumericString(0));
 
         // then
         assertThat(exception.getMessage()).isEqualTo(ERROR_MESSAGE_SIZE_OF_STRING_MUST_BE_GREATER_THAN_ZERO);
@@ -284,9 +274,7 @@ public class RandomDataGeneratorTest {
         int maxValue = randomPositiveInteger(MAX_SMALL_VALUE_RANGE);
         int minValue = maxValue + randomInteger(1, MAX_SMALL_VALUE_RANGE);
         // when
-        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            randomInteger(minValue, maxValue);
-        });
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> randomInteger(minValue, maxValue));
 
         // then
         assertThat(exception.getMessage()).isEqualTo("Value (" + minValue + ") must be lower or equals to than Other Value(" + maxValue + ")");
@@ -372,9 +360,7 @@ public class RandomDataGeneratorTest {
         // given
         final var negativeValue = -1;
         // when
-        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            generateWords(negativeValue);
-        });
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> generateWords(negativeValue));
 
         // then
         assertThat(exception.getMessage()).isEqualTo("Value {-1}  must be positive value.");

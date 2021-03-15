@@ -17,9 +17,7 @@ public class AppRunnerTest {
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenRunningAppWithoutArgumentsTest() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            AppRunner.main(null);
-        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AppRunner.main(null));
 
     }
 
@@ -28,10 +26,7 @@ public class AppRunnerTest {
 
         String[] stringList = new String[]{"a", "b"};
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-
-            AppRunner.main(stringList);
-        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AppRunner.main(stringList));
 
 
     }

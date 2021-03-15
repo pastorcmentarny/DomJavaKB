@@ -24,9 +24,7 @@ public class FindFirstNonRepeatedCharacterTest {
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenTextIsNullTest() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            findFirst.findFirstNonRepeatedCharacter(null);
-        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> findFirst.findFirstNonRepeatedCharacter(null));
 
     }
 

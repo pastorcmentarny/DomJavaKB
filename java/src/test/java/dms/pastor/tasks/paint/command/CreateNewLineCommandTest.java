@@ -333,9 +333,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
         createNewLineCommand.setParam(new String[]{CREATE_LINE_COMMAND, "0", "0", "0", "3"});
 
         // when
-        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> {
-            createNewLineCommand.execute(canvas);
-        });
+        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewLineCommand.execute(canvas));
 
         // then
         assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because paint on border is not allowed. Please check your input and try again.");

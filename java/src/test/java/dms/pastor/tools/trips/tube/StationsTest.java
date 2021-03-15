@@ -156,19 +156,14 @@ public class StationsTest {
     @Test
     public void findStationShouldThrowNotFoundExceptionWhenSearchForIsNull() {
         // when
-        final var exception = Assertions.assertThrows(NotFoundException.class, () -> {
-            stations.findStation(null);
-
-        });
+        final var exception = Assertions.assertThrows(NotFoundException.class, () -> stations.findStation(null));
         assertThat(exception.getMessage()).isEqualTo(STATION_NOT_FOUND_ERROR_MESSAGE);
     }
 
     @Test
     public void findStationShouldThrowNotFoundExceptionWhenSearchForIsEmpty() {
         // when
-        final var exception = Assertions.assertThrows(NotFoundException.class, () -> {
-            stations.findStation(EMPTY_STRING);
-        });
+        final var exception = Assertions.assertThrows(NotFoundException.class, () -> stations.findStation(EMPTY_STRING));
 
         // then
         assertThat(exception.getMessage()).isEqualTo(STATION_NOT_FOUND_ERROR_MESSAGE);
@@ -177,9 +172,7 @@ public class StationsTest {
     @Test
     public void findStationShouldThrowNotFoundExceptionWhenSearchForDoNotMatchAnyStation() {
         // when
-        final var exception = Assertions.assertThrows(NotFoundException.class, () -> {
-            stations.findStation(generateString());
-        });
+        final var exception = Assertions.assertThrows(NotFoundException.class, () -> stations.findStation(generateString()));
 
         // then
         assertThat(exception.getMessage()).isEqualTo(STATION_NOT_FOUND_ERROR_MESSAGE);

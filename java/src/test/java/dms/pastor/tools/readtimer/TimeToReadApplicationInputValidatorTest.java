@@ -23,9 +23,7 @@ public class TimeToReadApplicationInputValidatorTest {
         // given
         final String[] args = {generateString()};
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            TimeToReadApplication.main(args);
-        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> TimeToReadApplication.main(args));
     }
 
     @Test
@@ -34,9 +32,7 @@ public class TimeToReadApplicationInputValidatorTest {
         // given
         final String[] args = {generateString(), String.valueOf(randomNegativeInteger())};
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            TimeToReadApplication.main(args);
-        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> TimeToReadApplication.main(args));
 
     }
 

@@ -35,6 +35,7 @@ public class StopWatchTest {
      * I used Thread.wait(1000) in the past,but it produce some flaky test method seems caused
      *  This test is experiment is this approach is better.
      */
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     @Test
     public void shouldStartStopwatch() throws Exception {
         // when
@@ -46,15 +47,18 @@ public class StopWatchTest {
         assertThat(time).isGreaterThan(0);
     }
 
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     @Test
     public void shouldStopStopwatch() throws Exception {
         // given
         stopWatch.start();
         latch.await(250L, MILLISECONDS);
+
         // when
         stopWatch.stop();
 
         // then
+
         assertThat(stopWatch.calcTotalTime()).isGreaterThanOrEqualTo(250L);
         // when
         latch.await(100, MILLISECONDS);

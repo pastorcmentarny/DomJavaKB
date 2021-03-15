@@ -42,18 +42,14 @@ public class FileUtilsTest {
     @Test
     public void shouldThrowIllegalArgumentExceptionIfPathIsNullInReadRawDataTest() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            readRawData(null);
-        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> readRawData(null));
 
     }
 
     @Test
     public void shouldThrowExceptionIfFileNotExistsInRawDataReadTest() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            readRawData(EMPTY_STRING);
-        });
+        Assertions.assertThrows(IllegalArgumentException.class, () -> readRawData(EMPTY_STRING));
 
     }
 

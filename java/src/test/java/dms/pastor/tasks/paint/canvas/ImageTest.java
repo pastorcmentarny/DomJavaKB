@@ -60,9 +60,7 @@ public class ImageTest {
         // given
         Image image = getTestImage();
         // when
-        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            image.getPreviousPixelFor(0);
-        });
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> image.getPreviousPixelFor(0));
 
         assertThat(exception.getMessage()).isEqualTo("Length 0 is invalid because previous pixel will be out of range.");
     }
@@ -73,9 +71,7 @@ public class ImageTest {
         Image image = getTestImage();
         final int length = randomNegativeInteger();
         // when
-        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            image.getPreviousPixelFor(length);
-        });
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> image.getPreviousPixelFor(length));
 
         assertThat(exception.getMessage()).isEqualTo("Length " + length + " is invalid because previous pixel will be out of range.");
     }
@@ -134,9 +130,7 @@ public class ImageTest {
         // given
         Image image = getTestImage();
         // when
-        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            image.setPixel(1, 1, null);
-        });
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> image.setPixel(1, 1, null));
 
         // then
         assertThat(exception.getMessage()).isEqualTo(format("It must have one character but it has %d", 0));
@@ -149,9 +143,7 @@ public class ImageTest {
         Image image = getTestImage();
         final String tooLongString = "ufo";
         // when
-        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            image.setPixel(1, 1, tooLongString);
-        });
+        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> image.setPixel(1, 1, tooLongString));
 
         assertThat(exception.getMessage()).isEqualTo(format("It must have one character but it has %d", tooLongString.length()));
 

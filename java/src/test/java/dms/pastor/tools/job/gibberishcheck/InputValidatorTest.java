@@ -10,29 +10,21 @@ public class InputValidatorTest {
     @Test
     public void shouldThrowExceptionIfArgsIsNull() {
         // when
-        Assertions.assertThrows(SomethingWentWrongException.class, () -> {
-
-            InputValidator.validateInput(null);
-        });
+        Assertions.assertThrows(SomethingWentWrongException.class, () -> InputValidator.validateInput(null));
 
     }
 
     @Test
     public void shouldThrowExceptionIfArgsHasLessThanTwoElements() {
         // when
-        Assertions.assertThrows(SomethingWentWrongException.class, () -> {
-
-            InputValidator.validateInput(new String[]{"1"});
-        });
+        Assertions.assertThrows(SomethingWentWrongException.class, () -> InputValidator.validateInput(new String[]{"1"}));
 
     }
 
     @Test
     public void shouldThrowExceptionIfArgsHasMoreThanTwoElements() {
         // when
-        Assertions.assertThrows(SomethingWentWrongException.class, () -> {
-            InputValidator.validateInput(new String[]{"1", "2", "3"});
-        });
+        Assertions.assertThrows(SomethingWentWrongException.class, () -> InputValidator.validateInput(new String[]{"1", "2", "3"}));
 
     }
 

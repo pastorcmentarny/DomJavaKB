@@ -24,11 +24,9 @@ public class ToUncheckedExceptionTransformerTest {
         // given
         List<String> urlsToCrawl = Arrays.asList("https://dominiksymonowicz.com", "whoops");
         // when
-        Assertions.assertThrows(RuntimeException.class, () -> {
-            urlsToCrawl.stream()
-                    .map(ToUncheckedExceptionTransformer.transformToUncheckedException(FileWriter::new))
-                    .forEach(fileWriter -> System.out.println(fileWriter.toString()));
-        });
+        Assertions.assertThrows(RuntimeException.class, () -> urlsToCrawl.stream()
+                .map(ToUncheckedExceptionTransformer.transformToUncheckedException(FileWriter::new))
+                .forEach(fileWriter -> System.out.println(fileWriter.toString())));
     }
 
 }
