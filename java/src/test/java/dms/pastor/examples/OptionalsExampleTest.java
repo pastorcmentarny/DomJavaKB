@@ -60,7 +60,7 @@ public class OptionalsExampleTest {
     @Test
     public void java10OptionalMethodsExampleTest() {
         // when
-        final var exception = Assertions.assertThrows(SomethingWentWrongException.class, () -> {
+        Assertions.assertThrows(SomethingWentWrongException.class, () -> {
             final var optional = OptionalsExample.getOptional(false);
             optional.orElseThrow(SomethingWentWrongException::new);
         });

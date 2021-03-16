@@ -11,6 +11,7 @@ public class CounterResultTest {
     public void shouldGet50PercentIfHalfWordsIsCrap() {
         // given
         CounterResult counterResult = new CounterResult(1, 2);
+
         // when
         String result = counterResult.getPercentageAsString();
 
@@ -22,11 +23,25 @@ public class CounterResultTest {
     public void shouldReturnEmptyStringIFResultContainsInvalidData() {
         // given
         CounterResult counterResult = new CounterResult(1, 0);
+
         // when
         String result = counterResult.getPercentageAsString();
 
         // then
         assertThat(result).isEmpty();
     }
+
+    @Test
+    public void getPercentageAcceptanceTest() {
+        // given
+        CounterResult counterResult = new CounterResult(1, 2);
+
+        // when
+        int result = counterResult.getPercentage();
+
+        // then
+        assertThat(result).isEqualTo(50);
+    }
+
 
 }
