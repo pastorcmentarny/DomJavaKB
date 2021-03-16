@@ -41,7 +41,7 @@ public class StreamBasicsTest implements ExampleRunner {
     }
 
     @Test
-    public  void printIfFindFirstIfPresentAcceptanceTest(){
+    public void printIfFindFirstIfPresentAcceptanceTest() {
         // when
         StreamBasics.printIfFindFirstIfPresent();
 

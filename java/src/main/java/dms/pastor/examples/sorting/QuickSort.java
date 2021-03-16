@@ -2,7 +2,7 @@ package dms.pastor.examples.sorting;
 
 /*
  * This is classic Quick sort implementation without optimization
- * 
+ *
  * Quick sort was developed by Sir Charles Anthony Richard Hoare in 1962. Its one of comparison
  * sorting algorithm which uses divide and conquer  strategy using Partitioning method. Quick Sort
  * characterize very good performance for o best and average cases: O(n log n) but unfortunately
