@@ -1,7 +1,5 @@
 package dms.pastor.spring.tools.vocabulizator;
 
-import dms.pastor.spring.tools.vocabulizator.model.Definition;
-
 /**
  * Author Dominik Symonowicz
  * Created 27/10/2016
@@ -12,5 +10,4 @@ import dms.pastor.spring.tools.vocabulizator.model.Definition;
  */
 public interface DefinitionService {
 
-    Definition getDefinitionFor(String word);
 }

@@ -4,14 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public enum Tag {
-    AGILE("Agile related"),
     GENERAL("All other definitions that doe nop match to any category"),
     IT("Generic it terms");
 
-    private final String description;
-
     Tag(String description) {
-        this.description = description;
     }
 
     public static List<Tag> getTagAsSingleList(Tag tag) {

@@ -7,10 +7,10 @@ import org.springframework.stereotype.Component;
 //TODO add practical version
 @Component
 public class CustomHealthCheckIndicator implements HealthIndicator {
-    private final String messageKey = "ExampleService";
 
     @Override
     public Health health() {
+        String messageKey = "ExampleService";
         return Health.up().withDetail(messageKey, "Service works").build();
     }
 }

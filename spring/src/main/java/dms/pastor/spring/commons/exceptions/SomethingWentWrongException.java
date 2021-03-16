@@ -1,8 +1,6 @@
 package dms.pastor.spring.commons.exceptions;
 
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 
 /**
  * Author Dominik Symonowicz
@@ -29,12 +27,12 @@ public class SomethingWentWrongException extends RuntimeException {
 
     //https://www.owasp.org/index.php/Deserialization_Cheat_Sheet
     @SuppressWarnings("FinalPrivateMethod")
-    private final void readObject(ObjectInputStream in) throws IOException {
+    private final void readObject() throws IOException {
         throw new IOException("Cannot be deserialized");
     }
 
     @SuppressWarnings("FinalPrivateMethod")
-    private final void writeObject(ObjectOutputStream out) throws IOException {
+    private final void writeObject() throws IOException {
         throw new IOException("Cannot be serialized");
     }
 }

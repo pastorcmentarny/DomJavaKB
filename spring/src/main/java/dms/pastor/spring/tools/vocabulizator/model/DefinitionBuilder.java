@@ -3,7 +3,6 @@ package dms.pastor.spring.tools.vocabulizator.model;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.UUID;
 
 import static dms.pastor.spring.DomUtils.generateString;
 
@@ -29,7 +28,7 @@ public class DefinitionBuilder {
     }
 
     public Definition build() {
-        return new Definition(UUID.randomUUID(), word, meaning, tags);
+        return new Definition(word, meaning, tags);
     }
 
     public DefinitionBuilder word(String word) {

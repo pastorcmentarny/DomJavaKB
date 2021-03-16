@@ -23,7 +23,7 @@ public class RestExamplesController {
 
     @GetMapping("/rest")
     public CuteDomainObject restExample() {
-        return new CuteDomainObject("Metropolitan Line", randomBigDecimal().intValue());
+        return new CuteDomainObject();
     }
 
     private BigDecimal randomBigDecimal() {
@@ -36,7 +36,7 @@ public class RestExamplesController {
         if (number == null) {
             number = Integer.MIN_VALUE;
         }
-        return new CuteDomainObject("Number", number);
+        return new CuteDomainObject();
     }
 
 

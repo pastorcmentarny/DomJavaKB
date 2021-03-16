@@ -10,6 +10,6 @@ package dms.pastor.spring.examples.rest;
  */
 public class CuteDomainObject {
 
-    public CuteDomainObject(String text, int number) {
+    public CuteDomainObject() {
     }
 }

@@ -2,7 +2,6 @@ package dms.pastor.spring.tools.vocabulizator.model;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.UUID;
 
 import static dms.pastor.spring.tools.vocabulizator.model.Tag.GENERAL;
 import static dms.pastor.spring.tools.vocabulizator.model.Tag.getTagAsSingleList;
@@ -14,14 +13,14 @@ public class Definition {
     private final String definition;
     private final List<Tag> tags;
 
-    public Definition(UUID guid, String word, String definition, List<Tag> tags) {
+    public Definition(String word, String definition, List<Tag> tags) {
         this.word = word;
         this.definition = definition;
         this.tags = tags;
     }
 
     public static Definition getTestDefinition() {
-        return new Definition(UUID.randomUUID(), "Test", "Test is a procedure for evaluation or check truth of something;", getTagAsSingleList(GENERAL));
+        return new Definition("Test", "Test is a procedure for evaluation or check truth of something;", getTagAsSingleList(GENERAL));
     }
 
     public String getWord() {

@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 import static dms.pastor.spring.DomUtils.generateString;
 import static dms.pastor.spring.examples.ExamplesURL.JSON;
@@ -52,14 +51,14 @@ public class JsonExampleController {
 
     @GetMapping("/json")
     public CuteDomainObject getCuteDomainObjectAsJson() {
-        CuteDomainObject cuteDomainObject = new CuteDomainObject("Name", new Random().nextInt(32));
+        CuteDomainObject cuteDomainObject = new CuteDomainObject();
         log.info("Getting Cute Domain Object with data: " + cuteDomainObject.toString());
         return cuteDomainObject;
     }
 
     @GetMapping(value = "/xml", produces = {"application/xml", "text/xml"})
     public CuteDomainObject getCuteDomainObjectAsXml() {
-        CuteDomainObject cuteDomainObject = new CuteDomainObject("Name", new Random().nextInt(32));
+        CuteDomainObject cuteDomainObject = new CuteDomainObject();
         log.info("Getting Cute Domain Object with data: " + cuteDomainObject.toString());
         return cuteDomainObject;
     }

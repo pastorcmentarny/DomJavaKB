@@ -10,18 +10,9 @@ package dms.pastor.spring.tools.getdone.commons;
  */
 public enum State {
     CREATED(0),
-    DRAFT(1),
-    DELETED(2),
-    BACKLOG(3),
-    PLANNED(4),
-    IN_PROGRESS(5),
-    COMPLETED(6),
-    ARCHIVED(7);
-
-    private final int state;
+    BACKLOG(3);
 
     State(int state) {
-        this.state = state;
     }
 
 }

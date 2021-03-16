@@ -1,6 +1,6 @@
 package dms.pastor.spring.exercises.calculator.models;
 
-import java.util.concurrent.atomic.AtomicInteger;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import static dms.pastor.spring.DomUtils.randomPositiveInteger;
 
@@ -14,9 +14,13 @@ import static dms.pastor.spring.DomUtils.randomPositiveInteger;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public class Addition {
-    private static final AtomicInteger counter = new AtomicInteger();
-    private final long id = randomPositiveInteger();
+    private final long id;
     private String[] numbers;
+
+    public Addition(@JsonProperty("name") String[] numbers) {
+        this.id = randomPositiveInteger();
+        this.numbers = numbers;
+    }
 
     public Result getAnswer() {
         int counter = 0;
