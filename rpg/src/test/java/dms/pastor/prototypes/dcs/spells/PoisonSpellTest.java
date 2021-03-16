@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  * Author Dominik Symonowicz
  * Created 11/06/2017
- * WWW:	http://pastor.ovh.org
+ * WWW:	https://dominiksymonowicz.com/
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
