@@ -1,6 +1,5 @@
 package dms.pastor.utils;
 
-import dms.pastor.TestConfig;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -25,7 +24,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class FileUtilsAcceptanceTest {
 
     private static final int MAX_STRING_LENGTH = 20;
-    private static final String FILE_PATH = TestConfig.PATH + "savesListToFile.txt";
 
 
     @Test

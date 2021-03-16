@@ -32,7 +32,6 @@ public class CrapCounterTest {
         data = new Data(crapWordList, jobWordList);
         counter = new CrapCounter(data);
 
-        var expectedResult = new CrapCounter(data);
         // when
         CounterResult counterResult = counter.count();
 

@@ -3,7 +3,6 @@ package dms.pastor.examples.sorting;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Vector;
 
 
 public class MakeDataFile {
@@ -12,7 +11,6 @@ public class MakeDataFile {
     public static void main(String[] args) {
 
         BufferedWriter writer = null;
-        Vector storedNums = new Vector();
         try {
             writer = new BufferedWriter(new FileWriter(args[0]));
         } catch (IOException exception) {

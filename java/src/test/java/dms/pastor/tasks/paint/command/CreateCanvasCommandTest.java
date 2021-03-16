@@ -1,10 +1,10 @@
 package dms.pastor.tasks.paint.command;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Author Dominik Symonowicz
@@ -48,7 +48,7 @@ public class CreateCanvasCommandTest extends AbstractCommandTest {
         // given
         String[] params = {CREATE_CANVAS_COMMAND};
         // when
-        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createCanvasCommand.setParamsIfValid(params));
+        assertThrows(InvalidCommandSyntaxException.class, () -> createCanvasCommand.setParamsIfValid(params));
     }
 
     @Test
@@ -56,7 +56,7 @@ public class CreateCanvasCommandTest extends AbstractCommandTest {
         // given
         String[] params = {CREATE_CANVAS_COMMAND, EMPTY_STRING, VALID_LENGTH};
         // when
-        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createCanvasCommand.setParamsIfValid(params));
+        final var exception = assertThrows(InvalidCommandSyntaxException.class, () -> createCanvasCommand.setParamsIfValid(params));
 
         // then
         assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because width is not a number. Please check your input and try again.");
@@ -67,7 +67,7 @@ public class CreateCanvasCommandTest extends AbstractCommandTest {
         // given
         String[] params = {CREATE_CANVAS_COMMAND, VALID_LENGTH, EMPTY_STRING};
         // when
-        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createCanvasCommand.setParamsIfValid(params));
+        final var exception = assertThrows(InvalidCommandSyntaxException.class, () -> createCanvasCommand.setParamsIfValid(params));
 
         // then
         assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because height is not a number. Please check your input and try again.");
@@ -78,7 +78,7 @@ public class CreateCanvasCommandTest extends AbstractCommandTest {
         // given
         String[] params = {CREATE_CANVAS_COMMAND, NOT_A_NUMBER, VALID_LENGTH};
         // when
-        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createCanvasCommand.setParamsIfValid(params));
+        final var exception = assertThrows(InvalidCommandSyntaxException.class, () -> createCanvasCommand.setParamsIfValid(params));
 
         // then
         assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because width is not a number. Please check your input and try again.");
@@ -89,7 +89,7 @@ public class CreateCanvasCommandTest extends AbstractCommandTest {
         // given
         String[] params = {CREATE_CANVAS_COMMAND, VALID_LENGTH, NOT_A_NUMBER};
         // when
-        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createCanvasCommand.setParamsIfValid(params));
+        final var exception = assertThrows(InvalidCommandSyntaxException.class, () -> createCanvasCommand.setParamsIfValid(params));
 
         // then
         assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because height is not a number. Please check your input and try again.");

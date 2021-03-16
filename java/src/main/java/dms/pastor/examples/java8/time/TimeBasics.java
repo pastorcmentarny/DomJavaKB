@@ -17,7 +17,7 @@ final class TimeBasics {
         }
     }
 
-    static void displayTimeInLondonWroclawBeijing() {
+    static String getTimeInLondonWroclawBeijing() {
 
         ZoneId wroclawZone = ZoneId.of("Europe/Warsaw");
         ZoneId londonZone = ZoneId.of("Europe/London");
@@ -29,7 +29,7 @@ final class TimeBasics {
         String wroclawTime = wroclaw.format(timeFormatter);
         String londonTime = london.format(timeFormatter);
         String tianjinTime = tianjin.format(timeFormatter);
-        System.out.println("Time: [London " + londonTime + " ][ Wroclaw " + wroclawTime + " ][ Tianjin " + tianjinTime + " ]");
+        return "Time: [London " + londonTime + " ][ Wroclaw " + wroclawTime + " ][ Tianjin " + tianjinTime + " ]";
     }
 
     static String getCurrentTimeAsString() {
@@ -39,20 +39,21 @@ final class TimeBasics {
         return result;
     }
 
-    static void gettingCurrentDateTimeInJava() {
+    static String gettingCurrentDateTimeInJava() {
         LocalDate todayDate = LocalDate.now();
         System.out.println(todayDate);
         LocalTime todayTime = LocalTime.now();
         System.out.println(todayTime);
+        return todayTime.toString();
     }
 
-    static void getCurrentTimeWithOffset() {
+    static String getCurrentTimeWithOffset() {
         ZoneOffset zoneOffset = ZoneOffset.of("-08:00");
         ZoneId offsetZoneId = ZoneId.ofOffset("UTC", zoneOffset);
         LocalTime time = LocalTime.now(offsetZoneId);
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("hh:mm a");
         String formattedTime = time.format(dateTimeFormatter);
-        System.out.println("Current time of the day with offset " + zoneOffset.toString() + " is " + formattedTime);
+        return "Current time of the day with offset " + zoneOffset.toString() + " is " + formattedTime;
 
     }
 }

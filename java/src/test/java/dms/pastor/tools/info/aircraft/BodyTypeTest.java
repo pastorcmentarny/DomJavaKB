@@ -2,10 +2,10 @@ package dms.pastor.tools.info.aircraft;
 
 
 import dms.pastor.domain.exception.NotFoundException;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class BodyTypeTest {
 
@@ -24,7 +24,7 @@ public class BodyTypeTest {
     @Test
     public void shouldThrowInvalidArgumentExceptionIfLetterIsNull() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> BodyType.getTypeFromLetter(null));
+        assertThrows(IllegalArgumentException.class, () -> BodyType.getTypeFromLetter(null));
 
     }
 
@@ -33,8 +33,9 @@ public class BodyTypeTest {
 
         // given
         final String invalidLetter = "X";
+
         // when
-        final var exception = Assertions.assertThrows(NotFoundException.class, () -> BodyType.getTypeFromLetter(invalidLetter));
+        assertThrows(NotFoundException.class, () -> BodyType.getTypeFromLetter(invalidLetter));
 
     }
 }
