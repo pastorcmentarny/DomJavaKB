@@ -24,7 +24,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * <p>
  * INFORMATION: Happy path only
  */
-@SuppressWarnings("resource") // not need to use try with resources for this test
+// not need to use try with resources for this test
 public class MockitoExampleServiceTest {
 
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();

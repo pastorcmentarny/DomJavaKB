@@ -11,16 +11,15 @@ import java.util.Random;
 import static dms.pastor.tools.trips.tube.station.TubeStation.notVisited;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static java.util.Collections.emptyList;
-import static java.util.Collections.singletonList;
 
 public final class StationBuilder {
     private String name = generateString(10);
-    private List<Line> lines = singletonList(new Line(generateString(10)));
     private Status status = Status.values()[new Random().nextInt(Status.values().length)];
     private LocalDate passedDate = LocalDate.now();
     private LocalDate visitedDate = LocalDate.now();
     private final LocalDate thisYearVisitedDate = LocalDate.now();
     private boolean blogged = true;
+    private List<Line> lines;
 
     private StationBuilder() {
     }

@@ -32,7 +32,7 @@ import static org.mockito.Mockito.verify;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  * tag-test-log
  */
-@SuppressWarnings("resource") // auto closable not essential
+// auto closable not essential
 @ExtendWith(MockitoExtension.class)
 public class MainTest {
 

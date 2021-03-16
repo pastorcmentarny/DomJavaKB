@@ -32,7 +32,6 @@ import static org.mockito.Mockito.when;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-@SuppressWarnings("resource")
 @ExtendWith(MockitoExtension.class)
 public class TubeCLITest {
 

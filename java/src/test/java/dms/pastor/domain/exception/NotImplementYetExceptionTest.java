@@ -37,7 +37,7 @@ public class NotImplementYetExceptionTest {
 
     }
 
-    @SuppressWarnings({"resource", "IOResourceOpenedButNotSafelyClosed"})
+    @SuppressWarnings({"IOResourceOpenedButNotSafelyClosed"})
     @Test
     public void shouldThrowIOExceptionWhenTryingReadObjectTest() {
         // given
