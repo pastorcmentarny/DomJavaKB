@@ -10,9 +10,9 @@ import static java.lang.String.format;
 
 public class Definition {
 
-    private String word;
-    private String definition;
-    private List<Tag> tags;
+    private final String word;
+    private final String definition;
+    private final List<Tag> tags;
 
     public Definition(UUID guid, String word, String definition, List<Tag> tags) {
         this.word = word;

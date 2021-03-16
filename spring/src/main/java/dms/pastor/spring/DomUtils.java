@@ -15,8 +15,8 @@ import static java.lang.String.format;
 import static java.lang.System.out;
 
 /**
-THIS IS TEMPORARY CLASS COPIED FROM JAVA PROJECT DUE TO GRADLE IMPORT MODULE ISSUE
- //FIXME replace it with import java module to spring
+ * THIS IS TEMPORARY CLASS COPIED FROM JAVA PROJECT DUE TO GRADLE IMPORT MODULE ISSUE
+ * //FIXME replace it with import java module to spring
  */
 public final class DomUtils {
     public static final String EMPTY_STRING = "";
@@ -289,7 +289,6 @@ public final class DomUtils {
     }
 
 
-
     public static List<Integer> generateRandomNumberSequenceExcludingSpecificNumber(int start, int stop, int[] excluded) {
         final List<Integer> numberList = IntStream.rangeClosed(start, stop).filter(number -> !contains(number, excluded)).boxed().collect(Collectors.toList());
         Collections.shuffle(numberList);
@@ -345,6 +344,7 @@ public final class DomUtils {
         sb.append(CLOSE_ARRAY);
         out.println(sb.toString());
     }
+
     public static void validateIfPositiveNumber(int number) {
         validateIfPositiveNumber(number, "value");
     }

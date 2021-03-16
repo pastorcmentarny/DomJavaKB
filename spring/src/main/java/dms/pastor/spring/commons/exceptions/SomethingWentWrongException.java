@@ -21,6 +21,7 @@ public class SomethingWentWrongException extends RuntimeException {
     public SomethingWentWrongException(String message) {
         super(ERROR + message);
     }
+
     public SomethingWentWrongException(String message, Throwable blame) {
         super(ERROR + message, blame);
     }

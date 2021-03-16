@@ -7,13 +7,13 @@ import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
-public class DummyBookRepository implements BookRepository{
+public class DummyBookRepository implements BookRepository {
 
     @Override
     @Cacheable("book")
     public Book getByIsbn(String isbn) {
         relax();
-        return new Book(isbn,"The title of the book");
+        return new Book(isbn, "The title of the book");
     }
 
     private void relax() {
@@ -22,7 +22,7 @@ public class DummyBookRepository implements BookRepository{
         try {
             Thread.sleep(time);
         } catch (InterruptedException interruptedException) {
-            throw new SomethingWentWrongException("Relaxing too long",interruptedException);
+            throw new SomethingWentWrongException("Relaxing too long", interruptedException);
         }
 
     }

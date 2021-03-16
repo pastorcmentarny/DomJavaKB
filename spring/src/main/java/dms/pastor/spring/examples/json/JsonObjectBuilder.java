@@ -16,9 +16,9 @@ import java.util.Random;
 public class JsonObjectBuilder {
     private static final int MAX = 32;
     private final Random random = new Random();
-    private String name = DomUtils.generateString(MAX);
-    private int version = random.nextInt(MAX);
-    private boolean ok = random.nextBoolean();
+    private final String name = DomUtils.generateString(MAX);
+    private final int version = random.nextInt(MAX);
+    private final boolean ok = random.nextBoolean();
 
     private JsonObjectBuilder() {
     }

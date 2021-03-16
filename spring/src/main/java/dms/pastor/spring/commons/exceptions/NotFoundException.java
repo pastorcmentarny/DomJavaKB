@@ -10,8 +10,8 @@ package dms.pastor.spring.commons.exceptions;
  */
 public class NotFoundException extends Exception {
 
-    private String what;
-    private long id;
+    private final String what;
+    private final long id;
 
     public NotFoundException(String what, long id) {
         this.what = what;

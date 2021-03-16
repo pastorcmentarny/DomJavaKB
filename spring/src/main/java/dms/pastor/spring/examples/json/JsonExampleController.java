@@ -10,9 +10,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
+import static dms.pastor.spring.DomUtils.generateString;
 import static dms.pastor.spring.examples.ExamplesURL.JSON;
 import static dms.pastor.spring.examples.json.JsonObjectBuilder.jsonObjectBuilder;
-import static dms.pastor.spring.DomUtils.generateString;
 
 /**
  * Author Dominik Symonowicz

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CacheExampleController {
 
-    private BookRepository bookRepository;
+    private final BookRepository bookRepository;
 
     @Autowired
     public CacheExampleController(BookRepository bookRepository) {
@@ -16,7 +16,7 @@ public class CacheExampleController {
 
 
     @GetMapping("/example/cache")
-    public String getBook(){
+    public String getBook() {
         return bookRepository.getByIsbn("1000").toString();
     }
 }
