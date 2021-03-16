@@ -18,51 +18,8 @@ import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
  */
 public class ResultsTest {
 
-    private Result result;
+    private Result<Object> result;
 
-    @Test
-    public void shouldCreateSuccessResultTest() {
-        // when
-        result = Result.success();
-
-        // then
-        assertThat(result.isSuccess()).isTrue();
-        assertThat(result.getMessage()).isEqualTo("Success");
-    }
-
-    @Test
-    public void shouldCreateFailResultTest() {
-        // when
-        result = Result.fail();
-
-        // then
-        assertThat(result.isFail()).isTrue();
-        assertThat(result.getMessage()).isEqualTo("Fail");
-    }
-
-    @Test
-    public void shouldCreateSuccessResultWithMessageTest() {
-        // given
-        final String message = generateString(20);
-        // when
-        result = Result.success(message);
-
-        // then
-        assertThat(result.isSuccess()).isTrue();
-        assertThat(result.getMessage()).isEqualTo(message);
-    }
-
-    @Test
-    public void shouldCreateFailResultWithMessageTest() {
-        // given
-        final String message = generateString();
-        // when
-        result = Result.fail(message);
-
-        // then
-        assertThat(result.isFail()).isTrue();
-        assertThat(result.getMessage()).isEqualTo(message);
-    }
 
     @Test
     public void shouldCreateSuccessResultWithMessageAndObjectTest() {

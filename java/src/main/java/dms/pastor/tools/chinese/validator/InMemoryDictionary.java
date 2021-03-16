@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import static dms.pastor.domain.Result.fail;
 import static dms.pastor.tools.chinese.validator.Word.noCategories;
 
 /**
@@ -23,24 +22,23 @@ import static dms.pastor.tools.chinese.validator.Word.noCategories;
 class InMemoryDictionary {
     private static final Logger LOGGER = LoggerFactory.getLogger(FromFileImporter.class);
 
-    private final Importer fromFileImporter;
+    private final Importer<List<Word>> fromFileImporter;
     private final String source;
 
-    private Result dictionaryStatus = fail("Unknown state.");
+    private Result<List<Word>> dictionaryStatus = new Result<>(false,"Unknown state.");
     private List<Word> wordsList = new ArrayList<>();
 
-    public InMemoryDictionary(String source, Importer importer) {
+    public InMemoryDictionary(String source, Importer<List<Word>> importer) {
         this.source = source;
         this.fromFileImporter = importer;
     }
 
-    @SuppressWarnings("unchecked")
     public void load() {
         dictionaryStatus = fromFileImporter.importDictionary(source, noCategories());
         if (dictionaryStatus.isSuccess()) {
             LOGGER.info(dictionaryStatus.getMessage());
-            if (dictionaryStatus.getItem() instanceof List) {
-                setWordListFromResult((List<Word>) dictionaryStatus.getItem());
+            if (dictionaryStatus.getItem() != null) {
+                setWordListFromResult(dictionaryStatus.getItem());
             }
             dictionaryStatus.setItem(null);
         }
@@ -50,7 +48,7 @@ class InMemoryDictionary {
         if (Objects.nonNull(wordListAsObject)) {
             wordsList = wordListAsObject;
         } else {
-            dictionaryStatus = fail("Unable to retrieve word list.");
+            dictionaryStatus = new Result<>(false,"Unable to retrieve word list.");
             LOGGER.error("Unable to retrieve word list.");
         }
     }

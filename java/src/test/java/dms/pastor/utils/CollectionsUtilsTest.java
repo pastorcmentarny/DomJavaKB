@@ -1,6 +1,7 @@
 package dms.pastor.utils;
 
 
+import dms.pastor.domain.StatusType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -114,13 +115,13 @@ public class CollectionsUtilsTest {
     }
 
 
-/* TODO check it -> change enum that is used as example
     @Test
     public void toListShouldReturnListOfEnumsValues() {
         // given
-        final ConditionType[] enums = ConditionType.values();
+        final StatusType[] enums = StatusType.values();
+
         // when
-        final List<ConditionType> result = CollectionsUtils.toList(enums);
+        final List<StatusType> result = CollectionsUtils.toList(enums);
 
         // then
         assertThat(result).isNotEmpty();
@@ -128,7 +129,6 @@ public class CollectionsUtilsTest {
 
         // debug info
         result.forEach(System.out::println);
-
-    }*/
+    }
 
 }

@@ -27,13 +27,13 @@ public class FromFileImporterTest {
     public void importDictionaryShouldLoadDictionaryFromFile() {
         // given
         String path = BASE_PATH + "word" + File.separator + "validDictionary.txt";
-        Importer importer = new FromFileImporter();
+        Importer<List<Word>> importer = new FromFileImporter();
         // when
-        final Result result = importer.importDictionary(path, noCategories());
+        final Result<List<Word>> result = importer.importDictionary(path, noCategories());
 
         // then
         assertThat(result.isSuccess()).isTrue();
-        final List<Word> wordList = (List<Word>) result.getItem();
+        final List<Word> wordList = result.getItem();
         assertThat(wordList).hasSize(10);
 
     }
@@ -42,14 +42,14 @@ public class FromFileImporterTest {
     public void importDictionaryShouldNotLoadDictionaryFromFileIfFileHasEntryWithValidationErrors() {
         // given
         String path = BASE_PATH + "word" + File.separator + "invalidDictionary.txt";
-        Importer importer = new FromFileImporter();
+        Importer<List<Word>> importer = new FromFileImporter();
         // when
-        final Result result = importer.importDictionary(path, noCategories());
+        final Result<List<Word>> result = importer.importDictionary(path, noCategories());
 
         // then
         assertThat(result.isFail()).isTrue();
         assertThat(result.getMessage()).isEqualTo("Error at line: 0 caused by For input string: \"x\" in ;;x;;x;;X;;WRONG;;ENTRY;;x;;~~;;e;;x;;x;;");
-        assertThat(result.getItem()).isNull();
+        assertThat(result.getItem()).isEmpty();
 
     }
 }

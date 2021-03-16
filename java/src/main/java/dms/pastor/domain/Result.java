@@ -18,6 +18,10 @@ public class Result<T> {
     private String message;
     private T item;
 
+    public Result(boolean success){
+        this.success = success;
+        this.message = success ? "Success" : "Fail";
+    }
     public Result(boolean success, String message) {
         this.success = success;
         this.message = message;
@@ -29,21 +33,6 @@ public class Result<T> {
         this.item = item;
     }
 
-    public static Result success(String message) {
-        return new Result(true, message);
-    }
-
-    public static Result success() {
-        return new Result(true, "Success");
-    }
-
-    public static Result fail(String message) {
-        return new Result(false, message);
-    }
-
-    public static Result fail() {
-        return new Result(false, "Fail");
-    }
 
     public boolean isSuccess() {
         return success;

@@ -8,10 +8,9 @@ import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-import static dms.pastor.domain.Result.fail;
-import static dms.pastor.domain.Result.success;
 import static dms.pastor.tools.chinese.validator.WordValidator.isWordValid;
 import static java.lang.String.format;
 
@@ -24,7 +23,7 @@ import static java.lang.String.format;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class FromFileImporter implements Importer {
+public class FromFileImporter implements Importer<List<Word>> {
     private static final String IGNORED_WORD = "////";
     private static final String COLUMN_SEPARATOR = ";;";
     private static final String GROUP_SEPARATOR = "~~";
@@ -39,12 +38,12 @@ public class FromFileImporter implements Importer {
     }
 
     @SuppressWarnings("ProhibitedExceptionCaught") //it catch malformed line
-    public Result importDictionary(String filePath, String[] requestedCategories) {
+    public Result<List<Word>> importDictionary(String filePath, String[] requestedCategories) {
         LOGGER.info("Loading words to rpg from file");
         clear();
 
         if (FileUtils.isFileNotExists(filePath)) {
-            return fail("Path to file " + filePath + " do not exists.");
+            return new Result<>(false, "Path to file " + filePath + " do not exists.");
         }
 
         try (FileInputStream fileInputStream = new FileInputStream(filePath);
@@ -58,8 +57,8 @@ public class FromFileImporter implements Importer {
             while ((line = br.readLine()) != null) {
                 if (isLineNotIgnored(line)) {
                     data = line.split(COLUMN_SEPARATOR);
-                    Result result = processLine(requestedCategories, line, data);
-                    if (result != null && result.isFail()) return result;
+                    Result<List<Word>> result = processLine(requestedCategories, line, data);
+                    if (result.isFail()) return result;
                 } else {
                     LOGGER.warn("This line is ignored: Dictionary :{}", line);
                     ignored++;
@@ -68,33 +67,33 @@ public class FromFileImporter implements Importer {
         } catch (FileNotFoundException e) {
             return returnFailResultOnException(e);
         } catch (IOException e) {
-            return returnFailResultOnException("IOException", nr, e);
+            return returnFailResultOnException("IOException", nr, e, wordsList);
         } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
-            return returnFailResultOnException("ArrayIndexOutOfBoundsException", nr, arrayIndexOutOfBoundsException);
+            return returnFailResultOnException("ArrayIndexOutOfBoundsException", nr, arrayIndexOutOfBoundsException, wordsList);
         }
         return new Result<>(true, format("Dictionary loaded successfully.(Words loaded: %d, Ignored: %d)", wordsList.size(), ignored), wordsList);
     }
 
     @SuppressWarnings("ProhibitedExceptionCaught") // Catch this exception to show error to user
-    private Result<Word> processLine(String[] requestedCategories, String line, String[] data) {
+    private Result<List<Word>> processLine(String[] requestedCategories, String line, String[] data) {
         Word word;
         try {
             if (data.length != COLUMNS) {
                 final String msg = String.format("wrong number of elements. Should be %d but was %d", COLUMNS, data.length);
                 LOGGER.error(msg);
-                return fail(msg);
+                return new Result<>(false, msg);
             }
             word = parseWord(data);
             if (isWordValid(word)) {
                 addWordToWordList(requestedCategories, getWordCategories(data), word);
             } else {
                 LOGGER.error("Word is corrupted(Line:" + getCurrentLine(nr) + ".It is something wrong with Dictionary." + getLine(line));
-                return fail("Validation failed as Word is invalid at line: " + (getCurrentLine(nr)) + ")\n.Problem occurred in: " + getLine(line));
+                return new Result<>(false, "Validation failed as Word is invalid at line: " + (getCurrentLine(nr)) + ")\n.Problem occurred in: " + getLine(line));
             }
         } catch (NumberFormatException | ArrayIndexOutOfBoundsException nfe) {
-            return returnFailResultOnException(line, nr, nfe);
+            return returnFailResultOnException(line, nr, nfe, Collections.emptyList());
         }
-        return success();
+        return new Result<>(true);
     }
 
     private void clear() {
@@ -103,14 +102,14 @@ public class FromFileImporter implements Importer {
         ignored = 0;
     }
 
-    private Result returnFailResultOnException(Exception exception) {
-        return returnFailResultOnException("File not found", Integer.MIN_VALUE, exception);
+    private Result<List<Word>> returnFailResultOnException(Exception exception) {
+        return returnFailResultOnException("File not found", Integer.MIN_VALUE, exception, Collections.emptyList());
     }
 
-    private Result returnFailResultOnException(String errorMessage, int nr, Exception exception) {
+    private Result<List<Word>> returnFailResultOnException(String errorMessage, int nr, Exception exception, List<Word> wordsList) {
         String msg = getErrorIntroMessage(nr) + exception.getMessage() + " in " + errorMessage;// getLine??
         LOGGER.warn(msg);
-        return fail(msg);
+        return new Result<>(false, msg, wordsList);
     }
 
     private String[] getWordCategories(String[] data) {

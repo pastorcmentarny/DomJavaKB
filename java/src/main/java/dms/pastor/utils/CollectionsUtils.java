@@ -18,7 +18,6 @@ public final class CollectionsUtils {
     private CollectionsUtils() {
     }
 
-
     public static List<String> emptyArrayList() {
         return new ArrayList<>(0);
     }
