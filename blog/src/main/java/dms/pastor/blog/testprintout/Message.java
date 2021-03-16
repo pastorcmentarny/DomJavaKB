@@ -3,7 +3,7 @@ package dms.pastor.blog.testprintout;
 /**
  * Author Dominik Symonowicz
  * Created 23/02/2017
- * WWW:	http://pastor.ovh.org
+ * WWW:	https://dominiksymonowicz.com/
  * Github:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
