@@ -6,7 +6,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Author Dominik Symonowicz
- * * WWW:	http://pastor.ovh.org  * Github:	https://github.com/pastorcmentarny  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+ * * WWW:	https://dominiksymonowicz.com/  * Github:	https://github.com/pastorcmentarny  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 // part of the test
 public class GridTest {

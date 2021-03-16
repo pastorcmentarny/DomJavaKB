@@ -38,7 +38,7 @@ class UpdateInfo implements Runnable {
         lolText.add("(Backup in progress)\n This can take Eon rarely.");
         lolText.add("(Backup in progress)\n It is quite big one.Is it?");
         lolText.add("(Backup in progress)\n How are you today?\nHow feel your parents?\nIs your pets are healthy?\nDo not answer on above questions.This program doesn't  care and doesn't even listen you.");
-        lolText.add("(Backup in progress)\n Advertisement:\n\n If you feel bored,see my irony caricature of homepage: http://pastor.ovh.org/ .\n\nEnd of crap Advertisement.");
+        lolText.add("(Backup in progress)\n Advertisement:\n\n If you feel bored,see my irony caricature of homepage: https://dominiksymonowicz.com// .\n\nEnd of crap Advertisement.");
         lolText.add("(Backup in progress)\n No. I am not planning implement show % progress  ");
         lolText.add("(Backup in progress)\n Are you trying beat Guinness record in biggest and longest backup ever ???");
         lolText.add("(Backup in progress)\n What are you backup ?\n All porn websites with movies or what?");

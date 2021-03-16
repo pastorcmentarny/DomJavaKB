@@ -45,7 +45,7 @@ public class HTMLValidatorTest {
     @Test
     public void validateUrlShouldValidateForMyHomepage() {
         // when
-        validateUrl("http://pastor.ovh.org");
+        validateUrl("https://dominiksymonowicz.com/");
 
         // then nothing happen if url is valid
     }

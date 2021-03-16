@@ -8,7 +8,7 @@ import dms.pastor.utils.ValidatorUtils;
 
 /**
  * author: Dominik Symonowicz
- * WWW: http://pastor.ovh.org
+ * WWW: https://dominiksymonowicz.com/
  * Github: https://github.com/pastorcmentarny
  * Google Play:
  * https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
