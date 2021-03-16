@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class CharArrayToListConverterTest {
 
-    CharArrayToListConverter converter = new CharArrayToListConverter();
+    final CharArrayToListConverter converter = new CharArrayToListConverter();
 
     @Test
     public void convertToStringArrayFromCharArrayShouldReturnNullIfCharArrayIsNull() {

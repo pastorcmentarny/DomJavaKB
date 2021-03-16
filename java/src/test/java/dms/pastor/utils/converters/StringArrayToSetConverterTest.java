@@ -9,7 +9,7 @@ import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class StringArrayToSetConverterTest {
-    StringArrayToSetConverter converter = new StringArrayToSetConverter();
+    final StringArrayToSetConverter converter = new StringArrayToSetConverter();
 
     @Test
     public void convertStringArrayToSetShouldReturnStringSet() {

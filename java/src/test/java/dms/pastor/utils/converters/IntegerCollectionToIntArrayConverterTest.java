@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class IntegerCollectionToIntArrayConverterTest {
-    IntegerCollectionToIntArrayConverter converter = new IntegerCollectionToIntArrayConverter();
+    final IntegerCollectionToIntArrayConverter converter = new IntegerCollectionToIntArrayConverter();
 
     @Test
     public void testConvertListToIntArray() {

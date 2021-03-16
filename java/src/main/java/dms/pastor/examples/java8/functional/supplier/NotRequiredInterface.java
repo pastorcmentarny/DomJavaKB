@@ -10,6 +10,7 @@ public interface NotRequiredInterface {
         return supplier.get();
     }
 
+    @SuppressWarnings("SameReturnValue")
     default String notRequired() {
         return NOT_REQUIRED;
     }

@@ -161,22 +161,15 @@ public class SortingAlgorithmRunner {
             System.out.println(letsFunBegin.testEverything());
         }
 
-
-        QuickSort adsQS = new QuickSort();
         QuickSort.main(args);
-        InsertionSort adsIS = new InsertionSort();
         InsertionSort.main(args);
-
 
         System.out.println("Info:\n\tTask: Selftest:\n\tSort: QuickSort");
         System.out.println("\tData:  20 numbers [autogenerate,random numbers]");
-        QuickSort testQS = new QuickSort();
         QuickSort.main(args);
-
 
         System.out.println("Info:\n\tTask: Selftest:\n\tSort: InsertionSort");
         System.out.println("\tData:  20 numbers [autogenerate,random numbers]");
-        InsertionSort testIS = new InsertionSort();
         InsertionSort.main(args);
     }
 }

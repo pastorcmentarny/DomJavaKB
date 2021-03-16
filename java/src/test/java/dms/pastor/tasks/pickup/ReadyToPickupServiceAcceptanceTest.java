@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ReadyToPickupServiceAcceptanceTest {
-    ReadyToPickupService readyToPickupService = new ReadyToPickupService();
+    final ReadyToPickupService readyToPickupService = new ReadyToPickupService();
 
     @Test
     public void shouldReturnPickupNowIfShopIsCurrentlyOpen() {

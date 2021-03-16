@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public class StringListToStringArrayConverterTest {
-    StringListToStringArrayConverter converter = new StringListToStringArrayConverter();
+    final StringListToStringArrayConverter converter = new StringListToStringArrayConverter();
 
     @Test
     public void convertToStringArrayShouldReturnEmptyStringArrayForNull() {

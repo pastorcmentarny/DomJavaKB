@@ -191,14 +191,14 @@ public class Engine extends AbstractTools {
         }
     }
 
-    public String[] removeItemsFromList(String[] srcList, JList sourceList) {
+    public String[] removeItemsFromList(String[] srcList, JList<String> sourceList) {
         ArrayList<String> toDeleteList = new ArrayList<>();
         ArrayList<String> newList = new ArrayList<>();
         if (Objects.isNull(sourceList)) {
             return new String[0];
         }
         if (!sourceList.isSelectionEmpty()) {
-            final List itemsToDelete = sourceList.getSelectedValuesList();
+            final List<String> itemsToDelete = sourceList.getSelectedValuesList();
             for (Object anItemsToDelete : itemsToDelete) {
                 toDeleteList.add(anItemsToDelete.toString());
             }
