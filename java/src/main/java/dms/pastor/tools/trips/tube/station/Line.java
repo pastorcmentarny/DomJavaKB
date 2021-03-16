@@ -1,9 +1,6 @@
 package dms.pastor.tools.trips.tube.station;
 
-import java.util.List;
 import java.util.Objects;
-
-import static java.util.Collections.singletonList;
 
 /**
  * Author Dominik Symonowicz

@@ -1,10 +1,5 @@
 package dms.pastor.tools.trips.train.station;
 
-import dms.pastor.tools.trips.common.options.State;
-import dms.pastor.tools.trips.common.options.Status;
-
-import java.time.LocalDate;
-
 /**
  * Author Dominik Symonowicz
  * Created 23/05/2018
