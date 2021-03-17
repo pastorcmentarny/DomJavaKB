@@ -35,10 +35,17 @@ public class UtilsTest {
 
     @Test
     public void shouldLoadFileIntoArrayListOfStrings() throws IOException {
+        // given
         String path = BASE_PATH + "5LinesOfCodeTest.txt";
         final List<String> sourceAsArray = Utils.loadFileToArrayOfStrings(path);
+
+        // debug
         PrintOutUtils.printArray(sourceAsArray);
+
+        // when
         List<String> result = getTextAsStringArray();
+
+        // then
         assertThat(sourceAsArray).isEqualTo(result);
     }
 

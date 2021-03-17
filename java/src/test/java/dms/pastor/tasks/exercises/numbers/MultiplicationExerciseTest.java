@@ -34,6 +34,7 @@ public class MultiplicationExerciseTest {
                 "    3    6    9   12   15" + lineSeparator() +
                 "    4    8   12   16   20" + lineSeparator() +
                 "    5   10   15   20   25" + lineSeparator();
+
         // when
         final String result = generateMultiplicationSquareTable(5);
 

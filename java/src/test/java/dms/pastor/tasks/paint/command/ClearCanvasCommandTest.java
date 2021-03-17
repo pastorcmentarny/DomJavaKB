@@ -44,6 +44,7 @@ public class ClearCanvasCommandTest extends AbstractCommandTest {
     public void setParamsIfValidShouldInvalidCommandSyntaxExceptionIfParamsAreInvalid() {
         // given
         final String[] params = {CLEAR_COMMAND_SYNTAX, "?", "1"};
+
         // when
         final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> clearCanvasCommand.setParamsIfValid(params));
 
@@ -56,6 +57,7 @@ public class ClearCanvasCommandTest extends AbstractCommandTest {
     public void setParamsIfValidShouldValidate() {
         // given
         final String[] params = {CLEAR_COMMAND_SYNTAX};
+
         // when
         clearCanvasCommand.setParamsIfValid(params);
 
@@ -73,6 +75,7 @@ public class ClearCanvasCommandTest extends AbstractCommandTest {
         canvas.updatePixelAt(Point.of(3, 3, "m"));
 
         Canvas expectedCanvas = createCanvasFor(width, height);
+
         // when
         clearCanvasCommand.execute(canvas);
 

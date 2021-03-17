@@ -26,6 +26,7 @@ public class TaskUtilsAcceptanceTest {
         String line3 = generateString();
         final String[] lineWithDuplicates = Arrays.asList(line1, line1, line2, line3).toArray(new String[0]);
         final String[] expectedResult = Arrays.asList(line1, line2, line3).toArray(new String[0]);
+
         // when
         final String[] result = TaskUtils.removeDuplicateLines(lineWithDuplicates);
 

@@ -43,6 +43,7 @@ public class AircraftTest {
                 "Max Speed: 911km/h" + lineSeparator() +
                 "Range: 20000km" + lineSeparator() +
                 "Fuel Capacity: 150000l";
+
         // when
         final var aircraftInfo = aircraft.info();
 

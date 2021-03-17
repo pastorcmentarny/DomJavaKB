@@ -23,6 +23,7 @@ public class CharArrayToSetConverterTest {
         char[] chars = new char[]{'a', 'b', 'c'};
         final var charArrayToSetConverter = new CharArrayToSetConverter();
         final var expectedResult = Set.of('a', 'b', 'c');
+
         // when
         final var result = charArrayToSetConverter.convert(chars);
 

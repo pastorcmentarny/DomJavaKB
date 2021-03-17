@@ -19,6 +19,7 @@ public class OpenCloseTimeTest {
     @Test
     public void shouldThrowExceptionIfDayIsNull() {
         System.out.println(DAY_OF_THE_WEEK);
+
         // when
         Assertions.assertThrows(IllegalArgumentException.class, () -> new OpenCloseTime(null, LocalTime.now(), LocalTime.now()));
 
@@ -37,6 +38,7 @@ public class OpenCloseTimeTest {
         final OpenCloseTime allDayClosed = OpenCloseTime.builder()
                 .day(DAY_OF_THE_WEEK)
                 .build();
+
         // when
         final boolean isClosed = allDayClosed.isClosedWholeDay();
 
@@ -50,6 +52,7 @@ public class OpenCloseTimeTest {
         final OpenCloseTime allDayClosed = OpenCloseTime.builder()
                 .day(DAY_OF_THE_WEEK)
                 .open(LocalTime.now()).build();
+
         // when
         final boolean isClosed = allDayClosed.isClosedWholeDay();
 
@@ -63,6 +66,7 @@ public class OpenCloseTimeTest {
         final OpenCloseTime allDayClosed = OpenCloseTime.builder()
                 .day(DAY_OF_THE_WEEK)
                 .close(LocalTime.now()).build();
+
         // when
         final boolean isClosed = allDayClosed.isClosedWholeDay();
 
@@ -78,6 +82,7 @@ public class OpenCloseTimeTest {
                 .open(LocalTime.now())
                 .close(LocalTime.now())
                 .build();
+
         // when
         final boolean isClosed = allDayClosed.isClosedWholeDay();
 
@@ -93,6 +98,7 @@ public class OpenCloseTimeTest {
                 .open(LocalTime.MIDNIGHT)
                 .close(LocalTime.MIDNIGHT)
                 .build();
+
         // when
         final boolean isOpen24h = open24h.isOpen24Hour();
 
@@ -117,6 +123,7 @@ public class OpenCloseTimeTest {
                 .open(open)
                 .close(close)
                 .build();
+
         // when
         final boolean isOpen24h = isNotOpen24h.isOpen24Hour();
 
@@ -133,8 +140,10 @@ public class OpenCloseTimeTest {
                 .open(LocalTime.MIDNIGHT)
                 .close(LocalTime.MIDNIGHT)
                 .build();
+
         // when
         final var result = openTimes.getOpenCloseTimeAsText();
+
         // then
         assertThat(result).isEqualTo("Open 24 hours");
     }
@@ -145,6 +154,7 @@ public class OpenCloseTimeTest {
         final OpenCloseTime openTimes = OpenCloseTime.builder()
                 .day(DAY_OF_THE_WEEK)
                 .build();
+
         // when
         final var result = openTimes.getOpenCloseTimeAsText();
         // then
@@ -158,6 +168,7 @@ public class OpenCloseTimeTest {
                 .day(DAY_OF_THE_WEEK)
                 .open(LocalTime.now())
                 .build();
+
         // when
         final var result = openTimes.getOpenCloseTimeAsText();
 
@@ -172,6 +183,7 @@ public class OpenCloseTimeTest {
                 .day(DAY_OF_THE_WEEK)
                 .close(LocalTime.now())
                 .build();
+
         // when
         final var result = openTimes.getOpenCloseTimeAsText();
 
@@ -187,6 +199,7 @@ public class OpenCloseTimeTest {
                 .open(LocalTime.of(10, 0))
                 .close(LocalTime.of(22, 0))
                 .build();
+
         // when
         final var result = openTimes.getOpenCloseTimeAsText();
 

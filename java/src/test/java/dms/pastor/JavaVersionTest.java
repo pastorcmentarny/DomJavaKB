@@ -12,6 +12,7 @@ public class JavaVersionTest {
     public void shouldRunTestOnSpecificVersionOfJava() {
         // given
         String latestJavaVersion = "15";
+
         // when
         final var result = System.getProperty("java.version");
 

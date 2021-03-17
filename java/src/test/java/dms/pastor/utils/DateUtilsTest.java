@@ -1,6 +1,5 @@
 package dms.pastor.utils;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -11,6 +10,7 @@ import static dms.pastor.utils.DateUtils.*;
 import static java.time.LocalDate.now;
 import static java.time.LocalDate.of;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Author Dominik Symonowicz
@@ -38,14 +38,14 @@ public class DateUtilsTest {
     @Test
     public void shouldThrowExceptionWhenAcronymIsNull() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> DateUtils.getMonthNumberFromShortedName(null));
+        assertThrows(IllegalArgumentException.class, () -> DateUtils.getMonthNumberFromShortedName(null));
 
     }
 
     @Test
     public void shouldThrowExceptionWhenAcronymDoesNotMatchMonth() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> DateUtils.getMonthNumberFromShortedName("Dominik"));
+        assertThrows(IllegalArgumentException.class, () -> DateUtils.getMonthNumberFromShortedName("Dominik"));
     }
 
     @Test
@@ -63,19 +63,22 @@ public class DateUtilsTest {
     public void shouldConvertDateToLocalDate() {
         // given
         Date date = new Date();
+
         // when
         final java.time.LocalDate localDate = DateUtils.convertDateToLocalDate(date);
 
-        // then
-        assertThat(localDate).isNotNull();
+        // debug
         System.out.println("java.util.Date: " + date);
         System.out.println("java.time.LocalDate: " + localDate);
+
+        // then
+        assertThat(localDate).isNotNull();
     }
 
     @Test // TODO improve this test
     public void getDayOfTheYearShouldThrowIllegalArgumentExceptionForNull() {
         // when
-        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> getDayOfTheYearFor(null));
+        final var exception = assertThrows(IllegalArgumentException.class, () -> getDayOfTheYearFor(null));
 
         // then
         assertThat(exception.getMessage()).isEqualTo("Date cannot be null.");
@@ -110,7 +113,6 @@ public class DateUtilsTest {
 
     @Test
     public void getDayOfTheYearForShouldGet366ForLeapYear() {
-        // given
         // when
         final long days = getDayOfTheYearFor(of(2016, 12, 31));
 
@@ -121,7 +123,7 @@ public class DateUtilsTest {
     @Test
     public void countLeapYearBetweenShouldIllegalArgumentExceptionIfStartDateIsNull() {
         // when
-        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> countLeapYearBetween(null, now()));
+        final var exception = assertThrows(IllegalArgumentException.class, () -> countLeapYearBetween(null, now()));
 
         // then
         assertThat(exception.getMessage()).isEqualTo("Start date cannot be null.");
@@ -130,7 +132,7 @@ public class DateUtilsTest {
     @Test
     public void countLeapYearBetweenShouldIllegalArgumentExceptionIfEndDateIsNull() {
         // when
-        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> countLeapYearBetween(now(), null));
+        final var exception = assertThrows(IllegalArgumentException.class, () -> countLeapYearBetween(now(), null));
 
         // then
         assertThat(exception.getMessage()).isEqualTo("End date cannot be null.");
@@ -141,14 +143,16 @@ public class DateUtilsTest {
         // given
         final java.time.LocalDate start = java.time.LocalDate.of(2017, 12, 31);
         final java.time.LocalDate end = java.time.LocalDate.of(2015, 1, 1);
+
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> countLeapYearBetween(start, end));
+        assertThrows(IllegalArgumentException.class, () -> countLeapYearBetween(start, end));
     }
 
     @Test
     public void countLeapYearBetweenShouldReturn1ForYearsBetween2016And2016() {
         // given
         final java.time.LocalDate leapYear = java.time.LocalDate.of(2016, 1, 1);
+
         // when
         final long leapYearsCounter = countLeapYearBetween(leapYear, leapYear);
 
@@ -161,6 +165,7 @@ public class DateUtilsTest {
         // given
         final java.time.LocalDate start = java.time.LocalDate.of(2015, 1, 1);
         final java.time.LocalDate end = java.time.LocalDate.of(2017, 12, 31);
+
         // when
         final long leapYearsCounter = countLeapYearBetween(start, end);
 
@@ -173,6 +178,7 @@ public class DateUtilsTest {
         // given
         final java.time.LocalDate start = java.time.LocalDate.of(2000, 1, 1);
         final java.time.LocalDate end = java.time.LocalDate.of(2016, 12, 31);
+
         // when
         final long leapYearsCounter = countLeapYearBetween(start, end);
 
@@ -184,6 +190,7 @@ public class DateUtilsTest {
     public void monthBetweenNowAndShouldReturnOneForOneMonthDifference() {
         // given
         final java.time.LocalDate date = now().minusMonths(1);
+
         // when
         final long result = getMonthBetweenNowAnd(date);
 
@@ -193,9 +200,9 @@ public class DateUtilsTest {
 
     @Test
     public void shouldReturnNullForNull12HourClockString() {
-        // given
         // when
         final var result = getLocalTimeFrom12HourClockString(null);
+
         // then
         assertThat(result).isNull();
     }
@@ -205,6 +212,7 @@ public class DateUtilsTest {
     public void shouldReturn900For9amClockString() {
         // given
         final LocalTime expectedResult = LocalTime.of(9, 0);
+
         // when
         final var result = getLocalTimeFrom12HourClockString("9.00am");
 
@@ -217,6 +225,7 @@ public class DateUtilsTest {
     public void getLocalTimeFrom12HourClockStringShouldAcceptDotAsDivider() {
         // given
         final LocalTime expectedResult = LocalTime.of(10, 30);
+
         // when
         final var result = getLocalTimeFrom12HourClockString("10.30am");
 
@@ -229,6 +238,7 @@ public class DateUtilsTest {
     public void getLocalTimeFrom12HourClockStringShouldAcceptColonAsDivider() {
         // given
         final LocalTime expectedResult = LocalTime.of(10, 45);
+
         // when
         final var result = getLocalTimeFrom12HourClockString("10:45am");
 
@@ -241,6 +251,7 @@ public class DateUtilsTest {
     public void shouldReturn1800For6pmClockString() {
         // given
         final LocalTime expectedResult = LocalTime.of(18, 0);
+
         // when
         final var result = getLocalTimeFrom12HourClockString("6.00pm");
 
@@ -265,6 +276,7 @@ public class DateUtilsTest {
     public void shouldReturnForLeapYearFor2000() {
         // given
         int year = 2000;
+
         // when
         final var result = isLeapYear(year);
 
@@ -276,6 +288,7 @@ public class DateUtilsTest {
     public void shouldReturnFalseForYearFor2021() {
         // given
         int year = 2021;
+
         // when
         final var result = isLeapYear(year);
 
@@ -287,6 +300,7 @@ public class DateUtilsTest {
     public void shouldReturnFalseForYearFor2022() {
         // given
         int year = 2022;
+
         // when
         final var result = isLeapYear(year);
 
@@ -300,6 +314,7 @@ public class DateUtilsTest {
     public void shouldReturnFalseForYearFor2020() {
         // given
         int year = 2020;
+
         // when
         final var result = isLeapYear(year);
 
@@ -311,6 +326,7 @@ public class DateUtilsTest {
     public void shouldReturnFalseForYearFor2100() {
         // given
         int year = 2100;
+
         // when
         final var result = isLeapYear(year);
 

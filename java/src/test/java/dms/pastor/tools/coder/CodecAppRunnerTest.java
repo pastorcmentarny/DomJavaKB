@@ -2,13 +2,13 @@ package dms.pastor.tools.coder;
 
 import dms.pastor.domain.exception.SomethingWentTerribleWrongError;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
 
 import static java.io.File.separator;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Author Dominik Symonowicz
@@ -37,21 +37,21 @@ public class CodecAppRunnerTest {
     @Test
     public void shouldThrowSomethingWentWrongErrorIfInputIsNull() {
         // when
-        Assertions.assertThrows(SomethingWentTerribleWrongError.class, () -> CodecAppRunner.main(null));
+        assertThrows(SomethingWentTerribleWrongError.class, () -> CodecAppRunner.main(null));
 
     }
 
     @Test
     public void shouldThrowSomethingWentWrongErrorIfHasTooManyArgumentsIsNull() {
         // when
-        Assertions.assertThrows(SomethingWentTerribleWrongError.class, () -> CodecAppRunner.main(new String[]{"e", "E"}));
+        assertThrows(SomethingWentTerribleWrongError.class, () -> CodecAppRunner.main(new String[]{"e", "E"}));
 
     }
 
     @Test
     public void shouldThrowSomethingWentWrongErrorIfArgumentsDoesNotMatchTaskName() {
         // when
-        Assertions.assertThrows(SomethingWentTerribleWrongError.class, () -> CodecAppRunner.main(new String[]{"ee"}));
+        assertThrows(SomethingWentTerribleWrongError.class, () -> CodecAppRunner.main(new String[]{"ee"}));
     }
 
     @Test

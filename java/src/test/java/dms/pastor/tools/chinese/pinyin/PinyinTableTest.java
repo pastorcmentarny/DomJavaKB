@@ -25,6 +25,7 @@ public class PinyinTableTest {
     public void getPinyinCharacterFromLetterWithToneShouldReturnAWithNoToneWhenInputWasLetterAWithZero() {
         // given
         final String letter = "a";
+
         // when
         final String pinyinCharacter = PinyinTable.getPinyinCharacterFromLetterWithTone(letter, NEUTRAL_TONE);
 
@@ -37,6 +38,7 @@ public class PinyinTableTest {
         // given
         final String letter = "e";
         final String expectedPinyinCharacter = "ē";
+
         // when
         final String pinyinCharacter = PinyinTable.getPinyinCharacterFromLetterWithTone(letter, FIRST_TONE);
 
@@ -49,6 +51,7 @@ public class PinyinTableTest {
         // given
         final String letter = "o";
         final String expectedPinyinCharacter = "ó";
+
         // when
         final String pinyinCharacter = PinyinTable.getPinyinCharacterFromLetterWithTone(letter, SECOND_TONE);
 
@@ -61,6 +64,7 @@ public class PinyinTableTest {
         // given
         final String letter = "i";
         final String expectedPinyinCharacter = "ǐ";
+
         // when
         final String pinyinCharacter = PinyinTable.getPinyinCharacterFromLetterWithTone(letter, THIRD_TONE);
 
@@ -73,6 +77,7 @@ public class PinyinTableTest {
         // given
         final String letter = "u";
         final String expectedPinyinCharacter = "ù";
+
         // when
         final String pinyinCharacter = PinyinTable.getPinyinCharacterFromLetterWithTone(letter, FOURTH_TONE);
 
@@ -84,6 +89,7 @@ public class PinyinTableTest {
     public void getPinyinCharacterFromLetterWithToneShouldReturnEmptyStringWhenInputHasInvalidLetterWithValidThirdTone() {
         // given
         final String letter = "ą";
+
         // when
         final String pinyinCharacter = PinyinTable.getPinyinCharacterFromLetterWithTone(letter, THIRD_TONE);
 

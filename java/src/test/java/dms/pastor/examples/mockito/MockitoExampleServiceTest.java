@@ -46,6 +46,7 @@ public class MockitoExampleServiceTest {
         // given
         final UUID id = randomUUID();
         final Treasure treasure = getRandomTreasure();
+
         // when
         legendaryService.create(id, treasure);
 
@@ -57,6 +58,7 @@ public class MockitoExampleServiceTest {
     public void shouldExecuteMethodTest() {
         // given
         final int size = 8;
+
         // when
         final String start = generateString(size);
         final String end = generateString(size);

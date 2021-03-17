@@ -52,6 +52,7 @@ public class CharArrayToListConverterTest {
         expectedResult.add("g");
         expectedResult.add("n");
         expectedResult.add(".");
+
         // when
         final List<String> stringArrayFromCharArray = converter.convert(charArray);
 

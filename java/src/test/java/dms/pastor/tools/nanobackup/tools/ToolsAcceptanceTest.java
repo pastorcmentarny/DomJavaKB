@@ -46,6 +46,7 @@ public class ToolsAcceptanceTest {
         // given
         final List<String> result = new ArrayList<>();
         result.add("OK");
+
         // when
         Tools.changeToYellowStatus(result);
 
@@ -57,6 +58,7 @@ public class ToolsAcceptanceTest {
         // given
         final String result = "ERROR";
         final List<String> resultList = Collections.singletonList(result);
+
         // when
         Tools.changeToYellowStatus(resultList);
 

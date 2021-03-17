@@ -21,6 +21,7 @@ public class ToCommandTransformerTest {
     public void toCommandWithInputForQuitShouldReturnQuitCommand() {
         // given
         final String quitCommandInput = "Q";
+
         // when
         final Command quitCommand = toCommand(quitCommandInput);
 
@@ -32,6 +33,7 @@ public class ToCommandTransformerTest {
     public void toCommandWithInputForCreateCanvasShouldReturnCreateCanvasCommand() {
         // given
         final String createCanvasCommandInput = "C 2 1";
+
         // when
         final Command quitCommand = toCommand(createCanvasCommandInput);
 
@@ -43,6 +45,7 @@ public class ToCommandTransformerTest {
     public void toCommandWithInputForClearCanvasShouldReturnClearCanvasCommand() {
         // given
         final String clearCanvasCommandInput = "C";
+
         // when
         final Command clearCommand = toCommand(clearCanvasCommandInput);
 
@@ -54,6 +57,7 @@ public class ToCommandTransformerTest {
     public void toCommandWithInputForCreateNewLineShouldReturnCreateNewLineCommand() {
         // given
         final String createNewLineCommandInput = "L 1 1 3 1";
+
         // when
         final Command createNewLineCommand = toCommand(createNewLineCommandInput);
 
@@ -65,6 +69,7 @@ public class ToCommandTransformerTest {
     public void toCommandWithInputForCreateNewRectangleShouldReturnCreateNewRectangleCommand() {
         // given
         final String createNewRectangleCommandInput = "R 2 2 3 3";
+
         // when
         final Command createNewRectangleCommand = toCommand(createNewRectangleCommandInput);
 
@@ -76,6 +81,7 @@ public class ToCommandTransformerTest {
     public void toCommandWithInputForFillEntireAreaShouldReturnFillEntireAreaCommand() {
         // given
         final String fillEntireAreaCommandInput = "B 1 1 o";
+
         // when
         final Command fillEntireAreaCommand = toCommand(fillEntireAreaCommandInput);
 

@@ -23,10 +23,12 @@ public class HistoryAcceptanceTest {
         final History historyGUI = History.getHistoryGUI();
         final String message = generateString();
         historyGUI.clearMessages();
+
         // when
         historyGUI.addMessage(message);
         historyGUI.showHistoryOfMessages();
         historyGUI.closeWindow();
+
         // then
         assertThat(historyGUI.getMessages()).isEqualTo(message + NEW_LINE);
     }

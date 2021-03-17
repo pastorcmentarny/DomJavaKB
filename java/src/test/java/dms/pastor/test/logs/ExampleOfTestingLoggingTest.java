@@ -54,6 +54,7 @@ public class ExampleOfTestingLoggingTest {
         // given
         final String input = "uFo";
         String expectedResult = "UfO";
+
         // when
         final String result = LogMe.reverseCase(input);
 

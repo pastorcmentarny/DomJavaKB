@@ -29,7 +29,7 @@ public class InitialsTest {
     private static final String LAST_NAME_INITIAL = "  A.";
     private static final String MIDDLE_NAMES_INITIALS = "S. M.";
     private static final String LAST_NAMES_INITIALS = "  A. T.";
-    private Initials i;
+    private Initials initials;
 
     @Test
     public void getInitialsAcceptanceCriteriaTest() {
@@ -40,9 +40,10 @@ public class InitialsTest {
                 .last(LAST_NAMES_WITH_DASH)
                 .build();
 
-        i = new Initials(name);
+        initials = new Initials(name);
+
         // when
-        final String initials = i.getInitials();
+        final String initials = this.initials.getInitials();
 
         // then it should return first character of first and middle names then double space and first character of surnames
         assertThat(initials).isEqualTo("J. S. M.  A. T.");
@@ -57,9 +58,10 @@ public class InitialsTest {
                 .last(LAST_NAMES_WITH_DASH)
                 .build();
 
-        i = new Initials(name);
+        initials = new Initials(name);
+
         // when
-        final String initials = i.getInitialsFromFirstAndLastNameOnly();
+        final String initials = this.initials.getInitialsFromFirstAndLastNameOnly();
 
         // then it should return first character of first and middle names then double space and first character of surnames
         assertThat(initials).isEqualTo("J.  A.");
@@ -74,9 +76,10 @@ public class InitialsTest {
                 .last(null)
                 .build();
 
-        i = new Initials(name);
+        initials = new Initials(name);
+
         // when
-        final String initials = i.getInitials();
+        final String initials = this.initials.getInitials();
 
         // then
         assertThat(initials).isEmpty();
@@ -90,9 +93,10 @@ public class InitialsTest {
                 .withoutMiddleName()
                 .withoutLastName()
                 .build();
-        i = new Initials(name);
+        initials = new Initials(name);
+
         // when
-        final String initials = i.getInitials();
+        final String initials = this.initials.getInitials();
 
         // then
         assertThat(initials).isEqualTo(FIRST_NAME_INITIAL);
@@ -107,9 +111,10 @@ public class InitialsTest {
                 .withoutLastName()
                 .build();
 
-        i = new Initials(name);
+        initials = new Initials(name);
+
         // when
-        final String initials = i.getInitials();
+        final String initials = this.initials.getInitials();
 
         // then
         assertThat(initials).isEqualTo(MIDDLE_NAME_INITIAL);
@@ -124,9 +129,10 @@ public class InitialsTest {
                 .withoutLastName()
                 .build();
 
-        i = new Initials(name);
+        initials = new Initials(name);
+
         // when
-        final String initials = i.getInitials();
+        final String initials = this.initials.getInitials();
 
         // then
         assertThat(initials).isEqualTo(MIDDLE_NAMES_INITIALS);
@@ -141,9 +147,10 @@ public class InitialsTest {
                 .last(null)
                 .build();
 
-        i = new Initials(name);
+        initials = new Initials(name);
+
         // when
-        final String initials = i.getInitials();
+        final String initials = this.initials.getInitials();
 
         // then
         assertThat(initials).isEqualTo("J. S. M.");
@@ -158,9 +165,10 @@ public class InitialsTest {
                 .last(LAST_NAME)
                 .build();
 
-        i = new Initials(name);
+        initials = new Initials(name);
+
         // when
-        final String initials = i.getInitials();
+        final String initials = this.initials.getInitials();
 
         // then
         assertThat(initials).isEqualTo(LAST_NAME_INITIAL);
@@ -175,9 +183,10 @@ public class InitialsTest {
                 .last(LAST_NAMES_WITH_SPACE)
                 .build();
 
-        i = new Initials(name);
+        initials = new Initials(name);
+
         // when
-        final String initials = i.getInitials();
+        final String initials = this.initials.getInitials();
 
         // then
         assertThat(initials).isEqualTo(LAST_NAMES_INITIALS);
@@ -192,9 +201,10 @@ public class InitialsTest {
                 .last(LAST_NAMES_WITH_DASH)
                 .build();
 
-        i = new Initials(name);
+        initials = new Initials(name);
+
         // when
-        final String initials = i.getInitials();
+        final String initials = this.initials.getInitials();
 
         // then
         assertThat(initials).isEqualTo(LAST_NAMES_INITIALS);
@@ -209,9 +219,10 @@ public class InitialsTest {
                 .withoutLastName()
                 .build();
 
-        i = new Initials(name);
+        initials = new Initials(name);
+
         // when
-        final String initials = i.getInitials();
+        final String initials = this.initials.getInitials();
 
         // then
         assertThat(initials).isEqualTo(FIRST_NAME_INITIAL);
@@ -226,9 +237,10 @@ public class InitialsTest {
                 .withoutMiddleName()
                 .build();
 
-        i = new Initials(name);
+        initials = new Initials(name);
+
         // when
-        final String initials = i.getInitials();
+        final String initials = this.initials.getInitials();
 
         // then
         assertThat(initials).isEqualTo("J.  A.");

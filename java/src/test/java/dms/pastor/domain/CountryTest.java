@@ -19,7 +19,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CountryTest {
 
 
-    //because this is purpose of test
     @Test
     public void shouldReturnNullIfCountryIsNullTest() {
         // when

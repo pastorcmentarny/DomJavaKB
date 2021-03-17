@@ -18,24 +18,16 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class ScoreTest {
 
-    /**
-     * Test of getScore method, of class Score.
-     */
     @Test
-    public void testGetScore() {
-        System.out.println("getScore");
+    public void getScoreShouldRetrunZeroTest() {
         Score instance = new Score(0, 0, 0);
         int expResult = 0;
         int result = instance.getScore();
         assertThat(result).isEqualTo(expResult);
     }
 
-    /**
-     * Test of displayScore method, of class Score.
-     */
     @Test
-    public void testDisplayScore() {
-        System.out.println("displayScore");
+    public void shouldDisplayScoreTest() {
         Score instance = new Score(0, 0, 0);
         String expResult = "(" + 0 + ',' + 0 + " score:" + 0 + ')';
         String result = instance.displayScore();

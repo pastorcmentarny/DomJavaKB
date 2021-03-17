@@ -18,6 +18,7 @@ public class FinderTest {
     public void shouldFindIn10AttemptsTest() {
         // given
         Finder finder = new Finder();
+
         // when
         final int counter = finder.find();
 

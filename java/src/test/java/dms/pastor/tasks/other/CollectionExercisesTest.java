@@ -42,6 +42,7 @@ public class CollectionExercisesTest {
         stringArrayList.add(stringOne);
         stringArrayList.add(stringTwo);
         stringArrayList.add(stringThree);
+
         // when
         final Map<Integer, String> integerStringMap = convertListToMapUsingJava8(stringArrayList);
 

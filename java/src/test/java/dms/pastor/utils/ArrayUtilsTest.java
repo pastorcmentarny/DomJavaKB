@@ -5,8 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import static dms.pastor.utils.ArrayUtils.clone2DArrayOfInts;
-import static dms.pastor.utils.ArrayUtils.reverseStringArray;
+import static dms.pastor.utils.ArrayUtils.*;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateRandomByteArray;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -26,23 +25,37 @@ public class ArrayUtilsTest {
 
     @Test
     public void testGetSingleIntArrayAsString() {
+        // given
         int[] testSequence = new int[]{0};
-        final String intArrayAsString = ArrayUtils.getIntArrayAsString(testSequence);
+
+        // when
+        final String intArrayAsString = getIntArrayAsString(testSequence);
+
+        // then
         assertThat(intArrayAsString).isEqualTo("[{0 = 0}]");
     }
 
     @Test
     public void testGetIntArrayAsString() {
+        // given
         int[] testSequence = new int[]{0, 1, 2, 3, 4};
-        final String intArrayAsString = ArrayUtils.getIntArrayAsString(testSequence);
+
+        // when
+        final String intArrayAsString = getIntArrayAsString(testSequence);
+
+        // then
         assertThat(intArrayAsString).isEqualTo("[{0 = 0}{1 = 1}{2 = 2}{3 = 3}{4 = 4}]");
     }
 
     @Test
     public void generateIntSequenceArray() {
+        // given
         int[] testSequence = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+        // when
         final int[] intSequenceArray = ArrayUtils.generateIntSequenceArray(testSequence.length);
 
+        // then
         assertThat(intSequenceArray.length).isEqualTo(testSequence.length);
         for (int i = 0; i < 10; i++) {
             assertThat(intSequenceArray[i]).isEqualTo(testSequence[i]);
@@ -51,8 +64,13 @@ public class ArrayUtilsTest {
 
     @Test
     public void testGenerateRandomByteArray() {
+        // given
         final int size = 10;
+
+        // when
         final byte[] bytes = generateRandomByteArray(size);
+
+        // then
         assertThat(bytes).isNotEmpty();
         assertThat(bytes).hasSize(size);
     }
@@ -68,6 +86,7 @@ public class ArrayUtilsTest {
 
         final String[] stringArray = {firstWord, secondWord, middleWord, fourthWord, lastWord};
         final String[] expectedStringArray = {lastWord, fourthWord, middleWord, secondWord, firstWord};
+
         // when
         final String[] result = reverseStringArray(stringArray);
 
@@ -108,6 +127,7 @@ public class ArrayUtilsTest {
     public void clone2DArrayOfIntsShouldCopyEmptyArrayIfYouPassEmptyArray() {
         // given
         final String[][] ints2d = {};
+
         // when
         final String[][] result = clone2DArrayOfInts(ints2d);
 
@@ -123,6 +143,7 @@ public class ArrayUtilsTest {
         ints2d[1][1] = "1";
         ints2d[2][2] = "2";
         final String[][] expectedResult = {{"0", null, null}, {null, "1", null}, {null, null, "2"}};
+
         // when
         final String[][] result = clone2DArrayOfInts(ints2d);
 
@@ -138,6 +159,7 @@ public class ArrayUtilsTest {
         int[] intArrayOne = new int[]{1, 2, 3, 4, 5, 6};
         int[] intArrayTwo = new int[]{4, 5, 6};
         int[] expectedResult = new int[]{1, 2, 3};
+
         // when
         final int[] result = ArrayUtils.subtractIntArray(intArrayOne, intArrayTwo);
 

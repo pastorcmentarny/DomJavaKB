@@ -3,7 +3,6 @@ package dms.pastor.tools.chinese.topinyin;
 import dms.pastor.domain.exception.SomethingWentWrongException;
 import dms.pastor.utils.randoms.RandomDataGenerator;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -17,6 +16,7 @@ import static dms.pastor.utils.StringUtils.WHITESPACE;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static dms.pastor.utils.randoms.RandomDataGenerator.randomPositiveInteger;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Author Dominik Symonowicz
@@ -50,7 +50,8 @@ public class ToPinyinApplicationTest {
     @Test
     public void shouldThrowExceptionWhenInputArgumentIsNull() {
         // when
-        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> main(null));
+        final var exception = assertThrows(IllegalArgumentException.class, () -> main(null));
+
         // when
         assertThat(exception.getMessage()).isEqualTo("Input arguments cannot be null.");
     }
@@ -58,7 +59,7 @@ public class ToPinyinApplicationTest {
     @Test
     public void shouldThrowExceptionWhenInputArgumentsHas1Argument() {
         // when
-        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> main(new String[]{generateString()}));
+        final var exception = assertThrows(IllegalArgumentException.class, () -> main(new String[]{generateString()}));
 
         // then
         assertThat(exception.getMessage()).isEqualTo("It should contains 2 arguments (type of pinyin (number,character) and text.");
@@ -68,8 +69,10 @@ public class ToPinyinApplicationTest {
     public void shouldThrowExceptionWhenInputArgumentsHasMoreThan2Arguments() {
         // given
         String[] arguments = RandomDataGenerator.generateArray(3 + randomPositiveInteger(32));
+
         // when
-        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> main(arguments));
+        final var exception = assertThrows(IllegalArgumentException.class, () -> main(arguments));
+
         // then
         assertThat(exception.getMessage()).isEqualTo("It should contains 2 arguments (type of pinyin (number,character) and text.");
     }
@@ -79,8 +82,9 @@ public class ToPinyinApplicationTest {
 
         // given
         String[] arguments = new String[]{generateString(), generateString()};
+
         // when
-        final var exception = Assertions.assertThrows(SomethingWentWrongException.class, () -> main(arguments));
+        final var exception = assertThrows(SomethingWentWrongException.class, () -> main(arguments));
 
         // then
         assertThat(exception.getMessage()).isEqualTo("Whoops! Something went wrong. Invalid conversation type(can be: number,character). I apologize for any inconvenience caused by your mistake.");
@@ -91,8 +95,9 @@ public class ToPinyinApplicationTest {
 
         // given
         String[] arguments = new String[]{PSEUDO_PINYIN_TYPE, null};
+
         // when
-        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> main(arguments));
+        final var exception = assertThrows(IllegalArgumentException.class, () -> main(arguments));
 
         // then
         assertThat(exception.getMessage()).isEqualTo(TEXT_INVALID_MESSAGE);
@@ -102,8 +107,9 @@ public class ToPinyinApplicationTest {
     public void shouldThrowIllegalArgumentExceptionWhenTextIsEmpty() {
         // given
         String[] arguments = new String[]{PSEUDO_PINYIN_TYPE, EMPTY_STRING};
+
         // when
-        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> main(arguments));
+        final var exception = assertThrows(IllegalArgumentException.class, () -> main(arguments));
 
         assertThat(exception.getMessage()).isEqualTo(TEXT_INVALID_MESSAGE);
     }
@@ -113,8 +119,9 @@ public class ToPinyinApplicationTest {
 
         // given
         String[] arguments = new String[]{PSEUDO_PINYIN_TYPE, WHITESPACE};
+
         // when
-        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> main(arguments));
+        final var exception = assertThrows(IllegalArgumentException.class, () -> main(arguments));
 
         // then
         assertThat(exception.getMessage()).isEqualTo(TEXT_INVALID_MESSAGE);
@@ -125,6 +132,7 @@ public class ToPinyinApplicationTest {
         // given
         final String[] arguments = new String[]{"number", "ma(2)"};
         final String expected = "má" + System.lineSeparator();
+
         // when
         main(arguments);
 

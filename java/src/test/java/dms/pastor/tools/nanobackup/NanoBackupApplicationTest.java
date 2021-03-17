@@ -32,6 +32,7 @@ public class NanoBackupApplicationTest {
     public void shouldRunApplication() {
         // given
         FileUtils.lock();
+
         // when
         NanoBackupApplication.main(new String[0]);
     }

@@ -1,6 +1,5 @@
 package dms.pastor.tasks.integeradder;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -9,6 +8,7 @@ import java.io.IOException;
 import static dms.pastor.TestConfig.BASE_PATH;
 import static java.io.File.separator;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Author Dominik Symonowicz
@@ -43,15 +43,20 @@ public class IntegerAdderTest {
 
     @Test
     public void testCalculateTotalSum() throws Exception {
+        // given
         String[] paths = new String[]{DEMO_FILE_1};
+
+        // when
         int sum = adder.calculateTotalSum(paths);
+
+        // then
         assertThat(sum).isEqualTo(36);
     }
 
     @Test
     public void shouldThrowIllegalArgumentExceptionTest() {
         // when
-        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> adder.calculateTotalSum(null));
+        final var exception = assertThrows(IllegalArgumentException.class, () -> adder.calculateTotalSum(null));
 
         // then
         assertThat(exception.getMessage()).isEqualTo("You need provide arguments that are numbers to add");
@@ -59,31 +64,36 @@ public class IntegerAdderTest {
 
     @Test
     public void basicTest() throws IOException {
+        // given
         String[] paths = new String[]{DEMO_FILE_1, DEMO_FILE_2, DEMO_FILE_3};
+
+        // when
         int sum = adder.calculateTotalSum(paths);
+
+        // when
         assertThat(sum).isEqualTo(47);
     }
 
     @Test
     public void testAddThrowsExceptionForNullInsteadOfPath() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> adder.add(null));
+        assertThrows(IllegalArgumentException.class, () -> adder.add(null));
     }
 
     @Test
     public void testAddThrowsExceptionForInvalidPath() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> adder.add("FakePath"));
+        assertThrows(IllegalArgumentException.class, () -> adder.add("FakePath"));
     }
 
     @Test
     public void addTooBigNumbersShouldThrowException() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> adder.add(DEMO_FILE_4));
+        assertThrows(IllegalArgumentException.class, () -> adder.add(DEMO_FILE_4));
     }
 
     @Test
     public void addNegativeNumbersShouldThrowException() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> adder.add(DEMO_FILE_5));
+        assertThrows(IllegalArgumentException.class, () -> adder.add(DEMO_FILE_5));
     }
 
 }

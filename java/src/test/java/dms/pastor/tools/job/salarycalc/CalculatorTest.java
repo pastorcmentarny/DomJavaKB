@@ -23,6 +23,7 @@ public class CalculatorTest {
     public void shouldGetIdealSalaryForIdealVacancy() {
         // given
         final int expectedSalary = 55000;
+
         // when
         final var idealSalary = calculatorWithIdealVacancy.calculateSalary();
 
@@ -49,6 +50,7 @@ public class CalculatorTest {
         vacancy.onHatedStation();
         final var calculatorWithCustomVacancy = new Calculator(vacancy);
         final int expectedSalary = BASIC_SALARY + 10500;
+
         // when
         final var salary = calculatorWithCustomVacancy.calculateSalary();
 
@@ -69,6 +71,7 @@ public class CalculatorTest {
         vacancy.setWfh(true);
         final var calculatorWithCustomVacancy = new Calculator(vacancy);
         final int expectedSalary = BASIC_SALARY + toIntFromDouble(BASIC_SALARY / 100 * 18);
+
         // when
         final var salary = calculatorWithCustomVacancy.calculateSalary();
 
@@ -85,6 +88,7 @@ public class CalculatorTest {
         final Vacancy vacancy = Vacancy.builder().hours(37.5).timeTravel(45).annualLeaveDays(22).build();
         final var calculatorWithCustomVacancy = new Calculator(vacancy);
         final int expectedSalary = BASIC_SALARY + 6000;
+
         // when
         final var salary = calculatorWithCustomVacancy.calculateSalary();
 
@@ -102,14 +106,16 @@ public class CalculatorTest {
         vacancy.setTimeTravel(50);
         final var calculatorWithCustomVacancy = new Calculator(vacancy);
         final int expectedSalary = 56250;
+
         // when
         final var salary = calculatorWithCustomVacancy.calculateSalary();
+
+        // debug
+        System.out.println("Long travel: " + salary);
 
         // then
         assertThat(salary).isGreaterThanOrEqualTo(expectedSalary);
 
-        // debug
-        System.out.println("Long travel: " + salary);
     }
 
     @Test
@@ -122,11 +128,12 @@ public class CalculatorTest {
         // when
         final var salary = calculatorWithCustomVacancy.calculateSalary();
 
+        // debug
+        System.out.println("Long work hours: " + salary);
+
         // then
         assertThat(salary).isGreaterThanOrEqualTo(expectedSalary);
 
-        // debug
-        System.out.println("Long work hours: " + salary);
     }
 
     @Test
@@ -156,8 +163,9 @@ public class CalculatorTest {
     @Test
     public void shouldIncreaseSalaryIfAnnualLeaveIsLessThan25() {
         // given
-        // when
         final int adjustment = calculator.getHolidayAdjustment(23);
+
+        // when
         final int salary = calculator.getBasicSalary() + adjustment;
 
         // then
@@ -170,8 +178,9 @@ public class CalculatorTest {
     @Test
     public void shouldDecreaseSalaryIfAnnualLeaveIsMoreThan25() {
         // given
-        // when
         final int adjustment = calculator.getHolidayAdjustment(27);
+
+        // when
         final int salary = calculator.getBasicSalary() + adjustment;
 
         // then
@@ -184,8 +193,9 @@ public class CalculatorTest {
     @Test
     public void shouldSalaryRemainsSameIfAnnualLeaveIs25() {
         // given
-        // when
         final int adjustment = calculator.getHolidayAdjustment(25);
+
+        // when
         final int salary = calculator.getBasicSalary() + adjustment;
 
         // then
@@ -199,8 +209,9 @@ public class CalculatorTest {
     @Test
     public void getTravelTimeSalaryAdjustmentShouldDecreaseSalaryIfTravelTimeIsLowerThanOptimal() {
         // given
-        // when
         final int adjustment = calculator.getTravelTimeSalaryAdjustment(40);
+
+        // when
         final int salary = calculator.getBasicSalary() + adjustment;
 
         // then
@@ -214,8 +225,9 @@ public class CalculatorTest {
     @Test
     public void getTravelTimeSalaryAdjustmentShouldDoNotChangeSalaryIfTravelTimeIsHigherIsMaxAllowed() {
         // given
-        // when
         final int adjustment = calculator.getTravelTimeSalaryAdjustment(45);
+
+        // when
         final int salary = calculator.getBasicSalary() + adjustment;
 
         // then
@@ -229,8 +241,9 @@ public class CalculatorTest {
     @Test
     public void getTravelTimeSalaryAdjustmentShouldIncreaseSalaryIfTravelTimeIsHigherThanOptimal() {
         // given
-        // when
         final int adjustment = calculator.getTravelTimeSalaryAdjustment(50);
+
+        // when
         final int salary = calculator.getBasicSalary() + adjustment;
 
         // then
@@ -244,7 +257,6 @@ public class CalculatorTest {
 
     @Test
     public void getSeniorPenaltyShouldIncreaseSalaryBy50Percent() {
-        // given
         // when
         final int seniorPenalty = calculator.getSeniorPenalty();
 
@@ -261,6 +273,7 @@ public class CalculatorTest {
         vacancy.setOptionToBuyExtraDays(10);
         final var calculatorWithCustomVacancy = new Calculator(vacancy);
         final int expectedSalary = BASIC_SALARY + BASIC_SALARY / 10;
+
         // when
         final var salary = calculatorWithCustomVacancy.calculateSalary();
 

@@ -44,6 +44,7 @@ public class WordCounterTest {
     public void fullWordsShouldReturn1ForCollectionOfSingleWordTest() {
         // given
         String[] oneWord = new String[]{"Test"};
+
         // when
         final int counter = countFullWords(oneWord);
 
@@ -56,6 +57,7 @@ public class WordCounterTest {
         // given
         int size = 10;
         String[] tenWords = generateArray(size);
+
         // when
         final int counter = countFullWords(tenWords);
 
@@ -67,6 +69,7 @@ public class WordCounterTest {
     public void fullWordsShouldNotCountSpaceAsWordTest() {
         // given
         String[] twoWordsOneSpace = new String[]{"Test", " ", "Test2"};
+
         // when
         final int counter = countFullWords(twoWordsOneSpace);
 
@@ -78,6 +81,7 @@ public class WordCounterTest {
     public void fullWordsShouldNotCountNullAsWordTest() {
         // given
         String[] twoWordsOneNull = new String[]{"Test", null, "Test2"};
+
         // when
         final int counter = countFullWords(twoWordsOneNull);
 
@@ -90,6 +94,7 @@ public class WordCounterTest {
 
         // given
         String[] twoWordsOneNumber = new String[]{"Test", valueOf(randomPositiveInteger(MAX_RANDOM_SIZE)), "Test2"};
+
         // when
         final int counter = countFullWords(twoWordsOneNumber);
 
@@ -101,6 +106,7 @@ public class WordCounterTest {
     public void fullWordsShouldNotCountWordThatDoesNotContainAtLeastOneAlphanumericCharacterTest() {
         // given
         String[] twoWordsOneNonAlphanumericWord = new String[]{"Test", generateNonAlphanumericString(MAX_RANDOM_SIZE), "Test2"};
+
         // when
         final int counter = countFullWords(twoWordsOneNonAlphanumericWord);
 
@@ -113,6 +119,7 @@ public class WordCounterTest {
     public void fullWordsShouldReturnSizeForCollectionTest() {
         // given
         String[] manyWord = generateArray(MAX_RANDOM_SIZE);
+
         // when
         final int counter = countFullWords(manyWord);
 
@@ -124,6 +131,7 @@ public class WordCounterTest {
     public void countFullWordShouldNotCountStopWords() {
         // given
         final String[] words = {"Dominik", "is", "awesome"};
+
         // when
         final int counter = countFullWords(words);
 

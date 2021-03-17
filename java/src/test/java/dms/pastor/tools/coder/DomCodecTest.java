@@ -28,10 +28,9 @@ public class DomCodecTest {
 
     @Test
     public void shouldThrowInvalidArgumentExceptionIfDataIsNull() {
-
-
         // given
         encoder = new DomEncoder(null);
+
         // when
         Assertions.assertThrows(IllegalArgumentException.class, () -> encoder.encode());
 
@@ -42,6 +41,7 @@ public class DomCodecTest {
     public void shouldEncodeData() {
         // given
         final String expectedEncodedData = "2uJmJCMBPjhDt5wAHXgC";
+
         // when
         String encodedData = encoder.encode();
 

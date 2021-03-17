@@ -1,11 +1,11 @@
 package dms.pastor.tasks.paint.canvas;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static dms.pastor.tasks.paint.canvas.Canvas.createCanvasFor;
 import static dms.pastor.tasks.paint.canvas.CanvasValidator.validateIfCanvasIsSet;
 import static dms.pastor.tasks.paint.canvas.CanvasValidator.validateIfImageSizeAreTheSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Author Dominik Symonowicz
@@ -23,7 +23,7 @@ public class CanvasValidatorTest {
     @Test
     public void validateIfCanvasIsSetShouldThrowExceptionIfCanvasIsNotSet() {
         // when
-        Assertions.assertThrows(InvalidCanvasException.class, () -> validateIfCanvasIsSet(Canvas.noCanvas()));
+        assertThrows(InvalidCanvasException.class, () -> validateIfCanvasIsSet(Canvas.noCanvas()));
 
     }
 
@@ -31,6 +31,7 @@ public class CanvasValidatorTest {
     public void validateIfCanvasIsSetShouldValidateIfCanvasIsSet() {
         // given
         final Canvas canvas = Canvas.createCanvasFor(CANVAS_WIDTH, CANVAS_HEIGHT);
+
         // when
         validateIfCanvasIsSet(canvas);
 
@@ -41,8 +42,9 @@ public class CanvasValidatorTest {
     public void validateIfImageSizeAreTheSameShouldThrowExceptionWhenWidthAreDifferent() {
         // given
         final Canvas canvas = Canvas.createCanvasFor(CANVAS_WIDTH, CANVAS_HEIGHT);
+
         // when
-        Assertions.assertThrows(InvalidCanvasException.class, () -> validateIfImageSizeAreTheSame(canvas, new String[5][CANVAS_HEIGHT]));
+        assertThrows(InvalidCanvasException.class, () -> validateIfImageSizeAreTheSame(canvas, new String[5][CANVAS_HEIGHT]));
 
     }
 
@@ -50,8 +52,9 @@ public class CanvasValidatorTest {
     public void validateIfImageSizeAreTheSameShouldThrowExceptionWhenHeightAreDifferent() {
         // given
         final Canvas canvas = Canvas.createCanvasFor(CANVAS_WIDTH, CANVAS_HEIGHT);
+
         // when
-        Assertions.assertThrows(InvalidCanvasException.class, () -> validateIfImageSizeAreTheSame(canvas, new String[CANVAS_WIDTH][5]));
+        assertThrows(InvalidCanvasException.class, () -> validateIfImageSizeAreTheSame(canvas, new String[CANVAS_WIDTH][5]));
     }
 
     @Test
@@ -59,6 +62,7 @@ public class CanvasValidatorTest {
         // given
         final Canvas canvas = Canvas.createCanvasFor(CANVAS_WIDTH, CANVAS_HEIGHT);
         final int border = 2;
+
         // when
         validateIfImageSizeAreTheSame(canvas, new String[CANVAS_WIDTH + border][CANVAS_HEIGHT + border]);
 
@@ -68,14 +72,14 @@ public class CanvasValidatorTest {
     @Test
     public void createCanvasForShouldInvalidCanvasExceptionIfWidthIsZero() {
         // when
-        Assertions.assertThrows(InvalidCanvasException.class, () -> createCanvasFor(0, CANVAS_HEIGHT));
+        assertThrows(InvalidCanvasException.class, () -> createCanvasFor(0, CANVAS_HEIGHT));
 
     }
 
     @Test
     public void createCanvasForShouldInvalidCanvasExceptionIfHeightIsZero() {
         // when
-        Assertions.assertThrows(InvalidCanvasException.class, () -> createCanvasFor(CANVAS_WIDTH, 0));
+        assertThrows(InvalidCanvasException.class, () -> createCanvasFor(CANVAS_WIDTH, 0));
     }
 
 }

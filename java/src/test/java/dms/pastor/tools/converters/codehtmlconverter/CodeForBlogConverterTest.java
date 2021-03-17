@@ -62,6 +62,7 @@ public class CodeForBlogConverterTest {
         // given
         List<String> source = generateSourceData();
         String answer = TextFileUtils.loadFileFromResourceAsString("test/html/code2blog.html");
+
         // when
         final String result = converter.convert(source);
 
@@ -74,6 +75,7 @@ public class CodeForBlogConverterTest {
         // given
         String line = "    ";
         String result = HtmlUtils.getNbsp(4);
+
         // when
         String convertedLine = converter.convertEach4SpacesToNsbpOnBeginningOfTheLine(line);
 
@@ -94,6 +96,7 @@ public class CodeForBlogConverterTest {
     public void shouldNotConvert4SpacesInTheEndToNbsp() {
         // given
         String line = "Test    ";
+
         // when
         String convertedLine = converter.convertEach4SpacesToNsbpOnBeginningOfTheLine(line);
 
@@ -106,6 +109,7 @@ public class CodeForBlogConverterTest {
         // given
         String line = "    Test    Test    ";
         String result = HtmlUtils.getNbsp(4) + "Test    Test    ";
+
         // when
         String convertedLine = converter.convertEach4SpacesToNsbpOnBeginningOfTheLine(line);
 
@@ -117,6 +121,7 @@ public class CodeForBlogConverterTest {
     public void shouldNotConvertAny4SpacesToNbsp() {
         // given
         String line = "   Test    Test    ";//first has 3 spaces only
+
         // when
         String convertedLine = converter.convertEach4SpacesToNsbpOnBeginningOfTheLine(line);
 
@@ -128,6 +133,7 @@ public class CodeForBlogConverterTest {
     public void shouldNotConvert4SpacesInTheMiddleToNbsp() {
         // given
         String line = "Test    Test";
+
         // when
         String convertedLine = converter.convertEach4SpacesToNsbpOnBeginningOfTheLine(line);
 

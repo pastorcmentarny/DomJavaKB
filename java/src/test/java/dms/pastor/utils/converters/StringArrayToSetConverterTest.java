@@ -20,6 +20,7 @@ public class StringArrayToSetConverterTest {
         Set<String> expectedStringSet = new HashSet<>();
         expectedStringSet.add(stringOne);
         expectedStringSet.add(stringTwo);
+
         // when
         final Set<String> stringSet = converter.convert(stringArray);
 

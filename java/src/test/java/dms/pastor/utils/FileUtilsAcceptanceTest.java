@@ -39,6 +39,7 @@ public class FileUtilsAcceptanceTest {
         stringArrayList.add(text1);
         stringArrayList.add(text2);
         stringArrayList.add(text3);
+
         // when
         saveListToFile(stringArrayList, filePath);
 

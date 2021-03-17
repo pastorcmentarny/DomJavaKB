@@ -14,5 +14,4 @@ package dms.pastor.tasks.paint.command;
 @SuppressWarnings("WeakerAccess")
 public class AbstractCommandTest {
 
-
 }

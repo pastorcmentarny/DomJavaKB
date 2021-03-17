@@ -48,6 +48,7 @@ public class WordTest {
         final String expectedWordWithBasicInformation = word.getChineseCharacter() + " - '" +
                 word.getPinyin() + "' - [ " +
                 word.getWordInEnglish() + " ]";
+
         // when
         final String wordWithBasicInformation = word.toShortString();
 
@@ -62,6 +63,7 @@ public class WordTest {
                 + "\nChinese: " + word.getChineseCharacter() + "\nPinyin: " + word.getPinyin() + "(" + word.getStrokes()
                 + ")\nEnglish: " + word.getWordInEnglish() + "\nPolish:" + word.getWordInPolish()
                 + "\nNotes: " + word.getNotes() + "\nDifficulty: " + word.getDifficulty();
+
         // when
         final String wordAsString = word.asWord();
 

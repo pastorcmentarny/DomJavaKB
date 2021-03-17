@@ -55,6 +55,7 @@ public class GuidToolsTest {
     public void shouldGenerateGuids() {
         // given
         final String[] numberOfGuidsToGenerate = {"1"};
+
         // when
         GuidTools.main(numberOfGuidsToGenerate);
 

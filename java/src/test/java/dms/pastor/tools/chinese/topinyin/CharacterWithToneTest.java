@@ -20,6 +20,7 @@ public class CharacterWithToneTest {
         // given
         final String input = "ma(1)";
         final CharacterWithTone expectedResult = new CharacterWithTone("ma", 1);
+
         // when
         final CharacterWithTone characterWithTone = CharacterWithTone.fromString(input);
 

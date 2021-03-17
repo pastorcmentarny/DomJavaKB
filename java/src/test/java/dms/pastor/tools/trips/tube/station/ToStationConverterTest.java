@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
+import static dms.pastor.tools.trips.tube.station.Station.MOORGATE;
 import static dms.pastor.tools.trips.tube.station.ToStationConverter.convert;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -25,7 +26,8 @@ public class ToStationConverterTest {
         final LocalDate date = LocalDate.of(2017, 1, 1);
         // given
         final var stationAsString = "Moorgate;;V;;2017-01-01;;2017-01-01;;2017-01-01;;Y";
-        final TubeStation expectedResult = new TubeStation(Station.MOORGATE.getStationName(), Status.VISITED, date, date, date, true);
+        final TubeStation expectedResult = new TubeStation(MOORGATE.getStationName(), Status.VISITED, date, date, date, true);
+
         // when
         final TubeStation result = convert(stationAsString);
 
@@ -38,7 +40,8 @@ public class ToStationConverterTest {
         final LocalDate date = LocalDate.of(2017, 1, 1);
         // given
         final var stationAsString = "Moorgate;;V;;2017-01-01;;2017-01-01;;2017-01-01;;N";
-        final TubeStation expectedResult = new TubeStation(Station.MOORGATE.getStationName(), Status.VISITED, date, date, date, false);
+        final TubeStation expectedResult = new TubeStation(MOORGATE.getStationName(), Status.VISITED, date, date, date, false);
+
         // when
         final TubeStation result = convert(stationAsString);
 

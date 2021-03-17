@@ -25,7 +25,6 @@ public class JournalTest {
 
     @BeforeEach
     protected void setUp() {
-
         journalTest = new Journal("name", 1.0, YEAR_2012);
     }
 

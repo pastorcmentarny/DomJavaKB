@@ -1,7 +1,8 @@
 package dms.pastor.tasks.sunspotanalyser;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Author Dominik Symonowicz
@@ -17,7 +18,7 @@ public class AppRunnerTest {
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenRunningAppWithoutArgumentsTest() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> AppRunner.main(null));
+        assertThrows(IllegalArgumentException.class, () -> AppRunner.main(null));
 
     }
 
@@ -26,7 +27,7 @@ public class AppRunnerTest {
 
         String[] stringList = new String[]{"a", "b"};
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> AppRunner.main(stringList));
+        assertThrows(IllegalArgumentException.class, () -> AppRunner.main(stringList));
 
 
     }

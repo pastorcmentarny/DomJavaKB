@@ -31,6 +31,7 @@ public class CoordinatesTest {
     public void isCoordinationSetShouldReturnFalseIfHeightAndWidthAreSetToNoValue() {
         // given
         final Coordinates coordinates = Coordinates.noCoordination();
+
         // when
         final boolean result = coordinates.isCoordinatesSet();
 
@@ -42,6 +43,7 @@ public class CoordinatesTest {
     public void isCoordinatesSetShouldReturnTrueForCoordinates() {
         // given
         final Coordinates coordinates = new Coordinates(8, 6);
+
         // when
         final boolean result = coordinates.isCoordinatesSet();
 

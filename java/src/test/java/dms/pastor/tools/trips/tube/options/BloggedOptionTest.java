@@ -44,6 +44,7 @@ public class BloggedOptionTest {
 
         // check
         assertThat(stations.getTubeStationList().get(0).isBlogged()).isFalse();
+
         // when
         bloggedOption.choose(stations);
 

@@ -62,6 +62,7 @@ public class AcceptanceTests {
         when(scanner.nextLine())
                 .thenReturn("C 20 4")
                 .thenReturn("Q");
+
         // when
         commandLineUI.runApplication();
 
@@ -102,6 +103,7 @@ public class AcceptanceTests {
                 .thenReturn("L 6 3 6 4")
                 .thenReturn("R 16 1 20 3")
                 .thenReturn("Q");
+
         // when
         commandLineUI.runApplication();
 
@@ -126,6 +128,7 @@ public class AcceptanceTests {
                 .thenReturn("R 16 1 20 3")
                 .thenReturn("B 10 3 o")
                 .thenReturn("Q");
+
         // when
         commandLineUI.runApplication();
 
@@ -144,6 +147,7 @@ public class AcceptanceTests {
         // given
         CommandLineUI commandLineUI = new CommandLineUI(scanner);
         given(scanner.nextLine()).willReturn("Q");
+
         // when
         commandLineUI.runApplication();
 
@@ -160,6 +164,7 @@ public class AcceptanceTests {
                 .thenReturn("R 2 2 10 3")
                 .thenReturn("B 2 2 o")
                 .thenReturn("Q");
+
         // when
         commandLineUI.runApplication();
 
@@ -181,6 +186,7 @@ public class AcceptanceTests {
                 .thenReturn("R 2 2 10 3")
                 .thenReturn("C")
                 .thenReturn("Q");
+
         // when
         commandLineUI.runApplication();
 
@@ -200,6 +206,7 @@ public class AcceptanceTests {
                 .thenReturn("R 2 2 4 4")
                 .thenReturn("U")
                 .thenReturn("Q");
+
         // when
         commandLineUI.runApplication();
 
@@ -234,6 +241,7 @@ public class AcceptanceTests {
                 .thenReturn("R")
                 .thenReturn("R")
                 .thenReturn("Q");
+
         // when
         commandLineUI.runApplication();
 

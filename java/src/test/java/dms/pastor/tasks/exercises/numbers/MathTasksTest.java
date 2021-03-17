@@ -27,17 +27,30 @@ public class MathTasksTest {
 
     @Test
     public void testRemoveRandomNumberFromArray() {
+        // given
         int[] numbers = new int[]{1, 2, 3, 4, 5};
+
+        // when
         int[] numbersWithoutNumber2 = tasks.removeRandomNumberFromArray(numbers);
+
+        // debug
         printIntArray(numbers);
         printIntArray(numbersWithoutNumber2);
+
+        // then
         assertThat(numbers.length - numbersWithoutNumber2.length).isEqualTo(1);
     }
 
     @Test
     public void testFindMissingNumberInArrayWithoutDuplicates() {
+        //given
         int[] numbers = new int[]{1, 2, 3, 4, 5};
         int[] numbersWithoutNumber2 = new int[]{1, 3, 4, 5};
-        assertThat(tasks.findMissingNumberInArrayWithoutDuplicates(numbers, numbersWithoutNumber2)).isEqualTo(2);
+
+        // when
+        final var result = tasks.findMissingNumberInArrayWithoutDuplicates(numbers, numbersWithoutNumber2);
+
+        // then
+        assertThat(result).isEqualTo(2);
     }
 }

@@ -15,6 +15,7 @@ public class JobOpportunityAnalyserTest {
         final String[] args = {"/src/test/resources/jobs/test-db.txt", "/src/test/resources/jobs/crap.txt"};
         JobOpportunityAnalyser analyser = new JobOpportunityAnalyser(args);
         final String expectedResult = "This job description contains too much recruiter's gibberish to be worth consider. Result 42%.";
+
         // when
         final String result = analyser.analyse();
 

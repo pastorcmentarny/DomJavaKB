@@ -50,6 +50,7 @@ public class MockitoExampleServerTest {
         // given
         final UUID id = UUID.randomUUID();
         final MockitoExampleRequest awesomeRequest = new MockitoExampleRequest(id, generateString(10));
+
         // when
         final MockitoExampleResponse awesomeResponse = marvelousServer.create(awesomeRequest);
 
@@ -57,13 +58,13 @@ public class MockitoExampleServerTest {
         assertThat(awesomeResponse.isSuccess()).isTrue();
     }
 
-    /*
-     http://site.mockito.org/mockito/docs/current/org/mockito/Captor.html
-      */
+
+    //http://site.mockito.org/mockito/docs/current/org/mockito/Captor.html
     @Test
     public void professionalArgumentCaptorTest() {
         // given
         treasureArgumentCaptor = ArgumentCaptor.forClass(Treasure.class);
+
         // when
         final UUID id = UUID.randomUUID();
         final String diamondTreasure = "diamond";

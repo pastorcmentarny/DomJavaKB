@@ -54,6 +54,7 @@ public class TubeStationLineValidatorTest {
     public void shouldThrowIllegalArgumentExceptionIfStatusDoNotExists() {
         // given
         final String invalidStatus = "D";
+
         // when
         assertThrows(NotFoundException.class, () -> validate("Acton Town" + FIELD_SEPARATOR + invalidStatus + FIELD_SEPARATOR + LocalDate.now() + FIELD_SEPARATOR + LocalDate.now() + FIELD_SEPARATOR + LocalDate.now() + FIELD_SEPARATOR + "Y"));
     }

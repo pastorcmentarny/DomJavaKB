@@ -1,7 +1,6 @@
 package dms.pastor.utils.randoms;
 
 import dms.pastor.domain.Country;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,6 +10,7 @@ import static dms.pastor.utils.randoms.PersonalDataGenerator.*;
 import static java.lang.String.valueOf;
 import static java.util.Arrays.asList;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Author Dominik Symonowicz
@@ -81,6 +81,7 @@ public class PersonalDataGeneratorTest {
     public void generatePhoneFromPatternShouldReturnPhoneNumberAcceptanceCriteria() {
         // given
         final String pattern = "(+44)XXX-XX-XX";
+
         // when
         final String phone = generatePhoneNumberForPattern(pattern);
 
@@ -100,14 +101,14 @@ public class PersonalDataGeneratorTest {
     @Test
     public void generatePhoneNumberForPatternShouldThrowIllegalArgumentExceptionForNull() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> generatePhoneNumberForPattern(null));
+        assertThrows(IllegalArgumentException.class, () -> generatePhoneNumberForPattern(null));
 
     }
 
     @Test
     public void generatePhoneNumberForPatternShouldThrowIllegalArgumentExceptionIfStringContainsInvalidCharacter() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+        assertThrows(IllegalArgumentException.class, () -> {
             final String output = generatePhoneNumberForPattern("3s100");
 
             System.out.println(output);
@@ -129,6 +130,7 @@ public class PersonalDataGeneratorTest {
     public void generatePhoneNumberForPatternShouldReplaceCapitalXWithRandomNumber() {
         // given
         final String x = "X";
+
         // when
         final String result = generatePhoneNumberForPattern(x);
 
@@ -143,6 +145,7 @@ public class PersonalDataGeneratorTest {
     public void generatePhoneNumberForPatternShouldReturnTheSameNumberForGivenNumber() {
         // given
         final String x = "732";
+
         // when
         final String result = generatePhoneNumberForPattern(x);
 
@@ -157,6 +160,7 @@ public class PersonalDataGeneratorTest {
     public void generateNameShouldReturnName() {
         // given
         final String name = generateName();
+
         // when
         assertThat(name).isNotBlank();
         assertThat(name.length()).isGreaterThan(3);

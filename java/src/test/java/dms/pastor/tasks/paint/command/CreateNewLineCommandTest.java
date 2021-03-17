@@ -42,6 +42,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
 
         // given
         String[] params = {CREATE_LINE_COMMAND, EMPTY_STRING, VALID_VALUE_AS_STRING, VALID_VALUE_AS_STRING, VALID_VALUE_AS_STRING};
+
         // when
         final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewLineCommand.setParamsIfValid(params));
 
@@ -54,6 +55,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
     public void setParamsIfValidShouldThrowExceptionIfStartWidthIsNotANumber() {
         // given
         String[] params = {CREATE_LINE_COMMAND, NOT_A_NUMBER, VALID_VALUE_AS_STRING, VALID_VALUE_AS_STRING, VALID_VALUE_AS_STRING};
+
         // when
         final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewLineCommand.setParamsIfValid(params));
 
@@ -65,6 +67,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
     public void setParamsIfValidShouldThrowExceptionIfStartHeightIsEmpty() {
         // given
         String[] params = {CREATE_LINE_COMMAND, VALID_VALUE_AS_STRING, EMPTY_STRING, VALID_VALUE_AS_STRING, VALID_VALUE_AS_STRING};
+
         // when
         final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewLineCommand.setParamsIfValid(params));
 
@@ -76,6 +79,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
     public void setParamsIfValidShouldThrowExceptionIfStartHeightIsNotANumber() {
         // given
         String[] params = {CREATE_LINE_COMMAND, VALID_VALUE_AS_STRING, NOT_A_NUMBER, VALID_VALUE_AS_STRING, VALID_VALUE_AS_STRING};
+
         // when
         final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewLineCommand.setParamsIfValid(params));
 
@@ -87,6 +91,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
     public void setParamsIfValidShouldThrowExceptionIfEndWidthIsEmpty() {
         // given
         String[] params = {CREATE_LINE_COMMAND, VALID_VALUE_AS_STRING, VALID_VALUE_AS_STRING, EMPTY_STRING, VALID_VALUE_AS_STRING};
+
         // when
         final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewLineCommand.setParamsIfValid(params));
 
@@ -98,6 +103,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
     public void setParamsIfValidShouldThrowExceptionIfEndWidthIsNotANumber() {
         // given
         String[] params = {CREATE_LINE_COMMAND, VALID_VALUE_AS_STRING, VALID_VALUE_AS_STRING, NOT_A_NUMBER, VALID_VALUE_AS_STRING};
+
         // when
         final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewLineCommand.setParamsIfValid(params));
 
@@ -110,6 +116,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
 
         // given
         String[] params = {CREATE_LINE_COMMAND, VALID_VALUE_AS_STRING, VALID_VALUE_AS_STRING, VALID_VALUE_AS_STRING, EMPTY_STRING};
+
         // when
         final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewLineCommand.setParamsIfValid(params));
 
@@ -121,6 +128,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
     public void setParamsIfValidShouldThrowExceptionIfEndHeightIsNotANumber() {
         // given
         String[] params = {CREATE_LINE_COMMAND, VALID_VALUE_AS_STRING, VALID_VALUE_AS_STRING, VALID_VALUE_AS_STRING, NOT_A_NUMBER};
+
         // when
         final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewLineCommand.setParamsIfValid(params));
 
@@ -132,6 +140,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
     public void setParamsIfValidShouldThrowExceptionIfParamsCreateRectangle() {
         // given
         String[] params = {CREATE_LINE_COMMAND, "2", "3", "2", "3"};
+
         // when
         final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewLineCommand.setParamsIfValid(params));
 
@@ -144,6 +153,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
 
         // given
         String[] params = {CREATE_LINE_COMMAND, "1", "2", "3", "4"};
+
         // when
         final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewLineCommand.setParamsIfValid(params));
 
@@ -156,6 +166,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
         // given
         String[] params = {CREATE_LINE_COMMAND, VALID_VALUE_AS_STRING, NOT_USED_SMALL_VALUE_AS_STRING, NOT_USED_LARGE_VALUE_AS_STRING, NOT_USED_SMALL_VALUE_AS_STRING};
         createNewLineCommand.setParamsIfValid(params);
+
         // when
         final int result = createNewLineCommand.getStartWidth();
 
@@ -168,6 +179,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
         // given
         String[] params = {CREATE_LINE_COMMAND, NOT_USED_SMALL_VALUE_AS_STRING, VALID_VALUE_AS_STRING, NOT_USED_SMALL_VALUE_AS_STRING, NOT_USED_LARGE_VALUE_AS_STRING};
         createNewLineCommand.setParamsIfValid(params);
+
         // when
         final int result = createNewLineCommand.getStartHeight();
 
@@ -180,6 +192,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
         // given
         String[] params = {CREATE_LINE_COMMAND, NOT_USED_SMALL_VALUE_AS_STRING, NOT_USED_SMALL_VALUE_AS_STRING, VALID_VALUE_AS_STRING, NOT_USED_SMALL_VALUE_AS_STRING};
         createNewLineCommand.setParamsIfValid(params);
+
         // when
         final int result = createNewLineCommand.getEndWidth();
 
@@ -192,6 +205,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
         // given
         String[] params = {CREATE_LINE_COMMAND, NOT_USED_SMALL_VALUE_AS_STRING, NOT_USED_SMALL_VALUE_AS_STRING, NOT_USED_SMALL_VALUE_AS_STRING, VALID_VALUE_AS_STRING,};
         createNewLineCommand.setParamsIfValid(params);
+
         // when
         final int result = createNewLineCommand.getEndHeight();
 
@@ -203,6 +217,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
     public void setParamsIfValidShouldThrowExceptionIfParamsCreateSquare() {
         // given
         String[] params = {CREATE_LINE_COMMAND, "3", "3", "3", "3"};
+
         // when
         final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewLineCommand.setParamsIfValid(params));
 
@@ -214,6 +229,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
     public void setParamsIfValidShouldValidateIfAllParamsAreValid() {
         // given
         String[] params = {CREATE_LINE_COMMAND, "1", "1", "3", "1"};
+
         // when
         createNewLineCommand.setParamsIfValid(params);
 
@@ -228,8 +244,10 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
     public void validateIfParamsAreInOrderShouldThrowExceptionIfHeightStartPointIsHigherThanEndPoint() {
         // given
         final String[] params = {createNewLineCommand.getSyntax(), "3", "4", "3", "1"};
+
         // when
         final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewLineCommand.setParamsIfValid(params));
+
         // when
         assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because Start point must be smaller than end point. Please check your input and try again.");
     }
@@ -238,6 +256,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
     public void validateIfParamsAreInOrderShouldThrowExceptionIfLengthStartPointIsHigherThanEndPoint() {
         // given
         final String[] params = {createNewLineCommand.getSyntax(), "4", "3", "1", "3"};
+
         // when
         final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewLineCommand.setParamsIfValid(params));
 
@@ -258,6 +277,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
     public void setParamsIfValidShouldThrowExceptionIfParamsCountIsWrong() {
         // given
         String[] params = {CREATE_LINE_COMMAND};
+
         // when
         final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewLineCommand.setParamsIfValid(params));
 
@@ -276,6 +296,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
                 "|    |" + lineSeparator() +
                 "|    |" + lineSeparator() +
                 "------" + lineSeparator();
+
         // when
         createNewLineCommand.execute(canvas);
 
@@ -294,6 +315,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
                 "| x  |" + lineSeparator() +
                 "|    |" + lineSeparator() +
                 "------" + lineSeparator();
+
         // when
         createNewLineCommand.execute(canvas);
 
@@ -305,6 +327,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
     public void executeShouldNotDrawAnythingIfCanvasIsNotCreated() {
         // given
         final Canvas canvas = Canvas.noCanvas();
+
         // when
         createNewLineCommand.execute(canvas);
 
@@ -318,6 +341,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
         // given
         final Canvas canvas = Canvas.createCanvasFor(4, 4);
         createNewLineCommand.setParam(new String[]{CREATE_LINE_COMMAND, "0", "0", "3", "0"});
+
         // when
         final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewLineCommand.execute(canvas));
 
@@ -346,6 +370,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
         // given
         final Canvas canvas = Canvas.createCanvasFor(4, 4);
         createNewLineCommand.setParam(new String[]{CREATE_LINE_COMMAND, "3", "0", "3", "3"});
+
         // when
         final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewLineCommand.execute(canvas));
 
@@ -359,6 +384,7 @@ public class CreateNewLineCommandTest extends AbstractCommandTest {
         // given
         final Canvas canvas = Canvas.createCanvasFor(4, 4);
         createNewLineCommand.setParam(new String[]{CREATE_LINE_COMMAND, "0", "3", "3", "3"});
+
         // when
         final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> createNewLineCommand.execute(canvas));
 

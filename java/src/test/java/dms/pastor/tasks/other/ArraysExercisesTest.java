@@ -24,8 +24,14 @@ public class ArraysExercisesTest {
 
     @Test
     public void testLargestAndSmallest() {
+        // given
         String answer = "Min:" + MIN_POSITIVE_VALUE + " Max:" + MAX_POSITIVE_VALUE;
-        assertThat(exercise.findLargestAndSmallest(NUMBERS)).isEqualTo(answer);
+
+        // when
+        final var result = exercise.findLargestAndSmallest(NUMBERS);
+
+        // then
+        assertThat(result).isEqualTo(answer);
     }
 
     @Test
@@ -34,6 +40,7 @@ public class ArraysExercisesTest {
         final int answerNumber = 6;
         final int[] oneNumberArray = new int[]{answerNumber};
         final String expectedAnswer = "Min:" + answerNumber + " Max:" + answerNumber;
+
         // when
         final String answer = exercise.findLargestAndSmallest(oneNumberArray);
 

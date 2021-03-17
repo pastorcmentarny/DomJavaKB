@@ -22,6 +22,7 @@ public class CommandValidatorTest extends AbstractCommandTest {
     public void validateCommandShouldValidateIfParamsAreNotRequired() {
         // given
         final Command command = new QuitCommand();
+
         // when
         validateCommandParams(command, command.getSyntax());
 

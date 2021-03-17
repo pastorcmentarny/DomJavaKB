@@ -67,6 +67,7 @@ public class CollectionsUtilsTest {
         Random random = new Random();
         final int size = random.nextInt(MAX_RANDOM_SIZE);
         final String[] array = generateArray(size);
+
         // when
         final boolean isEmpty = isStringArrayEmpty(array);
 
@@ -98,6 +99,7 @@ public class CollectionsUtilsTest {
     public void shouldReturnTrueIfListContainsElements() {
         // given
         final List<String> stringList = Arrays.asList("Dom", "is", "hungry");
+
         // when
         final boolean result = isListNotEmpty(Collections.singletonList(stringList));
 

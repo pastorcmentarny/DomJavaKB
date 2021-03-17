@@ -43,15 +43,15 @@ public class TrainCLITest {
 
     @Test
     public void shouldDisplayMenu() {
-        //given
+        // given
         final String expectedFirstLine = "0. Stats";
         final String expectedLastLine = "9. Exit" + System.lineSeparator();
         given(scanner.nextInt()).willReturn(9);
 
-        //when
+        // when
         cli.mainMenu();
 
-        //then
+        // then
         assertThat(outputStream.toString()).startsWith(expectedFirstLine);
         assertThat(outputStream.toString()).endsWith(expectedLastLine);
     }

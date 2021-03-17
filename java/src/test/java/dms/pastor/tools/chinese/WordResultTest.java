@@ -28,6 +28,7 @@ public class WordResultTest {
         // given
         final String message = generateString();
         final List<Word> wordList = singletonList(defaultWord());
+
         // when
         result = success(message, wordList);
 
@@ -41,6 +42,7 @@ public class WordResultTest {
     public void shouldCreateFailResultWithMessageAndObjectTest() {
         // given
         final String message = generateString();
+
         // when
         result = WordResult.fail(message);
 
@@ -54,6 +56,7 @@ public class WordResultTest {
         // given
         final String test = "Test";
         final List<Word> wordList = singletonList(defaultWord());
+
         // when
         result = WordResult.fail();
         result.setSuccess();
@@ -61,6 +64,7 @@ public class WordResultTest {
 
         // then
         assertThat(result.getMessage()).isEqualTo("Unknown");
+
         // when
         result.setMessage(test);
         result.setWordList(wordList);

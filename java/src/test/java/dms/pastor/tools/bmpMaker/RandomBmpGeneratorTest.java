@@ -32,6 +32,7 @@ public class RandomBmpGeneratorTest {
         // given
         final var value = randomNegativeInteger();
         RandomBmpGenerator randomBmpGenerator = new RandomBmpGenerator(value, randomPositiveInteger(), UNUSED_PATH);
+
         // when
         final var exception = Assertions.assertThrows(IllegalArgumentException.class, randomBmpGenerator::generateImageFile);
 
@@ -44,6 +45,7 @@ public class RandomBmpGeneratorTest {
         // given
         final var value = randomNegativeInteger();
         RandomBmpGenerator randomBmpGenerator = new RandomBmpGenerator(randomPositiveInteger(), value, UNUSED_PATH);
+
         // when
         final var exception = Assertions.assertThrows(IllegalArgumentException.class, randomBmpGenerator::generateImageFile);
 
@@ -55,6 +57,7 @@ public class RandomBmpGeneratorTest {
     public void shouldThrowIllegalArgumentExceptionWhenPathIsNull() {
         // given
         RandomBmpGenerator randomBmpGenerator = new RandomBmpGenerator(randomPositiveInteger(), randomPositiveInteger(), null);
+
         // when
         final var exception = Assertions.assertThrows(IllegalArgumentException.class, randomBmpGenerator::generateImageFile);
 
@@ -69,6 +72,7 @@ public class RandomBmpGeneratorTest {
         final int height = 300;
         final String filePath = PATH + "result." + BITMAP_EXTENSION;
         RandomBmpGenerator randomBmpGenerator = new RandomBmpGenerator(width, height, filePath);
+
         // when
         randomBmpGenerator.generateImageFile();
 

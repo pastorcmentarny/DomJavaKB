@@ -24,6 +24,7 @@ public class DummyImporterTest {
     public void importDictionaryShouldReturnResultWithDefaultWord() {
         // given
         Importer<List<Word>> importer = new DummyImporter();
+
         // when
         final Result<List<Word>> result = importer.importDictionary(generateString(), noCategories());
 

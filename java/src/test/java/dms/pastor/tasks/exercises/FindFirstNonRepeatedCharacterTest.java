@@ -1,12 +1,12 @@
 package dms.pastor.tasks.exercises;
 
 import dms.pastor.tasks.exercises.string.FindFirstNonRepeatedCharacter;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Author Dominik Symonowicz
@@ -18,13 +18,12 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class FindFirstNonRepeatedCharacterTest {
 
-
     private final FindFirstNonRepeatedCharacter findFirst = new FindFirstNonRepeatedCharacter();
 
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenTextIsNullTest() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> findFirst.findFirstNonRepeatedCharacter(null));
+        assertThrows(IllegalArgumentException.class, () -> findFirst.findFirstNonRepeatedCharacter(null));
 
     }
 

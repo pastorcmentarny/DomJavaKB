@@ -54,6 +54,7 @@ public class ScheduleTaskExampleRunnerTest {
     public void runScheduleTaskExample() throws Exception {
         // given
         final String name = "Dominik";
+
         // when
         ScheduleTaskExampleRunner.runScheduleTaskExample(name);
 

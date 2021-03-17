@@ -27,6 +27,7 @@ public class PointTest {
         final String fill = getRandomCharacterAsString();
         final Coordinates coordinates = new Coordinates(width, height);
         Point expectedResult = new Point(coordinates, fill);
+
         // when
         final Point result = Point.of(width, height, fill);
 
@@ -45,6 +46,7 @@ public class PointTest {
         Point point = new Point(coordinates, fill);
         final Coordinates expectedCoordinates = new Coordinates(newWidth, height);
         Point expectedPoint = new Point(expectedCoordinates, fill);
+
         // when
         final Point result = withReplacedWidth(newWidth, point);
 
@@ -65,6 +67,7 @@ public class PointTest {
 
         final Coordinates expectedCoordinates = new Coordinates(width, newHeight);
         Point expectedPoint = new Point(expectedCoordinates, fill);
+
         // when
         final Point result = withReplacedHeight(newHeight, point);
 

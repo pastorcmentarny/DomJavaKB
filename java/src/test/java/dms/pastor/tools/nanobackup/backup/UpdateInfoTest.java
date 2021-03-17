@@ -22,6 +22,7 @@ public class UpdateInfoTest {
         // given
         final JTextArea textArea = new JTextArea();
         UpdateInfo updateInfo = new UpdateInfo(textArea);
+
         // when
         updateInfo.run();
         final String result = textArea.getText();

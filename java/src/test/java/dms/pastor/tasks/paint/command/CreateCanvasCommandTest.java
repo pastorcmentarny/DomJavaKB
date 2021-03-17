@@ -47,6 +47,7 @@ public class CreateCanvasCommandTest extends AbstractCommandTest {
     public void setParamsIfValidShouldThrowExceptionIfParamsCountIsWrong() {
         // given
         String[] params = {CREATE_CANVAS_COMMAND};
+
         // when
         assertThrows(InvalidCommandSyntaxException.class, () -> createCanvasCommand.setParamsIfValid(params));
     }
@@ -55,6 +56,7 @@ public class CreateCanvasCommandTest extends AbstractCommandTest {
     public void setParamsIfValidShouldThrowExceptionIfWidthIsEmpty() {
         // given
         String[] params = {CREATE_CANVAS_COMMAND, EMPTY_STRING, VALID_LENGTH};
+
         // when
         final var exception = assertThrows(InvalidCommandSyntaxException.class, () -> createCanvasCommand.setParamsIfValid(params));
 
@@ -66,6 +68,7 @@ public class CreateCanvasCommandTest extends AbstractCommandTest {
     public void setParamsIfValidShouldThrowExceptionIfHeightIsEmpty() {
         // given
         String[] params = {CREATE_CANVAS_COMMAND, VALID_LENGTH, EMPTY_STRING};
+
         // when
         final var exception = assertThrows(InvalidCommandSyntaxException.class, () -> createCanvasCommand.setParamsIfValid(params));
 
@@ -77,6 +80,7 @@ public class CreateCanvasCommandTest extends AbstractCommandTest {
     public void setParamsIfValidShouldThrowExceptionIfWidthIsNotNumber() {
         // given
         String[] params = {CREATE_CANVAS_COMMAND, NOT_A_NUMBER, VALID_LENGTH};
+
         // when
         final var exception = assertThrows(InvalidCommandSyntaxException.class, () -> createCanvasCommand.setParamsIfValid(params));
 
@@ -88,6 +92,7 @@ public class CreateCanvasCommandTest extends AbstractCommandTest {
     public void setParamsIfValidShouldThrowExceptionIfHeightIsNotNumber() {
         // given
         String[] params = {CREATE_CANVAS_COMMAND, VALID_LENGTH, NOT_A_NUMBER};
+
         // when
         final var exception = assertThrows(InvalidCommandSyntaxException.class, () -> createCanvasCommand.setParamsIfValid(params));
 

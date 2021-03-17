@@ -54,6 +54,7 @@ public class DisplayStatusForOptionTest {
         // given
         final Stations stations = stationsBuilder().build();
         given(scanner.next()).willReturn("Wembley Park");
+
         // when
         displayStatusForAllStationsOption.choose(stations);
 
@@ -67,6 +68,7 @@ public class DisplayStatusForOptionTest {
         final Stations stations = stationsBuilder().build();
         final String invalidStationName = generateString(32, 64);
         given(scanner.next()).willReturn(invalidStationName);
+
         // when
         displayStatusForAllStationsOption.choose(stations);
 

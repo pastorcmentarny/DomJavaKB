@@ -16,6 +16,7 @@ public class StateTest {
     public void fromValueShouldThrowNotFoundExceptionForInvalidCharacter() {
         // given
         final String invalidValue = "Z";
+
         // when
         assertThrows(NotFoundException.class, () -> fromValue(invalidValue));
     }
@@ -39,6 +40,7 @@ public class StateTest {
     public void fromValueShouldReturnStatusForLowerO() {
         // given
         final String validValueInLowerCase = "o";
+
         // when
         final State result = fromValue(validValueInLowerCase);
 
@@ -50,6 +52,7 @@ public class StateTest {
     public void fromValueShouldReturnStatusForCapitalA() {
         // given
         final String validValueInLowerCase = "A";
+
         // when
         final State result = fromValue(validValueInLowerCase);
 

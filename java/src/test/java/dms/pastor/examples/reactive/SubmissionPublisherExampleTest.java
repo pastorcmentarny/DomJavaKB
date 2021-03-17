@@ -10,6 +10,6 @@ public class SubmissionPublisherExampleTest {
         final var submissionPublisherExample = new SubmissionPublisherExample();
         submissionPublisherExample.example();
 
-        //then example should not crash :)
+        // then example should not crash :)
     }
 }

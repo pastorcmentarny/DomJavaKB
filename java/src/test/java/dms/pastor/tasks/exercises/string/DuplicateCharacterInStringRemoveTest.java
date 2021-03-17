@@ -21,6 +21,7 @@ public class DuplicateCharacterInStringRemoveTest {
     public void shouldGetAFromStringWithACharactersOnlyAcceptanceCriteriaTest() {
         // given
         final String stringWithACharacterOnly = "aaaa";
+
         // when
         final String result = removeDuplicateCharacterFromString(stringWithACharacterOnly);
 
@@ -32,6 +33,7 @@ public class DuplicateCharacterInStringRemoveTest {
     public void shouldGetABFromStringWithABCharactersOnlyAcceptanceCriteriaTest() {
         // given
         final String stringWithACharacterOnly = "aabb";
+
         // when
         final String result = removeDuplicateCharacterFromString(stringWithACharacterOnly);
 
@@ -43,6 +45,7 @@ public class DuplicateCharacterInStringRemoveTest {
     public void shouldGetABCFromStringWithContainsManyABCAcceptanceCriteriaTest() {
         // given
         final String stringWithACharacterOnly = "abcabcacbcab";
+
         // when
         final String result = removeDuplicateCharacterFromString(stringWithACharacterOnly);
 

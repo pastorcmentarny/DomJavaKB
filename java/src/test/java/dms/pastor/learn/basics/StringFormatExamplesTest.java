@@ -70,6 +70,7 @@ public class StringFormatExamplesTest {
     public void shouldDisplayNumberWithCustomSeparator() {
         // given
         final int thousandOne = 1001;
+
         // when
         final String result = stringFormatExamples.displayNumberWithAmericanSeparator(thousandOne);
 

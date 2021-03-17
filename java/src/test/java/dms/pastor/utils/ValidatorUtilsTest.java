@@ -2,7 +2,6 @@ package dms.pastor.utils;
 
 import dms.pastor.domain.ExampleObject;
 import dms.pastor.domain.exception.SomethingWentTerribleWrongError;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -73,6 +72,7 @@ public class ValidatorUtilsTest {
     public void shouldValidateForValidateNotNullPropertiesWithCustomMessage() {
         // given
         final Object[] objectsToValidate = {anObject.getADouble(), anObject.getAnInteger()};
+
         // when
         validateNotNullPropertiesWithCustomMessage(objectsToValidate, "parameter is invalid");
 
@@ -84,6 +84,7 @@ public class ValidatorUtilsTest {
 
         // given
         final Object[] arrayWithSomeNulls = {null, anObject.getString(), anObject.getADouble(), null};
+
         // when
         final var exception = assertThrows(IllegalArgumentException.class, () -> validateNotNullPropertiesWithCustomMessage(arrayWithSomeNulls, "one of parameters is rubbish"));
 
@@ -95,6 +96,7 @@ public class ValidatorUtilsTest {
     public void shouldValidateForValidateNotNullPropertiesWithCustomMessages() {
         // given
         final Object[] objectsToValidate = {anObject.getADouble(), anObject.getAnInteger(), anObject.getString()};
+
         // when
         validateNotNullPropertiesWithCustomMessagesPerProperty(new Object[][]{
                 {objectsToValidate[0], "Invalid Double"},
@@ -110,6 +112,7 @@ public class ValidatorUtilsTest {
     public void shouldThrowIllegalArgumentExceptionWhenForValidatingNotNullPropertiesWithCustomMessages() {
         // given
         final Object[] objectsToValidate = {null, anObject.getADouble(), anObject.getAnInteger(), anObject.getString(), null};
+
         // when
         final var exception = assertThrows(IllegalArgumentException.class, () -> validateNotNullPropertiesWithCustomMessagesPerProperty(new Object[][]{
                 {objectsToValidate[0], "null :)"},
@@ -147,6 +150,7 @@ public class ValidatorUtilsTest {
         // given
         int number1 = 1;
         int number2 = 1;
+
         // when
         final var exception = assertThrows(IllegalArgumentException.class, () -> validateTwoIntsNotEqual(number1, number2));
 
@@ -162,6 +166,7 @@ public class ValidatorUtilsTest {
 
         // debug info
         LOGGER.debug(String.format("Number1: %d and Number2: %d", number1, number2));
+
         // when
         validateTwoIntsNotEqual(number1, number2);
 
@@ -174,6 +179,7 @@ public class ValidatorUtilsTest {
         // given
         int maxValue = randomPositiveInteger(MAX_SMALL_VALUE_RANGE);
         int minValue = MAX_SMALL_VALUE_RANGE + randomPositiveInteger(MAX_SMALL_VALUE_RANGE);
+
         // when
         final var exception = assertThrows(IllegalArgumentException.class, () -> validateMinValueIsSmallerThanMaxValue(minValue, maxValue));
 
@@ -186,8 +192,10 @@ public class ValidatorUtilsTest {
 
         // given
         int value = randomPositiveInteger(MAX_SMALL_VALUE_RANGE);
+
         // when
         final var exception = assertThrows(IllegalArgumentException.class, () -> validateMinValueIsSmallerThanMaxValue(value, value));
+
         // then
         assertThat(exception.getMessage()).isEqualTo("MinValue (" + value + ") must be lower than MaxValue(" + value + ")");
     }
@@ -198,6 +206,7 @@ public class ValidatorUtilsTest {
         // given
         int minValue = randomPositiveInteger(MAX_SMALL_VALUE_RANGE);
         int maxValue = minValue + randomPositiveInteger(MAX_SMALL_VALUE_RANGE) + 1;
+
         // when
         validateMinValueIsSmallerThanMaxValue(minValue, maxValue);
 
@@ -210,8 +219,10 @@ public class ValidatorUtilsTest {
         // given
         int maxValue = randomPositiveInteger(MAX_SMALL_VALUE_RANGE);
         int minValue = MAX_SMALL_VALUE_RANGE + randomPositiveInteger(MAX_SMALL_VALUE_RANGE);
+
         // when
         final var exception = assertThrows(IllegalArgumentException.class, () -> validateValueIsSmallerOrEqualsThatOtherValue(minValue, maxValue));
+
         // then
         assertThat(exception.getMessage()).isEqualTo("Value (" + minValue + ") must be lower or equals to than Other Value(" + maxValue + ")");
     }
@@ -221,6 +232,7 @@ public class ValidatorUtilsTest {
 
         // given
         int value = randomPositiveInteger(MAX_SMALL_VALUE_RANGE);
+
         // when
         validateValueIsSmallerOrEqualsThatOtherValue(value, value);
 
@@ -233,6 +245,7 @@ public class ValidatorUtilsTest {
         // given
         int minValue = randomPositiveInteger(MAX_SMALL_VALUE_RANGE);
         int maxValue = minValue + randomPositiveInteger(MAX_SMALL_VALUE_RANGE);
+
         // when
         validateValueIsSmallerOrEqualsThatOtherValue(minValue, maxValue);
 
@@ -269,10 +282,9 @@ public class ValidatorUtilsTest {
 
     @Test
     public void validateNegativeBigDecimalShouldThrowExceptionIfValueIsPositive() {
-
-
         // given
         BigDecimal value = new BigDecimal(1 + new Random().nextInt(MAX_SMALL_VALUE_RANGE));
+
         // when
         final var exception = assertThrows(IllegalArgumentException.class, () -> validateNegativeBigDecimal(value));
 
@@ -284,6 +296,7 @@ public class ValidatorUtilsTest {
     public void validateNegativeBigDecimalShouldPassWithoutExceptionForNegativeValue() {
         // given
         final BigDecimal value = new BigDecimal(1 + new Random().nextInt(MAX_SMALL_VALUE_RANGE)).negate();
+
         // when
         validateNegativeBigDecimal(value);
 
@@ -304,6 +317,7 @@ public class ValidatorUtilsTest {
     public void validatePositiveBigDecimalShouldThrowExceptionIfValueIsNegative() {
         // given
         BigDecimal value = new BigDecimal(1 + new Random().nextInt(MAX_SMALL_VALUE_RANGE)).negate();
+
         // when
         final var exception = assertThrows(IllegalArgumentException.class, () -> validateIfPositiveNumber(value));
 
@@ -316,6 +330,7 @@ public class ValidatorUtilsTest {
     public void validatePositiveBigDecimalShouldPassWithoutExceptionForPositiveValue() {
         // given
         final BigDecimal value = new BigDecimal(1 + new Random().nextInt(MAX_SMALL_VALUE_RANGE));
+
         // when
         validateIfPositiveNumber(value);
 
@@ -324,9 +339,9 @@ public class ValidatorUtilsTest {
 
     @Test
     public void validateIfPositiveNumberShouldThrowExceptionIfIntegerValueIsNegative() {
-
         // given
         final int negativeInteger = -1;
+
         // when
         final var exception = assertThrows(IllegalArgumentException.class, () -> validateIfPositiveNumber(negativeInteger));
 
@@ -350,6 +365,7 @@ public class ValidatorUtilsTest {
         // given
         final int negativeInteger = -1;
         final String customName = "CustomValueName";
+
         // when
         final var exception = assertThrows(IllegalArgumentException.class, () -> validateIfPositiveNumber(negativeInteger, customName));
 
@@ -361,30 +377,31 @@ public class ValidatorUtilsTest {
     public void validateIfPositiveNumberWithCustomValueNameShouldPassWithoutExceptionForPositiveIntegerValue() {
         // given
         final int positiveInteger = new Random().nextInt(100) + 1;
+
         // when
         validateIfPositiveNumber(positiveInteger, generateString());
 
         // then nothing happen, which means value are valid
     }
 
-    //as it is part of test
     @Test
     public void validateIfNotEmptyShouldThrowIllegalArgumentExceptionIfNull() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> validateIfNotEmpty(null));
+        assertThrows(IllegalArgumentException.class, () -> validateIfNotEmpty(null));
 
     }
 
     @Test
     public void validateIfNotEmptyShouldThrowIllegalArgumentExceptionIfEmpty() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> validateIfNotEmpty(EMPTY_STRING));
+        assertThrows(IllegalArgumentException.class, () -> validateIfNotEmpty(EMPTY_STRING));
     }
 
     @Test
     public void validateIfNotEmptyShouldValidateForNonEmptyInput() {
         // given
         final String text = generateString();
+
         // when
         validateIfNotEmpty(text);
 
@@ -395,6 +412,7 @@ public class ValidatorUtilsTest {
     public void validateIfNotEmptyShouldThrowIllegalArgumentExceptionIfNullWithCustomObjectName() {
         // given
         final String objectName = generateString(MAX_SMALL_VALUE_RANGE);
+
         // when
         final var exception = assertThrows(IllegalArgumentException.class, () -> validateIfNotEmpty((String) null, objectName));
 
@@ -406,6 +424,7 @@ public class ValidatorUtilsTest {
     public void validateIfNotEmptyShouldThrowIllegalArgumentExceptionIfEmptyWithCustomObjectName() {
         // given
         final String objectName = generateString(MAX_SMALL_VALUE_RANGE);
+
         // when
         final var exception = assertThrows(IllegalArgumentException.class, () -> validateIfNotEmpty(EMPTY_STRING, objectName));
 
@@ -417,6 +436,7 @@ public class ValidatorUtilsTest {
     public void validateIfNotEmptyShouldValidateForNonEmptyInputWithCustomObjectName() {
         // given
         final String text = generateString();
+
         // when
         validateIfNotEmpty(text, UNUSED_OBJECT_NAME);
 
@@ -427,6 +447,7 @@ public class ValidatorUtilsTest {
     public void validateIfListIsNotEmptyShouldThrowIllegalArgumentExceptionIfNullWithCustomObjectName() {
         // given
         final String objectName = generateString(MAX_SMALL_VALUE_RANGE);
+
         // when
         final var exception = assertThrows(IllegalArgumentException.class, () -> validateIfListIsNotEmpty(null, objectName));
 
@@ -452,6 +473,7 @@ public class ValidatorUtilsTest {
         // given
         List<String> list = new ArrayList<>();
         list.add(generateString(MAX_SMALL_VALUE_RANGE));
+
         // when
         validateIfListIsNotEmpty(list, UNUSED_OBJECT_NAME);
 
@@ -480,6 +502,7 @@ public class ValidatorUtilsTest {
     public void validateIfStringArrayIsNotEmptyShouldValidateForNonEmptyStringArray() {
         // given
         final String[] stringArray = {generateString()};
+
         // when
         validateIfStringArrayIsNotEmpty(stringArray);
 
@@ -535,6 +558,7 @@ public class ValidatorUtilsTest {
         System.out.println(Paths.get(".").toAbsolutePath().normalize().toString());
         System.out.println(BASE_PATH);
         System.out.println(path);
+
         // when
         validateIfFileIsAccessible(path);
 
@@ -545,7 +569,7 @@ public class ValidatorUtilsTest {
     @Test
     public void isValueInRangeShouldThrowExceptionIfMinValueIsHigherThanMaxValue() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> isValueInRange(10, 0, 3));
+        assertThrows(IllegalArgumentException.class, () -> isValueInRange(10, 0, 3));
 
     }
 
@@ -553,6 +577,7 @@ public class ValidatorUtilsTest {
     public void isValueInRangeShouldReturnTrueIfIsInRange() {
         // given
         final int valueInRange = 3;
+
         // when
         final boolean result = isValueInRange(START_RANGE, END_RANGE, valueInRange);
 
@@ -564,6 +589,7 @@ public class ValidatorUtilsTest {
     public void isValueInRangeShouldReturnFalseIfValueToSmall() {
         // given
         final int tooSmallValue = -1;
+
         // when
         final boolean result = isValueInRange(START_RANGE, END_RANGE, tooSmallValue);
 
@@ -575,6 +601,7 @@ public class ValidatorUtilsTest {
     public void isValueInRangeShouldReturnFalseIfValueToBig() {
         // given
         final int tooBigValue = 11;
+
         // when
         final boolean result = isValueInRange(START_RANGE, END_RANGE, tooBigValue);
 
@@ -588,6 +615,7 @@ public class ValidatorUtilsTest {
         final int min = 0;
         final int max = 10;
         int[] valuesInRange = {1, 2, 4, 9};
+
         // when
         validateIfValuesIsInRange(min, max, valuesInRange);
 
@@ -600,6 +628,7 @@ public class ValidatorUtilsTest {
         final int min = 10;
         final int max = 0;
         int[] valuesInRange = {1, 2, 4, 9};
+
         // when
         final var exception = assertThrows(IllegalArgumentException.class, () -> validateIfValuesIsInRange(min, max, valuesInRange));
 
@@ -614,6 +643,7 @@ public class ValidatorUtilsTest {
         final int min = 3;
         final int max = 10;
         int[] valuesInRange = {1, 2, 4, 9};
+
         // when
         final var exception = assertThrows(IllegalArgumentException.class, () -> validateIfValuesIsInRange(min, max, valuesInRange));
 
@@ -628,6 +658,7 @@ public class ValidatorUtilsTest {
         final int min = 0;
         final int max = 5;
         int[] valuesInRange = {1, 2, 4, 9};
+
         // when
         final var exception = assertThrows(IllegalArgumentException.class, () -> validateIfValuesIsInRange(min, max, valuesInRange));
 
@@ -642,6 +673,7 @@ public class ValidatorUtilsTest {
         final int min = 0;
         final int max = 5;
         int[] valuesInRange = new int[0];
+
         // when
         final var exception = assertThrows(IllegalArgumentException.class, () -> validateIfValuesIsInRange(min, max, valuesInRange));
 
@@ -665,6 +697,7 @@ public class ValidatorUtilsTest {
         // given
         final int min = 1;
         final int max = 5;
+
         // when
         ValidatorUtils.validateIfSumOfIntegerIsInIntegerValueRange(min, max);
 
@@ -674,14 +707,14 @@ public class ValidatorUtilsTest {
     @Test
     public void validateIfArrayHasSizeOfShouldThrowExceptionIfArrayIsNull() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> validateIfArrayHasSizeOf(randomPositiveInteger(), null, generateString()));
+        assertThrows(IllegalArgumentException.class, () -> validateIfArrayHasSizeOf(randomPositiveInteger(), null, generateString()));
 
     }
 
     @Test
     public void validateIfArrayHasSizeOfShouldThrowExceptionIfSizeIsNegative() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> validateIfArrayHasSizeOf(randomNegativeInteger(), new String[]{generateString()}, generateString()));
+        assertThrows(IllegalArgumentException.class, () -> validateIfArrayHasSizeOf(randomNegativeInteger(), new String[]{generateString()}, generateString()));
 
     }
 
@@ -689,6 +722,7 @@ public class ValidatorUtilsTest {
     public void validateIfArrayHasSizeOfShouldNotThrowExceptionIfArrayLengthIsNotEqualsToSize() {
         // given
         final String what = generateString();
+
         // when
         final var exception = assertThrows(IllegalArgumentException.class, () -> validateIfArrayHasSizeOf(2, new String[]{generateString()}, what));
 
@@ -702,6 +736,7 @@ public class ValidatorUtilsTest {
         // given
         final String[] array = {generateString()};
         final String what = generateString();
+
         // when
         validateIfArrayHasSizeOf(1, array, what);
 
@@ -749,7 +784,6 @@ public class ValidatorUtilsTest {
 
     @Test
     public void validateIfPathIsAccessibleShould() {
-        // expectThrowExceptionForInvalidPath
         // when
         assertThrows(IllegalArgumentException.class, () -> ValidatorUtils.validateIfPathIsAccessible(Path.of("X:/cosmos")));
 
@@ -761,8 +795,9 @@ public class ValidatorUtilsTest {
         final int min = 0;
         final int max = 10;
         final int tooLowNumber = -1;
+
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> ValidatorUtils.validateIfValueIsInRange(min, max, tooLowNumber));
+        assertThrows(IllegalArgumentException.class, () -> ValidatorUtils.validateIfValueIsInRange(min, max, tooLowNumber));
 
     }
 
@@ -772,8 +807,9 @@ public class ValidatorUtilsTest {
         final int min = 0;
         final int max = 10;
         final int tooHighNumber = 11;
+
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> ValidatorUtils.validateIfValueIsInRange(min, max, tooHighNumber));
+        assertThrows(IllegalArgumentException.class, () -> ValidatorUtils.validateIfValueIsInRange(min, max, tooHighNumber));
 
     }
 
@@ -783,6 +819,7 @@ public class ValidatorUtilsTest {
         final int min = 0;
         final int max = 10;
         final int inRangeNumber = 8;
+
         // when
         ValidatorUtils.validateIfValueIsInRange(min, max, inRangeNumber);
     }

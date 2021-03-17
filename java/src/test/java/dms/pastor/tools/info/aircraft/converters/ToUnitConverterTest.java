@@ -12,8 +12,10 @@ public class ToUnitConverterTest {
     public void shouldReturnValueForHigherThat1meters() {
         // given
         final var expectedResult = "64.75m";
+
         // when
         final var result = toMetersAsString(6475);
+
         // then
         assertThat(result).isEqualTo(expectedResult);
     }

@@ -23,6 +23,7 @@ public class ReadSpeedTest {
     public void shouldReturnSpeedAsString() {
         // given
         final String expectedSpeedAsString = "130";
+
         // when
         final String speed = getSpeedAsStringFor(ADULT_SLOW);
 

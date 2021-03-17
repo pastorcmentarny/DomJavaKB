@@ -17,11 +17,17 @@ public class CharacterExercisesTest {
 
     @Test
     public void shouldBe10LInWordLlanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch() {
+        // given
         CharacterExercises test = new CharacterExercises();
         char character = 'l';
         final String word = "Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch";
-        final int actual = test.countCharacterInString(character, word);
         final int result = 11;
+
+        // when
+        final int actual = test.countCharacterInString(character, word);
+
+
+        // then
         assertThat(actual).isEqualTo(result);
     }
 }

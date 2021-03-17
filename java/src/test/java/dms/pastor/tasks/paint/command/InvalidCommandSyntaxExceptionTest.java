@@ -1,9 +1,9 @@
 package dms.pastor.tasks.paint.command;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Author Dominik Symonowicz
@@ -20,8 +20,9 @@ public class InvalidCommandSyntaxExceptionTest {
     public void shouldReturnInvalidCommandSyntaxExceptionWithMessage() {
         // given
         final String reason = "test";
+
         // when
-        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> {
+        final var exception = assertThrows(InvalidCommandSyntaxException.class, () -> {
             throw new InvalidCommandSyntaxException(reason);
         });
 

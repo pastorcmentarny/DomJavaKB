@@ -19,6 +19,7 @@ public class SupplierRunnerTest {
     public void supplierExampleAcceptanceTest() {
         // given
         SupplierRunner example = new SupplierRunner();
+
         // when
         final String result = example.supplierExample();
 

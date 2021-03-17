@@ -41,6 +41,7 @@ public class StringListToStringArrayConverterTest {
         // given
         final List<String> example = List.of("one", "two", "three");
         final String[] expectedResult = new String[]{"one", "two", "three"};
+
         // when
         final String[] result = converter.convert(example);
 

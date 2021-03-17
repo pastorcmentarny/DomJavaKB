@@ -14,6 +14,7 @@ public class BodyTypeTest {
     public void shouldReturnNarrowBodyTypeFromLetterN() {
         // given
         final var narrowBodyLetter = "N";
+
         // when
         final var bodyType = BodyType.getTypeFromLetter(narrowBodyLetter);
 
@@ -30,7 +31,6 @@ public class BodyTypeTest {
 
     @Test
     public void shouldThrowNotFoundExceptionForNotSupportedLetter() {
-
         // given
         final String invalidLetter = "X";
 

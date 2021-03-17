@@ -60,29 +60,29 @@ public class TubeCLITest {
 
     @Test
     public void shouldDisplayMenu() {
-        //given
+        // given
         final String expectedFirstLine = "0. Stats";
         final String expectedLastLine = "9. Exit" + System.lineSeparator();
         given(scanner.nextInt()).willReturn(9);
 
-        //when
+        // when
         cli.mainMenu();
 
-        //then
+        // then
         assertThat(outputStream.toString()).startsWith(expectedFirstLine);
         assertThat(outputStream.toString()).endsWith(expectedLastLine);
     }
 
     @Test
     public void shouldDisplayAllStationStats() {
-        //given
+        // given
         when(scanner.nextInt()).thenReturn(8)
                 .thenReturn(9);
 
-        //when
+        // when
         cli.mainMenu();
 
-        //then
+        // then
         assertThat(outputStream.toString()).contains("Wembley Park" + System.lineSeparator() +
                 "Green Park" + System.lineSeparator() +
                 ELM_PARK_VALID_STATION + System.lineSeparator());
@@ -90,14 +90,14 @@ public class TubeCLITest {
 
     @Test
     public void shouldDisplayStatusForAllStations() {
-        //given
+        // given
         when(scanner.nextInt()).thenReturn(1)
                 .thenReturn(9);
 
-        //when
+        // when
         cli.mainMenu();
 
-        //then
+        // then
         assertThat(outputStream.toString()).contains("Wembley Park was visited at " + LocalDate.now() + System.lineSeparator() +
                 "Green Park was passed at " + LocalDate.now() + System.lineSeparator() +
                 "Elm Park was not visited" + System.lineSeparator());
@@ -105,15 +105,15 @@ public class TubeCLITest {
 
     @Test
     public void findStationShouldDisplayInfoAboutWembleyPark() {
-        //given
+        // given
         when(scanner.nextInt()).thenReturn(2)
                 .thenReturn(9);
         when(scanner.next()).thenReturn("Wembley Park");
 
-        //when
+        // when
         cli.mainMenu();
 
-        //then
+        // then
         assertThat(outputStream.toString()).contains("Wembley Park was visited");
 
     }
@@ -126,7 +126,7 @@ public class TubeCLITest {
                 .thenReturn(9);
         when(scanner.next()).thenReturn(invalidStationName);
 
-        //when
+        // when
         cli.mainMenu();
 
         // then
@@ -141,7 +141,7 @@ public class TubeCLITest {
         when(scanner.next()).thenReturn(ELM_PARK_VALID_STATION);
         when(scanner.nextLine()).thenReturn(ELM_PARK_VALID_STATION);
 
-        //when
+        // when
         cli.mainMenu();
 
         // then
@@ -158,7 +158,7 @@ public class TubeCLITest {
                 .thenReturn(9);
         when(scanner.next()).thenReturn(invalidStationName);
 
-        //when
+        // when
         cli.mainMenu();
 
         // then
@@ -173,7 +173,7 @@ public class TubeCLITest {
         when(scanner.next()).thenReturn(ELM_PARK_VALID_STATION);
         when(scanner.nextLine()).thenReturn(ELM_PARK_VALID_STATION);
 
-        //when
+        // when
         cli.mainMenu();
 
         // then

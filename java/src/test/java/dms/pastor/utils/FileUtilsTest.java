@@ -1,7 +1,6 @@
 package dms.pastor.utils;
 
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -14,6 +13,7 @@ import static dms.pastor.utils.file.TextFileUtils.loadFileFromResourceAsString;
 import static dms.pastor.utils.file.TextFileUtils.saveListToFile;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Author Dominik Symonowicz
@@ -38,18 +38,18 @@ public class FileUtilsTest {
 
     }
 
-    // part of the test
+
     @Test
     public void shouldThrowIllegalArgumentExceptionIfPathIsNullInReadRawDataTest() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> readRawData(null));
+        assertThrows(IllegalArgumentException.class, () -> readRawData(null));
 
     }
 
     @Test
     public void shouldThrowExceptionIfFileNotExistsInRawDataReadTest() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> readRawData(EMPTY_STRING));
+        assertThrows(IllegalArgumentException.class, () -> readRawData(EMPTY_STRING));
 
     }
 
@@ -58,8 +58,10 @@ public class FileUtilsTest {
     public void shouldRawDataReadTest() {
         // given
         final String expected = "This is a default test filetesttest";
+
         // when
         final String rawData = readRawData(DEFAULT_PATH);
+
         // when
         assertThat(rawData).isEqualToIgnoringCase(expected);
     }
@@ -74,6 +76,7 @@ public class FileUtilsTest {
             assertThat(deleted).isTrue();
         }
         assertThat(new File(LOCK_FILE).exists()).isFalse();
+
         // when
         lock();
 
@@ -92,6 +95,7 @@ public class FileUtilsTest {
         }
         boolean isLockExists = new File(LOCK_FILE).exists();
         assertThat(isLockExists).isTrue();
+
         // when
         unlockFile();
 
@@ -107,6 +111,7 @@ public class FileUtilsTest {
         final String[] stringList = new String[]{"1", "2", "3"};
         final File file = File.createTempFile("test", ".txt");
         final String filePath = file.getAbsolutePath();
+
         // when
         final boolean isFileSaved = saveListToFile(stringList, filePath);
 
@@ -122,6 +127,7 @@ public class FileUtilsTest {
     public void shouldReturnTrueWhenAllFilesExists() {
         // given
         String[] files = new String[]{DEFAULT_PATH, DEFAULT_PATH};
+
         // when
         final boolean exists = isFilesExists(files);
 
@@ -133,6 +139,7 @@ public class FileUtilsTest {
     public void shouldReturnFalseWhenOneOfFilesDoesNotExists() {
         // given
         String[] files = new String[]{DEFAULT_PATH, generateString(), DEFAULT_PATH};
+
         // when
         final boolean exists = isFilesExists(files);
 
@@ -140,7 +147,7 @@ public class FileUtilsTest {
         assertThat(exists).isFalse();
     }
 
-    @SuppressWarnings("ConstantConditions") // part of the test
+    @SuppressWarnings("ConstantConditions")
     @Test
     public void shouldReturnFalseWhenListIsNull() {
         // when
@@ -163,8 +170,10 @@ public class FileUtilsTest {
     public void shouldLoadExampleTxtFromResourceAsString() {
         // given
         final var path = "test/test.txt";
+
         // when
         final var result = loadFileFromResourceAsString(path);
+
         // then
         assertThat(result).startsWith("This is a default test file");
         assertThat(result).endsWith("test");
@@ -174,32 +183,33 @@ public class FileUtilsTest {
     @Test
     public void loadFileFromResourceAsStringShouldThrowExceptionIfPathIsNull() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> loadFileFromResourceAsString(null));
+        assertThrows(IllegalArgumentException.class, () -> loadFileFromResourceAsString(null));
     }
 
     @Test
     public void loadFileFromResourceAsStringShouldThrowExceptionIfPathIsInvalid() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> loadFileFromResourceAsString("invalid path"));
+        assertThrows(IllegalArgumentException.class, () -> loadFileFromResourceAsString("invalid path"));
 
     }
 
     @Test
     public void shouldThrowExceptionIfPathIsNull() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> getPathToResource(null));
+        assertThrows(IllegalArgumentException.class, () -> getPathToResource(null));
     }
 
     @Test
     public void shouldThrowExceptionIfPathIsInvalid() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> getPathToResource(generateString(32)));
+        assertThrows(IllegalArgumentException.class, () -> getPathToResource(generateString(32)));
     }
 
     @Test
     public void shouldGetPathToResource() {
         // given
         final var pathToResource = "test/test.txt";
+
         // when
         final var path = getPathToResource(pathToResource);
 

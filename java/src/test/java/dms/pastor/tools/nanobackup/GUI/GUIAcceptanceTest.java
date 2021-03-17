@@ -55,6 +55,7 @@ public class GUIAcceptanceTest {
         final GUI gui = new GUI();
         gui.setVisible(true);
         gui.closeWindow();
+
         // then
         verify(mockAppender, atLeast(6)).doAppend(captorLoggingEvent.capture());
         final ILoggingEvent loggingEvent = captorLoggingEvent.getValue();

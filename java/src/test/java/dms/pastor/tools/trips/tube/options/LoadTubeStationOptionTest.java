@@ -40,6 +40,7 @@ public class LoadTubeStationOptionTest {
     public void shouldLoadStationsFromFile() {
         // given
         final Option loadStationOption = new LoadStationOption();
+
         // when
         loadStationOption.choose(stationsBuilder().build());
 

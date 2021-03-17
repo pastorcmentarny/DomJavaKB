@@ -54,6 +54,7 @@ public class AboutAcceptanceTest {
         final About aboutGui = new About();
         aboutGui.setVisible(true);
         aboutGui.closeWindow();
+
         // then
         verify(mockAppender, atLeast(2)).doAppend(captorLoggingEvent.capture());
         final ILoggingEvent loggingEvent = captorLoggingEvent.getValue();

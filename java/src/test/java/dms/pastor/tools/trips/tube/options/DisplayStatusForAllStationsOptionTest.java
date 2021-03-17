@@ -42,6 +42,7 @@ public class DisplayStatusForAllStationsOptionTest {
         // given
         final DisplayStatusForAllStationsOption displayStatusForAllStationsOption = new DisplayStatusForAllStationsOption();
         final Stations stations = stationsBuilder().build();
+
         // when
         displayStatusForAllStationsOption.choose(stations);
 

@@ -43,6 +43,7 @@ public class UndoCommandTest extends AbstractCommandTest {
     public void setParamsIfValidShouldInvalidCommandSyntaxExceptionIfParamsAreInvalid() {
         // given
         final String[] params = {UNDO_COMMAND, "?", "1"};
+
         // when
         final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> undoCommand.setParamsIfValid(params));
 
@@ -54,6 +55,7 @@ public class UndoCommandTest extends AbstractCommandTest {
     public void setParamsIfValidShouldValidate() {
         // given
         final String[] params = {UNDO_COMMAND};
+
         // when
         undoCommand.setParamsIfValid(params);
 
@@ -74,6 +76,7 @@ public class UndoCommandTest extends AbstractCommandTest {
         expectedCanvas.updatePixelAt(Point.of(1, 2, "x"));
         // when
         undoCommand.execute(canvas);
+
         // then
         assertThat(canvas.getCanvasAsString()).isEqualTo(expectedCanvas.getCanvasAsString());
     }

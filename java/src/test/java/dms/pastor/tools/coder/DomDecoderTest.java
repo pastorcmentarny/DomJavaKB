@@ -29,8 +29,6 @@ public class DomDecoderTest {
 
     @Test
     public void shouldThrowInvalidArgumentExceptionIfDataIsNull() {
-
-
         // given
         decoder = new DomDecoder(null);
         // when
@@ -42,6 +40,7 @@ public class DomDecoderTest {
     public void shouldDecodeData() {
         // given
         final String expectedEncodedData = "plainString#256";
+
         // when
         String encodedData = decoder.decode();
 

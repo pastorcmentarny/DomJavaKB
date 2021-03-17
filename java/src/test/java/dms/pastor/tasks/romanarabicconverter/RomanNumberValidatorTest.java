@@ -2,6 +2,7 @@ package dms.pastor.tasks.romanarabicconverter;
 
 import org.junit.jupiter.api.Test;
 
+import static dms.pastor.tasks.romanarabicconverter.RomanNumberValidator.isValidRomanNumber;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -18,42 +19,42 @@ public class RomanNumberValidatorTest {
 
     @Test
     public void testIfIWorks() {
-        assertThat(RomanNumberValidator.isValidRomanNumber("I")).isTrue();
+        assertThat(isValidRomanNumber("I")).isTrue();
     }
 
     @Test
     public void testIfValidRomanNumberWorks() {
-        assertThat(RomanNumberValidator.isValidRomanNumber("IV")).isTrue();
+        assertThat(isValidRomanNumber("IV")).isTrue();
     }
 
     @Test
     public void testIfMDCLXIVWorks() {
-        assertThat(RomanNumberValidator.isValidRomanNumber("MDCLXIV")).isTrue();//1664
+        assertThat(isValidRomanNumber("MDCLXIV")).isTrue();//1664
     }
 
     @Test
     public void testIfNullStringProduceFalse() {
-        assertThat(RomanNumberValidator.isValidRomanNumber(null)).isFalse();
+        assertThat(isValidRomanNumber(null)).isFalse();
     }
 
     @Test
     public void testIfEmptyStringProduceFalse() {
-        assertThat(RomanNumberValidator.isValidRomanNumber(EMPTY_STRING)).isFalse();
+        assertThat(isValidRomanNumber(EMPTY_STRING)).isFalse();
     }
 
     @Test
     public void testIfNonRomanCharacterOnlyProduceFalse() {
-        assertThat(RomanNumberValidator.isValidRomanNumber("UFO")).isFalse();
+        assertThat(isValidRomanNumber("UFO")).isFalse();
     }
 
     @Test
     public void testIFMixedRomanAndNonRomanCharactersProducesFalse() {
-        assertThat(RomanNumberValidator.isValidRomanNumber("VIXEN")).isFalse();
+        assertThat(isValidRomanNumber("VIXEN")).isFalse();
     }
 
     @Test
     public void testIfNumberProducesFalse() {
-        assertThat(RomanNumberValidator.isValidRomanNumber("100")).isFalse();
+        assertThat(isValidRomanNumber("100")).isFalse();
     }
 
     @Test

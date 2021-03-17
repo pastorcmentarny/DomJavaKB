@@ -22,6 +22,7 @@ class MathOperationExamplesTest {
     public void subtractionAcceptanceTest() {
         // given
         MathOperation subtraction = (a, b) -> a - b;
+
         // when
         var result = subtraction.operation(4, 2);
 
@@ -33,6 +34,7 @@ class MathOperationExamplesTest {
     public void multiplicationAcceptanceTest() {
         // given
         MathOperation multiplication = (a, b) -> a * b;
+
         // when
         var result = multiplication.operation(4, 2);
 
@@ -44,6 +46,7 @@ class MathOperationExamplesTest {
     public void divisionAcceptanceTest() {
         // given
         MathOperation division = (a, b) -> a / b;
+
         // when
         var result = division.operation(4, 2);
 

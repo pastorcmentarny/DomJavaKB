@@ -21,10 +21,10 @@ public class FirstPrimeFinderTest {
 
     @Test
     public void findShouldReturnPrimeNumberIfInputWithPrimeNumberAcceptanceCriteria() {
-
         // given
         final int primeNumber = 7;
         final int expectedResult = 7;
+
         // when
         final int result = firstPrimeFinder.find(primeNumber);
 
@@ -34,9 +34,9 @@ public class FirstPrimeFinderTest {
 
     @Test
     public void findShouldReturn0IfInputWithNonPrimeNumberAcceptanceCriteria() {
-
         // given
         final int primeNumber = 4;
+
         // when
         final int result = firstPrimeFinder.find(primeNumber);
 
@@ -46,10 +46,10 @@ public class FirstPrimeFinderTest {
 
     @Test
     public void findShouldReturn7IfInputWith7AcceptanceCriteria() {
-
         // given
         final int primeNumber = 7;
         final int expectedLine = 7;
+
         // when
         final int result = firstPrimeFinder.find(primeNumber);
 
@@ -63,6 +63,7 @@ public class FirstPrimeFinderTest {
         // given
         final int[] primeNumbers = new int[]{4, 5, 17, 2, 51, 17, 32, 54, 2, 4, 6, 108};
         final int expectedLine = 79;
+
         // when
         final int result = firstPrimeFinder.find(primeNumbers);
 
@@ -75,6 +76,7 @@ public class FirstPrimeFinderTest {
 
         // given
         final int[] primeNumbers = new int[]{62, 3, 25, 2, 78, 7, 44, 28, 19, 774};
+
         // when
         final int result = firstPrimeFinder.find(primeNumbers);
 
@@ -86,6 +88,7 @@ public class FirstPrimeFinderTest {
     public void findShouldThrowExceptionIfAnyNumberIsNotPositiveAcceptanceCriteria() {
         // given
         final int[] primeNumbers = new int[]{62, 3, 25, 2, 78, -7, 44, 28, -19, 774};
+
         // when
         Assertions.assertThrows(IllegalArgumentException.class, () -> firstPrimeFinder.find(primeNumbers));
     }

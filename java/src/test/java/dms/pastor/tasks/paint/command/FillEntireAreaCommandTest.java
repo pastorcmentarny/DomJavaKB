@@ -62,6 +62,7 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
         final Canvas canvas = createCanvasFor(1, 1);
         final String[] params = {fillEntireAreaCommand.getSyntax(), SQUARE_WITH_LENGTH_1_AS_STRING, SQUARE_WITH_LENGTH_1_AS_STRING, FILL_CHARACTER};
         fillEntireAreaCommand.setParamsIfValid(params);
+
         // when
         fillEntireAreaCommand.execute(canvas);
 
@@ -78,6 +79,7 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
         final String length = "2";
         final String[] params = {fillEntireAreaCommand.getSyntax(), length, length, FILL_CHARACTER};
         fillEntireAreaCommand.setParamsIfValid(params);
+
         // when
         fillEntireAreaCommand.execute(canvas);
 
@@ -91,6 +93,7 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
         final Canvas canvas = createCanvasFor(SQUARE_WITH_LENGTH_3, SQUARE_WITH_LENGTH_3);
         final String[] params = {fillEntireAreaCommand.getSyntax(), SQUARE_WITH_LENGTH_1_AS_STRING, SQUARE_WITH_LENGTH_1_AS_STRING, FILL_CHARACTER};
         fillEntireAreaCommand.setParamsIfValid(params);
+
         // when
         fillEntireAreaCommand.execute(canvas);
 
@@ -104,6 +107,7 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
         final Canvas canvas = createCanvasFor(SQUARE_WITH_LENGTH_3, SQUARE_WITH_LENGTH_3);
         final String[] params = {fillEntireAreaCommand.getSyntax(), SQUARE_WITH_LENGTH_1_AS_STRING, SQUARE_WITH_LENGTH_3_AS_STRING, FILL_CHARACTER};
         fillEntireAreaCommand.setParamsIfValid(params);
+
         // when
         fillEntireAreaCommand.execute(canvas);
 
@@ -117,6 +121,7 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
         final Canvas canvas = createCanvasFor(SQUARE_WITH_LENGTH_3, SQUARE_WITH_LENGTH_3);
         final String[] params = {fillEntireAreaCommand.getSyntax(), SQUARE_WITH_LENGTH_3_AS_STRING, SQUARE_WITH_LENGTH_1_AS_STRING, FILL_CHARACTER};
         fillEntireAreaCommand.setParamsIfValid(params);
+
         // when
         fillEntireAreaCommand.execute(canvas);
 
@@ -130,6 +135,7 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
         final Canvas canvas = createCanvasFor(SQUARE_WITH_LENGTH_3, SQUARE_WITH_LENGTH_3);
         final String[] params = {fillEntireAreaCommand.getSyntax(), SQUARE_WITH_LENGTH_3_AS_STRING, SQUARE_WITH_LENGTH_3_AS_STRING, FILL_CHARACTER};
         fillEntireAreaCommand.setParamsIfValid(params);
+
         // when
         fillEntireAreaCommand.execute(canvas);
 
@@ -152,6 +158,7 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
         image[4][4] = EXISTING_POINT;
         final String[] params = {fillEntireAreaCommand.getSyntax(), SQUARE_WITH_LENGTH_3_AS_STRING, SQUARE_WITH_LENGTH_3_AS_STRING, FILL_CHARACTER};
         fillEntireAreaCommand.setParamsIfValid(params);
+
         // when
         fillEntireAreaCommand.execute(canvas);
 
@@ -180,6 +187,7 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
         image[4][4] = EXISTING_POINT;
         final String[] params = {fillEntireAreaCommand.getSyntax(), SQUARE_WITH_LENGTH_1_AS_STRING, SQUARE_WITH_LENGTH_1_AS_STRING, FILL_CHARACTER};
         fillEntireAreaCommand.setParamsIfValid(params);
+
         // when
         fillEntireAreaCommand.execute(canvas);
 
@@ -209,6 +217,7 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
         image[2][5] = EXISTING_POINT;
         final String[] params = {fillEntireAreaCommand.getSyntax(), SQUARE_WITH_LENGTH_1_AS_STRING, SQUARE_WITH_LENGTH_1_AS_STRING, FILL_CHARACTER};
         fillEntireAreaCommand.setParamsIfValid(params);
+
         // when
         fillEntireAreaCommand.execute(canvas);
 
@@ -226,6 +235,7 @@ public class FillEntireAreaCommandTest extends AbstractCommandTest {
     public void executeShouldDontFillAnythingIfNoCanvas() {
         // given
         final Canvas canvas = noCanvas();
+
         // when
         fillEntireAreaCommand.execute(canvas);
 

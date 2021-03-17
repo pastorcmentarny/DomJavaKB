@@ -58,8 +58,8 @@ public class StopWatchTest {
         stopWatch.stop();
 
         // then
-
         assertThat(stopWatch.calcTotalTime()).isGreaterThanOrEqualTo(250L);
+
         // when
         latch.await(100, MILLISECONDS);
 
@@ -72,6 +72,7 @@ public class StopWatchTest {
         // given
         stopWatch.setStart(200);
         stopWatch.setFinish(400);
+
         // when
         final long time = stopWatch.calcTotalTime();
 
@@ -84,6 +85,7 @@ public class StopWatchTest {
         // given
         stopWatch.setStart(TW0_SECOND);
         stopWatch.setFinish(FIVE_SECONDS);
+
         // when
         final String time = stopWatch.displayTime();
 
@@ -96,6 +98,7 @@ public class StopWatchTest {
         // given
         stopWatch.setStart(TW0_SECOND);
         stopWatch.setFinish(FIVE_SECONDS);
+
         // when
         final String timeString = stopWatch.getResultTimeAsString();
 
@@ -108,6 +111,7 @@ public class StopWatchTest {
         // given
         stopWatch.setStart(TW0_SECOND);
         stopWatch.setFinish(FIVE_SECONDS);
+
         // when
         stopWatch.resetTimer();
 

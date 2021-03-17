@@ -75,6 +75,7 @@ public class ReverseStringInManyWaysExerciseTest {
     public void reverseStringWithoutLibrariesShouldReturnSameStringIfLengthIsOne() {
         // given
         final String oneCharacterString = getRandomCharacterAsString();
+
         // when
         final String result = reverseStringWithoutLibraries(oneCharacterString);
 
@@ -103,6 +104,7 @@ public class ReverseStringInManyWaysExerciseTest {
         // given
         final String string = "dOg";
         final String reversedString = "gOd";
+
         // when
         final String result = reversStringViaChar(string);
 

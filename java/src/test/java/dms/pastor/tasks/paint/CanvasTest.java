@@ -54,6 +54,7 @@ public class CanvasTest {
         // given
         final int width = DEFAULT_WIDTH;
         final int height = DEFAULT_HEIGHT;
+
         // when
         final Canvas canvas = createCanvasFor(width, height);
 
@@ -75,6 +76,7 @@ public class CanvasTest {
                         "|      |" + System.lineSeparator() +
                         "|      |" + System.lineSeparator() +
                         "--------" + System.lineSeparator();
+
         // when
         final String image = canvas.getCanvasAsString();
 
@@ -94,6 +96,7 @@ public class CanvasTest {
                         "|  |" + System.lineSeparator() +
                         "|  |" + System.lineSeparator() +
                         "----" + System.lineSeparator();
+
         // when
         final String image = canvas.getCanvasAsString();
 
@@ -111,6 +114,7 @@ public class CanvasTest {
                 "---" + System.lineSeparator() +
                         "| |" + System.lineSeparator() +
                         "---" + System.lineSeparator();
+
         // when
         final String image = canvas.getCanvasAsString();
 
@@ -132,6 +136,7 @@ public class CanvasTest {
                         "|     |" + System.lineSeparator() +
                         "|     |" + System.lineSeparator() +
                         "-------" + System.lineSeparator();
+
         // when
         final String image = canvas.getCanvasAsString();
 
@@ -153,6 +158,7 @@ public class CanvasTest {
     public void drawShouldReturnEmptyStringForNoCanvas() {
         // given
         Canvas canvas = noCanvas();
+
         // when
         final String image = canvas.getCanvasAsString();
 
@@ -165,6 +171,7 @@ public class CanvasTest {
         // given
         final int width = 8;
         final int height = 6;
+
         // when
         canvas.recreateCanvas(width, height);
 
@@ -190,6 +197,7 @@ public class CanvasTest {
     public void getCoordinatesAsStringShouldReturnEmptyStringIfCanvasIsNotSet() {
         // given
         Canvas canvas = noCanvas();
+
         // when
         final String coordinatesAsString = canvas.getCoordinatesAsString();
 
@@ -202,6 +210,7 @@ public class CanvasTest {
         // given
         final Canvas canvas = createCanvasFor(DEFAULT_WIDTH, DEFAULT_HEIGHT);
         final String expectedResult = "Width: 6 Height: 4";
+
         // when
         final String coordinatesAsString = canvas.getCoordinatesAsString();
 
@@ -213,6 +222,7 @@ public class CanvasTest {
     public void isCanvasReturnsTrueForCreatedCanvas() {
         // given
         final Canvas canvas = createCanvasFor(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+
         // when
         final boolean result = canvas.isCanvas();
 
@@ -224,6 +234,7 @@ public class CanvasTest {
     public void isCanvasReturnsFalseIfCanvasWasNotCreated() {
         // given
         final Canvas canvas = noCanvas();
+
         // when
         final boolean result = canvas.isCanvas();
 
@@ -235,6 +246,7 @@ public class CanvasTest {
     public void isNoCanvasReturnsFalseForCreatedCanvas() {
         // given
         final Canvas canvas = createCanvasFor(4, DEFAULT_HEIGHT);
+
         // when
         final boolean result = canvas.isNoCanvas();
 
@@ -246,6 +258,7 @@ public class CanvasTest {
     public void isNoCanvasReturnsTrueIfCanvasWasNotCreated() {
         // given
         final Canvas canvas = noCanvas();
+
         // when
         final boolean result = canvas.isNoCanvas();
 
@@ -260,6 +273,7 @@ public class CanvasTest {
         final String expectedImage = canvas.getCanvasAsString();
         canvas.saveState();
         canvas.updatePixelAt(Point.of(1, 1, "x"));
+
         // when
         canvas.undo();
 
@@ -276,6 +290,7 @@ public class CanvasTest {
         canvas.saveState();
         final String expectedImage = canvas.getCanvasAsString();
         canvas.undo();
+
         // when
         canvas.redo();
 
@@ -294,6 +309,7 @@ public class CanvasTest {
         canvas.updatePixelAt(Point.of(3, 3, "N"));
         canvas.updatePixelAt(Point.of(2, 3, "I"));
         canvas.updatePixelAt(Point.of(1, 3, "K"));
+
         // when
         final String result = canvas.getCanvasAsString();
 

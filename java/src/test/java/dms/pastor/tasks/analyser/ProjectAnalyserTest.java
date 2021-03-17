@@ -35,7 +35,6 @@ public class ProjectAnalyserTest {
 
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenPathIsInvalid() {
-        //
         Assertions.assertThrows(IllegalArgumentException.class, () -> new ProjectAnalyser().analyse(generateString(10)));
     }
 

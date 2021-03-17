@@ -1,10 +1,10 @@
 package dms.pastor.tools.info.aircraft;
 
 import dms.pastor.domain.exception.NotFoundException;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class RoleTest {
 
@@ -12,6 +12,7 @@ public class RoleTest {
     public void shouldReturnNarrowBodyTypeFromLetterN() {
         // given
         final var longHaulRoleLetter = "L";
+
         // when
         final var role = Role.getTypeFromLetter(longHaulRoleLetter);
 
@@ -22,7 +23,7 @@ public class RoleTest {
     @Test
     public void shouldThrowInvalidArgumentExceptionIfLetterIsNull() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> Role.getTypeFromLetter(null));
+        assertThrows(IllegalArgumentException.class, () -> Role.getTypeFromLetter(null));
     }
 
     @Test
@@ -30,7 +31,7 @@ public class RoleTest {
         // given
         final String invalidLetter = "X";
         // when
-        Assertions.assertThrows(NotFoundException.class, () -> Role.getTypeFromLetter(invalidLetter));
+        assertThrows(NotFoundException.class, () -> Role.getTypeFromLetter(invalidLetter));
 
     }
 

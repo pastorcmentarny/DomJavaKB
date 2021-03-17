@@ -21,6 +21,7 @@ public class PseudoPinyinTypeTest {
     public void containsShouldReturnTrueIfPseudoTypeIsValid() {
         // given
         String type = PseudoPinyinType.CHARACTER.name();
+
         // when
         final boolean result = PseudoPinyinType.contains(type);
 
@@ -32,6 +33,7 @@ public class PseudoPinyinTypeTest {
     public void containsShouldReturnTrueIfPseudoTypeIsNotValid() {
         // given
         String type = generateString();
+
         // when
         final boolean result = PseudoPinyinType.contains(type);
 
@@ -43,6 +45,7 @@ public class PseudoPinyinTypeTest {
     public void notContainsShouldReturnFalseIfPseudoTypeIsValid() {
         // given
         String type = PseudoPinyinType.CHARACTER.name();
+
         // when
         final boolean result = PseudoPinyinType.isNotContain(type);
 
@@ -54,6 +57,7 @@ public class PseudoPinyinTypeTest {
     public void notContainsShouldReturnTrueIfPseudoTypeIsNotValid() {
         // given
         String type = generateString();
+
         // when
         final boolean result = PseudoPinyinType.isNotContain(type);
 
@@ -65,6 +69,7 @@ public class PseudoPinyinTypeTest {
     public void shouldDisplayAllTypes() {
         // given
         final String expectedResult = "number,character";
+
         // when
         final String supportedType = displaySupportedType();
 

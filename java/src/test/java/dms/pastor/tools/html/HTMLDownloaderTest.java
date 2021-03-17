@@ -1,6 +1,5 @@
 package dms.pastor.tools.html;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -10,6 +9,7 @@ import static dms.pastor.tools.html.HTMLDownloader.download;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.file.TextFileUtils.saveTextToFile;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Author Dominik Symonowicz
@@ -29,6 +29,7 @@ public class HTMLDownloaderTest {
         // given
         final String content = download(URL);
         System.out.println(content);
+
         // when
         final boolean fileSaved = saveTextToFile(content, "example.txt");
 
@@ -38,14 +39,14 @@ public class HTMLDownloaderTest {
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenUrlIsNullTest() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> download(null));
+        assertThrows(IllegalArgumentException.class, () -> download(null));
 
     }
 
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenUrlIsEmptyTest() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> download(EMPTY_STRING));
+        assertThrows(IllegalArgumentException.class, () -> download(EMPTY_STRING));
 
     }
 

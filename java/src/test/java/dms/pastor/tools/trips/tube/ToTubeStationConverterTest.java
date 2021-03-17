@@ -31,6 +31,7 @@ public class ToTubeStationConverterTest {
 
         final String stationAsString = "Chesham;;V;;" + PASSED_DATE + FIELD_SEPARATOR + VISITED_DATE + FIELD_SEPARATOR + THIS_YEAR_VISITED_DATE + FIELD_SEPARATOR + "Y";
         final TubeStation expectedTubeStation = new TubeStation("Chesham", VISITED, PASSED_DATE, VISITED_DATE, THIS_YEAR_VISITED_DATE, BLOGGED);
+
         // when
         final TubeStation tubeStation = ToStationConverter.convert(stationAsString);
 
@@ -42,6 +43,7 @@ public class ToTubeStationConverterTest {
     public void getStatusAsValue() {
         // given
         final TubeStation tubeStation = new TubeStation("Amersham", VISITED, PASSED_DATE, VISITED_DATE, THIS_YEAR_VISITED_DATE, BLOGGED);
+
         // when
         final String result = tubeStation.getStatusAsValue();
 
@@ -53,6 +55,7 @@ public class ToTubeStationConverterTest {
     public void asLine() {
         // given
         final TubeStation tubeStation = new TubeStation("Amersham", VISITED, PASSED_DATE, VISITED_DATE, THIS_YEAR_VISITED_DATE, BLOGGED);
+
         // when
         final String result = tubeStation.getStatusAsValue();
 

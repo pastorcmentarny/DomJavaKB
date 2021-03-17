@@ -17,8 +17,10 @@ public class CrapCounterTest {
         // given
         data = new Data(emptyList(), emptyList());
         counter = new CrapCounter(data);
+
         // when
         CounterResult counterResult = counter.count();
+
         // then
         assertThat(counterResult).isEqualTo(CounterResult.noResult());
     }
@@ -47,6 +49,7 @@ public class CrapCounterTest {
 
         data = new Data(crapWordList, jobWordList);
         counter = new CrapCounter(data);
+
         // when
         CounterResult counterResult = counter.count();
 
@@ -62,6 +65,7 @@ public class CrapCounterTest {
 
         data = new Data(crapWordList, jobWordList);
         counter = new CrapCounter(data);
+
         // when
         CounterResult counterResult = counter.count();
 
@@ -77,6 +81,7 @@ public class CrapCounterTest {
 
         data = new Data(crapWordList, jobWordList);
         counter = new CrapCounter(data);
+
         // when
         CounterResult counterResult = counter.count();
 

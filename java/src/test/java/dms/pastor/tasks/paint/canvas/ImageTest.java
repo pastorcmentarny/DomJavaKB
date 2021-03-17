@@ -37,6 +37,7 @@ public class ImageTest {
     public void isCreatedShouldReturnTrueIfImageIsCreated() {
         // given
         Image image = getTestImage();
+
         // when
         final boolean result = image.isCreated();
 
@@ -48,6 +49,7 @@ public class ImageTest {
     public void isCreatedShouldReturnFalseIfImageIsInNoImageState() {
         // given
         Image image = noImage();
+
         // when
         final boolean result = image.isCreated();
 
@@ -59,9 +61,11 @@ public class ImageTest {
     public void getPreviousPixelForThrowExceptionForLengthZero() {
         // given
         Image image = getTestImage();
+
         // when
         final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> image.getPreviousPixelFor(0));
 
+        // then
         assertThat(exception.getMessage()).isEqualTo("Length 0 is invalid because previous pixel will be out of range.");
     }
 
@@ -70,9 +74,11 @@ public class ImageTest {
         // given
         Image image = getTestImage();
         final int length = randomNegativeInteger();
+
         // when
         final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> image.getPreviousPixelFor(length));
 
+        // then
         assertThat(exception.getMessage()).isEqualTo("Length " + length + " is invalid because previous pixel will be out of range.");
     }
 
@@ -81,6 +87,7 @@ public class ImageTest {
         // given
         Image image = getTestImage();
         final int length = 5;
+
         // when
         final int previousPixel = image.getPreviousPixelFor(length);
 
@@ -92,6 +99,7 @@ public class ImageTest {
     public void resetToNoImageShouldReturnNoImage() {
         // given
         Image image = getTestImage();
+
         // when
         image.resetToNoImage();
 
@@ -103,6 +111,7 @@ public class ImageTest {
     public void setPixelAtShouldSetPixelAtSpecifiedDimension() {
         // given
         Image image = getTestImage();
+
         // when
         image.resetToNoImage();
 
@@ -118,6 +127,7 @@ public class ImageTest {
         final int height = 2;
         final String fillPixel = "x";
         image.setPixel(width, height, fillPixel);
+
         // when
         final String pixel = image.getPixelAt(width, height);
 
@@ -129,6 +139,7 @@ public class ImageTest {
     public void setPixelShouldThrowInvalidArgumentExceptionIfStringLengthIsNull() {
         // given
         Image image = getTestImage();
+
         // when
         final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> image.setPixel(1, 1, null));
 
@@ -142,9 +153,11 @@ public class ImageTest {
         // given
         Image image = getTestImage();
         final String tooLongString = "ufo";
+
         // when
         final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> image.setPixel(1, 1, tooLongString));
 
+        // then
         assertThat(exception.getMessage()).isEqualTo(format("It must have one character but it has %d", tooLongString.length()));
 
     }
@@ -153,6 +166,7 @@ public class ImageTest {
     public void cloneShouldReturnCopyOfCurrentImage() {
         // given
         Image image = getTestImage();
+
         // when
         final Image copyOfImage = new Image(image.getWidth(), image.getHeight(), image.getImage());
 
@@ -164,6 +178,7 @@ public class ImageTest {
     public void getImageAsStringShouldReturnEmptyIfHeightIsEmpty() {
         // given
         final Image image = new Image(WIDTH, 0);
+
         // when
         final String imageAsString = image.getImageAsString();
 
@@ -175,6 +190,7 @@ public class ImageTest {
     public void getImageAsStringShouldReturnEmptyIfWeightIsEmpty() {
         // given
         final Image image = new Image(0, HEIGHT);
+
         // when
         final String imageAsString = image.getImageAsString();
 

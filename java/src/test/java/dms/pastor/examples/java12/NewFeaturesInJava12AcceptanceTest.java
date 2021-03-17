@@ -10,6 +10,7 @@ class NewFeaturesInJava12AcceptanceTest {
     void returnsClassForAnArrayTypeAcceptanceTest() {
         // given
         var expectedResult = "class [Ljava.lang.String;";
+
         // when
         var result = NewFeaturesInJava12.returnsClassForAnArrayType();
 
@@ -24,6 +25,7 @@ class NewFeaturesInJava12AcceptanceTest {
     void stringIntentMethodAcceptanceTest() {
         // given
         var expectedResult = "   Dominik\n";
+
         // when
         var result = NewFeaturesInJava12.stringIntentMethod();
 
@@ -39,6 +41,7 @@ class NewFeaturesInJava12AcceptanceTest {
         // given
         var expectedResult = "short: 1K long: 1 thousand\n" +
                 "short: 1M long: 1 million";
+
         // when
         var result = NewFeaturesInJava12.compactNumberFormat();
 

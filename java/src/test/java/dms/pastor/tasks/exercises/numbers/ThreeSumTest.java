@@ -28,17 +28,18 @@ public class ThreeSumTest {
         // given
         final StopWatch timer = new StopWatch();
         timer.start();
+
         // when
         int answer = threeSum.brutalForceCounter(testValues);
         timer.stop();
-
-        // then
-        assertThat(answer).isEqualTo(4);
 
         // debug
         LOGGER.info("\nValues:\t " + ArrayUtils.getIntArrayAsString(testValues) +
                 "\nAnswer " + answer + " triples sum that equals zero." +
                 "\nIt took " + timer.calcTotalTime() + "ms.");
+
+        // then
+        assertThat(answer).isEqualTo(4);
     }
 
 }

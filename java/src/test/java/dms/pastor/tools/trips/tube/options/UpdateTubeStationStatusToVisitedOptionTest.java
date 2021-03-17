@@ -18,6 +18,7 @@ import static org.mockito.BDDMockito.given;
 
 @ExtendWith(MockitoExtension.class)
 public class UpdateTubeStationStatusToVisitedOptionTest {
+
     @Mock
     private Scanner scanner;
 
@@ -32,6 +33,7 @@ public class UpdateTubeStationStatusToVisitedOptionTest {
                         .buildNotVisitedStation()))
                 .build();
         given(scanner.nextLine()).willReturn(stations.getTubeStationList().get(0).getName());
+
         // when
         updateStationStatusToVisited.choose(stations);
 

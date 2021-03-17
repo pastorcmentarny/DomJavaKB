@@ -19,6 +19,7 @@ public class UKMobileNumberValidatorTest {
     @MethodSource("data")
     public void shouldVerifyIsNumberIsValidUKPhoneNumber(boolean expectedResult, String number) {
         System.out.println("Verify is number: " + number + " is valid");
+
         // when
         final var result = UKMobileNumberValidator.validate(number);
 

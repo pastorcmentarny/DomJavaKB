@@ -1,10 +1,10 @@
 package dms.pastor.tools.readtimer;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static dms.pastor.tools.readtimer.TimeToReadApplicationInputValidator.validateInputArgs;
 import static dms.pastor.utils.randoms.RandomDataGenerator.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Author Dominik Symonowicz
@@ -22,8 +22,9 @@ public class TimeToReadApplicationInputValidatorTest {
     public void shouldThrowExceptionIfYouRunApplicationWith1Argument() {
         // given
         final String[] args = {generateString()};
+
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> TimeToReadApplication.main(args));
+        assertThrows(IllegalArgumentException.class, () -> TimeToReadApplication.main(args));
     }
 
     @Test
@@ -31,8 +32,9 @@ public class TimeToReadApplicationInputValidatorTest {
 
         // given
         final String[] args = {generateString(), String.valueOf(randomNegativeInteger())};
+
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> TimeToReadApplication.main(args));
+        assertThrows(IllegalArgumentException.class, () -> TimeToReadApplication.main(args));
 
     }
 
@@ -40,16 +42,18 @@ public class TimeToReadApplicationInputValidatorTest {
     public void shouldThrowExceptionWhenTextIsNull() {
         // given
         final String[] args = {null, String.valueOf(randomInteger())};
+
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> TimeToReadApplication.main(args));
+        assertThrows(IllegalArgumentException.class, () -> TimeToReadApplication.main(args));
     }
 
     @Test
     public void shouldThrowExceptionWhenTextIsEmpty() {
         // given
         final String[] args = {null, String.valueOf(randomInteger())};
+
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> TimeToReadApplication.main(args));
+        assertThrows(IllegalArgumentException.class, () -> TimeToReadApplication.main(args));
 
     }
 
@@ -57,8 +61,9 @@ public class TimeToReadApplicationInputValidatorTest {
     public void shouldThrowExceptionWhenSpeedIsNotAValidNumber() {
         // given
         final String[] args = {null, String.valueOf(randomInteger())};
+
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> TimeToReadApplication.main(args));
+        assertThrows(IllegalArgumentException.class, () -> TimeToReadApplication.main(args));
     }
 
     @Test
@@ -66,7 +71,7 @@ public class TimeToReadApplicationInputValidatorTest {
         // when
         final String text = generateString();
         final String invalidSpeed = generateString();
-        Assertions.assertThrows(IllegalArgumentException.class, () -> validateInputArgs(new String[]{text, invalidSpeed}));
+        assertThrows(IllegalArgumentException.class, () -> validateInputArgs(new String[]{text, invalidSpeed}));
 
     }
 }

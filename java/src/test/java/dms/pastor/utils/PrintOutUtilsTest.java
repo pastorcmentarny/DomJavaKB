@@ -2,7 +2,6 @@ package dms.pastor.utils;
 
 
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,6 +13,7 @@ import java.util.HashMap;
 
 import static dms.pastor.utils.PrintOutUtils.*;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Author Dominik Symonowicz
@@ -45,8 +45,9 @@ public class PrintOutUtilsTest {
     @Test
     public void shouldThrowIllegalArgumentExceptionWhenMinimumValueIsHigherThanMaximumTest() {
         // when
-        final var exception = Assertions.assertThrows(IllegalArgumentException.class, () -> displayOddNumbers(10, 7));
+        final var exception = assertThrows(IllegalArgumentException.class, () -> displayOddNumbers(10, 7));
 
+        // then
         assertThat(exception.getMessage()).isEqualTo("MinValue (10) must be lower than MaxValue(7)");
 
     }
@@ -54,7 +55,7 @@ public class PrintOutUtilsTest {
     @Test
     public void shouldThrowExceptionWhenByteArrayIsEmpty() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> printArray(BYTES));
+        assertThrows(IllegalArgumentException.class, () -> printArray(BYTES));
 
     }
 
@@ -62,6 +63,7 @@ public class PrintOutUtilsTest {
     public void shouldDisplayByteArrayTest() {
         // given
         final String expected = "[1,2,3]";
+
         // when
         printArray(new byte[]{1, 2, 3});
 
@@ -72,7 +74,7 @@ public class PrintOutUtilsTest {
     @Test
     public void shouldThrowExceptionForEmptyStringArrayList() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> printArray(new ArrayList<>()));
+        assertThrows(IllegalArgumentException.class, () -> printArray(new ArrayList<>()));
 
     }
 
@@ -80,6 +82,7 @@ public class PrintOutUtilsTest {
     public void shouldDisplayStringArray() {
         // given
         String[] stringArray = new String[]{"garlic", "cheesecake", "armour"};
+
         // when
         final String result = printArray(stringArray);
 
@@ -93,8 +96,10 @@ public class PrintOutUtilsTest {
         HashMap<Character, Integer> hashMap = new HashMap<>();
         hashMap.put('A', 1);
         hashMap.put('B', 10);
+
         // when
         printCharacterIntegerHashMap(hashMap);
+
         // then
         assertThat(outputStream.toString()).contains("key: A value: 1");
         assertThat(outputStream.toString()).contains("key: B value: 10");
@@ -106,6 +111,7 @@ public class PrintOutUtilsTest {
         // given
         final String expected = "1 3 5 7 9 ";
         outputStream.reset();
+
         // when
         displayOddNumbers(1, 10);
 
@@ -118,6 +124,7 @@ public class PrintOutUtilsTest {
         // given
         Integer[] integers = new Integer[]{1, 2, 3, null};
         final String expected = "[ 1 2 3 null ]" + System.lineSeparator();
+
         // when
         printIntArray(integers);
 
@@ -131,13 +138,16 @@ public class PrintOutUtilsTest {
         printInfoAboutOfTemporaryFolder();
         var result = outputStream.toString();
 
+        // debug
+        System.out.println(result);
+
         // then
         assertThat(result).isNotBlank();
 
         // debug
         outputStream.close();
         System.setOut(original);
-        System.out.println(result);
+
 
     }
 

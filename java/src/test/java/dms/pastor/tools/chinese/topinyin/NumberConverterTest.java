@@ -31,6 +31,7 @@ public class NumberConverterTest {
     public void convertToPinyinShouldReturnEmptyIfIsNotValidCharacterWithTone() {
         // given
         final String text = generateString();
+
         // when
         final String result = numberConverter.convertToPinyin(text);
 
@@ -42,6 +43,7 @@ public class NumberConverterTest {
     public void shouldReturnPinyinWithNeutralTone() {
         // given
         final String ma = "ma";
+
         // when
         final String result = numberConverter.convertToPinyin(ma);
 
@@ -54,6 +56,7 @@ public class NumberConverterTest {
         // given
         final String ma = "ma(1)";
         final String expectedResult = "mā";
+
         // when
         final String result = numberConverter.convertToPinyin(ma);
 

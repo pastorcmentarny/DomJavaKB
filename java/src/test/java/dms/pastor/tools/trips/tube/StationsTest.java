@@ -44,6 +44,7 @@ public class StationsTest {
         final String stationName = STATION_NAME;
         final TubeStation amershamTubeStation = TubeStation.notVisited(stationName);
         Stations stations = new Stations(Collections.singletonList(amershamTubeStation));
+
         // when
         TubeStation result = stations.getStationByName(stationName);
 
@@ -58,6 +59,7 @@ public class StationsTest {
         final String stationName = STATION_NAME;
         final TubeStation amersham = TubeStation.notVisited(stationName);
         Stations stations = new Stations(Collections.singletonList(amersham));
+
         // when
         stations.setPassedFor(amersham);
 
@@ -73,6 +75,7 @@ public class StationsTest {
         final LocalDate today = LocalDate.now();
         final TubeStation amersham = new TubeStation(stationName, VISITED, today, today, today, false);
         Stations stations = new Stations(Collections.singletonList(amersham));
+
         // when
         stations.setPassedFor(amersham);
 
@@ -87,6 +90,7 @@ public class StationsTest {
         final LocalDate today = LocalDate.now();
         final TubeStation amersham = new TubeStation(stationName, NOT_VISITED, today, today, today, BLOGGED);
         Stations stations = new Stations(Collections.singletonList(amersham));
+
         // when
         stations.setVisitedFor(amersham);
 
@@ -99,6 +103,7 @@ public class StationsTest {
         // given
         final TubeStation amersham = TubeStation.passed(STATION_NAME, PASSED_DATE);
         Stations stations = new Stations(Collections.singletonList(amersham));
+
         // when
         stations.setVisitedFor(amersham);
 
@@ -111,6 +116,7 @@ public class StationsTest {
         // given
         final TubeStation amersham = TubeStation.passed(STATION_NAME, PASSED_DATE);
         Stations stations = new Stations(Collections.singletonList(amersham));
+
         // when
         stations.setVisitedFor(amersham);
 
@@ -125,6 +131,7 @@ public class StationsTest {
         final LocalDate yesterday = PASSED_DATE.minusDays(1);
         final TubeStation amersham = TubeStation.passed(STATION_NAME, yesterday);
         Stations stations = new Stations(Collections.singletonList(amersham));
+
         // when
         stations.setVisitedFor(amersham);
 
@@ -190,6 +197,7 @@ public class StationsTest {
     public void passedShouldReturnStationWithPassedDateButWithoutVisitedDate() {
         // given
         final TubeStation expectedTubeStation = new TubeStation(STATION_NAME, PASSED, PASSED_DATE, null, null, BLOGGED);
+
         // when
         final TubeStation result = TubeStation.passed(STATION_NAME, PASSED_DATE);
 
@@ -201,6 +209,7 @@ public class StationsTest {
     public void notVisitedShouldReturnStationWithoutPassedAndOrVisitedDate() {
         // given
         final TubeStation expectedTubeStation = new TubeStation(STATION_NAME, NOT_VISITED, null, null, null, BLOGGED);
+
         // when
         final TubeStation result = TubeStation.notVisited(STATION_NAME);
 
@@ -213,6 +222,7 @@ public class StationsTest {
     public void totalNumberShouldReturn3ForStationsCount() {
         // given
         final Stations stations = generateStations();
+
         // when
         final int result = stations.totalNumber();
 

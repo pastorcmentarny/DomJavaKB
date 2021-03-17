@@ -30,6 +30,7 @@ public class IntegerCollectionToIntArrayConverterTest {
         // given
         final Set<Integer> integerSet = Stream.of(1, 2, 3).collect(Collectors.toSet());
         int[] expectedIntArray = new int[]{1, 2, 3};
+
         // when
         final int[] ints = converter.convert(integerSet);
 

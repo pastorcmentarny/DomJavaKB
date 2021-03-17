@@ -25,38 +25,70 @@ public class CharacterExercisesTest {
 
     @Test
     public void testShouldFound1DInDominik() {
-        assertThat(exercise.countCharacterInString('D', "Dominik")).isEqualTo(1);
+        // when
+        final var result = exercise.countCharacterInString('D', "Dominik");
+
+        // then
+        assertThat(result).isEqualTo(1);
     }
 
     @Test
     public void testShouldFound10LInLlanfairpwll() {
-        assertThat(exercise.countCharacterInString('L', LLANFARPWLL)).isEqualTo(11);
+        // when
+        final var result = exercise.countCharacterInString('L', LLANFARPWLL);
+
+        // then
+        assertThat(result).isEqualTo(11);
     }
 
     @Test
     public void runCountCharInStringExercise() {
+        // given
         char charToCount = 'l';
-        assertThat(exercise.countCharacterInStringIgnoringCase(charToCount, LLANFARPWLL)).isEqualTo(11);
+
+        // when
+        final var result = exercise.countCharacterInStringIgnoringCase(charToCount, LLANFARPWLL);
+
+        // then
+        assertThat(result).isEqualTo(11);
     }
 
     @Test
     public void testAlternatingCharacters() {
+        // given
         String good = "ABABA";
-        assertThat(exercise.alternatingCharacters(good)).isEqualTo(0);
+
+        // when
+        final var result = exercise.alternatingCharacters(good);
+
+        // then
+        assertThat(result).isEqualTo(0);
     }
 
     //because there is one duplicate of the same letter bb
     @Test
     public void testAlternatingCharactersWillReturn1() {
+        // given
         String firstString = "BABB";
-        assertThat(exercise.alternatingCharacters(firstString)).isEqualTo(1);
+
+        // when
+        final var result = exercise.alternatingCharacters(firstString);
+
+        // then
+        assertThat(result).isEqualTo(1);
     }
 
     //because there are 3 the same character one after another so is 2
     @SuppressWarnings("SpellCheckingInspection")
     @Test
     public void testAlteringCharactersWillReturn2() {
+        // givem
         String secondString = "ABBBA";
-        assertThat(exercise.alternatingCharacters(secondString)).isEqualTo(2);
+
+        // when
+        final var result = exercise.alternatingCharacters(secondString);
+
+        // then
+        assertThat(result).isEqualTo(2);
     }
 }

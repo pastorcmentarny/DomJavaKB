@@ -34,6 +34,7 @@ public class ToStringUtilsTest {
     public void linkedHashSetToStringShouldReturnEmptyForEmptySet() {
         // given
         LinkedHashSet<String> characterSet = new LinkedHashSet<>();
+
         // when
         final String result = ToStringUtils.toString(characterSet);
 
@@ -51,6 +52,7 @@ public class ToStringUtilsTest {
         LinkedHashSet<String> characterSet = new LinkedHashSet<>();
         characterSet.add(stringOne);
         characterSet.add(stringTwo);
+
         // when
         final String result = ToStringUtils.toString(characterSet);
 
@@ -63,6 +65,7 @@ public class ToStringUtilsTest {
     public void intArrayToStringShouldReturnEMptyStringForEmptyArray() {
         // given
         int[] intValues = new int[]{};
+
         // when
         final String result = ToStringUtils.toString(intValues, WHITESPACE);
 
@@ -77,6 +80,7 @@ public class ToStringUtilsTest {
         // given
         final String expectedString = "[ 1 2 3 5 8 13 ]";
         int[] intValues = new int[]{1, 2, 3, 5, 8, 13};
+
         // when
         final String result = ToStringUtils.toString(intValues, WHITESPACE);
 
@@ -89,6 +93,7 @@ public class ToStringUtilsTest {
     public void toStringShouldReturnStringWithArray() {
         // given
         final List<String> list = Arrays.asList("Garlic", "Coriander", "Cheese");
+
         // when
         final String result = ToStringUtils.toString(list);
 

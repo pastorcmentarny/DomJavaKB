@@ -20,6 +20,7 @@ public class OptionalsExampleTest {
     public void optionalMethodsExampleWhenOptionalHasValueTests() {
         // given
         var optionalValue = "Optional";
+
         // when
         final var optional = OptionalsExample.getOptional(true);
 
@@ -38,6 +39,7 @@ public class OptionalsExampleTest {
     public void optionalMethodsExampleWhenOptionalDoNotHaveValueTests() {
         // given
         String text = "no value";
+
         // when
         final var optional = OptionalsExample.getOptional(false);
 
@@ -50,7 +52,7 @@ public class OptionalsExampleTest {
         // when
         final var optional = OptionalsExample.getOptional(false);
 
-        //when
+        // when
         optional.ifPresentOrElse(System.out::println,
                 () -> System.out.println("Empty"));
         assertThat(optional.or(() -> Optional.of(EMPTY_STRING)).orElse(null)).isEmpty();

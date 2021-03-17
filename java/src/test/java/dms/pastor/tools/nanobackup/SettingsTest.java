@@ -59,6 +59,7 @@ public class SettingsTest {
 
         // set
         settings.setQuickBackup(true);
+
         // when
         settings.setProperties(false);
 
@@ -72,6 +73,7 @@ public class SettingsTest {
         final Settings settings = Settings.getSettings();
         settings.setConfirmOnExit(false);
         final String where = generateString();
+
         // when
         final String result = settings.displayCurrentSettings(where);
 

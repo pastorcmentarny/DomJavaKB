@@ -2,11 +2,11 @@ package dms.pastor.tasks.paint.command;
 
 import dms.pastor.tasks.paint.canvas.Canvas;
 import dms.pastor.tasks.paint.canvas.Point;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static dms.pastor.tasks.paint.canvas.Canvas.createCanvasFor;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Author Dominik Symonowicz
@@ -44,7 +44,7 @@ public class RedoCommandTest extends AbstractCommandTest {
         // given
         final String[] params = {REDO_COMMAND, "?", "1"};
         // when
-        final var exception = Assertions.assertThrows(InvalidCommandSyntaxException.class, () -> redoCommand.setParamsIfValid(params));
+        final var exception = assertThrows(InvalidCommandSyntaxException.class, () -> redoCommand.setParamsIfValid(params));
 
         // then
         assertThat(exception.getMessage()).isEqualTo("Invalid Syntax because number of params are invalid. Should be 1 but was 3. Please check your input and try again.");

@@ -26,6 +26,7 @@ public class ResultsTest {
         // given
         final String message = generateString();
         final Object object = new Object();
+
         // when
         result = new Result<>(true, message, object);
 
@@ -40,6 +41,7 @@ public class ResultsTest {
         // given
         final String message = generateString();
         final Object object = new Object();
+
         // when
         result = new Result<>(false, message, object);
 
@@ -58,6 +60,7 @@ public class ResultsTest {
                 "\n\tmessage: '" + test + '\'' +
                 "\n\thasItem: " + item +
                 "\n}";
+
         // when
         Result<String> resultWithMessage = new Result<>(false, "Unknown", null);
         resultWithMessage.setSuccess();
@@ -65,6 +68,7 @@ public class ResultsTest {
 
         // then
         assertThat(resultWithMessage.getMessage()).isEqualTo("Unknown");
+
         // when
         resultWithMessage.setMessage(test);
         resultWithMessage.setItem(item);
@@ -84,6 +88,7 @@ public class ResultsTest {
         for (int i = 0; i < size; i++) {
             results.addScore(new Score(RandomDataGenerator.randomPositiveInteger(), RandomDataGenerator.randomPositiveInteger(), RandomDataGenerator.randomPositiveInteger()));
         }
+
         // when
         final int resultSize = results.getResultSize();
 

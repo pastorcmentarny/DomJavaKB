@@ -31,9 +31,11 @@ public class EngineTest {
         // given
         final JTextField jTextField = new JTextField();
         final boolean delete = new File(QUICK_MODE_FILENAME).delete();
+
         if (delete) {
             System.out.printf("%s was deleted.%n", QUICK_MODE_FILENAME);
         }
+
         // when
         engine.activateQuickBackupMode(jTextField);
 
@@ -74,6 +76,7 @@ public class EngineTest {
         final Color color = Color.BLACK;
         final String message = generateString();
         final JLabel infoLabel = new JLabel();
+
         // when
         engine.setInfoLabel(color, message, infoLabel);
 

@@ -21,6 +21,7 @@ public class DataUploaderTest {
     public void shouldLoadStationsFromFile() {
         // given
         DataUploader dataUploader = new DataUploader();
+
         // when
         dataUploader.load(STATION_PATH);
     }

@@ -1,6 +1,5 @@
 package dms.pastor.utils;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +11,7 @@ import static dms.pastor.TestConfig.EMPTY_INTEGER_ARRAY;
 import static dms.pastor.utils.NumberUtils.*;
 import static dms.pastor.utils.randoms.RandomDataGenerator.*;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Author Dominik Symonowicz
@@ -35,6 +35,7 @@ public class NumberUtilsTest {
     public void getResultInRangeShouldReturn10For10InRangeBetween5And20() {
         // given
         final int value = 10;
+
         // when
         final int result = getResultInRange(value, MIN_VALUE, MAX_VALUE);
 
@@ -46,6 +47,7 @@ public class NumberUtilsTest {
     public void getResultInRangeShouldReturn5For5InRangeBetween5And20() {
         // given
         final int value = MIN_VALUE;
+
         // when
         final int result = getResultInRange(value, MIN_VALUE, MAX_VALUE);
 
@@ -57,6 +59,7 @@ public class NumberUtilsTest {
     public void getResultInRangeShouldReturn20For20InRangeBetween5And20() {
         // given
         final int value = MAX_VALUE;
+
         // when
         final int result = getResultInRange(value, MIN_VALUE, MAX_VALUE);
 
@@ -68,6 +71,7 @@ public class NumberUtilsTest {
     public void getResultInRangeShouldReturn5For0InRangeBetween5And20() {
         // given
         final int value = 0;
+
         // when
         final int result = getResultInRange(value, MIN_VALUE, MAX_VALUE);
 
@@ -79,6 +83,7 @@ public class NumberUtilsTest {
     public void getResultInRangeShouldReturn25For0InRangeBetween5And20() {
         // given
         final int value = 25;
+
         // when
         final int result = getResultInRange(value, MIN_VALUE, MAX_VALUE);
 
@@ -88,143 +93,193 @@ public class NumberUtilsTest {
 
     @Test
     public void testShouldReturn100For104() {
+        // when
         final int result = getResultIn0to100Range(104);
+        
+        // then
         assertThat(result).isEqualTo(100);
     }
 
     @Test
     public void testShouldReturn0ForMinusTen() {
+        // when
         final int result = getResultIn0to100Range(-10);
+
+        // then
         assertThat(result).isZero();
     }
 
     @Test
     public void testShouldReturn20For20() {
+        // when
         final int result = getResultIn0to100Range(20);
+
+        // then
         assertThat(result).isEqualTo(20);
     }
 
     @Test
     public void getFibonacciForShouldReturnZeroForZero() {
+        // when
         final long result = getFibonacciNumberFor(0);
+        // then
         assertThat(result).isZero();
     }
 
     @Test
     public void getFibonacciForShouldReturnOneForOne() {
+        // when
         final long result = getFibonacciNumberFor(1);
+
+        // then
         assertThat(result).isEqualTo(1);
     }
 
     @Test
     public void getFibonacciForShouldReturnOneForTwo() {
+        // when
         final long result = getFibonacciNumberFor(2);
+
+        // then
         assertThat(result).isEqualTo(1);
     }
 
     @Test
     public void getFibonacciForShouldReturnTwoForThree() {
+        // when
         final long result = getFibonacciNumberFor(3);
+        // then
         assertThat(result).isEqualTo(2);
     }
 
     @Test
     public void getFibonacciForShouldReturnThreeForFour() {
+        // when
         final long result = getFibonacciNumberFor(4);
+
+        // then
         assertThat(result).isEqualTo(3);
     }
 
     @Test
     public void getFibonacciForShouldReturnFiveForFive() {
+        // when
         final long result = getFibonacciNumberFor(5);
+
+        // then
         assertThat(result).isEqualTo(5);
     }
 
     @Test
     public void getFibonacciForShouldReturnFiftyFiveForTen() {
+        // when
         final long result = getFibonacciNumberFor(10);
+
+        // then
         assertThat(result).isEqualTo(55);
     }
 
     @Test
     public void testShouldReturn120Factorial5() {
+        // when
         final int result = factorial(5);
+
+        // then
         assertThat(result).isEqualTo(120);
     }
 
     @Test
     public void testShouldReturnMinus120FactorialMinus5() {
+        // when
         final int result = factorial(5);
+
+        // then
         assertThat(result).isEqualTo(120);
     }
 
-    // because result doesn't matter in this case
     @Test
     public void testShouldThrowExceptionFor20() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> factorial(20));
+        assertThrows(IllegalArgumentException.class, () -> factorial(20));
     }
 
     @Test
     public void testGetSmallestInt() {
+        // when
         final int result = getSmallestInt(new int[]{15, 12, 22, 10, 14, 20});
+        // then
         assertThat(result).isEqualTo(10);
     }
 
     @Test
     public void testGetSmallestIntForNegativeNumbers() {
+        // when
         final int result = getSmallestInt(new int[]{-15, -12, -22, -10, -14, -20});
+
+        // then
         assertThat(result).isEqualTo(-22);
     }
 
     @Test
     public void testGetSmallestIntForMixedNumbers() {
+        // when
         final int result = getSmallestInt(new int[]{15, -12, 22, -10, 14, -20});
+
+        // then
         assertThat(result).isEqualTo(-20);
     }
 
-    // part of the test
+
     @SuppressWarnings("ResultOfMethodCallIgnored")
     @Test
     public void testGetIllegalExceptionForNullInputForSmallestInt() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> getSmallestInt(null));
+        assertThrows(IllegalArgumentException.class, () -> getSmallestInt(null));
     }
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
     @Test
     public void testGetIllegalExceptionForEmptyInputForSmallestInt() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> getSmallestInt(EMPTY_INTEGER_ARRAY));
+        assertThrows(IllegalArgumentException.class, () -> getSmallestInt(EMPTY_INTEGER_ARRAY));
     }
 
     @Test
     public void testGetLargestInt() {
+        // when
         final int result = getLargestInt(new int[]{15, 12, 22, 10, 14, 20});
+
+        // then
         assertThat(result).isEqualTo(22);
     }
 
     @Test
     public void testGetLargestNegativeInt() {
+        // when
         final int result = getLargestInt(new int[]{-15, -12, -22, -10, -14, -20});
+
+        // then
         assertThat(result).isEqualTo(-10);
     }
 
     @Test
     public void testGetLargestMixedInt() {
+        // when
         final int result = getLargestInt(new int[]{15, -12, 22, -10, 14, -20});
+
+        // then
         assertThat(result).isEqualTo(22);
     }
 
-    // part of the test
+
     @SuppressWarnings("ResultOfMethodCallIgnored")
     @Test
     public void testGetIllegalExceptionForNullInputForLargestInt() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> getLargestInt(null));
+        assertThrows(IllegalArgumentException.class, () -> getLargestInt(null));
     }
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
     @Test
     public void testGetIllegalExceptionForEmptyInputForLargestInt() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> getLargestInt(EMPTY_INTEGER_ARRAY));
+        assertThrows(IllegalArgumentException.class, () -> getLargestInt(EMPTY_INTEGER_ARRAY));
     }
 
     @Test
@@ -232,6 +287,7 @@ public class NumberUtilsTest {
         // given
         int question = 12345;
         int answer = 54321;
+
         // when
         final int result = reverseANumber(question);
 
@@ -247,6 +303,8 @@ public class NumberUtilsTest {
         // then check for few prime numbers
         for (int i : primes) {
             final boolean result = isPrime(i);
+
+        // then
             assertThat(result).isTrue();
         }
     }
@@ -262,6 +320,7 @@ public class NumberUtilsTest {
     @Test
     public void testIsNotNumberWhenValueIsZeroPrime() {
         final boolean result = isPrime(0);
+        // then
         assertThat(result).isFalse();
     }
 
@@ -279,6 +338,7 @@ public class NumberUtilsTest {
         // given
         final int max8BitValue = 256;
         final int randomNumber = new Random().nextInt(Integer.MAX_VALUE - max8BitValue) + 255;
+        
         // when
         final String result = getShortAs8BitRepresentation(randomNumber);
 
@@ -288,115 +348,172 @@ public class NumberUtilsTest {
 
     @Test //done as part of learning of basic of TDD in 2012
     public void getShortAs8BitRepresentationFor0() {
+        // when
         final String result = getShortAs8BitRepresentation(0);
+
+        // then
         assertThat(result).isEqualTo("00000000");
     }
 
     @Test //done as part of learning of basic of TDD in 2012
     public void getShortAs8BitRepresentationFor1() {
+        // when
         final String result = getShortAs8BitRepresentation(1);
+
+        // then
         assertThat(result).isEqualTo("00000001");
     }
 
     @Test //done as part of learning of basic of TDD in 2012
     public void getShortAs8BitRepresentationFor2() {
+        // when
         final String result = getShortAs8BitRepresentation(2);
+
+        // then
         assertThat(result).isEqualTo("00000010");
     }
 
     @Test //done as part of learning of basic of TDD in 2012
     public void getShortAs8BitRepresentationFor3() {
+        // when
         final String result = getShortAs8BitRepresentation(3);
+
+        // then
         assertThat(result).isEqualTo("00000011");
     }
 
     @Test //done as part of learning of basic of TDD in 2012
     public void getShortAs8BitRepresentationFor4() {
+        // when
         final String result = getShortAs8BitRepresentation(4);
+
+        // then
         assertThat(result).isEqualTo("00000100");
     }
 
     @Test //done as part of learning of basic of TDD in 2012
     public void getShortAs8BitRepresentationFor5() {
+        // when
         final String result = getShortAs8BitRepresentation(5);
+
+        // then
         assertThat(result).isEqualTo("00000101");
     }
 
     @Test //done as part of learning of basic of TDD in 2012
     public void getShortAs8BitRepresentationFor7() {
+        // when
         final String result = getShortAs8BitRepresentation(7);
+
+        // then
         assertThat(result).isEqualTo("00000111");
     }
 
     @Test //done as part of learning of basic of TDD in 2012
     public void getShortAs8BitRepresentationFor8() {
+        // when
         final String result = getShortAs8BitRepresentation(8);
+
+        // then
         assertThat(result).isEqualTo("00001000");
     }
 
     @Test //done as part of learning of basic of TDD in 2012
     public void getShortAs8BitRepresentationFor13() {
+        // when
         final String result = getShortAs8BitRepresentation(13);
+
+        // then
         assertThat(result).isEqualTo("00001101");
     }
 
     @Test //done as part of learning of basic of TDD in 2012
     public void getShortAs8BitRepresentationFor15() {
+        // when
         final String result = getShortAs8BitRepresentation(15);
+
+        // then
         assertThat(result).isEqualTo("00001111");
     }
 
     @Test //done as part of learning of basic of TDD in 2012
     public void getShortAs8BitRepresentationFor16() {
+        // when
         final String result = getShortAs8BitRepresentation(16);
+
+        // then
         assertThat(result).isEqualTo("00010000");
     }
 
     @Test //done as part of learning of basic of TDD in 2012
     public void getShortAs8BitRepresentationFor17() {
+        // when
         final String result = getShortAs8BitRepresentation(17);
+
+        // then
         assertThat(result).isEqualTo("00010001");
     }
 
     @Test //done as part of learning of basic of TDD in 2012
     public void getShortAs8BitRepresentationFor32() {
+        // when
         final String result = getShortAs8BitRepresentation(32);
+
+        // then
         assertThat(result).isEqualTo("00100000");
     } //done as part of learning of basic of TDD in 2012
 
     @Test
     public void getShortAs8BitRepresentationFor64() {
+        // when
         final String result = getShortAs8BitRepresentation(64);
+
+        // then
         assertThat(result).isEqualTo("01000000");
     } //done as part of learning of basic of TDD in 2012
 
     @Test //done as part of learning of basic of TDD in 2012
     public void getShortAs8BitRepresentationFor100() {
+        // when
         final String result = getShortAs8BitRepresentation(100);
+
+        // then
         assertThat(result).isEqualTo("01100100");
     }
 
     @Test //done as part of learning of basic of TDD in 2012
     public void getShortAs8BitRepresentationFor128() {
+        // when
         final String result = getShortAs8BitRepresentation(128);
+
+        // then
         assertThat(result).isEqualTo("10000000");
     }
 
     @Test //done as part of learning of basic of TDD in 2012
     public void getShortAs8BitRepresentationFor200() {
+        // when
         final String result = getShortAs8BitRepresentation(200);
+
+        // then
         assertThat(result).isEqualTo("11001000");
     }
 
     @Test //done as part of learning of basic of TDD in 2012
     public void getShortAs8BitRepresentationFor250() {
+        // when
         final String result = getShortAs8BitRepresentation(250);
+
+        // then
         assertThat(result).isEqualTo("11111010");
     }
 
     @Test //done as part of learning of basic of TDD in 2012
     public void getShortAs8BitRepresentationFor255() {
+        // when
         final String result = getShortAs8BitRepresentation(255);
+
+        // then
         assertThat(result).isEqualTo("11111111");
     }
 
@@ -405,6 +522,7 @@ public class NumberUtilsTest {
         // given
         final float newValue = 10f;
         final float currentMaxValue = 12f;
+
         // when
         final float result = getMaxValue(newValue, currentMaxValue);
 
@@ -417,6 +535,7 @@ public class NumberUtilsTest {
         // given
         final float newValue = 13f;
         final float currentMaxValue = 12f;
+
         // when
         final float result = getMaxValue(newValue, currentMaxValue);
 
@@ -429,6 +548,7 @@ public class NumberUtilsTest {
         // given
         final float newValue = 8f;
         final float currentMaxValue = 8f;
+
         // when
         final float result = getMaxValue(newValue, currentMaxValue);
 
@@ -441,6 +561,7 @@ public class NumberUtilsTest {
         // given
         final float newValue = 23f;
         final float currentMaxValue = 21f;
+
         // when
         final float result = getMinValue(newValue, currentMaxValue);
 
@@ -453,6 +574,7 @@ public class NumberUtilsTest {
         // given
         final float newValue = 3f;
         final float currentMaxValue = 5f;
+
         // when
         final float result = getMinValue(newValue, currentMaxValue);
 
@@ -465,6 +587,7 @@ public class NumberUtilsTest {
         // given
         final float newValue = 6f;
         final float currentMaxValue = 6f;
+
         // when
         final float result = getMinValue(newValue, currentMaxValue);
 
@@ -504,6 +627,7 @@ public class NumberUtilsTest {
     public void shouldReturnFalseIfBigDecimalIsNotInteger() {
         // given
         BigDecimal bigDecimal = new BigDecimal("1.23");
+
         // when
         final boolean result = isBigDecimalAValidInteger(bigDecimal);
 
@@ -513,9 +637,9 @@ public class NumberUtilsTest {
 
     @Test
     public void shouldReturnTrueWhenBigDecimalIsInteger() {
-        // given
         // when
         final boolean result = isBigDecimalAValidInteger(BigDecimal.TEN);
+
         // then
         assertThat(result).isTrue();
     }
@@ -528,6 +652,7 @@ public class NumberUtilsTest {
 
         // debug
         LOGGER.debug("Default value: " + defaultValue);
+
         // when
         final int result = parseNullSafeIntegerAsString(invalidNumber, defaultValue);
 
@@ -544,11 +669,13 @@ public class NumberUtilsTest {
 
         // debug
         LOGGER.debug("Default value: " + defaultValue + " Valid value: " + validValue);
+
         // when
         final int result = parseNullSafeIntegerAsString(validValue, defaultValue);
 
         // then
         assertThat(result).isEqualTo(Integer.parseInt(validValue));
+        // then
         assertThat(result).isNotEqualTo(defaultValue);
     }
 

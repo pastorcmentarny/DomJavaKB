@@ -13,6 +13,7 @@ public class InputParserTest {
         // given
         String testData = "1 5 5 3 1 2 0 4 1 1 3 2 2 3 2 4 3 0 2 3 3 2 1 0 2 4 3";
         InputParser inputParser = InputParser.getInputParserFromString(testData);
+
         // when
         Grid result = inputParser.generateGrid();
 
@@ -24,6 +25,7 @@ public class InputParserTest {
     public void testParseInvalidData1() {
         // given
         final String testData = "A B C D";
+
         // when
         Assertions.assertThrows(IllegalArgumentException.class, () -> new InputParser(testData).validateData());
     }

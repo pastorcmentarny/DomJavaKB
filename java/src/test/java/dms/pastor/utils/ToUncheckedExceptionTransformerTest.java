@@ -1,12 +1,13 @@
 package dms.pastor.utils;
 
 import dms.pastor.utils.transformers.ToUncheckedExceptionTransformer;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileWriter;
 import java.util.Arrays;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Author Dominik Symonowicz
@@ -23,8 +24,9 @@ public class ToUncheckedExceptionTransformerTest {
     public void shouldThrowRuntimeExceptionWhenCheckedExceptionIsThrown() {
         // given
         List<String> urlsToCrawl = Arrays.asList("https://dominiksymonowicz.com", "whoops");
+
         // when
-        Assertions.assertThrows(RuntimeException.class, () -> urlsToCrawl.stream()
+        assertThrows(RuntimeException.class, () -> urlsToCrawl.stream()
                 .map(ToUncheckedExceptionTransformer.transformToUncheckedException(FileWriter::new))
                 .forEach(fileWriter -> System.out.println(fileWriter.toString())));
     }

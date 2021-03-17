@@ -22,8 +22,10 @@ public class InMemoryDictionaryTest {
     public void loadShouldLoadDictionaryWithOKStatus() {
         // given
         InMemoryDictionary dictionary = new InMemoryDictionary(generateString(), new DummyImporter());
+
         // when
         dictionary.load();
+
         // then
         assertThat(dictionary.getStatus()).isEqualTo("OK");
     }
@@ -33,8 +35,10 @@ public class InMemoryDictionaryTest {
         // given
         final var filePath = generateString();
         InMemoryDictionary dictionary = new InMemoryDictionary(filePath, new FromFileImporter());
+
         // when
         dictionary.load();
+
         // then
         assertThat(dictionary.getStatus()).isEqualTo("ERROR (Path to file " + filePath + " do not exists.)");
     }
@@ -44,8 +48,10 @@ public class InMemoryDictionaryTest {
         // given
         InMemoryDictionary dictionary = new InMemoryDictionary(generateString(), new DummyImporter());
         dictionary.load();
+
         // when
         final Word result = dictionary.getWordFromDictionary(292);
+
         // then
         assertThat(result).isEqualTo(defaultWord());
     }
@@ -55,8 +61,10 @@ public class InMemoryDictionaryTest {
         // given
         InMemoryDictionary dictionary = new InMemoryDictionary(generateString(), new DummyImporter());
         dictionary.load();
+
         // when
         final Word result = dictionary.getWordFromDictionary(10);
+
         // then
         assertThat(result).isEqualTo(noWord());
     }

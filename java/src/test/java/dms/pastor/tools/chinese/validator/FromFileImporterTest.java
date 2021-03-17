@@ -28,6 +28,7 @@ public class FromFileImporterTest {
         // given
         String path = BASE_PATH + "word" + File.separator + "validDictionary.txt";
         Importer<List<Word>> importer = new FromFileImporter();
+
         // when
         final Result<List<Word>> result = importer.importDictionary(path, noCategories());
 
@@ -43,6 +44,7 @@ public class FromFileImporterTest {
         // given
         String path = BASE_PATH + "word" + File.separator + "invalidDictionary.txt";
         Importer<List<Word>> importer = new FromFileImporter();
+
         // when
         final Result<List<Word>> result = importer.importDictionary(path, noCategories());
 

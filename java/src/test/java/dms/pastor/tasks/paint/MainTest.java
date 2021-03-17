@@ -70,6 +70,7 @@ public class MainTest {
         Main main = new Main();
         given(scanner.nextLine()).willReturn("Q");
         main.setScanner(scanner);
+
         // when
         main.application();
 
@@ -85,6 +86,7 @@ public class MainTest {
         Main main = new Main();
         given(scanner.nextLine()).willReturn("Q");
         main.setScanner(scanner);
+
         // when
         main.application();
 

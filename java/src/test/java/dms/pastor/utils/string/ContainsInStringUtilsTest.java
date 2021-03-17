@@ -1,7 +1,6 @@
 package dms.pastor.utils.string;
 
 import dms.pastor.tools.chinese.pinyin.PinyinUtils;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -14,6 +13,7 @@ import static dms.pastor.utils.randoms.RandomDataGenerator.*;
 import static dms.pastor.utils.string.ContainsInStringUtils.*;
 import static java.util.Collections.emptyList;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Author Dominik Symonowicz
@@ -174,6 +174,7 @@ public class ContainsInStringUtilsTest {
     public void shouldReturnFalseIfStringContainsAnyAlphanumericCharacters() {
         // given
         final String characters = "字字字字字字";
+
         // when
         final boolean result = containsAnyAlphanumericCharacter(characters);
 
@@ -185,6 +186,7 @@ public class ContainsInStringUtilsTest {
     public void containsAnyAlphanumericCharactersShouldReturnTrueIfStringContainNumber() {
         // given
         final String characters = "字1字";
+
         // when
         final boolean result = containsAnyAlphanumericCharacter(characters);
 
@@ -196,6 +198,7 @@ public class ContainsInStringUtilsTest {
     public void containsAnyAlphanumericCharactersShouldReturnTrueIfStringContainLetter() {
         // given
         final String characters = "字a字B字";
+
         // when
         final boolean result = containsAnyAlphanumericCharacter(characters);
 
@@ -203,19 +206,19 @@ public class ContainsInStringUtilsTest {
         assertThat(result).isTrue();
     }
 
-    // part of the test
+
     @Test
     public void shouldThrowIllegalArgumentExceptionIfKeywordIsNullTest() {
-// when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> isTextContainsAllKeywordsExists(null, generateString()));
+        // when
+        assertThrows(IllegalArgumentException.class, () -> isTextContainsAllKeywordsExists(null, generateString()));
 
 
     }
 
     @Test
     public void shouldThrowIllegalArgumentExceptionIfTextIsNullTest() {
-// when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> isTextContainsAllKeywordsExists(generateStringList(), null));
+        // when
+        assertThrows(IllegalArgumentException.class, () -> isTextContainsAllKeywordsExists(generateStringList(), null));
 
 
     }
@@ -223,14 +226,14 @@ public class ContainsInStringUtilsTest {
     @Test
     public void shouldThrowIllegalArgumentExceptionIfKeywordIsEmptyTest() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> isTextContainsAllKeywordsExists(emptyList(), generateString()));
+        assertThrows(IllegalArgumentException.class, () -> isTextContainsAllKeywordsExists(emptyList(), generateString()));
 
     }
 
     @Test
     public void shouldThrowIllegalArgumentExceptionIfTextIsEmptyTest() {
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> isTextContainsAllKeywordsExists(generateStringList(), EMPTY_STRING));
+        assertThrows(IllegalArgumentException.class, () -> isTextContainsAllKeywordsExists(generateStringList(), EMPTY_STRING));
 
     }
 
@@ -239,6 +242,7 @@ public class ContainsInStringUtilsTest {
         // given
         final List<String> keywords = Arrays.asList("brown", "fox", "dog", "panagram");
         final String text = "The quick brown fox jumps over a lazy dog.";
+
         // when
         final boolean exists = isTextContainsAllKeywordsExists(keywords, text);
 

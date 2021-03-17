@@ -6,7 +6,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class Java11StringNewMethodsExampleTest {
 
-
     private static final String WORD = "ufo";
 
     @Test

@@ -42,6 +42,7 @@ public class UpdateTubeStationStatusToPassedOptionTest {
                         .buildNotVisitedStation()))
                 .build();
         given(scanner.nextLine()).willReturn(stations.getTubeStationList().get(0).getName());
+
         // when
         updateStationStatusToPassed.choose(stations);
 
