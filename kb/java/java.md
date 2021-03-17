@@ -4,9 +4,6 @@
 It contains definitions that explain things in the way that is easiest for me to understand.
 _I am not the author of these definitions so check resources section for the origin of definitions._
 
-
-
-
 TODO:
 
 https://dzone.com/articles/composition-vs-inheritance
@@ -22,10 +19,12 @@ regardless of computer architecture
 Object-oriented programming based on abstract concept of real-world object where each object has state and behaviour. It
 contains 4 significant features, such as encapsulation, inheritance, polymorphism and abstraction.
 
-## A class 
+## A class
+
 It is a blueprint from which objects are created.
 
 ## A package
+
 It is a namespace for organizing classes, interfaces and so on in a logical structure.
 
 Encapsulation (data hiding) is a technique that gives ability to control access of their internal characteristics and
@@ -67,11 +66,6 @@ differences are the accessibility of data members and methods: abstract classes 
 and allow methods to be public, private, or protected while interfaces’ fields are inherently public, static, and final,
 and all interface methods are inherently public. How does Java handle a class that implements two interfaces, both of
 which describe a default method with the same signature? this is a compilation error.
-
-### What is JVM?
-
-A Java virtual machine (JVM) is a process that can execute Java bytecode.
-https://dzone.com/articles/jvm-architecture-explained
 
 #### What does the “static” keyword mean?
 
@@ -726,6 +720,7 @@ software component. Implements java.io.Serializable interface Provides no argume
 setter methods for accessing its properties.
 
 ## DIFFICULT QUESTIONS
+
 What is Java Priority Queue ? The PriorityQueue is an unbounded queue, based on a priority heap and its elements are
 ordered in their natural order. At the time of its creation, we can provide a Comparator that is responsible for
 ordering the elements of the PriorityQueue. A PriorityQueue doesn’t allow null values, those objects that doesn’t
@@ -789,10 +784,11 @@ endpoint, you provide a character encoding to convert those bytes to equivalent 
 encoding may alter meaning of message by interpreting it differently. Source:
 
 # TIPS
+
 0. **Finally** is _not executed_ if the** System.exit** method is called _inside_ a try block.
 
 0. Consequently an amount of money should never ever be stored in a floating point data type (float, double).For
-calculations the class BigDecimal provides an excellent facility. The
+   calculations the class BigDecimal provides an excellent facility. The
 
 Difference between static and dynamic binding in Java? (detailed answer)
 This is usually asked as follow-up of previous question, static binding is related to overloaded method and dynamic
