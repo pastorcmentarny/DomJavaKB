@@ -26,32 +26,32 @@ public class PersonTest {
 
     @Test
     public void shouldReturn18YearsTest() {
-        //When
+        // when
         final int age = person.getAge();
 
-        //Then
+        // then
         assertThat(person.getName()).isEqualTo(person.getName());
         assertThat(age).isEqualTo(18);
     }
 
     @Test
     public void shouldReturn217MonthsTest() {
-        //When
+        // when
         final int age = person.getAgeInMonths();
 
-        //Then
+        // then
         assertThat(age).isEqualTo(217);
     }
 
     @Test
     public void shouldReturn28DaysTest() {
-        //Given
+        // given
         Person toddler = new Person("Toddler", now().minusDays(28));
 
-        //When
+        // when
         final int age = toddler.getAgeInDays();
 
-        //Then
+        // then
         assertThat(age).isEqualTo(28);
     }
 }

@@ -37,13 +37,13 @@ public class MessageTest {
 
     @Test
     public void displayErrorTest() {
-        //Given
+        // given
         final String errorMessage = "Test";
 
-        //When
+        // when
         Message.error(errorMessage);
 
-        //Then
+        // then
         assertThat("ERROR: " + errorMessage).isEqualTo(outputStream.toString());
 
     }
