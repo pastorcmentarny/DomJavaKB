@@ -23,6 +23,7 @@ EXIT_BY_ERROR = 'accidental exit'
 AUTO_EXIT_PROFIT_SL = 'auto exit profit SL'
 AUTO_EXIT_TARGET_PRICE = 'auto exit (TP)'
 AUTO_EXIT_STOP_LOSS = "STOP LOSS"
+MANUAL_EXIT_STOP_LOSS = "MANUAL EXIT DUE TO STOP LOSS"
 MAX_DAILY_LOST_CAP = 'exit due to it reach max daily lost cap'
 
 # FIELDS
@@ -136,7 +137,6 @@ def calculate_total_days_in_trade(start_date, end_date):
 
 def is_duplicate(trade_number: str):
     for entry in tradings_journal:
-        print(entry)
         if entry[DATA][TRANSATION_ID] == trade_number:
             return True
     return False
@@ -257,10 +257,33 @@ def generate_stats():
     print(f'Trading balance: {balance}')
 
 
-# ADD AUTOBACKUP OF JOURNAL
 if __name__ == '__main__':
     load_trading_journal_from_file()
     # add_balance_change("line") #BALANCE EXAMPLE
     # add_trade('gambling', MANUAL_EXIT, '1.5',"line" ) # TRADE EXAMPLE
     save_trading_journal_to_file()
     generate_stats()
+
+# ADD AUTOBACKUP OF JOURNAL
+"""
+Gross Profit: 	0.00 	
+Gross Loss: 	0.00 	
+Total Net Profit: 	51.72
+Absolute Drawdown: 	0.00 	
+Maximal Drawdown: 	0.00 (0.00%)
+Relative Drawdown: 	0.00% (0.00)
+Total Trades: 	6
+Short Positions (won %): 	3 (100.00%) 	
+Long Positions (won %): 	3 (100.00%)
+Profit Trades (% of total): 	6 (100.00%) 	
+Loss trades (% of total): 	0 (0.00%)
+Largest 	profit trade: 	18.72
+Average 	profit trade: 	8.62
+Maximum 	consecutive wins ($): 	6 (51.72) 	
+consecutive losses ($): 	0 (0.00)
+Maximal 	consecutive profit (count): 	51.72 (6) 	
+consecutive loss (count): 	0.00 (0)
+Average 	consecutive wins: 	6 	
+consecutive losses: 	0
+Do which day I am good at tradings Split by day.
+"""
