@@ -3,8 +3,12 @@ import datetime
 import json
 
 # SETTINGS
+EVENT_TYPE_BALANCE = 'balance'
+EVENT_TYPE_FEE = 'fee'
+EVENT_TYPE_COURSE = 'course'
+CREDIT_CARD_FEE = 'cash fee transfer from credit card'
 AMOUNT = 'amount'
-TRANSATION_ID = 'transaction id'
+TRANSACTION_ID = 'transaction id'
 DATA = "data"
 TYPE = "type"
 debug_mode = False
@@ -47,7 +51,7 @@ journal_entry = {
 
 trade_data = {
     "status": EMPTY,  # planned, open, close
-    TRANSATION_ID: 0,  # ticket number
+    TRANSACTION_ID: 0,  # ticket number
     STRATEGY_NAME: EMPTY,
     "Market": EMPTY,
     "Long/Short": None,
@@ -104,6 +108,26 @@ def load_trading_journal_from_file():
                 json.loads(json.dumps((ast.literal_eval(result)))))  # it loads dict as string and convert to dict
 
 
+def add_fee(what: str, amount: str, comment: str = EMPTY):
+    entry = journal_entry.copy()
+    data = {}
+    transation_date = datetime.datetime.now()
+    data[
+        TRANSACTION_ID] = f'{transation_date.year}{transation_date.month}{transation_date.day}{transation_date.microsecond}'
+    data[
+        'transaction date'] = f'{transation_date.year}.{transation_date.month}.{transation_date.day} {transation_date.hour}:{transation_date.minute}:{transation_date.second}'
+    data['message'] = what
+    data['amount'] = amount
+
+    entry.update({
+        'id': len(tradings_journal) + 1,
+        TYPE: EVENT_TYPE_FEE,
+        'data': data,
+        COMMENT_FIELD: comment
+    })
+    tradings_journal.append(entry)
+
+
 # example: "45458668	1999.01.01 16:16:16	balance	Card payment 750.00"
 def add_balance_change(balance_line: str, comment: str = EMPTY):
     entry = journal_entry.copy()
@@ -112,7 +136,7 @@ def add_balance_change(balance_line: str, comment: str = EMPTY):
     message_with_amount = line[3].split(' ')
 
     data = {}
-    data[TRANSATION_ID] = line[0]
+    data[TRANSACTION_ID] = line[0]
     data['transaction date'] = line[1]
     data['message'] = " ".join(message_with_amount[0:len(message_with_amount)])
     data['amount'] = line[4]
@@ -137,7 +161,7 @@ def calculate_total_days_in_trade(start_date, end_date):
 
 def is_duplicate(trade_number: str):
     for entry in tradings_journal:
-        if entry[DATA][TRANSATION_ID] == trade_number:
+        if entry[DATA][TRANSACTION_ID] == trade_number:
             return True
     return False
 
@@ -163,7 +187,7 @@ def add_trade(strategy_name: str, exit_reason: str, rrp: str, trade_line: str,
     data = trade_data.copy()
     data.update({
         "status": STATUS_CLOSE,  # planned, open, close
-        TRANSATION_ID: line[0],  # ticket number
+        TRANSACTION_ID: line[0],  # ticket number
         STRATEGY_NAME: strategy_name,
         "Market": line[4],
         "Long/Short": line[2],
@@ -243,7 +267,9 @@ def generate_stats():
                 print_if_debug_enabled(f'after {streak}')
                 if float(event['data']['outcome'][AMOUNT]) < biggest_lost_amount:
                     biggest_lost_amount = float(event['data']['outcome'][AMOUNT])
-        if event[TYPE] == 'balance':
+        if event[TYPE] == EVENT_TYPE_BALANCE:
+            balance = balance + float(event[DATA][AMOUNT])
+        elif event[TYPE] == EVENT_TYPE_FEE:
             balance = balance + float(event[DATA][AMOUNT])
         else:
             balance = balance + float(event[DATA]['outcome'][AMOUNT])
@@ -261,6 +287,7 @@ if __name__ == '__main__':
     load_trading_journal_from_file()
     # add_balance_change("line") #BALANCE EXAMPLE
     # add_trade('gambling', MANUAL_EXIT, '1.5',"line" ) # TRADE EXAMPLE
+    # add_fee(CREDIT_CARD_FEE,"-236.4","what is for")
     save_trading_journal_to_file()
     generate_stats()
 
