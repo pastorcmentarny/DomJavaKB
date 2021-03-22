@@ -167,13 +167,13 @@ public final class RandomDataGenerator {
             return EMPTY_STRING;
         }
         validateIfPositiveNumber(size);
-        LOGGER.debug("Generate " + size + "  word(s).");
+        LOGGER.debug("Generate %d  word(s).".formatted(size));
         StringBuilder stringBuilder = new StringBuilder(EMPTY_STRING);
         for (int i = 1; i <= size; i++) {
             stringBuilder.append(generateWordWithoutStopWord(MAX_SMALL_VALUE_RANGE)).append(WHITESPACE);
         }
         final String words = stringBuilder.substring(0, stringBuilder.length() - 1);
-        LOGGER.debug("Generated output: " + words);
+        LOGGER.debug("Generated output: %s".formatted(words));
         return words;
     }
 
@@ -186,7 +186,7 @@ public final class RandomDataGenerator {
                 return generatedString;
             }
         }
-        throw new SomethingWentWrongException("Tried to generate word " + maxAttemptsToCreate + " times ,but I failed, because somebody screw up something {Size of word" + size + "}");
+        throw new SomethingWentWrongException("Tried to generate word %d times ,but I failed, because somebody screw up something {Size of word%d}".formatted(maxAttemptsToCreate, size));
     }
 
     public static String generateNonAlphanumericString(int maxRandomSize) {
@@ -292,9 +292,9 @@ public final class RandomDataGenerator {
         return numberList;
     }
 
-    private static boolean contains(int number, int[] list) {
-        for (int i : list) {
-            if (i == number) {
+    private static boolean contains(int number, int[] numberList) {
+        for (int item : numberList) {
+            if (item == number) {
                 return true;
             }
         }

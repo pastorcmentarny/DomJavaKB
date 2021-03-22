@@ -1,9 +1,9 @@
 package dms.pastor.utils.character;
 
 import java.util.LinkedHashSet;
-import java.util.Objects;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
+import static java.util.Objects.isNull;
 
 /**
  * Author Dominik Symonowicz
@@ -19,7 +19,7 @@ public final class ToStringUtils {
     }
 
     public static String toString(LinkedHashSet<Character> lines) {
-        if (Objects.isNull(lines)) {
+        if (isNull(lines)) {
             return EMPTY_STRING;
         }
         StringBuilder stringBuilder = new StringBuilder(EMPTY_STRING);

@@ -7,14 +7,16 @@ import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.net.URL;
-import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.List;
 
 import static dms.pastor.utils.StringUtils.NEW_LINE;
 import static dms.pastor.utils.ValidatorUtils.validateIfFileIsAccessible;
+import static dms.pastor.utils.ValidatorUtils.validateIfObjectValueIsNotNull;
 import static dms.pastor.utils.file.FileUtils.getFileIfPathExists;
 import static dms.pastor.utils.file.FileUtils.recreateFileIfExists;
+import static java.nio.charset.StandardCharsets.UTF_8;
+import static java.util.Objects.requireNonNull;
 
 public class TextFileUtils {
     public static final String FIELD_SEPARATOR = ";;";
@@ -32,8 +34,8 @@ public class TextFileUtils {
         try (PrintWriter out = new PrintWriter(new FileWriter(path2file))) {
             out.print(text);
             LOGGER.info("File saved.");
-        } catch (IOException ex) {
-            LOGGER.error("Unable to save file ");
+        } catch (IOException exception) {
+            LOGGER.error("Unable to save file",exception);
             return false;
         }
         return true;
@@ -55,8 +57,8 @@ public class TextFileUtils {
         try (FileWriter fileWriter = new FileWriter(file);
              BufferedWriter out = new BufferedWriter(fileWriter)) {
             out.write(list.toString());
-        } catch (IOException e) {
-            LOGGER.error("Unable to save source list to file: " + file);
+        } catch (IOException exception) {
+            LOGGER.error("Unable to save source list to file: " + file,exception);
             return false;
         }
         return true;
@@ -68,10 +70,10 @@ public class TextFileUtils {
 
         try {
             final URL resource = classLoader.getResource(path);
-            ValidatorUtils.validateIfObjectValueIsNotNull(resource, "URL resource from path " + path);
-            validateIfFileIsAccessible(resource.getFile());
+            validateIfObjectValueIsNotNull(resource, "URL resource from path " + path);
+            validateIfFileIsAccessible(requireNonNull(resource).getFile());
             File file = new File(resource.getFile());
-            return org.apache.commons.io.FileUtils.readFileToString(file, StandardCharsets.UTF_8);
+            return org.apache.commons.io.FileUtils.readFileToString(file, UTF_8);
         } catch (IOException exception) {
             throw new SomethingWentTerribleWrongError(exception.getMessage());
 
@@ -84,8 +86,8 @@ public class TextFileUtils {
 
         try {
             final URL resource = classLoader.getResource(path);
-            ValidatorUtils.validateIfObjectValueIsNotNull(resource, "URL resource from path " + path);
-            return org.apache.commons.io.FileUtils.readLines(getFileIfPathExists(resource.getPath()), StandardCharsets.UTF_8);
+            validateIfObjectValueIsNotNull(resource, "URL resource from path " + path);
+            return org.apache.commons.io.FileUtils.readLines(getFileIfPathExists(requireNonNull(resource).getPath()), UTF_8);
         } catch (IOException exception) {
             throw new SomethingWentTerribleWrongError(exception.getMessage());
 

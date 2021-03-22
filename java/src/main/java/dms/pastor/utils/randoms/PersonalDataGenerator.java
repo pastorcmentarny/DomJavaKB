@@ -93,7 +93,7 @@ public final class PersonalDataGenerator {
 
     private static void throwExceptionIfContainsIllegalCharacter(String pattern, char character) {
         if (containsIllegalCharacter(character)) {
-            throw new IllegalArgumentException("Pattern for phone contains illegal character(s). Pattern provided: " + pattern);
+            throw new IllegalArgumentException("Pattern for phone contains illegal character(s). Pattern provided: %s".formatted(pattern));
         }
     }
 
@@ -111,7 +111,7 @@ public final class PersonalDataGenerator {
         }
 
         if (!matcher.find()) {
-            throw new IllegalArgumentException("Pattern for phone contains illegal character(s). Pattern provided: " + pattern);
+            throw new IllegalArgumentException("Pattern for phone contains illegal character(s). Pattern provided: %s".formatted(pattern));
         }
     }
 

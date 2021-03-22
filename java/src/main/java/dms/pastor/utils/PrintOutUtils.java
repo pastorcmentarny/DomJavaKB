@@ -54,7 +54,7 @@ public final class PrintOutUtils {
         Iterator<Map.Entry<Character, Integer>> entryIterator = characterIntegerMap.entrySet().iterator();
         while (entryIterator.hasNext()) {
             Map.Entry<Character, Integer> pairs = entryIterator.next();
-            out.println("key: " + pairs.getKey() + " value: " + pairs.getValue());
+            out.printf("key: %s value: %d%n", pairs.getKey(), pairs.getValue());
             entryIterator.remove(); // avoids a ConcurrentModificationException
         }
     }

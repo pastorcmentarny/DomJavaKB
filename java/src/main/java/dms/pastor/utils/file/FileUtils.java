@@ -16,6 +16,7 @@ import java.nio.charset.StandardCharsets;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.ValidatorUtils.*;
 import static java.lang.Runtime.getRuntime;
+import static java.util.Objects.isNull;
 
 /**
  * Author Dominik Symonowicz
@@ -37,7 +38,7 @@ public final class FileUtils {
     }
 
     public static boolean isFilesExists(String[] filesPath) {
-        if (filesPath == null || filesPath.length == 0) {
+        if (isNull(filesPath) || filesPath.length == 0) {
             return false;
         }
         for (String aFilesPath : filesPath) {
@@ -75,15 +76,13 @@ public final class FileUtils {
                 if (!file.createNewFile()) {
                     throw new SomethingWentWrongException();
                 }
-            } catch (IOException ex) {
+            } catch (IOException exception) {
                 throw new SomethingWentWrongException();
             }
         }
     }
 
-    /**
-     * Lock program,so it can be run once per time.
-     */
+    // Lock program,so it can be run once per time.
     public static void lock() {
         file = new File("program.lock");
         try (RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw")) {
@@ -129,8 +128,8 @@ public final class FileUtils {
         ValidatorUtils.validateIfFileIsAccessible(file.getAbsolutePath());
         final var result = file.delete();
         if (!result) {
-            LOGGER.warn("Unable to delete lock file. Delete this file: " + file.getAbsolutePath() + " and restart program.");
-            throw new SomethingWentWrongException("Unable to delete this file :( " + file.getAbsolutePath());
+            LOGGER.warn("Unable to delete lock file. Delete this file: %s and restart program.".formatted(file.getAbsolutePath()));
+            throw new SomethingWentWrongException("Unable to delete this file :( %s".formatted(file.getAbsolutePath()));
         }
     }
 

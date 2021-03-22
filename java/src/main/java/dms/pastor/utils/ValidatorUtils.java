@@ -81,21 +81,21 @@ public final class ValidatorUtils {
 
     public static void validateIfPositiveNumber(int number, String valueName) {
         if (number <= 0) {
-            throw new IllegalArgumentException(valueName + " {" + number + "} " + ERROR_MESSAGE_VALUE_CANNOT_BE_NEGATIVE);
+            throw new IllegalArgumentException("%s {%d} %s".formatted(valueName, number, ERROR_MESSAGE_VALUE_CANNOT_BE_NEGATIVE));
         }
     }
 
     public static void validateIfPositiveNumber(BigDecimal number) {
         validateIfObjectValueIsNotNull(number);
         if (number.compareTo(BigDecimal.ZERO) < 0) {
-            throw new IllegalArgumentException(DEFAULT_VALUE_NAME + ERROR_MESSAGE_VALUE_CANNOT_BE_NEGATIVE);
+            throw new IllegalArgumentException("%s%s".formatted(DEFAULT_VALUE_NAME, ERROR_MESSAGE_VALUE_CANNOT_BE_NEGATIVE));
         }
     }
 
     public static void validateNegativeBigDecimal(BigDecimal value) {
         validateIfObjectValueIsNotNull(value);
         if (value.compareTo(BigDecimal.ZERO) > 0) {
-            throw new IllegalArgumentException("Value cannot be positive");
+            throw new IllegalArgumentException("Value cannot be positive. Value: %s".formatted(value));
         }
     }
 
@@ -111,7 +111,7 @@ public final class ValidatorUtils {
 
     public static void validateTwoIntsNotEqual(int firstInteger, int secondInteger) {
         if (firstInteger == secondInteger) {
-            throw new IllegalArgumentException("Both numbers cannot be equals, but both numbers are " + firstInteger + " and " + secondInteger + ".");
+            throw new IllegalArgumentException("Both numbers cannot be equals, but both numbers are %d and %d.".formatted(firstInteger, secondInteger));
         }
     }
 
@@ -143,7 +143,7 @@ public final class ValidatorUtils {
 
     public static void validateIfNotBlank(String string, String fieldName) {
         if (string == null || string.isBlank()) {
-            throw new IllegalArgumentException(fieldName + " is blank because: " + StringUtils.describeStringType(string));
+            throw new IllegalArgumentException("%s is blank because: %s".formatted(fieldName, StringUtils.describeStringType(string)));
         }
     }
 
@@ -188,7 +188,7 @@ public final class ValidatorUtils {
     public static void validateIfValueIsInRange(int min, int max, int number) {
         validateMinValueIsSmallerThanMaxValue(min, max);
         if (number < min || number > max) {
-            throw new IllegalArgumentException(String.format("%d is not range. Range is between %d and %d.", number, min, max));
+            throw new IllegalArgumentException(format("%d is not range. Range is between %d and %d.", number, min, max));
 
         }
     }
@@ -196,7 +196,7 @@ public final class ValidatorUtils {
     public static void validateIfArrayHasSizeOf(int size, String[] array, String what) {
         validateIfObjectValueIsNotNull(array, what);
         if (size != array.length) {
-            throw new IllegalArgumentException(String.format("%s has incorrect size. It should be %d but was %d.", what, size, array.length));
+            throw new IllegalArgumentException(format("%s has incorrect size. It should be %d but was %d.", what, size, array.length));
         }
 
     }

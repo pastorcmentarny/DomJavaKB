@@ -1,7 +1,8 @@
 package dms.pastor.utils.converters;
 
 import java.util.List;
-import java.util.Objects;
+
+import static java.util.Objects.isNull;
 
 /**
  * Author Dominik Symonowicz
@@ -14,7 +15,7 @@ import java.util.Objects;
 public class StringListToStringArrayConverter implements Converter<List<String>, String[]> {
 
     public String[] convert(List<String> from) {
-        if (Objects.isNull(from) || from.isEmpty()) {
+        if (isNull(from) || from.isEmpty()) {
             return new String[0];
         }
         String[] temp = new String[from.size()];

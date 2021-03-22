@@ -68,9 +68,7 @@ public final class StringUtils {
         return string != null ? string : "Unknown";
     }
 
-    /**
-     * A palindrome is a word, phrase, number, or other sequence of symbols or elements that reads the same forward or reversed,
-     */
+    // A palindrome is a word, phrase, number, or other sequence of symbols or elements that reads the same forward or reversed,
     public static boolean isPalindromeOfAnyPermutationString(String word) {
         var characters = word.toCharArray();
         Map<Character, Integer> characterCounter = new HashMap<>();
@@ -124,9 +122,7 @@ public final class StringUtils {
         return true;
     }
 
-    /*
-        A pangram is a holoalphabetic sentence for a given ALPHABET is a sentence using every letter of the ALPHABET at least once.
-     */
+    // A pangram is a holoalphabetic sentence for a given ALPHABET is a sentence using every letter of the ALPHABET at least once.
     static boolean isPangram(String sentence) {
         Map<Character, Integer> alphabet = StringUtils.getAlphabetAsMap();
         var sentenceAsCharArray = sentence.toLowerCase().toCharArray();
@@ -335,7 +331,7 @@ public final class StringUtils {
         if (string.isBlank()) {
             return "String is blank";
         }
-        return "String { " + string + " }";
+        return "String { %s }".formatted(string);
     }
 
 }
