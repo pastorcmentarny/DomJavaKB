@@ -215,6 +215,10 @@ What is a Java collections framework?
 
  	The Java collections framework (JCF) is a set of classes and interfaces that implement commonly reusable collection of data structures. 
 
+Question 1: What is Framework in Java?
+
+Answer: A framework is a set of classes and interfaces which provide a ready-made architecture. An optimal object-oriented design always includes a framework with a collection of classes such that all the classes perform the same kind of task.
+
 What is a data structure? Data structure is a container (in java will be a class) that provides storage for data
 elements , and provide capabilities for manipulate data items (add, remove, swap, find and so on). Benefits are:
 ⦁ Reusability and better code quality as result of the use of well tested collections framework classes. ⦁ Reduced
@@ -264,6 +268,14 @@ HashMap, CopyOnWriteArrayList,
 Note: To avoid ConcurrentModificationException we can use concurrent collection classes to avoid
 ConcurrentModificationException while iterating over a collection, for example CopyOnWriteArrayList instead of
 ArrayList.
+
+Question 2: When does ConcurrentModificationException occur?
+
+Answer: The java. util. ConcurrentModificationException occurs when a data collection tries to modify while that collection is actively in use, as when something we are iterating on is modified.
+
+Question 1: What is a CopyOnWriteArrayList?
+
+Answer: This class is found in java.util.concurrent package and it implements list interface. It makes a cloned copy of the underlying ArrayList to implement all operations and modifications. It is fail-safe and it will never throw ConcurrentModificationException during iteration.
 
 How HashMap works in Java? A HashMap is a data structure that stores key-value pairs. Key need to be unique.
 
@@ -457,6 +469,16 @@ error messages denotes that Java heap does not have sufficient space and cannot 
 "java.lang.OutOfMemoryError: PermGen space"
 error message comes when the permanent generation of Java Heap is full, the application will fail to load a class or to
 allocate an interned string.
+
+
+Question 10: Define EnumSet.
+
+Answer: It is a Set implementation that can be used with enum types. All the elements must come from one enum type specified explicitly or implicitly. It is not synchronized. NULL keys are not allowed.
+
+### What peek() ?
+Question 16: What is peek() of the queue interface?
+
+Answer: Peek() returns the head of the queue. It does not remove any element. It returns null when the queue is empty.
 
 ### What is a heap dump ?
 
