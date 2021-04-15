@@ -69,13 +69,12 @@ public class Game {
 
     private boolean nextEvent(Events event) {
         switch (event) {
-            case BATTLE:
+            case BATTLE -> {
                 Enemy enemy = RandomUnit.generateRandomUnit(enemyLvl);
                 battleNo++;
                 System.out.println("Battle no." + battleNo);
                 BattleManual battle = new BattleManual(hero, enemy);
                 battle.begin();
-
                 addEnemyExp(enemy.exp);
                 if (hero.isAlive()) {
                     addRandomDistance(1, 6);
@@ -83,7 +82,8 @@ public class Game {
                 } else {
                     return gameOver("died in Battle");
                 }
-            case GUESS_NUMBER:
+            }
+            case GUESS_NUMBER -> {
                 GuessNumberEvent gne = new GuessNumberEvent(0, 9, 3);
                 gne.doEvent();
                 if (gne.isAnswered()) {
@@ -103,7 +103,8 @@ public class Game {
                     addEnemyExp(100);
                 }
                 return true;
-            case SEAGULL:
+            }
+            case SEAGULL -> {
                 Seagull seagull = new Seagull(enemyLvl);
                 SeagullEvent se = new SeagullEvent(hero, seagull);
                 se.doEvent();
@@ -147,22 +148,27 @@ public class Game {
                         break;
                 }
                 return true;
-            case BAG:
+            }
+            case BAG -> {
                 BagFoundEvent bagFound = new BagFoundEvent(hero);
                 bagFound.doEvent();
                 System.out.println(bagFound.getReward().getMessage());
                 return true;
-            case QUEST:
+            }
+            case QUEST -> {
                 QuestSelector qs = new QuestSelector();
                 qs.menu(this);
                 return true;
-            case NONE:
+            }
+            case NONE -> {
                 addRandomDistance(1, 6);
                 addEnemyExp(new Random().nextInt(50) + 1);
                 return true;
-            default:
+            }
+            default -> {
                 System.err.println("Unknown event selected for new event in Game");
                 return false;
+            }
         }
 
     }

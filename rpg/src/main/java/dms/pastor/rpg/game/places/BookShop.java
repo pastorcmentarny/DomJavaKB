@@ -27,10 +27,8 @@ public class BookShop extends Place {
             try {
                 int choice = scanner.nextInt();
                 switch (choice) {
-                    case 1:
-                        System.out.println("You look through shelf and you didn't find any interesting book,because ..you don't like read books.");
-                        break;
-                    case 2:
+                    case 1 -> System.out.println("You look through shelf and you didn't find any interesting book,because ..you don't like read books.");
+                    case 2 -> {
                         System.out.println("I will be extremely happy to buy all of them");
                         ArrayList<Item> items = Hero.getHero().inventory.getAllInventoryItems();
                         ArrayList<Item> itemsToDelete = new ArrayList<>();
@@ -44,14 +42,12 @@ public class BookShop extends Place {
                         Hero.getHero().inventory.getAllInventoryItems().removeAll(itemsToDelete);
                         Hero.getHero().money.addMoney(cashBack);
                         System.out.println("You sold your books for:");
-                        break;
-                    case 0:
+                    }
+                    case 0 -> {
                         System.out.println("Goodbye and see you next time and remember READ MORE BOOKS.");//reference to Will Wheaton
                         stay = false;
-                        break;
-                    default:
-                        System.out.println("*sigh*");
-                        break;
+                    }
+                    default -> System.out.println("*sigh*");
                 }
             } catch (Exception e) {
                 System.out.println("You went to book shop .You saw books and then got panic attack You start sweating and start trouble breathing and then you  start scream, cry and then run away from this place. ");

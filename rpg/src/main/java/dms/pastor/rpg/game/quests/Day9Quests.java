@@ -44,31 +44,25 @@ public class Day9Quests extends Quest {
             try {
                 int choice = scanner.nextInt();
                 switch (choice) {
-                    case 1:
-                        runNextTutorial();
-                        break;
-                    case 2:
-                        aboutDay9();
-                        break;
-                    case 3:
+                    case 1 -> runNextTutorial();
+                    case 2 -> aboutDay9();
+                    case 3 -> {
                         if (progress.mutaSpiderQuestState.equals(QuestState.AVAILABLE)) {
                             System.out.println("3. Where are kittens?");
                         } else if (progress.mutaSpiderQuestState.equals(QuestState.IN_PROGRESS)) {
                             System.out.println("3. I have some news about your kittens.");
                         }
-
                         if (progress.mutaSpiderQuestState.equals(QuestState.AVAILABLE)) {
                             System.out.println("3. I can tell you story");
                         } else if (progress.mutaSpiderQuestState.equals(QuestState.IN_PROGRESS)) {
                             System.out.println("3. I have some news about mutaspider.");
                         }
-                        break;
-                    case 4:
-                        System.out.println("It's Day 9,KABOOM");
-                        break;
-                    case 0:
+                    }
+                    case 4 -> System.out.println("It's Day 9,KABOOM");
+                    case 0 -> {
                         stay = false;
                         System.out.println("You left city...");
+                    }
                 }
             } catch (InputMismatchException ime) {
                 //FIXME log.info("user type something weird ... " + ime.getMessage());

@@ -299,53 +299,27 @@ public class Stats {
         int number = psycho ? 24 : 16;
 
         switch (random.nextInt(number)) {
-            case 0:
-            case 1:
-            case 2:
+            case 0, 1, 2 -> {
                 minDMG += 1;
                 maxDMG += 1;
-                break;
-            case 3:
-            case 4:
-            case 5:
-                maxDMG += 1;
-                break;
-            case 6:
-            case 7:
-                accuracy += 1;
-                break;
-            case 8:
-            case 9:
-                evasion += 1;
-                break;
-            case 10:
-            case 11:
-            case 12:
-            case 13:
-            case 14:
+            }
+            case 3, 4, 5 -> maxDMG += 1;
+            case 6, 7 -> accuracy += 1;
+            case 8, 9 -> evasion += 1;
+            case 10, 11, 12, 13, 14 -> {
                 HP += 1;
                 maxHP += 1;
-                break;
-            case 15:
-                ARM += 1;
-                break;
-            case 16:
-            case 17:
-            case 18:
-            case 19:
+            }
+            case 15 -> ARM += 1;
+            case 16, 17, 18, 19 -> {
                 SP += 1;
                 maxSP += 1;
-                break;
-            case 20:
-            case 21:
-            case 22:
-            case 23:
+            }
+            case 20, 21, 22, 23 -> {
                 mana += 1;
                 maxMana += 1;
-                break;
-            default:
-                System.err.println("unknown selection for AddRandomPointToStats");
-                break;
+            }
+            default -> System.err.println("unknown selection for AddRandomPointToStats");
         }
 
     }

@@ -30,20 +30,16 @@ public class Supermarket extends Place {
             try {
                 int choice = scanner.nextInt();
                 switch (choice) {
-                    case 1:
-                        buyEmpBomb();
-                        break;
-                    case 2:
-                        buyBaseball();
-                        break;
-                    case 0:
+                    case 1 -> buyEmpBomb();
+                    case 2 -> buyBaseball();
+                    case 0 -> {
                         System.out.println("Goodbye and see you next time and remember READ MORE BOOKS.");
                         stay = false;
-                        break;
-                    default:
+                    }
+                    default -> {
                         System.out.println("*sigh*");
                         stay = false;
-                        break;
+                    }
                 }
             } catch (Exception e) {
                 System.out.println("You went to book shop .You saw books and then got panic attack You start sweating and start trouble breathing and then you  start scream, cry and then run away from this place. ");

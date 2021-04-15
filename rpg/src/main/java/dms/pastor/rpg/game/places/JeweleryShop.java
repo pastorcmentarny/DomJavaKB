@@ -34,11 +34,10 @@ public class JeweleryShop extends Place {
             try {
                 int choice = scanner.nextInt();
                 switch (choice) {
-                    case 1:
-                        //TODO implement it
-                        System.out.println("You look through display shelf you didn't find any interesting ring as they are not too magical.");
-                        break;
-                    case 2:
+                    case 1 ->
+                            //TODO implement it
+                            System.out.println("You look through display shelf you didn't find any interesting ring as they are not too magical.");
+                    case 2 -> {
                         System.out.println("I will be extremely happy to buy all of them");
                         ArrayList<Item> items = Hero.getHero().inventory.getAllInventoryItems();
                         ArrayList<Item> itemsToDelete = new ArrayList<>();
@@ -52,14 +51,12 @@ public class JeweleryShop extends Place {
                         Hero.getHero().inventory.getAllInventoryItems().removeAll(itemsToDelete);
                         Hero.getHero().money.addMoney(cashBack);
                         System.out.println("You sold your books for:");
-                        break;
-                    case 0:
+                    }
+                    case 0 -> {
                         System.out.println("Goodbye and see you next time and remember READ MORE BOOKS.");//reference to Wil Wheaton
                         stay = false;
-                        break;
-                    default:
-                        System.out.println("*sigh*");
-                        break;
+                    }
+                    default -> System.out.println("*sigh*");
                 }
             } catch (Exception e) {
                 System.out.println("You went to book shop .You saw books and then got panic attack You start sweating and start trouble breathing and then you  start scream, cry and then run away from this place. ");

@@ -21,15 +21,12 @@ class AppLauncher {
         LOGGER.debug("Starting application");
         Player player;
         switch (args.length) {
-            case 0:
-                player = new Player("1UP", new UserKeyboardReader());
-                break;
-            case 2:
+            case 0 -> player = new Player("1UP", new UserKeyboardReader());
+            case 2 -> {
                 LOGGER.warn("Running Player simulation...");
                 player = new Player("Demo Player", new FakeInputReader());
-                break;
-            default:
-                throw new SomethingWentWrongException();
+            }
+            default -> throw new SomethingWentWrongException();
         }
         new AppLauncher().newGame(player, new Campaign());
     }

@@ -61,16 +61,12 @@ public class Player extends Unit {
         }
 
         switch (integerInput) {
-            case 1:
-                castSpell(unit);
-                break;
-            case 0:
-                System.out.println("End of turn.");
-                break;
-            default:
+            case 1 -> castSpell(unit);
+            case 0 -> System.out.println("End of turn.");
+            default -> {
                 System.out.println("End of turn.");
                 LOGGER.warn("Unknown choice");
-                break;
+            }
         }
     }
 

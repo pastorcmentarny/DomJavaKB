@@ -91,38 +91,23 @@ public class PenDinasQuest extends Quest {
     }
 
     private String getStoryForLevel(int lvl) {
-        switch (lvl) {
-            case 1:
-                return "You didn't expect warm welcome,but you expect group of guards or other classic security solution,but not ..in front of you was acolyte,who want kill you,right now.";
-            case 2:
-                return "You went to next floor,where you meet acolyte.\n You ask: 'Sorry how many floors this tower has?\n" + topLevel + " answered,but it is last one for you.\nYou responded .. oh Cock...";
-            case 3:
-                return "I really should start do some exercises .This stairs killing me. Don't worry - said acolyte - it is last floor for you. You answered : Hmm.. I heard that before.";
-            case 5:
-                return "You walk upstairs and you have a Déjà vu. Another acolyte talking nonsense about it's  last floor for me ";
-            case 8:
-                return "When you was about to get to another floor,You start screaming \" YES I KNOW IT'S MY LAST FLOOR and you will kill me like all others on previous floors\" ";
-            case 7:
-                return "This awkward moment,when you get to the floor and you see restrooms and vending machine instead of acolyte who is about to kill you because you are on 'last floor'";
-            case 11:
-                return "Everything backs to normal .Another stronger acolyte talking gibberish about last floor  and death for me.";
-            case 12:
-                return " No hope.It's another acolyte with the same vocabulary capabilities as previous ones .. just death on last floor at this floor";
-            case 13:
-                return "Meditation room ... this tower needs some visit from  acolyte-pest control company as without acolytes ,it is quite cozy place for parties.";
-            case 14:
-                return "Not again ... well,another acolyte. You are happy that this tower has " + topLevel + " floors.";
-            case 15:
-                return "No comment ... just no comment";
-            case 18:
-                return " Just floors left ... ooo big change..2 royal acolytes who just want kill you without bother you speech about floors ";
-            case 19:
-                return "When you arrived on this floor ,you have notice a lift on the left.It seems you could use lift and get here without hassle with acolytes. ";
-            case 20:
-                return "You get into top floor,where " + boss.getName() + " awaiting you.";
-            default:
-                return "You walk upstairs to level " + lvl + " when you see another horny acolyte who is ready to destroy you";
-        }
+        return switch (lvl) {
+            case 1 -> "You didn't expect warm welcome,but you expect group of guards or other classic security solution,but not ..in front of you was acolyte,who want kill you,right now.";
+            case 2 -> "You went to next floor,where you meet acolyte.\n You ask: 'Sorry how many floors this tower has?\n" + topLevel + " answered,but it is last one for you.\nYou responded .. oh Cock...";
+            case 3 -> "I really should start do some exercises .This stairs killing me. Don't worry - said acolyte - it is last floor for you. You answered : Hmm.. I heard that before.";
+            case 5 -> "You walk upstairs and you have a Déjà vu. Another acolyte talking nonsense about it's  last floor for me ";
+            case 8 -> "When you was about to get to another floor,You start screaming \" YES I KNOW IT'S MY LAST FLOOR and you will kill me like all others on previous floors\" ";
+            case 7 -> "This awkward moment,when you get to the floor and you see restrooms and vending machine instead of acolyte who is about to kill you because you are on 'last floor'";
+            case 11 -> "Everything backs to normal .Another stronger acolyte talking gibberish about last floor  and death for me.";
+            case 12 -> " No hope.It's another acolyte with the same vocabulary capabilities as previous ones .. just death on last floor at this floor";
+            case 13 -> "Meditation room ... this tower needs some visit from  acolyte-pest control company as without acolytes ,it is quite cozy place for parties.";
+            case 14 -> "Not again ... well,another acolyte. You are happy that this tower has " + topLevel + " floors.";
+            case 15 -> "No comment ... just no comment";
+            case 18 -> " Just floors left ... ooo big change..2 royal acolytes who just want kill you without bother you speech about floors ";
+            case 19 -> "When you arrived on this floor ,you have notice a lift on the left.It seems you could use lift and get here without hassle with acolytes. ";
+            case 20 -> "You get into top floor,where " + boss.getName() + " awaiting you.";
+            default -> "You walk upstairs to level " + lvl + " when you see another horny acolyte who is ready to destroy you";
+        };
     }
 
 }

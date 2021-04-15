@@ -38,19 +38,13 @@ public class Monastery extends Place {
             try {
                 int selection = scanner.nextInt();
                 switch (selection) {
-                    case 1:
-                        stay = payFee();
-                        break;
-                    case 2:
-                        attemptToEnter();
-                        break;
-                    case 3:
-                        diplomacy();
-                        break;
-                    case 0:
+                    case 1 -> stay = payFee();
+                    case 2 -> attemptToEnter();
+                    case 3 -> diplomacy();
+                    case 0 -> {
                         System.out.println("It was nice to see you and we hope to see you again.");
                         stay = false;
-                        break;
+                    }
                 }
             } catch (Exception e) {
                 System.out.println("You trying to explain what you want but you sounds like homeless ,so they gave you a bread and kindly say they are FULL and they can't accept any more homeless student at the moment ." + e.getMessage());
@@ -120,23 +114,12 @@ public class Monastery extends Place {
             try {
                 int selection = scanner.nextInt();
                 switch (selection) {
-                    case 1:
-                        pray();
-                        break;
-                    case 2:
-                        treatment();
-                        break;
-                    case 3:
-                        shop();
-                        break;
-                    case 4:
-                        talk();
-                        break;
-                    case 0:
-                        stay = false;
-                        break;
-                    default:
-                        System.out.println("You couldn't decide what you want,so you leave Monastery.");
+                    case 1 -> pray();
+                    case 2 -> treatment();
+                    case 3 -> shop();
+                    case 4 -> talk();
+                    case 0 -> stay = false;
+                    default -> System.out.println("You couldn't decide what you want,so you leave Monastery.");
                 }
             } catch (Exception e) {
                 System.out.println("You couldn't decide what you want,so you leave Monastery." + e.getMessage());
@@ -188,28 +171,17 @@ public class Monastery extends Place {
             try {
                 int selection = scanner.nextInt();
                 switch (selection) {
-                    case 1:
-                        buyHealingPotion();
-                        break;
-                    case 2:
-                        buyManaPotion();
-                        break;
-                    case 3:
-                        buyAntidotePotion();
-                        break;
-                    case 4:
-                        buyCurePotion();
-                        break;
-                    case 5:
-                        donation();
-                        break;
-                    case 0:
-                        stay = false;
-                        break;
-                    default:
+                    case 1 -> buyHealingPotion();
+                    case 2 -> buyManaPotion();
+                    case 3 -> buyAntidotePotion();
+                    case 4 -> buyCurePotion();
+                    case 5 -> donation();
+                    case 0 -> stay = false;
+                    default -> {
                         //FIXME log.debug("There is no action for input" + selection);
                         System.out.println("You look on menu and get so confused that you decided to exit,because you don't know what you want and you did you do in this place");
                         stay = false;
+                    }
                 }
             } catch (Exception e) {
                 //FIXME log.debug("Invalid input.");

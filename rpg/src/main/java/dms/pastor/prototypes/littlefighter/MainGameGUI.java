@@ -472,48 +472,33 @@ public final class MainGameGUI extends javax.swing.JFrame {
         //fantasy world (Dragon as boss)
         int next = random.nextInt(19);
         switch (next) {
-            case 0:
-            case 1:
-            case 2:
-            case 3:
-            case 5:
-            case 6:
+            case 0, 1, 2, 3, 5, 6 -> {
                 enemy = new Enemy();
                 enemy.upgradeEnemy(lvl);
-                break;
-            case 4:
+            }
+            case 4 -> {
                 console.setText(console.getText() + "\n+1 to player Attack");
                 player.addAttack();
                 enemy = new Enemy();
-                break;
-            case 13:
+            }
+            case 13 -> {
                 console.setText(console.getText() + "\n+1 to player Defence");
                 player.addDefence();
                 enemy = new Enemy();
-                break;
-            case 8:
-            case 9:
-            case 10:
-            case 11:
-            case 12:
-            case 14:
-            case 15:
+            }
+            case 8, 9, 10, 11, 12, 14, 15 -> {
                 enemy = new Dwarf();
                 enemy.upgradeEnemy(lvl);
-                break;
-            case 16:
-            case 18:
-            case 19:
-            case 7:
-            case 17:
+            }
+            case 16, 18, 19, 7, 17 -> {
                 enemy = new Troll();
                 enemy.upgradeEnemy(lvl);
-                break;
-            default:
+            }
+            default -> {
                 System.out.println("???");
                 enemy = new Enemy();
                 enemy.upgradeEnemy(lvl);
-                break;
+            }
         }
 
     }

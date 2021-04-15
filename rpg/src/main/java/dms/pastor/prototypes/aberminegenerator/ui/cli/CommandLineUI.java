@@ -25,21 +25,11 @@ public class CommandLineUI {
             System.out.println("What do you want to do ?");
             System.out.println(activity.getMap());
             switch (scanner.nextLine()) {
-                case "a":
-                    activity.walkWest();
-                    break;
-                case "w":
-                    activity.walkNorth();
-                    break;
-                case "d":
-                    activity.walkEast();
-                    break;
-                case "s":
-                    activity.walkSouth();
-                    break;
-                case "q":
-                    menu = false;
-                    break;
+                case "a" -> activity.walkWest();
+                case "w" -> activity.walkNorth();
+                case "d" -> activity.walkEast();
+                case "s" -> activity.walkSouth();
+                case "q" -> menu = false;
             }
         }
         System.out.println("The universe ceased to exist.");

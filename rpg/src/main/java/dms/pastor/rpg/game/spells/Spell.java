@@ -1,6 +1,5 @@
 package dms.pastor.rpg.game.spells;
 
-import dms.pastor.domain.Result;
 import dms.pastor.rpg.game.Element;
 import dms.pastor.rpg.game.characteristics.Stats;
 import dms.pastor.domain.Result;

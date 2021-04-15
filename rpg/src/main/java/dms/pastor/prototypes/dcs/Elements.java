@@ -63,25 +63,26 @@ public class Elements {
         for (int i = 1; i <= addCardPerTurn; i++) {
             stringBuilder.append(" ");
             switch (random.nextInt(ElementType.values().length)) {
-                case 0:
+                case 0 -> {
                     air++;
                     stringBuilder.append(getElementName(ElementType.AIR));
-                    break;
-                case 1:
+                }
+                case 1 -> {
                     earth++;
                     stringBuilder.append(getElementName(ElementType.EARTH));
-                    break;
-                case 2:
+                }
+                case 2 -> {
                     fire++;
                     stringBuilder.append(getElementName(ElementType.FIRE));
-                    break;
-                case 3:
+                }
+                case 3 -> {
                     water++;
                     stringBuilder.append(getElementName(ElementType.WATER));
-                    break;
-                default: //TODO how to test this ?
+                }
+                default -> { //TODO how to test this ?
                     System.out.println("bug in addRandomElements");
                     throw new SomethingWentWrongException();
+                }
             }
         }
         return stringBuilder.toString().trim();
@@ -110,21 +111,11 @@ public class Elements {
 
     public void setElementsFor(ElementType elementsType, int number) {
         switch (elementsType) {
-            case AIR:
-                setAir(number);
-                break;
-            case EARTH:
-                setEarth(number);
-                break;
-            case FIRE:
-                setFire(number);
-                break;
-            case WATER:
-                setWater(number);
-                break;
-            default:
-                LOGGER.warn("getElementsFor method is not implemented for " + elementsType + " with number of elements equals to " + number);
-                break;
+            case AIR -> setAir(number);
+            case EARTH -> setEarth(number);
+            case FIRE -> setFire(number);
+            case WATER -> setWater(number);
+            default -> LOGGER.warn("getElementsFor method is not implemented for " + elementsType + " with number of elements equals to " + number);
         }
     }
 
@@ -182,21 +173,11 @@ public class Elements {
             return;
         }
         switch (elementsType) {
-            case AIR:
-                air += number;
-                break;
-            case FIRE:
-                fire += number;
-                break;
-            case EARTH:
-                earth += number;
-                break;
-            case WATER:
-                water += number;
-                break;
-            default:
-                System.out.println("OH COCK, unimplemented element in addElement");
-                break;
+            case AIR -> air += number;
+            case FIRE -> fire += number;
+            case EARTH -> earth += number;
+            case WATER -> water += number;
+            default -> System.out.println("OH COCK, unimplemented element in addElement");
         }
     }
 
@@ -217,25 +198,30 @@ public class Elements {
     public int getAndUseRandomElements() {
         int numberOfElements;
         switch (random.nextInt(ElementType.values().length)) {
-            case 0:
+            case 0 -> {
                 numberOfElements = air;
                 setAir(0);
                 return numberOfElements;
-            case 1:
+            }
+            case 1 -> {
                 numberOfElements = earth;
                 setEarth(0);
                 return numberOfElements;
-            case 2:
+            }
+            case 2 -> {
                 numberOfElements = fire;
                 setFire(0);
                 return numberOfElements;
-            case 3:
+            }
+            case 3 -> {
                 numberOfElements = water;
                 setWater(0);
                 return numberOfElements;
-            default:
+            }
+            default -> {
                 System.out.println("bug in getAndUseRandomElements");
                 return 0;
+            }
         }
     }
 
@@ -246,20 +232,23 @@ public class Elements {
 
     public int useElement(ElementType elementType, int number) {
         switch (elementType) {
-            case AIR:
+            case AIR -> {
                 air -= number;
                 return getAir();
-            case FIRE:
+            }
+            case FIRE -> {
                 fire -= number;
                 return getFire();
-            case EARTH:
+            }
+            case EARTH -> {
                 earth -= number;
                 return getEarth();
-            case WATER:
+            }
+            case WATER -> {
                 water -= number;
                 return getWater();
-            default:
-                throw new SomethingWentWrongException("No implementation for " + elementType);
+            }
+            default -> throw new SomethingWentWrongException("No implementation for " + elementType);
         }
 
     }

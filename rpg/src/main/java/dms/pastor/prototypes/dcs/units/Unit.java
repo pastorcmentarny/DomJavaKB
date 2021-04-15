@@ -295,21 +295,11 @@ public class Unit {
 
     public void setElementsFor(ElementType elementsType, int number) {
         switch (elementsType) {
-            case AIR:
-                elements.setAir(number);
-                break;
-            case EARTH:
-                elements.setEarth(number);
-                break;
-            case FIRE:
-                elements.setFire(number);
-                break;
-            case WATER:
-                elements.setWater(number);
-                break;
-            default:
-                LOGGER.warn("getElementsFor method is not implemented for " + elementsType + " with number of elements equals to " + number);
-                break;
+            case AIR -> elements.setAir(number);
+            case EARTH -> elements.setEarth(number);
+            case FIRE -> elements.setFire(number);
+            case WATER -> elements.setWater(number);
+            default -> LOGGER.warn("getElementsFor method is not implemented for " + elementsType + " with number of elements equals to " + number);
         }
     }
 

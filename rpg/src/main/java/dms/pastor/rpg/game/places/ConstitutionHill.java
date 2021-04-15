@@ -50,27 +50,21 @@ class ConstitutionHill extends Place {
             try {
                 int choice = scanner.nextInt();
                 switch (choice) {
-                    case 1:
+                    case 1 -> {
                         Daria daria = new Daria();
                         if (daria.atHome()) {
                             daria.talk();
                         } else {
                             Msg.notAtHome(daria.getName());
                         }
-                        break;
-                    case 2:
-                        System.out.println("Cliff Railway is closed." + Msg.apologize());
-                        break;
-                    case 3:
-                        walkAround();
-                        break;
-                    case 0:
+                    }
+                    case 2 -> System.out.println("Cliff Railway is closed." + Msg.apologize());
+                    case 3 -> walkAround();
+                    case 0 -> {
                         stay = false;
                         System.out.println("You left city...");
-                        break;
-                    default:
-                        System.out.println("You walk to road that is dead end... you go back and choose ..");
-                        break;
+                    }
+                    default -> System.out.println("You walk to road that is dead end... you go back and choose ..");
                 }
             } catch (InputMismatchException ime) {
                 System.out.println("You get lost in the city ... press number!");

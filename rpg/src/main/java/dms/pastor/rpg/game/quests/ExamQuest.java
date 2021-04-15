@@ -35,26 +35,15 @@ public class ExamQuest extends Quest {
         a = random.nextInt(range);
         b = random.nextInt(range);
         System.out.println("Question no." + question);
-        boolean answered;
-        switch (random.nextInt(NUMBER_OF_POSSIBLE_QUESTIONS) + 1) {
-            case 1:
-                answered = addQuestion();
-                break;
-            case 2:
-                answered = substractionQuestion();
-                break;
-            case 3:
-                answered = multiQuestion();
-                break;
-            case 4:
-                answered = divisionQuestion(range);
-                break;
-            default:
-                //FIXME log.warn("did you forgot add case for question ?");
-                answered = false;
-                break;
-
-        }
+        boolean answered = switch (random.nextInt(NUMBER_OF_POSSIBLE_QUESTIONS) + 1) {
+            case 1 -> addQuestion();
+            case 2 -> substractionQuestion();
+            case 3 -> multiQuestion();
+            case 4 -> divisionQuestion(range);
+            default ->
+                    //FIXME log.warn("did you forgot add case for question ?");
+                    false;
+        };
 
         //TODO random messages for success and fails
         if (answered) {

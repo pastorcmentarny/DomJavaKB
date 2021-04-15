@@ -1,6 +1,5 @@
 package dms.pastor.prototypes.aberminegenerator.ui.web;
 
-import dms.pastor.utils.CollectionsUtils;
 import dms.pastor.utils.converters.CharArrayToListConverter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;

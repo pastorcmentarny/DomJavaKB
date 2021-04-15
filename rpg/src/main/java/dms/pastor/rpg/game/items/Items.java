@@ -18,23 +18,15 @@ public class Items {
 
     public static Item generateRubbishItem() {
         //BASED on odd things found in public transport
-        switch (new Random().nextInt(3)) {
-            case 0:
-                return new RubbishItem("Socks", "An unused socks", 5);
-            case 1:
-                return new TShirt();
-            case 2:
-                return new RubbishItem("basketball player's trainers", "A basketball player's size-17 trainers found in Zombie's bag that you killed.", 25);
-            case 3:
-                return new RubbishItem("Umbrella", "An umbrella", 4);
-            case 4:
-                return new RubbishItem("A stuffed fish", "A stuffed puff fish", 9);
-            case 5:
-                return new RubbishItem("False teeth", "It belongs to Zombie", 9);
-
-            default:
-                return new Ring("Plastic Ring", 1);
-        }
+        return switch (new Random().nextInt(3)) {
+            case 0 -> new RubbishItem("Socks", "An unused socks", 5);
+            case 1 -> new TShirt();
+            case 2 -> new RubbishItem("basketball player's trainers", "A basketball player's size-17 trainers found in Zombie's bag that you killed.", 25);
+            case 3 -> new RubbishItem("Umbrella", "An umbrella", 4);
+            case 4 -> new RubbishItem("A stuffed fish", "A stuffed puff fish", 9);
+            case 5 -> new RubbishItem("False teeth", "It belongs to Zombie", 9);
+            default -> new Ring("Plastic Ring", 1);
+        };
     }
 
 }

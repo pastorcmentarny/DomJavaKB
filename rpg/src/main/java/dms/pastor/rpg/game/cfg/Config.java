@@ -58,20 +58,14 @@ public class Config {
     static int QUEST_ITEM_VALUE = -1;
 
     public static int getPriceForBand(int cost, int band) {
-        switch (band) {
-            case 1:
-                return cost - (cost / 4);
-            case 2:
-                return cost - (cost / 10);
-            case 3:
-                return cost + (cost / 5);
-            case 4:
-                return cost + (cost / 2);
-            case 5:
-                return 2 * cost;
-            default:
-                return cost;
-        }
+        return switch (band) {
+            case 1 -> cost - (cost / 4);
+            case 2 -> cost - (cost / 10);
+            case 3 -> cost + (cost / 5);
+            case 4 -> cost + (cost / 2);
+            case 5 -> 2 * cost;
+            default -> cost;
+        };
     }
 
     public static String getPersonName() {

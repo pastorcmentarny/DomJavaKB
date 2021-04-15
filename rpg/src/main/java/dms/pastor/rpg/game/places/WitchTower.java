@@ -25,22 +25,17 @@ public class WitchTower extends Place {
             try {
                 int choice = scanner.nextInt();
                 switch (choice) {
-                    case 1:
-                        visitQueen();
-                        break;
-                    case 2:
-                        visitBarracks();
-                        break;
-                    case 3:
-                        CommonPlaces.vendingMachine(random.nextBoolean());
-                        break;
-                    case 4:
+                    case 1 -> visitQueen();
+                    case 2 -> visitBarracks();
+                    case 3 -> CommonPlaces.vendingMachine(random.nextBoolean());
+                    case 4 -> {
                         Chat chat = new Chat();
                         chat.withPolyesterKnights().talk();
-                        break;
-                    case 0:
+                    }
+                    case 0 -> {
                         stay = false;
                         System.out.println("You left city...");
+                    }
                 }
             } catch (InputMismatchException ime) {
                 System.out.println("You get lost at university .Shame on you!I understand as if you study tourist management as for your trip at uni is trip of your life ,but otherwise ..COME ON ... press number!");

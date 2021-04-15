@@ -21,20 +21,11 @@ public class OlaZ extends Boss {
 
     public OlaZ(int stage) {
         switch (stage) {
-            case 1:
-                updateTo = 10;
-                break;
-            case 2:
-                updateTo = 20;
-                break;
-            case 3:
-                updateTo = 40;
-                break;
-            case 4:
-                updateTo = 80;
-                break;
-            default:
-                lvl = Hero.getHero().lvl;
+            case 1 -> updateTo = 10;
+            case 2 -> updateTo = 20;
+            case 3 -> updateTo = 40;
+            case 4 -> updateTo = 80;
+            default -> lvl = Hero.getHero().lvl;
         }
         setName("Ola Z");
         setDescription("Ola - a pure evil and perfect villain.");

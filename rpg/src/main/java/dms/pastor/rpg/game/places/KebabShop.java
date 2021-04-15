@@ -31,28 +31,22 @@ public class KebabShop extends Place {
             try {
                 int selection = scanner.nextInt();
                 switch (selection) {
-                    case 1:
-                        buyKebab();
-                        break;
-                    case 2:
-                        //TODO implement it buyFishAndChips();
-                        System.out.println("Sorry! we are run out of Fish and Chips for today");
-                        break;
-                    case 3:
-                        //buyBurger();
-                        System.out.println("Sorry! we are run out of Burgers for today");
-                        break;
-                    case 4:
-                        //buyDrink();
-                        System.out.println("Sorry! we are not allowed to sell drink at the moment");
-                        break;
-                    case 0:
-                        goToMenu = false;
-                        break;
-                    default:
+                    case 1 -> buyKebab();
+                    case 2 ->
+                            //TODO implement it buyFishAndChips();
+                            System.out.println("Sorry! we are run out of Fish and Chips for today");
+                    case 3 ->
+                            //buyBurger();
+                            System.out.println("Sorry! we are run out of Burgers for today");
+                    case 4 ->
+                            //buyDrink();
+                            System.out.println("Sorry! we are not allowed to sell drink at the moment");
+                    case 0 -> goToMenu = false;
+                    default -> {
                         //FIXME log.debug("There is no action for input" + selection);
                         System.out.println("You look on menu and get so confused that you decided to exit,because you don't know what you want and you did you do in this place");
                         goToMenu = false;
+                    }
                 }
             } catch (Exception e) {
                 //FIXME log.debug("Invalid input.");

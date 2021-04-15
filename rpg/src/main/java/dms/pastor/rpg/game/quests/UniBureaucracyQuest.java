@@ -106,13 +106,14 @@ public class UniBureaucracyQuest extends Quest {
             try {
                 int choice = scanner.nextInt();
                 switch (choice) {
-                    case 1:
+                    case 1 -> {
                         Castle castle = new Castle();
                         castle.goToPlace();
-                        break;
-                    case 0:
+                    }
+                    case 0 -> {
                         System.out.println("Back to main hall");
                         stay = false;
+                    }
                 }
             } catch (Exception e) {
                 System.out.println("?");

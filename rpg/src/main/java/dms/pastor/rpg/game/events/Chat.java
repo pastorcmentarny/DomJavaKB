@@ -22,17 +22,12 @@ public class Chat implements EventInterface {
 
     private NPC getRandomPerson() {
         Random random = new Random();
-        switch (random.nextInt(3) + 1) {
-            case 1:
-                return new Yuhong();
-            case 2:
-                return new Selienta();
-            case 3:
-                return new MonikaSmigiel();
-            default:
-                throw new UnsupportedOperationException("Not supported yet.");
-
-        }
+        return switch (random.nextInt(3) + 1) {
+            case 1 -> new Yuhong();
+            case 2 -> new Selienta();
+            case 3 -> new MonikaSmigiel();
+            default -> throw new UnsupportedOperationException("Not supported yet.");
+        };
 
     }
 
@@ -43,17 +38,12 @@ public class Chat implements EventInterface {
 
     public NPC withPolyesterKnights() {
         Random random = new Random();
-        switch (random.nextInt(3) + 1) {
-            case 1:
-                return new Kuna();
-            case 2:
-                return new Alek();
-            case 3:
-                return new Adam();
-            default:
-                throw new UnsupportedOperationException("Not supported yet.");
-
-        }
+        return switch (random.nextInt(3) + 1) {
+            case 1 -> new Kuna();
+            case 2 -> new Alek();
+            case 3 -> new Adam();
+            default -> throw new UnsupportedOperationException("Not supported yet.");
+        };
     }
 
 }
