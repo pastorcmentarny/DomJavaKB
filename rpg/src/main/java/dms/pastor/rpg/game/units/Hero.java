@@ -363,7 +363,7 @@ public class Hero extends Unit implements BattleAction {
                 //FIXME log.warn("unable to cast unknown spell");
 
         }
-        return Result.fail();
+        return new Result(false);
     }
 
     //3 sel
@@ -382,7 +382,7 @@ public class Hero extends Unit implements BattleAction {
             default:
         }
 
-        return Result.fail();
+        return new Result(false);
     }
 
     public boolean canUseItem() {

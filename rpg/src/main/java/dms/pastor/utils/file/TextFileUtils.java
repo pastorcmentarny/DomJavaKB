@@ -1,6 +1,6 @@
 package dms.pastor.utils.file;
 
-import dms.pastor.domain.exception.SomethingWentTerribleWrongError;
+import dms.pastor.domain.exception.SomethingWentWrongException;
 import dms.pastor.utils.ValidatorUtils;
 
 import java.io.IOException;
@@ -24,7 +24,7 @@ public class TextFileUtils {
             ValidatorUtils.validateIfObjectValueIsNotNull(resource, "URL resource from path " + path);
             return org.apache.commons.io.FileUtils.readLines(getFileIfPathExists(resource.getPath()), StandardCharsets.UTF_8);
         } catch (IOException exception) {
-            throw new SomethingWentTerribleWrongError(exception.getMessage());
+            throw new SomethingWentWrongException(exception.getMessage());
 
         }
     }

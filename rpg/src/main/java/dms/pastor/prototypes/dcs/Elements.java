@@ -1,6 +1,5 @@
 package dms.pastor.prototypes.dcs;
 
-import dms.pastor.domain.exception.SomethingWentTerribleWrongError;
 import dms.pastor.domain.exception.SomethingWentWrongException;
 import dms.pastor.prototypes.dcs.conditions.ElementType;
 import dms.pastor.utils.StringUtils;
@@ -82,7 +81,7 @@ public class Elements {
                     break;
                 default: //TODO how to test this ?
                     System.out.println("bug in addRandomElements");
-                    throw new SomethingWentTerribleWrongError();
+                    throw new SomethingWentWrongException();
             }
         }
         return stringBuilder.toString().trim();

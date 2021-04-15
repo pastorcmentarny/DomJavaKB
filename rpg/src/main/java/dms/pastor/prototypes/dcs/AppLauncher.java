@@ -1,6 +1,6 @@
 package dms.pastor.prototypes.dcs;
 
-import dms.pastor.domain.exception.SomethingWentTerribleWrongError;
+import dms.pastor.domain.exception.SomethingWentWrongException;
 import dms.pastor.prototypes.dcs.game.Campaign;
 import dms.pastor.prototypes.dcs.units.Player;
 import dms.pastor.prototypes.dcs.utils.FakeInputReader;
@@ -29,7 +29,7 @@ class AppLauncher {
                 player = new Player("Demo Player", new FakeInputReader());
                 break;
             default:
-                throw new SomethingWentTerribleWrongError();
+                throw new SomethingWentWrongException();
         }
         new AppLauncher().newGame(player, new Campaign());
     }

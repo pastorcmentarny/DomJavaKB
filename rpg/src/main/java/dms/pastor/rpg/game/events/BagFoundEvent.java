@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class BagFoundEvent implements EventInterface {
     static Scanner scanner = new Scanner(System.in);
 
-    private Result result = Result.fail();
+    private Result result = new Result(false);
     private final Hero hero;
 
     public BagFoundEvent(Hero hero) {

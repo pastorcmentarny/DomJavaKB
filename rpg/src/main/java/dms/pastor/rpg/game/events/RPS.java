@@ -25,6 +25,6 @@ public enum RPS {
     }
 
     public Result getResultFor(int player, int enemy) {
-        return Result.fail(); //TODO implement it
+        return new Result(false);
     }
 }
