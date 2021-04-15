@@ -289,7 +289,7 @@ public class ValidatorUtilsTest {
         final var exception = assertThrows(IllegalArgumentException.class, () -> validateNegativeBigDecimal(value));
 
         // then
-        assertThat(exception.getMessage()).isEqualTo("Value cannot be positive");
+        assertThat(exception.getMessage()).isEqualTo("Value cannot be positive. Value: " + value);
     }
 
     @Test
