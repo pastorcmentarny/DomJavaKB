@@ -8,11 +8,11 @@ public class Office extends Place {
     //full version should have 20 of them
     private final Hero hero;
     private QuestMonitor qm;
-    private boolean wtf10 = false; //what the fuck
-    private boolean fo805 = false; //fuck off
-    private boolean sob11 = false; //son of the beach
-    private boolean waa02 = false; //what an asshole
-    private boolean boo50 = false; //bollocks
+    private final boolean wtf10 = false; //what the fuck
+    private final boolean fo805 = false; //fuck off
+    private final boolean sob11 = false; //son of the beach
+    private final boolean waa02 = false; //what an asshole
+    private final boolean boo50 = false; //bollocks
 
     public Office(Hero hero) {
         this.hero = hero;

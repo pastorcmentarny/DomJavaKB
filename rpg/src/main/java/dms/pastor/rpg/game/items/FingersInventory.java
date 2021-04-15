@@ -36,7 +36,7 @@ class FingersInventory {
                 sb.append(counter).append(". ").append(ring.getName()).append(" \t").append(ring.getDescription()).append(" \t").append(ring.getValue()).append(" \t").append(ring.getAttributesAsList());
             }
         }
-        System.out.println(sb.toString());
+        System.out.println(sb);
     }
 
 

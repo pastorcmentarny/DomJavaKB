@@ -68,5 +68,4 @@ public enum Attribute {
     UNDEAD_KILLER, //It does 1000 dmg per turn
     NONE, HERBALIST,
     DIPLOMACY, // People who study internal politics
-    ;
 }

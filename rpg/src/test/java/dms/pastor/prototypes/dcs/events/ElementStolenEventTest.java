@@ -21,6 +21,6 @@ public final class ElementStolenEventTest {
         elementStolenEvent.makeItHappen(unit, unit);
 
         // then
-        System.out.println(unit.toString());
+        System.out.println(unit);
     }
 }

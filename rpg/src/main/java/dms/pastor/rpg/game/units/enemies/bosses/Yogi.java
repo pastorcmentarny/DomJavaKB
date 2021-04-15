@@ -8,7 +8,7 @@ import dms.pastor.rpg.game.items.questsitems.JamesConstitution;
 
 
 class Yogi extends Boss {
-    private static String[] dariaPreTalks = {"Diana - I dropped 2 kilo! Yogi - Don't forget flush the toilet after that!",};
+    private static final String[] dariaPreTalks = {"Diana - I dropped 2 kilo! Yogi - Don't forget flush the toilet after that!",};
 
     public Yogi() {
         setName("Yogi");

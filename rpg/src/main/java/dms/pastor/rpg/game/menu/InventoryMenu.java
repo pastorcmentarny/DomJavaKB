@@ -77,7 +77,7 @@ public class InventoryMenu implements Menu {
             }
             sb.append(Config.LINE_SEPARATOR);
             sb.append("0. Exit");
-            System.out.println(sb.toString());
+            System.out.println(sb);
             try {
                 int selection = scanner.nextInt();
                 int x = 1;

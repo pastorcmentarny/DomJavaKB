@@ -6,8 +6,8 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public class RPSPlayer {
-    private String name;
-    private boolean human;
+    private final String name;
+    private final boolean human;
     private int points;
     private Shapes shape;
 

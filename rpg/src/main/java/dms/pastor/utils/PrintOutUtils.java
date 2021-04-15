@@ -39,7 +39,7 @@ public final class PrintOutUtils {
 
     private static void printInConsole(StringBuilder sb) {
         sb.append(CLOSE_ARRAY);
-        out.println(sb.toString());
+        out.println(sb);
     }
 
 

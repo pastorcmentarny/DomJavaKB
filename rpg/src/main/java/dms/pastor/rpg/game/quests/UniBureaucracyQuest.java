@@ -16,7 +16,7 @@ import java.util.Scanner;
  */
 public class UniBureaucracyQuest extends Quest {
 
-    private static String[] locked = {"Door is locked.", "Knock,knock... no response", "There is message on door that said .I will back in 5 minutes.. After 1 hour of waiting you notice few skeleton siting on chair next to room.You abandon idea to go to this room."};
+    private static final String[] locked = {"Door is locked.", "Knock,knock... no response", "There is message on door that said .I will back in 5 minutes.. After 1 hour of waiting you notice few skeleton siting on chair next to room.You abandon idea to go to this room."};
     String[] stories = {"You pass room and you saw few skeletons .It was some students still waiting for response from the university regards (...)", "You met a pissed off student.You asked ... what happen? She responded: I went to wrong rooms 3 times and now i must do my application again!", " "};
     private final Scanner scanner = new Scanner(System.in);
     int floor = 0;

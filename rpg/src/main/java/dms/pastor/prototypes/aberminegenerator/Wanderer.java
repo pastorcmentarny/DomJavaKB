@@ -13,7 +13,7 @@ import lombok.Getter;
 @Getter
 public class Wanderer {
 
-    private String name;
+    private final String name;
     private Coordinates coordinates;
 
 

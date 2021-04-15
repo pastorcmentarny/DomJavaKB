@@ -9,7 +9,7 @@ package dms.pastor.rpg.game.states;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 class Poison {
-    private boolean isPoisoned = false;
-    private int turnLeft = 0;
+    private final boolean isPoisoned = false;
+    private final int turnLeft = 0;
 
 }

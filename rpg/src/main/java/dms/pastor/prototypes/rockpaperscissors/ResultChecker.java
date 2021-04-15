@@ -8,8 +8,8 @@ import static dms.pastor.prototypes.rockpaperscissors.Shapes.*;
 @AllArgsConstructor
 @Getter
 public class ResultChecker {
-    private RPSPlayer player1;
-    private RPSPlayer player2;
+    private final RPSPlayer player1;
+    private final RPSPlayer player2;
 
     //scissor bets paper bets rock
     public void checkResult() {

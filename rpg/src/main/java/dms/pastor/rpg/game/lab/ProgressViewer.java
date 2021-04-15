@@ -24,7 +24,7 @@ class ProgressViewer {
             sb.append("{Level:").append(i).append(" ~ ").append(value).append(" } ");
             value = increaseByPercent(value, percentPerLevel);
         }
-        System.out.println(sb.toString());
+        System.out.println(sb);
 
     }
 

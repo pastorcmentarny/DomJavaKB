@@ -6,7 +6,7 @@ public enum LearnerType {
     AVERAGE_LEARNER(10),
     SLOW_LEARNER(12);
 
-    private int percentIncreasePerLevel;
+    private final int percentIncreasePerLevel;
 
     LearnerType(int percentIncreasePerLevel) {
         this.percentIncreasePerLevel = percentIncreasePerLevel;

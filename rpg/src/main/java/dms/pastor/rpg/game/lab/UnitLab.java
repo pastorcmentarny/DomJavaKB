@@ -24,7 +24,7 @@ public class UnitLab {
                 i = 50;
             }
             player1.generateStatsForLevel(i);
-            System.out.println(player1.toString());
+            System.out.println(player1);
         }
     }
 }
