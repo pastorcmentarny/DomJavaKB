@@ -143,7 +143,7 @@ public enum StationName {
     LEICESTER_SQUARE("Leicester Square", TUBE),
     LEYTON("Leyton", TUBE),
     LEYTONSTONE("Leytonstone", TUBE),
-    LIVERPOOL_STREET("Liverpool Street", TUBE),
+    LIVERPOOL_STREET("Liverpool Street", TUBE_OVERGROUND),
     LONDON_BRIDGE("London Bridge", TUBE),
     LOUGHTON("Loughton", TUBE),
     MAIDA_VALE("Maida Vale", TUBE),

@@ -1,6 +1,7 @@
 package dms.pastor.tools.trips.tube.station;
 
 import dms.pastor.tools.trips.common.station.StationName;
+import dms.pastor.tools.trips.common.station.StationType;
 import org.junit.jupiter.api.Test;
 
 import java.util.Set;
@@ -23,12 +24,30 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class StationNameTest {
 
     @Test
-    public void shouldBe270Stations() {
+    public void shouldBe353TubeStations() {
         // given
         Set<StationName> uniqueStationNames = Stream.of(StationName.values()).collect(Collectors.toSet());
 
         // then
+        assertThat(uniqueStationNames).hasSize(353);
+    }
+
+    @Test
+    public void shouldBe270TubeStations() {
+        // given
+        Set<StationName> uniqueStationNames = Stream.of(StationName.values()).filter(stationName -> StationType.isTubeType(stationName.getStationType())).collect(Collectors.toSet());
+
+        // then
         assertThat(uniqueStationNames).hasSize(270);
+    }
+
+    @Test
+    public void shouldBe112vergroundStations() {
+        // given
+        Set<StationName> uniqueStationNames = Stream.of(StationName.values()).filter(stationName -> StationType.isOvergroundType(stationName.getStationType())).collect(Collectors.toSet());
+
+        // then
+        assertThat(uniqueStationNames).hasSize(112);
     }
 
     @Test
