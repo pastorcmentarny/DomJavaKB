@@ -1,11 +1,14 @@
 package dms.pastor.tools.trips.tube.station;
 
+import dms.pastor.tools.trips.common.station.StationName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static dms.pastor.tools.trips.common.station.StationName.CHESHAM;
+import static dms.pastor.tools.trips.common.station.StationType.TUBE;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -17,24 +20,30 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class StationTest {
+public class StationNameTest {
 
     @Test
     public void shouldBe270Stations() {
         // given
-        Set<Station> uniqueStations = Stream.of(Station.values()).collect(Collectors.toSet());
+        Set<StationName> uniqueStationNames = Stream.of(StationName.values()).collect(Collectors.toSet());
 
         // then
-        assertThat(uniqueStations).hasSize(270);
+        assertThat(uniqueStationNames).hasSize(270);
     }
 
     @Test
     public void hasShouldReturnTrueForExistingStation() {
-        assertThat(Station.has("Wembley Park")).isTrue();
+        assertThat(StationName.has("Wembley Park")).isTrue();
     }
 
     @Test
     public void hasShouldReturnFalseForNonExistingStation() {
-        assertThat(Station.has("London Park")).isFalse();
+        assertThat(StationName.has("London Park")).isFalse();
+    }
+
+
+    @Test
+    public void shouldReturnTubeTypeForChesham() {
+        assertThat(CHESHAM.getStationType()).isEqualTo(TUBE);
     }
 }
