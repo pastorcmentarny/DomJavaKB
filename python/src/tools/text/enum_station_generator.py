@@ -1,22 +1,16 @@
-# TODO move to test. test station to cover all cases
-stations = [
-    "Caledonian Road & Barnsbury",
-    "Kensington (Olympia)",
-    "Walthamstow Queen's Road",
-]
+# left this empty after use
+stations = []
 
-'''
-CALEDONIAN_ROAD_AND_BARNSBURY("Caledonian Road & Barnsbury",OVERGROUND),
-KENSINGTON__OLYMPIA_("Kensington (Olympia)",OVERGROUND),
-WALTHAMSTOW_QUEENS_ROAD("Walthamstow Queen's Road",OVERGROUND),
-'''
+
+def convert_to_enum(station):
+    return station.replace(" & ", "_AND_").replace(' ', '_').replace("'", "") \
+               .replace(" & ", "_AND_").replace('(', '_').replace(')', '_') \
+               .upper() + '("' + station + '",OVERGROUND),'
 
 
 def generate_station_enum():
     for station in stations:
-        print(station.replace(" & ", "_AND_").replace(' ', '_').replace("'", "").replace(" & ", "_AND_").replace('(',
-                                                                                                                 '_').replace(
-            ')', '_').upper() + '("' + station + '",OVERGROUND),')
+        print(convert_to_enum(station))
 
 
 if __name__ == '__main__':
