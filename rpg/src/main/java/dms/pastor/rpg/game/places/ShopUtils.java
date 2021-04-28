@@ -18,7 +18,7 @@ class ShopUtils {
     private static void buy(Item item, int price, int amount) {
         Hero hero = Hero.getHero();
         if (hero.money.hasEnoughMoney(price * amount)) {
-            hero.inventory.addItems(item, amount);
+            hero.inventory.addItems();
         } else {
             System.out.println(Errors.getNotEnoughMoney());
         }

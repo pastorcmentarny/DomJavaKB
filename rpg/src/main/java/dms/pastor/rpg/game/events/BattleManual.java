@@ -111,7 +111,7 @@ public class BattleManual implements BattleAction {
                     break;
                 case 2:
                     if (hero.canCastSpell()) {
-                        hero.castSpell(enemy);
+                        hero.castSpell();
                     } else {
                         Msg.cant("cast spell");
                     }
@@ -209,7 +209,7 @@ public class BattleManual implements BattleAction {
     private void beforeTurnEvents() {
         round++;
         System.out.println("Turn:" + round);
-        enemy.exp += (round / 2 < 1 ? 1 : round / 2);
+        enemy.exp += (Math.max(round / 2, 1));
         hero.beforeTurn();
         enemy.beforeTurn();
 

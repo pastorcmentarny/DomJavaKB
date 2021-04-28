@@ -1,9 +1,9 @@
 package dms.pastor.rpg.game;
 
 
+import dms.pastor.domain.Result;
 import dms.pastor.rpg.game.cfg.Config;
 import dms.pastor.rpg.game.commons.Msg;
-import dms.pastor.domain.Result;
 import dms.pastor.rpg.game.events.*;
 import dms.pastor.rpg.game.menu.InventoryMenu;
 import dms.pastor.rpg.game.places.World;
@@ -157,7 +157,7 @@ public class Game {
             }
             case QUEST -> {
                 QuestSelector qs = new QuestSelector();
-                qs.menu(this);
+                qs.menu();
                 return true;
             }
             case NONE -> {

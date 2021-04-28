@@ -62,9 +62,9 @@ public class Activity {
     private void walk(Coordinates newCoordinates, String direction) {
         if (world.canGoTo(newCoordinates)) {
             wanderer.setCurrentCoordinateTo(newCoordinates);
-            System.out.println(format("Going %s", direction));
+            System.out.printf("Going %s%n", direction);
         } else {
-            System.out.println(format("Cannot go %s", direction));
+            System.out.printf("Cannot go %s%n", direction);
         }
 
     }

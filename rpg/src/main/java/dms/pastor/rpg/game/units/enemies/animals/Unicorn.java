@@ -16,7 +16,7 @@ import java.util.Random;
 
 public class Unicorn extends Enemy {
 
-    public Unicorn(int level) {
+    public Unicorn() {
         setName("Unicorn");
         setDescription("Another creation of goddess of pink nails .It is genetically modified horse that vomiting rainbow.");
         psycho = true;

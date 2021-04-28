@@ -83,7 +83,7 @@ public class University extends Place {
                         }
                         break;
                     case 8:
-                        Clubbing club = new Clubbing(hero);
+                        Clubbing club = new Clubbing();
                         club.description();
                         club.goToPlace();
                         break;

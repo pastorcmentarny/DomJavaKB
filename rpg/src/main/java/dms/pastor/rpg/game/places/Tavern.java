@@ -81,8 +81,6 @@ public class Tavern extends Place {
             try {
                 int choice = scanner.nextInt();
                 switch (choice) {
-                    case 1:
-                        break;
                     case 2:
                         Msg.getRandomPubStory();
                         break;
@@ -105,6 +103,7 @@ public class Tavern extends Place {
                     case 0:
                         stay = false;
                         break;
+                    case 1:
                     default:
                         break;
                 }
@@ -134,8 +133,6 @@ public class Tavern extends Place {
             try {
                 int choice = scanner.nextInt();
                 switch (choice) {
-                    case 1:
-                        break;
                     case 2:
                         Msg.getRandomPubStory();
                         break;
@@ -153,6 +150,7 @@ public class Tavern extends Place {
                     case 0:
                         stay = false;
                         break;
+                    case 1:
                     default:
                         break;
                 }

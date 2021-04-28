@@ -24,7 +24,7 @@ public enum RPS {
         return number;
     }
 
-    public Result getResultFor(int player, int enemy) {
+    public Result getResultFor() {
         return new Result(false);
     }
 }

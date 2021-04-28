@@ -126,12 +126,7 @@ public class Hero extends Unit implements BattleAction {
 
     private void addHealth(Stats stat, int hp) {
         //System.out.println("Health before cast minor health..." + stat.getHP() + "restore health by" + hp + "MaxHP" + stat.getMaxHP());
-        if (stat.getHP() + hp > stat.getMaxHP()) {
-            stat.setHP(stat.getMaxHP());
-        } else {
-            stat.setHP(stat.getHP() + hp);
-
-        }
+        stat.setHP(Math.min(stat.getHP() + hp, stat.getMaxHP()));
         System.out.println("Health after casting minor health ... " + stat.getHP() + " hp.");
     }
 
@@ -471,7 +466,7 @@ public class Hero extends Unit implements BattleAction {
         }
     }
 
-    public void castSpell(Enemy enemy) {
+    public void castSpell() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

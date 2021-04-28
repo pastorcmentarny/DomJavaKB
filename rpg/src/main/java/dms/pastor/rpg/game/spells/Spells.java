@@ -14,7 +14,7 @@ class Spells {
         return sb.toString();
     }
 
-    public String displayAvailableSpells(boolean inBattle) {
+    public String displayAvailableSpells() {
         StringBuilder sb = new StringBuilder();
         generateListOfSpells(sb);
 

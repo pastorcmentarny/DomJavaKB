@@ -1,14 +1,12 @@
 package dms.pastor.rpg.game.quests;
 
-import dms.pastor.rpg.game.Game;
-
 import java.util.Random;
 
 
 public class QuestSelector {
     private final int noOfQuests = 2;
 
-    public void menu(Game game) {
+    public void menu() {
         int quests = new Random().nextInt(noOfQuests);
         switch (quests) {
             case 0:

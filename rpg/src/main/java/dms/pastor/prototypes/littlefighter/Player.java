@@ -204,23 +204,18 @@ class Player {
             case 0 -> {
                 playerAttack++;
                 playerDefence++;
-                return;
             }
             case 1 -> {
                 playerAttack++;
-                return;
             }
             case 2 -> {
                 playerDefence++;
-                return;
             }
             case 3 -> {
                 playerShieldRegen++;
-                return;
             }
             case 4 -> {
                 playerManaRegen++;
-                return;
             }
             default -> playerMana += DEFAULT_PLAYER_MANA_ADDITION;
         }

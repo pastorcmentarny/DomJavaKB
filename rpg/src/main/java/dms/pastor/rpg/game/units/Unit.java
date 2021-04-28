@@ -64,15 +64,6 @@ public abstract class Unit extends Element implements Cloneable, Comparable<Unit
         setup();
     }
 
-    public Unit(String name, Skills skills, boolean psycho, int lvl, SkillsType[] possibleSkillBonus) {
-        this.lvl = lvl;
-        this.name = name;
-        this.skills = skills;
-        this.psycho = psycho;
-
-        setup();
-    }
-
 
     @Override
     public String toString() {

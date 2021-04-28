@@ -35,11 +35,7 @@ class Battle {
             console.setText(console.getText() + player.getMsg());
         }
         int dmg = (enemy.getEnemyAttack() * enemy.getEnemyPower()) - (player.getPlayerDefence() * player.getPlayerPower());
-        if (dmg < 0) {
-            return 0;
-        } else {
-            return dmg;
-        }
+        return Math.max(dmg, 0);
     }
 
 

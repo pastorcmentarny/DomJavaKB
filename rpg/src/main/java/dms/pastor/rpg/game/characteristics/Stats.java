@@ -1,7 +1,6 @@
 package dms.pastor.rpg.game.characteristics;
 
 import dms.pastor.rpg.game.cfg.Config;
-import dms.pastor.rpg.game.items.weapons.BaseballBat;
 
 import java.util.Random;
 
@@ -291,7 +290,7 @@ public class Stats {
         //karma is not part of standard stats
     }
 
-    void addRandomPointsToStats(int pts, boolean psycho) {
+    void addRandomPointsToStats() {
 
     }
 
@@ -448,7 +447,7 @@ public class Stats {
         SP = maxSP;
     }
 
-    public void addStatsFromWeapon(BaseballBat bb) {
+    public void addStatsFromWeapon() {
 
     }
 

@@ -68,7 +68,7 @@ public class RandomUnit {
             case BUNNY:
                 return new CuteBunny(level);
             case UNICORN:
-                return new Unicorn(level);
+                return new Unicorn();
             case MANNEQUIN:
                 return new Mannequin(level);
             case PUFFIN:

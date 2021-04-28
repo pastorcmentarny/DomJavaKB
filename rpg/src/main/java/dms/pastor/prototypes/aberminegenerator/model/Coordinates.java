@@ -4,7 +4,7 @@ import lombok.Value;
 
 @Value
 public class Coordinates {
-    private int width;
-    private int height;
+    int width;
+    int height;
 
 }

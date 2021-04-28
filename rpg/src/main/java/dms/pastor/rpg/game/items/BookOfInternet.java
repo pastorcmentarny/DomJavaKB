@@ -9,9 +9,9 @@ package dms.pastor.rpg.game.items;
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public class BookOfInternet extends Item {
-    /**
-     *     The book of the Internet
-     *     Legendary item
-     *     The book of the Internet
+    /*
+          The book of the Internet
+          Legendary item
+          The book of the Internet
      */
 }

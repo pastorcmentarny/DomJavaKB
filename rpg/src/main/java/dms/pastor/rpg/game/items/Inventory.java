@@ -102,7 +102,7 @@ public class Inventory {
         return null;
     }
 
-    public void addItems(Item item, int amount) {
+    public void addItems() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

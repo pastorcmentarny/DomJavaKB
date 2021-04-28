@@ -3,11 +3,6 @@ package dms.pastor.rpg.game.characteristics;
 import java.util.ArrayList;
 
 /**
- * @author domhome
- * <p>
- */
-
-/**
  * Author Dominik Symonowicz
  * WWW:	https://dominiksymonowicz.com/welcome
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk

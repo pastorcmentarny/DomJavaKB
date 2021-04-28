@@ -68,7 +68,7 @@ public class Dragon extends Unit {
     private void doDamageForAllMana() {
         final int elementsCount = getElements().countElements();
         if (elementsCount > 0) {
-            System.out.println(String.format("Mana hurts %s and caused %d dmg.", getName(), elementsCount));
+            System.out.printf("Mana hurts %s and caused %d dmg.%n", getName(), elementsCount);
             doesDirectDamage(elementsCount);
             getElements().setToZero();
         }
