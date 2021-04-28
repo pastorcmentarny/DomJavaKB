@@ -7,7 +7,7 @@ import dms.pastor.tools.trips.common.station.Station;
 public class ClearThisYearOption implements Option {
     @Override
     public void choose(Stations stations, StationType type) {
-        stations.getTubeStationList().forEach(Station::clearVisitedThisYear);
+        stations.getStationList().forEach(Station::clearVisitedThisYear);
     }
 
     @Override

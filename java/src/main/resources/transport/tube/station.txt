@@ -2,7 +2,7 @@ Acton Town;;V;;2017-06-10;;2017-06-10;;none;;N
 Aldgate;;V;;2017-02-02;;2018-05-01;;none;;Y
 Aldgate East;;V;;2017-09-01;;2017-09-01;;none;;Y
 Alperton;;P;;2017-06-10;;none;;none;;N
-Amersham;;X;;none;;none;;none;;N
+Amersham;;V;;2021-04-25;;2021-04-25;;2021-04-25;;N
 Angel;;P;;2017-05-26;;none;;none;;N
 Archway;;V;;2019-07-28;;2019-07-28;;none;;N
 Arnos Grove;;X;;none;;none;;none;;N
@@ -38,15 +38,15 @@ Canary Wharf;;P;;2017-02-11;;none;;none;;N
 Canning Town;;V;;2017-02-11;;2017-02-11;;none;;N
 Cannon Street;;V;;2017-02-02;;2017-07-06;;none;;N
 Canons Park;;V;;2018-08-22;;2018-08-22;;none;;N
-Chalfont & Latimer;;V;;2017-06-25;;2018-08-18;;none;;Y
+Chalfont & Latimer;;V;;2017-06-25;;2018-08-18;;2021-04-25;;Y
 Chalk Farm;;P;;2017-05-26;;none;;none;;N
 Chancery Lane;;P;;2019-01-08;;none;;none;;N
 Camden;;X;;none;;none;;none;;N
-Charing Cross;;V;;2019-10-04;;2020-01-19;;2020-01-19;;N
-Chesham;;V;;2017-06-25;;2017-06-25;;none;;Y
+Charing Cross;;V;;2019-10-04;;2020-01-19;;none;;N
+Chesham;;V;;2017-06-25;;2017-06-25;;2021-04-25;;Y
 Chigwell;;P;;2019-01-19;;none;;none;;N
 Chiswick Park;;P;;2017-06-10;;none;;none;;N
-Chorleywood;;V;;2017-06-25;;2018-08-18;;none;;N
+Chorleywood;;V;;2017-06-25;;2018-08-18;;2021-04-25;;N
 Clapham Common;;P;;2019-06-19;;none;;none;;N
 Clapham North;;P;;2019-06-19;;none;;none;;N
 Clapham South;;X;;none;;none;;none;;N
@@ -187,7 +187,7 @@ Ravenscourt Park;;V;;2017-06-10;;2019-01-08;;none;;Y
 Rayners Lane;;P;;2017-06-10;;none;;none;;N
 Regent's Park;;V;;2017-01-28;;2019-10-13;;none;;N
 Richmond;;X;;none;;none;;none;;N
-Rickmansworth;;V;;2017-01-03;;2017-01-03;;2020-01-02;;N
+Rickmansworth;;V;;2017-01-03;;2017-01-03;;2021-04-25;;N
 Roding Valley;;P;;2019-01-19;;none;;none;;N
 Redbridge;;P;;2019-01-19;;none;;none;;N
 Royal Oak;;P;;2019-12-14;;none;;none;;N

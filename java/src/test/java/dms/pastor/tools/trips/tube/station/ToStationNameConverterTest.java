@@ -2,12 +2,13 @@ package dms.pastor.tools.trips.tube.station;
 
 
 import dms.pastor.tools.trips.common.options.Status;
+import dms.pastor.tools.trips.common.station.Station;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
-import static dms.pastor.tools.trips.tube.station.Station.MOORGATE;
-import static dms.pastor.tools.trips.tube.station.ToStationConverter.convert;
+import static dms.pastor.tools.trips.common.station.StationName.MOORGATE;
+import static dms.pastor.tools.trips.common.station.ToStationConverter.convert;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -19,17 +20,17 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class ToStationConverterTest {
+public class ToStationNameConverterTest {
 
     @Test
     public void shouldConvertToTubeStation() {
         final LocalDate date = LocalDate.of(2017, 1, 1);
         // given
         final var stationAsString = "Moorgate;;V;;2017-01-01;;2017-01-01;;2017-01-01;;Y";
-        final TubeStation expectedResult = new TubeStation(MOORGATE.getStationName(), Status.VISITED, date, date, date, true);
+        final Station expectedResult = new Station(MOORGATE.getStationName(), Status.VISITED, date, date, date, true);
 
         // when
-        final TubeStation result = convert(stationAsString);
+        final Station result = convert(stationAsString);
 
         // then
         assertThat(result).isEqualTo(expectedResult);
@@ -40,10 +41,10 @@ public class ToStationConverterTest {
         final LocalDate date = LocalDate.of(2017, 1, 1);
         // given
         final var stationAsString = "Moorgate;;V;;2017-01-01;;2017-01-01;;2017-01-01;;N";
-        final TubeStation expectedResult = new TubeStation(MOORGATE.getStationName(), Status.VISITED, date, date, date, false);
+        final Station expectedResult = new Station(MOORGATE.getStationName(), Status.VISITED, date, date, date, false);
 
         // when
-        final TubeStation result = convert(stationAsString);
+        final Station result = convert(stationAsString);
 
         // then
         assertThat(result).isEqualTo(expectedResult);

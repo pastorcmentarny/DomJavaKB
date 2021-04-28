@@ -1,7 +1,7 @@
 package dms.pastor.tools.trips.tube.builders;
 
 import dms.pastor.tools.trips.common.options.Status;
-import dms.pastor.tools.trips.tube.station.TubeStation;
+import dms.pastor.tools.trips.common.station.Station;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -12,7 +12,7 @@ import static dms.pastor.tools.trips.tube.builders.StationBuilder.stationBuilder
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class TubeStationBuilderTest {
+public class OvergroundStationNameBuilderTest {
 
     @Test
     public void buildShouldReturnStationWithSpecifiedFields() {
@@ -20,7 +20,7 @@ public class TubeStationBuilderTest {
         final String name = generateString(2, 9);
         final LocalDate date = LocalDate.now();
         final Status visitedStation = VISITED;
-        final TubeStation result = stationBuilder()
+        final Station result = stationBuilder()
                 .lines(null)
                 .name(name)
                 .passedDate(date)
@@ -38,7 +38,7 @@ public class TubeStationBuilderTest {
     @Test
     public void buildNotVisitedShouldReturnStationWithNotVisitedStatus() {
         // when
-        final TubeStation result = stationBuilder().buildNotVisitedStation();
+        final Station result = stationBuilder().buildNotVisitedStation();
 
         // then
         assertThat(result.getName()).isNotNull();

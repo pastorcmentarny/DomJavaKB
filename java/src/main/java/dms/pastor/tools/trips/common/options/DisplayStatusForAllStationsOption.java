@@ -18,7 +18,7 @@ import dms.pastor.tools.trips.common.station.Station;
 public class DisplayStatusForAllStationsOption implements Option {
     @Override
     public void choose(Stations stations, StationType type) {
-        stations.getTubeStationList().stream()
+        stations.getStationList().stream()
                 .map(Station::asFormattedString)
                 .forEach(System.out::println);
 

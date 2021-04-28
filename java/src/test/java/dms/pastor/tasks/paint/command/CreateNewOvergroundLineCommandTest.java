@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class CreateNewLineCommandTest extends AbstractCommandTest {
+public class CreateNewOvergroundLineCommandTest extends AbstractCommandTest {
 
     private static final String CREATE_LINE_COMMAND = "L";
     private static final String NOT_A_NUMBER = "Number";

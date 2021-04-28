@@ -1,9 +1,7 @@
-package dms.pastor.tools.trips.tube.lines;
+package dms.pastor.tools.trips.overground.lines;
 
-import org.junit.jupiter.api.Test;
-
-import static org.assertj.core.api.Assertions.assertThat;
-
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Author Dominik Symonowicz
@@ -14,14 +12,11 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class LinesTest {
+public class AllOvergroundLines {
 
-    @Test
-    public void getLinesShouldReturnAllLines() {
-        // when
-        final var lines = Lines.getLines();
-
-        // then
-        assertThat(lines).hasSize(11);
+    public static List<OvergroundLine> getLines() {
+        var lines = new ArrayList<OvergroundLine>();
+        lines.add(new Overground());
+        return lines;
     }
 }

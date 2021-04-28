@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
-import static dms.pastor.tools.trips.tube.station.StationLineValidator.validate;
+import static dms.pastor.tools.trips.common.station.StationLineValidator.validate;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.file.TextFileUtils.FIELD_SEPARATOR;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class TubeStationLineValidatorTest {
+public class OvergroundStationNameOvergroundLineValidatorTest {
 
     @Test
     public void shouldThrowIllegalArgumentExceptionIfStringIsNull() {

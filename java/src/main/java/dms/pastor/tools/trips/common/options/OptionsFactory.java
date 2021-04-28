@@ -1,8 +1,8 @@
 package dms.pastor.tools.trips.common.options;
 
 import dms.pastor.domain.exception.NotFoundException;
+import dms.pastor.tools.trips.common.Config;
 import dms.pastor.tools.trips.common.station.StationType;
-import dms.pastor.tools.trips.tube.Config;
 import dms.pastor.tools.trips.common.station.Stations;
 
 import java.util.HashMap;

@@ -22,7 +22,7 @@ public class SaveOption implements Option {
     public void choose(Stations stations, StationType type) {
         //TODO set for TUBE and OVERGROUND
         backup();
-        saveToFile(stations.getTubeStationList());
+        saveToFile(stations.getStationList());
     }
 
     @Override

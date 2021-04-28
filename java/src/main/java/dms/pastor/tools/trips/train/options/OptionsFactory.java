@@ -1,7 +1,7 @@
 package dms.pastor.tools.trips.train.options;
 
 import dms.pastor.tools.trips.common.options.Option;
-import dms.pastor.tools.trips.tube.options.DisplayStatisticOption;
+import dms.pastor.tools.trips.common.options.DisplayStatisticOption;
 
 import java.util.HashMap;
 import java.util.Map;

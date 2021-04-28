@@ -1,4 +1,4 @@
-package dms.pastor.tools.trips.tube.data;
+package dms.pastor.tools.trips.overground.data;
 
 import dms.pastor.domain.exception.SomethingWentTerribleWrongError;
 import dms.pastor.domain.exception.SomethingWentWrongException;
@@ -30,7 +30,7 @@ public final class DataOperations {
     public static final Path STATION_PATH;
 
     static {
-        final URL resource = DataOperations.class.getClassLoader().getResource("transport/tube/station.txt");
+        final URL resource = DataOperations.class.getClassLoader().getResource("transport/overground/station.txt");
         if (Objects.isNull(resource)) {
             throw new SomethingWentTerribleWrongError("Where is my bloody file ?");
         }
@@ -41,10 +41,10 @@ public final class DataOperations {
     private DataOperations() {
     }
 
-    public static void saveToFile(List<Station> stationList) {
+    public static void saveToFile(List<Station> overgroundStationList) {
         LOGGER.info("Saving data..");
-        DataWriter dataWriter = new DataWriter();
-        dataWriter.save(STATION_PATH, stationList);
+        DataWriter DataWriter = new DataWriter();
+        DataWriter.save(STATION_PATH, overgroundStationList);
     }
 
     public static List<Station> loadFromFile() {
@@ -57,14 +57,14 @@ public final class DataOperations {
         final List<Station> originalOvergroundStationList = loadFromFile();
         final String backupPath = System.getProperty("user.dir") + "/backup-" + LocalDateTime.now().toString().replaceAll(":", "-").replaceAll(" ", "") + "-station.txt";
 
-        DataWriter dataWriter = new DataWriter();
+        DataWriter DataWriter = new DataWriter();
         try {
             final File backupFile = new File(backupPath);
             final boolean created = backupFile.createNewFile();
             if (!created) {
                 throw new SomethingWentWrongException("Creating file at " + backupPath);
             }
-            dataWriter.save(backupFile.toPath(), originalOvergroundStationList);
+            DataWriter.save(backupFile.toPath(), originalOvergroundStationList);
 
         } catch (IOException e) {
             throw new SomethingWentWrongException("Creating file at " + backupPath, e);

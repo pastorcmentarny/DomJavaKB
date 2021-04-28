@@ -1,14 +1,14 @@
 package dms.pastor.tools.trips.tube.builders;
 
 import dms.pastor.tools.trips.common.options.Status;
-import dms.pastor.tools.trips.tube.station.Line;
-import dms.pastor.tools.trips.tube.station.TubeStation;
+import dms.pastor.tools.trips.common.station.Line;
+import dms.pastor.tools.trips.common.station.Station;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Random;
 
-import static dms.pastor.tools.trips.tube.station.TubeStation.notVisited;
+import static dms.pastor.tools.trips.common.station.Station.notVisited;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static java.util.Collections.emptyList;
 
@@ -28,11 +28,11 @@ public final class StationBuilder {
         return new StationBuilder();
     }
 
-    public TubeStation build() {
-        return new TubeStation(name, status, passedDate, visitedDate, thisYearVisitedDate, blogged);
+    public Station build() {
+        return new Station(name, status, passedDate, visitedDate, thisYearVisitedDate, blogged);
     }
 
-    public TubeStation buildNotVisitedStation() {
+    public Station buildNotVisitedStation() {
         return notVisited(name);
     }
 

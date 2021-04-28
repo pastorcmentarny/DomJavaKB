@@ -1,6 +1,7 @@
 package dms.pastor.tools.trips.tube.options;
 
 
+import dms.pastor.tools.trips.common.options.LoadStationOption;
 import dms.pastor.tools.trips.common.options.Option;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -10,6 +11,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 
+import static dms.pastor.tools.trips.common.station.StationType.TUBE;
 import static dms.pastor.tools.trips.tube.builders.StationsBuilder.stationsBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -21,7 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class LoadTubeStationOptionTest {
+public class LoadOvergroundStationNameOptionTest {
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private final PrintStream original = System.out;
 
@@ -42,7 +44,7 @@ public class LoadTubeStationOptionTest {
         final Option loadStationOption = new LoadStationOption();
 
         // when
-        loadStationOption.choose(stationsBuilder().build());
+        loadStationOption.choose(stationsBuilder().build(),TUBE);
 
         // then
         assertThat(outputStream.toString()).endsWith("Data loaded." + System.lineSeparator());

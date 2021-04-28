@@ -28,7 +28,7 @@ import static org.mockito.Mockito.when;
  * tag-junit-timeout
  */
 @ExtendWith(MockitoExtension.class)
-public class CommandLineUITest {
+public class CommandOvergroundLineUITest {
     private static final int TEST_TIMEOUT = 2000; //used in case if command stuck with input
     private static final String ENTER_COMMAND_MESSAGE = "Enter command:";
 

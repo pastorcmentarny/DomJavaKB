@@ -42,15 +42,15 @@ public class BloggedOptionTest {
                         .blogged(false).build()
                 ))
                 .build();
-        given(scanner.nextLine()).willReturn(stations.getTubeStationList().get(0).getName());
+        given(scanner.nextLine()).willReturn(stations.getStationList().get(0).getName());
 
         // check
-        assertThat(stations.getTubeStationList().get(0).isBlogged()).isFalse();
+        assertThat(stations.getStationList().get(0).isBlogged()).isFalse();
 
         // when
         bloggedOption.choose(stations, TUBE);
 
         // then
-        assertThat(stations.getTubeStationList().get(0).isBlogged()).isTrue();
+        assertThat(stations.getStationList().get(0).isBlogged()).isTrue();
     }
 }

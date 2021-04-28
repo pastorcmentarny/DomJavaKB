@@ -65,7 +65,7 @@ public class DisplayAllStationsNameOptionTest {
         displayAllStationsNameOption.choose(stations,TUBE);
 
         // then
-        assertThat(outputStream.toString()).contains("WARNING! Total number should be 269 but file contains only 1");
+        assertThat(outputStream.toString()).contains("WARNING! Total number should be 270 but file contains only 1");
 
     }
 

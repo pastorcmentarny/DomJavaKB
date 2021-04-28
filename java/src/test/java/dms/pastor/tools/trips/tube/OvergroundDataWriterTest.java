@@ -1,8 +1,8 @@
 package dms.pastor.tools.trips.tube;
 
-import dms.pastor.tools.trips.tube.data.DataUploader;
-import dms.pastor.tools.trips.tube.data.DataWriter;
-import dms.pastor.tools.trips.tube.station.TubeStation;
+import dms.pastor.tools.trips.common.data.DataUploader;
+import dms.pastor.tools.trips.common.station.Station;
+import dms.pastor.tools.trips.common.data.DataWriter;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -24,7 +24,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class DataWriterTest {
+public class OvergroundDataWriterTest {
 
 
     @Test
@@ -32,11 +32,11 @@ public class DataWriterTest {
 
         // given
         DataWriter writer = new DataWriter();
-        final TubeStation amershamTubeStation = new TubeStation("Amersham", null, null, null, null, true);
-        List<TubeStation> tubeStations = Collections.singletonList(amershamTubeStation);
+        final Station amershamStation = new Station("Amersham", null, null, null, null, true);
+        List<Station> stations = Collections.singletonList(amershamStation);
 
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> writer.save(null, tubeStations));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> writer.save(null, stations));
 
     }
 
@@ -48,14 +48,14 @@ public class DataWriterTest {
         // delete if exists
         final File file = File.createTempFile("station", ".txt");
 
-        final TubeStation amershamTubeStation = new TubeStation("Amersham", VISITED, LocalDate.now(), LocalDate.now(), LocalDate.now(), true);
-        final TubeStation cheshamTubeStation = TubeStation.passed("Pinner", LocalDate.now());
-        List<TubeStation> tubeStations = new ArrayList<>();
-        tubeStations.add(amershamTubeStation);
-        tubeStations.add(cheshamTubeStation);
+        final Station amershamStation = new Station("Amersham", VISITED, LocalDate.now(), LocalDate.now(), LocalDate.now(), true);
+        final Station cheshamStation = Station.passed("Pinner", LocalDate.now());
+        List<Station> stations = new ArrayList<>();
+        stations.add(amershamStation);
+        stations.add(cheshamStation);
 
         // when
-        writer.save(file.toPath(), tubeStations);
+        writer.save(file.toPath(), stations);
 
         // then
         final var size = new DataUploader().load(file.toPath()).size();

@@ -30,6 +30,6 @@ public class ClearThisYearOptionTest {
         clearThisYearOption.choose(stations,TUBE);
 
         // then
-        stations.getTubeStationList().forEach(station -> assertThat(station.getVisitedThisYearDate()).isNull());
+        stations.getStationList().forEach(station -> assertThat(station.getVisitedThisYearDate()).isNull());
     }
 }

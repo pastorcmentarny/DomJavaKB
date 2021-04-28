@@ -30,17 +30,17 @@ public class DisplayStatisticOption implements Option {
     @Override
     public void choose(Stations stations, StationType type) {
         System.out.println("You visited " + stations.countStationVisitedThisYear() + " station(s) this year. (" +
-                countPercentageOfAllStationFor(stations.getTubeStationList().size(), stations.countStationVisitedThisYear()));
+                countPercentageOfAllStationFor(stations.getStationList().size(), stations.countStationVisitedThisYear()));
         System.out.println("You visited " + stations.countStationVisited() + " station(s). (" +
-                countPercentageOfAllStationFor(stations.getTubeStationList().size(), stations.countStationVisited()));
+                countPercentageOfAllStationFor(stations.getStationList().size(), stations.countStationVisited()));
         System.out.println("You passed " + stations.countStationPassed() + " station(s). (" +
-                countPercentageOfAllStationFor(stations.getTubeStationList().size(), stations.countStationPassed()));
+                countPercentageOfAllStationFor(stations.getStationList().size(), stations.countStationPassed()));
         System.out.println(getStatsForLines(stations));
         System.out.println(displayStationsBlogged(stations));
     }
 
     private String displayStationsBlogged(Stations stations) {
-        final List<Station> stationList = stations.getTubeStationList();
+        final List<Station> stationList = stations.getStationList();
         var result = new StringBuilder(EMPTY_STRING);
         result.append("{");
         stations.displayAllStationsBlogged().forEach(station -> result.append(station).append(","));

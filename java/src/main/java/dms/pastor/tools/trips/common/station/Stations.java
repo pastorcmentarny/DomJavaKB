@@ -31,7 +31,7 @@ public class Stations {
         this.stationList = stationList;
     }
 
-    public List<Station> getTubeStationList() {
+    public List<Station> getStationList() {
         return unmodifiableList(stationList);
     }
 
