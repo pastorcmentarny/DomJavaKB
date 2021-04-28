@@ -1,14 +1,14 @@
-package dms.pastor.tools.trips.tube.options;
+package dms.pastor.tools.trips.common.options;
 
-import dms.pastor.tools.trips.common.options.Option;
-import dms.pastor.tools.trips.tube.station.StationUpdater;
-import dms.pastor.tools.trips.tube.station.Stations;
+import dms.pastor.tools.trips.common.station.StationType;
+import dms.pastor.tools.trips.common.station.StationUpdater;
+import dms.pastor.tools.trips.common.station.Stations;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Scanner;
 
-import static dms.pastor.tools.trips.tube.station.Action.VISITED;
+import static dms.pastor.tools.trips.common.station.Action.VISITED;
 
 /**
  * Author Dominik Symonowicz
@@ -30,7 +30,7 @@ public class UpdateStationStatusToVisitedOption implements Option {
     }
 
     @Override
-    public void choose(Stations stations) {
+    public void choose(Stations stations, StationType type) {
         System.out.println("What station did you visit?");
 
         final String option = scanner.nextLine();

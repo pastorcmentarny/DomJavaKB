@@ -1,7 +1,8 @@
-package dms.pastor.tools.trips.tube.station;
+package dms.pastor.tools.trips.common.station;
 
 import dms.pastor.domain.exception.NotImplementYetException;
 import dms.pastor.tools.trips.common.options.Status;
+import lombok.EqualsAndHashCode;
 
 import java.time.LocalDate;
 import java.util.Objects;
@@ -19,7 +20,8 @@ import static dms.pastor.utils.file.TextFileUtils.FIELD_SEPARATOR;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class TubeStation {//implements Station {
+@EqualsAndHashCode
+public class Station {
 
     private final String name;
     private Status status;
@@ -29,7 +31,7 @@ public class TubeStation {//implements Station {
     private boolean blogged;
 
     @SuppressWarnings("ConstructorWithTooManyParameters") //not apply in this case
-    public TubeStation(String name, Status status, LocalDate passedDate, LocalDate visitedDate, LocalDate thisYearVisitedDate, boolean blogged) {
+    public Station(String name, Status status, LocalDate passedDate, LocalDate visitedDate, LocalDate thisYearVisitedDate, boolean blogged) {
         this.name = name;
         this.status = status;
         this.passedDate = passedDate;
@@ -38,12 +40,12 @@ public class TubeStation {//implements Station {
         this.blogged = blogged;
     }
 
-    public static TubeStation notVisited(String name) {
-        return new TubeStation(name, NOT_VISITED, null, null, null, false);
+    public static Station notVisited(String name) {
+        return new Station(name, NOT_VISITED, null, null, null, false);
     }
 
-    public static TubeStation passed(String name, LocalDate passedDate) {
-        return new TubeStation(name, PASSED, passedDate, null, null, false);
+    public static Station passed(String name, LocalDate passedDate) {
+        return new Station(name, PASSED, passedDate, null, null, false);
     }
 
     public String getName() {
@@ -62,7 +64,7 @@ public class TubeStation {//implements Station {
         return passedDate;
     }
 
-    void setPassedDate(LocalDate passedDate) {
+    public void setPassedDate(LocalDate passedDate) {
         this.passedDate = passedDate;
     }
 
@@ -70,7 +72,7 @@ public class TubeStation {//implements Station {
         return visitedDate;
     }
 
-    void setVisitedDate(LocalDate visitedDate) {
+    public void setVisitedDate(LocalDate visitedDate) {
         this.visitedDate = visitedDate;
     }
 
@@ -78,7 +80,7 @@ public class TubeStation {//implements Station {
         return thisYearVisitedDate;
     }
 
-    void setVisitedStationThisYearToNow() {
+    public void setVisitedStationThisYearToNow() {
         this.thisYearVisitedDate = LocalDate.now();
     }
 
@@ -96,24 +98,6 @@ public class TubeStation {//implements Station {
 
     public void setBlogged() {
         blogged = true;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof TubeStation)) return false;
-        TubeStation that = (TubeStation) o;
-        return isBlogged() == that.isBlogged() &&
-                Objects.equals(getName(), that.getName()) &&
-                getStatus() == that.getStatus() &&
-                Objects.equals(getPassedDate(), that.getPassedDate()) &&
-                Objects.equals(getVisitedDate(), that.getVisitedDate()) &&
-                Objects.equals(thisYearVisitedDate, that.thisYearVisitedDate);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getName(), getStatus(), getPassedDate(), getVisitedDate(), thisYearVisitedDate, isBlogged());
     }
 
     @Override

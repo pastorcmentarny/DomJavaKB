@@ -1,7 +1,7 @@
-package dms.pastor.tools.trips.tube.options;
+package dms.pastor.tools.trips.common.options;
 
-import dms.pastor.tools.trips.common.options.Option;
-import dms.pastor.tools.trips.tube.station.Stations;
+import dms.pastor.tools.trips.common.station.StationType;
+import dms.pastor.tools.trips.common.station.Stations;
 
 /**
  * Author Dominik Symonowicz
@@ -13,12 +13,13 @@ import dms.pastor.tools.trips.tube.station.Stations;
  */
 public class DisplayAllStationsNameOption implements Option {
     @Override
-    public void choose(Stations stations) {
+    public void choose(Stations stations, StationType type) {
         stations.getTubeStationList().forEach(station -> System.out.println(station.getName()));
-        displayWarningIfTotalStationNumberIsWrong(stations);
+        displayWarningIfTotalStationNumberIsWrong(stations,type);
     }
 
-    private void displayWarningIfTotalStationNumberIsWrong(Stations stations) {
+    private void displayWarningIfTotalStationNumberIsWrong(Stations stations,StationType type) {
+
         final int totalNumber = 269; //it is 270 as there are 2 Edgware road stations
         if (stations.totalNumber() != totalNumber) {
             System.out.println("WARNING! Total number should be " + totalNumber + " but file contains only " + stations.totalNumber());

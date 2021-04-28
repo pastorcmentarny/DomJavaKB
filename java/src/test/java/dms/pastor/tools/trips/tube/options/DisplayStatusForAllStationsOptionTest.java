@@ -1,7 +1,8 @@
 package dms.pastor.tools.trips.tube.options;
 
 
-import dms.pastor.tools.trips.tube.station.Stations;
+import dms.pastor.tools.trips.common.options.DisplayStatusForAllStationsOption;
+import dms.pastor.tools.trips.common.station.Stations;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,6 +12,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.time.LocalDate;
 
+import static dms.pastor.tools.trips.common.station.StationType.TUBE;
 import static dms.pastor.tools.trips.tube.builders.StationsBuilder.stationsBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -44,7 +46,7 @@ public class DisplayStatusForAllStationsOptionTest {
         final Stations stations = stationsBuilder().build();
 
         // when
-        displayStatusForAllStationsOption.choose(stations);
+        displayStatusForAllStationsOption.choose(stations,TUBE);
 
         // then
         assertThat(outputStream.toString()).contains("Wembley Park was visited at " + LocalDate.now() + System.lineSeparator() +

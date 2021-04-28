@@ -1,11 +1,13 @@
 package dms.pastor.tools.trips.tube;
 
-import dms.pastor.tools.trips.tube.options.OptionsFactory;
-import dms.pastor.tools.trips.tube.station.Stations;
+import dms.pastor.tools.trips.common.options.OptionsFactory;
+import dms.pastor.tools.trips.common.station.Stations;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Scanner;
+
+import static dms.pastor.tools.trips.common.station.StationType.TUBE;
 
 /**
  * Author Dominik Symonowicz
@@ -45,12 +47,12 @@ class TubeCLI {
                     showMenu = false;
                     scanner.close();
                 } else {
-                    options.selectOption(option, stations);
+                    options.selectOption(option, stations, TUBE);
 
                 }
-            } catch (RuntimeException e) {
+            } catch (RuntimeException exception) {
                 System.out.println(INVALID_CHOICE_MESSAGE);
-                LOGGER.warn("User typed gibberish." + e.getMessage(), e);
+                LOGGER.warn("User typed gibberish." + exception.getMessage(), exception);
                 scanner.next();
             }
         }

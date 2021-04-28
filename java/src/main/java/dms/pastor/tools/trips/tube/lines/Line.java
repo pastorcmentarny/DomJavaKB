@@ -1,6 +1,6 @@
 package dms.pastor.tools.trips.tube.lines;
 
-import dms.pastor.tools.trips.tube.station.Station;
+import dms.pastor.tools.trips.common.station.StationName;
 
 import java.util.List;
 
@@ -14,16 +14,16 @@ import java.util.List;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public abstract class Line {
-    private final List<Station> tubeStations = getStations();
+    private final List<StationName> tubeStationNames = getStations();
 
     public String name() {
         return getClass().getSimpleName();
     }
 
     public int getSize() {
-        return tubeStations.size();
+        return tubeStationNames.size();
     }
 
-    public abstract List<Station> getStations();
+    public abstract List<StationName> getStations();
 
 }

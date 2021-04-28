@@ -1,7 +1,7 @@
 package dms.pastor.tools.trips.tube.lines;
 
-import dms.pastor.tools.trips.tube.station.SharedStations;
-import dms.pastor.tools.trips.tube.station.Station;
+import dms.pastor.tools.trips.common.station.SharedStations;
+import dms.pastor.tools.trips.common.station.StationName;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,54 +19,54 @@ public class Piccadilly extends Line {
 
 
     @Override
-    public List<Station> getStations() {
-        List<Station> tubeStations = new ArrayList<>(SharedStations.addUxbridgeToRaynersLane());
-        tubeStations.add(Station.SOUTH_HARROW);
-        tubeStations.add(Station.SUDBURY_HILL);
-        tubeStations.add(Station.SUDBURY_TOWN);
-        tubeStations.add(Station.ALPERTON);
-        tubeStations.add(Station.PARK_ROYAL);
-        tubeStations.add(Station.NORTH_EALING);
-        tubeStations.add(Station.EALING_COMMON);
-        tubeStations.add(Station.HEATHROW_TERMINALS_1_2_3);
-        tubeStations.add(Station.HEATHROW_TERMINAL_4);
-        tubeStations.add(Station.HEATHROW_TERMINAL_5);
-        tubeStations.add(Station.HATTON_CROSS);
-        tubeStations.add(Station.HOUNSLOW_WEST);
-        tubeStations.add(Station.HOUNSLOW_CENTRAL);
-        tubeStations.add(Station.HOUNSLOW_EAST);
-        tubeStations.add(Station.OSTERLEY);
-        tubeStations.add(Station.BOSTON_MANOR);
-        tubeStations.add(Station.NORTHFIELDS);
-        tubeStations.add(Station.SOUTH_EALING);
-        tubeStations.add(Station.ACTON_TOWN);
-        tubeStations.add(Station.TURNHAM_GREEN);
-        tubeStations.add(Station.HAMMERSMITH);
-        tubeStations.add(Station.BARONS_COURT);
-        tubeStations.add(Station.EARLS_COURT);
-        tubeStations.add(Station.GLOUCESTER_ROAD);
-        tubeStations.add(Station.SOUTH_KENSINGTON);
-        tubeStations.add(Station.KNIGHTSBRIDGE);
-        tubeStations.add(Station.HYDE_PARK_CORNER);
-        tubeStations.add(Station.GREEN_PARK);
-        tubeStations.add(Station.PICCADILLY_CIRCUS);
-        tubeStations.add(Station.LEICESTER_SQUARE);
-        tubeStations.add(Station.COVENT_GARDEN);
-        tubeStations.add(Station.HOLBORN);
-        tubeStations.add(Station.RUSSELL_SQUARE);
-        tubeStations.add(Station.KINGS_CROSS_ST_PANCRAS);
-        tubeStations.add(Station.CALEDONIAN_ROAD);
-        tubeStations.add(Station.HOLLOWAY_ROAD);
-        tubeStations.add(Station.ARSENAL);
-        tubeStations.add(Station.FINSBURY_PARK);
-        tubeStations.add(Station.MANOR_HOUSE);
-        tubeStations.add(Station.TURNPIKE_LANE);
-        tubeStations.add(Station.WOOD_GREEN);
-        tubeStations.add(Station.BOUNDS_GREEN);
-        tubeStations.add(Station.ARNOS_GROVE);
-        tubeStations.add(Station.SOUTHGATE);
-        tubeStations.add(Station.OAKWOOD);
-        tubeStations.add(Station.COCKFOSTERS);
-        return tubeStations;
+    public List<StationName> getStations() {
+        List<StationName> tubeStationNames = new ArrayList<>(SharedStations.addUxbridgeToRaynersLane());
+        tubeStationNames.add(StationName.SOUTH_HARROW);
+        tubeStationNames.add(StationName.SUDBURY_HILL);
+        tubeStationNames.add(StationName.SUDBURY_TOWN);
+        tubeStationNames.add(StationName.ALPERTON);
+        tubeStationNames.add(StationName.PARK_ROYAL);
+        tubeStationNames.add(StationName.NORTH_EALING);
+        tubeStationNames.add(StationName.EALING_COMMON);
+        tubeStationNames.add(StationName.HEATHROW_TERMINALS_1_2_3);
+        tubeStationNames.add(StationName.HEATHROW_TERMINAL_4);
+        tubeStationNames.add(StationName.HEATHROW_TERMINAL_5);
+        tubeStationNames.add(StationName.HATTON_CROSS);
+        tubeStationNames.add(StationName.HOUNSLOW_WEST);
+        tubeStationNames.add(StationName.HOUNSLOW_CENTRAL);
+        tubeStationNames.add(StationName.HOUNSLOW_EAST);
+        tubeStationNames.add(StationName.OSTERLEY);
+        tubeStationNames.add(StationName.BOSTON_MANOR);
+        tubeStationNames.add(StationName.NORTHFIELDS);
+        tubeStationNames.add(StationName.SOUTH_EALING);
+        tubeStationNames.add(StationName.ACTON_TOWN);
+        tubeStationNames.add(StationName.TURNHAM_GREEN);
+        tubeStationNames.add(StationName.HAMMERSMITH);
+        tubeStationNames.add(StationName.BARONS_COURT);
+        tubeStationNames.add(StationName.EARLS_COURT);
+        tubeStationNames.add(StationName.GLOUCESTER_ROAD);
+        tubeStationNames.add(StationName.SOUTH_KENSINGTON);
+        tubeStationNames.add(StationName.KNIGHTSBRIDGE);
+        tubeStationNames.add(StationName.HYDE_PARK_CORNER);
+        tubeStationNames.add(StationName.GREEN_PARK);
+        tubeStationNames.add(StationName.PICCADILLY_CIRCUS);
+        tubeStationNames.add(StationName.LEICESTER_SQUARE);
+        tubeStationNames.add(StationName.COVENT_GARDEN);
+        tubeStationNames.add(StationName.HOLBORN);
+        tubeStationNames.add(StationName.RUSSELL_SQUARE);
+        tubeStationNames.add(StationName.KINGS_CROSS_ST_PANCRAS);
+        tubeStationNames.add(StationName.CALEDONIAN_ROAD);
+        tubeStationNames.add(StationName.HOLLOWAY_ROAD);
+        tubeStationNames.add(StationName.ARSENAL);
+        tubeStationNames.add(StationName.FINSBURY_PARK);
+        tubeStationNames.add(StationName.MANOR_HOUSE);
+        tubeStationNames.add(StationName.TURNPIKE_LANE);
+        tubeStationNames.add(StationName.WOOD_GREEN);
+        tubeStationNames.add(StationName.BOUNDS_GREEN);
+        tubeStationNames.add(StationName.ARNOS_GROVE);
+        tubeStationNames.add(StationName.SOUTHGATE);
+        tubeStationNames.add(StationName.OAKWOOD);
+        tubeStationNames.add(StationName.COCKFOSTERS);
+        return tubeStationNames;
     }
 }

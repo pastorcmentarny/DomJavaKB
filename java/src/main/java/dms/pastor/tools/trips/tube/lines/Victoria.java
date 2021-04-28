@@ -1,6 +1,6 @@
 package dms.pastor.tools.trips.tube.lines;
 
-import dms.pastor.tools.trips.tube.station.Station;
+import dms.pastor.tools.trips.common.station.StationName;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,24 +18,24 @@ public class Victoria extends Line {
 
 
     @Override
-    public List<Station> getStations() {
-        var tubeStations = new ArrayList<Station>();
-        tubeStations.add(Station.BRIXTON);
-        tubeStations.add(Station.STOCKWELL);
-        tubeStations.add(Station.VAUXHALL);
-        tubeStations.add(Station.PIMLICO);
-        tubeStations.add(Station.VICTORIA);
-        tubeStations.add(Station.GREEN_PARK);
-        tubeStations.add(Station.OXFORD_CIRCUS);
-        tubeStations.add(Station.WARREN_STREET);
-        tubeStations.add(Station.EUSTON);
-        tubeStations.add(Station.KINGS_CROSS_ST_PANCRAS);
-        tubeStations.add(Station.HIGHBURY_AND_ISLINGTON);
-        tubeStations.add(Station.FINSBURY_PARK);
-        tubeStations.add(Station.SEVEN_SISTERS);
-        tubeStations.add(Station.TOTTENHAM_HALE);
-        tubeStations.add(Station.BLACKHORSE_ROAD);
-        tubeStations.add(Station.WALTHAMSTOW_CENTRAL);
+    public List<StationName> getStations() {
+        var tubeStations = new ArrayList<StationName>();
+        tubeStations.add(StationName.BRIXTON);
+        tubeStations.add(StationName.STOCKWELL);
+        tubeStations.add(StationName.VAUXHALL);
+        tubeStations.add(StationName.PIMLICO);
+        tubeStations.add(StationName.VICTORIA);
+        tubeStations.add(StationName.GREEN_PARK);
+        tubeStations.add(StationName.OXFORD_CIRCUS);
+        tubeStations.add(StationName.WARREN_STREET);
+        tubeStations.add(StationName.EUSTON);
+        tubeStations.add(StationName.KINGS_CROSS_ST_PANCRAS);
+        tubeStations.add(StationName.HIGHBURY_AND_ISLINGTON);
+        tubeStations.add(StationName.FINSBURY_PARK);
+        tubeStations.add(StationName.SEVEN_SISTERS);
+        tubeStations.add(StationName.TOTTENHAM_HALE);
+        tubeStations.add(StationName.BLACKHORSE_ROAD);
+        tubeStations.add(StationName.WALTHAMSTOW_CENTRAL);
         return tubeStations;
     }
 }

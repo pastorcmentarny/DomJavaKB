@@ -1,6 +1,7 @@
 package dms.pastor.tools.trips.tube.options;
 
-import dms.pastor.tools.trips.tube.station.Stations;
+import dms.pastor.tools.trips.common.options.DisplayStatusForOption;
+import dms.pastor.tools.trips.common.station.Stations;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,6 +16,7 @@ import java.io.PrintStream;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+import static dms.pastor.tools.trips.common.station.StationType.TUBE;
 import static dms.pastor.tools.trips.tube.builders.StationsBuilder.stationsBuilder;
 import static dms.pastor.utils.randoms.RandomDataGenerator.generateString;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -56,7 +58,7 @@ public class DisplayStatusForOptionTest {
         given(scanner.next()).willReturn("Wembley Park");
 
         // when
-        displayStatusForAllStationsOption.choose(stations);
+        displayStatusForAllStationsOption.choose(stations,TUBE);
 
         // then
         assertThat(outputStream.toString()).contains("Wembley Park was visited at " + LocalDate.now());
@@ -70,7 +72,7 @@ public class DisplayStatusForOptionTest {
         given(scanner.next()).willReturn(invalidStationName);
 
         // when
-        displayStatusForAllStationsOption.choose(stations);
+        displayStatusForAllStationsOption.choose(stations,TUBE);
 
         // then
         assertThat(outputStream.toString()).contains("TubeStation " + invalidStationName + " not found.");

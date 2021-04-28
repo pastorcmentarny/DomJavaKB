@@ -1,8 +1,8 @@
-package dms.pastor.tools.trips.tube.options;
+package dms.pastor.tools.trips.common.options;
 
-import dms.pastor.tools.trips.common.options.Option;
-import dms.pastor.tools.trips.tube.station.Stations;
-import dms.pastor.tools.trips.tube.station.TubeStation;
+import dms.pastor.tools.trips.common.station.StationType;
+import dms.pastor.tools.trips.common.station.Stations;
+import dms.pastor.tools.trips.common.station.Station;
 
 /**
  * Author Dominik Symonowicz
@@ -17,9 +17,9 @@ import dms.pastor.tools.trips.tube.station.TubeStation;
  */
 public class DisplayStatusForAllStationsOption implements Option {
     @Override
-    public void choose(Stations stations) {
+    public void choose(Stations stations, StationType type) {
         stations.getTubeStationList().stream()
-                .map(TubeStation::asFormattedString)
+                .map(Station::asFormattedString)
                 .forEach(System.out::println);
 
     }

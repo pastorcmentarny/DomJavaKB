@@ -1,4 +1,4 @@
-package dms.pastor.tools.trips.tube.station;
+package dms.pastor.tools.trips.common.station;
 
 import dms.pastor.domain.exception.NotFoundException;
 import dms.pastor.domain.exception.NotImplementYetException;
@@ -16,11 +16,11 @@ public class StationUpdater {
 
     public static void setStationBlogged(Stations stations, String option) {
         try {
-            final TubeStation tubeStation = stations.findStation(option);
+            final Station station = stations.findStation(option);
 
-            tubeStation.setBlogged();
+            station.setBlogged();
 
-            System.out.println("You set " + tubeStation.getName() + " was blogged.");
+            System.out.println("You set " + station.getName() + " was blogged.");
         } catch (NotFoundException nfe) {
             System.out.println("TubeStation " + option + " not found.");
         }
@@ -28,21 +28,21 @@ public class StationUpdater {
 
     public static void updateStationTo(Stations stations, String option, Action action) {
         try {
-            final TubeStation tubeStation = stations.findStation(option);
+            final Station station = stations.findStation(option);
 
-            setStationStatus(stations, action, tubeStation);
+            setStationStatus(stations, action, station);
 
-            final TubeStation updatedTubeStation = stations.findStation(tubeStation.getName());
-            System.out.println("You set " + updatedTubeStation.getName() + " status to " + updatedTubeStation.getStatus().asName() + ".");
+            final Station updatedStation = stations.findStation(station.getName());
+            System.out.println("You set " + updatedStation.getName() + " status to " + updatedStation.getStatus().asName() + ".");
         } catch (NotFoundException nfe) {
             System.out.println("TubeStation " + option + " not found.");
         }
     }
 
-    private static void setStationStatus(Stations stations, Action action, TubeStation tubeStation) {
+    private static void setStationStatus(Stations stations, Action action, Station station) {
         switch (action) {
-            case PASSED -> stations.setPassedFor(tubeStation);
-            case VISITED -> stations.setVisitedFor(tubeStation);
+            case PASSED -> stations.setPassedFor(station);
+            case VISITED -> stations.setVisitedFor(station);
             default -> throw new NotImplementYetException(action.name().toLowerCase());
         }
     }

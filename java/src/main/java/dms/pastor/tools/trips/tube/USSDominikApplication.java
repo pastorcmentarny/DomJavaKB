@@ -1,7 +1,7 @@
 package dms.pastor.tools.trips.tube;
 
-import dms.pastor.tools.trips.tube.station.Stations;
-import dms.pastor.tools.trips.tube.station.TubeStation;
+import dms.pastor.tools.trips.common.station.Stations;
+import dms.pastor.tools.trips.common.station.Station;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,12 +27,12 @@ final class USSDominikApplication {
 
     public static void main(String[] args) {
 
-        final List<TubeStation> tubeStationList = loadFromFile();
+        final List<Station> stationList = loadFromFile();
 
-        TubeCLI tubeCLI = new TubeCLI(new Stations(tubeStationList), new Scanner(System.in));
+        TubeCLI tubeCLI = new TubeCLI(new Stations(stationList), new Scanner(System.in));
         tubeCLI.mainMenu();
 
-        saveToFile(tubeStationList);
+        saveToFile(stationList);
 
         LOGGER.info("Done. Goodbye!");
     }

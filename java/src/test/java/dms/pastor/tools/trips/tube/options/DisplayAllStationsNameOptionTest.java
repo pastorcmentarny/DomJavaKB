@@ -1,6 +1,7 @@
 package dms.pastor.tools.trips.tube.options;
 
-import dms.pastor.tools.trips.tube.station.Stations;
+import dms.pastor.tools.trips.common.options.DisplayAllStationsNameOption;
+import dms.pastor.tools.trips.common.station.Stations;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,6 +10,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 
+import static dms.pastor.tools.trips.common.station.StationType.TUBE;
 import static dms.pastor.tools.trips.tube.builders.StationBuilder.stationBuilder;
 import static dms.pastor.tools.trips.tube.builders.StationsBuilder.stationsBuilder;
 import static java.util.Collections.singletonList;
@@ -43,7 +45,7 @@ public class DisplayAllStationsNameOptionTest {
         final DisplayAllStationsNameOption displayAllStationsNameOption = new DisplayAllStationsNameOption();
         final Stations stations = stationsBuilder().build();
         // when
-        displayAllStationsNameOption.choose(stations);
+        displayAllStationsNameOption.choose(stations,TUBE);
 
         // then
         assertThat(outputStream.toString()).contains("Wembley Park" + System.lineSeparator() +
@@ -60,7 +62,7 @@ public class DisplayAllStationsNameOptionTest {
                 .stationList(singletonList(stationBuilder().build()))
                 .build();
         // when
-        displayAllStationsNameOption.choose(stations);
+        displayAllStationsNameOption.choose(stations,TUBE);
 
         // then
         assertThat(outputStream.toString()).contains("WARNING! Total number should be 269 but file contains only 1");

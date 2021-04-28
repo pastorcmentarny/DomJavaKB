@@ -1,7 +1,7 @@
 package dms.pastor.tools.trips.tube.lines;
 
-import dms.pastor.tools.trips.tube.station.SharedStations;
-import dms.pastor.tools.trips.tube.station.Station;
+import dms.pastor.tools.trips.common.station.SharedStations;
+import dms.pastor.tools.trips.common.station.StationName;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +19,8 @@ public class HammersmithAndCity extends Line {
 
 
     @Override
-    public List<Station> getStations() {
-        var stationList = new ArrayList<Station>();
+    public List<StationName> getStations() {
+        var stationList = new ArrayList<StationName>();
         stationList.addAll(SharedStations.addHammersmithToEdwareSection());
         stationList.addAll(SharedStations.addBakerStreetToLiverpoolStreet());
         stationList.addAll(SharedStations.addAldgateEastToBarking());

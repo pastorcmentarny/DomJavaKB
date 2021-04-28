@@ -1,6 +1,6 @@
 package dms.pastor.tools.trips.tube.lines;
 
-import dms.pastor.tools.trips.tube.station.Station;
+import dms.pastor.tools.trips.common.station.StationName;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,35 +17,35 @@ import java.util.List;
 public class Jubilee extends Line {
 
     @Override
-    public List<Station> getStations() {
-        var tubeStations = new ArrayList<Station>();
-        tubeStations.add(Station.STANMORE);
-        tubeStations.add(Station.CANNONS_PARK);
-        tubeStations.add(Station.QUEENSBURY);
-        tubeStations.add(Station.KINGSBURY);
-        tubeStations.add(Station.WEMBLEY_PARK);
-        tubeStations.add(Station.NEASDEN);
-        tubeStations.add(Station.DOLLIS_HILL);
-        tubeStations.add(Station.WILLESDEN_GREEN);
-        tubeStations.add(Station.KILBURN);
-        tubeStations.add(Station.WEST_HAMPSTEAD);
-        tubeStations.add(Station.FINCHLEY_ROAD);
-        tubeStations.add(Station.SWISS_COTTAGE);
-        tubeStations.add(Station.ST_JOHNS_WOOD);
-        tubeStations.add(Station.BAKER_STREET);
-        tubeStations.add(Station.BOND_STREET);
-        tubeStations.add(Station.GREEN_PARK);
-        tubeStations.add(Station.WESTMINSTER);
-        tubeStations.add(Station.WATERLOO);
-        tubeStations.add(Station.SOUTHWARK);
-        tubeStations.add(Station.LONDON_BRIDGE);
-        tubeStations.add(Station.BERMONDSEY);
-        tubeStations.add(Station.CANADA_WATER);
-        tubeStations.add(Station.CANARY_WHARF);
-        tubeStations.add(Station.NORTH_GREENWICH);
-        tubeStations.add(Station.CANNING_TOWN);
-        tubeStations.add(Station.WEST_HAM);
-        tubeStations.add(Station.STRATFORD);
+    public List<StationName> getStations() {
+        var tubeStations = new ArrayList<StationName>();
+        tubeStations.add(StationName.STANMORE);
+        tubeStations.add(StationName.CANNONS_PARK);
+        tubeStations.add(StationName.QUEENSBURY);
+        tubeStations.add(StationName.KINGSBURY);
+        tubeStations.add(StationName.WEMBLEY_PARK);
+        tubeStations.add(StationName.NEASDEN);
+        tubeStations.add(StationName.DOLLIS_HILL);
+        tubeStations.add(StationName.WILLESDEN_GREEN);
+        tubeStations.add(StationName.KILBURN);
+        tubeStations.add(StationName.WEST_HAMPSTEAD);
+        tubeStations.add(StationName.FINCHLEY_ROAD);
+        tubeStations.add(StationName.SWISS_COTTAGE);
+        tubeStations.add(StationName.ST_JOHNS_WOOD);
+        tubeStations.add(StationName.BAKER_STREET);
+        tubeStations.add(StationName.BOND_STREET);
+        tubeStations.add(StationName.GREEN_PARK);
+        tubeStations.add(StationName.WESTMINSTER);
+        tubeStations.add(StationName.WATERLOO);
+        tubeStations.add(StationName.SOUTHWARK);
+        tubeStations.add(StationName.LONDON_BRIDGE);
+        tubeStations.add(StationName.BERMONDSEY);
+        tubeStations.add(StationName.CANADA_WATER);
+        tubeStations.add(StationName.CANARY_WHARF);
+        tubeStations.add(StationName.NORTH_GREENWICH);
+        tubeStations.add(StationName.CANNING_TOWN);
+        tubeStations.add(StationName.WEST_HAM);
+        tubeStations.add(StationName.STRATFORD);
         return tubeStations;
     }
 }

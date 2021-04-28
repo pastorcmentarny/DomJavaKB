@@ -1,7 +1,7 @@
 package dms.pastor.tools.trips.tube;
 
 
-import dms.pastor.tools.trips.tube.data.DataUploader;
+import dms.pastor.tools.trips.common.data.DataUploader;
 import org.junit.jupiter.api.Test;
 
 import static dms.pastor.tools.trips.tube.data.DataOperations.STATION_PATH;

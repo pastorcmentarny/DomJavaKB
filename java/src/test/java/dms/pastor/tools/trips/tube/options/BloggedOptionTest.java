@@ -1,6 +1,7 @@
 package dms.pastor.tools.trips.tube.options;
 
-import dms.pastor.tools.trips.tube.station.Stations;
+import dms.pastor.tools.trips.common.options.BloggedOption;
+import dms.pastor.tools.trips.common.station.Stations;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -9,6 +10,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Scanner;
 
+import static dms.pastor.tools.trips.common.station.StationType.TUBE;
 import static dms.pastor.tools.trips.tube.builders.StationBuilder.stationBuilder;
 import static dms.pastor.tools.trips.tube.builders.StationsBuilder.stationsBuilder;
 import static java.util.Collections.singletonList;
@@ -46,7 +48,7 @@ public class BloggedOptionTest {
         assertThat(stations.getTubeStationList().get(0).isBlogged()).isFalse();
 
         // when
-        bloggedOption.choose(stations);
+        bloggedOption.choose(stations, TUBE);
 
         // then
         assertThat(stations.getTubeStationList().get(0).isBlogged()).isTrue();

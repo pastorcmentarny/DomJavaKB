@@ -1,7 +1,7 @@
-package dms.pastor.tools.trips.tube.data;
+package dms.pastor.tools.trips.common.data;
 
-import dms.pastor.tools.trips.tube.station.ToStationConverter;
-import dms.pastor.tools.trips.tube.station.TubeStation;
+import dms.pastor.tools.trips.common.station.Station;
+import dms.pastor.tools.trips.common.station.ToStationConverter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,12 +25,12 @@ import static java.util.Collections.emptyList;
 public class DataUploader {
     private static final Logger LOGGER = LoggerFactory.getLogger(DataUploader.class);
 
-    public List<TubeStation> load(Path path) {
+    public List<Station> load(Path path) {
         LOGGER.error("Loading data from .. " + path);
         try (Stream<String> lines = Files.lines(path)) {
-            final List<TubeStation> tubeStationList = lines.map(ToStationConverter::convert).collect(Collectors.toList());
+            final List<Station> overgroundStationList = lines.map(ToStationConverter::convert).collect(Collectors.toList());
             LOGGER.info("Data loaded.");
-            return tubeStationList;
+            return overgroundStationList;
         } catch (IOException e) {
             LOGGER.error("Unable to load data as something went wrong! " + e.getMessage(), e);
         }

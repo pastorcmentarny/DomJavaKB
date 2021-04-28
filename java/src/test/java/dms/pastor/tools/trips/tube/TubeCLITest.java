@@ -1,8 +1,8 @@
 package dms.pastor.tools.trips.tube;
 
 import dms.pastor.tools.trips.common.options.Status;
-import dms.pastor.tools.trips.tube.station.Stations;
-import dms.pastor.tools.trips.tube.station.TubeStation;
+import dms.pastor.tools.trips.common.station.Stations;
+import dms.pastor.tools.trips.common.station.Station;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -183,11 +183,11 @@ public class TubeCLITest {
     }
 
     private Stations generateStations() {
-        List<TubeStation> tubeStationList = new ArrayList<>();
-        tubeStationList.add(stationBuilder().name("Wembley Park").status(Status.VISITED).build());
-        tubeStationList.add(TubeStation.passed("Green Park", LocalDate.now()));
-        tubeStationList.add(TubeStation.notVisited(ELM_PARK_VALID_STATION));
-        return new Stations(tubeStationList);
+        List<Station> stationList = new ArrayList<>();
+        stationList.add(stationBuilder().name("Wembley Park").status(Status.VISITED).build());
+        stationList.add(Station.passed("Green Park", LocalDate.now()));
+        stationList.add(Station.notVisited(ELM_PARK_VALID_STATION));
+        return new Stations(stationList);
     }
 
 }

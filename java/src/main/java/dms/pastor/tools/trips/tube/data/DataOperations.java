@@ -2,7 +2,8 @@ package dms.pastor.tools.trips.tube.data;
 
 import dms.pastor.domain.exception.SomethingWentTerribleWrongError;
 import dms.pastor.domain.exception.SomethingWentWrongException;
-import dms.pastor.tools.trips.tube.station.TubeStation;
+import dms.pastor.tools.trips.common.data.DataUploader;
+import dms.pastor.tools.trips.common.station.Station;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -39,30 +40,30 @@ public final class DataOperations {
     private DataOperations() {
     }
 
-    public static void saveToFile(List<TubeStation> tubeStationList) {
+    public static void saveToFile(List<Station> stationList) {
         LOGGER.info("Saving data..");
-        DataWriter dataWriter = new DataWriter();
-        dataWriter.save(STATION_PATH, tubeStationList);
+        UndergroundDataWriter undergroundDataWriter = new UndergroundDataWriter();
+        undergroundDataWriter.save(STATION_PATH, stationList);
     }
 
-    public static List<TubeStation> loadFromFile() {
+    public static List<Station> loadFromFile() {
         DataUploader dataUploader = new DataUploader();
         return dataUploader.load(DataOperations.STATION_PATH);
     }
 
     public static void backup() {
         LOGGER.info("Backup saved data");
-        final List<TubeStation> originalTubeStationList = loadFromFile();
+        final List<Station> originalOvergroundStationList = loadFromFile();
         final String backupPath = System.getProperty("user.dir") + "/backup-" + LocalDateTime.now().toString().replaceAll(":", "-").replaceAll(" ", "") + "-station.txt";
 
-        DataWriter dataWriter = new DataWriter();
+        UndergroundDataWriter undergroundDataWriter = new UndergroundDataWriter();
         try {
             final File backupFile = new File(backupPath);
             final boolean created = backupFile.createNewFile();
             if (!created) {
                 throw new SomethingWentWrongException("Creating file at " + backupPath);
             }
-            dataWriter.save(backupFile.toPath(), originalTubeStationList);
+            undergroundDataWriter.save(backupFile.toPath(), originalOvergroundStationList);
 
         } catch (IOException e) {
             throw new SomethingWentWrongException("Creating file at " + backupPath, e);

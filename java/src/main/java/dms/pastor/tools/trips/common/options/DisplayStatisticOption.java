@@ -1,12 +1,11 @@
-package dms.pastor.tools.trips.tube.options;
+package dms.pastor.tools.trips.common.options;
 
-import dms.pastor.tools.trips.common.options.Option;
-import dms.pastor.tools.trips.common.options.Status;
+import dms.pastor.tools.trips.common.station.Station;
+import dms.pastor.tools.trips.common.station.StationName;
+import dms.pastor.tools.trips.common.station.StationType;
+import dms.pastor.tools.trips.common.station.Stations;
 import dms.pastor.tools.trips.tube.lines.Line;
 import dms.pastor.tools.trips.tube.lines.Lines;
-import dms.pastor.tools.trips.tube.station.Station;
-import dms.pastor.tools.trips.tube.station.Stations;
-import dms.pastor.tools.trips.tube.station.TubeStation;
 import dms.pastor.utils.NumberUtils;
 
 import java.util.List;
@@ -29,7 +28,7 @@ import static dms.pastor.utils.StringUtils.NEW_LINE;
 public class DisplayStatisticOption implements Option {
 
     @Override
-    public void choose(Stations stations) {
+    public void choose(Stations stations, StationType type) {
         System.out.println("You visited " + stations.countStationVisitedThisYear() + " station(s) this year. (" +
                 countPercentageOfAllStationFor(stations.getTubeStationList().size(), stations.countStationVisitedThisYear()));
         System.out.println("You visited " + stations.countStationVisited() + " station(s). (" +
@@ -41,13 +40,13 @@ public class DisplayStatisticOption implements Option {
     }
 
     private String displayStationsBlogged(Stations stations) {
-        final List<TubeStation> tubeStationList = stations.getTubeStationList();
+        final List<Station> stationList = stations.getTubeStationList();
         var result = new StringBuilder(EMPTY_STRING);
         result.append("{");
         stations.displayAllStationsBlogged().forEach(station -> result.append(station).append(","));
         result.deleteCharAt(result.length() - 1);
         result.append(") ");
-        result.append("(Total station blogged: ").append(countPercentageOfAllStationFor(tubeStationList.size(), stations.countStationsBlogged()));
+        result.append("(Total station blogged: ").append(countPercentageOfAllStationFor(stationList.size(), stations.countStationsBlogged()));
         return result.toString();
     }
 
@@ -55,21 +54,19 @@ public class DisplayStatisticOption implements Option {
         return (what * 100 / stationSize) + "%)";
     }
 
-    //find all stations that on the line
-    // check if station was passed
     private String getStatsForLines(Stations stations) {
         var stringBuilder = new StringBuilder(EMPTY_STRING);
         final List<Line> lines = Lines.getLines();
         for (var line : lines) {
             int count = 0;
-            final List<Station> lineStations = line.getStations();
-            for (var lineStation : lineStations) {
-                final Optional<TubeStation> station = stations.getStation(lineStation.getStationName());
+            final List<StationName> lineStationNames = line.getStations();
+            for (var lineStation : lineStationNames) {
+                final Optional<Station> station = stations.getStation(lineStation.getStationName());
                 if (station.isPresent() && (station.get().getStatus().equals(Status.PASSED) || station.get().getStatus().equals(Status.VISITED))) {
                     count++;
                 }
             }
-            stringBuilder.append(line.name()).append(' ').append(NumberUtils.getPercentage(count, lineStations.size())).append("%").append(NEW_LINE);
+            stringBuilder.append(line.name()).append(' ').append(NumberUtils.getPercentage(count, lineStationNames.size())).append("%").append(NEW_LINE);
         }
         return stringBuilder.toString();
     }

@@ -1,4 +1,4 @@
-package dms.pastor.tools.trips.tube.station;
+package dms.pastor.tools.trips.common.station;
 
 import dms.pastor.domain.exception.NotFoundException;
 import org.slf4j.LoggerFactory;
@@ -25,52 +25,52 @@ import static java.util.Collections.unmodifiableList;
 public class Stations {
     private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(Stations.class);
 
-    private final List<TubeStation> tubeStationList;
+    private final List<Station> stationList;
 
-    public Stations(List<TubeStation> tubeStationList) {
-        this.tubeStationList = tubeStationList;
+    public Stations(List<Station> stationList) {
+        this.stationList = stationList;
     }
 
-    public List<TubeStation> getTubeStationList() {
-        return unmodifiableList(tubeStationList);
+    public List<Station> getTubeStationList() {
+        return unmodifiableList(stationList);
     }
 
-    public void setPassedFor(TubeStation tubeStation) {
-        if (tubeStation.getStatus() != VISITED && tubeStation.getStatus() != PASSED) {
-            tubeStation.setStatus(PASSED);
-            tubeStation.setPassedDate(LocalDate.now());
+    public void setPassedFor(Station station) {
+        if (station.getStatus() != VISITED && station.getStatus() != PASSED) {
+            station.setStatus(PASSED);
+            station.setPassedDate(LocalDate.now());
         } else {
             LOGGER.info("You passed or visited this tubeStation already.");
         }
     }
 
-    public TubeStation getStationByName(String name) {
-        return tubeStationList.stream()
+    public Station getStationByName(String name) {
+        return stationList.stream()
                 .filter(station -> station.getName().equals(name))
                 .findFirst()
                 .orElseThrow(() -> new NotFoundException("TubeStation " + name));
     }
 
-    public void setVisitedFor(TubeStation tubeStation) {
-        if (tubeStation.getStatus() != VISITED) {
-            tubeStation.setStatus(VISITED);
-            if (tubeStation.getPassedDate() == null) {
-                tubeStation.setPassedDate(LocalDate.now());
+    public void setVisitedFor(Station station) {
+        if (station.getStatus() != VISITED) {
+            station.setStatus(VISITED);
+            if (station.getPassedDate() == null) {
+                station.setPassedDate(LocalDate.now());
             }
-            tubeStation.setVisitedDate(LocalDate.now());
-            tubeStation.setVisitedStationThisYearToNow();
+            station.setVisitedDate(LocalDate.now());
+            station.setVisitedStationThisYearToNow();
         } else {
             LOGGER.info("You visited this tubeStation already.");
-            setVisitedThisYearFor(tubeStation);
+            setVisitedThisYearFor(station);
         }
     }
 
-    private void setVisitedThisYearFor(TubeStation tubeStation) {
-        if (Objects.nonNull(tubeStation.getVisitedThisYearDate())) {
+    private void setVisitedThisYearFor(Station station) {
+        if (Objects.nonNull(station.getVisitedThisYearDate())) {
             LOGGER.info("You visited this tubeStation this year too.");
         } else {
-            System.out.println("You updated " + tubeStation.getName() + " with info that you visited this year.");
-            tubeStation.setVisitedStationThisYearToNow();
+            System.out.println("You updated " + station.getName() + " with info that you visited this year.");
+            station.setVisitedStationThisYearToNow();
         }
     }
 
@@ -83,58 +83,58 @@ public class Stations {
     }
 
     public long countStationVisitedThisYear() {
-        return tubeStationList.stream()
+        return stationList.stream()
                 .filter(station -> station.getStatus().value().equalsIgnoreCase(VISITED.value()) && Objects.nonNull(station.getVisitedThisYearDate()))
                 .count();
     }
 
     private long countStationThatHasStatusOf(String statusValue) {
-        return tubeStationList.stream()
+        return stationList.stream()
                 .filter(station -> station.getStatus().value().equalsIgnoreCase(statusValue))
                 .count();
     }
 
     public long countStationsBlogged() {
-        return tubeStationList.stream()
-                .filter(TubeStation::isBlogged)
+        return stationList.stream()
+                .filter(Station::isBlogged)
                 .count();
     }
 
     public List<String> displayAllStationsBlogged() {
-        return tubeStationList.stream()
-                .filter(TubeStation::isBlogged)
-                .map(TubeStation::getName)
+        return stationList.stream()
+                .filter(Station::isBlogged)
+                .map(Station::getName)
                 .collect(Collectors.toList());
     }
 
-    public TubeStation findStation(String searchFor) {
+    public Station findStation(String searchFor) {
         final NotFoundException notFoundException = new NotFoundException("TubeStation");
         if (isStringEmpty(searchFor)) {
             LOGGER.warn(String.format("Unable to find station as search query is invalid. User typed: %s", searchFor));
             throw notFoundException;
         }
 
-        return tubeStationList.stream()
+        return stationList.stream()
                 .filter(station -> station.getName().equalsIgnoreCase(searchFor))
                 .findFirst()
                 .orElseThrow(() -> notFoundException);
     }
 
-    public Optional<TubeStation> getStation(String searchFor) {
+    public Optional<Station> getStation(String searchFor) {
         final NotFoundException notFoundException = new NotFoundException("TubeStation");
         if (isStringEmpty(searchFor)) {
             LOGGER.warn(String.format("Unable to find station as search query is invalid. User typed: %s", searchFor));
             throw notFoundException;
         }
 
-        return tubeStationList.stream()
+        return stationList.stream()
                 .filter(station -> station.getName().equalsIgnoreCase(searchFor))
                 .findFirst();
     }
 
 
     public int totalNumber() {
-        return tubeStationList.size();
+        return stationList.size();
     }
 
 }

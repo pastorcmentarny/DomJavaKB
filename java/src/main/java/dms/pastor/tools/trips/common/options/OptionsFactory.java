@@ -1,9 +1,9 @@
-package dms.pastor.tools.trips.tube.options;
+package dms.pastor.tools.trips.common.options;
 
 import dms.pastor.domain.exception.NotFoundException;
-import dms.pastor.tools.trips.common.options.Option;
+import dms.pastor.tools.trips.common.station.StationType;
 import dms.pastor.tools.trips.tube.Config;
-import dms.pastor.tools.trips.tube.station.Stations;
+import dms.pastor.tools.trips.common.station.Stations;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -50,9 +50,9 @@ public final class OptionsFactory {
         options.put(input, option);
     }
 
-    public void selectOption(int option, Stations stations) {
+    public void selectOption(int option, Stations stations, StationType type) {
         if (options.containsKey(option)) {
-            options.get(option).choose(stations);
+            options.get(option).choose(stations,type);
         } else {
             throw new NotFoundException("Selected option " + option);
         }

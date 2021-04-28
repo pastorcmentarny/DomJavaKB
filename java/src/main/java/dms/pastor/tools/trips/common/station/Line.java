@@ -1,4 +1,4 @@
-package dms.pastor.tools.trips.tube.station;
+package dms.pastor.tools.trips.common.station;
 
 import java.util.Objects;
 

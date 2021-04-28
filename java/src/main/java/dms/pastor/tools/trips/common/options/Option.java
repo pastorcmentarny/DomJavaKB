@@ -1,6 +1,7 @@
 package dms.pastor.tools.trips.common.options;
 
-import dms.pastor.tools.trips.tube.station.Stations;
+import dms.pastor.tools.trips.common.station.StationType;
+import dms.pastor.tools.trips.common.station.Stations;
 
 /**
  * Author Dominik Symonowicz
@@ -26,7 +27,7 @@ import dms.pastor.tools.trips.tube.station.Stations;
  */
 @FunctionalInterface
 public interface Option {
-    void choose(Stations stations);
+    void choose(Stations stations, StationType type);
 
     default String getCommandTitle(int commandCode) {
         return "Unknown";

@@ -1,7 +1,7 @@
-package dms.pastor.tools.trips.tube.options;
+package dms.pastor.tools.trips.common.options;
 
-import dms.pastor.tools.trips.common.options.Option;
-import dms.pastor.tools.trips.tube.station.Stations;
+import dms.pastor.tools.trips.common.station.StationType;
+import dms.pastor.tools.trips.common.station.Stations;
 
 import static dms.pastor.tools.trips.tube.data.DataOperations.loadFromFile;
 
@@ -18,7 +18,7 @@ import static dms.pastor.tools.trips.tube.data.DataOperations.loadFromFile;
  */
 public class LoadStationOption implements Option {
     @Override
-    public void choose(Stations stations) {
+    public void choose(Stations stations, StationType type) {
         System.out.println("Reload data without saving.. All changes in the session will be discarded");
         loadFromFile();
     }

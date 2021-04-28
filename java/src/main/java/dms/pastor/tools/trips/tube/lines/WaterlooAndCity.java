@@ -1,6 +1,6 @@
 package dms.pastor.tools.trips.tube.lines;
 
-import dms.pastor.tools.trips.tube.station.Station;
+import dms.pastor.tools.trips.common.station.StationName;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,11 +17,11 @@ import java.util.List;
 public class WaterlooAndCity extends Line {
 
     @Override
-    public List<Station> getStations() {
-        List<Station> tubeStations = new ArrayList<>();
-        tubeStations.add(Station.WATERLOO);
-        tubeStations.add(Station.BANK);
-        return tubeStations;
+    public List<StationName> getStations() {
+        List<StationName> tubeStationNames = new ArrayList<>();
+        tubeStationNames.add(StationName.WATERLOO);
+        tubeStationNames.add(StationName.BANK);
+        return tubeStationNames;
     }
 
 }

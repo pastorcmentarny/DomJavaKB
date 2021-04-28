@@ -1,7 +1,7 @@
 package dms.pastor.tools.trips.tube.lines;
 
-import dms.pastor.tools.trips.tube.station.SharedStations;
-import dms.pastor.tools.trips.tube.station.Station;
+import dms.pastor.tools.trips.common.station.SharedStations;
+import dms.pastor.tools.trips.common.station.StationName;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,11 +19,11 @@ public class Circle extends Line {
 
 
     @Override
-    public List<Station> getStations() {
-        var tubeStations = new ArrayList<Station>();
+    public List<StationName> getStations() {
+        var tubeStations = new ArrayList<StationName>();
         tubeStations.addAll(SharedStations.addHammersmithToEdwareSection());
         tubeStations.addAll(SharedStations.addBakerStreetToLiverpoolStreet());
-        tubeStations.add(Station.ALDGATE);
+        tubeStations.add(StationName.ALDGATE);
         tubeStations.addAll(SharedStations.addTowerHillToGloucesterRoad());
         tubeStations.addAll(SharedStations.addHighStreetKensingtonToBayswater());
         return tubeStations;

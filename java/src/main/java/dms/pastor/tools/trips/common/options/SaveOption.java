@@ -1,7 +1,7 @@
-package dms.pastor.tools.trips.tube.options;
+package dms.pastor.tools.trips.common.options;
 
-import dms.pastor.tools.trips.common.options.Option;
-import dms.pastor.tools.trips.tube.station.Stations;
+import dms.pastor.tools.trips.common.station.StationType;
+import dms.pastor.tools.trips.common.station.Stations;
 
 import static dms.pastor.tools.trips.tube.data.DataOperations.backup;
 import static dms.pastor.tools.trips.tube.data.DataOperations.saveToFile;
@@ -19,7 +19,8 @@ import static dms.pastor.tools.trips.tube.data.DataOperations.saveToFile;
  */
 public class SaveOption implements Option {
     @Override
-    public void choose(Stations stations) {
+    public void choose(Stations stations, StationType type) {
+        //TODO set for TUBE and OVERGROUND
         backup();
         saveToFile(stations.getTubeStationList());
     }
