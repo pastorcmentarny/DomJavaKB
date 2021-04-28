@@ -1,0 +1,112 @@
+Acton Central;;X;;none;;none;;none;;N
+Anerley;;X;;none;;none;;none;;N
+Barking;;X;;none;;none;;none;;N
+Battersea Park;;X;;none;;none;;none;;N
+Bethnal Green;;X;;none;;none;;none;;N
+Blackhorse Road;;X;;none;;none;;none;;N
+Brockley;;X;;none;;none;;none;;N
+Brondesbury Park;;X;;none;;none;;none;;N
+Brondesbury;;X;;none;;none;;none;;N
+Bruce Grove;;X;;none;;none;;none;;N
+Bush Hill Park;;X;;none;;none;;none;;N
+Bushey;;V;;2021-04-25;;2021-04-25;;2021-04-25;;N
+Caledonian Road & Barnsbury;;X;;none;;none;;none;;N
+Cambridge Heath;;X;;none;;none;;none;;N
+Camden Road;;X;;none;;none;;none;;N
+Canada Water;;X;;none;;none;;none;;N
+Canonbury;;X;;none;;none;;none;;N
+Carpenders Park;;P;;2021-04-25;;2021-04-25;;none;;N
+Cheshunt;;X;;none;;none;;none;;N
+Chingford;;X;;none;;none;;none;;N
+Clapham High Street;;X;;none;;none;;none;;N
+Clapham Junction;;X;;none;;none;;none;;N
+Clapton;;X;;none;;none;;none;;N
+Crouch Hill;;X;;none;;none;;none;;N
+Crystal Palace;;X;;none;;none;;none;;N
+Dalston Junction;;X;;none;;none;;none;;N
+Dalston Kingsland;;X;;none;;none;;none;;N
+Denmark Hill;;X;;none;;none;;none;;N
+Edmonton Green;;X;;none;;none;;none;;N
+Emerson Park;;X;;none;;none;;none;;N
+Enfield Town;;X;;none;;none;;none;;N
+Euston;;X;;none;;none;;none;;N
+Finchley Road & Frognal;;X;;none;;none;;none;;N
+Forest Hill;;X;;none;;none;;none;;N
+Gospel Oak;;X;;none;;none;;none;;N
+Gunnersbury;;X;;none;;none;;none;;N
+Hackney Central;;X;;none;;none;;none;;N
+Hackney Downs;;X;;none;;none;;none;;N
+Hackney Wick;;X;;none;;none;;none;;N
+Haggerston;;X;;none;;none;;none;;N
+Hampstead Heath;;X;;none;;none;;none;;N
+Harlesden;;X;;none;;none;;none;;N
+Harringay Green Lanes;;X;;none;;none;;none;;N
+Harrow & Wealdstone;;X;;none;;none;;none;;N
+Hatch End;;V;;2021-04-25;;2021-04-25;;2021-04-25;;N
+Headstone Lane;;X;;none;;none;;none;;N
+Highams Park;;X;;none;;none;;none;;N
+Highbury & Islington;;X;;none;;none;;none;;N
+Homerton;;X;;none;;none;;none;;N
+Honor Oak Park;;X;;none;;none;;none;;N
+Hoxton;;X;;none;;none;;none;;N
+Imperial Wharf;;X;;none;;none;;none;;N
+Kensal Green;;X;;none;;none;;none;;N
+Kensal Rise;;X;;none;;none;;none;;N
+Kensington (Olympia);;X;;none;;none;;none;;N
+Kentish Town West;;X;;none;;none;;none;;N
+Kenton;;X;;none;;none;;none;;N
+Kew Gardens;;X;;none;;none;;none;;N (London)
+Kilburn High Road;;X;;none;;none;;none;;N
+Leyton Midland Road;;X;;none;;none;;none;;N
+Leytonstone High Road;;X;;none;;none;;none;;N
+London Fields;;X;;none;;none;;none;;N
+Liverpool Street;;X;;none;;none;;none;;N
+New Cross Gate;;X;;none;;none;;none;;N
+New Cross;;X;;none;;none;;none;;N
+North Wembley;;X;;none;;none;;none;;N
+Norwood Junction;;X;;none;;none;;none;;N
+Peckham Rye;;X;;none;;none;;none;;N
+Penge West;;X;;none;;none;;none;;N
+Queen's Park;;X;;none;;none;;none;;N (England)
+Queens Road Peckham;;X;;none;;none;;none;;N
+Rectory Road;;X;;none;;none;;none;;N
+Richmond;;X;;none;;none;;none;;N (London)
+Romford;;X;;none;;none;;none;;N
+Rotherhithe;;X;;none;;none;;none;;N
+St. James Street;;X;;none;;none;;none;;N
+Seven Sisters;;X;;none;;none;;none;;N
+Shadwell;;X;;none;;none;;none;;N
+Shepherd's Bush;;X;;none;;none;;none;;N
+Shoreditch High Street;;X;;none;;none;;none;;N
+Silver Street;;X;;none;;none;;none;;N
+South Acton;;X;;none;;none;;none;;N (England)
+South Hampstead;;X;;none;;none;;none;;N
+South Kenton;;X;;none;;none;;none;;N
+South Tottenham;;X;;none;;none;;none;;N
+Southbury;;X;;none;;none;;none;;N
+Stamford Hill;;X;;none;;none;;none;;N
+Stoke Newington;;X;;none;;none;;none;;N
+Stonebridge Park;;X;;none;;none;;none;;N
+Stratford;;X;;none;;none;;none;;N
+Surrey Quays;;X;;none;;none;;none;;N
+Sydenham;;X;;none;;none;;none;;N (London)
+Theobalds Grove;;X;;none;;none;;none;;N
+Turkey Street;;X;;none;;none;;none;;N
+Upminster;;X;;none;;none;;none;;N
+Upper Holloway;;X;;none;;none;;none;;N
+Walthamstow Central;;X;;none;;none;;none;;N
+Walthamstow Queen's Road;;X;;none;;none;;none;;N
+Wandsworth Road;;X;;none;;none;;none;;N
+Wanstead Park;;X;;none;;none;;none;;N
+Wapping;;X;;none;;none;;none;;N
+Watford High Street;;P;;2021-04-25;;2021-04-25;;none;;N
+Watford Junction;;V;;2021-04-25;;2021-04-25;;2021-04-25;;N
+Wembley Central;;X;;none;;none;;none;;N
+West Brompton;;X;;none;;none;;none;;N
+West Croydon;;X;;none;;none;;none;;N
+West Hampstead;;X;;none;;none;;none;;N
+White Hart Lane;;X;;none;;none;;none;;N
+Whitechapel;;X;;none;;none;;none;;N
+Willesden Junction;;X;;none;;none;;none;;N
+Wood Street;;X;;none;;none;;none;;N
+Woodgrange Park;;X;;none;;none;;none;;N
