@@ -19,17 +19,21 @@ configurations {
 }
 
 
+ext {
+    lombokVersion = "1.18.20"
+}
+
 description = "Java Learning and KB project "
 
 compileJava {
-    sourceCompatibility = JavaVersion.VERSION_15
-    targetCompatibility = JavaVersion.VERSION_15
+    sourceCompatibility = JavaVersion.VERSION_16
+    targetCompatibility = JavaVersion.VERSION_16
     options.encoding = 'UTF-8' //to ensure that I always use UTF-8 in project
 }
 
 compileTestJava {
-    sourceCompatibility = JavaVersion.VERSION_15
-    targetCompatibility = JavaVersion.VERSION_15
+    sourceCompatibility = JavaVersion.VERSION_16
+    targetCompatibility = JavaVersion.VERSION_16
     options.encoding = 'UTF-8' //to ensure that I always use UTF-8 in project
 }
 
@@ -48,16 +52,16 @@ dependencies {
     implementation 'org.simplejavamail:simple-java-mail:5.5.1' //TODO update
     implementation 'io.rest-assured:rest-assured:4.3.1' //normally should be testCompile
     implementation 'io.rest-assured:json-schema-validator:4.3.1' //normally should be testCompile
-    implementation 'org.projectlombok:lombok:1.18.16'
+    implementation 'org.projectlombok:lombok:1.18.20'
     implementation 'org.apache.kafka:kafka-clients:1.1.0'
-    annotationProcessor 'org.projectlombok:lombok:1.18.16'
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.1'
     testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.7.1'
     testImplementation 'org.junit.jupiter:junit-jupiter-params:5.7.1'
     testImplementation group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.7.1'
     testImplementation 'org.hamcrest:hamcrest-all:1.3'
-    testImplementation 'org.mockito:mockito-core:3.5.13'
-    testImplementation 'org.mockito:mockito-junit-jupiter:3.6.0'
+    testImplementation 'org.mockito:mockito-core:3.9.0'
+    testImplementation 'org.mockito:mockito-junit-jupiter:3.9.0'
     testImplementation 'org.assertj:assertj-core:3.17.2'
     testImplementation 'com.github.stefanbirkner:system-rules:1.19.0' //junit rules for system package
 }
