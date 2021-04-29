@@ -18,21 +18,21 @@ public class RequestFlooder {
 
         ExecutorService executorService = Executors.newFixedThreadPool(5);
 
-        for (int i = 0; i < 20; i++) {
-            int counter = i;
+        for (int interationCounter = 0; interationCounter < 20; interationCounter++) {
+            int counter = interationCounter;
             executorService.execute(() -> {
                 long start = System.currentTimeMillis();
                 try {
                     RestAssured.baseURI = urlAddress;
-                    for (int i1 = 0; i1 < 1000; i1++) {
+                    for (int index = 0; index < 1000; index++) {
                         HttpURLConnection con = (HttpURLConnection) url.openConnection();
                         con.setRequestMethod("GET");
                         con.getResponseCode();
                     }
                     long stop = System.currentTimeMillis();
                     System.out.printf("No. %d .It took %d milliseconds%n", counter, (stop - start));
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
+                } catch (Exception exception) {
+                    System.out.println(exception.getMessage());
                 }
             });
         }
