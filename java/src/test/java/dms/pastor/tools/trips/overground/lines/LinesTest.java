@@ -1,4 +1,4 @@
-package dms.pastor.tools.trips.tube.lines;
+package dms.pastor.tools.trips.overground.lines;
 
 import org.junit.jupiter.api.Test;
 
@@ -14,14 +14,14 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class AllOvergroundLinesTest {
+public class LinesTest {
 
     @Test
     public void getLinesShouldReturnAllLines() {
         // when
-        final var lines = Lines.getLines();
+        final var lines = AllOvergroundLines.getLines();
 
         // then
-        assertThat(lines).hasSize(11);
+        assertThat(lines).hasSize(1);
     }
 }

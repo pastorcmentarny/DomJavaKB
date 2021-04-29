@@ -15,4 +15,24 @@ class OvergroundTest {
         // then
         assertThat(result).isEqualTo(112); //Current number of stations
     }
+
+    @Test
+    void nameAcceptanceTest() {
+        // when
+        final var result = new Overground().name();
+
+        // then
+        assertThat(result).isEqualTo("Overground");
+
+    }
+
+    @Test
+    void getSizeAcceptanceTest() {
+        // when
+        final var result = new Overground().getSize();
+
+        // then
+        assertThat(result).isEqualTo(112);
+    }
+
 }

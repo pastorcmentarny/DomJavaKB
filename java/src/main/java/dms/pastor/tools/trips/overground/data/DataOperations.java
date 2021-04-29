@@ -66,8 +66,8 @@ public final class DataOperations {
             }
             DataWriter.save(backupFile.toPath(), originalOvergroundStationList);
 
-        } catch (IOException e) {
-            throw new SomethingWentWrongException("Creating file at " + backupPath, e);
+        } catch (IOException exception) {
+            throw new SomethingWentWrongException("Creating file at " + backupPath, exception);
         }
     }
 
