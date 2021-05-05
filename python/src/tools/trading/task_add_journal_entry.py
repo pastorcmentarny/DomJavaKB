@@ -11,6 +11,7 @@ AMOUNT = 'amount'
 TRANSACTION_ID = 'transaction id'
 DATA = "data"
 TYPE = "type"
+PLATFORM = "platform"
 debug_mode = False
 
 ENCODING = 'utf-8'
@@ -45,6 +46,7 @@ WIN = 'Winner'
 LOSE = 'Loser'
 journal_entry = {
     TYPE: 'trade',
+    PLATFORM: 'IG',
     "id": 0,
     DATA: EMPTY
 }
@@ -313,4 +315,5 @@ consecutive loss (count): 	0.00 (0)
 Average 	consecutive wins: 	6 	
 consecutive losses: 	0
 Do which day I am good at tradings Split by day.
+add placed manually or automatic
 """
