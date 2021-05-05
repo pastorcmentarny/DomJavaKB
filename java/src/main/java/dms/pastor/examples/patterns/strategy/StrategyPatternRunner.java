@@ -41,8 +41,4 @@ public class StrategyPatternRunner {
 
     }
 
-    public static void main(String[] args) {
-        new StrategyPatternRunner().example1();
-        new StrategyPatternRunner().example2();
-    }
 }

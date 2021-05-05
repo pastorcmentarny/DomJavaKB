@@ -11,6 +11,8 @@ import java.util.Calendar;
 
 
 public class SortDemo {
+    //FIXME move to config
+    private static final String base = "B:\\GitHub\\DomJavaKB\\java\\src\\main\\resources\\sorting\\";
 
     public Comparable<Integer>[] readData(String fileName) {
         Comparable<Integer>[] items;
@@ -122,8 +124,7 @@ public class SortDemo {
                 "test5b.dat",
                 "test6.dat",
                 "test6a.dat",
-                "test6b.dat",
-                "test7.dat"
+                "test6b.dat"
         };
         String[] sortTypes = {
                 "MergeSort",
@@ -139,7 +140,7 @@ public class SortDemo {
             retLine.append(sortType);
             for (String filename : filenames) {
 
-                Comparable<Integer>[] items = this.readData(filename);
+                Comparable<Integer>[] items = this.readData(base + filename);
                 timeTaken = this.testOne("sorting." + sortType, items);
                 retLine.append(",").append(timeTaken);
             }
@@ -149,12 +150,5 @@ public class SortDemo {
 
     }
 
-    public static void main(String[] args) {
-        SortDemo sd = new SortDemo();
-        Comparable<Integer>[] items = sd.readData("test2.dat");
-        sd.testOne("sorting.RadixSort", items);
-        sd.printSortedArray(items);
-        System.out.println(sd.testAll("test6.dat"));
-        System.out.println(sd.testEverything());
-    }
+
 }

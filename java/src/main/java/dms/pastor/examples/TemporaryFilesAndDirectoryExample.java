@@ -6,45 +6,42 @@ import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-public class TemporaryFilesANdDirectoryExample {
+public class TemporaryFilesAndDirectoryExample {
     private static final String customPrefix = "data_";
     private static final String customFileSuffix = ".txt";
     private static final Path customBaseDirectory = FileSystems.getDefault().getPath("/Users/symonowd/Dropbox/banana");
 
-    public static void main(String[] args) throws IOException {
-        getCurrentTemporaryFilesPath();
-        createTemporaryFileWithPrefixAndSuffix();
-        createTemporaryStorageWithExitOnClose();
-    }
 
-    private static void createTemporaryStorageWithExitOnClose() throws IOException {
+     static String createTemporaryStorageWithExitOnClose() throws IOException {
+        StringBuilder stringBuilder = new StringBuilder("");
         final Path tempDirectory = Files.createTempDirectory(customBaseDirectory, customPrefix);
-        System.out.println(tempDirectory);
+        stringBuilder.append(tempDirectory);
         Path fileOne = Files.createTempFile(customBaseDirectory, customPrefix, customFileSuffix);
-        System.out.println(fileOne);
+        stringBuilder.append(fileOne);
         Path fileTwo = Files.createTempFile(customBaseDirectory, customPrefix, customFileSuffix);
-        System.out.println(fileTwo);
+        stringBuilder.append(fileTwo);
 
         try (DirectoryStream<Path> directoryStream = Files.newDirectoryStream(tempDirectory)) {
 
             tempDirectory.toFile().deleteOnExit();
             for (Path file : directoryStream) {
                 file.toFile().deleteOnExit();
-                System.out.println(file);
+                stringBuilder.append(file);
             }
 
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
+        } catch (IOException ioException) {
+            stringBuilder.append(ioException.getMessage());
         }
 
+        return stringBuilder.toString();
     }
 
-    private static void createTemporaryFileWithPrefixAndSuffix() throws IOException {
+     static String createTemporaryFileWithPrefixAndSuffix() throws IOException {
         Path tmpCustomPrefixAndSuffix = Files.createTempFile(customPrefix, customFileSuffix);
-        System.out.println(tmpCustomPrefixAndSuffix);
+        return tmpCustomPrefixAndSuffix.toString();
     }
 
-    private static void getCurrentTemporaryFilesPath() {
-        System.out.println(System.getProperty("java.io.tmpdir"));
+     static String getCurrentTemporaryFilesPath() {
+        return System.getProperty("java.io.tmpdir");
     }
 }

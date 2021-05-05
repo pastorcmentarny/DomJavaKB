@@ -94,6 +94,7 @@ public class SortingAlgorithmRunner {
         return timeTaken;
     }
 
+        private static final String base = "B:\\GitHub\\DomJavaKB\\java\\src\\main\\resources\\sorting\\";
     public String testEverything() {
         String[] filenames = {
                 "test2.dat", "test3.dat",
@@ -106,8 +107,8 @@ public class SortingAlgorithmRunner {
                 "test5b.dat",
                 "test6.dat",
                 "test6a.dat",
-                "test6b.dat",
-                "test7.dat"
+                "test6b.dat"
+
         };
         String[] sortTypes = {
                 "QuickestSort",
@@ -125,7 +126,7 @@ public class SortingAlgorithmRunner {
             retLine.append(sortType);
             for (String filename : filenames) {
 
-                Comparable<Integer>[] items = this.readData(filename);
+                Comparable<Integer>[] items = this.readData(base + filename);
                 timeTaken =
                         this.testOne("sorting." + sortType, items);
                 retLine.append(",").append(timeTaken);
@@ -136,40 +137,5 @@ public class SortingAlgorithmRunner {
 
     }
 
-    /**
-     * Below is few methods for testing purpose only
-     * About test
-     * 1.create 20 random numbers
-     * 2.display on screen these numbers
-     * 3.perform sorting
-     * 4.display result
-     * <p>
-     * About test methods
-     * They are few test methods
-     * 1) test all sorts made by Dominik Symonowicz
-     * 2) test quick sort
-     * 3) test optimised QuickSort
-     * 4) test InsertionSort
-     */
-    public static void main(String[] args) {
-        SortingAlgorithmRunner letsFunBegin = new SortingAlgorithmRunner();
-        //Complete set of tests
-        System.out.println("Info:\n\tTask:Completle set of sortings");
-        System.out.println("\n\tSort: BubbleSort,InsertionSort,MergeSort,QuickSort,TreeSort,OptimisedQuickSort\n\n");
-        for (int test10 = 1; test10 < 11; test10++) {
-            System.out.println(test10 + "\n");
-            System.out.println(letsFunBegin.testEverything());
-        }
 
-        QuickSort.main(args);
-        InsertionSort.main(args);
-
-        System.out.println("Info:\n\tTask: Selftest:\n\tSort: QuickSort");
-        System.out.println("\tData:  20 numbers [autogenerate,random numbers]");
-        QuickSort.main(args);
-
-        System.out.println("Info:\n\tTask: Selftest:\n\tSort: InsertionSort");
-        System.out.println("\tData:  20 numbers [autogenerate,random numbers]");
-        InsertionSort.main(args);
-    }
 }
