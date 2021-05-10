@@ -1,0 +1,5 @@
+I reviewed your profile, and it looks great for what we're looking for in our Engineering team! We’re looking for Senior, Principal and Team Lead level Engineers.
+
+We work on a variety of exciting technologies - our application code is written in Java 11 using Spring Boot, Hibernate and Immutables. We use Redis for caching, Elasticsearch powers our venue searching and RabbitMQ is our message broker, everything runs in AWS.
+
+Please let me know if you’re available for a call tomorrow?
