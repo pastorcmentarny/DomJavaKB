@@ -1,7 +1,8 @@
 package dms.pastor.spring.domain.error;
 
+import lombok.EqualsAndHashCode;
+
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Author Dominik Symonowicz
@@ -14,6 +15,7 @@ import java.util.Objects;
  * <p>
  * tag-error
  */
+@EqualsAndHashCode
 public class ValidationErrorResponse extends ErrorResponse {
     private final List<Field> fields;
 
@@ -26,19 +28,6 @@ public class ValidationErrorResponse extends ErrorResponse {
         return fields;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof ValidationErrorResponse)) return false;
-        if (!super.equals(o)) return false;
-        ValidationErrorResponse that = (ValidationErrorResponse) o;
-        return Objects.equals(getFields(), that.getFields());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), getFields());
-    }
 
     @Override
     public String toString() {

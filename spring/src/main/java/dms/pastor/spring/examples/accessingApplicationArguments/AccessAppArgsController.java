@@ -24,8 +24,7 @@ public class AccessAppArgsController {
     }
 
     @GetMapping("/argument-list")
-    public String displayArgsList(Model model) {
+    public void displayArgsList(Model model) {
         model.addAttribute("list", accessAppArgsComponent.getArgsList());
-        return "argsList";
     }
 }

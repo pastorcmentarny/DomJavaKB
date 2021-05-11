@@ -11,6 +11,7 @@ import java.net.UnknownHostException;
 
 import static dms.pastor.spring.DomUtils.*;
 
+//TODO fix it
 @Slf4j
 @Component
 @Endpoint(id = "server-info")

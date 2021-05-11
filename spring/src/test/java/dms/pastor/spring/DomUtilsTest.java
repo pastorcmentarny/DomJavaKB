@@ -3,6 +3,7 @@ package dms.pastor.spring;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.annotation.Repeat;
 
+import static dms.pastor.spring.DomUtils.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -17,7 +18,7 @@ class DomUtilsTest {
     @Test
     void generateStringAcceptanceTest() {
         // when
-        final var result = DomUtils.generateString();
+        final var result = generateString();
 
         // then
         assertThat(result).isNotBlank();
@@ -30,7 +31,7 @@ class DomUtilsTest {
         final var maxStringSize = 20;
 
         // when
-        final var result = DomUtils.generateString(maxStringSize);
+        final var result = generateString(maxStringSize);
 
         // then
         assertThat(result).isNotBlank();
@@ -45,7 +46,7 @@ class DomUtilsTest {
         final var maxStringSize = 20;
 
         // when
-        final var result = DomUtils.generateString(minStringSize, maxStringSize);
+        final var result = generateString(minStringSize, maxStringSize);
 
         // then
         assertThat(result).isNotBlank();
@@ -53,11 +54,18 @@ class DomUtilsTest {
         assertThat(result.length()).isLessThanOrEqualTo(maxStringSize);
     }
 
+    @Test
+    void testGenerateStringWithMinAndMaxThrowsExceptionForInvalidInput() {
+        // when and then no exception throws
+        assertThrows(IllegalArgumentException.class, () -> generateString(-1, -2));
+
+    }
+
     @Repeat(REPEAT_AMOUNT)
     @Test
     void randomPositiveIntegerAcceptanceTest() {
         // when
-        final var result = DomUtils.randomPositiveInteger();
+        final var result = randomPositiveInteger();
 
         // then
         assertThat(result).isGreaterThan(0);
@@ -97,9 +105,18 @@ class DomUtilsTest {
     }
 
     @Test
+    void isStopWordAcceptanceTestReturnFalseForEmpty() {
+        // when
+        final var result = DomUtils.isStopWord("");
+
+        // then
+        assertThat(result).isFalse();
+    }
+
+    @Test
     void isNotStopWordAcceptanceTestReturnTrueForNonStopWord() {
         // when
-        final var result = DomUtils.isNotStopWord("garlic");
+        final var result = isNotStopWord("garlic");
 
         // then
         assertThat(result).isTrue();
@@ -108,7 +125,7 @@ class DomUtilsTest {
     @Test
     void isNotStopWordAcceptanceTestReturnFalseForStopWord() {
         // when
-        final var result = DomUtils.isNotStopWord("an");
+        final var result = isNotStopWord("an");
 
         // then
         assertThat(result).isFalse();
@@ -117,7 +134,7 @@ class DomUtilsTest {
     @Test
     void isValueInRangeIsTrueIfInRange() {
         // when
-        final var result = DomUtils.isValueInRange(1, 3, 2);
+        final var result = isValueInRange(1, 3, 2);
 
         // then
         assertThat(result).isTrue();
@@ -126,7 +143,7 @@ class DomUtilsTest {
     @Test
     void isValueInRangeIsFalseIfTooLow() {
         // when
-        final var result = DomUtils.isValueInRange(5, 6, 4);
+        final var result = isValueInRange(5, 6, 4);
 
         // then
         assertThat(result).isFalse();
@@ -135,7 +152,7 @@ class DomUtilsTest {
     @Test
     void isValueInRangeIsFalseIfTooHigh() {
         // when
-        final var result = DomUtils.isValueInRange(7, 8, 9);
+        final var result = isValueInRange(7, 8, 9);
 
         // then
         assertThat(result).isFalse();
@@ -143,16 +160,33 @@ class DomUtilsTest {
 
     @Test
     void validateMinValueIsSmallerThanMaxValueAcceptanceTest() {
+        // when and then no exception throws
+        validateMinValueIsSmallerThanMaxValue(1, 10);
+    }
+
+    @Test
+    void validateMinValueIsSmallerThanMaxValueThrowsExceptionAcceptanceTest() {
+        // when and then throw exception
+        assertThrows(IllegalArgumentException.class, () -> validateMinValueIsSmallerThanMaxValue(10, 1));
     }
 
     @Test
     void validateValueIsSmallerOrEqualsThatOtherValueAcceptanceTest() {
+        // when and then no exception throws
+        assertThrows(IllegalArgumentException.class, () -> validateValueIsSmallerOrEqualsThatOtherValue(1, -1));
     }
 
     @Test
+    void validateValueIsSmallerOrEqualsThatOtherValueThrowsException() {
+        // when and then no exception throws
+        assertThrows(IllegalArgumentException.class, () -> validateValueIsSmallerOrEqualsThatOtherValue(2, 1));
+    }
+
+    @SuppressWarnings("ConstantConditions")
+    @Test
     void isStringBlankShouldReturnTrueForNull() {
         // when
-        final var result = DomUtils.isStringBlank(null);
+        final var result = isStringBlank(null);
 
         // then
         assertThat(result).isTrue();
@@ -161,7 +195,7 @@ class DomUtilsTest {
     @Test
     void isStringBlankShouldReturnTrueForEmpty() {
         // when
-        final var result = DomUtils.isStringBlank("");
+        final var result = isStringBlank("");
 
         // then
         assertThat(result).isTrue();
@@ -170,7 +204,7 @@ class DomUtilsTest {
     @Test
     void isStringBlankShouldReturnTrueForWhiteSpacesOnly() {
         // when
-        final var result = DomUtils.isStringBlank("        ");
+        final var result = isStringBlank("        ");
 
         // then
         assertThat(result).isTrue();
@@ -179,7 +213,7 @@ class DomUtilsTest {
     @Test
     void isStringBlankShouldReturnFalseForNonBlankString() {
         // when
-        final var result = DomUtils.isStringBlank("Ufo");
+        final var result = isStringBlank("Ufo");
 
         // then
         assertThat(result).isFalse();
