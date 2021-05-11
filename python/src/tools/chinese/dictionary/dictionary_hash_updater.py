@@ -7,6 +7,7 @@ import uuid
 # CONFIG
 file_path = f'B:\GitHub\denva\src\data\dictionary.txt'
 
+
 def update_dictionary_with_uuid():
     file = open(file_path, 'r', encoding="UTF-8", newline='')
     definition_lines = file.readlines()
@@ -15,14 +16,14 @@ def update_dictionary_with_uuid():
         if len(definition) != 11:
             if len(definition) == 12 and len(definition[10]) == 8:
                 line = str(definition_line)
-                line = line[0:len(line)-2]
+                line = line[0:len(line) - 2]
                 print(line)
             else:
                 print(f'WARNING: this line is invalid {definition_line} ({len(definition)})')
                 print(len(definition[10]))
         else:
             line = str(definition_line)
-            line = line[0:len(line)-2]
+            line = line[0:len(line) - 2]
             print(line + str(uuid.uuid4())[0:8] + ';;')
 
 
