@@ -2,16 +2,16 @@ package dms.pastor.spring.examples.crud;
 
 import dms.pastor.spring.commons.exceptions.NotFoundException;
 import dms.pastor.spring.model.Train;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static dms.pastor.spring.model.TractionType.DEMU;
 import static dms.pastor.spring.model.TractionType.DMU;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class DummyTrainRepositoryTest {
-    private DummyTrainRepository dummyTrainRepository = new DummyTrainRepository();
+    private final DummyTrainRepository dummyTrainRepository = new DummyTrainRepository();
 
     @BeforeEach
     public void setup() {
@@ -38,9 +38,7 @@ class DummyTrainRepositoryTest {
         dummyTrainRepository.save(example1);
 
         // when & then
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            dummyTrainRepository.save(example1);
-        });
+        assertThrows(IllegalArgumentException.class, () -> dummyTrainRepository.save(example1));
 
         // then
         assertThat(dummyTrainRepository.getTrainsCountInRepository()).isEqualTo(1);
@@ -53,9 +51,7 @@ class DummyTrainRepositoryTest {
         dummyTrainRepository.save(example1);
 
         // when & then
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            dummyTrainRepository.save(null);
-        });
+        assertThrows(IllegalArgumentException.class, () -> dummyTrainRepository.save(null));
 
         // then
         assertThat(dummyTrainRepository.getTrainsCountInRepository()).isEqualTo(1);
@@ -136,9 +132,7 @@ class DummyTrainRepositoryTest {
 
 
         // when
-        Assertions.assertThrows(NotFoundException.class, () -> {
-            dummyTrainRepository.delete("390");
-        });
+        assertThrows(NotFoundException.class, () -> dummyTrainRepository.delete("390"));
 
     }
 
@@ -152,9 +146,7 @@ class DummyTrainRepositoryTest {
 
 
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            dummyTrainRepository.delete(null);
-        });
+        assertThrows(IllegalArgumentException.class, () -> dummyTrainRepository.delete(null));
 
     }
 
@@ -190,9 +182,7 @@ class DummyTrainRepositoryTest {
         final Train example2 = Train.builder().britishClass("220").maxSpeed(200).tilting(false).name("Voyager").type(DMU).build();
 
         // when
-        Assertions.assertThrows(NotFoundException.class, () -> {
-            dummyTrainRepository.update(example2);
-        });
+        assertThrows(NotFoundException.class, () -> dummyTrainRepository.update(example2));
 
     }
 
@@ -203,9 +193,7 @@ class DummyTrainRepositoryTest {
         dummyTrainRepository.save(example1);
 
         // when
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            dummyTrainRepository.update(null);
-        });
+        assertThrows(IllegalArgumentException.class, () -> dummyTrainRepository.update(null));
 
     }
 }

@@ -1,17 +1,9 @@
 package dms.pastor.spring;
 
 
-import dms.pastor.spring.commons.exceptions.SomethingWentWrongException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.math.BigDecimal;
-import java.util.Objects;
 import java.util.Random;
-import java.util.stream.IntStream;
 
 import static java.lang.String.format;
-import static java.lang.System.out;
 
 /**
  * THIS IS TEMPORARY CLASS COPIED FROM JAVA PROJECT DUE TO GRADLE IMPORT MODULE ISSUE
@@ -20,14 +12,11 @@ import static java.lang.System.out;
 public final class DomUtils {
     public static final String EMPTY_STRING = "";
     private static final String ERROR_MESSAGE_VALUE_CANNOT_BE_NEGATIVE = " must be positive value.";
-
-    public static final int MAX_SMALL_VALUE_RANGE = 10;
     public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
     private static final int MAX_LARGE_VALUE_RANGE = 4096;
     private static final Random RANDOM = new Random(System.nanoTime());
     private static final String ALPHABET_WITH_LOWER_AND_UPPER = ALPHABET.toUpperCase() + ALPHABET;
     private static final String ALPHABET_WITH_ALL_CASES_AND_NUMBERS = ALPHABET_WITH_LOWER_AND_UPPER + "0123456789";
-    private static final int NOT_SPECIFIED = -1;
     private static final String COMMA = ",";
     private static final String OPEN_ARRAY = "[";
     private static final char CLOSE_ARRAY = ']';
@@ -39,12 +28,6 @@ public final class DomUtils {
 
     private DomUtils() {
     }
-
-    public static void addRandomCharacterToStringBuilder(StringBuilder text) {
-        int character = (int) (Math.random() * ALPHABET_WITH_ALL_CASES_AND_NUMBERS.length());
-        text.append(ALPHABET_WITH_ALL_CASES_AND_NUMBERS, character, character + 1);
-    }
-
 
     public static Character getRandomCharacterFromAlphabet() {
         return getRandomCharacterFrom(ALPHABET);
@@ -76,12 +59,6 @@ public final class DomUtils {
 
     public static int randomPositiveInteger() {
         return RANDOM.nextInt(Integer.MAX_VALUE - 1) + 1;
-    }
-
-
-    private static void printInConsole(StringBuilder sb) {
-        sb.append(CLOSE_ARRAY);
-        out.println(sb.toString());
     }
 
     public static void validateIfPositiveNumber(int number) {
