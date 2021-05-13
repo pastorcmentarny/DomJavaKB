@@ -15,10 +15,10 @@ class MyTestCase(unittest.TestCase):
     B
         20 23 25 38 42 46"""
 
-        output = """;0;06;11;32;35;39;44;
-;0;02;08;32;35;41;44;
-;0;08;09;11;17;34;43;
-;0;20;23;25;38;42;46;"""
+        output = """;0;06;11;32;35;39;44
+;0;02;08;32;35;41;44
+;0;08;09;11;17;34;43
+;0;20;23;25;38;42;46"""
         result = lotto_result_cleaner.clean_result(input)
 
         self.assertEqual(output, result)
