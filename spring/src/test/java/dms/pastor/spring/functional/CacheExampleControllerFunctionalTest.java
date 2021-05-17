@@ -1,22 +1,18 @@
 package dms.pastor.spring.functional;
 
-import dms.pastor.spring.examples.thymeleaf.ThymeleafController;
-import org.junit.jupiter.api.Disabled;
+import dms.pastor.spring.examples.cache.CacheExampleController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-//FIXME
-@Disabled("Thymeleaf do not work at the moment")
-class ThymeleafControllerFunctionalTest {
+public class CacheExampleControllerFunctionalTest extends AbstractFunctionalTest{
     @Autowired
-    private ThymeleafController thymeleafController;
+    private CacheExampleController cacheExampleController;
 
     @Test
     public void jsonExampleControllerTest() {
         // test if controller is setup
-        assertThat(thymeleafController).isNotNull();
+        assertThat(cacheExampleController).isNotNull();
     }
-
 }
