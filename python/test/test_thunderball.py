@@ -6,7 +6,8 @@ WITHOUT_THUNDERBALL = False
 
 
 class MyTestCase(unittest.TestCase):
-    def test_thunderball_generate_numbers(self):
+    @staticmethod
+    def test_thunderball_generate_numbers():
         five_with_thunderball = number_generator.get_result_description(number_generator.get_draw_result(5))
         print(five_with_thunderball)
         five_without_thunderball = number_generator.get_result_description(number_generator.get_draw_result(5, WITHOUT_THUNDERBALL))

@@ -1,9 +1,9 @@
-type = [
+beer_type = [
     'lager', 'pilsner', 'ale',
 ]
 config = {
     'number': 22,
-    'type': type[0],
+    'type': beer_type[0],
     'country': 'Poland',
     'alk': 5.2,
     'location': 'Wroclaw',

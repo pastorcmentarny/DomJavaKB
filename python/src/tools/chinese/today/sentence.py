@@ -6,7 +6,7 @@ from src.tools.chinese.today import application_utils, chinese_number, file_load
 dot = file_loader.config()['dot']
 next_line = '\n'
 date = datetime.datetime.now()
-year = application_utils.get_year_in_chinese()
+year = application_utils.get_year_in_chinese(date.year)
 
 
 def add_today_date() -> str:

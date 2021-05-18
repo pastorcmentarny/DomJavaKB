@@ -9,7 +9,7 @@ print(result)
 
 response = requests.get('https://automatetheboringstuff.com/files/rj.txt')
 type(response)
-if (response.status_code == requests.codes.ok):
+if response.status_code == requests.codes.ok:
     print(str(response.status_code))
 print(str(response))
 print(str(len(response.text)))
@@ -19,7 +19,7 @@ response = requests.get('http://inventwithpython.com/page_that_does_not_exist')
 try:
     response.raise_for_status()  # without try it will exit program
 except Exception as whoops:
-    print('There was a problem: %s' % (whoops))
+    print('There was a problem: %s' % whoops)
 
 # Even if the page is in plaintext (such as the Romeo and Juliet text you downloaded earlier),
 #  you need to write binary data instead of text data in order to maintain the Unicode encoding of the text.

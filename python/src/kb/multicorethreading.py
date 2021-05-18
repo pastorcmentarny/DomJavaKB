@@ -19,6 +19,3 @@ if __name__ == '__main__':
 
     for proc in processes:
         proc.join()
-
-
-

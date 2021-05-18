@@ -14,7 +14,7 @@
   "yesterday_diary": false,
   "with_random_sentences": false,
   "is_a_for_online": true,
-  "holiday" : true,
+  "holiday": true,
   "parkrun": {
     "attend": false,
     "personal_best": false,

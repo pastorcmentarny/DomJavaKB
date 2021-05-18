@@ -4,8 +4,6 @@ import random
 import bs4
 import requests
 
-from src.tools.chinese.today import chinese_number, config
-
 EMPTY = ''
 
 date = datetime.datetime.now()
@@ -21,13 +19,13 @@ def generate_sentence_from_multi_words(words: list) -> str:
     elif len(words) == 2:
         return words[0] + '和' + words[1]
     else:
-        sentence = EMPTY
+        result_sentence = EMPTY
         length = len(words)
         for idx, word in enumerate(words):
             if idx + 1 == length:
-                sentence += '和' + word
+                result_sentence += '和' + word
             else:
-                sentence += word
+                result_sentence += word
 
 
 def get_distance_from_steps(steps_counter):
@@ -61,11 +59,11 @@ def get_time_from_run(run_time):
     return str(minutes) + '分' + str(seconds) + '秒'
 
 
-def get_last_element():
-    return len(config.sentences) - 1
+def get_last_element(sentence):
+    return len(sentence.sentences) - 1
 
 
-def get_year_in_chinese():
+def get_year_in_chinese(chinese_number):
     year_in_chinese = EMPTY
     for i in list(str(date.year)):
         year_in_chinese += chinese_number.get_chinese_number(int(i))

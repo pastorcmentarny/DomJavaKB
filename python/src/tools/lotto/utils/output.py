@@ -8,7 +8,6 @@
 """
 from src.tools.lotto import config
 
-
 # TODO move to ui_utils
 EMPTY_LINE = ''
 NEW_LINE = '\n'
@@ -29,7 +28,7 @@ def display_numbers(numbers, title: str = EMPTY_LINE):
     numbers = [(key, numbers[key]) for key in sorted(numbers, key=numbers.get, reverse=True)]
     for key, value in numbers:
         print(str(key) + ': ' + str(value))
-    print(HR_SYMBOL*20)
+    print(HR_SYMBOL * 20)
     return numbers
 
 

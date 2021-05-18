@@ -22,10 +22,10 @@ path_to_analysis_file = r'b:\test\euro_analysis.csv'
 
 
 class EuroNumber:
-    def __init__(self, number: int, recent_games_counter: int, all_games_counter: int, last_played_date: str,
-                 last_played_counter, play_between_games: dict, recent_average_play: float,
+    def __init__(self, euromillions_number: int, recent_games_counter: int, all_games_counter: int,
+                 last_played_date: str, last_played_counter, play_between_games: dict, recent_average_play: float,
                  all_draws_average_play: float, candles: dict):
-        self._ball = number
+        self._ball = euromillions_number
         self._recent_games_counter = recent_games_counter
         self._all_games_counter = all_games_counter
         self._last_played_date = last_played_date

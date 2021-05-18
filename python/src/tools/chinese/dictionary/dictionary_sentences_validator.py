@@ -5,7 +5,7 @@ validate dictionary
 
 # CONFIG
 columns = 9
-file_path = f'B:\GitHub\denva\src\data\chinese_sentences.txt'
+file_path = r'B:\GitHub\denva\src\data\chinese_sentences.txt'
 
 
 def display_failure(msg: str, line):
@@ -28,8 +28,8 @@ def validate_dictionary() -> bool:
                 return False
 
             try:
-                id = int(definition[0])
-                if id <= 0:
+                definition_id = int(definition[0])
+                if definition_id <= 0:
                     display_failure('Invalid ID', definition)
                     return False
             except Exception as exception:

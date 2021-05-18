@@ -52,8 +52,6 @@ def is_key_valid(key: str) -> bool:
         print('invalid day for non leap year' + str(day) + ' ' + str(year))
         return False
 
-
-
     oem = section[1]
     if 'OEM' != oem:
         print('Should be OEM but was : {}'.format(oem))

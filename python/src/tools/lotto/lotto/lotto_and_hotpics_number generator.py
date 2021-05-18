@@ -1,9 +1,7 @@
-import os
+import itertools
 import random
 import webbrowser
 from timeit import default_timer as timer
-
-import itertools
 
 from src.tools.lotto import config
 from src.tools.lotto.tools import draws_manager
@@ -278,7 +276,7 @@ def generate_numbers_for_lotto():
     # check against stats
     next_draw_number = list(next_draw_number)
     next_draw_number = sorted(next_draw_number)
-    lotto_utils.check_wins_in_the_past_for_lotto(next_draw_number,all_draws_data)
+    lotto_utils.check_wins_in_the_past_for_lotto(next_draw_number, all_draws_data)
 
     return next_draw_number
 

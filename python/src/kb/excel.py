@@ -20,8 +20,8 @@ The grid of cells with data makes up a sheet.
 '''
 
 
-def displayInfoFor(cell):
-    print('Cell [' + str(cell.row) + ':' + str(cell.column) + '] : Value: ' + str(cell.value))
+def display_info_for(a_cell):
+    print('Cell [' + str(a_cell.row) + ':' + str(a_cell.column) + '] : Value: ' + str(a_cell.value))
 
 
 base = 'C:\\ds\\projects\\DsPythonKB\\resources\\'
@@ -44,9 +44,9 @@ print(sheet['A1'].value)
 cell = sheet['B1']
 print(cell.value)
 print("Cell info: Row:" + str(cell.row) + ' Column: ' + str(cell.column) + ' Value:' + cell.value)
-displayInfoFor(cell)
-displayInfoFor(sheet['A3'])
-displayInfoFor(sheet.cell(row=1, column=2))
+display_info_for(cell)
+display_info_for(sheet['A3'])
+display_info_for(sheet.cell(row=1, column=2))
 print(str(sheet.cell(row=2, column=2).value))
 
 for i in range(1, 8, 2):
@@ -80,7 +80,7 @@ today = str(now.day) + date_separator + str(now.month) + date_separator + str(no
 print(today)
 print(workbook.get_sheet_names())
 workbook.save(base + 'copy_of_example_' + today + '.xlsx')
-print(workbook.get_sheet_names());
+print(workbook.get_sheet_names())
 
 # fix it
 # sheet = workbook.active

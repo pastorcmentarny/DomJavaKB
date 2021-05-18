@@ -52,29 +52,29 @@ def get_distance_from_run(run_distance):
     return str('{:.1f}'.format(run_distance / 1000))
 
 
-def get_daily_routine(meal):
-    day_of_the_week = date.weekday(meal)
+def get_weekend_routine():
+    pass
+
+
+def get_daily_routine():
+    day_of_the_week = date.weekday()
     if day_of_the_week > friday():
-        return get_workday_routine(meal)
+        return get_workday_routine()
     else:
-        return get_weekend_routine(meal)
+        return get_weekend_routine()
 
 
-def get_workday_routine(meal):
+def get_workday_routine():
     # wake up 6.00-6.30
     # friday 7.45
     if date.weekday() == friday():
         "我没有吃了早饭但是我喝了咖啡"
 
 
-def get_weekend_routine(meal):
-    pass
-
-
 # add KETO
-def get_daily_activity_for(date, meal):
+def get_daily_activity_for(daily_date, meal):
     day = EMPTY
-    day_of_the_week = date.weekday()
+    day_of_the_week = daily_date.weekday()
     hour = 0
     minute = 0
     breakfast = EMPTY
@@ -95,7 +95,6 @@ def get_daily_activity_for(date, meal):
     day += breakfast + dot
 
     if day_of_the_week in range(dow['monday'], friday()):
-        #TODO remove it? day += generate_lunch_walk() + dot
         day += generate_random_lunch_break_activity()
         day += food_generator.generate_full_meal()
         day += "我在工作忙了" + dot  # day at work

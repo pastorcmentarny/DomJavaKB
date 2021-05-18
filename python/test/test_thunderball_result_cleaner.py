@@ -3,11 +3,10 @@ import unittest
 from src.tools.lotto.thunderball import thunderball_result_cleaner
 
 
-class MyTestCase(unittest.TestCase):
-
+class ThunderBallResultCleanerTestCases(unittest.TestCase):
 
     def test_lotto_result_cleaner(self):
-        input = """     A
+        input_data = """     A
         06 14 16 22 29 
         05 
 
@@ -31,7 +30,7 @@ class MyTestCase(unittest.TestCase):
 ;05;09;13;27;32;03;0;
 ;06;07;12;14;31;07;0;
 ;06;11;14;16;39;01;0;"""
-        result = thunderball_result_cleaner.clean_result(input)
+        result = thunderball_result_cleaner.clean_result(input_data)
 
         self.assertEqual(output, result)
 

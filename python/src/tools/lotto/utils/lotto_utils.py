@@ -125,7 +125,7 @@ def save_to_file(path_to_analysis_file: str, numbers_data: dict):
         writer.writerow(numbers_data.get(idx).to_row())
 
 
-def check_wins_in_the_past_for_lotto(draw: list,all_draws_data:list):
+def check_wins_in_the_past_for_lotto(draw: list, all_draws_data: list):
     print("Checking if numbers you selected won in the past results for LOTTO..")
     output.print_if_detailed_mode_enabled('Numbers' + str(draw))
     output.debug_print(os.getcwd())

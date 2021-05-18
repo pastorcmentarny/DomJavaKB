@@ -16,7 +16,7 @@ def factorial(number):
     logging.debug("Result is :" + str(total))
 
 
-def displayLogs():
+def display_logs():
     logging.debug("This is a debugging level")
     logging.info("This is a info level")
     logging.warning('This is a warning level')
@@ -29,11 +29,11 @@ print(factorial(6))
 print('set logs to INFO')
 logging.basicConfig(level=logging.INFO, format=' %(asctime)s - %(levelname)s - %(message)s',
                     filename='myProgramLog.txt')
-displayLogs()
+display_logs()
 
 print('set logs to WARN')
 logging.basicConfig(level=logging.WARN, format=' %(asctime)s - %(levelname)s - %(message)s',
                     filename='myProgramLog.txt')
-displayLogs()
+display_logs()
 
 logging.debug('End of the application. Goodbye!')

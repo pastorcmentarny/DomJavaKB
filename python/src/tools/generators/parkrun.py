@@ -43,7 +43,7 @@ def calculate_average_speed(time) -> str:
     return '{:.2f}'.format(result)
 
 
-def generate_for_blog(data):
+def generate_for_blog():
     """I ran in Rickmansworth Parkrun no.XXX on XXXX.2019.
 Pictures from the race can be found on my Instagram: {{URL}}
 The weather was XXXX. It was XXXX and temperature around 18°C.
@@ -60,7 +60,7 @@ def generate_data():
     data = config()
     if data['attend']:
         generate_for_instagram(data)
-        generate_for_blog(data)
+        generate_for_blog()
     else:
         print("I didn't run, so why I print this?")
 

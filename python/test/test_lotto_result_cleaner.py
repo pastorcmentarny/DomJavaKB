@@ -5,7 +5,7 @@ from src.tools.lotto.lotto import lotto_result_cleaner
 
 class MyTestCase(unittest.TestCase):
     def test_lotto_result_cleaner(self):
-        input = """     A
+        input_data = """     A
         06 11 32 35 39 44
      A
         02 08 32 35 41 44
@@ -19,7 +19,7 @@ class MyTestCase(unittest.TestCase):
 ;0;02;08;32;35;41;44
 ;0;08;09;11;17;34;43
 ;0;20;23;25;38;42;46"""
-        result = lotto_result_cleaner.clean_result(input)
+        result = lotto_result_cleaner.clean_result(input_data)
 
         self.assertEqual(output, result)
 

@@ -21,8 +21,9 @@ other = [
     "I/We regret to inform you that … ."
 ]
 
+
 def new_line(times: int = 1) -> str:
-    txt = '\n'*times
+    txt = '\n' * times
     return txt + '\t'
 
 
@@ -39,5 +40,3 @@ if __name__ == '__main__':
     email += new_line(1)
     email += 'As always, if you have an questions '
     print(email)
-
-

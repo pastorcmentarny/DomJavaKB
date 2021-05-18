@@ -5,5 +5,6 @@ class GobshiteException(Exception):
 
 
 class WhoopsException(Exception):
-    def __init__(self, message):
+    def __init__(self, message, *args: object):
+        super().__init__(*args)
         self.message = message

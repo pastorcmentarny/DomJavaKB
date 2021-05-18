@@ -98,7 +98,8 @@ def generate_results():
     output.draw_title('Summary', 2)
     print(f'All games count {all_games}. You won {wins_count}. Winning rate {get_percent_for(wins_count, all_games)} %')
     print(
-        f'You won £{all_wins_amount}, spent £{all_ticket_cost} on games and your balance is £{as_money(all_wins_amount - all_ticket_cost)}.\n')
+        f'You won £{all_wins_amount},'
+        f' spent £{all_ticket_cost} on games and your balance is £{as_money(all_wins_amount - all_ticket_cost)}.\n')
 
 
 if __name__ == '__main__':

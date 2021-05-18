@@ -1,4 +1,3 @@
-import os
 import random
 
 from src.tools.lotto import config
@@ -48,7 +47,7 @@ def generate_random_draws_for_jackpot():
         if count == 7:
             count = 1
             print(sorted(draw))
-            lotto_utils.check_wins_in_the_past_for_lotto(draw,all_draws_list)
+            lotto_utils.check_wins_in_the_past_for_lotto(draw, all_draws_list)
             draw.clear()
 
 

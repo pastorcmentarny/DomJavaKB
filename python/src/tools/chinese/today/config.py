@@ -8,7 +8,7 @@ weather = {
     'cloudy': '多云的',
     'windy': '刮风',
     'sleet': '雨雪',  # snieg z deszczem
-    'snow' : '下雪',
+    'snow': '下雪',
     '': ''
 }
 

@@ -1,6 +1,6 @@
 import re
 
-### REGEX TESTER: https://pythex.org/.
+# REGEX TESTER: https://pythex.org/.
 
 #  Regular Expressions
 phone = '415-555-4242 call me now!'
@@ -10,18 +10,18 @@ phone2 = '0415-555-4242'
 def is_phone_number(text):
     if len(text) != 12:
         return False
-    for i in range(0, 3):
-        if not text[i].isdecimal():
+    for _ in range(0, 3):
+        if not text[_].isdecimal():
             return False
     if text[3] != '-':
         return False
-    for i in range(4, 7):
-        if not text[i].isdecimal():
+    for _ in range(4, 7):
+        if not text[_].isdecimal():
             return False
     if text[7] != '-':
         return False
-    if i in range(8, 12):
-        if not text[i].isdecimal():
+    if _ in range(8, 12):
+        if not text[_].isdecimal():
             return False
     return True
 
@@ -126,12 +126,12 @@ print("Result: " + str(result))
 startWithHello = re.compile(r'^Hello')
 result = startWithHello.search('Hello world!')
 print(result)
-print(startWithHello.search("He said Hello!") == None)
-print(startWithHello.search("Hello my love!") == None)
+print(startWithHello.search("He said Hello!") is None)
+print(startWithHello.search("Hello my love!") is None)
 
 endsWithNumber = re.compile(r'\d$')
-print(endsWithNumber.search("You seat reservation is 52") == None)
-print(startWithHello.search("Sit reservation is 3F") == None)
+print(endsWithNumber.search("You seat reservation is 52") is None)
+print(startWithHello.search("Sit reservation is 3F") is None)
 
 # the wild character . (to match . you need \. ) The dot-star will match everything except a newline.
 
@@ -170,7 +170,7 @@ print(str(noNewLineRegex.search(sentence).group()))
 withNewLineRegex = re.compile(r'.*', re.DOTALL)
 print(str(withNewLineRegex.search(sentence).group()))
 
-'''
+"""
 Review of Regex Symbols
 
 This chapter covered a lot of notation, so here’s a quick review of what you learned:
@@ -204,12 +204,12 @@ The . matches any character, except newline characters.
 [abc] matches any character between the brackets (such as a, b, or c).
 
 [^abc] matches any character that isn’t between the brackets.
-'''
+"""
 
 # Case-Insensitive Matching
 
 regex1 = re.compile('RoBoCoP', re.IGNORECASE)  # you can use re.I or re.IGNORECASE
-result = regex1.search("Robocop is awesome");
+result = regex1.search("Robocop is awesome")
 result2 = regex1.search("ROBOCOP IS AWESOME")
 result3 = regex1.search("RoBoCoP is really awesome")
 result4 = regex1.search("rObOcOp IS REALLY AWESOME")
@@ -325,7 +325,8 @@ censoredRegex = re.compile(r'Agent \w+')
 censoredResult = censoredRegex.sub('CENSORED', "Agent Dom gave the secret documents to Agent Bobo")
 print(censoredResult)
 
-# In the first argument to sub(), you can type \1, \2, \3, and so on, to mean “Enter the text of group 1, 2, 3, and so on, in the substitution.”
+# In the first argument to sub(), you can type \1, \2, \3, and so on,
+# to mean “Enter the text of group 1, 2, 3, and so on, in the substitution.”
 agentNamesRegex = re.compile(r'Agent (\w)\w*')
 
 result = agentNamesRegex.sub(r'\1****',

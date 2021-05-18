@@ -1,7 +1,9 @@
 import unittest
+
 from src.tools.text import sentence_cleaner
 
-class SentenceClenaerTestCase(unittest.TestCase):
+
+class SentenceCleanerTestCase(unittest.TestCase):
     def test_clean_sentence_acceptance_text(self):
         # given
         example_with_all_problems = "dominik likes  beer very  very  very much !!!!"

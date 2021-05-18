@@ -183,9 +183,9 @@ class MyTestCase(unittest.TestCase):
         for number in range(1, 51):
             last_played_list[number] = 'Never'
 
-        all_draws_list = [[1377, '01-Dec-2020', 14, 20, 29, 47, 49, 4, 12],
-                          [1376, '27-Nov-2020', 2, 5, 8, 14, 16, 8, 9],
-                          [1375, '24-Nov-2020', 25, 33, 38, 42, 50, 8, 12]]
+        [[1377, '01-Dec-2020', 14, 20, 29, 47, 49, 4, 12],
+         [1376, '27-Nov-2020', 2, 5, 8, 14, 16, 8, 9],
+         [1375, '24-Nov-2020', 25, 33, 38, 42, 50, 8, 12]]
         # when
         lotto_utils.assign_last_played_if_never_play_before(2, '27-Nov-2020', last_played_list)
 

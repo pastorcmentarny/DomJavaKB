@@ -5,7 +5,7 @@ script to add hash to word in chinese dictionary,so i can connect sentence with 
 import uuid
 
 # CONFIG
-file_path = f'B:\GitHub\denva\src\data\dictionary.txt'
+file_path = r'B:\GitHub\denva\src\data\dictionary.txt'
 
 
 def update_dictionary_with_uuid():

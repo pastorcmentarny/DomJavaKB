@@ -113,11 +113,11 @@ def load_trading_journal_from_file():
 def add_fee(what: str, amount: str, comment: str = EMPTY):
     entry = journal_entry.copy()
     data = {}
-    transation_date = datetime.datetime.now()
+    transaction_date = datetime.datetime.now()
     data[
-        TRANSACTION_ID] = f'{transation_date.year}{transation_date.month}{transation_date.day}{transation_date.microsecond}'
+        TRANSACTION_ID] = f'{transaction_date.year}{transaction_date.month}{transaction_date.day}{transaction_date.microsecond}'
     data[
-        'transaction date'] = f'{transation_date.year}.{transation_date.month}.{transation_date.day} {transation_date.hour}:{transation_date.minute}:{transation_date.second}'
+        'transaction date'] = f'{transaction_date.year}.{transaction_date.month}.{transaction_date.day} {transaction_date.hour}:{transaction_date.minute}:{transaction_date.second}'
     data['message'] = what
     data['amount'] = amount
 
@@ -137,11 +137,8 @@ def add_balance_change(balance_line: str, comment: str = EMPTY):
 
     message_with_amount = line[3].split(' ')
 
-    data = {}
-    data[TRANSACTION_ID] = line[0]
-    data['transaction date'] = line[1]
-    data['message'] = " ".join(message_with_amount[0:len(message_with_amount)])
-    data['amount'] = line[4]
+    data = {TRANSACTION_ID: line[0], 'transaction date': line[1],
+            'message': " ".join(message_with_amount[0:len(message_with_amount)]), 'amount': line[4]}
 
     entry.update({
         'id': len(tradings_journal) + 1,
@@ -174,12 +171,12 @@ def add_trade(strategy_name: str, exit_reason: str, rrp: str, trade_line: str,
     line = trade_line.split('\t')
 
     message_with_amount = line[3].split(SPACE)
+    print(message_with_amount)
 
     if is_duplicate(line[0]):
         print(f'WARNING! {line[0]} is already in journal! This line {trade_line} is skipped.')
         return
 
-    result = None
     amount = float(line[len(line) - 1])
     if amount > 0:
         result = WIN

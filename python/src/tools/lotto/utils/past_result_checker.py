@@ -1,6 +1,7 @@
 import os
 
-# this app is used to provide information for given numbers how many times you won. it will check for 3,4,5,5+ and 6 number
+# this app is used to provide information for given numbers how many times you won.
+# it will check for 3,4,5,5+ and 6 number
 # validate numbers to ensure is 6 of them and they are unique
 # split them into all possible 3s 4s 5s and 6 number combinations
 # load all results
@@ -19,13 +20,13 @@ def check_for(display_info: bool, numbers, data: list):
         print(str(n) + "'s : " + str(count_hits(data, n, numbers)))
 
 
-def check_for_with_bonus(display_info: bool, numbers, data: list, bonus: int):
+def check_for_with_bonus(display_info: bool, numbers, data: list):
     output.debug_print("checking if numbers you selected won in the past results")
     if display_info:
         info(numbers)
 
     for n in range(len(numbers), 0, -1):
-        print(str(n) + "'s : " + str(count_hits(data, n, numbers, bonus)))
+        print(str(n) + "'s : " + str(count_hits(data, n, numbers)))
 
 
 def info(numbers: list):

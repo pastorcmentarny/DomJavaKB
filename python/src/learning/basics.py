@@ -2,12 +2,11 @@ import datetime
 import os
 import random  # import random
 import re
-import subprocess
+import sys
+import time
 
 import bs4
 import requests
-import sys
-import time
 from selenium import webdriver
 
 name = None  # Python is dynamic, so you don't need to declare things;
@@ -56,7 +55,10 @@ print(42 == '42')
 print(42 == 42.00000)
 print(42 == 0042.01)
 
-# rouding The behavior of round() for floats can be surprising: for example, round(2.675, 2) gives 2.67 instead of the expected 2.68. This is not a bug: it’s a result of the fact that most decimal fractions can’t be represented exactly as a float. See Floating Point Arithmetic: Issues and Limitations for more information.
+""" rounding The behavior of round() for floats can be surprising: 
+for example, round(2.675, 2) gives 2.67 instead of the expected 2.68. T
+his is not a bug: it’s a result of the fact that most decimal fractions can’t be represented exactly as a float. 
+See Floating Point Arithmetic: Issues and Limitations for more information."""
 
 print(round(2.675, 2))
 
@@ -70,8 +72,9 @@ print(round(2.675, 2))
 
 cats = [{'desc': 'chubby', 'name': 'Zophie'}, {'desc': 'fluffy', 'name': 'Pooka'}]
 
-line = '====== -------- <  < <<>> >  > -------- ======'
-# The ** operator is evaluated first; the *, /, //, and % operators are evaluated next, from left to right; and the + and - operators are evaluated last (also from left to right).
+# line = '====== -------- <  < <<>> >  > -------- ======'
+# The ** operator is evaluated first; the *, /, //, and % operators are evaluated next, from left to right;
+# and the + and - operators are evaluated last (also from left to right).
 # Math
 
 
@@ -111,12 +114,16 @@ varOfIntStringOrFloat = float(10)
 # print(a + b)
 
 
-# Although the string value of a number is considered a completely different value from the integer or floating-point version, an integer can be equal to a floating point.
+# Although the string value of a number is considered a completely different value from the integer
+# or floating-point version, an integer can be equal to a floating point.
 print(42 == '42')
 print(42 == 42.00000)
 print(42 == 0042.01)
 
-# rouding The behavior of round() for floats can be surprising: for example, round(2.675, 2) gives 2.67 instead of the expected 2.68. This is not a bug: it’s a result of the fact that most decimal fractions can’t be represented exactly as a float. See Floating Point Arithmetic: Issues and Limitations for more information.
+# rouding The behavior of round() for floats can be surprising: for example,
+# round(2.675, 2) gives 2.67 instead of the expected 2.68. This is not a bug:
+# it’s a result of the fact that most decimal fractions can’t be represented exactly as a float.
+# See Floating Point Arithmetic: Issues and Limitations for more information.
 
 print(round(2.675, 2))
 
@@ -178,14 +185,12 @@ print('then ? ' + str(datetime.datetime.fromtimestamp(datetime.datetime.now().ti
 timedelta = datetime.timedelta(days=12)
 print(str(timedelta))
 print(str(now + timedelta))
-'''
-Be aware that pressing CTRL-C will not interrupt time.sleep() calls in IDLE. 
-IDLE waits until the entire pause is over before raising the KeyboardInterrupt exception. 
-To work around this problem, instead of having a single time.sleep(30) call to pause for 30 seconds, 
-use a for loop to make 30 calls to time.sleep(1).
->>> for i in range(30):
-    time.sleep(1)
-'''
+
+""" Be aware that pressing CTRL - C will not interrupt time.sleep() calls in IDLE. \
+    IDLE waits until the entire pause is over before raising the KeyboardInterrupt exception.
+To work around this problem, instead of having a single time.sleep(30) call to pause for 30 seconds,
+    use a for loop to make 30 calls to time.sleep(1). >> > for i in range(30):     time.sleep(1)
+"""
 
 halloween2016 = datetime.datetime(2016, 10, 31, 0, 0, 0)
 
@@ -212,29 +217,88 @@ for x in range(2):
 time.sleep(2)
 
 '''
- three different types of values used to represent time:
+three different
+types
+of
+values
+used
+to
+represent
+time:
 
-A Unix epoch timestamp (used by the time module) is a float or integer value of the number of seconds since 12 AM on January 1, 1970, UTC.
+A
+Unix
+epoch
+timestamp(used
+by
+the
+time
+module) is a
+float or integer
+value
+of
+the
+number
+of
+seconds
+since
+12
+AM
+on
+January
+1, 1970, UTC.
 
-A datetime object (of the datetime module) has integers stored in the attributes year, month, day, hour, minute, and second.
+A
+datetime
+object(of
+the
+datetime
+module) has
+integers
+stored in the
+attributes
+year, month, day, hour, minute, and second.
 
-A timedelta object (of the datetime module) represents a time duration, rather than a specific moment.
+A
+timedelta
+object(of
+the
+datetime
+module) represents
+a
+time
+duration, rather
+than
+a
+specific
+moment.
 '''
 
 # A Python program will not terminate until all its threads have terminated.
 
 '''
-: To avoid concurrency issues, never let multiple threads read or write the same variables. 
-'''
+: To
+avoid
+concurrency
+issues, never
+let
+multiple
+threads
+read or write
+the
+same
+variables.
+
 
 subprocess.Popen('C:\\Windows\\System32\\calc.exe')
 subprocess.Popen(['C:\\Windows\\notepad.exe', 'C:\\ds\\notes\\ds.txt'])
 
-'''
+"""
 The return value is a Popen object, which has two useful methods: poll() and wait().
 
-Unlike importing the Python program as a module, when your Python program launches another Python program, the two are run in separate processes and will not be able to share each other’s variables.
-'''
+Unlike importing the Python program as a module, when your Python program  launches another  Python program, the
+two are run in separate processes and will not be able to share each other’s variables.
+"""
 
 subprocess.Popen(['start', 'C:\\ds\\notes\\ds.txt'],
                  shell=True)  # We also pass the shell=True keyword argument, which is needed only on Windows
@@ -259,7 +323,8 @@ print(result)
 result = 1j ** 3  # need to learn how to use imaginary number
 print(result)
 
-# raw string If you don’t want characters prefaced by \ to be interpreted as special characters, you can use raw strings by adding an r before the first quote:
+""" raw string If you don’t want characters prefaced by \ to be interpreted as special characters, 
+you can use raw strings by adding an r before the first quote:"""
 print(r'C:\to\nowhere')
 print('C:\to\nowhere')
 
@@ -268,8 +333,8 @@ print('moon' * 10)
 print('I wish Dominik pay more attention to coding'
       ' instead of wasting time on learning Python')
 
-# Strings can be indexed (subscripted), with the first character having index 0 / However, out of range slice indexes are handled gracefully when used for slicing:
-
+''' Strings can be indexed (subscripted), with the first character having index 0 / 
+However, out of range slice indexes are handled gracefully when used for slicing:'''
 
 result = 'abcdefgh'
 
@@ -294,7 +359,8 @@ result = [1, 4, 9, 16, 25]
 print(result)
 print(str(result[0]) + "::" + str(result[-5]))
 
-# All slice operations return a new list containing the requested elements. This means that the following slice returns a new (shallow) copy of the list:
+'''All slice operations return a new list containing the requested elements. 
+This means that the following slice returns a new (shallow) copy of the list:'''
 
 result += [36, 49, 64, 81, 100, 121]
 print(result)
@@ -320,8 +386,8 @@ print(result[1][2])  # 6
 var = 128 * 3
 print('Value of var is', var)
 
-# ]	Since ** has higher precedence than -, -3**2 will be interpreted as -(3**2) and thus result in -9. To avoid this and get 9, you can use (-3)**2.
-
+''' ]	Since ** has higher precedence than -,
+ -3**2 will be interpreted as -(3**2) and thus result in -9. To avoid this and get 9, you can use (-3)**2.'''
 
 # generate data
 baseDir = "C:\\tmp\\python\\"
@@ -338,8 +404,8 @@ epubFile.write("an interesting epub")
 epubFile.close()
 
 datePattern = re.compile(r"""^(.*?)
-    ((0|1)?\d)-
-    ((0|1|2|3)?\d)-
+    (([01])?\d)-
+    ([0123]3)?\d)-
     ((19|20)\d\d)
     (.*?)$
 """, re.VERBOSE)
@@ -348,7 +414,7 @@ for americanFilename in os.listdir(baseDir):
     mo = datePattern.search(americanFilename)
 
     # skip files without dates
-    if mo == None:
+    if mo is None:
         continue
 
     beforePart = mo.group(1)
@@ -370,9 +436,9 @@ browser = webdriver.Firefox()
 browser.get('http://inventwithpython.com')
 try:
     elem = browser.find_element_by_class_name('bookcover')
-    print('Found <%s> element with that class name!' % (elem.tag_name))
-except:
-    print('Was not able to find an element with that name.')
+    print('Found <%s> element with that class name!' % elem.tag_name)
+except Exception as exception:
+    print(f'Was not able to find an element with that name.{exception}')
 
 a = random.randint(0, 10)
 b = random.randint(0, 10)
@@ -403,7 +469,9 @@ while True:
     if counter == 100001:
         break
 
-# continue statements are used inside loops. When the program execution reaches a continue statement, the program execution immediately jumps back to the start of the loop and reevaluates the loop’s condition.
+'''continue statements are used inside loops. 
+When the program execution reaches a continue statement, 
+the program execution immediately jumps back to the start of the loop and reevaluates the loop’s condition.'''
 
 # “Truthy” and “Falsey” Values
 
@@ -448,7 +516,7 @@ while not url.endswith('#'):
     else:
         try:
             comicUrl = 'http:' + elements[0].get('src')
-            print('Downloading image %s ..' % (comicUrl))
+            print('Downloading image %s ..' % comicUrl)
             imageFile = open(os.path.join('xkcd', path + os.path.basename(comicUrl)), 'wb')
             for chunk in response.iter_content(100000):
                 imageFile.write(chunk)

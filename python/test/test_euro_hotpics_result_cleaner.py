@@ -5,7 +5,7 @@ from src.tools.lotto.eurohotpics import eurohotpicks_result_cleaner
 
 class MyTestCase(unittest.TestCase):
     def test_lotto_result_cleaner(self):
-        input = """     A (Pick 2) -
+        input_data = """     A (Pick 2) -
         11 39 
 
     B (Pick 1) -
@@ -17,7 +17,7 @@ class MyTestCase(unittest.TestCase):
         output = """;0;(2);11;39;
 ;0;(1);11;
 ;0;(1);39;"""
-        result = eurohotpicks_result_cleaner.clean_result(input)
+        result = eurohotpicks_result_cleaner.clean_result(input_data)
 
         self.assertEqual(output, result)
 

@@ -29,7 +29,8 @@ def daily_profit_cap():
 
 def calculate_limits():
     print(
-        f'Your max total stop lose must be £{max_lost_allowance()} and your monthly lost allowance is £{MONTHLY_STOP_LOST}.')
+        f'Your max total stop lose must be £{max_lost_allowance()}.'
+        f'Your monthly lost allowance is £{MONTHLY_STOP_LOST}.')
 
 
 def in_year_your_target_info():

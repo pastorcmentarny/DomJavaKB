@@ -1,6 +1,6 @@
-'''
+"""
 This is a script to open all pages I used on my info display
-'''
+"""
 import webbrowser
 
 pages = [

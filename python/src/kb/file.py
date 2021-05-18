@@ -448,7 +448,7 @@ else:
 
 # create random empty file example
 dt = datetime.now()
-random_data_file = Path(f"B:/test/" + str(dt) + ".txt" )
+random_data_file = Path(f"B:/test/" + str(dt) + ".txt")
 
 open(random_data_file, 'a').close()
 
