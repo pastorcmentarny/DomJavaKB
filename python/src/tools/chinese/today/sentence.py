@@ -40,7 +40,7 @@ def generate_random_sentence(with_random_sentence):
     today_info = next_line
     if with_random_sentence:
         for i in range(0, 3):
-            today_info += sentences[random.randint(0, application_utils.get_last_element())] + next_line
+            today_info += sentences[random.randint(0, application_utils.get_last_element(sentences))] + next_line
     return today_info
 
 

@@ -62,7 +62,7 @@ def get_time_from_run(run_time):
 
 
 def get_last_element(sentence):
-    return len(sentence.sentences) - 1
+    return len(sentence) - 1
 
 
 def get_year_in_chinese(year):
