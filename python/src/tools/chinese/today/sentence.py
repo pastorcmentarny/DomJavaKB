@@ -6,13 +6,14 @@ from src.tools.chinese.today import application_utils, chinese_number, file_load
 dot = file_loader.config()['dot']
 next_line = '\n'
 date = datetime.datetime.now()
-year = application_utils.get_year_in_chinese(date.year)
+
 
 
 def add_today_date() -> str:
     chinese_month = chinese_number.get_chinese_number(date.month)
     chinese_day = chinese_number.get_chinese_number(date.day)
     chinese_day_of_the_week = chinese_number.get_day_of_the_week_number(date.weekday() + 1)
+    year = application_utils.get_year_in_chinese(str(date.year))
     return '今天是' + year + '年' + chinese_month + '月' + chinese_day + '日,星期' + chinese_day_of_the_week + dot
 
 

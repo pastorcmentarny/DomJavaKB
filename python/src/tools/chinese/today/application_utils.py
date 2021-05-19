@@ -4,6 +4,8 @@ import random
 import bs4
 import requests
 
+from src.tools.chinese.today import chinese_number
+
 EMPTY = ''
 
 date = datetime.datetime.now()
@@ -63,7 +65,7 @@ def get_last_element(sentence):
     return len(sentence.sentences) - 1
 
 
-def get_year_in_chinese(chinese_number):
+def get_year_in_chinese(year):
     year_in_chinese = EMPTY
     for i in list(str(date.year)):
         year_in_chinese += chinese_number.get_chinese_number(int(i))
