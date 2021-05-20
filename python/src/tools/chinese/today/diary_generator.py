@@ -65,17 +65,17 @@ def add_if_is_for_online(diary, is_a_for_online):
     return diary
 
 
-def add_time_of_write(time) -> str:
+def add_time_of_write(diary_time:str) -> str:
     time_sentence = '时间是'
-    if time == EMPTY:
+    if diary_time == EMPTY:
         time_sentence += str(date.hour) + ':'
         if date.minute < 10:
             time_sentence += '0' + str(date.minute)
         else:
             time_sentence += str(date.minute)
+        return time_sentence + dot
     else:
-        time_sentence = EMPTY
-    return time_sentence + dot
+        return time_sentence + diary_time + dot
 
 
 def get_entry_number(entry: int) -> str:

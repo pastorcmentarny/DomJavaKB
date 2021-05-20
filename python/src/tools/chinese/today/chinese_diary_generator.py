@@ -13,7 +13,7 @@ def main():
         'lower_wear_color': config.color[diary_file['lower_wear_color']],
         'lower_wear_type': config.wear[diary_file['lower_wear_type']],
         'steps': diary_file['steps'],
-        'time': diary_file['time'],
+        'time': diary_file['time'], #   You can set manually"time": "10:00",
         'run_distance': diary_file['run_distance'],
         'run_time': diary_file['run_time'],
         'meal': diary_file['meal'],
