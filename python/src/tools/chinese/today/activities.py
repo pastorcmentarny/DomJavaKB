@@ -1,7 +1,7 @@
 import random
 from datetime import datetime
 
-from src.tools.chinese.today import application_utils, chinese_time, config, file_loader, food_generator
+from src.tools.chinese.today import application_utils, chinese_time, config, file_loader, food_generator, sentence
 
 EMPTY = ''
 
@@ -120,15 +120,32 @@ def run_sentence(diary: dict):
     run_distance = diary['run_distance']
     run_time = diary['run_time']
     if run_distance > 0 and run_time > 0:
-        return '我在晚上去了慢跑。我跑了' + get_distance_from_run(
+        return '我在早上去了慢跑。我跑了' + get_distance_from_run(
             run_distance) + '公里。跑了这个距离花了我' + application_utils.get_time_from_run(run_time) + dot
     else:
         return EMPTY
 
 
-# fix
 def add_breakfast(diary: dict):
     if diary['diet']:
         return "我没有吃了早饭但是我喝了咖啡" + dot
     breakfast_options = ['coffee', 'kefir', 'british', 'sandwich']
     return food_generator.breakfast[breakfast_options[random.randint(0, len(breakfast_options) - 1)]]
+
+
+def add_work_day(diary: dict):
+    work_day_diary = ''
+    if datetime.now().weekday():
+        if diary['wfh']:
+            work_day_diary += '我在家工作.'
+            if bool(random.getrandbits(1)):
+                work_day_diary += '我没有乘坐地铁。'
+        else:
+            work_day_diary += '我在办公室上班.'
+            if diary['travel'] == '':
+                work_day_diary += '这次旅行很顺利。'  # 'The travel was uneventful.'
+            else:
+                work_day_diary += '火车已' + sentence.get_travel_experience_for(diary['travel']) + dot + sentence.get_random_train_problem() + dot
+        return work_day_diary
+    else:
+        return "我今天不上班，因为这是一个周末。"

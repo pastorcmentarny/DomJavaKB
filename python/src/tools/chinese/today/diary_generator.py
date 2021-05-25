@@ -39,7 +39,8 @@ def generate_info_about_today(diary: dict):
     diary_day += activities.run_sentence(diary)
 
     diary_day += activities.add_breakfast(diary)
-    diary_day += activities.get_daily_activity_for(date, diary['meal'])
+
+    diary_day += activities.add_work_day(diary)
 
     diary_day += sentence.steps(diary['steps'])
 

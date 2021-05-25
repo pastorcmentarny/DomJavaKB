@@ -46,3 +46,14 @@ class ChineseTodaySentenceTests(unittest.TestCase):
 
         # then
         self.assertEqual(expected_result, result)
+
+    def test_get_random_train_problem(self):
+        # when
+        result = sentence.get_random_train_problem()
+
+        # debug
+        print(result)
+
+        # then
+        self.assertIsNotNone(result)
+        self.assertGreaterEqual(len(result), 3)

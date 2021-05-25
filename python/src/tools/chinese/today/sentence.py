@@ -620,3 +620,24 @@ sentences = [
     "你是软件工程师吗",
 
 ]
+
+
+def get_travel_experience_for(problem_type: str):
+    tube_statuses = {
+        'minor': '轻微延误 ',
+        'severe': '严重延误 ',
+        'partly suspended': '部分暂停',
+        'suspended': '暂停'
+    }
+    return tube_statuses[problem_type]
+
+
+def get_random_train_problem():
+    reasons = ["我上班迟到了",
+               "我花了很长时间才能上班",
+               "他们是火车的问题",
+               "它们是信号故障",
+               "他们取消了许多火车",
+               "有人在火车上晕倒了",
+               "那是乘客之间的斗争。"]
+    return reasons[random.randint(0, len(reasons) - 1)]

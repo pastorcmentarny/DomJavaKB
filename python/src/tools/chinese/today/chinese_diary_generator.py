@@ -23,7 +23,8 @@ def main():
         'health': diary_file['health'],
         'entry': diary_file['entry'],
         'wfh': diary_file['wfh'],
-        'diet': diary_file['diet']
+        'diet': diary_file['diet'],
+        'travel' : diary_file['travel']
     }
     diary_generator.generate_info_about_today(diary)
 
