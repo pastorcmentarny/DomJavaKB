@@ -116,9 +116,19 @@ def add_meal_sentence(meal: list) -> str:
         return food_generator.generate_meal(meal)
 
 
-def run_sentence(run_distance, run_time):
+def run_sentence(diary: dict):
+    run_distance = diary['run_distance']
+    run_time = diary['run_time']
     if run_distance > 0 and run_time > 0:
         return '我在晚上去了慢跑。我跑了' + get_distance_from_run(
             run_distance) + '公里。跑了这个距离花了我' + application_utils.get_time_from_run(run_time) + dot
     else:
         return EMPTY
+
+
+# fix
+def add_breakfast(diary: dict):
+    if diary['diet']:
+        return "我没有吃了早饭但是我喝了咖啡" + dot
+    breakfast_options = ['coffee', 'kefir', 'british', 'sandwich']
+    return food_generator.breakfast[breakfast_options[random.randint(0, len(breakfast_options) - 1)]]

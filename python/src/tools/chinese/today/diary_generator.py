@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import datetime
-
 import pyperclip
 
 from src.tools.chinese.today import activities, chinese_number, sentence
@@ -37,11 +36,12 @@ def generate_info_about_today(diary: dict):
     diary_day += sentence.add_wear(diary['upper_wear_color'], diary['lower_wear_color'], diary['upper_wear_type'],
                                    diary['lower_wear_type'])
 
+    diary_day += activities.run_sentence(diary)
+
+    diary_day += activities.add_breakfast(diary)
     diary_day += activities.get_daily_activity_for(date, diary['meal'])
 
     diary_day += sentence.steps(diary['steps'])
-
-    diary_day += activities.run_sentence(diary['run_distance'], diary['run_time'])
 
     diary_day += sentence.go_to_sleep()
 
@@ -65,7 +65,7 @@ def add_if_is_for_online(diary, is_a_for_online):
     return diary
 
 
-def add_time_of_write(diary_time:str) -> str:
+def add_time_of_write(diary_time: str) -> str:
     time_sentence = '时间是'
     if diary_time == EMPTY:
         time_sentence += str(date.hour) + ':'

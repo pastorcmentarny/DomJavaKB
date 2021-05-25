@@ -13,7 +13,7 @@ def main():
         'lower_wear_color': config.color[diary_file['lower_wear_color']],
         'lower_wear_type': config.wear[diary_file['lower_wear_type']],
         'steps': diary_file['steps'],
-        'time': diary_file['time'], #   You can set manually"time": "10:00",
+        'time': diary_file['time'],  # You can set manually"time": "10:00",
         'run_distance': diary_file['run_distance'],
         'run_time': diary_file['run_time'],
         'meal': diary_file['meal'],
@@ -21,7 +21,9 @@ def main():
         'with_random_sentences': diary_file['with_random_sentences'],
         'is_a_for_online': diary_file['is_a_for_online'],
         'health': diary_file['health'],
-        'entry': diary_file['entry']
+        'entry': diary_file['entry'],
+        'wfh': diary_file['wfh'],
+        'diet': diary_file['diet']
     }
     diary_generator.generate_info_about_today(diary)
 
