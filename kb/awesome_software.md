@@ -7,3 +7,10 @@
 ## Windows10Debloater
 Utility to debloat Windows 10
 #### https://github.com/Sycnex/Windows10Debloater
+
+
+# Python
+
+## Auto Py to Exe
+** Transform Py program to Exe
+https://github.com/brentvollebregt/auto-py-to-exe
