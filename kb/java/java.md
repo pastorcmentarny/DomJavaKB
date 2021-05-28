@@ -804,8 +804,8 @@ It has a few extra methods to deal with the ordered set like first(), last() and
 ## What’s difference between Streams and collections ?
 
 No storage. A stream is not a data structure that stores elements; instead, it conveys elements from a source such as a
-data structure, an array, a generator function, or an I/O channel, through a pipeline of computational operations.
-Functional in nature. An operation on a stream produces a result, but does not modify its source. For example, filtering
+the data structure, an array, a generator function, or an I/O channel through a pipeline of computational operations.
+Functional in nature. An operation on a stream produces a result but does not modify its source. For example, filtering
 a Stream obtained from a collection produces a new Stream without the filtered elements, rather than removing elements
 from the source collection. Laziness-seeking. Many stream operations, such as filtering, mapping, or duplicate removal,
 can be implemented lazily, exposing opportunities for optimization. For example, "find the first String with three
@@ -818,11 +818,11 @@ to revisit the same elements of the source.
 
 
 ## What is Comparable and Comparator interface? 
-- A comparable is an interface. An object that implement this interface is capable of comparing itself with another
-object. To implement this interface class must contain a method called compareTo.
-- A comparator object is capable of comparing two different objects. The class is not comparing its instances, but some
-other class’s instances. This comparator class must implement the java.util.Comparator interface.
-Main difference between these two is that, you could create multiple Comparator to define multiple sorting order based upon different attribute of object.
+- A comparable is an interface. An object that implements this interface is capable of comparing itself with another
+  object. To implement this interface class must contain a method called compareTo.
+- A comparator object is capable of comparing two different objects. The class is not comparing its instances but some
+  other class’s instances. This comparator class must implement the java.util.Comparator interface.
+  The main difference between these two is that you could create multiple Comparator to define multiple sorting order based upon a different object attribute.
 
 ## How can we sort a list of Objects? 
 If we need to sort an array of Objects, we can use Arrays.sort(). If
