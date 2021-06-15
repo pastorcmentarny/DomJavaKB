@@ -8,4 +8,6 @@ messages = [
     'NO SERVICE between Rickmansworth - Chesham ...while we fix a signal failure..',
     'Service suspended due icy weather.']
 
-print(messages[random.randint(0, len(messages) - 1)])
+
+def get_random_message() -> str:
+    return messages[random.randint(0, len(messages) - 1)]
