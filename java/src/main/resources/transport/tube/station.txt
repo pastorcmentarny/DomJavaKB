@@ -1,4 +1,4 @@
-Acton Town;;V;;2017-06-10;;2017-06-10;;none;;N
+Acton Town;;V;;2017-06-10;;2017-06-10;;2021-06-06;;N
 Aldgate;;V;;2017-02-02;;2018-05-01;;none;;Y
 Aldgate East;;V;;2017-09-01;;2017-09-01;;none;;Y
 Alperton;;P;;2017-06-10;;none;;none;;N
@@ -7,7 +7,7 @@ Angel;;P;;2017-05-26;;none;;none;;N
 Archway;;V;;2019-07-28;;2019-07-28;;none;;N
 Arnos Grove;;X;;none;;none;;none;;N
 Arsenal;;X;;none;;none;;none;;N
-Baker Street;;V;;2017-01-03;;2017-12-21;;none;;N
+Baker Street;;V;;2017-01-03;;2017-12-21;;2021-06-06;;N
 Balham;;V;;2019-06-19;;2019-09-26;;none;;N
 Bank;;V;;2017-11-01;;2019-01-08;;none;;N
 Barbican;;P;;2017-01-03;;2017-06-05;;none;;N
@@ -74,7 +74,7 @@ Elm Park;;P;;2019-01-19;;none;;none;;N
 Embankment;;V;;2017-02-02;;2019-01-03;;none;;N
 Epping;;V;;2019-01-19;;2019-01-19;;none;;Y
 Euston;;V;;2017-05-26;;2019-09-12;;none;;N
-Euston Square;;V;;2017-01-03;;2017-09-02;;none;;N
+Euston Square;;V;;2017-01-03;;2017-09-02;;2021-06-13;;N
 Fairlop;;P;;2019-01-19;;none;;none;;N
 Farringdon;;V;;2017-01-03;;2018-01-12;;none;;N
 Finchley Central;;X;;none;;none;;none;;N
@@ -92,7 +92,7 @@ Greenford;;P;;2018-06-06;;none;;none;;N
 Green Park;;V;;2017-10-30;;2017-10-30;;2020-01-02;;N
 Gunnersbury;;V;;2018-05-06;;2019-07-11;;none;;N
 Hainault;;P;;2019-01-19;;none;;none;;N
-Hammersmith;;P;;2017-06-10;;none;;none;;N
+Hammersmith;;V;;2017-06-10;;2021-06-06;;2021-06-06;;N
 Hampstead;;P;;2017-05-26;;none;;none;;N
 Hanger Lane;;P;;2018-06-06;;none;;none;;N
 Harlesden;;P;;2017-06-19;;none;;none;;N
@@ -107,7 +107,7 @@ High Barnet;;X;;none;;none;;none;;N
 Highbury & Islington;;P;;2017-11-19;;none;;none;;N
 Highgate;;X;;none;;none;;none;;N
 High Street Kensington;;P;;2017-07-06;;none;;none;;N
-Hillingdon;;P;;2017-03-21;;none;;none;;N
+Hillingdon;;V;;2017-03-21;;2021-06-06;;2021-06-06;;N
 Holborn;;V;;2017-06-15;;2017-06-15;;none;;N
 Holland Park;;P;;2018-06-06;;none;;none;;N
 Holloway Road;;X;;none;;none;;none;;N
@@ -119,14 +119,14 @@ Hyde Park Corner;;P;;2019-07-28;;2019-12-17;;none;;N
 Ickenham;;P;;2017-03-21;;none;;none;;N
 Kennington;;P;;2017-11-01;;none;;none;;N
 Kensal Green;;V;;2018-07-28;;2018-07-28;;none;;Y
-Kensington (Olympia);;X;;none;;none;;none;;N
+Kensington (Olympia);;V;;2021-05-09;;2021-05-09;;2021-05-09;;N
 Kentish Town;;P;;2019-07-28;;none;;none;;N
 Kenton;;V;;2017-06-19;;2018-07-28;;none;;Y
 Kew Gardens;;V;;2018-05-06;;2018-05-06;;none;;N
 Kilburn;;P;;2020-01-02;;none;;none;;N
 Kilburn Park;;P;;2017-06-19;;none;;none;;N
 Kingsbury;;P;;2018-08-22;;none;;none;;N
-King's Cross St. Pancras;;V;;2017-01-03;;2017-11-19;;none;;N
+King's Cross St. Pancras;;V;;2017-01-03;;2017-11-19;;2021-06-13;;N
 Knightsbridge;;V;;2019-07-28;;2019-07-28;;none;;N
 Ladbroke Grove;;P;;2019-12-14;;none;;none;;N
 Lambeth North;;V;;2019-10-04;;2019-10-04;;none;;Y
@@ -245,7 +245,7 @@ Walthamstow Central;;X;;none;;none;;none;;N
 Wanstead;;P;;2019-01-19;;none;;none;;N
 Warren Street;;V;;2017-11-19;;2018-06-05;;none;;N
 Warwick Avenue;;P;;2017-06-19;;none;;none;;N
-Waterloo;;P;;2017-02-11;;none;;none;;N
+Waterloo;;V;;2017-02-11;;2021-06-13;;2021-06-13;;N
 Watford;;V;;2018-04-06;;2018-04-06;;none;;Y
 Wembley Central;;V;;2017-06-19;;none;;none;;N
 Wembley Park;;V;;2017-01-03;;2017-02-06;;2020-01-02;;N

@@ -40,7 +40,7 @@ public class Stations {
             station.setStatus(PASSED);
             station.setPassedDate(LocalDate.now());
         } else {
-            LOGGER.info("You passed or visited this tubeStation already.");
+            LOGGER.info("You passed or visited this tube station already.");
         }
     }
 
@@ -60,14 +60,14 @@ public class Stations {
             station.setVisitedDate(LocalDate.now());
             station.setVisitedStationThisYearToNow();
         } else {
-            LOGGER.info("You visited this tubeStation already.");
+            LOGGER.info("You visited this tube station already.");
             setVisitedThisYearFor(station);
         }
     }
 
     private void setVisitedThisYearFor(Station station) {
         if (Objects.nonNull(station.getVisitedThisYearDate())) {
-            LOGGER.info("You visited this tubeStation this year too.");
+            LOGGER.info("You visited this tube station this year too.");
         } else {
             System.out.println("You updated " + station.getName() + " with info that you visited this year.");
             station.setVisitedStationThisYearToNow();

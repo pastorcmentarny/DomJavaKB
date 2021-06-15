@@ -34,7 +34,7 @@ final class USSDominikApplication {
 
         saveToFile(stationList);
 
-        LOGGER.info("Done. Goodbye!");
+        LOGGER.info("Done. Goodbye! DO NOT FORGOT TO COPY station.txt from out/productuion ... or even better change the code");
     }
 
 
