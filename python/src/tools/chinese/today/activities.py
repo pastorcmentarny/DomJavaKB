@@ -169,9 +169,31 @@ def add_random_reason_to_like_wfh():
     return f'{reason} {reasons[random.randint(0, len(reasons) - 1)]} {dot}'
 
 
+busy_work = ['I had a lot of tasks to do',
+             'I had a lot of meetings']
+
+not_busy_work = ['I had a lot of boring meetings.',
+                 "I didn't do anything meaningful."]
+
+weekend_activities = ['我去树林里散步',
+                      '我爬山',
+                      '我去了一次风景优美的火车旅行',
+                      '我骑自行车',
+                      '我更新了我的待办事项清单',
+                      '我从不同的国家做饭',
+                      '我在网上和朋友聊天',
+                      '我有一个放松的泡泡浴',
+                      '我们玩了一个棋盘游戏',
+                      '我读了一本书',
+                      '我去散步了',
+                      '我去远足了',
+                      '我们去了餐厅',
+                      '我和我儿子一起玩']
+
+
 def add_work_day(diary: dict):
     work_day_diary = ''
-    if datetime.now().weekday():
+    if not is_weekend(datetime.now().weekday()):
         if diary['wfh']:
             work_day_diary += '我在家工作.'
             if bool(random.getrandbits(1)):
@@ -184,9 +206,16 @@ def add_work_day(diary: dict):
             else:
                 work_day_diary += '火车已' + sentence.get_travel_experience_for(
                     diary['travel']) + dot + sentence.get_random_train_problem() + dot
+        work_business_level = ['不', '', '很']
+        level = work_business_level[random.randint(0, len(work_business_level) - 1)]
+        work_day_diary = f'我工作{level}忙。'
+        if level == '不':
+            work_day_diary += not_busy_work[random.randint(0, len(not_busy_work) - 1)] + dot
+        else:
+            work_day_diary += busy_work[random.randint(0, len(busy_work) - 1)] + dot
         return work_day_diary
     else:
-        return "我今天不上班，因为这是一个周末。"
+        return f"我今天不上班，因为这是一个周末。{weekend_activities[random.randint(0, len(weekend_activities) - 1)] + dot}"
 
 
 def add_random_evening_activity() -> str:
