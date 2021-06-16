@@ -13,7 +13,11 @@ def add_today_date() -> str:
     chinese_day = chinese_number.get_chinese_number(date.day)
     chinese_day_of_the_week = chinese_number.get_day_of_the_week_number(date.weekday() + 1)
     year = application_utils.get_year_in_chinese(str(date.year))
-    return '今天是' + year + '年' + chinese_month + '月' + chinese_day + '日,星期' + chinese_day_of_the_week + dot
+    if date.weekday() > 4:  # if Saturday is 5 and Sunday is 6
+        weekend_day = '这是一个周末' + dot
+    else:
+        weekend_day = ''
+    return '今天是' + year + '年' + chinese_month + '月' + chinese_day + '日,星期' + chinese_day_of_the_week + dot + weekend_day
 
 
 def add_weather_sentence(weather_description_1, weather_description_2, weather_rating):
@@ -38,6 +42,7 @@ def steps(steps_count: int) -> str:
 def generate_random_sentence(with_random_sentence):
     today_info = next_line
     if with_random_sentence:
+        today_info += '三句新句练习' + dot
         for i in range(0, 3):
             today_info += sentences[random.randint(0, application_utils.get_last_element(sentences))] + next_line
     return today_info
@@ -233,11 +238,12 @@ sentences = [
     '天气很糟糕。',  # Tiānqì hěn zāogāo. Weather is horrible.
     '明天，我会去跑步。',  # Míngtiān, wǒ huì qù pǎobù. Tomorrow, I will go for a run.
     '我想跑，因为我想减肥。',  # Wǒ xiǎng pǎo, yīnwèi wǒ xiǎng jiǎnféi. I want to run because I want to lose weight.
-    "你多久游一次泳？ Nǐ duōjiǔ yóu yīcì yǒng? How often do you swim for a swim?",
-    "我想做急救课程。 Wǒ xiǎng zuò jíjiù kèchéng.I want to do a first aid course.",
-    "我去过曾做过急救课程。 Wǒ qùguò céng zuòguò jíjiù kèchéng.I have been to a first aid course.",
-    "今天有人晕倒了。 Jīntiān yǒurén yūn dǎo le.Someone fainted today.",
-    "我帮助这个人，但我知道我可以做得更好。Wǒ bāngzhù zhège rén, dàn wǒ zhīdào wǒ kěyǐ zuò dé gèng hǎo. I help this person, but I know that I can do better.",
+    "你多久游一次泳？",  # Nǐ duōjiǔ yóu yīcì yǒng? How often do you swim for a swim?",
+    "我想做急救课程。",  # Wǒ xiǎng zuò jíjiù kèchéng.I want to do a first aid course.",
+    "我去过曾做过急救课程。",  # Wǒ qùguò céng zuòguò jíjiù kèchéng.I have been to a first aid course.",
+    "今天有人晕倒了。",  # Jīntiān yǒurén yūn dǎo le.Someone fainted today.",
+    "我帮助这个人，但我知道我可以做得更好。",
+    # Wǒ bāngzhù zhège rén, dàn wǒ zhīdào wǒ kěyǐ zuò dé gèng hǎo. I help this person, but I know that I can do better.",
     "火车坏了。",
     "她没有离开车站。",
     "她前往下一站。",
@@ -309,7 +315,7 @@ sentences = [
     "我太胖了，跑不动，但我能走很长的距离（十五公里）",
     "我在2013年跑了半程马拉松。",
     "我绕着山走了四十公里",
-    "我最喜欢的喜剧演员是Gabriel Iglesias, 、Michael McIntyre和 Abelard Giz",
+    "我最喜欢的喜剧演员是Gabriel Iglesias, 、Michael McIntyre和 Abelard Giza",
     "我喜歡Denzel Washington 和 Morgan Freeman",
     "我需要刮胡子和理发，因为我看起来像无家可",
     "我不喜欢我现在的工作，因为我的工作很无",
@@ -460,9 +466,8 @@ sentences = [
     "你是哪国",
     "你养宠物",
     "你喜欢什么样的食",
-    "你在做什",
-    "你长什么",
-    "谁放的",
+    "你在做什?",
+    "你长什么?",
     "你喜欢什么颜",
     "你的生日是什么时",
     "你今天做了什",
@@ -500,8 +505,8 @@ sentences = [
     "你有孩子",
     "你有男朋友",
     "你有女朋友",
-    "你会说中文",
-    "你会说英文吗",
+    "你会说中文?",
+    "你会说英文吗?",
     "你喜欢中国",
     "你习惯住在中国吗",
     "你住在哪",
@@ -598,9 +603,8 @@ sentences = [
     "你在北京有多久",
     "你经常做梦吗",
     "你梦见什么",
-    "你的最好的放松方式是什么",
-    "你最喜欢的运动形式是什么",
-    "最好的放松方式是什么",
+    "你的最好的放松方式是什么?",
+    "你最喜欢的运动形式是什么?",
     "您更喜欢线上购物还是线下购物",
     "你购买过最愚蠢的东西是什",
     "你去北京还是青岛",

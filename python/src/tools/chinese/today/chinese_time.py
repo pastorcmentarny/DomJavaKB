@@ -28,5 +28,5 @@ def get_time_in_chinese_for(hour: int, minute: int) -> str:
 
 def get_random_sleep_time():
     typical_sleep_time = [get_time_in_chinese_for(22, 30), get_time_in_chinese_for(22, 45),
-                          get_time_in_chinese_for(23, 0), get_time_in_chinese_for(23, 15), '半夜']
+                          get_time_in_chinese_for(23, 0), get_time_in_chinese_for(23, 15), get_time_in_chinese_for(23, 20), get_time_in_chinese_for(23, 55), '半夜']
     return typical_sleep_time[random.randint(0, len(typical_sleep_time) - 1)]

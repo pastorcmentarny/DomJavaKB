@@ -33,19 +33,18 @@ def generate_info_about_today(diary: dict):
     diary_day += sentence.add_weather_sentence(diary['weather_description_1'], diary['weather_description_2'],
                                                diary['weather_rating'])
 
-    diary_day += sentence.add_wear(diary['upper_wear_color'], diary['lower_wear_color'], diary['upper_wear_type'],
-                                   diary['lower_wear_type'])
-
+    diary_day += activities.add_wake_up_time()
     diary_day += activities.run_sentence(diary)
 
     diary_day += activities.add_breakfast(diary)
-
     diary_day += activities.add_work_day(diary)
-
-    diary_day += sentence.steps(diary['steps'])
-
+    diary_day += activities.add_random_evening_activity()
+    diary_day += activities.add_dinner()
     diary_day += sentence.go_to_sleep()
 
+    diary_day += sentence.steps(diary['steps'])
+    diary_day += sentence.add_wear(diary['upper_wear_color'], diary['lower_wear_color'], diary['upper_wear_type'],
+                                   diary['lower_wear_type'])
     diary_day += sentence.generate_random_sentence(diary['with_random_sentences'])
 
     diary_day = add_if_is_for_online(diary_day, diary['is_a_for_online'])

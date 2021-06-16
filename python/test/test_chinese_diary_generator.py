@@ -2,7 +2,7 @@ import unittest
 
 import pyperclip
 
-from src.tools.chinese.today import chinese_diary_generator
+from src.tools.chinese.today import app_chinese_diary_generator
 
 
 class TodayInChineseTests(unittest.TestCase):
@@ -13,7 +13,7 @@ class TodayInChineseTests(unittest.TestCase):
 
             print(f'Re-run chinese diary generator no.{index}')
             # when
-            chinese_diary_generator.main()
+            app_chinese_diary_generator.main()
             result = pyperclip.paste()
 
             # debug

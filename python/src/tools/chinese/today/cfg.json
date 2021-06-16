@@ -7,7 +7,7 @@
   "lower_wear_color": "black",
   "lower_wear_type": "running trousers",
   "steps": 16000,
-  "time": "",
+  "time": "10:59",
   "run_distance": 8820,
   "run_time": 4340,
   "meal": ["kung pao chicken"],
@@ -24,7 +24,7 @@
   "health": "good",
   "entry": 347,
   "dot": "。\n",
-  "wfh": true,
+  "wfh": false,
   "diet": true,
-  "travel" : ""
+  "travel" : "minor"
 }

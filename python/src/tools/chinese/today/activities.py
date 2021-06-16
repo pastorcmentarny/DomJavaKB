@@ -31,6 +31,11 @@ def friday() -> int:
     return 5
 
 
+# need to change it
+def is_weekend(day_of_week: int = datetime.now().weekday()) -> bool:
+    return day_of_week > 4  # 5 is a Friday and 6 is a Sunday
+
+
 def generate_random_lunch_break_activity() -> str:
     lunch_activity = ["因为正在下雨，我没有在午休时散步", "我午休时走了3公里", "我感觉不舒服，所以我在午休期间待在办公室"]
     return lunch_activity[random.randint(0, len(lunch_activity) - 1)] + dot
@@ -71,6 +76,19 @@ def get_workday_routine():
         "我没有吃了早饭但是我喝了咖啡"
 
 
+def add_wake_up_time():
+    hour = 0
+    minute = 0
+    if is_weekend():
+        hour = random.randint(6, 9)
+        minute = random.randint(0, 59)
+    else:
+        hour = 6
+        minute = random.randint(0, 22)
+
+    return "我早上" + chinese_time.get_time_in_chinese_for(hour, minute) + "起床" + dot  # woke up time
+
+
 # add KETO
 def get_daily_activity_for(daily_date, meal):
     day = EMPTY
@@ -91,7 +109,6 @@ def get_daily_activity_for(daily_date, meal):
         minute = 45
         breakfast = "我在早饭吃了" + food_generator.breakfast['british']
 
-    day += "我早上" + chinese_time.get_time_in_chinese_for(hour, minute) + "起床" + dot  # woke up time
     day += breakfast + dot
 
     if day_of_the_week in range(dow['monday'], friday()):
@@ -109,11 +126,13 @@ def get_daily_activity_for(daily_date, meal):
     return day
 
 
-def add_meal_sentence(meal: list) -> str:
-    if len(meal) == 0:
-        return food_generator.get_random_meal()
-    else:
+def add_meal_sentence(meal=None) -> str:
+    if meal is None:
+        meal = []
+    if bool(meal):
         return food_generator.generate_meal(meal)
+    else:
+        return food_generator.get_random_meal()
 
 
 def run_sentence(diary: dict):
@@ -123,14 +142,31 @@ def run_sentence(diary: dict):
         return '我在早上去了慢跑。我跑了' + get_distance_from_run(
             run_distance) + '公里。跑了这个距离花了我' + application_utils.get_time_from_run(run_time) + dot
     else:
-        return EMPTY
+        return f'我在早上没去了慢跑{dot}'
 
 
 def add_breakfast(diary: dict):
     if diary['diet']:
-        return "我没有吃了早饭但是我喝了咖啡" + dot
+        breakfast = ''
+        if bool(random.getrandbits(1)):
+            breakfast += '我正在间歇性禁食.'
+        return f"{breakfast}我没有吃了早饭但是我喝了咖啡{dot}"
     breakfast_options = ['coffee', 'kefir', 'british', 'sandwich']
     return food_generator.breakfast[breakfast_options[random.randint(0, len(breakfast_options) - 1)]]
+
+
+def add_random_reason_to_like_wfh():
+    if random.randint(0, 100) > 90:
+        return ''
+    reason = '我喜欢在家工作，因为 '
+    reasons = [
+        '我不需要出差上班。 ',  # I don't need to travel to work.
+        '我讨厌办公室的空调。',  # I hate air-conditioning at the office.
+        '市中心的午餐太贵了。 ',  # Lunch is too expensive in the city centre.
+        '在家里，我的办公桌看起来就像我想要的那样。',
+
+    ]
+    return f'{reason} {reasons[random.randint(0, len(reasons) - 1)]} {dot}'
 
 
 def add_work_day(diary: dict):
@@ -140,12 +176,43 @@ def add_work_day(diary: dict):
             work_day_diary += '我在家工作.'
             if bool(random.getrandbits(1)):
                 work_day_diary += '我没有乘坐地铁。'
+            work_day_diary += add_random_reason_to_like_wfh()
         else:
             work_day_diary += '我在办公室上班.'
             if diary['travel'] == '':
                 work_day_diary += '这次旅行很顺利。'  # 'The travel was uneventful.'
             else:
-                work_day_diary += '火车已' + sentence.get_travel_experience_for(diary['travel']) + dot + sentence.get_random_train_problem() + dot
+                work_day_diary += '火车已' + sentence.get_travel_experience_for(
+                    diary['travel']) + dot + sentence.get_random_train_problem() + dot
         return work_day_diary
     else:
         return "我今天不上班，因为这是一个周末。"
+
+
+def add_random_evening_activity() -> str:
+    if random.randint(0, 100) > 80:
+        return '我下午什么都没做。'
+    reason = '在下午,'
+    reasons = [
+        '我从托儿所接我的儿子',  # I picked up my son from nursery.
+        '我去散步了',  # I went for a walk.
+        '我去买菜了',  # I went food shopping.
+        '我打扫了办公室',  # I cleaned an office.
+        '我玩了一个游戏',  # I played a game.
+        '我准备了晚餐',  # I prepared dinner.
+        '我和我的妻子和儿子一起玩棋盘游戏',  # I played Play board games with my wife and son.
+        '我在酒吧里遇到了我的朋友喝啤酒',  # I met my friend in the pub for a beer.
+        '我去骑滑板车了',  # I went on a scooter ride.
+        '我洗了一个很长很长的热水澡',  # I had a long, hot bath.
+        '我和儿子玩乐高',  # I played Lego with my son.
+        '我和我的妻子谈论假期计划',  # I chat with my wife about holiday plans.
+    ]
+    return f'{reason} {reasons[random.randint(0, len(reasons) - 1)]} {dot}'
+
+
+def add_dinner():
+    return f'我在晚饭{add_meal_sentence()}'
+
+
+if __name__ == '__main__':
+    print(add_random_evening_activity())
