@@ -36,6 +36,7 @@ public class Lines {
         return lines;
     }
 
+    //TODO add 2 character shortcut to search
     public static Line findLine(String searchFor) {
         final NotFoundException notFoundException = new NotFoundException("tube line: " + searchFor);
         if (isStringEmpty(searchFor)) {
@@ -48,5 +49,9 @@ public class Lines {
                 .filter(station -> station.getClass().getSimpleName().equalsIgnoreCase(searchFor))
                 .findFirst()
                 .orElseThrow(() -> notFoundException);
+    }
+
+    public static void displayAllLinesNames(){
+        getLines().forEach(line -> System.out.print(line.name() + " "));
     }
 }

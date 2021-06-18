@@ -108,7 +108,7 @@ public class Stations {
     }
 
     public Station findStation(String searchFor) {
-        final NotFoundException notFoundException = new NotFoundException("TubeStation");
+        final NotFoundException notFoundException = new NotFoundException("tube station " + searchFor + " ");
         if (isStringEmpty(searchFor)) {
             LOGGER.warn(String.format("Unable to find station as search query is invalid. User typed: %s", searchFor));
             throw notFoundException;

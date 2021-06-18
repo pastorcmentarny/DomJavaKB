@@ -2,8 +2,8 @@ package dms.pastor.tools.trips.tube;
 
 import dms.pastor.domain.exception.NotFoundException;
 import dms.pastor.tools.trips.common.options.Status;
-import dms.pastor.tools.trips.common.station.Stations;
 import dms.pastor.tools.trips.common.station.Station;
+import dms.pastor.tools.trips.common.station.Stations;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -32,7 +32,6 @@ public class StationsTest {
     private static final LocalDate THIS_YEAR_VISITED_DATE = LocalDate.now();
 
     private static final Station WEMBLEY_PARK = new Station("Wembley Park", Status.VISITED, PASSED_DATE, VISITED_DATE, THIS_YEAR_VISITED_DATE, true);
-    private static final String STATION_NOT_FOUND_ERROR_MESSAGE = "TubeStation was not found.";
     private static final String STATION_NAME = "Amersham";
     private static final boolean BLOGGED = false;
 
@@ -162,7 +161,7 @@ public class StationsTest {
     public void findStationShouldThrowNotFoundExceptionWhenSearchForIsNull() {
         // when
         final var exception = Assertions.assertThrows(NotFoundException.class, () -> stations.findStation(null));
-        assertThat(exception.getMessage()).isEqualTo(STATION_NOT_FOUND_ERROR_MESSAGE);
+        assertThat(exception.getMessage()).isEqualTo("tube station null  was not found.");
     }
 
     @Test
@@ -171,16 +170,19 @@ public class StationsTest {
         final var exception = Assertions.assertThrows(NotFoundException.class, () -> stations.findStation(EMPTY_STRING));
 
         // then
-        assertThat(exception.getMessage()).isEqualTo(STATION_NOT_FOUND_ERROR_MESSAGE);
+        assertThat(exception.getMessage()).isEqualTo("tube station   was not found.");
     }
 
     @Test
     public void findStationShouldThrowNotFoundExceptionWhenSearchForDoNotMatchAnyStation() {
+        // given
+        var stationName = generateString();
+
         // when
-        final var exception = Assertions.assertThrows(NotFoundException.class, () -> stations.findStation(generateString()));
+        final var exception = Assertions.assertThrows(NotFoundException.class, () -> stations.findStation(stationName));
 
         // then
-        assertThat(exception.getMessage()).isEqualTo(STATION_NOT_FOUND_ERROR_MESSAGE);
+        assertThat(exception.getMessage()).isEqualTo("tube station " + stationName + "  was not found.");
     }
 
 
