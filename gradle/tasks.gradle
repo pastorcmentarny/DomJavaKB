@@ -1,8 +1,8 @@
 task projectinfo {
     doLast {
         println "Project Info"
-        println project.name
-        println "Gradle" + " found in " + gradle.gradleHomeDir
+        println "name: " + project.name + " version: " + project.version
+        println "Gradle was found in " + gradle.gradleHomeDir
     }
 
 }

@@ -10,12 +10,14 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'org.owasp:dependency-check-gradle:3.1.2'
+        classpath "org.owasp:dependency-check-gradle:6.2.2"
     }
 }
 
+
 allprojects {
     apply plugin: 'idea'
+    apply plugin: "org.owasp.dependencycheck"
 
     repositories {
         mavenLocal()
@@ -35,5 +37,5 @@ allprojects {
 }
 
 wrapper {
-    gradleVersion = '7.0'
+    gradleVersion = '7.1'
 }
