@@ -1,6 +1,6 @@
 package dms.pastor.tools.trips.tube.options;
 
-import dms.pastor.tools.trips.common.options.DisplayStatusForOption;
+import dms.pastor.tools.trips.common.options.DisplayStatusForSelectedStationOption;
 import dms.pastor.tools.trips.common.station.Stations;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -31,14 +31,14 @@ import static org.mockito.BDDMockito.given;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 @ExtendWith(MockitoExtension.class)
-public class DisplayStatusForOptionTest {
+public class DisplayStatusForSelectedStationOptionTest {
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private final PrintStream original = System.out;
 
     @Mock
     private Scanner scanner;
     @InjectMocks
-    private DisplayStatusForOption displayStatusForAllStationsOption;
+    private DisplayStatusForSelectedStationOption displayStatusForAllStationsOption;
 
     @BeforeEach
     public void setUpStreams() {

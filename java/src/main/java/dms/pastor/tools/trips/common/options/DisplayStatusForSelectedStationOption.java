@@ -20,11 +20,11 @@ import java.util.Scanner;
  * tag-command-pattern
  * <p>
  */
-public class DisplayStatusForOption implements Option {
-    private static final Logger LOGGER = LoggerFactory.getLogger(DisplayStatusForOption.class);
+public class DisplayStatusForSelectedStationOption implements Option {
+    private static final Logger LOGGER = LoggerFactory.getLogger(DisplayStatusForSelectedStationOption.class);
     private final Scanner scanner;
 
-    DisplayStatusForOption(Scanner scanner) {
+    DisplayStatusForSelectedStationOption(Scanner scanner) {
         this.scanner = scanner;
     }
 
