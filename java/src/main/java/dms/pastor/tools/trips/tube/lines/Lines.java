@@ -1,7 +1,12 @@
 package dms.pastor.tools.trips.tube.lines;
 
+import dms.pastor.domain.exception.NotFoundException;
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import static dms.pastor.utils.StringUtils.isStringEmpty;
 
 /**
  * Author Dominik Symonowicz
@@ -12,6 +17,7 @@ import java.util.List;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
+@Slf4j
 public class Lines {
 
     public static List<Line> getLines() {
@@ -28,5 +34,19 @@ public class Lines {
         lines.add(new Victoria());
         lines.add(new WaterlooAndCity());
         return lines;
+    }
+
+    public static Line findLine(String searchFor) {
+        final NotFoundException notFoundException = new NotFoundException("tube line: " + searchFor);
+        if (isStringEmpty(searchFor)) {
+            log.warn(String.format("Unable to find line as search query is invalid. User typed: %s", searchFor));
+            throw notFoundException;
+        }
+
+
+        return getLines().stream()
+                .filter(station -> station.getClass().getSimpleName().equalsIgnoreCase(searchFor))
+                .findFirst()
+                .orElseThrow(() -> notFoundException);
     }
 }

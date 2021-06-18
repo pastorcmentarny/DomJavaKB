@@ -1,8 +1,10 @@
 package dms.pastor.tools.trips.tube.lines;
 
+import dms.pastor.domain.exception.NotFoundException;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 /**
@@ -23,5 +25,37 @@ public class LinesTest {
 
         // then
         assertThat(lines).hasSize(11);
+    }
+
+    @Test
+    public void findLineShouldThrowNotFoundExceptionIfNull() {
+
+        // when and then throws
+        assertThrows(NotFoundException.class, () -> Lines.findLine(null));
+
+    }
+
+    @Test
+    public void findLineShouldThrowNotFoundExceptionIfEmpty() {
+        // when and then throws
+        assertThrows(NotFoundException.class, () -> Lines.findLine(""));
+    }
+
+    @Test
+    public void findLineShouldThrowNotFoundExceptionIfInvalid() {
+        // when and then throws
+        assertThrows(NotFoundException.class, () -> Lines.findLine("GarlicExpress"));
+    }
+
+    @Test
+    public void findLineShouldFindWaterlooAndCityLine() {
+        // given
+        final var expectedResult = new WaterlooAndCity();
+
+        // when
+        final var result = Lines.findLine("WaterlooAndCity");
+
+        // then
+        assertThat(result.name()).isEqualTo(expectedResult.name());
     }
 }
