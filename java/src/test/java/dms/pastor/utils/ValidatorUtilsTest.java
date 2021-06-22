@@ -2,6 +2,7 @@ package dms.pastor.utils;
 
 import dms.pastor.domain.ExampleObject;
 import dms.pastor.domain.exception.SomethingWentTerribleWrongError;
+import dms.pastor.utils.randoms.RandomDataGenerator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -387,7 +388,7 @@ public class ValidatorUtilsTest {
     @Test
     public void validateIfPositiveNumberWithCustomValueNameShouldPassWithoutExceptionForPositiveLongValue() {
         // given
-        final long positiveInteger = new Random().nextLong() + 1;
+        final long positiveInteger = RandomDataGenerator.randomPositiveLong();
 
         // when
         validateIfPositiveNumber(positiveInteger, generateString());
