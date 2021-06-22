@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
@@ -21,6 +22,24 @@ final class TextUtils {
     private static final Logger LOGGER = LoggerFactory.getLogger(TextUtils.class);
     private static final String ERROR_MESSAGE = "Unable to count word due ";
     private static final String DELIMITER = "(?m:^$)";
+    private static final HashMap<String, String> SINGULAR_SAME_AS_PLULAR = getListOfWords();
+
+    private static HashMap<String, String> getListOfWords() {
+        HashMap<String, String> words = new HashMap<>();
+        words.put("sheep", "sheep");
+        words.put("series", "series");
+        words.put("species", "species");
+        words.put("deer", "deer");
+        words.put("child", "children");
+        words.put("goose", "geese");
+        words.put("man", "men");
+        words.put("woman", "women");
+        words.put("tooth", "teeth");
+        words.put("foot", "feet");
+        words.put("mouse", "mice");
+        words.put("person", "people");
+        return words;
+    }
 
     private TextUtils() {
     }
@@ -62,5 +81,29 @@ final class TextUtils {
             String paragraph = scanner.next();
             paragraphs.add(paragraph);
         }
+    }
+
+    public static String getWordIfPlural(String word, long count) {
+        ValidatorUtils.validateIfNotBlank(word, "word");
+        ValidatorUtils.validateIfPositiveNumber(count, "count");
+        if (count == 1) {
+            return word;
+        }
+        if (SINGULAR_SAME_AS_PLULAR.containsKey(word)) {
+            return SINGULAR_SAME_AS_PLULAR.get(word);
+        }
+        if (word.endsWith("on")) {
+            return word.substring(0, word.length() - 2) + "a";
+        }
+        if (word.endsWith("o")) {
+            return word + "es";
+        }
+        if (word.endsWith("is")) {
+            return word.substring(0, word.length() - 2) + "es";
+        }
+        if (word.endsWith("s")) {
+            return word + "es";
+        }
+        return word + "s";
     }
 }
