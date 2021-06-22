@@ -305,4 +305,8 @@ public final class RandomDataGenerator {
     static void displayRandomUUID() {
         System.out.print(UUID.randomUUID());
     }
+
+    public static long randomPositiveLong() {
+        return Math.abs(RANDOM.nextLong());
+    }
 }

@@ -1,10 +1,7 @@
 package dms.pastor.utils.randoms;
 
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -493,8 +490,7 @@ public class RandomDataGeneratorTest {
         assertThat(result).isNotEmpty();
     }
 
-    //FIXME @Repeat(times = 100) check UKMobileNumberValidatorTest
-    @Test
+    @RepeatedTest(100)
     public void getRandomCharacterFromAlphabetExcludingCharacterShouldReturnCharacterWithoutExcludedOne() {
         // given
         final var character = getRandomCharacterFromAlphabet();
@@ -505,8 +501,7 @@ public class RandomDataGeneratorTest {
         assertThat(result).isNotEqualTo(character);
     }
 
-    //FIXME @Repeat(times = 100) check UKMobileNumberValidatorTest
-    @Test
+    @RepeatedTest(100)
     public void getRandomCharacterFromAlphabetExcludingCharacterShouldAnyCharacterIfExcludedCharacterIsNull() {
         // when
         final var result = getRandomCharacterFromAlphabetExcludingCharacter(null);
@@ -516,6 +511,17 @@ public class RandomDataGeneratorTest {
 
         // then
         assertThat(RandomDataGenerator.ALPHABET.chars().anyMatch(character -> character == result)).isTrue();
+    }
 
+    @RepeatedTest(100)
+    public void randomPositiveLongShouldReturnValue() {
+        // when
+        final var result = RandomDataGenerator.randomPositiveLong();
+
+        // debug
+        System.out.println(result);
+
+        // then
+        assertThat(result).isGreaterThan(0);
     }
 }
