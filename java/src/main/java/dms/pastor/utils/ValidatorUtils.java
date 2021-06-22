@@ -85,6 +85,12 @@ public final class ValidatorUtils {
         }
     }
 
+    public static void validateIfPositiveNumber(long number, String valueName) {
+        if (number <= 0) {
+            throw new IllegalArgumentException("%s {%d} %s".formatted(valueName, number, ERROR_MESSAGE_VALUE_CANNOT_BE_NEGATIVE));
+        }
+    }
+
     public static void validateIfPositiveNumber(BigDecimal number) {
         validateIfObjectValueIsNotNull(number);
         if (number.compareTo(BigDecimal.ZERO) < 0) {
@@ -217,4 +223,34 @@ public final class ValidatorUtils {
             throw new IllegalArgumentException(INVALID_PATH);
         }
     }
+/**
+ *
+ public static ImageName of(String value) {
+ Assert.hasText(value, "Value must not be empty");
+ Matcher matcher = PATTERN.matcher(value);
+ Assert.isTrue(matcher.matches(),
+ String domain = parseDomain(value);
+ String path = (domain != null) ? value.substring(domain.length() + 1) : value;
+ Assert.isTrue(Regex.PATH.matcher(path).matches(),
+ () -> "Unable to parse name \"" + value + "\". "
+ + "Image name must be in the form '[domainHost:port/][path/]name', "
+ + "with 'path' and 'name' containing only [a-z0-9][.][_][-]");
+ return new ImageName(matcher.group("domain"), matcher.group("path"));
+ return new ImageName(domain, path);
+ }
+
+ static String parseDomain(String value) {
+ int firstSlash = value.indexOf('/');
+ String candidate = (firstSlash != -1) ? value.substring(0, firstSlash) : null;
+ if (candidate != null && Regex.DOMAIN.matcher(candidate).matches()) {
+ return candidate;
+ }
+ return null;
+ }
+
+
+ static final Pattern DIGEST = Regex.of("^[A-Za-z][A-Za-z0-9]*(?:[-_+.][A-Za-z][A-Za-z0-9]*)*[:][[A-Fa-f0-9]]{32,}")
+ .compile();
+
+ */
 }

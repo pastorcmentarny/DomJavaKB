@@ -385,6 +385,18 @@ public class ValidatorUtilsTest {
     }
 
     @Test
+    public void validateIfPositiveNumberWithCustomValueNameShouldPassWithoutExceptionForPositiveLongValue() {
+        // given
+        final long positiveInteger = new Random().nextLong() + 1;
+
+        // when
+        validateIfPositiveNumber(positiveInteger, generateString());
+
+        // then nothing happen, which means value are valid
+    }
+
+
+    @Test
     public void validateIfNotEmptyShouldThrowIllegalArgumentExceptionIfNull() {
         // when
         assertThrows(IllegalArgumentException.class, () -> validateIfNotEmpty(null));
