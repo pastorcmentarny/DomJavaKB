@@ -159,6 +159,22 @@ public class TextUtilsTest {
         assertThat(result).isEqualTo(expectResult);
     }
 
+    @Test //fixed bug to ensure that plural for station is stations
+    public void getWordDependsOnNumberShouldReturnStationsForStation() {
+        // given
+        final var count = RandomDataGenerator.randomPositiveInteger() + 1;
+        final var expectResult = "stations";
+
+        // debug
+        System.out.println("number: " + count);
+
+        // when
+        final var result = TextUtils.getWordIfPlural("station", count);
+
+        // then
+        assertThat(result).isEqualTo(expectResult);
+    }
+
     @Test
     public void getWordDependsOnNumberShouldAddAIfWordEndWithOnIfPlural() {
         // given
@@ -222,7 +238,7 @@ public class TextUtilsTest {
     @Test
     public void getWordDependsOnNumberShouldReturnSameWordNounsDontChangeWhenPluralized() {
         // given
-        final var words = Arrays.asList("sheep", "series", "species", "deer");
+        final var words = Arrays.asList("sheep", "series", "species", "deer","station");
 
         // when & then
         words.forEach(word -> assertThat(TextUtils.getWordIfPlural(word, 1)).isEqualTo(word));

@@ -18,7 +18,7 @@ import java.util.Scanner;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-final class TextUtils {
+public final class TextUtils {
     private static final Logger LOGGER = LoggerFactory.getLogger(TextUtils.class);
     private static final String ERROR_MESSAGE = "Unable to count word due ";
     private static final String DELIMITER = "(?m:^$)";
@@ -38,6 +38,9 @@ final class TextUtils {
         words.put("foot", "feet");
         words.put("mouse", "mice");
         words.put("person", "people");
+        words.put("volcano", "volcanoes");
+        words.put("phenomenon", "phenomena");
+        words.put("criterion", "criteria");
         return words;
     }
 
@@ -91,9 +94,6 @@ final class TextUtils {
         }
         if (SINGULAR_SAME_AS_PLULAR.containsKey(word)) {
             return SINGULAR_SAME_AS_PLULAR.get(word);
-        }
-        if (word.endsWith("on")) {
-            return word.substring(0, word.length() - 2) + "a";
         }
         if (word.endsWith("o")) {
             return word + "es";
