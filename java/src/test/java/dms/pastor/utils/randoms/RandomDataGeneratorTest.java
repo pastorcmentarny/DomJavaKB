@@ -75,13 +75,24 @@ public class RandomDataGeneratorTest {
         assertThat(isLetter(randomCharacterAsString.charAt(0))).isEqualTo(true);
     }
 
-    @Test
+
+    @RepeatedTest(10)
     public void testGetRandomTextWithoutMaxLength() {
+        // given
+        tearDown();
+
         // when
         final String text = getRandomText();
 
+        // debug
+        System.out.println("text is" + text);
+        System.out.println("size of text is" + text.length());
+
         // then
         assertThat(1 <= text.length() && text.length() <= 1000).isEqualTo(true);
+
+        // reset
+        setUp();
     }
 
     @SuppressWarnings("QuestionableName") // because string is valid name

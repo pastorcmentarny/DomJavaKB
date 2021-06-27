@@ -51,6 +51,9 @@ public final class RandomDataGenerator {
         for (int i = 1; i < RANDOM.nextInt(length); i++) {
             addRandomCharacterToStringBuilder(text);
         }
+        if (text.length() == 0) {
+            addRandomCharacterToStringBuilder(text);
+        }
         return text.toString();
     }
 
