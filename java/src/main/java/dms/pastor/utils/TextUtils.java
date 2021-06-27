@@ -106,4 +106,8 @@ public final class TextUtils {
         }
         return word + "s";
     }
+
+    public static String getYesNoFromBoolean(boolean booleanValue) {
+        return booleanValue ? "yes" : "no";
+    }
 }

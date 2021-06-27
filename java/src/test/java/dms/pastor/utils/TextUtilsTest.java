@@ -238,7 +238,7 @@ public class TextUtilsTest {
     @Test
     public void getWordDependsOnNumberShouldReturnSameWordNounsDontChangeWhenPluralized() {
         // given
-        final var words = Arrays.asList("sheep", "series", "species", "deer","station");
+        final var words = Arrays.asList("sheep", "series", "species", "deer", "station");
 
         // when & then
         words.forEach(word -> assertThat(TextUtils.getWordIfPlural(word, 1)).isEqualTo(word));
@@ -254,4 +254,22 @@ public class TextUtilsTest {
         words.forEach(word -> assertThat(TextUtils.getWordIfPlural(word, 1)).isEqualTo(word));
     }
 
+
+    @Test
+    public void getYesNoFromBooleanShouldReturnYesForTrue() {
+        // when
+        final var result = TextUtils.getYesNoFromBoolean(true);
+
+        // then
+        assertThat(result).isEqualTo("yes");
+    }
+
+    @Test
+    public void getYesNoFromBooleanShouldReturnNoForFalse() {
+        // when
+        final var result = TextUtils.getYesNoFromBoolean(false);
+
+        // then
+        assertThat(result).isEqualTo("no");
+    }
 }
