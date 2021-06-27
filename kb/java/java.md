@@ -895,3 +895,11 @@ returning a null in case the underlying collection is actually empty.
 
 TODO:
 https://dzone.com/articles/composition-vs-inheritance
+6. Ponder Over the Choice of Data Structures
+   Java collections provide ArrayList, LinkedList, Vector, Stack, HashSet, HashMap, Hashtable. It’s important to understand the pros and cons of each to use them in the correct context. A few hints to help you make the right choice:
+
+Map: Useful if you have unordered items in the form of key, value pairs and require efficient retrieval, insertion, and deletion operations. HashMap, Hashtable, LinkedHashMap are all implementations of the Map interface.
+
+List: Very commonly used to create an ordered list of items. This list may contain duplicates. ArrayList is an implementation of the List interface. A list can be made thread-safe using Collections.synchronizedList thus removing the need for using Vector. Here’s some more info on why Vector is essentially obsolete.
+
+Set: Similar to list but does not allow duplicates. HashSet implements the Set interface.

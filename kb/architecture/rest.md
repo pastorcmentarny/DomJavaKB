@@ -3,15 +3,13 @@
 It contains definitions that explain things in the way that is easiest for me to understand.
 _I am not the author of these definitions so check resources section for the origin of definitions._ 
 
+## What is RESTFul Web Service?
 
-IQA:
-What is RESTFul Web Service?
-
-What are the differences between HTTP and REST?
+## What are the differences between HTTP and REST?
 HTTP is a stateless, application-layer protocol for communicating between distributed systems
 REST is not a standard . It is an architectural style for distributed hypermedia systems. REST is a design style for protocols,
 
-Difference between POST and PUT?
+## Difference between POST and PUT?
 POST is a method to create a new resource and get id, if resource was created successfully. I
 PUT is a method to update existing resource. It can be used to create an new resource with given id. 
 The key difference between PUT and POST is that.No matter how many times you send a PUT request, the results will be same. Making a POST multiple times may result in multiple resources getting created on the server.
@@ -41,33 +39,19 @@ GET HEAD returns only the response headers with a body.
 What do you understand by payload in RESTFul? [TODO improve it]
 Payload means data which passed inside request body also payload is not request parameters. So only you can do payload in POST.
 
-DATABASE
-
-
-alter session set current_schema=’x’
-UPDATE column SET X_ID = 1 WHERE X_KEY = 'dms.active';	
 
 
 
-REST
+## REST example OF crud CRUD-based APIs 
+It contains instances, mimicking the (c)reate, (r)ead, (u)pdate, and (d)elete lifecycle pattern. The CRUD pattern is useful when we have a collection of resource instances that represent content or state. It often follows this familiar pattern:
 
-GET          /users                  - will get you all of your users
-GET          /users/olafur      - will get you one user
-POST       /users                  - will make a new user
-PUT         /users/olafur      - will update the user
-DELETE /user/olafur         - will delete the user
+* **GET**       /airplane                   – the list of all available airplane types
+* **GET**       /airplane/{airplaneType}   – get specific airplane type
+* **PUT**       /airplane/airbus380           - update the airplane type
+* **PATCH**     /airplane/{airplaneType}   – update specific fields for airplane type
+* **POST**      /airplane                   – Create a new airplane type
+* **DELETE**    /airplane/{airplaneType}   – Delete a specific airplane
 
-A quick review of CRUD
-
-CRUD-based APIs refer to APIs that offer resource collections that contain instances, mimicking the (c)reate, (r)ead, (u)pdate, and (d)elete lifecycle pattern. The CRUD pattern is useful when we have a collection of resource instances that represent content or state. It often follows this familiar pattern:
-
-GET /articles – List/paginate/filter the list of available articles
-POST /articles – Create a new article
-GET /articles/{articleId} – Retrieve the representation of an article instance
-PATCH /articles/{articleId}– Update specific fields for an article instance
-DELETE /articles/{articleId} – Delete a specific article instance
-
-There is nothing about CRUD being a requirement for a “RESTful” API.
 
 
 
@@ -118,8 +102,16 @@ The basic purpose of query parameters is to provide parameters to an operation t
 
 ttp://MyService/Persons/1?format=xml&encoding=UTF8
 
-TIPS and Tricks:
-The query parameter approach works just fine and REST does not stop you from using query parameters. However, this approach has a few disadvantages.
-Increased complexity and reduced readability, which will increase if you have more parameters
-Search-engine crawlers and indexers like Google ignore URIs with query parameters. 
-Documenting a RESTful Service RESTful services do not necessarily require a document to help clients discover them. Due to URIs, links, and a uniform interface, it is extremely simple to discover RESTful services at runtime. The method OPTION can be used effectively in the process of discovering a service. This does not mean that RESTful services require no documentation at all. There is no excuse for not documenting your service. You should document every resource and URI for client developers. 
+The robustness principle
+To create web APIs that are easy to evolve, follow the robustness principle, summarized as “Be conservative in what you do, be liberal in what you accept.”
+
+In the context of web APIs, this principle can be applied in several ways:
+
+Every API endpoint should have a small, specific goal that follows only one of the CRUD operations. Clients should be in charge of aggregating multiple calls as needed.
+Servers should communicate expected message formats and schemas and adhere to them.
+New or unknown fields in message bodies should not cause errors in APIs, they should just be ignored.
+
+# TIPS and Tricks:
+1. The query parameter approach works just fine and REST does not stop you from using query parameters. However, this approach has a few disadvantages. Increased complexity and reduced readability, which will increase if you have more parameters.Search-engine crawlers and indexers like Google ignore URIs with query parameters. 
+0. Documenting a RESTful Service RESTful services do not necessarily require a document to help clients discover them. Due to URIs, links, and a uniform interface, it is extremely simple to discover RESTful services at runtime. The method OPTION can be used effectively in the process of discovering a service. This does not mean that RESTful services require no documentation at all. There is no excuse for not documenting your service. You should document every resource and URI for client developers. 
+0. Using headers for versioning is more in line with RESTful practices

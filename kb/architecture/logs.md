@@ -1,0 +1,2 @@
+Log all your inbound traffic. We keep logs on all inbound connections. This enabled all of our investigations. You can’t investigate what you don’t log.
+Use 2FA. That remaining system that still uses legacy authentication can be your biggest vulnerability.

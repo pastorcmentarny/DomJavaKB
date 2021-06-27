@@ -21,6 +21,22 @@
     - Keep growing our clients' businesses
 0. Managers sit in meetings to help understand higher-level company objectives. They remove roadblocks so their teams
    can continue creating.
+0 . #1on1
+   It’s really important for remote leaders to set rules around how, when, and which communication tools to use when working in virtual teams.
+   What’s on your mind this week?
+   Last time we spoke, you said X was a challenge for you. How is that going?
+
+## Personal Goals
+
+Say this: Over the past three quarters, I have exceeded my sales goals by X%. I know that if I were able to work remotely one day a week I could increase that number to X because of the flexibility my remote schedule would create. Working remotely once a week would also give me the ability to attend a professional development class in the morning, and work in the evenings when I am more productive.
+What are your plans and priorities for this week?
+How aligned do you feel with where the company is going?
+What feedback do you have for me?
+
+
+# Set Up Communication Guidelines
+
+
 
 Source:
 
