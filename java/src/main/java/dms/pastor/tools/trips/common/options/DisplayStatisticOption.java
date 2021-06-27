@@ -13,6 +13,7 @@ import java.util.Optional;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.StringUtils.NEW_LINE;
+import static dms.pastor.utils.TextUtils.getWordIfPlural;
 
 /**
  * Author Dominik Symonowicz
@@ -29,12 +30,18 @@ public class DisplayStatisticOption implements Option {
 
     @Override
     public void choose(Stations stations, StationType type) {
-        System.out.println("You visited " + stations.countStationVisitedThisYear() + " station(s) this year. (" +
-                countPercentageOfAllStationFor(stations.getStationList().size(), stations.countStationVisitedThisYear()));
-        System.out.println("You visited " + stations.countStationVisited() + " station(s). (" +
+        final var countStationVisitedThisYear = stations.countStationVisitedThisYear();
+        final var countStationVisited = stations.countStationVisited();
+        final var countStationPassed = stations.countStationPassed();
+
+        System.out.println("I visited " + countStationVisitedThisYear + " " + getWordIfPlural("station", countStationVisitedThisYear) + " this year. (" +
+                countPercentageOfAllStationFor(stations.getStationList().size(), countStationVisitedThisYear));
+
+        System.out.println("I visited " + countStationVisited + " " + getWordIfPlural("station", countStationVisited) + ". (" +
                 countPercentageOfAllStationFor(stations.getStationList().size(), stations.countStationVisited()));
-        System.out.println("You passed " + stations.countStationPassed() + " station(s). (" +
-                countPercentageOfAllStationFor(stations.getStationList().size(), stations.countStationPassed()));
+
+        System.out.println("I passed " + countStationPassed + " " + getWordIfPlural("station", countStationPassed) + ". (" +
+                countPercentageOfAllStationFor(stations.getStationList().size(), countStationPassed));
         System.out.println(getStatsForLines(stations));
         System.out.println(displayStationsBlogged(stations));
     }
@@ -75,4 +82,6 @@ public class DisplayStatisticOption implements Option {
     public String getCommandTitle(int commandCode) {
         return commandCode + ". Stats.";
     }
+
+
 }

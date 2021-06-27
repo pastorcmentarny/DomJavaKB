@@ -140,7 +140,7 @@ public class Station {
 
     public void clearVisitedThisYear() {
         if (Objects.nonNull(thisYearVisitedDate)) {
-            System.out.println("You visited  " + name + " station in 2018 at " + thisYearVisitedDate.toString());
+            System.out.println("You visited " + name + " station in 2018 at " + thisYearVisitedDate);
             thisYearVisitedDate = null;
         }
     }
