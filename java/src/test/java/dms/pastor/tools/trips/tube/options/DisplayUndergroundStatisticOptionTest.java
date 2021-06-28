@@ -1,7 +1,7 @@
 package dms.pastor.tools.trips.tube.options;
 
 
-import dms.pastor.tools.trips.common.options.DisplayStatisticOption;
+import dms.pastor.tools.trips.common.options.DisplayUndergroundStatisticOption;
 import dms.pastor.tools.trips.common.station.Stations;
 import dms.pastor.tools.trips.common.station.Station;
 import org.junit.jupiter.api.AfterEach;
@@ -26,7 +26,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class DisplayStatisticOptionTest {
+public class DisplayUndergroundStatisticOptionTest {
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private final PrintStream original = System.out;
 
@@ -44,11 +44,11 @@ public class DisplayStatisticOptionTest {
     @Test
     public void shouldDisplayStatistic() {
         // given
-        final DisplayStatisticOption displayStatisticOption = new DisplayStatisticOption();
+        final DisplayUndergroundStatisticOption displayUndergroundStatisticOption = new DisplayUndergroundStatisticOption();
         final Stations stations = stationsBuilder().build();
 
         // when
-        displayStatisticOption.choose(stations,TUBE);
+        displayUndergroundStatisticOption.choose(stations,TUBE);
 
         // then
         assertThat(outputStream.toString()).contains("I visited 1 station this year. (33%)" + System.lineSeparator() +
@@ -60,7 +60,7 @@ public class DisplayStatisticOptionTest {
     @Test
     public void shouldDisplayInfoAboutBloggedStation() {
         // given
-        final DisplayStatisticOption displayStatisticOption = new DisplayStatisticOption();
+        final DisplayUndergroundStatisticOption displayUndergroundStatisticOption = new DisplayUndergroundStatisticOption();
         final Station station1 = stationBuilder().blogged(true).build();
         final Station station2 = stationBuilder().blogged(false).build();
         final Station station3 = stationBuilder().blogged(false).build();
@@ -69,7 +69,7 @@ public class DisplayStatisticOptionTest {
         final Stations stations = stationsBuilder().stationList(stationList).build();
 
         // when
-        displayStatisticOption.choose(stations,TUBE);
+        displayUndergroundStatisticOption.choose(stations,TUBE);
 
         // then
         assertThat(outputStream.toString()).contains(" (Total station blogged: 25%)");

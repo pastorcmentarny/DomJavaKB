@@ -27,11 +27,31 @@ public final class OptionsFactory {
         this.options = new HashMap<>();
     }
 
-    public static OptionsFactory getOptions(Scanner scanner) {
+    public static OptionsFactory getUndergroundOptions(Scanner scanner) {
         final OptionsFactory options = new OptionsFactory();
 
         // commands are added here using lambdas. It is also possible to dynamically add commands without editing the code.
-        options.addOptions(0, new DisplayStatisticOption());
+        options.addOptions(0, new DisplayUndergroundStatisticOption());
+        options.addOptions(1, new DisplayStatusForAllStationsOption());
+        options.addOptions(2, new DisplayStatusForSelectedStationOption(scanner));
+        options.addOptions(3, new UpdateStationStatusToPassedOption(scanner));
+        options.addOptions(4, new UpdateStationStatusToVisitedOption(scanner));
+        options.addOptions(5, new BloggedOption(scanner));
+        options.addOptions(6, new SaveOption());
+        options.addOptions(7, new LoadStationOption());
+        options.addOptions(8, new DisplayAllStationsNameOption());
+        options.addOptions(13, new DisplayStatusForSpecificLineOption(scanner));
+        if (Config.SHOW_HIDDEN_OPTIONS) {
+            options.addOptions(101, new ClearThisYearOption());
+        }
+        return options;
+    }
+
+    public static OptionsFactory getOvergroundOptions(Scanner scanner) {
+        final OptionsFactory options = new OptionsFactory();
+
+        // commands are added here using lambdas. It is also possible to dynamically add commands without editing the code.
+        options.addOptions(0, new DisplayOvergroundStatisticOption());
         options.addOptions(1, new DisplayStatusForAllStationsOption());
         options.addOptions(2, new DisplayStatusForSelectedStationOption(scanner));
         options.addOptions(3, new UpdateStationStatusToPassedOption(scanner));

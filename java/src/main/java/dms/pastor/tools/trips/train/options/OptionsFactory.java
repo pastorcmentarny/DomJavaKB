@@ -1,7 +1,7 @@
 package dms.pastor.tools.trips.train.options;
 
 import dms.pastor.tools.trips.common.options.Option;
-import dms.pastor.tools.trips.common.options.DisplayStatisticOption;
+import dms.pastor.tools.trips.common.options.DisplayUndergroundStatisticOption;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,7 +28,7 @@ public final class OptionsFactory {
         final OptionsFactory options = new OptionsFactory();
 
         // commands are added here using lambdas. It is also possible to dynamically add commands without editing the code.
-        options.addOptions(0, new DisplayStatisticOption());
+        options.addOptions(0, new DisplayUndergroundStatisticOption());
         return options;
     }
 

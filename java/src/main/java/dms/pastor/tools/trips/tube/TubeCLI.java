@@ -33,7 +33,7 @@ class TubeCLI {
     TubeCLI(Stations stations, Scanner scanner) {
         this.stations = stations;
         this.scanner = scanner;
-        options = OptionsFactory.getOptions(scanner);
+        options = OptionsFactory.getUndergroundOptions(scanner);
     }
 
     void mainMenu() {

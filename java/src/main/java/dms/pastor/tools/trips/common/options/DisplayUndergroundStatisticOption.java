@@ -26,7 +26,7 @@ import static dms.pastor.utils.TextUtils.getWordIfPlural;
  * tag-command-pattern
  * <p>
  */
-public class DisplayStatisticOption implements Option {
+public class DisplayUndergroundStatisticOption implements Option {
 
     @Override
     public void choose(Stations stations, StationType type) {
