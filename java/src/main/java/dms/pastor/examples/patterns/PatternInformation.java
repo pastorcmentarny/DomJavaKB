@@ -7,7 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 @Builder
 @Getter
-public class PatternRunner {
+public class PatternInformation {
     private static final String LINE_SEPARATOR = "\n------\n";
 
     private final String name;

@@ -1,28 +1,18 @@
 package dms.pastor.examples.patterns.strategy;
 
-import dms.pastor.examples.patterns.PatternRunner;
+import dms.pastor.examples.patterns.PatternInformation;
 
 import java.util.UUID;
 
 public class StrategyPatternRunner {
 
-    private final PatternRunner patternRunner = PatternRunner.builder()
+    private final PatternInformation patternInformation = PatternInformation.builder()
             .name("Strategy")
             .type("Behavioral")
             .description("It lets the algorithm vary independently from client that uses it. It defines a family of algorithms, encapsulate eac one, and make them interchangeable. It is good for reduce conditions,avoid duplicate code but it will increase number of classes.")
             .example("Collections.sort()")
             .build();
 
-
-    public void example1() {
-        patternRunner.displayDefinition();
-        Animal doggy = new Dog();
-        Animal tweety = new Bird();
-        doggy.displayFlyAbility();
-        tweety.displayFlyAbility();
-        doggy.setFlyingType(new CanFly());
-        doggy.displayFlyAbility();
-    }
 
     public void example2() {
         ShoppingCart shoppingCart = new ShoppingCart();
