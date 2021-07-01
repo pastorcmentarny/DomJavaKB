@@ -75,6 +75,6 @@ public class DisplayStatusForSelectedStationOptionTest {
         displayStatusForAllStationsOption.choose(stations,TUBE);
 
         // then
-        assertThat(outputStream.toString()).contains("TubeStation " + invalidStationName + " not found.");
+        assertThat(outputStream.toString()).contains("Station " + invalidStationName + " not found.");
     }
 }

@@ -27,6 +27,7 @@ public class DataWriter {
 
     public void save(Path path, List<Station> stationList) {
         validateIfPathIsAccessible(path);
+        LOGGER.info("Saving data.. to " + path.toString());
         final String content = stationList.stream().map(Station::asLine).collect(Collectors.joining(StringUtils.CHAR_SEQUENCE_NEW_LINE));
         try {
             Files.write(path, content.getBytes());

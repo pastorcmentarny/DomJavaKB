@@ -130,7 +130,7 @@ public class TubeCLITest {
         cli.mainMenu();
 
         // then
-        assertThat(outputStream.toString()).contains("TubeStation " + invalidStationName + " not found");
+        assertThat(outputStream.toString()).contains("Station " + invalidStationName + " not found");
     }
 
     @Test
@@ -162,7 +162,7 @@ public class TubeCLITest {
         cli.mainMenu();
 
         // then
-        assertThat(outputStream.toString()).contains("TubeStation " + invalidStationName + " not found");
+        assertThat(outputStream.toString()).contains("Station " + invalidStationName + " not found");
     }
 
     @Test

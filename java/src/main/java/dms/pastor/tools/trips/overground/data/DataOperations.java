@@ -1,6 +1,5 @@
 package dms.pastor.tools.trips.overground.data;
 
-import dms.pastor.domain.exception.SomethingWentTerribleWrongError;
 import dms.pastor.domain.exception.SomethingWentWrongException;
 import dms.pastor.tools.trips.common.data.DataUploader;
 import dms.pastor.tools.trips.common.data.DataWriter;
@@ -10,11 +9,10 @@ import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Author Dominik Symonowicz
@@ -27,22 +25,25 @@ import java.util.Objects;
 public final class DataOperations {
     private static final Logger LOGGER = LoggerFactory.getLogger(DataOperations.class);
 
-    public static final Path STATION_PATH;
+    public static final Path STATION_PATH = Paths.get("B:\\GitHub\\DomJavaKB\\java\\src\\main\\resources\\transport\\overground\\station.txt");
 
+
+/*
+//FIXME temporary replaced with hard coded version
     static {
         final URL resource = DataOperations.class.getClassLoader().getResource("transport/overground/station.txt");
         if (Objects.isNull(resource)) {
             throw new SomethingWentTerribleWrongError("Where is my bloody file ?");
         }
         STATION_PATH = new File(resource.getPath()).toPath();
-    }
 
+    }
+ */
 
     private DataOperations() {
     }
 
     public static void saveToFile(List<Station> overgroundStationList) {
-        LOGGER.info("Saving data..");
         DataWriter DataWriter = new DataWriter();
         DataWriter.save(STATION_PATH, overgroundStationList);
     }
@@ -61,13 +62,17 @@ public final class DataOperations {
         try {
             final File backupFile = new File(backupPath);
             final boolean created = backupFile.createNewFile();
-            if (!created) {
-                throw new SomethingWentWrongException("Creating file at " + backupPath);
-            }
+            throwExceptionIfFileNotCreated(backupPath, created);
             DataWriter.save(backupFile.toPath(), originalOvergroundStationList);
 
         } catch (IOException exception) {
             throw new SomethingWentWrongException("Creating file at " + backupPath, exception);
+        }
+    }
+
+    private static void throwExceptionIfFileNotCreated(String backupPath, boolean created) {
+        if (!created) {
+            throw new SomethingWentWrongException("Creating file at " + backupPath);
         }
     }
 

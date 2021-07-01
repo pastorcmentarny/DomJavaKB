@@ -34,7 +34,7 @@ final class USSOvergroundDominikApplication {
 
         saveToFile(overgroundStationList);
 
-        LOGGER.info("Done. Goodbye! DO NOT FORGOT TO COPY station.txt from out/productuion ... or even better change the code");
+        LOGGER.info("Done. Goodbye! DO NOT FORGOT TO COPY station.txt from out/production ... or even better change the code");
     }
 
 

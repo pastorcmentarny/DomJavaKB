@@ -3,6 +3,10 @@ package dms.pastor.tools.trips.common.options;
 import dms.pastor.tools.trips.common.station.StationType;
 import dms.pastor.tools.trips.common.station.Stations;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.TextUtils.getWordIfPlural;
 
@@ -24,7 +28,7 @@ public class DisplayOvergroundStatisticOption implements Option {
         final var countStationVisitedThisYear = stations.countStationVisitedThisYear();
         final var countStationVisited = stations.countStationVisited();
         final var countStationPassed = stations.countStationPassed();
-
+        System.out.println("There are " + stations.totalNumber() + " stations on the Overground as " + LocalDate.now().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG)));
         System.out.println("I visited " + countStationVisitedThisYear + " " + getWordIfPlural("station", countStationVisitedThisYear) + " this year(" +
                 countPercentageOfAllStationFor(stations.getStationList().size(), countStationVisitedThisYear) + ".");
 
@@ -38,14 +42,14 @@ public class DisplayOvergroundStatisticOption implements Option {
 
     private String displayStationsBlogged(Stations stations) {
         var result = new StringBuilder(EMPTY_STRING);
-        result.append("{");
-        stations.displayAllStationsBlogged().forEach(station -> result.append(station).append(","));
-        result.deleteCharAt(result.length() - 1);
         result.append("I blogged about ")
                 .append(stations.countStationsBlogged())
                 .append(" ")
                 .append(getWordIfPlural("station", stations.countStationsBlogged() + 1))//FIXME remove 1 when I blog about overground station
-                .append(" so far.");
+                .append(" so far. ");
+        stations.displayAllStationsBlogged().forEach(station -> result.append(station).append(","));
+        result.deleteCharAt(result.length() - 1);
+
         return result.toString();
     }
 

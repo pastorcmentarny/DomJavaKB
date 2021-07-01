@@ -75,7 +75,7 @@ class OvergroundCLITest {
     @Test
     public void shouldDisplayAllStationStats() {
         // given
-        when(scanner.nextInt()).thenReturn(8)
+        when(scanner.nextInt()).thenReturn(13)
                 .thenReturn(9);
 
         // when
@@ -91,7 +91,7 @@ class OvergroundCLITest {
     @Test
     public void shouldDisplayStatusForAllStations() {
         // given
-        when(scanner.nextInt()).thenReturn(1)
+        when(scanner.nextInt()).thenReturn(11)
                 .thenReturn(9);
 
         // when
@@ -106,7 +106,7 @@ class OvergroundCLITest {
     @Test
     public void findStationShouldDisplayInfoAboutWembleyPark() {
         // given
-        when(scanner.nextInt()).thenReturn(2)
+        when(scanner.nextInt()).thenReturn(12)
                 .thenReturn(9);
         when(scanner.next()).thenReturn("North Wembley");
 
@@ -122,7 +122,7 @@ class OvergroundCLITest {
     public void updateStationStatusToPassedShouldDisplayErrorMessageIfStationCannotBeFound() {
         // given
         final String invalidStationName = generateString(10);
-        when(scanner.nextInt()).thenReturn(3).thenReturn(2)
+        when(scanner.nextInt()).thenReturn(21).thenReturn(12)
                 .thenReturn(9);
         when(scanner.next()).thenReturn(invalidStationName);
 
@@ -130,13 +130,13 @@ class OvergroundCLITest {
         cli.mainMenu();
 
         // then
-        assertThat(outputStream.toString()).contains("TubeStation " + invalidStationName + " not found");
+        assertThat(outputStream.toString()).contains("Station " + invalidStationName + " not found");
     }
 
     @Test
     public void updateStationStatusToPassedShouldUpdateNotVisitedStationToPassed() {
         // given
-        when(scanner.nextInt()).thenReturn(3).thenReturn(2)
+        when(scanner.nextInt()).thenReturn(21).thenReturn(12)
                 .thenReturn(9);
         when(scanner.next()).thenReturn(WATFORD_JUNCTION_VALID_STATION);
         when(scanner.nextLine()).thenReturn(WATFORD_JUNCTION_VALID_STATION);
@@ -154,7 +154,7 @@ class OvergroundCLITest {
     public void updateStationStatusToVisitedShouldDisplayErrorMessageIfStationCannotBeFound() {
         // given
         final String invalidStationName = generateString(10);
-        when(scanner.nextInt()).thenReturn(4).thenReturn(2)
+        when(scanner.nextInt()).thenReturn(22).thenReturn(12)
                 .thenReturn(9);
         when(scanner.next()).thenReturn(invalidStationName);
 
@@ -162,13 +162,13 @@ class OvergroundCLITest {
         cli.mainMenu();
 
         // then
-        assertThat(outputStream.toString()).contains("TubeStation " + invalidStationName + " not found");
+        assertThat(outputStream.toString()).contains("Station " + invalidStationName + " not found");
     }
 
     @Test
     public void updateStationStatusToVisitedShouldUpdateNotVisitedStationToVisited() {
         // given
-        when(scanner.nextInt()).thenReturn(4).thenReturn(2)
+        when(scanner.nextInt()).thenReturn(22).thenReturn(12)
                 .thenReturn(9);
         when(scanner.next()).thenReturn(WATFORD_JUNCTION_VALID_STATION);
         when(scanner.nextLine()).thenReturn(WATFORD_JUNCTION_VALID_STATION);

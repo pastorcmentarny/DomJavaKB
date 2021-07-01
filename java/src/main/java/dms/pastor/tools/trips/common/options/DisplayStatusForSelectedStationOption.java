@@ -30,13 +30,14 @@ public class DisplayStatusForSelectedStationOption implements Option {
 
     @Override
     public void choose(Stations stations, StationType type) {
+        System.out.println("Select station");
         final String option = scanner.next();
         LOGGER.debug(String.format("Displaying info for %s", option));
         try {
             final Station station = stations.findStation(option);
             System.out.println(station.asFormattedString());
         } catch (NotFoundException nfe) {
-            System.out.println("TubeStation " + option + " not found.");
+            System.out.println("Station " + option + " not found.");
         }
 
     }
