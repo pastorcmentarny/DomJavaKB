@@ -21,7 +21,7 @@ public class DisplayAllStationsNameOption implements Option {
 
     private void displayWarningIfTotalStationNumberIsWrong(Stations stations,StationType type) {
 
-        final int totalNumber = Constants.get_all_stations_number_for(type);
+        final int totalNumber = Constants.getAllStationsNumberFor(type);
         if (stations.totalNumber() != totalNumber) {
             System.out.println("WARNING! Total number should be " + totalNumber + " but file contains only " + stations.totalNumber());
         }

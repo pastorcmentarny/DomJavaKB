@@ -7,6 +7,7 @@ import lombok.EqualsAndHashCode;
 import java.time.LocalDate;
 import java.util.Objects;
 
+import static dms.pastor.tools.trips.common.Constants.getDateAsStringOrNone;
 import static dms.pastor.tools.trips.common.options.Status.NOT_VISITED;
 import static dms.pastor.tools.trips.common.options.Status.PASSED;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
@@ -119,15 +120,12 @@ public class Station {
     public String asLine() {
         return name + FIELD_SEPARATOR +
                 getStatusAsValue() + FIELD_SEPARATOR +
-                getDate(passedDate) + FIELD_SEPARATOR +
-                getDate(visitedDate) + FIELD_SEPARATOR +
-                getDate(thisYearVisitedDate) + FIELD_SEPARATOR +
+                getDateAsStringOrNone(passedDate) + FIELD_SEPARATOR +
+                getDateAsStringOrNone(visitedDate) + FIELD_SEPARATOR +
+                getDateAsStringOrNone(thisYearVisitedDate) + FIELD_SEPARATOR +
                 getBloggedAsString();
     }
 
-    private String getDate(LocalDate date) {
-        return date == null ? "none" : date.toString();
-    }
 
     private String getDateToDisplay() {
         return switch (status) {
