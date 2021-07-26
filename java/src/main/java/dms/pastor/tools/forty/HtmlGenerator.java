@@ -5,15 +5,19 @@ import dms.pastor.utils.file.TextFileUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-import static dms.pastor.utils.StringUtils.NEW_LINE;
+import static dms.pastor.utils.StringUtils.*;
 
 public class HtmlGenerator {
     private static final StringBuilder stringBuilder = new StringBuilder("");
     private static final int WHAT = 0;
     private static final int STATUS = 1;
-    private static final String TAB = "    ";
     private static final int LOG_DATE = 0;
     private static final int LOG_MESSAGE = 1;
+    private static final int ALL_STEPS = 2;
+    private static final int CURRENT_STEP = 3;
+    private static final String TR_TAG = "tr";
+    private static final String DIV_TAG = "div";
+    private static final String TD_TAG = "td";
 
     public String getDocType() {
         return "<!DOCTYPE html>" + NEW_LINE;
@@ -80,17 +84,17 @@ public class HtmlGenerator {
                 .append(getHeadTag())
                 .append(getStartTagFor("body"))
                 .append(getNavTag())
-                .append(getStartTagWithClass("div", "row"))
+                .append(getStartTagWithClass(DIV_TAG, "row"))
                 .append(getStartTagWithClass("table", "table"))
                 .append(getTHeadTag())
                 .append(getStartTagFor("tbody"))
                 .append(generate40things(loadData()))
                 .append(getEndFor("tbody"))
                 .append(getEndFor("table"))
-                .append(getEndFor("div"))
-                .append(getStartTagFor("div"))
+                .append(getEndFor(DIV_TAG))
+                .append(getStartTagFor(DIV_TAG))
                 .append(generateLogs())
-                .append(getEndFor("div"))
+                .append(getEndFor(DIV_TAG))
                 .append(getEndFor("body"))
                 .append(getEndFor("html"))
                 .toString();
@@ -101,13 +105,13 @@ public class HtmlGenerator {
         List<String> logsList = new ArrayList<>();
         logsList.add("20210726;;read 5 books to J");
         logsList.add("20210708;;Buy trees to donate");
-        StringBuilder logs = new StringBuilder("");
+        StringBuilder logs = new StringBuilder();
         logs.append(getStartTagFor("h4"))
                 .append("Progress log:")
                 .append(getEndFor("h4"));
         logs.append(getStartTagFor("ol"));
         for (String entry : logsList) {
-            String[] item = entry.split(";;");
+            String[] item = entry.split(COLUMN_SEPARATOR);
             logs.append(getStartTagFor("li"))
                     .append(item[LOG_DATE])
                     .append(" - ")
@@ -119,29 +123,37 @@ public class HtmlGenerator {
     }
 
     public String generate40things(List<String> todoList) {
-        StringBuilder fortyList = new StringBuilder("");
+        StringBuilder fortyList = new StringBuilder();
         for (int i = 0; i < todoList.size(); i++) {
             addOpenTagIfIsFirstElement(fortyList, i);
 
-            String[] item = todoList.get(i).split(";;");
+            String[] item = todoList.get(i).split(COLUMN_SEPARATOR);
             fortyList.append(TAB)
-                    .append(getStartTagWithClass("td", Status.getStatusFrom(item[STATUS]).getCssClass()))
+                    .append(getStartTagWithClass(TD_TAG, Status.getStatusFrom(item[STATUS]).getCssClass()))
                     .append(item[WHAT])
-                    .append(getEndFor("td"));
+                    .append(addDetailsIfMultistage(item))
+                    .append(getEndFor(TD_TAG));
 
             if (i % 4 == 3 && todoList.size() - 1 != i) {
-                fortyList.append("</tr>" + NEW_LINE + "<tr>" + NEW_LINE);
+                fortyList.append(getEndFor(TR_TAG)).append(NEW_LINE).append(getStartTagFor(TR_TAG)).append(NEW_LINE);
             } else if (isLastClosingTag(todoList, i)) {
-                fortyList.append("</tr>");
+                fortyList.append(getEndFor(TR_TAG));
             }
 
         }
         return fortyList.toString();
     }
 
+    private String addDetailsIfMultistage(String[] item) {
+        if(item.length == 4){
+          return String.format(" [%s/%s]",item[CURRENT_STEP],item[ALL_STEPS]);
+        }
+        return "";
+    }
+
     private void addOpenTagIfIsFirstElement(StringBuilder fortyList, int i) {
         if (i == 0) {
-            fortyList.append("<tr>").append(NEW_LINE);
+            fortyList.append(getStartTagFor(TR_TAG)).append(NEW_LINE);
         }
     }
 

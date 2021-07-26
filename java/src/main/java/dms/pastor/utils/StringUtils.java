@@ -25,6 +25,7 @@ import static java.util.stream.Collectors.toList;
 // because string is valid name and this is utility class
 public final class StringUtils {
     public static final String EMPTY_STRING = "";
+    public static final String TAB = "    ";
     public static final String DASH = "-";
     public static final String WHITESPACE = " ";
     public static final char WHITESPACE_CHAR = ' ';
@@ -34,6 +35,7 @@ public final class StringUtils {
     public static final String ALPHANUMERIC = ALPHABET.toUpperCase() + ALPHABET + "0123456789";
     public static final String COMMA = ",";
     public static final String UNDERSCORE = "_";
+    public static final String COLUMN_SEPARATOR = ";;";
     static final String NON_ALPHANUMERIC = "~#&@£$^'`\".,:;*–+=(){}[]<>?!\\|/";
     private static final String ALPHABET_BOTH_CASE = ALPHABET + ALPHABET.toUpperCase();
     private static final String ALPHANUMERIC_REGEX = "[^a-zA-Z0-9]";

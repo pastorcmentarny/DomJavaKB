@@ -12,6 +12,7 @@ import java.util.Collections;
 import java.util.List;
 
 import static dms.pastor.tools.chinese.validator.WordValidator.isWordValid;
+import static dms.pastor.utils.StringUtils.COLUMN_SEPARATOR;
 import static java.lang.String.format;
 
 /**
@@ -25,7 +26,6 @@ import static java.lang.String.format;
  */
 public class FromFileImporter implements Importer<List<Word>> {
     private static final String IGNORED_WORD = "////";
-    private static final String COLUMN_SEPARATOR = ";;";
     private static final String GROUP_SEPARATOR = "~~";
     private static final Logger LOGGER = LoggerFactory.getLogger(FromFileImporter.class);
     public static final int COLUMNS = 11;
