@@ -1,0 +1,40 @@
+Visit Poland with J only;;TO_DO;;
+Train trip with J;;TO_DO;;
+Read 365 book to J;;TO_DO;;365;;5
+12x family day outs;;BLOCKED;;12;;1
+Plant garlic, oregano, thyme, mint and coriander and chilli;;TO_DO;;
+Chinese lvl 2;;TO_DO;;
+Photography course;;TO_DO;;
+Barista course;;TO_DO;;
+Learn Kotlin;;IN_PROGRESS;;
+Learn Go;;TO_DO;;
+Learn Haskell;;TO_DO;;
+Learn Rust;;TO_DO;;
+Run in four 10km race;;BLOCKED;;
+Run 1460km;;BLOCKED;;
+Walk 50000 steps;;TO_DO;;
+Run at least 2km per day;;BLOCKED;;365;;1
+Write 40 blog posts;;TO_DO;;
+Do all Overground Station challenge;;TO_DO;;
+Do RPi project;;TO_DO;;
+Publish one video on Youtube;;TO_DO;;
+Donate to plant tree;;DONE;;
+Driving licence;;TO_DO;;
+Learn meditation;;TO_DO;;
+Write biography;;TO_DO;;
+1 week long holiday in new country (Booked);;TO_DO;;
+Play a board game with Xu;;TO_DO;;
+Design the SpaceTrain office in Shed;;WORKING_ON;;
+Dom’90;;BLOCKED;;
+Write AberRPG story;;BLOCKED;;
+Read 1 book per quarter;;IN_PROGRESS;;4;;0
+Visit Poland with whole family;;TO_DO;;
+Give a blood;;TO_DO;;
+Fasting for 72 hours;;TO_DO;;
+Re-learn Spring Framework;;TO_DO;;
+Re-learn Apache Kafka;;TO_DO;;
+Re-do design patterns;;IN_PROGRESS;;
+The epic home2home trip;;TO_DO;;
+Travel on longest train in Poland;;TO_DO;;
+Explore all station on the one of the tube line;;TO_DO;;
+Watch 40 movies with Xu;;WORKING_ON;;1/40
