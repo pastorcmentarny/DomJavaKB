@@ -2,7 +2,8 @@ package dms.pastor.tools.forty;
 
 import dms.pastor.utils.file.TextFileUtils;
 
-import java.util.ArrayList;
+import java.time.LocalDate;
+import java.util.Collections;
 import java.util.List;
 
 import static dms.pastor.utils.StringUtils.*;
@@ -21,6 +22,7 @@ public class HtmlGenerator {
     private static final String LI_TAG = "li";
     private static final String BODY_TAG = "body";
     private static final String ORDERED_LIST_TAG = "ol";
+    private static final String H4_TAG = "h4";
 
     public String getDocType() {
         return "<!DOCTYPE html>" + NEW_LINE;
@@ -91,7 +93,7 @@ public class HtmlGenerator {
                 .append(getStartTagWithClass("table", "table"))
                 .append(getTHeadTag())
                 .append(getStartTagFor("tbody"))
-                .append(generate40things(loadData()))
+                .append(generate40things(loadProgressData()))
                 .append(getEndFor("tbody"))
                 .append(getEndFor("table"))
                 .append(getEndFor(DIV_TAG))
@@ -103,27 +105,6 @@ public class HtmlGenerator {
                 .toString();
     }
 
-    //TODO implement
-    private String generateLogs() {
-        List<String> logsList = new ArrayList<>();
-        logsList.add("20210726;;read 5 books to J");
-        logsList.add("20210708;;Buy trees to donate");
-        StringBuilder logs = new StringBuilder();
-        logs.append(getStartTagFor("h4"))
-                .append("Progress log:")
-                .append(getEndFor("h4"));
-        logs.append(getStartTagFor(ORDERED_LIST_TAG));
-        for (String entry : logsList) {
-            String[] item = entry.split(COLUMN_SEPARATOR);
-            logs.append(getStartTagFor(LI_TAG))
-                    .append(item[LOG_DATE])
-                    .append(" - ")
-                    .append(item[LOG_MESSAGE])
-                    .append(getEndFor(LI_TAG));
-        }
-        logs.append(getEndFor(ORDERED_LIST_TAG));
-        return logs.toString();
-    }
 
     public String generate40things(List<String> todoList) {
         StringBuilder fortyList = new StringBuilder();
@@ -147,6 +128,32 @@ public class HtmlGenerator {
         return fortyList.toString();
     }
 
+
+    private String generateLogs() {
+        List<String> logsList = loadLogData();
+        Collections.reverse(loadLogData());
+        StringBuilder logs = new StringBuilder();
+        logs.append(getStartTagFor(H4_TAG))
+                .append("Progress log:")
+                .append(getEndFor(H4_TAG));
+        logs.append(getStartTagFor(ORDERED_LIST_TAG));
+        for (String entry : logsList) {
+            String[] item = entry.split(COLUMN_SEPARATOR);
+
+            logs.append(getStartTagFor(LI_TAG))
+                    .append(getLogDate(item))
+                    .append(" - ")
+                    .append(item[LOG_MESSAGE])
+                    .append(getEndFor(LI_TAG));
+        }
+        logs.append(getEndFor(ORDERED_LIST_TAG));
+        return logs.toString();
+    }
+
+    private String getLogDate(String[] item) {
+        return LocalDate.of(Integer.parseInt(item[LOG_DATE].substring(0, 4)), Integer.parseInt(item[LOG_DATE].substring(4, 6)), Integer.parseInt(item[LOG_DATE].substring(6))).toString();
+    }
+
     private boolean isNewRow(List<String> todoList, int index) {
         return index % 4 == 3 && todoList.size() - 1 != index;
     }
@@ -168,8 +175,12 @@ public class HtmlGenerator {
         return index != 0 && todoList.size() - 1 == index;
     }
 
-    private List<String> loadData() {
+    private List<String> loadProgressData() {
         return TextFileUtils.loadFileFromResourceAsListOfStrings("fortyB440.txt");
+    }
+
+    private List<String> loadLogData() {
+        return TextFileUtils.loadFileFromResourceAsListOfStrings("fortyB440-log.txt");
     }
 
     public boolean saveAsHtml() {
