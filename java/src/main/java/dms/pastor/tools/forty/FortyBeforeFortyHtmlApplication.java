@@ -6,6 +6,8 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
+import static java.awt.Desktop.isDesktopSupported;
+
 public class FortyBeforeFortyHtmlApplication {
 
     public static void main(String[] args) {
@@ -17,9 +19,10 @@ public class FortyBeforeFortyHtmlApplication {
     }
 
     private static void openHtmlFile() {
-        if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+        final Desktop desktop = Desktop.getDesktop();
+        if (isDesktopSupported() && desktop.isSupported(Desktop.Action.BROWSE)) {
             try {
-                Desktop.getDesktop().open(new File("B:\\GitHub\\denva\\src\\templates\\40b440.html"));
+                desktop.open(new File("B:\\GitHub\\denva\\src\\templates\\40b440.html"));
             } catch (IOException exception) {
                 throw new SomethingWentTerribleWrongError(exception.getMessage());
             }

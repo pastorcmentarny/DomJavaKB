@@ -1,5 +1,6 @@
 package dms.pastor.tools.forty;
 
+@SuppressWarnings("unused") //it is used due to tranformation from file
 public enum Status {
     WORKING_ON("I did some progress,but recently there is no progress", "table-primary"),
     IN_PROGRESS("Currently in progress to complete", "table-info"),
@@ -24,4 +25,6 @@ public enum Status {
     public String getCssClass() {
         return cssClass;
     }
+
+
 }

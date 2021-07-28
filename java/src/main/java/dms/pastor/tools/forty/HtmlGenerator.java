@@ -1,12 +1,13 @@
 package dms.pastor.tools.forty;
 
-import dms.pastor.utils.file.TextFileUtils;
-
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
 
 import static dms.pastor.utils.StringUtils.*;
+import static dms.pastor.utils.file.TextFileUtils.loadFileFromResourceAsListOfStrings;
+import static dms.pastor.utils.file.TextFileUtils.saveTextToFile;
+import static java.lang.Integer.parseInt;
 
 public class HtmlGenerator {
     private static final StringBuilder stringBuilder = new StringBuilder();
@@ -133,10 +134,18 @@ public class HtmlGenerator {
         List<String> logsList = loadLogData();
         Collections.reverse(loadLogData());
         StringBuilder logs = new StringBuilder();
+
         logs.append(getStartTagFor(H4_TAG))
                 .append("Progress log:")
                 .append(getEndFor(H4_TAG));
         logs.append(getStartTagFor(ORDERED_LIST_TAG));
+
+        addLogLines(logsList, logs);
+        logs.append(getEndFor(ORDERED_LIST_TAG));
+        return logs.toString();
+    }
+
+    private void addLogLines(List<String> logsList, StringBuilder logs) {
         for (String entry : logsList) {
             String[] item = entry.split(COLUMN_SEPARATOR);
 
@@ -146,12 +155,10 @@ public class HtmlGenerator {
                     .append(item[LOG_MESSAGE])
                     .append(getEndFor(LI_TAG));
         }
-        logs.append(getEndFor(ORDERED_LIST_TAG));
-        return logs.toString();
     }
 
     private String getLogDate(String[] item) {
-        return LocalDate.of(Integer.parseInt(item[LOG_DATE].substring(0, 4)), Integer.parseInt(item[LOG_DATE].substring(4, 6)), Integer.parseInt(item[LOG_DATE].substring(6))).toString();
+        return LocalDate.of(parseInt(item[LOG_DATE].substring(0, 4)), parseInt(item[LOG_DATE].substring(4, 6)), parseInt(item[LOG_DATE].substring(6))).toString();
     }
 
     private boolean isNewRow(List<String> todoList, int index) {
@@ -160,7 +167,7 @@ public class HtmlGenerator {
 
     private String addDetailsIfMultistage(String[] item) {
         if (item.length == 4) {
-            return String.format(" [%s/%s]", item[CURRENT_STEP], item[ALL_STEPS]);
+            return " [%s/%s]".formatted(item[CURRENT_STEP], item[ALL_STEPS]);
         }
         return EMPTY_STRING;
     }
@@ -176,17 +183,18 @@ public class HtmlGenerator {
     }
 
     private List<String> loadProgressData() {
-        return TextFileUtils.loadFileFromResourceAsListOfStrings("fortyB440.txt");
+        return loadFileFromResourceAsListOfStrings("fortyB440.txt");
     }
 
     private List<String> loadLogData() {
-        return TextFileUtils.loadFileFromResourceAsListOfStrings("fortyB440-log.txt");
+        return loadFileFromResourceAsListOfStrings("fortyB440-log.txt");
     }
 
     public boolean saveAsHtml() {
-        return TextFileUtils.saveTextToFile(stringBuilder.toString(), "B:\\GitHub\\denva\\src\\templates\\40b440.html");
+        return saveTextToFile(stringBuilder.toString(), "B:\\GitHub\\denva\\src\\templates\\40b440.html");
     }
 
+    @SuppressWarnings("SameReturnValue")
     private String getTHeadTag() {
         return """
                         <thead>
