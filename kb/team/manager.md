@@ -37,6 +37,8 @@ What feedback do you have for me?
 # Set Up Communication Guidelines
 
 
+"You only say things about fellow employees you say to their face."
+
 
 Source:
 

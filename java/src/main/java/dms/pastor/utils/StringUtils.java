@@ -310,6 +310,10 @@ public final class StringUtils {
         return string.substring(0, 1).toUpperCase();
     }
 
+    public static String capitalizeWord(String string) {
+        return capitalizeFirstCharacter(string) + string.substring(1);
+    }
+
 
     public static String removeCharacterFromString(Character character, String string) {
         if (Objects.isNull(string)) {
