@@ -19,7 +19,7 @@ def clean_sentence(sentence: str) -> str:
 
 
 def display_unique_lines():
-    food_data = open(r'B:\GitHub\DomJavaKB\data\food.txt', encoding='UTF-8')
+    food_data = open(r'B:\GitHub\DomKB\data\food.txt', encoding='UTF-8')
     content = food_data.readlines()
     result_list = []
     for line in content:

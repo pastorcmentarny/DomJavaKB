@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 class SortDemoTest {
     //FIXME move to config
-    private static final String base = "B:\\GitHub\\DomJavaKB\\java\\src\\main\\resources\\sorting\\";
+    private static final String base = "B:\\GitHub\\DomKB\\java\\src\\main\\resources\\sorting\\";
 
     @Test //TODO merge with String Algorithm runner
     public void sortDemoTestOneAcceptanceTest() {

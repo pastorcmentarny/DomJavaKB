@@ -2,11 +2,11 @@ import csv
 
 from src.tools.lotto.utils import output
 
-THUNDERBALL_RESULTS_PATH = r'B:\GitHub\DomJavaKB\data\lotto\thunderball-results-2021.csv'
-EURO_RESULTS_PATH = r'B:\GitHub\DomJavaKB\data\lotto\euro-results-2021.csv'
-EURO_HOTPICS_RESULT_PATH = r'B:\GitHub\DomJavaKB\data\lotto\euro-hotpicks-results-2021.csv'
-HOTPICS_RESULTS_PATH = r'B:\GitHub\DomJavaKB\data\lotto\lotto-hotpicks-results-2021.csv'
-LOTTO_RESULTS_PATH = r'B:\GitHub\DomJavaKB\data\lotto\lotto-results-2021.csv'
+THUNDERBALL_RESULTS_PATH = r'B:\GitHub\DomKB\data\lotto\thunderball-results-2021.csv'
+EURO_RESULTS_PATH = r'B:\GitHub\DomKB\data\lotto\euro-results-2021.csv'
+EURO_HOTPICS_RESULT_PATH = r'B:\GitHub\DomKB\data\lotto\euro-hotpicks-results-2021.csv'
+HOTPICS_RESULTS_PATH = r'B:\GitHub\DomKB\data\lotto\lotto-hotpicks-results-2021.csv'
+LOTTO_RESULTS_PATH = r'B:\GitHub\DomKB\data\lotto\lotto-results-2021.csv'
 
 ALL_GAMES = 'all_games'
 ALL_TICKET_COST = 'all_ticket_cost'

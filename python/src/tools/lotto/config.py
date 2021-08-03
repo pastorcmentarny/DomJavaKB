@@ -16,7 +16,7 @@ def display_warning_message(path):
 
 def get_project_path(file: str):
     device = {
-        'DomL5': 'D:/Projects/DomJavaKB/data/lotto/',
-        'DOM-DESKTOP': 'B:/GitHub/DomJavaKB/data/lotto/',
+        'DomL5': 'D:/Projects/DomKB/data/lotto/',
+        'DOM-DESKTOP': 'B:/GitHub/DomKB/data/lotto/',
     }
     return f'{device[platform.node()]}{file}'

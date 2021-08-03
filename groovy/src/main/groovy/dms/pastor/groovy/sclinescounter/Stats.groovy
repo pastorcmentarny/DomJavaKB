@@ -6,7 +6,7 @@ import java.text.DecimalFormat
 
 // DO NOT FORGET UPDATE HISTORY OF CHANGES...DAILY
 class Stats {
-    def static PATH_TO_DIRECTORY = ["C:\\ds\\projects\\DomJavaKB"]
+    def static PATH_TO_DIRECTORY = ["C:\\ds\\projects\\DomKB"]
 
     static main(args) {
         println("Stats for Dom Linker")

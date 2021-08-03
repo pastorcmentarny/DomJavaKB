@@ -12,7 +12,7 @@ import java.util.Calendar;
 
 public class SortDemo {
     //FIXME move to config
-    private static final String base = "B:\\GitHub\\DomJavaKB\\java\\src\\main\\resources\\sorting\\";
+    private static final String base = "B:\\GitHub\\DomKB\\java\\src\\main\\resources\\sorting\\";
 
     public Comparable<Integer>[] readData(String fileName) {
         Comparable<Integer>[] items;
