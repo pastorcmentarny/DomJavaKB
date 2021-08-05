@@ -15,13 +15,7 @@
  * Whem you create more tokens, By default, this will create a child token of your current token that inherits all the same policies. The "child" concept here is important: tokens always have a parent, and when that parent token is revoked, children can also be revoked all in one operation
  * In practice, operators should not use the token create command to generate Vault tokens for users or machines. Instead, those users or machines should authenticate to Vault using any of Vault's configured auth methods such as GitHub, LDAP, AppRole, etc
  * Policies in Vault control what a user can access (authorization).
-  
+ * The help system may not be the most exciting feature of Vault, but it is indispensable in day-to-day usage  
 
 #### USEFUL COMMANDS
-* ```vault auth list``` command will list all enabled auth methods. 
-  
-Funh         
-* The help system may not be the most exciting feature of Vault, but it is indispensable in day-to-day usage         
- Resources:
- * https://www.hashicorp.com/blog/vault-1-0
- * https://learn.hashicorp.com/vault/getting-started/
+ * ```vault auth list``` command will list all enabled auth methods. 

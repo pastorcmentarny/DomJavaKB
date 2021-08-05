@@ -22,7 +22,3 @@ Regex works on characters, not words. Concatenation is implied.
 * ```^.*\b(CONTENT)\b.*$``` Select everything before CONTENT and everything after
 * ```.*(50|51|52|53|54|55|56|57|58|59).*```
 * ```REGEX remove blank lines: ^(?:[\t ]*(?:\r?\n|\r))+```
-
-## Resources:
-
-* https://www.janmeppe.com/blog/regex-for-noobs/

@@ -1,3 +1,9 @@
+## **HONEST WARNING**
+**Content in this KB is for me ONLY.**
+It contains definitions that explain things in the way that is easiest for me to understand.
+_I am not the author of these definitions so check resources section for the origin of definitions._
+
+
 RESOURCES:
  * How to add security log level to log4j https://www.owasp.org/index.php/How_to_add_a_security_log_level_in_log4j
  * About logging: http://juliusdavies.ca/logging.html
@@ -54,5 +60,11 @@ RESOURCES:
  * https://dzone.com/articles/sprint-review-tips-for-product-owners
  * https://www.linkedin.com/pulse/3-awesome-ux-hacks-megan-wilson/
  * https://blog.usejournal.com/stop-writing-code-comments-28fef5272752
+ * https://martinfowler.com/articles/on-pair-programming.html
+ * https://www.janmeppe.com/blog/regex-for-noobs/
+ * https://www.hashicorp.com/blog/vault-1-0
+ * https://learn.hashicorp.com/vault/getting-started/
+ * https://www.codenotfound.com/spring-kafka-consumer-producer-example.html
+ * https://opencredo.com/blogs/kafka-connect-source-connectors-a-detailed-guide-to-connecting-to-what-you-love/
 
 

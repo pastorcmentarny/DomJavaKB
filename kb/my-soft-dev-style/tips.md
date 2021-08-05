@@ -1,3 +1,9 @@
+## **HONEST WARNING**
+**Content in this KB is for me ONLY.**
+It contains definitions that explain things in the way that is easiest for me to understand.
+_I am not the author of these definitions so check resources section for the origin of definitions._
+
+
 # BEING A BETTER DEVELOPER TIPS
 1.  Do Root Cause Analysis for mistakes you made. Write down a short description of the bug, the fix, and the lessons I learned. Each case should have a date, how many times it happens, symptoms, caused, fix, lesson learned. Use my blog to do that.
 2.  Fundamentals - It's a lot easier to pick up new skills when you have a real command of the underlying fundamentals. For example, if you understand JavaScript deeply, you can master any new JavaScript framework in record speed. If you know Object Oriented Programming deeply, you can master new object-oriented languages quickly, too. Learning the fundamentals can increase 10x your learning efficiency.

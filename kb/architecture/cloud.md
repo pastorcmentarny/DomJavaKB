@@ -1,3 +1,9 @@
+## **HONEST WARNING**
+**Content in this KB is for me ONLY.**
+It contains definitions that explain things in the way that is easiest for me to understand.
+_I am not the author of these definitions so check resources section for the origin of definitions._
+
+
 The cloud intends to make it easy to provision infrastructure when you need it, and just as easy to release it when you don't. 
 
 
@@ -36,13 +42,6 @@ Ideally an application should be stateless.
 Logs - Treat Logs as Event Streams
 Visibility is one of the most important requirements of a microservices architecture.
 All one needs to do in order to debug a problem, is to go to the central dashboard and search for it.
-
-
-
-
-
-
-
 
 Challenges of Developing Cloud Applications
 

@@ -17,3 +17,8 @@ The developer is able to make incremental progress in a day, and goes home happy
 
 
 Organizations look for ways to measure developer productivity. The common anti-pattern is to look at lines of code, feature output or to put too much focus on trying to spot the underperforming developers. It i
+
+If a colleague or friend no-shows you for a prearranged meeting, here are Modern Mentor's top tips for communicating about it after:
+Be stern — let them know that what they did was unacceptable and it cannot happen again
+Don't reschedule immediately — find a time that works in your schedule without moving anything around
+If something important and unavoidable does come up, there is no excuse for not letting your colleagues know that you need to reschedule. 

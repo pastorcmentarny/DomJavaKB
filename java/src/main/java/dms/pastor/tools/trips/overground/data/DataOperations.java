@@ -25,7 +25,7 @@ import java.util.List;
 public final class DataOperations {
     private static final Logger LOGGER = LoggerFactory.getLogger(DataOperations.class);
 
-    public static final Path STATION_PATH = Paths.get("B:\\GitHub\\DomJavaKB\\java\\src\\main\\resources\\transport\\overground\\station.txt");
+    public static final Path STATION_PATH = Paths.get("B:\\GitHub\\DomKB\\java\\src\\main\\resources\\transport\\overground\\station.txt");
 
 
 /*

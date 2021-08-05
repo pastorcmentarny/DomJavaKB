@@ -1,3 +1,6 @@
+20210805;;Run 2k
+20210804;;Read 1 book to J
+20210804;;Run 2k
 20210803;;Run 2k
 20210802;;Run 2k
 20210802;;Finish read a BOOK

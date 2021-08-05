@@ -146,6 +146,3 @@ Kafka is a distributed streaming platform built on top of partitioned log files.
   * Primitive type: Avro supports all the primitive types. We use primitive type name to define a type of a given field. For example, a value which holds a String should be declared as {“type”: “string”} in Schema
   * Complex type: Avro supports six kinds of complex types: records, enums, arrays, maps, unions and fixed
 
-# Sources:
-* https://www.codenotfound.com/spring-kafka-consumer-producer-example.html
-https://opencredo.com/blogs/kafka-connect-source-connectors-a-detailed-guide-to-connecting-to-what-you-love/

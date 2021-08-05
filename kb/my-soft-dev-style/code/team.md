@@ -1,3 +1,8 @@
+## **HONEST WARNING**
+**Content in this KB is for me ONLY.**
+It contains definitions that explain things in the way that is easiest for me to understand.
+_I am not the author of these definitions so check resources section for the origin of definitions._
+
 # METHODOLOGY
 
 ## BRAINSTORM:
@@ -379,9 +384,3 @@ We will not consider the approach with mocking static methods due to its bad per
 * YAGNI — “You Ain’t Gonna Need It”. If you run into a situation where you are asking yourself, “What about adding extra (feature, code, …etc.) ?”, you probably need to re-think it.
 * Each attendee should call in from their own computer and have their video turned on
 * Give credit where credit is due—always tag the person where work is happening that references them
-
-
-
-# Resources:
-* https://martinfowler.com/articles/on-pair-programming.html
-
