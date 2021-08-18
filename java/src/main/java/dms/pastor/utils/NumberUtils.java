@@ -20,7 +20,7 @@ import static java.math.RoundingMode.HALF_UP;
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
 public final class NumberUtils {
-    private static final Logger LOGGER = LoggerFactory.getLogger(Word.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(NumberUtils.class);
     private static final int FACTORIAL_MAXIMUM_VALUE = 19;
     private static final int FACTORIAL_NEGATIVE_MAXIMUM_VALUE = -FACTORIAL_MAXIMUM_VALUE;
 
@@ -166,6 +166,7 @@ public final class NumberUtils {
         return reversedNumber == number;
     }
 
+
     //done as part of learning of basic of TDD in 2012
     @SuppressWarnings("MagicNumber") // it is not a magic number
     static String getShortAs8BitRepresentation(int number) {
@@ -213,8 +214,6 @@ public final class NumberUtils {
     private static float getResult(float currentValue, float value, int comparisonResult) {
         if (comparisonResult > 0) {
             return currentValue;
-        } else if (comparisonResult < 0) {
-            return value;
         } else {
             return value;
         }
