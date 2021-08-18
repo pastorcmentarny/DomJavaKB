@@ -1,7 +1,7 @@
 Visit Poland with J only;;TO_DO;;
 Train trip with J;;TO_DO;;
 Read 365 book to J;;TO_DO;;365;;6
-12x family day outs;;BLOCKED;;12;;1
+12x family day outs;;WORKING_ON;;12;;2
 Barista course;;TO_DO;;
 Re-learn Spring Framework;;WORKING_ON;;
 Re-learn Apache Kafka;;TO_DO;;
@@ -13,7 +13,7 @@ Learn Rust;;TO_DO;;
 Run in four 10km race;;BLOCKED;;
 Run 1460km;;WORKING_ON;;
 Walk 50000 steps;;TO_DO;;
-Run at least 2km per day;;IN_PROGRESS;;365;;5
+Run at least 2km per day;;IN_PROGRESS;;365;;10
 The epic home2home trip;;TO_DO;;
 Travel on longest train in Poland;;TO_DO;;
 Explore all station on the one of the tube line;;TO_DO;;

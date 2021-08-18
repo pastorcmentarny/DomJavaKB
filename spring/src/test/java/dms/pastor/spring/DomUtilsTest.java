@@ -11,7 +11,7 @@ class DomUtilsTest {
 
     private static final int REPEAT_AMOUNT = 100;
 
-    @Test
+    @Test //TODO finish it
     void getRandomCharacterFromAlphabet() {
     }
 
