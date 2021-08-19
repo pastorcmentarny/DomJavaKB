@@ -11,9 +11,9 @@ Learn Go;;TO_DO;;
 Learn Haskell;;TO_DO;;
 Learn Rust;;TO_DO;;
 Run in four 10km race;;BLOCKED;;
-Run 1460km;;WORKING_ON;;
+Run 1460km;;IN_PROGRESS;;
 Walk 50000 steps;;TO_DO;;
-Run at least 2km per day;;IN_PROGRESS;;365;;10
+Run at least 2km per day;;IN_PROGRESS;;365;;11
 The epic home2home trip;;TO_DO;;
 Travel on longest train in Poland;;TO_DO;;
 Explore all station on the one of the tube line;;TO_DO;;
@@ -21,7 +21,7 @@ Do all Overground Station challenge;;TO_DO;;
 Visit Poland with whole family;;TO_DO;;
 Watch 40 movies with Xu;;WORKING_ON;;40;;2
 Play a board game with Xu;;TO_DO;;10;;0
-1 week long holiday in new country (Booked);;WORKING_ON;;
+1 week long holiday in new country (Booked);;IN_PROGRESS;;
 Donate to plant tree;;DONE;;
 Driving licence;;TO_DO;;
 Learn meditation;;TO_DO;;
