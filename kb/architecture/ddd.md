@@ -73,7 +73,6 @@ Each layer is aware of only those layers below it. As such, a layer at a lower l
 
 **Sources**:
 - https://dzone.com/refcardz/getting-started-domain-driven
-- 
 
 
 DDD breaks the whole domain model created for the enterprise into subdomains. Each subdomain will have a model, and the scope of that model will be called the bounded context. Each microservice will be developed around the bounded context.
