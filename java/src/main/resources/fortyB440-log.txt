@@ -1,3 +1,13 @@
+20210909;;Run 2k
+20210908;;Run 2k
+20210907;;Run 2k
+20210906;;Run 2k
+20210905;;Read 1 books to J
+20210905;;RPi project (J's Pi Traffic)
+20210904;;Watch movie with X
+20210904;;Day out with J
+20210902;;Run 2k
+20210831;;Read 1 books to J
 20210830;;1 week long holiday in new country
 20210819;;Run 2k
 20210818;;Run 2k

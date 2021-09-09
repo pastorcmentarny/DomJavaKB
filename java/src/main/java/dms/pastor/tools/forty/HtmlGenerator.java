@@ -90,6 +90,7 @@ public class HtmlGenerator {
                 .append(getHeadTag())
                 .append(getStartTagFor(BODY_TAG))
                 .append(getNavTag())
+                .append(generateMiniTitle())
                 .append(getStartTagWithClass(DIV_TAG, "row"))
                 .append(getStartTagWithClass("table", "table"))
                 .append(getTHeadTag())
@@ -104,6 +105,13 @@ public class HtmlGenerator {
                 .append(getEndFor("body"))
                 .append(getEndFor("html"))
                 .toString();
+    }
+
+    // just to use #40b440 as color :D
+    private String generateMiniTitle() {
+        return """
+                <h2 style="color:#40b440">40 things to do before 40 year birthday</h2>
+                """;
     }
 
 

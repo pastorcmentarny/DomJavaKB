@@ -1,6 +1,6 @@
-Visit Poland with J only;;TO_DO;;
-Train trip with J;;TO_DO;;
-Read 365 book to J;;TO_DO;;365;;7
+12 Day's out with J;;TO_DO;;12;;1
+CHANGE;;TO_DO;;
+Read 365 book to J;;TO_DO;;365;;10
 12x family day outs;;WORKING_ON;;12;;2
 Barista course;;TO_DO;;
 Re-learn Spring Framework;;WORKING_ON;;
@@ -13,13 +13,13 @@ Learn Rust;;TO_DO;;
 Run in four 10km race;;BLOCKED;;
 Run 1460km;;IN_PROGRESS;;
 Walk 50000 steps;;TO_DO;;
-Run at least 2km per day;;IN_PROGRESS;;365;;11
+Run at least 2km per day;;IN_PROGRESS;;365;;16
 The epic home2home trip;;TO_DO;;
 Travel on longest train in Poland;;TO_DO;;
 Explore all station on the one of the tube line;;TO_DO;;
 Do all Overground Station challenge;;TO_DO;;
 Visit Poland with whole family;;TO_DO;;
-Watch 40 movies with Xu;;WORKING_ON;;40;;2
+Watch 40 movies with Xu;;WORKING_ON;;40;;3
 Play a board game with Xu;;TO_DO;;10;;0
 1 week long holiday in new country;;DONE;;
 Donate to plant tree;;DONE;;
@@ -27,14 +27,14 @@ Driving licence;;TO_DO;;
 Learn meditation;;TO_DO;;
 Write biography;;TO_DO;;
 Fasting for 24/36/48/72 hours;;TO_DO;;4;;0
-Do RPi project;;TO_DO;;
+Do RPi project;;DONE;;
 Design the SpaceTrain office in Shed;;WORKING_ON;;
-Dom’90;;PAUSED;;
+Dom’90;;IN_PROGRESS;;
 Write AberRPG story;;BLOCKED;;
 Read 1 book per quarter;;IN_PROGRESS;;4;;1
 Write 40 blog posts;;WORKING_ON;;40;;1
 Give a blood;;TO_DO;;
-Plant garlic, oregano, thyme, mint and coriander and chilli;;TO_DO;;
+Plant garlic, oregano, thyme, mint and coriander and chilli;;WORKING_ON;;
 Chinese lvl 2;;TO_DO;;
 Photography course;;TO_DO;;
 Publish one video on Youtube;;TO_DO;;

@@ -6,3 +6,8 @@
 * ```git rm -r --cached crap.file``` - remove file from git index
 * ```git shortlog -sn --no-merges``` Show's highscore for who commit most :D
 * Git Binary search, or bisection, is useful when troubleshooting
+  git rm -r --cached .
+  git add .
+  git commit -m 'git cache cleared'
+  git push
+* 
