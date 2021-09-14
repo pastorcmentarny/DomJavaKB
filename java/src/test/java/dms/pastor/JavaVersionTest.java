@@ -8,10 +8,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class JavaVersionTest {
 
 
-    @Test //Update me, when ne
+    @Test
     public void shouldRunTestOnSpecificVersionOfJava() {
         // given
-        String latestJavaVersion = "16.0.1";
+        String latestJavaVersion = "16.0.2";
 
         // when
         final var result = System.getProperty("java.version");
