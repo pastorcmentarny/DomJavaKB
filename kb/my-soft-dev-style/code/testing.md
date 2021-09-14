@@ -2,6 +2,8 @@
 **Content in this KB is for me ONLY.**
 It contains definitions that explain things in the way that is easiest for me to understand.
 _I am not the author of these definitions so check resources section for the origin of definitions._
+
+
 1.  Test code is just as important as production code. It is not a second-class citizen. It requires thought, design, and care. It must be kept as clean as production code. What makes a clean test? Three things. readability, readability, and readability. Readability is perhaps even more important in unit tests than it is in production code. What makes tests readable? Clarity, simplicity, and density of expression. If you don’t keep your tests clean, you will lose the very thing that keeps your production code ﬂexible. It is unit tests that keep our code ﬂexible, maintainable, and reusable. The reason is simple. If you have tests, you do not fear to make changes to the code. True unit tests run extremely quickly without any runtime infrastructure to set up.It will boost your productivity.
 2.  Rules for clean tests based on FIRST rules: (FIRST is acronym for Fast, Independent, Repeatable, Self-validating, Timely)
     -   FAST Tests should be fast.

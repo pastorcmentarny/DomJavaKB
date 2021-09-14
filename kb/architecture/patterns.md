@@ -13,7 +13,7 @@ _I am not the author of these definitions so check resources section for the ori
 * Prototype
 * Singleton
 
-Structural Design Patterns
+### Structural Design Patterns
 
 * Adapter
 * Bridge
@@ -23,7 +23,7 @@ Structural Design Patterns
 * Flyweight
 * Proxy
 
-Behavioural Design Patterns
+### Behavioural Design Patterns
 
 * Chain of responsibility
 * Command
@@ -39,8 +39,8 @@ Behavioural Design Patterns
 
 # Principles
 
-The principles, when applied together, intend to make it more likely that a programmer will create a system that is easy
-to maintain and extend over time.
+The principles, when applied together, intend to make it more likely that a programmer will create an easy system to
+maintain and extend over time.
 
 ## SOLID principles
 
@@ -50,76 +50,49 @@ It stands for:
 * O – Open-closed principle
 * L – Liskov substitution principle
 * I – Interface segregation principle
-* D – Dependency Inversion Principle
+* D – Dependency inversion principle
 
-SOLID are "not principles to adopt" but "frameworks to use"****
+SOLID are "not principles to adopt" but "frameworks to use"
 
 ### SPR Single responsibility Principle
 
 `A class should have one and only one reason to change, meaning that a class should have only one job.`
-SINGLE RESPONSIBILITY PRINCIPLE (SRP)
-“a class should have only a single responsibility “
 
-**Single Responsibility Principle**
-
-*"One class should have one and only one responsibility"*
-
-write, change and maintain a class for only one purpose.
-
-It is good because it helps Organize the code, low coupling, code changes,
+It is good because it helps organize the code with low coupling to make code changes easy.
 
 ### OPEN CLOSED DESIGN PRINCIPLE
 
 `software entities … should be open for extension, but closed for modification.`
-Classes and methods should be Open for extension (new functionality) and Closed for modification. You should prevents
-someone from changing already tried and tested code. Ideally if you are adding new functionality only then your code
-should be tested and that's the goal of Open Closed Design principle.
+
+Classes and methods should be OPEN for extension (new functionality) and CLOSED for modification. It would be best if
+you prevented someone from changing already tried and tested code. Ideally, you should add new functionality only.
+That's the goal of the Open-Closed Design principle.
 
 ### LISKOV SUBSTITUTION PRINCIPLE (LSP)
 
 `objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program.`
 It means methods that use super class type must be able to work with the object of subclass without any issue. If a
-class has more functionality than subclass might not support some of the functionality and does violate LSP. It is
-related to Single Responsibility Principle and Interface Segregation Principle.
+class has more functionality than a subclass might not support some of the functionality and violate LSP.
 
 ### INTERFACE SEGREGATION PRINCIPLE (ISP)
 
 `many client-specific interfaces are better than one general-purpose interface.`
 
-### DEPENDENCY INJECTION
+### DEPENDENCY INJECTION (Dependency Inversion Principle)
 
-A powerful mechanism for separating construction from use is Dependency Injection (DI), the application of Inversion of
-Control (IoC) to dependency management.3 Inversion of Control moves secondary responsibilities from an object to other
-objects that are dedicated to the purpose, thereby supporting the Single Responsibility Principle. In the context of
-dependency management, an object should not take responsibility for instantiating dependencies itself. Instead, it
-should pass this responsibility to another “authoritative” mechanism, thereby inverting the control. Because setup is a
-global concern, this authoritative mechanism will usually be either the “main” routine or a special-purpose container.
-LAZY-INITIALIZATION is still sometimes useful with DI. Most DI containers won’t construct an object until needed.
-
-Dependency Inversion Principle
-[TODO improve it]
-
-Dependency Inversion Principle (DIP) states that
-
-– High level modules should not depend upon low level modules. Both should depend upon abstractions. – Abstractions
-should not depend upon details. Details should depend upon abstractions.
-
-Dependency Injection “one should “Depend upon Abstractions. Do not depend upon concretions.” Dependency injection means
-giving an object its instance variables. Dependency injection is just passing in an instance variable. We could pass the
-variable into the constructor. That would "inject" the "dependency" into the class. Now when we use the variable (
-dependency), we use the object that we were given rather than the one we created.
+Dependency injection means giving an object its instance variables.
 
 Example: `java/dms/pastor/examples/principles/DependencyInjectionViaConstructor.java`
 
-Used in Framework, where Dependency injection relieves the class of the responsibility of locating or creating their
+It is used in Framework, where Dependency injection relieves the class of the responsibility of locating or creating their
 dependencies.
 
-Advantages of Dependency Injection DI allows a client the flexibility of being configurable. Only client's behavior is
-fixed. Testing can be performed using mock objects. Loosely couple architecture.
+Advantages of Dependency Injection DI allows a client the flexibility of being configurable because of loosely coupled architecture. Only the client's behaviour is fixed. Testing can be performed using mock objects.
 
 ### KISS principle
 
-	KISS is an acronym for "Keep it simple, stupid" as a design principle. It states that most systems work best if they are kept simple rather than made complicated.
+	KISS is an acronym for "Keep it simple, stupid" as a design principle. 
+    It states that most systems work best if they are kept simple rather than made complicated.
 
 Simplicity should be a key goal in design.
 
@@ -296,11 +269,11 @@ items, allowing items to be uniformly treated whether they were single items or 
 The Aggregator pattern helps to address this. It talks about how we can aggregate the data from different services and
 then send the final response to the consumer. This can be done in two ways:
 
-* A composite microservice will make calls to all the required microservices, consolidate the data, and transform
-       the data before sending back.
-* An API Gateway can also partition the request to multiple microservices and aggregate the data before sending it
-       to the consumer. It is recommended if any business logic is to be applied, then choose a composite microservice.
-       Otherwise, the API Gateway is the established solution.
+* A composite microservice will make calls to all the required microservices, consolidate the data, and transform the
+  data before sending back.
+* An API Gateway can also partition the request to multiple microservices and aggregate the data before sending it to
+  the consumer. It is recommended if any business logic is to be applied, then choose a composite microservice.
+  Otherwise, the API Gateway is the established solution.
 
 ## **DECORATOR** {STRUCTURAL} TODO improve it
 
@@ -688,6 +661,7 @@ last thing you should do is swallow these exceptions instead of processing its u
 March update 2017-02-22 - Add few things about null 2017-01-08 - v1.2 Add UX 2017-01-03 - v1.1 Correct mistakes
 2017-01-01 - INIT VERSION
 
-
 # TODO:
-The result of this chaining is itself a CompletableFuture that allows further chaining and combining. This approach is ubiquitous in functional languages and is often referred to as a monadic design pattern.
+
+The result of this chaining is itself a CompletableFuture that allows further chaining and combining. This approach is
+ubiquitous in functional languages and is often referred to as a monadic design pattern.
