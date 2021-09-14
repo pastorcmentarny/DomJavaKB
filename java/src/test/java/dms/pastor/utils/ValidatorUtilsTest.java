@@ -21,6 +21,7 @@ import static dms.pastor.utils.ValidatorUtils.*;
 import static dms.pastor.utils.randoms.RandomDataGenerator.*;
 import static java.lang.String.format;
 import static java.math.BigDecimal.ZERO;
+import static java.util.Collections.emptyList;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -457,12 +458,25 @@ public class ValidatorUtilsTest {
     }
 
     @Test
-    public void validateIfListIsNotEmptyShouldThrowIllegalArgumentExceptionIfNullWithCustomObjectName() {
+    public void validateIfListIsNotEmptyShouldThrowIllegalArgumentExceptionIfNullWithCustomObjectNameForStringArray() {
         // given
         final String objectName = generateString(MAX_SMALL_VALUE_RANGE);
 
         // when
-        final var exception = assertThrows(IllegalArgumentException.class, () -> validateIfListIsNotEmpty(null, objectName));
+        final var exception = assertThrows(IllegalArgumentException.class, () -> validateIfListIsNotEmpty((String[]) null, objectName));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo(objectName + " cannot be null or empty.");
+    }
+
+
+    @Test
+    public void validateIfListIsNotEmptyShouldThrowIllegalArgumentExceptionIfNullWithCustomObjectNameForStringList() {
+        // given
+        final String objectName = generateString(MAX_SMALL_VALUE_RANGE);
+
+        // when
+        final var exception = assertThrows(IllegalArgumentException.class, () -> validateIfListIsNotEmpty((List<String>) null, objectName));
 
         // then
         assertThat(exception.getMessage()).isEqualTo(objectName + " cannot be null or empty.");
@@ -835,5 +849,43 @@ public class ValidatorUtilsTest {
 
         // when
         ValidatorUtils.validateIfValueIsInRange(min, max, inRangeNumber);
+    }
+
+    @Test
+    public void shouldValidateIfListHasIntegersOnlyForNegativeSingleNumber() {
+        // given
+        final List<String> input = List.of("-4");
+
+        // when
+        ValidatorUtils.validateIfListHasIntegersOnly(input);
+    }
+
+    @Test
+    public void shouldValidateIfListHasIntegersOnly() {
+        // given
+        final List<String> input = List.of("1", "2", "3");
+
+        // when
+        ValidatorUtils.validateIfListHasIntegersOnly(input);
+    }
+
+    @Test
+    public void shouldNotValidateIfListHasIntegersOnlyIfNull() {
+        // when
+        final var exception = assertThrows(IllegalArgumentException.class, () -> ValidatorUtils.validateIfListHasIntegersOnly(null));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("List with numbers cannot be null or empty.");
+
+    }
+
+    @Test
+    public void shouldValidateIfListHasIntegersOnlyIfEmpty() {
+        // when
+        final var exception = assertThrows(IllegalArgumentException.class, () -> ValidatorUtils.validateIfListHasIntegersOnly(emptyList()));
+
+        // then
+        assertThat(exception.getMessage()).isEqualTo("List with numbers cannot be null or empty.");
+
     }
 }

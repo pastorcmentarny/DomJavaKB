@@ -159,16 +159,22 @@ public final class ValidatorUtils {
         }
     }
 
-    public static void validateIfListIsNotEmpty(List<String> stringList, String listName) {
-        if (stringList == null || stringList.isEmpty()) {
-            throw new IllegalArgumentException(getErrorMessage(listName));
+
+    public static void validateIfListIsNotEmpty(List<String> strings, String withMessage) {
+        if (strings == null || strings.size() == 0) {
+            throw new IllegalArgumentException(getErrorMessage(withMessage));
         }
     }
 
-    public static void validateIfStringArrayIsNotEmpty(String[] strings) {
+    public static void validateIfListIsNotEmpty(String[] strings, String withMessage) {
         if (strings == null || strings.length == 0) {
-            throw new IllegalArgumentException(getErrorMessage("Input"));
+            throw new IllegalArgumentException(getErrorMessage(withMessage));
         }
+    }
+
+
+    public static void validateIfStringArrayIsNotEmpty(String[] strings) {
+        validateIfListIsNotEmpty(strings, "Input");
     }
 
     private static String getErrorMessage(String what) {
@@ -216,6 +222,18 @@ public final class ValidatorUtils {
     public static void validateIfPathIsAccessible(Path path) {
         validateIfObjectValueIsNotNull(path, "path");
         throwExceptionIfFileIsNotAccessible(path.toFile());
+    }
+
+    public static void validateIfListHasIntegersOnly(List<String> integerAsStringList) {
+        validateIfListIsNotEmpty(integerAsStringList, "List with numbers");
+        for (String item : integerAsStringList) {
+            try {
+                Integer.valueOf(item);
+            } catch (
+                    NumberFormatException numberFormatException) {
+                throw new IllegalArgumentException("At least one element in the list is not a number");
+            }
+        }
     }
 
     private static void throwExceptionIfFileIsNotAccessible(File file) {
