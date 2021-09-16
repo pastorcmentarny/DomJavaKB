@@ -4,38 +4,6 @@
 It contains definitions that explain things in the way that is easiest for me to understand.
 _I am not the author of these definitions so check resources section for the origin of definitions._
 
-## Types of Design Patterns
-
-### Creational Design Patterns
-
-* Factory
-* Builder
-* Prototype
-* Singleton
-
-### Structural Design Patterns
-
-* Adapter
-* Bridge
-* Composite
-* Decorator
-* Facade
-* Flyweight
-* Proxy
-
-### Behavioural Design Patterns
-
-* Chain of responsibility
-* Command
-* Interpreter
-* Iterator
-* Mediator
-* Memento
-* Observer
-* State
-* Strategy
-* Template Method
-* Visitor
 
 # Principles
 
@@ -78,6 +46,17 @@ class has more functionality than a subclass might not support some of the funct
 
 `many client-specific interfaces are better than one general-purpose interface.`
 
+The Interface Segregation Principle states that a client should not implement an interface if it doesn't use that.
+It happens mostly when one interface contains more than one functionality, and the client only needs one functionality and no other.
+Interface design is tricky because once you release your interface, you can not change it without causing some chaos to implementation.
+The default method helps keep the interface backwards compatible, but it should be used as the last solution.
+The interface has the disadvantage of implementing all methods before any class can use it, so having single functionality means fewer methods to implement.
+
+### INVERSION OF CONTROL
+
+It means now we have inverted the control of creating the object. You get control of creating an object to container/
+framework instead of using own using the new operator.
+
 ### DEPENDENCY INJECTION (Dependency Inversion Principle)
 
 Dependency injection means giving an object its instance variables.
@@ -100,84 +79,108 @@ Simplicity should be a key goal in design.
 
 	YAGNI stands for "You aren't gonna need it" and it states a programmer should not add functionality until it is your task to do so.
 
-Why? It affect maintenance in terms of time and complexity without adding value to the product (in business sense).
+Why? It affects maintenance in terms of time and complexity without adding value to the product (in a business sense).
+
 
 ### DRY (Don't repeat yourself)
 
-Duplication is a source of troubles. All known to me the expert in programming states that this one of the most
-important rule. It means don't write duplicate code, instead use Abstraction to abstract common things in one place.
+Duplication is a source of most trouble. All known to be the expert in programming states that this is one of the most important rules. It means don't write duplicate code, instead use Abstraction to abstract common things in one place.
 Examples:
-If you have a block of code in more than two places consider making it a separate method. If you use a hard-coded value
-more than one time make them public final constant.
+If you have a code block in more than two places, consider making it a different method. If you use a hard-coded value more than one time, make them a public final constant.
 
-Why? It helps maintenance. Remember:    Don't use common code for two different functionalities as you will couple them
-and cause problem in future when one of the functionality changed.
+Why? It helps maintenance. Remember:    Don't use common code for two different functionalities as you will couple them and cause the problem in future when one of the functionality changed.
 
-### INVERSION OF CONTROL
-
-It means now we have inverted the control of creating the object. You get control of creating an object to container/
-framework instead of using own using the new operator.
 
 ### ASPECT-ORIENTED PROGRAMMING
 
-TODO improve it
+//TODO
 
-It relieves business components of generic cross-cutting concerns by modularizing them into reusable aspects.
-
-ENCAPSULATE WHAT CHANGES
-[Example code needed]
-Change is a one thing is constant in software development. Encapsulate the code you expect or suspect to be changed in
-future. Why? It's easy to test and maintain proper encapsulated code. If you are coding in Java then follow principle of
-making variable and methods private by default and increasing access step by step e.g. from private to protected and not
-public.
 
 ### Favour Composition over Inheritance
 
-TODO improve it Always favour composition over inheritance, if possible. In many cases Composition is lot more flexible
+//TODO
+improve it Always favour composition over inheritance, if possible. In many cases Composition is lot more flexible
 than Inheritance. Composition allows to change behaviour of a class at runtime by setting property during runtime and by
 using Interfaces to compose a class we use polymorphism which provides flexibility of to replace with better
 implementation any time.
 
-	Interface Segregation Principle states that a client should not implement an interface if it doesn't use that. This happens mostly when one interface contains more than one functionality, and the client only needs one functionality and not other. Interface design is tricky because once you release your interface you can not change it without causing some chaos to implementation. Default method helps keep interface backward compatible but it should be used as the last solution. The interface has the disadvantage to implementing all method before any class can use it so having single functionality means less method to implement.
 
 ### PROGRAMMING FOR INTERFACE NOT IMPLEMENTATION
 
-[Example code needed]
-Always program for an interface and not for implementation this will lead to flexible code which can work with any new
-implementation of the interface. So use interface type on variables, return types of method or argument type of methods
-in Java.
+Always program for an interface and not for implementation will lead to flexible code that can work with any new
+interface implementation. Use interface type on variables, return types of method or argument type of methods in Java.
+
 
 ### DELEGATION PRINCIPLE
 
-TODO improve it , [Example code needed]
-Don't do all stuff by yourself, delegate it to respective class. Classical example of delegation design principle is
-equals() and hashCode() method in Java. In order to compare two objects for equality we ask class itself to do
-comparison instead of Client class doing that check. The benefit of this design principle is no duplication of code and
-pretty easy to modify behavior.
+//TODO
+//Example code needed
+
+Don't do all stuff by yourself; delegate it to the respective class. 
+An example of delegation design principle is equals() and hashCode() method in Java.
+In order to compare two objects for equality, we ask the class itself to make a comparison instead of the Client class doing that check.
+The benefit of this design principle is no duplication of code and pretty easy to modify behaviour.
+
 
 ## THE PRINCIPLE OF LEAST KNOWLEDGE (POLA, LAW OF DEMETER)
 
-TODO improve it , [Example code needed]
-“Talk only to your immediate friends.”
+//TODO
+//Example code needed
+  `Talk only to your immediate friends.`
 
-	It means is a client should only have knowledge of an object's members and not have access to properties and methods of other objects via the members. In simple terms, you should only have access to the members of the object, and nothing beyond that. Think if it like this: if you use more than 1 dot you are violating the principle.
+It means, in simple terms, you should only have access to the members of the object and nothing beyond that.
+If you use more than one dot, you are violating the principle.
+
 
 # DESIGN PATTERNS
 
 ## What is a Design Patterns?
 
 Design patterns are best practices how to solve common known problems. This is not a framework or ready to re-use
-solution. It gives good practices and solutions recipe how to helps solve common known problems and it provides a common
-vocabulary for developers to talk about certain problems. Patterns give you hint to solve a problem effectively.
+solution. It gives good practices and solutions recipe how to helps solve common known problems, and it provides a common
+vocabulary for developers to talk about specific problems. Patterns give you a hint to solve a problem effectively.
 
-## What are type of patters? (TODO improve it)
+
+## Types of Design Patterns
 
 * Behavioural Patterns:
-    * Used to manage algorithms, relationships, and responsibilities between objects.
+  * Used to manage algorithms, relationships, and responsibilities between objects.
 * Creation Patterns:
-    * Used to construct objects such that they can be decoupled from their implementing system.
+  * Used to construct objects such that they can be decoupled from their implementing system.
 * Structural Patterns:
-    * Used to form large object structures between many disparate objects.
+  * Used to form large object structures between many disparate objects.
+  * 
+### Creation Design Patterns
+
+* Factory
+* Builder
+* Prototype
+* Singleton
+
+### Structural Design Patterns
+
+* Adapter
+* Bridge
+* Composite
+* Decorator
+* Facade
+* Flyweight
+* Proxy
+
+### Behavioural Design Patterns
+
+* Chain of responsibility
+* Command
+* Interpreter
+* Iterator
+* Mediator
+* Memento
+* Observer
+* State
+* Strategy
+* Template Method
+* Visitor
+
 
 ## **ADAPTER** {STRUCTURAL} TODO improve it
 
@@ -203,7 +206,7 @@ the FTP builder would be used when creating the object.
 
 ## **BRIDGE** {STRUCTURAL} TODO improve it
 
-TODO improve it , [Example code needed]
+TODO improve it , //Example code needed
 
 ???? - The Bridge Design Pattern – progressively adding functionality while separating out major differences using
 abstract classes.
@@ -219,7 +222,7 @@ with the operating system in order to render the window.
 
 ## **CHAIN OF RESPONSIBILITY** {BEHAVIORAL} TODO improve it
 
-TODO improve it , [Example code needed]
+TODO improve it , //Example code needed
 
 The Chain of Responsibility is a Design pattern send data to an object and if that object can't use it, it sends it to
 any number of other objects that may be able to use it. Gives more than one object an opportunity to handle a request by
@@ -232,7 +235,7 @@ handle the exception is encountered or until there are no more parent objects to
 
 ## **COMMAND** {BEHAVIORAL} TODO improve it
 
-TODO improve it , [Example code needed]
+TODO improve it , //Example code needed
 Encapsulates a request allowing it to be treated as an object. This allows the request to be handled in traditionally
 object based relationships such as queuing and callbacks.
 
@@ -251,7 +254,7 @@ particular algorithm within the confines of the interface the queue is expecting
 
 ## **COMPOSITE** {STRUCTURAL} TODO improve it
 
-TODO improve it , [Example code needed]
+TODO improve it , //Example code needed
 
 The Composite Design Pattern? Allows you to treat individual objects and compositions of objects uniformly.
 
@@ -277,7 +280,7 @@ then send the final response to the consumer. This can be done in two ways:
 
 ## **DECORATOR** {STRUCTURAL} TODO improve it
 
-TODO improve it , [Example code needed]
+TODO improve it , //Example code needed
 
 The Decorator Patterns allows you to modify an object dynamically at Runtime. It more flexible than inheritance. It's
 useful when you want the capabilities of inheritance with subclasses ,but you need add functionality at run time. It
@@ -302,7 +305,7 @@ is no longer practical.
 
 ## **FACADE** {STRUCTURAL} TODO improve it
 
-TODO improve it , [Example code needed]
+TODO improve it , //Example code needed
 
 When you create a simplified interface that performs many other actions behind the scenes.
 
@@ -316,7 +319,7 @@ façade pattern.
 
 ## **FACTORY METHOD** {CREATIONAL}
 
-TODO improve it , [Example code needed]
+TODO improve it , //Example code needed
 Defines an interface for creating objects let subclasses to control the actual creation process. Refers to the newly
 created object through a common interface. Factory method pattern, compared to Factory pattern replace the factory with
 an abstract class and a set of concrete factories subclasses. The subclasses are responsible for creating concrete
@@ -335,7 +338,7 @@ instantiate."Example:logging frameworks,
 
 ## **FACTORY** {CREATIONAL}
 
-TODO improve it , [Example code needed]
+TODO improve it , //Example code needed
 The factory pattern allows you to create objects without specifying the exact class of object that will be created at
 runtime. When a method returns one of several possible classes that share a common super class ⦁ Create a new enemy in a
 game ⦁ Random number generator picks a number assigned to a specific enemy ⦁ The factory returns the enemy associated
@@ -367,7 +370,7 @@ database flavor.
 
 ## **FLY WEIGHT** {STRUCTURAL} TODO improve it MUTED as unluckily needed
 
-TODO improve it , [Example code needed]
+TODO improve it , //Example code needed
 It is used when you need to create a very large number of similar objects (100k or more) and use this pattern to reduce
 memory usage you share objects . Facilitates the reuse of many fine grained objects, making the utilization of large
 numbers of objects more efficient. Use When ⦁ Many like objects are used and storage cost is high. ⦁ The majority of
@@ -381,13 +384,13 @@ to react to a user click, and how to handle events.
 
 ## **INTERPRETER** {BEHAVIORAL} TODO improve it. MUTED as unluckily needed
 
-TODO improve it , [Example code needed]
+TODO improve it , //Example code needed
 The interpreter pattern is normally ignored and hardly ever used.It is used to convert one representation of data into
 another.
 
 ## **ITERATOR** {BEHAVIORAL} TODO improve it MUTED as unluckily needed
 
-TODO improve it , [Example code needed]
+TODO improve it , //Example code needed
 
 The Iterator pattern provides you with a uniform way to aces different collections of Objects. This provides a uniform
 way to cycle through different collections. Allows for access to the elements of an aggregate object without allowing
@@ -401,7 +404,7 @@ others may restrict certain functionalities, such as removing items.
 
 ## **MEDIATOR** {BEHAVIORAL} TODO improve it MUTED as unluckily needed
 
-TODO improve it , [Example code needed]
+TODO improve it , //Example code needed
 It's used to handle communication between related objects (colleagues)
 GOF :“Allows loose coupling by encapsulating the way disparate sets of objects interact and communicate with each other.
 Allows for the actions of each object set to vary independently of one another.” Use When ⦁ Communication between sets
@@ -414,7 +417,8 @@ to forward the message on to, without the sender of the message having to be con
 
 ## **MEMENTO** {STRUCTURAL} TODO improve it
 
-TODO improve it , [Example code needed]
+TODO improve it
+//Example code needed
 The memento design pattern is a way to store a previous states of an object easily. Allows for capturing and
 externalizing an object's internal state so that it can be restored later, all without violating encapsulation. Use When
 ⦁ The internal state of an object must be saved and restored at a later time. ⦁ Internal state cannot be exposed by
@@ -424,19 +428,18 @@ change occurs we can preserve a snapshot of it that can later be restored should
 
 ## **NULL OBJECT**{BEHAVIORAL}
 
-Provide an object as a surrogate for the lack of an object of a given type. The Null Object Pattern provides intelligent
-do nothing behavior, hiding the details from its collaborators.
+It provides an object as a surrogate for the lack of an object of a given type. The Null Object Pattern provides intelligent do nothing behaviour, hiding the details from its collaborators.
+Instead of putting if the check for a null value, Null Object reflects a do nothing relationship.
+The Null object pattern can also be used to provide default behaviour in case data is not available.
+The key to the Null Object pattern is an abstract class that defines the interface for all objects of this type.
 
-Instead of putting if check for a null value, Null Object reflects a do nothing relationship. Such Null object can also
-be used to provide default behaviour in case data is not available. The intent of a Null Object is to encapsulate the
-absence of an object by providing a substitutable alternative that offers suitable default do nothing behavior. The key
-to the Null Object pattern is an abstract class that defines the interface for all objects of this type.
 
-//TODO [Example code needed]
+//TODO
+//Example code needed
 
 ## **OBSERVER** {BEHAVIORAL} TODO improve it
 
-TODO improve it , [Example code needed]
+TODO improve it , //Example code needed
 
 The Observer pattern is a software design pattern in which an object (Subject), maintain list of its dependants , called
 observers, and notifies them automatically of any state changes, usually by calling one of their methods. Use When ⦁
@@ -452,7 +455,7 @@ iterates through its registered observers and sends a notification to each.
 
 ## **PROXY** {STRUCTURAL} TODO improve it
 
-TODO improve it , [Example code needed]
+TODO improve it , //Example code needed
 The Proxy Design Patterns Provide a class which will limit access to another class (due security reasons or expensive to
 create or accessed from remote location). Allows for object level access control by acting as a pass through entity or a
 placeholder object. Use When ⦁ The object being represented is external to the system. ⦁ Objects need to be created on
@@ -527,7 +530,7 @@ progress more carefully. Many people still don't consider a strangler since they
 convinced about that. Since you can use shorter release cycles with a stranger you can avoid a lot of the unnecessary
 features that cut over rewrites often generate. https://martinfowler.com/bliki/StranglerApplication.html
 
-STATE TODO improve it TODO improve it , [Example code needed]
+STATE TODO improve it TODO improve it , //Example code needed
 
 The State Design Pattern allows an object to alter its behaviour when its internal state changes. The object will appear
 to change its class Ties object circumstances to its behaviour, allowing the object to behave in different ways based
@@ -558,7 +561,7 @@ should be defined at runtime. ⦁ Conditional statements are complex and hard to
 
 ## **TEMPLATE METHOD** {BEHAVIORAL} TODO improve it
 
-TODO improve it , [Example code needed]
+TODO improve it , //Example code needed
 
 The Template Method Design pattern is used to create a group of subclasses that have to execute a similar group of
 methods. Identifies the framework of an algorithm, allowing implementing classes to define the actual behaviour. Use
@@ -572,7 +575,8 @@ allowing the parent class to work with them without understanding their implemen
 
 ## **VISITOR** {BEHAVIORAL} //TODO improve it
 
-TODO improve it , [Example code needed]
+//TODO
+//Example code needed
 
 Allows for one or more operations to be applied to a set of objects at runtime, decoupling the operations from the
 object structure. Use When ⦁ An object structure must have many unrelated operations performed upon it. ⦁ The object
@@ -584,63 +588,51 @@ visitor allows the logic to be decoupled from the invoices and line items. This 
 visited by calculation code that can then apply the proper rates for the region. Changing regions is as simple as
 substituting a different visitor.
 
-# ANTIPATTERNS
+# ANTI-PATTERNS
 
-An anti-pattern is a common response to a recurring problem that is usually ineffective and risks being highly
-counterproductive.
+An anti-pattern is a typical response to a recurring problem that is usually ineffective and risks being highly counterproductive.
+
 
 ## PREMATURE OPTIMIZATION
 
-Premature optimization refers to thinking about possible issues that could arise in the future but that are not the case
-at this moment. You should only think about what is asked and what is required, not about what eventually could be
-useful for future purposes. A frequent occurring premature optimization is the premature performance optimization. If
-there are no performance issues at this moment, do not try to handle them, handle them when they happen.
+Premature optimization refers to thinking about possible issues that could arise in the future, but that is not the case now. 
+You should only think about what is asked and required, not about what eventually could be useful for future purposes. 
+A frequent occurring premature optimization is premature performance optimization. 
+If there are no performance issues at this moment, do not try to handle them; handle them when they happen.
+
 
 ## REINVENTING THE WHEEL
 
-An antipattern of frequent occurrence is the lack of knowing the existence of some useful frameworks/libraries. Apache
-commons lang and commons collections are dependencies that should be present in every Java project. A general rule is
-not trying to reinvent the wheel.
+An antipattern of frequent occurrence is the lack of knowing the existence of some useful frameworks/libraries. 
+Apache commons-lang and commons-collections are dependencies that should be present in every Java project. 
+A general rule is not trying to reinvent the wheel.
 
 ## CODING BY EXCEPTION/EXCEPTION HANDLING
 
-Instead of checking for some specific corner case values like null values, some people like to catch a
-NullPointerException and do some logic in the catch block. This way of coding is called exception handling because the
-exception is expected to happen. Exceptions are invented to inform you of the fact that something really bad happened
-but they’re not meant to be thrown often. That’s why they are called ‘exceptions’. If they occur, please handle them
-carefully but never abuse them to execute some logic that could have been implemented with a simple if-else check.
+Instead of checking for some specific corner case values like null values, 
+some people like to catch a NullPointerException and do some logic in the catch block.
+This way of coding is called exception handling because the exception is expected to happen. 
+Exceptions are invented to inform you that something terrible happened, but they’re not meant to be thrown often. 
+That’s why they are called ‘exceptions’. 
+If they occur, please handle them carefully but never abuse them to execute some logic that could have been implemented with a simple if-else check.
+
 
 ## INHERITANCE HELL
 
-Inheritance should be handled with care. It’s very useful but you should only use it what it’s intended for. If the
-inheritance tree becomes to bloated, something is wrong. Do not write abstract classes for 1 specific case. Use
-composition instead. The strategy pattern can come in handy here. For example if your JSF managed bean
-‘EditUserManagedBean’ extends AbstractEditingManagedBean which extends AbstractSelectionManagedBean which extends
-AsbtractParentDetailManagedBean which extends AbstractUnitBean you should know that something is wrong and that there
-should be other ways to implement this behaviour ;-)
+Inheritance should be handled with care. 
+It’s handy, but you should only use it for what it’s intended for. 
+If the inheritance tree becomes too bloated, something is wrong. Do not write abstract classes for one specific case. 
+Use composition instead. The strategy pattern can come in handy here. 
+or example, if your JSF managed bean ‘EditUserManagedBean’ extends AbstractEditingManagedBean, 
+which extends AbstractSelectionManagedBean, which extends AbstractParentDetailManagedBean, 
+which extends AbstractUnitBean you should know that something is wrong and that there should be other ways to implement this behaviour.
 
-## CODING BY EXCEPTION/EXCEPTION HANDLING
-
-Instead of checking for some specific corner case values like null values, some people like to catch a
-NullPointerException and do some logic in the catch block. This way of coding is called exception handling because the
-exception is expected to happen. Exceptions are invented to inform you of the fact that something really bad happened
-but they’re not meant to be thrown often. That’s why they are called ‘exceptions’. If they occur, please handle them
-carefully but never abuse them to execute some logic that could have been implemented with a simple if-else check.
 
 ## AVOIDING/SWALLOWING EXCEPTIONS
 
-Referring to the previous antipattern, when an exception is thrown that means that something unexpected happened. The
-last thing you should do is swallow these exceptions instead of processing its useful information.
+When an exception is thrown that means that something unexpected happened. 
+The  last thing you should do is swallow these exceptions instead of processing its useful information.
 
-## **PATTERN** _{BEHAVIORAL}_
-
-### Problem```Statenent```
-
-### Solution/Explanation
-
-### Advantages/Disadvantages
-
-### ```Path to example code```
 
 # USEFUL SOURCES
 
@@ -654,12 +646,27 @@ last thing you should do is swallow these exceptions instead of processing its u
 * http://javarevisited.blogspot.com/2016/07/10-examples-to-read-text-file-in-java.html
 * https://www.journaldev.com/1754/strategy-design-pattern-in-java-example-tutorial
 
+
 # CHANGELOG
 
 2021-03-02 - v 4.1 - minor clean up 2020-11-11 - v 4.0 - clean up 2017-06-17 - v 3.0 add few things I learned recently
 2017-06 - v 2.4 -> v2.6 read proof and fix problems 2017-03-28 - v2.1 add remaining items for agile 2017-03-19 - v2.0
 March update 2017-02-22 - Add few things about null 2017-01-08 - v1.2 Add UX 2017-01-03 - v1.1 Correct mistakes
 2017-01-01 - INIT VERSION
+
+
+## **PATTERN** _{BEHAVIORAL}_
+
+### Problem```Statenent```
+
+### Solution/Explanation
+
+### Advantages/Disadvantages
+
+### ```Path to example code```****
+
+//TODO - thing to do
+//Example code needed - write code with example
 
 # TODO:
 
