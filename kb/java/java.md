@@ -40,17 +40,50 @@ expressions. Predicates are boolean-valued functions of one argument.
     in a finite time period. The algorithm receives zero or more inputs, produces at least one output, consists of clear and
     unambiguous instructions, terminates after a finite number of steps.
 
+## BIG O NOTATION
+
+The Big-O notation is used for describing algorithm performance, scalability, execution and complexity factors in the
+worst case scenario as the number of elements in a data structure increases.
+
+BIG O NOTATION from best to worst:
+
+    O(1) 	
+    Constant O(log n)
+    Logarithmic O(n)
+    Linear O(n log n) 	
+    Linear Logarithmic O(n2) 	
+    Quadratic O(n3) 	
+    Cubic
+
+List and sets:
+
+    Structure       get     add     remove  contains
+    ArrayList       O(1)    O(1)    O(n)    O(n)    
+    LinkedList      O(n)    O(1)    O(1)    O(n)
+    HashSet         O(1)    O(1)    O(1)    O(1)
+    LinkedHashList  O(1)    O(1)    O(1)    O(1)
+    TreeSet         O(logn) O(logn) O(logn) O(logn)
+
+Maps:
+
+    Structure       Get     Put     Remove  ContainsKey
+    HashMap         O(1)    O(1)    O(1)    O(1)
+    LinkedHashMap   O(1)    O(1)    O(1)    O(1)
+    TreeMap         O(logn) O(logn) O(logn) O(logn)
+
 ## Class
 
     It is a blueprint from which objects are created.
 
 ## Data structure
 
-The data structure is a container (in java will be a class) that provides storage for data elements and provides
-capabilities for manipulating data items (add, remove, swap, find and so on). Benefits are:
+    The data structure is a container (in java will be a class) that provides storage for data elements and 
+    capabilities for manipulating data items (add, remove, swap, find and so on).
 
-- Reusability and better code quality as a result of the use of well-tested collections framework classes.
-- Reduced Effort for code maintenance by using collection classes shipped with JDK.
+    Benefits are:
+
+    - Reusability and better code quality as a result of the use of well-tested collections framework classes.
+    - Reduced Effort for code maintenance by using collection classes shipped with JDK.
 
 ## Data Types supported by Java?
 
@@ -143,20 +176,26 @@ Worth to know:
     defensive or protective code to keep the application state consistent; our code can be simpler, more concise, and less
     error-prone than defining mutable objects.
 
-Some of the key benefits of immutable objects are:
+    Some of the key benefits of immutable objects are:
 
-- Thread safety
-    - Atomicity of failure
-    - Absence of hidden side-effects
-    - Protection against null reference errors
-    - Ease of caching
-    - Prevention of identity mutation
-    - Protection from instantiating logically invalid objects
-    - Protection from unintentional corruption of existing objects
+      - Thread safety
+      - Atomicity of failure
+      - Absence of hidden side-effects
+      - Protection against null reference errors
+      - Ease of caching
+      - Prevention of identity mutation
+      - Protection from instantiating logically invalid objects
+      - Protection from unintentional corruption of existing objects
 
 ## Inheritance
 
-    Inheritance gives an object the ability to use the fields and methods of parent class. It useful technique because it allow you to re-use code and can be used to add additional features to an existing class, without modifying it.
+    Inheritance gives an object the ability to use the fields and methods of the parent class. It is helpful technique because
+    it allows you to re-use code and can be used to add additional features to an existing class without modifying it.
+
+### Does Java support multiple inheritance?
+
+    No. Java does not support multiple inheritances. Each class can extend only one class, BUT It can implement more than one
+    interface. Why? It is a design decision. Different experts have different opinions on that. I guess they didn't have a usable and error-proof solution for the C++ diamond problem.
 
 ## Java Bean (POJO)
 
@@ -165,6 +204,10 @@ Some of the key benefits of immutable objects are:
 ## JSP
 
     Ancient technology.Ask Software archeologies for details.
+
+## Lambda
+
+    Lambda expression is a more compact way of writing an anonymous function or implementing a functional interface.
 
 ## method
 
@@ -184,7 +227,15 @@ Types of Method References Lambda expression are cute little anonymous method:
   -> s.toString()
 - Reference to a constructor Class::new String::new () -> new String()
 
-## object
+## Method Overloading
+
+    Method overloading in Java occurs when two or more methods in the same class have the exact same name but different parameters.
+
+## Method Overriding
+
+    Method overriding in Java occurs when a subclass has the same method as a parent class. Overridden methods must have the same name, argument list, and return type.
+
+## Object
 
     It is a particular instance of a class (with its own variables, methods, and data structures).
 
@@ -202,6 +253,13 @@ Types of Method References Lambda expression are cute little anonymous method:
 ## Polymorphism
 
     Polymorphism (the State of having many shapes) is the ability for method to perform tasks in different ways. Subclasses of a class can define their own unique behaviours and/or re-use one of the parent class's same functionality. In Java, it is done, for example, in method overriding.
+
+## Remote Method Invocation (RMI)
+
+    The Java Remote Method Invocation (RMI) system allows an object running in one Java virtual machine to invoke methods on
+    an object running in another Java virtual machine. RMI provides for remote communication between programs written in the
+    Java programming language. It is an object-oriented equivalent of remote procedure calls (RPC), with support for the
+    direct transfer of serialized Java classes and distributed garbage collection.
 
 ## SerialVersionUID
 
@@ -425,11 +483,10 @@ or a constructor’s throws clause, if they can be thrown by the execution of th
 outside the method or constructor boundary. On the other hand, checked exceptions must be declared in a method or a
 constructor’s throws clause.
 
-What is Lambda ? lambda expression simply gives us a more compact way of writing an anonymous function or implementing a
-functional interface. When you should throw checked exception and when you should throw unchecked exception? We should
-always use unchecked exception. Checked exception was good idea,but … it breaks Open/Closed Principle. If a client can
-reasonably be expected to recover from an exception, make it a checked exception. If a client cannot do anything to
-recover from the exception, make it an unchecked exception.
+When you should throw checked exception and when you should throw unchecked exception? We should always use unchecked
+exception. Checked exception was good idea,but … it breaks Open/Closed Principle. If a client can reasonably be expected
+to recover from an exception, make it a checked exception. If a client cannot do anything to recover from the exception,
+make it an unchecked exception.
 
 GOOD TO REMEMBER:
 ⦁ A try statement should have either catch block or finally block, it can have both blocks. ⦁ We can have multiple catch
@@ -448,85 +505,6 @@ on native processes much easier. long pid = ProcessHandle.current().pid(); Forbi
 Client Immutable Collections Compact Strings Javadocs using html5 Enhanced Deprecation reactive programming movement's
 effort formalization for Java
 
-BIG O NOTATION
-
-What do you know about the big-O notation?
-
-The Big-O notation is used for describing algorithm performance, scalability, execution and complexity factors in the
-worst case scenario as the number of elements in a data structure increases.
-
-BIG O NOTATION from best to worst:
-O(1) -> O(logn)->O(n)->O(nlogn)->O(n^2)->O(2^n)->O(n!)
-
-O(1) 	
-Constant O(log n)
-Logarithmic O(n)
-Linear O(n log n) 	
-Linear Logarithmic O(n2) 	
-Quadratic O(n3) 	
-Cubic
-
-List and sets:
-
-Structure get add remove contains ArrayList O(1)
-O(1)
-O(n)
-O(n)
-LinkedList O(n)
-O(1)
-O(1)
-O(n)
-HashSet O(1)
-O(1)
-O(1)
-O(1)
-LinkedHashList O(1)
-O(1)
-O(1)
-O(1)
-TreeSet O(logn)
-O(logn)
-O(logn)
-O(logn)
-
-Maps:
-Structure Get Put Remove ContainsKey HashMap O(1)
-O(1)
-O(1)
-O(1)
-LinkedHashMap O(1)
-O(1)
-O(1)
-O(1)
-TreeMap O(logn)
-O(logn)
-O(logn)
-O(logn)
-
-Remote Method Invocation (RMI)
-
-What is RMI? The Java Remote Method Invocation (RMI) system allows an object running in one Java virtual machine to
-invoke methods on an object running in another Java virtual machine. RMI provides for remote communication between
-programs written in the Java programming language. It is an object-oriented equivalent of remote procedure calls (RPC),
-with support for direct transfer of serialized Java classes and distributed garbage collection.
-
-[remote procedure call (RPC) is an inter-process communication that allows a computer program to cause a subroutine or procedure to execute in another address space (commonly on another computer on a shared network) without the programmer explicitly coding the details for this remote interaction ]
-
-What are the layers of RMI Architecture ? TODO improve it The RMI architecture consists of the following layers:
-⦁ Stub and Skeleton layer: This layer lies just beneath the view of the developer. This layer is responsible for
-intercepting method calls made by the client to the interface and redirect these calls to a remote RMI Service. ⦁ Remote
-Reference Layer: The second layer of the RMI architecture deals with the interpretation of references made from the
-client to the server’s remote objects. This layer interprets and manages references made from clients to the remote
-service objects. The connection is a one-to-one (unicast) link. ⦁ Transport layer: This layer is responsible for
-connecting the two JVM participating in the service. This layer is based on TCP/IP connections between machines in a
-network. It provides basic connectivity, as well as some firewall penetration strategies.
-
-What is the role of Remote Interface in RMI ? TODO improve it The Remote interface serves to identify interfaces whose
-methods may be invoked from a non-local virtual machine. Any object that is a remote object must directly or indirectly
-implement this interface. A class that implements a remote interface should declare the remote interfaces being
-implemented, define the constructor for each remote object and provide an implementation for each remote method in all
-remote interfaces.
-
 What is Marshalling and Demarshalling? When an application wants to pass its memory objects across a network to another
 host or persist it to storage, the in-memory representation must be converted to a suitable format. This process is
 called marshalling and the revert operation is called demarshalling.
@@ -542,15 +520,7 @@ ObjectInputValidation'. It has validateObject() method
 
 Source:
 
-## JAVA SERVLET
 
-The javax.servlet.Servlet interface defines the three methods known as life-cycle method.
-
-init()
-the servlet is constructed, then initialized wih the init() method. service()
-Any request from client are handled initially by the service() method before delegating to the doXxx() methods in the
-case of HttpServlet. destroy()
-The servlet is removed from service, destroyed with the destroy() method, then garbaged collected and finalized.
 
 THREAD What is a Thread? Thread in Java is an independent path of execution which is used to run two task in parallel.
 The Java Virtual Machine allows an application to have multiple threads of execution running concurrently..
@@ -673,20 +643,6 @@ Things to add:
     A thread dump is a snapshot of all threads running in the application at a point in time. It contains all the information about each thread in the application such as thread state, thread Id, native Id, thread name, stack trace,  and priority.
     It is used for troubleshooting production problems such as CPU spikes, unresponsiveness in the application, poor response time, hung threads, high memory consumption.
 
-## What is Method Overloading?
-
-- Method overloading in Java occurs when two or more methods in the same class have the exact same name, but different
-  parameters.
-
-## What is Method Overriding?
-
-- Method overriding in Java occurs when subclass has the same method as a parent class. Overridden methods must have the
-  same name, argument list, and return type.
-
-## Can you access non static variable in static context?
-
-    No. A static variable in Java belongs to its class and its value remains the same for all its instances. A static variable is initialized when the class is loaded by the JVM. If your code tries to access a non-static variable, without any instance, the compiler will complain, because those variables are not created yet and they are not associated with any instance.
-
 ## Can you override static method in Java?
 
     No. It is worth nothing that you can declare and define static method of same name and signature in child class, this will hide the static method from parent class
@@ -749,19 +705,6 @@ It is a design choice for a few security, multithreading, memory optimisation re
   writeExternal() which allows you to control the serialization/deserialization process.
 - Serializable uses default serialization process which can be very slow for some application.
 
-## Difference between final, finally and finalize?
-
-- Final is a keyword that indicate than variable cannot change. Method cannot be overridden and class cannot be
-  subclassed.
-- Finally is a block of code that is always execute after try/catch block. (Java 7 has a try with resources statement)
-- Finalize is a method called before is object is garbage collected.
-
-## Does Java support multiple inheritance?
-
-No. Java does not support multiple inheritance. Each class can extend only one class BUT It can implement more than one
-interfaces. Why? It is a design decision. Different experts has different opinion for that. I guess, they didn't have a
-usable and error-proof solution for c++ diamond problem.
-
 ## What are pass by reference and pass by value? Is Java pass by reference and pass by value?
 
 - Well According to specification Java is strictly pass-by-value. Read the Java Language Specification (JLS)
@@ -773,11 +716,6 @@ By value = changes doesn't affect original By reference = changes are reflected 
 Object is passed by value – this means that a copy of the object is passed. If changes are made to that object, it
 doesn’t affect the original value. Object is passed by reference, this means that the actual object is not passed,
 rather a reference of the object is passed. Any changes made by the external method, are also reflected in all places.
-
-## Why Collection doesn’t extend Cloneable and Serializable interfaces?
-
-It was a design decision to left up to the concrete implementations of Collection how they want maintain cloning or
-serializing as to gives better flexibility as Collection is an abstract representation.
 
 ## What differences exist between Iterator and ListIterator?
 
@@ -871,6 +809,26 @@ an estimation on the number of elements that will be stored, we can use it to av
 Generics for type-safety, readability, and robustness. Also, by using Generics you avoid the⦁ ClassCastException during
 runtime. ⦁ Program in terms of interface not implementation. ⦁ Return zero-length collections or arrays as opposed to
 returning a null in case the underlying collection is actually empty.
+
+# QA:
+
+## _Why Collection doesn't extend Cloneable and Serializable interfaces?_
+
+    It was a design decision to leave up to the concrete implementations of Collection how they want to maintain cloning or
+    serializing gives better flexibility as Collection is an abstract representation.
+
+## _Can you access non-static variable in static context?_
+
+    No. A static variable in Java belongs to its class, and its value remains the same for all its instances. A static
+    variable is initialized when the JVM loads the class. Suppose your code tries to access a non-static variable without
+    any instance. The compiler will complain because those variables are not created yet, and they are not associated with
+    any instance.
+
+## _Difference between final, finally, and finalize?_
+
+    - Final is a keyword that indicates that variables cannot change. The method cannot be overridden, and the class cannot be subclassed.
+    - Finally is a block of code that is always executed after try/catch block. (Java 7 has a try with resources statement)
+    - Finalize is a method called before is an object is a garbage collected.
 
 # RESOURCES:
 
