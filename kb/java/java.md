@@ -10,8 +10,8 @@ _I am not the author of these definitions so check resources section for the ori
 
 ## ::
 
-:: keyword is a way pass references of methods or constructors. Default methods cannot be accessed from within lambda
-expressions. Predicates are boolean-valued functions of one argument.
+    :: keyword is a way pass references of methods or constructors. Default methods cannot be accessed from within lambda
+    expressions. Predicates are boolean-valued functions of one argument.
 
 ## Java
 
@@ -20,8 +20,8 @@ expressions. Predicates are boolean-valued functions of one argument.
 
 ## Annotation
 
-- Annotation is not part of the program itself. It contains information for compiler, it helps software tools to process
-  and/or generate data/code.
+    Annotation is not part of the program itself. It contains information for the compiler; it helps software tools process
+    and/or generate data/code.
 
 ## Abstraction
 
@@ -42,8 +42,8 @@ expressions. Predicates are boolean-valued functions of one argument.
 
 ## BIG O NOTATION
 
-The Big-O notation is used for describing algorithm performance, scalability, execution and complexity factors in the
-worst case scenario as the number of elements in a data structure increases.
+    The Big-O notation is used for describing algorithm performance, scalability, execution and complexity factors in the
+    worst case scenario as the number of elements in a data structure increases.
 
 BIG O NOTATION from best to worst:
 
@@ -75,6 +75,14 @@ Maps:
 
     It is a blueprint from which objects are created.
 
+## The Java Collections Framework (JCF)
+
+ 	The Java collections framework (JCF) is a set of classes and interfaces that implement a commonly reusable collection of data structures.
+
+## CopyOnWriteArrayList
+
+    A version of ArrayList that makes a cloned copy of the underlying ArrayList to implement all operations and modifications. It is fail-safe, and it will never throw ConcurrentModificationException during iteration.
+
 ## Data structure
 
     The data structure is a container (in java will be a class) that provides storage for data elements and 
@@ -89,40 +97,30 @@ Maps:
 
     Java has 8 types (boolean, byte, char, double, float, int, long, short).
 
-## DATE AND TIME IN JAVA 8(and later)
+## DATE AND TIME IN JAVA 8
 
-Worth to know:
-
-* The new Java 8 java.time. Instant is the equivalent class to the classic java.util.Date Date in Pre-Java 8 does not
-  represent… date. Seriously, officially date is “[…] the day of the month or year as specified by a number […]” whereas
-  in Java it represents a point in time without any specific calendar (day/month/year). Many methods in Date are
-  deprecated for a reason because they lead you to believe Date represents, you know, date. Timestamp (long value) or as
-  ISO 8601, which is basically what Instant.toString() is.
-* Why Java 8 introduced new data and time classes. What was wrong with time and date?
-    * Java Date Time classes are not defined consistently; we have Date Class in both java.util as well asjava.sql
-      packages. Again formatting and parsing classes are defined in java.text package. java.util.Date contains both date
-      and time, whereas java.sql.Date contains only date. Having this in java.sql package doesn’t make sense. Also, both
-      the classes have the same name, which is a very bad design itself.
-    * There are no clearly defined classes for a time, timestamp, formatting and parsing. We have java.text.DateFormat
-      abstract class for parsing and formatting need. Usually, SimpleDateFormat class is used for parsing and
-      formatting.
-    * All the Date classes are mutable, so they are not thread-safe. It’s one of the biggest problems with Java Date and
-      Calendar classes. ⦁ Date class doesn’t provide internationalization; there is no timezone support. So
-      java.util.Calendar and java.util.TimeZone classes were introduced, but they also have all the problems listed
-      above.
-
-* What was the design principles for date and time in Java 8 ?
-    * Immutability: All the classes in the new Date-Time API are immutable and good for multithreaded environments.
+    What was the design principles for date and time in Java 8?
+    
+    * Immutability: All the classes in the new Date-Time API are immutable and suitable for multithreaded environments.
     * Separation of Concerns: The new API clearly separates human-readable date time and machine time (UNIX timestamp).
       It defines separate classes for Date, Time, DateTime, Timestamp, Timezone etc.
-    * Clarity: The methods are clearly defined and perform the same action in all the classes. For example, to get the
-      current instance, we have now() method. There are format() and parse() methods defined in all these classes rather
-      than having a separate class for them. All the classes use Factory Pattern and Strategy Pattern for better
-      handling. Once you have used the methods in one class, working with other classes won’t be hard.
-    * Utility operations: All the new Date-Time API classes comes with methods to perform common tasks, such as plus,
-      minus, format, parsing, getting a separate part in date/time etc.
-    * Extendable: The new Date Time API works on the ISO-8601 calendar system, but we can use it with other non-ISO
-      calendars as well.
+    * Clarity: The methods are clearly defined and perform the same action in all the classes. For example, to get the current instance, we have now() method. There are format() and parse() methods defined in all these classes rather than having a separate class for them. All the classes use Factory Pattern and Strategy Pattern for better handling. Once you have used the methods in one class, working with other classes won’t be hard.
+    * Utility operations: All the new Date-Time API classes comes with methods to perform common tasks, such as plus,      minus, format, parsing, getting a separate part in date/time etc.
+    * Extendable: The new Date Time API works on the ISO-8601 calendar system, but we can use it with other non-ISO calendars as well.
+
+    Worth to know:
+
+    * The new Java 8 java.time.
+      Instant is the equivalent class to the classic java.util.Date Date in Pre-Java 8 does not represent… date. 
+      Seriously, officially, date is “[…] the day of the month or year as specified by a number […]” 
+      whereas in Java it represents a point in time without any specific calendar (day/month/year). 
+      Many methods in Date are deprecated for a reason because they lead you to believe. 
+      Date represents, you know, date.
+      Timestamp (long value) or as ISO 8601, which is basically what Instant.toString() is.
+    * Why Java 8 introduced new data and time classes. What was wrong with time and date?
+        * Java Date Time classes are not defined consistently; we have Date Class in both java.util as well asjava.sql packages. Again formatting and parsing classes are defined in java.text package. java.util.Date contains both date and time, whereas java.sql.Date contains the only date. Having this in java.sql package doesn’t make sense. Also, both the classes have the same name, which is a very bad design itself.
+        * There are no clearly defined classes for time, timestamp, formatting and parsing. We have java.text.DateFormat abstract class for parsing and formatting need. Usually, SimpleDateFormat class is used for parsing and formatting.
+        * All the Date classes are mutable, so they are not thread-safe. It’s one of the biggest problems with Java Date and Calendar classes. ⦁ Date class doesn’t provide internationalization; there is no timezone support. So java.util.Calendar and java.util.TimeZone classes were introduced, but they also have all the problems listed above.
 
 ## DEADLOCK
 
@@ -201,13 +199,26 @@ Worth to know:
 
     JavaBean is a normal Java class with with set of coding conventions rules to make a reusable software component. Implements java.io.Serializable interface Provides no argument constructor Provides getter and setter methods for accessing its properties.
 
+## What is JDBC?
+
+    JDBC is a Java database connectivity technology. This technology is an API for the Java programming language that
+    defines how a client may access a database, query and manipulate data. It allows the programmer to interact with the
+    database without concern about what database is used.
+
 ## JSP
 
     Ancient technology.Ask Software archeologies for details.
 
 ## Lambda
 
+    Lambda expression are cute little anonymous method.
     Lambda expression is a more compact way of writing an anonymous function or implementing a functional interface.
+
+## Marshalling and Demarshalling?
+
+    When an application wants to pass its memory objects across a network to another host or persist it to storage, the
+    in-memory representation must be converted to a suitable format. This process is called marshalling, and the revert
+    operation is called demarshalling.
 
 ## method
 
@@ -218,14 +229,12 @@ Worth to know:
     A method reference is a more compact and easy-to-read construct that replaces a lambda expression that does nothing more
     than invoking an existing method.
 
-Types of Method References Lambda expression are cute little anonymous method:
+    Types of Method References:
 
-- Type Syntax Method Reference Lambda expression Reference to a static method Class::staticMethod String::valueOf s ->
-  String.valueOf(s)
-- Reference to an instance method of a particular object instance::instanceMethod s:toString () -> “string”.toString()
-  =Reference to an instance method of an arbitrary object of a particular type Class:instanceMethod String::toString s
-  -> s.toString()
-- Reference to a constructor Class::new String::new () -> new String()
+    - Type Syntax Method Reference Lambda expression Reference to a static method Class::staticMethod String::valueOf s -> String.valueOf(s)
+    - Reference to an instance method of a particular object instance::instanceMethod s:toString () -> “string”.toString()
+    - Reference to an instance method of an arbitrary object of a particular type Class:instanceMethod String::toString s -> s.toString()
+    - Reference to a constructor Class::new String::new () -> new String()
 
 ## Method Overloading
 
@@ -245,10 +254,10 @@ Types of Method References Lambda expression are cute little anonymous method:
 
 ## PATH environment variable
 
-- It is a way for the system to run the executables (javac.exe, java.exe, javadoc.exe, and so on) from any directory
-  without having to type the full path of the command
-- The CLASSPATH variable is one way to tell applications, including the JDK tools, where to look for user classes. If a
-  class is not found in CLASSPATH then Java throws ClassNotFoundException.
+    - It is a way for the system to run the executables (javac.exe, java.exe, javadoc.exe, and so on) from any directory
+      without having to type the full path of the command
+    - The CLASSPATH variable is one way to tell applications, including the JDK tools, where to look for user classes. If a
+      class is not found in CLASSPATH then Java throws ClassNotFoundException.
 
 ## Polymorphism
 
@@ -266,6 +275,15 @@ Types of Method References Lambda expression are cute little anonymous method:
     You should always define SerialVersionUID for a serializable class and you should always define it. If you don't define
     then JVM will calculate it for you but if you modify anything you will get a different SerialVersionUID which means you
     won't be able to restore object saved by previous version of your program.
+
+## JAVA SERVLET
+
+    The javax.servlet.Servlet interface defines the three methods known as the life-cycle method.
+
+    1.  init()      - the servlet is constructed, then initialized with the init() method.
+    2.  service()   - Any request from the client are handled initially by the service() method before delegating to the doXxx() methods in the
+    case of HttpServlet.
+    3.  destroy()   - The servlet is removed from service, destroyed with the destroy() method, then garbaged collected and finalized.
 
 ## Static keyword
 
@@ -307,10 +325,6 @@ don't need provide default constructor. It will be done by compiler).
 What is a Constructor Overloading? The constructor overloading is similar to method overloading in Java. Different
 constructors can be created for a single class.
 
-What is JDBC? JDBC is a Java database connectivity technology. This technology is an API for the Java programming
-language that defines how a client may access a database and how to query and manipulate data. It allows programmer to
-interact with database without concern about what database is used.
-
 Difference between Abstraction and Encapsulation? Abstraction and encapsulation are complementary concepts. Abstraction
 focuses on the behaviour of an object. Encapsulation focuses on the implementation of an object’s behaviour.
 
@@ -322,12 +336,6 @@ get rid off all stuff
 - merge groovy goodness into Java. (- File handling)
 - merge Apache commons goodness into Java Many changes was done in Java7 and Java Date/Time was changed in Java8. Thank
   you.
-
-# COLLECTIONS
-
-What is a Java collections framework?
-
- 	The Java collections framework (JCF) is a set of classes and interfaces that implement commonly reusable collection of data structures. 
 
 Question 1: What is Framework in Java?
 
@@ -382,10 +390,6 @@ and used to determine where to search for the object.
 The hash code only points to a certain "area" (or list, bucket etc) internally. Since different key objects could
 potentially have the same hash code, the hash code itself is no guarantee that the right key is found. The hashtable
 then iterates this area (all keys with the same hash code) and uses the key's equaals() method to find the right key.
-
-CREATE A MAP WITHOUT NEED TO RESIZE Map map = new HashMap(1 + (int) (collection.size() / 0.75)); HashMap implementation
-doesn't quite behave like this. It sets its internal threshold to threshold = (int)(capacity * loadFactor). So it will
-resize after 75% of the collection have been inserted into the map. The above code will thus always cause extra garbage.
 
 Optional Anti-Pattern #2: Collections of Optionals Optionals were not designed to be serialized.
 
@@ -494,21 +498,6 @@ blocks with a single try statement and only one finally block ⦁ In terms of Fu
 Exception are same. ⦁ Java has always been criticized for having checked exception and polluting code with cluttered
 exception handling code, multi-catch block in Java 7 fix this problem.
 
-WHAT'S NEW IN JAVA 9 ? JShell: The Java Shell Javadoc Search and HTML5 Enhanced Deprecation Allow Effectively Final
-Variables to Be Used in a Try-With-Resources Statement Interface Private methods Private static methods Improvements to
-Stream and Optional Modules (Jigsaw)
-It sounds like great idea for new greenfield project but not a good solution for old monolith application. It helps to
-have a Cleaner design and Smaller deployables. Jigsaw is about removing classpath Hide stuff that people should not
-see (like Unsafe)
-Reactive APi It is similar Retrieve PID of Current Process, Retrieving Process Information which makes common operations
-on native processes much easier. long pid = ProcessHandle.current().pid(); Forbid the Underscore as an Identifier HTTP/2
-Client Immutable Collections Compact Strings Javadocs using html5 Enhanced Deprecation reactive programming movement's
-effort formalization for Java
-
-What is Marshalling and Demarshalling? When an application wants to pass its memory objects across a network to another
-host or persist it to storage, the in-memory representation must be converted to a suitable format. This process is
-called marshalling and the revert operation is called demarshalling.
-
 Explain Serialization and Deserialization.
 
  	Java provides a mechanism, called object serialization where an object can be represented as a sequence of bytes and includes the object’s data, as well as information about the object’s type, and the types of data stored in the object. Thus, serialization can be seen as a way of flattening objects, in order to be stored on disk, and later, read back and reconstituted. Deserialisation is the reverse process of converting an object from its flattened state to a live object.
@@ -519,8 +508,6 @@ and static fields are never get serialized. There is an interface available to v
 ObjectInputValidation'. It has validateObject() method
 
 Source:
-
-
 
 THREAD What is a Thread? Thread in Java is an independent path of execution which is used to run two task in parallel.
 The Java Virtual Machine allows an application to have multiple threads of execution running concurrently..
@@ -616,15 +603,9 @@ Things to add:
 
 ## When does ConcurrentModificationException occur?
 
-- ConcurrentModificationException occurs when a data collection tries to modify while that collection is actively in
-  use, as when something we are iterating on is modified.
+    ConcurrentModificationException occurs when a data collection tries to modify while that collection is actively in use, as when something we are iterating on is modified.
 
-## What is a CopyOnWriteArrayList?
-
-- It makes a cloned copy of the underlying ArrayList to implement all operations and modifications. It is fail-safe and
-  it will never throw ConcurrentModificationException during iteration.
-
-## What is Concurrent Modification?
+## Concurrent Modification?
 
     When one or more thread is iterating over the collection, in between, one thread changes the structure of the
     collection (either adding the element to the collection or by deleting the element in the collection or by updating the
@@ -669,29 +650,6 @@ There are similar as both implement list ArrayList LinkedList.
 * LinkedList are faster in a The Insertion, addition and removal operations of an element (no need of resizing an array
   or update index)
 
-## Why Is the String Object Immutable in Java?
-
-It is a design choice for a few security, multithreading, memory optimisation reasons like:
-
-0. String pool is possible. Different String variables can refer to the same String variable in the pool. If String was
-   not immutable then if any variable have changed the value, it would have been reflected in other variables. String
-   pool allows to Java Runtime saves a lot of Java heap space.
-0. Since String is immutable, it makes them thread safe for multithreading and it avoids the usage of synchronization
-   for thread safety. It makes good performance because a single String instance can be shared across different threads.
-0. It prevents many security issues like Since String is immutable, it's value can’t be changed. Otherwise, any hacker
-   could change the referenced value to cause security issues in the application. As it used in the Java classloader,
-   and immutability provides security that the correct class is getting loaded by the Classloader (connections to
-   database)
-0. Since String is immutable, its hashcode is cached at the time of creation, and it doesn’t need to be calculated
-   again. This makes it a great candidate for a key in a map, and it’s processing is fast than other HashMap key
-   objects. This is why String is the most-used object of HashMap keys.
-
-## Why wait, notify and notifyAll is defined in Object Class and not on Thread class in Java?
-
-0. It a language design decision, and I am software developer I am not knowledge on langage architecture design to
-   comment on it. My guess is based on usage of these methonds like Both wait and notify methods are used for inter
-   thread communication.
-
 # What is the difference between Exception and Error in Java?
 
     Exception and Error classes are both subclasses of the Throwable class.
@@ -704,18 +662,6 @@ It is a design choice for a few security, multithreading, memory optimisation re
 - Externalizable extends Serializable interface and add two methods defined on it e.g. readExternal() and
   writeExternal() which allows you to control the serialization/deserialization process.
 - Serializable uses default serialization process which can be very slow for some application.
-
-## What are pass by reference and pass by value? Is Java pass by reference and pass by value?
-
-- Well According to specification Java is strictly pass-by-value. Read the Java Language Specification (JLS)
-  . It's spelled out, and it's correct. In http://java.sun.com/docs/books/jls/third_edition/html/classes.html#8.4.1:
-
-However, based on my experience corect answer for many reviews accept only this answer:
-By value = changes doesn't affect original By reference = changes are reflected where original value is used.
-
-Object is passed by value – this means that a copy of the object is passed. If changes are made to that object, it
-doesn’t affect the original value. Object is passed by reference, this means that the actual object is not passed,
-rather a reference of the object is passed. Any changes made by the external method, are also reflected in all places.
 
 ## What differences exist between Iterator and ListIterator?
 
@@ -830,6 +776,53 @@ returning a null in case the underlying collection is actually empty.
     - Finally is a block of code that is always executed after try/catch block. (Java 7 has a try with resources statement)
     - Finalize is a method called before is an object is a garbage collected.
 
+## _Create a map without need to resize_
+
+```Map map = new HashMap(1 + (int) (collection.size() / 0.75));```
+
+    HashMap implementation doesn't quite behave like this. 
+    It sets its internal threshold to threshold = (int)(capacity * loadFactor). 
+    So it will resize after 75% of the collection have been inserted into the map. 
+    The above code will thus always cause extra garbage.
+
+//TODO add example
+
+## What are pass by reference and pass by value? Is Java pass by reference and pass by value?
+
+    According to specification Java is strictly pass-by-value. Read the Java Language Specification (JLS). It's spelt out,
+    and it's correct. In https://docs.oracle.com/javase/specs/jls/se17/html/jls-8.html#jls-8.4.1
+    
+    However, based on my experience correct answer for many reviews accept only this answer: By value = changes doesn't
+    affect original By reference = changes are reflected where original value is used.
+    
+    The object is passed by value – this means that a copy of the object is passed. If changes are made to that object, it
+    doesn't affect the original value. The object is passed by reference; this means that the actual object is not passed;
+    rather, a reference of the object is passed. Any changes made by the external method are also reflected in all places.
+
+## Why Is the String Object Immutable in Java?
+
+    It is a design choice for a few security, multithreading, memory optimisation reasons like:
+
+    1. Since String is immutable, it makes them thread-safe for multithreading, and it avoids the usage of synchronisation
+       for thread safety. It makes a good performance because a single String instance can be shared across different
+       threads.
+    2. Since String is immutable, its hashcode is cached at the creation time, and it doesn't need to be calculated again.
+       This makes it a great candidate for a key in a map, and its processing is fast than other HashMap key objects. This
+       is why String is the most-used object of HashMap keys.
+    3. String pool is possible. Different String variables can refer to the same string variable in the pool. If String were
+       not immutable, then if any variable have changed the value, it would have been reflected in other variables. String
+       pool allows Java Runtime saves a lot of Java heap space.
+    4. It prevents many security issues like Since String is immutable, it's value can't be changed. Otherwise, any hacker
+       could change the referenced value to cause security issues in the application. As it used in the Java classloader,
+       and immutability provides security that the correct class is getting loaded by the Classloader (connections to the
+       database)
+
+## Why wait, notify and notifyAll is defined in Object Class and not on Thread class in Java?
+
+    It is a language design decision, and I am a software developer. I am not knowledgeable enough about language
+    architecture design to comment on it. My guess is based on usage of these methods like Both wait and notifies methods
+    are used for inter-thread communication.
+
 # RESOURCES:
 
 0. http://en.wikipedia.org/wiki/Anti-pattern#Programming_anti-patterns
@@ -870,6 +863,7 @@ returning a null in case the underlying collection is actually empty.
 35. http://docs.oracle.com/javase/tutorial/java/concepts/class.html)
 36. http://java67.blogspot.sg/2012/08/difference-between-treemap-and-treeset-java.html
 37. http://docs.oracle.com/javase/tutorial/java/javaOO/methods.html
+38. http://www.javadude.com/articles/passbyvalue.htm
 
 TODO:
 https://dzone.com/articles/composition-vs-inheritance
