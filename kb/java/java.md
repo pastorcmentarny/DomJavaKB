@@ -71,9 +71,26 @@ Maps:
     LinkedHashMap   O(1)    O(1)    O(1)    O(1)
     TreeMap         O(logn) O(logn) O(logn) O(logn)
 
+## Checked Exceptions
+
+    Checked exceptions are checked at compile-time. Checked exceptions are exceptions that we can anticipate, and we should be able to recover
+    from them. If a method is throwing a checked exception, it should handle the exception using try-catch block or declare the exception using the throws keyword.
+    
+    Examples of Checked Exceptions SQLException, IOException, DataAccessException, ClassNotFoundException and InvocationTargetException.
+
 ## Class
 
     It is a blueprint from which objects are created.
+
+## Constructor
+
+    A constructor gets invoked when a new object is created. Every class has a constructor. (You don't need to provide
+    default constructor. It will be done by compiler).
+
+## Constructor Overloading
+
+    The constructor overloading is similar to method overloading in Java. Different constructors can be created for a single
+    class.
 
 ## The Java Collections Framework (JCF)
 
@@ -129,12 +146,29 @@ Maps:
     reason for the deadlock is not multiple threads but the way they access lock. If you provide ordered access, then the
     problem will be resolved.
 
+## Errors
+
+Errors are exceptional cases that are out of the scope of the application, and that is impossible to anticipate and
+recover from them (JVM crashes, HW failure).
+
 ## Encapsulation
 
     Encapsulation (data hiding) is a technique that gives the ability to control access to their internal characteristics and behaviour. It is accomplished by Java access modifiers: public, private, default(no modifier)  and protected.
     * It increases usability. 
     * It improves the maintenance of code.
     * It helps object to interact with each other correctly.
+
+## Enum
+
+    * Only private constructors are allowed in enum types
+    * Enum constants are created only once for the whole execution.
+    * Enum types are final by default.
+    * All enum types are Comparable and Serializable by default.
+
+## EnumSet.
+
+    It is a Set implementation that can be used with enum types. All the elements must come from one enum type specified
+    explicitly or implicitly. It is not synchronized. NULL keys are not allowed.
 
 ## GARBAGE COLLECTORS
 
@@ -148,7 +182,7 @@ Maps:
 
     ZGC is a low-latency GC designed to work well with huge amounts of memory. The Oracle documentation refers to multi-terabyte heaps in its description of Z. Oracle introduced ZGC in Java 11. In Java 12, Oracle added performance fixes and class unloading even though Z is still in experimental status. It's only available on 64-bit Linux.
 
-### What Is Shenandoah?
+### Shenandoah
 
     Shenandoah GC is a garbage collector with low pause times. These times are short and predictable, regardless of the size of the heap.
     How Does Shenandoah Work? Shenandoah's design trades concurrent CPU cycles and space for pause time improvements. The forwarding pointer makes it easy to move objects, but the aggressive moves mean Shenandoah uses more memory and requires more parallel work than other GCs. But it does the extra work with very brief stop-the-world pauses.https://dzone.com/articles/java-garbage-collection-3?edition=479246&utm_source=Zone%20Newsletter&utm_medium=email&utm_campaign=java%202019-05-07
@@ -159,7 +193,7 @@ Maps:
     types, it throws a compile-time error. This avoids ClassCastException at Runtime because you will get the error at
     compilation.
 
-## What is a hashcode()?
+## hashcode()
 
     A hashcode() is a method that returns an integer number. It is used some data structures (like theHashMap): because it
     is one of the fastest solutions around for random-access key-value storage, which means it allows objects to be
@@ -248,6 +282,10 @@ Maps:
 
     It is a particular instance of a class (with its own variables, methods, and data structures).
 
+## OOP concepts:
+
+    abstraction , encapsulation , inheritance and polymorphism
+
 ## Package
 
     It is a namespace for organizing classes, interfaces and so on in a logical structure.
@@ -293,6 +331,18 @@ Maps:
 
     Do not allow instantiation of a static class. Always create a private constructor. Static classes should be stateless, immutable, not allow subclassing, and thread-safe. Static classes should be side-effect free and provided as utilities, such as filtering a list.
 
+## Thread
+
+    Thread in Java is an independent path of execution that is used to run two tasks in parallel.
+    The Java Virtual Machine allows an application to have multiple threads of execution running concurrently.
+
+## System Properties
+
+    The System class maintains a set of properties - key/value pairs - that define traits or attributes of the current
+    working environment. When the runtime system first starts up, the system properties are initialized to contain
+    information about the runtime environment. It including information about the current user, the current version of the
+    Java runtime, and even the character used to separate components of a filename.
+
 ## Volatile keyword
 
     Voltile variable in Java is a special variable which is used to signal threads, compiler that this particular variables values is going to be updated by multiple thread inside Java application. By making a variable volatile using volatile keyword in Java, application programmer ensures that its value should always been read from main memory and thread should not use cached value of that variable from there own stack. Volatile keyword can only be applied to variable, it can not be applied to class or method. using volatile keyword along with class and method is compiler error. Any variable which is shared between multiple threads should be made variable, in order to ensure that all thread must see latest value of volatile variable.
@@ -318,12 +368,6 @@ differences are the accessibility of data members and methods: abstract classes 
 and allow methods to be public, private, or protected while interfaces’ fields are inherently public, static, and final,
 and all interface methods are inherently public. How does Java handle a class that implements two interfaces, both of
 which describe a default method with the same signature? this is a compilation error.
-
-What is a Constructor? A constructor gets invoked when a new object is created. Every class has a constructor. (You
-don't need provide default constructor. It will be done by compiler).
-
-What is a Constructor Overloading? The constructor overloading is similar to method overloading in Java. Different
-constructors can be created for a single class.
 
 Difference between Abstraction and Encapsulation? Abstraction and encapsulation are complementary concepts. Abstraction
 focuses on the behaviour of an object. Encapsulation focuses on the implementation of an object’s behaviour.
@@ -360,10 +404,6 @@ Overhead no YES Examples ArrayList Vector HashSet
 
 HashMap, CopyOnWriteArrayList,
 
-Note: To avoid ConcurrentModificationException we can use concurrent collection classes to avoid
-ConcurrentModificationException while iterating over a collection, for example CopyOnWriteArrayList instead of
-ArrayList.
-
 How HashMap works in Java? A HashMap is a data structure that stores key-value pairs. Key need to be unique.
 
 Put/Get In order to put and retrieve elements to and from the collection it uses hashCode and equals methods.
@@ -393,18 +433,16 @@ then iterates this area (all keys with the same hash code) and uses the key's eq
 
 Optional Anti-Pattern #2: Collections of Optionals Optionals were not designed to be serialized.
 
-What is the trade off between using an unordered array versus an ordered array? search times in ordered array are better
+What is the trade-off between using an unordered array versus an ordered array? search times in ordered array are better
 as they have complexity of O(log n), compared to that of an unordered array, which is O (n). Insertion times in
 unordered array are better as they it takes constant time ofO(1),while ordered time takes O(n)
 
-Question 10: Define EnumSet.
+Question 10: Define Note: LinkedHashSet is in some sense intermediate between HashSet and TreeSet. Implemented as a hash
+table with a linked list running through it, however it provides insertion-ordered iteration which is not same as sorted
+traversal guaranteed by TreeSet. Also, since we used a LinkedHashSet, the iteration order is the same as the insertion
+order. If you do not need this behavior, use a HashSet for more efficiency.
 
-Answer: It is a Set implementation that can be used with enum types. All the elements must come from one enum type
-specified explicitly or implicitly. It is not synchronized. NULL keys are not allowed. Note: LinkedHashSet is in some
-sense intermediate between HashSet and TreeSet. Implemented as a hash table with a linked list running through it,
-however it provides insertion-ordered iteration which is not same as sorted traversal guaranteed by TreeSet. Also, since
-we used a LinkedHashSet, the iteration order is the same as the insertion order. If you do not need this behavior, use a
-HashSet for more efficiency. Difference between TreeSet and TreeMap in Java?
+Difference between TreeSet and TreeMap in Java?
 
 TreeSet TreeMap They are sorted collections. They are not synchronized. Store values Store keys and values Duplicate
 object are not allowed. Duplicate object are allowed(for value only).
@@ -452,18 +490,6 @@ will be executed whenever exception occurred or not.(It is used to close open co
 
 Exception Hierarchy
 
-Errors Errors are exceptional cases that are out of scope of the application and that is impossible to anticipate and
-recover from them (JVM crashes, HW failure).
-
-Checked Exceptions
-
-Checked exceptions are checked at compile-time. It means if a method is throwing a checked exception then it should
-handle the exception using try-catch block or it should declare the exception using throws keyword.
-
-Here are the few other Checked Exceptions – ⦁ SQLException ⦁ IOException ⦁ DataAccessException ⦁ ClassNotFoundException
-⦁ InvocationTargetException Checked exceptions are exceptions that we can anticipate and we should be able to recover
-from them.
-
 When to use them? TODO improve it
 
 1) All Operation where chances of failure is more e.g. IO Operation, Database Access or Networking operation can be
@@ -487,11 +513,6 @@ or a constructor’s throws clause, if they can be thrown by the execution of th
 outside the method or constructor boundary. On the other hand, checked exceptions must be declared in a method or a
 constructor’s throws clause.
 
-When you should throw checked exception and when you should throw unchecked exception? We should always use unchecked
-exception. Checked exception was good idea,but … it breaks Open/Closed Principle. If a client can reasonably be expected
-to recover from an exception, make it a checked exception. If a client cannot do anything to recover from the exception,
-make it an unchecked exception.
-
 GOOD TO REMEMBER:
 ⦁ A try statement should have either catch block or finally block, it can have both blocks. ⦁ We can have multiple catch
 blocks with a single try statement and only one finally block ⦁ In terms of Functionality Checked and Unchecked
@@ -508,9 +529,6 @@ and static fields are never get serialized. There is an interface available to v
 ObjectInputValidation'. It has validateObject() method
 
 Source:
-
-THREAD What is a Thread? Thread in Java is an independent path of execution which is used to run two task in parallel.
-The Java Virtual Machine allows an application to have multiple threads of execution running concurrently..
 
 What is Collections Class? java.util.Collections Is a utility class consists exclusively of static methods that operate
 on or return collections. It contains polymorphic algorithms that operate on collections, “wrappers”, which return a new
@@ -529,13 +547,6 @@ notifyAll method is just waste of CPU cycles.
 
 Difference between <? super T> and <? extends T> in Java ? TODO
 
-System Properties
-
-The System class maintains a set of properties--key/value pairs--that define traits or attributes of the current working
-environment. When the runtime system first starts up, the system properties are initialized to contain information about
-the runtime environment. including information about the current user, the current version of the Java runtime, and even
-the character used to separate components of a filename.
-
 GOOD TO KNOW:
 This is an example of how to use the AtomicInteger class of Java. The java.util.concurrent.atomic package provides very
 useful classes that support lock-free and thread-safe programming on single variables. Among them, the AtomicInteger
@@ -543,9 +554,6 @@ class is a wrapper class for an int value that allows it to be updated atomicall
 some of which will be shown in the code snippet below. The most common use of the AtomicInteger is to handle a counter
 that is accessed by different threads
 simultaneously. (https://examples.javacodegeeks.com/core-java/util/concurrent/atomic/atomicinteger/java-atomicinteger-example/)
-
-OOP concepts:
-abstraction , encapsulation , inheritance and polymorphism DRY (Don't repeat yourself)
 
 ###### ###### ######
 
@@ -556,10 +564,6 @@ lines in the end
 
 Things to add:
 
-* Only private constructors are allowed in enum types
-* Enum constants are created only once for the whole execution.
-* Enum types are final by default. T
-* , all enum types are Comparable and Serializable by default.
 * volatile is a field modifier, while synchronized modifies code blocks and methods.
 * Threads can have local copies of variables, and the data does not have to be the same as the data held in other
   threads.
@@ -590,14 +594,22 @@ Things to add:
 # RANDOM TIPS
 
 0. **Finally** is _not executed_ if the** System.exit** method is called _inside_ a try block.
-0. Consequently an amount of money should never ever be stored in a floating point data type (float, double).For
+1. Consequently an amount of money should never ever be stored in a floating point data type (float, double).For
    calculations the class BigDecimal provides an excellent facility.
-0. When using streams,use ordered collection when u use dropWhile/takeWhile to avoid sneaky bugs.
-0. Objects.isNull vs object == null. Objects.isNull is intended for use within Java 8 lambda filtering. However value is
+2. When using streams,use ordered collection when u use dropWhile/takeWhile to avoid sneaky bugs.
+3. Objects.isNull vs object == null. Objects.isNull is intended for use within Java 8 lambda filtering. However value is
    limited to helps readability for some style preference For example some guides prefere
    this:    ```    .stream().filter(Objects::isNull)     ```    than: ```    .stream().filter(x->x==null)    ```
-0. The List returned by Arrays.asList() is an immutable list. Attempting to remove (or add) items to such a list results
+4. The List returned by Arrays.asList() is an immutable list. Attempting to remove (or add) items to such a list results
    in an UnsupportedOperationException
+5. To avoid ConcurrentModificationException we can use concurrent collection classes to avoid
+   ConcurrentModificationException while iterating over a collection, for example CopyOnWriteArrayList instead of
+   ArrayList.
+6. If we need to sort an array of Objects, we can use Arrays.sort(). If we need to sort a list of objects, we can use
+   Collections.sort(). Both these classes have overloaded sort() methods for natural sorting (using Comparable) or
+   sorting based on criteria (using Comparator). Collections internally use the Arrays sorting method, so both have the
+   same performance except that Collections take some time to convert the list to an array. Streams can sort collections
+   too.
 
 # FAQ
 
@@ -640,15 +652,25 @@ Things to add:
 
     The term ‘stop-the-world’ is used to mean that all of the threads are paused in order to perform garbage collection.
 
-## What is difference between ArrayList and LinkedList?
+# RANDOM TIPS
 
-There are similar as both implement list ArrayList LinkedList.
-
-* An ArrayList is an index based data structure. It provides random access to its elements with a performance equal to
-  O(1).
-* An ArrayList use less memory (LinkedList store 2 references)
-* LinkedList are faster in a The Insertion, addition and removal operations of an element (no need of resizing an array
-  or update index)
+1. Consequently, an amount of money should never ever be stored in a floating-point data type (float, double). For
+   calculations, the class BigDecimal provides an excellent facility.
+2. When using streams,use ordered collection when u use dropWhile/takeWhile to avoid sneaky bugs.
+3. Objects.isNull vs object == null. Objects.isNull is intended for use within Java 8 lambda filtering. However value is
+   limited to helps readability for some style preference For example some guides prefere
+   this: ```.stream().filter(Objects::isNull```    than: ```.stream().filter(x->x==null)```
+4. The List returned by Arrays.asList() is an immutable list. Attempting to remove (or add) items to such a list results
+   in an UnsupportedOperationException
+5. To avoid ConcurrentModificationException we can use concurrent collection classes to avoid
+   ConcurrentModificationException while iterating over a collection, for example CopyOnWriteArrayList instead of
+   ArrayList.
+6. If we need to sort an array of Objects, we can use Arrays.sort(). If we need to sort a list of objects, we can use
+   Collections.sort(). Both these classes have overloaded sort() methods for natural sorting (using Comparable) or
+   sorting based on criteria (using Comparator). Collections internally use the Arrays sorting method, so both have the
+   same performance except that Collections take some time to convert the list to an array. Streams can sort collections
+   too.
+7. **Finally** is _not executed_ if the** System.exit** method is called _inside_ a try block.
 
 # What is the difference between Exception and Error in Java?
 
@@ -725,19 +747,6 @@ to revisit the same elements of the source.
   between these two is that you could create multiple Comparator to define multiple sorting order based upon a different
   object attribute.
 
-## How can we sort a list of Objects?
-
-If we need to sort an array of Objects, we can use Arrays.sort(). If we need to sort a list of objects, we can use
-Collections.sort(). Both these classes have overloaded sort() methods for natural sorting (using Comparable) or sorting
-based on criteria (using Comparator). Collections internally uses Arrays sorting method, so both of them have same
-performance except that Collections take sometime to convert list to array. Streams can sort collections
-
-## Difference between extends Thread vs implements Runnable in Java?
-
-The way how I choose is quite simple. If you want add new functionality ,then I will extends Thread. Otherwise, I will
-use Runnable/Callable Interface. Why? In Object oriented programming extending a class generally means adding new
-functionality, modifying or improving behaviours.
-
 ## Difference between Runnable and Callable interface in Java? Just like Runnable, Callable also defines a single call()
 
 method but unlike run() it can return values and throw exceptions.
@@ -787,7 +796,7 @@ returning a null in case the underlying collection is actually empty.
 
 //TODO add example
 
-## What are pass by reference and pass by value? Is Java pass by reference and pass by value?
+## _What are pass by reference and pass by value? Is Java pass by reference and pass by value?_
 
     According to specification Java is strictly pass-by-value. Read the Java Language Specification (JLS). It's spelt out,
     and it's correct. In https://docs.oracle.com/javase/specs/jls/se17/html/jls-8.html#jls-8.4.1
@@ -799,7 +808,7 @@ returning a null in case the underlying collection is actually empty.
     doesn't affect the original value. The object is passed by reference; this means that the actual object is not passed;
     rather, a reference of the object is passed. Any changes made by the external method are also reflected in all places.
 
-## Why Is the String Object Immutable in Java?
+## _Why Is the String Object Immutable in Java?_
 
     It is a design choice for a few security, multithreading, memory optimisation reasons like:
 
@@ -817,11 +826,24 @@ returning a null in case the underlying collection is actually empty.
        and immutability provides security that the correct class is getting loaded by the Classloader (connections to the
        database)
 
-## Why wait, notify and notifyAll is defined in Object Class and not on Thread class in Java?
+## _Why wait, notify and notifyAll is defined in Object Class and not on Thread class in Java?_
 
     It is a language design decision, and I am a software developer. I am not knowledgeable enough about language
     architecture design to comment on it. My guess is based on usage of these methods like Both wait and notifies methods
     are used for inter-thread communication.
+
+## _When you should throw checked exception and when you should throw unchecked exception?_
+
+    I always use unchecked exceptions. The checked exception was an interesting architecture idea, but it broke the
+    Open/Closed Principle and didn't work out well in the long term. If a client can reasonably be expected to recover from
+    an exception, make it a checked exception. If a client cannot do anything to recover from the exception, make it an
+    unchecked exception.
+
+## _Difference between extends Thread vs implements Runnable in Java?_
+
+    The way how I choose it is pretty simple. If you want to add new functionality, then I will extend Thread. Otherwise, I
+    will use Runnable/Callable Interface. Why? In Object-oriented programming, extending a class generally means adding new
+    functionality, modifying or improving behaviours.
 
 # RESOURCES:
 
@@ -833,7 +855,7 @@ returning a null in case the underlying collection is actually empty.
 5. http://javarevisited.blogspot.co.uk/2012/02/why-wait-notify-and-notifyall-is.html
 6. http://javarevisited.blogspot.com/2012/10/difference-between-notify-and-notifyall-java-example.html
 7. http://javarevisited.blogspot.sg/2011/04/synchronization-in-java-synchronized.html
-8. www.javacodegeeks.com/2014/04/java-interview-questions-and-answers.html
+8. http://www.javacodegeeks.com/2014/04/java-interview-questions-and-answers.html
 9. http://javarevisited.blogspot.com/2016/09/how-to-serialize-object-in-java-serialization-example.html
 10. https://dzone.com/articles/what-you-need-to-know-about-serialization
 11. http://www.javacodegeeks.com/2013/07/java-exception-handling-tutorial-with-examples-and-best-practices.html
