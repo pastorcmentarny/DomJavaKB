@@ -78,6 +78,13 @@ and easier, as well as solve the problem then one package will depend on another
 
 hiding of data implementation by restricting access
 
+# F
+
+## What is Framework?
+//TODO
+A framework is a set of classes and interfaces which provide a ready-made architecture. An optimal object-oriented
+design always includes a framework with a collection of classes such that all the classes perform the same kind of task.
+
 # H
 
 ## Hexagonal Architecture (ports and adapters).
@@ -163,8 +170,10 @@ programming languages, web application platforms) - on top of the hardware.
 # R
 
 ## Reactive Programing
-Reactive Programming
-Reactive programming is a programming paradigm that delivers three benefits: resource efficiency, consistency and composability of data APIs, and robustness. It delivers better resource efficiency by making it trivial to write code that does a good job of freeing up otherwise idle threads for reuse.
+
+Reactive Programming Reactive programming is a programming paradigm that delivers three benefits: resource efficiency,
+consistency and composability of data APIs, and robustness. It delivers better resource efficiency by making it trivial
+to write code that does a good job of freeing up otherwise idle threads for reuse.
 
 ## Reactive Streams
 
@@ -206,11 +215,10 @@ It is an algorithm that puts elements of a list in a certain order.
 
 It is when someone comes in at the last minute and poops all over your work.
 
-## Software design pattern 
-A software design pattern is a general, reusable solution to a commonly occurring problem within a given context in software design.
-Why Do We Need Design Patterns?
-Proven Solutions to common and widely known problems
-Easy to reause
+## Software design pattern
+
+A software design pattern is a general, reusable solution to a commonly occurring problem within a given context in
+software design. Why Do We Need Design Patterns? Proven Solutions to common and widely known problems Easy to reause
 Helps communication (more easily communicate with one another about potential solutions to a given problem.)
 
 ## REST
@@ -314,9 +322,10 @@ developers work from a single branch (main, master or trunk whatever you like to
 
 While Git Flow like branching model is not wrong or not popular anymore but it causes a few issues from time to time
 that bite my team:
+
 * out of sync branches
 * using rollback cause lots of work to re-sync all other branches
-* housekeeping takes  longer, and we are not the best branch cleaners.
+* housekeeping takes longer, and we are not the best branch cleaners.
 
 TbD resolve these problems:
 
@@ -324,13 +333,12 @@ TbD resolve these problems:
   PR. Somebody reviews that (and in the future, Sonarcube will pick up code style issues automatically. Stay tuned for
   the presentation next showcase). You merge to master and deploy to any environment.
 * Rollback can happen from the master branch, where you simply re-deploy the previous master branch to prod using
-  Jenkins job with parameters.
-Is it any drawbacks? I am sure , I will discover shortly.
+  Jenkins job with parameters. Is it any drawbacks? I am sure , I will discover shortly.
 
 ## Sources:
+
 * https://trunkbaseddevelopment.com/
 * https://www.toptal.com/software/trunk-based-development-git-flow
-
 
 # U
 

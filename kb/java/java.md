@@ -148,8 +148,8 @@ Maps:
 
 ## Errors
 
-Errors are exceptional cases that are out of the scope of the application, and that is impossible to anticipate and
-recover from them (JVM crashes, HW failure).
+    Errors are exceptional cases that are out of the scope of the application, and that is impossible to anticipate and
+    recover from them (JVM crashes, HW failure).
 
 ## Encapsulation
 
@@ -233,6 +233,11 @@ recover from them (JVM crashes, HW failure).
 
     JavaBean is a normal Java class with with set of coding conventions rules to make a reusable software component. Implements java.io.Serializable interface Provides no argument constructor Provides getter and setter methods for accessing its properties.
 
+## Iterator
+
+    The Iterator interface has several methods that can iterate over any Collection. Each Java Collection contains the
+    iterator method that returns an Iterator instance.
+
 ## What is JDBC?
 
     JDBC is a Java database connectivity technology. This technology is an API for the Java programming language that
@@ -247,6 +252,13 @@ recover from them (JVM crashes, HW failure).
 
     Lambda expression are cute little anonymous method.
     Lambda expression is a more compact way of writing an anonymous function or implementing a functional interface.
+
+## LinkedHashSet
+
+    LinkedHashSet is in some sense intermediate between HashSet and TreeSet. Implemented as a hash table with a linked list
+    running through it, it provides insertion-ordered iteration that is not the same as sorted traversal guaranteed by
+    TreeSet. Also, since we used a LinkedHashSet, the iteration order is the same as the insertion order. If you do not need
+    this behaviour, use a HashSet for more efficiency.
 
 ## Marshalling and Demarshalling?
 
@@ -347,71 +359,6 @@ recover from them (JVM crashes, HW failure).
 
     Voltile variable in Java is a special variable which is used to signal threads, compiler that this particular variables values is going to be updated by multiple thread inside Java application. By making a variable volatile using volatile keyword in Java, application programmer ensures that its value should always been read from main memory and thread should not use cached value of that variable from there own stack. Volatile keyword can only be applied to variable, it can not be applied to class or method. using volatile keyword along with class and method is compiler error. Any variable which is shared between multiple threads should be made variable, in order to ensure that all thread must see latest value of volatile variable.
 
-Differences between Abstraction and Interface
-
-Abstract Class Interface It can have method implementation It can implement default method only All non-default methods
-in an interface are implicitly abstract. Abstract class can have constructor Interface can not have a constructor An
-abstract class may contain non-final variables. Variables declared in a Java interface is by default final. It is faster
-than interface It is slower than abstract class You can not extend more than one abstract class. You can implement more
-than on ethan interface Abstract classes can have a main method so we can run it. Interface can not not have main method
-so we can not run it.
-
-⦁ If you have a lot of methods and want default implementation for some of them or If your base contract keeps on
-changing, then you should use abstract class. ⦁ If you want to implement multiple inheritance then you have to use
-interface. As Java does not support multiple inheritance, subclass can not extend more than one class but you can
-implement multiple interface so you can use interface for that. ⦁ If your base contract keeps on changing, then you
-should use abstract class, as if you keep changing your base contract and use interface, then you have to change all the
-classes which implements that interface. ⦁ In Java8 Oracle has tried to bridge gap between abstract class and interface
-by introducing concept of default and static methods in interface.
-(In Java8 things changed as The addition of default methods removes many of the reasons to use abstract classes. The
-differences are the accessibility of data members and methods: abstract classes allow non-static and non-final fields
-and allow methods to be public, private, or protected while interfaces’ fields are inherently public, static, and final,
-and all interface methods are inherently public. How does Java handle a class that implements two interfaces, both of
-which describe a default method with the same signature? this is a compilation error.
-
-Difference between Abstraction and Encapsulation? Abstraction and encapsulation are complementary concepts. Abstraction
-focuses on the behaviour of an object. Encapsulation focuses on the implementation of an object’s behaviour.
-
-If you had to change Java, what would you do? I think Java is getting better but it misses some synthetic sugar from
-Groovy, Scala and Apache Commons. It is not a big deal, but nice to have I feel that Java Remove deprecated methods and
-get rid off all stuff
-
-- Clonable (redesign)
-- merge groovy goodness into Java. (- File handling)
-- merge Apache commons goodness into Java Many changes was done in Java7 and Java Date/Time was changed in Java8. Thank
-  you.
-
-Question 1: What is Framework in Java?
-
-Answer: A framework is a set of classes and interfaces which provide a ready-made architecture. An optimal
-object-oriented design always includes a framework with a collection of classes such that all the classes perform the
-same kind of task.
-
-What are the basic interfaces of Java Collections Framework? Collection, which represents a group of objects known as
-its elements. Map, which is an object that maps keys to values and cannot contain duplicate keys. List, which is an
-ordered collection and can contain duplicate elements. Set, which is a collection that cannot contain duplicate
-elements.
-
-What is an Iterator? The Iterator interface has a number of methods that are able to iterate over any Collection. Each
-Java Collection contains the iterator method that returns an Iterator instance.
-
-Note: Iterators are capable of removing elements from the underlying collection during the iteration. Note: Iterator
-takes the place of Enumeration in the Java Collections Framework. Note: You can iterate over list in 3 ways: using
-iterator , using for-each loop or stream.
-
-What Fail Fast Iterator Fail Safe Iterator Throw ConcurrentModification Exception YES No Clone object no YES Memory
-Overhead no YES Examples ArrayList Vector HashSet
-
-HashMap, CopyOnWriteArrayList,
-
-How HashMap works in Java? A HashMap is a data structure that stores key-value pairs. Key need to be unique.
-
-Put/Get In order to put and retrieve elements to and from the collection it uses hashCode and equals methods.
-
-When we call put method by passing key-value pair, HashMap uses Key hashCode() with hashing to find out the index to
-store the key-value pair. The Entry is stored in the LinkedList (or in some cases in balanced tree ,if you use java 8) ,
-so if there are already existing entry, it uses equals() method to check if the passed key already exists, if yes it
-overwrites the value else it creates a new entry and store this key-value Entry.
 
 Worth remember:
 Hashmap do not implement collection interface. (Collection view of a map can be obtained using entrySet() method. To
@@ -436,11 +383,6 @@ Optional Anti-Pattern #2: Collections of Optionals Optionals were not designed t
 What is the trade-off between using an unordered array versus an ordered array? search times in ordered array are better
 as they have complexity of O(log n), compared to that of an unordered array, which is O (n). Insertion times in
 unordered array are better as they it takes constant time ofO(1),while ordered time takes O(n)
-
-Question 10: Define Note: LinkedHashSet is in some sense intermediate between HashSet and TreeSet. Implemented as a hash
-table with a linked list running through it, however it provides insertion-ordered iteration which is not same as sorted
-traversal guaranteed by TreeSet. Also, since we used a LinkedHashSet, the iteration order is the same as the insertion
-order. If you do not need this behavior, use a HashSet for more efficiency.
 
 Difference between TreeSet and TreeMap in Java?
 
@@ -555,13 +497,6 @@ some of which will be shown in the code snippet below. The most common use of th
 that is accessed by different threads
 simultaneously. (https://examples.javacodegeeks.com/core-java/util/concurrent/atomic/atomicinteger/java-atomicinteger-example/)
 
-###### ###### ######
-
-Style Guide
-
-1 empty before 14 QUESTION 10 Answer Subject . Keyword and Important important information. Normal information. 2 empty
-lines in the end
-
 Things to add:
 
 * volatile is a field modifier, while synchronized modifies code blocks and methods.
@@ -593,13 +528,12 @@ Things to add:
 
 # RANDOM TIPS
 
-0. **Finally** is _not executed_ if the** System.exit** method is called _inside_ a try block.
-1. Consequently an amount of money should never ever be stored in a floating point data type (float, double).For
-   calculations the class BigDecimal provides an excellent facility.
+1. Consequently, an amount of money should never ever be stored in a floating-point data type (float, double). For
+   calculations, the class BigDecimal provides an excellent facility.
 2. When using streams,use ordered collection when u use dropWhile/takeWhile to avoid sneaky bugs.
 3. Objects.isNull vs object == null. Objects.isNull is intended for use within Java 8 lambda filtering. However value is
    limited to helps readability for some style preference For example some guides prefere
-   this:    ```    .stream().filter(Objects::isNull)     ```    than: ```    .stream().filter(x->x==null)    ```
+   this: ```.stream().filter(Objects::isNull```    than: ```.stream().filter(x->x==null)```
 4. The List returned by Arrays.asList() is an immutable list. Attempting to remove (or add) items to such a list results
    in an UnsupportedOperationException
 5. To avoid ConcurrentModificationException we can use concurrent collection classes to avoid
@@ -610,6 +544,19 @@ Things to add:
    sorting based on criteria (using Comparator). Collections internally use the Arrays sorting method, so both have the
    same performance except that Collections take some time to convert the list to an array. Streams can sort collections
    too.
+7. **Finally** is _not executed_ if the** System.exit** method is called _inside_ a try block.
+8. What are some of the best practices relating to the Java Collection framework ?
+    1. Use immutable classes provided by the Java Development Kit (JDK) as a key in a Map, in order to avoid the
+       implementation of the hashCode and equals methods for our custom class.
+    2. Choosing the right type of the collection to use, based on the application’s needs, is very crucial for its
+       performance. For example if the size of the elements is fixed and know a priori, we shall use an ⦁ Array, instead
+       of an ⦁ ArrayList.
+    3. Some collection classes allow us to specify their initial capacity. Thus, if we have an estimation on the number
+       of elements that will be stored, we can use it to avoid rehashing or resizing.
+    4. Always use Generics for type-safety, readability, and robustness. Also, by using Generics you avoid the⦁
+       ClassCastException during runtime.
+    5. Return zero-length collections or arrays as opposed to returning a null in case the underlying collection is
+       actually empty.
 
 # FAQ
 
@@ -652,26 +599,6 @@ Things to add:
 
     The term ‘stop-the-world’ is used to mean that all of the threads are paused in order to perform garbage collection.
 
-# RANDOM TIPS
-
-1. Consequently, an amount of money should never ever be stored in a floating-point data type (float, double). For
-   calculations, the class BigDecimal provides an excellent facility.
-2. When using streams,use ordered collection when u use dropWhile/takeWhile to avoid sneaky bugs.
-3. Objects.isNull vs object == null. Objects.isNull is intended for use within Java 8 lambda filtering. However value is
-   limited to helps readability for some style preference For example some guides prefere
-   this: ```.stream().filter(Objects::isNull```    than: ```.stream().filter(x->x==null)```
-4. The List returned by Arrays.asList() is an immutable list. Attempting to remove (or add) items to such a list results
-   in an UnsupportedOperationException
-5. To avoid ConcurrentModificationException we can use concurrent collection classes to avoid
-   ConcurrentModificationException while iterating over a collection, for example CopyOnWriteArrayList instead of
-   ArrayList.
-6. If we need to sort an array of Objects, we can use Arrays.sort(). If we need to sort a list of objects, we can use
-   Collections.sort(). Both these classes have overloaded sort() methods for natural sorting (using Comparable) or
-   sorting based on criteria (using Comparator). Collections internally use the Arrays sorting method, so both have the
-   same performance except that Collections take some time to convert the list to an array. Streams can sort collections
-   too.
-7. **Finally** is _not executed_ if the** System.exit** method is called _inside_ a try block.
-
 # What is the difference between Exception and Error in Java?
 
     Exception and Error classes are both subclasses of the Throwable class.
@@ -680,41 +607,41 @@ Things to add:
 
 ## Difference between Serializable and Externalizable in Java?
 
-- Serializable is a marker interface with no methods defined to allow serialization/deserialization.
-- Externalizable extends Serializable interface and add two methods defined on it e.g. readExternal() and
-  writeExternal() which allows you to control the serialization/deserialization process.
-- Serializable uses default serialization process which can be very slow for some application.
+    - Serializable is a marker interface with no methods defined to allow serialization/deserialization.
+    - Externalizable extends Serializable interface and add two methods defined on it e.g. readExternal() and
+        writeExternal() which allows you to control the serialization/deserialization process.
+    - Serializable uses default serialization process which can be very slow for some application.
 
 ## What differences exist between Iterator and ListIterator?
 
-- An Iterator can be used to traverse the Set and List collections, ListIterator can be used to iterate only over Lists.
-- Iterator can traverse a collection only in forward direction. ListIterator can traverse a List in both directions.
-- The ListIterator implements the Iterator interface and contains extra functionality, such as adding an element,
-  replacing an element, getting the index position for previous and next elements, etc.
+    - An Iterator can be used to traverse the Set and List collections. ListIterator can be used to iterate only over Lists.
+    - Iterator can traverse a collection only in the forward direction. ListIterator can traverse a List in both directions.
+    - The ListIterator implements the Iterator interface and contains extra functionality, such as adding an element,
+      replacing an element, getting the index position for previous and next elements, etc.
 
 ## What is difference between fail-fast and fail-safe?
 
-- Fail fast iterator while iterating through the collection, instantly throws Concurrent Modification Exception if there
-  is structural modification of the collection. Oracle docs said: the fail-fast behaviour of an iterator cannot be
-  guaranteed.
-- Fail Safe Iterator makes copy of the internal data structure (object array) and iterates over the copied data
-  structure. Any structural modification done to the iterator affects the copied data structure. So, original data
-  structure remains structurally unchanged. Hence, no ConcurrentModificationException throws by the fail safe iterator.
+    - Fail fast iterator while iterating through the collection, instantly throws Concurrent Modification Exception if there
+      is a structural modification of the collection. Oracle docs said: the fail-fast behaviour of an iterator cannot be
+      guaranteed.
+    - Fail-Safe Iterator makes copy of the internal data structure (object array) and iterates over the copied data
+      structure. Any structural modification done to the iterator affects the copied data structure. So, the original data
+      structure remains structurally unchanged. Hence, no ConcurrentModificationException throws by the fail-safe iterator.
 
 ## How HashMap, ConcurrentHashMap, and LinkedHashMap handles collisions ?
 
-A collision occurs when a hash function returns same bucket location for two different keys. HashMap handles collision
-by using linked list to store map entries ended up in same array location or bucket location. However, if worst case
-scenario when there are many collisions, performance drop from O(1) to O(n),to address this HashMap has a threshold when
-they reach they switch to balanced tree from linked list to handle frequently hash collisions.
-(Default is TREEIFY_THRESHOLD = 8) . This will improve the worst case performance from O(n) to O(log n).
+//TODO improve it - A collision occurs when a hash function returns same bucket location for two different keys. -
+HashMap handles collision by using linked list to store map entries ended up in same array location or bucket location.
+However, if worst case scenario when there are many collisions, performance drop from O(1) to O(n),to address this
+HashMap has a threshold when they reach they switch to balanced tree from linked list to handle frequently hash
+collisions. - Default is TREEIFY_THRESHOLD = 8 . This will improve the worst case performance from O(n) to O(log n).
 
 ## What is the importance of hashCode() and equals() methods?
 
-HashMap uses Key object hashCode() and equals() method to determine the index to put the key-value pair. These methods
-are also used when we try to get value from HashMap. If these methods are not implemented correctly, two different keys
-might produce same hashCode() and equals() output and in that case rather than storing it at different location, HashMap
-will consider them same and overwrite them.
+    HashMap uses Key object hashCode() and equals() method to determine the index to put the key-value pair. These methods
+    are also used when we try to get value from HashMap. If these methods are not implemented correctly, two different keys
+    might produce the same hashCode() and equals() output, and in that case, rather than storing it at a different location, HashMap
+    will consider the same and overwrite them.
 
 ## What is the difference between HashSet and TreeSet?
 
@@ -725,47 +652,24 @@ It has a few extra methods to deal with the ordered set like first(), last() and
 
 ## What’s difference between Streams and collections ?
 
-No storage. A stream is not a data structure that stores elements; instead, it conveys elements from a source such as a
-the data structure, an array, a generator function, or an I/O channel through a pipeline of computational operations.
-Functional in nature. An operation on a stream produces a result but does not modify its source. For example, filtering
-a Stream obtained from a collection produces a new Stream without the filtered elements, rather than removing elements
-from the source collection. Laziness-seeking. Many stream operations, such as filtering, mapping, or duplicate removal,
-can be implemented lazily, exposing opportunities for optimization. For example, "find the first String with three
-consecutive vowels" need not examine all the input strings. Stream operations are divided into intermediate (
-Stream-producing) operations and terminal (value- or side-effect-producing) operations. Intermediate operations are
-always lazy. Possibly unbounded. While collections have a finite size, streams need not. Short-circuiting operations
-such as limit(n) or findFirst() can allow computations on infinite streams to complete in finite time. Consumable. The
-elements of a stream are only visited once during the life of a stream. Like an Iterator, a new stream must be generated
-to revisit the same elements of the source.
+    No storage. A stream is not a data structure that stores elements; instead, it conveys elements from a source such as a
+    data structure, an array, a generator function, or an I/O channel through a pipeline of computational operations.
+    Functional in nature. An operation on a stream produces a result but does not modify its source. For example, filtering
+    a Stream obtained from a collection produces a new Stream without the filtered elements, rather than removing elements
+    from the source collection. Laziness-seeking. Many stream operations, such as filtering, mapping, or duplicate removal,
+    can be implemented lazily, exposing opportunities for optimization. For example, "find the first String with three
+    consecutive vowels" need not examine all the input strings. Stream operations are divided into intermediate (
+    Stream-producing) operations and terminal (value- or side-effect-producing) operations. Intermediate operations are
+    always lazy. Possibly unbounded. While collections have a finite size, streams need not. Short-circuiting operations
+    such as limit(n) or findFirst() can allow computations on infinite streams to complete in finite time. Consumable. The
+    elements of a stream are only visited once during the life of a stream. Like an Iterator, a new stream must be generated
+    to revisit the same elements of the source.
 
 ## What is Comparable and Comparator interface?
 
-- A comparable is an interface. An object that implements this interface is capable of comparing itself with another
-  object. To implement this interface class must contain a method called compareTo.
-- A comparator object is capable of comparing two different objects. The class is not comparing its instances but some
-  other class’s instances. This comparator class must implement the java.util.Comparator interface. The main difference
-  between these two is that you could create multiple Comparator to define multiple sorting order based upon a different
-  object attribute.
-
-## Difference between Runnable and Callable interface in Java? Just like Runnable, Callable also defines a single call()
-
-method but unlike run() it can return values and throw exceptions.
-
-What is difference between calling start() and run() method of Thread? start() method also starts a new thread. If you
-call the run method directly then it will run on same thread not on different thread, which is what original intention
-would be.
-
-What are some of the best practices relating to the Java Collection framework ? ⦁ Use immutable classes provided by the
-Java Development Kit (JDK) as a key in a Map, in order to avoid the implementation of the ⦁ hashCode and equals methods
-for our custom class. ⦁ Choosing the right type of the collection to use, based on the application’s needs, is very
-crucial for its performance. For example if the size of the elements is fixed and know a priori, we shall use an ⦁
-Array, instead of an ⦁ ArrayList. ⦁ Some collection classes allow us to specify their initial capacity. Thus, if we have
-an estimation on the number of elements that will be stored, we can use it to avoid rehashing or resizing. ⦁ Always use
-Generics for type-safety, readability, and robustness. Also, by using Generics you avoid the⦁ ClassCastException during
-runtime. ⦁ Program in terms of interface not implementation. ⦁ Return zero-length collections or arrays as opposed to
-returning a null in case the underlying collection is actually empty.
-
-# QA:
+    - A comparable is an interface. An object that implements this interface is capable of comparing itself with another object. To implement this interface class must contain a method called compareTo.
+    - A comparator object is capable of comparing two different objects. The class is not comparing its instances but some other class’s instances. This comparator class must implement the java.util.Comparator interface.
+    - The main difference between these two is that you could create multiple Comparators to define multiple sorting orders based upon a different object attribute.
 
 ## _Why Collection doesn't extend Cloneable and Serializable interfaces?_
 
@@ -845,6 +749,54 @@ returning a null in case the underlying collection is actually empty.
     will use Runnable/Callable Interface. Why? In Object-oriented programming, extending a class generally means adding new
     functionality, modifying or improving behaviours.
 
+## _What are the differences between Abstraction and Interface, and when to use which?_
+
+    - Abstract Class can have method implementation while Interface can implement default method only.
+    - All non-default methods in an interface are implicitly abstract.
+    - An abstract class can have a constructor, but an Interface can not have a constructor.
+    - An abstract class may contain non-final variables. Variables declared in a Java interface is by default final.
+    - You can not extend more than one abstract class. You can implement more than one InterfaceInterface
+    - Abstract classes can have a main method so that we can run the application from the abstract class. The Interface can
+        not have a main method.
+    - If your base contract keeps on changing, then you should use an abstract class.
+    - In Java8, Oracle has tried to bridge the gap between abstract class and Interface by introducing default and static
+        methods in Interface. The addition of default methods removes many reasons to use abstract classes. The differences
+        are the accessibility of data members and methods: abstract classes allow non-static and non-final fields and allow
+        methods to be public, private, or protected while interfaces’ fields are inherently public, static, and final, and all
+        interface methods are inherently public.
+
+## _How does Java handle a class that implements two interfaces, both of which describe a default method with the same
+
+signature?_
+
+    It is a compilation error.
+
+## Difference between Runnable and Callable interface in Java?
+
+    Like Runnable, Callable also defines a single call() method, but unlike run() method, it can return values and throw exceptions.
+
+## What is the difference between the calling start() and run() method of Thread?
+
+    start() method also starts a new thread.
+    If you call the run method directly then it will run on same Thread not on different Thread, which is what original intention would be.
+
+## If you had to change Java, what would you do?
+
+    I think Java is getting better and in decent pace at the moment but some synthetic sugar from Groovy,Kotlin, Scala and Apache Commons. 
+    More clean up is required with removind unsafe and depracated parts. 
+    For example Java Date/Time was changed in Java8
+
+# Difference between Abstraction and Encapsulation?
+
+    //TODO
+    Abstraction and Encapsulation are complementary concepts. Abstraction
+    focuses on the behaviour of an object. Encapsulation focuses on the implementation of an object’s behaviour.
+
+# What are ways to iterate list:
+
+    You can iterate over the list in 3 ways: using iterator, using for-each loop or stream.
+
+
 # RESOURCES:
 
 0. http://en.wikipedia.org/wiki/Anti-pattern#Programming_anti-patterns
@@ -902,3 +854,10 @@ implementation of the List interface. A list can be made thread-safe using Colle
 the need for using Vector. Here’s some more info on why Vector is essentially obsolete.
 
 Set: Similar to list but does not allow duplicates. HashSet implements the Set interface.
+
+###### ###### ######
+
+Style Guide
+
+1 empty before 14 QUESTION 10 Answer Subject . Keyword and Important important information. Normal information. 2 empty
+lines in the end
