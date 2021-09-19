@@ -32,8 +32,8 @@ compileJava {
 }
 
 compileTestJava {
-    sourceCompatibility = JavaVersion.VERSION_16
-    targetCompatibility = JavaVersion.VERSION_16
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
     options.encoding = 'UTF-8' //to ensure that I always use UTF-8 in project
 }
 
