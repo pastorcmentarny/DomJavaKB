@@ -5,7 +5,7 @@ import dms.pastor.tools.converters.ToIntegerList;
 import java.util.List;
 
 public class IntegerProcessor implements Processor{
-    private List<Integer> data;
+    private final List<Integer> data;
 
     public IntegerProcessor(List<String> data) {
         this.data = ToIntegerList.transform(data);

@@ -51,7 +51,7 @@ public class MockitoExampleServiceTest {
         legendaryService.create(id, treasure);
 
         // then
-        assertThat(outputStream.toString()).contains("Created treasure " + treasure.getName() + " with id: " + id.toString());
+        assertThat(outputStream.toString()).contains("Created treasure " + treasure.getName() + " with id: " + id);
     }
 
     @Test

@@ -53,7 +53,7 @@ final class TimeBasics {
         LocalTime time = LocalTime.now(offsetZoneId);
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("hh:mm a");
         String formattedTime = time.format(dateTimeFormatter);
-        return "Current time of the day with offset " + zoneOffset.toString() + " is " + formattedTime;
+        return "Current time of the day with offset " + zoneOffset + " is " + formattedTime;
 
     }
 }

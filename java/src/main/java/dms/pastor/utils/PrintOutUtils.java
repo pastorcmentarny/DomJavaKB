@@ -47,7 +47,7 @@ public final class PrintOutUtils {
 
     private static void printInConsole(StringBuilder stringBuilder) {
         stringBuilder.append(CLOSE_ARRAY);
-        out.println(stringBuilder.toString());
+        out.println(stringBuilder);
     }
 
     public static void printCharacterIntegerHashMap(Map<Character, Integer> characterIntegerMap) {

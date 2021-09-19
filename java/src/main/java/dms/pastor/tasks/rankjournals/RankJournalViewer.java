@@ -40,7 +40,7 @@ final class RankJournalViewer {
             list.append(counter).append(TAB).append(journal.getName()).append(TAB).append(journal.getScore()).append('\n');
             counter++;
         }
-        System.out.println(list.toString());
+        System.out.println(list);
         return list.toString();
     }
 

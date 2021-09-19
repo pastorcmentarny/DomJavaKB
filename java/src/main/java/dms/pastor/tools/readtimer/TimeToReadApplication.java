@@ -24,13 +24,13 @@ final class TimeToReadApplication {
     }
 
     public static void main(String[] args) {
-        LOGGER.info("Starting application.. at " + LocalDateTime.now().toString());
+        LOGGER.info("Starting application.. at " + LocalDateTime.now());
 
         validateInputArgs(args);
 
         ReadTimeCalculator readTimeCalculator = new ReadTimeCalculator(args[0], Integer.parseInt(args[1]));
         readTimeCalculator.displayTimeNeededToRead();
 
-        LOGGER.info("RIP .. at " + LocalDateTime.now().toString());
+        LOGGER.info("RIP .. at " + LocalDateTime.now());
     }
 }

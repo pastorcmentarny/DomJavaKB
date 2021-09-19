@@ -582,7 +582,7 @@ public class ValidatorUtilsTest {
         final String path = BASE_PATH + "example.txt";
 
         // debug
-        System.out.println(Paths.get(".").toAbsolutePath().normalize().toString());
+        System.out.println(Paths.get(".").toAbsolutePath().normalize());
         System.out.println(BASE_PATH);
         System.out.println(path);
 

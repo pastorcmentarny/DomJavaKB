@@ -53,7 +53,7 @@ public final class WordResult extends Result<List<Word>> {
         return "Result{" +
                 "\n\tsuccess: " + isSuccess() +
                 "\n\tmessage: '" + getMessage() + '\'' +
-                (wordList != null ? "\n\thasItem: " + wordList.toString() : EMPTY_STRING) +
+                (wordList != null ? "\n\thasItem: " + wordList : EMPTY_STRING) +
                 "\n}";
     }
 

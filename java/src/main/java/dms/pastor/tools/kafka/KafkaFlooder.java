@@ -32,7 +32,7 @@ public class KafkaFlooder {
 
 
     public static void main(String[] args) {
-        final var payload = TextFileUtils.loadFileFromResourceAsString("data/json/kafka.json");
+        final var payload = TextFileUtils.loadFileFromResourceAsString("data/json/example.json");
         long start = System.currentTimeMillis();
 
         fire(TOPIC, KAFKA_SERVER, payload);

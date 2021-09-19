@@ -63,7 +63,7 @@ public class OpenCloseTime {
             return EMPTY_STRING;
         }
 
-        return String.format("%s - %s", open.toString(), close.toString());
+        return String.format("%s - %s", open, close);
     }
 
     public boolean isNotClosedWholeDay() {

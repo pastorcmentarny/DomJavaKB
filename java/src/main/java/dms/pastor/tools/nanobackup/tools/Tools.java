@@ -66,7 +66,7 @@ public final class Tools {
                 temp.append(status[i]);
             }
         }
-        JOptionPane.showMessageDialog(null, temp.toString() + settings.displayCurrentSettings("STATUS"), "Info", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, temp + settings.displayCurrentSettings("STATUS"), "Info", JOptionPane.INFORMATION_MESSAGE);
     }
 
 }

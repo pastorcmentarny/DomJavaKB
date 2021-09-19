@@ -1,0 +1,37 @@
+{
+  "uid": "8b588c3b-79c9-4c7a-9d4a-133d715a3be0",
+  "data": {
+    "operator": {
+      "name": "Transport for Wales"
+    },
+    "train": {
+      "allowed": [
+        "158",
+        "168",
+        "170",
+        "175"
+      ],
+      "actual": [
+        "158"
+      ],
+      "mu_type_allowed": [
+        "DMU"
+      ]
+    },
+    "route": [
+      {
+        "station_name": "Aberystwyth",
+        "station_code": "AYW",
+        "departure_time": "0929"
+      },
+      {
+        "station_name": "Dovey Junction",
+        "station_code": "DVY",
+        "departure_time": "0954",
+        "arrival_time": "0953"
+      }
+    ]
+  },
+  "head_code": 3011,
+  "trip_type": "Express Passenger"
+}

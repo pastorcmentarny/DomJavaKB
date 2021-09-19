@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class HtmlGeneratorTest {
     private static final String TEST = "TEST";
 
-    private HtmlGenerator htmlGenerator = new HtmlGenerator();
+    private final HtmlGenerator htmlGenerator = new HtmlGenerator();
 
     @Test
     void getDocTypeAcceptanceTest() {

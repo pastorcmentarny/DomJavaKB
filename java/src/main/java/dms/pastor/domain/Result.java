@@ -67,7 +67,7 @@ public class Result<T> {
         return "Result{" +
                 "\n\tsuccess: " + success +
                 "\n\tmessage: '" + message + '\'' +
-                (item != null ? "\n\thasItem: " + item.toString() : EMPTY_STRING) +
+                (item != null ? "\n\thasItem: " + item : EMPTY_STRING) +
                 "\n}";
     }
 

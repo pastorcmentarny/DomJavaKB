@@ -6,7 +6,7 @@ processing. This will create a new char[] which needs to be collected. The
 same code has been rewritten to use String.charAt to reduce the overhead.
  */
 public class CharArrayPerformanceTipsExample {
-    private String example = "Bla bla bla ";
+    private final String example = "Bla bla bla ";
 
     public void badExample(){
         example.toCharArray();

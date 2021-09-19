@@ -113,7 +113,7 @@ public final class RandomDataGenerator {
 
         IntStream.range(10, RANDOM.nextInt(100) + 20).forEach(text -> stringBuilder.append(getRandomText(MAX_SMALL_VALUE_RANGE)).append(WHITESPACE_CHAR));
 
-        return '\t' + getRandomCharacterAsString().toUpperCase() + getRandomText(MAX_SMALL_VALUE_RANGE) + WHITESPACE_CHAR + stringBuilder.toString() + ".\n";
+        return '\t' + getRandomCharacterAsString().toUpperCase() + getRandomText(MAX_SMALL_VALUE_RANGE) + WHITESPACE_CHAR + stringBuilder + ".\n";
     }
 
     public static int[] generateIntArray(int size, int numberRange) {
