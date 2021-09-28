@@ -170,6 +170,12 @@ Maps:
     It is a Set implementation that can be used with enum types. All the elements must come from one enum type specified
     explicitly or implicitly. It is not synchronized. NULL keys are not allowed.
 
+# Exception
+
+    An exception is an error event that can happen during the execution of a program and disrupts its normal flow. When an
+    error occurs while executing a statement, it creates an exception object, and then the normal flow of the program halts,
+    and JVM tries to find someone that can handle the raised exception.
+
 ## GARBAGE COLLECTORS
 
     Garbage Collection is a process that manages the allocation and release of memory of the application. For example, It frees memory allocated to objects that are not being used by the program any more.
@@ -201,6 +207,23 @@ Maps:
     Note: An alternative: SHA1. Objects with the same hash code NOT MUST be equal hashCode does not guarantee the same
     result in different executions. You may know that cryptographic hash codes such as SHA1 are sometimes used to identify
     objects (Git does this, for example).
+
+## Hashmap //TODO improve it
+
+    * The important characteristics of a HashMap are its capacity, its load factor and the threshold resizing.
+    * Hashmap does not implement a collection interface.
+    * The bucket is an array (Normally LinkedList or balanced tree)  where you store elements with the same hashcode.
+    * Threshold resizing is set at 0.75f by default.
+    * It can only be one null key in HashMap.
+    * If two objects are equal, then calling hashCode() on both objects must return the same value. When inserting an object into a hashtable you use a key. The hash code of this key is calculated and used to determine where to store the object internally. When you need to lookup an object in a hashtable, you also use a key. The hash code of this key is calculated and used to determine where to search for the object.
+    * The hash code only points to a certain "area" (or list, bucket etc.) internally. Since different key objects could potentially have the same hash code, the hash code itself is no guarantee that the right key is found. The hashtable then iterates this area (all keys with the same hash code) and uses the key's equals() method to find the right key. (Collection view of a map can be obtained using entrySet() method.
+    * To obtain a collection-view of the keys, keySet() method can be used.)
+    * Map.Entry interface - This interface gives a map entry (key-value pair).
+
+## Java Heap
+
+    Java Virtual Machine gets some memory from Operating System. JVM uses this memory for all its needs and part of this
+    memory is called Java heap memory.
 
 ## Immutable objects
 
@@ -359,24 +382,7 @@ Maps:
 
     Voltile variable in Java is a special variable which is used to signal threads, compiler that this particular variables values is going to be updated by multiple thread inside Java application. By making a variable volatile using volatile keyword in Java, application programmer ensures that its value should always been read from main memory and thread should not use cached value of that variable from there own stack. Volatile keyword can only be applied to variable, it can not be applied to class or method. using volatile keyword along with class and method is compiler error. Any variable which is shared between multiple threads should be made variable, in order to ensure that all thread must see latest value of volatile variable.
 
-
 Worth remember:
-Hashmap do not implement collection interface. (Collection view of a map can be obtained using entrySet() method. To
-obtain a collection-view of the keys, keySet() method can be used.)
-Bucket is an array (Normally LinkedList or balanced tree)  where you store elements that has the same hashcode.
-Map.Entry interface - This interface gives a map entry (key-value pair). Threshold resizing is set 0.75f by default Some
-important characteristics of a HashMap are its capacity, its load factor and the threshold resizing. As we know that
-HashMap also allows null, though there can only be one null key in HashMap.
-(A HashSet, being a wrapper around a HashMap object, effectively provides less function than HashMap whilst being
-slightly larger.)
-If two objects are equal, then calling hashCode() on both objects must return the same value. When inserting an object
-into a hastable you use a key. The hash code of this key is calculated, and used to determine where to store the object
-internally. When you need to lookup an object in a hashtable you also use a key. The hash code of this key is calculated
-and used to determine where to search for the object.
-
-The hash code only points to a certain "area" (or list, bucket etc) internally. Since different key objects could
-potentially have the same hash code, the hash code itself is no guarantee that the right key is found. The hashtable
-then iterates this area (all keys with the same hash code) and uses the key's equaals() method to find the right key.
 
 Optional Anti-Pattern #2: Collections of Optionals Optionals were not designed to be serialized.
 
@@ -402,9 +408,6 @@ called terminal operations
 
  	Perm space is a part of Java Heap where JVM stores Meta data that are related to the Java language itself. (About classes and methods, String pool and Class level details.)
 
-What is a Java Heap? Java Virtual Machine gets some memory from Operating System. JVM uses this memory for all its need
-and part of this memory is call Java heap memory.
-
 How is Heap organised? EDEN Young Generation S0 /S1 Young Generation Tenured Old Generation Permanent
 PermanentGeneration Perm space of Java Heap is where JVM stores Meta data about classes and methods, String pool and
 Class level details.
@@ -415,12 +418,6 @@ error messages denotes that Java heap does not have sufficient space and cannot 
 "java.lang.OutOfMemoryError: PermGen space"
 error message comes when the permanent generation of Java Heap is full, the application will fail to load a class or to
 allocate an interned string.
-
-Exception Handling
-
-What is an exception? Exception is an error event that can happen during the execution of a program and disrupts its
-normal flow. When an error occurs while executing a statement, creates an exception object and then the normal flow of
-the program halts and JVM tries to find someone that can handle the raised exception.
 
 Is Java Exception framework handles compile time errors? No. It is used to handle runtime errors only.
 
@@ -795,7 +792,6 @@ signature?_
 # What are ways to iterate list:
 
     You can iterate over the list in 3 ways: using iterator, using for-each loop or stream.
-
 
 # RESOURCES:
 
