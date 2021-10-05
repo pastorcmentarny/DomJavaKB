@@ -15,8 +15,10 @@ _I am not the author of these definitions so check resources section for the ori
 
 ## Java
 
-    Java is a general-purpose, object-oriented computer programming language. main principle was to  "write once, run anywhere". It means Java applications are typically compiled to bytecode that can run on any Java virtual machine (JVM) regardless of computer architecture.
-    Object-oriented programming based on abstract concept of real-world object where each object has state and behaviour. It contains 4 significant features, such as encapsulation, inheritance, polymorphism and abstraction.
+    Java is a general-purpose, object-oriented computer programming language. main principle was to  "write once, run anywhere". 
+    It means Java applications are typically compiled to bytecode that can run on any Java virtual machine (JVM) regardless of computer architecture.
+    Object-oriented programming based on abstract concept of real-world object where each object has state and behaviour. 
+    It contains 4 significant features, such as encapsulation, inheritance, polymorphism and abstraction.
 
 ## Annotation
 
@@ -25,14 +27,21 @@ _I am not the author of these definitions so check resources section for the ori
 
 ## Abstraction
 
-    It is the process of separating ideas and signatures. It is a commonly used component from specific implementation. Implementation is left for subclasses.  It is used to hide specific details and only show the essential features of the object.
-    An interface is a way to achieve abstraction in Java. It is similar to a class with a group of methods with empty bodies without implementation, and it can contain final fields. Since Java 9 default method with implementation is allowed.
+    It is the process of separating ideas and signatures. It is a commonly used component from specific implementation. 
+    Implementation is left for subclasses.  
+    It is used to hide specific details and only show the essential features of the object.
+    An interface is a way to achieve abstraction in Java. 
+    It is similar to a class with a group of methods with empty bodies without implementation, and it can contain final fields. 
+    Since Java 9 default method with implementation is allowed.
 
-### What is Autoboxing and Unboxing? It is conversion between a primitive type and its object wrapper.
+### Autoboxing and Unboxing?
+
+    It is conversion between a primitive type and its object wrapper.
 
  	for example
- 		Stack<Integer> x = new Stack<Integer>();
- 		x.push(17); (autoboxing will swap 86 with new Integer(86) )
+ 		Stack<Integer> example = new Stack<Integer>();
+ 		example.push(17); 
+    (autoboxing will swap 86 with new Integer(86) )
 
 ## Algorithm
 
@@ -45,7 +54,7 @@ _I am not the author of these definitions so check resources section for the ori
     The Big-O notation is used for describing algorithm performance, scalability, execution and complexity factors in the
     worst case scenario as the number of elements in a data structure increases.
 
-BIG O NOTATION from best to worst:
+### BIG O NOTATION from best to worst:
 
     O(1) 	
     Constant O(log n)
@@ -55,7 +64,7 @@ BIG O NOTATION from best to worst:
     Quadratic O(n3) 	
     Cubic
 
-List and sets:
+### List and sets:
 
     Structure       get     add     remove  contains
     ArrayList       O(1)    O(1)    O(n)    O(n)    
@@ -64,7 +73,7 @@ List and sets:
     LinkedHashList  O(1)    O(1)    O(1)    O(1)
     TreeSet         O(logn) O(logn) O(logn) O(logn)
 
-Maps:
+### Maps:
 
     Structure       Get     Put     Remove  ContainsKey
     HashMap         O(1)    O(1)    O(1)    O(1)
@@ -73,10 +82,12 @@ Maps:
 
 ## Checked Exceptions
 
-    Checked exceptions are checked at compile-time. Checked exceptions are exceptions that we can anticipate, and we should be able to recover
-    from them. If a method is throwing a checked exception, it should handle the exception using try-catch block or declare the exception using the throws keyword.
+    Checked exceptions are checked at compile-time. Checked exceptions are exceptions that we can anticipate, 
+    and we should be able to recover from them. If a method is throwing a checked exception, 
+    it should handle the exception using try-catch block or declare the exception using the throws keyword.
     
-    Examples of Checked Exceptions SQLException, IOException, DataAccessException, ClassNotFoundException and InvocationTargetException.
+    Examples:
+    `Checked Exceptions SQLException, IOException, DataAccessException, ClassNotFoundException and InvocationTargetException.`
 
 ## Class
 
@@ -89,8 +100,8 @@ Maps:
 
 ## Constructor Overloading
 
-    The constructor overloading is similar to method overloading in Java. Different constructors can be created for a single
-    class.
+    The constructor overloading is similar to method overloading in Java. 
+    Different constructors can be created for a single class.
 
 ## The Java Collections Framework (JCF)
 
@@ -98,7 +109,8 @@ Maps:
 
 ## CopyOnWriteArrayList
 
-    A version of ArrayList that makes a cloned copy of the underlying ArrayList to implement all operations and modifications. It is fail-safe, and it will never throw ConcurrentModificationException during iteration.
+    A version of ArrayList that makes a cloned copy of the underlying ArrayList to implement all operations and
+    modifications. It is fail-safe, and it will never throw ConcurrentModificationException during iteration.
 
 ## Data structure
 
@@ -175,6 +187,7 @@ Maps:
     An exception is an error event that can happen during the execution of a program and disrupts its normal flow. When an
     error occurs while executing a statement, it creates an exception object, and then the normal flow of the program halts,
     and JVM tries to find someone that can handle the raised exception.
+    - Example of unchecked exceptions (NullPointerException, ArrayIndexOutOfBoundsException, ArithmeticException, IllegalArgumentException)
 
 ## GARBAGE COLLECTORS
 
@@ -267,6 +280,12 @@ Maps:
     defines how a client may access a database, query and manipulate data. It allows the programmer to interact with the
     database without concern about what database is used.
 
+## Java Management Extensions (JMX)
+
+    Java Management Extensions (JMX) is a Java technology that supplies tools for managing and monitoring applications,
+    system objects, devices (such as printers) and service-oriented networks. Those resources are represented by objects
+    called MBeans (for Managed Bean).
+
 ## JSP
 
     Ancient technology.Ask Software archeologies for details.
@@ -283,11 +302,30 @@ Maps:
     TreeSet. Also, since we used a LinkedHashSet, the iteration order is the same as the insertion order. If you do not need
     this behaviour, use a HashSet for more efficiency.
 
+## List
+
+    Very commonly used to create an ordered list of items. This list may contain duplicates. ArrayList is an implementation
+    of the List interface. A list can be made thread-safe using Collections.synchronizedList thus removing the need for
+    using Vector. Here’s some more info on why Vector is essentially obsolete. Set: Similar to list but does not allow
+    duplicates. HashSet implements the Set interface.
+
 ## Marshalling and Demarshalling?
 
     When an application wants to pass its memory objects across a network to another host or persist it to storage, the
     in-memory representation must be converted to a suitable format. This process is called marshalling, and the revert
     operation is called demarshalling.
+
+## Map
+
+    Useful if you have unordered items in the form of key, value pairs and require efficient retrieval, insertion,
+    and deletion operations. HashMap, Hashtable, LinkedHashMap are all implementations of the Map interface.
+
+## A managed bean - sometimes simply referred to as an MBean -
+
+    It is a type of JavaBean, created with dependency injection. The MBean represents a resource running in the Java virtual
+    machine, such as an application or a Java EE technical service (transactional monitor, JDBC driver, etc.). They can be
+    used for collecting statistics on concerns like performance, resources usage, or problems (pull); for getting and
+    setting application configurations or properties (push/pull); and notifying events like faults or state changes (push).
 
 ## method
 
@@ -380,148 +418,15 @@ Maps:
 
 ## Volatile keyword
 
-    Voltile variable in Java is a special variable which is used to signal threads, compiler that this particular variables values is going to be updated by multiple thread inside Java application. By making a variable volatile using volatile keyword in Java, application programmer ensures that its value should always been read from main memory and thread should not use cached value of that variable from there own stack. Volatile keyword can only be applied to variable, it can not be applied to class or method. using volatile keyword along with class and method is compiler error. Any variable which is shared between multiple threads should be made variable, in order to ensure that all thread must see latest value of volatile variable.
-
-Worth remember:
-
-Optional Anti-Pattern #2: Collections of Optionals Optionals were not designed to be serialized.
-
-What is the trade-off between using an unordered array versus an ordered array? search times in ordered array are better
-as they have complexity of O(log n), compared to that of an unordered array, which is O (n). Insertion times in
-unordered array are better as they it takes constant time ofO(1),while ordered time takes O(n)
-
-Difference between TreeSet and TreeMap in Java?
-
-TreeSet TreeMap They are sorted collections. They are not synchronized. Store values Store keys and values Duplicate
-object are not allowed. Duplicate object are allowed(for value only).
-
-How to decide between HashMap and TreeMap? TODO improve it For inserting, deleting, and locating elements in a Map, the
-HashMap offers the best alternative. If however, you need to traverse the keys in a sorted order, then TreeMap is your
-better alternative. Depending upon the size of your collection, it may be faster to add elements to a HashMap, then
-convert the map to a TreeMap for sorted key traversal.
-
-STREAM the map method. It takes a lambda expression as its only argument, and uses it to change every individual element
-in the stream.
-
-A reduction operation is one which allows you to compute a result using all the elements present in a stream. also
-called terminal operations
-
- 	Perm space is a part of Java Heap where JVM stores Meta data that are related to the Java language itself. (About classes and methods, String pool and Class level details.)
-
-How is Heap organised? EDEN Young Generation S0 /S1 Young Generation Tenured Old Generation Permanent
-PermanentGeneration Perm space of Java Heap is where JVM stores Meta data about classes and methods, String pool and
-Class level details.
-
-Difference between OutOfMemoryError for Java Heap Space and PermGen space.
-"java.lang.OutOfMemoryError: Java heap space"
-error messages denotes that Java heap does not have sufficient space and cannot be expanded further
-"java.lang.OutOfMemoryError: PermGen space"
-error message comes when the permanent generation of Java Heap is full, the application will fail to load a class or to
-allocate an interned string.
-
-Is Java Exception framework handles compile time errors? No. It is used to handle runtime errors only.
-
-Exception Handling Keywords ⦁ Throw – is used when we want to generate an exception explicitly in our code. throw new
-SomethingWentWrongException(); ⦁ Throws – is used when we throwing an exception in the method and not handle it. public
-void aMethod() throws FileNotFoundException{ ... } ⦁ Try-catch – is a block for exception handling in our code. Catch
-block requires a parameters of Exception type (for example FileNotFoundException). ⦁ Finally is an optional block that
-will be executed whenever exception occurred or not.(It is used to close open connection, stream and so on)
-
-Exception Hierarchy
-
-When to use them? TODO improve it
-
-1) All Operation where chances of failure is more e.g. IO Operation, Database Access or Networking operation can be
-   handled with Checked Exception.
-2) Checked Exception is a reminder by compiler to programmer to handle failure scenario.
-
-Unchecked (Runtime) Exceptions Runtime Exceptions are exceptions caused by mistakes in programming. There called a bug.
-it’s not required to specify them in the method signature throws clause. It usually caused by input of bad data during
-user/software-program interaction. Here are the few most frequently seen unchecked exceptions – ⦁ NullPointerException ⦁
-ArrayIndexOutOfBoundsException ⦁ ArithmeticException ⦁ IllegalArgumentException
-
-“Runtime exceptions represent problems that are the result of a programming problem, and as such, the API client code
-cannot reasonably be expected to recover from them or to handle them in any way. Such problems include arithmetic
-exceptions, such as dividing by zero; pointer exceptions, such as trying to access an object through a null reference;
-and indexing exceptions, such as attempting to access an array element through an index that is too large or too small.
-“
-
-What are the two types of Exceptions in Java? Which are the differences between them? TODO improve it Java has two types
-of exceptions: checked exceptions and unchecked exceptions. Unchecked exceptions do not need to be declared in a method
-or a constructor’s throws clause, if they can be thrown by the execution of the method or the constructor, and propagate
-outside the method or constructor boundary. On the other hand, checked exceptions must be declared in a method or a
-constructor’s throws clause.
-
-GOOD TO REMEMBER:
-⦁ A try statement should have either catch block or finally block, it can have both blocks. ⦁ We can have multiple catch
-blocks with a single try statement and only one finally block ⦁ In terms of Functionality Checked and Unchecked
-Exception are same. ⦁ Java has always been criticized for having checked exception and polluting code with cluttered
-exception handling code, multi-catch block in Java 7 fix this problem.
-
-Explain Serialization and Deserialization.
-
- 	Java provides a mechanism, called object serialization where an object can be represented as a sequence of bytes and includes the object’s data, as well as information about the object’s type, and the types of data stored in the object. Thus, serialization can be seen as a way of flattening objects, in order to be stored on disk, and later, read back and reconstituted. Deserialisation is the reverse process of converting an object from its flattened state to a live object.
-
-Worth remember:
-variables like static and transient will be initialized to their default value after de-serialization, because transient
-and static fields are never get serialized. There is an interface available to validate the object and its data called '
-ObjectInputValidation'. It has validateObject() method
-
-Source:
-
-What is Collections Class? java.util.Collections Is a utility class consists exclusively of static methods that operate
-on or return collections. It contains polymorphic algorithms that operate on collections, “wrappers”, which return a new
-collection backed by a specified collection, and a few other odds and ends.This class contains methods for collection
-framework algorithms, such as binary search, sorting, shuffling, reverse etc.
-
-Difference between notify and notifyAll? (TODO improve it)
-The main difference between notify and notifyAll is that notify method will only notify one Thread and notifyAll method
-will notify all Threads which are waiting on that monitor or lock. When you call notify only one of waiting for the
-thread will be woken and it's not guaranteed which thread will be woken, it depends on upon Thread scheduler. Is it
-matter ? While if you call notifyAll method, all threads waiting on that lock will be woken up, but again all woken
-thread will fight for lock before executing remaining code and that's why wait is called on loop because if multiple
-threads are woken up, the thread which will get lock will first execute and it may reset waiting for condition, which
-will force subsequent threads to wait. In this case, notify is optimized call over notifyAll because so calling
-notifyAll method is just waste of CPU cycles.
-
-Difference between <? super T> and <? extends T> in Java ? TODO
-
-GOOD TO KNOW:
-This is an example of how to use the AtomicInteger class of Java. The java.util.concurrent.atomic package provides very
-useful classes that support lock-free and thread-safe programming on single variables. Among them, the AtomicInteger
-class is a wrapper class for an int value that allows it to be updated atomically. The class provides useful methods,
-some of which will be shown in the code snippet below. The most common use of the AtomicInteger is to handle a counter
-that is accessed by different threads
-simultaneously. (https://examples.javacodegeeks.com/core-java/util/concurrent/atomic/atomicinteger/java-atomicinteger-example/)
-
-Things to add:
-
-* volatile is a field modifier, while synchronized modifies code blocks and methods.
-* Threads can have local copies of variables, and the data does not have to be the same as the data held in other
-  threads.
-* A volatile variable is not allowed to have a local copy of a variable that is different from the value currently held
-  in "main" memory. Effectively, a variable declared volatile must have its data synchronized across all threads, so
-  that whenever you access or update the variable in any thread, all other threads immediately see the same value.
-* mory and the "main" memory, synchronized synchronizes the value of all variables between the thread memory and the "
-  main" memory and locks and releases a monitor to control the ownership between multiple threads.
-* String.valueOf(Object) Vs. Objects.toString(Object). Although I typically use String.valueOf(Object) instead of
-  Objects.toString(Object) by default when I want the string "null" returned if the passed-in object is null, the
-  alternate overloaded method Objects.toString(Object, String) has the advantage of specifying any string to be returned
-  by the method if the passed-in object is null.
-* Java Management Extensions (JMX) is a Java technology that supplies tools for managing and monitoring applications,
-  system objects, devices (such as printers) and service-oriented networks.Those resources are represented by objects
-  called MBeans (for Managed Bean)
-* A managed bean - sometimes simply referred to as an MBean - is a type of JavaBean, created with dependency injection.
-  The MBean represents a resource running in the Java virtual machine, such as an application or a Java EE technical
-  service (transactional monitor, JDBC driver, etc.). They can be used for collecting statistics on concerns like
-  performance, resources usage, or problems (pull); for getting and setting application configurations or properties (
-  push/pull); and notifying events like faults or state changes (push).
-* What Is the Difference Between equals() and = = ? Equals() method is used for checking the equality of two objects
-  defined by business logic. == or the equality operator is used to compare primitives and objects.
-* as shown below:
-  Equals() method is used for checking the equality of two objects defined by business logic.
-
-== or the equality operator is used to compare primitives and objects.
+    Voltile variable in Java is a special variable which is used to signal threads, 
+    compiler that this particular variables values is going to be updated by multiple thread inside Java application. 
+    By making a variable volatile using volatile keyword in Java, 
+    application programmer ensures that its value should always been read from main memory
+    and thread should not use cached value of that variable from there own stack. 
+    Volatile keyword can only be applied to variable, it can not be applied to class or method. 
+    using volatile keyword along with class and method is compiler error. 
+    Any variable which is shared between multiple threads should be made variable, 
+    in order to ensure that all thread must see latest value of volatile variable.
 
 # RANDOM TIPS
 
@@ -542,7 +447,9 @@ Things to add:
    same performance except that Collections take some time to convert the list to an array. Streams can sort collections
    too.
 7. **Finally** is _not executed_ if the** System.exit** method is called _inside_ a try block.
-8. What are some of the best practices relating to the Java Collection framework ?
+8. equals() method is used for checking the equality of two objects defined by business logic. == (the equality)
+   operator is used to compare primitives and objects.
+9. What are some of the best practices relating to the Java Collection framework ?
     1. Use immutable classes provided by the Java Development Kit (JDK) as a key in a Map, in order to avoid the
        implementation of the hashCode and equals methods for our custom class.
     2. Choosing the right type of the collection to use, based on the application’s needs, is very crucial for its
@@ -554,6 +461,15 @@ Things to add:
        ClassCastException during runtime.
     5. Return zero-length collections or arrays as opposed to returning a null in case the underlying collection is
        actually empty.
+10. Serialization of variables. Variables like static and transient will be initialized to their default value after
+    de-serialization because transient and static fields are never get serialized. There is an interface available to
+    validate the object and its data called ObjectInputValidation. It has validateObject() method.
+11. Volatile is a field modifier, while synchronized modifies code blocks and methods.
+12. An example of how to use the AtomicInteger class. The java.util.concurrent.atomic package provides very useful
+    classes that support lock-free and thread-safe programming on single variables. Among them, the AtomicInteger class
+    is a wrapper class for an int value that allows it to be updated atomically. The class provides useful methods, some
+    of which will be shown in the code snippet below. The most common use of the AtomicInteger is to handle a counter
+    that is accessed by different threads simultaneously.
 
 # FAQ
 
@@ -627,11 +543,8 @@ Things to add:
 
 ## How HashMap, ConcurrentHashMap, and LinkedHashMap handles collisions ?
 
-//TODO improve it - A collision occurs when a hash function returns same bucket location for two different keys. -
-HashMap handles collision by using linked list to store map entries ended up in same array location or bucket location.
-However, if worst case scenario when there are many collisions, performance drop from O(1) to O(n),to address this
-HashMap has a threshold when they reach they switch to balanced tree from linked list to handle frequently hash
-collisions. - Default is TREEIFY_THRESHOLD = 8 . This will improve the worst case performance from O(n) to O(log n).
+    A collision occurs when a hash function returns the same bucket location for two different keys.  HashMap handles collision by using a linked list to store map entries ended up in the same array location or bucket location.
+    However, in the worst-case scenario, when there are many collisions, performance drop from O(1) to O(n). To address this, HashMap has a threshold. When they reach, they switch to balanced tree from linked list to handle frequently hash collisions. - Default is TREEIFY_THRESHOLD = 8 . This will improve the worst-case performance from O(n) to O(log n).
 
 ## What is the importance of hashCode() and equals() methods?
 
@@ -642,10 +555,7 @@ collisions. - Default is TREEIFY_THRESHOLD = 8 . This will improve the worst cas
 
 ## What is the difference between HashSet and TreeSet?
 
-HashSet TreeSet Elements are not ordered. Elements are ordered. The add, remove, and contains method have constant time
-of O(1). add, remove, and contains method have constant time of O(logn).
-
-It has a few extra methods to deal with the ordered set like first(), last() and so on.
+//TODO improve it
 
 ## What’s difference between Streams and collections ?
 
@@ -793,6 +703,48 @@ signature?_
 
     You can iterate over the list in 3 ways: using iterator, using for-each loop or stream.
 
+# Difference between OutOfMemoryError for Java Heap Space and PermGen spac ?
+
+    * "java.lang.OutOfMemoryError: Java heap space" - error messages denotes that Java heap does not have sufficient space andcannot be expanded further
+    * "java.lang.OutOfMemoryError: PermGen space" - error message comes when the permanent generation of Java Heap is full,  the application will fail to load a class or to allocate an interned string.
+
+# _Is Java Exception framework handles compile time errors?_
+
+    No.
+    It is used to handle runtime errors only.
+
+# _How to decide between HashMap and TreeMap?_
+
+    For inserting, deleting, and locating elements in a Map, the HashMap offers the best alternative. If, however, you need
+    to traverse the keys in sorted order, then TreeMap is your better option. Depending upon the size of your collection, it
+    may be faster to add elements to a HashMap, then convert the map to a TreeMap for sorted key traversal.
+
+## _Difference between notify and notifyAll?_ //TODO improve it
+
+    The main difference between notify and notifyAll is that notify method will only notify one thread, and notifyAll method
+    will notify all Threads waiting on that monitor or lock. When you call, notify only one of waiting for the thread will
+    be woken, and it's not guaranteed which thread will be woken, it depends on upon Thread scheduler. Is it matter? While
+    if you call notifyAll method, all threads waiting on that lock will be woken up, but again all woken thread will fight
+    for lock before executing remaining code and that's why wait is called on loop because if multiple threads are woken up,
+    the thread which will get lock will first execute and it may reset waiting for condition, which will force subsequent
+    threads to wait. In this case, notify is optimized call over notifyAll because so calling notifyAll method is just a
+    waste of CPU cycles.
+
+## _What Is the Difference Between equals() and == ?_
+
+    The equals() method is used for checking the equality of two objects defined by business logic. == or the equality
+    operator is used to compare primitives and objects.
+
+## String.valueOf(Object) Vs. Objects.toString(Object).
+
+    Although I typically use String.valueOf(Object) instead of Objects.toString(Object) by default when I want the string "
+    null" returned if the passed-in object is null, the alternate overloaded method Objects.toString(Object, String) has the
+    advantage of specifying any string returned by the method if the passed-in object is null.
+
+## Difference between <? super T> and <? extends T> in Java ?
+
+    https://stackoverflow.com/questions/4343202/difference-between-super-t-and-extends-t-in-java
+
 # RESOURCES:
 
 0. http://en.wikipedia.org/wiki/Anti-pattern#Programming_anti-patterns
@@ -834,22 +786,10 @@ signature?_
 36. http://java67.blogspot.sg/2012/08/difference-between-treemap-and-treeset-java.html
 37. http://docs.oracle.com/javase/tutorial/java/javaOO/methods.html
 38. http://www.javadude.com/articles/passbyvalue.htm
+39. https://examples.javacodegeeks.com/core-java/util/concurrent/atomic/atomicinteger/java-atomicinteger-example/
 
 TODO:
 https://dzone.com/articles/composition-vs-inheritance
-
-6. Ponder Over the Choice of Data Structures Java collections provide ArrayList, LinkedList, Vector, Stack, HashSet,
-   HashMap, Hashtable. It’s important to understand the pros and cons of each to use them in the correct context. A few
-   hints to help you make the right choice:
-
-Map: Useful if you have unordered items in the form of key, value pairs and require efficient retrieval, insertion, and
-deletion operations. HashMap, Hashtable, LinkedHashMap are all implementations of the Map interface.
-
-List: Very commonly used to create an ordered list of items. This list may contain duplicates. ArrayList is an
-implementation of the List interface. A list can be made thread-safe using Collections.synchronizedList thus removing
-the need for using Vector. Here’s some more info on why Vector is essentially obsolete.
-
-Set: Similar to list but does not allow duplicates. HashSet implements the Set interface.
 
 ###### ###### ######
 
