@@ -5,7 +5,7 @@ package dms.pastor.tasks.berlinclock.data;
  * Created 2013-07-24 at 21:36:16
  * WWW:	https://dominiksymonowicz.com/welcome
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * Github:	https://github.com/pastorcmentarny
+ * GitHub:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */

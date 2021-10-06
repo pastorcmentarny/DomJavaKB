@@ -24,7 +24,7 @@ import static javax.swing.LayoutStyle.ComponentPlacement.RELATED;
  * Created: 2009-10-31 at17:59:32
  * WWW:	https://dominiksymonowicz.com/welcome
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * Github:	https://github.com/pastorcmentarny
+ * GitHub:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  * <p>
@@ -159,15 +159,7 @@ public class About extends javax.swing.JFrame {
         changelogTextArea.setFont(getDefaultFont());
         changelogTextArea.setLineWrap(true);
         changelogTextArea.setRows(Constants.DEFAULT_ROWS_SIZE);
-        changelogTextArea.setWrapStyleWord(true);
-        jScrollPane2.setViewportView(changelogTextArea);
-
-        javax.swing.GroupLayout changelogPanelLayout = new javax.swing.GroupLayout(changelogPanel);
-        changelogPanel.setLayout(changelogPanelLayout);
-        changelogPanelLayout.setHorizontalGroup(
-                changelogPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, DEFAULT_PREFERRED_SIZE, Short.MAX_VALUE)
-        );
+        GroupLayout changelogPanelLayout = getGroupLayout(changelogPanel, jScrollPane2, changelogTextArea);
         changelogPanelLayout.setVerticalGroup(
                 changelogPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
@@ -253,15 +245,7 @@ public class About extends javax.swing.JFrame {
         thanksTextArea.setLineWrap(true);
         thanksTextArea.setRows(Constants.DEFAULT_ROWS_SIZE);
         thanksTextArea.setText(properties.getProperty("about.thanks"));
-        thanksTextArea.setWrapStyleWord(true);
-        thanksScrollPanel.setViewportView(thanksTextArea);
-
-        javax.swing.GroupLayout thanksPanelLayout = new javax.swing.GroupLayout(thanksPanel);
-        thanksPanel.setLayout(thanksPanelLayout);
-        thanksPanelLayout.setHorizontalGroup(
-                thanksPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(thanksScrollPanel, javax.swing.GroupLayout.DEFAULT_SIZE, DEFAULT_PREFERRED_SIZE, Short.MAX_VALUE)
-        );
+        GroupLayout thanksPanelLayout = getGroupLayout(thanksPanel, thanksScrollPanel, thanksTextArea);
         thanksPanelLayout.setVerticalGroup(
                 thanksPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(thanksScrollPanel, javax.swing.GroupLayout.DEFAULT_SIZE, DEFAULT_PREFERRED_SIZE, Short.MAX_VALUE)
@@ -301,6 +285,20 @@ public class About extends javax.swing.JFrame {
         );
 
         pack();
+    }
+
+    private GroupLayout getGroupLayout(JPanel panel, JScrollPane scrollPanel, JTextArea textArea) {
+        textArea.setWrapStyleWord(true);
+        scrollPanel.setViewportView(textArea);
+
+        GroupLayout groupLayout = new GroupLayout(panel);
+        panel.setLayout(groupLayout);
+        groupLayout.setHorizontalGroup(
+                groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addComponent(scrollPanel, GroupLayout.DEFAULT_SIZE, DEFAULT_PREFERRED_SIZE, Short.MAX_VALUE)
+        );
+        return groupLayout
+                ;
     }
 
     private Font getDefaultFont() {

@@ -1,6 +1,6 @@
 12 day out with J;;TO_DO;;12;;1
 CHANGE;;TO_DO;;
-Read 365 book in Polish to J;;TO_DO;;365;;18
+Read 365 book in Polish to J;;TO_DO;;365;;21
 12x family day outs;;WORKING_ON;;12;;2
 Barista course;;TO_DO;;
 Re-learn Spring Framework;;WORKING_ON;;
@@ -13,7 +13,7 @@ Learn Rust;;TO_DO;;
 Run in four 10km race;;BLOCKED;;
 Run 1460km;;IN_PROGRESS;;
 Walk 50000 steps;;TO_DO;;
-Run at least 2km per day;;IN_PROGRESS;;365;;20
+Run at least 2km per day;;IN_PROGRESS;;365;;22
 The epic home2home trip;;TO_DO;;
 Travel on longest train in Poland;;TO_DO;;
 Explore all station on the one of the tube line;;TO_DO;;
@@ -29,7 +29,7 @@ Write biography;;TO_DO;;
 Fasting for 24,36,48 and 72 hours;;TO_DO;;4;;0
 Do RPi project;;DONE;;
 Design the SpaceTrain office in Shed;;WORKING_ON;;
-Dom’90;;IN_PROGRESS;;
+Dom'90;;IN_PROGRESS;;
 Write AberRPG story;;BLOCKED;;
 Read 1 book per quarter;;IN_PROGRESS;;4;;1
 Write 40 blog posts;;WORKING_ON;;40;;1

@@ -1,7 +1,5 @@
 package dms.pastor.tools.converters;
 
-import dms.pastor.utils.ValidatorUtils;
-
 import java.util.List;
 import java.util.stream.Collectors;
 

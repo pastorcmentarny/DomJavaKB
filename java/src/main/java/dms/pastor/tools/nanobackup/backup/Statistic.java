@@ -10,7 +10,7 @@ import static dms.pastor.utils.StringUtils.EMPTY_STRING;
  * Created: 2010-02-17 at 01:36:09
  * WWW:	https://dominiksymonowicz.com/welcome
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * Github:	https://github.com/pastorcmentarny
+ * GitHub:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  * This is my first project after graduation in 2010. Do not expect too much :)
