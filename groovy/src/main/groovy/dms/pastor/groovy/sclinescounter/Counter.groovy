@@ -7,7 +7,7 @@ import groovy.io.FileType
  * Created 2.11'2013 at 13.00
  * WWW:	https://dominiksymonowicz.com/welcome
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * Github:	https://github.com/pastorcmentarny
+ * GitHub:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  *
