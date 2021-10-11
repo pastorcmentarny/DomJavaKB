@@ -381,6 +381,12 @@ _I am not the author of these definitions so check resources section for the ori
     Java programming language. It is an object-oriented equivalent of remote procedure calls (RPC), with support for the
     direct transfer of serialized Java classes and distributed garbage collection.
 
+## Sealed classes and interfaces
+
+    Sealed classes(interfaces) restrict which other classes(interfaces) may extend or implement them. Sealed class must have
+    subclasses, so you need to have at least one subclass; otherwise, just declare plain old 'final' modifier if you don't
+    want the class to have subclasses.
+
 ## SerialVersionUID
 
     You should always define SerialVersionUID for a serializable class and you should always define it. If you don't define

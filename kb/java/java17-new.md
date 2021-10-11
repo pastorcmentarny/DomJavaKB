@@ -6,10 +6,8 @@ _I am not the author of these definitions so check resources section for the ori
 
 # Java 17
 
-Things, i care about it (Rest is useful and important too)
-
-2. 356:    Enhanced Pseudo-Random Number Generators
-3. 403:    Strongly Encapsulate JDK Internals
+1. 356:    Enhanced Pseudo-Random Number Generators
+2. 403:    Strongly Encapsulate JDK Internals
 
 ```
 You cannot do this:
@@ -17,10 +15,14 @@ System.out.println(sun.security.util.SecurityConstants.ALL_PERMISSION);
 You will see error: Package 'sun.security.util' is declared in module 'java.base', which does not export it to the unnamed module
 ```
 
-5. 409:    Sealed Classes
-6. 415:    Context-Specific Deserialization Filters
+3. 409:    Sealed Classes
+5. Java 17 is issued under the new NFTC (Oracle No-Fee Terms and Conditions) license. The new Oracle licensing model
+   allowed to use the Oracle JDK version for free for production and commercial use
+   (well, at least until the next licencing change :D).
+6. LTS releases changed to a two-year cadence; enterprises and developers have more frequent opportunities to move an
+   application onto an LTS release.
 
-Another thing:
-Java 17 is issued under the new NFTC (Oracle No-Fee Terms and Conditions) license. The new Oracle licensing model
-allowed to use the Oracle JDK version for free for production and commercial use
-(well at least until next licencing change :D).
+Another things that doesn't require example:
+306:    Restore Always-Strict Floating-Point Semantics 398:    Deprecate the Applet API for Removal 407:    Remove RMI
+Activation 410:    Remove the Experimental AOT and JIT Compiler 411:    Deprecate the Security Manager for Removal
+ 
