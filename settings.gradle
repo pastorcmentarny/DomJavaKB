@@ -1,4 +1,3 @@
 rootProject.name = 'DomKB'
 
 include 'blog', 'rpg', 'java', 'spring', 'python', 'revenger'
-//,':rundiary:server'
