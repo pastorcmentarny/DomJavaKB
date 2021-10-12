@@ -43,7 +43,7 @@ jar {
     archiveVersion = '' // removed as i do not use version
 }
 
-
+version = '3'
 // ./gradlew dependencyCheckAnalyze
 
 dependencies {
