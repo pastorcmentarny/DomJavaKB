@@ -1,45 +1,47 @@
-20210011;;Run 2k
+20210011;;Run at least 2k
+20211010;;Read 2 books to J
+20210011;;Run at least 2k
 20211010;;Read 1 book to J
 20211008;;activities with Xu (Badminton)
-20211008;;Run 2k
+20211008;;Run at least 2k
 20211007;;Finish read a BOOK (Piramidy)
-20211007;;Run 2k
-20211006;;Run 2k
+20211007;;Run at least 2k
+20211006;;Run at least 2k
 20211005;;Read 3 books to J
-20211005;;Run 2k
+20211005;;Run at least 2k
 20211004;;Read 3 books to J
-20211004;;Run 2k
+20211004;;Run at least 2k
 20211002;;Read 3 books to J
-20211001;;Run 2k
-20210928;;Run 2k
+20211001;;Run at least 2k
+20210928;;Run at least 2k
 20210927;;Read 1 books to J
-20210913;;Run 2k
+20210913;;Run at least 2k
 20210911;;Read 1 books to J
-20210909;;Run 2k
-20210908;;Run 2k
-20210907;;Run 2k
-20210906;;Run 2k
+20210909;;Run at least 2k
+20210908;;Run at least 2k
+20210907;;Run at least 2k
+20210906;;Run at least 2k
 20210905;;Read 1 books to J
 20210905;;RPi project (J's Pi Traffic)
 20210904;;Watch movie with X
 20210904;;Day out with J
-20210902;;Run 2k
+20210902;;Run at least 2k
 20210831;;Read 1 books to J
 20210830;;1 week long holiday in new country
-20210819;;Run 2k
-20210818;;Run 2k
-20210817;;Run 2k
-20210816;;Run 2k
+20210819;;Run at least 2k
+20210818;;Run at least 2k
+20210817;;Run at least 2k
+20210816;;Run at least 2k
 20210810;;Family Day Out (Scotland)
-20210809;;Run 2k
-20210806;;Run 2k
-20210805;;Run 2k
+20210809;;Run at least 2k
+20210806;;Run at least 2k
+20210805;;Run at least 2k
 20210804;;Read 1 book to J
-20210804;;Run 2k
-20210803;;Run 2k
-20210802;;Run 2k
+20210804;;Run at least 2k
+20210803;;Run at least 2k
+20210802;;Run at least 2k
 20210802;;Finish read a BOOK
 20210728;;Wrote 1 blog post
 20210726;;Read 5 books to J
 20210708;;Buy trees to donate
-20210708;;Run 2k
+20210708;;Run at least 2k
