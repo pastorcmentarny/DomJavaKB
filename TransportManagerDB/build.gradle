@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'dom.coffirgar'
-version = '2'
+version = '20'
 sourceCompatibility = '17'
 
 configurations {
