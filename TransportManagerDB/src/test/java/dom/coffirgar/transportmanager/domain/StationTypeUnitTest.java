@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 import static dom.coffirgar.transportmanager.domain.StationType.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
-class StationTypeTest {
+class StationTypeUnitTest {
 
     @ParameterizedTest
     @MethodSource("provideValidTypesForTube")

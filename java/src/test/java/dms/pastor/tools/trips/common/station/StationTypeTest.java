@@ -11,7 +11,6 @@ import static dms.pastor.tools.trips.common.station.StationType.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 
-//it could be parameterized test but
 class StationTypeTest {
 
     @ParameterizedTest

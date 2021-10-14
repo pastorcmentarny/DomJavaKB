@@ -8,7 +8,7 @@ import static dom.coffirgar.transportmanager.common.Utils.EMPTY_STRING;
 import static dom.coffirgar.transportmanager.domain.Status.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
-class StatusTest {
+class StatusUnitTest {
 
     @Test
     public void fromValueShouldReturnStatusForLowerV() {

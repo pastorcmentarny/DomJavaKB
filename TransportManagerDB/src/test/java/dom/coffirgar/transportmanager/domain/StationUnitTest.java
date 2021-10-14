@@ -14,7 +14,7 @@ import static dom.coffirgar.transportmanager.common.Utils.generateString;
 import static dom.coffirgar.transportmanager.domain.Status.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class StationTest {
+public class StationUnitTest {
     private static final LocalDate PASSED_DATE = LocalDate.now();
     private static final LocalDate VISITED_DATE = LocalDate.now();
 
