@@ -136,7 +136,7 @@ public final class RandomDataGenerator {
     }
 
     public static String generateString() {
-        return generateString(RANDOM.nextInt(MAX_LARGE_VALUE_RANGE) + 1);
+        return generateString(0,RANDOM.nextInt(MAX_LARGE_VALUE_RANGE) + 1);
     }
 
     public static String generateString(int max) {
