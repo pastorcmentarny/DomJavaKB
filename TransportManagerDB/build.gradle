@@ -18,7 +18,7 @@ ext {
 }
 
 group = 'dom.coffirgar'
-version = '25'
+version = '32'
 sourceCompatibility = '17'
 
 configurations {
@@ -53,9 +53,9 @@ allprojects {
 dependencies {
     implementation "org.springframework.boot:spring-boot-starter-actuator:${springVersion}"
     implementation "org.springframework.boot:spring-boot-starter-web:${springVersion}"
-    compileOnly 'org.projectlombok:lombok:1.18.20'
+    compileOnly 'org.projectlombok:lombok:1.18.22'
     developmentOnly "org.springframework.boot:spring-boot-devtools:${springVersion}"
-    annotationProcessor 'org.projectlombok:lombok:1.18.20'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
     testImplementation "org.springframework.boot:spring-boot-starter-test:${springVersion}"
 }
 

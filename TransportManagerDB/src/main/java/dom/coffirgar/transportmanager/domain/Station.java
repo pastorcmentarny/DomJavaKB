@@ -45,7 +45,7 @@ public class Station {
     }
 
     public void setPassedDate(LocalDate date) {
-        this.passedDate = passedDate;
+        this.passedDate = date;
     }
 
     public void setPassedDateToNow(){
