@@ -1,4 +1,4 @@
-package dom.coffirgar.transportmanager.domain;
+package dom.coffirgar.transportmanager.domain.stations;
 
 public enum StationType {
     TUBE,

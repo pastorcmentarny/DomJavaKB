@@ -1,13 +1,14 @@
-package dom.coffirgar.transportmanager.domain;
+package dom.coffirgar.transportmanager.domain.stations;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.Setter;
 
 import java.time.LocalDate;
 
-import static dom.coffirgar.transportmanager.domain.Status.NOT_VISITED;
-import static dom.coffirgar.transportmanager.domain.Status.PASSED;
+import static dom.coffirgar.transportmanager.common.Utils.FIELD_SEPARATOR;
+import static dom.coffirgar.transportmanager.common.Utils.getDateAsStringOrNone;
+import static dom.coffirgar.transportmanager.domain.stations.Status.NOT_VISITED;
+import static dom.coffirgar.transportmanager.domain.stations.Status.PASSED;
 
 
 @Getter
@@ -23,21 +24,20 @@ public class Station {
     private boolean blogged;
 
     @SuppressWarnings("ConstructorWithTooManyParameters") //not apply in this case
-    public Station(String name, Status status, LocalDate passedDate, LocalDate visitedDate, LocalDate thisYearVisitedDate, boolean blogged) {
+    public Station(String name, Status status, LocalDate passedDate, LocalDate visitedDate, LocalDate thisYearVisitedDate) {
         this.name = name;
         this.status = status;
         this.passedDate = passedDate;
         this.visitedDate = visitedDate;
         this.thisYearVisitedDate = thisYearVisitedDate;
-        this.blogged = blogged;
     }
 
     public static Station notVisited(String name) {
-        return new Station(name, NOT_VISITED, null, null, null, false);
+        return new Station(name, NOT_VISITED, null, null, null);
     }
 
     public static Station passed(String name, LocalDate passedDate) {
-        return new Station(name, PASSED, passedDate, null, null, false);
+        return new Station(name, PASSED, passedDate, null, null);
     }
 
     public void setStatus(Status status) {
@@ -48,7 +48,7 @@ public class Station {
         this.passedDate = date;
     }
 
-    public void setPassedDateToNow(){
+    public void setPassedDateToNow() {
         passedDate = LocalDate.now();
     }
 
@@ -58,5 +58,17 @@ public class Station {
 
     public void setVisitedStationThisYearToNow() {
         thisYearVisitedDate = LocalDate.now();
+    }
+
+    public String getStatusAsValue() {
+        return status.value();
+    }
+
+    public String asLine() {
+        return name + FIELD_SEPARATOR +
+                getStatusAsValue() + FIELD_SEPARATOR +
+                getDateAsStringOrNone(passedDate) + FIELD_SEPARATOR +
+                getDateAsStringOrNone(visitedDate) + FIELD_SEPARATOR +
+                getDateAsStringOrNone(thisYearVisitedDate);
     }
 }

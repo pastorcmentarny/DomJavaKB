@@ -1,17 +1,18 @@
-package dom.coffirgar.transportmanager.domain;
+package dom.coffirgar.transportmanager.services;
 
+import dom.coffirgar.transportmanager.domain.stations.Station;
 import dom.coffirgar.transportmanager.exceptions.NotFoundException;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import static dom.coffirgar.transportmanager.common.Utils.isStringEmpty;
-import static dom.coffirgar.transportmanager.domain.Status.PASSED;
-import static dom.coffirgar.transportmanager.domain.Status.VISITED;
+import static dom.coffirgar.transportmanager.domain.stations.Status.PASSED;
+import static dom.coffirgar.transportmanager.domain.stations.Status.VISITED;
 import static java.util.Collections.unmodifiableList;
 
 /**
@@ -22,12 +23,13 @@ import static java.util.Collections.unmodifiableList;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class Stations {
-    private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(Stations.class);
+@Service
+public class StationsService {
+    private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(StationsService.class);
 
     private final List<Station> stationList;
 
-    public Stations(List<Station> stationList) {
+    public StationsService(List<Station> stationList) {
         this.stationList = stationList;
     }
 
@@ -94,18 +96,6 @@ public class Stations {
                 .count();
     }
 
-    public long countStationsBlogged() {
-        return stationList.stream()
-                .filter(Station::isBlogged)
-                .count();
-    }
-
-    public List<String> displayAllStationsBlogged() {
-        return stationList.stream()
-                .filter(Station::isBlogged)
-                .map(Station::getName)
-                .collect(Collectors.toList());
-    }
 
     public Station findStation(String searchFor) {
         final NotFoundException notFoundException = new NotFoundException("tube station " + searchFor + " ");

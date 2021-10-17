@@ -1,11 +1,12 @@
 package dom.coffirgar.transportmanager.domain;
 
+import dom.coffirgar.transportmanager.domain.stations.Status;
 import dom.coffirgar.transportmanager.exceptions.NotFoundException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static dom.coffirgar.transportmanager.common.Utils.EMPTY_STRING;
-import static dom.coffirgar.transportmanager.domain.Status.*;
+import static dom.coffirgar.transportmanager.domain.stations.Status.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class StatusUnitTest {

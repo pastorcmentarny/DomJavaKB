@@ -1,5 +1,6 @@
-package dom.coffirgar.transportmanager.domain;
+package dom.coffirgar.transportmanager.services;
 
+import dom.coffirgar.transportmanager.domain.stations.Station;
 import dom.coffirgar.transportmanager.exceptions.NotFoundException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -11,7 +12,7 @@ import java.util.List;
 
 import static dom.coffirgar.transportmanager.common.Utils.EMPTY_STRING;
 import static dom.coffirgar.transportmanager.common.Utils.generateString;
-import static dom.coffirgar.transportmanager.domain.Status.*;
+import static dom.coffirgar.transportmanager.domain.stations.Status.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class StationUnitTest {
@@ -20,21 +21,20 @@ public class StationUnitTest {
 
     private static final LocalDate THIS_YEAR_VISITED_DATE = LocalDate.now();
 
-    private static final Station WEMBLEY_PARK = new Station("Wembley Park", VISITED, PASSED_DATE, VISITED_DATE, THIS_YEAR_VISITED_DATE, true);
+    private static final Station WEMBLEY_PARK = new Station("Wembley Park", VISITED, PASSED_DATE, VISITED_DATE, THIS_YEAR_VISITED_DATE);
     private static final String STATION_NAME = "Amersham";
-    private static final boolean BLOGGED = false;
 
-    private final Stations stations = generateStations();
+    private final StationsService stationsService = generateStations();
 
     @Test
     public void getStationByNameShouldReturnStation() {
         // given
         final String stationName = STATION_NAME;
         final Station amershamStation = Station.notVisited(stationName);
-        Stations stations = new Stations(Collections.singletonList(amershamStation));
+        StationsService stationsService = new StationsService(Collections.singletonList(amershamStation));
 
         // when
-        Station result = stations.getStationByName(stationName);
+        Station result = stationsService.getStationByName(stationName);
 
         // then
         assertThat(result).isEqualTo(amershamStation);
@@ -46,13 +46,13 @@ public class StationUnitTest {
         // given
         final String stationName = STATION_NAME;
         final Station amersham = Station.notVisited(stationName);
-        Stations stations = new Stations(Collections.singletonList(amersham));
+        StationsService stationsService = new StationsService(Collections.singletonList(amersham));
 
         // when
-        stations.setPassedFor(amersham);
+        stationsService.setPassedFor(amersham);
 
         // then
-        assertThat(stations.getStationByName(stationName).getStatus()).isEqualTo(PASSED);
+        assertThat(stationsService.getStationByName(stationName).getStatus()).isEqualTo(PASSED);
 
     }
 
@@ -61,14 +61,14 @@ public class StationUnitTest {
         // given
         final String stationName = STATION_NAME;
         final LocalDate today = LocalDate.now();
-        final Station amersham = new Station(stationName, VISITED, today, today, today, false);
-        Stations stations = new Stations(Collections.singletonList(amersham));
+        final Station amersham = new Station(stationName, VISITED, today, today, today);
+        StationsService stationsService = new StationsService(Collections.singletonList(amersham));
 
         // when
-        stations.setPassedFor(amersham);
+        stationsService.setPassedFor(amersham);
 
         // then
-        assertThat(stations.getStationByName(stationName).getStatus()).isEqualTo(VISITED);
+        assertThat(stationsService.getStationByName(stationName).getStatus()).isEqualTo(VISITED);
     }
 
     @Test
@@ -76,41 +76,41 @@ public class StationUnitTest {
         // given
         final String stationName = STATION_NAME;
         final LocalDate today = LocalDate.now();
-        final Station amersham = new Station(stationName, NOT_VISITED, today, today, today, BLOGGED);
-        Stations stations = new Stations(Collections.singletonList(amersham));
+        final Station amersham = new Station(stationName, NOT_VISITED, today, today, today);
+        StationsService stationsService = new StationsService(Collections.singletonList(amersham));
 
         // when
-        stations.setVisitedFor(amersham);
+        stationsService.setVisitedFor(amersham);
 
         // then
-        assertThat(stations.getStationByName(stationName).getStatus()).isEqualTo(VISITED);
+        assertThat(stationsService.getStationByName(stationName).getStatus()).isEqualTo(VISITED);
     }
 
     @Test
     public void setVisitedForShouldSetStatusToVisitedIfStationHasStatusPassed() {
         // given
         final Station amersham = Station.passed(STATION_NAME, PASSED_DATE);
-        Stations stations = new Stations(Collections.singletonList(amersham));
+        StationsService stationsService = new StationsService(Collections.singletonList(amersham));
 
         // when
-        stations.setVisitedFor(amersham);
+        stationsService.setVisitedFor(amersham);
 
         // then
-        assertThat(stations.getStationByName(STATION_NAME).getStatus()).isEqualTo(VISITED);
+        assertThat(stationsService.getStationByName(STATION_NAME).getStatus()).isEqualTo(VISITED);
     }
 
     @Test
     public void setVisitedForShouldSetBothPassedDateAndVisitedDateWhenIfStationHasPreviouslyStatusNotVisited() {
         // given
         final Station amersham = Station.passed(STATION_NAME, PASSED_DATE);
-        Stations stations = new Stations(Collections.singletonList(amersham));
+        StationsService stationsService = new StationsService(Collections.singletonList(amersham));
 
         // when
-        stations.setVisitedFor(amersham);
+        stationsService.setVisitedFor(amersham);
 
         // then
-        assertThat(stations.getStationByName(STATION_NAME).getPassedDate()).isEqualTo(LocalDate.now());
-        assertThat(stations.getStationByName(STATION_NAME).getVisitedDate()).isEqualTo(LocalDate.now());
+        assertThat(stationsService.getStationByName(STATION_NAME).getPassedDate()).isEqualTo(LocalDate.now());
+        assertThat(stationsService.getStationByName(STATION_NAME).getVisitedDate()).isEqualTo(LocalDate.now());
     }
 
     @Test
@@ -118,20 +118,20 @@ public class StationUnitTest {
         // given
         final LocalDate yesterday = PASSED_DATE.minusDays(1);
         final Station amersham = Station.passed(STATION_NAME, yesterday);
-        Stations stations = new Stations(Collections.singletonList(amersham));
+        StationsService stationsService = new StationsService(Collections.singletonList(amersham));
 
         // when
-        stations.setVisitedFor(amersham);
+        stationsService.setVisitedFor(amersham);
 
         // then
-        assertThat(stations.getStationByName(STATION_NAME).getPassedDate()).isEqualTo(yesterday);
-        assertThat(stations.getStationByName(STATION_NAME).getVisitedDate()).isEqualTo(LocalDate.now());
+        assertThat(stationsService.getStationByName(STATION_NAME).getPassedDate()).isEqualTo(yesterday);
+        assertThat(stationsService.getStationByName(STATION_NAME).getVisitedDate()).isEqualTo(LocalDate.now());
     }
 
     @Test
     public void countStationPassedShouldCountStationPassed() {
         // when
-        final long count = stations.countStationPassed();
+        final long count = stationsService.countStationPassed();
 
         // then
         assertThat(count).isEqualTo(2);
@@ -140,7 +140,7 @@ public class StationUnitTest {
     @Test
     public void countStationPassedShouldCountStationVisited() {
         // when
-        final long count = stations.countStationVisited();
+        final long count = stationsService.countStationVisited();
 
         // then
         assertThat(count).isEqualTo(1);
@@ -149,14 +149,14 @@ public class StationUnitTest {
     @Test
     public void findStationShouldThrowNotFoundExceptionWhenSearchForIsNull() {
         // when
-        final var exception = Assertions.assertThrows(NotFoundException.class, () -> stations.findStation(null));
+        final var exception = Assertions.assertThrows(NotFoundException.class, () -> stationsService.findStation(null));
         assertThat(exception.getMessage()).isEqualTo("tube station null  was not found.");
     }
 
     @Test
     public void findStationShouldThrowNotFoundExceptionWhenSearchForIsEmpty() {
         // when
-        final var exception = Assertions.assertThrows(NotFoundException.class, () -> stations.findStation(EMPTY_STRING));
+        final var exception = Assertions.assertThrows(NotFoundException.class, () -> stationsService.findStation(EMPTY_STRING));
 
         // then
         assertThat(exception.getMessage()).isEqualTo("tube station   was not found.");
@@ -168,7 +168,7 @@ public class StationUnitTest {
         var stationName = generateString();
 
         // when
-        final var exception = Assertions.assertThrows(NotFoundException.class, () -> stations.findStation(stationName));
+        final var exception = Assertions.assertThrows(NotFoundException.class, () -> stationsService.findStation(stationName));
 
         // then
         assertThat(exception.getMessage()).isEqualTo("tube station " + stationName + "  was not found.");
@@ -178,7 +178,7 @@ public class StationUnitTest {
     @Test
     public void findStationShouldReturnWembleyParkStationWhenSearchForWembleyPark() {
         // when
-        final Station station = stations.findStation(WEMBLEY_PARK.getName());
+        final Station station = stationsService.findStation(WEMBLEY_PARK.getName());
 
         // then
         assertThat(station).isEqualTo(WEMBLEY_PARK);
@@ -187,7 +187,7 @@ public class StationUnitTest {
     @Test
     public void passedShouldReturnStationWithPassedDateButWithoutVisitedDate() {
         // given
-        final Station expectedStation = new Station(STATION_NAME, PASSED, PASSED_DATE, null, null, BLOGGED);
+        final Station expectedStation = new Station(STATION_NAME, PASSED, PASSED_DATE, null, null);
 
         // when
         final Station result = Station.passed(STATION_NAME, PASSED_DATE);
@@ -199,7 +199,7 @@ public class StationUnitTest {
     @Test
     public void notVisitedShouldReturnStationWithoutPassedAndOrVisitedDate() {
         // given
-        final Station expectedStation = new Station(STATION_NAME, NOT_VISITED, null, null, null, BLOGGED);
+        final Station expectedStation = new Station(STATION_NAME, NOT_VISITED, null, null, null);
 
         // when
         final Station result = Station.notVisited(STATION_NAME);
@@ -213,21 +213,21 @@ public class StationUnitTest {
     @Test //this test based on test data
     public void totalNumberShouldReturn3ForStationsCount() {
         // given
-        final Stations stations = generateStations();
+        final StationsService stationsService = generateStations();
 
         // when
-        final int result = stations.totalNumber();
+        final int result = stationsService.totalNumber();
 
         // then
         assertThat(result).isEqualTo(3);
     }
 
-    private Stations generateStations() {
+    private StationsService generateStations() {
         List<Station> stationList = new ArrayList<>();
         stationList.add(WEMBLEY_PARK);
         stationList.add(Station.passed("Green Park", LocalDate.now()));
         stationList.add(Station.notVisited("Elm Park"));
-        return new Stations(stationList);
+        return new StationsService(stationList);
     }
 
 }

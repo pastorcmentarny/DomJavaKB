@@ -1,4 +1,4 @@
-package dom.coffirgar.transportmanager.domain;
+package dom.coffirgar.transportmanager.domain.stations;
 
 import dom.coffirgar.transportmanager.exceptions.NotFoundException;
 
