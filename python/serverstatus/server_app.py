@@ -1,14 +1,13 @@
 import datetime
+import re
 import time
 from subprocess import PIPE, Popen
 
 from blinkt import set_pixel, set_brightness, show
 
-set_brightness(0.1)
-
 ALERT_COLOR = [255, 0, 0]
-WARNING_COLOR = [255, 126, 0]
-GOOD_COLOR = [154, 205, 50]
+WARNING_COLOR = [255, 112, 0]
+GOOD_COLOR = [64, 255, 24]
 OFF_COLOR = [155, 38, 182]
 UNKNOWN_COLOR = [0, 0, 255]
 ALL_COLORS = [ALERT_COLOR, WARNING_COLOR, GOOD_COLOR, OFF_COLOR, UNKNOWN_COLOR]
@@ -54,19 +53,20 @@ def get_ram_available():
     pass
 
 
-def get_space_free():
-    pass
+def get_space_available():
+    with Popen("df / -m --output=avail", stdout=PIPE) as p:
+        result, _ = p.communicate()
+        p.kill()
+        return re.sub('[^0-9.]', '', str(result).strip())
 
 
 def update_brightness():
     now = datetime.datetime.now()
     hour = now.hour
-    if hour < 6 or hour >= 22:
-        set_brightness(0.1)
-    elif hour < 9 or hour > 15:
-        set_brightness(0.2)
+    if hour < 9 or hour >= 19:
+        set_brightness(0.05)
     else:
-        set_brightness(0.4)
+        set_brightness(0.1)
 
 
 def display_light():
@@ -79,23 +79,25 @@ def display_light():
     show()
 
 
-def device_healthcheck():
+def device_health_check():
     temp = get_cpu_temperature()
     if temp > 70.0:
         status["System"] = ALERT_COLOR
-    elif temp > 50.0:
+    elif temp > 60.0:
         status["System"] = WARNING_COLOR
     else:
         status["System"] = GOOD_COLOR
 
+    print(get_space_available())
 
-def app_healthcheck():
+
+def app_health_check():
     status["App"] = GOOD_COLOR
 
 
 def healthcheck():
-    device_healthcheck()
-    app_healthcheck()
+    device_health_check()
+    app_health_check()
 
 
 def app_loop():
