@@ -1,9 +1,11 @@
 import datetime
+import json
 import re
 import time
 from subprocess import PIPE, Popen
 
 import psutil
+import requests
 from blinkt import set_pixel, set_brightness, show
 
 ALERT_COLOR = [255, 0, 0]
@@ -121,12 +123,41 @@ def healthcheck():
 def app_loop():
     while True:
         healthcheck()
+        microservices_healthcheck()
         display_light()
         time.sleep(5)
 
 
 def setup():
     display_light()
+
+
+def get_data_for(url: str, timeout: int = 1) -> str:
+    try:
+        with requests.get(url, timeout=timeout) as response:
+            response.raise_for_status()
+            data_response = response.text
+            return json.loads(data_response)["status"]
+    except Exception as whoops:
+        return "ERROR"
+
+
+def microservices_healthcheck():
+    ui = get_data_for("http://192.168.0.18:18001/actuator/health")
+    status["TM_UI"] = get_color_for_response(ui)
+    service = get_data_for("http://192.168.0.18:18002/actuator/health")
+    status["TM_SERVICE"] = get_color_for_response(service)
+    db = get_data_for("http://192.168.0.18:18003/actuator/health")
+    status["TM_SERVICE"] = get_color_for_response(db)
+
+
+def get_color_for_response(response):
+    if response == "ERROR":
+        return ALERT_COLOR
+    elif response == "DOWN":
+        return WARNING_COLOR
+    else:
+        return GOOD_COLOR
 
 
 if __name__ == '__main__':
