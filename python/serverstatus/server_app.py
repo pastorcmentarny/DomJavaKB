@@ -46,7 +46,7 @@ def get_cpu_temperature():
         pos_end = output.rindex("'")
 
         temp = float(output[pos_start:pos_end])
-
+        process.kill()
         return temp
 
 
@@ -55,9 +55,9 @@ def get_ram_available():
 
 
 def get_space_available():
-    with Popen("df / -m --output=avail", stdout=PIPE) as p:
-        result, _ = p.communicate()
-        p.kill()
+    with Popen("df / -m --output=avail", stdout=PIPE, shell=True) as process:
+        result, _ = process.communicate()
+        process.kill()
         return re.sub('[^0-9.]', '', str(result).strip())
 
 
