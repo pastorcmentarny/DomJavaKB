@@ -3,6 +3,7 @@ import re
 import time
 from subprocess import PIPE, Popen
 
+import psutil
 from blinkt import set_pixel, set_brightness, show
 
 ALERT_COLOR = [255, 0, 0]
@@ -13,19 +14,19 @@ UNKNOWN_COLOR = [0, 0, 255]
 ALL_COLORS = [ALERT_COLOR, WARNING_COLOR, GOOD_COLOR, OFF_COLOR, UNKNOWN_COLOR]
 
 """
-0 system
-1 app itself
-2
-3 UI
-4 SERVICE
-5 DB
-6
-7
+0 CPU temp
+1 RAM
+2 SPACE
+3 
+5 UI
+6 SERVICE
+7 DB
 """
 
 status = {
-    "System": UNKNOWN_COLOR,
-    "App": UNKNOWN_COLOR,
+    "CPU": UNKNOWN_COLOR,
+    "RAM": UNKNOWN_COLOR,
+    "SPACE": UNKNOWN_COLOR,
     "TM_UI": UNKNOWN_COLOR,
     "TM_SERVICE": UNKNOWN_COLOR,
     "TM_DB": UNKNOWN_COLOR,
@@ -37,20 +38,20 @@ BLUE = 2
 
 
 def get_cpu_temperature():
-    process = Popen(['vcgencmd', 'measure_temp'], stdout=PIPE)
-    output, _error = process.communicate()
-    output = output.decode()
+    with Popen(['vcgencmd', 'measure_temp'], stdout=PIPE) as process:
+        output, _error = process.communicate()
+        output = output.decode()
 
-    pos_start = output.index('=') + 1
-    pos_end = output.rindex("'")
+        pos_start = output.index('=') + 1
+        pos_end = output.rindex("'")
 
-    temp = float(output[pos_start:pos_end])
+        temp = float(output[pos_start:pos_end])
 
-    return temp
+        return temp
 
 
 def get_ram_available():
-    pass
+    return psutil.virtual_memory().available / 1000000
 
 
 def get_space_available():
@@ -70,34 +71,51 @@ def update_brightness():
 
 
 def display_light():
-    set_pixel(0, status["System"][RED], status["System"][GREEN], status["System"][BLUE])
-    set_pixel(1, status["App"][RED], status["App"][GREEN], status["App"][BLUE])
-    set_pixel(3, status["TM_UI"][RED], status["TM_UI"][GREEN], status["TM_UI"][BLUE])
-    set_pixel(4, status["TM_SERVICE"][RED], status["TM_SERVICE"][GREEN], status["TM_SERVICE"][BLUE])
-    set_pixel(5, status["TM_DB"][RED], status["TM_DB"][GREEN], status["TM_DB"][BLUE])
+    set_pixel(0, status["CPU"][RED], status["CPU"][GREEN], status["CPU"][BLUE])
+    set_pixel(1, status["RAM"][RED], status["RAM"][GREEN], status["RAM"][BLUE])
+    set_pixel(2, status["SPACE"][RED], status["SPACE"][GREEN], status["SPACE"][BLUE])
+
+    set_pixel(4, status["TM_UI"][RED], status["TM_UI"][GREEN], status["TM_UI"][BLUE])
+    set_pixel(5, status["TM_SERVICE"][RED], status["TM_SERVICE"][GREEN], status["TM_SERVICE"][BLUE])
+    set_pixel(6, status["TM_DB"][RED], status["TM_DB"][GREEN], status["TM_DB"][BLUE])
     update_brightness()
     show()
 
 
-def device_health_check():
+def cpu_health_check():
     temp = get_cpu_temperature()
     if temp > 70.0:
-        status["System"] = ALERT_COLOR
+        status["CPU"] = ALERT_COLOR
     elif temp > 60.0:
-        status["System"] = WARNING_COLOR
+        status["CPU"] = WARNING_COLOR
     else:
-        status["System"] = GOOD_COLOR
-
-    print(get_space_available())
+        status["CPU"] = GOOD_COLOR
 
 
-def app_health_check():
-    status["App"] = GOOD_COLOR
+def free_space_health_check():
+    space = int(get_space_available())
+    if space < 250:
+        status["SPACE"] = ALERT_COLOR
+    elif space < 1000:
+        status["SPACE"] = WARNING_COLOR
+    else:
+        status["SPACE"] = GOOD_COLOR
+
+
+def ram_available_health_check():
+    ram = int(get_ram_available())
+    if ram < 500:
+        status["RAM"] = ALERT_COLOR
+    elif ram < 250:
+        status["RAM"] = WARNING_COLOR
+    else:
+        status["RAM"] = GOOD_COLOR
 
 
 def healthcheck():
-    device_health_check()
-    app_health_check()
+    cpu_health_check()
+    ram_available_health_check()
+    free_space_health_check()
 
 
 def app_loop():
