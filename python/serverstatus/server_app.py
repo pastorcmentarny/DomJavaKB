@@ -1,4 +1,5 @@
 import datetime
+import time
 from subprocess import PIPE, Popen
 
 from blinkt import set_pixel, set_brightness, show
@@ -78,9 +79,19 @@ def display_light():
     show()
 
 
+def app_healthcheck():
+    status["App"] = GOOD_COLOR
+
+
+def healthcheck():
+    app_healthcheck()
+
+
 def app_loop():
     while True:
-        pass
+        healthcheck()
+        display_light()
+        time.sleep(5)
 
 
 def setup():
