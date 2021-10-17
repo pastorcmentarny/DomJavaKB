@@ -79,11 +79,22 @@ def display_light():
     show()
 
 
+def device_healthcheck():
+    temp = get_cpu_temperature()
+    if temp > 70.0:
+        status["System"] = ALERT_COLOR
+    elif temp > 50.0:
+        status["System"] = WARNING_COLOR
+    else:
+        status["System"] = GOOD_COLOR
+
+
 def app_healthcheck():
     status["App"] = GOOD_COLOR
 
 
 def healthcheck():
+    device_healthcheck()
     app_healthcheck()
 
 
