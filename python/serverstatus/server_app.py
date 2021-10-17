@@ -58,7 +58,7 @@ def get_space_free():
     pass
 
 
-def set_brightness():
+def update_brightness():
     now = datetime.datetime.now()
     hour = now.hour
     if hour < 6 or hour >= 22:
@@ -75,7 +75,7 @@ def display_light():
     set_pixel(3, status["TM_UI"][RED], status["TM_UI"][GREEN], status["TM_UI"][BLUE])
     set_pixel(4, status["TM_SERVICE"][RED], status["TM_SERVICE"][GREEN], status["TM_SERVICE"][BLUE])
     set_pixel(5, status["TM_DB"][RED], status["TM_DB"][GREEN], status["TM_DB"][BLUE])
-    set_brightness()
+    update_brightness()
     show()
 
 
