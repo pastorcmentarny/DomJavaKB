@@ -148,7 +148,7 @@ def microservices_healthcheck():
     service = get_data_for("http://192.168.0.18:18002/actuator/health")
     status["TM_SERVICE"] = get_color_for_response(service)
     db = get_data_for("http://192.168.0.18:18003/actuator/health")
-    status["TM_SERVICE"] = get_color_for_response(db)
+    status["TM_DB"] = get_color_for_response(db)
 
 
 def get_color_for_response(response):
