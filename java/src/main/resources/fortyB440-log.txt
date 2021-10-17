@@ -1,5 +1,8 @@
-20210011;;Run at least 2k
-20211010;;Read 2 books to J
+20210017;;Run at least 2k
+20211015;;activities with Xu (Badminton)
+20210015;;Run at least 2k
+20210012;;Run at least 2k
+20211011;;Read 2 books to J
 20210011;;Run at least 2k
 20211010;;Read 1 book to J
 20211008;;activities with Xu (Badminton)
