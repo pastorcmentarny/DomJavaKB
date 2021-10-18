@@ -18,7 +18,7 @@ ext {
 }
 
 group = 'dom.coffirgar'
-version = '32'
+version = '46'
 sourceCompatibility = '17'
 
 configurations {
@@ -47,7 +47,6 @@ allprojects {
     }
 
 }
-
 
 
 dependencies {

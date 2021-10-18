@@ -8,9 +8,9 @@ GitHub where there are many amazing projects, you are looking for the project th
 # **HONEST WARNING**:
 
 * Code quality is shocking and depressing because the purpose of this project is not to write code that is "production
-  awesome". 
+  awesome".
 * It is a learning project, so you may see many coding styles used through this project because I like to
-  experiment with different libraries, code styles and see what is most suitable for me. 
+  experiment with different libraries, code styles and see what is most suitable for me.
 * You may read advice on the
   internet. Read other people code and learn from it but don't use this project for that :).
 
@@ -18,4 +18,4 @@ GitHub where there are many amazing projects, you are looking for the project th
 
 I create a project to allow me to learn Spring Framework and various things that are Spring related.
 This project will allow me to track progress in seeing all station in the UK (Tube,Overground and Trains)
-This is a DB service that is response for manage data :D/.
+This is a main service that is response for manage data :D/.
