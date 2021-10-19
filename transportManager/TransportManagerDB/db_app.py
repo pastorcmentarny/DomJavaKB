@@ -11,10 +11,13 @@
 """
 import datetime
 import logging
+import platform
 import sys
 import traceback
 
 from flask import Flask, jsonify, request
+
+import storage_service
 
 app = Flask(__name__)
 logger = logging.getLogger('app')
@@ -47,13 +50,10 @@ def get_station_information_for(name="Uxbridge"):
 
 @app.route("/tube/stations/")
 def get_all_stations():
-    return jsonify('{"result":"OK",'
-                   '"name" : "Amersham";'
-                   '"status" : "VISITED";'
-                   '"passedDate" : "20210101";'
-                   '"visitedDate" : "20210101";'
-                   '"thisYearVisitedDate" : "20210101";'
-                   '}')
+    if platform.node() == "DOM-DESKTOP":
+        return jsonify(storage_service.load_data(r'B:\GitHub\DomKB\transportManager\TransportManagerDB\stations.txt'))
+    else:
+        return jsonify(storage_service.load_data(r'home/pi/stations.txt'))
 
 
 @app.route("/")
