@@ -18,4 +18,6 @@ GitHub where there are many amazing projects, you are looking for the project th
 
 I create a project to allow me to learn Spring Framework and various things that are Spring related.
 This project will allow me to track progress in seeing all station in the UK (Tube,Overground and Trains)
-This is a main service that is response for manage data :D/.
+This is a service that is response for manage specific data to type of transport but at the moment it manages all data :D
+
+Note: In normal world, you will have each database for each service but for simplicity I have one db, written by myself ...in Python ;P

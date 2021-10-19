@@ -52,6 +52,7 @@ allprojects {
 dependencies {
     implementation "org.springframework.boot:spring-boot-starter-actuator:${springVersion}"
     implementation "org.springframework.boot:spring-boot-starter-web:${springVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-webflux:${springVersion}"
     compileOnly 'org.projectlombok:lombok:1.18.22'
     developmentOnly "org.springframework.boot:spring-boot-devtools:${springVersion}"
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
