@@ -1,12 +1,12 @@
-import datetime
 import json
+import psutil
 import re
+import requests
 import time
+from blinkt import set_pixel, set_brightness, show, clear
 from subprocess import PIPE, Popen
 
-import psutil
-import requests
-from blinkt import set_pixel, set_brightness, show
+set_brightness(0.05)
 
 ALERT_COLOR = [255, 0, 0]
 WARNING_COLOR = [255, 112, 0]
@@ -63,15 +63,6 @@ def get_space_available():
         return re.sub('[^0-9.]', '', str(result).strip())
 
 
-def update_brightness():
-    now = datetime.datetime.now()
-    hour = now.hour
-    if hour < 9 or hour >= 19:
-        set_brightness(0.05)
-    else:
-        set_brightness(0.1)
-
-
 def display_light():
     set_pixel(0, status["CPU"][RED], status["CPU"][GREEN], status["CPU"][BLUE])
     set_pixel(1, status["RAM"][RED], status["RAM"][GREEN], status["RAM"][BLUE])
@@ -80,7 +71,6 @@ def display_light():
     set_pixel(4, status["TM_UI"][RED], status["TM_UI"][GREEN], status["TM_UI"][BLUE])
     set_pixel(5, status["TM_SERVICE"][RED], status["TM_SERVICE"][GREEN], status["TM_SERVICE"][BLUE])
     set_pixel(6, status["TM_DB"][RED], status["TM_DB"][GREEN], status["TM_DB"][BLUE])
-    update_brightness()
     show()
 
 
@@ -160,35 +150,29 @@ def get_color_for_response(response):
         return GOOD_COLOR
 
 
-if __name__ == '__main__':
-    setup()
-    app_loop()
+def set_to_red():
+    for index in range(0, 8):
+        set_pixel(index, 255, 0, 0)
+    set_brightness(0.3)
+    show()
 
-"""
+
+def set_to_orange():
+    for index in range(0, 8):
+        set_pixel(index, 224, 64, 0)
+    set_brightness(0.2)
+    show()
+
+
 if __name__ == '__main__':
-    startup()
     try:
-        logging.info('Mounting network drives')
-        commands.mount_all_drives()
-
-        logging.info("Sensor warming up, please wait...")
-        air_quality_service.start_measurement()
-        motion_service.sample()
-        logging.info('Sensor needed {} seconds to warm up'.format(counter))
-        two_led_service.off()
+        setup()
         app_loop()
     except KeyboardInterrupt as keyboard_exception:
-        print('Received request application to shut down.. goodbye. {}'.format(keyboard_exception))
-        logging.info('Received request application to shut down.. goodbye!', exc_info=True)
-        cleanup_before_exit()
+        clear()
     except Exception as exception:
         print(f'Whoops. {exception}')
-        logger.error('Something went badly wrong\n{}'.format(exception), exc_info=True)
-        email_sender_service.send_error_log_email("application", "Application crashed due to {}.".format(exception))
-        cleanup_before_exit()
+        set_to_orange()
     except BaseException as disaster:
         msg = 'Shit hit the fan and application died badly because {}'.format(disaster)
-        print(msg)
-        traceback.print_exc()
-        logger.fatal(msg, exc_info=True)
-"""
+        set_to_red()
