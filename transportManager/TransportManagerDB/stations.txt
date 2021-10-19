@@ -34,7 +34,7 @@ Burnt Oak;;P;;2018-08-22;;none;;none
 Caledonian Road;;X;;none;;none;;none
 Camden Town;;P;;2017-05-26;;none;;none
 Canada Water;;P;;2017-02-11;;none;;none
-Canary Wharf;;P;;2017-02-11;;none;;none
+Canary Wharf;;V;;2017-02-11;;2021-10-03;;2021-10-03
 Canning Town;;V;;2017-02-11;;2017-02-11;;none
 Cannon Street;;V;;2017-02-02;;2017-07-06;;none
 Canons Park;;V;;2018-08-22;;2018-08-22;;none
@@ -76,7 +76,7 @@ Epping;;V;;2019-01-19;;2019-01-19;;none
 Euston;;V;;2017-05-26;;2019-09-12;;none
 Euston Square;;V;;2017-01-03;;2017-09-02;;2021-06-13
 Fairlop;;P;;2019-01-19;;none;;none
-Farringdon;;V;;2017-01-03;;2018-01-12;;none
+Farringdon;;V;;2017-01-03;;2018-01-12;;2021-09-15
 Finchley Central;;X;;none;;none;;none
 Finchley Road;;V;;2017-01-03;;2018-05-06;;none
 Finsbury Park;;P;;2017-01-03;;none;;none
@@ -195,7 +195,7 @@ Ruislip;;P;;2017-03-21;;none;;none
 Ruislip Gardens;;X;;none;;none;;none
 Ruislip Manor;;V;;2017-03-21;;2018-06-06;;none
 Russell Square;;P;;2017-06-15;;none;;none
-St. James's Park;;V;;2017-02-02;;2018-06-01;;none
+St. James's Park;;V;;2017-02-02;;2018-06-01;;2021-10-03
 St. John's Wood;;V;;2017-10-30;;2018-05-28;;none
 St. Paul's;;V;;2019-01-08;;2019-01-08;;none
 Seven Sisters;;P;;2017-11-19;;none;;none
