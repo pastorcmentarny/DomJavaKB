@@ -9,7 +9,10 @@ from subprocess import PIPE, Popen
 set_brightness(0.05)
 
 ALERT_COLOR = [255, 0, 0]
-WARNING_COLOR = [255, 112, 0]
+WARNING_COLOR = [224, 63, 0]
+CAUTION_COLOR = [127, 127, 0]
+WARM_COLOR = [160, 96, 32]
+COLD_COLOR = [242, 85, 44]
 GOOD_COLOR = [64, 255, 24]
 OFF_COLOR = [155, 38, 182]
 UNKNOWN_COLOR = [0, 0, 255]
@@ -80,6 +83,12 @@ def cpu_health_check():
         status["CPU"] = ALERT_COLOR
     elif temp > 60.0:
         status["CPU"] = WARNING_COLOR
+    elif temp > 55.0:
+        status["CPU"] = CAUTION_COLOR
+    elif temp > 50.0:
+        status["CPU"] = WARM_COLOR
+    elif temp > 45.0:
+        status["CPU"] = COLD_COLOR
     else:
         status["CPU"] = GOOD_COLOR
 
@@ -105,6 +114,7 @@ def ram_available_health_check():
 
 
 def healthcheck():
+    # cpu_hc()
     cpu_health_check()
     ram_available_health_check()
     free_space_health_check()
