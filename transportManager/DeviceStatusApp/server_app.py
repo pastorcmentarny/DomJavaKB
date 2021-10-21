@@ -10,13 +10,14 @@ set_brightness(0.05)
 
 ALERT_COLOR = [255, 0, 0]
 WARNING_COLOR = [224, 63, 0]
-CAUTION_COLOR = [127, 127, 0]
-WARM_COLOR = [160, 96, 32]
-COLD_COLOR = [242, 85, 44]
+TEMP_ABOVE_55_COLOR = [160, 127, 64]
+TEMP_ABOVE_50_COLOR = [127, 127, 0]
+TEMP_ABOVE_40_COLOR = [64, 224, 0]
 GOOD_COLOR = [64, 255, 24]
 OFF_COLOR = [155, 38, 182]
 UNKNOWN_COLOR = [0, 0, 255]
-ALL_COLORS = [ALERT_COLOR, WARNING_COLOR, GOOD_COLOR, OFF_COLOR, UNKNOWN_COLOR]
+ALL_COLORS = [ALERT_COLOR, WARNING_COLOR, GOOD_COLOR, OFF_COLOR, UNKNOWN_COLOR, TEMP_ABOVE_55_COLOR,
+              TEMP_ABOVE_50_COLOR, TEMP_ABOVE_40_COLOR]
 
 """
 0 CPU temp
@@ -84,11 +85,11 @@ def cpu_health_check():
     elif temp > 60.0:
         status["CPU"] = WARNING_COLOR
     elif temp > 55.0:
-        status["CPU"] = CAUTION_COLOR
+        status["CPU"] = TEMP_ABOVE_55_COLOR
     elif temp > 50.0:
-        status["CPU"] = WARM_COLOR
+        status["CPU"] = TEMP_ABOVE_50_COLOR
     elif temp > 45.0:
-        status["CPU"] = COLD_COLOR
+        status["CPU"] = TEMP_ABOVE_40_COLOR
     else:
         status["CPU"] = GOOD_COLOR
 
@@ -174,7 +175,18 @@ def set_to_orange():
     show()
 
 
+def startup():
+    idx = 0  # move to loop
+    for color in ALL_COLORS:
+        set_pixel(idx, color[RED], color[GREEN], color[BLUE])
+        idx += 1
+    show()
+    time.sleep(5)
+    clear()
+
+
 if __name__ == '__main__':
+    startup()
     try:
         setup()
         app_loop()
