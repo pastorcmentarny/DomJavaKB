@@ -51,9 +51,9 @@ def get_station_information_for(name="Uxbridge"):
 @app.route("/tube/stations/")
 def get_all_stations():
     if platform.node() == "DOM-DESKTOP":
-        return jsonify(storage_service.load_data(r'B:\GitHub\DomKB\transportManager\TransportManagerDB\stations.txt'))
+        return jsonify({"stations": storage_service.load_data(r'B:\GitHub\DomKB\transportManager\TransportManagerDB\stations.txt')})
     else:
-        return jsonify(storage_service.load_data(r'home/pi/stations.txt'))
+        return jsonify({"stations": storage_service.load_data(r'home/pi/stations.txt')})
 
 
 @app.route("/")

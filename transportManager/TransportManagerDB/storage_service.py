@@ -6,14 +6,21 @@ READ = 'r'
 ENCODING = 'utf-8'
 
 
+# TODO replace with proper implementations
+def convert_to_null_if_none(value: str):
+    if value == "none":
+        return None
+    return value
+
+
 def convert_line_to_dict(line: str) -> dict:
     line_columns = line.split(SEPARATOR)
     return {
         "name": line_columns[0],
         "status": line_columns[1],
-        "passedDate": line_columns[2],
-        "visitedDate": line_columns[3],
-        "thisYearVisitedDate;": line_columns[4],
+        "passedDate": convert_to_null_if_none(line_columns[2]),
+        "visitedDate": convert_to_null_if_none(line_columns[3]),
+        "thisYearVisitedDate;": convert_to_null_if_none(line_columns[4]),
     }
 
 
@@ -35,7 +42,7 @@ def save_data(stations: list, path: str):
         path_file.write('\n'.join(stations))
 
 
-#prototype test
+# prototype test
 if __name__ == '__main__':
     x = convert_line_to_dict("St. James's Park;;V;;2017-02-02;;2018-06-01;;2021-10-03")
     print(convert_dict_to_line(x))
