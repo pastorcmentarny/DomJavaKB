@@ -1,5 +1,7 @@
 package dom.coffirgar.transportmanager.domain.stations;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
@@ -22,6 +24,7 @@ public class Station {
     private LocalDate visitedDate;
     private LocalDate thisYearVisitedDate;
     private boolean blogged;
+    //LocalDateTime lastUpdatedOn;
 
     @SuppressWarnings("ConstructorWithTooManyParameters") //not apply in this case
     public Station(String name, Status status, LocalDate passedDate, LocalDate visitedDate, LocalDate thisYearVisitedDate) {

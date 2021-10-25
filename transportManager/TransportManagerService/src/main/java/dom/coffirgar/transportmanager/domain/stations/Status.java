@@ -1,5 +1,7 @@
 package dom.coffirgar.transportmanager.domain.stations;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import dom.coffirgar.transportmanager.exceptions.NotFoundException;
 
 import java.util.Arrays;
@@ -27,6 +29,7 @@ public enum Status {
         this.value = value;
     }
 
+    @JsonCreator
     public static Status fromValue(String statusShortcut) {
         validateIfNotEmpty(statusShortcut);
 

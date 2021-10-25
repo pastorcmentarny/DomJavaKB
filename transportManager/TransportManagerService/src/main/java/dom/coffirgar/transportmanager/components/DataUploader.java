@@ -29,7 +29,7 @@ public class DataUploader {
     public List<Station> load(Path path) {
         LOGGER.error("Loading data from .. " + path);
         try (Stream<String> lines = Files.lines(path)) {
-            final List<Station> overgroundStationList = lines.map(ToStationConverter::convert).collect(Collectors.toList());
+            final List<Station> overgroundStationList = lines.map(ToStationConverter::fromStationAsString).collect(Collectors.toList());
             LOGGER.info("Data loaded.");
             return overgroundStationList;
         } catch (IOException e) {

@@ -10,7 +10,7 @@ import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.web.client.RestTemplate;
 
 @Configuration
-public class ApplicationConfiguration {
+public class SpringConfiguration {
 
     @Value("kafka.bootstrap.servers")
     private String bootstrapServers;

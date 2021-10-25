@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 
 import static dom.coffirgar.transportmanager.domain.stations.StationName.MOORGATE;
-import static dom.coffirgar.transportmanager.mappers.ToStationConverter.convert;
+import static dom.coffirgar.transportmanager.mappers.ToStationConverter.fromStationAsString;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -29,7 +29,7 @@ public class ToStationConverterTest {
         final Station expectedResult = new Station(MOORGATE.getStationName(), Status.VISITED, date, date, date);
 
         // when
-        final Station result = convert(stationAsString);
+        final Station result = fromStationAsString(stationAsString);
 
         // then
         assertThat(result).isEqualTo(expectedResult);
@@ -43,7 +43,7 @@ public class ToStationConverterTest {
         final Station expectedResult = new Station(MOORGATE.getStationName(), Status.VISITED, date, date, date);
 
         // when
-        final Station result = convert(stationAsString);
+        final Station result = fromStationAsString(stationAsString);
 
         // then
         assertThat(result).isEqualTo(expectedResult);
