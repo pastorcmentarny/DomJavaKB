@@ -42,7 +42,10 @@ def save_data(stations: list, path: str):
         path_file.write('\n'.join(stations))
 
 
+
 # prototype test
 if __name__ == '__main__':
     x = convert_line_to_dict("St. James's Park;;V;;2017-02-02;;2018-06-01;;2021-10-03")
     print(convert_dict_to_line(x))
+
+

@@ -10,14 +10,17 @@
 * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
 """
 import datetime
+import json
 import logging
 import platform
 import sys
 import traceback
 
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, abort
+from werkzeug.exceptions import HTTPException
 
 import storage_service
+import tube_service
 
 app = Flask(__name__)
 logger = logging.getLogger('app')
@@ -37,23 +40,33 @@ def update_metrics_for():
     return jsonify({"status": "OK"})
 
 
-@app.route('/tube/station/<name>')
-def get_station_information_for(name="Uxbridge"):
-    return jsonify({"result": "OK",
-                    "name": name,
-                    "status": "VISITED",
-                    "passedDate": "20210101",
-                    "visitedDate": "20210101",
-                    "thisYearVisitedDate": "20210101"
-                    })
+@app.route('/tube/station/<station_name>')
+def get_station_information_for(station_name):
+    result = tube_service.get_station_data_for_(station_name)
+    if result == {}:
+        abort(404)
+    return jsonify(result)
 
 
 @app.route("/tube/stations/")
 def get_all_stations():
     if platform.node() == "DOM-DESKTOP":
-        return jsonify({"stations": storage_service.load_data(r'B:\GitHub\DomKB\transportManager\TransportManagerDB\stations.txt')})
+        return jsonify({"stations": storage_service.load_data(
+            r'B:\GitHub\DomKB\transportManager\TransportManagerDB\stations.txt')})
     else:
         return jsonify({"stations": storage_service.load_data(r'home/pi/stations.txt')})
+
+
+@app.errorhandler(HTTPException)
+def handle_exception(http_exception):
+    response = http_exception.get_response()
+    response.data = json.dumps({
+        "code": http_exception.code,
+        "name": http_exception.name,
+        "description": http_exception.description,
+    })
+    response.content_type = "application/json"
+    return response
 
 
 @app.route("/")
