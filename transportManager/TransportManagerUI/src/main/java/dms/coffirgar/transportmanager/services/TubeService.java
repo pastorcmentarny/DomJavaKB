@@ -17,4 +17,8 @@ public class TubeService {
     public String getAllStations() {
         return tubeClient.getAllStations();
     }
+
+    public String[] getAllStationsNames() {
+        return tubeClient.getAllStationsNames();
+    }
 }

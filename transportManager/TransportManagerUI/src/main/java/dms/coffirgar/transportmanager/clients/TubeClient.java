@@ -6,9 +6,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import static dms.coffirgar.transportmanager.configurations.Constants.TM_SERVICE_URL;
+
 @Slf4j
 @Service
 public class TubeClient {
+
 
 
     private RestTemplate restTemplate;
@@ -21,7 +24,7 @@ public class TubeClient {
 
     public String getAllStations() {
         String fooResourceUrl
-                = "http://192.168.0.15:18002";
+                = TM_SERVICE_URL;
         ResponseEntity<String> response
                 = restTemplate.getForEntity(fooResourceUrl + "/stations/tube/all", String.class);
         log.info(response.getStatusCode().toString());
@@ -29,4 +32,13 @@ public class TubeClient {
 
     }
 
+    public String[] getAllStationsNames() {
+        String fooResourceUrl
+                = TM_SERVICE_URL;
+        ResponseEntity<String[]> response
+                = restTemplate.getForEntity(fooResourceUrl + "/stations/tubes/all-names", String[].class);
+        log.info(response.getStatusCode().toString());
+        return response.getBody();
+
+    }
 }

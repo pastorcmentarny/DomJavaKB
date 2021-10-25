@@ -6,6 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Arrays;
+
 @Controller
 public class MenuController {
 
@@ -21,11 +23,10 @@ public class MenuController {
         return "menu";
     }
 
-    @GetMapping("/all-stations")
+    @GetMapping("/all-stations-name")
     public String displayAllStationsInformation(Model model) {
-
-        model.addAttribute("option", tubeService.getAllStations());
-        return "stations";
+        model.addAttribute("stations", Arrays.asList(tubeService.getAllStationsNames()));
+        return "stations-name";
     }
 
 

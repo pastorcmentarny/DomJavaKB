@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All tube stations</title>
+</head>
+<body>
+<ul th:each="station : ${stations}">
+    <li th:text="${station}"><li><a th:href="/${station}">view</a></li></li>
+</ul>
+</body>
+</html>
