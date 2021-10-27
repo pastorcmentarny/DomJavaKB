@@ -1,9 +1,11 @@
 package dms.coffirgar.transportmanager.controllers;
 
+import dms.coffirgar.transportmanager.domain.Station;
 import dms.coffirgar.transportmanager.services.TubeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Arrays;
@@ -27,6 +29,14 @@ public class MenuController {
     public String displayAllStationsInformation(Model model) {
         model.addAttribute("stations", Arrays.asList(tubeService.getAllStationsNames()));
         return "stations-name";
+    }
+
+    @GetMapping(value = "/tube/station/{stationName}")
+    public String displayStationsInformationFor(Model model,@PathVariable String stationName) {
+        final Station station = tubeService.getStationFor(stationName);
+        System.out.println(station);
+        model.addAttribute("station", station);
+        return "station";
     }
 
 

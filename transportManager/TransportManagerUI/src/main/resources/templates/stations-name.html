@@ -6,7 +6,7 @@
 </head>
 <body>
 <ul th:each="station : ${stations}">
-    <li th:text="${station}"><li><a th:href="/${station}">view</a></li></li>
+    <li ><a th:href="/${station}" th:text="${station}"></a></li>
 </ul>
 </body>
 </html>

@@ -38,7 +38,17 @@ public class TubeGateway {
 
     public List<String> getAllStationsNames() {
         final var allStations = getAllStations();
-        System.out.println(allStations);
         return converter.fromStationsAsJson(allStations).getStations().stream().map(Station::getName).collect(Collectors.toList());
+    }
+
+    public String getStation(String stationName) {
+        log.info("Getting Station data from TubeGateway for " + stationName);
+        String fooResourceUrl
+                = TM_DB_URL;
+        ResponseEntity<String> response
+                = restTemplate.getForEntity(fooResourceUrl + "/tube/station/" + stationName, String.class);
+        log.info("Got response with status: " + response.getStatusCode());
+        return response.getBody();
+
     }
 }

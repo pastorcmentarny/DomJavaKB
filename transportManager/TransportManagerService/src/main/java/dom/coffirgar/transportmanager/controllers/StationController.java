@@ -4,9 +4,7 @@ import dom.coffirgar.transportmanager.services.StationsService;
 import dom.coffirgar.transportmanager.services.TubeGateway;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,8 +29,13 @@ public class StationController {
         return tubeGateway.getAllStations();
     }
 
-    @RequestMapping(value = "/stations/tubes/all-names", method = RequestMethod.GET, produces = "application/json")
+    @GetMapping(value = "/station/tube/{stationName}", produces = "application/json")
+    public String getStationFor(@PathVariable String stationName) {
+        log.info("Getting station for " + stationName);
+        return tubeGateway.getStation(stationName);
+    }
 
+    @RequestMapping(value = "/stations/tubes/all-names", method = RequestMethod.GET, produces = "application/json")
     public List<String> getAllStationsNames() {
         return tubeGateway.getAllStationsNames();
     }
