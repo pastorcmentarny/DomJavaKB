@@ -41,7 +41,6 @@ public class TubeClient {
 
     public String getStationFor(String stationName) {
         final ResponseEntity<String> response = restTemplate.getForEntity(TM_SERVICE_URL + "/station/tube/" + stationName, String.class);
-        System.out.println(response.toString());
         return response.getBody();
     }
 }

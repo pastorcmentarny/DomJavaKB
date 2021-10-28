@@ -27,6 +27,7 @@ public class TubeService {
 
     public Station getStationFor(String stationName) {
         final String stationAsString = tubeClient.getStationFor(stationName);
+        System.out.println("Response for " + stationName + " was " + stationAsString);
         return converter.convert(stationAsString);
     }
 }

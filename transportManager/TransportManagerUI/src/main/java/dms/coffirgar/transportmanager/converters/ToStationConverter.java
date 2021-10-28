@@ -13,12 +13,13 @@ public class ToStationConverter {
     private final ObjectMapper objectMapper;
 
     @Autowired
-    public ToStationConverter(ObjectMapper objectMapper){
+    public ToStationConverter(ObjectMapper objectMapper) {
         this.objectMapper = objectMapper;
     }
-    public Station convert(String stationAsString){
+
+    public Station convert(String stationAsString) {
         try {
-            return objectMapper.readValue(stationAsString,Station.class);
+            return objectMapper.readValue(stationAsString, Station.class);
         } catch (JsonProcessingException jsonProcessingException) {
             log.error(jsonProcessingException.getMessage());
             return Station.noStation();
