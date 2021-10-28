@@ -78,7 +78,7 @@ Euston Square;;V;;2017-01-03;;2017-09-02;;2021-06-13
 Fairlop;;P;;2019-01-19;;none;;none
 Farringdon;;V;;2017-01-03;;2018-01-12;;2021-09-15
 Finchley Central;;X;;none;;none;;none
-Finchley Road;;V;;2017-01-03;;2018-05-06;;none
+Finchley Road;;V;;2017-01-03;;2018-05-06;;2021-10-27
 Finsbury Park;;P;;2017-01-03;;none;;none
 Fulham Broadway;;X;;none;;none;;none
 Gants Hill;;P;;2019-01-19;;none;;none
@@ -101,7 +101,7 @@ Harrow-on-the-Hill;;V;;2017-01-03;;2017-11-16;;none
 Hatton Cross;;P;;2017-10-30;;none;;none
 Heathrow Terminals 123;;V;;2017-10-30;;2019-01-12;;none
 Heathrow Terminal 4;;X;;none;;none;;none
-Heathrow Terminal 5;;V;;2017-10-30;;2017-10-30;;none
+Heathrow Terminal 5;;V;;2017-10-30;;2017-10-30;;2021-09-04
 Hendon Central;;P;;2018-08-22;;none;;none
 High Barnet;;X;;none;;none;;none
 Highbury & Islington;;P;;2017-11-19;;none;;none
@@ -143,7 +143,7 @@ Manor House;;X;;none;;none;;none
 Haringey;;X;;none;;none;;none
 Mansion House;;V;;2017-02-02;;2019-09-11;;none
 Marble Arch;;V;;2019-12-17;;2019-12-17;;none
-Marylebone;;V;;2017-01-28;;2017-01-28;;2020-01-19
+Marylebone;;V;;2017-01-28;;2017-01-28;;none
 Mile End;;P;;2017-05-09;;none;;none
 Mill Hill East;;X;;none;;none;;none
 Monument;;P;;2017-02-02;;none;;none
@@ -170,11 +170,11 @@ Hackney;;X;;none;;none;;none
 Osterley;;P;;2017-10-30;;none;;none
 Oval;;P;;2017-11-01;;none;;none
 Oxford Circus;;V;;2017-01-28;;2017-11-19;;none
-Paddington;;P;;2017-07-06;;none;;none
+Paddington;;V;;2017-07-06;;2021-09-04;;2021-09-04
 Park Royal;;P;;2017-06-10;;none;;none
 Parsons Green;;X;;none;;none;;none
 Perivale;;P;;2018-06-06;;none;;none
-Piccadilly Circus;;V;;2017-01-28;;2017-01-28;;2020-01-02
+Piccadilly Circus;;V;;2017-01-28;;2017-01-28;;2021-09-15
 Pimlico;;V;;2017-11-19;;2017-12-21;;none
 Pinner;;P;;2018-05-26;;none;;none
 Plaistow;;P;;2019-01-19;;none;;none
@@ -205,7 +205,7 @@ Sloane Square;;V;;2017-02-02;;2018-05-08;;none
 Snaresbrook;;P;;2019-01-19;;none;;none
 South Ealing;;P;;2017-10-30;;none;;none
 South Harrow;;P;;2017-06-10;;none;;none
-South Kensington;;V;;2017-02-02;;2020-01-04;;2020-01-04
+South Kensington;;V;;2017-02-02;;2020-01-04;;none
 South Kenton;;P;;2017-06-19;;none;;none
 South Ruislip;;X;;none;;none;;none
 South Wimbledon;;X;;none;;none;;none
@@ -228,7 +228,7 @@ Theydon Bois;;V;;2019-01-19;;2019-01-19;;none
 Tooting Bec;;P;;2019-06-19;;none;;none
 Tooting Broadway;;V;;2019-06-19;;2019-06-19;;none
 Tottenham Court Road;;P;;2018-05-29;;none;;none
-Tottenham Hale;;V;;2017-11-19;;2017-11-19;;2020-01-10
+Tottenham Hale;;V;;2017-11-19;;2017-11-19;;none
 Totteridge & Whetstone;;X;;none;;none;;none
 Tower Hill;;V;;2017-02-02;;2018-05-08;;none
 Tufnell Park;;P;;2019-07-28;;none;;none
@@ -248,7 +248,7 @@ Warwick Avenue;;P;;2017-06-19;;none;;none
 Waterloo;;V;;2017-02-11;;2021-06-13;;2021-06-13
 Watford;;V;;2018-04-06;;2018-04-06;;none
 Wembley Central;;V;;2017-06-19;;none;;none
-Wembley Park;;V;;2017-01-03;;2017-02-06;;2020-01-02
+Wembley Park;;V;;2017-01-03;;2017-02-06;;none
 West Acton;;V;;2019-01-12;;2019-01-12;;none
 West Brompton;;X;;none;;none;;none
 West Finchley;;X;;none;;none;;none
