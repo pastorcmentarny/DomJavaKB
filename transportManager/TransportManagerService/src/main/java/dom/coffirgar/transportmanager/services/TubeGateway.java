@@ -20,17 +20,16 @@ public class TubeGateway {
     private final ToStationConverter converter;
 
     @Autowired
-    public TubeGateway(RestTemplate restTemplate,ToStationConverter converter) {
+    public TubeGateway(RestTemplate restTemplate, ToStationConverter converter) {
         this.restTemplate = restTemplate;
         this.converter = converter;
     }
 
 
     public String getAllStations() {
-        String fooResourceUrl
-                = TM_DB_URL;
+
         ResponseEntity<String> response
-                = restTemplate.getForEntity(fooResourceUrl + "/tube/stations/", String.class);
+                = restTemplate.getForEntity(TM_DB_URL + "/tube/stations/", String.class);
         log.info(response.getStatusCode().toString());
         return response.getBody();
 
@@ -43,10 +42,9 @@ public class TubeGateway {
 
     public String getStation(String stationName) {
         log.info("Getting Station data from TubeGateway for " + stationName);
-        String fooResourceUrl
-                = TM_DB_URL;
+
         ResponseEntity<String> response
-                = restTemplate.getForEntity(fooResourceUrl + "/tube/station/" + stationName, String.class);
+                = restTemplate.getForEntity(TM_DB_URL + "/tube/station/" + stationName, String.class);
         log.info("Got response with status: " + response.getStatusCode());
         return response.getBody();
 

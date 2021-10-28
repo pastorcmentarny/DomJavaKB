@@ -68,7 +68,7 @@ public class StationsService {
     }
 
     private void setVisitedThisYearFor(Station station) {
-        if (Objects.nonNull(station.getThisYearVisitedDate())) {
+        if (Objects.nonNull(station.getVisitedThisYearDate())) {
             LOGGER.info("You visited this tube station this year too.");
         } else {
             System.out.println("You updated " + station.getName() + " with info that you visited this year.");
@@ -86,7 +86,7 @@ public class StationsService {
 
     public long countStationVisitedThisYear() {
         return stationList.stream()
-                .filter(station -> station.getStatus().value().equalsIgnoreCase(VISITED.value()) && Objects.nonNull(station.getThisYearVisitedDate()))
+                .filter(station -> station.getStatus().value().equalsIgnoreCase(VISITED.value()) && Objects.nonNull(station.getVisitedThisYearDate()))
                 .count();
     }
 
