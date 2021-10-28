@@ -20,7 +20,7 @@ def convert_line_to_dict(line: str) -> dict:
         "status": line_columns[1],
         "passedDate": convert_to_null_if_none(line_columns[2]),
         "visitedDate": convert_to_null_if_none(line_columns[3]),
-        "thisYearVisitedDate;": convert_to_null_if_none(line_columns[4]),
+        "visitedThisYearDate": convert_to_null_if_none(line_columns[4]),
     }
 
 
