@@ -34,7 +34,7 @@ def healthcheck():
 
 @app.route("/tube/update", methods=['POST'])
 def update_metrics_for():
-    logger.info('updating metrics {}'.format(request.get_json(force=True)))
+    logger.info('updating station {}'.format(request.get_json(force=True)))
     result = request.get_json(force=True)
     print(result)
     return jsonify({"status": "OK"})

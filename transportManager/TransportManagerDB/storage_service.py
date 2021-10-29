@@ -8,7 +8,7 @@ ENCODING = 'utf-8'
 
 # TODO replace with proper implementations
 def convert_to_null_if_none(value: str):
-    if value == "none":
+    if value == "none" or value == "null":
         return None
     return value
 
@@ -25,7 +25,7 @@ def convert_line_to_dict(line: str) -> dict:
 
 
 def convert_dict_to_line(station: dict) -> str:
-    return f'{station["name"]}{SEPARATOR}{station["status"]}{SEPARATOR}{station["passedDate"]}{SEPARATOR}{station["visitedDate"]}{SEPARATOR}{station["thisYearVisitedDate;"]}'
+    return f'{station["name"]}{SEPARATOR}{station["status"]}{SEPARATOR}{station["passedDate"]}{SEPARATOR}{station["visitedDate"]}{SEPARATOR}{station["visitedThisYearDate"]}'
 
 
 def load_data(path: str) -> list:
@@ -40,12 +40,5 @@ def save_data(stations: list, path: str):
     stations = [convert_line_to_dict(station) for station in stations]
     with open(path, 'w+', encoding=ENCODING) as path_file:
         path_file.write('\n'.join(stations))
-
-
-
-# prototype test
-if __name__ == '__main__':
-    x = convert_line_to_dict("St. James's Park;;V;;2017-02-02;;2018-06-01;;2021-10-03")
-    print(convert_dict_to_line(x))
 
 
