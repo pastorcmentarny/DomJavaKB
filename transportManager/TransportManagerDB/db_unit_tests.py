@@ -48,20 +48,20 @@ class DBUnitTests(unittest.TestCase):
 
     def test_convert_to_none_if_none_as_string(self):
         # given
-        expected_result = None
+        expected_result = "none"
 
         # when
-        result = storage_service.convert_to_null_if_none("none")
+        result = storage_service.convert_to_none_if_none_or_null("none")
 
         # then
         self.assertEqual(expected_result, result)
 
     def test_convert_to_none_if_null_as_string(self):
         # given
-        expected_result = None
+        expected_result = 'none'
 
         # when
-        result = storage_service.convert_to_null_if_none("null")
+        result = storage_service.convert_to_none_if_none_or_null("null")
 
         # then
         self.assertEqual(expected_result, result)
@@ -71,7 +71,7 @@ class DBUnitTests(unittest.TestCase):
         expected_result = None
 
         # when
-        result = storage_service.convert_to_null_if_none(None)
+        result = storage_service.convert_to_none_if_none_or_null(None)
 
         # then
         self.assertEqual(expected_result, result)
