@@ -16,7 +16,7 @@ import platform
 import sys
 import traceback
 
-from flask import Flask, jsonify, request, abort
+from flask import Flask, jsonify, request, abort, Response
 from werkzeug.exceptions import HTTPException
 
 import storage_service
@@ -34,10 +34,13 @@ def healthcheck():
 
 @app.route("/tube/update", methods=['POST'])
 def update_metrics_for():
-    logger.info('updating station {}'.format(request.get_json(force=True)))
     result = request.get_json(force=True)
-    print(result)
-    return jsonify({"status": "OK"})
+    logger.info('updating station {}'.format(result))
+    updated = tube_service.update_station_info(result)
+    if updated:
+        return Response(result, status=201, mimetype='application/json')
+    else:
+        abort(404)
 
 
 @app.route('/tube/station/<station_name>')
