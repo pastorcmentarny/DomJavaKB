@@ -48,7 +48,7 @@ class DBUnitTests(unittest.TestCase):
 
     def test_convert_to_none_if_none_as_string(self):
         # given
-        expected_result = "none"
+        expected_result = None
 
         # when
         result = storage_service.convert_to_none_if_none_or_null("none")
@@ -58,7 +58,7 @@ class DBUnitTests(unittest.TestCase):
 
     def test_convert_to_none_if_null_as_string(self):
         # given
-        expected_result = 'none'
+        expected_result = None
 
         # when
         result = storage_service.convert_to_none_if_none_or_null("null")

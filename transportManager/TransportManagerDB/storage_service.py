@@ -9,7 +9,7 @@ ENCODING = 'utf-8'
 # TODO replace with proper implementations
 def convert_to_none_if_none_or_null(value: str):
     if value == "none" or value == "null":
-        return "none"
+        return None
     return value
 
 
