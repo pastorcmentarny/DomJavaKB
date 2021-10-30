@@ -1,4 +1,4 @@
-package dom.coffirgar.transportmanager.utlis;
+package dms.coffirgar.transportmanager.utils;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -11,7 +11,7 @@ public class UpdateBuildVersionOnStartup {
     public static int updateVersion() {
         int buildNumber = 0;
         try {
-            final String path = "B:\\GitHub\\DomKB\\transportManager\\TransportManagerService\\build.gradle";
+            final String path = "B:\\GitHub\\DomKB\\transportManager\\TransportManagerUI\\build.gradle";
             List<String> fileContent = new ArrayList<>(Files.readAllLines(Paths.get(path), StandardCharsets.UTF_8));
 
 
