@@ -1,11 +1,16 @@
 plugins {
-    id 'org.springframework.boot' version '2.5.5'
+    id 'org.springframework.boot' version '2.5.6'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
 }
 
+ext {
+    springVersion = "2.5.6"
+    lombokVersion = "1.18.22"
+}
+
 group = 'dms.coffirgar'
-version = '0.0.1-SNAPSHOT'
+version = '11'
 sourceCompatibility = '17'
 
 configurations {
@@ -19,13 +24,13 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-actuator'
-    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    compileOnly 'org.projectlombok:lombok'
-    developmentOnly "org.springframework.boot:spring-boot-devtools"
-    annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation "org.springframework.boot:spring-boot-starter-actuator:${springVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-thymeleaf:${springVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-web:${springVersion}"
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    developmentOnly "org.springframework.boot:spring-boot-devtools:${springVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+    testImplementation "org.springframework.boot:spring-boot-starter-test:${springVersion}"
 }
 
 test {
