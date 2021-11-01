@@ -6,9 +6,7 @@ NAME = "name"
 WRITE_READ_MODE = 'w+'
 SEPARATOR = ";;"
 EMPTY = ''
-
 READ = 'r'
-
 ENCODING = 'UTF-8'
 
 
