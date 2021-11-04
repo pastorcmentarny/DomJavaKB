@@ -6,7 +6,7 @@ import java.util.List;
 import static dms.pastor.spring.model.TractionType.*;
 
 public class BritishTrainsList {
-    private static List<Train> britishTrains;
+    private static final List<Train> britishTrains;
 
     static {
         britishTrains = new ArrayList<>();

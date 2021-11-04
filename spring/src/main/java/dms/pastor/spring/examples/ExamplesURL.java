@@ -11,5 +11,5 @@ package dms.pastor.spring.examples;
 public class ExamplesURL {
     private static final String EXAMPLE = "/examples";
     public static final String REST = EXAMPLE + "/rest";
-    public static final String JSON = EXAMPLE + "/JSON";
+    public static final String JSON = EXAMPLE + "/json";
 }

@@ -7,7 +7,7 @@ public class ApplicationTest extends AbstractFunctionalTest {
 
     @DisplayName("Test if apps starts")
     @Test
-    public void contextLoads() {
+    public void applicationStartedTest() {
         System.out.println("App is running :D");
     }
 

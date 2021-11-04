@@ -12,7 +12,7 @@ public class CacheExampleControllerFunctionalTest extends AbstractFunctionalTest
 
     @Test
     public void jsonExampleControllerTest() {
-        // test if controller is setup
+        // test if controller is set up
         assertThat(cacheExampleController).isNotNull();
     }
 }

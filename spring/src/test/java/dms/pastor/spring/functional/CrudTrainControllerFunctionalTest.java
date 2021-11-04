@@ -6,13 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class CrudTrainControllerFunctionalTest extends AbstractFunctionalTest{
+class CrudTrainControllerFunctionalTest extends AbstractFunctionalTest {
     @Autowired
     private CrudTrainController crudTrainController;
 
     @Test
-    public void jsonExampleControllerTest() {
-        // test if controller is setup
+    public void crudTrainControllerShouldBeCreatedTest() {
         assertThat(crudTrainController).isNotNull();
     }
 }

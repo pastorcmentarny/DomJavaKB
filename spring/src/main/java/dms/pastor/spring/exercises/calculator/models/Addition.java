@@ -15,7 +15,7 @@ import static dms.pastor.spring.DomUtils.randomPositiveInteger;
  */
 public class Addition {
     private final long id;
-    private String[] numbers;
+    private final String[] numbers;
 
     public Addition(@JsonProperty("name") String[] numbers) {
         this.id = randomPositiveInteger();

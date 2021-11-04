@@ -1,3 +1,6 @@
+20211104;;Run at least 2k
+20211103;;Read 1 book to J
+20211102;;Run at least 2k
 20211101;;Run at least 2k
 20211028;;Run at least 2k
 20211027;;Run at least 2k

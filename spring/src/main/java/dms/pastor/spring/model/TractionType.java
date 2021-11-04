@@ -5,7 +5,7 @@ public enum TractionType {
     DMU("diesel multiple unit"),
     DEMU("diesel electric multiple unit");
 
-    private String tractionTypeDescription;
+    private final String tractionTypeDescription;
 
     TractionType(String tractionTypeDescription) {
         this.tractionTypeDescription = tractionTypeDescription;

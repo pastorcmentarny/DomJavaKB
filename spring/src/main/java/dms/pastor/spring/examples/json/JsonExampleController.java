@@ -52,14 +52,14 @@ public class JsonExampleController {
     @GetMapping("/json")
     public CuteDomainObject getCuteDomainObjectAsJson() {
         CuteDomainObject cuteDomainObject = new CuteDomainObject();
-        log.info("Getting Cute Domain Object with data: " + cuteDomainObject.toString());
+        log.info("Getting Cute Domain Object with data: " + cuteDomainObject);
         return cuteDomainObject;
     }
 
     @GetMapping(value = "/xml", produces = {"application/xml", "text/xml"})
     public CuteDomainObject getCuteDomainObjectAsXml() {
         CuteDomainObject cuteDomainObject = new CuteDomainObject();
-        log.info("Getting Cute Domain Object with data: " + cuteDomainObject.toString());
+        log.info("Getting Cute Domain Object with data: " + cuteDomainObject);
         return cuteDomainObject;
     }
 
