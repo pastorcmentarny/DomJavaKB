@@ -1,6 +1,7 @@
 package dms.pastor.spring.domain.error;
 
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 
 import java.util.List;
 
@@ -15,7 +16,8 @@ import java.util.List;
  * <p>
  * tag-error
  */
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = true)
+@Getter
 public class ValidationErrorResponse extends ErrorResponse {
     private final List<Field> fields;
 
@@ -24,15 +26,5 @@ public class ValidationErrorResponse extends ErrorResponse {
         this.fields = fields;
     }
 
-    private List<Field> getFields() {
-        return fields;
-    }
 
-
-    @Override
-    public String toString() {
-        return "ValidationErrorResponse{" +
-                "fields=" + fields +
-                "} " + super.toString();
-    }
 }

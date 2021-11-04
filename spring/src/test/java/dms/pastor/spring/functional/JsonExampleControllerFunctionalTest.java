@@ -12,7 +12,6 @@ class JsonExampleControllerFunctionalTest extends AbstractFunctionalTest{
 
     @Test
     public void jsonExampleControllerTest() {
-        // test if controller is setup
         assertThat(jsonExampleController).isNotNull();
     }
 }

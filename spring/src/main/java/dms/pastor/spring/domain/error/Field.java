@@ -1,6 +1,8 @@
 package dms.pastor.spring.domain.error;
 
-import java.util.Objects;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.ToString;
 
 /**
  * Author Dominik Symonowicz
@@ -10,6 +12,9 @@ import java.util.Objects;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
+@ToString
+@EqualsAndHashCode
+@Getter
 class Field {
     private final String name;
     private final String message;
@@ -19,33 +24,4 @@ class Field {
         this.message = message;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Field)) return false;
-        Field field = (Field) o;
-        return Objects.equals(name, field.name) &&
-                Objects.equals(message, field.message);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, message);
-    }
-
-    @Override
-    public String toString() {
-        return "Field{" +
-                "name='" + name + '\'' +
-                ", message='" + message + '\'' +
-                '}';
-    }
 }

@@ -3,12 +3,11 @@ package dms.pastor.spring.examples.json;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class JsonObjectBuilderTest {
 
     @Test
-    void shouldBuildJsonObject(){
+    void shouldBuildJsonObject() {
 
         // when
         final JsonObject result = JsonObjectBuilder.jsonObjectBuilder().build();

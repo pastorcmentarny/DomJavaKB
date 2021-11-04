@@ -30,6 +30,7 @@ public class RestExamplesController {
         return new BigDecimal(new Random().nextInt(1000));
     }
 
+    //TODO WTF?
     @GetMapping("/rest/with-args")
     public CuteDomainObject restExampleWithVariables(@RequestParam Integer number) {
         LOGGER.info("Number:" + number);

@@ -30,11 +30,11 @@ public final class DomUtils {
     }
 
     public static Character getRandomCharacterFromAlphabet() {
-        return getRandomCharacterFrom(ALPHABET);
+        return getRandomCharacterFrom();
     }
 
-    private static Character getRandomCharacterFrom(String array) {
-        return array.toCharArray()[RANDOM.nextInt(ALPHABET.length())];
+    private static Character getRandomCharacterFrom() {
+        return DomUtils.ALPHABET.toCharArray()[RANDOM.nextInt(ALPHABET.length())];
     }
 
     public static String generateString() {

@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Objects;
+
 import static dms.pastor.spring.examples.Paths.EXTERNAL_CONFIGURATION;
 
 /**
@@ -30,12 +32,6 @@ public class ExternalConfigurationController {
     }
 
     private String getValue() {
-        final String value;
-        if (valueFromConfiguration != null) {
-            value = valueFromConfiguration;
-        } else {
-            value = "Unknown";
-        }
-        return value;
+        return Objects.requireNonNullElse(valueFromConfiguration, "Unknown");
     }
 }
