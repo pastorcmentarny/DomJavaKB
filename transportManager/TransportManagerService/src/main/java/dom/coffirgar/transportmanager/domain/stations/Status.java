@@ -21,8 +21,8 @@ public enum Status {
     NOT_VISITED("X"),
     CHANGE("S"), // I use S from switch
     PASSED("P"),
-    VISITED("V");
-
+    VISITED("V"),
+    UNKNOWN("U");
     private final String value;
 
     Status(String value) {

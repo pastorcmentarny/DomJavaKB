@@ -12,9 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.Objects;
 
 /**
@@ -36,12 +33,12 @@ public final class ToStationConverter {
         this.objectMapper = objectMapper;
     }
 
-    public Stations fromStationsAsJson(String stationsAsJson){
+    public Stations fromStationsAsJson(String stationsAsJson) {
         try {
             log.info(stationsAsJson);
             return objectMapper.readValue(stationsAsJson, Stations.class);
         } catch (JsonProcessingException jsonProcessingException) {
-        log.error("Unable to convert because I cocked up something : " + jsonProcessingException.getMessage());
+            log.error("Unable to convert because I cocked up something : " + jsonProcessingException.getMessage());
             return Stations.builder().build();
         }
     }
@@ -54,5 +51,16 @@ public final class ToStationConverter {
 
     private static LocalDate setDateFor(String date) {
         return Objects.isNull(date) || "none".equalsIgnoreCase(date) ? null : LocalDate.parse(date);
+    }
+
+    public Station fromStationAsJson(String stationAsString) {
+        try {
+            log.info(stationAsString);
+            return objectMapper.readValue(stationAsString, Station.class);
+        } catch (JsonProcessingException jsonProcessingException) {
+            log.error("Unable to convert because I cocked up something : " + jsonProcessingException.getMessage());
+            return Station.noStation();
+        }
+
     }
 }

@@ -19,7 +19,7 @@ ext {
 }
 
 group = 'dom.coffirgar'
-version = '59'
+version = '98'
 sourceCompatibility = '17'
 
 configurations {
