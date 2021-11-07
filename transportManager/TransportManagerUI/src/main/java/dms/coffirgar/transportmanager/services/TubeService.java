@@ -1,7 +1,9 @@
 package dms.coffirgar.transportmanager.services;
 
 import dms.coffirgar.transportmanager.clients.TubeClient;
+import dms.coffirgar.transportmanager.converters.ToResponseConverter;
 import dms.coffirgar.transportmanager.converters.ToStationConverter;
+import dms.coffirgar.transportmanager.domain.Response;
 import dms.coffirgar.transportmanager.domain.Station;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,11 +12,13 @@ import org.springframework.stereotype.Service;
 public class TubeService {
     private final TubeClient tubeClient;
     private final ToStationConverter converter;
+    private final ToResponseConverter responseConverter;
 
     @Autowired
-    public TubeService(TubeClient tubeClient, ToStationConverter converter) {
+    public TubeService(TubeClient tubeClient, ToStationConverter converter, ToResponseConverter responseConverter) {
         this.tubeClient = tubeClient;
         this.converter = converter;
+        this.responseConverter = responseConverter;
     }
 
     public String getAllStations() {
@@ -25,9 +29,22 @@ public class TubeService {
         return tubeClient.getAllStationsNames();
     }
 
+    public Response getStationFor(String stationName) {
+        final String stationAsString = tubeClient.getStationFor(stationName);
+        System.out.println("Response for " + stationName + " was " + stationAsString);
+        return responseConverter.convert(stationAsString);
+    }
+
+/*
     public Station getStationFor(String stationName) {
         final String stationAsString = tubeClient.getStationFor(stationName);
         System.out.println("Response for " + stationName + " was " + stationAsString);
         return converter.convert(stationAsString);
+    }
+*/
+    public Station setPassedFor(String stationName) {
+        final String stationAsString = tubeClient.setPassedForStation(stationName);
+        converter.convert(stationAsString);
+        return null;
     }
 }

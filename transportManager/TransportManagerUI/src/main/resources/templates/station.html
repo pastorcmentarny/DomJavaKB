@@ -13,6 +13,9 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 <a href="/all-stations-name">Back to All stations</a>
+
+<h2 th:text="${status}"/>
+<h2 th:text="${description}"/>
 <table class="table">
     <thead>
     <tr>
@@ -25,11 +28,18 @@
     </thead>
     <tbody>
     <tr>
-        <td><p th:text="${station.name}"/></td>
-        <td><p th:text="${station.status}"/></td>
-        <td><p th:text="${station.passedDate}?: 'not yet passed'"/></td>
-        <td><p th:text="${station.visitedDate} ?: 'not yet visited'"/></td>
-        <td><p th:text="${station.getVisitedThisYearDate} ?: 'not yet visited'"/></td>
+        <td><p th:text="${station?.name}"/></td>
+        <td><p th:text="${station?.status}"/></td>
+        <td><p th:text="${station?.passedDate}?: 'not yet passed'"/></td>
+        <td><p th:text="${station?.visitedDate} ?: 'not yet visited'"/></td>
+        <td><p th:text="${station?.getVisitedThisYearDate} ?: 'not yet visited'"/></td>
+    </tr>
+    <tr>
+        <td/>
+        <td/>
+        <td><button type="button" class="btn btn-dark"><a class="btn btn-dark" th:href="@{'/tube/set-passed/' + ${station?.name}}">Set Passed Today</a></button></td>
+        <td/>
+        <td><button type="button" class="btn btn-dark"><a class="btn btn-dark" th:href="@{'/tube/set-visited/' + ${station?.name}}">Set Visit Today</a></button></td>
     </tr>
     </tbody>
 </table>

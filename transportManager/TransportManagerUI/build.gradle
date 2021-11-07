@@ -10,7 +10,7 @@ ext {
 }
 
 group = 'dms.coffirgar'
-version = '11'
+version = '54'
 sourceCompatibility = '17'
 
 configurations {
@@ -27,6 +27,8 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-starter-actuator:${springVersion}"
     implementation "org.springframework.boot:spring-boot-starter-thymeleaf:${springVersion}"
     implementation "org.springframework.boot:spring-boot-starter-web:${springVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-json:${springVersion}"
+    implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.0"
     compileOnly "org.projectlombok:lombok:${lombokVersion}"
     developmentOnly "org.springframework.boot:spring-boot-devtools:${springVersion}"
     annotationProcessor "org.projectlombok:lombok:${lombokVersion}"

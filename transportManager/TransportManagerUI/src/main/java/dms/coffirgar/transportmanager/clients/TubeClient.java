@@ -1,6 +1,5 @@
 package dms.coffirgar.transportmanager.clients;
 
-import dms.coffirgar.transportmanager.domain.Station;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +13,6 @@ import static dms.coffirgar.transportmanager.configurations.Constants.TM_SERVICE
 public class TubeClient {
 
 
-
     private RestTemplate restTemplate;
 
     @Autowired
@@ -24,7 +22,7 @@ public class TubeClient {
 
 
     public String getAllStations() {
-;
+        ;
         ResponseEntity<String> response
                 = restTemplate.getForEntity(TM_SERVICE_URL + "/stations/tube/all", String.class);
         log.info(response.getStatusCode().toString());
@@ -41,6 +39,11 @@ public class TubeClient {
 
     public String getStationFor(String stationName) {
         final ResponseEntity<String> response = restTemplate.getForEntity(TM_SERVICE_URL + "/station/tube/" + stationName, String.class);
+        return response.getBody();
+    }
+
+    public String setPassedForStation(String stationName) {
+        final ResponseEntity<String> response = restTemplate.getForEntity(TM_SERVICE_URL + "/station/tube/set-passed/" + stationName, String.class);
         return response.getBody();
     }
 }
