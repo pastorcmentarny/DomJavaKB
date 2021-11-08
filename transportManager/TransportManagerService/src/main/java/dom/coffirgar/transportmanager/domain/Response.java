@@ -23,7 +23,7 @@ public class Response {
     }
 
     public static Response error(String message) {
-        return new Response("ERROR","Unable to read response due to : " + message,null);
+        return new Response("ERROR","Unable to read response due to : " + message,Station.noStation());
     }
 
     public static Response ok(Station station) {

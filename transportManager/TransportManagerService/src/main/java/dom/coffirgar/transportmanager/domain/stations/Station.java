@@ -4,10 +4,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 import static dom.coffirgar.transportmanager.common.Utils.*;
-import static dom.coffirgar.transportmanager.domain.stations.Status.NOT_VISITED;
-import static dom.coffirgar.transportmanager.domain.stations.Status.PASSED;
+import static dom.coffirgar.transportmanager.domain.stations.Status.*;
 
 
 @NoArgsConstructor
@@ -69,5 +69,9 @@ public class Station {
                 getDateAsStringOrNone(passedDate) + FIELD_SEPARATOR +
                 getDateAsStringOrNone(visitedDate) + FIELD_SEPARATOR +
                 getDateAsStringOrNone(visitedThisYearDate);
+    }
+
+    public boolean isNotAStation() {
+        return Objects.isNull(name) || name.isEmpty() || status == UNKNOWN;
     }
 }

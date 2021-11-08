@@ -2,6 +2,7 @@ package dom.coffirgar.transportmanager.services;
 
 import dom.coffirgar.transportmanager.domain.Response;
 import dom.coffirgar.transportmanager.domain.stations.Station;
+import dom.coffirgar.transportmanager.exceptions.SomethingWentWrongException;
 import dom.coffirgar.transportmanager.mappers.ToStationConverter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,7 +60,14 @@ public class TubeGateway {
                 return Response.error("Unable to get station due to server error: " + response.getStatusCode().getReasonPhrase());
             }
         }
-        return Response.ok(converter.fromStationAsJson(response.getBody()));
-
+        try {
+            final Station station = converter.fromStationAsJson(response.getBody());
+            if(station.isNotAStation()){
+                return Response.notFound(stationName);
+            }
+            return Response.ok(station);
+        } catch (SomethingWentWrongException somethingWentWrongException){
+            return Response.error(somethingWentWrongException.getMessage());
+        }
     }
 }

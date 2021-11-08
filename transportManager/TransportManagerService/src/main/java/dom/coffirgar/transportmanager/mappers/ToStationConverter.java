@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import dom.coffirgar.transportmanager.domain.stations.Station;
 import dom.coffirgar.transportmanager.domain.stations.Stations;
 import dom.coffirgar.transportmanager.domain.stations.Status;
+import dom.coffirgar.transportmanager.exceptions.SomethingWentWrongException;
 import dom.coffirgar.transportmanager.validators.StationLineValidator;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,8 +59,7 @@ public final class ToStationConverter {
             log.info(stationAsString);
             return objectMapper.readValue(stationAsString, Station.class);
         } catch (JsonProcessingException jsonProcessingException) {
-            log.error("Unable to convert because I cocked up something : " + jsonProcessingException.getMessage());
-            return Station.noStation();
+            throw new SomethingWentWrongException("Unable to convert because I cocked up something : " + jsonProcessingException.getMessage());
         }
 
     }
