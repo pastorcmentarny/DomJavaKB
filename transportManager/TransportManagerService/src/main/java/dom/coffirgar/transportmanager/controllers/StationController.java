@@ -44,7 +44,7 @@ public class StationController {
 
     @GetMapping(value = "/station/tube/set-passed/{stationName}",produces = APPLICATION_JSON)
     public Response updateStationToPassed(@PathVariable String stationName) {
-        return tubeService.setToPassedIfNotVisitedYet(stationName);
+        return tubeService.setToPassedStatus(stationName);
     }
 
     @RequestMapping(value = "/stations/tubes/all-names", method = RequestMethod.GET, produces = APPLICATION_JSON)

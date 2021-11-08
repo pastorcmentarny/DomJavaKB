@@ -22,7 +22,7 @@ public final class StationLineValidator {
     private StationLineValidator() {
     }
 
-    //TODO Rename to transfomer and extract validation to seperate class
+    //TODO Rename to transformer and extract validation to separate class
     public static String[] validate(String stationAsString) {
 
         validateIfNotEmpty(stationAsString, "TubeStation as string");

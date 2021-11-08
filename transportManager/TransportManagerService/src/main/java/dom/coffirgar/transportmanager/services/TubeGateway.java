@@ -6,8 +6,7 @@ import dom.coffirgar.transportmanager.exceptions.SomethingWentWrongException;
 import dom.coffirgar.transportmanager.mappers.ToStationConverter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -62,12 +61,14 @@ public class TubeGateway {
         }
         try {
             final Station station = converter.fromStationAsJson(response.getBody());
-            if(station.isNotAStation()){
+            if (station.isNotAStation()) {
                 return Response.notFound(stationName);
             }
             return Response.ok(station);
-        } catch (SomethingWentWrongException somethingWentWrongException){
+        } catch (SomethingWentWrongException somethingWentWrongException) {
             return Response.error(somethingWentWrongException.getMessage());
         }
     }
+
+
 }

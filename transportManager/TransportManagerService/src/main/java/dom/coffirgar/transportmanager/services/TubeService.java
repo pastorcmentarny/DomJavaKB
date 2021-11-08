@@ -1,10 +1,13 @@
 package dom.coffirgar.transportmanager.services;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import dom.coffirgar.transportmanager.domain.Response;
 import dom.coffirgar.transportmanager.domain.stations.Station;
 import dom.coffirgar.transportmanager.mappers.ToResponseConverter;
 import dom.coffirgar.transportmanager.mappers.ToStationConverter;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,8 +22,22 @@ public class TubeService {
         this.responseConverter = responseConverter;
     }
 
-    public Response setToPassedIfNotVisitedYet(String stationName) {
-        return tubeGateway.getStation(stationName);
+    public Response setToPassedStatus(String stationName) {
+        // get station
+        final Response stationResponse = tubeGateway.getStation(stationName);
+        if(stationResponse.isOK()){
+            updateToPassedIfNotPassedBefore(stationResponse);
+        }
+        return stationResponse;
+    }
+
+    private void updateToPassedIfNotPassedBefore(Response stationResponse) {
+        if (stationResponse.getStation().isPassedAlready()) {
+            stationResponse.toError("Already passed this station");
+            //tubeGateway.setPassedFor(stationResponse.getStation());
+        } else {
+            stationResponse.updateToPassed();
+        }
     }
 
 }

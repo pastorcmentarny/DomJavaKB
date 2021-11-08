@@ -63,15 +63,13 @@ public class Station {
         return status.value();
     }
 
-    public String asLine() {
-        return name + FIELD_SEPARATOR +
-                getStatusAsValue() + FIELD_SEPARATOR +
-                getDateAsStringOrNone(passedDate) + FIELD_SEPARATOR +
-                getDateAsStringOrNone(visitedDate) + FIELD_SEPARATOR +
-                getDateAsStringOrNone(visitedThisYearDate);
-    }
 
     public boolean isNotAStation() {
         return Objects.isNull(name) || name.isEmpty() || status == UNKNOWN;
     }
+
+    public boolean isPassedAlready() {
+        return status != NOT_VISITED && status != UNKNOWN;
+    }
+
 }
