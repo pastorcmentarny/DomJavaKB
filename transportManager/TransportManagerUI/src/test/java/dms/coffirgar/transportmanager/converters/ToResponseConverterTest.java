@@ -8,14 +8,14 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class ToResponseConverterTest {
-    private ObjectMapper objectMapper = new ObjectMapper();
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
     ToResponseConverter converter = new ToResponseConverter(objectMapper);
 
     @Test
-    void shouldConvertToResponse() {
+    void shouldConvertToResponseAcceptanceTest() {
         // given
-        String input =  """
+        String input = """
                 {
                 	"result": "OK",
                 	"description": "Station Aldgate was found.",
@@ -30,7 +30,6 @@ class ToResponseConverterTest {
 
         Response expectedResult = new Response("OK", "Station Aldgate was found.", new Station("Aldgate", "V", "2017-11-01", "2018-05-01", "2018-05-03"));
 
-
         // when
         final Response result = converter.convert(input);
 
@@ -40,7 +39,30 @@ class ToResponseConverterTest {
         // then
         assertThat(result).isEqualTo(expectedResult);
 
-
     }
 
+    @Test
+    void shouldReturnNoStationIfErrorOccurredDuringConversionDueToNull() {
+        // given
+        final Response expectedResult = new Response("ERROR", "Something went badly wrong and we got this sad error message json is null or empty", Station.noStation());
+
+        // when
+        final Response result = converter.convert(null);
+
+        // then
+        assertThat(result).isEqualTo(expectedResult);
+    }
+
+
+    @Test
+    void shouldReturnNoStationIfErrorOccurredDuringConversionIfJsonIsInvalid() {
+        // given
+        final Response expectedResult = new Response("ERROR", "Something went badly wrong and we got this sad error message Invalid respond from server. Response: {\"invalid\" : \"\"}", Station.noStation());
+
+        // when
+        final Response result = converter.convert("{\"invalid\" : \"\"}");
+
+        // then
+        assertThat(result).isEqualTo(expectedResult);
+    }
 }

@@ -22,7 +22,6 @@ public class TubeClient {
 
 
     public String getAllStations() {
-        ;
         ResponseEntity<String> response
                 = restTemplate.getForEntity(TM_SERVICE_URL + "/stations/tube/all", String.class);
         log.info(response.getStatusCode().toString());

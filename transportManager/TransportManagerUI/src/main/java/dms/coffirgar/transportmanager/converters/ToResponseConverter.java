@@ -23,8 +23,10 @@ public class ToResponseConverter {
 
     public Response convert(String stationAsString) {
         try {
-            final Response response = objectMapper.readValue(stationAsString.replace("\n \t",""), Response.class);
-            System.out.println("RESPONSE:"+ response);
+            if (Objects.isNull(stationAsString) || stationAsString.isEmpty()){
+                return Response.error("json is null or empty");
+            }
+            final Response response = objectMapper.readValue(stationAsString.replace("\n \t", ""), Response.class);
             return getResponse(stationAsString, response);
         } catch (JsonProcessingException jsonProcessingException) {
             log.error(jsonProcessingException.getMessage());
