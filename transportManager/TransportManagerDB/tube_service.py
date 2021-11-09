@@ -4,24 +4,35 @@ import storage_service
 
 def get_station_data_for_(station_name: str) -> dict:
     stations = storage_service.load_data(db_config.get_path())
-    for station in stations:
-        if station["name"] == station_name:
-            return station
+    for station_item in stations:
+        if station_item["name"] == station_name:
+            return station_item
     return {}
 
 
-def update_station_info(data) -> bool:
+def update_station_info(updated_station_data) -> bool:
     stations = storage_service.load_data(db_config.get_path())
-    for station in stations:
-        if station["name"] == data["name"]:
-            idx = stations.index(station)
-            stations[idx] = data
-            storage_service.save_data(stations,db_config.get_path())
+    for station_item in stations:
+        if station_item["name"] == updated_station_data["name"]:
+            idx = stations.index(station_item)
+            stations[idx] = updated_station_data
+            storage_service.save_data(stations, db_config.get_path())
             return True
     return False
 
 
-# Temporary test
+def update_station_to_passed(station_name, date):
+    stations = storage_service.load_data(db_config.get_path())
+    for station_item in stations:
+        if station_item["name"] == station_name:
+            idx = stations.index(station_item)
+            stations[idx]["passedDate"] = date
+            storage_service.save_data(stations, db_config.get_path())
+            return True
+    return False
+
+
+# TODO MOVE TO TEST
 if __name__ == '__main__':
     station = {
         "name": "Goldhawk Road",

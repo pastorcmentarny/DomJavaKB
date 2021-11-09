@@ -51,6 +51,15 @@ def get_station_information_for(station_name):
     return jsonify(result)
 
 
+@app.route('/tube/station/passed/<station_name>/<date>')
+def update_station_to_passed(station_name: str, date: str):
+    updated = tube_service.update_station_to_passed(station_name, date)
+    if updated:
+        return Response('"status": "OK"}', status=201, mimetype='application/json')
+    else:
+        abort(404)
+
+
 @app.route("/tube/stations/")
 def get_all_stations():
     if platform.node() == "DOM-DESKTOP":
@@ -73,7 +82,7 @@ def handle_exception(http_exception):
 
 
 @app.route("/")
-def stats():
+def main_route():
     start = datetime.datetime.now()
 
     stop = datetime.datetime.now()

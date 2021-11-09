@@ -28,8 +28,15 @@ def convert_line_to_dict(line: str) -> dict:
     }
 
 
+def set_to_none_if_empty(item):
+    if item is None:
+        return "none"
+    else:
+        return item
+
+
 def convert_dict_to_line(station: dict) -> str:
-    return f'{station[NAME]}{SEPARATOR}{station[STATUS]}{SEPARATOR}{station[PASSED_DATE]}{SEPARATOR}{station[VISITED_DATE]}{SEPARATOR}{station[VISITED_THIS_YEAR_DATE]}'
+    return f'{station[NAME]}{SEPARATOR}{station[STATUS]}{SEPARATOR}{set_to_none_if_empty((station[PASSED_DATE]))}{SEPARATOR}{set_to_none_if_empty(station[VISITED_DATE])}{SEPARATOR}{set_to_none_if_empty(station[VISITED_THIS_YEAR_DATE])}'
 
 
 def load_data(path: str) -> list:

@@ -99,6 +99,27 @@ class DBUnitTests(unittest.TestCase):
         # then
         self.assertEqual(expected_result, result)
 
+    def test_update_station_info_return_false_if_station_does_not_exits(self):
+        # when
+        station = {
+            "name": "Wroclaw",
+            "status": "V",
+            "passedDate": "2999-99-99",
+            "visitedDate": "2999-99-99",
+            "visitedThisYearDate": "2999-99-99"
+        }
+        result = tube_service.update_station_info(station)
+
+        # then
+        self.assertFalse(result)
+
+    def test_update_station_to_passed_return_false_if_station_does_not_exits(self):
+        # when
+        result = tube_service.update_station_to_passed("Wroclaw", "2999-99-99")
+
+        # then
+        self.assertFalse(result)
+
 
 if __name__ == '__main__':
     unittest.main()
