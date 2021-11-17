@@ -21,12 +21,13 @@ def update_station_info(updated_station_data) -> bool:
     return False
 
 
-def update_station_to_passed(station_name, date):
+def update_station_to_passed(station_name, date) -> bool:
     stations = storage_service.load_data(db_config.get_path())
     for station_item in stations:
         if station_item["name"] == station_name:
             idx = stations.index(station_item)
             stations[idx]["passedDate"] = date
+            stations[idx]["status"] = "P"
             storage_service.save_data(stations, db_config.get_path())
             return True
     return False
