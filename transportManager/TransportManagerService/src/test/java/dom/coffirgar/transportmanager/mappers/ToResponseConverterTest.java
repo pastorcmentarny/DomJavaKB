@@ -20,7 +20,7 @@ class ToResponseConverterTest {
         return objectMapper;
     }
 
-    ToResponseConverter converter = new ToResponseConverter(objectMapper);
+    final ToResponseConverter converter = new ToResponseConverter(objectMapper);
 
     @Test
     void shouldReturnResponseObject() {

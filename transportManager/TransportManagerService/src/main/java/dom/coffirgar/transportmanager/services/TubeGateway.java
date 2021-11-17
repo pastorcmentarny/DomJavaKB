@@ -10,15 +10,18 @@ import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static dom.coffirgar.transportmanager.configurations.Constants.TM_DB_URL;
 
 //TODO test with WebClient
 @Slf4j
 @Service
 public class TubeGateway {
-    private static final String TM_DB_URL = "http://192.168.0.15:18003";
-    private RestTemplate restTemplate;
+
+    private final RestTemplate restTemplate;
     private final ToStationConverter converter;
 
     @Autowired
@@ -71,4 +74,9 @@ public class TubeGateway {
     }
 
 
+    public boolean updateToPassed(String stationName) {
+        ResponseEntity<String> response
+                = restTemplate.getForEntity(TM_DB_URL + "/tube/station/passed/" + stationName + "/" + LocalDate.now(), String.class);
+        return response.getStatusCode().is2xxSuccessful();
+    }
 }

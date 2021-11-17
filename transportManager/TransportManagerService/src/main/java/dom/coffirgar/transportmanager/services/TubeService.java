@@ -1,13 +1,8 @@
 package dom.coffirgar.transportmanager.services;
 
 import dom.coffirgar.transportmanager.domain.Response;
-import dom.coffirgar.transportmanager.domain.stations.Station;
 import dom.coffirgar.transportmanager.mappers.ToResponseConverter;
 import dom.coffirgar.transportmanager.mappers.ToStationConverter;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -25,8 +20,9 @@ public class TubeService {
     public Response setToPassedStatus(String stationName) {
         // get station
         final Response stationResponse = tubeGateway.getStation(stationName);
-        if(stationResponse.isOK()){
+        if (stationResponse.isOK()) {
             updateToPassedIfNotPassedBefore(stationResponse);
+            System.out.println(stationResponse);
         }
         return stationResponse;
     }
@@ -34,9 +30,9 @@ public class TubeService {
     private void updateToPassedIfNotPassedBefore(Response stationResponse) {
         if (stationResponse.getStation().isPassedAlready()) {
             stationResponse.toError("Already passed this station");
-            //tubeGateway.setPassedFor(stationResponse.getStation());
         } else {
             stationResponse.updateToPassed();
+            tubeGateway.updateToPassed(stationResponse.getStation().getName());
         }
     }
 

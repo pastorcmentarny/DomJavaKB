@@ -1,9 +1,7 @@
 package dom.coffirgar.transportmanager.mappers;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dom.coffirgar.transportmanager.domain.Response;
-import dom.coffirgar.transportmanager.domain.stations.Station;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
