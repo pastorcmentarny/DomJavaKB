@@ -50,7 +50,7 @@ version = '3'
 // ./gradlew dependencyCheckAnalyze
 
 dependencies {
-    implementation "commons-io:commons-io:2.10.0"
+    implementation "commons-io:commons-io:2.11.0"
     implementation "ch.qos.logback:logback-classic:1.2.6"
     implementation "org.simplejavamail:simple-java-mail:5.5.1" //TODO update
     implementation "io.rest-assured:rest-assured:${restAssuredVersion}" //normally should be testCompile
@@ -58,8 +58,7 @@ dependencies {
     implementation "org.projectlombok:lombok:${lombokVersion}"
     implementation "org.apache.kafka:kafka-clients:2.8.0"
     implementation "org.junit.jupiter:junit-jupiter:${junitVersion}"
-    implementation "com.github.spullara.mustache.java:compiler:0.9.10"
-    annotationProcessor "org.projectlombok:lombok:1.18.20"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
     testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
     testImplementation "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
     testImplementation "org.junit.jupiter:junit-jupiter-params:${junitVersion}"
