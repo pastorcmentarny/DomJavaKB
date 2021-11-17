@@ -35,9 +35,9 @@ public class TubeService {
         return responseConverter.convert(stationAsString);
     }
 
-    public Station setPassedFor(String stationName) {
+    public Response setPassedFor(String stationName) {
         final String stationAsString = tubeClient.setPassedForStation(stationName);
-        converter.convert(stationAsString);
-        return null;
+        System.out.println("SET PASSED RESPONSE: " + stationAsString);
+        return responseConverter.convert(stationAsString);
     }
 }

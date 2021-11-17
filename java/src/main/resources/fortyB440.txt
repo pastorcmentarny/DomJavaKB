@@ -1,6 +1,6 @@
 12 days out with J;;TO_DO;;12;;1
-40 activities with Xu;;WORKING_ON;;40;;1
-Read 365 book in Polish to J;;TO_DO;;365;;29
+40 activities with Xu;;WORKING_ON;;40;;2
+Read 365 book in Polish to J;;TO_DO;;365;;30
 12x family day outs;;WORKING_ON;;12;;3
 Barista course;;TO_DO;;
 Re-learn Spring Framework;;IN_PROGRESS;;
@@ -13,7 +13,7 @@ Learn Rust;;TO_DO;;
 Run in four 10km race;;BLOCKED;;
 Run 1460km;;IN_PROGRESS;;
 Walk 50000 steps;;TO_DO;;
-Run at least 2km per day;;IN_PROGRESS;;365;;39
+Run at least 2km per day;;IN_PROGRESS;;365;;41
 The epic home2home trip;;TO_DO;;
 Travel on longest train in Poland;;TO_DO;;
 Explore all station on the one of the tube line;;TO_DO;;

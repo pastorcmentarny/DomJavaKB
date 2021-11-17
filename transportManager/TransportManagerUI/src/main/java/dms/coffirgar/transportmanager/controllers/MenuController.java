@@ -44,8 +44,10 @@ public class MenuController {
 
     @GetMapping(value = "/tube/set-passed/{stationName}")
     public String setPassedFor(Model model,@PathVariable String stationName) {
-        final Station station = tubeService.setPassedFor(stationName);
-        model.addAttribute("station", station);
+        final Response response = tubeService.setPassedFor(stationName);
+        model.addAttribute("status", response.getResult());
+        model.addAttribute("description", response.getDescription());
+        model.addAttribute("station", response.getStation());
         return "station";
     }
 
