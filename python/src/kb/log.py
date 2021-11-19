@@ -1,19 +1,7 @@
 import logging
-
-# Don’t Debug with print()
-logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s',
-                    filename='myProgramLog.txt')
-
-logging.debug('Starting application ..')
-
-
-def factorial(number):
-    logging.debug('Calculating factorial for: ' + str(number))
-    total = 1
-    for i in range(1, number + 1):
-        total *= i
-        logging.debug("For " + str(i) + ' total is : ' + str(total))
-    logging.debug("Result is :" + str(total))
+"""
+Don't Debug with print() use logging instead
+"""
 
 
 def display_logs():
@@ -21,19 +9,22 @@ def display_logs():
     logging.info("This is a info level")
     logging.warning('This is a warning level')
     logging.error('This is a error level')
-    logging.critical('This is a critcal level .shit happens')
+    logging.critical('This is a critical level .shit happens')
 
-
-print(factorial(6))
-
-print('set logs to INFO')
-logging.basicConfig(level=logging.INFO, format=' %(asctime)s - %(levelname)s - %(message)s',
-                    filename='myProgramLog.txt')
-display_logs()
-
-print('set logs to WARN')
-logging.basicConfig(level=logging.WARN, format=' %(asctime)s - %(levelname)s - %(message)s',
-                    filename='myProgramLog.txt')
-display_logs()
 
 logging.debug('End of the application. Goodbye!')
+
+# DEFAULT LOGS SETUP FOR MY SCRIPT TO USe
+if __name__ == '__main__':
+    #   Screen version:
+    logging_level = logging.DEBUG
+    logging_format = "%(levelname)s :: %(asctime)s :: %(message)s"
+
+    logging.basicConfig(level=logging_level, format=logging_format)
+
+    #   File version
+    logging_filename = 'logs.txt'
+
+    # logging.basicConfig(level=logging_level, format=logging_format, filename=logging_filename)
+
+    display_logs()
