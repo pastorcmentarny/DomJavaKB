@@ -11,7 +11,6 @@ import requests
 
 logging_level = logging.DEBUG
 logging_format = "%(levelname)s :: %(asctime)s :: %(message)s"
-
 logging.basicConfig(level=logging_level, format=logging_format)
 
 name = None  # Python is dynamic, so you don't need to declare things;
@@ -61,10 +60,10 @@ logging.info(42 == '42')
 logging.info(42 == 42.00000)
 logging.info(42 == 0042.01)
 
-""" rounding The behavior of round() for floats can be surprising: 
-for example, round(2.675, 2) gives 2.67 instead of the expected 2.68. T
-his is not a bug: it’s a result of the fact that most decimal fractions can’t be represented exactly as a float. 
-See Floating Point Arithmetic: Issues and Limitations for more information."""
+""" The behavior of round() for floats can be surprising: 
+for example, round(2.675, 2) gives 2.67 instead of the expected 2.68.
+This is not a bug: it’s a result of the fact that most decimal fractions can’t be represented exactly as a float. 
+"""
 
 logging.info(round(2.675, 2))
 
@@ -104,12 +103,12 @@ logging.info(len(''))
 logging.info('I am ' + str(34) + ' years old.')
 varOfIntStringOrFloat = str(0)
 logging.info(varOfIntStringOrFloat)
-piNumber = 3.14
-varOfIntStringOrFloat = str(piNumber)
+pi_number = 3.14
+varOfIntStringOrFloat = str(pi_number)
 logging.info(varOfIntStringOrFloat)
-varOfIntStringOrFloat = int(piNumber)
+varOfIntStringOrFloat = int(pi_number)
 logging.info(varOfIntStringOrFloat)
-varOfIntStringOrFloat = float(piNumber)
+varOfIntStringOrFloat = float(pi_number)
 logging.info(varOfIntStringOrFloat)
 varOfIntStringOrFloat = float(10)
 
@@ -126,7 +125,7 @@ logging.info(42 == '42')
 logging.info(42 == 42.00000)
 logging.info(42 == 0042.01)
 
-# rouding The behavior of round() for floats can be surprising: for example,
+# rounding The behavior of round() for floats can be surprising: for example,
 # round(2.675, 2) gives 2.67 instead of the expected 2.68. This is not a bug:
 # it’s a result of the fact that most decimal fractions can’t be represented exactly as a float.
 # See Floating Point Arithmetic: Issues and Limitations for more information.
@@ -224,77 +223,21 @@ for x in range(2):
 time.sleep(2)
 
 '''
-three different
-types
-of
-values
-used
-to
-represent
-time:
+three different types of values used to represent time:
 
-A
-Unix
-epoch
-timestamp(used
-by
-the
-time
-module) is a
-float or integer
-value
-of
-the
-number
-of
-seconds
-since
-12
-AM
-on
-January
-1, 1970, UTC.
+A Unix epoch timestamp(used by the time module) is a float or integer value of the number of seconds since 
+12 AM on January 1, 1970, UTC.
 
-A
-datetime
-object(of
-the
-datetime
-module) has
-integers
-stored in the
-attributes
-year, month, day, hour, minute, and second.
+A datetime object(of the datetime module) has integers stored in the attributes
+ year, month, day, hour, minute, and second.
 
-A
-timedelta
-object(of
-the
-datetime
-module) represents
-a
-time
-duration, rather
-than
-a
-specific
-moment.
+A timedelta object(of the datetime module) represents a time duration, rather than a specific moment.
 '''
 
 # A Python program will not terminate until all its threads have terminated.
 
 '''
-: To
-avoid
-concurrency
-issues, never
-let
-multiple
-threads
-read or write
-the
-same
-variables.
+: To avoid concurrency issues, never let multiple threads read or write the same variables.
 
 
 subprocess.Popen('C:\\Windows\\System32\\calc.exe')
@@ -337,8 +280,6 @@ logging.info('C:\to\nowhere')
 
 logging.info('moon' * 10)
 
-logging.info('I wish Dominik pay more attention to coding'
-             ' instead of wasting time on learning Python')
 
 ''' Strings can be indexed (subscribed), with the first character having index 0 / 
 However, out of range slice indexes are handled gracefully when used for slicing:'''
@@ -390,8 +331,6 @@ logging.info(result)
 result = [[1, 3, 5, 7, 9], [2, 4, 6, 8]]
 logging.info(result[1][2])  # 6
 
-var = 128 * 3
-logging.info('Value of var is', var)
 
 ''' ]	Since ** has higher precedence than -,
  -3**2 will be interpreted as -(3**2) and thus result in -9. To avoid this and get 9, you can use (-3)**2.'''
@@ -483,9 +422,6 @@ When the program execution reaches a continue statement,
 the program execution immediately jumps back to the start of the loop and reevaluates the loop’s condition.'''
 
 # “Truthy” and “Falsely” Values
-
-for dom in range(5):
-    logging.info('No. ' + str(dom))
 
 total = 0
 for number in range(101):
