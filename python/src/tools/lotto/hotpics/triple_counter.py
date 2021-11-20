@@ -77,7 +77,7 @@ def count_all_triples_drawn(all_sorted_combinations, start, step, total, triples
     for sc in all_sorted_combinations:
         if counter % step == 0:
             progress = counter / total * 100
-            print("it took " + str(int(time.time() - start)) + " seconds to processed " + str(
+            print("it took " + str(int(time.perf_counter() - start)) + " seconds to processed " + str(
                 counter) + " of total: " + str(total) + ". Progress: " + str(percentage_format % progress))
 
         sorted_list = [sc[0], sc[1], sc[2]]
@@ -105,7 +105,7 @@ def main():
 
     triples_list = generate_all_possible_triplets()
 
-    start = time.time()
+    start = time.perf_counter()
 
     all_sorted_combinations = generate_all_possible_triples_combination(start)
 
@@ -118,7 +118,7 @@ def main():
 
     triples_list = sorting_result(triples_list)
 
-    stop = time.time()
+    stop = time.perf_counter()
     print("It took " + str(stop - start) + " seconds.")
     saving_result_to_file(triples_list)
 

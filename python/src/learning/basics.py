@@ -157,16 +157,16 @@ def calc_prod():
         return product
 
 
-start_time = time.time()
+start_time = time.perf_counter()
 logging.info(start_time)
 
 prod = calc_prod()
 
-finish_time = time.time()
+finish_time = time.perf_counter()
 logging.info('The result is %s digits long.' % (len(str(prod))))
 logging.info('Took %s seconds calculate.' % (finish_time - start_time))
 
-now = time.time()
+now = time.perf_counter()
 
 logging.info(now)
 logging.info(round(now))
@@ -330,7 +330,7 @@ logging.info(result)
 result = 1j ** 3  # need to learn how to use imaginary number
 logging.info(result)
 
-""" raw string If you don’t want characters prefaced by \ to be interpreted as special characters, 
+""" raw string If you don’t want characters prefaced by "\" to be interpreted as special characters, 
 you can use raw strings by adding an r before the first quote:"""
 logging.info(r'C:\to\nowhere')
 logging.info('C:\to\nowhere')
@@ -340,7 +340,7 @@ logging.info('moon' * 10)
 logging.info('I wish Dominik pay more attention to coding'
              ' instead of wasting time on learning Python')
 
-''' Strings can be indexed (subscripted), with the first character having index 0 / 
+''' Strings can be indexed (subscribed), with the first character having index 0 / 
 However, out of range slice indexes are handled gracefully when used for slicing:'''
 
 result = 'abcdefgh'
@@ -441,7 +441,7 @@ logging.info('Task complete, goodbye')
 
 """ REMOVE? SWAP WITH GOOGLE.COM
 browser = webdriver.Firefox()
-browser.get('http://inventwithpython.com')
+browser.get('https://inventwithpython.com')
 try:
     elem = browser.find_element_by_class_name('bookcover')
     logging.info('Found <%s> element with that class name!' % elem.tag_name)
@@ -482,7 +482,7 @@ while True:
 When the program execution reaches a continue statement, 
 the program execution immediately jumps back to the start of the loop and reevaluates the loop’s condition.'''
 
-# “Truthy” and “Falsey” Values
+# “Truthy” and “Falsely” Values
 
 for dom in range(5):
     logging.info('No. ' + str(dom))
@@ -508,7 +508,7 @@ for number in range(1, attempts):
         sys.exit()
 logging.info("No seven,no problem")
 
-url = 'http://xkcd.com'
+url = 'https://xkcd.com'
 path = r'C:\tmp\Python\xkcd\\'
 os.makedirs(path, exist_ok=True)
 while not url.endswith('#'):
@@ -531,20 +531,20 @@ while not url.endswith('#'):
                 imageFile.write(chunk)
             imageFile.close()
             prevLink = page.select('a[rel="prev"]')[0]
-            url = 'http://xkcd.com' + prevLink.get('href')
+            url = 'https://xkcd.com' + prevLink.get('href')
         except requests.exceptions.MissingSchema:
             prevLink = page.select('a[rel="prev"]')[0]
             url = url + prevLink.get('href')
             continue
 
 
-def factorial(number):
-    logging.debug('Calculating factorial for: ' + str(number))
-    total = 1
-    for i in range(1, number + 1):
-        total *= i
-        logging.debug("For " + str(i) + ' total is : ' + str(total))
-    logging.debug("Result is :" + str(total))
+def factorial(factorial_number):
+    logging.debug('Calculating factorial for: ' + str(factorial_number))
+    answer = 1
+    for i in range(1, factorial_number + 1):
+        answer *= i
+        logging.debug("For " + str(i) + ' total is : ' + str(answer))
+    logging.debug("Result is :" + str(answer))
 
 
 """
@@ -561,15 +561,13 @@ logging.info(list1) # ['a']
 list2 = add('b')
 logging.info(list2) # ['a', 'b']
 """
-import logging
-import time
 
 
-def add(item, itemList=None):
-    if itemList is None:
-        itemList = []
-    itemList.append(item)
-    return itemList
+def add(item, item_list=None):
+    if item_list is None:
+        item_list = []
+    item_list.append(item)
+    return item_list
 
 
 list1 = add('a')
@@ -589,8 +587,7 @@ set_comp = {i % 3 for i in range(10)}
 logging.info(set_comp)
 
 
-### is - is for identity and == is for equality  in most cases use instanceof
-
+# is - is for identity and == is for equality  in most cases use instanceof
 
 
 def range_len_iteration_with_index():
