@@ -812,4 +812,50 @@ public class StringUtilsTest {
         assertThat(result).isEqualTo(expectedResult);
     }
 
+
+    @Test
+    void notEqualsReturnFalseIfBothAreNull() {
+        // when
+        final boolean result = StringUtils.notEquals(null, null);
+
+        // then
+        org.assertj.core.api.Assertions.assertThat(result).isFalse();
+    }
+
+    @Test
+    void notEqualsReturnFalseIfCurrentValueIsNull() {
+        // when
+        final boolean result = StringUtils.notEquals(null, generateString());
+
+        // then
+        org.assertj.core.api.Assertions.assertThat(result).isFalse();
+    }
+
+    @Test
+    void notEqualsReturnFalseIfNewValueIsNull() {
+        // when
+        final boolean result = StringUtils.notEquals(generateString(), null);
+
+        // then
+        org.assertj.core.api.Assertions.assertThat(result).isFalse();
+    }
+
+    @Test
+    void notEqualsReturnTrueIfNewAndCurrentValueAreDifferent() {
+
+        // when
+        final boolean result = StringUtils.notEquals(generateString(), generateString());
+
+        // then
+        org.assertj.core.api.Assertions.assertThat(result).isTrue();
+    }
+
+    @Test
+    void notEqualsReturnTrueIfNewAndCurrentValueAreDifferent2() {
+        // when
+        final boolean result = StringUtils.notEquals("S", "s");
+
+        // then
+        org.assertj.core.api.Assertions.assertThat(result).isTrue();
+    }
 }

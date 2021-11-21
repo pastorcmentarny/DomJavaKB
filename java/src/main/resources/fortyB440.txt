@@ -1,4 +1,4 @@
-12 days out with J;;TO_DO;;12;;1
+12 days out with J;;TO_DO;;12;;2
 40 activities with Xu;;WORKING_ON;;40;;2
 Read 365 book in Polish to J;;TO_DO;;365;;30
 12x family day outs;;WORKING_ON;;12;;3

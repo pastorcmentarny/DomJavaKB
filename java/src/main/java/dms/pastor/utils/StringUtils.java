@@ -340,4 +340,11 @@ public final class StringUtils {
         return "String { %s }".formatted(string);
     }
 
+    public static boolean notEquals(String newValue, String currentValue) {
+        if (Objects.isNull(newValue) || Objects.isNull(currentValue)) {
+            return false;
+        }
+        return !newValue.equals(currentValue);
+    }
+
 }
