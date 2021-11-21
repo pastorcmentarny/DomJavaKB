@@ -3,6 +3,7 @@ package dom.coffirgar.transportmanager.common;
 import java.io.File;
 import java.nio.file.Path;
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.Random;
 
 import static java.util.Objects.isNull;
@@ -45,6 +46,7 @@ public class Utils {
             throw new IllegalArgumentException(INVALID_PATH);
         }
     }
+
     public static void validateIfObjectValueIsNotNull(Object value, String valueName) {
         if (isNull(value)) {
             throw new IllegalArgumentException(valueName + " cannot be null.");
@@ -115,4 +117,10 @@ public class Utils {
         return date == null ? "none" : date.toString();
     }
 
+    public static boolean notEquals(String newValue, String currentValue) {
+        if (Objects.isNull(newValue) || Objects.isNull(currentValue)) {
+            return false;
+        }
+        return !newValue.equals(currentValue);
+    }
 }
