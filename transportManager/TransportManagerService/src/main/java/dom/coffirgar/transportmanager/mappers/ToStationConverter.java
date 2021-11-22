@@ -56,10 +56,20 @@ public final class ToStationConverter {
 
     public Station fromStationAsJson(String stationAsString) {
         try {
-            log.info(stationAsString);
             return objectMapper.readValue(stationAsString, Station.class);
         } catch (JsonProcessingException jsonProcessingException) {
             throw new SomethingWentWrongException("Unable to convert because I cocked up something : " + jsonProcessingException.getMessage());
+        }
+    }
+
+    public String toStationAsJson(Station station) {
+        if(Objects.isNull(station)){
+            return "{}";
+        }
+        try {
+            return objectMapper.writeValueAsString(station);
+        } catch (JsonProcessingException jsonProcessingException) {
+            throw new SomethingWentWrongException("Unable to  convert due to " + jsonProcessingException.getMessage(), jsonProcessingException);
         }
 
     }

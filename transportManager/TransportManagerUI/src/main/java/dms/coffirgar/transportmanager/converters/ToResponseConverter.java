@@ -35,10 +35,14 @@ public class ToResponseConverter {
     }
 
     private Response getResponse(String stationAsString, Response response) {
-
-        if (isNull(response) || isNull(response.getStation())) {
+        System.out.println(response);
+        if (isNull(response) || isStationNullWhenResponseOK(response)) {
             return Response.error("Invalid respond from server. Response: " + stationAsString);
         }
         return response;
+    }
+
+    public boolean isStationNullWhenResponseOK(Response response) {
+        return Objects.equals(response.getResult(), "OK") && isNull(response.getStation());
     }
 }

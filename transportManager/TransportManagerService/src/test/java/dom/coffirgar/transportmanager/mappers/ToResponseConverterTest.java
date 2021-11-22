@@ -1,7 +1,6 @@
 package dom.coffirgar.transportmanager.mappers;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import dom.coffirgar.transportmanager.AbstractTest;
 import dom.coffirgar.transportmanager.domain.Response;
 import dom.coffirgar.transportmanager.domain.stations.Station;
 import dom.coffirgar.transportmanager.domain.stations.Status;
@@ -11,16 +10,9 @@ import java.time.LocalDate;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class ToResponseConverterTest {
-    ObjectMapper objectMapper = getObjectMapper();
+class ToResponseConverterTest extends AbstractTest {
 
-    private ObjectMapper getObjectMapper() {
-        final ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.registerModule(new JavaTimeModule());
-        return objectMapper;
-    }
-
-    final ToResponseConverter converter = new ToResponseConverter(objectMapper);
+    final ToResponseConverter converter = new ToResponseConverter(getObjectMapper());
 
     @Test
     void shouldReturnResponseObject() {
