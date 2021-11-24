@@ -1,8 +1,8 @@
 package dms.coffirgar.transportmanager.controllers;
 
 import dms.coffirgar.transportmanager.domain.Response;
-import dms.coffirgar.transportmanager.domain.Station;
 import dms.coffirgar.transportmanager.services.TubeService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Arrays;
 
+@Slf4j
 @Controller
 public class MenuController {
 
@@ -33,9 +34,9 @@ public class MenuController {
     }
 
     @GetMapping(value = "/tube/station/{stationName}")
-    public String displayStationsInformationFor(Model model,@PathVariable String stationName) {
+    public String displayStationsInformationFor(Model model, @PathVariable String stationName) {
         final Response response = tubeService.getStationFor(stationName);
-
+        System.out.println(response);
         model.addAttribute("status", response.getResult());
         model.addAttribute("description", response.getDescription());
         model.addAttribute("station", response.getStation());
@@ -43,11 +44,24 @@ public class MenuController {
     }
 
     @GetMapping(value = "/tube/set-passed/{stationName}")
-    public String setPassedFor(Model model,@PathVariable String stationName) {
+    public String setPassedFor(Model model, @PathVariable String stationName) {
+        log.info("Get request to set " + stationName + " station to passed if haven't been passed before.");
         final Response response = tubeService.setPassedFor(stationName);
         model.addAttribute("status", response.getResult());
         model.addAttribute("description", response.getDescription());
         model.addAttribute("station", response.getStation());
+        log.info("Returning response for request " + stationName + " with " + response.getDescription());
+        return "station";
+    }
+
+    @GetMapping(value = "/tube/set-visited/{stationName}")
+    public String setVisitedFor(Model model, @PathVariable String stationName) {
+        log.info("Get request to set " + stationName + " to visited if haven't been visited before.");
+        final Response response = tubeService.setVisitedFor(stationName);
+        model.addAttribute("status", response.getResult());
+        model.addAttribute("description", response.getDescription());
+        model.addAttribute("station", response.getStation());
+        log.info("Returning response for request to set " + stationName + " visited with " + response.getResult());
         return "station";
     }
 

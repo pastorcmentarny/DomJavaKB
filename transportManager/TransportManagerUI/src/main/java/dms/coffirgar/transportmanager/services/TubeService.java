@@ -31,13 +31,17 @@ public class TubeService {
 
     public Response getStationFor(String stationName) {
         final String stationAsString = tubeClient.getStationFor(stationName);
-        System.out.println("Response for " + stationName + " was " + stationAsString);
         return responseConverter.convert(stationAsString);
     }
 
     public Response setPassedFor(String stationName) {
         final String stationAsString = tubeClient.setPassedForStation(stationName);
-        System.out.println("SET PASSED RESPONSE: " + stationAsString);
         return responseConverter.convert(stationAsString);
+    }
+
+    public Response setVisitedFor(String stationName) {
+        final String stationAsString = tubeClient.setVisitedForStation(stationName);
+        return responseConverter.convert(stationAsString);
+
     }
 }

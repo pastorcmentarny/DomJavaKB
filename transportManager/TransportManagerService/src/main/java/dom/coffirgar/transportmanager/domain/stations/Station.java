@@ -3,13 +3,12 @@ package dom.coffirgar.transportmanager.domain.stations;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.*;
 
 import java.time.LocalDate;
 import java.util.Objects;
 
-import static dom.coffirgar.transportmanager.common.Utils.*;
+import static dom.coffirgar.transportmanager.common.Utils.EMPTY_STRING;
 import static dom.coffirgar.transportmanager.domain.stations.Status.*;
 
 
@@ -41,7 +40,7 @@ public class Station {
     }
 
     public static Station noStation() {
-        return new Station(EMPTY_STRING,Status.UNKNOWN,null,null,null);
+        return new Station(EMPTY_STRING, Status.UNKNOWN, null, null, null);
     }
 
     public void setStatus(Status status) {
@@ -57,6 +56,7 @@ public class Station {
     }
 
     public void setVisitedDateToNow() {
+        status = VISITED;
         visitedDate = LocalDate.now();
     }
 
@@ -81,11 +81,30 @@ public class Station {
 
     @JsonIgnore
     public boolean isVisitedThisYearAlready() {
-        return false;
+        if (status != VISITED) {
+            return false;
+        } else if (Objects.isNull(visitedThisYearDate)) {
+            return false;
+        }else{
+            return visitedThisYearDate.getYear() == LocalDate.now().getYear();
+        }
     }
 
     @JsonIgnore
     public boolean isVisitedAlready() {
         return false;
+    }
+
+    @JsonIgnore
+    public void updateStationToVisited() {
+        if (isVisitedThisYearAlready()) {
+            return;
+        }
+        if (status == NOT_VISITED) {
+            setPassedDateToNow();
+        }
+
+        setVisitedDateToNow();
+        setVisitedStationThisYearToNow();
     }
 }

@@ -7,6 +7,9 @@ import lombok.*;
 
 import java.util.Objects;
 
+import static dom.coffirgar.transportmanager.common.Utils.notEquals;
+import static dom.coffirgar.transportmanager.domain.stations.Status.NOT_VISITED;
+
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -17,6 +20,7 @@ import java.util.Objects;
 public class Response {
     private static final String OK = "OK"; //TODO move to enum
     private static final String ERROR = "ERROR";
+    private static final String WARNING = "WARNING";
     private String result;
     private String description;
     private Station station;
@@ -53,5 +57,28 @@ public class Response {
 
     private boolean not(boolean ok) {
         return false;
+    }
+
+    public void toWarning(String  warningMessage) {
+        if(notEquals(result,ERROR)){
+            this.result = WARNING;
+            this.description = warningMessage;
+        }
+    }
+
+
+    public void toInfo(String informationMessage) {
+        if(notEquals(result,ERROR) && notEquals(result,WARNING)){
+            this.result = OK;
+            this.description = informationMessage;
+        }
+    }
+
+    public void updateToVisitedThisYear() {
+        station.setVisitedStationThisYearToNow();
+    }
+
+    public void updateToVisited() {
+        station.updateStationToVisited();
     }
 }

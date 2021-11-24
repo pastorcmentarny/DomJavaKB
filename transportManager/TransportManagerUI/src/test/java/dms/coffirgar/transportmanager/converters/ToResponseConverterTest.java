@@ -65,4 +65,16 @@ class ToResponseConverterTest {
         // then
         assertThat(result).isEqualTo(expectedResult);
     }
+
+    @Test
+    void isStationNullWhenResponseOKShouldReturnTrueIfStationIsNullButStatusIsOK() {
+        // given
+        final Response response = new Response("OK", "Everything is fine,except is wrong", null);
+
+        // when
+        boolean result = converter.isStationNullWhenResponseOK(response);
+
+        // then
+        assertThat(result).isFalse();
+    }
 }

@@ -6,7 +6,9 @@ import dom.coffirgar.transportmanager.services.TubeGateway;
 import dom.coffirgar.transportmanager.services.TubeService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -30,7 +32,7 @@ public class StationController {
     }
 
 
-    @RequestMapping(value = "/stations/tube/all", method = RequestMethod.GET, produces = APPLICATION_JSON)
+    @GetMapping(value = "/stations/tube/all", produces = APPLICATION_JSON)
     public String getAllStations() {
         log.info("Getting all tube to stations");
         return tubeGateway.getAllStations();
@@ -42,14 +44,23 @@ public class StationController {
         return tubeGateway.getStation(stationName);
     }
 
-    @GetMapping(value = "/station/tube/set-passed/{stationName}",produces = APPLICATION_JSON)
+    @GetMapping(value = "/station/tube/set-passed/{stationName}", produces = APPLICATION_JSON)
     public Response updateStationToPassed(@PathVariable String stationName) {
         return tubeService.setToPassedStatus(stationName);
     }
 
-    @RequestMapping(value = "/stations/tubes/all-names", method = RequestMethod.GET, produces = APPLICATION_JSON)
+    @GetMapping(value = "/station/tube/set-visited/{stationName}", produces = APPLICATION_JSON)
+    public Response updateStationToVisited(@PathVariable String stationName) {
+        return tubeService.setToVisitedStatus(stationName);
+    }
+
+    @GetMapping(value = "/stations/tubes/all-names", produces = APPLICATION_JSON)
     public List<String> getAllStationsNames() {
         return tubeGateway.getAllStationsNames();
     }
 
+    @GetMapping(value = "/tube/update", produces = APPLICATION_JSON)
+    public Response updateStation() {
+        return tubeService.setToVisitedStatus("Upney");
+    }
 }

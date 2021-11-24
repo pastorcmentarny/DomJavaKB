@@ -15,8 +15,15 @@
         crossorigin="anonymous"></script>
 <a href="/all-stations-name">Back to All stations</a>
 
-<h2 th:text="${status}"/>
-<h2 th:text="${description}"/>
+<h2 th:text="${station?.name}"/>
+<spam th:text="${status}"/>
+<div th:switch="${status}">
+    <span th:case="OK"  class="badge bg-success" th:text="${description}"/>
+    <span th:case="ERROR"  class="badge bg-warning" th:text="${description}"/>
+    <span th:case="NOT FOUND"  class="badge bg-danger" th:text="${description}"/>
+    <span th:case="*"   class="badge bg-dark" th:text="${description}"/>
+</div>
+
 <table class="table">
     <thead>
     <tr>
@@ -40,7 +47,7 @@
         <td/>
         <td><button type="button" class="btn btn-dark"><a class="btn btn-dark" th:href="@{'/tube/set-passed/' + ${station?.name}}">Set Passed Today</a></button></td>
         <td/>
-        <td><button type="button" class="btn btn-dark"><a class="btn btn-dark" th:href="@{'/tube/set-visited/' + ${station?.name}}">Set Visit Today</a></button></td>
+        <td><button type="button" class="btn btn-dark"><a class="btn btn-dark" th:href="@{'/tube/set-visited/' + ${station?.name}}">Set Visited Today</a></button></td>
     </tr>
     </tbody>
 </table>

@@ -10,7 +10,7 @@ ext {
 }
 
 group = 'dms.coffirgar'
-version = '72'
+version = '95'
 sourceCompatibility = '17'
 
 configurations {

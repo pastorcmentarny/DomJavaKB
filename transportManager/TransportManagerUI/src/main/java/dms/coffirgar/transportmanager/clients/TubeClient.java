@@ -37,12 +37,22 @@ public class TubeClient {
     }
 
     public String getStationFor(String stationName) {
+        System.out.println("Get Station For " + stationName);
         final ResponseEntity<String> response = restTemplate.getForEntity(TM_SERVICE_URL + "/station/tube/" + stationName, String.class);
         return response.getBody();
     }
 
     public String setPassedForStation(String stationName) {
+        log.info("Sending request to tube service to set " + stationName + " to passed");
         final ResponseEntity<String> response = restTemplate.getForEntity(TM_SERVICE_URL + "/station/tube/set-passed/" + stationName, String.class);
+        log.info("Response for " + stationName + " was " + response.getStatusCode());
+        return response.getBody();
+    }
+
+    public String setVisitedForStation(String stationName) {
+        log.info("Sending request to tube service to set " + stationName + " to visited");
+        final ResponseEntity<String> response = restTemplate.getForEntity(TM_SERVICE_URL + "/station/tube/set-visited/" + stationName, String.class);
+        log.info("Response for " + stationName + " was " + response.getStatusCode());
         return response.getBody();
     }
 }

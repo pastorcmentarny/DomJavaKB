@@ -34,6 +34,12 @@ public class TubeService {
             if(stationResponse.getStation().isVisitedThisYearAlready()) {
                 stationResponse.toWarning("Station was visited (this year)");
             }else {
+                if(stationResponse.getStation().isVisitedAlready()){
+                    stationResponse.toInfo("Station was visited already. Updating for visited this year.");
+                    stationResponse.updateToVisitedThisYear();
+                } else {
+                    stationResponse.updateToVisited();
+                }
                 tubeGateway.updateStatusFor(stationResponse.getStation());
             }
         }
