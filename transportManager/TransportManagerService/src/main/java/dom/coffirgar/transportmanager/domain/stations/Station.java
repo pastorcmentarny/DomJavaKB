@@ -1,6 +1,9 @@
 package dom.coffirgar.transportmanager.domain.stations;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -20,9 +23,11 @@ public class Station {
 
     private String name;
     private Status status;
-    //private StationType stationType;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate passedDate;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate visitedDate;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate visitedThisYearDate;
     //LocalDateTime lastUpdatedOn;
 
@@ -59,17 +64,28 @@ public class Station {
         visitedThisYearDate = LocalDate.now();
     }
 
+    @JsonIgnore
     public String getStatusAsValue() {
         return status.value();
     }
 
-
+    @JsonIgnore
     public boolean isNotAStation() {
         return Objects.isNull(name) || name.isEmpty() || status == UNKNOWN;
     }
 
+    @JsonIgnore
     public boolean isPassedAlready() {
         return status != NOT_VISITED && status != UNKNOWN;
     }
 
+    @JsonIgnore
+    public boolean isVisitedThisYearAlready() {
+        return false;
+    }
+
+    @JsonIgnore
+    public boolean isVisitedAlready() {
+        return false;
+    }
 }

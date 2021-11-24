@@ -57,7 +57,7 @@ public class ToStationConverterTest extends AbstractTest {
     public void toStationAsJsonShouldReturnStationAsJsonAsString() {
         // given
         final String expectedResult = """
-                {"name":"Uxbridge","status":"VISITED","passedDate":"2021-11-21","visitedDate":"2021-11-21","visitedThisYearDate":"2021-11-21"}""";
+                {"name":"Uxbridge","status":"V","passedDate":"2021-11-21","visitedDate":"2021-11-21","visitedThisYearDate":"2021-11-21"}""";
         final LocalDate date = LocalDate.of(2021, 11, 21);
         final Station station = new Station("Uxbridge", Status.VISITED, date, date, date);
         ToStationConverter converter = new ToStationConverter(getObjectMapper());
@@ -73,7 +73,7 @@ public class ToStationConverterTest extends AbstractTest {
     public void toStationAsJsonShouldReturnNoStationAsJsonAsString() {
         // given
         final String expectedResult = """
-                {"name":"","status":"UNKNOWN","passedDate":null,"visitedDate":null,"visitedThisYearDate":null}""";
+                {"name":"","status":"U","passedDate":null,"visitedDate":null,"visitedThisYearDate":null}""";
         ToStationConverter converter = new ToStationConverter(getObjectMapper());
 
         // when
