@@ -1,14 +1,13 @@
 package dom.coffirgar.transportmanager;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-class TransportManagerServiceApplicationTests {
+
+class TransportManagerServiceApplicationTests extends AbstractFunctionalTest {
 
     @Test
     void applicationStarted() {
-
+        System.out.println("Application started :D");
     }
 
 }
