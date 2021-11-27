@@ -6,6 +6,10 @@ _I am not the author of these definitions so check resources section for the ori
 
 # A
 
+## ACK
+
+ACK is short for acknowledgment.
+
 ## Algorithm
 
 It is a step-by-step procedure for 'recipe' like calculations.
@@ -41,6 +45,34 @@ It is the sections of code that have to be included in many places with little o
 It is the concept of storing the generated results and using the stored results instead of generating them repeatedly if
 the same request arrives in the near future. This can be done on the client, the server, or on any other component
 between them, such as a proxy server. Caching is a great way of enhancing the service performance,
+
+## Container
+
+The containers is a groups of processes isolated from others using various constrains techniques available in Linux
+like: resource constrains (control groups), security constraints(permissions, SELinux)  and namesspaces (PID, network,
+mount etc.)
+Container runtimes are tools that modify these resource constraints, security, and namespaces and launch the container.
+
+a container registry a web service where you storefrom which they could be pulled,
+
+Container engines are programs that can pull container images from container registries and reassemble them onto
+container storage. Container engines also launch container runtimes (see below).
+
+a container runtime configuration. The runtime configuration combines input from the caller/user along with the content
+of the container image specification. For example, the caller might want to specify modifications to a running
+container's security, add additional environment variables,
+
+a container runtime that reads the container runtime specification; modifies the Linux cgroups, Linux security
+constraints, and namespaces; and launches the container command to create the container's PID 1. At this point, the
+container engine can relay stdin/stdout back to the caller and control the container (e.g., stop, start, attach).
+
+Container orchestrators are tools used to coordinate the execution of containers on multiple different nodes.
+
+Optimise your container images:
+
+1. First pass: Clean up after yourself removing cached files from an image to recover space
+
+As with everything in life, moderation is key.
 
 ## Content Security Policy (CSP)
 
@@ -81,9 +113,10 @@ hiding of data implementation by restricting access
 # F
 
 ## What is Framework?
-//TODO
-A framework is a set of classes and interfaces which provide a ready-made architecture. An optimal object-oriented
-design always includes a framework with a collection of classes such that all the classes perform the same kind of task.
+
+//TODO A framework is a set of classes and interfaces which provide a ready-made architecture. An optimal
+object-oriented design always includes a framework with a collection of classes such that all the classes perform the
+same kind of task.
 
 # H
 
@@ -95,6 +128,11 @@ design always includes a framework with a collection of classes such that all th
 
 stands for Hypertext Transfer Protocol. It's a stateless, application-layer protocol for communicating between
 distributed systems to allow two systems to communicate via remote calls.
+
+HTTP uses a simple request and response mechanism.
+
+HTTP has two strategies to counter these problems. The simplest is called HTTP persistent connection, sometimes also
+known as keep-alive. HTTP will simply reuse the same TCP connection once a single request-response pair is done.
 
 # I
 
@@ -290,6 +328,15 @@ a “Connection Established” message.
 * **HEADER** - _The metadata and settings about the response message._
 * **BODY** - _It contains the representation if the request was successful._
 
+# I
+
+## IP
+
+IP — Internet Protocol The IP in TCP/IP is short for Internet Protocol. IP implements packet-switched networking. It has
+a concept of hosts, which are machines. The IP protocol specifies how datagrams (packets) are sent between these
+hosts.The IP Header An IP packet consists of a header and a payload. The payload contains the actual data to be
+transmitted, while the header is metadata.
+
 # S
 
 ## SaaS
@@ -304,12 +351,21 @@ SLF4J is a façade for various logging frameworks
 
 A RESTful service is stateless and does not maintain the application state for any client
 
+## SYN
+
+It stands for synchronize sequence numbers.
+
 # T
 
 ## TCP
 
+TCP — Transmission Control Protocol. It’s so common that the entire suite of protocols is often referred to as TCP/IP.
 It is a reliable data transfer protocol that ensures that the data sent is complete and correct and requires to
 establish a connection.
+
+TCP is built on top of IP. The Transmission Control Protocol provides reliable, ordered, error-checked delivery of a
+stream of data between programs. With TCP, an application running on one device can send data to an application on
+another device and be sure that the data arrives there in the same way that it was sent.
 
 ## (Database) Transaction
 
@@ -364,11 +420,4 @@ victim.
 * 2019.1 - Quick cleanup
 * 2018.1 - First Version
 
-# Resources:
 
-0. http://www.drdobbs.com/web-development/restful-web-services-a-tutorial/240169069
-0. http://javarevisited.blogspot.com/2016/04/what-is-purpose-of-http-request-types-in-RESTful-web-service.html
-0. https://medium.com/python-pandemonium/better-python-dependency-and-package-management-b5d8ea29dff1
-0. https://www.reactivemanifesto.org/
-0. https://springframework.guru/reactive-streams-in-java/
-0. https://en.wikipedia.org/wiki/Boilerplate_code

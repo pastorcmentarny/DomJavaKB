@@ -66,5 +66,13 @@ RESOURCES:
  * https://learn.hashicorp.com/vault/getting-started/
  * https://www.codenotfound.com/spring-kafka-consumer-producer-example.html
  * https://opencredo.com/blogs/kafka-connect-source-connectors-a-detailed-guide-to-connecting-to-what-you-love/
+ * https://opensource.com/article/18/7/building-container-images
+ * https://opensource.com/article/18/8/sysadmins-guide-containers
+ * http://www.drdobbs.com/web-development/restful-web-services-a-tutorial/240169069
+ * http://javarevisited.blogspot.com/2016/04/what-is-purpose-of-http-request-types-in-RESTful-web-service.html
+ * https://medium.com/python-pandemonium/better-python-dependency-and-package-management-b5d8ea29dff1
+ * https://www.reactivemanifesto.org/
+ * https://springframework.guru/reactive-streams-in-java/
+ * https://en.wikipedia.org/wiki/Boilerplate_code
 
 

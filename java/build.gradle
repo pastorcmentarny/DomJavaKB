@@ -22,7 +22,7 @@ configurations {
 ext {
     lombokVersion = "1.18.22"
     junitVersion = "5.8.1"
-    mockitoVersion = "4.0.0"
+    mockitoVersion = "4.1.0"
     restAssuredVersion = "4.4.0"
 }
 
@@ -51,7 +51,7 @@ version = '3'
 
 dependencies {
     implementation "commons-io:commons-io:2.11.0"
-    implementation "ch.qos.logback:logback-classic:1.2.6"
+    implementation "ch.qos.logback:logback-classic:1.2.7"
     implementation "org.simplejavamail:simple-java-mail:5.5.1" //TODO update
     implementation "io.rest-assured:rest-assured:${restAssuredVersion}" //normally should be testCompile
     implementation "io.rest-assured:json-schema-validator:${restAssuredVersion}" //normally should be testCompile

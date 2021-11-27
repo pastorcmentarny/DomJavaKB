@@ -6,5 +6,11 @@ buildscript {
 
 plugins {
     id 'idea'
-    id "ru.vyarus.use-python" version "2.2.0"
+    id "ru.vyarus.use-python" version "2.3.0"
+}
+
+idea {
+    module {
+        testSourceDirs += file('python/test')
+    }
 }
