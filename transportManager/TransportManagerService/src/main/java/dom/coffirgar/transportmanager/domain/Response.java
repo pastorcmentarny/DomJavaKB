@@ -2,13 +2,12 @@ package dom.coffirgar.transportmanager.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import dom.coffirgar.transportmanager.domain.stations.Station;
-import dom.coffirgar.transportmanager.domain.stations.Status;
 import lombok.*;
 
 import java.util.Objects;
 
 import static dom.coffirgar.transportmanager.common.Utils.notEquals;
-import static dom.coffirgar.transportmanager.domain.stations.Status.NOT_VISITED;
+import static dom.coffirgar.transportmanager.domain.stations.Status.PASSED;
 
 
 @NoArgsConstructor
@@ -21,12 +20,13 @@ public class Response {
     private static final String OK = "OK"; //TODO move to enum
     private static final String ERROR = "ERROR";
     private static final String WARNING = "WARNING";
+    private static final String NOT_FOUND = "NOT_FOUND";
     private String result;
     private String description;
     private Station station;
 
     public static Response notFound(String stationName) {
-        return new Response("NOT FOUND", stationName + " not found", null);
+        return new Response(NOT_FOUND, stationName + " not found", null);
     }
 
     public static Response error(String message) {
@@ -42,7 +42,7 @@ public class Response {
     }
 
     public void updateToPassed() {
-        station.setStatus(Status.PASSED);
+        station.setStatus(PASSED);
         station.setPassedDateToNow();
     }
 
@@ -59,8 +59,8 @@ public class Response {
         return false;
     }
 
-    public void toWarning(String  warningMessage) {
-        if(notEquals(result,ERROR)){
+    public void toWarning(String warningMessage) {
+        if (notEquals(result, ERROR)) {
             this.result = WARNING;
             this.description = warningMessage;
         }
@@ -68,7 +68,7 @@ public class Response {
 
 
     public void toInfo(String informationMessage) {
-        if(notEquals(result,ERROR) && notEquals(result,WARNING)){
+        if (notEquals(result, ERROR) && notEquals(result, WARNING)) {
             this.result = OK;
             this.description = informationMessage;
         }

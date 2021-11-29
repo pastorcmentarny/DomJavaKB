@@ -53,18 +53,19 @@ class ToResponseConverterTest {
         assertThat(result).isEqualTo(expectedResult);
     }
 
-
     @Test
     void shouldReturnNoStationIfErrorOccurredDuringConversionIfJsonIsInvalid() {
         // given
-        final Response expectedResult = new Response("ERROR", "Something went badly wrong and we got this sad error message Invalid respond from server. Response: {\"invalid\" : \"\"}", Station.noStation());
+        final String errorMessage = "Something went badly wrong and we got this sad error message Unable to convert due to:Unrecognized token 'dominik': was expecting (JSON String, Number, Array, Object or token 'null', 'true' or 'false') at [Source: (String)\"dominik\"; line: 1, column: 8] . StationData : dominik, station=Station(name=, status=, passedDate=, visitedDate=, visitedThisYearDate=)";
+        final Response expectedResult = new Response("ERROR", errorMessage, Station.noStation());
 
         // when
-        final Response result = converter.convert("{\"invalid\" : \"\"}");
+        final Response result = converter.convert("dominik");
 
         // then
         assertThat(result).isEqualTo(expectedResult);
     }
+
 
     @Test
     void isStationNullWhenResponseOKShouldReturnTrueIfStationIsNullButStatusIsOK() {
@@ -75,6 +76,6 @@ class ToResponseConverterTest {
         boolean result = converter.isStationNullWhenResponseOK(response);
 
         // then
-        assertThat(result).isFalse();
+        assertThat(result).isTrue();
     }
 }

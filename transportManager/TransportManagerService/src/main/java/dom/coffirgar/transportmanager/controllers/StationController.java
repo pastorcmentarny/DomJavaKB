@@ -19,7 +19,6 @@ import static dom.coffirgar.transportmanager.configurations.Constants.APPLICATIO
 @RestController
 public class StationController {
 
-
     private final StationsService stationsService;
     private final TubeGateway tubeGateway;
     private final TubeService tubeService;

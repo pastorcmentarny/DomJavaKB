@@ -28,6 +28,7 @@ APP_NAME = 'DB'
 
 @app.route("/actuator/health")
 def healthcheck():
+    logger.debug("Get healthcheck")
     return jsonify({"status": "UP", "app": APP_NAME})
 
 
@@ -44,6 +45,7 @@ def update_metrics_for():
 
 @app.route('/tube/station/<station_name>')
 def get_station_information_for(station_name):
+    logger.info(f"Getting station data for {station_name}")
     result = tube_service.get_station_data_for_(station_name)
     if result == {}:
         abort(404)
@@ -52,6 +54,7 @@ def get_station_information_for(station_name):
 
 @app.route('/tube/station/passed/<station_name>/<date>')
 def update_station_to_passed(station_name: str, date: str):
+    logger.info(f"Update station to passed for {station_name}")
     updated = tube_service.update_station_to_passed(station_name, date)
     if updated:
         return Response('"status": "OK"}', status=201, mimetype='application/json')
@@ -61,6 +64,7 @@ def update_station_to_passed(station_name: str, date: str):
 
 @app.route("/tube/stations/")
 def get_all_stations():
+    logger.info(f"Getting all stations data")
     return jsonify({"stations": storage_service.load_data(db_config.get_path())})
 
 
@@ -72,6 +76,7 @@ def handle_exception(http_exception):
         "name": http_exception.name,
         "description": http_exception.description,
     })
+    logger.warning(f"Something went wrong f{response.data}")
     response.content_type = "application/json"
     return response
 
@@ -82,6 +87,10 @@ def main_route():
 
 
 if __name__ == '__main__':
+    logging_level = logging.DEBUG
+    logging_format = "%(levelname)s\t\t:: %(asctime)s :: %(message)s"
+    logging.basicConfig(level=logging_level, format=logging_format)
+    logging_filename = 'tm_db_logs.txt'
     logger.info('Starting web server')
 
     try:
@@ -94,10 +103,11 @@ if __name__ == '__main__':
         print('Received request application to shut down.. goodbye. {}'.format(keyboard_exception))
         logging.info('Received request application to shut down.. goodbye!', exc_info=True)
     except Exception as exception:
-        logger.error('Something went badly wrong\n{}'.format(exception), exc_info=True)
+        logger.error(f"Something went badly wrong: {exception}", exc_info=True)
         sys.exit(1)
     except BaseException as disaster:
-        msg = 'Shit hit the fan and application died badly because {}'.format(disaster)
+        msg = f"Shit hit the fan and application died badly because {disaster}"
         print(msg)
+        logger.error(f"Something went badly wrong: {disaster}", exc_info=True)
         traceback.print_exc()
         logger.fatal(msg, exc_info=True)

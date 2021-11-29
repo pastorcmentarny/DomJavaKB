@@ -8,10 +8,12 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
+import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class ToResponseConverterTest extends AbstractTest {
 
+    private static final String ERROR_STATUS = "ERROR";
     final ToResponseConverter converter = new ToResponseConverter(getObjectMapper());
 
     @Test
@@ -38,8 +40,22 @@ class ToResponseConverterTest extends AbstractTest {
         System.out.println("RESPONSE: " + response.toString());
 
         // then
-        assertThat(response.getResult()).isNotEqualTo("ERROR");
+        assertThat(response.getResult()).isNotEqualTo(ERROR_STATUS);
         assertThat(response).isEqualTo(expectedResponse);
+
+    }
+
+
+    @Test
+    void shouldThrowExceptionIfJsonIsInvalid() {
+        // given
+        final String input = "dominik";
+
+        // when
+        final Response response = converter.fromJsonAsString(input);
+
+        // then
+        assertThat(response.getResult()).isEqualTo(ERROR_STATUS);
 
     }
 }

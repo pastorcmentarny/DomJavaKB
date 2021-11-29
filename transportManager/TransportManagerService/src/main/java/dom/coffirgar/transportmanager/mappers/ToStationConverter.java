@@ -36,7 +36,6 @@ public final class ToStationConverter {
 
     public Stations fromStationsAsJson(String stationsAsJson) {
         try {
-            log.info(stationsAsJson);
             return objectMapper.readValue(stationsAsJson, Stations.class);
         } catch (JsonProcessingException jsonProcessingException) {
             log.error("Unable to convert because I cocked up something : " + jsonProcessingException.getMessage());
