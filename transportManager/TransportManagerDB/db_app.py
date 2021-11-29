@@ -9,16 +9,15 @@
 * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
 * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
 """
-import datetime
 import json
 import logging
-import platform
 import sys
 import traceback
 
 from flask import Flask, jsonify, request, abort, Response
 from werkzeug.exceptions import HTTPException
 
+import db_config
 import storage_service
 import tube_service
 
@@ -62,11 +61,7 @@ def update_station_to_passed(station_name: str, date: str):
 
 @app.route("/tube/stations/")
 def get_all_stations():
-    if platform.node() == "DOM-DESKTOP":
-        return jsonify({"stations": storage_service.load_data(
-            r'B:\GitHub\DomKB\transportManager\TransportManagerDB\stations.txt')})
-    else:
-        return jsonify({"stations": storage_service.load_data(r'home/pi/stations.txt')})
+    return jsonify({"stations": storage_service.load_data(db_config.get_path())})
 
 
 @app.errorhandler(HTTPException)
@@ -83,13 +78,6 @@ def handle_exception(http_exception):
 
 @app.route("/")
 def main_route():
-    start = datetime.datetime.now()
-
-    stop = datetime.datetime.now()
-
-    delta = stop - start
-    print(f'It took {int(delta.total_seconds() * 1000)} ms.')
-
     return jsonify({"status": "OK"})
 
 
@@ -99,7 +87,8 @@ if __name__ == '__main__':
     try:
         app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
         app.config['JSON_AS_ASCII'] = False
-        app.run(host='0.0.0.0', port=18003, debug=True)  # host added so it can be visible on local network
+        # host added so it can be visible on local network
+        app.run(host='0.0.0.0', port=db_config.server_port, debug=True)
 
     except KeyboardInterrupt as keyboard_exception:
         print('Received request application to shut down.. goodbye. {}'.format(keyboard_exception))
