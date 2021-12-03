@@ -9,6 +9,7 @@
 * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
 * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
 """
+import datetime
 import json
 import logging
 import sys
@@ -89,8 +90,8 @@ def main_route():
 if __name__ == '__main__':
     logging_level = logging.DEBUG
     logging_format = "%(levelname)s\t\t:: %(asctime)s :: %(message)s"
-    logging.basicConfig(level=logging_level, format=logging_format)
-    logging_filename = 'tm_db_logs.txt'
+    logging_filename = f"tm_db_logs_{datetime.date.today()}.txt"
+    logging.basicConfig(level=logging_level, format=logging_format, filename=logging_filename)
     logger.info('Starting web server')
 
     try:
@@ -103,7 +104,9 @@ if __name__ == '__main__':
         print('Received request application to shut down.. goodbye. {}'.format(keyboard_exception))
         logging.info('Received request application to shut down.. goodbye!', exc_info=True)
     except Exception as exception:
-        logger.error(f"Something went badly wrong: {exception}", exc_info=True)
+        msg = f"Something went badly wrong: {exception}"
+        print(msg)
+        logger.error(msg, exc_info=True)
         sys.exit(1)
     except BaseException as disaster:
         msg = f"Shit hit the fan and application died badly because {disaster}"

@@ -1,3 +1,7 @@
+import logging
+
+logger = logging.getLogger('app')
+
 VISITED_THIS_YEAR_DATE = "visitedThisYearDate"
 VISITED_DATE = "visitedDate"
 PASSED_DATE = "passedDate"
@@ -40,14 +44,18 @@ def convert_dict_to_line(station: dict) -> str:
 
 
 def load_data(path: str) -> list:
+    logger.info(f"loading data from {path}")
     file = open(path, READ, newline=EMPTY)
     database = file.readlines()
     database = [line.replace("\r\n", EMPTY) for line in database]
     database = [convert_line_to_dict(line) for line in database]
+    logger.info(f"data loaded")
     return database
 
 
 def save_data(stations: list, path: str):
+    logger.info(f"saving data to {path}")
     stations = [convert_dict_to_line(station) for station in stations]
     with open(path, WRITE_READ_MODE, encoding=ENCODING) as path_file:
         path_file.write('\n'.join(stations))
+    logger.info(f"data saved")
