@@ -12,7 +12,7 @@ buildscript {
 }
 
 plugins {
-    id 'org.springframework.boot' version '2.6.0'
+    id 'org.springframework.boot' version '2.6.1'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
     id 'idea' //allows clean intellij idea projects from gradle
@@ -26,9 +26,9 @@ project.ext {
 }
 
 ext {
-    springVersion = "2.6.0"
+    springVersion = "2.6.1"
     lombokVersion = "1.18.22"
-    mockitoVersion = "4.0.0"
+    mockitoVersion = "4.1.0"
     junitVersion = "5.8.1"
 }
 

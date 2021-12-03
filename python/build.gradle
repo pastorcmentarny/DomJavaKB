@@ -6,7 +6,7 @@ buildscript {
 
 plugins {
     id 'idea'
-    id "ru.vyarus.use-python" version "2.3.0"
+    id "com.jetbrains.python.envs" version "0.0.31"
 }
 
 idea {
