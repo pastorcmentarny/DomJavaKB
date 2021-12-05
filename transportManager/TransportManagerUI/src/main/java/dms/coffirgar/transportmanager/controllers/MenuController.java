@@ -21,9 +21,18 @@ public class MenuController {
         this.tubeService = tubeService;
     }
 
+    private static final String NOT_IMPLEMENTED_YET = "Display Statistics not yet implemented yet";
+
     @GetMapping("/")
     public String greeting(@RequestParam(name = "option", required = false, defaultValue = "1") String option, Model model) {
         model.addAttribute("option", option);
+        return "menu";
+    }
+
+    @GetMapping("/tube/statistics")
+    public String displayStatistics(Model model) {
+        log.error(NOT_IMPLEMENTED_YET);
+        model.addAttribute("error", NOT_IMPLEMENTED_YET);
         return "menu";
     }
 

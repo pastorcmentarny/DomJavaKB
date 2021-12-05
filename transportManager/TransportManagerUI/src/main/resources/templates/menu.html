@@ -33,6 +33,9 @@
         <p class="fs-5 text-muted">Here, you can display information and statistics about progress of exploring all
             station on the Tube,Overground and Trains in the UK.</p>
     </div>
+    <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+        <h3 class="text-danger" th:text="${error}?:''"></h3>
+    </div>
 </header>
 
 
@@ -49,14 +52,15 @@
                     </svg>
 
                     <div class="card-body">
-                        <p class="card-text">This section covers all information about my progress of visiting all tube stations in the
+                        <p class="card-text">This section covers all information about my progress of visiting all tube
+                            stations in the
                             London</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <ul>
-                                <li>Display Underground Statistic</li>
-                                <li><a href="/all-stations">Display Status For All Stations</a></li>
-                                <li><a href="/line-status">Display Status For Specific Line</a></li>
-                                <li><a href="/all-stations-name">Update status for specific Station</a></li>
+                                <li><a href="/tube/statistics">Display Underground Statistic</a></li>
+                                <li><a href="/tube/all-stations-list">Display list of the stations</a></li>
+                                <li><a href="/tube/status/all-stations">Display Status For All Stations</a></li>
+                                <li><a href="/tube/status/line">Display Status For Specific Line</a></li>
                                 <li>Load Station</li>
                             </ul>
                         </div>
@@ -73,7 +77,8 @@
                     </svg>
 
                     <div class="card-body">
-                        <p class="card-text">This section covers all information about my progress of visiting all Overground stations in the
+                        <p class="card-text">This section covers all information about my progress of visiting all
+                            Overground stations in the
                             London</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
@@ -95,7 +100,8 @@
                     </svg>
 
                     <div class="card-body">
-                        <p class="card-text">This section covers all information about my progress of visiting all tube stations in the
+                        <p class="card-text">This section covers all information about my progress of visiting all tube
+                            stations in the
                             the UK</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
@@ -119,17 +125,10 @@
                     </svg>
 
                     <div class="card-body">
-                        <p class="card-text">This section covers all information about my progress of visiting all trams stations in the
+                        <p class="card-text">This section covers all information about my progress of visiting all trams
+                            stations in the
                             Wroclaw</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <ul>
-                                <li>Display Underground Statistic</li>
-                                <li><a href="/all-stations">Display Status For All Stations</a></li>
-                                <li><a href="/line-status">Display Status For Specific Line</a></li>
-                                <li><a href="/all-stations-name">Update status for specific Station</a></li>
-                                <li>Load Station</li>
-                            </ul>
-                        </div>
+                        <div class="d-flex justify-content-between align-items-center">Coming Soon</div>
                     </div>
                 </div>
             </div>
@@ -143,7 +142,8 @@
                     </svg>
 
                     <div class="card-body">
-                        <p class="card-text">This section covers all information about my progress of visiting all bus stations in the
+                        <p class="card-text">This section covers all information about my progress of visiting all bus
+                            stations in the
                             Wroclaw</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
@@ -165,7 +165,8 @@
                     </svg>
 
                     <div class="card-body">
-                        <p class="card-text">This section covers all information about my progress of visiting all train stations in the
+                        <p class="card-text">This section covers all information about my progress of visiting all train
+                            stations in the
                             the Poland</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">

@@ -1,5 +1,5 @@
 12 days out with J;;TO_DO;;12;;2
-40 activities with Xu;;WORKING_ON;;40;;2
+40 activities with Xu;;WORKING_ON;;40;;3
 Read 365 book in Polish to J;;TO_DO;;365;;31
 12x family day outs;;WORKING_ON;;12;;3
 Barista course;;TO_DO;;
@@ -25,7 +25,7 @@ BRILLIANT (15 minutes/1 chapter);;IN_PROGRESS;;200;;2
 Donate to plant tree;;DONE;;
 Driving licence;;TO_DO;;
 Learn meditation;;TO_DO;;
-Write biography;;TO_DO;;
+Write biography;;WORKING_ON;;
 Fasting for 24,36,48 and 72 hours;;TO_DO;;4;;0
 Do RPi project;;DONE;;
 Design the SpaceTrain office in Shed;;WORKING_ON;;
