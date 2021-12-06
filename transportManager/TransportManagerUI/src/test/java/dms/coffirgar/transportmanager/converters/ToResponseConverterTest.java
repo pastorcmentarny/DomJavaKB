@@ -5,6 +5,7 @@ import dms.coffirgar.transportmanager.domain.Response;
 import dms.coffirgar.transportmanager.domain.Station;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class ToResponseConverterTest {
@@ -55,15 +56,15 @@ class ToResponseConverterTest {
 
     @Test
     void shouldReturnNoStationIfErrorOccurredDuringConversionIfJsonIsInvalid() {
-        // given
-        final String errorMessage = "Something went badly wrong and we got this sad error message Unable to convert due to:Unrecognized token 'dominik': was expecting (JSON String, Number, Array, Object or token 'null', 'true' or 'false') at [Source: (String)\"dominik\"; line: 1, column: 8] . StationData : dominik, station=Station(name=, status=, passedDate=, visitedDate=, visitedThisYearDate=)";
-        final Response expectedResult = new Response("ERROR", errorMessage, Station.noStation());
 
         // when
         final Response result = converter.convert("dominik");
 
         // then
-        assertThat(result).isEqualTo(expectedResult);
+        assertThat(result.getResult()).isEqualTo("ERROR");
+        assertThat(result.getDescription()).contains("Unrecognized token 'dominik': was expecting (JSON String, Number, Array, Object or token 'null', 'true' or 'false')");
+        assertThat(result.getDescription()).contains("at [Source: (String)\"dominik\"; line: 1, column: 8]");
+        assertThat(result.getStation()).isNotNull();
     }
 
 
