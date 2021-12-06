@@ -6,6 +6,10 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import static dms.coffirgar.transportmanager.configurations.Constants.ERROR;
+import static dms.coffirgar.transportmanager.configurations.Constants.NOT_FOUND;
+
+//TODO rename to StationResponse
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -13,14 +17,17 @@ import lombok.ToString;
 @EqualsAndHashCode
 public class Response {
 
+    //FIXME
     public String getResult() {
         return result;
     }
 
+    //FIXME
     public String getDescription() {
         return description;
     }
 
+    //FIXME
     public Station getStation() {
         return station;
     }
@@ -31,10 +38,10 @@ public class Response {
 
 
     public static Response notFound(String stationName) {
-        return new Response("NOT FOUND", stationName + " not found", Station.noStation());
+        return new Response(NOT_FOUND, stationName + " not found", Station.noStation());
     }
 
     public static Response error(String errorMessage) {
-        return new Response("ERROR", "Something went badly wrong and we got this sad error message " + errorMessage, Station.noStation());
+        return new Response(ERROR, "Something went badly wrong and we got this sad error message " + errorMessage, Station.noStation());
     }
 }

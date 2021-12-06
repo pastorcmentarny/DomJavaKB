@@ -13,7 +13,7 @@ Learn Rust;;TO_DO;;
 Run in four 10km race;;BLOCKED;;
 Run 1460km;;IN_PROGRESS;;
 Walk 50000 steps;;TO_DO;;
-Run at least 2km per day;;IN_PROGRESS;;365;;43
+Run at least 2km per day;;IN_PROGRESS;;365;;44
 The epic home2home trip;;TO_DO;;
 Travel on longest train in Poland;;TO_DO;;
 Explore all station on the one of the tube line;;TO_DO;;

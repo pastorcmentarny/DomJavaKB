@@ -55,4 +55,13 @@ public class TubeClient {
         log.info("Response for " + stationName + " was " + response.getStatusCode());
         return response.getBody();
     }
+
+    //TODO WIP
+    public String getStatistic() {
+        log.info("Sending request to get statistics for Tube");
+        ResponseEntity<String> response
+                = restTemplate.getForEntity(TM_SERVICE_URL + "/tube/statistics", String.class);
+        log.info("Sending request to get statistics for Tube");
+        return "";
+    }
 }

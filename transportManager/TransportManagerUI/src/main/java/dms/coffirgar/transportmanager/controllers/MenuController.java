@@ -1,5 +1,6 @@
 package dms.coffirgar.transportmanager.controllers;
 
+import dms.coffirgar.transportmanager.domain.DataResponse;
 import dms.coffirgar.transportmanager.domain.Response;
 import dms.coffirgar.transportmanager.services.TubeService;
 import lombok.extern.slf4j.Slf4j;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Arrays;
+import java.util.Map;
 
 @Slf4j
 @Controller
@@ -31,9 +33,11 @@ public class MenuController {
 
     @GetMapping("/tube/statistics")
     public String displayStatistics(Model model) {
-        log.error(NOT_IMPLEMENTED_YET);
-        model.addAttribute("error", NOT_IMPLEMENTED_YET);
-        return "menu";
+        final DataResponse response = tubeService.getStatistics();
+        model.addAttribute("status", response.getResult());
+        model.addAttribute("description", response.getDescription());
+        model.addAttribute("data", response.getData());
+        return "statistics";
     }
 
     @GetMapping("/all-stations-name")
