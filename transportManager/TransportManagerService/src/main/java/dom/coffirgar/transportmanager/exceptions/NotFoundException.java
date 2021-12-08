@@ -1,5 +1,7 @@
 package dom.coffirgar.transportmanager.exceptions;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -14,11 +16,13 @@ import java.io.Serial;
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
  * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
+@Slf4j
 @SuppressWarnings("WeakerAccess")
 public class NotFoundException extends RuntimeException {
 
     public NotFoundException(String what) {
-        super(what + " was not found.");
+        super("%s was not found.".formatted(what));
+        log.error("%s was not found.".formatted(what));
     }
 
     //https://www.owasp.org/index.php/Deserialization_Cheat_Sheet

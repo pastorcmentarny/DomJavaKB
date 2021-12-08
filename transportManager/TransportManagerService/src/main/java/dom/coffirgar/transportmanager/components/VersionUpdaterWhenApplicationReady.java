@@ -21,9 +21,9 @@ public class VersionUpdaterWhenApplicationReady implements ApplicationListener<A
 
     @Override
     public void onApplicationEvent(ApplicationReadyEvent event) {
-        log.info("Updating build...");
+        log.debug("Updating build...");
         final var buildNumber = UpdateBuildVersionOnStartup.updateVersion();
-        log.info("Current buildNumber is " + buildNumber);
+        log.debug("Current buildNumber is " + buildNumber);
 
     }
 }

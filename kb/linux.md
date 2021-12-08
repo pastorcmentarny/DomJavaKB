@@ -10,4 +10,4 @@
 * ``` sudo mv -v /mnt/data/photos/2019/11/05/ /mnt/data/photos/2019/11/06/ /mnt/data/photos/2019/11/07/ /mnt/data/2019/11/08/   /mnt/backup/cctv/2019/11/``` - move multiple folders into selected folder 
 * ``` pip3 list``` - display list of installed packages in python 3
 * ``` sudo lsblk -o UUID,NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL,MODEL``` - display data about mounted devices.
-
+* ```  ps -ax | grep "python" ``` find specific process name in running 

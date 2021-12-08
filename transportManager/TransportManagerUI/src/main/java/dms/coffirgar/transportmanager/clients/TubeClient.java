@@ -12,7 +12,6 @@ import static dms.coffirgar.transportmanager.configurations.Constants.TM_SERVICE
 @Service
 public class TubeClient {
 
-
     private RestTemplate restTemplate;
 
     @Autowired
@@ -22,37 +21,40 @@ public class TubeClient {
 
 
     public String getAllStations() {
+        log.info("Requesting all stations data");
         ResponseEntity<String> response
                 = restTemplate.getForEntity(TM_SERVICE_URL + "/stations/tube/all", String.class);
-        log.info(response.getStatusCode().toString());
+        log.info("Response for all stations data was: %s".formatted(response.getStatusCode().toString()));
         return response.getBody();
 
     }
 
     public String[] getAllStationsNames() {
+        log.info("Requesting all stations names");
         ResponseEntity<String[]> response
                 = restTemplate.getForEntity(TM_SERVICE_URL + "/stations/tubes/all-names", String[].class);
-        log.info(response.getStatusCode().toString());
+        log.info("Response for all stations name was: %s".formatted(response.getStatusCode().toString()));
         return response.getBody();
     }
 
     public String getStationFor(String stationName) {
-        System.out.println("Get Station For " + stationName);
+        log.info("Requesting station data for %s".formatted(stationName));
         final ResponseEntity<String> response = restTemplate.getForEntity(TM_SERVICE_URL + "/station/tube/" + stationName, String.class);
+        log.info("Response for %s was %s".formatted(stationName, response.getStatusCode().toString()));
         return response.getBody();
     }
 
     public String setPassedForStation(String stationName) {
         log.info("Sending request to tube service to set " + stationName + " to passed");
         final ResponseEntity<String> response = restTemplate.getForEntity(TM_SERVICE_URL + "/station/tube/set-passed/" + stationName, String.class);
-        log.info("Response for " + stationName + " was " + response.getStatusCode());
+        log.info("Response for %s was %s".formatted(stationName, response.getStatusCode()));
         return response.getBody();
     }
 
     public String setVisitedForStation(String stationName) {
         log.info("Sending request to tube service to set " + stationName + " to visited");
         final ResponseEntity<String> response = restTemplate.getForEntity(TM_SERVICE_URL + "/station/tube/set-visited/" + stationName, String.class);
-        log.info("Response for " + stationName + " was " + response.getStatusCode());
+        log.info("Response for %s was %s".formatted(stationName, response.getStatusCode()));
         return response.getBody();
     }
 
@@ -61,7 +63,7 @@ public class TubeClient {
         log.info("Sending request to get statistics for Tube");
         ResponseEntity<String> response
                 = restTemplate.getForEntity(TM_SERVICE_URL + "/tube/statistics", String.class);
-        log.info("Sending request to get statistics for Tube");
+        log.info("Response for get all statistics for Tube was %s".formatted(response.getStatusCode()));
         return "";
     }
 }

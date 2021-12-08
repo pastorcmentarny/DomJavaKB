@@ -1,4 +1,6 @@
 20211206;;Run at least 2k
+20211208;;Read 1 book to J
+20211206;;Run at least 2k
 20211204;;Day out with X
 20211123;;Run at least 2k
 20211123;;BRILLIANT (1 chapter)
@@ -13,6 +15,7 @@
 20211109;;Run at least 2k
 20211108;;Read 1 book to J
 20211108;;Run at least 2k
+20211107;;1 blog entry
 20211104;;Run at least 2k
 20211103;;Read 1 book to J
 20211102;;Run at least 2k

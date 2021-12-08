@@ -38,7 +38,7 @@ public final class ToStationConverter {
         try {
             return objectMapper.readValue(stationsAsJson, Stations.class);
         } catch (JsonProcessingException jsonProcessingException) {
-            log.error("Unable to convert because I cocked up something : " + jsonProcessingException.getMessage());
+            log.error("Unable to convert because I cocked up something : %s".formatted(jsonProcessingException.getMessage()));
             return Stations.builder().build();
         }
     }
@@ -57,18 +57,18 @@ public final class ToStationConverter {
         try {
             return objectMapper.readValue(stationAsString, Station.class);
         } catch (JsonProcessingException jsonProcessingException) {
-            throw new SomethingWentWrongException("Unable to convert because I cocked up something : " + jsonProcessingException.getMessage());
+            throw new SomethingWentWrongException("Unable to convert because I cocked up something : %s".formatted(jsonProcessingException.getMessage()));
         }
     }
 
     public String toStationAsJson(Station station) {
-        if(Objects.isNull(station)){
+        if (Objects.isNull(station)) {
             return "{}";
         }
         try {
             return objectMapper.writeValueAsString(station);
         } catch (JsonProcessingException jsonProcessingException) {
-            throw new SomethingWentWrongException("Unable to  convert due to " + jsonProcessingException.getMessage(), jsonProcessingException);
+            throw new SomethingWentWrongException("Unable to  convert due to %s".formatted(jsonProcessingException.getMessage()), jsonProcessingException);
         }
 
     }
