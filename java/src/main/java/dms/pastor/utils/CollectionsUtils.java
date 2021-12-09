@@ -3,6 +3,7 @@ package dms.pastor.utils;
 import java.util.*;
 
 import static dms.pastor.utils.ValidatorUtils.validateIfObjectValueIsNotNull;
+import static java.util.Objects.isNull;
 
 /**
  * Author Dominik Symonowicz
@@ -18,6 +19,7 @@ public final class CollectionsUtils {
     private CollectionsUtils() {
     }
 
+    //TODO remove it as it is part of Java itself
     public static List<String> emptyArrayList() {
         return new ArrayList<>(0);
     }
@@ -46,6 +48,17 @@ public final class CollectionsUtils {
             }
         }
         return false;
+
+    }
+
+    public static List<String> returnShuffledListAsNewCollection(List<String> original) {
+        if (isNull(original) || original.isEmpty()) {
+            return original;
+        }
+        List<String> destination = new ArrayList<>(original.size());
+        destination.addAll(original);
+        Collections.shuffle(destination);
+        return destination;
 
     }
 }

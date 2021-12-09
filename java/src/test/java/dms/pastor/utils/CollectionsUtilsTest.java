@@ -133,4 +133,50 @@ public class CollectionsUtilsTest {
         result.forEach(System.out::println);
     }
 
+    @Test
+    void returnShuffledListAsNewCollectionAcceptanceTest() {
+        // given
+        final List<String> input = List.of("A", "B", "C", "K", "L", "M", "X", "Y", "Z");
+
+        // when
+        final Collection<String> result = CollectionsUtils.returnShuffledListAsNewCollection(input);
+
+        //debug
+        System.out.println(input);
+        System.out.println(result);
+
+        // then
+        assertThat(result.size()).isEqualTo(input.size());
+        assertThat(result).isNotEqualTo(input);
+        assertThat(input.get(0)).isEqualTo("A");
+        assertThat(input.get(1)).isEqualTo("B");
+        assertThat(input.get(2)).isEqualTo("C");
+        assertThat(input.get(3)).isEqualTo("K");
+        assertThat(input.get(4)).isEqualTo("L");
+        assertThat(input.get(5)).isEqualTo("M");
+        assertThat(input.get(6)).isEqualTo("X");
+        assertThat(input.get(7)).isEqualTo("Y");
+        assertThat(input.get(8)).isEqualTo("Z");
+    }
+
+
+    @Test
+    void returnShuffledListAsNewCollectionReturnNullIfCollectionIsNullTest() {
+
+        // when
+        final List<String> result = returnShuffledListAsNewCollection(null);
+
+        // then
+        assertThat(result).isNull();
+    }
+
+    @Test
+    void returnShuffledListAsNewCollectionReturnEmptyIfCollectionIsEmptyTest() {
+
+        // when
+        final List<String> result = returnShuffledListAsNewCollection(new ArrayList<>(0));
+
+        // then
+        assertThat(result).isEmpty();
+    }
 }
