@@ -1,4 +1,6 @@
-20211206;;Run at least 2k
+20211213;;Run at least 2k
+20211212;;Read 1 book to J
+20211208;;Run at least 2k
 20211208;;Read 1 book to J
 20211206;;Run at least 2k
 20211204;;Day out with X
