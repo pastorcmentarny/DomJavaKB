@@ -1,8 +1,11 @@
 plugins {
-    id 'org.springframework.boot' version '2.6.0'
+    id 'org.springframework.boot' version '2.6.1'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
 }
+
+ext['log4j2.version'] = '2.16.0'
+
 
 group = 'dms.pastor'
 version = '0.8.0'
@@ -29,7 +32,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-mail'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation(platform("org.apache.logging.log4j:log4j-bom:2.15.0"))
+    implementation(platform("org.apache.logging.log4j:log4j-bom:2.16.0"))
     implementation 'commons-io:commons-io:2.11.0'
     compileOnly 'org.projectlombok:lombok:1.18.22'
     annotationProcessor 'org.projectlombok:lombok:1.18.22'

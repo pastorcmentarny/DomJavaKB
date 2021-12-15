@@ -18,6 +18,9 @@ ext {
     lombokVersion = "1.18.22"
 }
 
+ext['log4j2.version'] = '2.16.0'
+
+
 group = 'dom.coffirgar'
 version = '190'
 sourceCompatibility = '17'
@@ -54,7 +57,7 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-starter-actuator:${springVersion}"
     implementation "org.springframework.boot:spring-boot-starter-web:${springVersion}"
     implementation "org.springframework.boot:spring-boot-starter-webflux:${springVersion}"
-    implementation(platform("org.apache.logging.log4j:log4j-bom:2.15.0"))
+    implementation(platform("org.apache.logging.log4j:log4j-bom:2.16.0"))
     compileOnly "org.projectlombok:lombok:${lombokVersion}"
     developmentOnly "org.springframework.boot:spring-boot-devtools:${springVersion}"
     annotationProcessor "org.projectlombok:lombok:${lombokVersion}"

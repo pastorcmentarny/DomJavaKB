@@ -26,6 +26,8 @@ ext {
     restAssuredVersion = "4.4.0"
 }
 
+ext['log4j2.version'] = '2.16.0'
+
 description = "Java Learning and KB project "
 
 compileJava {
@@ -51,14 +53,14 @@ version = '3'
 
 dependencies {
     implementation "commons-io:commons-io:2.11.0"
-    implementation "ch.qos.logback:logback-classic:1.2.7"
+    implementation "ch.qos.logback:logback-classic:1.2.8"
     implementation "org.simplejavamail:simple-java-mail:5.5.1" //TODO update
     implementation "io.rest-assured:rest-assured:${restAssuredVersion}" //normally should be testCompile
     implementation "io.rest-assured:json-schema-validator:${restAssuredVersion}" //normally should be testCompile
     implementation "org.projectlombok:lombok:${lombokVersion}"
     implementation "org.apache.kafka:kafka-clients:2.8.0"
     implementation "org.junit.jupiter:junit-jupiter:${junitVersion}"
-    implementation(platform("org.apache.logging.log4j:log4j-bom:2.15.0"))
+    implementation(platform("org.apache.logging.log4j:log4j-bom:2.16.0"))
     annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
     testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
     testImplementation "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
