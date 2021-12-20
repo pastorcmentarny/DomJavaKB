@@ -40,6 +40,13 @@ public class MenuController {
         return "statistics";
     }
 
+    @GetMapping("/all-lines-name")
+    public String displayAllLines(Model model) {
+        model.addAttribute("lines", Arrays.asList(tubeService.getAllLines()));
+        return "lines-name";
+    }
+
+
     @GetMapping("/all-stations-name")
     public String displayAllStationsInformation(Model model) {
         model.addAttribute("stations", Arrays.asList(tubeService.getAllStationsNames()));

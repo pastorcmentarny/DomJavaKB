@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import static dms.coffirgar.transportmanager.configurations.Constants.EMPTY;
 import static dms.coffirgar.transportmanager.configurations.Constants.TM_SERVICE_URL;
 
 @Slf4j
@@ -64,6 +65,21 @@ public class TubeClient {
         ResponseEntity<String> response
                 = restTemplate.getForEntity(TM_SERVICE_URL + "/tube/statistics", String.class);
         log.info("Response for get all statistics for Tube was %s".formatted(response.getStatusCode()));
-        return "";
+        return EMPTY;
     }
+
+    public String[] getAllLines() {
+        log.info("Requesting all lines names");
+        try {
+            ResponseEntity<String[]> response
+                    = restTemplate.getForEntity(TM_SERVICE_URL + "/stations/tubes/all-lines", String[].class);
+            log.info("Response for all stations lines was: %s".formatted(response.getStatusCode().toString()));
+            return response.getBody();
+        } catch (RuntimeException exception) {
+            log.error("Unable to get all lines names due to :" + exception.getMessage());
+            return new String[0];
+        }
+    }
+
+
 }

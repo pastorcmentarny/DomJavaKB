@@ -53,4 +53,7 @@ public class TubeService {
         return dataResponseConverter.convert(statistic);
     }
 
+    public String[] getAllLines() {
+        return tubeClient.getAllLines();
+    }
 }
