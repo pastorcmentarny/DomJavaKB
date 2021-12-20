@@ -72,7 +72,7 @@ public class TubeClient {
         log.info("Requesting all lines names");
         try {
             ResponseEntity<String[]> response
-                    = restTemplate.getForEntity(TM_SERVICE_URL + "/stations/tubes/all-lines", String[].class);
+                    = restTemplate.getForEntity(TM_SERVICE_URL + "/tube/all-lines", String[].class);
             log.info("Response for all stations lines was: %s".formatted(response.getStatusCode().toString()));
             return response.getBody();
         } catch (RuntimeException exception) {

@@ -62,4 +62,10 @@ public class StationController {
     public Response updateStation() {
         return tubeService.setToVisitedStatus("Upney");
     }
+
+    @GetMapping(value = "/tube/statistics", produces = APPLICATION_JSON)
+    public String statistics() {
+        log.info("Getting statistics for Tube");
+        return tubeService.getStatistics();
+    }
 }

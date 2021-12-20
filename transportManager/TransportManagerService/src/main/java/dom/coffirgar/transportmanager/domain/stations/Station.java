@@ -43,6 +43,15 @@ public class Station {
         return new Station(EMPTY_STRING, Status.UNKNOWN, null, null, null);
     }
 
+    public static Station visited(String stationName, LocalDate dateVisited) {
+        return new Station(stationName,VISITED,dateVisited,dateVisited,null);
+    }
+
+    public static Station visitedThisYear(String stationName, LocalDate dateVisited, LocalDate visitedThisYearDate) {
+        return new Station(stationName,VISITED,dateVisited,dateVisited,visitedThisYearDate);
+    }
+
+
     public void setStatus(Status status) {
         this.status = status;
     }

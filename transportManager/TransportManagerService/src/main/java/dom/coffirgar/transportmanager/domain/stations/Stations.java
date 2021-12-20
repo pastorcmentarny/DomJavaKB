@@ -13,4 +13,12 @@ import java.util.List;
 @Builder
 public class Stations {
     private List<Station> stations;
+
+    public int allStations() {
+        return stations.size();
+    }
+
+    public int countStationPassed() {
+        return Math.toIntExact(stations.stream().filter(Station::isPassedAlready).count());
+    }
 }
