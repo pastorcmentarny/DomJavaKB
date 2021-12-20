@@ -31,7 +31,7 @@ ext {
     mockitoVersion = "4.1.0"
     junitVersion = "5.8.2"
 }
-ext['log4j2.version'] = '2.16.0'
+ext['log4j2.version'] = '2.17.0'
 
 
 apply from: "$gradleDir/dependecies.gradle"
