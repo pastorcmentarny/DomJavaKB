@@ -21,4 +21,38 @@ Organizations look for ways to measure developer productivity. The common anti-p
 If a colleague or friend no-shows you for a prearranged meeting, here are Modern Mentor's top tips for communicating about it after:
 Be stern — let them know that what they did was unacceptable and it cannot happen again
 Don't reschedule immediately — find a time that works in your schedule without moving anything around
-If something important and unavoidable does come up, there is no excuse for not letting your colleagues know that you need to reschedule. 
+If something important and unavoidable does come up, there is no excuse for not letting your colleagues know that you need to reschedule.
+
+
+When you working in corporation, there is an urge to have an objective
+
+For some people it is awesome tool to be better tool and I am happy for them but sadly I belong to this group of people who prefer approach  "give me time to learn new thing so I use it to deliver a value to the busines or have opportuinity to do a knowledge share" where it is not about being realistic and specific thing that you need agree upon and you should be measure agaist with some time boundary. It is about to learn new thing through curiosity and be more productive, smarter and being revelant in the future.
+Anyway,  So what you can do ? Well... let's translate this into SMART objectives .
+
+SMART stands for Sometimes My Ass React Terribly ... whoops... wrong acronym. It stands for Specific ,Mesurable, Agreed upon, Realistic, Time bounded.
+
+
+There is a few options.
+
+One is learning a new language or framework.
+
+Another options is to tacle things that you wish to be better at
+For example I am from Poland and I am dyslextic and with my talent to have immunity to learn it is a bit a challenging to learn new languages like English and it takes a bit longer time to learn things in general
+
+How I would like to improve my English ?
+Well, there is a few options.
+In order to improve speaking it is good to do brown bag, lunch and learn or any session that force you to talk to the people even being MC of retrospective.
+If you want to improve your writing, then you can  improve documentation and readme.
+I want to update Readme in these projects (give names) to allow new developer to the project to start quicker by simple
+I want do this in next 4 sprint.
+
+I found as well that attending meetup and  conference seems can be converted into SMART objective
+
+
+
+
+
+Summary
+
+Personal development is an fundemtal element of staing revelant in the software developer everyday life. If company gives you this oppportutinty then you should take advantage. The problem is as people are unique it can be challening to fit into 'schema' . I understand you but as we are software developers we are aware of things like pattern and we need use 'Adapter Pattern' to adapt our way of improvement into something that
+In this article, I  tried to provide you some example to use as framework to help you create your own awesome SMART objective. I hope, you find it useful.
