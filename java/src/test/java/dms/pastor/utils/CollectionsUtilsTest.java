@@ -29,13 +29,6 @@ public class CollectionsUtilsTest {
 
 
     @Test
-    public void testEmptyArrayList() {
-        assertThat(CollectionsUtils.emptyArrayList().isEmpty()).isEqualTo(true);
-        assertThat(CollectionsUtils.emptyArrayList().size()).isEqualTo(0);
-    }
-
-
-    @Test
     public void testEmptyHashSet() {
         Set<Object> expectedObjectSet = new HashSet<>(0);
         assertThat(emptyHashSet()).isEqualTo(expectedObjectSet);

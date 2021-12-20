@@ -3,6 +3,8 @@ package dms.pastor.utils;
 import java.util.*;
 
 import static dms.pastor.utils.ValidatorUtils.validateIfObjectValueIsNotNull;
+import static java.lang.Character.toLowerCase;
+import static java.util.Arrays.asList;
 import static java.util.Objects.isNull;
 
 /**
@@ -19,11 +21,6 @@ public final class CollectionsUtils {
     private CollectionsUtils() {
     }
 
-    //TODO remove it as it is part of Java itself
-    public static List<String> emptyArrayList() {
-        return new ArrayList<>(0);
-    }
-
     public static Set<Object> emptyHashSet() {
         return new HashSet<>(0);
     }
@@ -38,12 +35,12 @@ public final class CollectionsUtils {
 
     public static <E extends Enum<E>> List<E> toList(E[] enums) {
         validateIfObjectValueIsNotNull(enums, "Enum values");
-        return Arrays.asList(enums);
+        return asList(enums);
     }
 
     static boolean isCharInCharArray(char[] charArray, char character) {
         for (char charElement : charArray) {
-            if (Character.toLowerCase(character) == charElement) {
+            if (toLowerCase(character) == charElement) {
                 return true;
             }
         }
@@ -59,6 +56,5 @@ public final class CollectionsUtils {
         destination.addAll(original);
         Collections.shuffle(destination);
         return destination;
-
     }
 }
