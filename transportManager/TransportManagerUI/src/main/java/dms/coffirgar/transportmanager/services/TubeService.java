@@ -56,4 +56,9 @@ public class TubeService {
     public String[] getAllLines() {
         return tubeClient.getAllLines();
     }
+
+    public Response getLineInfoFor(String lineName) {
+        //final String stationAsString = tubeClient.getLineDataFor(lineName);
+        return responseConverter.convert("");
+    }
 }

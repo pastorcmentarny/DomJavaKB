@@ -13,7 +13,7 @@ ext['log4j2.version'] = '2.17.0'
 ext['logback.version'] = '1.2.9'
 
 group = 'dms.coffirgar'
-version = '128'
+version = '172'
 sourceCompatibility = '17'
 
 configurations {

@@ -26,32 +26,33 @@
 <div class="list-group">
     <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
         <div class="d-flex gap-2 w-100 justify-content-between">
-            <p class="mb-0 opacity-75">There are 0 stations on the London Underground Network.</p>
+
+            <p class="mb-0 opacity-75">There are <strong th:text="${data['allStations']}"></strong> stations on the London Underground Network.</p>
         </div>
     </a>
     <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
         <div class="d-flex gap-2 w-100 justify-content-between">
-            <p class="mb-0 opacity-75">I passed 0 stations.</p>
+            <p class="mb-0 opacity-75">I passed <strong th:text="${data['stationPassed']}"></strong> stations.</p>
         </div>
     </a>
     <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
         <div class="d-flex gap-2 w-100 justify-content-between">
-            <p class="mb-0 opacity-75">I passed 0% of all stations.</p>
+            <p class="mb-0 opacity-75">I passed <strong th:text="${data['stationPassedPercentage']}"></strong>% of all stations.</p>
         </div>
     </a>
     <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
         <div class="d-flex gap-2 w-100 justify-content-between">
-            <p class="mb-0 opacity-75">I visited 0 stations.</p>
+            <p class="mb-0 opacity-75">I visited <strong th:text="${data['stationVisited']}"></strong> stations.</p>
         </div>
     </a>
     <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
         <div class="d-flex gap-2 w-100 justify-content-between">
-            <p class="mb-0 opacity-75">I visited 0% of all stations.</p>
+            <p class="mb-0 opacity-75">I visited <strong th:text="${data['stationVisitedPercentage']}"></strong>% of all stations.</p>
         </div>
     </a>
     <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
         <div class="d-flex gap-2 w-100 justify-content-between">
-            <p class="mb-0 opacity-75">I visited 0 stations this year.</p>
+            <p class="mb-0 opacity-75">I visited <strong th:text="${data['stationVisitedThisYear']}"></strong> stations this year.</p>
         </div>
     </a>
 

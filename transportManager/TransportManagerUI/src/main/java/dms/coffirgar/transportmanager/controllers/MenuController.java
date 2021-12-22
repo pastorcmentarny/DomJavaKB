@@ -33,21 +33,31 @@ public class MenuController {
 
     @GetMapping("/tube/statistics")
     public String displayStatistics(Model model) {
+        log.info("Get request to get tube statistics.");
         final DataResponse response = tubeService.getStatistics();
+        log.info("Got response " + response.getResult());
         model.addAttribute("status", response.getResult());
         model.addAttribute("description", response.getDescription());
         model.addAttribute("data", response.getData());
         return "statistics";
     }
 
-    @GetMapping("/all-lines-name")
+    @GetMapping("/tube/all-lines-name")
     public String displayAllLines(Model model) {
         model.addAttribute("lines", Arrays.asList(tubeService.getAllLines()));
         return "lines-name";
     }
 
+    @GetMapping(value = "/tube/line/{lineName}")
+    public String displayLineInformationFor(Model model, @PathVariable String lineName) {
+        final Response response = tubeService.getLineInfoFor(lineName);
+        model.addAttribute("status", response.getResult());
+        model.addAttribute("description", response.getDescription());
+        model.addAttribute("station", response.getStation());
+        return "line";
+    }
 
-    @GetMapping("/all-stations-name")
+    @GetMapping("/tube/all-stations-name")
     public String displayAllStationsInformation(Model model) {
         model.addAttribute("stations", Arrays.asList(tubeService.getAllStationsNames()));
         return "stations-name";

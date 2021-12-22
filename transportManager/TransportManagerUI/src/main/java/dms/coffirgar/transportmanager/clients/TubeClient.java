@@ -65,7 +65,7 @@ public class TubeClient {
         ResponseEntity<String> response
                 = restTemplate.getForEntity(TM_SERVICE_URL + "/tube/statistics", String.class);
         log.info("Response for get all statistics for Tube was %s".formatted(response.getStatusCode()));
-        return EMPTY;
+        return response.getBody();
     }
 
     public String[] getAllLines() {
