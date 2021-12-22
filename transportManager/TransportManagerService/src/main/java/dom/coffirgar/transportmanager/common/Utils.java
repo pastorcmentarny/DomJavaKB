@@ -123,4 +123,10 @@ public class Utils {
         }
         return !newValue.equals(currentValue);
     }
+
+
+    @SuppressWarnings("IntegerDivisionInFloatingPointContext")
+    public static int countPercentage(int value, int total) {
+        return Math.round(value * 100 / total);
+    }
 }
