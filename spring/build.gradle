@@ -12,7 +12,7 @@ buildscript {
 }
 
 plugins {
-    id 'org.springframework.boot' version '2.6.1'
+    id 'org.springframework.boot' version '2.6.2'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
     id 'idea' //allows clean intellij idea projects from gradle
@@ -26,12 +26,12 @@ project.ext {
 }
 
 ext {
-    springVersion = "2.6.1"
+    springVersion = "2.6.2"
     lombokVersion = "1.18.22"
-    mockitoVersion = "4.1.0"
+    mockitoVersion = "4.2.0"
     junitVersion = "5.8.2"
 }
-ext['log4j2.version'] = '2.17.0'
+ext['log4j2.version'] = '2.17.1'
 
 
 apply from: "$gradleDir/dependecies.gradle"
@@ -74,8 +74,8 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-starter-aop:${springVersion}"
     implementation "org.springframework.boot:spring-boot-starter-mustache:${springVersion}"
     implementation "org.springframework.retry:spring-retry:1.3.1"
-    implementation "ch.qos.logback:logback-classic:1.2.8"
-    implementation "com.github.ben-manes.caffeine:caffeine:3.0.4"
+    implementation "ch.qos.logback:logback-classic:1.2.10"
+    implementation "com.github.ben-manes.caffeine:caffeine:3.0.5"
     developmentOnly "org.springframework.boot:spring-boot-devtools:${springVersion}"
     compileOnly "org.projectlombok:lombok:${lombokVersion}"
     annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
@@ -86,7 +86,7 @@ dependencies {
     testImplementation "org.hamcrest:hamcrest-all:1.3"
     testImplementation "org.mockito:mockito-core:${mockitoVersion}"
     testImplementation "org.mockito:mockito-junit-jupiter:${mockitoVersion}"
-    testImplementation "org.assertj:assertj-core:3.21.0"
+    testImplementation "org.assertj:assertj-core:3.22.0"
 }
 
 test {

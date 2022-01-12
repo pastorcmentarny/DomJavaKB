@@ -8,20 +8,20 @@ buildscript {
 }
 
 plugins {
-    id 'org.springframework.boot' version '2.6.1'
+    id 'org.springframework.boot' version '2.6.2'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
 }
 
 ext {
-    set('springVersion', '2.6.1')
+    set('springVersion', '2.6.2')
     set('lombokVersion', '1.18.22')
-    set('log4j2.version', '2.17.0')
+    set('log4j2.version', '2.17.1')
 }
 
 
 group = 'dom.coffirgar'
-version = '197'
+version = '211'
 sourceCompatibility = '17'
 
 configurations {

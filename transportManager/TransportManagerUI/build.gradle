@@ -1,19 +1,18 @@
 plugins {
-    id 'org.springframework.boot' version '2.6.1'
+    id 'org.springframework.boot' version '2.6.2'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
 }
 
 ext {
-    springVersion = "2.6.1"
+    springVersion = "2.6.2"
     lombokVersion = "1.18.22"
 }
 
-ext['log4j2.version'] = '2.17.0'
 ext['logback.version'] = '1.2.9'
 
 group = 'dms.coffirgar'
-version = '172'
+version = '178'
 sourceCompatibility = '17'
 
 configurations {
@@ -31,8 +30,8 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-starter-thymeleaf:${springVersion}"
     implementation "org.springframework.boot:spring-boot-starter-web:${springVersion}"
     implementation "org.springframework.boot:spring-boot-starter-json:${springVersion}"
-    implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.0"
-    implementation(platform("org.apache.logging.log4j:log4j-bom:2.17.0"))
+    implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.1"
+    implementation(platform("org.apache.logging.log4j:log4j-bom:2.17.1"))
     compileOnly "org.projectlombok:lombok:${lombokVersion}"
     developmentOnly "org.springframework.boot:spring-boot-devtools:${springVersion}"
     annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
