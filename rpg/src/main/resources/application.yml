@@ -14,3 +14,9 @@ server:
 logging:
   level:
     web: info
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include=*:

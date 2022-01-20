@@ -1,3 +1,7 @@
+20220119;;Read 3 book to J
+20220119;;Run at least 2k
+20220118;;Read 1 book to J
+20220118;;Run at least 2k
 20220107;;Read 1 book to J
 20220102;;Run at least 2k
 20211229;;Run at least 2k
