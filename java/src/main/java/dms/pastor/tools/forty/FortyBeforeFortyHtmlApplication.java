@@ -10,11 +10,11 @@ import java.time.LocalDateTime;
 import static java.awt.Desktop.isDesktopSupported;
 
 public class FortyBeforeFortyHtmlApplication {
-
+    private static final String PATH  = "B:\\\\GitHub\\\\denva\\\\src\\\\templates\\\\40b440.html";
     public static void main(String[] args) {
         HtmlGenerator html = new HtmlGenerator();
         System.out.println(html.generate());
-        System.out.println(html.saveAsHtml());
+        System.out.println(html.saveAsHtml(PATH));
 
         openHtmlFile();
     }
@@ -23,7 +23,7 @@ public class FortyBeforeFortyHtmlApplication {
         final Desktop desktop = Desktop.getDesktop();
         if (isDesktopSupported() && desktop.isSupported(Desktop.Action.BROWSE)) {
             try {
-                desktop.open(new File("B:\\GitHub\\denva\\src\\templates\\40b440.html"));
+                desktop.open(new File(PATH));
             } catch (IOException exception) {
                 throw new SomethingWentTerribleWrongError(exception.getMessage());
             }

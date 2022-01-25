@@ -198,8 +198,8 @@ public class HtmlGenerator {
         return loadFileFromResourceAsListOfStrings("fortyB440-log.txt");
     }
 
-    public boolean saveAsHtml() {
-        return saveTextToFile(stringBuilder.toString(), "B:\\GitHub\\denva\\src\\templates\\40b440.html");
+    public boolean saveAsHtml(String path) {
+        return saveTextToFile(stringBuilder.toString(), path);
     }
 
     @SuppressWarnings("SameReturnValue")
