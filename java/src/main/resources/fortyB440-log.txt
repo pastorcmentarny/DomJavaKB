@@ -1,3 +1,6 @@
+20220128;;Run at least 2k
+20220127;;Run at least 2k
+20220126;;Run at least 2k
 20220125;;Fasting for 24hr
 20220125;;Run at least 2k
 20220120;;Read 7 book to J
