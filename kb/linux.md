@@ -14,4 +14,4 @@
 * ``` sl``` - stream train animation :D
 * ``` cloc``` - counting line 
 * ```cat /etc/os-release```  - to check what OS you are running
-
+*  `history > commands_history.txt` - save history of commands to file
