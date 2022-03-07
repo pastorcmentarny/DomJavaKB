@@ -151,7 +151,7 @@ completely. If any of the compound actions constituting a unit of work fails to 
 and the data is left unchanged (Wikipedia). As I have shown in my post, Java cannot guarantee that without adding extra
 code, like exception handling, to intrinsic and explicit locks.
 
-# Linked List
+## Linked List
 
 The LinkedList data structure contains an ordered set of data elements (know as nodes) such that each element contains a
 link or reference to its successor (next element). The last element (or tail) of the sequence points to a null element.
@@ -159,6 +159,10 @@ The linked list itself contains a reference to the first element of the list, wh
 LinkedList in Java is a doubly-linked list implementation of the List interface. In a doubly-linked list, every node
 points to its previous and next node. Other interfaces it implements are Serializable, Cloneable, and Deque (with
 super-interface as Queue).
+
+## Logging
+Logging is basically a huge journal of the activity of a system or application. 
+Source: (https://www.ncsc.gov.uk/information/log4j-vulnerability-what-everyone-needs-to-know)
 
 # M
 
@@ -421,3 +425,18 @@ victim.
 * 2018.1 - First Version
 
 
+Collection pipelines are a programming pattern where you organize some computation as a sequence of operations which compose by taking a collection as output of one operation and feeding it into the next. (Common operations are filter, map, and reduce.)
+
+usuflness :
+Laziness. large_list
+.map{|e| slow_complex_method (e)}
+.take(5)
+With such code, you would spend a lot of time evaluating slow_complex_method on lots of elements and then throw away all the results except the top 5. Laziness allows the underlying platform to determine that you only need the top five results,
+Parallelism
+Many of the pipeline operations naturally work well with parallel invocation. If I use map the results of using it for one element don't depend on any of the other elements in the collection. So if I'm running on a platform with multiple cores, I can take advantage of that by distributing the map evaluations across multiple threads.
+
+Immutability
+Collection-pipelines naturally lend themselves to immutable data structures. When building a pipeline it's natural to consider each operation as generating a new collection for its output.
+
+check operation catalog for details https://martinfowler.com/articles/collection-pipeline/#op-catalog
+https://martinfowler.com/articles/collection-pipeline/
