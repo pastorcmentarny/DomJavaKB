@@ -1,3 +1,4 @@
+20220213;;Family Day Out (Madeira Holiday)
 20220202;;Run at least 2k
 20220128;;Run at least 2k
 20220127;;Run at least 2k
@@ -8,6 +9,7 @@
 20220119;;Read 3 book to J
 20220119;;Run at least 2k
 20220118;;Read 1 book to J
+20220213;;Family Day Out (Wedding in Poland)
 20220118;;Run at least 2k
 20220107;;Read 1 book to J
 20220102;;Run at least 2k
