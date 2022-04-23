@@ -18,8 +18,6 @@ import static org.mockito.BDDMockito.given;
 @ExtendWith(MockitoExtension.class)
 public class TrainCLITest {
 
-    private static final String ABERYSTYWTH_VALID_STATION = "Aberystywth";
-
 
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private final PrintStream original = System.out;

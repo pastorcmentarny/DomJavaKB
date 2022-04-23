@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static dms.pastor.domain.TrainType.BEMU;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+
 
 class TrainTest {
 
@@ -20,8 +20,8 @@ class TrainTest {
                 .build();
 
         final var expectedResult = """
-Train{British Class:'8271', Train Type:BEMU, Is it service?:yes, maxSpeed(in kmh)=220,
-description='test'}""";
+                Train{British Class:'8271', Train Type:BEMU, Is it service?:yes, maxSpeed(in kmh)=220,
+                description='test'}""";
 
         // when
         final var result = testTrain.toString();

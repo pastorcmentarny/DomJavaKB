@@ -11,7 +11,7 @@ public class JavaVersionTest {
     @Test
     public void shouldRunTestOnSpecificVersionOfJava() {
         // given
-        String latestJavaVersion = "17.0.1";
+        String latestJavaVersion = "17.0.2";
 
         // when
         final var result = System.getProperty("java.version");

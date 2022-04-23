@@ -6,7 +6,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ObjectUtilsTest {
 
-    @SuppressWarnings({"ConstantConditions", "ConfusingArgumentToVarargsMethod"})
     @Test
     public void shouldReturnFalseIfYouPassNullToAllObjectsNull() {
         // when

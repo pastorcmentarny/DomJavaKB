@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class TemporaryFilesAndDirectoryExampleTest {
 
     @Test
-    public void getCurrentTemporaryFilesPathExampleAcceptanceTest() throws Exception {
+    public void getCurrentTemporaryFilesPathExampleAcceptanceTest() {
         // when
         final var result = TemporaryFilesAndDirectoryExample.getCurrentTemporaryFilesPath();
 

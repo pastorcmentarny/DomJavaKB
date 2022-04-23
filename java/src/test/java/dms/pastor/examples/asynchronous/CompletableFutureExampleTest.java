@@ -8,7 +8,7 @@ import java.util.concurrent.Future;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class CompletableFutureExampleTest {
-    CompletableFutureExample completableFutureExample = new CompletableFutureExample();
+    final CompletableFutureExample completableFutureExample = new CompletableFutureExample();
 
     @Test
     public void simpleCompletableFutureExampleTest() throws InterruptedException, ExecutionException {
