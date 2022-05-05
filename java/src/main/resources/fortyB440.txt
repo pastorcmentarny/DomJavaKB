@@ -1,4 +1,4 @@
-12 days out with J;;TO_DO;;12;;2
+12 days out with J;;TO_DO;;12;;3
 40 activities with Xu;;WORKING_ON;;40;;3
 Read 365 book in Polish to J;;TO_DO;;365;;46
 12x family day outs;;WORKING_ON;;12;;7
@@ -17,7 +17,7 @@ Run at least 2km per day;;IN_PROGRESS;;365;;57
 The epic home2home trip;;BLOCKED;;
 Travel on longest train in Poland;;TO_DO;;
 Explore all station on the one of the tube line;;TO_DO;;
-Do all Overground Station challenge;;TO_DO;;
+Do all Overground Station challenge;;DONE;;
 Visit Poland with whole family;;DONE;;
 Watch 40 movies with Xu;;WORKING_ON;;40;;5
 BRILLIANT (15 minutes/1 chapter);;IN_PROGRESS;;200;;2

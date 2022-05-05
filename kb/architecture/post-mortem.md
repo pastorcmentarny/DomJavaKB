@@ -3,6 +3,12 @@
 It contains definitions that explain things in the way that is easiest for me to understand.
 _I am not the author of these definitions so check resources section for the origin of definitions._
 
+## Tips:
+* Avoid status updates that say nothing.
+* Communicate directly and transparently.
+* Have a runbook for disaster recovery and black swan events. Expect the unexpected, and plan for how you will respond, assess, and communicate.
+
+
 
 # POST MORTEM EXAMPLE
 
