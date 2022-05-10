@@ -1,7 +1,7 @@
 12 days out with J;;TO_DO;;12;;3
 40 activities with Xu;;WORKING_ON;;40;;3
 Read 365 book in Polish to J;;TO_DO;;365;;46
-12x family day outs;;WORKING_ON;;12;;7
+12x family day outs;;WORKING_ON;;12;;8
 Barista course;;TO_DO;;
 Re-learn Spring Framework;;IN_PROGRESS;;
 Re-learn Apache Kafka;;TO_DO;;
@@ -10,10 +10,10 @@ Learn Reactive Spring;;IN_PROGRESS;;
 Learn Go;;TO_DO;;
 Learn Haskell;;TO_DO;;
 Lie to me course;;TO_DO;;
-Run in four 10km race;;BLOCKED;;
+Run in four 10km race;;WORKING_ON;;
 Run 1460km;;IN_PROGRESS;;
 Walk 50000 steps;;TO_DO;;
-Run at least 2km per day;;IN_PROGRESS;;365;;57
+Run at least 2km per day;;IN_PROGRESS;;365;;59
 The epic home2home trip;;BLOCKED;;
 Travel on longest train in Poland;;TO_DO;;
 Explore all station on the one of the tube line;;TO_DO;;
@@ -32,9 +32,9 @@ Design the SpaceTrain office in Shed;;WORKING_ON;;
 Dom'90;;IN_PROGRESS;;
 Write AberRPG story;;BLOCKED;;
 Read 1 book per quarter;;IN_PROGRESS;;4;;2
-Write 40 blog posts;;WORKING_ON;;40;;2
+Write 40 blog posts;;WORKING_ON;;40;;4
 Give a blood;;TO_DO;;
-Plant garlic, oregano, thyme, mint and coriander and chilli;;WORKING_ON;;
+Plant garlic, oregano, thyme, mint and coriander and chilli;;IN_PROGRESS;;
 Chinese lvl 2;;TO_DO;;
 Photography course;;TO_DO;;
 Publish one video on Youtube;;TO_DO;;
