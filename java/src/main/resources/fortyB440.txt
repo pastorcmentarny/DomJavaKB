@@ -19,7 +19,7 @@ Travel on longest train in Poland;;TO_DO;;
 Explore all station on the one of the tube line;;TO_DO;;
 Do all Overground Station challenge;;DONE;;
 Visit Poland with whole family;;DONE;;
-Watch 40 movies with Xu;;WORKING_ON;;40;;5
+Watch 40 movies with Xu;;WORKING_ON;;40;;6
 BRILLIANT (15 minutes/1 chapter);;IN_PROGRESS;;200;;2
 1 week long holiday in new country;;DONE;;
 Donate to plant tree;;DONE;;
