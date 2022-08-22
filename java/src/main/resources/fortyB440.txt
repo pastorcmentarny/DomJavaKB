@@ -1,6 +1,6 @@
 12 days out with J;;TO_DO;;12;;3
 40 activities with Xu;;WORKING_ON;;40;;3
-Read 365 book in Polish to J;;TO_DO;;365;;46
+Read 365 book in Polish to J;;TO_DO;;365;;47
 12x family day outs;;WORKING_ON;;12;;8
 Barista course;;TO_DO;;
 Re-learn Spring Framework;;IN_PROGRESS;;

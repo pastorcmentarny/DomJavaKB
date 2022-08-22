@@ -10,7 +10,8 @@ import java.time.LocalDateTime;
 import static java.awt.Desktop.isDesktopSupported;
 
 public class FortyBeforeFortyHtmlApplication {
-    private static final String PATH  = "B:\\GitHub\\denva\\src\\templates\\40b440.html";
+    private static final String PATH = "B:\\GitHub\\denva\\src\\templates\\40at40.html";
+
     public static void main(String[] args) {
         HtmlGenerator html = new HtmlGenerator();
         System.out.println(html.generate());

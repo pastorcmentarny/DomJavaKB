@@ -53,7 +53,7 @@ public class HtmlGenerator {
                     <meta name="description" content="My bookmarks HQ">
                     <meta name="author" content="Dominik Symonowicz">
                     <meta http-equiv="refresh" content="30"/>
-                    <title>40 thing to do before 40 years old.</title>
+                    <title>40 thing to do at 40 years old.</title>
                     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
                     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon"/>
 
@@ -110,7 +110,7 @@ public class HtmlGenerator {
     // just to use #40b440 as color :D
     private String generateMiniTitle() {
         return """
-                <h2 style="color:#40b440">40 things to do before 40 year birthday</h2>
+                <h2 style="color:#40b440">40 things to do during being 40 year old</h2>
                 """;
     }
 
@@ -119,7 +119,7 @@ public class HtmlGenerator {
         StringBuilder fortyList = new StringBuilder();
         for (int index = 0; index < todoList.size(); index++) {
             addOpenTagIfIsFirstElement(fortyList, index);
-
+            System.out.println(todoList);
             String[] item = todoList.get(index).split(COLUMN_SEPARATOR);
             fortyList.append(TAB)
                     .append(getStartTagWithClass(TD_TAG, Status.getStatusFrom(item[STATUS]).getCssClass()))
@@ -191,11 +191,11 @@ public class HtmlGenerator {
     }
 
     private List<String> loadProgressData() {
-        return loadFileFromResourceAsListOfStrings("fortyB440.txt");
+        return loadFileFromResourceAsListOfStrings("fortyAt40.txt");
     }
 
     private List<String> loadLogData() {
-        return loadFileFromResourceAsListOfStrings("fortyB440-log.txt");
+        return loadFileFromResourceAsListOfStrings("fortyAt40-log.txt");
     }
 
     public boolean saveAsHtml(String path) {
