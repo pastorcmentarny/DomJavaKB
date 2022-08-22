@@ -214,7 +214,10 @@ def update_all_draws_for_euromillions():
     recent_draws_list = load_recent_draws_for(EUROMILLIONS, euromillions_draws_path)
     cleaned_data = []
     for draw in recent_draws_list:
-        draw_line = [draw[10], draw[0], draw[1], draw[2], draw[3], draw[4], draw[5], draw[6], draw[7]]
+        if len(draw) == 11:
+            draw_line = [draw[10], draw[0], draw[1], draw[2], draw[3], draw[4], draw[5], draw[6], draw[7]]
+        else:
+            draw_line = [draw[9], draw[0], draw[1], draw[2], draw[3], draw[4], draw[5], draw[6], draw[7]]
         cleaned_data.append(draw_line)
     if config.settings['debug_mode']:
         print(f'first line: {recent_draws_list[0]}')

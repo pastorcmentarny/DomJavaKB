@@ -19,7 +19,7 @@ SPLITTER = ','
 EMPTY = ""
 SPACE = " "
 WRITABLE = 'w'
-GOOD_SCORE = 555
+GOOD_SCORE = 688 # all draws /4
 
 total_thunderballs = 40  # 39
 
