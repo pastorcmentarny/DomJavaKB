@@ -5,11 +5,11 @@ import static dms.pastor.utils.StringUtils.isStringBlank;
 
 /**
  * Author Dominik Symonowicz
- * WWW:	https://dominiksymonowicz.com/welcome
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+ * WWW:	<a href="https://dominiksymonowicz.com/welcome">...</a>
+ * IT BLOG:	<a href="https://dominiksymonowicz.blogspot.co.uk">...</a>
+ * GitHub:	<a href="https://github.com/pastorcmentarny">...</a>
+ * Google Play:	<a href="https://play.google.com/store/apps/developer?id=Dominik+Symonowicz">...</a>
+ * LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">...</a>
  */
 public final class EnglishUtils {
 
@@ -53,6 +53,35 @@ public final class EnglishUtils {
 
     public static boolean isNotStopWord(String word) {
         return !isStopWord(word);
+    }
+
+    public static String fromPolish(String polish) {
+        if (StringUtils.isStringBlank(polish)) {
+            return polish;
+        }
+        StringBuilder result = new StringBuilder();
+        char[] characters = polish.toCharArray();
+        for (char character : characters) {
+            switch (character) {
+                case 'ą' -> result.append('a');
+                case 'Ą' -> result.append('A');
+                case 'ć' -> result.append('c');
+                case 'Ć' -> result.append('C');
+                case 'ę' -> result.append('e');
+                case 'Ę' -> result.append('E');
+                case 'ń' -> result.append('n');
+                case 'Ń' -> result.append('N');
+                case 'ś' -> result.append('s');
+                case 'Ś' -> result.append('S');
+                case 'ó' -> result.append('o');
+                case 'Ó' -> result.append('O');
+                case 'ż', 'ź' -> result.append('z');
+                case 'Ż', 'Ź' -> result.append('Z');
+                default -> result.append(character);
+            }
+        }
+
+        return result.toString();
     }
 
 }

@@ -9,11 +9,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  * Author Dominik Symonowicz
  * Created 09/01/2017
- * WWW:	https://dominiksymonowicz.com/welcome
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+ * WWW:	<a href="https://dominiksymonowicz.com/welcome">...</a>
+ * IT BLOG:	<a href="https://dominiksymonowicz.blogspot.co.uk">...</a>
+ * GitHub:	<a href="https://github.com/pastorcmentarny">...</a>
+ * Google Play:	<a href="https://play.google.com/store/apps/developer?id=Dominik+Symonowicz">...</a>
+ * LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">...</a>
  */
 public class EnglishUtilsTest {
 
@@ -255,4 +255,140 @@ public class EnglishUtilsTest {
         assertThat(word).isTrue();
     }
 
+    @Test
+    public void fromPolishReturnNullForNull() {
+
+        // when
+        final String result = fromPolish(null);
+
+        // then
+        assertThat(result).isNull();
+    }
+
+    @Test
+    public void fromPolishReturnEmptyForEmpty() {
+
+        // when
+        final String result = fromPolish(EMPTY_STRING);
+
+        // then
+        assertThat(result).isEmpty();
+    }
+
+    @Test
+    public void fromPolishOnlyPolishAcceptanceTest() {
+        // given
+        final String polishCharacter = "ąĄśŚćĆżŻźŹńŃęĘóÓ";
+        final String englishCharacter = "aAsScCzZzZnNeEoO";
+
+        // when
+        final String result = fromPolish(polishCharacter);
+
+        // then
+        assertThat(englishCharacter).isEqualTo(result);
+    }
+
+    @Test
+    public void fromPolishAcceptanceTest() {
+        // given
+        final String polishCharacter = "1ąAĄ-sśŚćĆżŻźŹńŃęĘóÓqQ";
+        final String englishCharacter = "1aAA-ssScCzZzZnNeEoOqQ";
+
+        // when
+        final String result = fromPolish(polishCharacter);
+
+        // then
+        assertThat(englishCharacter).isEqualTo(result);
+    }
+
+    @Test
+    public void fromPolishOConvertsToO() {
+        // given
+        final String polishCharacter = "óÓ";
+        final String englishCharacter = "oO";
+
+        // when
+        final String result = fromPolish(polishCharacter);
+
+        // then
+        assertThat(englishCharacter).isEqualTo(result);
+    }
+
+    @Test
+    public void fromPolishNConvertsToN() {
+        // given
+        final String polishCharacter = "ńŃ";
+        final String englishCharacter = "nN";
+
+        // when
+        final String result = fromPolish(polishCharacter);
+
+        // then
+        assertThat(englishCharacter).isEqualTo(result);
+    }
+
+    @Test
+    public void fromPolishCConvertsToC() {
+        // given
+        final String polishCharacter = "ćĆ";
+        final String englishCharacter = "cC";
+
+        // when
+        final String result = fromPolish(polishCharacter);
+
+        // then
+        assertThat(englishCharacter).isEqualTo(result);
+    }
+
+    @Test
+    public void fromPolishSConvertsToS() {
+        // given
+        final String polishCharacter = "śŚ";
+        final String englishCharacter = "sS";
+
+        // when
+        final String result = fromPolish(polishCharacter);
+
+        // then
+        assertThat(result).isEqualTo(englishCharacter);
+    }
+
+    @Test
+    public void fromPolishAConvertsToA() {
+        // given
+        final String polishCharacter = "ąĄ";
+        final String englishCharacter = "aA";
+
+        // when
+        final String result = fromPolish(polishCharacter);
+
+        // then
+        assertThat(englishCharacter).isEqualTo(result);
+    }
+
+    @Test
+    public void fromPolishEConvertsToE() {
+        // given
+        final String polishCharacter = "ęĘ";
+        final String englishCharacter = "eE";
+
+        // when
+        final String result = fromPolish(polishCharacter);
+
+        // then
+        assertThat(englishCharacter).isEqualTo(result);
+    }
+
+    @Test
+    public void fromPolishZConvertsToZ() {
+        // given
+        final String polishCharacter = "żŻźŹ";
+        final String englishCharacter = "zZzZ";
+
+        // when
+        final String result = fromPolish(polishCharacter);
+
+        // then
+        assertThat(englishCharacter).isEqualTo(result);
+    }
 }
