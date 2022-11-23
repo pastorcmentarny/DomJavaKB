@@ -1,40 +1,40 @@
 Dom'90;;IN_PROGRESS;;
-Read 1 book per quarter;;TO_DO;;4;;0
+Read 1 book per quarter;;IN_PROGRESS;;4;;0
 Barista course;;TO_DO;;
-Run in half marathon race;;WORKING_ON;;
+Run in half marathon race;;BLOCKED;;
 Driving licence;;TO_DO;;
-Fasting for 24,36,48 and 72 hours;;TO_DO;;4;;0
+Fasting for 24,36,48 and 72 hours;;TO_DO;;4;;1
 Meet training;;TO_DO;;
-Write 40 blog posts;;TO_DO;;40;;0
+Write 40 blog posts;;TO_DO;;40;;2
 Give a blood;;TO_DO;;
 Design the SpaceTrain office in Shed;;TO_DO;;
 Learn Reactive Spring;;IN_PROGRESS;;
 Learn Go;;TO_DO;;
-Learn Haskell;;TO_DO;;
-Learn Rust;;TO_DO;;
+Health Check (Body,Eye,Teeth);;WORKING_ON;;3;;1
+Meet with Sister 2 per year;;WORKING_ON;;2;;0
 Re-do design patterns;;TO_DO;;
-Re-learn Spring Framework;;TO_DO;;
+Re-learn Spring Framework 6;;TO_DO;;
 Re-learn Apache Kafka;;TO_DO;;
 Do RPi project;;DONE;;
 Walk 50000 steps;;TO_DO;;
-12 movies with Xu;;TO_DO;;12;;0
-12x family day outs;;TO_DO;;12;;0
-4 days out with J;;TO_DO;;4;;1
-1 week long holiday in new country;;TO_DO;;
+12 movies with Xu;;TO_DO;;12;;1
+12x family day outs;;TO_DO;;12;;1
+4 days out with J;;WORKING_ON;;4;;1
+1 week long holiday in new country;;DONE;;
 Explore all station on the one of the tube line;;TO_DO;;
-Read 365 book in Polish to J;;TO_DO;;365;;2
+Read 365 books to J;;TO_DO;;365;;4
 Publish one video on Youtube;;TO_DO;;
-Learn meditation;;TO_DO;;
-Visit Poland with whole family;;TO_DO;;
+Learn meditation;;ABANDONED;;
+Visit Poland with whole family;;WORKING_ON;;
 Write AberRPG story;;TO_DO;;
 BRILLIANT (15 minutes/1 chapter);;TO_DO;;200;;2
-Chinese lvl 2;;TO_DO;;
+Chinese lvl 2;;ABANDONED;;
 Travel on longest train in Poland;;TO_DO;;
-Run at least 2km per day;;TO_DO;;365;;1
-Watch 40 movies with Xu;;TO_DO;;40;;0
-Travel on longest train in Poland;;TO_DO;;
+Run at least 2km per day;;IN_PROGRESS;;365;;6
+Watch 12 movies with Xu;;IN_PROGRESS;;12;;11
+Read 40 Polish books to J;;TO_DO;;40;;2
 Write biography;;TO_DO;;
 Photography course;;TO_DO;;
-Night rider (travel on 2-3 night trrains;;TO_DO;;
-Four British Train trip;;TO_DO;;
+Night rider (travel on 2-3 night trains;;TO_DO;;
+Four British Train trip;;WORKING_ON;;4;;1
 Buy total commander lincense;;DONE;;

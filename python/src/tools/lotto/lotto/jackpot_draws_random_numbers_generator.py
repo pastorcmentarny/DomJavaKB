@@ -57,5 +57,52 @@ def print_numbers(excluded: list, title: str):
         print(excluded)
 
 
+def is_photo_mostly_black(file, with_summary: bool = True):
+    global deleted
+    global ignored
+    global errors
+    if os.path.splitext(file)[-1].lower() != ".jpg":
+        logger.warning('{} is not a photo. Ignore it.'.format(file))
+        ignored += 1
+        return
+
+    im = Image.open(file)  # Can be many different formats.
+    total_pixels = im.width * im.height
+    pix = im.load()
+
+    counter = []
+
+    for x in range(0, im.width):
+        for y in range(0, im.height):
+            counter.append(pix[x, y])
+
+    result = Counter(counter)
+    dark_pixels = 0
+    for d in result.items():
+        if check_is_pixel_too_dark(d[0]):
+            dark_pixels += d[1]
+    too_dark = dark_pixels / total_pixels * 100
+    if too_dark > 95:
+        logger.info(file + 'is too dark and need to be deleted.')
+        try:
+            os.remove(file)
+            if os.path.exists(file):
+                logger.warning('{} NOT deleted.'.format(file))
+            else:
+                logger.info("{} deleted.".format(file))
+                deleted += 1
+        except Exception as e:
+            logger.error('Unable to process {} file due to {}'.format(file, e))
+            errors += 1
+    if with_summary:
+        logger.info(str(dark_pixels) + ' out of ' + str(total_pixels) + ' is dark. (' + str(too_dark) + '%)')
+
+
+def check_is_pixel_too_dark(pixel) -> bool:
+    dark = 6
+    x, y, z = pixel
+    return x <= dark and y <= dark and z <= dark
+
+
 if __name__ == '__main__':
     generate_random_draws_for_jackpot()

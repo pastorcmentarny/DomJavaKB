@@ -5,11 +5,10 @@ import dms.pastor.domain.exception.SomethingWentTerribleWrongError;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-import java.time.LocalDateTime;
 
 import static java.awt.Desktop.isDesktopSupported;
 
-public class FortyBeforeFortyHtmlApplication {
+public class FortyAtFortyHtmlApplication {
     private static final String PATH = "B:\\GitHub\\denva\\src\\templates\\40at40.html";
 
     public static void main(String[] args) {
