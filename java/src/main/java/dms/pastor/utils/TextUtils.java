@@ -107,6 +107,33 @@ public final class TextUtils {
         return word + "s";
     }
 
+/*
+    public static String trimAllWhitespace(String str) {
+        if (str == null) {
+            return null;
+        }
+        return trimAllWhitespace((CharSequence) str).toString();
+    }
+    public static CharSequence trimAllWhitespace(CharSequence text) {
+        if (!hasLength(text)) {
+            return text;
+        }
+
+        int len = str.length();
+        StringBuilder sb = new StringBuilder(str.length());
+        int len = text.length();
+        StringBuilder sb = new StringBuilder(text.length());
+        for (int i = 0; i < len; i++) {
+            char c = str.charAt(i);
+            char c = text.charAt(i);
+            if (!Character.isWhitespace(c)) {
+                sb.append(c);
+            }
+        }
+        return sb.toString();
+    }
+ */
+
     public static String getYesNoFromBoolean(boolean booleanValue) {
         return booleanValue ? "yes" : "no";
     }

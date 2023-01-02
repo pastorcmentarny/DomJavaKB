@@ -1,2 +1,0 @@
-- Compact Number Formatting (For example 1000 -> 1K, 1000000 -> 1M )
-- string literal

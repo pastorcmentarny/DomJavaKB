@@ -7,8 +7,8 @@ public enum Status {
     BLOCKED("Progress is blocked by external factors", "table-danger"),
     PAUSED("Progress was paused, to do other tasks", "table-warning"),
     TO_DO("I didn't start work on it.", "table-light"),
-    FAILED("I didn't complete it", "table-dark"),
-
+    FAILED("I didn't complete it", "table-secondary"),
+    ABANDONED("I decided to not doing","table-dark"),
     DONE("Done :D", "table-success");
     private final String statusDescription;
     private final String cssClass;
