@@ -1,4 +1,8 @@
+import os
 from datetime import date
+from pathlib import Path
+
+LINE_LENGTH = 80
 
 TITLE_TASK_DONE = 'How many task have I done?'
 TITLE_RUN_DISTANCE = 'How much I ran ?[0. no] [1. 2km] [2. 2.5-4.99km] [3. 5km-8.5km] 4. More than 8.5km]?'
@@ -29,10 +33,12 @@ QUESTION_THANKFULNESS = 'What am I grateful for today?'
 # morning
 # day report
 # weekly report
-# monthly report (including total points and performance .. best and worst day and summary)
+# monthly report (including total points and performance  best and worst day and summary)
+hr = '=' * LINE_LENGTH + '\n'
 
 points = 0
 total = 0
+diary = f'{hr}Today is {date.today().strftime("%d %b %Y")}\n'
 
 
 def morning_questions():
@@ -41,7 +47,15 @@ def morning_questions():
     great_day = input(QUESTION_GREAT_DAY)
     focus = input(QUESTION_GOALS)
     work_to_do = input(QUESTION_WORK_TODO)
-    return f'Morning Plan:\n\n{QUESTION_THANKFULNESS}\n{thankful}\n\n{QUESTION_GREAT_DAY}\n{great_day}\n\n{QUESTION_GOALS}\n{focus}\n\n{QUESTION_WORK_TODO}\n{work_to_do}\n\n'
+    return f'Morning Plan:\n\n' \
+           f'{QUESTION_THANKFULNESS}\n' \
+           f'{thankful}\n\n' \
+           f'{QUESTION_GREAT_DAY}\n' \
+           f'{great_day}\n\n' \
+           f'{QUESTION_GOALS}\n' \
+           f'{focus}\n\n' \
+           f'{QUESTION_WORK_TODO}\n' \
+           f'{work_to_do}\n\n'
 
 
 def add_points_for_yes_question(yes: str, multiplier: int = 1):
@@ -74,10 +88,11 @@ def add_points(multiplier: int = 1):
 def get_score_with_grade():
     global points
     global total
+    global diary
     result = float(f'{(points / total * 100):0.2f}')
     if float(result) < 0:
         result = 0
-    return f'Points: {points} of {total}. Grade: {grade(result)} ({result}%)'
+    diary += f'Points: {points} of {total}. Grade: {grade(result)} ({result}%)\n'
 
 
 def grade(final_score: float):
@@ -119,7 +134,7 @@ def add_points_and_total(daily_task_counter, daily_task_total):
         total += daily_task_total
 
 
-def grade_alcohol(amount: int) ->str:
+def grade_alcohol(amount: int) -> str:
     if amount == 1:
         return " ~1 beer"
     if amount == 2:
@@ -148,7 +163,7 @@ def process_daily_routine_tasks():
         print(f'Error: {daily_task_total} {e}')
         return
     add_points_and_total(daily_task_counter, daily_task_total)
-    return f'{daily_task_counter} of {daily_task_total}'
+    add_diary("daily routine tasks", f'{daily_task_counter} of {daily_task_total}')
 
 
 def process_tasks_done():
@@ -159,84 +174,84 @@ def process_tasks_done():
     except Exception as e:
         print(f'Error: {tasks_done} {e}')
         return
-    return tasks_done
+    add_diary("Tasks done", tasks_done)
 
 
 def process_run_distance():
     global points
     global total
     ran_distance = input(TITLE_RUN_DISTANCE)
+    result = 'Unknown'
     try:
         number = int(ran_distance)
 
         if number == 0:
             total += 2
-            return 'No run'
+            result = 'No run'
         elif number == 1:
             points += 1
             total += 2
-            return 'Run up to 2km'
+            result = 'Run up to 2km'
         elif number == 2:
             points += 2
             total += 2
-            return 'Run up to 5km'
+            result = 'Run up to 5km'
         elif number == 3:
             points += 3
             total += 3
-            return 'Run up to 8.5km'
+            result = 'Run up to 8.5km'
         elif number == 3:
             points += 3
             total += 3
-            return 'Run more than 8,5km'
-        elif number > 4:
-            print(f'ARE YOU DRUNK ? Value should be between 0-4. Why you typed {number}?')
+            result = 'Run more than 8,5km'
         else:
-            points += number
-            total += number
-        # r
+            print(f'ARE YOU DRUNK ? Value should be between 0-4. Why you typed {number}?')
+            result = 'none'
     except Exception as e:
         print(f'Error: {ran_distance} {e}')
-        return 'error'
+        result = 'exception'
+    add_diary("Run", result)
 
 
 def process_j_polish():
     j_polish = input(TITLE_J_PL)
     add_points_for_yes_question(j_polish)
-    return j_polish
+    add_diary("Is J answered practice", yes(j_polish))
 
 
 def process_j_10_math():
     j_10_math_questions = input(TITLE_10_MATH)
     add_points_for_yes_question(j_10_math_questions)
-    return j_10_math_questions
+    add_diary("Is J answered 10 math question", yes(j_10_math_questions))
 
 
 def process_spending_x():
     spend_time_with_x = input(TITLE_TIME_X)
     add_points_for_yes_question(spend_time_with_x)
-    return spend_time_with_x
+    add_diary("Spend enough time with X", yes(spend_time_with_x))
 
 
 def process_spending_time_j():
     spend_time_with_j = input(TITLE_TIME_J)
     add_points_for_yes_question(spend_time_with_j)
-    return spend_time_with_j
+    add_diary("Spend enough time with J", yes(spend_time_with_j))
 
 
 def process_10k_steps():
-    ten_thousand_steps = input(TITLE_10K)
-    if ten_thousand_steps == 'y':
-        ten_thousand_steps = input(TITLE_16K)
-        add_points_for_yes_question(ten_thousand_steps, 3)
+    steps = input(TITLE_10K)
+    if steps == 'y':
+        steps = input(TITLE_16K)
+        add_points_for_yes_question(steps, 3)
+        add_diary("16k Steps", yes(steps))
     else:
-        add_points_for_yes_question(ten_thousand_steps)
-    return ten_thousand_steps
+        add_points_for_yes_question(steps)
+        add_diary("10k Steps", yes(steps))
 
 
 def process_coding_one_hour():
     coding_one_hour = input(TITLE_CODING)
     add_points_for_yes_question(coding_one_hour)
-    return coding_one_hour
+    add_diary("Code for 1hour", yes(coding_one_hour))
 
 
 def process_drink_alcohol():
@@ -252,40 +267,37 @@ def process_drink_alcohol():
     except Exception as e:
         print(f'Error: {how_much_alcohol} {e}')
         return
-    return f'{yes(drink_alcohol)}. {grade_alcohol(int(how_much_alcohol))}'
+    alcohol_with_grade = f'{yes(drink_alcohol)}. {grade_alcohol(int(how_much_alcohol))}'
+    add_diary("Drink Alcohol", alcohol_with_grade)
 
 
 def process_seven_hours_sentence():
     sleep_seven_hours = input(TITLE_SLEEP_SEVEN_HOURS)
     add_points_for_yes_question(sleep_seven_hours)
-    return sleep_seven_hours
+    add_diary("Sleep 7 hours", yes(sleep_seven_hours))
 
 
 def process_eat_too_much_sentence():
     eat_too_much = input(TITLE_EAT_TOO_MUCH)
     add_points_for_yes_question(eat_too_much)
-    return eat_too_much
+    add_diary("Eat too much", no(eat_too_much))
 
 
 def process_eat_high_carbs_sentence():
     eat_high_carbs = input(TITLE_EAT_CARBS)
     add_points_for_yes_question(eat_high_carbs)
-    return eat_high_carbs
+    add_diary("Eat high carbs", yes(eat_high_carbs))
 
 
 def process_eat_in_window_sentence():
-    eat_in_window = add_eat_in_window_sentence()
-    return eat_in_window
+    eat_in_window = input(TITLE_EAT_IN_WINDOW)
+    add_points_for_yes_question(eat_in_window)
+    add_diary("Eat in 6hr window", yes(eat_in_window))
 
 
 def process_one_word_sentence():
-    return input(TITLE_TODAY_IN_ONE_WORD)
-
-
-def add_eat_in_window_sentence():
-    eat_in_window = input(TITLE_EAT_IN_WINDOW)
-    add_points_for_yes_question(eat_in_window)
-    return eat_in_window
+    one_word = input(TITLE_TODAY_IN_ONE_WORD)
+    add_diary("In one word", one_word)
 
 
 def yes(result: str):
@@ -300,62 +312,99 @@ def no(result: str):
     return "Yes"
 
 
-def display_line(title: str, answer: str):
+def add_diary(title: str, answer: str):
+    global diary
     title += "?"
-    return title.ljust(32, ' ') + ":" + str(answer).rjust(6, ' ') + '\n'
+    diary += title.ljust(36, ' ') + ":" + str(answer).rjust(6, ' ') + '\n'
 
 
-def generate_daily_diary():
-    diary = ""
-    date_sentence = f'Today is {date.today().strftime("%d %b %Y")}\n'
-    diary += date_sentence
+def add_line_break():
+    global diary
+    diary += hr
 
-    one_word = process_one_word_sentence()
-    eat_in_window = process_eat_in_window_sentence()
-    eat_high_carbs = process_eat_high_carbs_sentence()
-    eat_too_much = process_eat_too_much_sentence()
-    sleep_seven_hours = process_seven_hours_sentence()
-    alcohol_with_grade = process_drink_alcohol()
-    coding_one_hour = process_coding_one_hour()
-    ten_thousand_steps = process_10k_steps()
-    spend_time_with_j = process_spending_time_j()
-    spend_time_with_x = process_spending_x()
-    j_10_math_questions = process_j_10_math()
-    j_polish = process_j_polish()
-    ran_distance = process_run_distance()
-    tasks_done = process_tasks_done()
-    daily_counter_and_total = process_daily_routine_tasks()
 
-    dom_goals = input(TITLE_DOM_GOALS)
-    notes = input(TITLE_NOTES)
-    worries = input(TITLE_WORRIES)
-    tomorrow = input(TITLE_TOMORROW)
-    hr = '=' * 50 + '\n'
-
-    diary += f'{hr}' \
-             f'{display_line("In one word", one_word)}' \
-             f'{display_line("Daily routine tasks", daily_counter_and_total)}' \
-             f'{display_line("Tasks done", tasks_done)}' \
-             f'{display_line("Sleep 7 hours", yes(sleep_seven_hours))}' \
-             f'{display_line("Eat in 6hr window", yes(eat_in_window))}' \
-             f'{display_line("Eat high carbs", yes(eat_high_carbs))}' \
-             f'{display_line("Eat too much", no(eat_too_much))}' \
-             f'{display_line("Drink Alcohol", alcohol_with_grade)}' \
-             f'{display_line("Code for 1hour", yes(coding_one_hour))}' \
-             f'{display_line("10k Steps", yes(ten_thousand_steps))}' \
-             f'{display_line("Run", ran_distance)}' \
-             f'{display_line("Spend enough time with J", yes(spend_time_with_j))}' \
-             f'{display_line("Spend enough time with X", yes(spend_time_with_x))}' \
-             f'{display_line("Is J answered 10 math question", yes(j_10_math_questions))}' \
-             f'{display_line("Is J answered practice", yes(j_polish))}' \
-             f'{display_line("Progres on goals", dom_goals)}' \
-             f'{display_line("Other(learnt,good things)", notes)}' \
-             f'{display_line("Things that worries me", worries)}' \
-             f'{display_line("3 action items for tomorrow are", tomorrow)}' \
-             f'{get_score_with_grade()}\n' \
-             f'{hr}'
+def display_diary():
+    global diary
     print(diary)
 
 
+def store_diary():
+    global diary
+    specified_data = date.today()
+    year = specified_data.year
+    month = specified_data.month
+    day = specified_data.day
+
+    path = Path(f"e:/Dropbox/diary/{year}/{month:02d}/{day:02d}/")
+    if not os.path.exists(path):
+        Path(f"e:/Dropbox/diary/{year}/{month:02d}/{day:02d}/").mkdir(parents=True, exist_ok=True)
+    file_path = str(path) + "/diary.txt"
+    try:
+        with open(file_path, 'w+', encoding='utf-8') as diary_file:
+            diary_file.writelines(diary)
+            print(diary)
+    except Exception as exception:
+        print(exception)
+
+
+def generate_daily_diary():
+    process_one_word_sentence()
+    process_tasks_done()
+    process_daily_routine_tasks()
+    add_line_break()
+    process_eat_in_window_sentence()
+    process_eat_high_carbs_sentence()
+    process_eat_too_much_sentence()
+    process_seven_hours_sentence()
+    process_drink_alcohol()
+    process_coding_one_hour()
+    process_10k_steps()
+    process_spending_time_j()
+    process_spending_x()
+    process_j_10_math()
+    process_j_polish()
+    process_run_distance()
+    add_diary("Progres on goals", input(TITLE_DOM_GOALS))
+    add_diary("Other(learnt,good things)", input(TITLE_NOTES))
+    add_diary("Things that worries me", input(TITLE_WORRIES))
+    add_diary("3 action items for tomorrow are", input(TITLE_TOMORROW))
+    get_score_with_grade()
+    add_line_break()
+    display_diary()
+    store_diary()
+
+
+def weekly():
+    print("Weekly is not implemented")
+
+
+def monthly():
+    print("Monthly is not implemented")
+
+
 if __name__ == '__main__':
-    generate_daily_diary()
+    running = True
+    while (running):
+        try:
+            choice = int(input("Select:\n"
+                               "[1. Morning plans]\n"
+                               "[2.Generate daily diary]\n"
+                               "[3. Weekly report]\n"
+                               "[4.Monthly report]\n"
+                               "[0. Exit]\n"))
+            if choice == 0:
+                print("Goodbye!")
+            elif choice == 1:
+                morning_questions()
+            elif choice == 2:
+                generate_daily_diary()
+            elif choice == 3:
+                weekly()
+            elif choice == 4:
+                monthly()
+            else:
+                print("Invalid number")
+                raise Exception("Invalid number")
+            running = False
+        except Exception as exception:
+            print(f"Error:{exception}")
