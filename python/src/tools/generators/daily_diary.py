@@ -2,6 +2,8 @@ import os
 from datetime import date
 from pathlib import Path
 
+QUESTION_TASK_DONE = "Task Done"
+
 LINE_LENGTH = 80
 
 TITLE_TASK_DONE = 'How many task have I done?'
@@ -47,7 +49,7 @@ def morning_questions():
     great_day = input(QUESTION_GREAT_DAY)
     focus = input(QUESTION_GOALS)
     work_to_do = input(QUESTION_WORK_TODO)
-    return f'Morning Plan:\n\n' \
+    morning_routine_data =  f'Morning Plan:\n\n' \
            f'{QUESTION_THANKFULNESS}\n' \
            f'{thankful}\n\n' \
            f'{QUESTION_GREAT_DAY}\n' \
@@ -56,7 +58,8 @@ def morning_questions():
            f'{focus}\n\n' \
            f'{QUESTION_WORK_TODO}\n' \
            f'{work_to_do}\n\n'
-
+    print(morning_routine_data)
+    store_morning(morning_routine_data)
 
 def add_points_for_yes_question(yes: str, multiplier: int = 1):
     global points
@@ -327,6 +330,22 @@ def display_diary():
     global diary
     print(diary)
 
+def store_morning(morning_routine):
+    specified_data = date.today()
+    year = specified_data.year
+    month = specified_data.month
+    day = specified_data.day
+
+    path = Path(f"e:/Dropbox/diary/{year}/{month:02d}/{day:02d}/")
+    if not os.path.exists(path):
+        Path(f"e:/Dropbox/diary/{year}/{month:02d}/{day:02d}/").mkdir(parents=True, exist_ok=True)
+    file_path = str(path) + "/morning.txt"
+    try:
+        with open(file_path, 'w+', encoding='utf-8') as diary_file:
+            diary_file.writelines(morning_routine)
+    except Exception as exception:
+        print(exception)
+
 
 def store_diary():
     global diary
@@ -374,8 +393,12 @@ def generate_daily_diary():
     store_diary()
 
 
-def weekly():
-    print("Weekly is not implemented")
+def generate_weekly_diary():
+    print('Not implemented')
+
+
+
+
 
 
 def monthly():
@@ -399,7 +422,7 @@ if __name__ == '__main__':
             elif choice == 2:
                 generate_daily_diary()
             elif choice == 3:
-                weekly()
+                generate_weekly_diary()
             elif choice == 4:
                 monthly()
             else:

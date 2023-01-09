@@ -1,6 +1,6 @@
-BRILLIANT (15 minutes/1 chapter);;IN_PROGRESS;;200;;22;;
-HackerRank Challenge (1 per day);;IN_PROGRESS;;200;;17;;
-Run at least 2km per day;;IN_PROGRESS;;365;;10;;
+BRILLIANT (15 minutes/1 chapter);;IN_PROGRESS;;200;;26;;
+HackerRank Challenge (1 per day);;IN_PROGRESS;;200;;20;;
+Run at least 2km per day;;IN_PROGRESS;;365;;11;;
 Dom'90;;IN_PROGRESS;;
 Read 1 book per quarter;;IN_PROGRESS;;4;;0;;
 Barista course;;TO_DO;;
@@ -33,7 +33,7 @@ Travel on the longest train in Poland;;TO_DO;;
 Watch 12 movies with Xu;;DONE;;12;;12;;
 Read 40 Polish books to J;;TO_DO;;40;;2;;
 Write biography;;TO_DO;;
-Photography course;;ABANDONED;;
+J start learn Polish;;DONE;;
 Night rider (travel on 2-3 night trains);;TO_DO;;
 Four British Train trip;;WORKING_ON;;4;;1;;
 Buy Total commander license;;DONE;;
