@@ -2,8 +2,6 @@ import os
 from datetime import date
 from pathlib import Path
 
-QUESTION_TASK_DONE = "Task Done"
-
 LINE_LENGTH = 80
 
 TITLE_TASK_DONE = 'How many task have I done?'
@@ -26,11 +24,13 @@ TITLE_NOTES = 'What good have I done today? Did I learn anything?Anything else?'
 TITLE_DOM_GOALS = 'Did I make progress towards goals (Dom90, Craftsmanship, Trading)?'
 TITLE_TODAY_IN_ONE_WORD = "How you describe today in one world?"
 TITLE_WORRIES = 'What worries me right now?'
-
+QUESTION_TASK_DONE = "Task Done?"
 QUESTION_WORK_TODO = 'Any work item to do'
 QUESTION_GOALS = 'What goals/learning do I want to focus on?'
 QUESTION_GREAT_DAY = 'What makes today a great day?'
 QUESTION_THANKFULNESS = 'What am I grateful for today?'
+QUESTION_WEEKLY_TASK_DONE = 'Number of weekly tasks done?'
+QUESTION_WEEKLY_TOTAL_TASK = 'Number of total weekly tasks ?'
 
 # morning
 # day report
@@ -49,17 +49,18 @@ def morning_questions():
     great_day = input(QUESTION_GREAT_DAY)
     focus = input(QUESTION_GOALS)
     work_to_do = input(QUESTION_WORK_TODO)
-    morning_routine_data =  f'Morning Plan:\n\n' \
-           f'{QUESTION_THANKFULNESS}\n' \
-           f'{thankful}\n\n' \
-           f'{QUESTION_GREAT_DAY}\n' \
-           f'{great_day}\n\n' \
-           f'{QUESTION_GOALS}\n' \
-           f'{focus}\n\n' \
-           f'{QUESTION_WORK_TODO}\n' \
-           f'{work_to_do}\n\n'
+    morning_routine_data = f'Morning Plan:\n\n' \
+                           f'{QUESTION_THANKFULNESS}\n' \
+                           f'{thankful}\n\n' \
+                           f'{QUESTION_GREAT_DAY}\n' \
+                           f'{great_day}\n\n' \
+                           f'{QUESTION_GOALS}\n' \
+                           f'{focus}\n\n' \
+                           f'{QUESTION_WORK_TODO}\n' \
+                           f'{work_to_do}\n\n'
     print(morning_routine_data)
-    store_morning(morning_routine_data)
+    store_to_file(morning_routine_data, "morning")
+
 
 def add_points_for_yes_question(yes: str, multiplier: int = 1):
     global points
@@ -330,7 +331,8 @@ def display_diary():
     global diary
     print(diary)
 
-def store_morning(morning_routine):
+
+def store_to_file(content, file_name):
     specified_data = date.today()
     year = specified_data.year
     month = specified_data.month
@@ -339,10 +341,10 @@ def store_morning(morning_routine):
     path = Path(f"e:/Dropbox/diary/{year}/{month:02d}/{day:02d}/")
     if not os.path.exists(path):
         Path(f"e:/Dropbox/diary/{year}/{month:02d}/{day:02d}/").mkdir(parents=True, exist_ok=True)
-    file_path = str(path) + "/morning.txt"
+    file_path = str(path) + f"/{file_name}.txt"
     try:
         with open(file_path, 'w+', encoding='utf-8') as diary_file:
-            diary_file.writelines(morning_routine)
+            diary_file.writelines(content)
     except Exception as exception:
         print(exception)
 
@@ -393,19 +395,54 @@ def generate_daily_diary():
     store_diary()
 
 
+def process_weekly_question(title: str):
+    return f'{title}?\n\t {input(f"{title}?  ")}\n\n'
+
+
+def process_weekly_points_from_tasks():
+    not_completed = True
+    while (not_completed):
+        try:
+            task_done = int(input(QUESTION_TASK_DONE))
+            weekly_point = int(input(QUESTION_WEEKLY_TASK_DONE))
+            weekly_total = int(input(QUESTION_WEEKLY_TOTAL_TASK))
+            final_score = float(f'{(weekly_point + task_done) / (weekly_total + task_done) * 100:0.2f}')
+            weekly_grade = grade(final_score)
+            not_completed = False
+            return f'I did {weekly_point} of {weekly_total} weekly tasks and I have done {task_done} of other tasks. It gives {final_score}% ({weekly_grade}).'
+        except Exception as exception:
+            print(f'Invalid input due to {exception}')
+
+
+def today_date():
+    specified_data = date.today()
+    year = specified_data.year
+    month = specified_data.month
+    day = specified_data.day
+
+
 def generate_weekly_diary():
-    print('Not implemented')
-
-
-
-
+    weekly = f'{hr}\nWeekly report generated at {date.today().strftime("%d %b %Y")}\n{hr}\n'
+    weekly += process_weekly_points_from_tasks()
+    weekly += process_weekly_question("What goals do I work on")
+    weekly += process_weekly_question("What went well")
+    weekly += process_weekly_question("What can I do next week better to achieve my goals and make the future better")
+    weekly += process_weekly_question("Did I do best to keep my body and brain in best possible condition")
+    weekly += process_weekly_question(
+        "What worries me and makes me unhappy? How can I eliminate habits that do not help me that I should remove")
+    weekly += process_weekly_question("What worked well and what didn’t work well in our family this weekend")
+    weekly += process_weekly_question("What is my focus NEXT WEEK ? 3 core things")
+    weekly += hr
+    print(weekly)
+    store_to_file(weekly, "weekly")
 
 
 def monthly():
     print("Monthly is not implemented")
 
 
-if __name__ == '__main__':
+def menu():
+    global choice
     running = True
     while (running):
         try:
@@ -418,12 +455,16 @@ if __name__ == '__main__':
             if choice == 0:
                 print("Goodbye!")
             elif choice == 1:
+                print('Go to Morning plans..')
                 morning_questions()
             elif choice == 2:
+                print('Go to daily diary..')
                 generate_daily_diary()
             elif choice == 3:
+                print('Go to weekly diary..')
                 generate_weekly_diary()
             elif choice == 4:
+                print('Go to monthly summary diary..')
                 monthly()
             else:
                 print("Invalid number")
@@ -431,3 +472,7 @@ if __name__ == '__main__':
             running = False
         except Exception as exception:
             print(f"Error:{exception}")
+
+
+if __name__ == '__main__':
+    menu()
