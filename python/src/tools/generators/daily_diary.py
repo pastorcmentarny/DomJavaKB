@@ -32,10 +32,6 @@ QUESTION_THANKFULNESS = 'What am I grateful for today?'
 QUESTION_WEEKLY_TASK_DONE = 'Number of weekly tasks done?'
 QUESTION_WEEKLY_TOTAL_TASK = 'Number of total weekly tasks ?'
 
-# morning
-# day report
-# weekly report
-# monthly report (including total points and performance  best and worst day and summary)
 hr = '=' * LINE_LENGTH + '\n'
 
 points = 0
@@ -62,20 +58,20 @@ def morning_questions():
     store_to_file(morning_routine_data, "morning")
 
 
-def add_points_for_yes_question(yes: str, multiplier: int = 1):
+def add_points_for_yes_question(yes_answer: str, multiplier: int = 1):
     global points
     global total
-    if (yes.lower()) == 'y' or (yes.lower() == 'yes'):
+    if (yes_answer.lower()) == 'y' or (yes_answer.lower() == 'yes'):
         points += multiplier
         total += multiplier
     else:
         total += 1
 
 
-def add_points_for_no_question(no: str, multiplier: int = 1):
+def add_points_for_no_question(no_answer: str, multiplier: int = 1):
     global points
     global total
-    if (no.lower() == 'n') or (no.lower() == 'no'):
+    if (no_answer.lower() == 'n') or (no_answer.lower() == 'no'):
         points += multiplier
         total += multiplier
     else:
@@ -138,14 +134,14 @@ def add_points_and_total(daily_task_counter, daily_task_total):
         total += daily_task_total
 
 
-def grade_alcohol(amount: int) -> str:
-    if amount == 1:
+def grade_alcohol(alcohol_amount) -> str:
+    if alcohol_amount == 1:
         return " ~1 beer"
-    if amount == 2:
+    if alcohol_amount == 2:
         return " some (~3 beers/1 glass wine)"
-    if amount == 3:
+    if alcohol_amount == 3:
         return "a lot :/"
-    if amount == 4:
+    if alcohol_amount == 4:
         return "too much :("
 
     return "Can't grade alcohol consumption"
@@ -261,18 +257,21 @@ def process_coding_one_hour():
 def process_drink_alcohol():
     drink_alcohol = input(TITLE_DRINK_ALCOHOL)
     add_points_for_no_question(drink_alcohol)
+    if (drink_alcohol.lower() == 'y') or (drink_alcohol.lower() == 'yes'):
+        how_much_alcohol = input(TITLE_HOW_MUCH_ALCOHOL)
+        carry_on = True
+        while carry_on:
+            try:
+                number = int(how_much_alcohol)
+                add_negative_points_for_alcohol(number)
+                how_much_alcohol = number
+                carry_on = False
+            except Exception as exception:
+                print(f'Error: {how_much_alcohol} {exception}')
+                return
 
-    how_much_alcohol = input(TITLE_HOW_MUCH_ALCOHOL)
-    try:
-        # TODO improve it
-        number = int(how_much_alcohol)
-        add_negative_points_for_alcohol(number)
-        how_much_alcohol = number
-    except Exception as e:
-        print(f'Error: {how_much_alcohol} {e}')
-        return
-    alcohol_with_grade = f'{yes(drink_alcohol)}. {grade_alcohol(int(how_much_alcohol))}'
-    add_diary("Drink Alcohol", alcohol_with_grade)
+        alcohol_with_grade = f'{yes(drink_alcohol)}. {grade_alcohol(int(how_much_alcohol))}'
+        add_diary("Drink Alcohol", alcohol_with_grade)
 
 
 def process_seven_hours_sentence():
@@ -349,26 +348,8 @@ def store_to_file(content, file_name):
         print(exception)
 
 
-def store_diary():
-    global diary
-    specified_data = date.today()
-    year = specified_data.year
-    month = specified_data.month
-    day = specified_data.day
-
-    path = Path(f"e:/Dropbox/diary/{year}/{month:02d}/{day:02d}/")
-    if not os.path.exists(path):
-        Path(f"e:/Dropbox/diary/{year}/{month:02d}/{day:02d}/").mkdir(parents=True, exist_ok=True)
-    file_path = str(path) + "/diary.txt"
-    try:
-        with open(file_path, 'w+', encoding='utf-8') as diary_file:
-            diary_file.writelines(diary)
-            print(diary)
-    except Exception as exception:
-        print(exception)
-
-
 def generate_daily_diary():
+    global diary
     process_one_word_sentence()
     process_tasks_done()
     process_daily_routine_tasks()
@@ -392,7 +373,7 @@ def generate_daily_diary():
     get_score_with_grade()
     add_line_break()
     display_diary()
-    store_diary()
+    store_to_file(diary, "diary")
 
 
 def process_weekly_question(title: str):
@@ -401,7 +382,7 @@ def process_weekly_question(title: str):
 
 def process_weekly_points_from_tasks():
     not_completed = True
-    while (not_completed):
+    while not_completed:
         try:
             task_done = int(input(QUESTION_TASK_DONE))
             weekly_point = int(input(QUESTION_WEEKLY_TASK_DONE))
@@ -412,13 +393,6 @@ def process_weekly_points_from_tasks():
             return f'I did {weekly_point} of {weekly_total} weekly tasks and I have done {task_done} of other tasks. It gives {final_score}% ({weekly_grade}).'
         except Exception as exception:
             print(f'Invalid input due to {exception}')
-
-
-def today_date():
-    specified_data = date.today()
-    year = specified_data.year
-    month = specified_data.month
-    day = specified_data.day
 
 
 def generate_weekly_diary():
@@ -444,7 +418,7 @@ def monthly():
 def menu():
     global choice
     running = True
-    while (running):
+    while running:
         try:
             choice = int(input("Select:\n"
                                "[1. Morning plans]\n"
