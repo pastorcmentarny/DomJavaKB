@@ -376,7 +376,7 @@ def generate_daily_diary():
     store_to_file(diary, "diary")
 
 
-def process_weekly_question(title: str):
+def process_simple_question(title: str):
     return f'{title}?\n\t {input(f"{title}?  ")}\n\n'
 
 
@@ -398,21 +398,38 @@ def process_weekly_points_from_tasks():
 def generate_weekly_diary():
     weekly = f'{hr}\nWeekly report generated at {date.today().strftime("%d %b %Y")}\n{hr}\n'
     weekly += process_weekly_points_from_tasks()
-    weekly += process_weekly_question("What goals do I work on")
-    weekly += process_weekly_question("What went well")
-    weekly += process_weekly_question("What can I do next week better to achieve my goals and make the future better")
-    weekly += process_weekly_question("Did I do best to keep my body and brain in best possible condition")
-    weekly += process_weekly_question(
+    weekly += process_simple_question("What goals do I work on")
+    weekly += process_simple_question("What went well")
+    weekly += process_simple_question("What can I do next week better to achieve my goals and make the future better")
+    weekly += process_simple_question("Did I do best to keep my body and brain in best possible condition")
+    weekly += process_simple_question(
         "What worries me and makes me unhappy? How can I eliminate habits that do not help me that I should remove")
-    weekly += process_weekly_question("What worked well and what didn’t work well in our family this weekend")
-    weekly += process_weekly_question("What is my focus NEXT WEEK ? 3 core things")
+    weekly += process_simple_question("What worked well and what didn’t work well in our family this weekend")
+    weekly += process_simple_question("What is my focus NEXT WEEK ? 3 core things")
     weekly += hr
     print(weekly)
     store_to_file(weekly, "weekly")
 
 
-def monthly():
-    print("Monthly is not implemented")
+def generate_monthly_summary():
+    monthly = f'{hr}\nWeekly report generated at {date.today().strftime("%B %Y")}\n{hr}\n'
+    monthly += process_simple_question("In one word summary for Health")
+    monthly += process_simple_question("In one word summary for Family")
+    monthly += process_simple_question("In one word summary for Work")
+    monthly += process_simple_question("In one word summary for Walk/Run")
+    monthly += process_simple_question("In one word summary for Hobby ")
+    monthly += process_simple_question("What goals did I finish? ")
+    monthly += process_simple_question("What goals do I work on? ")
+    monthly += process_simple_question("What can I do next week better to achieve my goals and make the future better?")
+    monthly += process_simple_question("What problems do I encounter? How many I solve?")
+    monthly += process_simple_question("Did I learn enough new things?")
+    monthly += process_simple_question("Did I develop new friendships and deepen old ones?")
+    monthly += process_simple_question("On what day I did most of my daily tasks")
+    monthly += process_simple_question("On what day I did most tasks")
+    monthly += process_simple_question("Any other comments")
+    monthly += hr
+    print(monthly)
+    store_to_file(monthly, "monthly")
 
 
 def menu():
@@ -439,7 +456,7 @@ def menu():
                 generate_weekly_diary()
             elif choice == 4:
                 print('Go to monthly summary diary..')
-                monthly()
+                generate_monthly_summary()
             else:
                 print("Invalid number")
                 raise Exception("Invalid number")
