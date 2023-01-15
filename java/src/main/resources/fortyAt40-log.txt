@@ -1,6 +1,19 @@
+20230115;;Run at least 2 km
+20230113;;1 brilliant(Today challenge)
+20230113;;Read 1 book to J
+20230112;;1 brilliant(Today challenge)
+20230112;;1 HackerRank challenge
+20230112;;Read 1 book to J
+20230111;;1 brilliant(Today challenge)
+20230111;;1 HackerRank challenge
+20230111;;Read 1 book to J
+20230110;;1 brilliant(Today challenge)
+20230110;;1 HackerRank challenge
+20230110;;Read 1 book to J
 20230109;;Run at least 2 km
 20230109;;1 brilliant(Today challenge)
 20230109;;1 HackerRank challenge
+20230109;;Read 1 book to J
 20230108;;1 brilliant(Today challenge)
 20230108;;1 HackerRank challenge
 20230107;;1 brilliant  1 chapter

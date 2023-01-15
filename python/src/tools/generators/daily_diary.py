@@ -148,33 +148,43 @@ def grade_alcohol(alcohol_amount) -> str:
 
 
 def process_daily_routine_tasks():
-    daily_task_counter = input('Daily routine tasks?')
-    try:
-        daily_task_counter = int(daily_task_counter)
-    except Exception as e:
-        print(f'Error: {daily_task_counter} {e}')
-        return
+    carry_on = True
+    daily_task_counter = 0
+
+    while carry_on:
+        daily_task_counter = input('Daily routine tasks?')
+        try:
+            daily_task_counter = int(daily_task_counter)
+        except Exception as e:
+            print(f'Error: {daily_task_counter} {e}')
+            return
 
     daily_task_total = input('total daily routine tasks for today ?')
-    try:
-        number = int(daily_task_total)
-        add_points(number)
-    except Exception as e:
-        print(f'Error: {daily_task_total} {e}')
-        return
+    carry_on = True
+    while carry_on:
+        try:
+            number = int(daily_task_total)
+            add_points(number)
+            carry_on = False
+        except Exception as e:
+            print(f'Error: {daily_task_total} {e}')
+            return
     add_points_and_total(daily_task_counter, daily_task_total)
     add_diary("daily routine tasks", f'{daily_task_counter} of {daily_task_total}')
 
 
 def process_tasks_done():
-    tasks_done = input(TITLE_TASK_DONE)
-    try:
-        number = int(tasks_done)
-        add_points(number)
-    except Exception as e:
-        print(f'Error: {tasks_done} {e}')
-        return
-    add_diary("Tasks done", tasks_done)
+    carry_on = True
+    while carry_on:
+        tasks_done = input(TITLE_TASK_DONE)
+        try:
+            number = int(tasks_done)
+            add_points(number)
+            carry_on = False
+        except Exception as e:
+            print(f'Error: {tasks_done} {e}')
+            return
+        add_diary("Tasks done", tasks_done)
 
 
 def process_run_distance():
