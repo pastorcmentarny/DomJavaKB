@@ -24,6 +24,7 @@ TITLE_NOTES = 'What good have I done today? Did I learn anything?Anything else?'
 TITLE_DOM_GOALS = 'Did I make progress towards goals (Dom90, Craftsmanship, Trading)?'
 TITLE_TODAY_IN_ONE_WORD = "How you describe today in one world?"
 TITLE_WORRIES = 'What worries me right now?'
+TITLE_ANYTHING_ELSE = ' Anything else on my mind?'
 QUESTION_TASK_DONE = "Task Done?"
 QUESTION_WORK_TODO = 'Any work item to do'
 QUESTION_GOALS = 'What goals/learning do I want to focus on?'
@@ -155,6 +156,7 @@ def process_daily_routine_tasks():
         daily_task_counter = input('Daily routine tasks?')
         try:
             daily_task_counter = int(daily_task_counter)
+            carry_on = False
         except Exception as e:
             print(f'Error: {daily_task_counter} {e}')
             return
@@ -382,6 +384,8 @@ def generate_daily_diary():
     add_diary("3 action items for tomorrow are", input(TITLE_TOMORROW))
     get_score_with_grade()
     add_line_break()
+    add_diary("Anything else on my mind?", input(TITLE_ANYTHING_ELSE))
+    add_line_break()
     display_diary()
     store_to_file(diary, "diary")
 
@@ -400,7 +404,7 @@ def process_weekly_points_from_tasks():
             final_score = float(f'{(weekly_point + task_done) / (weekly_total + task_done) * 100:0.2f}')
             weekly_grade = grade(final_score)
             not_completed = False
-            return f'I did {weekly_point} of {weekly_total} weekly tasks and I have done {task_done} of other tasks. It gives {final_score}% ({weekly_grade}).'
+            return f'I did {weekly_point} of {weekly_total} weekly tasks and I have done {task_done} of other tasks. It gives {final_score}% ({weekly_grade}).\n'
         except Exception as exception:
             print(f'Invalid input due to {exception}')
 
@@ -428,12 +432,12 @@ def generate_monthly_summary():
     monthly += process_simple_question("In one word summary for Work")
     monthly += process_simple_question("In one word summary for Walk/Run")
     monthly += process_simple_question("In one word summary for Hobby ")
-    monthly += process_simple_question("What goals did I finish? ")
-    monthly += process_simple_question("What goals do I work on? ")
-    monthly += process_simple_question("What can I do next week better to achieve my goals and make the future better?")
-    monthly += process_simple_question("What problems do I encounter? How many I solve?")
-    monthly += process_simple_question("Did I learn enough new things?")
-    monthly += process_simple_question("Did I develop new friendships and deepen old ones?")
+    monthly += process_simple_question("What goals did I finish")
+    monthly += process_simple_question("What goals do I work on")
+    monthly += process_simple_question("What can I do next week better to achieve my goals and make the future better")
+    monthly += process_simple_question("What problems do I encounter? How many I solve")
+    monthly += process_simple_question("Did I learn enough new things")
+    monthly += process_simple_question("Did I develop new friendships and deepen old ones")
     monthly += process_simple_question("On what day I did most of my daily tasks")
     monthly += process_simple_question("On what day I did most tasks")
     monthly += process_simple_question("Any other comments")
