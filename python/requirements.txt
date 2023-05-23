@@ -1,5 +1,5 @@
 flask==2.3.2
-requests==2.29.0
+requests==2.31.0
 coverage==5.5
 beautifulsoup4==4.12.2
 pyautogui==0.9.53
