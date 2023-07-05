@@ -1,5 +1,6 @@
 package dms.pastor.utils;
 
+import dms.pastor.domain.exception.SomethingWentWrongException;
 import dms.pastor.utils.randoms.RandomDataGenerator;
 
 import java.util.*;
@@ -347,4 +348,10 @@ public final class StringUtils {
         return !newValue.equals(currentValue);
     }
 
+    public static boolean notStartWith(String prefix, String value) {
+        if (isStringEmpty(prefix) | isStringEmpty(value)) {
+            throw new SomethingWentWrongException("Invalid value and/or prefix data Prefix:'%s' Value:'%s'".formatted(prefix, value));
+        }
+        return !value.toLowerCase().startsWith(prefix.toLowerCase());
+    }
 }

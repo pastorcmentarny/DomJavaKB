@@ -1,6 +1,9 @@
 package dms.pastor.utils;
 
+import dms.pastor.domain.exception.SomethingWentWrongException;
+import dms.pastor.tools.converters.ToIntegerList;
 import dms.pastor.utils.randoms.RandomDataGenerator;
+import org.apache.kafka.common.protocol.types.Field;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -17,6 +20,7 @@ import static dms.pastor.utils.StringUtils.*;
 import static dms.pastor.utils.randoms.RandomDataGenerator.*;
 import static java.lang.Character.isLetter;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Author Dominik Symonowicz
@@ -858,4 +862,94 @@ public class StringUtilsTest {
         // then
         org.assertj.core.api.Assertions.assertThat(result).isTrue();
     }
+
+    @Test
+    void notStartWithThrowsExceptionIfPrefixIsNullTest() {
+        // given
+        final String prefix_input = null;
+        final String value_input = "Run every minute";
+
+        // when
+        final var exception = assertThrows(SomethingWentWrongException.class, () -> notStartWith(prefix_input, value_input));
+
+        // then
+        org.assertj.core.api.Assertions.assertThat(exception.getMessage()).isEqualTo("Whoops! Something went wrong. Invalid value and/or prefix data Prefix:'null' Value:'Run every minute'. I apologize for any inconvenience caused by your mistake.");
+    }
+
+    @Test
+    void notStartWithThrowsExceptionIfValueIsNullTest() {
+        // given
+        final String prefix_input = "Run";
+        final String value_input = null;
+
+        // when
+        final var exception = assertThrows(SomethingWentWrongException.class, () -> notStartWith(prefix_input, value_input));
+
+        // then
+        org.assertj.core.api.Assertions.assertThat(exception.getMessage()).isEqualTo("Whoops! Something went wrong. Invalid value and/or prefix data Prefix:'Run' Value:'null'. I apologize for any inconvenience caused by your mistake.");
+    }
+
+    @Test
+    void notStartReturnsFalseTest() {
+        // given
+        final String prefix_input = "Run";
+        final String value_input = "Run every minute";
+
+        // when
+        final boolean result = notStartWith(prefix_input, value_input);
+
+        // then
+        assertFalse(result);
+    }
+
+    @Test
+    void notStartWithAcceptanceTest() {
+        // given
+        final String prefix_input = "Every";
+        final String value_input = "Run every minute";
+
+        // when
+        final boolean result = notStartWith(prefix_input, value_input);
+
+        // then
+        assertTrue(result);
+    }
+
+    @Test
+    void capitalizeWordWillReturnSameWord() {
+        // given
+        final String expectedResult = "MILK";
+
+        // when
+        final String result = capitalizeWord("MILK");
+
+        // then
+        assertEquals(expectedResult, result);
+    }
+
+    @Test
+    void capitalizeWordReturnCapitalizedCharacter() {
+        // given
+        final String expectedResult = "X";
+
+        // when
+        final String result = capitalizeWord("x");
+
+        // then
+        assertEquals(expectedResult, result);
+    }
+
+    @Test
+    void capitalizeWordAcceptanceTest() {
+        // given
+        final String expectedResult = "Garlic";
+
+        // when
+        final String result = capitalizeWord("garlic");
+
+        // then
+        assertEquals(expectedResult, result);
+    }
+
+
 }
