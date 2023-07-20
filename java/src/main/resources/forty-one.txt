@@ -1,11 +1,11 @@
-BRILLIANT (15 minutes/1 chapter);;IN_PROGRESS;;260;;9;;
-Run at least 2km per day;;IN_PROGRESS;;350;;4;;
+BRILLIANT (15 minutes/1 chapter);;IN_PROGRESS;;260;;11;;
+Run at least 2km per day;;IN_PROGRESS;;350;;6;;
 Write 100 tests/day (TDD);;TO_DO;;260;;0;;
-lift weight 41x/day;;IN_PROGRESS;;260;;6;;
+lift weight 41x/day;;IN_PROGRESS;;260;;8;;
 Read 1 book per quarter;;TO_DO;;4;;0;;
 Weight 90kg;;TO_DO;;
 Run in half marathon race;;TO_DO;;
-Fasting for 24,36,48 and 72 hours;;TO_DO;;4;;0;;
+Fasting for 24,36,48 and 72 hours;;WORKING_ON;;4;;1;;
 Walk 50000 steps;;TO_DO;;
 Design the SpaceTrain office in Shed;;TO_DO;;
 12x family day outs;;WORKING_ON;;12;;1;;
