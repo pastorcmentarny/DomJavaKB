@@ -1,5 +1,5 @@
-BRILLIANT (15 minutes/1 chapter);;IN_PROGRESS;;260;;11;;
-Run at least 2km per day;;IN_PROGRESS;;350;;6;;
+BRILLIANT (15 minutes/1 chapter);;IN_PROGRESS;;260;;12;;
+Run at least 2km per day;;IN_PROGRESS;;350;;7;;
 Write 100 tests/day (TDD);;TO_DO;;260;;0;;
 lift weight 41x/day;;IN_PROGRESS;;260;;8;;
 Read 1 book per quarter;;TO_DO;;4;;0;;

@@ -1,4 +1,6 @@
-20230718;;1 Brilliant
+20230720;;1 Brilliant
+20230720;;Run 2km
+20230719;;1 Brilliant
 20230719;;lift weight 41x/day
 20230718;;fasting for 24h
 20230718;;lift weight 41x/day
