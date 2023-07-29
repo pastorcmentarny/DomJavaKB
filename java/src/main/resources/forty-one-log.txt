@@ -1,5 +1,7 @@
 20230726;;lift weight 41x/day
 20230726;;1 Brilliant
+20230726;;lift weight 41x/day
+20230726;;1 Brilliant
 20230726;;Run 2km
 20230725;;1 Brilliant
 20230724;;Run 2km
