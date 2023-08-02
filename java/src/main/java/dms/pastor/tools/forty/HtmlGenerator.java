@@ -110,7 +110,7 @@ public class HtmlGenerator {
     // just to use #40b440 as color :D
     private String generateMiniTitle() {
         return """
-                <h2 style="color:#40b440">40 things to do during being 40 year old</h2>
+                <h2 style="color:#40b440">21 things to do at 41 year old</h2>
                 """;
     }
 
@@ -191,11 +191,11 @@ public class HtmlGenerator {
     }
 
     private List<String> loadProgressData() {
-        return loadFileFromResourceAsListOfStrings("fortyAt40.txt");
+        return loadFileFromResourceAsListOfStrings("forty-one.txt");
     }
 
     private List<String> loadLogData() {
-        return loadFileFromResourceAsListOfStrings("fortyAt40-log.txt");
+        return loadFileFromResourceAsListOfStrings("forty-one-log.txt");
     }
 
     public boolean saveAsHtml(String path) {
@@ -207,9 +207,9 @@ public class HtmlGenerator {
         return """
                         <thead>
                         <tr>
-                            <th scope="col">Forty(40)</th>
-                            <th scope="col">Before(b4)</th>
-                            <th scope="col">Forty(40)</th>
+                            <th scope="col">TO DO</th>
+                            <th scope="col">while</th>
+                            <th scope="col">Forty One</th>
                             <th scope="col">List</th>
                         </tr>
                         </thead>

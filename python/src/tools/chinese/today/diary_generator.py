@@ -3,7 +3,7 @@
 import datetime
 import pyperclip
 
-from src.tools.chinese.today import activities, chinese_number, sentence
+from src.tools.chinese.today import activities, chinese_number, sentence, application_utils
 
 EMPTY = ''
 
@@ -51,6 +51,7 @@ def generate_info_about_today(diary: dict):
 
     print(diary_day)
     pyperclip.copy(diary_day)  # copy to clipboard
+    application_utils.store_to_file(diary_day)
 
 
 def add_if_is_for_yesterday(diary, diary_day):

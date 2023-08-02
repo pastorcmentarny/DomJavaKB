@@ -12,11 +12,11 @@ import static java.math.RoundingMode.HALF_UP;
 /**
  * Author Dominik Symonowicz
  * Created 2013-04-07 12.01
- * WWW:	https://dominiksymonowicz.com/welcome
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+ * WWW:	<a href="https://dominiksymonowicz.com/welcome">...</a>
+ * IT BLOG:	<a href="https://dominiksymonowicz.blogspot.co.uk">...</a>
+ * GitHub:	<a href="https://github.com/pastorcmentarny">...</a>
+ * Google Play:	<a href="https://play.google.com/store/apps/developer?id=Dominik+Symonowicz">...</a>
+ * LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">...</a>
  */
 public final class NumberUtils {
     private static final Logger LOGGER = LoggerFactory.getLogger(NumberUtils.class);
@@ -217,5 +217,13 @@ public final class NumberUtils {
             return value;
         }
     }
+
+
+/*
+
+    Szesnastkowo (16): 3E7
+    Ósemkowo (8): 1747
+    Binarnie (2): 1111100111
+ */
 
 }
