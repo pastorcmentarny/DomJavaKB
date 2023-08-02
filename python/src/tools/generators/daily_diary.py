@@ -420,6 +420,8 @@ def generate_weekly_diary():
         "What worries me and makes me unhappy? How can I eliminate habits that do not help me that I should remove")
     weekly += process_simple_question("What worked well and what didn’t work well in our family this weekend")
     weekly += process_simple_question("What is my focus NEXT WEEK ? 3 core things")
+    weekly += process_simple_question("(T) One thing, have you done that has worked well?")
+    weekly += process_simple_question("(T) One thing, that you are going to work?")
     weekly += hr
     print(weekly)
     store_to_file(weekly, "weekly")
@@ -447,7 +449,7 @@ def generate_monthly_summary():
 
 
 def menu():
-    global choice
+
     running = True
     while running:
         try:
