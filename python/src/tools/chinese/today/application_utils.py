@@ -1,6 +1,8 @@
+from pathlib import Path
+
 import datetime
 import random
-
+import os
 import bs4
 import requests
 
@@ -70,3 +72,20 @@ def get_year_in_chinese(year):
     for i in list(str(date.year)):
         year_in_chinese += chinese_number.get_chinese_number(int(i))
     return year_in_chinese
+
+
+def store_to_file(content):
+    specified_data = date.today()
+    year = specified_data.year
+    month = specified_data.month
+    day = specified_data.day
+
+    path = Path(f"e:/Dropbox/diary/{year}/{month:02d}/{day:02d}/")
+    if not os.path.exists(path):
+        Path(f"e:/Dropbox/diary/{year}/{month:02d}/{day:02d}/").mkdir(parents=True, exist_ok=True)
+    file_path = str(path) + f"/chinese-diary.txt"
+    try:
+        with open(file_path, 'w+', encoding='utf-8') as diary_file:
+            diary_file.writelines(content)
+    except Exception as exception:
+        print(exception)
