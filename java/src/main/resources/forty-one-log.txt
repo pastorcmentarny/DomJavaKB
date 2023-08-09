@@ -1,3 +1,9 @@
+20230808;;lift weight 41x/day
+20230808;;1 Brilliant
+20230807;;lift weight 41x/day
+20230807;;Run 2km
+20230806;;Run 2km
+20230801;;Run 2km
 20230801;;lift weight 41x/day
 20230802;;1 Brilliant
 20230801;;1 Brilliant
