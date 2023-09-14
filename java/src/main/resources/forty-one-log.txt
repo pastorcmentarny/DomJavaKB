@@ -1,3 +1,4 @@
+20230816;;lift weight 41x/day
 20230815;;Run 2km
 20230813;;lift weight 41x/day
 20230813;;Run 2km
