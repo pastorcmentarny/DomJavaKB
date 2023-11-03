@@ -2,7 +2,7 @@ from timeit import default_timer as timer
 
 import requests
 
-url = "http://localhost:8080/promotions"
+url = "http://localhost:8080/test"
 
 data = '''{
  "name" : "value"
