@@ -14,5 +14,21 @@ public class SwitchExpressionExample {
 
     public static final String ERROR_MESSAGE = "Can't determined day type as day is not provided";
 
+    public static String getDayType(String day) {
+        if (Objects.isNull(day)) {
+            return ERROR_MESSAGE;
+        }
+        return switch (day) {
+            case "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" -> "Weekday";
+            case "Saturday", "Sunday" -> "Weekend";
+            default -> {
+                if (day.isEmpty()) {
+                    yield ERROR_MESSAGE;
+                } else {
+                    yield "Can't determined day type as input was invalid (input :" + day + ").";
+                }
+            }
 
+        };
+    }
 }

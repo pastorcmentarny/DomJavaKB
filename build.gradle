@@ -37,5 +37,5 @@ allprojects {
 }
 
 wrapper {
-    gradleVersion = '7.2'
+    gradleVersion = '8.4'
 }

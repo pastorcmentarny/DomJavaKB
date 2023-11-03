@@ -20,25 +20,25 @@ configurations {
 
 
 ext {
-    lombokVersion = "1.18.26"
-    junitVersion = "5.8.2"
+    lombokVersion = "1.18.30"
+    junitVersion = "5.10.0"
     mockitoVersion = "4.2.0"
     restAssuredVersion = "5.3.0"
 }
 
-ext['log4j2.version'] = '2.20.0'
+
 
 description = "Java Learning and KB project "
 
 compileJava {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
     options.encoding = 'UTF-8' //to ensure that I always use UTF-8 in project
 }
 
 compileTestJava {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
     options.encoding = 'UTF-8' //to ensure that I always use UTF-8 in project
 }
 
@@ -60,8 +60,8 @@ dependencies {
     implementation "org.projectlombok:lombok:${lombokVersion}"
     implementation "org.apache.kafka:kafka-clients:3.4.0" //TODO remove kafka from java pr
     implementation "org.junit.jupiter:junit-jupiter:${junitVersion}"
-    implementation(platform("org.apache.logging.log4j:log4j-bom:${junitVersion}"))
     annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+    testImplementation "org.junit.jupiter:junit-jupiter:${junitVersion}"
     testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
     testImplementation "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
     testImplementation "org.junit.jupiter:junit-jupiter-params:${junitVersion}"
