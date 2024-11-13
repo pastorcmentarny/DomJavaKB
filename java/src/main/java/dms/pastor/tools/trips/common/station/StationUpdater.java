@@ -6,7 +6,7 @@ import dms.pastor.domain.exception.NotImplementYetException;
 /**
  * Author Dominik Symonowicz
  * Created 20/04/2018
- * WWW:	https://dominiksymonowicz.com/welcome
+ * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * GitHub:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz

@@ -20,10 +20,10 @@ configurations {
 
 
 ext {
-    lombokVersion = "1.18.30"
+    lombokVersion = "1.18.34"
     junitVersion = "5.10.0"
-    mockitoVersion = "4.2.0"
-    restAssuredVersion = "5.3.0"
+    mockitoVersion = "5.13.0"
+    restAssuredVersion = "5.5.0"
 }
 
 
@@ -53,13 +53,14 @@ version = '3'
 
 dependencies {
     implementation "commons-io:commons-io:2.11.0"
-    implementation "ch.qos.logback:logback-classic:1.4.6"
+    implementation "ch.qos.logback:logback-classic:1.5.8"
     implementation "org.simplejavamail:simple-java-mail:5.5.1" //TODO update
     implementation "io.rest-assured:rest-assured:${restAssuredVersion}" //normally should be testCompile
     implementation "io.rest-assured:json-schema-validator:${restAssuredVersion}" //normally should be testCompile
     implementation "org.projectlombok:lombok:${lombokVersion}"
     implementation "org.apache.kafka:kafka-clients:3.4.0" //TODO remove kafka from java pr
     implementation "org.junit.jupiter:junit-jupiter:${junitVersion}"
+    implementation "org.json:json:20240303"
     annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
     testImplementation "org.junit.jupiter:junit-jupiter:${junitVersion}"
     testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
@@ -74,5 +75,6 @@ dependencies {
 }
 
 test {
+    jvmArgs("-noverify", "-XX:+EnableDynamicAgentLoading", "-Djdk.instrument.traceUsage") // WARNING: A Java agent has been loaded dynamically
     useJUnitPlatform()
 }

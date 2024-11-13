@@ -11,7 +11,7 @@ import static dms.pastor.prototypes.dcs.Config.INITIAL_SHIELD_POINTS;
 /**
  * Author Dominik Symonowicz
  * Created 2015-07-24
- * WWW:	https://dominiksymonowicz.com/welcome
+ * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * GitHub:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz

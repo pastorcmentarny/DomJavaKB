@@ -14,11 +14,10 @@ import static java.util.stream.Collectors.toList;
 
 /**
  * Author Dominik Symonowicz
- * WWW:	https://dominiksymonowicz.com/welcome
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+ * WWW:	<a href="https://dominiksymonowicz.com/welcome">...</a>
+ * GitHub:	<a href="https://github.com/pastorcmentarny">...</a>
+ * Google Play:	<a href="https://play.google.com/store/apps/developer?id=Dominik+Symonowicz">...</a>
+ * LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">...</a>
  * <p>
  * Yes, Apache commons is better, but this class was created to learn TDD.
  */
@@ -294,9 +293,11 @@ public final class StringUtils {
     }
 
     static List<String> getCountryList() {
-        return Arrays.stream(Locale.getISOCountries())
-                .map(countryCode -> new Locale(EMPTY_STRING, countryCode).getDisplayCountry())
+        return Arrays.stream(Locale.getAvailableLocales())
+                .map(Locale::getDisplayCountry)
+                .filter(StringUtils::isStringNotEmpty)
                 .collect(toList());
+
     }
 
     public static String getStringWithCapitalizedFirstCharacter(String string) {

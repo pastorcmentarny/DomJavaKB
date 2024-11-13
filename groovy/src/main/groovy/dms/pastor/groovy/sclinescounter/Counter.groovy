@@ -5,7 +5,7 @@ import groovy.io.FileType
 /**
  * Author Dominik Symonowicz
  * Created 2.11'2013 at 13.00
- * WWW:	https://dominiksymonowicz.com/welcome
+ * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * GitHub:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz

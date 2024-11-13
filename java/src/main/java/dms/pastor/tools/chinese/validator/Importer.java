@@ -5,7 +5,7 @@ import dms.pastor.domain.Result;
 /**
  * Author Dominik Symonowicz
  * Created 11/10/2017
- * WWW:	https://dominiksymonowicz.com/welcome
+ * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * GitHub:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz

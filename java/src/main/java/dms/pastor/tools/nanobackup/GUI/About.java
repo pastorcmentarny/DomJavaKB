@@ -22,7 +22,7 @@ import static javax.swing.LayoutStyle.ComponentPlacement.RELATED;
 /**
  * Author Dominik Symonowicz
  * Created: 2009-10-31 at17:59:32
- * WWW:	https://dominiksymonowicz.com/welcome
+ * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * GitHub:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz

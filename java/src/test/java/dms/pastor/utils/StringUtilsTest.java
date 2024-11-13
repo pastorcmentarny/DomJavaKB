@@ -1,9 +1,7 @@
 package dms.pastor.utils;
 
 import dms.pastor.domain.exception.SomethingWentWrongException;
-import dms.pastor.tools.converters.ToIntegerList;
 import dms.pastor.utils.randoms.RandomDataGenerator;
-import org.apache.kafka.common.protocol.types.Field;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -25,11 +23,11 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * Author Dominik Symonowicz
  * Created 2015-10-31
- * WWW:	https://dominiksymonowicz.com/welcome
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+ * WWW:	<a href="https://dominiksymonowicz.com/welcome">...</a>
+ * IT BLOG:	<a href="https://dominiksymonowicz.blogspot.co.uk">...</a>
+ * GitHub:	<a href="https://github.com/pastorcmentarny">...</a>
+ * Google Play:	<a href="https://play.google.com/store/apps/developer?id=Dominik+Symonowicz">...</a>
+ * LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">...</a>
  */
 @SuppressWarnings("QuestionableName") // because string is valid name
 public class StringUtilsTest {
@@ -627,11 +625,14 @@ public class StringUtilsTest {
         // when
         final List<String> countryList = getCountryList();
 
-        // then
-        assertThat(countryList).isNotEmpty();
-
         //debug info
         LOGGER.debug(countryList.toString());
+
+        // then
+        assertThat(countryList).isNotEmpty();
+        assertThat(countryList.size()).isEqualTo(811);
+
+
     }
 
     @Test

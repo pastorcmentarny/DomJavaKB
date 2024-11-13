@@ -32,7 +32,7 @@ import static java.awt.Font.BOLD;
 /**
  * Author Dominik Symonowicz
  * Created 15-Nov-2010, 10:08:48
- * WWW:	https://dominiksymonowicz.com/welcome
+ * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * GitHub:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz

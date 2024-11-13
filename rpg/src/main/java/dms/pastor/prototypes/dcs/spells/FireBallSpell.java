@@ -9,7 +9,7 @@ import dms.pastor.prototypes.dcs.units.Unit;
 /**
  * Author Dominik Symonowicz
  * Created 2015-07-23
- * WWW:	https://dominiksymonowicz.com/welcome
+ * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * GitHub:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz

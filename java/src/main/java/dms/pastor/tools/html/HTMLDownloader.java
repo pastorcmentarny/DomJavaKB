@@ -15,7 +15,7 @@ import static dms.pastor.tools.html.HTMLValidator.validateUrl;
 /**
  * Author Dominik Symonowicz
  * Created 2011-11-01
- * WWW:	https://dominiksymonowicz.com/welcome
+ * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * GitHub:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz

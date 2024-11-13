@@ -5,7 +5,7 @@ import static dms.pastor.utils.file.FileUtils.unlockFile;
 /**
  * Author Dominik Symonowicz
  * Created 2011-11-05 at 00:27:34
- * WWW:	https://dominiksymonowicz.com/welcome
+ * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
  * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
  * GitHub:	https://github.com/pastorcmentarny
  * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
