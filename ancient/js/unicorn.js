@@ -1,5 +1,8 @@
+//----SETTINGS----
 const text = "Dom's The Unicorn Project";
 const speedOfFade = 64;
+//----------------
+
 let storeText;
 if (document.getElementById) {
     document.write('<h1 id="highlight">' + text + '</h1>');
