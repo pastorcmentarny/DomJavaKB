@@ -25,9 +25,10 @@ ext {
     mockitoVersion = "5.14.2"
     restAssuredVersion = "5.5.0"
     ioVersion = '2.18.0'
-    logbackVersion = '1.5.8'
+    logbackVersion = '1.5.16'
     assertjVersion = '3.26.3'
     hamcrestVersion = '3.0'
+    mapstructVersion = '1.6.3'
 }
 
 
@@ -35,14 +36,14 @@ ext {
 description = "Java Learning and KB project "
 
 compileJava {
-    sourceCompatibility = JavaVersion.VERSION_21
-    targetCompatibility = JavaVersion.VERSION_21
+    sourceCompatibility = JavaVersion.VERSION_23
+    targetCompatibility = JavaVersion.VERSION_23
     options.encoding = 'UTF-8' //to ensure that I always use UTF-8 in project
 }
 
 compileTestJava {
-    sourceCompatibility = JavaVersion.VERSION_21
-    targetCompatibility = JavaVersion.VERSION_21
+    sourceCompatibility = JavaVersion.VERSION_23
+    targetCompatibility = JavaVersion.VERSION_23
     options.encoding = 'UTF-8' //to ensure that I always use UTF-8 in project
 }
 
@@ -52,7 +53,7 @@ jar {
     archiveVersion = '' // removed as i do not use version
 }
 
-version = '4'
+version = '5'
 // ./gradlew dependencyCheckAnalyze
 
 dependencies {
@@ -63,9 +64,11 @@ dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.18.2' //FIXME added temporarry as json-schema-validator use vulnerable version of databind
     implementation "io.rest-assured:json-schema-validator:${restAssuredVersion}" //normally should be testCompile
     implementation "org.projectlombok:lombok:${lombokVersion}"
+    implementation "org.mapstruct:mapstruct:${mapstructVersion}"
     implementation "org.junit.jupiter:junit-jupiter:${junitVersion}"
     implementation "org.json:json:20240303"
-    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}" //this need before annotationProcessor for  mapstruct in order to work!
+    annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
     testImplementation "org.junit.jupiter:junit-jupiter:${junitVersion}"
     testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
     testImplementation "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"

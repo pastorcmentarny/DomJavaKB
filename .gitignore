@@ -15,5 +15,6 @@ out/
 !**/src/test/**/out/
 /venv/
 /java/build/
+/java/src/main/generated/
 /rpg/build/
 /spring/build/
