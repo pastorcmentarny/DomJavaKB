@@ -1,3 +1,3 @@
 rootProject.name = 'DomKB'
 
-include 'java', 'spring', 'rpg'
+include 'java', 'rpg'
