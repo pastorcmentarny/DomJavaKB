@@ -9,6 +9,15 @@ plugins {
     id 'idea'
 }
 
+def mockitoAgent = configurations.create('mockitoAgent')
+
+
+
+tasks {
+    test {
+        jvmArgs("-javaagent:${mockitoAgent.asPath}")
+    }
+}
 configurations {
     compileOnly {
         extendsFrom annotationProcessor
@@ -20,10 +29,10 @@ configurations {
 
 
 ext {
-    lombokVersion = "1.18.36"
+    lombokVersion = "1.18.38"
     junitVersion = "5.11.3"
-    mockitoVersion = "5.14.2"
-    restAssuredVersion = "5.5.0"
+    mockitoVersion = "5.16.1"
+    restAssuredVersion = "5.5.1"
     ioVersion = '2.18.0'
     logbackVersion = '1.5.16'
     assertjVersion = '3.26.3'
@@ -36,14 +45,14 @@ ext {
 description = "Java Learning and KB project "
 
 compileJava {
-    sourceCompatibility = JavaVersion.VERSION_23
-    targetCompatibility = JavaVersion.VERSION_23
+    sourceCompatibility = JavaVersion.VERSION_24
+    targetCompatibility = JavaVersion.VERSION_24
     options.encoding = 'UTF-8' //to ensure that I always use UTF-8 in project
 }
 
 compileTestJava {
-    sourceCompatibility = JavaVersion.VERSION_23
-    targetCompatibility = JavaVersion.VERSION_23
+    sourceCompatibility = JavaVersion.VERSION_24
+    targetCompatibility = JavaVersion.VERSION_24
     options.encoding = 'UTF-8' //to ensure that I always use UTF-8 in project
 }
 
@@ -57,6 +66,7 @@ version = '5'
 // ./gradlew dependencyCheckAnalyze
 
 dependencies {
+    mockitoAgent("org.mockito:mockito-core:${mockitoVersion}") { isTransitive = false }
     implementation "commons-io:commons-io:${ioVersion}"
     implementation "ch.qos.logback:logback-classic:${logbackVersion}"
     implementation "org.simplejavamail:simple-java-mail:5.5.1" //TODO update

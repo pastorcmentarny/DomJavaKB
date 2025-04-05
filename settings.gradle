@@ -1,3 +1,3 @@
-rootProject.name = 'DomKB'
+rootProject.name = 'DomJavaKB'
 
 include 'java', 'rpg'

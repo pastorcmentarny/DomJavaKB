@@ -630,7 +630,7 @@ public class StringUtilsTest {
 
         // then
         assertThat(countryList).isNotEmpty();
-        assertThat(countryList.size()).isEqualTo(811);
+        assertThat(countryList.size()).isEqualTo(861);
 
 
     }
