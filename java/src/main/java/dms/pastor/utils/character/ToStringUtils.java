@@ -8,10 +8,10 @@ import static java.util.Objects.isNull;
 /**
  * Author Dominik Symonowicz
  * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+ * IT BLOG:	<a href="https://dominiksymonowicz.blogspot.co.uk">...</a>
+ * GitHub:	<a href="https://github.com/pastorcmentarny">...</a>
+ * Google Play:	<a href="https://play.google.com/store/apps/developer?id=Dominik+Symonowicz">...</a>
+ * LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">...</a>
  * To avoid problem with method has the same erasure as another method (String and Character) related
  */
 public final class ToStringUtils {
