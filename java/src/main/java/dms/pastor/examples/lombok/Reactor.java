@@ -3,7 +3,7 @@ package dms.pastor.examples.lombok;
 import lombok.ToString;
 
 /*
- See test for example
+ See package dms.pastor.examples.lombok.RefactorTest for an example
  */
 @ToString
 final class Reactor {

@@ -1,18 +1,19 @@
 package dms.pastor.tasks.paint.canvas;
 
+import lombok.Getter;
+
 import java.util.Objects;
 
 /**
  * Author Dominik Symonowicz
  * Created 12/12/2017
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+* Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+* LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+* GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  */
 public class Point {
     private final Coordinates coordinates;
+    @Getter
     private final String fill;
 
     public Point(Coordinates coordinates, String fill) {
@@ -36,23 +37,18 @@ public class Point {
         return coordinates;
     }
 
-    public String getFill() {
-        return fill;
-    }
-
     public int getHeight() {
-        return coordinates.getHeight();
+        return coordinates.height();
     }
 
     public int getWidth() {
-        return coordinates.getWidth();
+        return coordinates.width();
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Point)) return false;
-        Point point = (Point) o;
+        if (!(o instanceof Point point)) return false;
         return Objects.equals(getCoordinates(), point.getCoordinates()) &&
                 Objects.equals(getFill(), point.getFill());
     }

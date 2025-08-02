@@ -18,7 +18,7 @@ public class ShoppingCart {
 
     public int calculateTotal() {
         return items.stream()
-                .mapToInt(Item::getPrice)
+                .mapToInt(Item::price)
                 .sum();
     }
 

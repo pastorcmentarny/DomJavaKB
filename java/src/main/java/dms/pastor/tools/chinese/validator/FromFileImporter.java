@@ -18,11 +18,9 @@ import static java.lang.String.format;
 /**
  * Author Dominik Symonowicz
  * Created 11/10/2017
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+* Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+* LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+* GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  */
 public class FromFileImporter implements Importer<List<Word>> {
     private static final String IGNORED_WORD = "////";
@@ -87,7 +85,7 @@ public class FromFileImporter implements Importer<List<Word>> {
             if (isWordValid(word)) {
                 addWordToWordList(requestedCategories, getWordCategories(data), word);
             } else {
-                LOGGER.error("Word is corrupted(Line:" + getCurrentLine(nr) + ".It is something wrong with Dictionary." + getLine(line));
+                LOGGER.error("Word is corrupted(Line:{}.It is something wrong with Dictionary.{}", getCurrentLine(nr), getLine(line));
                 return new Result<>(false, "Validation failed as Word is invalid at line: " + (getCurrentLine(nr)) + ")\n.Problem occurred in: " + getLine(line));
             }
         } catch (NumberFormatException | ArrayIndexOutOfBoundsException nfe) {

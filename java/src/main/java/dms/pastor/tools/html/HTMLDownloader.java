@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.net.URI;
 import java.net.URLConnection;
 
 import static dms.pastor.tools.html.HTMLValidator.validateUrl;
@@ -15,11 +16,9 @@ import static dms.pastor.tools.html.HTMLValidator.validateUrl;
 /**
  * Author Dominik Symonowicz
  * Created 2011-11-01
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+* Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+* LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+* GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  */
 final class HTMLDownloader {
 
@@ -34,8 +33,8 @@ final class HTMLDownloader {
 
         validateUrl(urlStr);
 
-        LOGGER.info("Starting download and read html page from URL:" + urlStr);
-        URL url = new URL(urlStr);
+        LOGGER.info("Starting download and read html page from URL:{}", urlStr);
+        URL url = URI.create(urlStr).toURL();
         URLConnection urlConnection = url.openConnection();
         try (InputStream urlStream = url.openStream();
              BufferedReader html = new BufferedReader(new InputStreamReader(urlStream))) {

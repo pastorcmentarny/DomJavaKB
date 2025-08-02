@@ -2,6 +2,7 @@ package dms.pastor.tools.chinese;
 
 import dms.pastor.domain.Result;
 import dms.pastor.tools.chinese.validator.Word;
+import lombok.Setter;
 
 import java.util.List;
 
@@ -11,12 +12,11 @@ import static java.util.Collections.emptyList;
 /**
  * Author Dominik Symonowicz
  * Created 18/10/2017
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+* Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+* LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+* GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  */
+@Setter
 public final class WordResult extends Result<List<Word>> {
 
     private List<Word> wordList;
@@ -42,10 +42,6 @@ public final class WordResult extends Result<List<Word>> {
     @SuppressWarnings("ReturnOfCollectionOrArrayField")
     public List<Word> getWordList() {
         return wordList;
-    }
-
-    public void setWordList(List<Word> wordList) {
-        this.wordList = wordList;
     }
 
     @Override

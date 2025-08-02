@@ -30,7 +30,7 @@ public final class NumberUtils {
         try {
             return Integer.parseInt(value);
         } catch (NumberFormatException nfe) {
-            LOGGER.warn("Unable to parse " + value + " as integer.");
+            LOGGER.warn("Unable to parse {} as integer.", value);
             return defaultValue;
         }
     }

@@ -9,17 +9,17 @@
 
 <script>
     // Store XMLHttpRequest and the JSON file location in variables
-    var xhr = new XMLHttpRequest();
+    const xhr = new XMLHttpRequest();
     //var url = "https://api.tfl.gov.uk/line/mode/tube,overground,dlr,tflrail,tram/status";
-    var url = "https://api.tfl.gov.uk/line/mode/tube/status"
+    const url = "https://api.tfl.gov.uk/line/mode/tube/status";
     // Called whenever the readyState attribute changes
     xhr.onreadystatechange = function () {
 
         // Check if fetch request is done
-        if (xhr.readyState == 4 && xhr.status == 200) {
+        if (xhr.readyState === 4 && xhr.status === 200) {
 
             // Parse the JSON string
-            var jsonData = JSON.parse(xhr.responseText);
+            const jsonData = JSON.parse(xhr.responseText);
 
             // Call the showTfL(), passing in the parsed JSON string
             showTfL(jsonData);
@@ -32,31 +32,26 @@
 
     // Function that formats the string with HTML tags, then outputs the result
     function showTfL(data) {
-        var output = ""; // Open list
+        let output = ""; // Open list
 
-        // Loop through the artists, and add them as list items
-        for (var i in data) {
-            if (data[i].name === "Metropolitan" || data[i].name === "Victoria" || data[i].name === "Jubilee") {
-                output += "<tr><td class='" + data[i].id + "'>" + data[i].name + "</td>";
+
+        for (let i in data) {
+            output += "<tr><td class='" + data[i].id + "'>" + data[i].name + "</td>";
+
+            let str = "";
+
+            for (let j in data[i].lineStatuses) {
+                str = str + data[i].lineStatuses[j].statusSeverityDescription
             }
 
-            var str = "";
+            output += "<td class='" + data[i].id + "'>" + str + "</td></tr>";
 
-            for (var j in data[i].lineStatuses) {
-                if (data[i].name === "Metropolitan" || data[i].name === "Victoria" || data[i].name === "Jubilee") {
-                    str = str + data[i].lineStatuses[j].statusSeverityDescription
-                }
-            }
-            if (data[i].name === "Metropolitan" || data[i].name === "Victoria" || data[i].name === "Jubilee") {
-                output += "<td class='" + data[i].id + "'>" + str + "</td></tr>";
-            }
         }
 
         // Output the data to the "artistlist" element
         document.getElementById("divOut").innerHTML = "<table class='rainbowBoard'>" + output + "</>";
     }
 
-    K
 </script>
 
 <div id="divOut"></div>

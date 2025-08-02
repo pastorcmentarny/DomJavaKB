@@ -2,9 +2,6 @@ package dms.pastor.tasks.pickup;
 
 import dms.pastor.utils.ValidatorUtils;
 import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.ToString;
 
 import java.time.LocalTime;
 import java.util.Objects;
@@ -14,15 +11,14 @@ import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static java.time.LocalTime.MIDNIGHT;
 
 
+/**
+ * Author: Dominik Symonowicz
+ * Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+ * LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+ * GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
+ */
 @Builder
-@Getter
-@EqualsAndHashCode
-@ToString
-public class OpenCloseTime {
-    private final String day;
-    private final LocalTime open;
-    private final LocalTime close;
-
+public record OpenCloseTime(String day, LocalTime open, LocalTime close) {
     public OpenCloseTime(String day, LocalTime open, LocalTime close) {
         ValidatorUtils.validateIfNotEmpty(day, "Day");
         this.day = day.toUpperCase();

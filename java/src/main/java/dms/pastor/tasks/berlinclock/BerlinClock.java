@@ -11,11 +11,9 @@ import static java.lang.Integer.parseInt;
 /**
  * Author Dominik Symonowicz
  * Created 2013-07-24
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+* Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+* LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+* GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  */
 public class BerlinClock implements ClockInterface {
 
@@ -37,12 +35,12 @@ public class BerlinClock implements ClockInterface {
     /**
      * In The Berlin Clock description is written that Berlin Clock for a given
      * time (hh::mm:ss), I am not sure is :: in your description is typo and
-     * should be : or not If is them i should use time.split(":") method,if not
+     * should be : or not If is them I should use time.split(":") method,if not
      * I should use regex expression. but well at least it makes more tricky
      *
      * @param time a time in format (hh::mm:ss)
      * @return array of hours,minutes and second .
-     * will contains hh,mm,ss
+     * It will contain hh,mm,ss
      */
     public Time validateTime(String time) {
         validateIfNotEmpty(time);

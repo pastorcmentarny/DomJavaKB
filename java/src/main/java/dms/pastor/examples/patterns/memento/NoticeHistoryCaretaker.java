@@ -5,19 +5,19 @@ import dms.pastor.domain.exception.SomethingWentWrongException;
 import java.util.ArrayList;
 import java.util.List;
 
-// i don't call it Caretaker in my project but history
+// I don't call it Caretaker in my project but history
 public class NoticeHistoryCaretaker {
-    List<NoticeBoard> noticeHistory = new ArrayList<>();
+    final List<NoticeBoard> noticeHistory = new ArrayList<>();
 
     public void add(NoticeBoard notice) {
         noticeHistory.add(NoticeBoard.withMessageAndPriority(notice.getMessage(), notice.isPriority()));
     }
 
     public NoticeBoard undo() {
-        System.out.println(noticeHistory.size() <=0);
-        throwExceptionIfNotFound(noticeHistory.size() <=0 );
+        System.out.println("Notice History: " + noticeHistory.isEmpty());
+        throwExceptionIfNotFound(noticeHistory.isEmpty());
 
-        int index = noticeHistory.size()-1;
+        int index = noticeHistory.size() - 1;
 
         return noticeHistory.get(index);
 

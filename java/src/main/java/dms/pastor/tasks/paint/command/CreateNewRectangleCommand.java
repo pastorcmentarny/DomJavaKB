@@ -12,15 +12,14 @@ import static dms.pastor.tasks.paint.command.CommandValidator.validateParamsNumb
 import static dms.pastor.tasks.paint.command.CommandValidator.validatePositiveLength;
 
 /**
- * Author Dominik Symonowicz
+ * Author: Dominik Symonowicz
+ * Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+ * LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+ * GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  * Created 15/07/2017
- * WWW:	https://dominiksymonowicz.com/
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public class CreateNewRectangleCommand implements Command {
-    private static final Logger LOGGER = LoggerFactory.getLogger(CreateCanvasCommand.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CreateNewRectangleCommand.class);
 
     private static final String PIXEL_FILL = "x";
     private Coordinates startPoint = noCoordination();
@@ -54,18 +53,18 @@ public class CreateNewRectangleCommand implements Command {
 
     private void validateIfParamsAreInOrder() {
         final String reason = "Start point must be smaller than end point";
-        if (startPoint.getHeight() > endPoint.getHeight()) {
+        if (startPoint.height() > endPoint.height()) {
             throw new InvalidCommandSyntaxException(reason);
         }
 
-        if (startPoint.getWidth() > endPoint.getWidth()) {
+        if (startPoint.width() > endPoint.width()) {
             throw new InvalidCommandSyntaxException(reason);
         }
     }
 
     @Override
     public void execute(Canvas canvas) {
-        LOGGER.debug("Executing Create New Rectangle Command with dimensions from ({},{}) to ({},{})", startPoint.getWidth(), startPoint.getHeight(), endPoint.getWidth(), endPoint.getHeight());
+        LOGGER.debug("Executing Create New Rectangle Command with dimensions from ({},{}) to ({},{})", startPoint.width(), startPoint.height(), endPoint.width(), endPoint.height());
         if (canvas.isNoCanvas()) {
             LOGGER.warn("Canvas is not created yet.");
             return;
@@ -75,24 +74,24 @@ public class CreateNewRectangleCommand implements Command {
     }
 
     private void validateAreParamsIsRange(Canvas canvas) {
-        validate(startPoint.getHeight() < canvas.getBorder() || endPoint.getHeight() >= canvas.getHeight() + canvas.getBorder(), canvas, startPoint, endPoint);
-        validate(startPoint.getWidth() < canvas.getBorder() || endPoint.getWidth() >= canvas.getWidth() + canvas.getBorder(), canvas, startPoint, endPoint);
+        validate(startPoint.height() < canvas.getBorder() || endPoint.height() >= canvas.getHeight() + canvas.getBorder(), canvas, startPoint, endPoint);
+        validate(startPoint.width() < canvas.getBorder() || endPoint.width() >= canvas.getWidth() + canvas.getBorder(), canvas, startPoint, endPoint);
     }
 
     public int getStartWidth() {
-        return startPoint.getWidth();
+        return startPoint.width();
     }
 
     public int getStartHeight() {
-        return startPoint.getHeight();
+        return startPoint.height();
     }
 
     public int getEndWidth() {
-        return endPoint.getWidth();
+        return endPoint.width();
     }
 
     public int getEndHeight() {
-        return endPoint.getHeight();
+        return endPoint.height();
     }
 
     private void drawRectangleOn(Canvas canvas) {

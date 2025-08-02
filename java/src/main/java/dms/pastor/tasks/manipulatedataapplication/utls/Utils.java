@@ -22,11 +22,9 @@ import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 /**
  * Author Dominik Symonowicz
  * Created 03/07/2016
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+* Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+* LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+* GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  */
 public final class Utils {
     private static final Logger LOGGER = LoggerFactory.getLogger(Utils.class);
@@ -45,7 +43,7 @@ public final class Utils {
         if (numberOfPeople > 0) {
             return totalAge / numberOfPeople;
         } else {
-            return 0; //depend on case in some cause it should throw exception
+            return 0; //depend on case in some because it should throw exception
         }
     }
 
@@ -67,7 +65,7 @@ public final class Utils {
             Person person = parsePerson(line);
             addPersonIfDoesNotExist(people, person);
         } catch (Exception e) {
-            LOGGER.warn("not a valid person due " + e.getMessage());
+            LOGGER.warn("not a valid person due {}", e.getMessage());
         }
     }
 

@@ -6,11 +6,9 @@ import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 /**
  * Author Dominik Symonowicz
  * Created 08/01/2017
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+* Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+* LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+* GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  */
 public enum PinyinTable {
     A(A_NEUTRAL, A_FIRST_NOTE, A_SECOND_TONE, A_THIRD_TONE, A_FOURTH_TONE),
@@ -53,7 +51,8 @@ public enum PinyinTable {
             case 2 -> value.getSecondTone();
             case 3 -> value.getThirdTone();
             case 4 -> value.getFourthTone();
-            default -> throw new IllegalArgumentException("Wrong tone. There are only 4 tones in mandarin(and no tone)");
+            default ->
+                    throw new IllegalArgumentException("Wrong tone. There are only 4 tones in mandarin(and no tone)");
         };
     }
 

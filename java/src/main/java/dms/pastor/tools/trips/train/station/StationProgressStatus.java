@@ -8,9 +8,6 @@ public enum StationProgressStatus {
     STOPPED("S"),
     CHANGED_AT("C");
 
-    private final String statusCode;
-
     StationProgressStatus(String statusCode) {
-        this.statusCode = statusCode;
     }
 }

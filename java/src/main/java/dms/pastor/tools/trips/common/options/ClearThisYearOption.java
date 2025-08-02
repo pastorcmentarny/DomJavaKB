@@ -1,13 +1,13 @@
 package dms.pastor.tools.trips.common.options;
 
+import dms.pastor.tools.trips.common.station.Station;
 import dms.pastor.tools.trips.common.station.StationType;
 import dms.pastor.tools.trips.common.station.Stations;
-import dms.pastor.tools.trips.common.station.Station;
 
 public class ClearThisYearOption implements Option {
     @Override
     public void choose(Stations stations, StationType type) {
-        stations.getStationList().forEach(Station::clearVisitedThisYear);
+        stations.stationList().forEach(Station::clearVisitedThisYear);
     }
 
     @Override

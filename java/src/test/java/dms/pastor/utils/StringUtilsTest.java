@@ -12,9 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static dms.pastor.domain.Message.INPUT_CANNOT_BE_EMPTY;
+import static dms.pastor.utils.StringUtils.*;
 import static dms.pastor.utils.StringUtils.ALPHABET;
 import static dms.pastor.utils.StringUtils.getRandomText;
-import static dms.pastor.utils.StringUtils.*;
 import static dms.pastor.utils.randoms.RandomDataGenerator.*;
 import static java.lang.Character.isLetter;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;

@@ -3,6 +3,8 @@ package dms.pastor.tools.trips.common.station;
 import dms.pastor.domain.exception.NotImplementYetException;
 import dms.pastor.tools.trips.common.options.Status;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.Objects;
@@ -15,20 +17,26 @@ import static dms.pastor.utils.file.TextFileUtils.FIELD_SEPARATOR;
 
 /**
  * Author Dominik Symonowicz
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+* Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+* LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+* GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  */
 @EqualsAndHashCode
 public class Station {
 
+    @Getter
     private final String name;
+    @Setter
+    @Getter
     private Status status;
+    @Setter
+    @Getter
     private LocalDate passedDate;
+    @Setter
+    @Getter
     private LocalDate visitedDate;
     private LocalDate thisYearVisitedDate;
+    @Getter
     private boolean blogged;
 
     @SuppressWarnings("ConstructorWithTooManyParameters") //not apply in this case
@@ -49,34 +57,6 @@ public class Station {
         return new Station(name, PASSED, passedDate, null, null, false);
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
-
-    public LocalDate getPassedDate() {
-        return passedDate;
-    }
-
-    public void setPassedDate(LocalDate passedDate) {
-        this.passedDate = passedDate;
-    }
-
-    public LocalDate getVisitedDate() {
-        return visitedDate;
-    }
-
-    public void setVisitedDate(LocalDate visitedDate) {
-        this.visitedDate = visitedDate;
-    }
-
     public LocalDate getVisitedThisYearDate() {
         return thisYearVisitedDate;
     }
@@ -87,10 +67,6 @@ public class Station {
 
     public String getStatusAsValue() {
         return status.value();
-    }
-
-    public boolean isBlogged() {
-        return blogged;
     }
 
     private String getBloggedAsString() {

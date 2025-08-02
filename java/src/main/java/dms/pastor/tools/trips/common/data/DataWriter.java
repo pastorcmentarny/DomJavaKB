@@ -12,28 +12,25 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static dms.pastor.utils.ValidatorUtils.validateIfPathIsAccessible;
-import static java.lang.String.format;
 
 /**
  * Author Dominik Symonowicz
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+* Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+* LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+* GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  */
 public class DataWriter {
     private static final Logger LOGGER = LoggerFactory.getLogger(DataWriter.class);
 
     public void save(Path path, List<Station> stationList) {
         validateIfPathIsAccessible(path);
-        LOGGER.info("Saving data.. to " + path.toString());
+        LOGGER.info("Saving data.. to {}", path.toString());
         final String content = stationList.stream().map(Station::asLine).collect(Collectors.joining(StringUtils.CHAR_SEQUENCE_NEW_LINE));
         try {
             Files.write(path, content.getBytes());
-            LOGGER.info("Date saved to file :" + path);
+            LOGGER.info("Date saved to file :{}", path);
         } catch (IOException exception) {
-            LOGGER.error(format("Unable to save due %s", exception.getMessage()), exception);
+            LOGGER.error("Unable to save due {}", exception.getMessage(), exception);
         }
     }
 }

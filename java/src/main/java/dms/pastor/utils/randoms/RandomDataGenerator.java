@@ -20,11 +20,9 @@ import static java.lang.Integer.MAX_VALUE;
 
 /**
  * Author Dominik Symonowicz
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+* Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+* LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+* GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  * <p>
  * Generate RANDOM data for personal use
  */
@@ -51,7 +49,7 @@ public final class RandomDataGenerator {
         for (int i = 1; i < RANDOM.nextInt(length); i++) {
             addRandomCharacterToStringBuilder(text);
         }
-        if (text.length() == 0) {
+        if (text.isEmpty()) {
             addRandomCharacterToStringBuilder(text);
         }
         return text.toString();
@@ -136,7 +134,7 @@ public final class RandomDataGenerator {
     }
 
     public static String generateString() {
-        return generateString(0,RANDOM.nextInt(MAX_LARGE_VALUE_RANGE) + 1);
+        return generateString(0, RANDOM.nextInt(MAX_LARGE_VALUE_RANGE) + 1);
     }
 
     public static String generateString(int max) {
@@ -233,7 +231,7 @@ public final class RandomDataGenerator {
             int numberToCheck = randomNumber;
             repeat = Arrays.stream(numbers)
                     .boxed()
-                    .collect(Collectors.toList())
+                    .toList()
                     .stream()
                     .anyMatch(number -> numberToCheck == number);
             if (repeat) {

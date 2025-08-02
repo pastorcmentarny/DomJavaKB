@@ -20,11 +20,9 @@ import static java.util.Objects.nonNull;
 /**
  * Author Dominik Symonowicz
  * Created: 09-Jan-2012 10:49:45
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+* Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+* LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+* GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  * <p>
  * This is my first project after graduation in 2010. Do not expect too much :)
  */
@@ -57,7 +55,6 @@ public final class FileTools {
     }
 
     public static String chooseFileToLoad() {
-        LOGGER.debug("select file to Load");
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setMultiSelectionEnabled(false);
         fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
@@ -71,7 +68,6 @@ public final class FileTools {
     }
 
     public static String[] chooseFilesToLoad() {
-        LOGGER.debug("select file to Load");
         ArrayList<String> path = new ArrayList<>();
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setMultiSelectionEnabled(true);
@@ -89,7 +85,6 @@ public final class FileTools {
     }
 
     public static String chooseDirToLoad() {
-        LOGGER.debug("select folder to Load");
         String path;
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
@@ -143,7 +138,7 @@ public final class FileTools {
     }
 
     private static void doCopyFile(File srcFile, File destFile, Statistic stats) {
-        LOGGER.debug("copy file from: " + srcFile + " to " + destFile);
+        LOGGER.debug("copy file from: {} to {}", srcFile, destFile);
         if (dms.pastor.utils.file.FileUtils.isDirectoryExists(destFile.getAbsolutePath())) {
             addDestinationErrorCount(stats, "Destination '" + destFile + "' exists but is a directory");
             return;
@@ -244,13 +239,13 @@ public final class FileTools {
     }
 
     public static boolean copyFolder(File sourceFolder, File destinationFolder, Statistic stats) {
-        LOGGER.debug("copying folder from: " + sourceFolder + " to " + destinationFolder);
+        LOGGER.debug("copying folder from: {} to {}", sourceFolder, destinationFolder);
         try {
             FileUtils.copyDirectoryToDirectory(sourceFolder, destinationFolder);
             return true;
         } catch (IOException ex) {
             if (stats != null) {
-                LOGGER.info("Program was unable to copy from" + sourceFolder.getAbsolutePath() + " to " + destinationFolder.getAbsolutePath() + "during unexpected problem!\n\n" + ex.getMessage());
+                LOGGER.info("Program was unable to copy from{} to {}during unexpected problem!\n\n{}", sourceFolder.getAbsolutePath(), destinationFolder.getAbsolutePath(), ex.getMessage());
                 stats.addErrorCount("Program was unable to copy from" + sourceFolder.getAbsolutePath() + " to " + destinationFolder.getAbsolutePath() + "during unexpected problem!\n\n" + ex.getMessage());
             }
             return false;
@@ -276,18 +271,18 @@ public final class FileTools {
     }
 
     public static boolean createAFile(String filePath) {
-        LOGGER.debug("create file in path:" + filePath);
+        LOGGER.debug("create file in path:{}", filePath);
         file = new File(filePath);
         try {
             return file.createNewFile();
         } catch (IOException ex) {
-            LOGGER.warn("Program was unable to create file:" + filePath + "Error Message: " + ex.getMessage());
+            LOGGER.warn("Program was unable to create file:{}Error Message: {}", filePath, ex.getMessage());
             return false;
         }
     }
 
     public static String createABackupDirectory(String path) {
-        LOGGER.debug("create backup folder" + path);
+        LOGGER.debug("create backup folder{}", path);
         int year = Calendar.getInstance().get(Calendar.YEAR);
         int month = Calendar.getInstance().get(Calendar.MONTH) + 1;
         int day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
@@ -327,7 +322,7 @@ public final class FileTools {
     public static void createADirectory(String filePath) {
         file = new File(filePath);
         final boolean created = file.mkdir();
-        LOGGER.debug(String.format("Directory was %s created.", created ? EMPTY_STRING : "not"));
+        LOGGER.debug("Directory was {} created.", created ? EMPTY_STRING : "not");
     }
 
 
@@ -336,7 +331,7 @@ public final class FileTools {
         try {
             FileUtils.forceDelete(file);
         } catch (Exception ex) {
-            LOGGER.error(String.format("Unable to delete file due %s", ex.getMessage()));
+            LOGGER.error("Unable to delete file due {}", ex.getMessage());
         }
     }
 

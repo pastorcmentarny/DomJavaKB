@@ -17,7 +17,6 @@ import java.util.Scanner;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 
-@SuppressWarnings("ClassCanBeRecord")
 public class DisplayStatusForSpecificLineOption implements Option {
     private static final Logger LOGGER = LoggerFactory.getLogger(DisplayStatusForSpecificLineOption.class);
     private final Scanner scanner;
@@ -32,7 +31,7 @@ public class DisplayStatusForSpecificLineOption implements Option {
         Lines.displayAllLinesNames();
         System.out.println();
         final String searchTerm = scanner.next();
-        LOGGER.debug(String.format("Displaying info for %s", searchTerm));
+        LOGGER.debug("Displaying info for {}", searchTerm);
         try {
             final Line undergroundLine = Lines.findLine(searchTerm);
             System.out.println(undergroundLine.name() + " has " + undergroundLine.getSize() + " stations.");

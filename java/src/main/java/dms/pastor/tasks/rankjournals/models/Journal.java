@@ -1,6 +1,7 @@
 package dms.pastor.tasks.rankjournals.models;
 
 import dms.pastor.tasks.rankjournals.JournalType;
+import lombok.Getter;
 
 import static dms.pastor.tasks.rankjournals.JournalType.NORMAL;
 import static dms.pastor.tasks.rankjournals.JournalType.REVIEW;
@@ -8,12 +9,11 @@ import static dms.pastor.tasks.rankjournals.JournalType.REVIEW;
 /**
  * Author Dominik Symonowicz
  * Created 2013-06-18 at 21:29:27
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+* Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+* LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+* GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  */
+@Getter
 public class Journal {
 
     private final String name;
@@ -31,22 +31,6 @@ public class Journal {
         Journal reviewJournal = new Journal(name, score, year);
         reviewJournal.type = REVIEW;
         return reviewJournal;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public double getScore() {
-        return score;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public JournalType getType() {
-        return type;
     }
 
 }

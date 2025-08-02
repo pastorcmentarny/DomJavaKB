@@ -17,17 +17,17 @@ public class ReadyToPickupService {
     private static final String UNABLE_TO_FIND_ERROR_MESSAGE = "Unable to find pickup time for you, please contact us";
 
     public String getPickupDateTimeFromShop(LocalDateTime time, Shop shop) {
-        final Optional<OpenCloseTime> openCloseTime = shop.getWeeklyOpenCloseTimes().stream().filter(day -> day.isNotClosedWholeDay() && day.getDay().equalsIgnoreCase(time.getDayOfWeek().toString())).findFirst();
+        final Optional<OpenCloseTime> openCloseTime = shop.getWeeklyOpenCloseTimes().stream().filter(day -> day.isNotClosedWholeDay() && day.day().equalsIgnoreCase(time.getDayOfWeek().toString())).findFirst();
         if (openCloseTime.isPresent()) {
             final OpenCloseTime openClose = openCloseTime.get();
             final LocalTime openCloseLocalTime = LocalTime.of(time.getHour(), time.getMinute());
             if (openClose.isClosedWholeDay() || openClose.isClosedAlready(openCloseLocalTime)) {
                 return findNextAvailableOpenDay(time, shop, openCloseTime.get());
             }
-            if (openCloseLocalTime.isBefore(openClose.getClose()) && openCloseLocalTime.isAfter(openClose.getOpen())) {
+            if (openCloseLocalTime.isBefore(openClose.close()) && openCloseLocalTime.isAfter(openClose.open())) {
                 return "You can pickup now.";
-            } else if (openCloseLocalTime.isBefore(openClose.getClose()) && openCloseLocalTime.isBefore(openClose.getOpen())) {
-                return String.format("You can pickup today at %s", openClose.getOpen().toString());
+            } else if (openCloseLocalTime.isBefore(openClose.close()) && openCloseLocalTime.isBefore(openClose.open())) {
+                return String.format("You can pickup today at %s", openClose.open().toString());
             }
         }
         return UNABLE_TO_FIND_ERROR_MESSAGE;
@@ -62,7 +62,7 @@ public class ReadyToPickupService {
         } else {
             pickupDateText = String.format("%s %s %s %s", pickupDate.getDayOfWeek().getDisplayName(FULL_STANDALONE, ENGLISH), pickupDate.getDayOfMonth(), pickupDate.getMonth().getDisplayName(FULL_STANDALONE, ENGLISH), pickupDate.getYear());
         }
-        return String.format("You can pickup from %s at %s", pickupDateText, today.getOpen().toString());
+        return String.format("You can pickup from %s at %s", pickupDateText, today.open().toString());
     }
 
     private void throwExceptionIfIndexNotFound(int index) {

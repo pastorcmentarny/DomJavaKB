@@ -5,11 +5,9 @@ import static dms.pastor.utils.StringUtils.*;
 /**
  * Author Dominik Symonowicz
  * Created 03/11/2016
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+* Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+* LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+* GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  */
 class Initials {
 
@@ -43,10 +41,10 @@ class Initials {
     // it is too few concatenation to have negative effect on performance
     @SuppressWarnings("StringConcatenationInLoop")
     private void createInitialsFromLastNames() {
-        if (isNotNull(fullName.getLast())) {
-            final String splitBy = fullName.getLast().contains(DASH) ? DASH : WHITESPACE;
+        if (isNotNull(fullName.last())) {
+            final String splitBy = fullName.last().contains(DASH) ? DASH : WHITESPACE;
             initials = addSpace();
-            for (String last : fullName.getLast().split(splitBy)) {
+            for (String last : fullName.last().split(splitBy)) {
                 initials = addSpace();
                 initials += capitalizeFirstCharacter(last) + DOT;
             }
@@ -55,17 +53,17 @@ class Initials {
 
     // it is too few concatenation to have negative effect on performance
     private void createSingleInitialFromLastNames() {
-        if (isNotNull(fullName.getLast())) {
+        if (isNotNull(fullName.last())) {
             initials = addSpace();
-            initials += capitalizeFirstCharacter(fullName.getLast()) + DOT;
+            initials += capitalizeFirstCharacter(fullName.last()) + DOT;
         }
     }
 
     // it is too few concatenation to have negative effect on performance
     @SuppressWarnings("StringConcatenationInLoop")
     private void createInitialsFromMiddleNames() {
-        if (isNotNull(fullName.getMiddles())) {
-            for (String name : fullName.getMiddles().split(WHITESPACE)) {
+        if (isNotNull(fullName.middles())) {
+            for (String name : fullName.middles().split(WHITESPACE)) {
                 initials += capitalizeFirstCharacter(name) + DOT;
                 initials = addSpace();
             }
@@ -74,9 +72,9 @@ class Initials {
     }
 
     private void createInitialsFromFirstName() {
-        if (isNotNull(fullName.getFirst())) {
-            initials += capitalizeFirstCharacter(fullName.getFirst()) + DOT;
-            if (isNotNull(fullName.getMiddles())) {
+        if (isNotNull(fullName.first())) {
+            initials += capitalizeFirstCharacter(fullName.first()) + DOT;
+            if (isNotNull(fullName.middles())) {
                 initials = addSpace();
             }
         }

@@ -1,40 +1,17 @@
 package dms.pastor.tasks.berlinclock.data;
 
 /**
- * Author Dominik Symonowicz
+ * Author: Dominik Symonowicz
+ * Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+ * LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+ * GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  * Created 2013-07-24 at 21:36:16
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class Time {
 
-    private final int hours;
-    private final int minutes;
-    private final int seconds;
-
-    public Time(int hours, int minutes, int seconds) {
-        this.hours = hours;
-        this.minutes = minutes;
-        this.seconds = seconds;
-    }
-
-    public int getHours() {
-        return hours;
-    }
-
-    public int getMinutes() {
-        return minutes;
-    }
-
-    public int getSeconds() {
-        return seconds;
-    }
+public record Time(int hours, int minutes, int seconds) {
 
     @Override
     public String toString() {
-        return String.format("%02d", hours) + ':' + String.format("%02d", minutes) + ':' + String.format("%02d", seconds);
+        return  String.format("%02d", hours) + ':' + String.format("%02d", minutes) + ':' + String.format("%02d", seconds);
     }
 }

@@ -3,11 +3,9 @@ package dms.pastor.examples;
 /**
  * Author Dominik Symonowicz
  * Created 08/09/2017
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+* Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+* LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+* GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  * <p>
  * tag-string-format
  */
@@ -38,6 +36,7 @@ public class StringFormatExamples {
         return String.format("|%,d|", number);
     }
 
+    //FIXME ??
     public String displayFirstFewCharactersFor(String text, int length) {
         return String.format("|%." + length + "s|", text);
 

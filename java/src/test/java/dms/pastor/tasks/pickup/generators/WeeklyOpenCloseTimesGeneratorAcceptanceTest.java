@@ -45,7 +45,7 @@ public class WeeklyOpenCloseTimesGeneratorAcceptanceTest {
 
         // then
         assertThat(result.size()).isEqualTo(7);
-        result.forEach(day -> assertThat(day.getOpen()).isEqualTo(LocalTime.MIDNIGHT));
-        result.forEach(day -> assertThat(day.getClose()).isEqualTo(LocalTime.MIDNIGHT));
+        result.forEach(day -> assertThat(day.open()).isEqualTo(LocalTime.MIDNIGHT));
+        result.forEach(day -> assertThat(day.close()).isEqualTo(LocalTime.MIDNIGHT));
     }
 }

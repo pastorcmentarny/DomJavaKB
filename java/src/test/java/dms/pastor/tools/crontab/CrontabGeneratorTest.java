@@ -3,7 +3,8 @@ package dms.pastor.tools.crontab;
 import dms.pastor.domain.exception.SomethingWentWrongException;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class CrontabGeneratorTest {
 
@@ -43,4 +44,11 @@ class CrontabGeneratorTest {
         // given, when & then
         assertThrows(SomethingWentWrongException.class, () -> CrontabGenerator.fromCrontab(""));
     }
+
+    @Test
+    void fromCrontabReturnNulLFornO() {
+        // given, when & then
+        assertThrows(SomethingWentWrongException.class, () -> CrontabGenerator.fromCrontab(""));
+    }
+
 }

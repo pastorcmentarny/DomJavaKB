@@ -11,11 +11,9 @@ import static dms.pastor.utils.StringUtils.NEW_LINE;
 /**
  * Author Dominik Symonowicz
  * Created 2013-07-24 at 21:36:16
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+* Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+* LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+* GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  */
 class RowsGenerator {
 
@@ -34,23 +32,23 @@ class RowsGenerator {
     }
 
     private String firstRow() {
-        return time.getSeconds() % 2 == 0 ? YELLOW.getColor() : Light.OFF.getColor();
+        return time.seconds() % 2 == 0 ? YELLOW.getColor() : Light.OFF.getColor();
     }
 
     private String secondRow() {
-        return rowMaker(time.getHours() / 5, RED, 4);
+        return rowMaker(time.hours() / 5, RED, 4);
     }
 
     private String thirdRow() {
-        return rowMaker(time.getHours() % 5, RED, 4);
+        return rowMaker(time.hours() % 5, RED, 4);
     }
 
     private String fourthRow() {
-        return rowMaker(time.getMinutes() / 5, RED, 11);
+        return rowMaker(time.minutes() / 5, RED, 11);
     }
 
     private String fifthRow() {
-        return rowMaker(time.getMinutes() % 5, YELLOW, 4);
+        return rowMaker(time.minutes() % 5, YELLOW, 4);
     }
 
     private String rowMaker(int lightsOn, Light on, int howMany) {

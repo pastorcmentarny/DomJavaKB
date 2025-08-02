@@ -1,27 +1,33 @@
 package dms.pastor.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.StringUtils.getUnknownWhenNullString;
 
 /**
  * Author Dominik Symonowicz
  * Created 2012-06-12 at 16:41
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+* Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+* LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+* GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  */
 public class Result<T> {
 
+    @Getter
     private boolean success;
+    @Setter
     private String message;
+    @Setter
+    @Getter
     private T item;
 
-    public Result(boolean success){
+    public Result(boolean success) {
         this.success = success;
         this.message = success ? "Success" : "Fail";
     }
+
     public Result(boolean success, String message) {
         this.success = success;
         this.message = message;
@@ -34,10 +40,6 @@ public class Result<T> {
     }
 
 
-    public boolean isSuccess() {
-        return success;
-    }
-
     public void setSuccess() {
         this.success = true;
     }
@@ -48,18 +50,6 @@ public class Result<T> {
 
     public String getMessage() {
         return getUnknownWhenNullString(message);
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public T getItem() {
-        return item;
-    }
-
-    public void setItem(T item) {
-        this.item = item;
     }
 
     @Override

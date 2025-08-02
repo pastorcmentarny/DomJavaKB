@@ -16,23 +16,21 @@ import static java.util.Collections.emptyList;
 
 /**
  * Author Dominik Symonowicz
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+* Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+* LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+* GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  */
 public class DataUploader {
     private static final Logger LOGGER = LoggerFactory.getLogger(DataUploader.class);
 
     public List<Station> load(Path path) {
-        LOGGER.error("Loading data from .. " + path);
+        LOGGER.error("Loading data from .. {}", path);
         try (Stream<String> lines = Files.lines(path)) {
             final List<Station> overgroundStationList = lines.map(ToStationConverter::convert).collect(Collectors.toList());
             LOGGER.info("Data loaded.");
             return overgroundStationList;
         } catch (IOException e) {
-            LOGGER.error("Unable to load data as something went wrong! " + e.getMessage(), e);
+            LOGGER.error("Unable to load data as something went wrong! {}", e.getMessage(), e);
         }
         return emptyList();
     }

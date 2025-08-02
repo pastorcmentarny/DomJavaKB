@@ -12,7 +12,6 @@ plugins {
 def mockitoAgent = configurations.create('mockitoAgent')
 
 
-
 tasks {
     test {
         jvmArgs("-javaagent:${mockitoAgent.asPath}")
@@ -41,9 +40,6 @@ ext {
 }
 
 
-
-description = "Java Learning and KB project "
-
 compileJava {
     sourceCompatibility = JavaVersion.VERSION_24
     targetCompatibility = JavaVersion.VERSION_24
@@ -62,22 +58,26 @@ jar {
     archiveVersion = '' // removed as i do not use version
 }
 
-version = '5'
 // ./gradlew dependencyCheckAnalyze
 
 dependencies {
+    implementation("commons-codec:commons-codec:1.19.0") //Security update
+    implementation("org.apache.commons:commons-lang3:3.18.0")  //Security update
     //mockitoAgent "org.mockito:mockito-core:${mockitoVersion}"
     implementation "commons-io:commons-io:${ioVersion}"
     implementation "ch.qos.logback:logback-classic:${logbackVersion}"
     implementation "org.simplejavamail:simple-java-mail:5.5.1" //TODO update
     implementation "io.rest-assured:rest-assured:${restAssuredVersion}" //normally should be testCompile
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.18.2' //FIXME added temporarry as json-schema-validator use vulnerable version of databind
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.18.2'
+    //FIXME added temporarry as json-schema-validator use vulnerable version of databind
     implementation "io.rest-assured:json-schema-validator:${restAssuredVersion}" //normally should be testCompile
     implementation "org.projectlombok:lombok:${lombokVersion}"
     implementation "org.mapstruct:mapstruct:${mapstructVersion}"
     implementation "org.junit.jupiter:junit-jupiter:${junitVersion}"
     implementation "org.json:json:20240303"
-    annotationProcessor "org.projectlombok:lombok:${lombokVersion}" //this need before annotationProcessor for  mapstruct in order to work!
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+    implementation("org.javamoney:moneta:1.4.5")
+    //this need before annotationProcessor for  mapstruct in order to work!
     annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
     testImplementation "org.junit.jupiter:junit-jupiter:${junitVersion}"
     testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
@@ -92,6 +92,7 @@ dependencies {
 }
 
 test {
-    jvmArgs("-noverify", "-XX:+EnableDynamicAgentLoading", "-Djdk.instrument.traceUsage") // WARNING: A Java agent has been loaded dynamically
+    jvmArgs("-noverify", "-XX:+EnableDynamicAgentLoading", "-Djdk.instrument.traceUsage")
+    // WARNING: A Java agent has been loaded dynamically
     useJUnitPlatform()
 }

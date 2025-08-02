@@ -1,12 +1,11 @@
 package dms.pastor.examples.java8.interfaces.defaultmethod;
 
 /**
- * Author Dominik Symonowicz
+ * Author: Dominik Symonowicz
+ * Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+ * LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+ * GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  * Created 27/04/2019
- * WWW:	https://dominiksymonowicz.com/
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 interface Formula {
 

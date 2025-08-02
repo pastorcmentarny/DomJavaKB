@@ -6,16 +6,14 @@ import org.slf4j.LoggerFactory;
 import java.io.FileInputStream;
 import java.util.Properties;
 
-import static ch.qos.logback.core.util.OptionHelper.isEmpty;
+import static ch.qos.logback.core.util.OptionHelper.isNullOrEmptyOrAllSpaces;
 import static dms.pastor.tools.nanobackup.Constants.MESSAGE_PATH;
 
 /**
  * Author Dominik Symonowicz
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+* Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+* LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+* GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  * <p>
  * This is my first project after graduation in 2010. Do not expect too much :)
  */
@@ -40,7 +38,7 @@ public class Messenger {
             properties.load(fileInputStream);
             missingMessageFile = false;
         } catch (Exception exception) {
-            LOGGER.debug("It was problem with message.properties because " + exception.getMessage());
+            LOGGER.debug("It was problem with message.properties because {}", exception.getMessage());
             missingMessageFile = true;
         }
     }
@@ -53,7 +51,7 @@ public class Messenger {
     }
 
     public String getMsg(String type) {
-        if (missingMessageFile || isEmpty(properties.getProperty(type))) {
+        if (missingMessageFile || isNullOrEmptyOrAllSpaces(properties.getProperty(type))) {
             return "Error message cannot be displayed,because\n1. error message is not defined yet\n2. it seems like one of program's file \"message.properties\" is missing.Copy this file into program folder from nanoBackup.zip";
         } else {
             return properties.getProperty(type);

@@ -7,15 +7,13 @@ import static dms.pastor.tasks.paint.canvas.CanvasValidator.validate;
 import static dms.pastor.tasks.paint.canvas.Image.noImage;
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.StringUtils.NEW_LINE;
-import static java.lang.String.format;
 
 /**
- * Author Dominik Symonowicz
+ * Author: Dominik Symonowicz
+ * Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+ * LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+ * GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  * Created 16/07/2017
- * WWW:	https://dominiksymonowicz.com/
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public final class Canvas {
     public static final String VERTICAL_BORDER = "|";
@@ -80,9 +78,9 @@ public final class Canvas {
     }
 
     public void updatePixelAt(Point point) {
-        LOGGER.debug(format("Updating pixel at (%d,%d) to %s", point.getWidth(), point.getHeight(), point.getFill()));
+        LOGGER.debug("Updating pixel at ({},{}) to {}", point.getWidth(), point.getHeight(), point.getFill());
         image.setPixel(point);
-        LOGGER.debug("Image:\n" + getCanvasAsString());
+        LOGGER.debug("Image:\n{}", getCanvasAsString());
     }
 
     public String getPixelAt(int x, int y) {

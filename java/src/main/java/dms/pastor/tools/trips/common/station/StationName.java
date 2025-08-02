@@ -1,9 +1,12 @@
 package dms.pastor.tools.trips.common.station;
 
+import lombok.Getter;
+
 import java.util.Arrays;
 
 import static dms.pastor.tools.trips.common.station.StationType.*;
 
+@Getter
 public enum StationName {
     ACTON_TOWN("Acton Town", TUBE),
     ALDGATE("Aldgate", TUBE),
@@ -371,11 +374,4 @@ public enum StationName {
         return Arrays.stream(StationName.values()).anyMatch(it -> it.getStationName().equalsIgnoreCase(stationName));
     }
 
-    public String getStationName() {
-        return stationName;
-    }
-
-    public StationType getStationType() {
-        return stationType;
-    }
 }

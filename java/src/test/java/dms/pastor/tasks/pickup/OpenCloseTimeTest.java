@@ -214,9 +214,9 @@ public class OpenCloseTimeTest {
         final var open24hours = OpenCloseTime.getOpen24HoursOn(DAY_OF_THE_WEEK);
 
         // then
-        assertThat(open24hours.getDay()).isEqualTo(DAY_OF_THE_WEEK);
-        assertThat(open24hours.getOpen()).isEqualTo(LocalTime.MIDNIGHT);
-        assertThat(open24hours.getClose()).isEqualTo(LocalTime.MIDNIGHT);
+        assertThat(open24hours.day()).isEqualTo(DAY_OF_THE_WEEK);
+        assertThat(open24hours.open()).isEqualTo(LocalTime.MIDNIGHT);
+        assertThat(open24hours.close()).isEqualTo(LocalTime.MIDNIGHT);
     }
 
     @Test
@@ -225,8 +225,8 @@ public class OpenCloseTimeTest {
         final var open24hours = OpenCloseTime.getClosedOn(DAY_OF_THE_WEEK);
 
         // then
-        assertThat(open24hours.getDay()).isEqualTo(DAY_OF_THE_WEEK);
-        assertThat(open24hours.getOpen()).isNull();
-        assertThat(open24hours.getClose()).isNull();
+        assertThat(open24hours.day()).isEqualTo(DAY_OF_THE_WEEK);
+        assertThat(open24hours.open()).isNull();
+        assertThat(open24hours.close()).isNull();
     }
 }

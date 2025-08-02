@@ -20,7 +20,7 @@ public final class Lazy<T> {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                System.out.printf("Unable to sleep due to %s%n", e.getMessage());
             }
             value = supplier.get();
 

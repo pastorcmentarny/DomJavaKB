@@ -9,7 +9,7 @@ public class ObjectUtilsTest {
     @Test
     public void shouldReturnFalseIfYouPassNullToAllObjectsNull() {
         // when
-        final boolean result = ObjectUtils.areAllObjectsNull(( Object[]) null);
+        final boolean result = ObjectUtils.areAllObjectsNull((Object[]) null);
 
         // then
         assertThat(result).isFalse();

@@ -2,7 +2,9 @@ package dms.pastor.examples.java21;
 
 public class RecordPatternExample {
 
-    record Template(int id, String name) {}
+    record Template(int id, String name) {
+    }
+
     public static void main(String[] args) {
         runRecordPatternsExample();
     }

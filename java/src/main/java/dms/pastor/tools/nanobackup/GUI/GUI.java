@@ -32,11 +32,9 @@ import static java.awt.Font.BOLD;
 /**
  * Author Dominik Symonowicz
  * Created 15-Nov-2010, 10:08:48
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+* Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+* LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+* GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  * <p>
  * This is my first project after graduation in 2010. Do not expect too much :)
  * This is main window(GUI) of program .
@@ -598,7 +596,7 @@ public class GUI extends javax.swing.JFrame {
         if (backup.isInProgress()) {
             utilities.setInfoLabel(AppColor.DARK_ORANGE, "Another backup in progress.Please wait until previous backup is done", InfoLabel);
         } else {
-            LOGGER.debug("Doing backup using:\n\tsource file:" + sourceField.getText() + "\n\tdestination folder:" + destinationField.getText());
+            LOGGER.debug("Doing backup using:\n\tsource file:{}\n\tdestination folder:{}", sourceField.getText(), destinationField.getText());
             backup.backupGui(utilities.makeList(sourceField.getText()), destinationField.getText(), this);
             this.toBack();
             utilities.setInfoLabel(Color.BLUE, "Backup task ended.(See BackupTask window for details)", InfoLabel);
@@ -1129,7 +1127,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     private void boot() {
-        LOGGER.debug("Program starting:\tSetup in progress...");
+        LOGGER.debug("Booting...");
         status = utilities.itselfHealthScan();
         if ("ERROR".equals(status[0])) {
             LOGGER.warn("Program is damaged.");
@@ -1142,7 +1140,7 @@ public class GUI extends javax.swing.JFrame {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception ex) {
-            LOGGER.error(ex.getMessage() + "\n\n" + ex.getCause());
+            LOGGER.error("%s\n\n%s".formatted(ex.getMessage(), ex.getCause()));
             JOptionPane.showMessageDialog(null, msg.getMsg("error.abnormalExit"), "Disaster", JOptionPane.ERROR_MESSAGE);
         }
 
@@ -1208,7 +1206,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     private void setup() {
-        LOGGER.debug("Program starting:\tSetup in progress...");
+        LOGGER.debug("Setup in progress...");
         setStatusForDomMode();
         setDomMode();
         setOsDependedSettings();
@@ -1275,7 +1273,7 @@ public class GUI extends javax.swing.JFrame {
             dom.load(new FileInputStream(System.getProperty("user.dir") + File.separator + "dom.properties"));
             domMode.setSelected(true);
         } catch (IllegalArgumentException | IOException ex) {
-            LOGGER.debug("dom mode deactivated:" + ex.getCause());
+            LOGGER.debug("dom mode deactivated:{}", String.valueOf(ex.getCause()));
             domMode.setVisible(false);
             domMode.setEnabled(false);
             domMode.setSelected(false);

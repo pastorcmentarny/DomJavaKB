@@ -11,11 +11,9 @@ import static dms.pastor.utils.StringUtils.isStringEmpty;
 /**
  * Author Dominik Symonowicz
  * Created 08/06/2018
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+* Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+* LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+* GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  */
 @Slf4j
 public class Lines {
@@ -40,7 +38,7 @@ public class Lines {
     public static Line findLine(String searchFor) {
         final NotFoundException notFoundException = new NotFoundException("tube line: " + searchFor);
         if (isStringEmpty(searchFor)) {
-            log.warn(String.format("Unable to find line as search query is invalid. User typed: %s", searchFor));
+            log.warn("Unable to find line as search query is invalid. User typed: {}", searchFor);
             throw notFoundException;
         }
 
@@ -51,7 +49,7 @@ public class Lines {
                 .orElseThrow(() -> notFoundException);
     }
 
-    public static void displayAllLinesNames(){
+    public static void displayAllLinesNames() {
         getLines().forEach(line -> System.out.print(line.name() + " "));
     }
 }

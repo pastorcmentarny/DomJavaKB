@@ -3,6 +3,8 @@ package dms.pastor.tools.nanobackup;
 import dms.pastor.tools.nanobackup.tools.FileTools;
 import dms.pastor.utils.ValidatorUtils;
 import dms.pastor.utils.file.FileUtils;
+import lombok.Getter;
+import lombok.Setter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,12 +20,10 @@ import static dms.pastor.utils.ValidatorUtils.validateIfObjectValueIsNotNull;
 import static java.lang.String.format;
 
 /**
- * Author Dominik Symonowicz
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+ * Author: Dominik Symonowicz
+ * Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+ * LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+ * GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  * <p>
  * This is my first project after graduation in 2010. Do not expect too much :)
  */
@@ -32,7 +32,7 @@ public final class Settings {
 
     public static final String SRC_FILE_ENDING = ".txt";
     private static final String SETTINGS_FILE_ENDING = ".properties";
-    private static final Logger LOGGER = LoggerFactory.getLogger(Constants.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(Settings.class);
     private static final Dimension NO_DIMENSION = new Dimension(0, 0);
     //GUI settings
     private static final Dimension MESSAGE_HISTORY_DIMENSION = new Dimension(425, 550);
@@ -42,19 +42,46 @@ public final class Settings {
     private static String afterBackupJobPath = null;
     private final Properties properties = new Properties();
     //settings
+    @Setter
+    @Getter
     private boolean confirmOnExit;
+    //saveSettings();
+    @Setter
+    @Getter
     private boolean exitAfterBackup;
+    @Setter
+    @Getter
     private boolean deleteSourceAfterBackup;
+    @Setter
+    @Getter
     private boolean quickBackup;
+    @Setter
+    @Getter
     private boolean happyMode;
+    @Setter
     private String nonQuickPath;
+    @Setter
+    @Getter
     private boolean saveAsZip;
+    @Setter
+    @Getter
     private boolean saveResultsToFile;
+    @Setter
+    @Getter
     private boolean checkFreeSpaceBeforeBackup;
+    @Setter
+    @Getter
     private boolean speedLightMode;
     private boolean encrypted;
+    @Setter
+    @Getter
     private int cpuPriority = Integer.MAX_VALUE;
+    @Setter
+    @Getter
     private String sourceFilePath;
+
+    @Setter
+    @Getter
     private String destinationFolderPath;
 
     private Settings() {
@@ -86,22 +113,6 @@ public final class Settings {
         saveResultsToFile = false;
     }
 
-    public boolean isSaveResultsToFile() {
-        return saveResultsToFile;
-    }
-
-    public void setSaveResultsToFile(boolean saveResultsToFile) {
-        this.saveResultsToFile = saveResultsToFile;
-    }
-
-
-    public boolean isSaveAsZip() {
-        return saveAsZip;
-    }
-
-    public void setSaveAsZip(boolean saveAsZip) {
-        this.saveAsZip = saveAsZip;
-    }
 
     private void setDefaultSaveAsZip() {
         setSaveAsZip(false);
@@ -117,21 +128,9 @@ public final class Settings {
 
     }
 
-    public void setNonQuickPath(String nonQuickPath) {
-        this.nonQuickPath = nonQuickPath;
-    }
-
     @Override
     public Object clone() throws CloneNotSupportedException {
         throw new CloneNotSupportedException();
-    }
-
-    public boolean isConfirmOnExit() {
-        return confirmOnExit;
-    }
-
-    public void setConfirmOnExit(boolean confirmOnExit) {
-        this.confirmOnExit = confirmOnExit;
     }
 
     private void setDefaultConfirmOnExit() {
@@ -139,41 +138,14 @@ public final class Settings {
     }
 
 
-    public boolean isExitAfterBackup() {
-        return exitAfterBackup;
-    }
-
-
-    public void setExitAfterBackup(boolean exitAfterBackup) {
-        this.exitAfterBackup = exitAfterBackup;
-        //saveSettings();
-    }
-
     private void setDefaultExitAfterBackup() {
         setExitAfterBackup(false);
-    }
-
-    public boolean isDeleteSourceAfterBackup() {
-        return deleteSourceAfterBackup;
-    }
-
-    public void setDeleteSourceAfterBackup(boolean deleteSourceAfterBackup) {
-        this.deleteSourceAfterBackup = deleteSourceAfterBackup;
     }
 
     private void setDefaultDeleteSourceAfterBackup() {
         setDeleteSourceAfterBackup(false);
     }
 
-    public boolean isQuickBackup() {
-        return quickBackup;
-    }
-
-
-    public void setQuickBackup(boolean quickBackup) {
-        this.quickBackup = quickBackup;
-
-    }
 
     /**
      * Sets default quick backup
@@ -182,43 +154,13 @@ public final class Settings {
         setQuickBackup(false);
     }
 
-    /**
-     * @return path to destination folder
-     */
-    public String getDestinationFolderPath() {
-        return destinationFolderPath;
-    }
-
-    /**
-     * @param destinationFolderPath path to destination folder
-     */
-    public void setDestinationFolderPath(String destinationFolderPath) {
-        this.destinationFolderPath = destinationFolderPath;
-    }
-
 
     private void setDefaultDestinationFolderPath() {
         setDestinationFolderPath(DEFAULT_PATH + "BackupFolder");
     }
 
-    public String getSourceFilePath() {
-        return sourceFilePath;
-    }
-
-    public void setSourceFilePath(String sourceFilePath) {
-        this.sourceFilePath = sourceFilePath;
-    }
-
     private void setDefaultSourceFilePath() {
         setSourceFilePath(DEFAULT_PATH + "filesToBackup.txt");
-    }
-
-    public boolean isHappyMode() {
-        return happyMode;
-    }
-
-    public void setHappyMode(boolean happyMode) {
-        this.happyMode = happyMode;
     }
 
     private void setDefaultHappyMode() {
@@ -229,7 +171,7 @@ public final class Settings {
         try (FileOutputStream fos = new FileOutputStream(SETTINGS_PATH)) {
             properties.store(fos, "Settings for nanoBackup");
         } catch (IOException ex) {
-            LOGGER.warn("Unable to save config file\n" + ex.getCause() + "\n\n" + ex.getMessage());
+            LOGGER.warn("Unable to save config file\n{}\n\n{}", ex.getCause(), ex.getMessage());
         }
     }
 
@@ -243,7 +185,7 @@ public final class Settings {
         try (FileOutputStream fos = new FileOutputStream(path)) {
             properties.store(fos, "Settings for nanoBackup");
         } catch (Exception ex) {
-            LOGGER.debug(ex.getCause() + "\n" + ex.getMessage());
+            LOGGER.debug("{}\n{}", ex.getCause(), ex.getMessage());
             return null;
         }
         return path;
@@ -265,7 +207,7 @@ public final class Settings {
                 validateProperties(true);
             }
         } catch (Exception ex) {
-            LOGGER.debug(ex.getCause() + "\n" + ex.getMessage());
+            LOGGER.debug("{}\n{}", ex.getCause(), ex.getMessage());
             return false;
         }
         return true;
@@ -312,7 +254,7 @@ public final class Settings {
 
     public String displayCurrentSettings(String where) {
         return format("""
-
+                        
                         ~~~~Settings Status~~~~
                         %s
                         -=--=- %s -=--=-
@@ -482,24 +424,8 @@ public final class Settings {
         }
     }
 
-    public boolean isCheckFreeSpaceBeforeBackup() {
-        return checkFreeSpaceBeforeBackup;
-    }
-
-    public void setCheckFreeSpaceBeforeBackup(boolean checkFreeSpaceBeforeBackup) {
-        this.checkFreeSpaceBeforeBackup = checkFreeSpaceBeforeBackup;
-    }
-
     private void setDefaultCheckFreeSpaceBeforeBackup() {
         setCheckFreeSpaceBeforeBackup(true);
-    }
-
-    public boolean isSpeedLightMode() {
-        return speedLightMode;
-    }
-
-    public void setSpeedLightMode(boolean speedLightMode) {
-        this.speedLightMode = speedLightMode;
     }
 
     private void setDefaultSpeedLightMode() {
@@ -516,14 +442,6 @@ public final class Settings {
 
     private void setDefaultSaveAsEncrypted() {
         setSaveAsEncrypted(false);
-    }
-
-    public int getCpuPriority() {
-        return cpuPriority;
-    }
-
-    public void setCpuPriority(int cpuPriority) {
-        this.cpuPriority = cpuPriority;
     }
 
     public int getPriorityForBackup() {

@@ -11,15 +11,12 @@ import java.util.Scanner;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 import static dms.pastor.utils.file.TextFileUtils.saveTextToFile;
-import static java.lang.String.format;
 
 /**
  * Author Dominik Symonowicz
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+* Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+* LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+* GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  */
 class DuplicateRemover {
 
@@ -27,22 +24,22 @@ class DuplicateRemover {
 
     void performTask(String filePath) {
         LOGGER.debug("Task started.");
-        LOGGER.debug("Reading and removing duplicated line from file..." + filePath);
+        LOGGER.debug("Reading and removing duplicated line from file...{}", filePath);
         String cleanedFileAsString;
         try {
             cleanedFileAsString = removeDuplicateLinesFromFile(filePath);
         } catch (FileNotFoundException e) {
-            LOGGER.error("File in path:" + filePath + "does NOT exist");
+            LOGGER.error("File in path:{}does NOT exist", filePath);
             throw new IllegalArgumentException(e.getMessage());
         }
-        LOGGER.debug("Saving file without duplicated lines..." + filePath);
+        LOGGER.debug("Saving file without duplicated lines...{}", filePath);
         final boolean result = saveTextToFile(cleanedFileAsString, filePath);
-        LOGGER.info("File " + (result ? EMPTY_STRING : "NOT") + " saved.");
+        LOGGER.info("File {} saved.", result ? EMPTY_STRING : "NOT");
     }
 
     private String removeDuplicateLinesFromFile(String filePath) throws FileNotFoundException {
         validateFilePath(filePath);
-        LOGGER.info(format("Reading and removing duplicated line from file...%s", filePath));
+        LOGGER.info("Reading and removing duplicated line from file...{}", filePath);
         LinkedHashSet<String> lines = new LinkedHashSet<>();
         try (Scanner scanner = new Scanner(new FileInputStream(filePath))) {
             while (scanner.hasNextLine()) {

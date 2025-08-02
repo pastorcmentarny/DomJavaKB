@@ -27,7 +27,7 @@ public class NoticeBoard {
 
 
     public static NoticeBoard withMessageAndPriority(String message, boolean priority) {
-        return new NoticeBoard(LocalDateTime.now(),message,priority);
+        return new NoticeBoard(LocalDateTime.now(), message, priority);
     }
 
     public void update(String message) {

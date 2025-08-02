@@ -20,14 +20,14 @@ import static java.util.Objects.requireNonNull;
 
 public class TextFileUtils {
     public static final String FIELD_SEPARATOR = ";;";
-    private static final Logger LOGGER = LoggerFactory.getLogger(FileUtils.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(TextFileUtils.class);
 
     private TextFileUtils() {
     }
 
     @SuppressWarnings("BooleanMethodNameMustStartWithQuestion")
     public static boolean saveTextToFile(String text, String path2file) {
-        LOGGER.debug("Saving text to file: " + path2file);
+        LOGGER.debug("Saving text to file: {}", path2file);
 
         recreateFileIfExists(path2file);
 
@@ -35,7 +35,7 @@ public class TextFileUtils {
             out.print(text);
             LOGGER.info("File saved.");
         } catch (IOException exception) {
-            LOGGER.error("Unable to save file",exception);
+            LOGGER.error("Unable to save file", exception);
             return false;
         }
         return true;
@@ -58,7 +58,7 @@ public class TextFileUtils {
              BufferedWriter out = new BufferedWriter(fileWriter)) {
             out.write(list.toString());
         } catch (IOException exception) {
-            LOGGER.error("Unable to save source list to file: " + file,exception);
+            LOGGER.error("Unable to save source list to file: {}", file, exception);
             return false;
         }
         return true;

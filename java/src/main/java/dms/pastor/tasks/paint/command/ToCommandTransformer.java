@@ -10,12 +10,11 @@ import static dms.pastor.tasks.paint.command.CommandSyntaxCode.R;
 import static dms.pastor.tasks.paint.command.CommandValidator.validateCommandParams;
 
 /**
- * Author Dominik Symonowicz
+ * Author: Dominik Symonowicz
+ * Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+ * LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+ * GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  * Created 15/07/2017
- * WWW:	https://dominiksymonowicz.com/
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public final class ToCommandTransformer {
 

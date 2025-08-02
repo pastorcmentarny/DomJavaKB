@@ -10,6 +10,7 @@ import dms.pastor.tools.nanobackup.tools.TaskUtils;
 import dms.pastor.tools.nanobackup.tools.Tools;
 import dms.pastor.utils.StringUtils;
 import dms.pastor.utils.file.FileUtils;
+import lombok.Getter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,11 +30,9 @@ import static java.awt.Color.DARK_GRAY;
 /**
  * Author Dominik Symonowicz
  * Created: 08.11'2011
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+* Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+* LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+* GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  * <p>
  * This is my first project after graduation in 2010. Do not expect too much :)
  */
@@ -48,6 +47,7 @@ public final class Backup extends AbstractTools {
     private final Engine utilities = new Engine();
     private final Statistic stats = new Statistic();
     private JFrame BackupTaskFrame;
+    @Getter
     private boolean inProgress = false;
     private Thread backupThread;
     private UpdateInfo updateInfo;
@@ -70,10 +70,6 @@ public final class Backup extends AbstractTools {
     public Object clone() throws CloneNotSupportedException {
         LOGGER.error("Unable to clone Backup class");
         throw new CloneNotSupportedException("Unable to clone Backup class");
-    }
-
-    public boolean isInProgress() {
-        return inProgress;
     }
 
     @SuppressWarnings("OverlyLongMethod") //GUI setup
@@ -181,7 +177,7 @@ public final class Backup extends AbstractTools {
         }
         stats.stop();
         results.append("\nEverything was copied to ").append(destinationDir);
-        LOGGER.info("\nEverything was copied to " + destinationDir);
+        LOGGER.info("\nEverything was copied to {}", destinationDir);
 
         LOGGER.debug(Messenger.ITEM_COUNTING);
         updateInfoText(info, Messenger.ITEM_COUNTING);
@@ -285,9 +281,9 @@ public final class Backup extends AbstractTools {
 
     /**
      * Below code cause a big problem as throws...
-     * "Exception in thread "backup" java.lang.Error: Interrupted attempt to acquire write lock"
-     * I have a solution in place,but it suggest that my code doing crap thing ,so i need improve my swing skills
-     * http://weblogs.java.net/blog/kgh/archive/2004/10/multithreaded_t.html
+     * Exception in thread "backup" java.lang.Error: Interrupted attempt to acquire write lock
+     * I have a solution in place,but it suggests that my code doing crap thing ,so I need improve my swing skills
+     * <a href="http://weblogs.java.net/blog/kgh/archive/2004/10/multithreaded_t.html">...</a>
      * <p>
      * Quote: "
      */
@@ -306,7 +302,7 @@ public final class Backup extends AbstractTools {
         if (!settings.isSpeedLightMode()) {
             Collection<File> counter = org.apache.commons.io.FileUtils.listFiles(new File(destinationDir), null, true);
             int filesNumber = counter.size();
-            LOGGER.debug("Items copied: " + filesNumber);
+            LOGGER.debug("Items copied: {}", filesNumber);
             stats.addFileCopied(filesNumber);
         }
     }
@@ -386,7 +382,7 @@ public final class Backup extends AbstractTools {
                     scheduler.shutdown();
                 }
             } catch (Exception e) {
-                LOGGER.debug("Random problem with shutdown scheduler caused by:" + e.getMessage());
+                LOGGER.debug("Random problem with shutdown scheduler caused by:{}", e.getMessage());
             } finally {
                 scheduler = null;
                 updateInfo = null;
@@ -437,7 +433,7 @@ public final class Backup extends AbstractTools {
                     }, Integer.MAX_VALUE, TimeUnit.DAYS);
 
                 } catch (RejectedExecutionException ree) {
-                    LOGGER.debug("Problem with RejectedExecutionException during backup." + ree.getMessage());
+                    LOGGER.debug("Problem with RejectedExecutionException during backup.{}", ree.getMessage());
                     killHappyModeThread();
                 }
             } else {

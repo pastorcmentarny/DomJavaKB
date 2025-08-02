@@ -11,11 +11,9 @@ import static dms.pastor.tools.trips.common.station.StationType.TUBE;
 
 /**
  * Author Dominik Symonowicz
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+* Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+* LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+* GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  */
 class TubeCLI {
     private static final Logger LOGGER = LoggerFactory.getLogger(TubeCLI.class);
@@ -52,7 +50,7 @@ class TubeCLI {
                 }
             } catch (RuntimeException exception) {
                 System.out.println(INVALID_CHOICE_MESSAGE);
-                LOGGER.warn("User typed gibberish." + exception.getMessage(), exception);
+                LOGGER.warn("User typed gibberish.{}", exception.getMessage(), exception);
                 scanner.next();
             }
         }

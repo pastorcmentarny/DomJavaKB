@@ -12,8 +12,8 @@ public class TemporaryFilesAndDirectoryExample {
     private static final Path customBaseDirectory = FileSystems.getDefault().getPath("/Users/symonowd/Dropbox/banana");
 
 
-     static String createTemporaryStorageWithExitOnClose() throws IOException {
-        StringBuilder stringBuilder = new StringBuilder("");
+    static String createTemporaryStorageWithExitOnClose() throws IOException {
+        StringBuilder stringBuilder = new StringBuilder();
         final Path tempDirectory = Files.createTempDirectory(customBaseDirectory, customPrefix);
         stringBuilder.append(tempDirectory);
         Path fileOne = Files.createTempFile(customBaseDirectory, customPrefix, customFileSuffix);
@@ -36,12 +36,12 @@ public class TemporaryFilesAndDirectoryExample {
         return stringBuilder.toString();
     }
 
-     static String createTemporaryFileWithPrefixAndSuffix() throws IOException {
+    static String createTemporaryFileWithPrefixAndSuffix() throws IOException {
         Path tmpCustomPrefixAndSuffix = Files.createTempFile(customPrefix, customFileSuffix);
         return tmpCustomPrefixAndSuffix.toString();
     }
 
-     static String getCurrentTemporaryFilesPath() {
+    static String getCurrentTemporaryFilesPath() {
         return System.getProperty("java.io.tmpdir");
     }
 }

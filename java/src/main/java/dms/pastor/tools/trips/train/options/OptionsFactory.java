@@ -1,18 +1,16 @@
 package dms.pastor.tools.trips.train.options;
 
-import dms.pastor.tools.trips.common.options.Option;
 import dms.pastor.tools.trips.common.options.DisplayUndergroundStatisticOption;
+import dms.pastor.tools.trips.common.options.Option;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Author Dominik Symonowicz
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+* Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+* LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+* GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  * <p>
  * tag-command-pattern
  * <p>

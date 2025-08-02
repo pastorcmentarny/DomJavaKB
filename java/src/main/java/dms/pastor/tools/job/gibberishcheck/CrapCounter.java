@@ -9,14 +9,14 @@ public class CrapCounter {
     private final Data data;
 
     public CounterResult count() {
-        final long counter = data.getJob()
+        final long counter = data.job()
                 .stream()
-                .filter(word -> data.getCrapWords()
+                .filter(word -> data.crapWords()
                         .stream()
                         .anyMatch(word::equalsIgnoreCase))
                 .count();
         //for each word in job
         //check is word is
-        return new CounterResult(Math.toIntExact(counter), data.getJob().size());
+        return new CounterResult(Math.toIntExact(counter), data.job().size());
     }
 }

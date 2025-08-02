@@ -26,11 +26,9 @@ import static dms.pastor.utils.file.TextFileUtils.saveListToFile;
 
 /**
  * Author Dominik Symonowicz
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+* Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+* LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+* GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  */
 public class Engine extends AbstractTools {
 
@@ -70,6 +68,7 @@ public class Engine extends AbstractTools {
         swappedPaths.toArray(new String[0]);
     }
 
+    @SuppressWarnings("SuspiciousSystemArraycopy") //This for my graduate project. I don't plan redoing this part
     public String[] updateRecentFolderPaths(String[] paths, String newPath) {
         if (checkIfNewPathExistInList(paths, newPath)) {
             return paths;
@@ -161,11 +160,11 @@ public class Engine extends AbstractTools {
             }
             return converter.convert(itemsList);
         } catch (FileNotFoundException ex) {
-            LOGGER.warn(ex.getCause() + " occurred with messaged" + ex.getMessage());
+            LOGGER.warn("{} occurred with messaged{}", ex.getCause(), ex.getMessage());
             return new String[0];
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(null, msg.getMsg("error.IOError"), "Whoops", JOptionPane.ERROR_MESSAGE);
-            LOGGER.error("IOException happen. " + ex.getCause() + "\n" + ex.getMessage());
+            LOGGER.error("IOException happen. {}\n{}", ex.getCause(), ex.getMessage());
             return new String[0];
         }
     }

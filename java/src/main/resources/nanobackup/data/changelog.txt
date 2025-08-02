@@ -1,13 +1,13 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 INFORMATION:
     This changelog contain both release information and developer information.
-    You must feel really bored to read this things.
+    You must feel really bored to read these things.
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 v2.0 in 2020
     (4) .nbd format for
-        - change source file (change ending from .txt to .nbd(nano backup data)
+        - change source file change ending from .txt to .nbd(nano backup data)
         - (change source file should look only for .nbd file)
         - include info about dest dir
         (only nbd and txt file will be supported)
@@ -38,7 +38,7 @@ v2.0 in 2020
  + sketch of speed light mode (add settings and menu)
  + on startup if destination doesn't exist try to replace with any from recent destinations if exist (0)
  ~ colour redesign 
- ~ change from 1.3.1 to 1.4 ,because i add lots of stuff,not only bug fixes
+ ~ change from 1.3.1 to 1.4 ,because I add lots of stuff,not only bug fixes
  # minor type fixes
  # fix  check free space before backup doesn't work!(major)
 
@@ -46,10 +46,10 @@ v2.0 in 2020
  + make backup a singleton, so can be run only once.(4)
  + display what setting is in use during backup. (1)
  + in About/changelog and About/EULA  text is display from the beginning (not from the end as was before) (0)
- ^ improve cli backup (cli will support 2 types of command .. 1) 1arg doJob 2) 2args from/to backup )     (4)
+ ^ improve cli backup (cli will support 2 types of command; 1) 1arg doJob 2) 2args from/to backup.     (4)
  ~ major package redesign that matches my design
  ~ code refactoring in the statistic
- ~ redesign test suite (split manual GUI test to the external test class, etc)    (2)
+ ~ redesign test suite (split manual GUI test to the external test class, etc.)    (2)
  # fix If CPU is under heavy usage it is possible that user press makeBackup few times. (critical)
  # fix minor code bugs
  # fix log level is not change correctly (should be debugged for dom mode and warn for normal mode)(minor)
@@ -76,8 +76,8 @@ v2.0 in 2020
   
 2012-01-16 v1.3_rc1.2 -> final release,if nothing crap found
  = daily basis tests
- = add feature to implement: (1) cli will support 2 types of command .. 1) 1arg doJob 2) 2args from/to backup 
- = found bug "(minor) log level is not change correctly (should be debug for dom mode and warn for normal mode)"
+ = add feature to implement: (1) cli will support 2 types of command; 1) 1arg doJob 2) 2args from/to backup
+ = found bug "(minor) log level is not change correctly (should be debugged for dom mode and warn for normal mode)"
  = found bug "(trace) info for debug is incorrect 16:01:48,484 DEBUG FileTools:360 - Program:    Current date and time used for sitemap is: 1601  ~ disable domTBP mode at the moment (until 1.4 where proper domTBp will be implemented
 
 
@@ -114,22 +114,22 @@ v2.0 in 2020
 
 2012-01-06 v1.3_AlphaTest.6
 
- + add scrollbar to result,BUT it cause major glitches on whole backup GUI
+ + add scrollbar to result,BUT it causes a major glitches on whole backup GUI
  ~ clean up unused code
  ~ solve most GUI glitches
  # fix bugs in settings (check free space before backup and save file to file)
  # fix bug (minor) save results to file doesn't work.
- # fix bug (trace) If program is running twice at the same time and in settings is set confirm on exit),then second program display error (which is correct) BUT it asks for confirmation as well)
+ # fix bug (trace) If program is running twice at the same time and in settings is set confirm on exit,then second program display error (which is correct) BUT it asks for confirmation as well
  # fix bug by adding scroll bar  (trace) result cannot be displayed completely ,because window is not resize correctly.
- = found bug (trace) If program is running twice at the same time and in settings is set confirm on exit),then second program display error (which is correct) BUT it asks for confirmation as well)
- = found bug (major) NullPointerException in non existing thread happen after file with result is saved.
+ = found bug (trace) If program is running twice at the same time and in settings is set confirm on exit,then second program display error (which is correct) BUT it asks for confirmation as well
+ = found bug (major) NullPointerException in non-existing thread happen after file with result is saved.
         File saved.
         Exception in thread "backup" java.lang.NullPointerException
             at nanobackup.Backup$BackupTask.run(Backup.java:267)
             at java.lang.Thread.run(Thread.java:619)
     (I was unable to reproduce this bug so far)
 
- = found bug        (major) Results are displayed incorrectly.(old results 
+ = found bug        (major) Results are displayed incorrectly.(old results)
         Copied Folder from: C:\dsSTUFF  
         Everything was copied to C:\BACKUP\test\2012\1\6\1003_1
         Copied Folder from: C:\dsSTUFF  <- this line was repeated
@@ -190,7 +190,7 @@ v2.0 in 2020
 2011-11-14 v1.3_dev.4
 + when you click on info back then you will history of messages(0)
 + delete to doJob
-+ shutdown computer after backup [implement only for Windows,Linux and mac os x implementation] (1)
++ shutdown computer after backup [implement only for Windows,Linux and Mac OS X implementation] (1)
 ~ minor refactoring of the backup process
 
 2011-11-11 v1.3_dev.3
@@ -231,8 +231,8 @@ v2.0 in 2020
 + add file filter (text file only) when merge button will be pressed
 - remove zip support (but it will remain as beta) and be included in version 1.3)
 # bug with loading incomplete settings
-# bug when program crash during shutting down when another instance is already running when quickbackup was set in settings.
-# you cannot create default config file when you are in the quickbackup mode, because in cause disasters ;P
+# bug when program crash during shutting down when another instance is already running when quick backup was set in settings.
+# you cannot create default config file when you are in the quick backup mode, because in cause disasters ;P
 # Minor bugs with quickbackup mode
 # minor bug fixes
 
@@ -240,8 +240,8 @@ v2.0 in 2020
 2011-11-04 b1.2.0.1 (Beta starts, all features implemented, bug fixing and improvements only)
 ~ refactor remove an item from the list
 - remove unused events handler from GUI
-+ program can be run once per time (if somebody tried to run more than one instance, then the program will display error
-+ add QA to faq  What happen if source file will be deleted when a program running?" ,"Program will recreate source file with an actual list of items.So... if you add items, merge items from other so the program will recreate source file and save updated items list.".
++ program can be run once per time (if somebody tried to run more than one instance, then the program will display error)
++ add QA to faq  "What happen if source file will be deleted when a program running?", "Program will recreate source file with an actual list of items.So... if you add items, merge items from other so the program will recreate source file and save updated items list.".
 + zip file support (it means backup can be compressed to zip file), but is
 ~ Improve test suites
 
@@ -252,7 +252,7 @@ v2.0 in 2020
 # minor bug fixing
 + shutdown menu and implementation for shutdown but I deactivate them.
 ~ delete source after backup (Program ask a question to confirm what you trying to do(except when settings "exit after backup" is ticked))
-~ minor GUI (change from eye f*king green to dark green in few places)green in few places)
+~ minor GUI (change from eye f*king green to dark green in few places)green in few places
 
 2011-11-02 d1.2.0.9
 = found few bugs, which delayed the start of beta
@@ -260,7 +260,7 @@ v2.0 in 2020
 ~ more clever refactoring
 # bug create default config problem
 # clear fixer fail
-# (major) It is possible to do a backup without a destination! [solved?])
+# (major) It is possible to do a backup without a destination! [solved?]
 # minor bugs fixing caused by crap refactoring....
 
 
@@ -292,12 +292,12 @@ v2.0 in 2020
 + Merge button (1)
 + implementing better dom mode. (0)
 ~ put all program files into jar(EULA,pictures,etc),except settings. (0)
-~ settings management improved (0) (create settings class to manage all sort of stuff related to it.
+~ settings management improved (0) Create settings class to manage all sort of stuff related to it.
 ~ adjust error logging~
 # (critical) closing window doesn't end backup task;
 # fix bugs after crap refactoring of the Engine class
 # (critical) if you run program "first time" then if you choose a source, then you can do a backup without choosing dest!
-    {Program will display error: "Unable to do Backup due lack of free space on destination drive")
+    (Program will display error: "Unable to do Backup due lack of free space on destination drive")
 
 2011-10-26 d1.2.0.3
 + settings 
@@ -312,7 +312,7 @@ v2.0 in 2020
 + merge add file(s) and add dir(s) into generic add (2) 
 + add many files/folders support (multi-selection) (4)
 + funny messages  during backup (0)
-+ message after finish task remove duplicate and etc (1)
++ message after finish task remove duplicate and etc. (1)
 # minor typo error
 # on the end of backup, result are display on front (main program window is in back)
 
@@ -322,7 +322,7 @@ v2.0 in 2020
 + setting confirm exit.
 + implement FAQ (Combobox with question and textarea with the answer)
 + Possibility to do a backup file with the source (quick backup)
-#  issue with clear no exists files that result are not save to file.
+#  issue with clear no exists files that result are not saved to file.
 # (major) when user remove an item which is duplicated (all items are deleted).
 #  typo errors.
 ~ minor redesign
@@ -343,7 +343,7 @@ Official release.
 2011-10-20 v1.1.beta.5
 # fixed a bug with display correct message when a source file is selected(or not)
 ? bug    (critical)"issues with a check()  (make backup stays deactivated even if it shouldn't)" seems doesn't exist anymore.
-? bug    (major) "if everything is empty and you add a source ... without a destination, then is possible to make the backup!" seems doesn't exist anymore.
+? bug    (major) "if everything is empty, you add a source ... without a destination, then is possible to make the backup!" seems doesn't exist anymore.
 + add Settings menu (but stays deactivated until implementation will be finished
 + add Task menu, where will be selected for a simple task
 ~ move menu domTBP to task
@@ -352,7 +352,7 @@ Official release.
 ~ move "Make Backup
 
 2011-10-19 v1.1.beta.4
-# fix a name bug ( i used release candidate instead of beta)
+# fix a name bug ( I used release candidate instead of beta)
 ~ refactoring code
 + usage of Git as a distributed revision control system
 + backup size in result
@@ -449,7 +449,7 @@ First stable release
 
 
 2010-12-14 a.2
--if the list is empty, then the user can NOT press  Remove. (however, the program will ignore remove button if the list is empty anyway
+-if the list is empty, then the user can NOT press  Remove. (however, the program will ignore remove button if the list is empty anyway).
 -add dom mode (for my personal use)
 -solve an issue with "destination folder" that should exist but didn't.
 

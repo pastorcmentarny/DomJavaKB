@@ -1,6 +1,5 @@
 package dms.pastor.tasks.paint.canvas;
 
-import dms.pastor.tasks.paint.CommandLineUI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,16 +10,14 @@ import static dms.pastor.utils.ArrayUtils.clone2DArrayOfInts;
 /**
  * Author Dominik Symonowicz
  * Created 17/08/2017
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+* Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+* LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+* GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  * <p>
  * tag-memento-pattern (sort of)
  */
 class State {
-    private static final Logger LOGGER = LoggerFactory.getLogger(CommandLineUI.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(State.class);
     private Image previous = null;
     private Image next = null;
 

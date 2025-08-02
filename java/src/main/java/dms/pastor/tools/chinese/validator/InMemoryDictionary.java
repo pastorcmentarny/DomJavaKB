@@ -13,19 +13,17 @@ import static dms.pastor.tools.chinese.validator.Word.noCategories;
 /**
  * Author Dominik Symonowicz
  * Created 10/10/2017
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+* Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+* LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+* GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  */
 class InMemoryDictionary {
-    private static final Logger LOGGER = LoggerFactory.getLogger(FromFileImporter.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(InMemoryDictionary.class);
 
     private final Importer<List<Word>> fromFileImporter;
     private final String source;
 
-    private Result<List<Word>> dictionaryStatus = new Result<>(false,"Unknown state.");
+    private Result<List<Word>> dictionaryStatus = new Result<>(false, "Unknown state.");
     private List<Word> wordsList = new ArrayList<>();
 
     public InMemoryDictionary(String source, Importer<List<Word>> importer) {
@@ -48,7 +46,7 @@ class InMemoryDictionary {
         if (Objects.nonNull(wordListAsObject)) {
             wordsList = wordListAsObject;
         } else {
-            dictionaryStatus = new Result<>(false,"Unable to retrieve word list.");
+            dictionaryStatus = new Result<>(false, "Unable to retrieve word list.");
             LOGGER.error("Unable to retrieve word list.");
         }
     }
@@ -63,7 +61,7 @@ class InMemoryDictionary {
                 return word;
             }
         }
-        LOGGER.warn("Word not found in rpg for id: " + id);
+        LOGGER.warn("Word not found in rpg for id: {}", id);
         return Word.noWord();
     }
 

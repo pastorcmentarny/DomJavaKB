@@ -11,11 +11,11 @@ public enum StationType {
 
 
     public static boolean isTubeType(StationType type) {
-        return type == TUBE || type == TUBE_TRAIN ||  type == TUBE_OVERGROUND || type == TUBE_OVERGROUND_TRAIN;
+        return type == TUBE || type == TUBE_TRAIN || type == TUBE_OVERGROUND || type == TUBE_OVERGROUND_TRAIN;
     }
 
     public static boolean isOvergroundType(StationType type) {
-        return type == OVERGROUND || type == TUBE_OVERGROUND || type == TRAIN_OVERGROUND ||  type == TUBE_OVERGROUND_TRAIN;
+        return type == OVERGROUND || type == TUBE_OVERGROUND || type == TRAIN_OVERGROUND || type == TUBE_OVERGROUND_TRAIN;
     }
 
     public static boolean isTrainType(StationType type) {

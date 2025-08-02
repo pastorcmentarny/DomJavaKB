@@ -3,6 +3,7 @@ package dms.pastor.tools.rest;
 import io.restassured.RestAssured;
 
 import java.net.HttpURLConnection;
+import java.net.URI;
 import java.net.URL;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -14,8 +15,7 @@ public class RequestFlooder {
 
     public static void main(String[] args) throws Exception {
         String urlAddress = "http://localhost:5000/promotions";
-        URL url = new URL(urlAddress);
-
+        URL url = URI.create(urlAddress).toURL();
         ExecutorService executorService = Executors.newFixedThreadPool(5);
 
         for (int interationCounter = 0; interationCounter < 20; interationCounter++) {

@@ -9,14 +9,12 @@ import static dms.pastor.tasks.paint.command.CommandValidator.validateParamsNumb
 /**
  * Author Dominik Symonowicz
  * Created 17/08/2017
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+* Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+* LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+* GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  */
 public class RedoCommand implements Command {
-    private static final Logger LOGGER = LoggerFactory.getLogger(Canvas.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(RedoCommand.class);
 
     @Override
     public String getSyntax() {
@@ -37,6 +35,6 @@ public class RedoCommand implements Command {
     public void execute(Canvas canvas) {
         LOGGER.info("Executing Redo Command");
         canvas.redo();
-        LOGGER.debug("Image after redo:" + canvas.getCanvasAsString());
+        LOGGER.debug("Image after redo:{}", canvas.getCanvasAsString());
     }
 }

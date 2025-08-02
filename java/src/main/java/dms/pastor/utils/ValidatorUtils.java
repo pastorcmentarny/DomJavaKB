@@ -161,7 +161,7 @@ public final class ValidatorUtils {
 
 
     public static void validateIfListIsNotEmpty(List<String> strings, String withMessage) {
-        if (strings == null || strings.size() == 0) {
+        if (strings == null || strings.isEmpty()) {
             throw new IllegalArgumentException(getErrorMessage(withMessage));
         }
     }

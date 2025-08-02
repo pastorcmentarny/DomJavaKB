@@ -37,7 +37,7 @@ class $Test {
     }
 
     @Test
-    public void $mainAcceptanceTest(){
+    public void $mainAcceptanceTest() {
 
         // when
         $.main(new String[0]);

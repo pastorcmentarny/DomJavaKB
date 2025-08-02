@@ -3,6 +3,7 @@ package dms.pastor.tools.versionupdater;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,9 +19,10 @@ public class VersionUpdaterApp {
     }
 
     private static void updateVersion(String path) throws IOException {
-        List<String> fileContent = new ArrayList<>(Files.readAllLines(Paths.get(path), StandardCharsets.UTF_8));
+        final Path versionPath = Paths.get(path);
+        List<String> fileContent = new ArrayList<>(Files.readAllLines(versionPath, StandardCharsets.UTF_8));
 
-        int number = 0;
+        int number;
         for (int lineNumber = 0; lineNumber < fileContent.size(); lineNumber++) {
             if (fileContent.get(lineNumber).startsWith("version = '")) {
                 String line = fileContent.get(lineNumber).split("version = '")[1];
@@ -31,6 +33,6 @@ public class VersionUpdaterApp {
             }
         }
 
-        Files.write(Paths.get(path), fileContent, StandardCharsets.UTF_8);
+        Files.write(versionPath, fileContent, StandardCharsets.UTF_8);
     }
 }

@@ -5,6 +5,7 @@ import java.util.Random;
 
 final class Autoboxing {
 
+    @SuppressWarnings("ExpressionComparedToItself") //this is just an example
     public static void main(String[] args) {
         /*
          JVM that is only caching int between -128 to 127.
@@ -18,7 +19,7 @@ final class Autoboxing {
         System.out.println(Integer.valueOf("127").equals(Integer.valueOf("127")));
         System.out.println(Integer.valueOf("128").equals(Integer.valueOf("128")));
 
-        //this is used only to check how looks situation when you using Object comparison
+        //this is used only to check how looks situation when you are using Object comparison
         System.out.println(Objects.equals(Integer.valueOf("127"), Integer.valueOf("127")));
         System.out.println(Objects.equals(Integer.valueOf("128"), Integer.valueOf("128")));
 

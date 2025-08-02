@@ -29,7 +29,7 @@ class ConstantsTest {
     }
 
     @Test
-    void getDateAsStringOrNoneReturnNoneForNull(){
+    void getDateAsStringOrNoneReturnNoneForNull() {
         // when
         final var result = Constants.getDateAsStringOrNone(null);
 
@@ -38,9 +38,9 @@ class ConstantsTest {
     }
 
     @Test
-    void getDateAsStringOrNoneReturnNoneForToday(){
+    void getDateAsStringOrNoneReturnNoneForToday() {
         //given
-        final var todayDate = LocalDate.of(2021,4,8);
+        final var todayDate = LocalDate.of(2021, 4, 8);
 
         // when
         final var result = Constants.getDateAsStringOrNone(todayDate);

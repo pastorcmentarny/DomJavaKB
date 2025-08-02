@@ -94,7 +94,8 @@ public class SortingAlgorithmRunner {
         return timeTaken;
     }
 
-        private static final String base = "B:\\GitHub\\DomKB\\java\\src\\main\\resources\\sorting\\";
+    private static final String base = "B:\\GitHub\\DomKB\\java\\src\\main\\resources\\sorting\\";
+
     public String testEverything() {
         String[] filenames = {
                 "test2.dat", "test3.dat",

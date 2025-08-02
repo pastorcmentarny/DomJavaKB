@@ -6,20 +6,18 @@ import dms.pastor.tools.trips.common.station.Stations;
 
 /**
  * Author Dominik Symonowicz
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+* Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+* LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+* GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  */
 public class DisplayAllStationsNameOption implements Option {
     @Override
     public void choose(Stations stations, StationType type) {
-        stations.getStationList().forEach(station -> System.out.println(station.getName()));
-        displayWarningIfTotalStationNumberIsWrong(stations,type);
+        stations.stationList().forEach(station -> System.out.println(station.getName()));
+        displayWarningIfTotalStationNumberIsWrong(stations, type);
     }
 
-    private void displayWarningIfTotalStationNumberIsWrong(Stations stations,StationType type) {
+    private void displayWarningIfTotalStationNumberIsWrong(Stations stations, StationType type) {
 
         final int totalNumber = Constants.getAllStationsNumberFor(type);
         if (stations.totalNumber() != totalNumber) {

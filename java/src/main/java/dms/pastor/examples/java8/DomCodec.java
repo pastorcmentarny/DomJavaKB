@@ -14,11 +14,11 @@ final class DomCodec {
               objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
                     objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
                     objectMapper.registerModule(new JavaTimeModule());
-
+            
             \t\t
             \t\t@WritingConverter
             public class UUIDToStringConverter implements Converter<UUID, String> {
-
+            
                 @Override
                 public String convert(UUID source) {
                     return source.toString();
@@ -42,16 +42,16 @@ final class DomCodec {
             \t\t
                 targetCompatibility = JavaVersion.VERSION_1_8
                 sourceCompatibility = JavaVersion.VERSION_1_8
-
+            
             }
-
-
+            
+            
             task singleServiceTests(type: Test, group: 'Test', dependsOn: ['startActiveMqInstances']) {
                 systemProperties['broker.url'] = brokerUrl
                 systemProperties['orbit.redis.schema'] = redisDbIndex;
-
+            
                 include '**/*SingleServiceTest.class'
-
+            
                 jvmArgs += ["-XX:MaxPermSize=256m"]
             }""";
 

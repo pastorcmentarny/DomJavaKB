@@ -22,11 +22,9 @@ import static javax.swing.LayoutStyle.ComponentPlacement.RELATED;
 /**
  * Author Dominik Symonowicz
  * Created: 2009-10-31 at17:59:32
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+* Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+* LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+* GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  * <p>
  * This is my first project after graduation in 2010. Do not expect too much :)
  */
@@ -314,7 +312,7 @@ public class About extends javax.swing.JFrame {
             eulaTextArea.setText(eula);
             eulaTextArea.setCaretPosition(0);
         } catch (IOException ex) {
-            LOGGER.warn("IOException occur during clicking on tab" + ex.getMessage());
+            LOGGER.warn("IOException occur during clicking on tab{}", ex.getMessage());
         }
     }
 
@@ -331,11 +329,11 @@ public class About extends javax.swing.JFrame {
         try (FileInputStream fis = new FileInputStream(DATA_PATH + "message.properties")) {
             properties.load(fis);
         } catch (FileNotFoundException ex) {
-            LOGGER.warn("Unexpected error due load properties for About." + ex.getCause() + ("\n" + ex.getMessage()));
+            LOGGER.warn("File Not Found error due load properties for About.{}{}", ex.getCause(), "\n" + ex.getMessage());
             JOptionPane.showMessageDialog(rootPane, messagePanel, "WHOOPS", JOptionPane.ERROR_MESSAGE);
             this.dispose();
         } catch (IOException ex) {
-            LOGGER.warn("Unexpected error due load properties for About." + ex.getCause() + ("\n" + ex.getMessage()));
+            LOGGER.warn("IO error due load properties for About.{}{}", ex.getCause(), "\n" + ex.getMessage());
             this.dispose();
         }
     }

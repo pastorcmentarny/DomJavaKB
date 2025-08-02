@@ -12,7 +12,7 @@ Please use your brain and logic as best as you can to ensure that you use progra
 
 The software is Freeware(it means FREE OF CHARGE) but it will not harm me if you would love to give some tiny donation.
 
-You can alter, copy, clone, modify or reverse-engineer in any way as you want of this software and you are NOT forced in any way to mention who was the original author but it will be nice if you do that.
+You can alter, copy, clone, modify or reverse-engineer in any way as you want of this software. You are NOT forced in any way to mention who was the original author. It will be nice if you do that.
 
 
 LIMITATION OF LIABILITY

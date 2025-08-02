@@ -1,15 +1,15 @@
 package dms.pastor.tasks.sunspotanalyser.data;
 
+import lombok.Getter;
+
 import java.util.Objects;
 
 /**
  * Author Dominik Symonowicz
  * Created 2013-08-26
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+* Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+* LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+* GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  * <p>
  * A score model.
  */
@@ -17,16 +17,13 @@ class Score implements Comparable<Score> {
 
     private final int x;
     private final int y;
+    @Getter
     private final int score;
 
     public Score(int x, int y, int score) {
         this.x = x;
         this.y = y;
         this.score = score;
-    }
-
-    public int getScore() {
-        return score;
     }
 
     String displayScore() {

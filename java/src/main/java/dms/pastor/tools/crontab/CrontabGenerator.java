@@ -6,16 +6,15 @@ import dms.pastor.utils.StringUtils;
 public class CrontabGenerator {
 
     public static String toCrontab(String timeAsText) {
-        String result = "";
-        if (StringUtils.isStringBlank(timeAsText) | StringUtils.notStartWith("Run",timeAsText)) {
+        if (StringUtils.isStringBlank(timeAsText) | StringUtils.notStartWith("Run", timeAsText)) {
             throw new SomethingWentWrongException("Invalid input %s".formatted(timeAsText));
         }
 
         String input = timeAsText.toLowerCase()
-                .replace("Run".toLowerCase(),"")
+                .replace("Run".toLowerCase(), "")
                 .trim();
 
-        if(input.equalsIgnoreCase("every minute of every day")){
+        if (input.equalsIgnoreCase("every minute of every day")) {
             return "* * * * *";
         }
 
@@ -24,10 +23,11 @@ public class CrontabGenerator {
         return null;
     }
 
+    //TODO
     public static String fromCrontab(String crontabText) {
         if (StringUtils.isStringBlank(crontabText)) {
             throw new SomethingWentWrongException("Invalid input %s".formatted(crontabText));
         }
-        return null;
+        return null; //TO IMPLEMENT
     }
 }

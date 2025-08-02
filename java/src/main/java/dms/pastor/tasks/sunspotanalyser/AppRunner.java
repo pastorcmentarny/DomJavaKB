@@ -7,12 +7,10 @@ import dms.pastor.utils.ValidatorUtils;
 
 
 /**
- * author: Dominik Symonowicz
- * WWW: https://dominiksymonowicz.com/
- * Github: https://github.com/pastorcmentarny
- * Google Play:
- * https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+ * Author: Dominik Symonowicz
+ * Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+ * LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+ * GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  * Email: email can be found on my website
  * <p>
  * Created ?

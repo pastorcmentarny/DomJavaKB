@@ -4,13 +4,15 @@ import java.text.NumberFormat;
 import java.util.List;
 import java.util.Locale;
 
+import static java.text.NumberFormat.Style.LONG;
+import static java.text.NumberFormat.Style.SHORT;
+import static java.text.NumberFormat.getCompactNumberInstance;
+
 /**
- * Author Dominik Symonowicz
- * Created 28/04/2019
- * WWW:	https://dominiksymonowicz.com/
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
+ * Author: Dominik Symonowicz
+ * Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+ * LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+ * GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a> * Created 28/04/2019
  */
 public class NewFeaturesInJava12 {
 
@@ -30,8 +32,8 @@ public class NewFeaturesInJava12 {
         List<Integer> numbers = List.of(1000, 1000000);
         final var stringBuilder = new StringBuilder();
         numbers.forEach((integer) -> {
-            NumberFormat shortNumberFormat = NumberFormat.getCompactNumberInstance(locale, NumberFormat.Style.SHORT);
-            NumberFormat longNumberFormat = NumberFormat.getCompactNumberInstance(locale, NumberFormat.Style.LONG);
+            NumberFormat shortNumberFormat = getCompactNumberInstance(locale, SHORT);
+            NumberFormat longNumberFormat = getCompactNumberInstance(locale, LONG);
             String formattedShortNumber = shortNumberFormat.format(integer);
             String formattedLongNumber = longNumberFormat.format(integer);
             stringBuilder.append("short: ").append(formattedShortNumber).append(" long: ").append(formattedLongNumber).append("\n");

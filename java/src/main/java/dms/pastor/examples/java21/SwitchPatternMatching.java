@@ -13,15 +13,14 @@ public class SwitchPatternMatching {
     }
 
 
-
-        static String getTemplateId(Object obj) {
-            return switch (obj) {
-                case Integer i -> String.format("%d (from int)", i);
-                case Double d  -> String.format("Template ID  %f (from double)", d);
-                case Long l    -> String.format("Template ID  %d (from long)", l);
-                case String s  -> String.format("Template ID %s (from String)", s);
-                default        -> obj.toString();
-            };
-        }
+    static String getTemplateId(Object obj) {
+        return switch (obj) {
+            case Integer i -> String.format("%d (from int)", i);
+            case Double d -> String.format("Template ID  %f (from double)", d);
+            case Long l -> String.format("Template ID  %d (from long)", l);
+            case String s -> String.format("Template ID %s (from String)", s);
+            default -> obj.toString();
+        };
+    }
 
 }

@@ -1,34 +1,20 @@
 package dms.pastor.examples.j11to17;
 
-import java.text.NumberFormat;
+import dms.pastor.examples.java12.NewFeaturesInJava12;
+
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 public class Java17PresentationRunner {
 
-    private static void java12(){
-        System.out.println("Dominik".indent(10));
-
-        final Locale locale = Locale.UK;
-        List<Integer> numbers = List.of(1000, 1000000);
-        final var stringBuilder = new StringBuilder();
-        numbers.forEach((integer) -> {
-            NumberFormat shortNumberFormat = NumberFormat.getCompactNumberInstance(locale, NumberFormat.Style.SHORT);
-            NumberFormat longNumberFormat = NumberFormat.getCompactNumberInstance(locale, NumberFormat.Style.LONG);
-
-            String formattedShortNumber = shortNumberFormat.format(integer);
-            String formattedLongNumber = longNumberFormat.format(integer);
-
-            stringBuilder.append("short: ").append(formattedShortNumber).append(" long: ").append(formattedLongNumber).append("\n");
-        });
-        System.out.println(stringBuilder);
+    private static void java12() {
+        NewFeaturesInJava12.compactNumberFormat();
 
     }
+
     public static void main(String[] args) {
         java12();
         java13();
@@ -70,17 +56,17 @@ public class Java17PresentationRunner {
         System.out.println(chars.isEmpty());
 
         //record , it is a stolen version of  you use lombok then record will be a familiar
-        var me = new Person("Dominik",21);
+        var me = new Person("Dominik", 21);
         System.out.println(me.age());
 
         //text block
         var multiLine = """
-            <xml>
-                <OrderNumber>
-                    10000
-                </OrderNumber>
-                </xml>
-            """;
+                <xml>
+                    <OrderNumber>
+                        10000
+                    </OrderNumber>
+                    </xml>
+                """;
         System.out.println(multiLine);
         //Sealed Classes allows control access over the inheritance, what can and cannot be extended, useful for libraries we don't write libraries.. so
         //Hidden Classes. Another useful feature for people who write libraries and frameworks as it allows creation of classes  at  runtime are not discoverable by reflection
@@ -108,7 +94,7 @@ public class Java17PresentationRunner {
 
     private static String cutTo3Char(String str) {
         try {
-            return str.substring(0,3);
+            return str.substring(0, 3);
         } catch (Exception exception) {
             return exception.getMessage();
         }
@@ -116,10 +102,11 @@ public class Java17PresentationRunner {
     }
 
     private static void java14() {
+        String result = cutTo3Char("HELSINKI");
+        System.out.println(result);
         //Helpful NullPointerExceptions
-            String input = null;
-            String result = cutTo3Char(input);
-            System.out.println(result);
+        result = cutTo3Char(null);
+        System.out.println(result);
 
 
         // Switch State
@@ -128,7 +115,7 @@ public class Java17PresentationRunner {
         System.out.println(getDayType("MOONday"));
 
 
-        // there is a lot of preview featurs added
+        // there is a lot of preview features added
 
     }
 

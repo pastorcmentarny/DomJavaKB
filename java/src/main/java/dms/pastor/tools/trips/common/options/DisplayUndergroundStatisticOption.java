@@ -17,11 +17,9 @@ import static dms.pastor.utils.TextUtils.getWordIfPlural;
 
 /**
  * Author Dominik Symonowicz
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+* Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+* LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+* GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  * <p>
  * tag-command-pattern
  * <p>
@@ -35,19 +33,19 @@ public class DisplayUndergroundStatisticOption implements Option {
         final var countStationPassed = stations.countStationPassed();
 
         System.out.println("I visited " + countStationVisitedThisYear + " " + getWordIfPlural("station", countStationVisitedThisYear) + " this year. (" +
-                countPercentageOfAllStationFor(stations.getStationList().size(), countStationVisitedThisYear));
+                countPercentageOfAllStationFor(stations.stationList().size(), countStationVisitedThisYear));
 
         System.out.println("I visited " + countStationVisited + " " + getWordIfPlural("station", countStationVisited) + ". (" +
-                countPercentageOfAllStationFor(stations.getStationList().size(), stations.countStationVisited()));
+                countPercentageOfAllStationFor(stations.stationList().size(), stations.countStationVisited()));
 
         System.out.println("I passed " + countStationPassed + " " + getWordIfPlural("station", countStationPassed) + ". (" +
-                countPercentageOfAllStationFor(stations.getStationList().size(), countStationPassed));
+                countPercentageOfAllStationFor(stations.stationList().size(), countStationPassed));
         System.out.println(getStatsForLines(stations));
         System.out.println(displayStationsBlogged(stations));
     }
 
     private String displayStationsBlogged(Stations stations) {
-        final List<Station> stationList = stations.getStationList();
+        final List<Station> stationList = stations.stationList();
         var result = new StringBuilder(EMPTY_STRING);
         result.append("{");
         stations.displayAllStationsBlogged().forEach(station -> result.append(station).append(","));

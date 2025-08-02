@@ -1,5 +1,8 @@
 package dms.pastor.domain;
 
+import lombok.Getter;
+
+@Getter
 public enum TrainType {
     BEMU("Battery-Electric Multiple Unit"),
     EMU("Electric Multiple Unit"),
@@ -10,10 +13,6 @@ public enum TrainType {
 
     TrainType(String description) {
         this.description = description;
-    }
-
-    public String getDescription() {
-        return description;
     }
 
 }

@@ -10,12 +10,11 @@ import static dms.pastor.tasks.paint.command.CommandValidator.validateParamsNumb
 import static dms.pastor.tasks.paint.command.CommandValidator.validatePositiveLength;
 
 /**
- * Author Dominik Symonowicz
+ * Author: Dominik Symonowicz
+ * Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+ * LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+ * GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  * Created 15/07/2017
- * WWW:	https://dominiksymonowicz.com/
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public class CreateCanvasCommand implements Command {
     private static final Logger LOGGER = LoggerFactory.getLogger(CreateCanvasCommand.class);
@@ -45,8 +44,8 @@ public class CreateCanvasCommand implements Command {
 
     @Override
     public void execute(Canvas canvas) {
-        LOGGER.debug("Executing Create Canvas Command with dimensions: ({},{})", dimension.getWidth(), dimension.getHeight());
-        canvas.recreateCanvas(dimension.getWidth(), dimension.getHeight());
+        LOGGER.debug("Executing Create Canvas Command with dimensions: ({},{})", dimension.width(), dimension.height());
+        canvas.recreateCanvas(dimension.width(), dimension.height());
     }
 
 }

@@ -22,15 +22,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Properties;
 
-import static java.lang.String.format;
-
 /**
  * Author Dominik Symonowicz
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+* Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+* LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+* GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  * <p>
  * This is my first project after graduation in 2010. Do not expect too much :)
  */
@@ -60,8 +56,9 @@ public class FaqGUI extends JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException | javax.swing.UnsupportedLookAndFeelException | IllegalAccessException | InstantiationException ex) {
-            LOGGER.error("Unable to start application due " + ex.getMessage());
+        } catch (ClassNotFoundException | javax.swing.UnsupportedLookAndFeelException | IllegalAccessException |
+                 InstantiationException ex) {
+            LOGGER.error("Unable to start application due {}", ex.getMessage());
         }
         java.awt.EventQueue.invokeLater(() -> new FaqGUI().setVisible(true));
     }
@@ -124,7 +121,7 @@ public class FaqGUI extends JFrame {
 
         final String path = "data" + File.separator + "message.properties";
         try (FileInputStream fis = new FileInputStream(path)) {
-            LOGGER.info(format("Loading FAQ file from : %s", path));
+            LOGGER.info("Loading FAQ file from : {}", path);
             properties.load(fis);
             for (int i = 0; i < Integer.parseInt(properties.getProperty("faq.counter")); i++) {
                 if (properties.getProperty("faq.q." + i) != null && properties.getProperty("faq.a." + i) != null) {
@@ -143,7 +140,7 @@ public class FaqGUI extends JFrame {
             LOGGER.warn("Error cause due author screwed up update FAQ section in message.properties or somebody \"innocent\" had crap idea to mess up with message.properties");
             this.dispose();
         } catch (IOException ex) {
-            LOGGER.warn("Unexpected error due load properties for FAQ." + ex.getCause() + ("\n" + ex.getMessage()));
+            LOGGER.warn("Unexpected error due load properties for FAQ.{}{}", ex.getCause(), "\n" + ex.getMessage());
             this.dispose();
         }
     }

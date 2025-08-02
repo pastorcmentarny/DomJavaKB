@@ -8,11 +8,10 @@ import java.util.TimerTask;
 import static org.slf4j.LoggerFactory.getLogger;
 
 /**
- * Author Dominik Symonowicz
- * WWW:	https://dominiksymonowicz.com/
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
+ * Author: Dominik Symonowicz
+ * Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+ * LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+ * GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  */
 class Task extends TimerTask {
     private static final Logger LOGGER = getLogger(Task.class);
@@ -24,8 +23,6 @@ class Task extends TimerTask {
     }
 
     public void run() {
-        LOGGER.info(Thread.currentThread() + " running " +
-                this.name + " at " +
-                LocalDate.now() + ".");
+        LOGGER.info("{} running {} at {}.", Thread.currentThread(), this.name, LocalDate.now());
     }
 }

@@ -2,9 +2,11 @@ package dms.pastor.tools.info.aircraft;
 
 import dms.pastor.domain.exception.NotFoundException;
 import dms.pastor.utils.ValidatorUtils;
+import lombok.Getter;
 
 import java.util.Arrays;
 
+@Getter
 public enum BodyType {
     W("wide-body aircraft"),
     N("narrow-body aircraft"),
@@ -21,7 +23,4 @@ public enum BodyType {
         return Arrays.stream(BodyType.values()).filter(value -> value.name().equalsIgnoreCase(letter)).findFirst().orElseThrow(() -> new NotFoundException(letter));
     }
 
-    public String getDescription() {
-        return description;
-    }
 }

@@ -14,15 +14,14 @@ import static dms.pastor.tasks.paint.canvas.Point.withReplacedWidth;
 import static dms.pastor.tasks.paint.command.CommandValidator.*;
 
 /**
- * Author Dominik Symonowicz
+ * Author: Dominik Symonowicz
+ * Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+ * LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+ * GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  * Created 15/07/2017
- * WWW:	https://dominiksymonowicz.com/
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 public class FillEntireAreaCommand implements Command {
-    private static final Logger LOGGER = LoggerFactory.getLogger(Canvas.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(FillEntireAreaCommand.class);
     private Coordinates startPoint = noCoordination();
     private String fillCharacter;
 
@@ -111,16 +110,16 @@ public class FillEntireAreaCommand implements Command {
 
     @Override
     public void execute(Canvas canvas) {
-        LOGGER.debug("Executing Fill Entire Area Command with starting point: ({},{})", startPoint.getWidth(), startPoint.getHeight());
+        LOGGER.debug("Executing Fill Entire Area Command with starting point: ({},{})", startPoint.width(), startPoint.height());
 
         if (canvas.isNoCanvas() || !startPoint.isCoordinatesSet()) {
             return;
         }
 
-        final String currentFill = canvas.getPixelAt(startPoint.getWidth(), startPoint.getHeight());
+        final String currentFill = canvas.getPixelAt(startPoint.width(), startPoint.height());
 
         boolean[][] mark = new boolean[canvas.getWidth() + 1][canvas.getHeight() + 1];
-        fillArea(canvas, mark, new Point(new Coordinates(startPoint.getWidth(), startPoint.getHeight()), fillCharacter), currentFill);
+        fillArea(canvas, mark, new Point(new Coordinates(startPoint.width(), startPoint.height()), fillCharacter), currentFill);
     }
 
 }

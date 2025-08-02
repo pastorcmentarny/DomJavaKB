@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
  */
 public class HTMLDownloaderTest {
 
-    private static final String URL = "http://dominiksymonowicz.com/about/";
+    private static final String URL = "https://dominiksymonowicz.com/about/";
 
 
     @Disabled //need implement https version

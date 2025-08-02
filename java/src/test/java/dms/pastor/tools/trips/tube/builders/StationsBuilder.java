@@ -1,8 +1,8 @@
 package dms.pastor.tools.trips.tube.builders;
 
+import dms.pastor.tools.trips.common.station.Station;
 import dms.pastor.tools.trips.common.station.StationName;
 import dms.pastor.tools.trips.common.station.Stations;
-import dms.pastor.tools.trips.common.station.Station;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

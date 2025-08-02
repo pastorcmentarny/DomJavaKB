@@ -1,17 +1,14 @@
 package dms.pastor.tools.job.gibberishcheck;
 
 import dms.pastor.utils.NumberUtils;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
 
-@AllArgsConstructor
-@Getter
-@EqualsAndHashCode
-public class CounterResult {
-    private final int count;
-    private final int allWords;
-
+/**
+ * Author: Dominik Symonowicz
+ * Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+ * LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+ * GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
+ */
+public record CounterResult(int count, int allWords) {
     public static CounterResult noResult() {
         return new CounterResult(0, 0);
     }

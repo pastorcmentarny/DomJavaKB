@@ -3,34 +3,17 @@ package dms.pastor.tasks.paint.canvas;
 import java.util.Objects;
 
 /**
- * Author Dominik Symonowicz
+ * Author: Dominik Symonowicz
+ * Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+ * LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+ * GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  * Created 18/07/2017
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
  */
-public class Coordinates {
+public record Coordinates(int width, int height) {
     private static final int NO_VALUE = -1;
-    private final int width;
-    private final int height;
-
-    public Coordinates(int width, int height) {
-        this.width = width;
-        this.height = height;
-    }
 
     public static Coordinates noCoordination() {
         return new Coordinates(NO_VALUE, NO_VALUE);
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
-    public int getHeight() {
-        return height;
     }
 
     public boolean isCoordinatesSet() {
@@ -40,15 +23,14 @@ public class Coordinates {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Coordinates)) return false;
-        Coordinates that = (Coordinates) o;
-        return getWidth() == that.getWidth() &&
-                getHeight() == that.getHeight();
+        if (!(o instanceof Coordinates(int width1, int height1))) return false;
+        return width() == width1 &&
+                height() == height1;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getWidth(), getHeight());
+        return Objects.hash(width(), height());
     }
 
     @Override

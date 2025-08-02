@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data //contains @Getter @Setter @RequiredArgsConstructor @ToString @EqualsAndHashCode
-@Builder( toBuilder = true)
+@Builder(toBuilder = true)
 public class SongLombokExample {
     private String title;
     private String artist;

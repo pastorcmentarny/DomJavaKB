@@ -5,14 +5,14 @@ import java.time.temporal.ChronoUnit;
 
 import static java.lang.Math.toIntExact;
 import static java.time.LocalDate.now;
+import static java.time.temporal.ChronoUnit.*;
 
 /**
- * Author Dominik Symonowicz
+ * Author: Dominik Symonowicz
+ * Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+ * LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+ * GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  * Created 18/08/2016
- * WWW:	https://dominiksymonowicz.com/
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: uk.linkedin.com/pub/dominik-symonowicz/5a/706/981/
  */
 class Person {
     private final String name;
@@ -28,14 +28,14 @@ class Person {
     }
 
     int getAge() {
-        return toIntExact(ChronoUnit.YEARS.between(birthday, now()));
+        return toIntExact(YEARS.between(birthday, now()));
     }
 
     int getAgeInMonths() {
-        return toIntExact(ChronoUnit.MONTHS.between(birthday, now()));
+        return toIntExact(MONTHS.between(birthday, now()));
     }
 
     int getAgeInDays() {
-        return toIntExact(ChronoUnit.DAYS.between(birthday, now()));
+        return toIntExact(DAYS.between(birthday, now()));
     }
 }

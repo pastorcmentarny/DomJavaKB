@@ -1,5 +1,8 @@
 package dms.pastor.tasks.paint.canvas;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -12,16 +15,17 @@ import static java.util.Objects.isNull;
 /**
  * Author Dominik Symonowicz
  * Created 17/08/2017
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+* Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+* LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+* GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  * <p>
  */
 public class Image {
+    @Getter
     private int width;
+    @Getter
     private int height;
+    @Setter
     private String[][] image;
 
     public Image(int width, int height) {
@@ -40,20 +44,8 @@ public class Image {
         return new Image(0, 0);
     }
 
-    public int getWidth() {
-        return width;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
     public String[][] getImage() {
         return Arrays.copyOf(image, image.length);
-    }
-
-    public void setImage(String[][] image) {
-        this.image = image;
     }
 
     public boolean isCreated() {
@@ -91,11 +83,10 @@ public class Image {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Image)) return false;
-        Image image1 = (Image) o;
+        if (!(o instanceof Image image1)) return false;
         return getWidth() == image1.getWidth() &&
                 getHeight() == image1.getHeight() &&
-                Arrays.equals(getImage(), image1.getImage());
+                Arrays.deepEquals(getImage(), image1.getImage());
     }
 
     public String getImageAsString() {

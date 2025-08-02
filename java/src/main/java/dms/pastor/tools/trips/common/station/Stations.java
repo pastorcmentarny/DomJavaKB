@@ -16,22 +16,15 @@ import static java.util.Collections.unmodifiableList;
 
 /**
  * Author Dominik Symonowicz
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+* Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+* LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+* GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  */
-public class Stations {
+public record Stations(List<Station> stationList) {
     private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(Stations.class);
 
-    private final List<Station> stationList;
-
-    public Stations(List<Station> stationList) {
-        this.stationList = stationList;
-    }
-
-    public List<Station> getStationList() {
+    @Override
+    public List<Station> stationList() {
         return unmodifiableList(stationList);
     }
 
@@ -110,7 +103,7 @@ public class Stations {
     public Station findStation(String searchFor) {
         final NotFoundException notFoundException = new NotFoundException("tube station " + searchFor + " ");
         if (isStringEmpty(searchFor)) {
-            LOGGER.warn(String.format("Unable to find station as search query is invalid. User typed: %s", searchFor));
+            LOGGER.warn("Unable to find station as search query is invalid (Empty). User typed: {}", searchFor);
             throw notFoundException;
         }
 
@@ -123,7 +116,7 @@ public class Stations {
     public Optional<Station> getStation(String searchFor) {
         final NotFoundException notFoundException = new NotFoundException("TubeStation");
         if (isStringEmpty(searchFor)) {
-            LOGGER.warn(String.format("Unable to find station as search query is invalid. User typed: %s", searchFor));
+            LOGGER.warn("Unable to get station as search query is invalid (empty). User typed: {}", searchFor);
             throw notFoundException;
         }
 

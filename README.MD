@@ -3,7 +3,7 @@
 # **WARM WELCOME** fellow citizen
 
 I guess I must be lost, as there is no other reason to be on this project page.
-I am impressed that in the world of GitHub, where there are many amazing projects, you are looking for a project that is anti-pattern of programming :).
+I am impressed that in the world of GitHub, where there are many amazing projects, you are looking for a project that is antipattern of programming :).
 
 # **HONEST WARNING**:
 

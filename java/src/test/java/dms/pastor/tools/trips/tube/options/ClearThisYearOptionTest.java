@@ -1,18 +1,18 @@
 package dms.pastor.tools.trips.tube.options;
 
 import dms.pastor.tools.trips.common.options.ClearThisYearOption;
-import dms.pastor.tools.trips.common.station.Stations;
 import dms.pastor.tools.trips.common.station.Station;
+import dms.pastor.tools.trips.common.station.Stations;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static dms.pastor.tools.trips.common.options.Status.VISITED;
-import static dms.pastor.tools.trips.common.station.StationType.TUBE;
-import static dms.pastor.tools.trips.tube.builders.StationBuilder.stationBuilder;
 import static dms.pastor.tools.trips.common.station.StationName.VICTORIA;
 import static dms.pastor.tools.trips.common.station.StationName.WEMBLEY_PARK;
+import static dms.pastor.tools.trips.common.station.StationType.TUBE;
+import static dms.pastor.tools.trips.tube.builders.StationBuilder.stationBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ClearThisYearOptionTest {
@@ -27,9 +27,9 @@ public class ClearThisYearOptionTest {
         final Stations stations = new Stations(stationList);
 
         // when
-        clearThisYearOption.choose(stations,TUBE);
+        clearThisYearOption.choose(stations, TUBE);
 
         // then
-        stations.getStationList().forEach(station -> assertThat(station.getVisitedThisYearDate()).isNull());
+        stations.stationList().forEach(station -> assertThat(station.getVisitedThisYearDate()).isNull());
     }
 }

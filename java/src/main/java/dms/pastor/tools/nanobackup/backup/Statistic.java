@@ -1,5 +1,8 @@
 package dms.pastor.tools.nanobackup.backup;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Calendar;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
@@ -8,11 +11,9 @@ import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 /**
  * Author Dominik Symonowicz
  * Created: 2010-02-17 at 01:36:09
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+* Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+* LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+* GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  * This is my first project after graduation in 2010. Do not expect too much :)
  */
 @SuppressWarnings("MagicNumber") //TOO OLD PROJECT  TO TAKE CARE OF MAGIC NUMBERS
@@ -21,12 +22,18 @@ public class Statistic {
     private static final long HOUR_IN_SECONDS = 3600L;
     private static final long DAY_IN_SECONDS = 86400L;
 
+    @Getter
     private int fileCopied = 0;
+    @Getter
     private int error = 0;
     private long taskStart = 0;
     private long taskFinish = 0;
+    @Getter
     private String errorMsgList = EMPTY_STRING;
+    @Setter
+    @Getter
     private String backupSize = EMPTY_STRING;
+    @Setter
     private String backupType;
 
     public void start() {
@@ -100,37 +107,13 @@ public class Statistic {
 //    }
 // --Commented out by Inspection STOP (21/02/2018 14:14)
 
-    public void setBackupType(String backupType) {
-        this.backupType = backupType;
-    }
-
-    public String getBackupSize() {
-        return backupSize;
-    }
-
-    public void setBackupSize(String backupSize) {
-        this.backupSize = backupSize;
-    }
-
-    public int getError() {
-        return error;
-    }
-
-    public String getErrorMsgList() {
-        return errorMsgList;
-    }
-
-// --Commented out by Inspection START (21/02/2018 14:14):
+    // --Commented out by Inspection START (21/02/2018 14:14):
 //    public void setErrorMsgList(String errorMsgList) {
 //        this.errorMsgList = errorMsgList;
 //    }
 // --Commented out by Inspection STOP (21/02/2018 14:14)
 
-    public int getFileCopied() {
-        return fileCopied;
-    }
-
-// --Commented out by Inspection START (21/02/2018 14:14):
+    // --Commented out by Inspection START (21/02/2018 14:14):
 //    public void setFileCopied(int fileCopied) {
 //        this.fileCopied = fileCopied;
 //    }

@@ -16,11 +16,9 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 /**
  * Author Dominik Symonowicz
  * Created 09.10.2012
- * WWW:	<a href="https://dominiksymonowicz.com/">HOME PAGE</a>
- * IT BLOG:	https://dominiksymonowicz.blogspot.co.uk
- * GitHub:	https://github.com/pastorcmentarny
- * Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * LinkedIn: https://www.linkedin.com/in/dominik-symonowicz
+* Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+* LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+* GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  */
 @SuppressWarnings("MagicNumber") // because there are specific numbers
 public class NumberUtilsTest {
@@ -95,7 +93,7 @@ public class NumberUtilsTest {
     public void testShouldReturn100For104() {
         // when
         final int result = getResultIn0to100Range(104);
-        
+
         // then
         assertThat(result).isEqualTo(100);
     }
@@ -304,7 +302,7 @@ public class NumberUtilsTest {
         for (int i : primes) {
             final boolean result = isPrime(i);
 
-        // then
+            // then
             assertThat(result).isTrue();
         }
     }
@@ -338,7 +336,7 @@ public class NumberUtilsTest {
         // given
         final int max8BitValue = 256;
         final int randomNumber = new Random().nextInt(Integer.MAX_VALUE - max8BitValue) + 255;
-        
+
         // when
         final String result = getShortAs8BitRepresentation(randomNumber);
 

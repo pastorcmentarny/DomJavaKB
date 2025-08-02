@@ -27,7 +27,7 @@ class SortingAlgorithmRunnerTest {
     public void runAlgorithmsAcceptanceTest() {
         SortingAlgorithmRunner letsFunBegin = new SortingAlgorithmRunner();
 
-        StringBuilder stringBuilder = new StringBuilder("");
+        StringBuilder stringBuilder = new StringBuilder();
         for (int test10 = 1; test10 < REPEAT_TEST_COUNT; test10++) {
             System.out.println(test10 + "\n");
             stringBuilder.append(letsFunBegin.testEverything());

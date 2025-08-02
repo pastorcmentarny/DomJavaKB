@@ -1,12 +1,12 @@
 package dms.pastor.tools.job.gibberishcheck;
 
-import lombok.AllArgsConstructor;
-
 import java.util.List;
 
-@AllArgsConstructor
-@lombok.Data
-public class Data {
-    private final List<String> crapWords;
-    private final List<String> job;
+/**
+ * Author: Dominik Symonowicz
+ * Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+ * LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+ * GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
+ */
+public record Data(List<String> crapWords, List<String> job) {
 }

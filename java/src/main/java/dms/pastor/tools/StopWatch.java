@@ -1,18 +1,21 @@
 package dms.pastor.tools;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Calendar;
 
 import static dms.pastor.utils.StringUtils.EMPTY_STRING;
 
 /**
  * Author: Dominik Symonowicz
+ * Website: <a href="https://dominiksymonowicz.com/">Home Page</a>
+ * LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
+ * GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  * #Created:        16.11.2012
- * #WWW:			https://dominiksymonowicz.com/
- * #Github:		https://github.com/pastorcmentarny
- * #Google Play:	https://play.google.com/store/apps/developer?id=Dominik+Symonowicz
- * #LinkedIn: 		https://www.linkedin.com/in/dominik-symonowicz
- * #Email: 		email can be found on my website
  */
+@Setter
+@Getter
 public class StopWatch {
 
     private static final long MINUTE = 60L;
@@ -22,22 +25,6 @@ public class StopWatch {
 
     private long start;
     private long finish;
-
-    public long getStart() {
-        return start;
-    }
-
-    public void setStart(long start) {
-        this.start = start;
-    }
-
-    public long getFinish() {
-        return finish;
-    }
-
-    public void setFinish(long finish) {
-        this.finish = finish;
-    }
 
     public void start() {
         finish = 0;

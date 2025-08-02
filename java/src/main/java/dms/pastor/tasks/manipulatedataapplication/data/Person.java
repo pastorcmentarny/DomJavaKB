@@ -1,5 +1,7 @@
 package dms.pastor.tasks.manipulatedataapplication.data;
 
+import lombok.Getter;
+
 /**
  * User: Dominik Symonowicz
  * Date: 23.07.13
@@ -7,6 +9,7 @@ package dms.pastor.tasks.manipulatedataapplication.data;
  * <p>
  * A simple 'model'
  */
+@Getter
 public class Person {
 
     private final String fullName;
@@ -19,22 +22,6 @@ public class Person {
         this.genre = genre;
         Age = age;
         this.dob = dob;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public Genre getGenre() {
-        return genre;
-    }
-
-    public int getAge() {
-        return Age;
-    }
-
-    public String getDob() {
-        return dob;
     }
 
     @Override

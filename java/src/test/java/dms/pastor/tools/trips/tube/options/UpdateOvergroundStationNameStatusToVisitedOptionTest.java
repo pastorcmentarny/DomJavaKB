@@ -34,12 +34,12 @@ public class UpdateOvergroundStationNameStatusToVisitedOptionTest {
                 .stationList(singletonList(stationBuilder()
                         .buildNotVisitedStation()))
                 .build();
-        given(scanner.nextLine()).willReturn(stations.getStationList().get(0).getName());
+        given(scanner.nextLine()).willReturn(stations.stationList().get(0).getName());
 
         // when
         updateStationStatusToVisited.choose(stations, TUBE);
 
         // then
-        assertThat(stations.getStationList().get(0).getStatus()).isEqualTo(VISITED);
+        assertThat(stations.stationList().get(0).getStatus()).isEqualTo(VISITED);
     }
 }

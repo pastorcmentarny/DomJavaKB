@@ -10,7 +10,7 @@ import static dms.pastor.utils.StringUtils.WHITESPACE;
 
 /**
  * Information based on
- * https://en.wikipedia.org/wiki/Telephone_numbers_in_the_United_Kingdom
+ * <a href="https://en.wikipedia.org/wiki/Telephone_numbers_in_the_United_Kingdom">Source</a>
  */
 public class UKMobileNumberValidator {
 
