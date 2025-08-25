@@ -7,8 +7,8 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class NumberStreamSnippetsTest {
-    NumberStreamSnippets intStreamSnippets = new NumberStreamSnippets();
+class IntStreamExamplesTest {
+    IntStreamSnippets intStreamSnippets = new IntStreamSnippets();
 
     @Test
     void intStreamCountExampleTest() {
@@ -417,4 +417,5 @@ class NumberStreamSnippetsTest {
         assertEquals(expectedTrainClassName, result.getLeft());
         assertEquals(expectedTrainName, result.getRight());
     }
+
 }

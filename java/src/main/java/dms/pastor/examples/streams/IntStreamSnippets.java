@@ -18,7 +18,7 @@ import static java.util.stream.Collectors.toList;
  * LinkedIn: <a href="https://www.linkedin.com/in/dominik-symonowicz">LinkedIn</a>
  * GitHub: <a href="https://github.com/pastorcmentarny">GitHub</a>
  */
-public class NumberStreamSnippets {
+public class IntStreamSnippets {
 
 
     public long intStreamCountExample() {
