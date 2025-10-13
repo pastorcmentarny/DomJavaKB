@@ -28,10 +28,10 @@ configurations {
 
 
 ext {
-    lombokVersion = "1.18.38"
+    lombokVersion = "1.18.42"
     junitVersion = "5.11.3"
-    mockitoVersion = "5.16.1"
-    restAssuredVersion = "5.5.5"
+    mockitoVersion = "5.20.0"
+    restAssuredVersion = "5.5.6"
     ioVersion = '2.20.0'
     logbackVersion = '1.5.18'
     assertjVersion = '3.27.3'
@@ -41,14 +41,14 @@ ext {
 
 
 compileJava {
-    sourceCompatibility = JavaVersion.VERSION_24
-    targetCompatibility = JavaVersion.VERSION_24
+    sourceCompatibility = JavaVersion.VERSION_25
+    targetCompatibility = JavaVersion.VERSION_25
     options.encoding = 'UTF-8' //to ensure that I always use UTF-8 in project
 }
 
 compileTestJava {
-    sourceCompatibility = JavaVersion.VERSION_24
-    targetCompatibility = JavaVersion.VERSION_24
+    sourceCompatibility = JavaVersion.VERSION_25
+    targetCompatibility = JavaVersion.VERSION_25
     options.encoding = 'UTF-8' //to ensure that I always use UTF-8 in project
 }
 
